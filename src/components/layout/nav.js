@@ -34,6 +34,7 @@ import Hamburger from 'images/svg/hamburger_menu.svg'
 import Close from 'images/svg/close-long.svg'
 import LogoOnly from 'images/svg/logo-deriv-only.svg'
 import BinaryLogo from 'images/svg/binary.svg'
+import LogoCombinedShape from 'images/svg/logo-combined-shape.svg'
 
 const query = graphql`
     query {
@@ -57,25 +58,9 @@ const InterimNav = styled.nav`
 `
 const LogoLink = styled(LocalizedLink)`
     text-decoration: none;
+    max-width: ${(props) => props.mw || '16rem'};
+    width: 100%;
 
-    @media (max-width: 1200px) {
-        & svg,
-        .gatsby-image-wrapper {
-            width: 16rem;
-        }
-    }
-    @media (max-width: 1150px) {
-        & svg,
-        .gatsby-image-wrapper {
-            width: 13rem;
-        }
-    }
-    @media (max-width: 1105px) {
-        & svg,
-        .gatsby-image-wrapper {
-            width: 10rem;
-        }
-    }
     @media ${device.tabletS} {
         & svg,
         .gatsby-image-wrapper {
@@ -89,7 +74,13 @@ const LogoLink = styled(LocalizedLink)`
         }
     }
 `
-
+const Line = styled.div`
+    width: 1px;
+    height: 28px;
+    margin-right: 8px;
+    margin-left: 8px;
+    background-color: var(--color-white);
+`
 const StyledNav = styled.nav`
     background-color: var(--color-black);
     height: 7.2rem;
@@ -116,6 +107,9 @@ const NavLeft = styled.div`
     text-align: left;
     display: flex;
     align-items: center;
+    max-width: 30rem;
+    width: 100%;
+
     @media ${device.tabletL} {
         display: none;
     }
@@ -314,7 +308,11 @@ const MobileRight = styled.div`
         display: flex;
     }
 `
-
+const LogoDescription = styled(Flex)`
+    @media ${device.mobileL} {
+        display: none;
+    }
+`
 export const Nav = ({ base }) => {
     const data = useStaticQuery(query)
     const button_ref = useRef(null)
@@ -449,10 +447,13 @@ export const Nav = ({ base }) => {
                             <QueryImage
                                 data={data['deriv']}
                                 alt={localize('Deriv')}
-                                width="16.4rem"
+                                max_width="16.4rem"
+                                width="100%"
                                 height="auto"
                             />
                         </LogoLink>
+                        <Line />
+                        <LogoCombinedShape />
                     </NavLeft>
                     <NavCenter>
                         <NavLink onClick={handleTradeClick}>
@@ -508,14 +509,20 @@ export const Nav = ({ base }) => {
                             </SignupButton>
                         </LocalizedLink>
                     </NavRight>
-
                     {is_canvas_menu_open ? (
                         <CloseMenu onClick={closeOffCanvasMenu} width="16px" />
                     ) : (
                         <HamburgerMenu onClick={openOffCanvasMenu} width="16px" />
                     )}
+
                     <LogoLinkMobile to="/" aria-label={localize('Home')}>
-                        <LogoOnly width="115px" />
+                        <Flex>
+                            <LogoOnly width="115px" />
+                            <LogoDescription ai="center">
+                                <Line />
+                                <LogoCombinedShape />
+                            </LogoDescription>
+                        </Flex>
                     </LogoLinkMobile>
                     <MobileRight>
                         <LanguageSwitcher short_name="true" is_high_nav />
@@ -523,7 +530,6 @@ export const Nav = ({ base }) => {
                             <span>{localize('Log in')}</span>
                         </MobileLogin>
                     </MobileRight>
-
                     <OffCanvasMenu
                         is_canvas_menu_open={is_canvas_menu_open}
                         closeOffCanvasMenu={closeOffCanvasMenu}
@@ -611,28 +617,13 @@ export const NavInterim = ({ interim_type }) => (
 
 export const NavStatic = () => (
     <StaticWrapper>
-        <LogoLink to="/" aria-label={localize('Home')}>
-            <Logo />
+        <LogoLink mw="31rem" to="/" aria-label={localize('Home')}>
+            <Flex ai="center">
+                <LogoOnly />
+                <Line />
+                <LogoCombinedShape />
+            </Flex>
         </LogoLink>
-        <LocalizedLink external to="home" is_binary_link target="_blank" rel="noopener noreferrer">
-            <BinaryLogo width="24" height="24" />
-        </LocalizedLink>
-        <Binary size="var(--text-size-xxs)" color="white">
-            <Localize
-                translate_text="A <0>Binary.com</0> brand"
-                components={[
-                    <BinaryLink
-                        key={0}
-                        external
-                        to={'home'}
-                        is_binary_link
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        color="white"
-                    />,
-                ]}
-            />
-        </Binary>
     </StaticWrapper>
 )
 

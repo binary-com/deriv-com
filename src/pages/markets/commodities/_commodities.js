@@ -14,8 +14,9 @@ import MetalAndOil from 'images/svg/precious-metals-and-oils.svg'
 import VariableSpreads from 'images/svg/variable-spreads.svg'
 
 const Commodities = ({ simple_step_content }) => {
-    simple_step_content[1].text =
-        'Open a real account, make a deposit, and start trading commodities and other markets.'
+    simple_step_content[1].text = (
+        <Localize translate_text="Open a real account, make a deposit, and start trading commodities and other markets. " />
+    )
     return (
         <>
             <WhyTrade

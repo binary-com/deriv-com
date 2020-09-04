@@ -47,6 +47,14 @@ const WhatAreOptions = () => {
                                 />
                             </Text>
                         </li>
+                        <li>
+                            <Text>
+                                <Localize
+                                    translate_text="<0>Call/Put Spreads</0> that allow you to earn up to the specified payout depending on the position of the exit spot relative to the two defined barriers."
+                                    components={[<strong key={0} />]}
+                                />
+                            </Text>
+                        </li>
                     </Ul>
                 </SmallContainer>
             </SectionContainer>

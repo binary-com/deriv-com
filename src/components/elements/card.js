@@ -171,18 +171,9 @@ export const Card = ({
     padding,
     is_selected,
     word_break_cover,
-    onMouseEnter,
-    onMouseLeave,
 }) => {
     return (
-        <CardWrapper
-            width={width}
-            onMouseEnter={onMouseEnter}
-            onMouseLeave={onMouseLeave}
-            min_height={min_height}
-            padding={padding}
-            className={className}
-        >
+        <CardWrapper width={width} min_height={min_height} padding={padding} className={className}>
             {!children && (
                 <>
                     {is_inline_icon ? (

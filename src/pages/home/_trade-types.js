@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import styled, { css } from 'styled-components'
+import React from 'react'
+import styled from 'styled-components'
 import { Header, Text, Card } from 'components/elements'
 import { localize, LocalizedLink } from 'components/localization'
 import { Container, Flex, Show } from 'components/containers'
@@ -10,6 +10,22 @@ import { LinkButton } from 'components/form'
 import device from 'themes/device'
 import Arrow from 'images/svg/arrow-right.svg'
 
+const CustomLinkWrap = styled.div`
+    display: block;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s linear;
+    margin-top: 5px;
+`
+
+const CustomWrap = styled.div`
+    display: block;
+    transition: all 0.2s ease-in;
+`
+
+const LogoDiv = styled.div`
+    text-align: center;
+`
+
 const StyledCard = styled(Card)`
     max-width: 28.2rem;
     margin: 0 2.4rem;
@@ -19,11 +35,18 @@ const StyledCard = styled(Card)`
     justify-content: center;
     align-items: center;
     min-height: 100%;
-    ${(props) =>
-        props.isShown &&
-        css`
-            box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.1), 0 0 20px 0 rgba(0, 0, 0, 0.2);
-        `}
+
+    &:hover {
+        box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.1), 0 0 20px 0 rgba(0, 0, 0, 0.2);
+    }
+    &:hover ${CustomWrap} {
+        margin-bottom: 20px;
+        transition-duration: 0.2s;
+    }
+    &:hover ${CustomLinkWrap} {
+        visibility: visible;
+        opacity: 1;
+    }
     &:nth-child(4) {
         margin-right: unset;
     }
@@ -63,10 +86,6 @@ const StyledLink = styled(LocalizedLink)`
 `
 
 const TradeTypes = () => {
-    const [isShownMargin, setIsShownMargin] = useState(false)
-    const [isShownOptions, setIsShownOptions] = useState(false)
-    const [isShownMultipliers, setIsShownMultipliers] = useState(false)
-
     return (
         <div>
             <Show.Desktop max_width="851">
@@ -83,81 +102,67 @@ const TradeTypes = () => {
                         </TradingButton>
                     </Flex>
 
-                    <StyledCard
-                        onMouseEnter={() => setIsShownMargin(true)}
-                        onMouseLeave={() => setIsShownMargin(false)}
-                        isShown={isShownMargin}
-                    >
-                        <div>
-                            <MarginLogo dynamic_id="desktop-margin" />
-                        </div>
-                        <Header>{localize('Margin trading')}</Header>
-                        <Text>
-                            {localize(
-                                'Trade with leverage and low spreads for better returns on successful trades.',
-                            )}
-                        </Text>
-
-                        {isShownMargin ? (
+                    <StyledCard>
+                        <CustomWrap>
+                            <LogoDiv>
+                                <MarginLogo dynamic_id="desktop-margin" />
+                            </LogoDiv>
+                            <Header>{localize('Margin trading')}</Header>
+                            <Text>
+                                {localize(
+                                    'Trade with leverage and low spreads for better returns on successful trades.',
+                                )}
+                            </Text>
+                        </CustomWrap>
+                        <CustomLinkWrap>
                             <StyledLink ariaLabel={localize('Margin')} to="/trade-types/margin">
-                                Learn more <Arrow />
+                                {localize('Learn more')} <Arrow />
                             </StyledLink>
-                        ) : (
-                            <></>
-                        )}
+                        </CustomLinkWrap>
                     </StyledCard>
 
-                    <StyledCard
-                        onMouseEnter={() => setIsShownOptions(true)}
-                        onMouseLeave={() => setIsShownOptions(false)}
-                        isShown={isShownOptions}
-                    >
-                        <div>
-                            <OptionsLogo dynamic_id="desktop-options" />
-                        </div>
-                        <Header>{localize('Options')}</Header>
-                        <Text>
-                            {localize(
-                                'Earn fixed payouts by predicting an assets price movement within a fixed time.',
-                            )}
-                        </Text>
+                    <StyledCard>
+                        <CustomWrap>
+                            <LogoDiv>
+                                <OptionsLogo dynamic_id="desktop-options" />
+                            </LogoDiv>
+                            <Header>{localize('Options')}</Header>
+                            <Text>
+                                {localize(
+                                    'Earn fixed payouts by predicting an assets price movement within a fixed time.',
+                                )}
+                            </Text>
+                        </CustomWrap>
 
-                        {isShownOptions ? (
+                        <CustomLinkWrap>
                             <StyledLink ariaLabel={localize('Options')} to="/trade-types/options">
-                                {' '}
-                                Learn more <Arrow />
+                                {localize('Learn more')} <Arrow />
                             </StyledLink>
-                        ) : (
-                            <></>
-                        )}
+                        </CustomLinkWrap>
                     </StyledCard>
 
-                    <StyledCard
-                        onMouseEnter={() => setIsShownMultipliers(true)}
-                        onMouseLeave={() => setIsShownMultipliers(false)}
-                        isShown={isShownMultipliers}
-                    >
-                        <div>
-                            <MultipliersLogo dynamic_id="desktop-multipliers" />
-                        </div>
-                        <Header>{localize('Multipliers')}</Header>
-                        <Text>
-                            {localize(
-                                'Get the best of both - the upside of margin trading with the simplicity of options.',
-                            )}
-                        </Text>
+                    <StyledCard>
+                        <CustomWrap>
+                            <LogoDiv>
+                                <MultipliersLogo dynamic_id="desktop-multipliers" />
+                            </LogoDiv>
+                            <Header>{localize('Multipliers')}</Header>
+                            <Text>
+                                {localize(
+                                    'Get the best of both - the upside of margin trading with the simplicity of options.',
+                                )}
+                            </Text>
+                        </CustomWrap>
 
-                        {isShownMultipliers ? (
+                        <CustomLinkWrap>
                             <StyledLink
                                 ariaLabel={localize('Multipliers')}
                                 to="/trade-types/multipliers"
                             >
                                 {' '}
-                                Learn more <Arrow />
+                                {localize('Learn more')} <Arrow />
                             </StyledLink>
-                        ) : (
-                            <></>
-                        )}
+                        </CustomLinkWrap>
                     </StyledCard>
                 </Container>
             </Show.Desktop>
@@ -192,7 +197,7 @@ const TradeTypes = () => {
                                 )}
                             </Text>
                             <StyledLink ariaLabel={localize('Margin')} to="/trade-types/margin">
-                                Learn more <Arrow />
+                                {localize('Learn more')} <Arrow />
                             </StyledLink>
                         </StyledCard>
                         <StyledCard>
@@ -207,7 +212,7 @@ const TradeTypes = () => {
                             </Text>
                             <StyledLink ariaLabel={localize('Options')} to="/trade-types/options">
                                 {' '}
-                                Learn more <Arrow />
+                                {localize('Learn more')} <Arrow />
                             </StyledLink>
                         </StyledCard>
                         <StyledCard>
@@ -225,7 +230,7 @@ const TradeTypes = () => {
                                 to="/trade-types/multipliers"
                             >
                                 {' '}
-                                Learn more <Arrow />
+                                {localize('Learn more')} <Arrow />
                             </StyledLink>
                         </StyledCard>
                     </Flex>

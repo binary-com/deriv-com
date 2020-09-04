@@ -142,6 +142,7 @@ export const LocationLayout = ({ location, images }) => {
     const { display_name } = location
     if (!display_name) return null
 
+    //TODO: Enable in the future when required to show positions available
     //const positions = getPositionsByLocation(name).sort((a, b) => a.title.localeCompare(b.title))
     // const mapped_positions = positions
     //     ? positions.map((position) => ({
@@ -267,7 +268,9 @@ export const LocationLayout = ({ location, images }) => {
                     </Flex>
                 </LocationCard>
             </SectionContainer>
-            {/* <Header
+
+            {/* TODO: Enable in the future when required to show positions available
+            <Header
                 align="center"
                 as="h2"
                 size={'var(--text-size-header-1)'}

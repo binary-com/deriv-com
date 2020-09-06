@@ -143,14 +143,9 @@ const PaymentMethods = () => {
                                                     </Th>
                                                     <Th>
                                                         {pd.is_crypto ? (
-                                                            <>
-                                                                <BoldText>
-                                                                    {localize('Min withdrawal')}
-                                                                </BoldText>
-                                                                <BoldText>
-                                                                    {localize('(in USD)')}
-                                                                </BoldText>
-                                                            </>
+                                                            <BoldText>
+                                                                {localize('Min withdrawal')}
+                                                            </BoldText>
                                                         ) : (
                                                             <React.Fragment>
                                                                 <BoldText>

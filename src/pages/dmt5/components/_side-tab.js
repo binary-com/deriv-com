@@ -134,7 +134,9 @@ const Tabs = ({ children, is_reverse }) => {
                                 </Text>
                             </TabButton>
                             <Mobile min_width={size.tabletS}>
-                                <Content>{selected_tab === index ? child : undefined}</Content>
+                                <Content selected={selected_tab === index}>
+                                    {selected_tab === index ? child : undefined}
+                                </Content>
                             </Mobile>
                         </>
                     )

@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const Margin = ({ dynamic_id }) => {
+const Options = ({ dynamic_id }) => {
     return (
         <svg xmlns="http://www.w3.org/2000/svg" width="48" height="49" viewBox="0 0 48 49">
             <defs>
@@ -18,8 +18,8 @@ const Margin = ({ dynamic_id }) => {
         </svg>
     )
 }
-Margin.propTypes = {
+Options.propTypes = {
     dynamic_id: PropTypes.string,
 }
 
-export default Margin
+export default Options

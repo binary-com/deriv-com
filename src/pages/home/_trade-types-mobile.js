@@ -8,9 +8,9 @@ import device from 'themes/device'
 import { SectionContainer, Flex } from 'components/containers'
 import { localize, Localize } from 'components/localization'
 import { LinkButton } from 'components/form'
-import MarginLogo from 'images/svg/margin_tt.svg'
-import OptionsLogo from 'images/svg/options_tt.svg'
-import MultipliersLogo from 'images/svg/multipliers_tt.svg'
+import MarginLogo from 'components/svgs/margin'
+import OptionsLogo from 'components/svgs/options'
+import MultipliersLogo from 'components/svgs/multipliers'
 import Arrow from 'images/svg/arrow-right.svg'
 
 const StyledSection = styled(SectionContainer)`
@@ -105,32 +105,36 @@ TradeTypeSlide.propTypes = {
     description: PropTypes.any,
     icon: PropTypes.any,
     link: PropTypes.any,
+    linkTitle: PropTypes.any,
     title: PropTypes.any,
 }
 
 const margin = {
-    icon: <MarginLogo />,
+    icon: <MarginLogo dynamic_id="margin-mobile" />,
     title: <Localize translate_text="Margin Trading" />,
     description: (
         <Localize translate_text="Trade with leverage and low spreads for better returns on successful trades." />
     ),
     link: '/trade-types/margin',
+    linkTitle: localize('Margin'),
 }
 const options = {
-    icon: <OptionsLogo />,
+    icon: <OptionsLogo dynamic_id="options-mobile" />,
     title: <Localize translate_text="Options" />,
     description: (
         <Localize translate_text="Earn fixed payouts by predicting an assets price movement within a fixed time." />
     ),
     link: '/trade-types/options',
+    linkTitle: localize('Options'),
 }
 const multipliers = {
-    icon: <MultipliersLogo />,
+    icon: <MultipliersLogo dynamic_id="multipliers-mobile" />,
     title: <Localize translate_text="Multipliers" />,
     description: (
         <Localize translate_text="Get the best of both - the upside of margin trading with the simplicity of options." />
     ),
     link: '/trade-types/multiplier',
+    linkTitle: localize('Multiplier'),
 }
 
 const trade_types = [margin, options, multipliers]
@@ -177,6 +181,7 @@ const TradeTypesMobile = () => {
                                         title={trade_slide.title}
                                         description={trade_slide.description}
                                         link={trade_slide.link}
+                                        linkTitle={trade_slide.linkTitle}
                                     />
                                 </div>
                             ))}

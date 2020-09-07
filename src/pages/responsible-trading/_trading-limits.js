@@ -130,7 +130,7 @@ const TradingLimits = () => {
                                         <LocalizedLinkText
                                             to="/account/self-exclusion"
                                             is_deriv_app_link
-                                            external
+                                            external="true"
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             color="red"

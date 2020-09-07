@@ -176,7 +176,7 @@ export const Offices = () => {
                                 <MapContainer>
                                     <LocalizedLink
                                         to="https://g.page/r/CRyKELlnWQ3iEAE"
-                                        external
+                                        external="true"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                     >
@@ -189,7 +189,7 @@ export const Offices = () => {
                                 </MapContainer>
                                 <LocalizedLinkText
                                     to="https://g.page/r/CRyKELlnWQ3iEAE"
-                                    external
+                                    external="true"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     mt="0.8rem"
@@ -237,7 +237,7 @@ export const Offices = () => {
                                     <MapContainer>
                                         <LocalizedLink
                                             to="https://g.page/r/CQODFgzIJPYtEAE"
-                                            external
+                                            external="true"
                                             target="_blank"
                                             rel="noopener noreferrer"
                                         >
@@ -252,7 +252,7 @@ export const Offices = () => {
                                         <CountryText>Cyberjaya</CountryText>
                                         <LocalizedLinkText
                                             to="https://g.page/r/CQODFgzIJPYtEAE"
-                                            external
+                                            external="true"
                                             target="_blank"
                                             rel="noopener noreferrer"
                                         >

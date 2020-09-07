@@ -228,7 +228,7 @@ const DMT5Synthetic = ({ data }) => {
                             <StyledLinkButton
                                 secondary
                                 to={affiliate_signup_url}
-                                external
+                                external="true"
                                 target="_blank"
                                 is_affiliate_link
                             >
@@ -311,7 +311,7 @@ const DMT5Standard = ({ data }) => {
                             <StyledLinkButton
                                 secondary
                                 to={affiliate_signup_url}
-                                external
+                                external="true"
                                 target="_blank"
                                 is_affiliate_link
                             >
@@ -395,7 +395,7 @@ const DMT5Advanced = ({ data }) => {
                             <StyledLinkButton
                                 secondary
                                 to={affiliate_signup_url}
-                                external
+                                external="true"
                                 target="_blank"
                                 is_affiliate_link
                             >

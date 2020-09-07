@@ -238,7 +238,7 @@ class AvailableTrades extends React.Component {
 
 AvailableTrades.propTypes = {
     DigitalOptions: PropTypes.func,
-    display_title: PropTypes.string,
+    display_title: PropTypes.object,
     Margin: PropTypes.func,
     Multipliers: PropTypes.func,
 }

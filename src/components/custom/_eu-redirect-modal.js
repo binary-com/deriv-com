@@ -143,7 +143,7 @@ EURedirect.propTypes = {
     ref: PropTypes.object,
     rel: PropTypes.string,
     target: PropTypes.string,
-    to: PropTypes.string.isRequired,
+    to: PropTypes.string,
     toggle: PropTypes.func.isRequired,
 }
 

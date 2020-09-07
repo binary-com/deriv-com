@@ -4,6 +4,7 @@ import styled, { css } from 'styled-components'
 import { Flex } from 'components/containers'
 import { Text } from 'components/elements'
 import { Localize } from 'components/localization'
+import device from 'themes/device.js'
 // Icons
 import Close from 'images/svg/close-2.svg'
 
@@ -30,7 +31,7 @@ const ModalCard = styled.div`
     background: var(--color-white);
     padding: 2.4rem;
 
-    @media (max-width: 380px) {
+    @media ${device.mobileL} {
         width: 80%;
     }
 `
@@ -83,11 +84,6 @@ const Cancel = styled.span`
     }
 `
 
-const StyledText = styled(Text)`
-    @media (max-width: 380px) {
-        font-size: 7px;
-    }
-`
 const EURedirect = ({ toggle, is_open, closeModal, to, target, rel, ref, aria_label }) => {
     const handleEscape = (e) => {
         if (e.keyCode === 27) {
@@ -120,9 +116,9 @@ const EURedirect = ({ toggle, is_open, closeModal, to, target, rel, ref, aria_la
                     </div>
                     <Flex jc="flex-end">
                         <Cancel onClick={() => closeModal()}>
-                            <StyledText size="var(--text-size-xs)" weight="bold">
+                            <Text size="var(--text-size-xs)" weight="bold">
                                 <Localize translate_text="Cancel" />
-                            </StyledText>
+                            </Text>
                         </Cancel>
                         <Proceed
                             target={target}
@@ -133,9 +129,9 @@ const EURedirect = ({ toggle, is_open, closeModal, to, target, rel, ref, aria_la
                             aria-label={aria_label}
                             onClick={toggle}
                         >
-                            <StyledText size="var(--text-size-xs)" weight="bold" color="white">
+                            <Text size="var(--text-size-xs)" weight="bold" color="white">
                                 <Localize translate_text="Proceed" />
-                            </StyledText>
+                            </Text>
                         </Proceed>
                     </Flex>
                 </ModalCard>

@@ -27,6 +27,7 @@ const ModalCard = styled.div`
     flex-direction: column;
     border-radius: 6px;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+    width: 100%;
     max-width: 44rem;
     background: var(--color-white);
     padding: 2.4rem;

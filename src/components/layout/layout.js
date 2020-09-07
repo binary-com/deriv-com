@@ -28,9 +28,10 @@ const clients_country_cookie = new CookieStorage(CLIENTS_COUNTRY_KEY)
 const tracking_status_cookie = new CookieStorage(TRACKING_STATUS_KEY)
 
 const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) => {
-    const [clients_country, setClientCountry] = React.useState(
+    let [clients_country, setClientCountry] = React.useState(
         clients_country_cookie.get(CLIENTS_COUNTRY_KEY),
     )
+    clients_country = 'mt'
     const [show_cookie_banner, setShowCookieBanner] = React.useState(false)
     const [show_modal, toggleModal, closeModal] = useModal()
     const [modal_payload, setModalPayload] = useState({})

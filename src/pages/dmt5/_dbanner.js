@@ -130,7 +130,7 @@ const DBanner = ({ title, data, background_pattern }) => {
             </ImageWrapper>
             <Wrapper>
                 <TextWrapper>
-                    <StyledHeader color="white" size="5.6rem" mb="4rem" max_width="47rem">
+                    <StyledHeader color="white" size="5.6rem" mb="4rem" max_width="52rem">
                         {title}
                     </StyledHeader>
                     <StyledLinkButton type="submit" secondary="true" to="/signup/">

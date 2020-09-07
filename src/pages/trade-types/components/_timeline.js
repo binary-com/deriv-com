@@ -40,7 +40,7 @@ const Timeline = ({ children, ...props }) => {
         </div>
     )
 }
-const Item = ({ children, ...props }) => <div {...props}>{children}</div>
+const Item = ({ children, ...props }) => <span {...props}>{children}</span>
 
 Timeline.Item = Item
 

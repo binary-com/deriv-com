@@ -21,6 +21,10 @@ const LogoDiv = styled.div`
     text-align: center;
 `
 
+const StyledText = styled(Text)`
+    text-align: center;
+`
+
 const StyledCard = styled(Card)`
     max-width: 28.2rem;
     margin: 0 2.4rem;
@@ -80,7 +84,7 @@ const TradeTypesCard = ({ icon, title, description, link, linkTitle }) => {
             <CustomWrap>
                 <LogoDiv>{icon}</LogoDiv>
                 <Header>{title}</Header>
-                <Text>{description}</Text>
+                <StyledText>{description}</StyledText>
             </CustomWrap>
             <CustomLinkWrap>
                 <StyledLinkText

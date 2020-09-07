@@ -72,7 +72,7 @@ const StyledLinkText = styled(LocalizedLinkText)`
     }
 `
 
-const TradeTypeSlide = ({ icon, title, description, link }) => {
+const TradeTypeSlide = ({ icon, title, description, link, linkTitle }) => {
     return (
         <Flex ai="center" height="unset">
             <TradeTypeCard>
@@ -89,7 +89,7 @@ const TradeTypeSlide = ({ icon, title, description, link }) => {
                         color="red"
                         mt="16px"
                         size="16px"
-                        ariaLabel={localize('Margin')}
+                        ariaLabel={linkTitle}
                         to={link}
                     >
                         <span>{localize('Learn more')}</span>

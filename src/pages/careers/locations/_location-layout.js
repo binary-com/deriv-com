@@ -145,7 +145,8 @@ export const LocationLayout = ({ location, images }) => {
     const { display_name } = location
     if (!display_name) return null
 
-    // const positions = getPositionsByLocation(name).sort((a, b) => a.title.localeCompare(b.title))
+    //TODO: Enable in the future when required to show positions available
+    //const positions = getPositionsByLocation(name).sort((a, b) => a.title.localeCompare(b.title))
     // const mapped_positions = positions
     //     ? positions.map((position) => ({
     //           text: position.title,
@@ -253,10 +254,16 @@ export const LocationLayout = ({ location, images }) => {
                                             target="_blank"
                                             href={location.google_map_link}
                                         >
-                                            {location.address}
+                                            {location.address.map((address, index) => (
+                                                <Text key={index}>{address}</Text>
+                                            ))}
                                         </LinkText>
                                     ) : (
-                                        <Text>{location.address}</Text>
+                                        <Text>
+                                            {location.address.map((address, index) => (
+                                                <Text key={index}>{address}</Text>
+                                            ))}
+                                        </Text>
                                     )}
                                 </Flex>
                             </div>
@@ -264,7 +271,9 @@ export const LocationLayout = ({ location, images }) => {
                     </Flex>
                 </LocationCard>
             </SectionContainer>
-            {/* <Header
+
+            {/* TODO: Enable in the future when required to show positions available
+            <Header
                 align="center"
                 as="h2"
                 size={'var(--text-size-header-1)'}

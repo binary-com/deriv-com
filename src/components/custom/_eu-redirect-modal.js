@@ -26,10 +26,13 @@ const ModalCard = styled.div`
     flex-direction: column;
     border-radius: 6px;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
-    width: 100%;
     max-width: 44rem;
     background: var(--color-white);
     padding: 2.4rem;
+
+    @media (max-width: 380px) {
+        width: 80%;
+    }
 `
 const CloseButton = styled(Close)`
     &:hover {
@@ -79,6 +82,12 @@ const Cancel = styled.span`
         background-color: rgba(0, 0, 0, 0.08);
     }
 `
+
+const StyledText = styled(Text)`
+    @media (max-width: 380px) {
+        font-size: 7px;
+    }
+`
 const EURedirect = ({ toggle, is_open, closeModal, to, target, rel, ref, aria_label }) => {
     const handleEscape = (e) => {
         if (e.keyCode === 27) {
@@ -111,9 +120,9 @@ const EURedirect = ({ toggle, is_open, closeModal, to, target, rel, ref, aria_la
                     </div>
                     <Flex jc="flex-end">
                         <Cancel onClick={() => closeModal()}>
-                            <Text size="var(--text-size-xs)" weight="bold">
+                            <StyledText size="var(--text-size-xs)" weight="bold">
                                 <Localize translate_text="Cancel" />
-                            </Text>
+                            </StyledText>
                         </Cancel>
                         <Proceed
                             target={target}
@@ -124,9 +133,9 @@ const EURedirect = ({ toggle, is_open, closeModal, to, target, rel, ref, aria_la
                             aria-label={aria_label}
                             onClick={toggle}
                         >
-                            <Text size="var(--text-size-xs)" weight="bold" color="white">
+                            <StyledText size="var(--text-size-xs)" weight="bold" color="white">
                                 <Localize translate_text="Proceed" />
-                            </Text>
+                            </StyledText>
                         </Proceed>
                     </Flex>
                 </ModalCard>

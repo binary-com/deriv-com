@@ -278,7 +278,7 @@ export const Offices = () => {
                                             target="_blank"
                                             rel="noopener noreferrer"
                                         >
-                                            iTech Tower, Jalan Impact,
+                                            C-13, iTech Tower, Jalan Impact,
                                             <br></br>
                                             Cyber 6, 63000,Cyberjaya,
                                             <br></br>
@@ -340,7 +340,7 @@ export const Offices = () => {
                                             target="_blank"
                                             rel="noopener noreferrer"
                                         >
-                                            Block E-5-6, Soho Ipoh 2,
+                                            E-5-6, Soho Ipoh 2,
                                             <br></br>
                                             Jalan Sultan Idris Shah,
                                             <br></br>

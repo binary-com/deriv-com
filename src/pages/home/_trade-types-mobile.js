@@ -146,7 +146,7 @@ const TradeTypesMobile = () => {
         slidesPerView: 'auto',
         centeredSlides: true,
         spaceBetween: 12,
-        lazy: true,
+        // lazy: true,
         // autoplay: {
         //     delay: 15000,
         //     disableOnInteraction: false,

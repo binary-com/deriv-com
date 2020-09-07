@@ -6,6 +6,7 @@ import { localize } from 'components/localization'
 import { QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
 import { zoho_url } from 'common/utility'
+import { LocationContext } from 'components/layout/location-context.js'
 import device from 'themes/device'
 
 const query = graphql`
@@ -41,6 +42,7 @@ const CareerNavLeft = styled(NavLeft)`
 
 export const NavCareers = () => {
     const data = useStaticQuery(query)
+    const { has_mounted } = React.useContext(LocationContext)
     return (
         <>
             <NavWrapper>
@@ -73,16 +75,18 @@ export const NavCareers = () => {
                             </StyledLink>
                         </CareerNavLeft>
                         <CareerRight>
-                            <LinkButton
-                                external
-                                secondary
-                                to={zoho_url}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                ml="2.4rem"
-                            >
-                                Explore jobs
-                            </LinkButton>
+                            {has_mounted && (
+                                <LinkButton
+                                    external
+                                    secondary
+                                    to={zoho_url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    ml="2.4rem"
+                                >
+                                    Explore jobs
+                                </LinkButton>
+                            )}
                         </CareerRight>
                     </Wrapper>
                 </StyledNav>

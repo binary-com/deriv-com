@@ -32,6 +32,7 @@ const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) 
     const [clients_country, setClientCountry] = React.useState(
         clients_country_cookie.get(CLIENTS_COUNTRY_KEY),
     )
+    const [has_mounted, setMounted] = React.useState(false)
     const [show_cookie_banner, setShowCookieBanner] = React.useState(false)
     const [show_modal, toggleModal, closeModal] = useModal()
     const [modal_payload, setModalPayload] = useState({})
@@ -78,6 +79,7 @@ const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) 
                 (!is_eu_country || tracking_status === 'accepted') && has_dataLayer
 
             if (allow_tracking) window.dataLayer.push({ event: 'allow_tracking' })
+            setMounted(true)
         }
     }, [clients_country])
 
@@ -125,6 +127,7 @@ const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) 
 
     return (
         <LocationProvider
+            has_mounted={has_mounted}
             is_eu_country={clients_country ? isEuCountry(clients_country) : undefined}
             show_cookie_banner={show_cookie_banner}
             toggleModal={toggleModal}

@@ -457,7 +457,7 @@ const payment_data = [
             },
             {
                 method: <TetherIc />,
-                currencies: 'UST',
+                currencies: 'USDT',
                 min_max_deposit: <Localize translate_text="No minimum" />,
                 min_max_withdrawal: '25',
                 deposit_time: <Localize translate_text="Funds available as soon as confirmed" />,

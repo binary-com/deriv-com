@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { StyledNav, StyledLink, NavWrapper, LogoLink, Wrapper, NavLeft } from './nav'
+import { Flex } from 'components/containers'
 import { localize } from 'components/localization'
 import { QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
@@ -17,12 +18,9 @@ const query = graphql`
     }
 `
 
-const CareerRight = styled.div`
-    display: flex;
+const CareerRight = styled(Flex)`
+    width: auto;
     justify-self: flex-end;
-    justify-content: flex-end;
-    align-content: center;
-    align-items: center;
 `
 
 const CareerLogo = styled(LogoLink)`
@@ -74,7 +72,7 @@ export const NavCareers = () => {
                                 LOCATIONS
                             </StyledLink>
                         </CareerNavLeft>
-                        <CareerRight>
+                        <CareerRight jc="flex-end" ai="center">
                             {has_mounted && (
                                 <LinkButton
                                     external

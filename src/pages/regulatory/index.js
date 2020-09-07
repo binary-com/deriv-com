@@ -97,6 +97,10 @@ const ExternalBoldLink = styled(LocalizedLink)`
     font-weight: bold;
     color: ${(props) => (props.color ? `var(--color-${props.color})` : '')};
 `
+
+const Content = styled.div`
+    display: contents;
+`
 const Regulatory = () => {
     return (
         <Layout>
@@ -139,7 +143,7 @@ const Regulatory = () => {
                                         key={0}
                                         weight="bold"
                                         target="_blank"
-                                        href="/regulatory/Deriv_Investments_(Europe)_Ltd.pdf"
+                                        href="/regulatory/Deriv_Investments_(Europe)_Limited.pdf"
                                         rel="noopener noreferrer"
                                     />,
                                 ]}
@@ -199,118 +203,120 @@ const Regulatory = () => {
                         tablet_columns="1fr 5fr"
                         mobile_columns="1fr"
                     >
-                        <Eu>
-                            <ResponsiveGrid align="flex-start">
-                                <Mobile>
-                                    <StyledHeader lh="4rem" as="h4" mb="1.6rem">
-                                        {localize('Deriv (Europe) Limited')}
-                                    </StyledHeader>
-                                </Mobile>
-                                <Img src={MGA} alt="MGA" />
-                            </ResponsiveGrid>
-                            <CssGridColumn>
-                                <Desktop>
-                                    <StyledHeader lh="4rem" as="h4">
-                                        {localize('Deriv (Europe) Limited')}
-                                    </StyledHeader>
-                                </Desktop>
+                        <Content>
+                            <Eu>
+                                <ResponsiveGrid align="flex-start">
+                                    <Mobile>
+                                        <StyledHeader lh="4rem" as="h4" mb="1.6rem">
+                                            {localize('Deriv (Europe) Limited')}
+                                        </StyledHeader>
+                                    </Mobile>
+                                    <Img src={MGA} alt="MGA" />
+                                </ResponsiveGrid>
+                                <CssGridColumn>
+                                    <Desktop>
+                                        <StyledHeader lh="4rem" as="h4">
+                                            {localize('Deriv (Europe) Limited')}
+                                        </StyledHeader>
+                                    </Desktop>
 
-                                <Text mt="0.8rem" mb="1.6rem" max_width="58.8rem">
-                                    <Localize
-                                        translate_text="Deriv (Europe) Limited, W Business Centre, Level 3, Triq Dun Karm, Birkirkara, BKR 9033, Malta, is licensed and regulated (for synthetic indices) by the Malta Gaming Authority (licence no. MGA/B2C/102/2000 — <0>view licence</0>) and maintains an Irish licence for clients in the UK by the UK Gambling Commission — <1>view licence</1>."
-                                        components={[
-                                            <LinkText
-                                                key={0}
-                                                weight="bold"
-                                                target="_blank"
-                                                href="/regulatory/Deriv_(Europe)_Ltd.pdf"
-                                                rel="noopener noreferrer"
-                                            />,
-                                            <ExternalBoldLink
-                                                external
-                                                key={1}
-                                                weight="bold"
-                                                target="_blank"
-                                                to="https://secure.gamblingcommission.gov.uk/PublicRegister/Search/Detail/39495"
-                                                rel="noopener noreferrer"
-                                            />,
-                                        ]}
-                                    />
-                                </Text>
-                                <Text max_width="58.8rem">
-                                    {localize(
-                                        'Clients in the European Union who wish to trade gambling products will have their accounts opened under Deriv (Europe) Limited.',
-                                    )}
-                                </Text>
-                            </CssGridColumn>
-                            <ResponsiveGrid align="flex-start">
-                                <Mobile>
-                                    <StyledHeader lh="4rem" as="h4" mb="1.6rem">
-                                        {localize('Deriv (MX) Ltd')}
-                                    </StyledHeader>
-                                </Mobile>
-                                <Img src={IOM} alt="IOM" />
-                            </ResponsiveGrid>
-                            <CssGridColumn>
-                                <Desktop>
-                                    <StyledHeader lh="4rem" as="h4">
-                                        {localize('Deriv (MX) Ltd')}
-                                    </StyledHeader>
-                                </Desktop>
-                                <Text mt="0.8rem" mb="1.6rem" max_width="58.8rem">
-                                    <Localize
-                                        translate_text="Deriv (MX) Ltd, First Floor, Millennium House, Victoria Road, Douglas, Isle of Man, IM2 4RW, is licensed and regulated by the Gambling Supervision Commission in the Isle of Man (online gambling licence granted on the 31 August 2017 — <0>view licence</0>) and by the UK Gambling Commission for clients in the UK — <1>view licence</1>."
-                                        components={[
-                                            <LinkText
-                                                key={0}
-                                                weight="bold"
-                                                target="_blank"
-                                                href="/regulatory/Deriv_(MX)_Ltd.pdf"
-                                                rel="noopener noreferrer"
-                                            />,
-                                            <ExternalBoldLink
-                                                external
-                                                key={0}
-                                                weight="bold"
-                                                target="_blank"
-                                                to="https://secure.gamblingcommission.gov.uk/PublicRegister/Search/Detail/39172"
-                                                rel="noopener noreferrer"
-                                            />,
-                                        ]}
-                                    />
-                                </Text>
-                                <Text max_width="58.8rem">
-                                    {localize(
-                                        'Clients in the Isle of Man and the UK who wish to trade gambling products will have their accounts opened under Deriv (MX) Ltd.',
-                                    )}
-                                </Text>
-                            </CssGridColumn>
-                            <ResponsiveGrid align="flex-start">
-                                <Mobile>
-                                    <StyledHeader lh="4rem" as="h4" mb="1.6rem">
-                                        {localize('Deriv (SVG) LLC')}
-                                    </StyledHeader>
-                                </Mobile>
-                                <SVG />
-                            </ResponsiveGrid>
-                            <CssGridColumn>
-                                <Desktop>
-                                    <StyledHeader lh="4rem" as="h4">
-                                        {localize('Deriv (SVG) LLC')}
-                                    </StyledHeader>
-                                </Desktop>
-                                <Text mt="0.8rem" mb="1.6rem" max_width="58.8rem">
-                                    {localize(
-                                        'Deriv (SVG) LLC, Hinds Buildings, Kingstown, St. Vincent and the Grenadines (company number 273 LLC 2020).',
-                                    )}
-                                </Text>
-                                <Text max_width="58.8rem">
-                                    {localize(
-                                        'Clients from the rest of the world (except for certain countries such as the USA, Canada, and Hong Kong) will have their accounts opened under Deriv (SVG) LLC.',
-                                    )}
-                                </Text>
-                            </CssGridColumn>
-                        </Eu>
+                                    <Text mt="0.8rem" mb="1.6rem" max_width="58.8rem">
+                                        <Localize
+                                            translate_text="Deriv (Europe) Limited, W Business Centre, Level 3, Triq Dun Karm, Birkirkara, BKR 9033, Malta, is licensed and regulated (for synthetic indices) by the Malta Gaming Authority (licence no. <0>MGA/B2C/102/2000</0>) and also maintains an Irish licence. Its licence for clients in the UK is by the UK Gambling Commission (account no. <1>39495</1>)."
+                                            components={[
+                                                <LinkText
+                                                    key={0}
+                                                    weight="bold"
+                                                    target="_blank"
+                                                    href="/regulatory/Deriv_(Europe)_Limited.pdf"
+                                                    rel="noopener noreferrer"
+                                                />,
+                                                <ExternalBoldLink
+                                                    external
+                                                    key={1}
+                                                    weight="bold"
+                                                    target="_blank"
+                                                    to="https://secure.gamblingcommission.gov.uk/PublicRegister/Search/Detail/39495"
+                                                    rel="noopener noreferrer"
+                                                />,
+                                            ]}
+                                        />
+                                    </Text>
+                                    <Text max_width="58.8rem">
+                                        {localize(
+                                            'Clients in the European Union who wish to trade gambling products will have their accounts opened under Deriv (Europe) Limited.',
+                                        )}
+                                    </Text>
+                                </CssGridColumn>
+                                <ResponsiveGrid align="flex-start">
+                                    <Mobile>
+                                        <StyledHeader lh="4rem" as="h4" mb="1.6rem">
+                                            {localize('Deriv (MX) Ltd')}
+                                        </StyledHeader>
+                                    </Mobile>
+                                    <Img src={IOM} alt="IOM" />
+                                </ResponsiveGrid>
+                                <CssGridColumn>
+                                    <Desktop>
+                                        <StyledHeader lh="4rem" as="h4">
+                                            {localize('Deriv (MX) Ltd')}
+                                        </StyledHeader>
+                                    </Desktop>
+                                    <Text mt="0.8rem" mb="1.6rem" max_width="58.8rem">
+                                        <Localize
+                                            translate_text="Deriv (MX) Ltd, First Floor, Millennium House, Victoria Road, Douglas, Isle of Man, IM2 4RW, is licensed and regulated by the Gambling Supervision Commission in the Isle of Man (online gambling licence granted on the 31 August 2017 — <0>view licence</0>) and by the UK Gambling Commission for clients in the UK — (account no. <1>39172</1>)."
+                                            components={[
+                                                <LinkText
+                                                    key={0}
+                                                    weight="bold"
+                                                    target="_blank"
+                                                    href="/regulatory/Deriv_(MX)_Ltd.pdf"
+                                                    rel="noopener noreferrer"
+                                                />,
+                                                <ExternalBoldLink
+                                                    external
+                                                    key={1}
+                                                    weight="bold"
+                                                    target="_blank"
+                                                    to="https://secure.gamblingcommission.gov.uk/PublicRegister/Search/Detail/39172"
+                                                    rel="noopener noreferrer"
+                                                />,
+                                            ]}
+                                        />
+                                    </Text>
+                                    <Text max_width="58.8rem">
+                                        {localize(
+                                            'Clients in the Isle of Man and the UK who wish to trade gambling products will have their accounts opened under Deriv (MX) Ltd.',
+                                        )}
+                                    </Text>
+                                </CssGridColumn>
+                                <ResponsiveGrid align="flex-start">
+                                    <Mobile>
+                                        <StyledHeader lh="4rem" as="h4" mb="1.6rem">
+                                            {localize('Deriv (SVG) LLC')}
+                                        </StyledHeader>
+                                    </Mobile>
+                                    <SVG />
+                                </ResponsiveGrid>
+                                <CssGridColumn>
+                                    <Desktop>
+                                        <StyledHeader lh="4rem" as="h4">
+                                            {localize('Deriv (SVG) LLC')}
+                                        </StyledHeader>
+                                    </Desktop>
+                                    <Text mt="0.8rem" mb="1.6rem" max_width="58.8rem">
+                                        {localize(
+                                            'Deriv (SVG) LLC, Hinds Buildings, Kingstown, St. Vincent and the Grenadines (company number 273 LLC 2020).',
+                                        )}
+                                    </Text>
+                                    <Text max_width="58.8rem">
+                                        {localize(
+                                            'Clients from the rest of the world (except for certain countries such as the USA, Canada, and Hong Kong) will have their accounts opened under Deriv (SVG) LLC.',
+                                        )}
+                                    </Text>
+                                </CssGridColumn>
+                            </Eu>
+                        </Content>
                         <ResponsiveGrid align="flex-start">
                             <Mobile>
                                 <StyledHeader lh="4rem" as="h4" mb="1.6rem">

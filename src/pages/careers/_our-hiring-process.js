@@ -35,7 +35,7 @@ const StyledTipsCard = styled(Flex)`
         width: 2.4rem;
         height: 2.4rem;
         transform: rotate(45deg);
-        ${props =>
+        ${(props) =>
             props.right
                 ? css`
                       right: -1.2rem;
@@ -208,7 +208,7 @@ const SubResponsiveFlex4 = styled(Flex)`
 `
 
 const OurHiringProcess = () => (
-    <SectionContainer padding="12rem 0">
+    <SectionContainer padding="0 0 12rem">
         <Container direction="column">
             <StyledHeader as="h3" align="center">
                 Our hiring process

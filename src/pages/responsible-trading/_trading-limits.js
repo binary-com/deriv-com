@@ -150,7 +150,8 @@ const TradingLimits = () => {
                             {localize('How trading limits and self-exclusion work')}
                         </StyledHeader>
                         <div>
-                            <Show.NonEU>
+                            {/* TODO: enable these self exclusion notes when new Backend API is ready */}
+                            {/* <Show.NonEU>
                                 <Text ml="0.8rem" max_width="44rem">
                                     <TimelineTick color="var(--color-red)" pb="1rem">
                                         <TimelineTick.Item>
@@ -170,39 +171,39 @@ const TradingLimits = () => {
                                         </TimelineTick.Item>
                                     </TimelineTick>
                                 </Text>
-                            </Show.NonEU>
+                            </Show.NonEU> */}
 
-                            <Show.Eu>
-                                <Text ml="0.8rem" max_width="44rem">
-                                    <TimelineTick color="var(--color-red)" pb="1rem">
-                                        <TimelineTick.Item>
-                                            {localize(
-                                                'Daily limits may be removed or increased after 24 hours of receiving the notice. Confirmation is required to amend the limits.',
-                                            )}
-                                        </TimelineTick.Item>
-                                        <TimelineTick.Item>
-                                            {localize(
-                                                'There’s a minimum period of 6 months for self-exclusion. You have the option to extend it to a total of 5 years immediately without any cooling-off period.',
-                                            )}
-                                        </TimelineTick.Item>
-                                        <TimelineTick.Item>
-                                            {localize(
-                                                'When you’ve set your self-exclusion period, we will refund your account balance to you.',
-                                            )}
-                                        </TimelineTick.Item>
-                                        <TimelineTick.Item>
-                                            {localize(
-                                                'At the end of the self-exclusion period, the self-exclusion will remain in place until you take action.',
-                                            )}
-                                        </TimelineTick.Item>
-                                        <TimelineTick.Item>
-                                            {localize(
-                                                'If you do not wish to renew the self-exclusion and you make a request to trade again, there will be a cooling-off period of 1 day before you are allowed access to our site. Please note that email is insufficient and your request must be made by phone.',
-                                            )}
-                                        </TimelineTick.Item>
-                                    </TimelineTick>
-                                </Text>
-                            </Show.Eu>
+                            {/* <Show.Eu> */}
+                            <Text ml="0.8rem" max_width="44rem">
+                                <TimelineTick color="var(--color-red)" pb="1rem">
+                                    <TimelineTick.Item>
+                                        {localize(
+                                            'Daily limits may be removed or increased after 24 hours of receiving the notice. Confirmation is required to amend the limits.',
+                                        )}
+                                    </TimelineTick.Item>
+                                    <TimelineTick.Item>
+                                        {localize(
+                                            'There’s a minimum period of 6 months for self-exclusion. You have the option to extend it to a total of 5 years immediately without any cooling-off period.',
+                                        )}
+                                    </TimelineTick.Item>
+                                    <TimelineTick.Item>
+                                        {localize(
+                                            'When you’ve set your self-exclusion period, we will refund your account balance to you.',
+                                        )}
+                                    </TimelineTick.Item>
+                                    <TimelineTick.Item>
+                                        {localize(
+                                            'At the end of the self-exclusion period, the self-exclusion will remain in place until you take action.',
+                                        )}
+                                    </TimelineTick.Item>
+                                    <TimelineTick.Item>
+                                        {localize(
+                                            'If you do not wish to renew the self-exclusion and you make a request to trade again, there will be a cooling-off period of 1 day before you are allowed access to our site. Please note that email is insufficient and your request must be made by phone.',
+                                        )}
+                                    </TimelineTick.Item>
+                                </TimelineTick>
+                            </Text>
+                            {/* </Show.Eu> */}
                         </div>
                         <div>
                             <Show.NonEU>

@@ -26,7 +26,7 @@ const query = graphql`
         dubai_grid_4: file(relativePath: { eq: "careers/dubai_grid_4.png" }) {
             ...fadeIn
         }
-        map_dubai: file(relativePath: { eq: "maps/map-dubai.png" }) {
+        map_dubai: file(relativePath: { eq: "careers/maps/map-dubai.png" }) {
             ...fadeIn
         }
     }
@@ -36,7 +36,7 @@ const Dubai = () => {
     const images = useStaticQuery(query)
 
     return (
-        <Layout type="careers" padding_top="10rem">
+        <Layout type="careers">
             <SEO
                 title={localize('Dubai | Our office – UAE | Deriv')}
                 description={localize(

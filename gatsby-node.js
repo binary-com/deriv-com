@@ -16,11 +16,20 @@ exports.onCreatePage = ({ page, actions }) => {
         const localized_path = is_default ? page.path : `${path}${page.path}`
         const is_production = process.env.GATSBY_ENV === 'production'
         const careers_regex = /^[a-z-]+\/careers\//g
+        // TODO: this is a temporary workaround to remove a/b testing page
+        const homepage_regex = /homepage/g
+        // TODO: this is a temporary workaround to remove a/b testing page
+        const amp_regex = /amp/g
 
         if (is_production) {
             if (path === 'ach') return
         }
-        if (careers_regex.test(localized_path)) return
+        if (
+            careers_regex.test(localized_path) ||
+            homepage_regex.test(localized_path) ||
+            amp_regex.test(localized_path)
+        )
+            return
 
         if (!translations_cache[lang]) {
             const translation_json = require(`./src/translations/${lang}`)

@@ -670,7 +670,7 @@ const Footer = () => {
                                     <StaticAsset
                                         key={0}
                                         target="_blank"
-                                        href="/regulatory/Deriv_Investments_(Europe)_Ltd.pdf"
+                                        href="/regulatory/Deriv_Investments_(Europe)_Limited.pdf"
                                         rel="noopener noreferrer"
                                     />,
                                 ]}
@@ -706,7 +706,7 @@ const Footer = () => {
                         <Show.Eu>
                             <DisclaimerParagraph>
                                 <Localize
-                                    translate_text="In the Isle of Man and the UK, synthetic indices are offered by Deriv (MX) Ltd, First Floor, Millennium House, Victoria Road, Douglas, IM2 4RW, Isle of Man, licensed and regulated respectively by the Gambling Supervision Commission in the Isle of Man (current licence issued on 31 August 2017) and by the Gambling Commission in the UK (licence <0>reference no: 39172</0>)."
+                                    translate_text="In the Isle of Man and the UK, synthetic indices are offered by Deriv (MX) Ltd, First Floor, Millennium House, Victoria Road, Douglas, IM2 4RW, Isle of Man, licensed and regulated respectively by the Gambling Supervision Commission in the Isle of Man (current licence issued on 31 August 2017) and by the Gambling Commission in the UK (licence <0>account no: 39172</0>)."
                                     components={[
                                         <StaticAssetLink
                                             external
@@ -720,12 +720,12 @@ const Footer = () => {
                             </DisclaimerParagraph>
                             <DisclaimerParagraph>
                                 <Localize
-                                    translate_text="In the rest of the EU, synthetic indices are offered by Deriv (Europe) Limited, W Business Centre, Level 3, Triq Dun Karm, Birkirkara BKR 9033, Malta, licensed and regulated by the Malta Gaming Authority (<0>licence no. MGA/B2C/102/2000</0> issued on 01 August 2018), by the Gambling Commission in the UK for for clients residing in the UK (licence <1>reference no: 39495</1>), and by the Revenue Commissioners in Ireland for clients residing in Ireland (Remote Bookmaker's Licence no. 1010285 issued on 1 July 2017)."
+                                    translate_text="In the rest of the EU, synthetic indices are offered by Deriv (Europe) Limited, W Business Centre, Level 3, Triq Dun Karm, Birkirkara BKR 9033, Malta, licensed and regulated by the Malta Gaming Authority (<0>licence no. MGA/B2C/102/2000</0> issued on 01 August 2018), by the Gambling Commission in the UK for for clients residing in the UK (licence <1>account no: 39495</1>), and by the Revenue Commissioners in Ireland for clients residing in Ireland (Remote Bookmaker's Licence no. 1010285 issued on 1 July 2017)."
                                     components={[
                                         <StaticAsset
                                             key={0}
                                             target="_blank"
-                                            href="/regulatory/Deriv_(Europe)_Ltd.pdf"
+                                            href="/regulatory/Deriv_(Europe)_Limited.pdf"
                                             rel="noopener noreferrer"
                                         />,
                                         <StaticAssetLink

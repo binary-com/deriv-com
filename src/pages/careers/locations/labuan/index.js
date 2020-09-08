@@ -26,7 +26,7 @@ const query = graphql`
         labuan_grid_4: file(relativePath: { eq: "careers/labuan_grid_4.png" }) {
             ...fadeIn
         }
-        map_labuan: file(relativePath: { eq: "maps/map-labuan.png" }) {
+        map_labuan: file(relativePath: { eq: "careers/maps/map-labuan.png" }) {
             ...fadeIn
         }
     }
@@ -36,7 +36,7 @@ const Labuan = () => {
     const images = useStaticQuery(query)
 
     return (
-        <Layout type="careers" padding_top="10rem">
+        <Layout type="careers">
             <SEO
                 title={localize('Labuan | Our office – Malaysia | Deriv')}
                 description={localize(

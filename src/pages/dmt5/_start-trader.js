@@ -203,6 +203,7 @@ const StartTrader = () => {
                                 />
                             }
                             item_width="24rem"
+                            mobile_item_width="36rem"
                         >
                             <ImageWrapper>
                                 <QueryImage

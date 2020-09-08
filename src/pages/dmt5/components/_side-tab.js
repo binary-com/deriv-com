@@ -121,7 +121,7 @@ const Tabs = ({ children, is_reverse, parent_tab }) => {
             <TabList role="tablist" is_reverse={is_reverse}>
                 {React.Children.map(children, (child, index) => {
                     const {
-                        props: { label, description, item_width },
+                        props: { label, description, item_width, mobile_item_width },
                     } = child
                     return (
                         <>
@@ -134,6 +134,7 @@ const Tabs = ({ children, is_reverse, parent_tab }) => {
                                 <Text weight="bold">{label}</Text>
                                 <Text
                                     max_width={item_width || '36.4rem'}
+                                    mobile_max_width={mobile_item_width || item_width}
                                     size="var(--text-size-m)"
                                     mt="0.8rem"
                                 >

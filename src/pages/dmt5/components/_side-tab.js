@@ -93,11 +93,18 @@ const TabPanel = ({ children }) => (
 TabPanel.propTypes = {
     children: PropTypes.node,
 }
-
-const Tabs = ({ children, is_reverse }) => {
+const Tabs = ({ children, is_reverse, parent_tab }) => {
     const [selected_tab, setSelectedTab] = React.useState(0)
+    const [old_parent_tab, setOldParentTab] = React.useState(parent_tab)
+    const prevParentRef = React.useRef()
+    React.useEffect(() => {
+        prevParentRef.current = old_parent_tab
+        if (old_parent_tab !== parent_tab) setSelectedTab(0)
+    })
+
     const selectTab = (tabIndex) => {
         setSelectedTab(tabIndex)
+        setOldParentTab(parent_tab)
     }
 
     return (
@@ -147,10 +154,10 @@ const Tabs = ({ children, is_reverse }) => {
 }
 
 Tabs.Panel = TabPanel
-
 Tabs.propTypes = {
     children: PropTypes.node,
     is_reverse: PropTypes.bool,
+    parent_tab: PropTypes.string,
     tab_break: PropTypes.string,
 }
 

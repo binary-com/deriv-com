@@ -142,11 +142,20 @@ const trade_types = [margin, options, multipliers]
 const TradeTypesMobile = () => {
     const ref = React.useRef(null)
 
+    const [should_load, setShouldLoad] = React.useState(false)
+
+    React.useEffect(() => {
+        // TODO: remove this after replacing the swiper carousel
+        setTimeout(() => {
+            setShouldLoad(true)
+        }, 500)
+    }, [])
+
     const params = {
         slidesPerView: 'auto',
         centeredSlides: true,
         spaceBetween: 12,
-        // lazy: true,
+        lazy: true,
         // autoplay: {
         //     delay: 15000,
         //     disableOnInteraction: false,
@@ -157,6 +166,7 @@ const TradeTypesMobile = () => {
         },
     }
 
+    if (!should_load) return null
     return (
         <>
             <Helmet>

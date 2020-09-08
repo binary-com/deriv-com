@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { Header, Text, Card, LocalizedLinkText } from 'components/elements'
-import { localize } from 'components/localization'
+import { localize, LocalizedLink } from 'components/localization'
 import Arrow from 'images/svg/arrow-right.svg'
 
 const CustomLinkWrap = styled.div`
@@ -78,27 +78,33 @@ const StyledLinkText = styled(LocalizedLinkText)`
     }
 `
 
+const StyledLink = styled(LocalizedLink)`
+    text-decoration: none;
+`
+
 const TradeTypesCard = ({ icon, title, description, link, linkTitle }) => {
     return (
-        <StyledCard>
-            <CustomWrap>
-                <LogoDiv>{icon}</LogoDiv>
-                <Header>{title}</Header>
-                <StyledText>{description}</StyledText>
-            </CustomWrap>
-            <CustomLinkWrap>
-                <StyledLinkText
-                    ariaLabel={linkTitle}
-                    weight="bold"
-                    color="red"
-                    mt="16px"
-                    size="16px"
-                    to={link}
-                >
-                    <span>{localize('Learn more')}</span> <Arrow />
-                </StyledLinkText>
-            </CustomLinkWrap>
-        </StyledCard>
+        <StyledLink ariaLabel={linkTitle} to={link}>
+            <StyledCard>
+                <CustomWrap>
+                    <LogoDiv>{icon}</LogoDiv>
+                    <Header>{title}</Header>
+                    <StyledText>{description}</StyledText>
+                </CustomWrap>
+                <CustomLinkWrap>
+                    <StyledLinkText
+                        ariaLabel={linkTitle}
+                        weight="bold"
+                        color="red"
+                        mt="16px"
+                        size="16px"
+                        to={link}
+                    >
+                        <span>{localize('Learn more')}</span> <Arrow />
+                    </StyledLinkText>
+                </CustomLinkWrap>
+            </StyledCard>
+        </StyledLink>
     )
 }
 

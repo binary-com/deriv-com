@@ -6,7 +6,7 @@ import { Helmet } from 'react-helmet'
 import { Header, Text, LocalizedLinkText } from 'components/elements'
 import device from 'themes/device'
 import { SectionContainer, Flex } from 'components/containers'
-import { localize, Localize } from 'components/localization'
+import { localize, Localize, LocalizedLink } from 'components/localization'
 import { LinkButton } from 'components/form'
 import MarginLogo from 'components/svgs/margin'
 import OptionsLogo from 'components/svgs/options'
@@ -72,31 +72,38 @@ const StyledLinkText = styled(LocalizedLinkText)`
     }
 `
 
+const StyledLink = styled(LocalizedLink)`
+    text-decoration: none;
+    margin: 1rem 0;
+`
+
 const TradeTypeSlide = ({ icon, title, description, link, linkTitle }) => {
     return (
         <Flex ai="center" height="unset">
-            <TradeTypeCard>
-                <Flex ai="center" fd="column">
-                    {icon}
-                    <Header mt="1.6rem" mb="0.8rem" align="center" size="var(--text-size-m)">
-                        {title}
-                    </Header>
-                    <Text size="var(--text-size-sm)" align="center">
-                        {description}
-                    </Text>
-                    <StyledLinkText
-                        weight="bold"
-                        color="red"
-                        mt="16px"
-                        size="16px"
-                        ariaLabel={linkTitle}
-                        to={link}
-                    >
-                        <span>{localize('Learn more')}</span>
-                        <Arrow />
-                    </StyledLinkText>
-                </Flex>
-            </TradeTypeCard>
+            <StyledLink ariaLabel={linkTitle} to={link}>
+                <TradeTypeCard>
+                    <Flex ai="center" fd="column">
+                        {icon}
+                        <Header mt="1.6rem" mb="0.8rem" align="center" size="var(--text-size-m)">
+                            {title}
+                        </Header>
+                        <Text size="var(--text-size-sm)" align="center">
+                            {description}
+                        </Text>
+                        <StyledLinkText
+                            weight="bold"
+                            color="red"
+                            mt="16px"
+                            size="16px"
+                            ariaLabel={linkTitle}
+                            to={link}
+                        >
+                            <span>{localize('Learn more')}</span>
+                            <Arrow />
+                        </StyledLinkText>
+                    </Flex>
+                </TradeTypeCard>
+            </StyledLink>
         </Flex>
     )
 }

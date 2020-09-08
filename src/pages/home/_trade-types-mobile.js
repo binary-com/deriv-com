@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import Swiper from 'react-id-swiper'
 import { Helmet } from 'react-helmet'
-import { Header, Text, LocalizedLinkText } from 'components/elements'
+import { Header, Text } from 'components/elements'
 import device from 'themes/device'
 import { SectionContainer, Flex } from 'components/containers'
 import { localize, Localize, LocalizedLink } from 'components/localization'
@@ -63,9 +63,13 @@ const SwiperWrapper = styled.div`
     }
 `
 
-const StyledLinkText = styled(LocalizedLinkText)`
+const StyledLearnMore = styled.div`
     display: flex;
     align-items: center;
+    font-size: 12px;
+    font-weight: bold;
+    color: var(--color-red);
+    margin-top: 16px;
 
     span {
         margin-right: 8px;
@@ -90,17 +94,10 @@ const TradeTypeSlide = ({ icon, title, description, link, linkTitle }) => {
                         <Text size="var(--text-size-sm)" align="center">
                             {description}
                         </Text>
-                        <StyledLinkText
-                            weight="bold"
-                            color="red"
-                            mt="16px"
-                            size="16px"
-                            ariaLabel={linkTitle}
-                            to={link}
-                        >
+                        <StyledLearnMore>
                             <span>{localize('Learn more')}</span>
                             <Arrow />
-                        </StyledLinkText>
+                        </StyledLearnMore>
                     </Flex>
                 </TradeTypeCard>
             </StyledLink>

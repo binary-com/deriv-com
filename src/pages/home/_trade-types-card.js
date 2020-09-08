@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { Header, Text, Card, LocalizedLinkText } from 'components/elements'
+import { Header, Text, Card } from 'components/elements'
 import { localize, LocalizedLink } from 'components/localization'
 import Arrow from 'images/svg/arrow-right.svg'
 
@@ -65,21 +65,21 @@ const StyledCard = styled(Card)`
     }
 `
 
-const StyledLinkText = styled(LocalizedLinkText)`
+const StyledLink = styled(LocalizedLink)`
+    text-decoration: none;
+`
+
+const StyledLearnMore = styled.div`
     display: flex;
     align-items: center;
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--color-red);
+    margin-top: 16px;
 
-    &:hover {
-        color: var(--color-red);
-        text-decoration: none;
-    }
     span {
         margin-right: 8px;
     }
-`
-
-const StyledLink = styled(LocalizedLink)`
-    text-decoration: none;
 `
 
 const TradeTypesCard = ({ icon, title, description, link, linkTitle }) => {
@@ -92,16 +92,9 @@ const TradeTypesCard = ({ icon, title, description, link, linkTitle }) => {
                     <StyledText>{description}</StyledText>
                 </CustomWrap>
                 <CustomLinkWrap>
-                    <StyledLinkText
-                        ariaLabel={linkTitle}
-                        weight="bold"
-                        color="red"
-                        mt="16px"
-                        size="16px"
-                        to={link}
-                    >
+                    <StyledLearnMore>
                         <span>{localize('Learn more')}</span> <Arrow />
-                    </StyledLinkText>
+                    </StyledLearnMore>
                 </CustomLinkWrap>
             </StyledCard>
         </StyledLink>

@@ -28,7 +28,7 @@ const TradeTypes = () => {
     return (
         <div>
             <StyledContainer>
-                <Flex direction="column" max_width="28.4rem">
+                <Flex direction="column" max_width="28.2rem">
                     <Header size="3.2rem">{localize('Trade types')}</Header>
                     <Text size="2.4rem" mt="1.6rem" mb="5rem">
                         {localize(

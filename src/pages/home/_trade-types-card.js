@@ -28,7 +28,7 @@ const StyledText = styled(Text)`
 `
 
 const StyledCard = styled(LocalizedLink)`
-    max-width: 28.4rem;
+    max-width: 28.2rem;
     margin: 0 1.2rem;
     padding: 6.4rem 2.3rem;
     display: flex;

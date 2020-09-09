@@ -8,13 +8,15 @@ import Arrow from 'images/svg/arrow-right.svg'
 const CustomLinkWrap = styled.div`
     display: block;
     opacity: 0;
-    transition: visibility 0s, opacity 0.5s linear;
+    transition: visibility 0s, opacity 0.5s ease-in;
     margin-top: 5px;
 `
 
 const CustomWrap = styled.div`
     display: block;
     transition: all 0.2s ease-in;
+    position: relative;
+    top: 0;
 `
 
 const LogoDiv = styled.div`
@@ -23,11 +25,12 @@ const LogoDiv = styled.div`
 
 const StyledText = styled(Text)`
     text-align: center;
+    font-size: 16px;
 `
 
 const StyledCard = styled(Card)`
     max-width: 28.2rem;
-    margin: 0 2.4rem;
+    margin: 0 1.2rem;
     padding: 6.4rem 2.3rem;
     display: flex;
     flex-direction: column;
@@ -43,7 +46,7 @@ const StyledCard = styled(Card)`
         box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.05);
 
         ${CustomWrap} {
-            margin-bottom: 20px;
+            top: -20px;
             transition-duration: 0.2s;
         }
         ${CustomLinkWrap} {

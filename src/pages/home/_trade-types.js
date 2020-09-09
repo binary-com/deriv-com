@@ -17,10 +17,16 @@ const TradingButton = styled(LinkButton)`
     justify-content: center;
 `
 
+const StyledContainer = styled(Container)`
+    margin: 0 auto 8rem;
+    height: 35rem;
+    width: 90%;
+`
+
 const TradeTypes = () => {
     return (
         <div>
-            <Container m="0 auto 8rem !important" height="35rem" width="90% !important">
+            <StyledContainer>
                 <Flex direction="column" max_width="28.2rem">
                     <Header size="3.2rem">{localize('Trade types')}</Header>
                     <Text size="2.4rem" mt="1.6rem" mb="5rem">
@@ -42,7 +48,7 @@ const TradeTypes = () => {
                         linkTitle={trade_type.linkTitle}
                     />
                 ))}
-            </Container>
+            </StyledContainer>
         </div>
     )
 }

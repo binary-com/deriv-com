@@ -61,7 +61,7 @@ const LoveTrading = () => {
                             {localize('Love MT5 on Binary.com?')}
                         </White>
                         <FitButton
-                            external
+                            external="true"
                             white
                             to={deriv_app_url + '/mt5'}
                             target="_blank"

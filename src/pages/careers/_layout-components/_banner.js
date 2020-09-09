@@ -47,7 +47,7 @@ export const Banner = ({ header, p1, p2, p3 }) => (
             </Text>
             <Text align="center" color="white" style={{ marginBottom: '2.4rem' }}>
                 {p3}
-                <MailLink to="mailto:recruitment@deriv.hr" external>
+                <MailLink to="mailto:recruitment@deriv.hr" external="true">
                     {localize('recruitment@deriv.hr')}
                 </MailLink>
             </Text>
@@ -61,7 +61,7 @@ export const JobMailBanner = () => (
             <Email />
             <Text align="center" color="white" style={{ marginLeft: '2.4rem' }}>
                 {localize('To apply, send your CV to ')}
-                <MailLink to="mailto:recruitment@deriv.hr" external>
+                <MailLink to="mailto:recruitment@deriv.hr" external="true">
                     recruitment@deriv.hr
                 </MailLink>
             </Text>

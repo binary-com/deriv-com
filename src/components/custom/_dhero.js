@@ -315,7 +315,7 @@ DHero.propTypes = {
     content: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     go_to_live_demo: PropTypes.bool,
     image_name: PropTypes.string,
-    is_mobile: PropTypes.bool,
+    is_mobile: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
     join_us_for_free: PropTypes.bool,
     Logo: PropTypes.func,
     title: PropTypes.string,

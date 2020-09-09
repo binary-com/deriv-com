@@ -57,7 +57,7 @@ const LoveTrading = () => {
                         </White>
 
                         <FitButton
-                            external
+                            external="true"
                             white
                             to="trading"
                             is_smarttrader_link

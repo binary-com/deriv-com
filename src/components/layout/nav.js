@@ -581,7 +581,7 @@ export const NavInterim = ({ interim_type }) => (
                     <Logo />
                 </StyledLogo>
                 <LocalizedLink
-                    external
+                    external="true"
                     to="home"
                     is_binary_link
                     target="_blank"
@@ -595,7 +595,7 @@ export const NavInterim = ({ interim_type }) => (
                         components={[
                             <BinaryLink
                                 key={0}
-                                external
+                                external="true"
                                 to={'home'}
                                 is_binary_link
                                 target="_blank"
@@ -789,7 +789,7 @@ export const NavPartners = ({ no_login_signup }) => {
                                 <LanguageSwitcher short_name="true" is_high_nav />
                                 <LinkButton
                                     to={affiliate_signin_url}
-                                    external
+                                    external="true"
                                     is_affiliate_sign_in_link
                                     target="_blank"
                                     primary
@@ -798,7 +798,7 @@ export const NavPartners = ({ no_login_signup }) => {
                                 </LinkButton>
                                 <LinkSignupButton
                                     to={affiliate_signup_url}
-                                    external
+                                    external="true"
                                     is_affiliate_link
                                     target="_blank"
                                     ref={button_ref}
@@ -835,7 +835,7 @@ export const NavPartners = ({ no_login_signup }) => {
                                 {!no_login_signup && (
                                     <LinkMobileLogin
                                         to={affiliate_signin_url}
-                                        external
+                                        external="true"
                                         is_affiliate_link
                                         target="_blank"
                                         primary

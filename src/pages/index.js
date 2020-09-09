@@ -53,10 +53,10 @@ const Home = () => {
             />
             <Hero />
 
-            <Show.Mobile>
+            <Show.Mobile min_width="992">
                 <TradeTheWayYouLike />
             </Show.Mobile>
-            <Show.Desktop>
+            <Show.Desktop max_width="991">
                 <Trade />
             </Show.Desktop>
 

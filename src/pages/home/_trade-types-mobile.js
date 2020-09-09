@@ -63,22 +63,16 @@ const SwiperWrapper = styled.div`
     }
 `
 
-const StyledLearnMore = styled.div`
-    display: flex;
-    align-items: center;
-    font-size: 12px;
-    font-weight: bold;
-    color: var(--color-red);
-    margin-top: 16px;
-
-    span {
-        margin-right: 8px;
-    }
-`
-
 const StyledLink = styled(LocalizedLink)`
     text-decoration: none;
     margin: 1rem 0;
+`
+
+const CustomLinkWrap = styled.div`
+    display: flex;
+    margin-top: 12px;
+    margin-bottom: 16px;
+    align-items: center;
 `
 
 const TradeTypeSlide = ({ icon, title, description, link, linkTitle }) => {
@@ -94,10 +88,12 @@ const TradeTypeSlide = ({ icon, title, description, link, linkTitle }) => {
                         <Text size="var(--text-size-sm)" align="center">
                             {description}
                         </Text>
-                        <StyledLearnMore>
-                            <span>{localize('Learn more')}</span>
+                        <CustomLinkWrap>
+                            <Text weight="bold" mr="0.8rem" color="red" size="16px">
+                                {localize('Learn more')}{' '}
+                            </Text>
                             <Arrow />
-                        </StyledLearnMore>
+                        </CustomLinkWrap>
                     </Flex>
                 </TradeTypeCard>
             </StyledLink>

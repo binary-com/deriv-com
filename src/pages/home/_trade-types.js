@@ -19,15 +19,16 @@ const TradingButton = styled(LinkButton)`
 
 const StyledContainer = styled(Container)`
     margin: 0 auto 8rem;
-    height: 35rem;
+    height: auto;
     width: 90%;
+    flex-wrap: nowrap;
 `
 
 const TradeTypes = () => {
     return (
         <div>
             <StyledContainer>
-                <Flex direction="column" max_width="28.2rem">
+                <Flex direction="column" max_width="28.4rem">
                     <Header size="3.2rem">{localize('Trade types')}</Header>
                     <Text size="2.4rem" mt="1.6rem" mb="5rem">
                         {localize(
@@ -38,16 +39,18 @@ const TradeTypes = () => {
                         {localize('Start trading')}
                     </TradingButton>
                 </Flex>
-                {trade_types.map((trade_type) => (
-                    <TradeTypesCard
-                        key={trade_type.title}
-                        icon={trade_type.icon}
-                        title={trade_type.title}
-                        description={trade_type.description}
-                        link={trade_type.link}
-                        linkTitle={trade_type.linkTitle}
-                    />
-                ))}
+                <Flex>
+                    {trade_types.map((trade_type) => (
+                        <TradeTypesCard
+                            key={trade_type.title}
+                            icon={trade_type.icon}
+                            title={trade_type.title}
+                            description={trade_type.description}
+                            link={trade_type.link}
+                            linkTitle={trade_type.linkTitle}
+                        />
+                    ))}
+                </Flex>
             </StyledContainer>
         </div>
     )

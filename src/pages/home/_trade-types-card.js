@@ -1,22 +1,21 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { Header, Text, Card } from 'components/elements'
+import { Header, Text } from 'components/elements'
 import { localize, LocalizedLink } from 'components/localization'
 import Arrow from 'images/svg/arrow-right.svg'
 
 const CustomLinkWrap = styled.div`
-    display: block;
+    display: flex;
     opacity: 0;
     transition: visibility 0s, opacity 0.5s ease-in;
     margin-top: 5px;
+    align-items: center;
 `
 
 const CustomWrap = styled.div`
     display: block;
-    transition: all 0.2s ease-in;
-    position: relative;
-    top: 0;
+    transition: transform 0.2s ease-in;
 `
 
 const LogoDiv = styled.div`
@@ -25,11 +24,11 @@ const LogoDiv = styled.div`
 
 const StyledText = styled(Text)`
     text-align: center;
-    font-size: 16px;
+    font-size: 1.6rem;
 `
 
-const StyledCard = styled(Card)`
-    max-width: 28.2rem;
+const StyledCard = styled(LocalizedLink)`
+    max-width: 28.4rem;
     margin: 0 1.2rem;
     padding: 6.4rem 2.3rem;
     display: flex;
@@ -39,15 +38,15 @@ const StyledCard = styled(Card)`
     min-height: 100%;
     box-shadow: none;
     border: 1px solid var(--color-grey-2);
+    border-radius: 8px;
+    text-decoration: none;
 
     &:hover {
-        border: none;
-        border-radius: 8px;
+        border-color: white;
         box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.05);
 
         ${CustomWrap} {
-            top: -20px;
-            transition-duration: 0.2s;
+            transform: translateY(-10px);
         }
         ${CustomLinkWrap} {
             visibility: visible;
@@ -58,7 +57,7 @@ const StyledCard = styled(Card)`
         margin-right: unset;
     }
     ${Text} {
-        font-size: 1.4rem;
+        font-size: 1.6rem;
     }
     ${Header} {
         text-align: center;
@@ -68,39 +67,21 @@ const StyledCard = styled(Card)`
     }
 `
 
-const StyledLink = styled(LocalizedLink)`
-    text-decoration: none;
-`
-
-const StyledLearnMore = styled.div`
-    display: flex;
-    align-items: center;
-    font-size: 16px;
-    font-weight: bold;
-    color: var(--color-red);
-    margin-top: 16px;
-
-    span {
-        margin-right: 8px;
-    }
-`
-
 const TradeTypesCard = ({ icon, title, description, link, linkTitle }) => {
     return (
-        <StyledLink ariaLabel={linkTitle} to={link}>
-            <StyledCard>
-                <CustomWrap>
-                    <LogoDiv>{icon}</LogoDiv>
-                    <Header>{title}</Header>
-                    <StyledText>{description}</StyledText>
-                </CustomWrap>
-                <CustomLinkWrap>
-                    <StyledLearnMore>
-                        <span>{localize('Learn more')}</span> <Arrow />
-                    </StyledLearnMore>
-                </CustomLinkWrap>
-            </StyledCard>
-        </StyledLink>
+        <StyledCard ariaLabel={linkTitle} to={link}>
+            <CustomWrap>
+                <LogoDiv>{icon}</LogoDiv>
+                <Header>{title}</Header>
+                <StyledText>{description}</StyledText>
+            </CustomWrap>
+            <CustomLinkWrap>
+                <Text weight="bold" mr="0.8rem" color="red">
+                    {localize('Learn more')}
+                </Text>{' '}
+                <Arrow />
+            </CustomLinkWrap>
+        </StyledCard>
     )
 }
 

@@ -78,7 +78,7 @@ const Card = styled.article`
     border-radius: 16px;
     box-shadow: 0 4px 8px 0 rgba(14, 14, 14, 0.1);
     background-color: var(--color-white);
-    height: 29.6rem;
+    height: 34.6rem;
     padding: 2.4rem;
     max-width: 28.2rem;
 

@@ -6,11 +6,12 @@ import { Helmet } from 'react-helmet'
 import { Header, Text } from 'components/elements'
 import device from 'themes/device'
 import { SectionContainer, Flex } from 'components/containers'
-import { localize, Localize } from 'components/localization'
+import { localize, Localize, LocalizedLink } from 'components/localization'
 import { LinkButton } from 'components/form'
-import MarginLogo from 'images/svg/margin_tt.svg'
-import OptionsLogo from 'images/svg/options_tt.svg'
-import MultipliersLogo from 'images/svg/multipliers_tt.svg'
+import MarginLogo from 'components/svgs/margin'
+import OptionsLogo from 'components/svgs/options'
+import MultipliersLogo from 'components/svgs/multipliers'
+import Arrow from 'images/svg/arrow-right.svg'
 
 const StyledSection = styled(SectionContainer)`
     display: flex;
@@ -62,20 +63,40 @@ const SwiperWrapper = styled.div`
     }
 `
 
-const TradeTypeSlide = ({ icon, title, description }) => {
+const StyledLink = styled(LocalizedLink)`
+    text-decoration: none;
+    margin: 1rem 0;
+`
+
+const CustomLinkWrap = styled.div`
+    display: flex;
+    margin-top: 12px;
+    margin-bottom: 16px;
+    align-items: center;
+`
+
+const TradeTypeSlide = ({ icon, title, description, link, linkTitle }) => {
     return (
         <Flex ai="center" height="unset">
-            <TradeTypeCard>
-                <Flex ai="center" fd="column">
-                    {icon}
-                    <Header mt="1.6rem" mb="0.8rem" align="center" size="var(--text-size-m)">
-                        {title}
-                    </Header>
-                    <Text size="var(--text-size-sm)" align="center">
-                        {description}
-                    </Text>
-                </Flex>
-            </TradeTypeCard>
+            <StyledLink ariaLabel={linkTitle} to={link}>
+                <TradeTypeCard>
+                    <Flex ai="center" fd="column">
+                        {icon}
+                        <Header mt="1.6rem" mb="0.8rem" align="center" size="var(--text-size-m)">
+                            {title}
+                        </Header>
+                        <Text size="var(--text-size-sm)" align="center">
+                            {description}
+                        </Text>
+                        <CustomLinkWrap>
+                            <Text weight="bold" mr="0.8rem" color="red" size="16px">
+                                {localize('Learn more')}{' '}
+                            </Text>
+                            <Arrow />
+                        </CustomLinkWrap>
+                    </Flex>
+                </TradeTypeCard>
+            </StyledLink>
         </Flex>
     )
 }
@@ -83,35 +104,52 @@ const TradeTypeSlide = ({ icon, title, description }) => {
 TradeTypeSlide.propTypes = {
     description: PropTypes.any,
     icon: PropTypes.any,
+    link: PropTypes.any,
+    linkTitle: PropTypes.any,
     title: PropTypes.any,
 }
 
 const margin = {
-    icon: <MarginLogo />,
+    icon: <MarginLogo dynamic_id="margin-mobile" />,
     title: <Localize translate_text="Margin Trading" />,
     description: (
         <Localize translate_text="Trade with leverage and low spreads for better returns on successful trades." />
     ),
+    link: '/trade-types/margin',
+    linkTitle: localize('Margin'),
 }
 const options = {
-    icon: <OptionsLogo />,
+    icon: <OptionsLogo dynamic_id="options-mobile" />,
     title: <Localize translate_text="Options" />,
     description: (
         <Localize translate_text="Earn fixed payouts by predicting an assets price movement within a fixed time." />
     ),
+    link: '/trade-types/options',
+    linkTitle: localize('Options'),
 }
 const multipliers = {
-    icon: <MultipliersLogo />,
+    icon: <MultipliersLogo dynamic_id="multipliers-mobile" />,
     title: <Localize translate_text="Multipliers" />,
     description: (
         <Localize translate_text="Get the best of both - the upside of margin trading with the simplicity of options." />
     ),
+    link: '/trade-types/multiplier',
+    linkTitle: localize('Multiplier'),
 }
 
 const trade_types = [margin, options, multipliers]
 
 const TradeTypesMobile = () => {
     const ref = React.useRef(null)
+
+    const [should_load, setShouldLoad] = React.useState(false)
+
+    React.useEffect(() => {
+        // TODO: remove this after replacing the swiper carousel
+        setTimeout(() => {
+            setShouldLoad(true)
+        }, 500)
+    }, [])
 
     const params = {
         slidesPerView: 'auto',
@@ -128,6 +166,7 @@ const TradeTypesMobile = () => {
         },
     }
 
+    if (!should_load) return null
     return (
         <>
             <Helmet>
@@ -146,14 +185,13 @@ const TradeTypesMobile = () => {
                     <SwiperWrapper>
                         <Swiper {...params} ref={ref}>
                             {trade_types.map((trade_slide) => (
-                                <div
-                                    className="swiper-slide"
-                                    key={trade_slide.title.props.translate_text}
-                                >
+                                <div className="swiper-slide" key={trade_slide.title}>
                                     <TradeTypeSlide
                                         icon={trade_slide.icon}
                                         title={trade_slide.title}
                                         description={trade_slide.description}
+                                        link={trade_slide.link}
+                                        linkTitle={trade_slide.linkTitle}
                                     />
                                 </div>
                             ))}

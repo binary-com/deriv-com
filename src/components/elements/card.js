@@ -329,6 +329,7 @@ const SvgWrapper = styled.div`
         }
     }
 `
+
 export const NavCard = ({
     icon: Icon,
     title,
@@ -418,16 +419,22 @@ const HoverFlex = styled(Flex)`
     }
 `
 
-const RelativeFlex = styled(Flex)`
-    position: relative;
-`
-
 const IconRightWrapper = styled.div`
     & > svg {
         height: 24px;
         width: 24px;
         margin-right: 1.6rem;
     }
+`
+
+const RelativeFlex = styled(Flex)`
+    & > div > svg {
+        height: 24px;
+        width: 24px;
+        margin-right: 1.6rem;
+    }
+
+    position: relative;
 `
 
 export const CardLink = ({ icon: Icon, title, to, style, external, target, onClick }) => {
@@ -472,7 +479,7 @@ export const CardLink = ({ icon: Icon, title, to, style, external, target, onCli
 
 CardLink.propTypes = {
     content: PropTypes.string,
-    external: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+    external: PropTypes.bool,
     icon: PropTypes.func,
     onClick: PropTypes.func,
     style: PropTypes.object,

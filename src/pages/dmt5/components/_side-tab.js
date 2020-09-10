@@ -8,6 +8,11 @@ import device, { size } from 'themes/device'
 const TabContent = styled.div`
     width: 100%;
 `
+const Content = styled.div`
+    flex: 1;
+    opacity: ${(props) => (props.selected ? '1' : '0')};
+    transition: opacity 1s ease-in;
+`
 const TabButton = styled.div`
     position: relative;
     z-index: 2;
@@ -61,10 +66,6 @@ const TabList = styled.div`
     }
 `
 
-const Content = styled.div`
-    flex: 1;
-`
-
 const Desktop = styled(Show.Desktop)`
     flex: 1;
     width: 100%;
@@ -92,26 +93,35 @@ const TabPanel = ({ children }) => (
 TabPanel.propTypes = {
     children: PropTypes.node,
 }
-
-const Tabs = ({ children, is_reverse }) => {
+const Tabs = ({ children, is_reverse, parent_tab }) => {
     const [selected_tab, setSelectedTab] = React.useState(0)
+    const [old_parent_tab, setOldParentTab] = React.useState(parent_tab)
+    const prevParentRef = React.useRef()
+    React.useEffect(() => {
+        prevParentRef.current = old_parent_tab
+        if (old_parent_tab !== parent_tab) setSelectedTab(0)
+    })
+
     const selectTab = (tabIndex) => {
         setSelectedTab(tabIndex)
+        setOldParentTab(parent_tab)
     }
 
     return (
         <Flex ai="flex-start" direction={is_reverse ? 'row-reverse' : 'row'}>
             <Desktop max_width={size.tabletS}>
-                <Content>
-                    {React.Children.map(children, (el, index) => {
-                        return selected_tab === index ? el : undefined
-                    })}
-                </Content>
+                {React.Children.map(children, (el, index) => {
+                    return (
+                        <Content selected={selected_tab === index}>
+                            {selected_tab === index ? el : undefined}
+                        </Content>
+                    )
+                })}
             </Desktop>
             <TabList role="tablist" is_reverse={is_reverse}>
                 {React.Children.map(children, (child, index) => {
                     const {
-                        props: { label, description, item_width },
+                        props: { label, description, item_width, mobile_item_width },
                     } = child
                     return (
                         <>
@@ -124,6 +134,7 @@ const Tabs = ({ children, is_reverse }) => {
                                 <Text weight="bold">{label}</Text>
                                 <Text
                                     max_width={item_width || '36.4rem'}
+                                    mobile_max_width={mobile_item_width || item_width}
                                     size="var(--text-size-m)"
                                     mt="0.8rem"
                                 >
@@ -131,7 +142,9 @@ const Tabs = ({ children, is_reverse }) => {
                                 </Text>
                             </TabButton>
                             <Mobile min_width={size.tabletS}>
-                                <Content>{selected_tab === index ? child : undefined}</Content>
+                                <Content selected={selected_tab === index}>
+                                    {selected_tab === index ? child : undefined}
+                                </Content>
                             </Mobile>
                         </>
                     )
@@ -142,10 +155,10 @@ const Tabs = ({ children, is_reverse }) => {
 }
 
 Tabs.Panel = TabPanel
-
 Tabs.propTypes = {
     children: PropTypes.node,
     is_reverse: PropTypes.bool,
+    parent_tab: PropTypes.string,
     tab_break: PropTypes.string,
 }
 

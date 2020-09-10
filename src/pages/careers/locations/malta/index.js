@@ -33,7 +33,7 @@ const Malta = () => {
     const images = useStaticQuery(query)
 
     return (
-        <Layout type="careers" padding_top="10rem">
+        <Layout type="careers">
             <SEO
                 title={localize('Malta – Our office | Deriv')}
                 description={localize(

@@ -19,7 +19,7 @@ const Descriptions = styled.div`
     border-bottom: 1px solid var(--color-grey-21);
 `
 const Col = styled(Flex)`
-    max-width: 12.9rem;
+    max-width: 14.9rem;
 
     @media ${device.tabletL} {
         max-width: 10rem;
@@ -178,7 +178,7 @@ const DigitalOptions = () => {
                 </Row>
                 <Row jc="flex-start" ai="center">
                     <Col max_width="13.2rem">
-                        <Title weight="bold" max_width="9.7rem" align="center">
+                        <Title weight="bold" max_width="13.7rem" align="center">
                             {localize('Energy')}
                         </Title>
                     </Col>

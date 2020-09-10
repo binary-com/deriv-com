@@ -51,7 +51,7 @@ const CardWrapper = styled(Flex)`
 const CardContainer = styled(Flex)`
     position: relative;
     width: fit-content;
-    min-width: 25rem;
+    min-width: 29rem;
     height: 7.72rem;
     padding: 0;
     margin: 0 -0.6rem;

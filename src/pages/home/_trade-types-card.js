@@ -33,7 +33,7 @@ const StyledCard = styled(LocalizedLink)`
     padding: 6.4rem 2.3rem;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     min-height: 100%;
     box-shadow: none;

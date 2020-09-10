@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Container, Flex, Show } from 'components/containers'
+import { Container, Flex, Show, Box } from 'components/containers'
 import { Header, LocalizedLinkText, Text } from 'components/elements'
 import { Localize, localize } from 'components/localization'
 import { TimelineTick } from 'components/elements/timeline'
@@ -98,30 +98,38 @@ const TradingLimits = () => {
                         <StyledSubHeader size="2rem" pt="3rem" pb="1rem">
                             {localize('You can:')}
                         </StyledSubHeader>
-                        <Text ml="0.8rem" max_width="44rem">
+                        <Box ml="0.8rem" max_width="44rem">
                             <TimelineTick color="var(--color-red)" pb="1rem">
                                 <TimelineTick.Item>
-                                    {localize(
-                                        'Limit the amount of money you may trade within a specified period.',
-                                    )}
+                                    <Text>
+                                        {localize(
+                                            'Limit the amount of money you may trade within a specified period.',
+                                        )}
+                                    </Text>
                                 </TimelineTick.Item>
                                 <TimelineTick.Item>
-                                    {localize(
-                                        'Limit the losses you may incur within a specified period.',
-                                    )}
+                                    <Text>
+                                        {localize(
+                                            'Limit the losses you may incur within a specified period.',
+                                        )}
+                                    </Text>
                                 </TimelineTick.Item>
                                 <TimelineTick.Item>
-                                    {localize(
-                                        'Limit the amount of time you may trade in a session.',
-                                    )}
+                                    <Text>
+                                        {localize(
+                                            'Limit the amount of time you may trade in a session.',
+                                        )}
+                                    </Text>
                                 </TimelineTick.Item>
                                 <TimelineTick.Item>
-                                    {localize(
-                                        'Exclude yourself from trading on our website for a definite or indefinite period.',
-                                    )}
+                                    <Text>
+                                        {localize(
+                                            'Exclude yourself from trading on our website for a definite or indefinite period.',
+                                        )}
+                                    </Text>
                                 </TimelineTick.Item>
                             </TimelineTick>
-                        </Text>
+                        </Box>
                         <div>
                             <Text mt="1.4rem">
                                 <Localize
@@ -130,7 +138,7 @@ const TradingLimits = () => {
                                         <LocalizedLinkText
                                             to="/account/self-exclusion"
                                             is_deriv_app_link
-                                            external
+                                            external="true"
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             color="red"
@@ -174,35 +182,45 @@ const TradingLimits = () => {
                             </Show.NonEU> */}
 
                             {/* <Show.Eu> */}
-                            <Text ml="0.8rem" max_width="44rem">
+                            <Box ml="0.8rem" max_width="44rem">
                                 <TimelineTick color="var(--color-red)" pb="1rem">
                                     <TimelineTick.Item>
-                                        {localize(
-                                            'Daily limits may be removed or increased after 24 hours of receiving the notice. Confirmation is required to amend the limits.',
-                                        )}
+                                        <Text>
+                                            {localize(
+                                                'Daily limits may be removed or increased after 24 hours of receiving the notice. Confirmation is required to amend the limits.',
+                                            )}
+                                        </Text>
                                     </TimelineTick.Item>
                                     <TimelineTick.Item>
-                                        {localize(
-                                            'There’s a minimum period of 6 months for self-exclusion. You have the option to extend it to a total of 5 years immediately without any cooling-off period.',
-                                        )}
+                                        <Text>
+                                            {localize(
+                                                'There’s a minimum period of 6 months for self-exclusion. You have the option to extend it to a total of 5 years immediately without any cooling-off period.',
+                                            )}
+                                        </Text>
                                     </TimelineTick.Item>
                                     <TimelineTick.Item>
-                                        {localize(
-                                            'When you’ve set your self-exclusion period, we will refund your account balance to you.',
-                                        )}
+                                        <Text>
+                                            {localize(
+                                                'When you’ve set your self-exclusion period, we will refund your account balance to you.',
+                                            )}
+                                        </Text>
                                     </TimelineTick.Item>
                                     <TimelineTick.Item>
-                                        {localize(
-                                            'At the end of the self-exclusion period, the self-exclusion will remain in place until you take action.',
-                                        )}
+                                        <Text>
+                                            {localize(
+                                                'At the end of the self-exclusion period, the self-exclusion will remain in place until you take action.',
+                                            )}
+                                        </Text>
                                     </TimelineTick.Item>
                                     <TimelineTick.Item>
-                                        {localize(
-                                            'If you do not wish to renew the self-exclusion and you make a request to trade again, there will be a cooling-off period of 1 day before you are allowed access to our site. Please note that email is insufficient and your request must be made by phone.',
-                                        )}
+                                        <Text>
+                                            {localize(
+                                                'If you do not wish to renew the self-exclusion and you make a request to trade again, there will be a cooling-off period of 1 day before you are allowed access to our site. Please note that email is insufficient and your request must be made by phone.',
+                                            )}
+                                        </Text>
                                     </TimelineTick.Item>
                                 </TimelineTick>
-                            </Text>
+                            </Box>
                             {/* </Show.Eu> */}
                         </div>
                         <div>

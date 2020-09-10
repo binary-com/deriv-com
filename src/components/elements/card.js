@@ -472,7 +472,7 @@ export const CardLink = ({ icon: Icon, title, to, style, external, target, onCli
 
 CardLink.propTypes = {
     content: PropTypes.string,
-    external: PropTypes.bool,
+    external: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
     icon: PropTypes.func,
     onClick: PropTypes.func,
     style: PropTypes.object,

@@ -139,7 +139,7 @@ const Flexibility = () => {
                     )
                 })}
             </Flex>
-            <StyledLinkButton external secondary="true" to={`${deriv_app_url}/mt5/`}>
+            <StyledLinkButton external="true" secondary="true" to={`${deriv_app_url}/mt5/`}>
                 {localize('Go to DMT5 dashboard')}
             </StyledLinkButton>
         </Section>

@@ -2,6 +2,7 @@ import React from 'react'
 import styled, { css } from 'styled-components'
 import { LocalizedLink } from 'components/localization'
 import { Margins, Paddings } from 'themes/function'
+import device from 'themes/device'
 
 const createElement = React.createElement
 
@@ -16,6 +17,10 @@ export const BaseElement = css`
     min-width:  ${(props) => props.min_width || ''};
     ${Margins}
     ${Paddings}
+
+    @media ${device.tablet} {
+        max-width:  ${(props) => props.mobile_max_width || ''};
+    }
 `
 export const Text = styled.p`
     ${BaseElement}

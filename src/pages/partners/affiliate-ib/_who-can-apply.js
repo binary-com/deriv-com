@@ -173,7 +173,7 @@ const WhoCanApply = () => {
                         <SecondaryHeader mb="4rem" size="3.6rem">
                             {localize('Get started easily')}
                         </SecondaryHeader>
-                        <Timeline {...(<style> margin-left = 15px </style>)}>
+                        <Timeline>
                             <Timeline.Item>
                                 <HowToApplyContent>
                                     <Apply />
@@ -221,7 +221,7 @@ const WhoCanApply = () => {
                 <LinkButton
                     secondary
                     to={affiliate_signup_url}
-                    external
+                    external="true"
                     target="_blank"
                     is_affiliate_link
                 >

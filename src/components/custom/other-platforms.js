@@ -164,7 +164,9 @@ export const SmarttraderCard = ({ is_selected, word_break_cover }) => (
                 <Localize
                     key={0}
                     translate_text="Trade the world’s markets on <0>Binary.com</0>’s classic platform."
-                    components={[<LocalizedLinkText key={0} to="home" external is_binary_link />]}
+                    components={[
+                        <LocalizedLinkText key={0} to="home" external="true" is_binary_link />,
+                    ]}
                 />,
             ]}
             is_inline_icon
@@ -382,7 +384,7 @@ export const NavCompany = ({ onClick }) => (
             title={localize('Careers')}
             onClick={onClick}
             to="/careers/"
-            external
+            external="true"
         />
     </Flex>
 )
@@ -405,7 +407,7 @@ export const NavResources = ({ onClick }) => (
             onClick={onClick}
             to={community_url}
             target="_blank"
-            external
+            external="true"
         />
         <CardLink
             icon={() => <Payment dynamic_id="payment-desktop" />}

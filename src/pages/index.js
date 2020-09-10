@@ -43,7 +43,7 @@ const simple_step_content = [
 ]
 const Home = () => {
     return (
-        <Layout type="new-home">
+        <Layout>
             <SEO
                 title={localize('Online trading platform | Forex, commodities and indices | Deriv')}
                 description={localize(

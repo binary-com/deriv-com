@@ -428,12 +428,6 @@ const IconRightWrapper = styled.div`
 `
 
 const RelativeFlex = styled(Flex)`
-    & > div > svg {
-        height: 24px;
-        width: 24px;
-        margin-right: 1.6rem;
-    }
-
     position: relative;
 `
 

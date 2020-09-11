@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import matchSorter from 'match-sorter'
-import { RoleBanner } from '../_layout-components/_banner'
+// import { RoleBanner } from '../_layout-components/_banner'
 import { getPositionsByQuery, team_names } from '../_controller/_teams'
 import { locations } from '../_model/_locations/_locations'
 import SearchForm from './_search-form'
@@ -126,7 +126,8 @@ const Jobs = () => {
                     </Flex>
                 </SearchContainer>
             </SectionContainer>
-            <RoleBanner />
+            {/* Temporary removed for email checked */}
+            {/* <RoleBanner /> */}
         </Layout>
     )
 }

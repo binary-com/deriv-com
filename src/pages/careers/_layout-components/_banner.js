@@ -69,15 +69,6 @@ export const JobMailBanner = () => (
     </JobMailSection>
 )
 
-export const RoleBanner = () => (
-    <Banner
-        header={'Don’t see your role listed?'}
-        p1={'Even if you don’t see a role that interests you, please send us your CV.'}
-        p2={'We will contact you if a job that matches your background becomes available.'}
-        p3={'Send your CV to '}
-    />
-)
-
 Banner.propTypes = {
     button_text: PropTypes.string,
     header: PropTypes.string,

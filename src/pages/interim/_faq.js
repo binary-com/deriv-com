@@ -7,7 +7,7 @@ import { Header, Accordion, AccordionItem } from 'components/elements'
 import DotPattern from 'images/svg/dot-pattern.svg'
 
 const AccordionWrapper = styled.div`
-    max-width: 99.6rem;
+    max-width: 79.2rem;
     margin: 0 auto;
     position: relative;
     z-index: 2;

@@ -84,7 +84,7 @@ const Card = styled.article`
 
     @media (max-width: 680px) {
         max-width: 282px;
-        height: 20.4rem;
+        height: 26.4rem;
     }
 
     &:hover .learn-more {

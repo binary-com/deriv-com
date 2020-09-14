@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 import { Text } from './typography'
-import device from 'themes/device'
 import { useStateWithCallback } from 'components/hooks/use-state-with-callback'
-import ChevronThick from 'images/svg/chevron-thick.svg'
 import Chevron from 'images/svg/chevron-bottom.svg'
-import Plus from 'images/svg/plus.svg'
+import ChevronThick from 'images/svg/chevron-thick.svg'
 import Minus from 'images/svg/minus.svg'
+import Plus from 'images/svg/plus.svg'
+import device from 'themes/device'
 
 const ThickArrow = styled(ChevronThick)`
     transform: rotate(-180deg);
@@ -96,50 +96,52 @@ const SingleAccordionContent = ({ is_default_open = false, nodes, children }) =>
             if (is_default_open) setExpanded(true)
         }, [])
 
-        React.useEffect(() => setHeight(getHeight(child_idx)), [is_expanded])
+        React.useEffect(() => child && setHeight(getHeight(child_idx)), [is_expanded])
 
         return (
-            <ResponsiveWrapper
-                key={child_idx}
-                style={child.props.parent_style}
-                ref={(div) => {
-                    nodes[child_idx] = { ref: div }
-                }}
-            >
-                <AccordionWrapper>
-                    <AccordionHeader
-                        onClick={() => setExpanded(!is_expanded)}
-                        role="button"
-                        aria-expanded={is_expanded}
-                        style={child.props.header_style}
-                    >
-                        <Text weight="bold">{child.props.header}</Text>
-                        <div>
-                            {child.props.plus ? (
-                                is_expanded ? (
-                                    <Minus />
+            child && (
+                <ResponsiveWrapper
+                    key={child_idx}
+                    style={child.props.parent_style}
+                    ref={(div) => {
+                        nodes[child_idx] = { ref: div }
+                    }}
+                >
+                    <AccordionWrapper>
+                        <AccordionHeader
+                            onClick={() => setExpanded(!is_expanded)}
+                            role="button"
+                            aria-expanded={is_expanded}
+                            style={child.props.header_style}
+                        >
+                            <Text weight="bold">{child.props.header}</Text>
+                            <div>
+                                {child.props.plus ? (
+                                    is_expanded ? (
+                                        <Minus />
+                                    ) : (
+                                        <Plus />
+                                    )
+                                ) : child.props.arrow_thin ? (
+                                    <Arrow expanded={is_expanded ? 'true' : 'false'} />
                                 ) : (
-                                    <Plus />
-                                )
-                            ) : child.props.arrow_thin ? (
-                                <Arrow expanded={is_expanded ? 'true' : 'false'} />
-                            ) : (
-                                <ThickArrow expanded={is_expanded ? 'true' : 'false'} />
-                            )}
+                                    <ThickArrow expanded={is_expanded ? 'true' : 'false'} />
+                                )}
+                            </div>
+                        </AccordionHeader>
+                        <div
+                            style={{
+                                overflow: 'hidden',
+                                transition: `height ${TRANSITION_DURATION}ms ease`,
+                                height,
+                                ...child.props.content_style,
+                            }}
+                        >
+                            {child}
                         </div>
-                    </AccordionHeader>
-                    <div
-                        style={{
-                            overflow: 'hidden',
-                            transition: `height ${TRANSITION_DURATION}ms ease`,
-                            height,
-                            ...child.props.content_style,
-                        }}
-                    >
-                        {child}
-                    </div>
-                </AccordionWrapper>
-            </ResponsiveWrapper>
+                    </AccordionWrapper>
+                </ResponsiveWrapper>
+            )
         )
     })
 

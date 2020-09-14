@@ -62,7 +62,7 @@ const ChangingPersonalDetails = () => (
                     <strong key={0} />,
                     <LocalizedLinkText
                         to={`${deriv_app_url}/account/personal-details`}
-                        external
+                        external="true"
                         weight="bold"
                         target="_blank"
                         rel="noopener noreferrer"
@@ -134,7 +134,7 @@ const UnsubscribeEmail = () => (
                     <LocalizedLinkText
                         to={`${deriv_app_url}/account/personal-details`}
                         target="_blank"
-                        external
+                        external="true"
                         weight="bold"
                         rel="noopener noreferrer"
                         key={1}

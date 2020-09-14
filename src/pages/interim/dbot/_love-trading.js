@@ -61,7 +61,7 @@ const LoveTrading = () => {
                             {localize('Love Binary Bot?')}
                         </White>
                         <FitButton
-                            external
+                            external="true"
                             white
                             to={deriv_app_url + '/bot'}
                             target="_blank"

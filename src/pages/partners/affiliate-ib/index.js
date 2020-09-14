@@ -75,7 +75,7 @@ const AffiliateIb = () => {
                 </StyledHeader>
                 <LinkButton
                     to={affiliate_signup_url}
-                    external
+                    external="true"
                     target="_blank"
                     is_affiliate_link
                     secondary

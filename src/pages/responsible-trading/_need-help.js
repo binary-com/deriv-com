@@ -13,7 +13,7 @@ const help_content = [
     {
         header: <Localize translate_text="GAMSTOP" />,
         text: (
-            <Text width="99%">
+            <Text width="99%" pb="1rem">
                 <Localize translate_text="If you are considering self-exclusion, you may wish to register with GAMSTOP." />
             </Text>
         ),
@@ -30,7 +30,7 @@ const help_content = [
     {
         header: <Localize translate_text="BeGambleAware" />,
         text: (
-            <Text>
+            <Text pb="1rem">
                 <Localize translate_text="Deriv.com supports BeGambleAware, the leading charity in Britain committed to minimising gambling-related harm. BeGambleAware offers a helpline for those seeking advice about their gambling. It also has resources to help assess potential gambling problems, and an online gambling calculator to see how much you can really spend." />
             </Text>
         ),
@@ -44,7 +44,9 @@ const help_content = [
     {
         header: <Localize translate_text="Underage gambling" />,
         text: (
-            <Localize translate_text="Clients must be aware that underage gambling is an offence. Deriv.com does not support gambling by those who are underaged. If a client, upon age verification, is proven to be underaged, they will be deprived of any winnings and only deposits made shall be refunded." />
+            <Text pb="1rem">
+                <Localize translate_text="Clients must be aware that underage gambling is an offence. Deriv.com does not support gambling by those who are underaged. If a client, upon age verification, is proven to be underaged, they will be deprived of any winnings and only deposits made shall be refunded." />
+            </Text>
         ),
         icon: <Underage style={{ width: '60%' }} />,
     },
@@ -52,7 +54,9 @@ const help_content = [
     {
         header: <Localize translate_text="Filtering controls" />,
         text: (
-            <Localize translate_text="Our site can be filtered using a number of filtering systems available on the market which could be used to restrict one's access to our site." />
+            <Text pb="1rem">
+                <Localize translate_text="Our site can be filtered using a number of filtering systems available on the market which could be used to restrict one's access to our site." />
+            </Text>
         ),
         icon: <Filtering style={{ width: '60%' }} />,
     },
@@ -142,7 +146,7 @@ const NeedHelp = () => {
                                 <Header size="2.4rem">{item.header}</Header>
                                 {item.icon}
                             </Flex>
-                            <Text pb="1rem">{item.text}</Text>
+                            {item.text}
                             <Text>{item.text2}</Text>
                             <LinkText
                                 tabletL={{ ml: 'auto', mr: 'auto' }}

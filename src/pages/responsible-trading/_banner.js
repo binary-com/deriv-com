@@ -38,7 +38,7 @@ export const RoleBanner = () => (
 )
 
 Banner.propTypes = {
-    button_text: PropTypes.string,
-    header: PropTypes.string,
-    p1: PropTypes.string,
+    button_text: PropTypes.object,
+    header: PropTypes.object,
+    p1: PropTypes.object,
 }

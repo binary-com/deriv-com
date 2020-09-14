@@ -307,7 +307,7 @@ const SignupPublic = ({
                 </div>
             </SignupFormWrapper>
             <BackgroundWrapper direction="column" ai="center">
-                <LinkFlex ai="center" external href={deriv_app_url} target="_blank">
+                <LinkFlex ai="center" external="true" href={deriv_app_url} target="_blank">
                     <StyledHeader
                         size="2.8rem"
                         max_width="28.2rem"

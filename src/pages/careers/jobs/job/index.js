@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import { JobMailBanner } from '../../_layout-components/_banner'
 import { getJobPositionById, team_names } from '../../_controller/_teams'
 import { locations } from '../../_model/_locations/_locations'
 import { SEO, Flex } from 'components/containers'
@@ -89,6 +88,10 @@ const StyledHeader = styled(Header)`
     }
 `
 
+const RoleContainer = styled(StyledContainer)`
+    padding-bottom: 4rem;
+`
+
 const Job = () => {
     const position_name = getLocationHash()
     if (!position_name) return null
@@ -99,7 +102,7 @@ const Job = () => {
     }
 
     return (
-        <Layout type="careers" padding_top="10rem">
+        <Layout type="careers">
             <SEO title={'Job'} />
             <Banner>
                 <StyledContainer>
@@ -116,7 +119,7 @@ const Job = () => {
                     </Flex>
                 </StyledContainer>
             </Banner>
-            <StyledContainer>
+            <RoleContainer>
                 <BackText onClick={handleBack}>
                     <LeftChevron />
                     <Text weight="bold">{'Back'}</Text>
@@ -166,8 +169,7 @@ const Job = () => {
                         </Ul>
                     </>
                 )}
-                <JobMailBanner />
-            </StyledContainer>
+            </RoleContainer>
         </Layout>
     )
 }

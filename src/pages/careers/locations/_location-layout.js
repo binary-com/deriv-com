@@ -1,16 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { getPositionsByLocation } from '../_controller/_teams'
-import { LinkList } from '../_layout-components/_link-list'
-import { RoleBanner } from '../_layout-components/_banner'
+// import { getPositionsByLocation } from '../_controller/_teams'
+// import { LinkList } from '../_layout-components/_link-list'
 import Container from '../_layout-components/_container'
-import { NoOpenPositionsHeader } from '../_layout-components/_no-open-positions'
+// import { NoOpenPositionsHeader } from '../_layout-components/_no-open-positions'
 import device from 'themes/device'
 import { SectionContainer, Flex } from 'components/containers'
 import { Text, LinkText, Header, BackgroundImage, QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
-import { toHashFormat, map_api_key } from 'common/utility'
+import { map_api_key, zoho_url } from 'common/utility'
 import { localize } from 'components/localization'
 import MapPin from 'images/svg/map.svg'
 
@@ -42,7 +41,7 @@ const Subheadline = styled(Text)`
     margin-bottom: 8rem;
 `
 
-const Hero = ({ display_name, name, img_data, description }) => {
+const Hero = ({ display_name, img_data, description }) => {
     return (
         <BackgroundImage
             data={img_data}
@@ -58,7 +57,10 @@ const Hero = ({ display_name, name, img_data, description }) => {
                 <LinkButton
                     has_no_end_slash
                     secondary="true"
-                    to={`/careers/jobs/?filter=${name}&search=`}
+                    to={zoho_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    external
                 >
                     {`View open positions in ${display_name}`}
                 </LinkButton>
@@ -139,16 +141,17 @@ const Iframe = styled.iframe`
 `
 
 export const LocationLayout = ({ location, images }) => {
-    const { display_name, name } = location
+    const { display_name } = location
     if (!display_name) return null
 
-    const positions = getPositionsByLocation(name).sort((a, b) => a.title.localeCompare(b.title))
-    const mapped_positions = positions
-        ? positions.map((position) => ({
-              text: position.title,
-              to: `/careers/jobs/job#${toHashFormat(position.id)}`,
-          }))
-        : []
+    //TODO: Enable in the future when required to show positions available
+    //const positions = getPositionsByLocation(name).sort((a, b) => a.title.localeCompare(b.title))
+    // const mapped_positions = positions
+    //     ? positions.map((position) => ({
+    //           text: position.title,
+    //           to: `/careers/jobs/job#${toHashFormat(position.id)}`,
+    //       }))
+    //     : []
 
     return (
         <>
@@ -250,10 +253,16 @@ export const LocationLayout = ({ location, images }) => {
                                             target="_blank"
                                             href={location.google_map_link}
                                         >
-                                            {location.address}
+                                            {location.address.map((address, index) => (
+                                                <Text key={index}>{address}</Text>
+                                            ))}
                                         </LinkText>
                                     ) : (
-                                        <Text>{location.address}</Text>
+                                        <Text>
+                                            {location.address.map((address, index) => (
+                                                <Text key={index}>{address}</Text>
+                                            ))}
+                                        </Text>
                                     )}
                                 </Flex>
                             </div>
@@ -261,6 +270,8 @@ export const LocationLayout = ({ location, images }) => {
                     </Flex>
                 </LocationCard>
             </SectionContainer>
+
+            {/* TODO: Enable in the future when required to show positions available
             <Header
                 align="center"
                 as="h2"
@@ -277,9 +288,7 @@ export const LocationLayout = ({ location, images }) => {
                 <NoOpenPositionsHeader mb="8rem">
                     {`Sorry, there are currently no open positions in ${location.display_name}`}
                 </NoOpenPositionsHeader>
-            )}
-
-            <RoleBanner />
+            )} */}
         </>
     )
 }

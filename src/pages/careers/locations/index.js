@@ -74,7 +74,7 @@ const CountryCardWrapper = styled(StyledCard)`
     }
 `
 
-const CountryCard = ({ open_positions, country_name, city_name, link, img_data, Icon }) => {
+const CountryCard = ({ country_name, city_name, link, img_data, Icon }) => {
     return (
         <CountryCardWrapper to={link}>
             <QueryImage data={img_data} alt={city_name + localize('Office')} width="100%" />
@@ -86,10 +86,10 @@ const CountryCard = ({ open_positions, country_name, city_name, link, img_data, 
                     <Icon />
                     <Text weight="bold">{country_name}</Text>
                 </Flex>
-                <Flex ai="center" jc="space-between">
-                    <Text>
+                <Flex ai="center" jc="flex-end">
+                    {/* <Text>
                         {open_positions} {'open positions'}
-                    </Text>
+                    </Text> */}
                     <ChevronRight />
                 </Flex>
             </div>
@@ -139,7 +139,7 @@ const Locations = () => {
     const images = useStaticQuery(query)
 
     return (
-        <Layout type="careers" padding_top="10rem">
+        <Layout type="careers" padding_top="7rem">
             <SEO
                 title={localize('Explore our office locations | Deriv')}
                 description={localize(

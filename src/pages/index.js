@@ -1,11 +1,11 @@
 import React from 'react'
 import Loadable from '@loadable/component'
 // import Ticker from './home/_ticker'
-import { Hero } from './home/_hero'
+import Markets from './home/_markets'
+import WhatOurClientsSay from './home/_what-our-clients-say'
 import TradeTypes from './home/_trade-types'
 import TradeTypesMobile from './home/_trade-types-mobile'
-import Markets from './home/_markets'
-import TestimonialCarousel from './home/_testimonial-carousel'
+import { Hero } from './home/_hero'
 import { SEO, Show } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl, Localize } from 'components/localization'
@@ -49,30 +49,29 @@ const Home = () => {
                 description={localize(
                     'Deriv - An online trading platform that offers a wide selection of derivatives to trade on 24/7.',
                 )}
-                has_organization_schema
+                no_index
             />
             <Hero />
 
-            <Show.Mobile>
+            <Show.Mobile min_width="992">
                 <TradeTheWayYouLike />
             </Show.Mobile>
-            <Show.Desktop>
+            <Show.Desktop max_width="991">
                 <Trade />
             </Show.Desktop>
 
-            <Show.Desktop max_width="599">
+            <Show.Desktop max_width="851">
                 <TradeTypes />
             </Show.Desktop>
-            <Show.Mobile min_width="600">
+            <Show.Mobile min_width="852">
                 <TradeTypesMobile />
             </Show.Mobile>
-
             <Markets />
             <SimpleSteps
                 content={simple_step_content}
                 header={<Localize translate_text="3 simple steps" />}
             />
-            <TestimonialCarousel />
+            <WhatOurClientsSay />
             <Signup appearance={Appearances.public} />
             {/* TODO: investigate performance and enable later */}
             {/* {!isProduction() && <Ticker />} */}

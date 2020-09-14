@@ -54,7 +54,7 @@ const Image = ({ img_name, alt, width, height }) => (
 )
 
 Image.propTypes = {
-    alt: PropTypes.string,
+    alt: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     height: PropTypes.string,
     img_name: PropTypes.string,
     width: PropTypes.string,

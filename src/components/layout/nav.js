@@ -28,7 +28,6 @@ import { affiliate_signin_url, affiliate_signup_url } from 'common/utility'
 // Icons
 import Logo from 'images/svg/logo-deriv.svg'
 import LogoPartner from 'images/svg/logo-partners.svg'
-import LogoCareers from 'images/svg/logo-careers.svg'
 import Hamburger from 'images/svg/hamburger_menu.svg'
 import Close from 'images/svg/close-long.svg'
 import LogoOnly from 'images/svg/logo-deriv-only.svg'
@@ -42,7 +41,7 @@ const query = graphql`
     }
 `
 
-const NavWrapper = styled.div`
+export const NavWrapper = styled.div`
     width: 100%;
     position: fixed;
     z-index: 100;
@@ -54,7 +53,7 @@ const InterimNav = styled.nav`
     z-index: 100;
     background: var(--color-black);
 `
-const LogoLink = styled(LocalizedLink)`
+export const LogoLink = styled(LocalizedLink)`
     text-decoration: none;
     max-width: ${(props) => props.mw || '16rem'};
     width: 100%;
@@ -72,6 +71,7 @@ const LogoLink = styled(LocalizedLink)`
         }
     }
 `
+
 const Line = styled.div`
     width: 1px;
     height: 28px;
@@ -79,7 +79,8 @@ const Line = styled.div`
     margin-left: 8px;
     background-color: var(--color-white);
 `
-const StyledNav = styled.nav`
+
+export const StyledNav = styled.nav`
     background-color: var(--color-black);
     height: 7.2rem;
     width: 100%;
@@ -89,7 +90,7 @@ const StyledNav = styled.nav`
         height: auto;
     }
 `
-const Wrapper = styled(Container)`
+export const Wrapper = styled(Container)`
     font-size: var(--text-size-s);
     padding: 1.2rem 0;
     justify-content: space-between;
@@ -101,7 +102,7 @@ const Wrapper = styled(Container)`
         font-size: var(--text-size-xxs);
     }
 `
-const NavLeft = styled.div`
+export const NavLeft = styled.div`
     text-align: left;
     display: flex;
     align-items: center;
@@ -200,7 +201,7 @@ const NavLink = styled.li`
         if (props.margin) return 'margin: 0 4rem;'
     }}
 `
-const StyledLink = styled(LocalizedLink)`
+export const StyledLink = styled(LocalizedLink)`
     ${SharedLinkStyle}
 `
 const StyledButton = styled.a`
@@ -546,7 +547,6 @@ const StyledLogo = styled(LogoLink)`
         }
     }
 `
-
 export const NavInterim = ({ interim_type }) => (
     <InterimNav>
         <Container jc="space-between" p="2.4rem 0">
@@ -754,7 +754,7 @@ export const NavPartners = ({ no_login_signup }) => {
                                 <LanguageSwitcher short_name="true" is_high_nav />
                                 <LinkButton
                                     to={affiliate_signin_url}
-                                    external
+                                    external="true"
                                     is_affiliate_sign_in_link
                                     target="_blank"
                                     primary
@@ -763,7 +763,7 @@ export const NavPartners = ({ no_login_signup }) => {
                                 </LinkButton>
                                 <LinkSignupButton
                                     to={affiliate_signup_url}
-                                    external
+                                    external="true"
                                     is_affiliate_link
                                     target="_blank"
                                     ref={button_ref}
@@ -800,7 +800,7 @@ export const NavPartners = ({ no_login_signup }) => {
                                 {!no_login_signup && (
                                     <LinkMobileLogin
                                         to={affiliate_signin_url}
-                                        external
+                                        external="true"
                                         is_affiliate_link
                                         target="_blank"
                                         primary
@@ -815,75 +815,6 @@ export const NavPartners = ({ no_login_signup }) => {
                             closeOffCanvasMenu={closeOffCanvasMenu}
                         />
                     </StyledNavWrapper>
-                </StyledNav>
-            </NavWrapper>
-        </>
-    )
-}
-
-const CareerRight = styled.div`
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-`
-
-export const NavCareers = () => {
-    return (
-        <>
-            <NavWrapper>
-                <DerivHomeWrapper>
-                    <HomeContainer justify="flex-start">
-                        <HomeLink to="/">
-                            <Text color="grey-19" size="var(--text-size-xxs)">
-                                {localize('Deriv website')}
-                            </Text>
-                        </HomeLink>
-                        <HomeLink to="/about">
-                            <Text color="grey-19" size="var(--text-size-xxs)">
-                                {localize('About us')}
-                            </Text>
-                        </HomeLink>
-                        <HomeLink to="/contact-us">
-                            <Text color="grey-19" size="var(--text-size-xxs)">
-                                {localize('Contact us')}
-                            </Text>
-                        </HomeLink>
-                    </HomeContainer>
-                </DerivHomeWrapper>
-                <StyledNav>
-                    <Wrapper>
-                        <NavLeft>
-                            <LogoLink to="/careers" aria-label={localize('Careers')}>
-                                <LogoCareers />
-                            </LogoLink>
-                        </NavLeft>
-                        <CareerRight>
-                            <StyledLink
-                                activeClassName="active"
-                                to="/careers/teams/"
-                                aria-label={localize('Teams')}
-                                partiallyActive={true}
-                            >
-                                Teams
-                            </StyledLink>
-                            <StyledLink
-                                activeClassName="active"
-                                to="/careers/locations/"
-                                aria-label={localize('Locations')}
-                                partiallyActive={true}
-                            >
-                                Locations
-                            </StyledLink>
-                            <StyledLink
-                                activeClassName="active"
-                                to="/careers/jobs/"
-                                aria-label={localize('All jobs')}
-                                partiallyActive={true}
-                            >
-                                All jobs
-                            </StyledLink>
-                        </CareerRight>
-                    </Wrapper>
                 </StyledNav>
             </NavWrapper>
         </>

@@ -29,11 +29,11 @@ import { affiliate_signin_url, affiliate_signup_url } from 'common/utility'
 // Icons
 import Logo from 'images/svg/logo-deriv.svg'
 import LogoPartner from 'images/svg/logo-partners.svg'
-import LogoCareers from 'images/svg/logo-careers.svg'
 import Hamburger from 'images/svg/hamburger_menu.svg'
 import Close from 'images/svg/close-long.svg'
 import LogoOnly from 'images/svg/logo-deriv-only.svg'
 import BinaryLogo from 'images/svg/binary.svg'
+import LogoCombinedShape from 'images/svg/logo-combined-shape.svg'
 
 const query = graphql`
     query {
@@ -43,7 +43,7 @@ const query = graphql`
     }
 `
 
-const NavWrapper = styled.div`
+export const NavWrapper = styled.div`
     width: 100%;
     position: fixed;
     z-index: 100;
@@ -55,27 +55,11 @@ const InterimNav = styled.nav`
     z-index: 100;
     background: var(--color-black);
 `
-const LogoLink = styled(LocalizedLink)`
+export const LogoLink = styled(LocalizedLink)`
     text-decoration: none;
+    max-width: ${(props) => props.mw || '16rem'};
+    width: 100%;
 
-    @media (max-width: 1200px) {
-        & svg,
-        .gatsby-image-wrapper {
-            width: 16rem;
-        }
-    }
-    @media (max-width: 1150px) {
-        & svg,
-        .gatsby-image-wrapper {
-            width: 13rem;
-        }
-    }
-    @media (max-width: 1105px) {
-        & svg,
-        .gatsby-image-wrapper {
-            width: 10rem;
-        }
-    }
     @media ${device.tabletS} {
         & svg,
         .gatsby-image-wrapper {
@@ -90,16 +74,25 @@ const LogoLink = styled(LocalizedLink)`
     }
 `
 
-const StyledNav = styled.nav`
+const Line = styled.div`
+    width: 1px;
+    height: 28px;
+    margin-right: 8px;
+    margin-left: 8px;
+    background-color: var(--color-white);
+`
+
+export const StyledNav = styled.nav`
     background-color: var(--color-black);
     height: 7.2rem;
     width: 100%;
     position: relative;
+    z-index: 1;
     @media ${device.tabletL} {
         height: auto;
     }
 `
-const Wrapper = styled(Container)`
+export const Wrapper = styled(Container)`
     font-size: var(--text-size-s);
     padding: 1.2rem 0;
     justify-content: space-between;
@@ -111,10 +104,13 @@ const Wrapper = styled(Container)`
         font-size: var(--text-size-xxs);
     }
 `
-const NavLeft = styled.div`
+export const NavLeft = styled.div`
     text-align: left;
     display: flex;
     align-items: center;
+    max-width: 30rem;
+    width: 100%;
+
     @media ${device.tabletL} {
         display: none;
     }
@@ -179,11 +175,11 @@ const NavRight = styled.div`
                 if (props.button_ref.current && props.mounted) {
                     props.button_ref.current.style.opacity = 1
                 }
-
                 return 0
             } else {
                 if (props.button_ref.current && props.mounted) {
                     props.button_ref.current.style.opacity = 0
+
                     const calculation = props.button_ref.current.offsetWidth + 2
                     return `${calculation}px`
                 }
@@ -191,6 +187,11 @@ const NavRight = styled.div`
             }
         }}
     );
+
+    > a {
+        pointer-events: ${(props) => (props.move ? 'visible' : 'none')};
+        cursor: ${(props) => (props.move ? 'pointer' : 'default')};
+    }
     @media ${device.tabletL} {
         display: none;
     }
@@ -210,7 +211,7 @@ const NavLink = styled.li`
         if (props.margin) return 'margin: 0 4rem;'
     }}
 `
-const StyledLink = styled(LocalizedLink)`
+export const StyledLink = styled(LocalizedLink)`
     ${SharedLinkStyle}
 `
 const StyledButton = styled.a`
@@ -266,7 +267,7 @@ const MobileLogin = styled(Button)`
         display: block;
     }
     @media ${device.mobileL} {
-        font-size: var(--text-size-xxs);
+        font-size: 12px;
     }
 `
 const LinkMobileLogin = styled(LinkButton)`
@@ -308,7 +309,11 @@ const MobileRight = styled.div`
         display: flex;
     }
 `
-
+const LogoDescription = styled(Flex)`
+    @media ${device.mobileL} {
+        display: none;
+    }
+`
 export const Nav = ({ base }) => {
     const data = useStaticQuery(query)
     const button_ref = useRef(null)
@@ -316,6 +321,7 @@ export const Nav = ({ base }) => {
     const [mounted, setMounted] = useState(false)
     const [has_scrolled, setHasScrolled] = useState(false)
 
+    // TODO: say BYEBYE to this
     // trade
     const trade_ref = useRef(null)
     const link_trade_ref = useRef(null)
@@ -324,8 +330,8 @@ export const Nav = ({ base }) => {
     const closeTrade = () => setIsTradeOpen(false)
     useOutsideClick(trade_ref, closeTrade, link_trade_ref)
     const handleTradeClick = () => {
-        setIsTradeOpen(!is_trade_open)
         setHasTradeAnimation(true)
+        setIsTradeOpen(!is_trade_open)
     }
 
     // market
@@ -336,8 +342,8 @@ export const Nav = ({ base }) => {
     const closeMarket = () => setIsMarketOpen(false)
     useOutsideClick(market_ref, closeMarket, link_market_ref)
     const handleMarketClick = () => {
-        setIsMarketOpen(!is_market_open)
         setHasMarketAnimation(true)
+        setIsMarketOpen(!is_market_open)
     }
 
     // company
@@ -348,8 +354,8 @@ export const Nav = ({ base }) => {
     const closeCompany = () => setIsCompanyOpen(false)
     useOutsideClick(company_ref, closeCompany, link_company_ref)
     const handleCompanyClick = () => {
-        setIsCompanyOpen(!is_company_open)
         setHasCompanyAnimation(true)
+        setIsCompanyOpen(!is_company_open)
     }
 
     // resources
@@ -360,17 +366,9 @@ export const Nav = ({ base }) => {
     const closeResources = () => setIsResourcesOpen(false)
     useOutsideClick(resources_ref, closeResources, link_resources_ref)
     const handleResourcesClick = () => {
-        setIsResourcesOpen(!is_resources_open)
         setHasResourcesAnimation(true)
+        setIsResourcesOpen(!is_resources_open)
     }
-
-    // const language_ref = useRef(null)
-    // const [is_language_open, setLanguageOpen] = useState(false)
-    // const closeLanguage = () => setLanguageOpen(false)
-    // const toggleLanguageClick = () => {
-    //     setLanguageOpen(!is_language_open)
-    // }
-    // useOutsideClick(language_ref, closeLanguage, language_ref)
 
     const buttonHandleScroll = () => {
         setHasScrolled(true)
@@ -400,9 +398,10 @@ export const Nav = ({ base }) => {
                 <Show.Desktop>
                     <PlatformsDropdown
                         forward_ref={trade_ref}
+                        link_ref={link_trade_ref}
                         is_open={is_trade_open}
                         has_animation={has_trade_animation}
-                        Content={NavPlatform}
+                        Content={() => <NavPlatform onClick={handleTradeClick} />}
                         title={localize('Trading platforms')}
                         description={localize(
                             'Be in full control of your trading with our new and improved platforms.',
@@ -410,9 +409,10 @@ export const Nav = ({ base }) => {
                     />
                     <PlatformsDropdown
                         forward_ref={market_ref}
+                        link_ref={link_market_ref}
                         is_open={is_market_open}
                         has_animation={has_market_animation}
-                        Content={NavMarket}
+                        Content={() => <NavMarket onClick={handleMarketClick} />}
                         title={localize('Markets')}
                         description={localize(
                             'Enjoy our wide range of assets on financial and synthetic markets.',
@@ -420,9 +420,10 @@ export const Nav = ({ base }) => {
                     />
                     <PlatformsDropdown
                         forward_ref={company_ref}
+                        link_ref={link_company_ref}
                         is_open={is_company_open}
                         has_animation={has_company_animation}
-                        Content={NavCompany}
+                        Content={() => <NavCompany onClick={handleCompanyClick} />}
                         title={localize('About us')}
                         description={localize(
                             "Get to know our leadership team, learn about our history, and see why we're different.",
@@ -430,9 +431,10 @@ export const Nav = ({ base }) => {
                     />
                     <PlatformsDropdown
                         forward_ref={resources_ref}
+                        link_ref={link_resources_ref}
                         is_open={is_resources_open}
                         has_animation={has_resources_animation}
-                        Content={NavResources}
+                        Content={() => <NavResources onClick={handleResourcesClick} />}
                         title={localize('Resources')}
                         description={localize(
                             'Help yourself to various resources that can help you get the best out of your trading experience.',
@@ -446,10 +448,13 @@ export const Nav = ({ base }) => {
                             <QueryImage
                                 data={data['deriv']}
                                 alt={localize('Deriv')}
-                                width="16.4rem"
+                                max_width="16.4rem"
+                                width="100%"
                                 height="auto"
                             />
                         </LogoLink>
+                        <Line />
+                        <LogoCombinedShape />
                     </NavLeft>
                     <NavCenter>
                         <NavLink onClick={handleTradeClick}>
@@ -505,14 +510,20 @@ export const Nav = ({ base }) => {
                             </SignupButton>
                         </LocalizedLink>
                     </NavRight>
-
                     {is_canvas_menu_open ? (
                         <CloseMenu onClick={closeOffCanvasMenu} width="16px" />
                     ) : (
                         <HamburgerMenu onClick={openOffCanvasMenu} width="16px" />
                     )}
+
                     <LogoLinkMobile to="/" aria-label={localize('Home')}>
-                        <LogoOnly width="115px" />
+                        <Flex>
+                            <LogoOnly width="115px" />
+                            <LogoDescription ai="center">
+                                <Line />
+                                <LogoCombinedShape />
+                            </LogoDescription>
+                        </Flex>
                     </LogoLinkMobile>
                     <MobileRight>
                         <LanguageSwitcher short_name="true" is_high_nav />
@@ -520,7 +531,6 @@ export const Nav = ({ base }) => {
                             <span>{localize('Log in')}</span>
                         </MobileLogin>
                     </MobileRight>
-
                     <OffCanvasMenu
                         is_canvas_menu_open={is_canvas_menu_open}
                         closeOffCanvasMenu={closeOffCanvasMenu}
@@ -608,28 +618,13 @@ export const NavInterim = ({ interim_type }) => (
 
 export const NavStatic = () => (
     <StaticWrapper>
-        <LogoLink to="/" aria-label={localize('Home')}>
-            <Logo />
+        <LogoLink mw="31rem" to="/" aria-label={localize('Home')}>
+            <Flex ai="center">
+                <LogoOnly />
+                <Line />
+                <LogoCombinedShape />
+            </Flex>
         </LogoLink>
-        <LocalizedLink external to="home" is_binary_link target="_blank" rel="noopener noreferrer">
-            <BinaryLogo width="24" height="24" />
-        </LocalizedLink>
-        <Binary size="var(--text-size-xxs)" color="white">
-            <Localize
-                translate_text="A <0>Binary.com</0> brand"
-                components={[
-                    <BinaryLink
-                        key={0}
-                        external
-                        to={'home'}
-                        is_binary_link
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        color="white"
-                    />,
-                ]}
-            />
-        </Binary>
     </StaticWrapper>
 )
 
@@ -855,75 +850,6 @@ export const NavPartners = ({ no_login_signup }) => {
                             closeOffCanvasMenu={closeOffCanvasMenu}
                         />
                     </StyledNavWrapper>
-                </StyledNav>
-            </NavWrapper>
-        </>
-    )
-}
-
-const CareerRight = styled.div`
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-`
-
-export const NavCareers = () => {
-    return (
-        <>
-            <NavWrapper>
-                <DerivHomeWrapper>
-                    <HomeContainer justify="flex-start">
-                        <HomeLink to="/">
-                            <Text color="grey-19" size="var(--text-size-xxs)">
-                                {localize('Deriv website')}
-                            </Text>
-                        </HomeLink>
-                        <HomeLink to="/about">
-                            <Text color="grey-19" size="var(--text-size-xxs)">
-                                {localize('About us')}
-                            </Text>
-                        </HomeLink>
-                        <HomeLink to="/contact-us">
-                            <Text color="grey-19" size="var(--text-size-xxs)">
-                                {localize('Contact us')}
-                            </Text>
-                        </HomeLink>
-                    </HomeContainer>
-                </DerivHomeWrapper>
-                <StyledNav>
-                    <Wrapper>
-                        <NavLeft>
-                            <LogoLink to="/careers" aria-label={localize('Careers')}>
-                                <LogoCareers />
-                            </LogoLink>
-                        </NavLeft>
-                        <CareerRight>
-                            <StyledLink
-                                activeClassName="active"
-                                to="/careers/teams/"
-                                aria-label={localize('Teams')}
-                                partiallyActive={true}
-                            >
-                                Teams
-                            </StyledLink>
-                            <StyledLink
-                                activeClassName="active"
-                                to="/careers/locations/"
-                                aria-label={localize('Locations')}
-                                partiallyActive={true}
-                            >
-                                Locations
-                            </StyledLink>
-                            <StyledLink
-                                activeClassName="active"
-                                to="/careers/jobs/"
-                                aria-label={localize('All jobs')}
-                                partiallyActive={true}
-                            >
-                                All jobs
-                            </StyledLink>
-                        </CareerRight>
-                    </Wrapper>
                 </StyledNav>
             </NavWrapper>
         </>

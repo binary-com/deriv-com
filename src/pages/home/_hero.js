@@ -1,243 +1,174 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import styled from 'styled-components'
-import PlatformVideoMp4 from './Deriv_platform_tour.mp4'
+import { graphql, useStaticQuery } from 'gatsby'
+import styled, { keyframes } from 'styled-components'
+import VerticalCarousel from './_vertical-carousel.js'
 import device from 'themes/device'
-import { Container, Show, Flex } from 'components/containers'
-import { Header, Text } from 'components/elements'
-import { LinkButton, Button } from 'components/form'
-import { useLazyVideo } from 'components/hooks/lazy-video'
-import { localize } from 'components/localization'
-import CheckMarkIcon from 'images/svg/checklist.svg'
+import { LinkButton } from 'components/form'
+import { Container, CssGrid, Box, Flex, Show } from 'components/containers'
+import { Header, QueryImage } from 'components/elements'
+import { Localize, localize } from 'components/localization'
 
-const CheckMark = styled(CheckMarkIcon)`
-    width: 18px;
-    height: 18px;
+const query = graphql`
+    query {
+        background: file(relativePath: { eq: "platform_devices.png" }) {
+            ...fadeIn
+        }
+    }
 `
 
 const HeroWrapper = styled.section`
     width: 100%;
-    min-height: auto;
-    background: var(--color-black);
+    padding: 8rem 0;
+    background-color: var(--color-black-7);
     position: relative;
-    overflow: hidden;
-
-    @media ${device.laptop} {
-        background-position: -10rem 100%;
-        padding-top: 7rem;
-    }
-    @media ${device.tabletL} {
-        background: unset;
-        background-position: -20rem 100%;
-        background-color: var(--color-black);
-        min-height: 73rem;
-    }
-    @media ${device.tablet} {
-        background-position: -40rem 100%;
-    }
 `
 
-const HeroHeader = styled(Header)`
-    @media ${device.tabletL} {
-        text-align: left;
-        font-size: 3.25rem;
-    }
-    @media ${device.desktopL} {
-        font-size: 6.72rem;
-    }
-`
-
-const HeroSubHeader = styled(Header)`
-    @media ${device.desktopL} {
-        font-size: 3.36rem;
-    }
-`
-
-const StyledArticle = styled.article`
-    position: absolute;
-    top: 21.8rem;
-    z-index: 2;
-    margin-left: 18%;
-
-    @media ${device.laptopM} {
-        top: 10.8rem;
-    }
-    @media ${device.tabletL} {
-        margin: 0 2rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: flex-start;
-    }
-    @media ${device.mobileM} {
-        top: 5rem;
-    }
-`
-
-const HeroGrid = styled.section`
-    width: 100%;
-    max-width: 100%;
-    max-height: 82.7rem;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    @media ${device.tabletL} {
-        justify-content: flex-start;
-        margin-top: 13.37rem;
-        margin-bottom: 4rem;
-    }
-`
-
-const ButtonWrapper = styled(Flex)`
-    margin-top: 9.6rem;
-    height: 40px;
-
-    ${Button} {
-        font-size: 1.6rem;
-    }
-    @media ${device.laptop} {
-        text-align: center;
-    }
-    @media ${device.tabletL} {
-        text-align: left;
-    }
-`
-
-const StyledVideo = styled.video`
-    opacity: 0.5;
-    max-height: 82.7rem;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    height: 100%;
-
-    /* for edge */
-    @supports (object-fit: fill) {
-        object-fit: fill;
-        top: 0%;
-        left: unset;
-        transform: unset;
-    }
-`
 const HeroButton = styled(LinkButton)`
-    height: 4.8rem;
+    height: 4rem;
     display: flex;
     align-items: center;
+    max-width: 20.5rem;
 
     @media ${device.tabletL} {
-        width: 27rem;
         margin: 0 auto;
         display: flex;
         font-size: 1.75rem;
         justify-content: center;
+        max-width: 25.5rem;
+        height: 5rem;
     }
 `
-
-const CheckBoxText = styled(Text)`
-    @media ${device.desktopL} {
-        font-size: 2.52rem;
+const FadeIn = keyframes`
+    0% {
+        opacity: 0;
+        margin-left: -75px;
     }
+    100% {
+        opacity: 1;
+        margin-left: 0;
+    }
+`
+const StyledHeader = styled(Header)`
+    animation-name: ${FadeIn};
+    animation-duration: 0.5s;
+    animation-fill-mode: both;
+    animation-delay: ${(props) => props.ad};
+    font-size: 8rem;
+    line-height: 1.25;
+
     @media ${device.tabletL} {
-        font-size: 2rem;
+        font-size: 4rem;
     }
 `
-const CheckMarkBullet = ({ children }) => (
-    <li>
-        <Flex jc="unset" ai="center">
-            <CheckMark />
-            <CheckBoxText ml="1rem" size="2.4rem" lh="1.5" color="white">
-                {children}
-            </CheckBoxText>
-        </Flex>
-    </li>
-)
-CheckMarkBullet.propTypes = {
-    children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
-}
+const contents = [
+    <Localize key={0} translate_text="Tight spreads" />,
+    <Localize key={1} translate_text="Sharp prices" />,
+    <Localize key={2} translate_text="24x7 trading" />,
+    <Localize key={3} translate_text="100+ tradeable assets" />,
+    <Localize key={4} translate_text="20+ years of experience" />,
+]
+const TypeWriter = styled(Header)`
+    min-height: 7.2rem;
+`
+const HeroContainer = styled(CssGrid)`
+    grid-template-columns: repeat(12, 1fr);
+    width: 100%;
+    grid-column-gap: 2.4rem;
+    grid-template-areas:
+        'details details details details details video video video video video video video'
+        'button button button button button button button button button button button button';
 
-const UList = styled.ul`
-    list-style-type: none;
+    @media ${device.tabletL} {
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-areas:
+            'details'
+            'video'
+            'button';
+    }
 `
 
-const CheckMarkList = ({ children }) => <UList>{children}</UList>
-CheckMarkList.propTypes = {
-    children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
-}
+const Details = styled(Box)`
+    grid-area: details;
+`
+const ButtonWrapper = styled(Box)`
+    grid-area: button;
 
-CheckMarkBullet.propTypes = {
-    children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
-}
+    @media ${device.tabletL} {
+        margin-top: 3rem;
+    }
+`
+const ImageWrapper = styled(Box)`
+    grid-area: video;
+    margin-top: 4rem;
 
+    @media ${device.tabletL} {
+        min-height: 25rem;
+        margin-top: 0;
+    }
+`
 export const Hero = () => {
-    useLazyVideo()
+    const data = useStaticQuery(query)
+    const typewriter_text = localize('Trade forex, commodities, synthetic and stock indices')
+    const [type_writer, setTypeWriter] = React.useState('')
+    let type_writer_timeout
+
+    const typeWriterAnimation = (i = 0) => {
+        if (i < typewriter_text.length) {
+            setTypeWriter(typewriter_text.substring(0, i + 1))
+            type_writer_timeout = setTimeout(() => typeWriterAnimation(i + 1), 13)
+        }
+    }
+
+    React.useEffect(() => {
+        let start_animations_timeout = setTimeout(() => {
+            typeWriterAnimation()
+        }, 1200)
+        return () => {
+            clearTimeout(start_animations_timeout)
+            clearTimeout(type_writer_timeout)
+        }
+    }, [])
 
     return (
         <HeroWrapper>
             <Container>
-                <HeroGrid>
-                    <StyledArticle>
-                        <div>
-                            <HeroHeader
-                                as="h1"
-                                color="white"
-                                mb="2.4rem"
-                                size="var(--text-size-xl)"
-                                lh="1.25"
-                            >
-                                {localize('Simple. Flexible. Reliable.')}
-                            </HeroHeader>
-                            <HeroSubHeader
-                                as="h2"
-                                color="white"
-                                size="var(--text-size-m)"
-                                weight="500"
-                                mb="1.4rem"
-                            >
-                                {localize('Trade forex, commodities, synthetic and stock indices')}
-                            </HeroSubHeader>
-                            <CheckMarkList>
-                                <CheckMarkBullet>
-                                    {localize('Built upon 20+ years of experience')}
-                                </CheckMarkBullet>
-                                <CheckMarkBullet>
-                                    {localize('100+ tradable assets')}
-                                </CheckMarkBullet>
-                                <CheckMarkBullet>
-                                    {localize('24x7 trading, sharp prices, tight spreads')}
-                                </CheckMarkBullet>
-                            </CheckMarkList>
-                        </div>
-                        <div>
-                            <ButtonWrapper jc="unset">
-                                <HeroButton type="submit" secondary="true" to="/signup/">
-                                    {localize('Create free demo account')}
-                                </HeroButton>
-                            </ButtonWrapper>
-                        </div>
-                    </StyledArticle>
-                </HeroGrid>
+                <HeroContainer>
+                    <Details>
+                        <Show.Desktop>
+                            <Flex mb="1.6rem" direction="column">
+                                <StyledHeader color="white" ad="0.5s">
+                                    <Localize translate_text="Simple" />
+                                </StyledHeader>
+                                <StyledHeader color="white" ad="0.6s">
+                                    <Localize translate_text="Flexible" />
+                                </StyledHeader>
+                                <StyledHeader color="white" ad="0.7s">
+                                    <Localize translate_text="Reliable" />
+                                </StyledHeader>
+                            </Flex>
+                        </Show.Desktop>
+                        <Show.Mobile>
+                            <Flex>
+                                <StyledHeader color="white" ad="0.5s" mb="2rem">
+                                    <Localize translate_text="Simple Flexible Reliable" />
+                                </StyledHeader>
+                            </Flex>
+                        </Show.Mobile>
+                        <TypeWriter as="h4" color="white" max_width="430px" weight="normal">
+                            {localize(type_writer)}
+                        </TypeWriter>
+                        <VerticalCarousel contents={contents} />
+                    </Details>
+                    <ImageWrapper>
+                        <QueryImage data={data.background} alt="platform devices" width="100%" />
+                    </ImageWrapper>
+                    <ButtonWrapper>
+                        <HeroButton secondary="true" to="/signup/">
+                            <Localize translate_text="Create free demo account" />
+                        </HeroButton>
+                    </ButtonWrapper>
+                </HeroContainer>
             </Container>
-            <Show.Desktop>
-                <StyledVideo
-                    className="lazy"
-                    title={localize('deriv.app platform video')}
-                    width="100%"
-                    height="100%"
-                    autoPlay
-                    muted
-                    playsInline
-                    loop
-                >
-                    <source data-src={PlatformVideoMp4} type="video/mp4" />
-                </StyledVideo>
-            </Show.Desktop>
         </HeroWrapper>
     )
 }

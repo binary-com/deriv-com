@@ -42,14 +42,14 @@ const _want_extend_ = styled(_component_name_)`
 `
 ```
 
-*noted that we are using `rem` as value where `10px = 1rem`
+*noted that we are using `rem` as value where `10px = 1rem`, the rem configuration can be found at `themes/global-style.js`
 *for further information you can take a look at [Styled Component](https://www.styled-components.com/)
 
 ### Image Component
 
 #### (png|jpg|jpeg|gif) file type
 
-image will be located anywhere within `src/images` directory.
+image will be located anywhere within `src/images/common` directory.
 this project uses GatsbyImageSharpFluid lazy load image built in gatsby-iamge. for further information, can take a look at [Gatsby Image](https://www.gatsbyjs.org/packages/gatsby-image), the configuration is located at
 `src/components/elements/image.js`.
 
@@ -75,7 +75,7 @@ import Logo from 'images/svg/logo-header.svg'
 ;<Logo />
 ```
 
-### Translate Text
+### Translation / Localization
 
 translation functions and component located within `src/components/localization` directory.
 text translation use `react-i18next`, you can take a look at [react-i18next](https://react.i18next.com/) for more information.
@@ -190,7 +190,7 @@ const MyPageName = () => {
 export default WithIntl()(About)
 ```
 
-#### CSS responsive function
+### CSS responsive function
 
 to create a responsive component for different breakpoints, please use <Box> component and inject the css styles for available breakpoints.
 
@@ -218,4 +218,24 @@ const UseResponsiveCss = () => {
         </Box>
     )
 }
+```
+
+### Handling EU or NonEU Views
+
+to handle visibility of europe countries, you can use `Show` component in `/containers` directory. Eu countries list are located in `common/country-base.js`
+
+Usage example (chain):
+
+```js
+import { Show } from 'components/containers'
+
+const Example = () => (
+    <div>
+        <h1>Test!</h1>
+        <Show.Eu minDeviceWidth={size.tabletL} device={{ deviceWidth: size.desktopS }}>
+            you are in europe countries
+        </Show.Eu>
+        <Show.NonEU>you are in non-europe countries</Show.NonEU>
+    </div>
+)
 ```

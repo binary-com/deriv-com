@@ -13,10 +13,6 @@ const Descriptions = styled.div`
 `
 const Col = styled(Flex)`
     max-width: 14.9rem;
-
-    @media ${device.tabletL} {
-        max-width: 10rem;
-    }
 `
 const Row = styled(Flex)`
     border: 1px solid var(--color-grey-22);
@@ -50,11 +46,14 @@ const MarketsList = styled(CssGrid)`
             line-height: 1.5;
         }
     }
+
+    @media ${device.mobileL} {
+        grid-template-columns: repeat(1, 1fr);
+    }
 `
 const Title = styled(Text)`
     @media ${device.tabletL} {
         text-align: center;
-        max-width: 6.4rem;
         font-weight: 600;
     }
 `
@@ -74,8 +73,8 @@ const Margin = () => {
                     {localize('Instruments available for margin trading')}
                 </StyledText>
                 <Row jc="flex-start" ai="center" mt="1.6rem">
-                    <Col max_width="13.2rem">
-                        <Title weight="bold" max_width="9.7rem" align="center">
+                    <Col max_width="14.2rem">
+                        <Title weight="bold" align="center">
                             {localize('Metals')}
                         </Title>
                     </Col>
@@ -84,8 +83,8 @@ const Margin = () => {
                     </MarketsList>
                 </Row>
                 <Row jc="flex-start" ai="center">
-                    <Col max_width="13.2rem">
-                        <Title weight="bold" max_width="13.7rem" align="center">
+                    <Col max_width="14.2rem">
+                        <Title weight="bold" align="center">
                             {localize('Energy')}
                         </Title>
                     </Col>

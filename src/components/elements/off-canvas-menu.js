@@ -27,7 +27,6 @@ import Career from 'components/svgs/careers'
 import Help from 'components/svgs/help-centre'
 import Payment from 'components/svgs/payment-methods'
 import Regulatory from 'components/svgs/regulatory'
-import RegulatoryInfo from 'components/svgs/regulatory-info'
 import Terms from 'components/svgs/terms'
 import SecureTrading from 'components/svgs/secure-trading'
 import Community from 'components/svgs/community'
@@ -278,12 +277,6 @@ export const OffCanvasMenuWrapper = (props) => {
                                 <Leadership dynamic_id="leadership-mobile" />
                             </div>
                             <span>{localize('Our leadership')}</span>
-                        </StyledLink>
-                        <StyledLink to="/regulatory/" onClick={handleArrowClick}>
-                            <div>
-                                <RegulatoryInfo dynamic_id="regulatory-info" />
-                            </div>
-                            <span>{localize('Regulatory information')}</span>
                         </StyledLink>
                         <StyledLink to="/partners/" onClick={handleArrowClick}>
                             <div>

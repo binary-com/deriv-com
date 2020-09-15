@@ -65,7 +65,6 @@ const DisplayAccordion = () => {
     return (
         <Accordion has_single_state>
             {payment_data.map((pd, idx) => {
-                console.log(is_eu_country) //eslint-disable-line
                 if (pd.is_crypto && is_eu_country) {
                     return []
                 } else

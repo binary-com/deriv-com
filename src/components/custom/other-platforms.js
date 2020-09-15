@@ -35,6 +35,7 @@ import Career from 'components/svgs/careers'
 import Help from 'components/svgs/help-centre'
 import Community from 'components/svgs/community'
 import Payment from 'components/svgs/payment-methods'
+import RegulatoryInfo from 'components/svgs/regulatory-info'
 
 const MarginDivider = styled(Divider)`
     margin: 0 0.8rem;
@@ -362,10 +363,10 @@ export const NavCompany = ({ onClick }) => (
             to="/about/#leadership"
         />
         <CardLink
-            icon={() => <Partner dynamic_id="partner-desktop" />}
-            title={localize('Partnership programmes')}
+            icon={() => <RegulatoryInfo dynamic_id="regulatory-information" />}
+            title={localize('Regulatory information')}
             onClick={onClick}
-            to="/partners/"
+            to="/regulatory/"
         />
         <CardLink
             icon={() => <Choose dynamic_id="choose-desktop" />}
@@ -373,6 +374,13 @@ export const NavCompany = ({ onClick }) => (
             onClick={onClick}
             to="/why-choose-us/"
         />
+        <CardLink
+            icon={() => <Partner dynamic_id="partner-desktop" />}
+            title={localize('Partnership programmes')}
+            onClick={onClick}
+            to="/partners/"
+        />
+
         <CardLink
             icon={() => <Contact dynamic_id="contact-desktop" />}
             title={localize('Contact us')}

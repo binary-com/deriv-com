@@ -57,7 +57,11 @@ const FAQ = () => {
         padding: '1.6rem 2.4rem',
         border: 'none',
     }
-    const { is_eu_country } = React.useContext(LocationContext)
+    let is_eu
+    React.useEffect(() => {
+        const { is_eu_country } = React.useContext(LocationContext)
+        is_eu = is_eu_country
+    })
     return (
         <SectionContainer background="var(--color-grey-25)">
             <Container direction="column">
@@ -132,7 +136,7 @@ const FAQ = () => {
                             >
                                 <NewProducts />
                             </AccordionItem>
-                            {!is_eu_country && (
+                            {!is_eu && (
                                 <AccordionItem
                                     header={
                                         <Localize translate_text="What else can we expect from Deriv.com?" />
@@ -157,18 +161,18 @@ const FAQ = () => {
                             >
                                 <IsDerivRegulated />
                             </AccordionItem>
-                            {!is_eu_country && (
-                                <AccordionItem
-                                    header={
-                                        <Localize translate_text="Are you going to close down Binary.com?" />
-                                    }
-                                    style={item_style}
-                                    header_style={header_style}
-                                    plus
-                                >
-                                    <AreCloseDown />
-                                </AccordionItem>
-                            )}
+                            {/* {!is_eu_country && ( */}
+                            <AccordionItem
+                                header={
+                                    <Localize translate_text="Are you going to close down Binary.com?" />
+                                }
+                                style={item_style}
+                                header_style={header_style}
+                                plus
+                            >
+                                <AreCloseDown />
+                            </AccordionItem>
+                            {/* )} */}
                         </Accordion>
                     </Answer>
                 </FAQWrapper>
@@ -186,32 +190,32 @@ const FAQ = () => {
                     </Question>
                     <Answer>
                         <Accordion has_single_state>
-                            {!is_eu_country && (
-                                <AccordionItem
-                                    header={
-                                        <Localize translate_text="Why should I switch to Deriv.com?" />
-                                    }
-                                    parent_style={parent_style}
-                                    style={item_style}
-                                    header_style={header_style}
-                                    plus
-                                >
-                                    <WhySwitch />
-                                </AccordionItem>
-                            )}
-                            {!is_eu_country && (
-                                <AccordionItem
-                                    header={
-                                        <Localize translate_text="Can I still trade on Binary.com?" />
-                                    }
-                                    parent_style={parent_style}
-                                    style={item_style}
-                                    header_style={header_style}
-                                    plus
-                                >
-                                    <CanStillTrade />
-                                </AccordionItem>
-                            )}
+                            {/* {!is_eu_country && ( */}
+                            <AccordionItem
+                                header={
+                                    <Localize translate_text="Why should I switch to Deriv.com?" />
+                                }
+                                parent_style={parent_style}
+                                style={item_style}
+                                header_style={header_style}
+                                plus
+                            >
+                                <WhySwitch />
+                            </AccordionItem>
+                            {/* )} */}
+                            {/* {!is_eu_country && ( */}
+                            <AccordionItem
+                                header={
+                                    <Localize translate_text="Can I still trade on Binary.com?" />
+                                }
+                                parent_style={parent_style}
+                                style={item_style}
+                                header_style={header_style}
+                                plus
+                            >
+                                <CanStillTrade />
+                            </AccordionItem>
+                            {/* )} */}
                             <AccordionItem
                                 header={
                                     <Localize translate_text="How do I get started on Deriv.com?" />

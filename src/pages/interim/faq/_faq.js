@@ -58,7 +58,6 @@ const FAQ = () => {
         border: 'none',
     }
     let is_eu = true
-
     React.useContext(LocationContext)
 
     return (

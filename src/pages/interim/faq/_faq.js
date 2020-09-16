@@ -58,10 +58,10 @@ const FAQ = () => {
         border: 'none',
     }
     let is_eu
-    React.useEffect(() => {
-        const { is_eu_country } = React.useContext(LocationContext)
-        is_eu = is_eu_country
-    })
+
+    const { is_eu_country } = React.useContext(LocationContext)
+    is_eu = is_eu_country
+
     return (
         <SectionContainer background="var(--color-grey-25)">
             <Container direction="column">

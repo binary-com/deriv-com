@@ -44,6 +44,9 @@ const AccordionHeader = styled.div`
     &:hover {
         cursor: pointer;
     }
+    @media ${device.mobileL} {
+        height: auto;
+    }
 `
 const ResponsiveWrapper = styled.div`
     @media ${device.tablet} {

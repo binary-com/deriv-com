@@ -24,7 +24,7 @@ const SliderWrapper = styled.div`
     }
 `
 const StyledChevron = styled(Chevron)`
-    opacity: ${(props) => (props.is_disabled ? '0.32' : '1')};
+    opacity: ${(props) => (props.is_disabled == 'true' ? '0.32' : '1')};
     height: 16px;
     width: 16px;
 
@@ -162,12 +162,12 @@ const Carousel = ({ children, ...props }) => {
                             <>
                                 <Next>
                                     <Button onClick={goNext}>
-                                        <ChevronRight is_disabled={is_end} />
+                                        <ChevronRight is_disabled={is_end.toString()} />
                                     </Button>
                                 </Next>
                                 <Prev>
                                     <Button onClick={goPrev}>
-                                        <ChevronLeft is_disabled={is_beginning} />
+                                        <ChevronLeft is_disabled={is_beginning.toString()} />
                                     </Button>
                                 </Prev>
                             </>

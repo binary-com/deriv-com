@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { graphql, useStaticQuery, navigate } from 'gatsby'
-import { RoleBanner } from '../../_layout-components/_banner'
 import { LinkList } from '../../_layout-components/_link-list'
 import { NoOpenPositionsHeader } from '../../_layout-components/_no-open-positions'
 import { getTeamByName, team_names } from '../../_controller/_teams'
@@ -169,7 +168,6 @@ const Team = () => {
                     </NoOpenPositionsHeader>
                 )}
             </TeamWrapper>
-            <RoleBanner />
         </Layout>
     )
 }

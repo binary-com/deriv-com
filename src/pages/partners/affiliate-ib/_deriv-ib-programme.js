@@ -132,7 +132,7 @@ const StyledChevron = styled(Chevron)`
     margin-top: 0.8rem;
     height: 16px;
     cursor: pointer;
-    transform: ${(props) => (props.is_expand ? 'rotate(-180deg)' : 'inherit ')};
+    transform: ${(props) => (props.is_expand == 'true' ? 'rotate(-180deg)' : 'inherit ')};
 `
 
 const StyledTR = styled(TR)`
@@ -210,7 +210,10 @@ const DMT5Synthetic = ({ data }) => {
                             ))}
                         </SyntheticTable>
                         {has_expansion && (
-                            <StyledChevron onClick={toggleExpand} is_expand={is_expand} />
+                            <StyledChevron
+                                onClick={toggleExpand}
+                                is_expand={is_expand.toString()}
+                            />
                         )}
                         <HowItsCalculate>
                             <Button flat onClick={toggleCalculated}>
@@ -228,7 +231,7 @@ const DMT5Synthetic = ({ data }) => {
                             <StyledLinkButton
                                 secondary
                                 to={affiliate_signup_url}
-                                external
+                                external="true"
                                 target="_blank"
                                 is_affiliate_link
                             >
@@ -311,7 +314,7 @@ const DMT5Standard = ({ data }) => {
                             <StyledLinkButton
                                 secondary
                                 to={affiliate_signup_url}
-                                external
+                                external="true"
                                 target="_blank"
                                 is_affiliate_link
                             >
@@ -395,7 +398,7 @@ const DMT5Advanced = ({ data }) => {
                             <StyledLinkButton
                                 secondary
                                 to={affiliate_signup_url}
-                                external
+                                external="true"
                                 target="_blank"
                                 is_affiliate_link
                             >

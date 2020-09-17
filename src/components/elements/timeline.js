@@ -110,7 +110,7 @@ TimelineTick.propTypes = {
 }
 
 Item.propTypes = {
-    children: {},
+    children: PropTypes.node,
     props: PropTypes.any,
 }
 

@@ -60,7 +60,7 @@ const CTA = () => {
                     <LinkButton
                         mt="2rem"
                         to={affiliate_signup_url}
-                        external
+                        external="true"
                         target="_blank"
                         is_affiliate_link
                         secondary

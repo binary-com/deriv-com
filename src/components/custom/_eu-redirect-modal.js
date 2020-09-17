@@ -4,6 +4,7 @@ import styled, { css } from 'styled-components'
 import { Flex } from 'components/containers'
 import { Text } from 'components/elements'
 import { Localize } from 'components/localization'
+import device from 'themes/device.js'
 // Icons
 import Close from 'images/svg/close-2.svg'
 
@@ -30,6 +31,10 @@ const ModalCard = styled.div`
     max-width: 44rem;
     background: var(--color-white);
     padding: 2.4rem;
+
+    @media ${device.mobileL} {
+        width: 80%;
+    }
 `
 const CloseButton = styled(Close)`
     &:hover {
@@ -79,6 +84,7 @@ const Cancel = styled.span`
         background-color: rgba(0, 0, 0, 0.08);
     }
 `
+
 const EURedirect = ({ toggle, is_open, closeModal, to, target, rel, ref, aria_label }) => {
     const handleEscape = (e) => {
         if (e.keyCode === 27) {
@@ -143,7 +149,7 @@ EURedirect.propTypes = {
     ref: PropTypes.object,
     rel: PropTypes.string,
     target: PropTypes.string,
-    to: PropTypes.string.isRequired,
+    to: PropTypes.string,
     toggle: PropTypes.func.isRequired,
 }
 

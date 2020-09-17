@@ -11,7 +11,7 @@ const WhatOurClientsSayCarousell = () => {
         // TODO: remove this after replacing the swiper carousel
         setTimeout(() => {
             setShouldLoad(true)
-        }, 1500)
+        }, 500)
     }, [])
 
     if (!should_load) return null

@@ -80,7 +80,7 @@ const WhyUs = ({ items }) => {
                             </Content>
                             <QueryImage
                                 data={data[item.image_name]}
-                                alt={item.image_alt}
+                                alt={item.image_alt.props.translate_text}
                                 width="100%"
                             />
                         </Row>

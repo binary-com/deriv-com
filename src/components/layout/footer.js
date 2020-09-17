@@ -11,7 +11,7 @@ import {
     QueryImage,
 } from '../elements'
 import { LocationContext } from './location-context'
-import { mga_dynamic_seal_url } from 'common/utility'
+import { mga_link_url } from 'common/utility'
 // TODO: (discussion) make footer pure component, and move usage of footer to custom
 import device from 'themes/device'
 import { localize, Localize, LocalizedLink } from 'components/localization'
@@ -841,7 +841,7 @@ const Footer = () => {
                                 </StyledCoatArms>
                                 <LocalizedLink
                                     external="true"
-                                    to={mga_dynamic_seal_url}
+                                    to={mga_link_url}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
@@ -863,7 +863,7 @@ const Footer = () => {
                                 <Flex fd="column" width="auto">
                                     <LocalizedLink
                                         external="true"
-                                        to={mga_dynamic_seal_url}
+                                        to={mga_link_url}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                     >

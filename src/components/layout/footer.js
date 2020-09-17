@@ -838,7 +838,14 @@ const Footer = () => {
                                         height="auto"
                                     />
                                 </StyledCoatArms>
-                                <StyledMgaLogo />
+                                <LocalizedLink
+                                    external="true"
+                                    to="https://www.authorisation.mga.org.mt/verification.aspx?lang=EN&company=a5fd1edc-d072-4c26-b0cd-ab3fa0f0cc40&details=1"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <StyledMgaLogo />
+                                </LocalizedLink>
                                 <Over18 />
                             </EuLogoWrapper>
                         </Show.Desktop>
@@ -853,7 +860,14 @@ const Footer = () => {
                                     />
                                 </StyledCoatArms>
                                 <Flex fd="column" width="auto">
-                                    <StyledMgaLogo />
+                                    <LocalizedLink
+                                        external="true"
+                                        to="https://www.authorisation.mga.org.mt/verification.aspx?lang=EN&company=a5fd1edc-d072-4c26-b0cd-ab3fa0f0cc40&details=1"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        <StyledMgaLogo />
+                                    </LocalizedLink>
                                     <StyledGamstop />
                                 </Flex>
                                 <Over18 />

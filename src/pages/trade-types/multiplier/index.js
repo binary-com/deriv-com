@@ -1,4 +1,5 @@
 import React from 'react'
+import styled from 'styled-components'
 import { SmallContainer, Hero } from '../components/_style'
 import WhatAreMultiplier from './_what-are-multipliers'
 import HowMultiplierWorks from './_how-multiplier-works'
@@ -9,6 +10,13 @@ import { SEO } from 'components/containers'
 import { Header } from 'components/elements'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
+import device from 'themes/device'
+
+const StyledHeader = styled(Header)`
+    @media ${device.tablet} {
+        font-size: 30px;
+    }
+`
 
 const Multipliers = () => {
     return (
@@ -21,9 +29,9 @@ const Multipliers = () => {
             />
             <Hero jc="cneter" ai="center">
                 <SmallContainer>
-                    <Header as="h1" color="white" align="center">
+                    <StyledHeader as="h1" color="white" align="center">
                         {localize('Multipliers')}
-                    </Header>
+                    </StyledHeader>
                 </SmallContainer>
             </Hero>
             <WhatAreMultiplier />

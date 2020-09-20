@@ -129,7 +129,7 @@ const StyledHeader = styled(Header)`
     margin-left: 50%;
     margin-bottom: 2.5rem;
     position: relative;
-    transform: ${(props) => (props.left == 'true' ? 'translateX(-88.7%)' : 'translateX(-1%)')};
+    transform: ${(props) => (props.left === true ? 'translateX(-88.7%)' : 'translateX(-1%)')};
 
     ::before {
         content: '';
@@ -139,8 +139,8 @@ const StyledHeader = styled(Header)`
         border-bottom: 17px solid red;
         position: absolute;
         top: 32.6%;
-        right: ${(props) => (props.left == 'true' ? '1rem' : '')};
-        left: ${(props) => (props.left == 'true' ? '' : '1rem')};
+        right: ${(props) => (props.left === true ? '1rem' : '')};
+        left: ${(props) => (props.left === true ? '' : '1rem')};
 
         @media ${device.tablet} {
             display: none;
@@ -148,10 +148,10 @@ const StyledHeader = styled(Header)`
     }
 
     @media ${device.laptopL} {
-        transform: ${(props) => (props.left == 'true' ? 'translateX(-88%)' : 'translateX(-1%)')};
+        transform: ${(props) => (props.left === true ? 'translateX(-88%)' : 'translateX(-1%)')};
     }
     @media ${device.laptop} {
-        transform: ${(props) => (props.left == 'true' ? 'translateX(-87%)' : 'translateX(-1%)')};
+        transform: ${(props) => (props.left === true ? 'translateX(-87%)' : 'translateX(-1%)')};
     }
     @media ${device.tablet} {
         margin-left: -186px;

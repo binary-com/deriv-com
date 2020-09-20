@@ -89,7 +89,7 @@ const YearWrapper = styled.div`
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    margin-left: ${(props) => (props.left == 'true' ? props.margin_left || '9.4rem' : '-9.4rem')};
+    margin-left: ${(props) => (props.left == true ? props.margin_left || '9.4rem' : '-9.4rem')};
     margin-bottom: ${(props) => props.margin_bottom || 'unset'};
 
     p {
@@ -324,47 +324,50 @@ export const OurHistory = (props) => {
                                 </ContentWrapper>
                             </YearWrapper>
                         ) : (
-                            <YearWrapper
-                                key={idxa}
-                                color={story.color}
-                                width={story.width}
-                                width_laptop={story.width_laptop}
-                                margin_bottom={content.margin_bottom}
-                            >
-                                <ContentWrapper content_width={content.content_width}>
-                                    {content.headers.map((header, id) => (
-                                        <div key={id}>
-                                            <Header
-                                                as="h4"
-                                                color={story.color}
-                                                mt={header.margin_top}
-                                            >
-                                                {header.header}
-                                            </Header>
-                                            <Splitter />
-                                            <Text>{content.texts[id].text}</Text>
-                                        </div>
-                                    ))}
-                                </ContentWrapper>
-                                <LogoContainer
-                                    left
-                                    image_position={content.image_position}
-                                    outer_image_width={content.outer_image_width}
-                                    margin_right={content.margin_right}
+                            <>
+                                <YearWrapper
+                                    key={idxa}
+                                    color={story.color}
+                                    width={story.width}
+                                    width_laptop={story.width_laptop}
+                                    margin_bottom={content.margin_bottom}
+                                    left={content.left}
                                 >
-                                    <Flex jc="flex-start" ml="1rem">
-                                        <QueryImage
-                                            data={data[content.image]}
-                                            alt={content.image_alt.props.translate_text}
-                                            width={
-                                                is_mobile
-                                                    ? content.image_mobile_width
-                                                    : content.image_width
-                                            }
-                                        />
-                                    </Flex>
-                                </LogoContainer>
-                            </YearWrapper>
+                                    <ContentWrapper content_width={content.content_width}>
+                                        {content.headers.map((header, id) => (
+                                            <div key={id}>
+                                                <Header
+                                                    as="h4"
+                                                    color={story.color}
+                                                    mt={header.margin_top}
+                                                >
+                                                    {header.header}
+                                                </Header>
+                                                <Splitter />
+                                                <Text>{content.texts[id].text}</Text>
+                                            </div>
+                                        ))}
+                                    </ContentWrapper>
+                                    <LogoContainer
+                                        left
+                                        image_position={content.image_position}
+                                        outer_image_width={content.outer_image_width}
+                                        margin_right={content.margin_right}
+                                    >
+                                        <Flex jc="flex-start" ml="1rem">
+                                            <QueryImage
+                                                data={data[content.image]}
+                                                alt={content.image_alt.props.translate_text}
+                                                width={
+                                                    is_mobile
+                                                        ? content.image_mobile_width
+                                                        : content.image_width
+                                                }
+                                            />
+                                        </Flex>
+                                    </LogoContainer>
+                                </YearWrapper>
+                            </>
                         ),
                     )}
                 </Story>

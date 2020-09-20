@@ -523,7 +523,7 @@ Nav.propTypes = {
 
 const Auto = styled(Flex)`
     @media ${device.mobileM} {
-        width: auto;
+        width: 100%;
     }
 `
 

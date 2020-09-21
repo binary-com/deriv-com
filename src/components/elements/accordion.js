@@ -83,7 +83,10 @@ Accordion.propTypes = {
 
 const SingleAccordionContent = ({ is_default_open = false, nodes, children }) => {
     const getHeight = (active_idx) => {
-        return nodes[active_idx].ref.children[0].children[1].children[0].offsetHeight
+        return (
+            nodes[active_idx] &&
+            nodes[active_idx].ref.children[0].children[1].children[0].offsetHeight
+        )
     }
 
     const render_nodes = React.Children.map(children, (child, child_idx) => {
@@ -102,7 +105,7 @@ const SingleAccordionContent = ({ is_default_open = false, nodes, children }) =>
         React.useEffect(() => child && setHeight(getHeight(child_idx)), [is_expanded])
 
         return (
-            child && (
+            child.props.is_showed != false && (
                 <ResponsiveWrapper
                     key={child_idx}
                     style={child.props.parent_style}
@@ -244,6 +247,7 @@ const AccordionItem = ({ text, children, style }) => {
 
 AccordionItem.propTypes = {
     children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
+    is_showed: PropTypes.bool,
     style: PropTypes.object,
     text: PropTypes.string,
 }

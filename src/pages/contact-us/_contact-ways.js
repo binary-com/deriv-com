@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { Header, QueryImage } from 'components/elements'
 import { SectionContainer, Container, Flex } from 'components/containers'
-import { localize, Localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import { LinkButton } from 'components/form'
 import device from 'themes/device'
 import { community_url } from 'common/utility'
@@ -35,7 +35,7 @@ const contactways = [
         image: 'community',
         button: (
             <StyledLinkButton secondary="true" to={community_url} external="true" target="_blank">
-                {localize('Ask the community')}
+                <Localize translate_text="Ask the community" />
             </StyledLinkButton>
         ),
     },
@@ -48,7 +48,7 @@ const contactways = [
         image: 'help',
         button: (
             <StyledLinkButton secondary="true" to="/help-centre">
-                {localize('Visit our Help centre')}
+                <Localize translate_text="Visit our Help centre" />
             </StyledLinkButton>
         ),
     },

@@ -37,6 +37,8 @@ const Item = styled(Flex)`
     height: auto;
 
     @media (max-width: 1280px) {
+        max-width: 100%;
+
         & > * {
             text-align: center;
         }

@@ -45,7 +45,8 @@ const AccordionHeader = styled.div`
         cursor: pointer;
     }
     @media ${device.mobileL} {
-        height: auto;
+        min-height: 7rem;
+        height: 100%;
     }
 `
 const ResponsiveWrapper = styled.div`

@@ -22,7 +22,14 @@ const help_content = [
         ),
         icon: <GamStop style={{ width: '91%', height: '100%' }} />,
         link: (
-            <LocalizedLinkText mt="1rem" to="https://www.gamstop.co.uk/" color="red">
+            <LocalizedLinkText
+                mt="1rem"
+                to="https://www.gamstop.co.uk/"
+                color="red"
+                external="true"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
                 <Localize translate_text="Click here to find out more" />
             </LocalizedLinkText>
         ),
@@ -36,7 +43,14 @@ const help_content = [
         ),
         icon: <BeGambleAware style={{ width: '50%' }} />,
         link: (
-            <LocalizedLinkText mt="1rem" to="https://www.begambleaware.org/" color="red">
+            <LocalizedLinkText
+                mt="1rem"
+                to="https://www.begambleaware.org/"
+                color="red"
+                external="true"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
                 <Localize translate_text="Click here to find out more" />
             </LocalizedLinkText>
         ),

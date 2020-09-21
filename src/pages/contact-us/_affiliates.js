@@ -54,6 +54,12 @@ const Item = styled(Flex)`
             font-size: 20px;
         }
     }
+
+    @media ${device.mobileM} {
+        ${Text} {
+            font-size: 14px;
+        }
+    }
 `
 
 const AbsoluteMail = styled(Mail)`

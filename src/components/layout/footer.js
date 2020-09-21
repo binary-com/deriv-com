@@ -11,6 +11,7 @@ import {
     QueryImage,
 } from '../elements'
 import { LocationContext } from './location-context'
+import { mga_link_url } from 'common/utility'
 // TODO: (discussion) make footer pure component, and move usage of footer to custom
 import device from 'themes/device'
 import { localize, Localize, LocalizedLink } from 'components/localization'
@@ -838,7 +839,14 @@ const Footer = () => {
                                         height="auto"
                                     />
                                 </StyledCoatArms>
-                                <StyledMgaLogo />
+                                <LocalizedLink
+                                    external="true"
+                                    to={mga_link_url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <StyledMgaLogo />
+                                </LocalizedLink>
                                 <Over18 />
                             </EuLogoWrapper>
                         </Show.Desktop>
@@ -853,7 +861,14 @@ const Footer = () => {
                                     />
                                 </StyledCoatArms>
                                 <Flex fd="column" width="auto">
-                                    <StyledMgaLogo />
+                                    <LocalizedLink
+                                        external="true"
+                                        to={mga_link_url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        <StyledMgaLogo />
+                                    </LocalizedLink>
                                     <StyledGamstop />
                                 </Flex>
                                 <Over18 />

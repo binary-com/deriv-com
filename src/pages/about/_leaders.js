@@ -227,7 +227,6 @@ const DescriptionWrapper = styled.div`
 `
 
 const LeaderWrapper = styled(Flex)`
-    cursor: default;
     height: auto;
 
     &:hover {

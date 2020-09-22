@@ -49,7 +49,7 @@ const LoveTrading = () => {
                             <LocalizedLinkText
                                 color="red"
                                 weight="bold"
-                                external
+                                external="true"
                                 to="mailto:partners@deriv.com"
                             >
                                 partners@deriv.com

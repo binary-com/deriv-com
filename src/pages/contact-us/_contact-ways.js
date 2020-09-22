@@ -34,7 +34,7 @@ const contactways = [
         text: <Localize translate_text="Our Deriv support community can help you find answers." />,
         image: 'community',
         button: (
-            <StyledLinkButton secondary="true" to={community_url} external target="_blank">
+            <StyledLinkButton secondary="true" to={community_url} external="true" target="_blank">
                 {localize('Ask the community')}
             </StyledLinkButton>
         ),
@@ -113,7 +113,7 @@ const ContactWays = () => {
                                 <ImgWrapper>
                                     <QueryImage
                                         data={data[item.image]}
-                                        alt={item.header}
+                                        alt={item.header.props.translate_text}
                                         width="100%"
                                     />
                                 </ImgWrapper>

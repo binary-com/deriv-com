@@ -11,6 +11,7 @@ import {
     QueryImage,
 } from '../elements'
 import { LocationContext } from './location-context'
+import { mga_link_url } from 'common/utility'
 // TODO: (discussion) make footer pure component, and move usage of footer to custom
 import device from 'themes/device'
 import { localize, Localize, LocalizedLink } from 'components/localization'
@@ -652,7 +653,7 @@ const Footer = () => {
                                         components={[
                                             <BinaryLinkText
                                                 key={0}
-                                                external
+                                                external="true"
                                                 to={'home'}
                                                 is_binary_link
                                                 target="_blank"
@@ -709,7 +710,7 @@ const Footer = () => {
                                     translate_text="In the Isle of Man and the UK, synthetic indices are offered by Deriv (MX) Ltd, First Floor, Millennium House, Victoria Road, Douglas, IM2 4RW, Isle of Man, licensed and regulated respectively by the Gambling Supervision Commission in the Isle of Man (current licence issued on 31 August 2017) and by the Gambling Commission in the UK (licence <0>account no: 39172</0>)."
                                     components={[
                                         <StaticAssetLink
-                                            external
+                                            external="true"
                                             key={0}
                                             target="_blank"
                                             to="https://secure.gamblingcommission.gov.uk/PublicRegister/Search/Detail/39172"
@@ -729,7 +730,7 @@ const Footer = () => {
                                             rel="noopener noreferrer"
                                         />,
                                         <StaticAssetLink
-                                            external
+                                            external="true"
                                             key={1}
                                             target="_blank"
                                             to="https://secure.gamblingcommission.gov.uk/PublicRegister/Search/Detail/39495"
@@ -838,7 +839,14 @@ const Footer = () => {
                                         height="auto"
                                     />
                                 </StyledCoatArms>
-                                <StyledMgaLogo />
+                                <LocalizedLink
+                                    external="true"
+                                    to={mga_link_url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <StyledMgaLogo />
+                                </LocalizedLink>
                                 <Over18 />
                             </EuLogoWrapper>
                         </Show.Desktop>
@@ -853,7 +861,14 @@ const Footer = () => {
                                     />
                                 </StyledCoatArms>
                                 <Flex fd="column" width="auto">
-                                    <StyledMgaLogo />
+                                    <LocalizedLink
+                                        external="true"
+                                        to={mga_link_url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        <StyledMgaLogo />
+                                    </LocalizedLink>
                                     <StyledGamstop />
                                 </Flex>
                                 <Over18 />

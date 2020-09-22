@@ -71,7 +71,7 @@ const Description = styled.div`
 `
 
 const StyledText = styled(Text)`
-    font-size: ${(props) => (props.is_expanded ? 'var(--text-size-s)' : '0')};
+    font-size: ${(props) => (props.is_expanded == 'true' ? 'var(--text-size-s)' : '0')};
 `
 
 const Deposit = styled(Td)`
@@ -99,7 +99,7 @@ const ExpandList = ({ data }) => {
     }
     return (
         <>
-            <Tr is_expanded={is_expanded}>
+            <Tr is_expanded={is_expanded.toString()}>
                 <Td>{data.method}</Td>
                 <Td>
                     <Text>{data.currencies}</Text>
@@ -140,13 +140,15 @@ const ExpandList = ({ data }) => {
                     )}
                 </Td>
                 <HoverTd onClick={toggleExpand}>
-                    <StyledChevron expanded={is_expanded} />
+                    <StyledChevron expanded={is_expanded.toString()} />
                 </HoverTd>
             </Tr>
             <tr>
                 <ExpandedContent colSpan="8">
-                    <Description is_expanded={is_expanded}>
-                        <StyledText is_expanded={is_expanded}>{data.description}</StyledText>
+                    <Description is_expanded={is_expanded.toString()}>
+                        <StyledText is_expanded={is_expanded.toString()}>
+                            {data.description}
+                        </StyledText>
                         {data.url && (
                             <StyledButton onClick={() => window.open(data.url, '_blank')} tertiary>
                                 {localize('Learn more')}

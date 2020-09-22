@@ -664,7 +664,7 @@ const Footer = () => {
                                         <StaticAsset
                                             key={0}
                                             target="_blank"
-                                            href="/regulatory/Deriv_(V)_Ltd.pdf"
+                                            href="/regulatory/Deriv_(FX)_Ltd.pdf"
                                             rel="noopener noreferrer"
                                         />,
                                         <StaticAsset
@@ -676,13 +676,13 @@ const Footer = () => {
                                         <StaticAsset
                                             key={2}
                                             target="_blank"
-                                            href="/regulatory/Deriv_(FX)_Ltd.pdf"
+                                            href="/regulatory/Deriv_(V)_Ltd.pdf"
                                             rel="noopener noreferrer"
                                         />,
                                         <StaticAsset
                                             key={3}
                                             target="_blank"
-                                            href="/regulatory/Deriv_(FX)_Ltd.pdf"
+                                            href="/regulatory/Champion_Group_Ltd.pdf"
                                             rel="noopener noreferrer"
                                         />,
                                     ]}
@@ -694,11 +694,10 @@ const Footer = () => {
                                 <Localize
                                     translate_text="Deriv Investments (Europe) Limited, W Business Centre, Level 3, Triq Dun Karm, Birkirkara BKR 9033, Malta, is licensed for financial products by the Malta Financial Services Authority for clients in the EU (<0>licence no. IS/70156</0>)."
                                     components={[
-                                        <StaticAssetLink
-                                            external
+                                        <StaticAsset
                                             key={0}
                                             target="_blank"
-                                            to="https://secure.gamblingcommission.gov.uk/PublicRegister/Search/Detail/39172"
+                                            href="/regulatory/Deriv_Investments_(Europe)_Limited.pdf"
                                             rel="noopener noreferrer"
                                         />,
                                     ]}
@@ -711,14 +710,14 @@ const Footer = () => {
                                         <StaticAsset
                                             key={0}
                                             target="_blank"
-                                            href="/regulatory/Deriv_(Europe)_Limited.pdf"
+                                            href="/regulatory/Deriv_(MX)_Ltd.pdf"
                                             rel="noopener noreferrer"
                                         />,
                                         <StaticAssetLink
                                             external
                                             key={1}
                                             target="_blank"
-                                            to="https://secure.gamblingcommission.gov.uk/PublicRegister/Search/Detail/39495"
+                                            to="https://secure.gamblingcommission.gov.uk/PublicRegister/Search/Detail/39172"
                                             rel="noopener noreferrer"
                                         />,
                                     ]}
@@ -784,9 +783,10 @@ const Footer = () => {
                                                         to="/responsible-trading/"
                                                     />,
                                                     <BoldLink
+                                                        external
                                                         key={0}
                                                         target="_blank"
-                                                        to="/responsible-trading/"
+                                                        to="https://www.begambleaware.org/"
                                                     />,
                                                 ]}
                                             />
@@ -812,9 +812,10 @@ const Footer = () => {
                                                     to="/responsible-trading/"
                                                 />,
                                                 <BoldLink
+                                                    external
                                                     key={0}
                                                     target="_blank"
-                                                    to="/responsible-trading/"
+                                                    to="https://www.begambleaware.org/"
                                                 />,
                                             ]}
                                         />

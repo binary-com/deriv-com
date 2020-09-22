@@ -57,7 +57,6 @@ const MarketsList = styled(CssGrid)`
 const Title = styled(Text)`
     @media ${device.tabletL} {
         text-align: center;
-        max-width: 6.4rem;
         font-weight: 600;
     }
 `

@@ -157,7 +157,6 @@ const FAQ = () => {
                             </AccordionItem>
 
                             <AccordionItem
-                                is_showed={!is_eu_country}
                                 header={
                                     <Localize translate_text="Are you going to close down Binary.com?" />
                                 }
@@ -185,7 +184,6 @@ const FAQ = () => {
                     <Answer>
                         <Accordion has_single_state>
                             <AccordionItem
-                                is_showed={!is_eu_country}
                                 header={
                                     <Localize translate_text="Why should I switch to Deriv.com?" />
                                 }
@@ -198,7 +196,6 @@ const FAQ = () => {
                             </AccordionItem>
 
                             <AccordionItem
-                                is_showed={!is_eu_country}
                                 header={
                                     <Localize translate_text="Can I still trade on Binary.com?" />
                                 }

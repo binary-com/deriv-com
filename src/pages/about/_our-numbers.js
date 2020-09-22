@@ -75,12 +75,12 @@ const OurNumbers = () => (
             >
                 <article>
                     <Show.Desktop>
-                        <NumberHeader size="3.6rem">20</NumberHeader>
+                        <NumberHeader size="3.6rem">{localize('20')}</NumberHeader>
                         <Text align="center">{localize('Years of industry experience')}</Text>
                     </Show.Desktop>
 
                     <Show.Mobile>
-                        <NumberHeader size="4.5rem">20</NumberHeader>
+                        <NumberHeader size="4.5rem">{localize('20')}</NumberHeader>
                         <Text size="2rem" align="center">
                             {localize('Years of industry experience')}
                         </Text>
@@ -88,12 +88,12 @@ const OurNumbers = () => (
                 </article>
                 <article>
                     <Show.Desktop>
-                        <NumberHeader size="3.6rem">1.2M+</NumberHeader>
+                        <NumberHeader size="3.6rem">{localize('1.8M+')}</NumberHeader>
                         <Text align="center">{localize('Trading accounts opened')}</Text>
                     </Show.Desktop>
 
                     <Show.Mobile>
-                        <NumberHeader size="4.5rem">USD 7B+</NumberHeader>
+                        <NumberHeader size="4.5rem">{localize('USD 8B+')}</NumberHeader>
                         <Text size="2rem" align="center">
                             {localize('Total trade turnover')}
                         </Text>
@@ -101,11 +101,11 @@ const OurNumbers = () => (
                 </article>
                 <article>
                     <Show.Desktop>
-                        <NumberHeader size="3.6rem">USD 7B+</NumberHeader>
+                        <NumberHeader size="3.6rem">{localize('USD 8B+')}</NumberHeader>
                         <Text align="center">{localize('Total trade turnover')}</Text>
                     </Show.Desktop>
                     <Show.Mobile>
-                        <NumberHeader size="4.5rem">1.2M+</NumberHeader>
+                        <NumberHeader size="4.5rem">{localize('1.8M+')}</NumberHeader>
                         <Text size="2rem" align="center">
                             {localize('Trading accounts opened')}
                         </Text>
@@ -113,12 +113,12 @@ const OurNumbers = () => (
                 </article>
                 <article>
                     <Show.Desktop>
-                        <NumberHeader size="3.6rem">43M+</NumberHeader>
+                        <NumberHeader size="3.6rem">{localize('62M+')}</NumberHeader>
                         <Text align="center">{localize('Trades last month')}</Text>
                     </Show.Desktop>
 
                     <Show.Mobile>
-                        <NumberHeader size="4.5rem">43M+</NumberHeader>
+                        <NumberHeader size="4.5rem">{localize('62M+')}</NumberHeader>
                         <Text size="2rem" align="center">
                             {localize('Trades last month')}
                         </Text>
@@ -126,12 +126,12 @@ const OurNumbers = () => (
                 </article>
                 <article>
                     <Show.Desktop>
-                        <NumberHeader size="3.6rem">USD 6M+</NumberHeader>
+                        <NumberHeader size="3.6rem">{localize('USD 15M+')}</NumberHeader>
                         <Text align="center">{localize('Withdrawal last month')}</Text>
                     </Show.Desktop>
 
                     <Show.Mobile>
-                        <NumberHeader size="4.5rem">USD 6M+</NumberHeader>
+                        <NumberHeader size="4.5rem">{localize('USD 15M+')}</NumberHeader>
                         <Text size="2rem" align="center">
                             {localize('Withdrawal last month')}
                         </Text>

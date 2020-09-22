@@ -65,15 +65,20 @@ const OptionItems = styled(Flex)`
         }
     }
 `
+const StyledHeader = styled(Header)`
+    @media ${device.tablet} {
+        font-size: 28px;
+    }
+`
 
 const HowOptionsWorks = () => {
     const data = useStaticQuery(query)
     return (
         <SectionContainer p="8rem 0 4rem">
             <SmallContainer direction="column" ai="flex-start">
-                <Header as="h2" mb="3.2rem">
+                <StyledHeader as="h2" mb="3.2rem">
                     {localize('How multipliers contracts work')}
-                </Header>
+                </StyledHeader>
                 <OptionGrid>
                     <HowItWorksItem>
                         <OptionItems>

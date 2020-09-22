@@ -8,8 +8,7 @@ import { isProduction } from 'common/websocket/config'
 
 const languages = Object.keys(language_config)
 
-// TODO: enable pl when translation is ready
-const disabled_lang = ['ach', 'pl']
+const disabled_lang = ['ach']
 
 class LanguageSwitch extends Component {
     constructor(props) {

@@ -13,10 +13,7 @@ const Descriptions = styled.div`
 `
 const Col = styled(Flex)`
     max-width: 12.9rem;
-
-    @media ${device.tabletL} {
-        max-width: 7rem;
-    }
+    padding: 0 0.4rem;
 `
 const Row = styled(Flex)`
     border: 1px solid var(--color-grey-22);
@@ -49,11 +46,15 @@ const MarketsList = styled(CssGrid)`
             line-height: 1.5;
         }
     }
+
+    @media ${device.mobileL} {
+        grid-template-columns: repeat(2, 1fr);
+    }
 `
 const Title = styled(Text)`
+    text-align: center;
+
     @media ${device.tabletL} {
-        text-align: center;
-        max-width: 4rem;
         font-weight: 600;
     }
 `

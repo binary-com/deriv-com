@@ -38,6 +38,7 @@ const MarketsList = styled(CssGrid)`
     width: 100%;
     padding: 2.4rem 1.6rem;
     grid-row-gap: 1.6rem;
+    grid-column-gap: 0.8rem;
 
     @media ${device.tabletL} {
         grid-template-columns: repeat(1, 1fr);
@@ -56,7 +57,6 @@ const MarketsList = styled(CssGrid)`
 const Title = styled(Text)`
     @media ${device.tabletL} {
         text-align: center;
-        max-width: 6.4rem;
         font-weight: 600;
     }
 `

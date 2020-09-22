@@ -32,7 +32,7 @@ const Col = styled(Flex)`
     max-width: 13.2rem;
 
     @media ${device.tabletL} {
-        max-width: 10rem;
+        max-width: 12rem;
     }
 `
 const MarketsWrapper = styled(Flex)`
@@ -74,7 +74,7 @@ const MarketsList = styled(CssGrid)`
     border-right: 1px solid var(--color-grey-22);
     grid-template-columns: repeat(3, 1fr);
     width: 100%;
-    padding: 2.4rem 1.6rem;
+    padding: 2.4rem 0.7rem;
     grid-row-gap: 1.6rem;
 
     @media ${device.tabletL} {
@@ -94,7 +94,6 @@ const MarketsList = styled(CssGrid)`
 const Title = styled(Text)`
     @media ${device.tabletL} {
         text-align: center;
-        max-width: 8rem;
         font-weight: 600;
     }
 `
@@ -345,7 +344,7 @@ const DigitalOptions = () => {
                         renderTitle={() => (
                             <Row jc="flex-start" ai="center">
                                 <Col>
-                                    <Title weight="bold" align="center">
+                                    <Title weight="bold" align="center" p="0 0.4rem">
                                         {localize('Continuous indices')}
                                     </Title>
                                 </Col>

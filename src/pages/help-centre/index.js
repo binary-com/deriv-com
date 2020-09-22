@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import matchSorter from 'match-sorter'
 import styled from 'styled-components'
+import { Helmet } from 'react-helmet'
 import { navigate } from '@reach/router'
 import { articles } from './_help-articles'
 import { SearchSuccess, SearchError } from './_search-results'
@@ -8,6 +9,7 @@ import { SearchSuccess, SearchError } from './_search-results'
 import { DidntFindYourAnswerBanner } from './_didnt-find-answer'
 import { Community } from './_community'
 import { convertToHash } from './_utility'
+import { faq_schema } from './_faq-schema'
 import { SEO, Container } from 'components/containers'
 import { Header } from 'components/elements'
 import Layout from 'components/layout/layout'
@@ -297,7 +299,9 @@ class HelpCentre extends Component {
                         'Need help? Have questions about Deriv services and online trading platforms? Read our FAQ or ask us a question.',
                     )}
                 />
-
+                <Helmet>
+                    <script type="application/ld+json">{JSON.stringify(faq_schema)}</script>
+                </Helmet>
                 <SearchSection show={toggle_search} has_transition={search_has_transition}>
                     <Backdrop>
                         <Container align="left" justify="flex-start" direction="column">

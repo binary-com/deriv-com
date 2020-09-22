@@ -50,7 +50,7 @@ const LoveTrading = () => {
                             {localize('Love trading on Binary.com’s signature platform?')}
                         </White>
                         <FitButton
-                            external
+                            external="true"
                             white
                             to="trading"
                             is_smarttrader_link

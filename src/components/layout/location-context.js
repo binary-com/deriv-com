@@ -36,7 +36,7 @@ LocationProvider.propTypes = {
     is_eu_country: PropTypes.bool,
     is_livechat_interactive: PropTypes.bool,
     LC_API: PropTypes.object,
-    setModalPayload: PropTypes.object,
+    setModalPayload: PropTypes.func,
     show_cookie_banner: PropTypes.bool,
     toggleModal: PropTypes.func,
 }

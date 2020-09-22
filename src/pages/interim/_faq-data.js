@@ -15,7 +15,7 @@ const NeedSignUp = () => (
                 components={[
                     <LocalizedLinkText
                         key={0}
-                        external
+                        external="true"
                         to="home"
                         is_binary_link
                         target="_blank"
@@ -36,7 +36,7 @@ const BinaryRemoved = () => (
                 components={[
                     <LocalizedLinkText
                         key={0}
-                        external
+                        external="true"
                         to="home"
                         is_binary_link
                         target="_blank"
@@ -58,7 +58,7 @@ const DerivSecure = () => (
                 components={[
                     <LocalizedLinkText
                         key={0}
-                        external
+                        external="true"
                         to="home"
                         is_binary_link
                         target="_blank"
@@ -80,7 +80,7 @@ const OtherChanges = () => (
                 components={[
                     <LocalizedLinkText
                         key={0}
-                        external
+                        external="true"
                         to="home"
                         is_binary_link
                         target="_blank"

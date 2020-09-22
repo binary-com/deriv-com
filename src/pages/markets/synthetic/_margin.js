@@ -57,7 +57,6 @@ const MarketsList = styled(CssGrid)`
 const Title = styled(Text)`
     @media ${device.tabletL} {
         text-align: center;
-        max-width: 6.4rem;
         font-weight: 600;
     }
 `
@@ -167,10 +166,16 @@ const Margin = () => {
                         renderTitle={() => (
                             <Row jc="flex-start" ai="center">
                                 <Col max_width="13.2rem">
-                                    <Title weight="bold" max_width="9.7rem" align="center">
-                                        <Show.Desktop>{localize('Crash/Boom')}</Show.Desktop>
-                                        <Show.Mobile>{localize('Crash/ Boom')}</Show.Mobile>
-                                    </Title>
+                                    <Show.Desktop>
+                                        <Title weight="bold" max_width="9.7rem" align="center">
+                                            {localize('Crash/Boom')}
+                                        </Title>
+                                    </Show.Desktop>
+                                    <Show.Mobile>
+                                        <Title weight="bold" max_width="9.7rem" align="center">
+                                            {localize('Crash/ Boom')}
+                                        </Title>
+                                    </Show.Mobile>
                                 </Col>
                                 <MarketsList>
                                     <CrashBoom />

@@ -2,14 +2,7 @@ import React from 'react'
 import styled, { css } from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { Container, CssGrid, Flex, Show } from '../containers'
-import {
-    Accordion,
-    AccordionItem,
-    StyledLink,
-    Text,
-    LocalizedLinkText,
-    QueryImage,
-} from '../elements'
+import { Accordion, AccordionItem, StyledLink, Text, QueryImage } from '../elements'
 import { LocationContext } from './location-context'
 import { mga_link_url } from 'common/utility'
 // TODO: (discussion) make footer pure component, and move usage of footer to custom
@@ -236,20 +229,20 @@ const Item = styled.div`
         font-size: var(--text-size-sm);
     }
 `
-const BinaryLinkText = styled(LocalizedLinkText)`
-    font-weight: bold;
-    color: var(--color-black-3);
-    font-size: var(--text-size-xs);
-    text-decoration: none;
+// const BinaryLinkText = styled(LocalizedLinkText)`
+//     font-weight: bold;
+//     color: var(--color-black-3);
+//     font-size: var(--text-size-xs);
+//     text-decoration: none;
 
-    :hover {
-        text-decoration: underline;
-        color: var(--color-black-3);
-    }
-    @media ${device.tabletL} {
-        font-size: var(--text-size-sm);
-    }
-`
+//     :hover {
+//         text-decoration: underline;
+//         color: var(--color-black-3);
+//     }
+//     @media ${device.tabletL} {
+//         font-size: var(--text-size-sm);
+//     }
+// `
 
 const StyledGamstop = styled(Gamstop)`
     margin-right: 2.4rem;
@@ -644,25 +637,6 @@ const Footer = () => {
                         </Show.Mobile>
                     </LinksWrapper>
                     <Disclaimer>
-                        <div>
-                            <Show.Eu>
-                                <DisclaimerParagraph>
-                                    <Localize
-                                        translate_text="Products offered on Deriv.com are not available to clients residing in the EU and are accessible on <0>Binary.com.<0>"
-                                        components={[
-                                            <BinaryLinkText
-                                                key={0}
-                                                external="true"
-                                                to={'home'}
-                                                is_binary_link
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                            />,
-                                        ]}
-                                    />
-                                </DisclaimerParagraph>
-                            </Show.Eu>
-                        </div>
                         <Show.NonEU>
                             <DisclaimerParagraph>
                                 <Localize

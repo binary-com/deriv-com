@@ -184,8 +184,8 @@ const TradeTypesMobile = () => {
                 <SliderWrapper>
                     <SwiperWrapper>
                         <Swiper {...params} ref={ref}>
-                            {trade_types.map((trade_slide) => (
-                                <div className="swiper-slide" key={trade_slide.title}>
+                            {trade_types.map((trade_slide, idx) => (
+                                <div className="swiper-slide" key={idx}>
                                     <TradeTypeSlide
                                         icon={trade_slide.icon}
                                         title={trade_slide.title}

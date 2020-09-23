@@ -17,7 +17,7 @@ class LanguageSwitch extends Component {
         this.state = { language: i18n.language }
     }
 
-    componentWillReceiveProps(nextProps) {
+    UNSAFE_componentWillReceiveProps(nextProps) {
         this.setState({ language: nextProps.i18n.language })
     }
     renderLanguageChoice = (lang) => {

@@ -446,7 +446,7 @@ const Regulatory = () => {
                             </Desktop>
                             <Text mt="0.8rem">
                                 {localize(
-                                    'Deriv Limited, 47 Esplanade, St Helier, Jersey JE1 0BD, Channel Islands (registration no. 108101), is the holding company for the above subsidiaries.',
+                                    'Deriv Limited, 47 Esplanade, St Helier, Jersey JE1 0BD, Channel Islands, is the holding company for the above subsidiaries.',
                                 )}
                             </Text>
                         </CssGridColumn>
@@ -480,19 +480,10 @@ const Regulatory = () => {
                             </Desktop>
                             <Text mt="0.8rem" max_width="58.8rem">
                                 <Localize
-                                    translate_text="We are registered with <0>The Financial Commission</0>, an international independent organisation dedicated to resolving disputes within the financial services industry (<1>view membership</1>)."
+                                    translate_text="We are registered with the Financial Commission, an international independent organisation dedicated to resolving disputes within the financial services industry (<0>view membership</0>)."
                                     components={[
-                                        <ExternalBoldLink
-                                            external="true"
-                                            key={0}
-                                            color="red"
-                                            weight="normal"
-                                            target="_blank"
-                                            to="https://financialcommission.org/"
-                                            rel="noopener noreferrer"
-                                        />,
                                         <LinkText
-                                            key={1}
+                                            key={0}
                                             weight="bold"
                                             target="_blank"
                                             href="/regulatory/Deriv_Ltd_membership.pdf"

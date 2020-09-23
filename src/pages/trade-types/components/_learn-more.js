@@ -8,7 +8,7 @@ import Arrow from 'images/svg/arrow-right.svg'
 const Wrapper = styled.div`
     position: absolute;
     left: 0;
-    bottom: -2.4rem;
+    bottom: -2rem;
     width: 100%;
     opacity: 0;
     transition: opacity 0.25s;

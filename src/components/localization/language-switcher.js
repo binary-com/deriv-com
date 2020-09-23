@@ -42,7 +42,7 @@ class LanguageSwitch extends Component {
 
     handleSelect = (e) => {
         const { id } = e.target
-        const current_lang = localStorage.getItem('i18n') || 'en'
+        const current_lang = localStorage.getItem('i18n') || navigator.language
         const path = id === '/en/' ? '/' : id
 
         if (!(`/${current_lang}` === id)) {

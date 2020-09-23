@@ -48,10 +48,10 @@ const getPropertyValue = (obj, k) => {
 const getLocationHash = () =>
     isBrowser() && (location.hash ? location.hash.substring(1).replace(/\/$/, '') : '')
 
-const getLanguage = () => (isBrowser() ? localStorage.getItem('i18n') || 'en' : null)
+const getLanguage = () => (isBrowser() ? localStorage.getItem('i18n') || navigator.language : null)
 
 const getCrowdin = () =>
-    isBrowser() ? localStorage.getItem('jipt_language_code_deriv-com') || 'en' : null
+    isBrowser() ? localStorage.getItem('jipt_language_code_deriv-com') || navigator.language : null
 
 class PromiseClass {
     constructor() {

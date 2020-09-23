@@ -17,11 +17,13 @@ const Li = styled(Flex).attrs({ as: 'li' })`
     max-width: 38.4rem;
     display: flex;
     margin: 2rem 1.2rem;
+    height: 180px;
 
     @media ${device.mobileL} {
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        height: auto;
     }
 `
 const ResponsiveBox = styled(Box)`

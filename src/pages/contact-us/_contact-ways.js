@@ -80,7 +80,7 @@ const ContactWrapper = styled.article`
     position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 
     @media ${device.tabletL} {

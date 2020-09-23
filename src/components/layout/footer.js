@@ -86,6 +86,11 @@ const LinksWrapper = styled.div`
 const LinksCol = styled(Flex)`
     flex-direction: column;
     width: fit-content;
+    margin-right: 20px;
+
+    :last-child {
+        margin-right: 0;
+    }
 `
 
 const Title = styled(Text)`

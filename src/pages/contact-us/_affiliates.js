@@ -36,6 +36,10 @@ const Item = styled(Flex)`
     justify-content: flex-start;
     height: auto;
 
+    @media (max-width: 590px) {
+        min-height: 117px;
+    }
+
     @media (max-width: 1280px) {
         max-width: 100%;
 

@@ -17,7 +17,7 @@ const Login = (() => {
         const language = localStorage.getItem('i18n')?.replace('-', '_')
         const signup_device_cookie = new CookieStorage('signup_device')
         const signup_device =
-            signup_device_cookie.get('signup_device') || (isMobile() ? 'mobile' : 'desktop')
+            signup_device_cookie.get('signup_device')
         const date_first_contact_cookie = new CookieStorage('date_first_contact')
         const date_first_contact = date_first_contact_cookie.get('date_first_contact')
         const marketing_queries = `&signup_device=${signup_device}${

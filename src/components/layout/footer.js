@@ -7,8 +7,8 @@ import {
     AccordionItem,
     StyledLink,
     Text,
-    LocalizedLinkText,
     QueryImage,
+    LocalizedLinkText,
 } from '../elements'
 import { LocationContext } from './location-context'
 import { mga_link_url } from 'common/utility'
@@ -653,7 +653,7 @@ const Footer = () => {
                                         components={[
                                             <BinaryLinkText
                                                 key={0}
-                                                external="true"
+                                                external
                                                 to={'home'}
                                                 is_binary_link
                                                 target="_blank"
@@ -671,7 +671,7 @@ const Footer = () => {
                                     <StaticAsset
                                         key={0}
                                         target="_blank"
-                                        href="/regulatory/Deriv_Investments_(Europe)_Limited.pdf"
+                                        href="/regulatory/Deriv_Investments_(Europe)_Ltd.pdf"
                                         rel="noopener noreferrer"
                                     />,
                                 ]}
@@ -707,10 +707,10 @@ const Footer = () => {
                         <Show.Eu>
                             <DisclaimerParagraph>
                                 <Localize
-                                    translate_text="In the Isle of Man and the UK, synthetic indices are offered by Deriv (MX) Ltd, First Floor, Millennium House, Victoria Road, Douglas, IM2 4RW, Isle of Man, licensed and regulated respectively by the Gambling Supervision Commission in the Isle of Man (current licence issued on 31 August 2017) and by the Gambling Commission in the UK (licence <0>account no: 39172</0>)."
+                                    translate_text="In the Isle of Man and the UK, synthetic indices are offered by Deriv (MX) Ltd, First Floor, Millennium House, Victoria Road, Douglas, IM2 4RW, Isle of Man, licensed and regulated respectively by the Gambling Supervision Commission in the Isle of Man (current licence issued on 31 August 2017) and by the Gambling Commission in the UK (<0>account no: 39172</0>)."
                                     components={[
                                         <StaticAssetLink
-                                            external="true"
+                                            external
                                             key={0}
                                             target="_blank"
                                             to="https://secure.gamblingcommission.gov.uk/PublicRegister/Search/Detail/39172"
@@ -721,16 +721,16 @@ const Footer = () => {
                             </DisclaimerParagraph>
                             <DisclaimerParagraph>
                                 <Localize
-                                    translate_text="In the rest of the EU, synthetic indices are offered by Deriv (Europe) Limited, W Business Centre, Level 3, Triq Dun Karm, Birkirkara BKR 9033, Malta, licensed and regulated by the Malta Gaming Authority (<0>licence no. MGA/B2C/102/2000</0> issued on 01 August 2018), by the Gambling Commission in the UK for for clients residing in the UK (licence <1>account no: 39495</1>), and by the Revenue Commissioners in Ireland for clients residing in Ireland (Remote Bookmaker's Licence no. 1010285 issued on 1 July 2017)."
+                                    translate_text="In the rest of the EU, synthetic indices are offered by Deriv (Europe) Limited, W Business Centre, Level 3, Triq Dun Karm, Birkirkara BKR 9033, Malta, licensed and regulated by the Malta Gaming Authority (<0>licence no. MGA/B2C/102/2000</0> issued on 01 August 2018), by the Gambling Commission in the UK for for clients residing in the UK (<1>account no: 39495</1>), and by the Revenue Commissioners in Ireland for clients residing in Ireland (Remote Bookmaker's Licence no. 1010285 issued on 1 July 2017)."
                                     components={[
                                         <StaticAsset
                                             key={0}
                                             target="_blank"
-                                            href="/regulatory/Deriv_(Europe)_Limited.pdf"
+                                            href="/regulatory/Deriv_(Europe)_Ltd.pdf"
                                             rel="noopener noreferrer"
                                         />,
                                         <StaticAssetLink
-                                            external="true"
+                                            external
                                             key={1}
                                             target="_blank"
                                             to="https://secure.gamblingcommission.gov.uk/PublicRegister/Search/Detail/39495"
@@ -762,32 +762,53 @@ const Footer = () => {
                                         />
                                     </Show.NonEU>
                                     <Show.Eu>
-                                        <Localize
-                                            translate_text="<1>RISK WARNING:</1> The financial products offered via this website include digitals, contracts for difference (CFDs), and other complex derivatives and financial products. Trading financial products may not be suitable for everyone. CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. 71% of retail investor accounts lose money when trading CFDs with Deriv Investments (Europe) Limited. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money. You should never invest money that you cannot afford to lose and never trade with borrowed money. Before trading in the complex financial products offered, please be sure to understand the risks involved and learn about <0>Secure and responsible trading.</0>"
-                                            components={[
-                                                <BoldLink
-                                                    key={0}
-                                                    target="_blank"
-                                                    to="/responsible-trading/"
-                                                />,
-                                                <strong key={1} />,
-                                            ]}
-                                        />
+                                        <DisclaimerParagraph no_margin="true">
+                                            <Localize translate_text="The financial products offered via this website include digitals, contracts for difference (CFDs), and other complex derivatives and financial products. Trading financial products may not be suitable for everyone. CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage.  71% of retail investor accounts lose money when trading CFDs with Deriv Investments (Europe) Ltd. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money. You should never invest money that you cannot afford to lose and never trade with borrowed money. Before trading in the complex financial products offered, please be sure to understand the risks involved." />
+                                        </DisclaimerParagraph>
+
+                                        <DisclaimerParagraph style={{ marginTop: '2rem' }}>
+                                            <Localize
+                                                translate_text="Gambling can be addictive, so please play responsibly. Visit <0>Secure and responsible trading</0> and <1>begambleaware.org</1> if you need further information."
+                                                components={[
+                                                    <BoldLink
+                                                        key={0}
+                                                        target="_blank"
+                                                        to="/responsible-trading/"
+                                                    />,
+
+                                                    <BoldLink
+                                                        external
+                                                        key={1}
+                                                        target="_blank"
+                                                        to="https://www.begambleaware.org/"
+                                                    />,
+                                                ]}
+                                            />
+                                        </DisclaimerParagraph>
                                     </Show.Eu>
                                 </DisclaimerParagraph>
                             </Show.Desktop>
                             <Show.Mobile>
                                 <Show.Eu>
                                     <DisclaimerParagraph no_margin="true">
+                                        <Localize translate_text="The financial products offered via this website include digitals, contracts for difference (CFDs), and other complex derivatives and financial products. Trading financial products may not be suitable for everyone. CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage.  71% of retail investor accounts lose money when trading CFDs with Deriv Investments (Europe) Ltd. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money. You should never invest money that you cannot afford to lose and never trade with borrowed money. Before trading in the complex financial products offered, please be sure to understand the risks involved." />
+                                    </DisclaimerParagraph>
+                                    <DisclaimerParagraph style={{ marginTop: '2rem' }}>
                                         <Localize
-                                            translate_text="<1>RISK WARNING:</1> The financial products offered via this website include digitals, contracts for difference (CFDs), and other complex derivatives and financial products. Trading financial products may not be suitable for everyone. CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. 71% of retail investor accounts lose money when trading CFDs with Deriv Investments (Europe) Limited. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money. You should never invest money that you cannot afford to lose and never trade with borrowed money. Before trading in the complex financial products offered, please be sure to understand the risks involved and learn about <0>Secure and responsible trading.</0>"
+                                            translate_text="Gambling can be addictive, so please play responsibly. Visit <0>Secure and responsible trading</0> and <1>begambleaware.org</1> if you need further information."
                                             components={[
                                                 <BoldLink
                                                     key={0}
                                                     target="_blank"
                                                     to="/responsible-trading/"
                                                 />,
-                                                <strong key={1} />,
+
+                                                <BoldLink
+                                                    external
+                                                    key={1}
+                                                    target="_blank"
+                                                    to="https://www.begambleaware.org/"
+                                                />,
                                             ]}
                                         />
                                     </DisclaimerParagraph>
@@ -830,15 +851,30 @@ const Footer = () => {
                     <Show.Eu>
                         <Show.Desktop>
                             <EuLogoWrapper mt="1rem" ai="center">
-                                <StyledGamstop />
-                                <StyledCoatArms>
-                                    <QueryImage
-                                        data={image_query.iom}
-                                        alt={'IOM'}
-                                        width="6.4rem"
-                                        height="auto"
-                                    />
-                                </StyledCoatArms>
+                                <LocalizedLink
+                                    external
+                                    to="https://www.gamstop.co.uk"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <StyledGamstop />
+                                </LocalizedLink>
+
+                                <LocalizedLink
+                                    external
+                                    to="https://www.gov.im/categories/business-and-industries/gambling-and-e-gaming/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <StyledCoatArms>
+                                        <QueryImage
+                                            data={image_query.iom}
+                                            alt={'IOM'}
+                                            width="6.4rem"
+                                            height="auto"
+                                        />
+                                    </StyledCoatArms>
+                                </LocalizedLink>
                                 <LocalizedLink
                                     external="true"
                                     to={mga_link_url}
@@ -852,14 +888,21 @@ const Footer = () => {
                         </Show.Desktop>
                         <Show.Mobile>
                             <EuLogoWrapper mt="1rem" ai="center">
-                                <StyledCoatArms>
-                                    <QueryImage
-                                        data={image_query.iom}
-                                        alt={'IOM'}
-                                        width="6.4rem"
-                                        height="auto"
-                                    />
-                                </StyledCoatArms>
+                                <LocalizedLink
+                                    external
+                                    to="https://www.gov.im/categories/business-and-industries/gambling-and-e-gaming/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <StyledCoatArms>
+                                        <QueryImage
+                                            data={image_query.iom}
+                                            alt={'IOM'}
+                                            width="6.4rem"
+                                            height="auto"
+                                        />
+                                    </StyledCoatArms>
+                                </LocalizedLink>
                                 <Flex fd="column" width="auto">
                                     <LocalizedLink
                                         external="true"
@@ -869,7 +912,14 @@ const Footer = () => {
                                     >
                                         <StyledMgaLogo />
                                     </LocalizedLink>
-                                    <StyledGamstop />
+                                    <LocalizedLink
+                                        external
+                                        to="https://www.gamstop.co.uk"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        <StyledGamstop />
+                                    </LocalizedLink>
                                 </Flex>
                                 <Over18 />
                             </EuLogoWrapper>

@@ -100,7 +100,6 @@ const ClientCard = styled.article`
     box-shadow: 0 4px 8px 0 rgba(14, 14, 14, 0.1);
     width: 49rem;
     padding: 2rem 2.4rem;
-    min-height: 30rem;
     position: relative;
 
     ${Flex} {

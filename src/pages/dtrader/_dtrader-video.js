@@ -4,7 +4,7 @@ import { localize } from 'components/localization'
 import { Header } from 'components/elements'
 import MacBook from 'images/svg/macbook.svg'
 import device from 'themes/device.js'
-import { isBrowser, deriv_app_url } from 'common/utility'
+import { isBrowser } from 'common/utility'
 import { LinkButton } from 'components/form'
 
 const Container = styled.section`
@@ -176,9 +176,6 @@ class DtraderTabs extends React.Component {
         this.setState({ transition: false, handler: time })
         this.progressHandler()
     }
-    handleRedirect = () => {
-        window.open(deriv_app_url, '_blank')
-    }
     progressHandler = () => {
         this.setState({
             progress_percentage: Math.ceil(
@@ -231,7 +228,14 @@ class DtraderTabs extends React.Component {
                         </Step>
                     </Tab>
                     <GotoLiveWrapper>
-                        <GoToLiveDemo secondary="true" to={deriv_app_url} target="_blank">
+                        <GoToLiveDemo
+                            secondary="true"
+                            external="true"
+                            to="/"
+                            is_deriv_app_link
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
                             {localize('Go to live demo')}
                         </GoToLiveDemo>
                     </GotoLiveWrapper>

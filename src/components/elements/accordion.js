@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 import { Text } from './typography'
-import device from 'themes/device'
 import { useStateWithCallback } from 'components/hooks/use-state-with-callback'
-import ChevronThick from 'images/svg/chevron-thick.svg'
 import Chevron from 'images/svg/chevron-bottom.svg'
-import Plus from 'images/svg/plus.svg'
+import ChevronThick from 'images/svg/chevron-thick.svg'
 import Minus from 'images/svg/minus.svg'
+import Plus from 'images/svg/plus.svg'
+import device from 'themes/device'
 
 const ThickArrow = styled(ChevronThick)`
     transform: rotate(-180deg);
@@ -44,6 +44,10 @@ const AccordionHeader = styled.div`
     &:hover {
         cursor: pointer;
     }
+    @media ${device.mobileL} {
+        min-height: 7rem;
+        height: 100%;
+    }
 `
 const ResponsiveWrapper = styled.div`
     @media ${device.tablet} {
@@ -78,68 +82,93 @@ Accordion.propTypes = {
     nodes: PropTypes.array,
 }
 
-const SingleAccordionContent = ({ is_default_open = false, nodes, children }) => {
+const ItemExpanded = ({ is_default_open, child, child_idx, nodes }) => {
     const getHeight = (active_idx) => {
-        return nodes[active_idx].ref.children[0].children[1].children[0].offsetHeight
-    }
-
-    const render_nodes = React.Children.map(children, (child, child_idx) => {
-        const [is_expanded, setExpanded] = useState(false)
-        const [height, setHeight] = useStateWithCallback(0, () => {
-            // set height to auto to allow content that can resize inside the accordion
-            // reset height to content height before collapse for transition (height: auto does not support transitions)
-            if (is_expanded) setTimeout(() => setHeight('auto'), 200)
-            else setTimeout(() => setHeight(0), 50)
-        })
-
-        React.useEffect(() => {
-            if (is_default_open) setExpanded(true)
-        }, [])
-
-        React.useEffect(() => setHeight(getHeight(child_idx)), [is_expanded])
-
         return (
-            <ResponsiveWrapper
-                key={child_idx}
-                style={child.props.parent_style}
-                ref={(div) => {
-                    nodes[child_idx] = { ref: div }
-                }}
-            >
-                <AccordionWrapper>
-                    <AccordionHeader
-                        onClick={() => setExpanded(!is_expanded)}
-                        role="button"
-                        aria-expanded={is_expanded}
-                        style={child.props.header_style}
-                    >
-                        <Text weight="bold">{child.props.header}</Text>
-                        <div>
-                            {child.props.plus ? (
-                                is_expanded ? (
-                                    <Minus />
+            nodes[active_idx] &&
+            nodes[active_idx].ref.children[0].children[1].children[0].offsetHeight
+        )
+    }
+    const [is_expanded, setExpanded] = useState(false)
+    const [height, setHeight] = useStateWithCallback(0, () => {
+        // set height to auto to allow content that can resize inside the accordion
+        // reset height to content height before collapse for transition (height: auto does not support transitions)
+        if (is_expanded) setTimeout(() => setHeight('auto'), 200)
+        else setTimeout(() => setHeight(0), 50)
+    })
+
+    React.useEffect(() => {
+        if (is_default_open) setExpanded(true)
+    }, [])
+
+    React.useEffect(() => child && setHeight(getHeight(child_idx)), [is_expanded])
+
+    return (
+        <>
+            {child.props.is_showed != false && (
+                <ResponsiveWrapper
+                    key={child_idx}
+                    style={child.props.parent_style}
+                    ref={(div) => {
+                        nodes[child_idx] = { ref: div }
+                    }}
+                >
+                    <AccordionWrapper>
+                        <AccordionHeader
+                            onClick={() => setExpanded(!is_expanded)}
+                            role="button"
+                            aria-expanded={is_expanded}
+                            style={child.props.header_style}
+                        >
+                            <Text weight="bold">{child.props.header}</Text>
+                            <div>
+                                {child.props.plus ? (
+                                    is_expanded ? (
+                                        <Minus />
+                                    ) : (
+                                        <Plus />
+                                    )
+                                ) : child.props.arrow_thin ? (
+                                    <Arrow expanded={is_expanded ? 'true' : 'false'} />
                                 ) : (
-                                    <Plus />
-                                )
-                            ) : child.props.arrow_thin ? (
-                                <Arrow expanded={is_expanded ? 'true' : 'false'} />
-                            ) : (
-                                <ThickArrow expanded={is_expanded ? 'true' : 'false'} />
-                            )}
+                                    <ThickArrow expanded={is_expanded ? 'true' : 'false'} />
+                                )}
+                            </div>
+                        </AccordionHeader>
+                        <div
+                            style={{
+                                overflow: 'hidden',
+                                transition: `height ${TRANSITION_DURATION}ms ease`,
+                                height,
+                                ...child.props.content_style,
+                            }}
+                        >
+                            {child}
                         </div>
-                    </AccordionHeader>
-                    <div
-                        style={{
-                            overflow: 'hidden',
-                            transition: `height ${TRANSITION_DURATION}ms ease`,
-                            height,
-                            ...child.props.content_style,
-                        }}
-                    >
-                        {child}
-                    </div>
-                </AccordionWrapper>
-            </ResponsiveWrapper>
+                    </AccordionWrapper>
+                </ResponsiveWrapper>
+            )}
+        </>
+    )
+}
+
+ItemExpanded.propTypes = {
+    child: PropTypes.any,
+    child_idx: PropTypes.any,
+    is_default_open: PropTypes.bool,
+    nodes: PropTypes.any,
+}
+
+const SingleAccordionContent = ({ is_default_open = false, nodes, children }) => {
+    const render_nodes = React.Children.map(children, (child, child_idx) => {
+        return (
+            <ItemExpanded
+                key={child_idx}
+                is_default_open={is_default_open}
+                child={child}
+                child_idx={child_idx}
+                nodes={nodes}
+            />
         )
     })
 
@@ -239,6 +268,7 @@ const AccordionItem = ({ text, children, style }) => {
 
 AccordionItem.propTypes = {
     children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
+    is_showed: PropTypes.bool,
     style: PropTypes.object,
     text: PropTypes.string,
 }

@@ -1,10 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 import { Helmet } from 'react-helmet'
 import Scrollbar from 'react-perfect-scrollbar'
-import { LocationContext } from '../../components/layout/location-context'
 import ExpandList from './_expanded-list'
 import payment_data from './_payment-data'
+import { LocationContext } from 'components/layout/location-context.js'
 import Layout from 'components/layout/layout'
 import { Text, Header, Divider, Accordion, AccordionItem } from 'components/elements'
 import { SEO, SectionContainer, Container } from 'components/containers'
@@ -58,10 +59,125 @@ const Notes = styled.div`
     left: 0;
     bottom: 0;
 `
-const TbodyContainer = ({ children }) => {
-    const { crypto_config } = React.useContext(LocationContext)
-    return children(crypto_config)
+
+const DisplayAccordion = () => {
+    const { is_eu_country, crypto_config } = React.useContext(LocationContext)
+    return (
+        <Accordion has_single_state>
+            {payment_data.map((pd, idx) => {
+                if (pd.is_crypto && is_eu_country) {
+                    return []
+                } else
+                    return (
+                        <AccordionItem
+                            key={idx}
+                            content_style={{
+                                background: 'var(--color-white)',
+                                boxShadow: '-2px 6px 15px 0 rgba(195, 195, 195, 0.31)',
+                            }}
+                            header_style={{
+                                borderRadius: '6px',
+                            }}
+                            style={{
+                                padding: '2.2rem 4.8rem',
+                                position: 'relative',
+                                background: 'var(--color-white)',
+                                paddingBottom: pd.note ? '5rem' : '2.2rem',
+                            }}
+                            parent_style={{
+                                marginBottom: '2.4rem',
+                            }}
+                            header={pd.name}
+                        >
+                            <DisplayAccordianItem pd={pd} crypto_config={crypto_config} />
+                        </AccordionItem>
+                    )
+            })}
+        </Accordion>
+    )
 }
+
+const DisplayAccordianItem = ({ pd, crypto_config }) => {
+    return (
+        <>
+            <Scrollbar options={{ suppressScrollY: true }}>
+                <StyledTable has_note={!!pd.note}>
+                    <Thead>
+                        <Tr>
+                            <Th>
+                                <BoldText>{localize('Method')}</BoldText>
+                            </Th>
+                            <Th>
+                                <BoldText>{localize('Currencies')}</BoldText>
+                            </Th>
+                            <Th>
+                                {pd.is_crypto ? (
+                                    <BoldText>{localize('Min deposit')}</BoldText>
+                                ) : (
+                                    <React.Fragment>
+                                        <BoldText>{localize('Min-max')}</BoldText>
+                                        <BoldText>{localize('deposit')}</BoldText>
+                                    </React.Fragment>
+                                )}
+                            </Th>
+                            <Th>
+                                {pd.is_crypto ? (
+                                    <>
+                                        <BoldText>{localize('Min withdrawal')}</BoldText>
+                                    </>
+                                ) : (
+                                    <React.Fragment>
+                                        <BoldText>{localize('Min-max')}</BoldText>
+                                        <BoldText>{localize('withdrawal')}</BoldText>
+                                    </React.Fragment>
+                                )}
+                            </Th>
+                            <Th>
+                                <BoldText>{localize('Deposit')}</BoldText>
+                                <BoldText>{localize('processing time')}</BoldText>
+                            </Th>
+                            <Th>
+                                <BoldText>{localize('Withdrawal')}</BoldText>
+                                <BoldText>{localize('processing time')}</BoldText>
+                            </Th>
+                            <Th>
+                                <BoldText>{localize('Reference')}</BoldText>
+                            </Th>
+                            <Th />
+                        </Tr>
+                    </Thead>
+                    <Tbody>
+                        {pd.data.map((data, indx) => {
+                            return pd.is_crypto ? (
+                                <ExpandList
+                                    key={indx}
+                                    data={data}
+                                    is_crypto={pd.is_crypto}
+                                    config={crypto_config}
+                                />
+                            ) : (
+                                <ExpandList key={indx} data={data} is_crypto={pd.is_crypto} />
+                            )
+                        })}
+                    </Tbody>
+                </StyledTable>
+            </Scrollbar>
+            {pd.note && (
+                <Notes>
+                    <Text weight="500" size="var(--text-size-xs)">
+                        {localize('Note:')} {pd.note}
+                    </Text>
+                </Notes>
+            )}
+        </>
+    )
+}
+
+DisplayAccordianItem.propTypes = {
+    crypto_config: PropTypes.object,
+    pd: PropTypes.object,
+}
+
 const PaymentMethods = () => {
     return (
         <Layout>
@@ -91,126 +207,7 @@ const PaymentMethods = () => {
             <SectionContainer>
                 <Container direction="column">
                     <AccordionContainer>
-                        <Accordion has_single_state>
-                            {payment_data.map((pd, idx) => (
-                                <AccordionItem
-                                    key={idx}
-                                    content_style={{
-                                        background: 'var(--color-white)',
-                                        boxShadow: '-2px 6px 15px 0 rgba(195, 195, 195, 0.31)',
-                                    }}
-                                    header_style={{
-                                        borderRadius: '6px',
-                                    }}
-                                    style={{
-                                        padding: '2.2rem 4.8rem',
-                                        position: 'relative',
-                                        background: 'var(--color-white)',
-                                        paddingBottom: pd.note ? '5rem' : '2.2rem',
-                                    }}
-                                    parent_style={{
-                                        marginBottom: '2.4rem',
-                                    }}
-                                    header={pd.name}
-                                >
-                                    <Scrollbar options={{ suppressScrollY: true }}>
-                                        <StyledTable has_note={!!pd.note}>
-                                            <Thead>
-                                                <Tr>
-                                                    <Th>
-                                                        <BoldText>{localize('Method')}</BoldText>
-                                                    </Th>
-                                                    <Th>
-                                                        <BoldText>
-                                                            {localize('Currencies')}
-                                                        </BoldText>
-                                                    </Th>
-                                                    <Th>
-                                                        {pd.is_crypto ? (
-                                                            <BoldText>
-                                                                {localize('Min deposit')}
-                                                            </BoldText>
-                                                        ) : (
-                                                            <React.Fragment>
-                                                                <BoldText>
-                                                                    {localize('Min-max')}
-                                                                </BoldText>
-                                                                <BoldText>
-                                                                    {localize('deposit')}
-                                                                </BoldText>
-                                                            </React.Fragment>
-                                                        )}
-                                                    </Th>
-                                                    <Th>
-                                                        {pd.is_crypto ? (
-                                                            <BoldText>
-                                                                {localize('Min withdrawal')}
-                                                            </BoldText>
-                                                        ) : (
-                                                            <React.Fragment>
-                                                                <BoldText>
-                                                                    {localize('Min-max')}
-                                                                </BoldText>
-                                                                <BoldText>
-                                                                    {localize('withdrawal')}
-                                                                </BoldText>
-                                                            </React.Fragment>
-                                                        )}
-                                                    </Th>
-                                                    <Th>
-                                                        <BoldText>{localize('Deposit')}</BoldText>
-                                                        <BoldText>
-                                                            {localize('processing time')}
-                                                        </BoldText>
-                                                    </Th>
-                                                    <Th>
-                                                        <BoldText>
-                                                            {localize('Withdrawal')}
-                                                        </BoldText>
-                                                        <BoldText>
-                                                            {localize('processing time')}
-                                                        </BoldText>
-                                                    </Th>
-                                                    <Th>
-                                                        <BoldText>{localize('Reference')}</BoldText>
-                                                    </Th>
-                                                    <Th />
-                                                </Tr>
-                                            </Thead>
-                                            <TbodyContainer>
-                                                {(config) => (
-                                                    <Tbody>
-                                                        {pd.data.map((data, indx) => {
-                                                            return pd.is_crypto ? (
-                                                                <ExpandList
-                                                                    key={indx}
-                                                                    data={data}
-                                                                    is_crypto={pd.is_crypto}
-                                                                    config={config}
-                                                                />
-                                                            ) : (
-                                                                <ExpandList
-                                                                    key={indx}
-                                                                    data={data}
-                                                                    is_crypto={pd.is_crypto}
-                                                                />
-                                                            )
-                                                        })}
-                                                    </Tbody>
-                                                )}
-                                            </TbodyContainer>
-                                        </StyledTable>
-                                    </Scrollbar>
-                                    {pd.note && (
-                                        <Notes>
-                                            <Text weight="500" size="var(--text-size-xs)">
-                                                {localize('Note:')} {pd.note}
-                                            </Text>
-                                        </Notes>
-                                    )}
-                                </AccordionItem>
-                            ))}
-                        </Accordion>
+                        <DisplayAccordion />
                     </AccordionContainer>
                     <Text mt="1.6rem" size="var(--text-size-xs)" align="left">
                         <Localize

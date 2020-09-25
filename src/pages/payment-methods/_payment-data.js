@@ -27,14 +27,14 @@ import ZingPay from 'images/svg/payment-zing-pay.svg'
 import DragonPay from 'images/svg/payment-dragon-pay.svg'
 import NganLuong from 'images/svg/payment-ngan-luong.svg'
 import Diners from 'images/svg/payment-diners.svg'
-import Bianance from 'images/svg/payment-binance-usd.svg'
-import Dai from 'images/svg/payment-multi-collateral-dai.svg'
-import StasisEuro from 'images/svg/payment-stasis-euro.svg'
-import Idk from 'images/svg/payment-idk.svg'
-import Paxos from 'images/svg/payment-paxos-standard.svg'
-import True from 'images/svg/payment-true-usd.svg'
+// import Bianance from 'images/svg/payment-binance-usd.svg'
+// import Dai from 'images/svg/payment-multi-collateral-dai.svg'
+// import StasisEuro from 'images/svg/payment-stasis-euro.svg'
+// import Idk from 'images/svg/payment-idk.svg'
+// import Paxos from 'images/svg/payment-paxos-standard.svg'
+// import True from 'images/svg/payment-true-usd.svg'
 import UsdCoin from 'images/svg/payment-usd-coin.svg'
-import Usdk from 'images/svg/payment-usdk.svg'
+// import Usdk from 'images/svg/payment-usdk.svg'
 
 const icon_css = css`
     width: 72px;
@@ -117,30 +117,30 @@ const NganLuongIc = styled(NganLuong)`
 const DinersIc = styled(Diners)`
     ${icon_css}
 `
-const BiananceIC = styled(Bianance)`
-    ${icon_css}
-`
-const DaiIc = styled(Dai)`
-    ${icon_css}
-`
-const StasisEuroIc = styled(StasisEuro)`
-    ${icon_css}
-`
-const IdkIc = styled(Idk)`
-    ${icon_css}
-`
-const PaxosIc = styled(Paxos)`
-    ${icon_css}
-`
-const TrueIc = styled(True)`
-    ${icon_css}
-`
+// const BiananceIC = styled(Bianance)`
+//     ${icon_css}
+// `
+// const DaiIc = styled(Dai)`
+//     ${icon_css}
+// `
+// const StasisEuroIc = styled(StasisEuro)`
+//     ${icon_css}
+// `
+// const IdkIc = styled(Idk)`
+//     ${icon_css}
+// `
+// const PaxosIc = styled(Paxos)`
+//     ${icon_css}
+// `
+// const TrueIc = styled(True)`
+//     ${icon_css}
+// `
 const UsdCoinIc = styled(UsdCoin)`
     ${icon_css}
 `
-const UsdkIc = styled(Usdk)`
-    ${icon_css}
-`
+// const UsdkIc = styled(Usdk)`
+//     ${icon_css}
+// `
 const payment_data = [
     {
         name: <Localize translate_text="Bank wire" />,
@@ -447,18 +447,18 @@ const payment_data = [
             <Localize translate_text="The minimum amount for withdrawal will vary depending on the latest exchange rates. The figures shown here have been rounded." />
         ),
         data: [
-            {
-                method: <BiananceIC />,
-                currencies: 'BUSD',
-                min_max_deposit: <Localize translate_text="No minimum" />,
-                min_max_withdrawal: undefined,
-                deposit_time: <Localize translate_text="Funds available as soon as confirmed" />,
-                withdrawal_time: <Localize translate_text="Subject to internal checks" />,
-                description: (
-                    <Localize translate_text="Deposit and withdraw in Binance USD, a cryptocurrency that’s pegged to USD." />
-                ),
-                name: 'BUSD',
-            },
+            // {
+            //     method: <BiananceIC />,
+            //     currencies: 'BUSD',
+            //     min_max_deposit: <Localize translate_text="No minimum" />,
+            //     min_max_withdrawal: undefined,
+            //     deposit_time: <Localize translate_text="Funds available as soon as confirmed" />,
+            //     withdrawal_time: <Localize translate_text="Subject to internal checks" />,
+            //     description: (
+            //         <Localize translate_text="Deposit and withdraw in Binance USD, a cryptocurrency that’s pegged to USD." />
+            //     ),
+            //     name: 'BUSD',
+            // },
             {
                 method: <BitcoinIc />,
                 currencies: 'BTC',
@@ -472,18 +472,18 @@ const payment_data = [
                 name: 'BTC',
                 reference: 'bitcoin-payment-method.pdf',
             },
-            {
-                method: <DaiIc />,
-                currencies: 'DAI',
-                min_max_deposit: <Localize translate_text="No minimum" />,
-                min_max_withdrawal: undefined,
-                deposit_time: <Localize translate_text="Funds available as soon as confirmed" />,
-                withdrawal_time: <Localize translate_text="Subject to internal checks" />,
-                description: (
-                    <Localize translate_text="Deposit and withdraw in Multi-Collateral DAI, a cryptocurrency that’s pegged to USD." />
-                ),
-                name: 'DAI',
-            },
+            // {
+            //     method: <DaiIc />,
+            //     currencies: 'DAI',
+            //     min_max_deposit: <Localize translate_text="No minimum" />,
+            //     min_max_withdrawal: undefined,
+            //     deposit_time: <Localize translate_text="Funds available as soon as confirmed" />,
+            //     withdrawal_time: <Localize translate_text="Subject to internal checks" />,
+            //     description: (
+            //         <Localize translate_text="Deposit and withdraw in Multi-Collateral DAI, a cryptocurrency that’s pegged to USD." />
+            //     ),
+            //     name: 'DAI',
+            // },
             {
                 method: <EthereumIc />,
                 currencies: 'ETH',
@@ -496,30 +496,30 @@ const payment_data = [
                 ),
                 name: 'ETH',
             },
-            {
-                method: <StasisEuroIc />,
-                currencies: 'EURS',
-                min_max_deposit: <Localize translate_text="No minimum" />,
-                min_max_withdrawal: undefined,
-                deposit_time: <Localize translate_text="Funds available as soon as confirmed" />,
-                withdrawal_time: <Localize translate_text="Subject to internal checks" />,
-                description: (
-                    <Localize translate_text="Deposit and withdraw in STASIS Euro, a cryptocurrency that’s pegged to EUR." />
-                ),
-                name: 'EURS',
-            },
-            {
-                method: <IdkIc />,
-                currencies: 'IDK',
-                min_max_deposit: <Localize translate_text="No minimum" />,
-                min_max_withdrawal: undefined,
-                deposit_time: <Localize translate_text="Funds available as soon as confirmed" />,
-                withdrawal_time: <Localize translate_text="Subject to internal checks" />,
-                description: (
-                    <Localize translate_text="Deposit and withdraw in IDK, a cryptocurrency that's pegged to IDR (1:1,000)." />
-                ),
-                name: 'IDK',
-            },
+            // {
+            //     method: <StasisEuroIc />,
+            //     currencies: 'EURS',
+            //     min_max_deposit: <Localize translate_text="No minimum" />,
+            //     min_max_withdrawal: undefined,
+            //     deposit_time: <Localize translate_text="Funds available as soon as confirmed" />,
+            //     withdrawal_time: <Localize translate_text="Subject to internal checks" />,
+            //     description: (
+            //         <Localize translate_text="Deposit and withdraw in STASIS Euro, a cryptocurrency that’s pegged to EUR." />
+            //     ),
+            //     name: 'EURS',
+            // },
+            // {
+            //     method: <IdkIc />,
+            //     currencies: 'IDK',
+            //     min_max_deposit: <Localize translate_text="No minimum" />,
+            //     min_max_withdrawal: undefined,
+            //     deposit_time: <Localize translate_text="Funds available as soon as confirmed" />,
+            //     withdrawal_time: <Localize translate_text="Subject to internal checks" />,
+            //     description: (
+            //         <Localize translate_text="Deposit and withdraw in IDK, a cryptocurrency that's pegged to IDR (1:1,000)." />
+            //     ),
+            //     name: 'IDK',
+            // },
             {
                 method: <LitecoinIc />,
                 currencies: 'LTC',
@@ -533,30 +533,30 @@ const payment_data = [
                 name: 'LTC',
                 reference: 'litecoin-payment-method.pdf',
             },
-            {
-                method: <PaxosIc />,
-                currencies: 'PAX',
-                min_max_deposit: <Localize translate_text="No minimum" />,
-                min_max_withdrawal: undefined,
-                deposit_time: <Localize translate_text="Funds available as soon as confirmed" />,
-                withdrawal_time: <Localize translate_text="Subject to internal checks" />,
-                description: (
-                    <Localize translate_text="Deposit and withdraw in Paxos Standard, a cryptocurrency that’s pegged to USD." />
-                ),
-                name: 'PAX',
-            },
-            {
-                method: <TrueIc />,
-                currencies: 'TUSD',
-                min_max_deposit: <Localize translate_text="No minimum" />,
-                min_max_withdrawal: undefined,
-                deposit_time: <Localize translate_text="Funds available as soon as confirmed" />,
-                withdrawal_time: <Localize translate_text="Subject to internal checks" />,
-                description: (
-                    <Localize translate_text="Deposit and withdraw in TrueUSD, a cryptocurrency that’s pegged to USD." />
-                ),
-                name: 'TUSD',
-            },
+            // {
+            //     method: <PaxosIc />,
+            //     currencies: 'PAX',
+            //     min_max_deposit: <Localize translate_text="No minimum" />,
+            //     min_max_withdrawal: undefined,
+            //     deposit_time: <Localize translate_text="Funds available as soon as confirmed" />,
+            //     withdrawal_time: <Localize translate_text="Subject to internal checks" />,
+            //     description: (
+            //         <Localize translate_text="Deposit and withdraw in Paxos Standard, a cryptocurrency that’s pegged to USD." />
+            //     ),
+            //     name: 'PAX',
+            // },
+            // {
+            //     method: <TrueIc />,
+            //     currencies: 'TUSD',
+            //     min_max_deposit: <Localize translate_text="No minimum" />,
+            //     min_max_withdrawal: undefined,
+            //     deposit_time: <Localize translate_text="Funds available as soon as confirmed" />,
+            //     withdrawal_time: <Localize translate_text="Subject to internal checks" />,
+            //     description: (
+            //         <Localize translate_text="Deposit and withdraw in TrueUSD, a cryptocurrency that’s pegged to USD." />
+            //     ),
+            //     name: 'TUSD',
+            // },
             {
                 method: <UsdCoinIc />,
                 currencies: 'USDC',
@@ -569,18 +569,18 @@ const payment_data = [
                 ),
                 name: 'USDC',
             },
-            {
-                method: <UsdkIc />,
-                currencies: 'USDK',
-                min_max_deposit: <Localize translate_text="No minimum" />,
-                min_max_withdrawal: undefined,
-                deposit_time: <Localize translate_text="Funds available as soon as confirmed" />,
-                withdrawal_time: <Localize translate_text="Subject to internal checks" />,
-                description: (
-                    <Localize translate_text="Deposit and withdraw in USDK, a cryptocurrency that’s pegged to USD." />
-                ),
-                name: 'USDK',
-            },
+            // {
+            //     method: <UsdkIc />,
+            //     currencies: 'USDK',
+            //     min_max_deposit: <Localize translate_text="No minimum" />,
+            //     min_max_withdrawal: undefined,
+            //     deposit_time: <Localize translate_text="Funds available as soon as confirmed" />,
+            //     withdrawal_time: <Localize translate_text="Subject to internal checks" />,
+            //     description: (
+            //         <Localize translate_text="Deposit and withdraw in USDK, a cryptocurrency that’s pegged to USD." />
+            //     ),
+            //     name: 'USDK',
+            // },
             {
                 method: <TetherIc />,
                 currencies: 'USDT',
@@ -593,18 +593,18 @@ const payment_data = [
                 ),
                 name: 'UST',
             },
-            {
-                method: <TetherIc />,
-                currencies: 'eUSDT',
-                min_max_deposit: <Localize translate_text="No minimum" />,
-                min_max_withdrawal: undefined,
-                deposit_time: <Localize translate_text="Funds available as soon as confirmed" />,
-                withdrawal_time: <Localize translate_text="Subject to internal checks" />,
-                description: (
-                    <Localize translate_text="Deposit and withdraw in Tether ERC20, a cryptocurrency that’s pegged to USD." />
-                ),
-                name: 'eUSDT',
-            },
+            // {
+            //     method: <TetherIc />,
+            //     currencies: 'eUSDT',
+            //     min_max_deposit: <Localize translate_text="No minimum" />,
+            //     min_max_withdrawal: undefined,
+            //     deposit_time: <Localize translate_text="Funds available as soon as confirmed" />,
+            //     withdrawal_time: <Localize translate_text="Subject to internal checks" />,
+            //     description: (
+            //         <Localize translate_text="Deposit and withdraw in Tether ERC20, a cryptocurrency that’s pegged to USD." />
+            //     ),
+            //     name: 'eUSDT',
+            // },
         ],
     },
 ]

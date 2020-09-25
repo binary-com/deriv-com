@@ -4,6 +4,7 @@ import styled, { css } from 'styled-components'
 import { Button } from 'components/form/'
 import { Text } from 'components/elements'
 import { localize } from 'components/localization'
+import { getCryptoDecimals } from 'common/utility'
 // SVG
 import Chevron from 'images/svg/chevron-thick.svg'
 import PDF from 'images/svg/pdf-icon-black.svg'
@@ -98,7 +99,7 @@ const ExpandList = ({ data, config, is_crypto }) => {
         setIsExpanded(!is_expanded)
     }
     const getCryptoConfig = (name) => {
-        return config == undefined ? null : config[name].minimum_withdrawal
+        return config == undefined ? null : getCryptoDecimals(config[name].minimum_withdrawal)
     }
     return (
         <>

@@ -26,7 +26,7 @@ const CtaBinary = ({ is_white }) => {
                         <BinaryLink
                             is_white={is_white}
                             key={0}
-                            external
+                            external="true"
                             to="home"
                             is_binary_link
                             target="_blank"

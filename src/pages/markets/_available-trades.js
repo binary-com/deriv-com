@@ -47,11 +47,15 @@ const CardWrapper = styled(Flex)`
     div:last-child {
         z-index: 1;
     }
+
+    @media ${device.mobileL} {
+        overflow: scroll;
+    }
 `
 const CardContainer = styled(Flex)`
     position: relative;
     width: fit-content;
-    min-width: 25rem;
+    min-width: 29rem;
     height: 7.72rem;
     padding: 0;
     margin: 0 -0.6rem;
@@ -74,6 +78,7 @@ const CardContainer = styled(Flex)`
             opacity: ${(props) => (props.active_tab === props.name ? '1' : '0.56')};
         }
         @media ${device.tabletL} {
+            width: 100%;
             height: 100%;
             justify-content: flex-start;
             padding: 10px 44px 0 0;
@@ -109,7 +114,7 @@ const CardContainer = styled(Flex)`
         }}
     }
     @media ${device.tabletL} {
-        width: 15.5rem;
+        width: 100%;
         height: 6rem;
         min-width: unset;
         padding-right: 0;
@@ -238,7 +243,7 @@ class AvailableTrades extends React.Component {
 
 AvailableTrades.propTypes = {
     DigitalOptions: PropTypes.func,
-    display_title: PropTypes.string,
+    display_title: PropTypes.object,
     Margin: PropTypes.func,
     Multipliers: PropTypes.func,
 }

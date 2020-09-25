@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import Cookies from 'js-cookie'
 import { Box } from 'components/containers'
 import Login from 'common/login'
-import { LocalStore } from 'common/storage'
+import { CookieStorage, LocalStore } from 'common/storage'
 import TrafficSource from 'common/traffic-source'
 import validation from 'common/validation'
 import { BinarySocketBase } from 'common/websocket/socket_base'
@@ -85,8 +85,10 @@ class Signup extends Component {
     getVerifyEmailRequest = (email) => {
         const utm_data = TrafficSource.getData()
         const affiliate_token = Cookies.getJSON('affiliate_tracking')
-        const signup_device = LocalStore.get('signup_device')
-        const date_first_contact = LocalStore.get('date_first_contact')
+        const signup_device_cookie = new CookieStorage('signup_device')
+        const signup_device = signup_device_cookie.get('signup_device')
+        const date_first_contact_cookie = new CookieStorage('date_first_contact')
+        const date_first_contact = date_first_contact_cookie.get('date_first_contact')
         const gclid = LocalStore.get('gclid')
 
         return {

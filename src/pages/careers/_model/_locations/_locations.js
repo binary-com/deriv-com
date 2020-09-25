@@ -4,6 +4,9 @@ import {
     address_asuncion,
     address_labuan,
     address_malta,
+    address_ipoh,
+    address_melaka,
+    address_cyprus,
 } from './_contact-details'
 
 export const cyberjaya = {
@@ -57,10 +60,12 @@ export const dubai = {
     first_p: `Dubai offers an excellent quality of life. From safety and education to childcare and healthcare, Dubai is known as a global, modern city with sunny weather all year round. Expats make up over 90% of Dubai’s total population, and English is the language most commonly spoken.`,
     first_img: 'living_in_dubai',
     grid_images: ['dubai_grid_1', 'dubai_grid_2', 'dubai_grid_3', 'dubai_grid_4'],
-    map: 'map_dubai',
+    map: 'ChIJoXO3yRZtXz4RPzg6AXRz1iU',
     map_text:
         'Our Dubai office is located at the prestigious Jumeirah Business Centre (JBC), a self-contained high-rise business tower set in the pristine DMCC free zone in Jumeirah Lake Towers (JLT). The tower is conveniently positioned between two metro stations — Damac and DMCC — and is easily accessible via major highways.',
     address: address_dubai,
+    google_map_link: 'https://goo.gl/maps/UMNHYdEBdsAg7Ax29',
+    has_iframe: true,
 }
 
 export const labuan = {
@@ -74,10 +79,12 @@ export const labuan = {
         'Labuan is one of those rare gems that have yet to undergo excessive commercialisation, thus retaining its small-town charm and tight-knit community vibe. Despite its tiny size of just 92 km², Labuan has much to offer. Wreck diving sites, unspoilt beaches and World War II military attractions make it among Borneo’s most underrated destinations.',
     first_img: 'living_in_labuan',
     grid_images: ['labuan_grid_1', 'labuan_grid_2', 'labuan_grid_3', 'labuan_grid_4'],
-    map: 'map_labuan',
+    map: 'ChIJufrjrbsZIzIRXIqlV1KLS14',
     map_text:
         'In Labuan, we are at the Paragon Labuan, a modern commercial and residential complex. This brand-new development offers a convenient variety of restaurants, cafes, and shopping.',
     address: address_labuan,
+    google_map_link: 'https://goo.gl/maps/HGEKsJfUXHrTAj299',
+    has_iframe: true,
 }
 
 export const asuncion = {
@@ -90,43 +97,70 @@ export const asuncion = {
     first_p: `Asunción has one of the lowest costs of living in the world, being ranked 386th out of 441 cities by Numbeo, the world's largest database of crowdsourced consumer data. International schools with a bilingual curriculum (Spanish and English) are popular among foreigners with children. You'll also have easy access to quality healthcare with well-equipped private hospitals staffed with English-speaking doctors.`,
     first_img: 'living_in_asuncion',
     grid_images: ['asuncion_grid_1', 'asuncion_grid_2', 'asuncion_grid_3', 'asuncion_grid_4'],
-    map: 'map_asuncion',
+    map: 'ChIJZ3I_twKmXZQRo0ucm6mpNjg',
     map_text:
         'In Paraguay, our office is located at Edificio Australia, a picturesque building in the financial centre area of Asunción, the capital of Paraguay. Buses are the main mode of public transportation in this metropolitan city.',
     address: address_asuncion,
+    google_map_link: 'https://goo.gl/maps/Eii4K8ZHY94zjFf36',
+    has_iframe: true,
 }
 
-//TODO: Add details for Melaka and Ipoh locations
 export const melaka = {
     name: 'melaka',
-    // link:
+    link: '/careers/locations/melaka',
     display_name: 'Melaka',
     country: 'Malaysia',
-    // thumbnail:
-    // header_p:
-    // first_p:
-    // first_img:
-    // grid_images:[],
-    // map:
-    // map_text:
-    // address:
+    thumbnail: 'thumbnail_melaka',
+    header_p:
+        'With its remarkable history and attractive culture, the city of Melaka is a favourite tourist destination in Malaysia about 150 km southeast of Kuala Lumpur. This oldest Malaysian city on the Straits of Malacca that has seen the Sultanate of Malacca, the Portuguese, Dutch, British, and Japanese ruling, the Malayan Union, the Federation of Malaya, and finally, the formation of present-day Malaysia, is now a UNESCO world heritage site.',
+    first_p:
+        'Melaka is a carpe diem city: its relaxed pace of life and amazing local and global food are reminders to enjoy life to the fullest. Heritage buildings, riverside cafes, and vibrant night markets, including the famous Jonker Walk, enhance the charms of a city that is already an attractive place to live and work in with its low cost of living, healthcare facilities, and international schools.',
+    first_img: 'living_in_melaka',
+    grid_images: ['melaka_grid_1', 'melaka_grid_2', 'melaka_grid_3', 'melaka_grid_4'],
+    map: 'ChIJk1cT0pTx0TERIAdpj9tM6KM',
+    map_text: `In Melaka, we are at Taman Kota Laksamana, a classy township near the famous Jonker Street and Jalan Tengkera, where you can easily do your shopping. It's also close to the Melaka River and the historical site of A Famosa.`,
+    address: address_melaka,
+    google_map_link: 'https://goo.gl/maps/n2bm52JrWy9M2ARV9',
+    has_iframe: true,
 }
 
 export const ipoh = {
     name: 'ipoh',
-    // link:
+    link: '/careers/locations/ipoh',
     display_name: 'Ipoh',
     country: 'Malaysia',
-    // thumbnail:
-    // header_p:
-    // first_p:
-    // first_img:
-    // grid_images:[],
-    // map:
-    // map_text:
-    // address:
+    thumbnail: 'thumbnail_ipoh',
+    header_p: `The third-largest city in Malaysia, Ipoh in the state of Perak is about 180 km to the north of Kuala Lumpur. Ipoh developed into a bustling town in the 1880s when tin was discovered there. It has now become a hit amongst tourists with its British colonial architecture, unique cuisine, bohemian hotels, and Buddhist temples in nearby caves.`,
+    first_p: `Ipoh matches KL in urban amenities but charges you less for them, and with its negligible traffic, you’ll spend far less time in getting to the entertainment hubs, sports facilities, and health and education centres that this city contains. The rich historical architecture of Ipoh’s famous old town, cave temples, treasured museums, beautiful street murals, hip cafes, thrilling water park, and gorgeous nature are only some of the charms that make Ipoh a lovely place where you can live and work.`,
+    first_img: 'living_in_ipoh',
+    grid_images: ['ipoh_grid_1', 'ipoh_grid_2', 'ipoh_grid_3', 'ipoh_grid_4'],
+    map: 'ChIJOadQ93_tyjERnNrpdgyMd48',
+    map_text:
+        'In Ipoh, we are at Jalan Sultan Idris Shah, a lively street, with cheerful shophouses popular with tourists, and in a neighbourhood with 3 parks, where you can walk, jog, and bike to your heart’s content.',
+    address: address_ipoh,
+    google_map_link: 'https://goo.gl/maps/mFhCyN4gPksudC156',
+    has_iframe: true,
 }
 
+export const cyprus = {
+    name: 'cyprus',
+    link: '/careers/locations/cyprus',
+    display_name: 'Cyprus',
+    country: 'Cyprus',
+    thumbnail: 'thumbnail_cyprus',
+    header_p:
+        'An island in the eastern Mediterranean Sea to the southeast of Greece, the Republic of Cyprus is a European Union state with a rich, turbulent history. The country has two official languages: Greek and Turkish, but the majority of urban Cypriots are fluent in English as well. ',
+    first_p:
+        'Cyprus has become an attractive place to live in with its gorgeous nature, excellent transport links to European and Middle Eastern countries, and growing expat communities. The mild, sub-tropical weather, delicious local cuisine, and stunning nature make working in Cyprus a daily joy.',
+    first_img: 'living_in_cyprus',
+    grid_images: ['cyprus_grid_1', 'cyprus_grid_2', 'cyprus_grid_3', 'cyprus_grid_4'],
+    map:
+        'EiNBZ2lhcyBGaWxheGVvcyA0MiwgTGltYXNzb2wsIEN5cHJ1cyIwEi4KFAoSCYs2ltEFM-cUEdbBL7gS9VPuECoqFAoSCUdu53KgM-cUEeQAkUhBWm5d',
+    map_text: `We’re in Limassol, a city on the southern coast of Cyprus and about 85 km from the capital Nicosia. Lovely beaches, delicious cuisine, and golden weather make this city irresistible. A large expat community, widely accessible healthcare, and solid urban infrastructure make living and working here all the more joyful.`,
+    address: address_cyprus,
+    google_map_link: 'https://goo.gl/maps/BA77GZmuEQzb798Q7',
+    has_iframe: true,
+}
 export const locations = {
     cyberjaya: `${cyberjaya.display_name}, ${cyberjaya.country}`,
     malta: `${malta.display_name}`,
@@ -135,4 +169,5 @@ export const locations = {
     asuncion: `${asuncion.display_name}, ${asuncion.country}`,
     melaka: `${melaka.display_name}, ${melaka.country}`,
     ipoh: `${ipoh.display_name}, ${ipoh.country}`,
+    cyprus: `${cyprus.display_name}, ${cyprus.country}`,
 }

@@ -83,8 +83,9 @@ const StyledText = styled(Text)`
     }
 `
 const Title = styled(Text)`
+    text-align: center;
+
     @media ${device.tabletL} {
-        text-align: center;
         max-width: 8rem;
         font-weight: 600;
     }
@@ -287,7 +288,7 @@ const DigitalOptions = () => {
                         renderTitle={() => (
                             <Row jc="flex-start" ai="center">
                                 <Col>
-                                    <Title weight="bold" max_width="9.7rem" align="center">
+                                    <Title weight="bold" max_width="9.7rem">
                                         {localize('Americas')}
                                     </Title>
                                 </Col>
@@ -305,7 +306,7 @@ const DigitalOptions = () => {
                         renderTitle={() => (
                             <Row jc="flex-start" ai="center">
                                 <Col>
-                                    <Title weight="bold" max_width="9.7rem" align="center">
+                                    <Title weight="bold" max_width="9.7rem">
                                         {localize('Asia/ Oceania')}
                                     </Title>
                                 </Col>
@@ -323,7 +324,7 @@ const DigitalOptions = () => {
                         renderTitle={() => (
                             <Row jc="flex-start" ai="center">
                                 <Col>
-                                    <Title weight="bold" max_width="9.7rem" align="center">
+                                    <Title weight="bold" max_width="9.7rem">
                                         {localize('Europe')}
                                     </Title>
                                 </Col>

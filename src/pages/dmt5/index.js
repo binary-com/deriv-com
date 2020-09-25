@@ -5,7 +5,7 @@ import WhatIsTrader from './_what-is-trader.js'
 import WhyTrader from './_why-trader.js'
 import StartTrader from './_start-trader.js'
 import DownloadApp from './_download-app.js'
-import TradeControl from './_trade-control.js'
+// import TradeControl from './_trade-control.js'
 import Flexibility from './_flexibility.js'
 import DHero from './_dhero.js'
 import DBanner from './_dbanner.js'
@@ -63,7 +63,8 @@ const DMT5 = () => {
             <WhyTrader />
             <StartTrader />
             <DownloadApp />
-            <TradeControl />
+            {/* TODO: add this section when trade tools are ready */}
+            {/* <TradeControl /> */}
             <Flexibility />
             <DBanner
                 background_pattern={

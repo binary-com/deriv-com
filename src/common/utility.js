@@ -66,6 +66,8 @@ const sanitize = (input) => input.replace(/[.*+?^${}()|[\]\\]/g, '')
 
 const sentenceCase = (input) => input.charAt(0).toUpperCase() + input.slice(1)
 
+const getCryptoDecimals = (input) => input.toFixed(1 - Math.floor(Math.log(input) / Math.log(10)))
+
 function debounce(func, wait, immediate) {
     let timeout
     return function () {
@@ -93,9 +95,12 @@ const deriv_cookie_domain = 'deriv.com'
 const affiliate_signup_url = 'https://login.deriv.com/signup.php'
 const affiliate_signin_url = 'https://login.deriv.com/signin.php'
 const community_url = 'https://community.deriv.com/'
+const zoho_url = 'https://deriv.zohorecruit.com/'
 const brand_name = 'Deriv'
 const map_api_key = 'AIzaSyAEha6-HeZuI95L9JWmX3m6o-AxQr_oFqU'
 const gtm_test_domain = 'deriv-com.binary.sx'
+const mga_link_url =
+    'https://authorisation.mga.org.mt/verification.aspx?lang=EN&company=a5fd1edc-d072-4c26-b0cd-ab3fa0f0cc40&details=1'
 
 export {
     affiliate_signin_url,
@@ -105,12 +110,14 @@ export {
     community_url,
     deriv_app_url,
     deriv_bot_app_url,
+    mga_link_url,
     debounce,
     brand_name,
     isEmptyObject,
     cloneObject,
     isBrowser,
     getCrowdin,
+    getCryptoDecimals,
     getPropertyValue,
     getLanguage,
     getLocationHash,
@@ -123,4 +130,5 @@ export {
     smarttrader_url,
     toISOFormat,
     toHashFormat,
+    zoho_url,
 }

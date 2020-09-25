@@ -12,6 +12,7 @@ import {
     CanStillTrade,
     HowToGetStarted,
 } from './_faq-data'
+import { LocationContext } from 'components/layout/location-context'
 import { Container, SectionContainer, Flex } from 'components/containers'
 import { Header, Text, Accordion, AccordionItem, Divider } from 'components/elements'
 import { localize, Localize } from 'components/localization'
@@ -56,6 +57,7 @@ const FAQ = () => {
         padding: '1.6rem 2.4rem',
         border: 'none',
     }
+    const { is_eu_country } = React.useContext(LocationContext)
     return (
         <SectionContainer background="var(--color-grey-25)">
             <Container direction="column">
@@ -131,6 +133,7 @@ const FAQ = () => {
                                 <NewProducts />
                             </AccordionItem>
                             <AccordionItem
+                                is_showed={!is_eu_country}
                                 header={
                                     <Localize translate_text="What else can we expect from Deriv.com?" />
                                 }
@@ -152,6 +155,7 @@ const FAQ = () => {
                             >
                                 <IsDerivRegulated />
                             </AccordionItem>
+
                             <AccordionItem
                                 header={
                                     <Localize translate_text="Are you going to close down Binary.com?" />
@@ -190,6 +194,7 @@ const FAQ = () => {
                             >
                                 <WhySwitch />
                             </AccordionItem>
+
                             <AccordionItem
                                 header={
                                     <Localize translate_text="Can I still trade on Binary.com?" />
@@ -201,6 +206,7 @@ const FAQ = () => {
                             >
                                 <CanStillTrade />
                             </AccordionItem>
+
                             <AccordionItem
                                 header={
                                     <Localize translate_text="How do I get started on Deriv.com?" />

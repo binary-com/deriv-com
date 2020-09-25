@@ -65,7 +65,7 @@ const Header = () => (
                         <Deriv />
                     </LocalizedLink>
                     <LocalizedLink
-                        external
+                        external="true"
                         to="home"
                         is_binary_link
                         target="_blank"

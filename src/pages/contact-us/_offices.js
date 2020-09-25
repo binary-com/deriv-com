@@ -12,6 +12,7 @@ import Malta from 'images/svg/contact/malta.svg'
 import Dubai from 'images/svg/contact/dubai.svg'
 import Paraguay from 'images/svg/contact/paraguay.svg'
 import Malaysia from 'images/svg/contact/malaysia.svg'
+import Cyprus from 'images/svg/contact/cyprus.svg'
 
 const query = graphql`
     query {
@@ -36,11 +37,15 @@ const query = graphql`
         map_cyberjaya: file(relativePath: { eq: "maps/map-cyberjaya.png" }) {
             ...fadeIn
         }
+        map_cyprus: file(relativePath: { eq: "maps/map-cyprus.png" }) {
+            ...fadeIn
+        }
     }
 `
 
 const Content = styled.div`
     max-width: 996px;
+    width: 100%;
 `
 
 const GridLayout = styled.div`
@@ -48,6 +53,7 @@ const GridLayout = styled.div`
     grid-template-columns: 1fr 1fr;
     grid-gap: 2.4rem;
     width: 100%;
+    margin-top: ${(props) => props.mt || 0};
 
     @media ${device.tablet} {
         grid-template-columns: 1fr;
@@ -95,7 +101,6 @@ const CountryText = styled(Text)`
 
 const FullBorder = styled(BorderBox)`
     padding: 2.4rem 0;
-    border-bottom: 1px solid var(--color-grey-2);
 `
 
 const ResHeader = styled(Header)`
@@ -127,6 +132,7 @@ const OfficeHeader = styled.div`
 `
 
 const FullBox = styled(Flex)`
+    justify-content: flex-start;
     @media ${device.mobileL} {
         flex-direction: column-reverse;
 
@@ -171,8 +177,8 @@ export const Offices = () => {
                             <BorderBox>
                                 <MapContainer>
                                     <LocalizedLink
-                                        to="https://g.page/r/CRyKELlnWQ3iEAE"
-                                        external
+                                        to="https://goo.gl/maps/kAwRSaSsk1ZNCtoy9"
+                                        external="true"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                     >
@@ -184,14 +190,18 @@ export const Offices = () => {
                                     </LocalizedLink>
                                 </MapContainer>
                                 <LocalizedLinkText
-                                    to="https://g.page/r/CRyKELlnWQ3iEAE"
-                                    external
+                                    to="https://goo.gl/maps/kAwRSaSsk1ZNCtoy9"
+                                    external="true"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     mt="0.8rem"
                                     ml="1.6rem"
                                 >
-                                    Level 3, W Business Centre, Triq Dun Karm, Birkirkara, BKR 9033
+                                    Level 3, W Business Centre,
+                                    <br></br>
+                                    Triq Dun Karm, Birkirkara,
+                                    <br></br>
+                                    BKR 9033
                                 </LocalizedLinkText>
                             </BorderBox>
                         </Flex>
@@ -206,15 +216,31 @@ export const Offices = () => {
                             </OfficeHeader>
                             <BorderBox>
                                 <MapContainer>
-                                    <QueryImage
-                                        alt="Map Dubai"
-                                        data={data['map_dubai']}
-                                        height="100%"
-                                    />
+                                    <LocalizedLink
+                                        to="https://goo.gl/maps/ub4B2omM5TwL8otU8"
+                                        external
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        <QueryImage
+                                            alt="Map Dubai"
+                                            data={data['map_dubai']}
+                                            height="100%"
+                                        />
+                                    </LocalizedLink>
                                 </MapContainer>
-                                <Text mt="0.8rem" ml="1.6rem">
-                                    Unit 3004, 1 Lake Plaza, Cluster T, Jumeirah Lake Towers
-                                </Text>
+                                <LocalizedLinkText
+                                    to="https://goo.gl/maps/ub4B2omM5TwL8otU8"
+                                    external
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    mt="0.8rem"
+                                    ml="1.6rem"
+                                >
+                                    Office 1902, Jumeirah Business
+                                    <br></br>
+                                    Center 1, JLT Cluster G
+                                </LocalizedLinkText>
                             </BorderBox>
                         </Flex>
                     </GridLayout>
@@ -232,8 +258,8 @@ export const Offices = () => {
                                 <FullBox>
                                     <MapContainer>
                                         <LocalizedLink
-                                            to="https://g.page/r/CQODFgzIJPYtEAE"
-                                            external
+                                            to="https://goo.gl/maps/ExoJcRaRjcGdpMY78"
+                                            external="true"
                                             target="_blank"
                                             rel="noopener noreferrer"
                                         >
@@ -247,89 +273,193 @@ export const Offices = () => {
                                     <Box mt="0.8rem" ml="1.6rem">
                                         <CountryText>Cyberjaya</CountryText>
                                         <LocalizedLinkText
-                                            to="https://g.page/r/CQODFgzIJPYtEAE"
-                                            external
+                                            to="https://goo.gl/maps/ExoJcRaRjcGdpMY78"
+                                            external="true"
                                             target="_blank"
                                             rel="noopener noreferrer"
                                         >
-                                            C-13, iTech Tower, Jalan Impact, Cyber 6, 63000
-                                            Cyberjaya, Selangor
+                                            C-13, iTech Tower, Jalan Impact,
+                                            <br></br>
+                                            Cyber 6, 63000,Cyberjaya,
+                                            <br></br>
+                                            Selangor
                                         </LocalizedLinkText>
                                     </Box>
                                 </FullBox>
                                 <FullBox>
                                     <MapContainer>
-                                        <QueryImage
-                                            alt="Map Labuan"
-                                            data={data['map_labuan']}
-                                            height="100%"
-                                        />
+                                        <LocalizedLink
+                                            to="https://goo.gl/maps/HGEKsJfUXHrTAj299"
+                                            external
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                        >
+                                            <QueryImage
+                                                alt="Map Labuan"
+                                                data={data['map_labuan']}
+                                                height="100%"
+                                            />
+                                        </LocalizedLink>
                                     </MapContainer>
                                     <Box mt="0.8rem" ml="1.6rem">
                                         <CountryText>Labuan</CountryText>
-                                        <Text>
-                                            F16, 1st Floor, Paragon Labuan, Jalan Tun Mustapha,
-                                            87000, Labuan
-                                        </Text>
+                                        <LocalizedLinkText
+                                            to="https://goo.gl/maps/HGEKsJfUXHrTAj299"
+                                            external
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                        >
+                                            F16, 1st Floor, Paragon Labuan,
+                                            <br></br>
+                                            Jalan Tun Mustapha,
+                                            <br></br>
+                                            Labuan 87000, Sabah
+                                        </LocalizedLinkText>
                                     </Box>
                                 </FullBox>
                                 <FullBox>
                                     <MapContainer>
-                                        <QueryImage
-                                            alt="Map Ipoh"
-                                            data={data['map_ipoh']}
-                                            height="100%"
-                                        />
+                                        <LocalizedLink
+                                            to="https://goo.gl/maps/mFhCyN4gPksudC156"
+                                            external
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                        >
+                                            <QueryImage
+                                                alt="Map Ipoh"
+                                                data={data['map_ipoh']}
+                                                height="100%"
+                                            />
+                                        </LocalizedLink>
                                     </MapContainer>
                                     <Box mt="0.8rem" ml="1.6rem">
                                         <CountryText>Ipoh</CountryText>
-                                        <Text>
-                                            Block E-5-6, Soho Ipoh 2, Jalan Sultan Idris Shah, 30000
-                                            Ipoh, Perak
-                                        </Text>
+                                        <LocalizedLinkText
+                                            to="https://goo.gl/maps/mFhCyN4gPksudC156"
+                                            external
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                        >
+                                            E-5-6, Soho Ipoh 2,
+                                            <br></br>
+                                            Jalan Sultan Idris Shah,
+                                            <br></br>
+                                            Ipoh 30000, Perak
+                                        </LocalizedLinkText>
                                     </Box>
                                 </FullBox>
                                 <FullBox>
                                     <MapContainer>
-                                        <QueryImage
-                                            alt="Map Melaka"
-                                            data={data['map_melaka']}
-                                            height="100%"
-                                        />
+                                        <LocalizedLink
+                                            to="https://goo.gl/maps/n2bm52JrWy9M2ARV9"
+                                            external
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                        >
+                                            <QueryImage
+                                                alt="Map Melaka"
+                                                data={data['map_melaka']}
+                                                height="100%"
+                                            />
+                                        </LocalizedLink>
                                     </MapContainer>
                                     <Box mt="0.8rem" ml="1.6rem">
                                         <CountryText>Melaka</CountryText>
-                                        <Text>
-                                            No.69, Jalan KLJ 6, Taman Kota Laksamana Jaya, 75200
-                                            Melaka
-                                        </Text>
+                                        <LocalizedLinkText
+                                            to="https://goo.gl/maps/n2bm52JrWy9M2ARV9"
+                                            external
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                        >
+                                            69, Jalan KLJ 6, Taman Kota
+                                            <br></br>
+                                            Laksamana Jaya, 75200 Melaka
+                                        </LocalizedLinkText>
                                     </Box>
                                 </FullBox>
                             </GridLayout>
                         </FullBorder>
                     </Flex>
-                    <Flex mt="4rem" fd="column" max_width="48.6rem">
-                        <OfficeHeader>
-                            <div>
-                                <Paraguay />
-                            </div>
-                            <Header as="h4" mt="0.8rem" mb="1.6rem">
-                                {localize('Paraguay')}
-                            </Header>
-                        </OfficeHeader>
-                        <BorderBox>
-                            <MapContainer>
-                                <QueryImage
-                                    alt="Map Paraguay"
-                                    data={data['map_paraguay']}
-                                    height="100%"
-                                />
-                            </MapContainer>
-                            <Text mt="0.8rem" ml="1.6rem">
-                                Edificio Australia, Oficina 1, Herib Campos Cervera 886, Asunción
-                            </Text>
-                        </BorderBox>
-                    </Flex>
+                    <GridLayout mt="4rem">
+                        <Flex fd="column" max_width="48.6rem">
+                            <OfficeHeader>
+                                <div>
+                                    <Paraguay />
+                                </div>
+                                <Header as="h4" mt="0.8rem" mb="1.6rem">
+                                    {localize('Paraguay')}
+                                </Header>
+                            </OfficeHeader>
+                            <BorderBox>
+                                <MapContainer>
+                                    <LocalizedLink
+                                        to="https://goo.gl/maps/Eii4K8ZHY94zjFf36"
+                                        external
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        <QueryImage
+                                            alt="Map Paraguay"
+                                            data={data['map_paraguay']}
+                                            height="100%"
+                                        />
+                                    </LocalizedLink>
+                                </MapContainer>
+                                <LocalizedLinkText
+                                    to="https://goo.gl/maps/Eii4K8ZHY94zjFf36"
+                                    external
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    mt="0.8rem"
+                                    ml="1.6rem"
+                                >
+                                    Edificio Australia, Oficina 1,
+                                    <br></br>
+                                    Herib Campos Cervera 886,
+                                    <br></br>
+                                    Asunción
+                                </LocalizedLinkText>
+                            </BorderBox>
+                        </Flex>
+                        <Flex fd="column" max_width="48.6rem">
+                            <OfficeHeader>
+                                <div>
+                                    <Cyprus />
+                                </div>
+                                <Header as="h4" mt="0.8rem" mb="1.6rem">
+                                    {localize('Cyprus')}
+                                </Header>
+                            </OfficeHeader>
+                            <BorderBox>
+                                <MapContainer>
+                                    <LocalizedLink
+                                        to="https://goo.gl/maps/BA77GZmuEQzb798Q7"
+                                        external
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        <QueryImage
+                                            alt="Map Cyprus"
+                                            data={data['map_cyprus']}
+                                            height="100%"
+                                        />
+                                    </LocalizedLink>
+                                </MapContainer>
+                                <LocalizedLinkText
+                                    to="https://goo.gl/maps/BA77GZmuEQzb798Q7"
+                                    external
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    mt="0.8rem"
+                                    ml="1.6rem"
+                                >
+                                    42 Agias Filaxeos, 5th floor,
+                                    <br></br>
+                                    Limassol 3025
+                                </LocalizedLinkText>
+                            </BorderBox>
+                        </Flex>
+                    </GridLayout>
                 </Content>
             </Container>
         </SectionContainer>

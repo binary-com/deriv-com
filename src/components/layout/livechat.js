@@ -19,7 +19,7 @@ const StyledLiveChat = styled.div`
     border-radius: 50%;
     z-index: 9999;
 
-    @media ${device.mobileM} {
+    @media ${device.tabletS} {
         padding: 1rem;
     }
 `

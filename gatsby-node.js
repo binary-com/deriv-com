@@ -61,3 +61,8 @@ exports.onCreateWebpackConfig = ({ actions, getConfig }) => {
         },
     })
 }
+
+exports.createPages = ({ actions }) => {
+    const { createRedirect } = actions //actions is collection of many actions - https://www.gatsbyjs.org/docs/actions
+    createRedirect({ fromPath: '/en', toPath: '/', isPermanent: true })
+}

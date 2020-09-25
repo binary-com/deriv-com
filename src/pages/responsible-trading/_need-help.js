@@ -92,6 +92,7 @@ const StyledFlex = styled(Flex)`
         }
     }
 `
+
 const ClientCard = styled.article`
     margin: 2rem;
     background-color: var(--color-white);
@@ -99,9 +100,12 @@ const ClientCard = styled.article`
     box-shadow: 0 4px 8px 0 rgba(14, 14, 14, 0.1);
     width: 49rem;
     padding: 2rem 2.4rem;
-    height: 100%;
     min-height: 30rem;
     position: relative;
+
+    ${Flex} {
+        height: unset;
+    }
 
     @media ${device.tabletL} {
         width: 85%;

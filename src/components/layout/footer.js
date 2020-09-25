@@ -39,6 +39,10 @@ const StyledFooter = styled.footer`
             width: 100%;
         }
     }
+
+    @media ${device.mobileL} {
+        padding-bottom: 6rem;
+    }
 `
 const StyledGrid = styled(CssGrid)`
     width: 100%;

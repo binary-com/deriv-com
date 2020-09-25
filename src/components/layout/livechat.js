@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import { isBrowser } from 'common/utility'
 import LiveChatIC from 'images/svg/livechat.svg'
 import LiveChatHover from 'images/svg/livechat-hover.svg'
+import device from 'themes/device'
 
 const StyledLiveChat = styled.div`
     position: fixed;
@@ -17,6 +18,10 @@ const StyledLiveChat = styled.div`
     cursor: pointer;
     border-radius: 50%;
     z-index: 9999;
+
+    @media ${device.mobileM} {
+        padding: 1rem;
+    }
 `
 
 const LiveChat = ({ LC_API, is_livechat_interactive, setLiveChatInteractive }) => {

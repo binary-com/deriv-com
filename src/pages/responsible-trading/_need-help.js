@@ -100,7 +100,7 @@ const ClientCard = styled.article`
     width: 49rem;
     padding: 2rem 2.4rem;
     height: 100%;
-    min-height: 26.5rem;
+    min-height: 30rem;
     position: relative;
 
     @media ${device.tabletL} {

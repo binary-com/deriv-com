@@ -61,7 +61,7 @@ const Notes = styled.div`
 `
 
 const DisplayAccordion = () => {
-    const { is_eu_country } = React.useContext(LocationContext)
+    const { is_eu_country, crypto_config } = React.useContext(LocationContext)
     return (
         <Accordion has_single_state>
             {payment_data.map((pd, idx) => {
@@ -89,7 +89,7 @@ const DisplayAccordion = () => {
                             }}
                             header={pd.name}
                         >
-                            <DisplayAccordianItem pd={pd} />
+                            <DisplayAccordianItem pd={pd} crypto_config={crypto_config} />
                         </AccordionItem>
                     )
             })}
@@ -97,7 +97,7 @@ const DisplayAccordion = () => {
     )
 }
 
-const DisplayAccordianItem = ({ pd }) => {
+const DisplayAccordianItem = ({ pd, crypto_config }) => {
     return (
         <>
             <Scrollbar options={{ suppressScrollY: true }}>
@@ -124,7 +124,6 @@ const DisplayAccordianItem = ({ pd }) => {
                                 {pd.is_crypto ? (
                                     <>
                                         <BoldText>{localize('Min withdrawal')}</BoldText>
-                                        <BoldText>{localize('(in USD)')}</BoldText>
                                     </>
                                 ) : (
                                     <React.Fragment>
@@ -148,9 +147,18 @@ const DisplayAccordianItem = ({ pd }) => {
                         </Tr>
                     </Thead>
                     <Tbody>
-                        {pd.data.map((data, indx) => (
-                            <ExpandList key={indx} data={data} is_crypto={pd.is_crypto} />
-                        ))}
+                        {pd.data.map((data, indx) => {
+                            return pd.is_crypto ? (
+                                <ExpandList
+                                    key={indx}
+                                    data={data}
+                                    is_crypto={pd.is_crypto}
+                                    config={crypto_config}
+                                />
+                            ) : (
+                                <ExpandList key={indx} data={data} is_crypto={pd.is_crypto} />
+                            )
+                        })}
                     </Tbody>
                 </StyledTable>
             </Scrollbar>
@@ -166,6 +174,7 @@ const DisplayAccordianItem = ({ pd }) => {
 }
 
 DisplayAccordianItem.propTypes = {
+    crypto_config: PropTypes.object,
     pd: PropTypes.object,
 }
 

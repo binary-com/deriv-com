@@ -66,6 +66,8 @@ const sanitize = (input) => input.replace(/[.*+?^${}()|[\]\\]/g, '')
 
 const sentenceCase = (input) => input.charAt(0).toUpperCase() + input.slice(1)
 
+const getCryptoDecimals = (input) => input.toFixed(1 - Math.floor(Math.log(input) / Math.log(10)))
+
 function debounce(func, wait, immediate) {
     let timeout
     return function () {
@@ -115,6 +117,7 @@ export {
     cloneObject,
     isBrowser,
     getCrowdin,
+    getCryptoDecimals,
     getPropertyValue,
     getLanguage,
     getLocationHash,

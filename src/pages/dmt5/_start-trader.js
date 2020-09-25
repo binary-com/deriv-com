@@ -115,7 +115,7 @@ const TabItem = styled.div`
                       font-weight: unset;
                   }
               `}
-    
+
     @media ${device.tabletS} {
         padding: 17px 20px;
     }
@@ -123,7 +123,6 @@ const TabItem = styled.div`
         max-width: 164px;
         width: 100%;
         padding: ${(props) => props.mobile_padding};
-
     }
 `
 const StyledHeader = styled(Header)`

@@ -136,7 +136,7 @@ export const DMT5Card = ({ is_selected, word_break_cover }) => (
             Icon={StyledDmt5}
             content={[
                 localize(
-                    'Trade on the Deriv MetaTrader 5 (DMT5) platform, the choice of professionals worldwide.',
+                    'Trade on Deriv MetaTrader 5 (DMT5), the all-in-one multi-asset trading platform.',
                 ),
             ]}
             is_inline_icon
@@ -244,7 +244,7 @@ export const NavPlatform = ({ onClick }) => (
             <NavCard
                 icon={DMT5}
                 content={
-                    <Localize translate_text="Trade on the Deriv MetaTrader 5 (DMT5) platform, the choice of professionals." />
+                    <Localize translate_text="Trade on Deriv MetaTrader 5 (DMT5), the all-in-one multi-asset trading platform." />
                 }
                 title={<Localize translate_text="DMT5" />}
                 onClick={onClick}

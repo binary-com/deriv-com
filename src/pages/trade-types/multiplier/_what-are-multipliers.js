@@ -1,5 +1,7 @@
 import React from 'react'
+import styled from 'styled-components'
 import { SmallContainer, Grid, Ul, WhyTradeItem } from '../components/_style'
+import device from 'themes/device'
 import { SectionContainer } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
@@ -11,14 +13,20 @@ import ResponsivePlatform from 'images/svg/trade-types/responsive-platform.svg'
 import FriendlySupport from 'images/svg/trade-types/friendly-support.svg'
 import Seven from 'images/svg/trade-types/seven.svg'
 
+const StyledHeader = styled(Header)`
+    @media ${device.tablet} {
+        font-size: 28px;
+    }
+`
+
 const WhatAreOptions = () => {
     return (
         <>
             <SectionContainer background="white" padding="8rem 0 4rem">
                 <SmallContainer direction="column" ai="flex-start">
-                    <Header as="h2" mb="1.2rem">
+                    <StyledHeader as="h2" mb="1.2rem">
                         {localize('What are multipliers?')}
-                    </Header>
+                    </StyledHeader>
                     <Text mb="1.2rem">
                         {localize(
                             'Multipliers allow you to profit from correctly predicting whether the market will go up or down. You select either ‘Up’ or ‘Down’ to open a position and win by closing the trade when the market price is higher or lower than your entry spot.',

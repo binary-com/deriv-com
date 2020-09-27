@@ -90,7 +90,7 @@ export const Affiliates = () => {
                         color="red"
                         size="var(--text-size-m)"
                         to="mailto:partners@deriv.com"
-                        external
+                        external="true"
                     >
                         partners@deriv.com
                     </LinkText>
@@ -102,7 +102,7 @@ export const Affiliates = () => {
                         color="red"
                         size="var(--text-size-m)"
                         to="mailto:marketing@deriv.com"
-                        external
+                        external="true"
                     >
                         marketing@deriv.com
                     </LinkText>

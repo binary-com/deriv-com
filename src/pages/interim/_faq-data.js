@@ -15,7 +15,7 @@ const NeedSignUp = () => (
                 components={[
                     <LocalizedLinkText
                         key={0}
-                        external
+                        external="true"
                         to="home"
                         is_binary_link
                         target="_blank"
@@ -36,7 +36,7 @@ const BinaryRemoved = () => (
                 components={[
                     <LocalizedLinkText
                         key={0}
-                        external
+                        external="true"
                         to="home"
                         is_binary_link
                         target="_blank"
@@ -58,7 +58,7 @@ const DerivSecure = () => (
                 components={[
                     <LocalizedLinkText
                         key={0}
-                        external
+                        external="true"
                         to="home"
                         is_binary_link
                         target="_blank"
@@ -80,7 +80,7 @@ const OtherChanges = () => (
                 components={[
                     <LocalizedLinkText
                         key={0}
-                        external
+                        external="true"
                         to="home"
                         is_binary_link
                         target="_blank"
@@ -93,12 +93,12 @@ const OtherChanges = () => (
         </Text>
         <TextPrimary>
             {localize(
-                'Besides a new, modern look, we’re working on adding new products like Multiplier Options and a peer-to-peer cashier. We’re creating resources that will help you build your confidence in the world of online trading.',
+                "Besides an improved, modern look, we’ve introduced a new trade type called multipliers and a peer-to-peer payment facility (DP2P) that's available on our website and as a mobile app.  We’re also creating more resources to help you improve your trading skills.",
             )}
         </TextPrimary>
         <TextPrimary>
             {localize(
-                'We’re working on rebranding our social media profiles too, so keep an eye out for @Derivdotcom on Facebook, Instagram and Twitter.',
+                'One more thing: We’ve rebranded our social media profiles to @Derivdotcom on Facebook, Instagram, and Twitter. Like and follow us to stay updated with our latest news.',
             )}
         </TextPrimary>
     </>

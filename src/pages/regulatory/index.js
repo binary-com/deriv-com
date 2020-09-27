@@ -232,7 +232,7 @@ const Regulatory = () => {
                                                     rel="noopener noreferrer"
                                                 />,
                                                 <ExternalBoldLink
-                                                    external
+                                                    external="true"
                                                     key={1}
                                                     weight="bold"
                                                     target="_blank"
@@ -274,7 +274,7 @@ const Regulatory = () => {
                                                     rel="noopener noreferrer"
                                                 />,
                                                 <ExternalBoldLink
-                                                    external
+                                                    external="true"
                                                     key={1}
                                                     weight="bold"
                                                     target="_blank"
@@ -472,7 +472,7 @@ const Regulatory = () => {
                                     translate_text="We are registered with <0>The Financial Commission</0>, an international independent organisation dedicated to resolving disputes within the financial services industry (<1>view membership</1>)."
                                     components={[
                                         <ExternalBoldLink
-                                            external
+                                            external="true"
                                             key={0}
                                             color="red"
                                             weight="normal"

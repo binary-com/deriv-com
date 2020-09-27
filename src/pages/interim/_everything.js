@@ -52,7 +52,7 @@ const Everything = () => {
                                     components={[
                                         <LocalizedLinkText
                                             key={0}
-                                            external
+                                            external="true"
                                             weight="bold"
                                             to="home"
                                             is_binary_link

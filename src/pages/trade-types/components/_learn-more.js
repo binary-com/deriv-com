@@ -54,7 +54,7 @@ const LearnMore = ({ text, to }) => {
 }
 
 LearnMore.propTypes = {
-    text: PropTypes.string,
+    text: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     to: PropTypes.string,
 }
 

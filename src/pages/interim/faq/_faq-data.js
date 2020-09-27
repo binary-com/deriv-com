@@ -1,7 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import { localize, Localize } from 'components/localization'
-import { Text } from 'components/elements'
+import { Show } from 'components/containers'
+import { Text, LocalizedLinkText } from 'components/elements'
 
 const StyledUl = styled.ul`
     list-style-type: disc;
@@ -18,6 +19,9 @@ const StyledUl = styled.ul`
 `
 const MaxWidth = styled.div`
     max-width: 64rem;
+`
+const StyledLink = styled(LocalizedLinkText)`
+    color: var(--color-red);
 `
 
 const WhyRebrand = () => (
@@ -93,7 +97,22 @@ const WhatToExpect = () => (
 const IsDerivRegulated = () => (
     <MaxWidth>
         <Text>
-            <Localize translate_text="Yes. Deriv.com and Binary.com are owned by the same group, which is licensed and regulated in many jurisdictions around the world." />
+            <Show.Eu>
+                <Localize
+                    translate_text="Yes. Deriv.com and Binary.com are owned by the same group, which is <0>licensed and regulated</0> in many jurisdictions around the world."
+                    components={[
+                        <StyledLink
+                            to="/regulatory/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            key={0}
+                        />,
+                    ]}
+                />
+            </Show.Eu>
+            <Show.NonEU>
+                <Localize translate_text="Yes. Deriv.com and Binary.com are owned by the same group, which is licensed and regulated in many jurisdictions around the world." />
+            </Show.NonEU>
         </Text>
     </MaxWidth>
 )

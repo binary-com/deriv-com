@@ -89,7 +89,7 @@ const YearWrapper = styled.div`
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    margin-left: ${(props) => (props.left ? props.margin_left || '9.4rem' : '-9.4rem')};
+    margin-left: ${(props) => (props.left === true ? props.margin_left || '9.4rem' : '-9.4rem')};
     margin-bottom: ${(props) => props.margin_bottom || 'unset'};
 
     p {
@@ -129,7 +129,7 @@ const StyledHeader = styled(Header)`
     margin-left: 50%;
     margin-bottom: 2.5rem;
     position: relative;
-    transform: ${(props) => (props.left ? 'translateX(-88.7%)' : 'translateX(-1%)')};
+    transform: ${(props) => (props.left === true ? 'translateX(-88.7%)' : 'translateX(-1%)')};
 
     ::before {
         content: '';
@@ -139,8 +139,8 @@ const StyledHeader = styled(Header)`
         border-bottom: 17px solid red;
         position: absolute;
         top: 32.6%;
-        right: ${(props) => (props.left ? '1rem' : '')};
-        left: ${(props) => (props.left ? '' : '1rem')};
+        right: ${(props) => (props.left === true ? '1rem' : '')};
+        left: ${(props) => (props.left === true ? '' : '1rem')};
 
         @media ${device.tablet} {
             display: none;
@@ -148,10 +148,10 @@ const StyledHeader = styled(Header)`
     }
 
     @media ${device.laptopL} {
-        transform: ${(props) => (props.left ? 'translateX(-88%)' : 'translateX(-1%)')};
+        transform: ${(props) => (props.left === true ? 'translateX(-88%)' : 'translateX(-1%)')};
     }
     @media ${device.laptop} {
-        transform: ${(props) => (props.left ? 'translateX(-87%)' : 'translateX(-1%)')};
+        transform: ${(props) => (props.left === true ? 'translateX(-87%)' : 'translateX(-1%)')};
     }
     @media ${device.tablet} {
         margin-left: -186px;
@@ -173,8 +173,8 @@ const Splitter = styled.div`
 const LogoContainer = styled.div`
     width: ${(props) => props.outer_image_width || '28.2rem'};
     text-align: ${(props) => props.image_position};
-    margin-left: ${(props) => (props.left ? '2rem' : '')};
-    margin-right: ${(props) => (props.left ? '' : props.margin_right || '2rem')};
+    margin-left: ${(props) => (props.left === true ? '2rem' : '')};
+    margin-right: ${(props) => (props.left === true ? '' : props.margin_right || '2rem')};
 
     @media ${device.tablet} {
         text-align: left;
@@ -246,7 +246,7 @@ export const OurHistory = (props) => {
                 <Story key={idx} bgColor={story.bgColor}>
                     <Show.Mobile>
                         <StyledHeader
-                            left={story.left}
+                            left={story.left.toString()}
                             size="6rem"
                             color={story.color || 'red-4'}
                             align="center"
@@ -256,7 +256,7 @@ export const OurHistory = (props) => {
                     </Show.Mobile>
                     <Show.Desktop>
                         <StyledHeader
-                            left={story.left}
+                            left={story.left.toString()}
                             as="h2"
                             color={story.color || 'red-4'}
                             align="center"
@@ -285,7 +285,7 @@ export const OurHistory = (props) => {
                                     <LogoDiv>
                                         <QueryImage
                                             data={data[content.image]}
-                                            alt={content.image_alt}
+                                            alt={content.image_alt.props.translate_text}
                                             width={content.image_width}
                                         />
                                     </LogoDiv>
@@ -324,47 +324,50 @@ export const OurHistory = (props) => {
                                 </ContentWrapper>
                             </YearWrapper>
                         ) : (
-                            <YearWrapper
-                                key={idxa}
-                                color={story.color}
-                                width={story.width}
-                                width_laptop={story.width_laptop}
-                                margin_bottom={content.margin_bottom}
-                            >
-                                <ContentWrapper content_width={content.content_width}>
-                                    {content.headers.map((header, id) => (
-                                        <div key={id}>
-                                            <Header
-                                                as="h4"
-                                                color={story.color}
-                                                mt={header.margin_top}
-                                            >
-                                                {header.header}
-                                            </Header>
-                                            <Splitter />
-                                            <Text>{content.texts[id].text}</Text>
-                                        </div>
-                                    ))}
-                                </ContentWrapper>
-                                <LogoContainer
-                                    left
-                                    image_position={content.image_position}
-                                    outer_image_width={content.outer_image_width}
-                                    margin_right={content.margin_right}
+                            <>
+                                <YearWrapper
+                                    key={idxa}
+                                    color={story.color}
+                                    width={story.width}
+                                    width_laptop={story.width_laptop}
+                                    margin_bottom={content.margin_bottom}
+                                    left={content.left}
                                 >
-                                    <Flex jc="flex-start" ml="1rem">
-                                        <QueryImage
-                                            data={data[content.image]}
-                                            alt={content.image_alt}
-                                            width={
-                                                is_mobile
-                                                    ? content.image_mobile_width
-                                                    : content.image_width
-                                            }
-                                        />
-                                    </Flex>
-                                </LogoContainer>
-                            </YearWrapper>
+                                    <ContentWrapper content_width={content.content_width}>
+                                        {content.headers.map((header, id) => (
+                                            <div key={id}>
+                                                <Header
+                                                    as="h4"
+                                                    color={story.color}
+                                                    mt={header.margin_top}
+                                                >
+                                                    {header.header}
+                                                </Header>
+                                                <Splitter />
+                                                <Text>{content.texts[id].text}</Text>
+                                            </div>
+                                        ))}
+                                    </ContentWrapper>
+                                    <LogoContainer
+                                        left
+                                        image_position={content.image_position}
+                                        outer_image_width={content.outer_image_width}
+                                        margin_right={content.margin_right}
+                                    >
+                                        <Flex jc="flex-start" ml="1rem">
+                                            <QueryImage
+                                                data={data[content.image]}
+                                                alt={content.image_alt.props.translate_text}
+                                                width={
+                                                    is_mobile
+                                                        ? content.image_mobile_width
+                                                        : content.image_width
+                                                }
+                                            />
+                                        </Flex>
+                                    </LogoContainer>
+                                </YearWrapper>
+                            </>
                         ),
                     )}
                 </Story>

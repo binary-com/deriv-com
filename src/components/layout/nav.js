@@ -11,7 +11,7 @@ import {
     NavMarket,
 } from 'components/custom/other-platforms.js'
 import { useOutsideClick } from 'components/hooks/outside-click'
-import { LocalizedLink, Localize, localize, LanguageSwitcher } from 'components/localization'
+import { LocalizedLink, localize, LanguageSwitcher } from 'components/localization'
 import { Button, LinkButton } from 'components/form'
 import { Container, Show, Flex } from 'components/containers'
 import {
@@ -19,7 +19,6 @@ import {
     OffCanvasMenuPartner,
     moveOffCanvasMenu,
     Text,
-    LocalizedLinkText,
     QueryImage,
 } from 'components/elements'
 import { SharedLinkStyle } from 'components/localization/localized-link'
@@ -32,7 +31,6 @@ import LogoPartner from 'images/svg/logo-partners.svg'
 import Hamburger from 'images/svg/hamburger_menu.svg'
 import Close from 'images/svg/close-long.svg'
 import LogoOnly from 'images/svg/logo-deriv-only.svg'
-import BinaryLogo from 'images/svg/binary.svg'
 import LogoCombinedShape from 'images/svg/logo-combined-shape.svg'
 
 const query = graphql`
@@ -144,14 +142,6 @@ const NavCenter = styled.ul`
         display: none;
     }
 `
-// const HiddenDiv = styled.div`
-//     position: absolute;
-//     height: 100%;
-//     width: 440px;
-//     right: -220px;
-//     background: var(--color-black);
-//     z-index: 999;
-// `
 const NavRight = styled.div`
     display: inline-flex;
     align-items: center;
@@ -285,20 +275,6 @@ const handleScroll = (show, hide) => {
     const show_height = 400
     window.scrollY > show_height ? show() : hide()
 }
-
-const Binary = styled(Text)`
-    width: 8rem;
-    margin-left: 0.5rem;
-    line-height: 1;
-`
-
-const BinaryLink = styled(LocalizedLinkText)`
-    display: inline-block;
-    color: var(--color-white);
-    font-size: var(--text-size-xxs);
-    font-weight: bold;
-    text-decoration: none;
-`
 
 const MobileRight = styled.div`
     margin-left: auto;
@@ -545,15 +521,9 @@ Nav.propTypes = {
     base: PropTypes.string,
 }
 
-const ResponsiveBinary = styled(BinaryLogo)`
-    @media ${device.mobileL} {
-        width: 20px;
-    }
-`
-
 const Auto = styled(Flex)`
     @media ${device.mobileM} {
-        width: auto;
+        width: 100%;
     }
 `
 
@@ -566,45 +536,40 @@ const LeftButton = styled(LinkButton)`
 `
 
 const StyledLogo = styled(LogoLink)`
+    max-width: 31rem;
+
+    @media ${device.mobileL} {
+        display: none;
+    }
     @media (max-width: 340px) {
         & svg {
             width: 11rem;
         }
     }
 `
-
 export const NavInterim = ({ interim_type }) => (
     <InterimNav>
         <Container jc="space-between" p="2.4rem 0">
             <Flex ai="center" jc="flex-start">
-                <StyledLogo to={`/interim/${interim_type}`} aria-label={localize('Home')}>
-                    <Logo />
-                </StyledLogo>
-                <LocalizedLink
-                    external
-                    to="home"
-                    is_binary_link
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    <ResponsiveBinary width="24" height="24" />
-                </LocalizedLink>
-                <Binary size="var(--text-size-xxs)" color="white">
-                    <Localize
-                        translate_text="A <0>Binary.com</0> brand"
-                        components={[
-                            <BinaryLink
-                                key={0}
-                                external
-                                to={'home'}
-                                is_binary_link
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                color="white"
-                            />,
-                        ]}
-                    />
-                </Binary>
+                <Show.Desktop>
+                    <StyledLogo to={`/interim/${interim_type}`} aria-label={localize('Home')}>
+                        <Flex ai="center">
+                            <Logo />
+                            <LogoCombinedShape />
+                        </Flex>
+                    </StyledLogo>
+                </Show.Desktop>
+                <Show.Mobile>
+                    <LogoLinkMobile to={`/interim/${interim_type}`} aria-label={localize('Home')}>
+                        <Flex>
+                            <LogoOnly width="115px" />
+                            <LogoDescription ai="center">
+                                <Line />
+                                <LogoCombinedShape />
+                            </LogoDescription>
+                        </Flex>
+                    </LogoLinkMobile>
+                </Show.Mobile>
             </Flex>
             <Auto jc="flex-end" ai="center">
                 <LanguageSwitcher short_name="true" />
@@ -789,7 +754,7 @@ export const NavPartners = ({ no_login_signup }) => {
                                 <LanguageSwitcher short_name="true" is_high_nav />
                                 <LinkButton
                                     to={affiliate_signin_url}
-                                    external
+                                    external="true"
                                     is_affiliate_sign_in_link
                                     target="_blank"
                                     primary
@@ -798,7 +763,7 @@ export const NavPartners = ({ no_login_signup }) => {
                                 </LinkButton>
                                 <LinkSignupButton
                                     to={affiliate_signup_url}
-                                    external
+                                    external="true"
                                     is_affiliate_link
                                     target="_blank"
                                     ref={button_ref}
@@ -835,7 +800,7 @@ export const NavPartners = ({ no_login_signup }) => {
                                 {!no_login_signup && (
                                     <LinkMobileLogin
                                         to={affiliate_signin_url}
-                                        external
+                                        external="true"
                                         is_affiliate_link
                                         target="_blank"
                                         primary

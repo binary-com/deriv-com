@@ -852,7 +852,7 @@ const Footer = () => {
                         <Show.Desktop>
                             <EuLogoWrapper mt="1rem" ai="center">
                                 <LocalizedLink
-                                    external
+                                    external="true"
                                     to="https://www.gamstop.co.uk"
                                     target="_blank"
                                     rel="noopener noreferrer"
@@ -861,7 +861,7 @@ const Footer = () => {
                                 </LocalizedLink>
 
                                 <LocalizedLink
-                                    external
+                                    external="true"
                                     to="https://www.gov.im/categories/business-and-industries/gambling-and-e-gaming/"
                                     target="_blank"
                                     rel="noopener noreferrer"
@@ -889,7 +889,7 @@ const Footer = () => {
                         <Show.Mobile>
                             <EuLogoWrapper mt="1rem" ai="center">
                                 <LocalizedLink
-                                    external
+                                    external="trues"
                                     to="https://www.gov.im/categories/business-and-industries/gambling-and-e-gaming/"
                                     target="_blank"
                                     rel="noopener noreferrer"
@@ -913,7 +913,7 @@ const Footer = () => {
                                         <StyledMgaLogo />
                                     </LocalizedLink>
                                     <LocalizedLink
-                                        external
+                                        external="true"
                                         to="https://www.gamstop.co.uk"
                                         target="_blank"
                                         rel="noopener noreferrer"

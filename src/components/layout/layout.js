@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Footer from './footer'
@@ -25,8 +25,10 @@ const has_dataLayer = isBrowser() && window.dataLayer
 
 const CLIENTS_COUNTRY_KEY = 'clients_country'
 const TRACKING_STATUS_KEY = 'tracking_status'
+const CRYPTO_CONFIG_KEY = 'crypto_config'
 const clients_country_cookie = new CookieStorage(CLIENTS_COUNTRY_KEY)
 const tracking_status_cookie = new CookieStorage(TRACKING_STATUS_KEY)
+const crypto_config_cookie = new CookieStorage(CRYPTO_CONFIG_KEY)
 
 const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) => {
     const [clients_country, setClientCountry] = React.useState(
@@ -35,14 +37,17 @@ const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) 
     const [has_mounted, setMounted] = React.useState(false)
     const [show_cookie_banner, setShowCookieBanner] = React.useState(false)
     const [show_modal, toggleModal, closeModal] = useModal()
-    const [modal_payload, setModalPayload] = useState({})
+    const [modal_payload, setModalPayload] = React.useState({})
+    const [crypto_config, setCryptoConfig] = React.useState(
+        crypto_config_cookie.get(CRYPTO_CONFIG_KEY),
+    )
     const LC_API = (isBrowser() && window.LC_API) || {}
     const [is_livechat_interactive, setLiveChatInteractive] = React.useState(false)
 
     const is_static = type === 'static'
 
     React.useEffect(() => {
-        if (!clients_country) {
+        if (!clients_country || !crypto_config) {
             const binary_socket = BinarySocketBase.init()
 
             binary_socket.onopen = () => {
@@ -51,13 +56,21 @@ const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) 
 
             binary_socket.onmessage = (msg) => {
                 const response = JSON.parse(msg.data)
-
                 if (!response.error) {
-                    setClientCountry(response.website_status.clients_country)
-                    clients_country_cookie.set(
-                        CLIENTS_COUNTRY_KEY,
-                        response.website_status.clients_country,
-                    )
+                    if (!clients_country) {
+                        setClientCountry(response.website_status.clients_country)
+                        clients_country_cookie.set(
+                            CLIENTS_COUNTRY_KEY,
+                            response.website_status.clients_country,
+                        )
+                    }
+                    if (!crypto_config) {
+                        setCryptoConfig(response.website_status.crypto_config)
+                        crypto_config_cookie.set(
+                            CRYPTO_CONFIG_KEY,
+                            response.website_status.crypto_config,
+                        )
+                    }
                 }
 
                 binary_socket.close()
@@ -127,6 +140,7 @@ const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) 
             is_eu_country={clients_country ? isEuCountry(clients_country) : undefined}
             show_cookie_banner={show_cookie_banner}
             toggleModal={toggleModal}
+            crypto_config={crypto_config}
             setModalPayload={setModalPayload}
             is_livechat_interactive={is_livechat_interactive}
             LC_API={LC_API}

@@ -12,6 +12,7 @@ export const LocationProvider = ({
     toggleModal,
     is_livechat_interactive,
     LC_API,
+    crypto_config,
 }) => {
     return (
         <LocationContext.Provider
@@ -23,6 +24,7 @@ export const LocationProvider = ({
                 toggleModal,
                 is_livechat_interactive,
                 LC_API,
+                crypto_config,
             }}
         >
             {children}
@@ -32,6 +34,7 @@ export const LocationProvider = ({
 
 LocationProvider.propTypes = {
     children: PropTypes.node.isRequired,
+    crypto_config: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
     has_mounted: PropTypes.bool,
     is_eu_country: PropTypes.bool,
     is_livechat_interactive: PropTypes.bool,

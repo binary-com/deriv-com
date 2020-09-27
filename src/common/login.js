@@ -1,7 +1,6 @@
 import Cookies from 'js-cookie'
-import { isStorageSupported, LocalStore } from './storage'
+import { CookieStorage, isStorageSupported } from './storage'
 import TrafficSource from './traffic-source'
-import isMobile from './os-detect'
 import { brand_name } from './utility'
 import { getAppId } from './websocket/config'
 
@@ -15,8 +14,10 @@ const Login = (() => {
     const loginUrl = () => {
         const server_url = localStorage.getItem('config.server_url')
         const language = localStorage.getItem('i18n')?.replace('-', '_')
-        const signup_device = LocalStore.get('signup_device') || (isMobile() ? 'mobile' : 'desktop')
-        const date_first_contact = LocalStore.get('date_first_contact')
+        const signup_device_cookie = new CookieStorage('signup_device')
+        const signup_device = signup_device_cookie.get('signup_device')
+        const date_first_contact_cookie = new CookieStorage('date_first_contact')
+        const date_first_contact = date_first_contact_cookie.get('date_first_contact')
         const marketing_queries = `&signup_device=${signup_device}${
             date_first_contact ? `&date_first_contact=${date_first_contact}` : ''
         }`

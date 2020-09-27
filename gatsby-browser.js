@@ -1,7 +1,7 @@
 import NProgress from 'nprogress'
 import { WrapPagesWithLocaleContext } from './src/components/localization'
 import { isProduction } from './src/common/websocket/config'
-import { LocalStore } from './src/common/storage'
+import { CookieStorage, LocalStore } from './src/common/storage'
 import TrafficSource from './src/common/traffic-source'
 import isMobile from './src/common/os-detect'
 import { gtm_test_domain } from 'common/utility'
@@ -44,9 +44,10 @@ export const onInitialClientRender = () => {
     }
     // Configure traffic source
     TrafficSource.init()
+    const signup_device_cookie = new CookieStorage('signup_device')
 
-    if (!LocalStore.get('signup_device')) {
-        LocalStore.set('signup_device', isMobile() ? 'mobile' : 'desktop')
+    if (!signup_device_cookie.get('signup_device')) {
+        signup_device_cookie.set('signup_device', isMobile() ? 'mobile' : 'desktop')
     }
     NProgress.done()
 }

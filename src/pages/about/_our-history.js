@@ -79,7 +79,7 @@ const Story = styled.div`
     margin: auto;
     padding: 2rem 0;
 
-    @media ${device.tablet} {       
+    @media ${device.tablet} {
         background-color: var(--color-${(props) => (props.bgColor == 'black' ? 'black' : 'white')});
     }
 `

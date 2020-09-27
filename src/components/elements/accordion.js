@@ -82,31 +82,30 @@ Accordion.propTypes = {
     nodes: PropTypes.array,
 }
 
-const SingleAccordionContent = ({ is_default_open = false, nodes, children }) => {
+const ItemExpanded = ({ is_default_open, child, child_idx, nodes }) => {
     const getHeight = (active_idx) => {
         return (
             nodes[active_idx] &&
             nodes[active_idx].ref.children[0].children[1].children[0].offsetHeight
         )
     }
+    const [is_expanded, setExpanded] = useState(false)
+    const [height, setHeight] = useStateWithCallback(0, () => {
+        // set height to auto to allow content that can resize inside the accordion
+        // reset height to content height before collapse for transition (height: auto does not support transitions)
+        if (is_expanded) setTimeout(() => setHeight('auto'), 200)
+        else setTimeout(() => setHeight(0), 50)
+    })
 
-    const render_nodes = React.Children.map(children, (child, child_idx) => {
-        const [is_expanded, setExpanded] = useState(false)
-        const [height, setHeight] = useStateWithCallback(0, () => {
-            // set height to auto to allow content that can resize inside the accordion
-            // reset height to content height before collapse for transition (height: auto does not support transitions)
-            if (is_expanded) setTimeout(() => setHeight('auto'), 200)
-            else setTimeout(() => setHeight(0), 50)
-        })
+    React.useEffect(() => {
+        if (is_default_open) setExpanded(true)
+    }, [])
 
-        React.useEffect(() => {
-            if (is_default_open) setExpanded(true)
-        }, [])
+    React.useEffect(() => child && setHeight(getHeight(child_idx)), [is_expanded])
 
-        React.useEffect(() => child && setHeight(getHeight(child_idx)), [is_expanded])
-
-        return (
-            child.props.is_showed != false && (
+    return (
+        <>
+            {child.props.is_showed != false && (
                 <ResponsiveWrapper
                     key={child_idx}
                     style={child.props.parent_style}
@@ -148,7 +147,28 @@ const SingleAccordionContent = ({ is_default_open = false, nodes, children }) =>
                         </div>
                     </AccordionWrapper>
                 </ResponsiveWrapper>
-            )
+            )}
+        </>
+    )
+}
+
+ItemExpanded.propTypes = {
+    child: PropTypes.any,
+    child_idx: PropTypes.any,
+    is_default_open: PropTypes.bool,
+    nodes: PropTypes.any,
+}
+
+const SingleAccordionContent = ({ is_default_open = false, nodes, children }) => {
+    const render_nodes = React.Children.map(children, (child, child_idx) => {
+        return (
+            <ItemExpanded
+                key={child_idx}
+                is_default_open={is_default_open}
+                child={child}
+                child_idx={child_idx}
+                nodes={nodes}
+            />
         )
     })
 

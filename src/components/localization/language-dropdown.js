@@ -193,7 +193,7 @@ const Dropdown = ({ default_option, onChange, option_list, is_high_nav }) => {
                         width="24px"
                         height="24px"
                         data={data[default_abbreviation]}
-                        alt={default_option}
+                        alt={default_option.short_name}
                     />
                     <ResponsiveText color="white" ml="0.8rem" weight="bold" mr="0.4rem">
                         {default_option.short_name}
@@ -234,7 +234,7 @@ const Dropdown = ({ default_option, onChange, option_list, is_high_nav }) => {
 }
 
 Dropdown.propTypes = {
-    default_option: PropTypes.string,
+    default_option: PropTypes.object,
     is_high_nav: PropTypes.bool,
     onChange: PropTypes.func,
     option_list: PropTypes.array,

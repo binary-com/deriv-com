@@ -33,7 +33,7 @@ const QueryImage = ({ data, alt, width, height }) => {
 }
 
 QueryImage.propTypes = {
-    alt: PropTypes.string,
+    alt: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
     data: PropTypes.object.isRequired,
     height: PropTypes.string,
     width: PropTypes.string,

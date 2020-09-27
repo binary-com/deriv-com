@@ -19,11 +19,7 @@ const Descriptions = styled.div`
     border-bottom: 1px solid var(--color-grey-21);
 `
 const Col = styled(Flex)`
-    max-width: 12.9rem;
-
-    @media ${device.tabletL} {
-        max-width: 10rem;
-    }
+    max-width: 14.9rem;
 `
 const Row = styled(Flex)`
     border: 1px solid var(--color-grey-22);
@@ -77,11 +73,14 @@ const MarketsList = styled(CssGrid)`
             line-height: 1.5;
         }
     }
+
+    @media ${device.mobileL} {
+        grid-template-columns: repeat(1, 1fr);
+    }
 `
 const Title = styled(Text)`
     @media ${device.tabletL} {
         text-align: center;
-        max-width: 6.4rem;
         font-weight: 600;
     }
 `
@@ -167,8 +166,8 @@ const DigitalOptions = () => {
                     {localize('Instruments available for options trading')}
                 </Text>
                 <Row jc="flex-start" ai="center" mt="1.6rem">
-                    <Col max_width="13.2rem">
-                        <Title weight="bold" max_width="9.7rem" align="center">
+                    <Col max_width="14.2rem">
+                        <Title weight="bold" align="center">
                             {localize('Metals')}
                         </Title>
                     </Col>
@@ -177,8 +176,8 @@ const DigitalOptions = () => {
                     </MarketsList>
                 </Row>
                 <Row jc="flex-start" ai="center">
-                    <Col max_width="13.2rem">
-                        <Title weight="bold" max_width="9.7rem" align="center">
+                    <Col max_width="14.2rem">
+                        <Title weight="bold" align="center">
                             {localize('Energy')}
                         </Title>
                     </Col>

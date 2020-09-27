@@ -81,6 +81,9 @@
         "start-80": "sudo gatsby develop -p 80",
         "serve": "gatsby serve",
         "test": "npm run eslint && npm run stylelint",
+        "translate:download": "crowdin download -b crowdin && crowdin download -b crowdin -l zh-CN",
+        "translate:extract": "cd scripts && node extract-translations.js && cd ..",
+        "translate:upload": "crowdin upload sources -b crowdin",
         "deploy": "npm run build && gh-pages -d public -b master",
         "deploy-dev": "npm run build && gh-pages -d public",
         "deploy-branch": "PATH_PREFIX=/deriv-com/br/$branch_name npm run build && gh-pages -d public -e br/$branch_name"

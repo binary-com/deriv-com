@@ -39,6 +39,10 @@ const StyledFooter = styled.footer`
             width: 100%;
         }
     }
+
+    @media ${device.mobileL} {
+        padding-bottom: 6rem;
+    }
 `
 const StyledGrid = styled(CssGrid)`
     width: 100%;
@@ -86,6 +90,12 @@ const LinksWrapper = styled.div`
 const LinksCol = styled(Flex)`
     flex-direction: column;
     width: fit-content;
+    min-width: 100px;
+    margin-right: 20px;
+
+    :last-child {
+        margin-right: 0;
+    }
 `
 
 const Title = styled(Text)`

@@ -101,6 +101,7 @@ export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
             is_eu_country &&
             !is_mail_link &&
             !is_smarttrader_link &&
+            !is_deriv_app_link &&
             !is_affiliate_link &&
             !is_affiliate_sign_in_link
         ) {

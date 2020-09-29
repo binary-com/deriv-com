@@ -219,10 +219,9 @@ const Regulatory = () => {
                                             {localize('Deriv (Europe) Limited')}
                                         </StyledHeader>
                                     </Desktop>
-
                                     <Text mt="0.8rem" mb="1.6rem" max_width="58.8rem">
                                         <Localize
-                                            translate_text="Deriv (Europe) Limited, W Business Centre, Level 3, Triq Dun Karm, Birkirkara, BKR 9033, Malta, is licensed and regulated (for synthetic indices) by the Malta Gaming Authority (licence no. <0>MGA/B2C/102/2000</0>) and also maintains an Irish licence. Its licence for clients in the UK is by the UK Gambling Commission (account no. <1>39495</1>)."
+                                            translate_text="Deriv (Europe) Limited, W Business Centre, Level 3, Triq Dun Karm, Birkirkara BKR 9033, Malta, is licensed for synthetic indices by the Malta Gaming Authority (<0>licence no. MGA/B2C/102/2000</0>), by the UK Gambling Commission for clients in the UK (<1>account no. 39495</1>), and by the Revenue Commissioners for clients in Ireland (licence no. 1010285)."
                                             components={[
                                                 <LinkText
                                                     key={0}
@@ -244,7 +243,7 @@ const Regulatory = () => {
                                     </Text>
                                     <Text max_width="58.8rem">
                                         {localize(
-                                            'Clients in the European Union who wish to trade gambling products will have their accounts opened under Deriv (Europe) Limited.',
+                                            'Clients in the European Union who wish to trade gambling products can have accounts under Deriv (Europe) Limited.',
                                         )}
                                     </Text>
                                 </CssGridColumn>
@@ -264,7 +263,7 @@ const Regulatory = () => {
                                     </Desktop>
                                     <Text mt="0.8rem" mb="1.6rem" max_width="58.8rem">
                                         <Localize
-                                            translate_text="Deriv (MX) Ltd, First Floor, Millennium House, Victoria Road, Douglas, Isle of Man, IM2 4RW, is licensed and regulated by the Gambling Supervision Commission in the Isle of Man (online gambling licence granted on the 31 August 2017 — <0>view licence</0>) and by the UK Gambling Commission for clients in the UK — (account no. <1>39172</1>)."
+                                            translate_text="Deriv (MX) Ltd, Millennium House, Level 1, Victoria Road, Douglas IM2 4RW, Isle of Man, is licensed by the Gambling Supervision Commission in the Isle of Man (<0>view licence</0>) and by the UK Gambling Commission for clients in the UK (<1>account no. 39172</1>)."
                                             components={[
                                                 <LinkText
                                                     key={0}
@@ -286,105 +285,13 @@ const Regulatory = () => {
                                     </Text>
                                     <Text max_width="58.8rem">
                                         {localize(
-                                            'Clients in the Isle of Man and the UK who wish to trade gambling products will have their accounts opened under Deriv (MX) Ltd.',
-                                        )}
-                                    </Text>
-                                </CssGridColumn>
-                                <ResponsiveGrid align="flex-start">
-                                    <Mobile>
-                                        <StyledHeader lh="4rem" as="h4" mb="1.6rem">
-                                            {localize('Deriv (SVG) LLC')}
-                                        </StyledHeader>
-                                    </Mobile>
-                                    <SVG />
-                                </ResponsiveGrid>
-                                <CssGridColumn>
-                                    <Desktop>
-                                        <StyledHeader lh="4rem" as="h4">
-                                            {localize('Deriv (SVG) LLC')}
-                                        </StyledHeader>
-                                    </Desktop>
-                                    <Text mt="0.8rem" mb="1.6rem" max_width="58.8rem">
-                                        {localize(
-                                            'Deriv (SVG) LLC, Hinds Buildings, Kingstown, St. Vincent and the Grenadines (company number 273 LLC 2020).',
-                                        )}
-                                    </Text>
-                                    <Text max_width="58.8rem">
-                                        {localize(
-                                            'Clients from the rest of the world (except for certain countries such as the USA, Canada, and Hong Kong) will have their accounts opened under Deriv (SVG) LLC.',
+                                            'Clients in the Isle of Man and the UK who wish to trade gambling products can have accounts under Deriv (MX) Ltd.',
                                         )}
                                     </Text>
                                 </CssGridColumn>
                             </Eu>
                         </Content>
-                        <ResponsiveGrid align="flex-start">
-                            <Mobile>
-                                <StyledHeader lh="4rem" as="h4" mb="1.6rem">
-                                    {localize('Deriv (V) Ltd')}
-                                </StyledHeader>
-                            </Mobile>
-                            <Img src={Vanuatu} alt="Vanuatu" />
-                        </ResponsiveGrid>
-                        <CssGridColumn>
-                            <Desktop>
-                                <StyledHeader lh="4rem" as="h4">
-                                    {localize('Deriv (V) Ltd')}
-                                </StyledHeader>
-                            </Desktop>
-                            <Text mt="0.8rem" mb="1.6rem" max_width="58.8rem">
-                                <Localize
-                                    translate_text="Deriv (V) Ltd, Govant Building, Port Vila, PO Box 1276, Vanuatu, Republic of Vanuatu, is licensed and regulated by the Vanuatu Financial Services Commission — <0>view licence</0>."
-                                    components={[
-                                        <LinkText
-                                            key={0}
-                                            weight="bold"
-                                            target="_blank"
-                                            href="/regulatory/Deriv_(V)_Ltd.pdf"
-                                            rel="noopener noreferrer"
-                                        />,
-                                    ]}
-                                />
-                            </Text>
-                            <Text max_width="58.8rem">
-                                {localize(
-                                    'Clients from the rest of the world (except for restricted countries such as the USA, Canada, Hong Kong) will have their FX and CFD Metatrader 5 accounts opened under Deriv (V) Ltd.',
-                                )}
-                            </Text>
-                        </CssGridColumn>
-                        <ResponsiveGrid align="flex-start">
-                            <Mobile>
-                                <StyledHeader lh="4rem" as="h4" mb="1.6rem">
-                                    {localize('Deriv (BVI) Ltd')}
-                                </StyledHeader>
-                            </Mobile>
-                            <Img src={FSC} alt="FSC" />
-                        </ResponsiveGrid>
-                        <CssGridColumn>
-                            <Desktop>
-                                <StyledHeader lh="4rem" as="h4">
-                                    {localize('Deriv (BVI) Ltd')}
-                                </StyledHeader>
-                            </Desktop>
-                            <Text mt="0.8rem" mb="1.6rem" max_width="58.8rem">
-                                <Localize
-                                    translate_text="Deriv (BVI) Ltd, Kingston Chambers, P.O. Box 173, Road Town, Tortola, British Virgin Islands, is licensed and regulated by the British Virgin Islands Financial Services Commission — <0>view licence</0>."
-                                    components={[
-                                        <LinkText
-                                            key={0}
-                                            weight="bold"
-                                            target="_blank"
-                                            href="/regulatory/Deriv_(BVI)_Ltd.pdf"
-                                            rel="noopener noreferrer"
-                                        />,
-                                    ]}
-                                />
-                            </Text>
-                            <Text max_width="58.8rem">
-                                {localize(
-                                    'Clients from the rest of the world (except for restricted countries such as the USA, Canada, Hong Kong) will have their FX and CFD Metatrader 5 accounts opened under Deriv (BVI) Ltd.',
-                                )}
-                            </Text>
-                        </CssGridColumn>
+
                         <ResponsiveGrid align="flex-start">
                             <Mobile>
                                 <StyledHeader lh="4rem" as="h4" mb="1.6rem">
@@ -401,7 +308,7 @@ const Regulatory = () => {
                             </Desktop>
                             <Text mt="0.8rem" max_width="58.8rem">
                                 <Localize
-                                    translate_text="Deriv (FX) Ltd, Lot No. F16, First Floor, Paragon Labuan, Jalan Tun Mustapha, 87000 Federal Territory of Labuan, Malaysia, is licensed and regulated by the Labuan Financial Services Authority to conduct a money-broking business (<0>licence no. MB/18/0024</0>)."
+                                    translate_text="Deriv (FX) Ltd, F16, Level 1, Paragon Labuan, Jalan Tun Mustapha, Labuan 87000, Malaysia, is licensed by Labuan Financial Services Authority (<0>licence no. MB/18/0024</0>)."
                                     components={[
                                         <LinkText
                                             key={0}
@@ -415,10 +322,114 @@ const Regulatory = () => {
                             </Text>
                             <Text mt="2rem" max_width="58.8rem">
                                 {localize(
-                                    'Clients from the rest of the world (except for restricted countries such as the USA, Canada, and territories such as the European Union) who wish to trade CFDs on forex and cryptocurrencies will have their MetaTrader 5 accounts opened under Deriv (FX) Ltd.',
+                                    'Clients in the rest of the world (except for restricted countries such as the USA, Canada, and Hong Kong) who wish to trade CFDs on forex and cryptocurrencies can have MetaTrader 5 accounts under Deriv (FX) Ltd.',
                                 )}
                             </Text>
                         </CssGridColumn>
+
+                        <ResponsiveGrid align="flex-start">
+                            <Mobile>
+                                <StyledHeader lh="4rem" as="h4" mb="1.6rem">
+                                    {localize('Deriv (BVI) Ltd')}
+                                </StyledHeader>
+                            </Mobile>
+                            <Img src={FSC} alt="FSC" />
+                        </ResponsiveGrid>
+                        <CssGridColumn>
+                            <Desktop>
+                                <StyledHeader lh="4rem" as="h4">
+                                    {localize('Deriv (BVI) Ltd')}
+                                </StyledHeader>
+                            </Desktop>
+                            <Text mt="0.8rem" mb="1.6rem" max_width="58.8rem">
+                                <Localize
+                                    translate_text="Deriv (BVI) Ltd, Kingston Chambers, P.O. Box 173, Road Town, Tortola, British Virgin Islands, is licensed by the British Virgin Islands Financial Services Commission (<0>licence no. SIBA/L/18/1114</0>)."
+                                    components={[
+                                        <LinkText
+                                            key={0}
+                                            weight="bold"
+                                            target="_blank"
+                                            href="/regulatory/Deriv_(BVI)_Ltd.pdf"
+                                            rel="noopener noreferrer"
+                                        />,
+                                    ]}
+                                />
+                            </Text>
+                            <Text max_width="58.8rem">
+                                {localize(
+                                    'Clients in the rest of the world (except for restricted countries such as the USA, Canada, and Hong Kong) who wish to trade CFDs on financial instruments and cryptocurrencies can have MetaTrader 5 accounts under Deriv (BVI) Ltd.',
+                                )}
+                            </Text>
+                        </CssGridColumn>
+
+                        <ResponsiveGrid align="flex-start">
+                            <Mobile>
+                                <StyledHeader lh="4rem" as="h4" mb="1.6rem">
+                                    {localize('Deriv (V) Ltd and Champion Group Ltd')}
+                                </StyledHeader>
+                            </Mobile>
+                            <Img src={Vanuatu} alt="Vanuatu" />
+                        </ResponsiveGrid>
+                        <CssGridColumn>
+                            <Desktop>
+                                <StyledHeader lh="4rem" as="h4">
+                                    {localize('Deriv (V) Ltd and Champion Group Ltd')}
+                                </StyledHeader>
+                            </Desktop>
+                            <Text mt="0.8rem" mb="1.6rem" max_width="58.8rem">
+                                <Localize
+                                    translate_text="Deriv (V) Ltd (<0>view licence</0>) and Champion Group Ltd (<1>view licence</1>), 1276, Kumul Highway, Port Vila, Vanuatu are licensed by Vanuatu Financial Services Commission."
+                                    components={[
+                                        <LinkText
+                                            key={0}
+                                            weight="bold"
+                                            target="_blank"
+                                            href="/regulatory/Deriv_(V)_Ltd.pdf"
+                                            rel="noopener noreferrer"
+                                        />,
+                                        <LinkText
+                                            key={1}
+                                            weight="bold"
+                                            target="_blank"
+                                            href="/regulatory/Champion_Group_Ltd.pdf"
+                                            rel="noopener noreferrer"
+                                        />,
+                                    ]}
+                                />
+                            </Text>
+                            <Text max_width="58.8rem">
+                                {localize(
+                                    'Clients in the rest of the world (except for restricted countries such as the USA, Canada, and Hong Kong) who wish to trade CFDs on financial instruments can have MetaTrader 5 accounts under Deriv (V) Ltd and Champion Group Ltd.',
+                                )}
+                            </Text>
+                        </CssGridColumn>
+
+                        <ResponsiveGrid align="flex-start">
+                            <Mobile>
+                                <StyledHeader lh="4rem" as="h4" mb="1.6rem">
+                                    {localize('Deriv (SVG) LLC')}
+                                </StyledHeader>
+                            </Mobile>
+                            <SVG />
+                        </ResponsiveGrid>
+                        <CssGridColumn>
+                            <Desktop>
+                                <StyledHeader lh="4rem" as="h4">
+                                    {localize('Deriv (SVG) LLC')}
+                                </StyledHeader>
+                            </Desktop>
+                            <Text mt="0.8rem" mb="1.6rem" max_width="58.8rem">
+                                {localize(
+                                    'Deriv (SVG) LLC, Hinds Buildings, Kingstown, St. Vincent and the Grenadines (company number 273 LLC 2020).',
+                                )}
+                            </Text>
+                            <Text max_width="58.8rem">
+                                {localize(
+                                    'Clients from the rest of the world (except for certain countries such as the USA, Canada, and Hong Kong) will have their accounts opened under Deriv (SVG) LLC.',
+                                )}
+                            </Text>
+                        </CssGridColumn>
+
                         <ResponsiveGrid align="flex-start">
                             <Mobile>
                                 <StyledHeader lh="4rem" as="h4" mb="1.6rem">
@@ -435,7 +446,7 @@ const Regulatory = () => {
                             </Desktop>
                             <Text mt="0.8rem">
                                 {localize(
-                                    'Deriv Limited, 47 Esplanade, St Helier, Jersey JE1 0BD, Channel Islands (registration no. 108101), is the holding company for the above subsidiaries.',
+                                    'Deriv Limited, 47 Esplanade, St Helier, Jersey JE1 0BD, Channel Islands, is the holding company for the above subsidiaries.',
                                 )}
                             </Text>
                         </CssGridColumn>
@@ -469,19 +480,10 @@ const Regulatory = () => {
                             </Desktop>
                             <Text mt="0.8rem" max_width="58.8rem">
                                 <Localize
-                                    translate_text="We are registered with <0>The Financial Commission</0>, an international independent organisation dedicated to resolving disputes within the financial services industry (<1>view membership</1>)."
+                                    translate_text="We are registered with the Financial Commission, an international independent organisation dedicated to resolving disputes within the financial services industry (<0>view membership</0>)."
                                     components={[
-                                        <ExternalBoldLink
-                                            external="true"
-                                            key={0}
-                                            color="red"
-                                            weight="normal"
-                                            target="_blank"
-                                            to="https://financialcommission.org/"
-                                            rel="noopener noreferrer"
-                                        />,
                                         <LinkText
-                                            key={1}
+                                            key={0}
                                             weight="bold"
                                             target="_blank"
                                             href="/regulatory/Deriv_Ltd_membership.pdf"

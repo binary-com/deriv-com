@@ -681,7 +681,7 @@ const Footer = () => {
                                     <StaticAsset
                                         key={0}
                                         target="_blank"
-                                        href="/regulatory/Deriv_Investments_(Europe)_Ltd.pdf"
+                                        href="/regulatory/Deriv_Investments_(Europe)_Limited.pdf"
                                         rel="noopener noreferrer"
                                     />,
                                 ]}
@@ -736,7 +736,7 @@ const Footer = () => {
                                         <StaticAsset
                                             key={0}
                                             target="_blank"
-                                            href="/regulatory/Deriv_(Europe)_Ltd.pdf"
+                                            href="/regulatory/Deriv_(Europe)_Limited.pdf"
                                             rel="noopener noreferrer"
                                         />,
                                         <StaticAssetLink

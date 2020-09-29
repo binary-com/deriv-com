@@ -1,6 +1,5 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
-import { deriv_app_url } from 'common/utility'
 import { Flex, SectionContainer } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { LinkButton } from 'components/form'
@@ -139,7 +138,14 @@ const Flexibility = () => {
                     )
                 })}
             </Flex>
-            <StyledLinkButton external="true" secondary="true" to={`${deriv_app_url}/mt5/`}>
+            <StyledLinkButton
+                external="true"
+                secondary="true"
+                to="/mt5"
+                is_deriv_app_link
+                target="_blank"
+                rel="noopener noreferrer"
+            >
                 {localize('Go to DMT5 dashboard')}
             </StyledLinkButton>
         </Section>

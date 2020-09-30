@@ -28,7 +28,7 @@ const EdgeFlex = styled(Flex)`
 
 const RTS27_28 = () => (
     <>
-        <EdgeFlex m="1.8rem auto" jc="space-between" wrap="wrap" width="auto">
+        <EdgeFlex m="1.8rem auto" jc="space-evenly" wrap="wrap" width="auto">
             <FlexText
                 color="red"
                 target="_blank"

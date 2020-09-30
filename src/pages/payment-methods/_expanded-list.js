@@ -4,6 +4,7 @@ import styled, { css } from 'styled-components'
 import { Button } from 'components/form/'
 import { Text } from 'components/elements'
 import { localize } from 'components/localization'
+import { getCryptoDecimals } from 'common/utility'
 // SVG
 import Chevron from 'images/svg/chevron-thick.svg'
 import PDF from 'images/svg/pdf-icon-black.svg'
@@ -71,12 +72,12 @@ const Description = styled.div`
 `
 
 const StyledText = styled(Text)`
-    font-size: ${(props) => (props.is_expanded == 'true' ? 'var(--text-size-s)' : '0')};
+    font-size: ${(props) => (props.is_expanded ? 'var(--text-size-s)' : '0')};
 `
 
 const Deposit = styled(Td)`
     & > p {
-        max-width: 14rem;
+        max-width: 12rem;
     }
 `
 
@@ -91,15 +92,18 @@ const Withdrawal = styled(Td)`
     }
 `
 
-const ExpandList = ({ data }) => {
+const ExpandList = ({ data, config, is_crypto }) => {
     const [is_expanded, setIsExpanded] = React.useState(false)
 
     const toggleExpand = () => {
         setIsExpanded(!is_expanded)
     }
+    const getCryptoConfig = (name) => {
+        return config == undefined ? null : getCryptoDecimals(config[name].minimum_withdrawal)
+    }
     return (
         <>
-            <Tr is_expanded={is_expanded.toString()}>
+            <Tr is_expanded={is_expanded}>
                 <Td>{data.method}</Td>
                 <Td>
                     <Text>{data.currencies}</Text>
@@ -115,6 +119,8 @@ const ExpandList = ({ data }) => {
                     <>
                         {Array.isArray(data.min_max_withdrawal) ? (
                             data.min_max_withdrawal.map((md, idx) => <Text key={idx}>{md}</Text>)
+                        ) : is_crypto ? (
+                            <Text>{getCryptoConfig(data.name)}</Text>
                         ) : (
                             <Text>{data.min_max_withdrawal}</Text>
                         )}
@@ -140,15 +146,13 @@ const ExpandList = ({ data }) => {
                     )}
                 </Td>
                 <HoverTd onClick={toggleExpand}>
-                    <StyledChevron expanded={is_expanded.toString()} />
+                    <StyledChevron expanded={is_expanded} />
                 </HoverTd>
             </Tr>
             <tr>
                 <ExpandedContent colSpan="8">
-                    <Description is_expanded={is_expanded.toString()}>
-                        <StyledText is_expanded={is_expanded.toString()}>
-                            {data.description}
-                        </StyledText>
+                    <Description is_expanded={is_expanded}>
+                        <StyledText is_expanded={is_expanded}>{data.description}</StyledText>
                         {data.url && (
                             <StyledButton onClick={() => window.open(data.url, '_blank')} tertiary>
                                 {localize('Learn more')}
@@ -162,6 +166,7 @@ const ExpandList = ({ data }) => {
 }
 
 ExpandList.propTypes = {
+    config: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
     data: PropTypes.object,
     is_crypto: PropTypes.bool,
 }

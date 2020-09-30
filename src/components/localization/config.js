@@ -4,7 +4,6 @@ import { str as crc32 } from 'crc-32'
 import language_config from '../../../i18n-config'
 
 i18n.use(initReactI18next).init({
-    fallbackLng: 'en',
     ns: ['translations'],
     defaultNS: 'translations',
 

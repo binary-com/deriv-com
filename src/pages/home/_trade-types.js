@@ -40,9 +40,9 @@ const TradeTypes = () => {
                     </TradingButton>
                 </Flex>
                 <Flex>
-                    {trade_types.map((trade_type) => (
+                    {trade_types.map((trade_type, idx) => (
                         <TradeTypesCard
-                            key={trade_type.title}
+                            key={idx}
                             icon={trade_type.icon}
                             title={trade_type.title}
                             description={trade_type.description}

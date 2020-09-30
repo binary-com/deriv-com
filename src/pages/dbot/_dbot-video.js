@@ -1,7 +1,6 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled, { css } from 'styled-components'
-import { deriv_bot_app_url } from 'common/utility'
 import { localize } from 'components/localization'
 import { Header, QueryImage } from 'components/elements'
 import device from 'themes/device.js'
@@ -172,7 +171,14 @@ const DtraderTabs = () => {
                     </Step>
                 </Tab>
                 <GotoLiveWrapper>
-                    <GoToLiveDemo secondary="true" to={deriv_bot_app_url} target="_blank">
+                    <GoToLiveDemo
+                        secondary="true"
+                        external="true"
+                        to="/bot"
+                        is_deriv_app_link
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
                         {localize('Go to live demo')}
                     </GoToLiveDemo>
                 </GotoLiveWrapper>

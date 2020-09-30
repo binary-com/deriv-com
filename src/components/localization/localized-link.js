@@ -71,6 +71,7 @@ export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
         is_deriv_app_link,
         ariaLabel,
         onClick,
+        external,
     } = props
 
     // If it's the default language or non localized link, don't do anything
@@ -80,7 +81,7 @@ export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
     const { is_default, path, affiliate_lang } = language_config[locale]
     const is_non_localized = non_localized_links.includes(to)
     const path_to = is_default || is_non_localized ? to : `/${path}${is_index ? `` : `${to}`}/`
-    if (props.external || props.external === 'true') {
+    if (external || external === 'true') {
         let lang_to = ''
         if (is_binary_link) {
             const thai_excluded_locale = locale === 'th' ? 'en' : locale
@@ -101,6 +102,7 @@ export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
             is_eu_country &&
             !is_mail_link &&
             !is_smarttrader_link &&
+            !is_deriv_app_link &&
             !is_affiliate_link &&
             !is_affiliate_sign_in_link
         ) {

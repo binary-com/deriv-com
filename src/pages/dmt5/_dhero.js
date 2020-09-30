@@ -2,7 +2,6 @@ import React from 'react'
 import styled, { css } from 'styled-components'
 import PropTypes from 'prop-types'
 import { graphql, useStaticQuery } from 'gatsby'
-import { deriv_app_url } from 'common/utility'
 import { localize } from 'components/localization'
 import { Flex } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
@@ -191,7 +190,7 @@ const DHero = ({
     const data = useStaticQuery(query)
     const redirectUrl = () => {
         const path = image_name === 'dbot' ? '/bot' : '/'
-        return deriv_app_url + path
+        return path
     }
     const DLogo = styled(Logo)`
         margin-right: 1.6rem;
@@ -266,7 +265,14 @@ const DHero = ({
                         </StyledLinkButton>
                     )}
                     {go_to_live_demo && (
-                        <StyledLinkButton external="true" secondary="true" to={redirectUrl()}>
+                        <StyledLinkButton
+                            external="true"
+                            secondary="true"
+                            to={redirectUrl()}
+                            is_deriv_app_link
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
                             {localize('Go to live demo')}
                         </StyledLinkButton>
                     )}

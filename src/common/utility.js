@@ -48,10 +48,10 @@ const getPropertyValue = (obj, k) => {
 const getLocationHash = () =>
     isBrowser() && (location.hash ? location.hash.substring(1).replace(/\/$/, '') : '')
 
-const getLanguage = () => (isBrowser() ? localStorage.getItem('i18n') || 'en' : null)
+const getLanguage = () => (isBrowser() ? localStorage.getItem('i18n') || navigator.language : null)
 
 const getCrowdin = () =>
-    isBrowser() ? localStorage.getItem('jipt_language_code_deriv-com') || 'en' : null
+    isBrowser() ? localStorage.getItem('jipt_language_code_deriv-com') || navigator.language : null
 
 class PromiseClass {
     constructor() {
@@ -65,6 +65,8 @@ class PromiseClass {
 const sanitize = (input) => input.replace(/[.*+?^${}()|[\]\\]/g, '')
 
 const sentenceCase = (input) => input.charAt(0).toUpperCase() + input.slice(1)
+
+const getCryptoDecimals = (input) => input.toFixed(1 - Math.floor(Math.log(input) / Math.log(10)))
 
 function debounce(func, wait, immediate) {
     let timeout
@@ -115,6 +117,7 @@ export {
     cloneObject,
     isBrowser,
     getCrowdin,
+    getCryptoDecimals,
     getPropertyValue,
     getLanguage,
     getLocationHash,

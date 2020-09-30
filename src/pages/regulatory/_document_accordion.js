@@ -5,6 +5,7 @@ import { Flex } from 'components/containers'
 import { localize } from 'components/localization'
 import device from 'themes/device'
 import PDFIcon from 'images/svg/pdf-icon-black.svg'
+import XLSXIcon from 'images/svg/xlsx-icon.svg'
 
 const FlexText = styled(LinkText)`
     display: flex;
@@ -25,7 +26,7 @@ const EdgeFlex = styled(Flex)`
     }
 `
 
-const RTS28 = () => (
+const RTS27_28 = () => (
     <>
         <EdgeFlex m="1.8rem auto" jc="space-between" wrap="wrap" width="auto">
             <FlexText
@@ -47,6 +48,36 @@ const RTS28 = () => (
             >
                 <PDFIcon />
                 <span>{localize('RTS28 2019')}</span>
+            </FlexText>
+            <FlexText
+                color="red"
+                target="_blank"
+                rel="noopener noreferrer"
+                href="/regulatory/RTS27-2018.xlsx"
+                m="1.6rem 2.4rem"
+            >
+                <XLSXIcon />
+                <span>{localize('RTS27 2018')}</span>
+            </FlexText>
+            <FlexText
+                color="red"
+                target="_blank"
+                rel="noopener noreferrer"
+                href="/regulatory/RTS27-2019.xlsx"
+                m="1.6rem 2.4rem"
+            >
+                <XLSXIcon />
+                <span>{localize('RTS27 2019')}</span>
+            </FlexText>
+            <FlexText
+                color="red"
+                target="_blank"
+                rel="noopener noreferrer"
+                href="/regulatory/RTS27-2020.xlsx"
+                m="1.6rem 2.4rem"
+            >
+                <XLSXIcon />
+                <span>{localize('RTS27 2020')}</span>
             </FlexText>
         </EdgeFlex>
     </>
@@ -153,7 +184,7 @@ const DocumentAccordion = () => {
                 parent_style={parent_style}
             >
                 <Flex>
-                    <RTS28 />
+                    <RTS27_28 />
                 </Flex>
             </AccordionItem>
         </Accordion>

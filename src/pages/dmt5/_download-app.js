@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { Flex, SectionContainer, Box, Show } from 'components/containers'
 import { Header, QueryImage, Text } from 'components/elements'
-import { localize, Localize } from 'components/localization'
+import { localize, Localize, LocalizedLink } from 'components/localization'
 import AppStore from 'images/svg/app-store.svg'
 import GooglePlay from 'images/svg/google-play.svg'
 import GooglePlayMobile from 'images/svg/google-play-mobile.svg'
@@ -11,6 +11,7 @@ import Linux from 'images/svg/linux.svg'
 import MoreInfo from 'images/svg/more-info.svg'
 import Windows from 'images/svg/windows.svg'
 import device from 'themes/device'
+import { dmt5_windows_url, dmt5_linux_url, dmt5_android_url, dmt5_ios_url } from 'common/utility'
 
 const query = graphql`
     query {
@@ -85,9 +86,23 @@ const DownloadApp = () => {
                     <StyledHeader as="h4">{localize('Desktop')}</StyledHeader>
                     <Flex mt="0.8rem" jc="flex-start" height="auto">
                         <Box mr="0.8rem">
-                            <Windows />
+                            <LocalizedLink
+                                external="true"
+                                to={dmt5_windows_url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <Windows />
+                            </LocalizedLink>
                         </Box>
-                        <Linux />
+                        <LocalizedLink
+                            external="true"
+                            to={dmt5_linux_url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <Linux />
+                        </LocalizedLink>
                     </Flex>
 
                     <StyledHeader mt="2.4rem" as="h4">
@@ -95,9 +110,23 @@ const DownloadApp = () => {
                     </StyledHeader>
                     <Flex mt="0.8rem" jc="flex-start">
                         <Box mr="0.8rem">
-                            <AppStore />
+                            <LocalizedLink
+                                external="true"
+                                to={dmt5_ios_url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <AppStore />
+                            </LocalizedLink>
                         </Box>
-                        <GooglePlay />
+                        <LocalizedLink
+                            external="true"
+                            to={dmt5_android_url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <GooglePlay />
+                        </LocalizedLink>
                     </Flex>
                 </Show.Desktop>
 
@@ -105,18 +134,46 @@ const DownloadApp = () => {
                     <StyledHeader as="h4">{localize('Mobile')}</StyledHeader>
                     <Flex mt="0.8rem" jc="flex-start">
                         <Box mr="0.8rem">
-                            <AppStore />
+                            <LocalizedLink
+                                external="true"
+                                to={dmt5_ios_url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <AppStore />
+                            </LocalizedLink>
                         </Box>
-                        <GooglePlayMobile />
+                        <LocalizedLink
+                            external="true"
+                            to={dmt5_android_url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <GooglePlayMobile />
+                        </LocalizedLink>
                     </Flex>
                     <StyledHeader mt="2.4rem" as="h4">
                         {localize('Desktop')}
                     </StyledHeader>
                     <Flex mt="0.8rem" jc="flex-start" height="auto">
                         <Box mr="0.8rem">
-                            <Windows />
+                            <LocalizedLink
+                                external="true"
+                                to={dmt5_windows_url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <Windows />
+                            </LocalizedLink>
                         </Box>
-                        <Linux />
+                        <LocalizedLink
+                            external="true"
+                            to={dmt5_linux_url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <Linux />
+                        </LocalizedLink>
                     </Flex>
                 </Show.Mobile>
             </Flex>

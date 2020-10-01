@@ -167,7 +167,7 @@ const DerivAffiliateProgramme = () => {
                                 </Table>
                                 <Text mt="3.2rem">
                                     <Localize
-                                        translate_text="<0>Multipliers:</0> Earn up to 40% of the commissions generated from your clients’ trades."
+                                        translate_text="<0>Multipliers:</0> Earn 40% of the commissions generated from your clients’ trades."
                                         components={[<strong key={0} />]}
                                     />
                                 </Text>

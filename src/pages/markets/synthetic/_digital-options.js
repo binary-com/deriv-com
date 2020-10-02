@@ -5,7 +5,7 @@ import { ContinuousIndices, DailyResetIndices } from '../sub-markets/_submarkets
 import AvailableOptions from '../_available-options.js'
 import AvailablePlatforms from '../_available-platforms.js'
 import { Text } from 'components/elements'
-import { SectionContainer, Flex, CssGrid } from 'components/containers'
+import { SectionContainer, Flex, CssGrid, Show } from 'components/containers'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
 //SVG
@@ -335,6 +335,13 @@ const DigitalOptions = () => {
                             />
                         </Col>
                     </Row>
+                    <Show.Eu>
+                        <Text mt="1.6rem" color="grey-5" size="var(--text-size-xs)">
+                            {localize(
+                                'Return to player (RTP) % for lookbacks for a multiplier of 1 and 1m duration is around 87% on average.',
+                            )}
+                        </Text>
+                    </Show.Eu>
                 </Options>
                 <Text weight="bold" mt="2.4rem">
                     {localize('Instruments available for options trading')}

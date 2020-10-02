@@ -453,7 +453,8 @@ const ib_dmt5_advanced = {
     assets: [
         [
             { title: <Localize translate_text="Asset" />, style: { minWidth: '13rem' } },
-            <Localize key={0} translate_text="Forex and metals" />,
+            <Localize key={0} translate_text="Forex" />,
+            <Localize key={1} translate_text="Cryptocurrencies" />,
         ],
         [
             {
@@ -461,12 +462,18 @@ const ib_dmt5_advanced = {
                 style: { maxWidth: '16rem' },
             },
             <Localize key={0} translate_text="5 per lot" />,
+            <Localize key={1} translate_text="0.2% per lot" />,
         ],
     ],
     calculation: (
-        <Text>
-            <Localize translate_text="For forex assets, your commission is represented in the base currency. For example, a round trade of 1 lot of EUR/USD will pay out EUR 5 in commission. A round trade of 1 lot of USD/CAD will pay out USD 5 in commission." />
-        </Text>
+        <>
+            <Text>
+                <Localize translate_text="For forex assets, your commission is represented in the base currency. For example, a round trade (i.e. opening and closing a position) of 1 lot of EUR/USD will pay out EUR 5 in commission. A round trade of 1 lot of USD/CAD will pay out USD 5 in commission." />
+            </Text>
+            <Text mt="2rem">
+                <Localize translate_text="For cryptocurrency assets, a round trade of 1 lot of BTC/USD with a spot price of USD 10,000 will pay out USD 20 in commission." />
+            </Text>
+        </>
     ),
 }
 const ib_dmt5_synthetic = {

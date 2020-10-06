@@ -280,7 +280,7 @@ export const NavPlatform = ({ onClick }) => (
             <NavCard
                 icon={Options}
                 content={
-                    <Localize translate_text="Earn fixed payouts by predicting an assets price movement." />
+                    <Localize translate_text="Earn fixed payouts by predicting an asset's price movement." />
                 }
                 title={<Localize translate_text="Options" />}
                 onClick={onClick}

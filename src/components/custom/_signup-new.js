@@ -108,6 +108,11 @@ const SocialButton = styled(Button)`
         width: 20rem;
         height: 6rem;
     }
+    @media ${device.mobileS} {
+        &:first-child {
+            margin-right: 0.8rem;
+        }
+    }
 `
 
 const SocialWrapper = styled.div`

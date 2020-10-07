@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
+import { isBrowser } from 'common/utility'
 import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { Header, Text, QueryImage } from 'components/elements'
@@ -41,32 +42,37 @@ const ButtonWrapper = styled.div`
 const PageNotFound = () => {
     const data = useStaticQuery(query)
     return (
-        <Layout>
-            <SEO
-                title={localize('404 - Page not found | Deriv')}
-                description={localize('The page you are looking for does not exist.')}
-            />
-            <PageNotFoundContainer>
-                <ImageWrapper>
-                    <QueryImage data={data['page_not_found']} alt={localize('Page not found')} />
-                </ImageWrapper>
+        isBrowser() && (
+            <Layout>
+                <SEO
+                    title={localize('404 - Page not found | Deriv')}
+                    description={localize('The page you are looking for does not exist.')}
+                />
+                <PageNotFoundContainer>
+                    <ImageWrapper>
+                        <QueryImage
+                            data={data['page_not_found']}
+                            alt={localize('Page not found')}
+                        />
+                    </ImageWrapper>
 
-                <PageNotFoundContainerInfo>
-                    <Header as="h3">{localize("This channel doesn't work")}</Header>
-                    <Text>
-                        {localize(
-                            'You may have followed a broken link, or the page has moved to a new address.',
-                        )}
-                    </Text>
-                    <Text>{localize('Error code: 404 page not found')}</Text>
-                    <ButtonWrapper>
-                        <LinkButton secondary="true" to="/">
-                            {localize('Go to the homepage')}
-                        </LinkButton>
-                    </ButtonWrapper>
-                </PageNotFoundContainerInfo>
-            </PageNotFoundContainer>
-        </Layout>
+                    <PageNotFoundContainerInfo>
+                        <Header as="h3">{localize("This channel doesn't work")}</Header>
+                        <Text>
+                            {localize(
+                                'You may have followed a broken link, or the page has moved to a new address.',
+                            )}
+                        </Text>
+                        <Text>{localize('Error code: 404 page not found')}</Text>
+                        <ButtonWrapper>
+                            <LinkButton secondary="true" to="/">
+                                {localize('Go to the homepage')}
+                            </LinkButton>
+                        </ButtonWrapper>
+                    </PageNotFoundContainerInfo>
+                </PageNotFoundContainer>
+            </Layout>
+        )
     )
 }
 

@@ -16,10 +16,6 @@ const MinWidth = styled.div`
     }
 `
 
-const DisplayContent = styled.div`
-    display: content;
-`
-
 export const Desktop = ({ children, max_width, ...props }) => (
     <MaxWidth max_width={max_width || size.tabletL} {...props}>
         {children}
@@ -34,14 +30,14 @@ export const Mobile = ({ children, min_width, ...props }) => (
 export const Eu = ({ children }) => {
     const { is_eu_country } = React.useContext(LocationContext)
 
-    if (is_eu_country) return <DisplayContent>{children}</DisplayContent>
+    if (is_eu_country) return <>{children}</>
     else return null
 }
 
 export const NonEU = ({ children }) => {
     const { is_eu_country } = React.useContext(LocationContext)
 
-    if (is_eu_country === false) return <DisplayContent>{children}</DisplayContent>
+    if (is_eu_country === false) return <>{children}</>
     else return null
 }
 

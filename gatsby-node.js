@@ -36,7 +36,7 @@ exports.onCreatePage = ({ page, actions }) => {
             translations_cache[lang] = translation_json
         }
 
-        const currentPage = createPage({
+        const current_page = createPage({
             // Pass on everything from the original page
             ...page,
             // Remove trailing slash from page.path (e.g. "/de/")
@@ -51,12 +51,12 @@ exports.onCreatePage = ({ page, actions }) => {
         })
 
         if (is_default) {
-            const enPath = `/en${localized_path.slice(0, -1)}`
-            createRedirect({ fromPath: enPath, toPath: localized_path, redirectInBrowser: true, isPermanent: true})
-            createRedirect({ fromPath: `${enPath}/`, toPath: localized_path, redirectInBrowser: true, isPermanent: true})
+            const en_path = `/en${localized_path.slice(0, -1)}`
+            createRedirect({ fromPath: en_path, toPath: localized_path, redirectInBrowser: true, isPermanent: true})
+            createRedirect({ fromPath: `${en_path}/`, toPath: localized_path, redirectInBrowser: true, isPermanent: true})
         }
 
-        return currentPage
+        return current_page
     })
 }
 

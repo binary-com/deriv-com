@@ -303,6 +303,7 @@ const MarginCalculator = () => {
                                             error={touched.volume && errors.volume}
                                             onBlur={handleBlur}
                                             required
+                                            handleError={() => resetForm()}
                                         />
                                     </InputGroup>
 
@@ -320,6 +321,7 @@ const MarginCalculator = () => {
                                             error={touched.assetPrice && errors.assetPrice}
                                             onBlur={handleBlur}
                                             data-lpignore="true"
+                                            handleError={() => resetForm()}
                                         />
                                     </InputGroup>
                                     <FormikSymbolDropdown

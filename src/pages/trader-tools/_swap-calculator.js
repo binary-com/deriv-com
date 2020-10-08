@@ -312,7 +312,14 @@ const SwapCalculator = () => {
                                     setFieldValue('swapCharge', getSwapChargeSynthetic(values))
                                 }}
                             >
-                                {({ values, setFieldValue, handleBlur, errors, touched }) => (
+                                {({
+                                    values,
+                                    setFieldValue,
+                                    handleBlur,
+                                    errors,
+                                    touched,
+                                    resetForm,
+                                }) => (
                                     <SwapForm>
                                         <CalculatorHeader>
                                             <StyledLabel htmlFor="message">
@@ -386,6 +393,7 @@ const SwapCalculator = () => {
                                                     // handleError={resetForm}
                                                     onBlur={handleBlur}
                                                     data-lpignore="true"
+                                                    handleError={() => resetForm()}
                                                 />
                                             </InputGroup>
 
@@ -404,6 +412,7 @@ const SwapCalculator = () => {
                                                     // handleError={resetForm}
                                                     onBlur={handleBlur}
                                                     data-lpignore="true"
+                                                    handleError={() => resetForm()}
                                                 />
                                             </StyledInputGroup>
                                         </CalculatorBody>
@@ -519,7 +528,14 @@ const SwapCalculator = () => {
                                     setFieldValue('swapCharge', getSwapChargeForex(values))
                                 }}
                             >
-                                {({ values, setFieldValue, handleBlur, errors, touched }) => (
+                                {({
+                                    values,
+                                    setFieldValue,
+                                    handleBlur,
+                                    errors,
+                                    touched,
+                                    resetForm,
+                                }) => (
                                     <SwapForm>
                                         <CalculatorHeader>
                                             <StyledLabel htmlFor="message">
@@ -575,6 +591,7 @@ const SwapCalculator = () => {
                                                     error={touched.volume && errors.volume}
                                                     // handleError={resetForm}
                                                     onBlur={handleBlur}
+                                                    handleError={() => resetForm()}
                                                 />
                                             </InputGroup>
 
@@ -592,6 +609,7 @@ const SwapCalculator = () => {
                                                     error={touched.pointValue && errors.pointValue}
                                                     onBlur={handleBlur}
                                                     data-lpignore="true"
+                                                    handleError={() => resetForm()}
                                                 />
                                             </InputGroup>
 
@@ -610,6 +628,7 @@ const SwapCalculator = () => {
                                                     // handleError={resetForm}
                                                     onBlur={handleBlur}
                                                     data-lpignore="true"
+                                                    handleError={() => resetForm()}
                                                 />
                                             </StyledInputGroup>
                                         </CalculatorBody>

@@ -158,6 +158,7 @@ const FormikInput = ({
     value,
     onChange,
     touched,
+    handleError,
     ...props
 }) => (
     <RelativeWrapper>
@@ -191,7 +192,7 @@ const FormikInput = ({
         <ErrorMessages lh="1.4" align="left" color="red-1">
             {error}
         </ErrorMessages>
-        {error && <StyledError />}
+        {error && <StyledError onClick={handleError} />}
     </RelativeWrapper>
 )
 

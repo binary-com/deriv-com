@@ -5,7 +5,7 @@ import { Flex } from 'components/containers'
 import { localize } from 'components/localization'
 import device from 'themes/device'
 import PDFIcon from 'images/svg/pdf-icon-black.svg'
-import XLSXIcon from 'images/svg/xlsx-icon.svg'
+import XLSXIcon from 'images/svg/excel.svg'
 
 const FlexText = styled(LinkText)`
     display: flex;

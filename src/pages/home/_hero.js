@@ -8,6 +8,7 @@ import { Container, CssGrid, Box, Flex, Show } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
 import { Localize, localize } from 'components/localization'
 
+
 const query = graphql`
     query {
         background: file(relativePath: { eq: "platform_devices.png" }) {

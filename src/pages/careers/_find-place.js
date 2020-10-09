@@ -12,6 +12,7 @@ const StyledHeader = styled(Header)`
     margin-bottom: 6.4rem;
 `
 
+
 export const fadeInFixed = graphql`
     fragment fadeInFixed on File {
         childImageSharp {

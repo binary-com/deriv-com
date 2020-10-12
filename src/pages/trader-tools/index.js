@@ -17,7 +17,6 @@ const Hero = styled(Flex)`
     background-image: url(${Patterns});
     background-size: cover;
 `
-const TabsContainer = styled(Flex)``
 const Separator = styled.div`
     position: absolute;
     width: 100%;
@@ -28,8 +27,7 @@ const Separator = styled.div`
 
 const Item = styled.div`
     padding: 1.2rem 2.4rem;
-    border-bottom: ${(props) =>
-        props.name === props.active_tab ? '2px solid var(--color-red)' : ''};
+    border-bottom: ${(props) => props.name === props.active_tab && '2px solid var(--color-red)'};
     cursor: pointer;
     z-index: 10;
 
@@ -88,7 +86,7 @@ const TraderTools = () => {
                     </Header>
                 </Container>
             </Hero>
-            <TabsContainer pt="4rem" background="var(--color-grey-23)">
+            <Flex pt="4rem" background="var(--color-grey-23)">
                 <Item
                     onClick={() => handleTabChange('marginCalculator')}
                     active_tab={active_tab}
@@ -103,7 +101,7 @@ const TraderTools = () => {
                 >
                     <StyledHeader as="h4">{localize('Swap calculator')}</StyledHeader>
                 </Item>
-            </TabsContainer>
+            </Flex>
             <Box position="relative">
                 <Separator />
                 {active_tab === 'marginCalculator' && <MarginCalculator />}

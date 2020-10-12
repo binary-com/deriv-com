@@ -20,9 +20,9 @@ export const AccountTypeButtonWrapper = styled(Flex)`
 
 export const AccountTypeTabItem = styled.div`
     height: 72px;
-    width: 207px;
-    border-radius: 10px;
-    padding: 20px;
+    width: 21rem;
+    border-radius: 1rem;
+    padding: 2rem;
     border: solid 1px rgba(51, 51, 51, 0.1);
     display: flex;
     justify-content: center;
@@ -43,14 +43,6 @@ export const AccountTypeTabItem = styled.div`
                       font-weight: unset;
                   }
               `}
-
-    @media ${device.laptop} {
-        width: 180px;
-    }
-
-    @media ${device.tabletL} {
-        width: 163px;
-    }
 
     @media ${device.mobileL} {
         width: 140px;
@@ -106,7 +98,7 @@ export const StyledHeaderTitle = styled(Header)`
 
 export const LinkWrapper = styled.div`
     display: flex;
-    padding: 2rem 2rem 1rem 2rem;
+    padding: 2rem 2rem 1rem;
     width: 100%;
     justify-content: center;
 
@@ -191,8 +183,6 @@ export const StyledFormWrapper = styled.div`
     display: flex;
     margin-right: 6.4rem;
     max-height: 705px;
-
-    /* height: 720px; */
 
     @media ${device.laptopM} {
         margin-bottom: 40px;

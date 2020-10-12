@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { Formik } from 'formik'
 import { graphql, useStaticQuery } from 'gatsby'
 import {
@@ -41,58 +41,26 @@ import validation from 'common/validation'
 import FormikSymbolDropdown from 'components/formikComponents/symbolDropdown'
 import FormikInput from 'components/formikComponents/input'
 
-// import { BinarySocketBase } from 'common/websocket/socket_base';`
-
 const MarginCalculator = () => {
     const query = graphql`
         query {
             margin_calc: file(relativePath: { eq: "trade-tools/margin-calc.png" }) {
-                childImageSharp {
-                    fluid(maxWidth: 486, srcSetBreakpoints: [340, 400, 600, 1280]) {
-                        ...GatsbyImageSharpFluid_withWebp_noBase64
-                        originalName
-                    }
-                }
+                ...fadeIn
             }
             margin_formula: file(relativePath: { eq: "trade-tools/margin-formula.png" }) {
-                childImageSharp {
-                    fluid(maxWidth: 486, srcSetBreakpoints: [340, 400, 600, 1280]) {
-                        ...GatsbyImageSharpFluid_withWebp_noBase64
-                        originalName
-                    }
-                }
+                ...fadeIn
             }
             margin_info: file(relativePath: { eq: "trade-tools/margin-info.png" }) {
-                childImageSharp {
-                    fluid(maxWidth: 486, srcSetBreakpoints: [340, 400, 600, 1280]) {
-                        ...GatsbyImageSharpFluid_withWebp_noBase64
-                        originalName
-                    }
-                }
+                ...fadeIn
             }
             swap_calc: file(relativePath: { eq: "trade-tools/synthetic-calc.png" }) {
-                childImageSharp {
-                    fluid(maxWidth: 486, srcSetBreakpoints: [340, 400, 600, 1280]) {
-                        ...GatsbyImageSharpFluid_withWebp_noBase64
-                        originalName
-                    }
-                }
+                ...fadeIn
             }
             swap_formula: file(relativePath: { eq: "trade-tools/synthetic-formula.png" }) {
-                childImageSharp {
-                    fluid(maxWidth: 486, srcSetBreakpoints: [340, 400, 600, 1280]) {
-                        ...GatsbyImageSharpFluid_withWebp_noBase64
-                        originalName
-                    }
-                }
+                ...fadeIn
             }
             swap_forex_formula: file(relativePath: { eq: "trade-tools/forex-formula.png" }) {
-                childImageSharp {
-                    fluid(maxWidth: 486, srcSetBreakpoints: [340, 400, 600, 1280]) {
-                        ...GatsbyImageSharpFluid_withWebp_noBase64
-                        originalName
-                    }
-                }
+                ...fadeIn
             }
         }
     `
@@ -107,13 +75,13 @@ const MarginCalculator = () => {
     const getMargin = (values) => {
         const { volume, assetPrice, leverage, contractSize } = values
 
-        const margin = (volume * contractSize * assetPrice) / leverage.displayName
+        const margin_formula = (volume * contractSize * assetPrice) / leverage.display_name
 
-        return margin.toFixed(4)
+        return margin_formula.toFixed(4)
     }
 
     const resetValidation = (values) => {
-        let errors = {}
+        const errors = {}
         const symbol_error = validation.symbol(values.symbol)
         const volume_error = validation.volume(values.volume)
         const assetPrice_error = validation.assetPrice(values.assetPrice)
@@ -146,8 +114,7 @@ const MarginCalculator = () => {
                 if (symbol.name === 'DAX_30') {
                     currency = 'EUR'
                 } else {
-                    if (symbol.displayName !== 'Please select a value')
-                        currency = symbol.displayName.slice(-3)
+                    if (symbol.display_name !== '') currency = symbol.display_name.slice(-3)
                 }
             }
         }
@@ -159,25 +126,20 @@ const MarginCalculator = () => {
 
         if (symbol.market === 'forex') {
             contractSize = 1000
-        } else if (symbol.displayName === 'Silver/USD') {
+        } else if (symbol.display_name === 'Silver/USD') {
             contractSize = 500
         } else if (
-            symbol.displayName === 'Gold/USD' ||
-            symbol.displayName === 'Palladium/USD' ||
-            symbol.displayName === 'Platinum/USD'
+            symbol.display_name === 'Gold/USD' ||
+            symbol.display_name === 'Palladium/USD' ||
+            symbol.display_name === 'Platinum/USD'
         ) {
             contractSize = 100
-        } else if (symbol.displayName === 'Step Index') {
+        } else if (symbol.display_name === 'Step Index') {
             contractSize = 10
         }
 
         return contractSize
     }
-
-    useEffect(() => {
-        // fetchSymbol()
-        // console.log('effect')
-    }, [])
 
     return (
         <Container direction="column">
@@ -185,11 +147,7 @@ const MarginCalculator = () => {
                 {localize('Margin calculator')}
             </StyledHeaderTitle>
             <StyledHeaderP>
-                <Localize
-                    translate_text="Our margin calculator helps you to estimate the margin required to keep your
-        positions open overnight on Deriv MetaTrader 5 (DMT5)."
-                    components={[<strong key={0} />]}
-                />
+                <Localize translate_text="Our margin calculator helps you to estimate the margin required to keep your positions open overnight on Deriv MetaTrader 5 (DMT5)." />
             </StyledHeaderP>
             <WrapContainer mb="4.0rem">
                 <StyledFormWrapper>
@@ -278,10 +236,10 @@ const MarginCalculator = () => {
                                         default_option={optionItemDefault}
                                         selected_option={values.symbol}
                                         id="symbol"
-                                        onChange={(x) => {
-                                            setFieldValue('marginSymbol', getMarginCurrency(x))
-                                            setFieldValue('contractSize', getContractSize(x))
-                                            setFieldValue('symbol', x)
+                                        onChange={(value) => {
+                                            setFieldValue('marginSymbol', getMarginCurrency(value))
+                                            setFieldValue('contractSize', getContractSize(value))
+                                            setFieldValue('symbol', value)
                                         }}
                                         error={touched.symbol && errors.symbol}
                                         onBlur={handleBlur}
@@ -296,13 +254,12 @@ const MarginCalculator = () => {
                                             type="text"
                                             value={values.volume}
                                             label={localize('Volume')}
-                                            onChange={(x) => {
-                                                setFieldValue('volume', x)
+                                            onChange={(value) => {
+                                                setFieldValue('volume', value)
                                             }}
                                             autoComplete="off"
                                             error={touched.volume && errors.volume}
                                             onBlur={handleBlur}
-                                            required
                                             handleError={() => resetForm()}
                                         />
                                     </InputGroup>
@@ -314,8 +271,8 @@ const MarginCalculator = () => {
                                             type="text"
                                             value={values.assetPrice}
                                             label={localize('Asset price')}
-                                            onChange={(x) => {
-                                                setFieldValue('assetPrice', x)
+                                            onChange={(value) => {
+                                                setFieldValue('assetPrice', value)
                                             }}
                                             autoComplete="off"
                                             error={touched.assetPrice && errors.assetPrice}
@@ -330,8 +287,8 @@ const MarginCalculator = () => {
                                         label={localize('Leverage')}
                                         default_option={optionItemDefault}
                                         selected_option={values.leverage}
-                                        onChange={(x) => {
-                                            setFieldValue('leverage', x)
+                                        onChange={(value) => {
+                                            setFieldValue('leverage', value)
                                         }}
                                         error={touched.leverage && errors.leverage}
                                         onBlur={handleBlur}
@@ -362,10 +319,7 @@ const MarginCalculator = () => {
                     </Text>
 
                     <Text size="16px" mb="16px">
-                        <Localize
-                            translate_text="This gives you the margin requirement in the quote currency for forex pairs, or in the denomination of the underlying asset for other instruments."
-                            components={[<strong key={0} />]}
-                        />
+                        <Localize translate_text="This gives you the margin requirement in the quote currency for forex pairs, or in the denomination of the underlying asset for other instruments." />
                     </Text>
                     <Text size="16px" mb="2.4rem">
                         {localize(
@@ -388,10 +342,7 @@ const MarginCalculator = () => {
                             <StyledOl>
                                 <li>
                                     <span>
-                                        <Localize
-                                            translate_text=" One standard lot of forex = 100,000 units"
-                                            components={[<strong key={0} />]}
-                                        />
+                                        <Localize translate_text=" One standard lot of forex = 100,000 units" />
                                     </span>
                                 </li>
                             </StyledOl>
@@ -414,29 +365,22 @@ const MarginCalculator = () => {
             <BottomContent direction="column">
                 <Text size="16px" mb="2.4rem">
                     <Localize
-                        translate_text="To view the asset price, go to Deriv MetaTrader 5 (DMT5), click on the <0>View </0> tab and select<0> Market Watch</0>, then right-click on the symbol you want to trade
-                            and select <0>Specification.</0>"
+                        translate_text="To view the asset price, go to Deriv MetaTrader 5 (DMT5), click on the <0>View </0> tab and select<0> Market Watch</0>, then right-click on the symbol you want to trade and select <0>Specification.</0>"
                         components={[<strong key={0} />]}
                     />
                 </Text>
 
                 <LinkWrapper>
-                    {
-                        <StyledLinkButton tertiary="true" to="/dmt5/">
-                            {localize('Go to DMT5 dashboard')}
-                        </StyledLinkButton>
-                    }
-                    {
-                        <StyledLinkButton external secondary="true" to="/trade-types/margin">
-                            {localize('Learn more about margin')}
-                        </StyledLinkButton>
-                    }
+                    <StyledLinkButton tertiary="true" to="/dmt5/">
+                        {localize('Go to DMT5 dashboard')}
+                    </StyledLinkButton>
+                    <StyledLinkButton external secondary="true" to="/trade-types/margin">
+                        {localize('Learn more about margin')}
+                    </StyledLinkButton>
                 </LinkWrapper>
             </BottomContent>
         </Container>
     )
 }
-
-MarginCalculator.propTypes = {}
 
 export default MarginCalculator

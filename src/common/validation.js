@@ -2,10 +2,8 @@ import { localize } from 'components/localization'
 
 const validation_regex = {
     email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,63}$/,
-    volume: /^[1-9]\d*$/,
-    assetPrice: /^[1-9]\d*$/,
+    number: /^[1-9]\d*$/,
     swapRate: /^-?[0-9]\d*(\.\d+)?$/,
-    pointValue: /^[1-9]\d*$/,
 }
 
 const validation = {
@@ -21,7 +19,7 @@ const validation = {
     },
 
     symbol: (input) => {
-        if (!input || input.displayName === 'Please select a value') {
+        if (!input || input.display_name === '') {
             return localize('Symbol is required')
         } else {
             return null
@@ -31,7 +29,7 @@ const validation = {
     volume: (input) => {
         if (!input) {
             return localize('Volume is required')
-        } else if (!validation_regex.volume.test(input)) {
+        } else if (!validation_regex.number.test(input)) {
             return localize('Invalid volume input [0 - 9]')
         } else {
             return null
@@ -41,7 +39,7 @@ const validation = {
     assetPrice: (input) => {
         if (!input) {
             return localize('Asset price is required')
-        } else if (!validation_regex.assetPrice.test(input)) {
+        } else if (!validation_regex.number.test(input)) {
             return localize('Invalid asset price input [0 - 9]')
         } else {
             return null
@@ -49,7 +47,7 @@ const validation = {
     },
 
     leverage: (input) => {
-        if (!input || input.displayName === 'Please select a value') {
+        if (!input || input.display_name === '') {
             return localize('Leverage is required')
         } else {
             return null
@@ -68,7 +66,7 @@ const validation = {
     pointValue: (input) => {
         if (!input) {
             return localize('Point value is required')
-        } else if (!validation_regex.pointValue.test(input)) {
+        } else if (!validation_regex.number.test(input)) {
             return localize('Invalid point value input [0 - 9]')
         } else {
             return null

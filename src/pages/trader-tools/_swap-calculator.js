@@ -30,7 +30,6 @@ import {
     StyledFormikSymbolDropdown,
 } from './_style'
 import { localize, Localize } from 'components/localization'
-import device from 'themes/device'
 import { Text, QueryImage } from 'components/elements'
 import { Container, Flex } from 'components/containers'
 import FormikInput from 'components/formikComponents/input'
@@ -38,30 +37,7 @@ import validation from 'common/validation'
 
 const SwapFormWrapper = styled(StyledFormWrapper)`
     max-height: 580px;
-
-    /* height: 620px;
-    @media ${device.laptopM} {
-        margin-bottom: 40px;
-        margin-right: 0;
-    }
-
-    @media ${device.laptop} {
-        height: 535px;
-        margin-bottom: 20px;
-    }
-
-    @media ${device.tabletL} {
-        height: 580px;
-        margin-bottom: 20px;
-    }
-
-    @media ${device.mobileL} {
-        margin-top: 20px;
-        height: 640px;
-    } */
 `
-
-const SwapForm = styled(StyledForm)``
 
 const StyledInputGroup = styled(InputGroup)`
     margin: 0;
@@ -71,52 +47,22 @@ const SwapCalculator = () => {
     const query = graphql`
         query {
             margin_calc: file(relativePath: { eq: "trade-tools/margin-calc.png" }) {
-                childImageSharp {
-                    fluid(maxWidth: 486, srcSetBreakpoints: [340, 400, 600, 1280]) {
-                        ...GatsbyImageSharpFluid_withWebp_noBase64
-                        originalName
-                    }
-                }
+                ...fadeIn
             }
             margin_formula: file(relativePath: { eq: "trade-tools/margin-formula.png" }) {
-                childImageSharp {
-                    fluid(maxWidth: 486, srcSetBreakpoints: [340, 400, 600, 1280]) {
-                        ...GatsbyImageSharpFluid_withWebp_noBase64
-                        originalName
-                    }
-                }
+                ...fadeIn
             }
             margin_info: file(relativePath: { eq: "trade-tools/margin-info.png" }) {
-                childImageSharp {
-                    fluid(maxWidth: 486, srcSetBreakpoints: [340, 400, 600, 1280]) {
-                        ...GatsbyImageSharpFluid_withWebp_noBase64
-                        originalName
-                    }
-                }
+                ...fadeIn
             }
             swap_calc: file(relativePath: { eq: "trade-tools/synthetic-calc.png" }) {
-                childImageSharp {
-                    fluid(maxWidth: 486, srcSetBreakpoints: [340, 400, 600, 1280]) {
-                        ...GatsbyImageSharpFluid_withWebp_noBase64
-                        originalName
-                    }
-                }
+                ...fadeIn
             }
             swap_formula: file(relativePath: { eq: "trade-tools/synthetic-formula.png" }) {
-                childImageSharp {
-                    fluid(maxWidth: 486, srcSetBreakpoints: [340, 400, 600, 1280]) {
-                        ...GatsbyImageSharpFluid_withWebp_noBase64
-                        originalName
-                    }
-                }
+                ...fadeIn
             }
             swap_forex_formula: file(relativePath: { eq: "trade-tools/forex-formula.png" }) {
-                childImageSharp {
-                    fluid(maxWidth: 486, srcSetBreakpoints: [340, 400, 600, 1280]) {
-                        ...GatsbyImageSharpFluid_withWebp_noBase64
-                        originalName
-                    }
-                }
+                ...fadeIn
             }
         }
     `
@@ -130,18 +76,18 @@ const SwapCalculator = () => {
 
     const getSwapChargeSynthetic = (values) => {
         const { volume, assetPrice, swapRate, contractSize } = values
-        const swap = (volume * contractSize * assetPrice * (swapRate / 100)) / 360
-        return swap.toFixed(4)
+        const swap_formula_synthetic = (volume * contractSize * assetPrice * (swapRate / 100)) / 360
+        return swap_formula_synthetic.toFixed(4)
     }
 
     const getSwapChargeForex = (values) => {
         const { volume, pointValue, swapRate, contractSize } = values
-        const swap = volume * contractSize * pointValue * swapRate
-        return swap.toFixed(4)
+        const swap_formula_forex = volume * contractSize * pointValue * swapRate
+        return swap_formula_forex.toFixed(4)
     }
 
     const resetValidationSynthetic = (values) => {
-        let errors = {}
+        const errors = {}
         const symbol_error = validation.symbol(values.symbol)
         const volume_error = validation.volume(values.volume)
         const assetPrice_error = validation.assetPrice(values.assetPrice)
@@ -165,8 +111,8 @@ const SwapCalculator = () => {
     }
 
     const resetValidationForex = (values) => {
-        let errors = {}
-        const symbol_error = validation.symbol(values.symbol.displayName)
+        const errors = {}
+        const symbol_error = validation.symbol(values.symbol.display_name)
         const volume_error = validation.volume(values.volume)
         const pointValue_error = validation.pointValue(values.pointValue)
         const swapRate_error = validation.swapRate(values.swapRate)
@@ -199,8 +145,7 @@ const SwapCalculator = () => {
                 if (symbol.name === 'DAX_30') {
                     currency = 'EUR'
                 } else {
-                    if (symbol.displayName !== 'Please select a value')
-                        currency = symbol.displayName.slice(-3)
+                    if (symbol.display_name !== '') currency = symbol.display_name.slice(-3)
                 }
             }
         }
@@ -218,8 +163,7 @@ const SwapCalculator = () => {
                 if (symbol.name === 'DAX_30') {
                     currency = 'EUR'
                 } else {
-                    if (symbol.displayName !== 'Please select a value')
-                        currency = symbol.displayName.slice(-3)
+                    if (symbol.display_name !== '') currency = symbol.display_name.slice(-3)
                 }
             }
         }
@@ -231,15 +175,15 @@ const SwapCalculator = () => {
 
         if (symbol.market === 'forex') {
             contractSize = 1000
-        } else if (symbol.displayName === 'Silver/USD') {
+        } else if (symbol.display_name === 'Silver/USD') {
             contractSize = 500
         } else if (
-            symbol.displayName === 'Gold/USD' ||
-            symbol.displayName === 'Palladium/USD' ||
-            symbol.displayName === 'Platinum/USD'
+            symbol.display_name === 'Gold/USD' ||
+            symbol.display_name === 'Palladium/USD' ||
+            symbol.display_name === 'Platinum/USD'
         ) {
             contractSize = 100
-        } else if (symbol.displayName === 'Step Index') {
+        } else if (symbol.display_name === 'Step Index') {
             contractSize = 10
         }
 
@@ -251,15 +195,15 @@ const SwapCalculator = () => {
 
         if (symbol.market === 'forex') {
             contractSize = 1000
-        } else if (symbol.displayName === 'Silver/USD') {
+        } else if (symbol.display_name === 'Silver/USD') {
             contractSize = 500
         } else if (
-            symbol.displayName === 'Gold/USD' ||
-            symbol.displayName === 'Palladium/USD' ||
-            symbol.displayName === 'Platinum/USD'
+            symbol.display_name === 'Gold/USD' ||
+            symbol.display_name === 'Palladium/USD' ||
+            symbol.display_name === 'Platinum/USD'
         ) {
             contractSize = 100
-        } else if (symbol.displayName === 'Step Index') {
+        } else if (symbol.display_name === 'Step Index') {
             contractSize = 10
         }
 
@@ -320,7 +264,7 @@ const SwapCalculator = () => {
                                     touched,
                                     resetForm,
                                 }) => (
-                                    <SwapForm>
+                                    <StyledForm>
                                         <CalculatorHeader>
                                             <StyledLabel htmlFor="message">
                                                 {localize('Swap charge')}
@@ -345,17 +289,17 @@ const SwapCalculator = () => {
                                                 default_option={optionItemDefault}
                                                 selected_option={values.symbol}
                                                 id="symbol"
-                                                onChange={(x) => {
+                                                onChange={(value) => {
                                                     setFieldValue(
                                                         'swapCurrency',
-                                                        getCurrencySwapSynthetic(x),
+                                                        getCurrencySwapSynthetic(value),
                                                     )
 
                                                     setFieldValue(
                                                         'contractSize',
-                                                        getContractSizeSynthetic(x),
+                                                        getContractSizeSynthetic(value),
                                                     )
-                                                    setFieldValue('symbol', x)
+                                                    setFieldValue('symbol', value)
                                                 }}
                                                 contractSize={values.contractSize}
                                                 error={touched.symbol && errors.symbol}
@@ -369,8 +313,8 @@ const SwapCalculator = () => {
                                                     type="text"
                                                     value={values.volume}
                                                     label={localize('Volume')}
-                                                    onChange={(x) => {
-                                                        setFieldValue('volume', x)
+                                                    onChange={(value) => {
+                                                        setFieldValue('volume', value)
                                                     }}
                                                     autoComplete="off"
                                                     error={touched.volume && errors.volume}
@@ -385,12 +329,11 @@ const SwapCalculator = () => {
                                                     type="text"
                                                     value={values.assetPrice}
                                                     label={localize('Asset price')}
-                                                    onChange={(x) => {
-                                                        setFieldValue('assetPrice', x)
+                                                    onChange={(value) => {
+                                                        setFieldValue('assetPrice', value)
                                                     }}
                                                     autoComplete="off"
                                                     error={touched.assetPrice && errors.assetPrice}
-                                                    // handleError={resetForm}
                                                     onBlur={handleBlur}
                                                     data-lpignore="true"
                                                     handleError={() => resetForm()}
@@ -404,12 +347,11 @@ const SwapCalculator = () => {
                                                     type="text"
                                                     value={values.swapRate}
                                                     label={localize('Swap rate')}
-                                                    onChange={(x) => {
-                                                        setFieldValue('swapRate', x)
+                                                    onChange={(value) => {
+                                                        setFieldValue('swapRate', value)
                                                     }}
                                                     autoComplete="off"
                                                     error={touched.swapRate && errors.swapRate}
-                                                    // handleError={resetForm}
                                                     onBlur={handleBlur}
                                                     data-lpignore="true"
                                                     handleError={() => resetForm()}
@@ -421,7 +363,7 @@ const SwapCalculator = () => {
                                                 {localize('Calculate')}
                                             </StyledButton>
                                         </SwapActionSection>
-                                    </SwapForm>
+                                    </StyledForm>
                                 )}
                             </Formik>
                         </SwapFormWrapper>
@@ -433,17 +375,13 @@ const SwapCalculator = () => {
 
                             <Text size="16px" mb="2rem">
                                 <Localize
-                                    translate_text="For synthetic indices, the swap charge is calculated on an annual basis for long and short positions using the formula:
-                            <1></1><0>Swap charge = volume × contract size × asset price × (swap rate/100) /360</0>"
+                                    translate_text="For synthetic indices, the swap charge is calculated on an annual basis for long and short positions using the formula:<1></1><0>Swap charge = volume × contract size × asset price × (swap rate/100) /360</0>"
                                     components={[<strong key={0} />, <br key={1} />]}
                                 />
                             </Text>
 
                             <Text size="16px" mb="2rem">
-                                <Localize
-                                    translate_text="This gives you the swap charge in USD."
-                                    components={[<strong key={0} />]}
-                                />
+                                <Localize translate_text="This gives you the swap charge in USD." />
                             </Text>
 
                             <StyledHeader align="center" as="h3">
@@ -461,10 +399,7 @@ const SwapCalculator = () => {
                                     <StyledOl>
                                         <li>
                                             <span>
-                                                <Localize
-                                                    translate_text="If the swap rate is positive, your account will be credited with the swap amount. If it is negative, your account will be debited"
-                                                    components={[<strong key={0} />]}
-                                                />
+                                                <Localize translate_text="If the swap rate is positive, your account will be credited with the swap amount. If it is negative, your account will be debited" />
                                             </span>
                                         </li>
                                     </StyledOl>
@@ -472,8 +407,7 @@ const SwapCalculator = () => {
                             </ImageWrapper>
                             <Text size="16px" mb="2rem" mt="1.6rem">
                                 <Localize
-                                    translate_text="So you will be required to pay a swap charge of <0>0.83 USD</0> to keep the position open
-                            for one night."
+                                    translate_text="So you will be required to pay a swap charge of <0>0.83 USD</0> to keep the position open for one night."
                                     components={[<strong key={0} />]}
                                 />
                             </Text>
@@ -483,8 +417,7 @@ const SwapCalculator = () => {
                     <BottomContent direction="column">
                         <Text size="16px" mb="2.4rem">
                             <Localize
-                                translate_text="To view the asset price and swap rate, go to Deriv MetaTrader 5 (DMT5), click on the <0>View </0> tab and select<0> Market Watch</0>, then right-click on the symbol you want to trade
-                            and select <0>Specification.</0>"
+                                translate_text="To view the asset price and swap rate, go to Deriv MetaTrader 5 (DMT5), click on the <0>View </0> tab and select<0> Market Watch</0>, then right-click on the symbol you want to trade and select <0>Specification.</0>"
                                 components={[<strong key={0} />]}
                             />
                         </Text>
@@ -536,7 +469,7 @@ const SwapCalculator = () => {
                                     touched,
                                     resetForm,
                                 }) => (
-                                    <SwapForm>
+                                    <StyledForm>
                                         <CalculatorHeader>
                                             <StyledLabel htmlFor="message">
                                                 {localize('Swap charge')}
@@ -561,16 +494,16 @@ const SwapCalculator = () => {
                                                 label={localize('Symbol')}
                                                 selected_option={values.symbol}
                                                 id="symbol"
-                                                onChange={(x) => {
+                                                onChange={(value) => {
                                                     setFieldValue(
                                                         'swapCurrency',
-                                                        getCurrencySwapForex(x),
+                                                        getCurrencySwapForex(value),
                                                     )
                                                     setFieldValue(
                                                         'contractSize',
-                                                        getContractSizeForex(x),
+                                                        getContractSizeForex(value),
                                                     )
-                                                    setFieldValue('symbol', x)
+                                                    setFieldValue('symbol', value)
                                                 }}
                                                 contractSize={values.contractSize}
                                                 error={touched.symbol && errors.symbol}
@@ -584,12 +517,11 @@ const SwapCalculator = () => {
                                                     type="text"
                                                     value={values.volume}
                                                     label={localize('Volume')}
-                                                    onChange={(x) => {
-                                                        setFieldValue('volume', x)
+                                                    onChange={(value) => {
+                                                        setFieldValue('volume', value)
                                                     }}
                                                     autoComplete="off"
                                                     error={touched.volume && errors.volume}
-                                                    // handleError={resetForm}
                                                     onBlur={handleBlur}
                                                     handleError={() => resetForm()}
                                                 />
@@ -602,8 +534,8 @@ const SwapCalculator = () => {
                                                     type="text"
                                                     value={values.pointValue}
                                                     label={localize('Point value')}
-                                                    onChange={(x) => {
-                                                        setFieldValue('pointValue', x)
+                                                    onChange={(value) => {
+                                                        setFieldValue('pointValue', value)
                                                     }}
                                                     autoComplete="off"
                                                     error={touched.pointValue && errors.pointValue}
@@ -620,12 +552,11 @@ const SwapCalculator = () => {
                                                     type="text"
                                                     value={values.swapRate}
                                                     label={localize('Swap rate')}
-                                                    onChange={(x) => {
-                                                        setFieldValue('swapRate', x)
+                                                    onChange={(value) => {
+                                                        setFieldValue('swapRate', value)
                                                     }}
                                                     autoComplete="off"
                                                     error={touched.swapRate && errors.swapRate}
-                                                    // handleError={resetForm}
                                                     onBlur={handleBlur}
                                                     data-lpignore="true"
                                                     handleError={() => resetForm()}
@@ -637,7 +568,7 @@ const SwapCalculator = () => {
                                                 {localize('Calculate')}
                                             </StyledButton>
                                         </SwapActionSection>
-                                    </SwapForm>
+                                    </StyledForm>
                                 )}
                             </Formik>
                         </SwapFormWrapper>
@@ -649,25 +580,17 @@ const SwapCalculator = () => {
 
                             <Text size="16px" mb="2rem">
                                 <Localize
-                                    translate_text="For forex and commodities, the swap charge is calculated using the formula is:
-                            <1></1><0>Swap charge = volume × contract size × point value × swap rate</0>"
+                                    translate_text="For forex and commodities, the swap charge is calculated using the formula is:<1></1><0>Swap charge = volume × contract size × point value × swap rate</0>"
                                     components={[<strong key={0} />, <br key={1} />]}
                                 />
                             </Text>
 
                             <Text size="16px" mb="2rem">
-                                <Localize
-                                    translate_text="This gives you the swap charge in the quote currency for forex pairs, or in the denomination of the underlying asset for commodities."
-                                    components={[<strong key={0} />]}
-                                />
+                                <Localize translate_text="This gives you the swap charge in the quote currency for forex pairs, or in the denomination of the underlying asset for commodities." />
                             </Text>
 
                             <Text size="16px" mb="2rem">
-                                <Localize
-                                    translate_text="This gives you the swap charge in the quote currency for forex pairs, or in the denomination of the underlying asset for commodities.
-                            For instance, if you are trading the USD/JPY forex pair, the swap charge will be computed in Japanese Yen (JPY) which is the quote currency. On the other hand, if you are trading oil,  then the swap charge will be computed in US Dollar (USD), which is the denomination of the underlying asset – oil."
-                                    components={[<strong key={0} />]}
-                                />
+                                <Localize translate_text="This gives you the swap charge in the quote currency for forex pairs, or in the denomination of the underlying asset for commodities. For instance, if you are trading the USD/JPY forex pair, the swap charge will be computed in Japanese Yen (JPY) which is the quote currency. On the other hand, if you are trading oil,  then the swap charge will be computed in US Dollar (USD), which is the denomination of the underlying asset – oil." />
                             </Text>
 
                             <StyledHeader align="center" as="h3">
@@ -688,35 +611,17 @@ const SwapCalculator = () => {
                                     <StyledOl>
                                         <li>
                                             <span>
-                                                <Localize
-                                                    translate_text="One standard lot for Forex = 100,000 units"
-                                                    components={[
-                                                        <strong key={0} />,
-                                                        <br key={1} />,
-                                                    ]}
-                                                />
+                                                <Localize translate_text="One standard lot for Forex = 100,000 units" />
                                             </span>
                                         </li>
                                         <li>
                                             <span>
-                                                <Localize
-                                                    translate_text="Point value is based on the current digit of the asset"
-                                                    components={[
-                                                        <strong key={0} />,
-                                                        <br key={1} />,
-                                                    ]}
-                                                />
+                                                <Localize translate_text="Point value is based on the current digit of the asset" />
                                             </span>
                                         </li>
                                         <li>
                                             <span>
-                                                <Localize
-                                                    translate_text="If the swap rate is positive, your account will be credited with the swap amount. If it is negative, your account will be deducted"
-                                                    components={[
-                                                        <strong key={0} />,
-                                                        <br key={1} />,
-                                                    ]}
-                                                />
+                                                <Localize translate_text="If the swap rate is positive, your account will be credited with the swap amount. If it is negative, your account will be deducted" />
                                             </span>
                                         </li>
                                     </StyledOl>
@@ -724,8 +629,7 @@ const SwapCalculator = () => {
                             </ImageWrapper>
                             <Text size="16px" mt="1.6rem">
                                 <Localize
-                                    translate_text="So you will be required to pay a swap charge of <0>0.24 USD</0> to keep the position open
-                            for one night."
+                                    translate_text="So you will be required to pay a swap charge of <0>0.24 USD</0> to keep the position open for one night."
                                     components={[<strong key={0} />]}
                                 />
                             </Text>
@@ -735,34 +639,22 @@ const SwapCalculator = () => {
                     <BottomContent direction="column">
                         <Text size="16px" mb="2.4rem" mt="2.4rem">
                             <Localize
-                                translate_text="To view the asset price and swap rate, go to Deriv MetaTrader 5 (DMT5), click on the <0>View </0> tab and select<0> Market Watch</0>, then right-click on the symbol you want to trade
-                            and select <0>Specification.</0>"
+                                translate_text="To view the asset price and swap rate, go to Deriv MetaTrader 5 (DMT5), click on the <0>View </0> tab and select<0> Market Watch</0>, then right-click on the symbol you want to trade and select <0>Specification.</0>"
                                 components={[<strong key={0} />]}
                             />
                         </Text>
 
                         <Text size="16px" mb="2.4rem">
-                            <Localize
-                                translate_text="You can derive the point value from the current digits of the asset. Typically, if the digit is 3, then the point value will be 0.001. If the digit is 5, then the point value will be 0.00001, and so on."
-                                components={[<strong key={0} />]}
-                            />
+                            <Localize translate_text="You can derive the point value from the current digits of the asset. Typically, if the digit is 3, then the point value will be 0.001. If the digit is 5, then the point value will be 0.00001, and so on." />
                         </Text>
 
                         <LinkWrapper>
-                            {
-                                <StyledLinkButton tertiary="true" to="/dmt5/">
-                                    {localize('Go to DMT5 dashboard')}
-                                </StyledLinkButton>
-                            }
-                            {
-                                <StyledLinkButton
-                                    external
-                                    secondary="true"
-                                    to="/trade-types/margin"
-                                >
-                                    {localize('Learn more about swaps')}
-                                </StyledLinkButton>
-                            }
+                            <StyledLinkButton tertiary="true" to="/dmt5/">
+                                {localize('Go to DMT5 dashboard')}
+                            </StyledLinkButton>
+                            <StyledLinkButton external secondary="true" to="/trade-types/margin">
+                                {localize('Learn more about swaps')}
+                            </StyledLinkButton>
                         </LinkWrapper>
                     </BottomContent>
                 </>

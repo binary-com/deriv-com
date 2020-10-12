@@ -329,12 +329,12 @@ const FormikSymbolDropdown = ({
                     {selected_option ? (
                         <>
                             {selected_option.icon}
-                            <Text>{selected_option.displayName}</Text>
+                            <Text>{selected_option.display_name}</Text>
                         </>
                     ) : (
                         <>
                             {default_option.icon}
-                            <DefaultOptionText>{default_option.displayName}</DefaultOptionText>
+                            <DefaultOptionText>{default_option.display_name}</DefaultOptionText>
                         </>
                     )}
                 </Symbol>
@@ -350,7 +350,7 @@ const FormikSymbolDropdown = ({
                                         tabIndex="0"
                                         id={option?.name}
                                         key={option?.name}
-                                        ref={(c) => nodes.set(option?.displayName, c)}
+                                        ref={(c) => nodes.set(option?.display_name, c)}
                                         onClick={() => handleChange(option, error)}
                                         onKeyDown={(e) => {
                                             switch (e.keyCode) {
@@ -366,7 +366,7 @@ const FormikSymbolDropdown = ({
                                     >
                                         <Symbol>
                                             {option?.icon}
-                                            <Text>{option?.displayName}</Text>
+                                            <Text>{option?.display_name}</Text>
                                         </Symbol>
                                     </ListItem>
                                 ),

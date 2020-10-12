@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Text, Accordion, AccordionItem, LinkText } from 'components/elements'
-import { Flex, CssGrid } from 'components/containers'
+import { Flex , CssGrid } from 'components/containers'
 import { localize } from 'components/localization'
 import device from 'themes/device'
 import PDFIcon from 'images/svg/pdf-icon-black.svg'
@@ -33,7 +33,7 @@ const EdgeGrid = styled(CssGrid)`
 
 const RTS27_28 = () => (
     <>
-        <Flex fd="column" height="100%">
+        <Flex fd="column">
             <EdgeGrid>
                 <FlexText
                     color="red"

@@ -170,7 +170,7 @@ const Arrow = styled(Chevron)`
 
 const StyledLabel = styled.label`
     /* prettier-ignore */
-    color: var(--color-${(props) => props.labelColor || 'grey'});
+    color: var(--color-${(props) => props.labelColor || 'black'});
     background: var(--color-${(props) => props.labelColor || 'white'});
     font-size: var(--text-size-xs);
     position: absolute;
@@ -219,7 +219,7 @@ const DefaultOptionText = styled(Text)`
     color: var(--color-grey-5);
 `
 
-const FormikSymbolDropdown = ({
+const FormikDropdown = ({
     default_option,
     onChange,
     option_list,
@@ -386,7 +386,7 @@ const FormikSymbolDropdown = ({
     )
 }
 
-FormikSymbolDropdown.propTypes = {
+FormikDropdown.propTypes = {
     contractSize: PropTypes.any,
     default_option: PropTypes.any,
     error: PropTypes.any,
@@ -397,4 +397,4 @@ FormikSymbolDropdown.propTypes = {
     selected_option: PropTypes.any,
 }
 
-export default FormikSymbolDropdown
+export default FormikDropdown

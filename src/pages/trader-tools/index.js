@@ -51,10 +51,6 @@ const Item = styled.div`
     }
 `
 
-const StyledHeader = styled(Header)`
-    font-size: 24px;
-`
-
 const TraderTools = () => {
     const [active_tab, setTab] = useTabState()
     React.useEffect(() => {
@@ -92,14 +88,14 @@ const TraderTools = () => {
                     active_tab={active_tab}
                     name="marginCalculator"
                 >
-                    <StyledHeader as="h4">{localize('Margin calculator')}</StyledHeader>
+                    <Header as="h4">{localize('Margin calculator')}</Header>
                 </Item>
                 <Item
                     onClick={() => handleTabChange('swapCalculator')}
                     active_tab={active_tab}
                     name="swapCalculator"
                 >
-                    <StyledHeader as="h4">{localize('Swap calculator')}</StyledHeader>
+                    <Header as="h4">{localize('Swap calculator')}</Header>
                 </Item>
             </Flex>
             <Box position="relative">

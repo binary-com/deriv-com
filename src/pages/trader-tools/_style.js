@@ -4,18 +4,17 @@ import { Flex } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { Button, LinkButton } from 'components/form'
 import device from 'themes/device'
-import FormikSymbolDropdown from 'components/formikComponents/symbolDropdown'
+import FormikDropdown from 'components/formikComponents/formikDropdown'
 
 export const StyledText = styled(Text)`
-    font-size: var(--text-size-s);
-
     @media ${device.mobileL} {
-        font-size: 14px;
+        font-size: 16px;
     }
 `
-
-export const AccountTypeButtonWrapper = styled(Flex)`
-    justify-content: space-between;
+export const StyledHeader = styled(Header)`
+    @media ${device.mobileL} {
+        font-size: 16px;
+    }
 `
 
 export const AccountTypeTabItem = styled.div`
@@ -47,6 +46,12 @@ export const AccountTypeTabItem = styled.div`
     @media ${device.mobileL} {
         width: 140px;
     }
+
+    ${StyledText} {
+        @media ${device.mobileL} {
+            font-size: 14px;
+        }
+    }
 `
 
 export const StyledHeaderP = styled.div`
@@ -73,27 +78,6 @@ export const WrapContainer = styled(Flex)`
 
 export const ImageWrapper = styled.div`
     max-width: 650px;
-`
-
-export const StyledHeader = styled(Header)`
-    text-align: left;
-    margin-top: 0;
-    margin-bottom: 8px;
-
-    @media ${device.mobileL} {
-        font-size: 24px;
-    }
-`
-
-export const StyledHeaderTitle = styled(Header)`
-    font-size: 48px;
-    margin-top: 80px;
-    margin-bottom: 12px;
-
-    @media (max-width: 468px) {
-        margin-top: 40px;
-        font-size: 32px;
-    }
 `
 
 export const LinkWrapper = styled.div`
@@ -274,7 +258,7 @@ export const StyledTextAreaContainer = styled.div`
     position: relative;
 `
 
-export const StyledFormikSymbolDropdown = styled(FormikSymbolDropdown)`
+export const StyledFormikDropdown = styled(FormikDropdown)`
     margin-bottom: 3.6rem;
 `
 

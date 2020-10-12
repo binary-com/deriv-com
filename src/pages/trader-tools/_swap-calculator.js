@@ -1,16 +1,13 @@
 import React, { useState } from 'react'
-import { Formik } from 'formik'
+import { Formik, Field } from 'formik'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import { optionItemDefault, syntheticItemLists, financialItemLists } from './_underlying-data'
 import {
     StyledText,
     HeaderTabItem,
-    StyledHeaderP,
     WrapContainer,
     ImageWrapper,
-    StyledHeader,
-    StyledHeaderTitle,
     LinkWrapper,
     BottomContent,
     InputGroup,
@@ -27,13 +24,13 @@ import {
     SwapActionSection,
     StyledCurrencyLabel,
     StyledTextAreaContainer,
-    StyledFormikSymbolDropdown,
+    StyledFormikDropdown,
 } from './_style'
+import validation from './_validation'
 import { localize, Localize } from 'components/localization'
-import { Text, QueryImage } from 'components/elements'
+import { Header, Text, QueryImage } from 'components/elements'
 import { Container, Flex } from 'components/containers'
-import FormikInput from 'components/formikComponents/input'
-import validation from 'common/validation'
+import Input from 'components/form/input'
 
 const SwapFormWrapper = styled(StyledFormWrapper)`
     max-height: 580px;
@@ -134,7 +131,7 @@ const SwapCalculator = () => {
         return errors
     }
 
-    const getCurrencySwapSynthetic = (symbol) => {
+    const getCurrencySwap = (symbol) => {
         let currency = 'USD'
         if (symbol.market === 'synthetic_indices') {
             currency = 'USD'
@@ -145,65 +142,27 @@ const SwapCalculator = () => {
                 if (symbol.name === 'DAX_30') {
                     currency = 'EUR'
                 } else {
-                    if (symbol.display_name !== '') currency = symbol.display_name.slice(-3)
+                    if (symbol.name !== 'default') currency = symbol.display_name.slice(-3)
                 }
             }
         }
         return currency
     }
 
-    const getCurrencySwapForex = (symbol) => {
-        let currency = 'USD'
-        if (symbol.market === 'synthetic_indices') {
-            currency = 'USD'
-        } else {
-            if (symbol.market === 'commodities') {
-                currency = 'USD'
-            } else {
-                if (symbol.name === 'DAX_30') {
-                    currency = 'EUR'
-                } else {
-                    if (symbol.display_name !== '') currency = symbol.display_name.slice(-3)
-                }
-            }
-        }
-        return currency
-    }
-
-    const getContractSizeSynthetic = (symbol) => {
+    const getContractSize = (symbol) => {
         let contractSize = 1
 
         if (symbol.market === 'forex') {
             contractSize = 1000
-        } else if (symbol.display_name === 'Silver/USD') {
+        } else if (symbol.name === 'XAGUSD') {
             contractSize = 500
         } else if (
-            symbol.display_name === 'Gold/USD' ||
-            symbol.display_name === 'Palladium/USD' ||
-            symbol.display_name === 'Platinum/USD'
+            symbol.name === 'XAUUSD' ||
+            symbol.name === 'XPDUSD' ||
+            symbol.name === 'XPTUSD'
         ) {
             contractSize = 100
-        } else if (symbol.display_name === 'Step Index') {
-            contractSize = 10
-        }
-
-        return contractSize
-    }
-
-    const getContractSizeForex = (symbol) => {
-        let contractSize = 1
-
-        if (symbol.market === 'forex') {
-            contractSize = 1000
-        } else if (symbol.display_name === 'Silver/USD') {
-            contractSize = 500
-        } else if (
-            symbol.display_name === 'Gold/USD' ||
-            symbol.display_name === 'Palladium/USD' ||
-            symbol.display_name === 'Platinum/USD'
-        ) {
-            contractSize = 100
-        } else if (symbol.display_name === 'Step Index') {
+        } else if (symbol.name === 'Step Index') {
             contractSize = 10
         }
 
@@ -212,16 +171,17 @@ const SwapCalculator = () => {
 
     return (
         <Container direction="column">
-            <StyledHeaderTitle align="center" as="h2">
-                {localize('Swap calculator')}
-            </StyledHeaderTitle>
-            <StyledHeaderP>
+            <Header as="h2" align="center" mt="8rem" mb="1.2rem">
+                {localize('Swap Calculator')}
+            </Header>
+
+            <Header as="h5" align="center" mb="4rem" weight="normal">
                 {localize(
                     'Our swap calculator helps you to estimate the swap charges required to keep your positions open overnight on Deriv MetaTrader 5 (DMT5).',
                 )}
-            </StyledHeaderP>
+            </Header>
 
-            <Flex mb="8rem" p="0 16px" tablet={{ mb: '32px', height: 'unset' }}>
+            <Flex mb="8rem" p="0 1.6rem" tablet={{ mb: '32px', height: 'unset' }}>
                 <HeaderTabItem active={tab === 'Synthetic'} onClick={() => onTabClick('Synthetic')}>
                     <StyledText size="var(--text-size-m)" align="center">
                         {localize('Synthetic indices')}
@@ -282,7 +242,7 @@ const SwapCalculator = () => {
                                             </StyledTextAreaContainer>
                                         </CalculatorHeader>
                                         <CalculatorBody>
-                                            <StyledFormikSymbolDropdown
+                                            <StyledFormikDropdown
                                                 mb="2.4rem"
                                                 option_list={values.optionList}
                                                 label={localize('Symbol')}
@@ -292,12 +252,12 @@ const SwapCalculator = () => {
                                                 onChange={(value) => {
                                                     setFieldValue(
                                                         'swapCurrency',
-                                                        getCurrencySwapSynthetic(value),
+                                                        getCurrencySwap(value),
                                                     )
 
                                                     setFieldValue(
                                                         'contractSize',
-                                                        getContractSizeSynthetic(value),
+                                                        getContractSize(value),
                                                     )
                                                     setFieldValue('symbol', value)
                                                 }}
@@ -307,55 +267,82 @@ const SwapCalculator = () => {
                                             />
 
                                             <InputGroup>
-                                                <FormikInput
+                                                <Field
                                                     name="volume"
-                                                    id="volume"
-                                                    type="text"
                                                     value={values.volume}
-                                                    label={localize('Volume')}
                                                     onChange={(value) => {
                                                         setFieldValue('volume', value)
                                                     }}
-                                                    autoComplete="off"
-                                                    error={touched.volume && errors.volume}
-                                                    onBlur={handleBlur}
-                                                />
+                                                >
+                                                    {({ field }) => (
+                                                        <Input
+                                                            {...field}
+                                                            id="volume"
+                                                            type="text"
+                                                            label={localize('Volume')}
+                                                            autoComplete="off"
+                                                            error={touched.volume && errors.volume}
+                                                            onBlur={handleBlur}
+                                                            data-lpignore="true"
+                                                            handleError={() => resetForm()}
+                                                        />
+                                                    )}
+                                                </Field>
                                             </InputGroup>
 
                                             <InputGroup>
-                                                <FormikInput
-                                                    name="asset"
-                                                    id="asset"
-                                                    type="text"
+                                                <Field
+                                                    name="assetPrice"
                                                     value={values.assetPrice}
-                                                    label={localize('Asset price')}
                                                     onChange={(value) => {
                                                         setFieldValue('assetPrice', value)
                                                     }}
-                                                    autoComplete="off"
-                                                    error={touched.assetPrice && errors.assetPrice}
-                                                    onBlur={handleBlur}
-                                                    data-lpignore="true"
-                                                    handleError={() => resetForm()}
-                                                />
+                                                >
+                                                    {({ field }) => (
+                                                        <Input
+                                                            {...field}
+                                                            id="asset"
+                                                            type="text"
+                                                            value={values.assetPrice}
+                                                            label={localize('Asset price')}
+                                                            autoComplete="off"
+                                                            error={
+                                                                touched.assetPrice &&
+                                                                errors.assetPrice
+                                                            }
+                                                            onBlur={handleBlur}
+                                                            data-lpignore="true"
+                                                            handleError={() => resetForm()}
+                                                        />
+                                                    )}
+                                                </Field>
                                             </InputGroup>
 
                                             <StyledInputGroup>
-                                                <FormikInput
+                                                <Field
                                                     name="swapRate"
-                                                    id="swapRate"
-                                                    type="text"
                                                     value={values.swapRate}
-                                                    label={localize('Swap rate')}
                                                     onChange={(value) => {
                                                         setFieldValue('swapRate', value)
                                                     }}
-                                                    autoComplete="off"
-                                                    error={touched.swapRate && errors.swapRate}
-                                                    onBlur={handleBlur}
-                                                    data-lpignore="true"
-                                                    handleError={() => resetForm()}
-                                                />
+                                                >
+                                                    {({ field }) => (
+                                                        <Input
+                                                            {...field}
+                                                            id="swapRate"
+                                                            type="text"
+                                                            value={values.swapRate}
+                                                            label={localize('Swap rate')}
+                                                            autoComplete="off"
+                                                            error={
+                                                                touched.swapRate && errors.swapRate
+                                                            }
+                                                            onBlur={handleBlur}
+                                                            data-lpignore="true"
+                                                            handleError={() => resetForm()}
+                                                        />
+                                                    )}
+                                                </Field>
                                             </StyledInputGroup>
                                         </CalculatorBody>
                                         <SwapActionSection>
@@ -369,26 +356,22 @@ const SwapCalculator = () => {
                         </SwapFormWrapper>
 
                         <Flex direction="column" ml="2.4rem" max_width="69rem">
-                            <StyledHeader align="center" as="h3" mt="1.6rem">
-                                {localize('How swap charges are calculated')}
-                            </StyledHeader>
+                            <Header as="h3">{localize('How swap charges are calculated')}</Header>
 
-                            <Text size="16px" mb="2rem">
+                            <Text size="1.6rem" mb="2rem">
                                 <Localize
                                     translate_text="For synthetic indices, the swap charge is calculated on an annual basis for long and short positions using the formula:<1></1><0>Swap charge = volume × contract size × asset price × (swap rate/100) /360</0>"
                                     components={[<strong key={0} />, <br key={1} />]}
                                 />
                             </Text>
 
-                            <Text size="16px" mb="2rem">
+                            <Text size="1.6rem" mb="2rem">
                                 <Localize translate_text="This gives you the swap charge in USD." />
                             </Text>
 
-                            <StyledHeader align="center" as="h3">
-                                {localize('Example Calculation')}
-                            </StyledHeader>
+                            <Header as="h3">{localize('Example Calculation')}</Header>
 
-                            <Text size="16px" mb="2rem">
+                            <Text size="1.6rem" mb="2rem">
                                 {localize(
                                     'Let’s say you want to keep 0.01 lots of Volatility 75 Index with an asset price of 400,000 USD and swap rate of -7.5 open for one night.',
                                 )}
@@ -405,7 +388,7 @@ const SwapCalculator = () => {
                                     </StyledOl>
                                 </FormulaText>
                             </ImageWrapper>
-                            <Text size="16px" mb="2rem" mt="1.6rem">
+                            <Text size="1.6rem" mb="2rem" mt="1.6rem">
                                 <Localize
                                     translate_text="So you will be required to pay a swap charge of <0>0.83 USD</0> to keep the position open for one night."
                                     components={[<strong key={0} />]}
@@ -415,7 +398,7 @@ const SwapCalculator = () => {
                     </WrapContainer>
 
                     <BottomContent direction="column">
-                        <Text size="16px" mb="2.4rem">
+                        <Text size="1.6rem" mb="2.4rem">
                             <Localize
                                 translate_text="To view the asset price and swap rate, go to Deriv MetaTrader 5 (DMT5), click on the <0>View </0> tab and select<0> Market Watch</0>, then right-click on the symbol you want to trade and select <0>Specification.</0>"
                                 components={[<strong key={0} />]}
@@ -487,7 +470,7 @@ const SwapCalculator = () => {
                                             </StyledTextAreaContainer>
                                         </CalculatorHeader>
                                         <CalculatorBody>
-                                            <StyledFormikSymbolDropdown
+                                            <StyledFormikDropdown
                                                 mb="2.4rem"
                                                 default_option={optionItemDefault}
                                                 option_list={values.optionList}
@@ -497,11 +480,11 @@ const SwapCalculator = () => {
                                                 onChange={(value) => {
                                                     setFieldValue(
                                                         'swapCurrency',
-                                                        getCurrencySwapForex(value),
+                                                        getCurrencySwap(value),
                                                     )
                                                     setFieldValue(
                                                         'contractSize',
-                                                        getContractSizeForex(value),
+                                                        getContractSize(value),
                                                     )
                                                     setFieldValue('symbol', value)
                                                 }}
@@ -509,58 +492,83 @@ const SwapCalculator = () => {
                                                 error={touched.symbol && errors.symbol}
                                                 onBlur={handleBlur}
                                             />
-
                                             <InputGroup>
-                                                <FormikInput
+                                                <Field
                                                     name="volume"
-                                                    id="volume"
-                                                    type="text"
                                                     value={values.volume}
-                                                    label={localize('Volume')}
                                                     onChange={(value) => {
                                                         setFieldValue('volume', value)
                                                     }}
-                                                    autoComplete="off"
-                                                    error={touched.volume && errors.volume}
-                                                    onBlur={handleBlur}
-                                                    handleError={() => resetForm()}
-                                                />
+                                                >
+                                                    {({ field }) => (
+                                                        <Input
+                                                            {...field}
+                                                            id="volume"
+                                                            type="text"
+                                                            label={localize('Volume')}
+                                                            autoComplete="off"
+                                                            error={touched.volume && errors.volume}
+                                                            onBlur={handleBlur}
+                                                            data-lpignore="true"
+                                                            handleError={() => resetForm()}
+                                                        />
+                                                    )}
+                                                </Field>
                                             </InputGroup>
 
                                             <InputGroup>
-                                                <FormikInput
+                                                <Field
                                                     name="pointValue"
-                                                    id="pointValue"
-                                                    type="text"
                                                     value={values.pointValue}
-                                                    label={localize('Point value')}
                                                     onChange={(value) => {
                                                         setFieldValue('pointValue', value)
                                                     }}
-                                                    autoComplete="off"
-                                                    error={touched.pointValue && errors.pointValue}
-                                                    onBlur={handleBlur}
-                                                    data-lpignore="true"
-                                                    handleError={() => resetForm()}
-                                                />
+                                                >
+                                                    {({ field }) => (
+                                                        <Input
+                                                            {...field}
+                                                            id="pointValue"
+                                                            type="text"
+                                                            value={values.pointValue}
+                                                            label={localize('Point value')}
+                                                            autoComplete="off"
+                                                            error={
+                                                                touched.pointValue &&
+                                                                errors.pointValue
+                                                            }
+                                                            onBlur={handleBlur}
+                                                            data-lpignore="true"
+                                                            handleError={() => resetForm()}
+                                                        />
+                                                    )}
+                                                </Field>
                                             </InputGroup>
 
                                             <StyledInputGroup>
-                                                <FormikInput
+                                                <Field
                                                     name="swapRate"
-                                                    id="swapRate"
-                                                    type="text"
                                                     value={values.swapRate}
-                                                    label={localize('Swap rate')}
                                                     onChange={(value) => {
                                                         setFieldValue('swapRate', value)
                                                     }}
-                                                    autoComplete="off"
-                                                    error={touched.swapRate && errors.swapRate}
-                                                    onBlur={handleBlur}
-                                                    data-lpignore="true"
-                                                    handleError={() => resetForm()}
-                                                />
+                                                >
+                                                    {({ field }) => (
+                                                        <Input
+                                                            {...field}
+                                                            id="swapRate"
+                                                            type="text"
+                                                            value={values.swapRate}
+                                                            label={localize('Swap rate')}
+                                                            autoComplete="off"
+                                                            error={
+                                                                touched.swapRate && errors.swapRate
+                                                            }
+                                                            onBlur={handleBlur}
+                                                            data-lpignore="true"
+                                                            handleError={() => resetForm()}
+                                                        />
+                                                    )}
+                                                </Field>
                                             </StyledInputGroup>
                                         </CalculatorBody>
                                         <SwapActionSection>
@@ -574,30 +582,26 @@ const SwapCalculator = () => {
                         </SwapFormWrapper>
 
                         <Flex direction="column" ml="2.4rem" max_width="69rem">
-                            <StyledHeader align="center" as="h3" mt="1.6rem">
-                                {localize('How swap charges are calculated')}
-                            </StyledHeader>
+                            <Header as="h3">{localize('How swap charges are calculated')}</Header>
 
-                            <Text size="16px" mb="2rem">
+                            <Text size="1.6rem" mb="2rem">
                                 <Localize
                                     translate_text="For forex and commodities, the swap charge is calculated using the formula is:<1></1><0>Swap charge = volume × contract size × point value × swap rate</0>"
                                     components={[<strong key={0} />, <br key={1} />]}
                                 />
                             </Text>
 
-                            <Text size="16px" mb="2rem">
+                            <Text size="1.6rem" mb="2rem">
                                 <Localize translate_text="This gives you the swap charge in the quote currency for forex pairs, or in the denomination of the underlying asset for commodities." />
                             </Text>
 
-                            <Text size="16px" mb="2rem">
+                            <Text size="1.6rem" mb="2rem">
                                 <Localize translate_text="This gives you the swap charge in the quote currency for forex pairs, or in the denomination of the underlying asset for commodities. For instance, if you are trading the USD/JPY forex pair, the swap charge will be computed in Japanese Yen (JPY) which is the quote currency. On the other hand, if you are trading oil,  then the swap charge will be computed in US Dollar (USD), which is the denomination of the underlying asset – oil." />
                             </Text>
 
-                            <StyledHeader align="center" as="h3">
-                                {localize('Example Calculation')}
-                            </StyledHeader>
+                            <Header as="h3">{localize('Example Calculation')}</Header>
 
-                            <Text size="16px" mb="2rem">
+                            <Text size="1.6rem" mb="2rem">
                                 {localize(
                                     'Let’s say you want to keep two lots of EUR/USD with a point value of 0.00001 and swap rate of -0.12 open for one night.',
                                 )}
@@ -627,7 +631,7 @@ const SwapCalculator = () => {
                                     </StyledOl>
                                 </FormulaText>
                             </ImageWrapper>
-                            <Text size="16px" mt="1.6rem">
+                            <Text size="1.6rem" mt="1.6rem">
                                 <Localize
                                     translate_text="So you will be required to pay a swap charge of <0>0.24 USD</0> to keep the position open for one night."
                                     components={[<strong key={0} />]}
@@ -637,14 +641,14 @@ const SwapCalculator = () => {
                     </WrapContainer>
 
                     <BottomContent direction="column">
-                        <Text size="16px" mb="2.4rem" mt="2.4rem">
+                        <Text size="1.6rem" mb="2.4rem" mt="2.4rem">
                             <Localize
                                 translate_text="To view the asset price and swap rate, go to Deriv MetaTrader 5 (DMT5), click on the <0>View </0> tab and select<0> Market Watch</0>, then right-click on the symbol you want to trade and select <0>Specification.</0>"
                                 components={[<strong key={0} />]}
                             />
                         </Text>
 
-                        <Text size="16px" mb="2.4rem">
+                        <Text size="1.6rem" mb="2.4rem">
                             <Localize translate_text="You can derive the point value from the current digits of the asset. Typically, if the digit is 3, then the point value will be 0.001. If the digit is 5, then the point value will be 0.00001, and so on." />
                         </Text>
 

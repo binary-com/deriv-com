@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Formik } from 'formik'
+import { Formik, Field } from 'formik'
 import { graphql, useStaticQuery } from 'gatsby'
 import {
     optionItemDefault,
@@ -10,11 +10,8 @@ import {
 import {
     StyledText,
     AccountTypeTabItem,
-    StyledHeaderP,
     WrapContainer,
     ImageWrapper,
-    StyledHeader,
-    StyledHeaderTitle,
     LinkWrapper,
     BottomContent,
     InputGroup,
@@ -26,20 +23,20 @@ import {
     StyledTextArea,
     StyledButton,
     StyledLabel,
-    AccountTypeButtonWrapper,
+    StyledHeader,
     CalculatorBody,
     CalculatorHeader,
     ActionSection,
     StyledCurrencyLabel,
     StyledTextAreaContainer,
-    StyledFormikSymbolDropdown,
+    StyledFormikDropdown,
 } from './_style'
+import validation from './_validation'
 import { localize, Localize } from 'components/localization'
 import { Container, Flex } from 'components/containers'
-import { Text, QueryImage } from 'components/elements'
-import validation from 'common/validation'
-import FormikSymbolDropdown from 'components/formikComponents/symbolDropdown'
-import FormikInput from 'components/formikComponents/input'
+import { QueryImage } from 'components/elements'
+import Input from 'components/form/input'
+import FormikDropdown from 'components/formikComponents/formikDropdown'
 
 const MarginCalculator = () => {
     const query = graphql`
@@ -114,7 +111,7 @@ const MarginCalculator = () => {
                 if (symbol.name === 'DAX_30') {
                     currency = 'EUR'
                 } else {
-                    if (symbol.display_name !== '') currency = symbol.display_name.slice(-3)
+                    if (symbol.name !== 'default') currency = symbol.display_name.slice(-3)
                 }
             }
         }
@@ -126,15 +123,15 @@ const MarginCalculator = () => {
 
         if (symbol.market === 'forex') {
             contractSize = 1000
-        } else if (symbol.display_name === 'Silver/USD') {
+        } else if (symbol.name === 'XAGUSD') {
             contractSize = 500
         } else if (
-            symbol.display_name === 'Gold/USD' ||
-            symbol.display_name === 'Palladium/USD' ||
-            symbol.display_name === 'Platinum/USD'
+            symbol.name === 'XAUUSD' ||
+            symbol.name === 'XPDUSD' ||
+            symbol.name === 'XPTUSD'
         ) {
             contractSize = 100
-        } else if (symbol.display_name === 'Step Index') {
+        } else if (symbol.name === 'Step Index') {
             contractSize = 10
         }
 
@@ -143,12 +140,16 @@ const MarginCalculator = () => {
 
     return (
         <Container direction="column">
-            <StyledHeaderTitle align="center" as="h2">
+            <StyledHeader as="h2" align="center" mt="8rem" mb="1.2rem">
                 {localize('Margin calculator')}
-            </StyledHeaderTitle>
-            <StyledHeaderP>
-                <Localize translate_text="Our margin calculator helps you to estimate the margin required to keep your positions open overnight on Deriv MetaTrader 5 (DMT5)." />
-            </StyledHeaderP>
+            </StyledHeader>
+
+            <StyledHeader as="h5" align="center" mb="4rem" weight="normal">
+                {localize(
+                    'Our margin calculator helps you to estimate the margin required to keep your positions open overnight on Deriv MetaTrader 5 (DMT5).',
+                )}
+            </StyledHeader>
+
             <WrapContainer mb="4.0rem">
                 <StyledFormWrapper>
                     <Formik
@@ -196,9 +197,10 @@ const MarginCalculator = () => {
                                 </CalculatorHeader>
                                 <CalculatorBody>
                                     <StyledLabel>{localize('Account type')}</StyledLabel>
-                                    <AccountTypeButtonWrapper
+                                    <Flex
                                         mb="3rem"
                                         mt="1rem"
+                                        jc="space-between"
                                         tablet={{ height: 'unset' }}
                                     >
                                         <AccountTypeTabItem
@@ -227,9 +229,9 @@ const MarginCalculator = () => {
                                                 {localize('Financial')}
                                             </StyledText>
                                         </AccountTypeTabItem>
-                                    </AccountTypeButtonWrapper>
+                                    </Flex>
 
-                                    <StyledFormikSymbolDropdown
+                                    <StyledFormikDropdown
                                         mb="2.4rem"
                                         option_list={values.optionList}
                                         label={localize('Symbol')}
@@ -248,40 +250,51 @@ const MarginCalculator = () => {
                                     />
 
                                     <InputGroup>
-                                        <FormikInput
+                                        <Field
                                             name="volume"
-                                            id="volume"
-                                            type="text"
                                             value={values.volume}
-                                            label={localize('Volume')}
                                             onChange={(value) => {
                                                 setFieldValue('volume', value)
                                             }}
-                                            autoComplete="off"
-                                            error={touched.volume && errors.volume}
-                                            onBlur={handleBlur}
-                                            handleError={() => resetForm()}
-                                        />
+                                        >
+                                            {({ field }) => (
+                                                <Input
+                                                    {...field}
+                                                    id="volume"
+                                                    type="text"
+                                                    label={localize('Volume')}
+                                                    autoComplete="off"
+                                                    error={touched.volume && errors.volume}
+                                                    onBlur={handleBlur}
+                                                    handleError={() => resetForm()}
+                                                />
+                                            )}
+                                        </Field>
                                     </InputGroup>
 
                                     <InputGroup>
-                                        <FormikInput
-                                            name="asset"
-                                            id="asset"
-                                            type="text"
+                                        <Field
+                                            name="assetPrice"
                                             value={values.assetPrice}
-                                            label={localize('Asset price')}
                                             onChange={(value) => {
                                                 setFieldValue('assetPrice', value)
                                             }}
-                                            autoComplete="off"
-                                            error={touched.assetPrice && errors.assetPrice}
-                                            onBlur={handleBlur}
-                                            data-lpignore="true"
-                                            handleError={() => resetForm()}
-                                        />
+                                        >
+                                            {({ field }) => (
+                                                <Input
+                                                    {...field}
+                                                    id="assetPrice"
+                                                    type="text"
+                                                    label={localize('Asset price')}
+                                                    autoComplete="off"
+                                                    error={touched.assetPrice && errors.assetPrice}
+                                                    onBlur={handleBlur}
+                                                    handleError={() => resetForm()}
+                                                />
+                                            )}
+                                        </Field>
                                     </InputGroup>
-                                    <FormikSymbolDropdown
+                                    <FormikDropdown
                                         option_list={leverageItemLists}
                                         id="leverage"
                                         label={localize('Leverage')}
@@ -307,35 +320,31 @@ const MarginCalculator = () => {
                 </StyledFormWrapper>
 
                 <Flex direction="column" max_width="69rem">
-                    <StyledHeader align="center" as="h3" mt="1.6rem">
-                        {localize('How margin is calculated')}
-                    </StyledHeader>
+                    <StyledHeader as="h3">{localize('How margin is calculated')}</StyledHeader>
 
-                    <Text size="16px" mb="16px">
+                    <StyledText mb="1.6rem">
                         <Localize
                             translate_text="The margin required for a contract on DMT5 is calculated based on the formula:<1></1><0> Margin = volume in lots × contract size × asset price/leverage </0>"
                             components={[<strong key={0} />, <br key={1} />]}
                         />
-                    </Text>
+                    </StyledText>
 
-                    <Text size="16px" mb="16px">
+                    <StyledText mb="1.6rem">
                         <Localize translate_text="This gives you the margin requirement in the quote currency for forex pairs, or in the denomination of the underlying asset for other instruments." />
-                    </Text>
-                    <Text size="16px" mb="2.4rem">
+                    </StyledText>
+                    <StyledText mb="2.4rem">
                         {localize(
                             'For instance, if you are trading the USD/CHF forex pair, the margin requirement will be calculated in Swiss Franc (CHF) which is the quote currency. On the other hand, if you are trading Volatility Index 75,  then the margin requirement will be computed in US Dollar (USD), which is the denomination of the underlying asset – Volatility Index 75.',
                         )}
-                    </Text>
+                    </StyledText>
 
-                    <StyledHeader align="center" as="h3">
-                        {localize('Example Calculation')}
-                    </StyledHeader>
+                    <StyledHeader as="h3">{localize('Example Calculation')}</StyledHeader>
 
-                    <Text size="16px" mb="16px">
+                    <StyledText mb="1.6rem">
                         {localize(
                             'Let’s say you want to trade two lots of EUR/USD with an asset price of 1.10 USD and leverage of 100.',
                         )}
-                    </Text>
+                    </StyledText>
                     <ImageWrapper>
                         <QueryImage data={data.margin_formula} alt={'Margin formula'} />
                         <FormulaText>
@@ -348,33 +357,33 @@ const MarginCalculator = () => {
                             </StyledOl>
                         </FormulaText>
                     </ImageWrapper>
-                    <Text size="16px" mb="16px" mt="1.6rem">
+                    <StyledText mb="1.6rem" mt="1.6rem">
                         <Localize
                             translate_text="So you will require a margin rate of <0>2,200 USD</0> to open the above position."
                             components={[<strong key={0} />]}
                         />
-                    </Text>
-                    <Text size="16px">
+                    </StyledText>
+                    <StyledText>
                         {localize(
                             'Note that these are approximate values only and will differ depending on the leverage that is set for your account and the asset you want to trade.',
                         )}
-                    </Text>
+                    </StyledText>
                 </Flex>
             </WrapContainer>
 
             <BottomContent direction="column">
-                <Text size="16px" mb="2.4rem">
+                <StyledText mb="2.4rem">
                     <Localize
                         translate_text="To view the asset price, go to Deriv MetaTrader 5 (DMT5), click on the <0>View </0> tab and select<0> Market Watch</0>, then right-click on the symbol you want to trade and select <0>Specification.</0>"
                         components={[<strong key={0} />]}
                     />
-                </Text>
+                </StyledText>
 
                 <LinkWrapper>
                     <StyledLinkButton tertiary="true" to="/dmt5/">
                         {localize('Go to DMT5 dashboard')}
                     </StyledLinkButton>
-                    <StyledLinkButton external secondary="true" to="/trade-types/margin">
+                    <StyledLinkButton secondary="true" to="/trade-types/margin">
                         {localize('Learn more about margin')}
                     </StyledLinkButton>
                 </LinkWrapper>

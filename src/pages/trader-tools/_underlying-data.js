@@ -48,7 +48,7 @@ import {
 import { localize } from 'components/localization'
 
 export const optionItemDefault = {
-    name: 'value',
+    name: 'default',
     display_name: '',
     key: '14',
     icon: '',

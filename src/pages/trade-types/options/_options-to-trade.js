@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { SmallContainer, OptionGrid, OptionGridSecondary } from '../components/_style'
 import Notes from '../components/_notes'
-import { Flex, SectionContainer } from 'components/containers'
+import { Flex, SectionContainer, Show } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
@@ -70,6 +70,13 @@ const WhatAreOptions = () => {
                         <Localize translate_text="Lookback options are available only on synthetic indices." />
                     }
                 />
+                <Show.Eu>
+                    <Text mt="0.8rem" color="grey-5" size="var(--text-size-xs)">
+                        {localize(
+                            'Return to player (RTP) % for lookbacks for a multiplier of 1 and 1m duration is around 87% on average.',
+                        )}
+                    </Text>
+                </Show.Eu>
                 <Header as="h4" mt="4rem" mb="1.6rem">
                     {localize('Call/Put Spreads')}
                 </Header>

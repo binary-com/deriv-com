@@ -1,22 +1,33 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Text, Accordion, AccordionItem, LinkText } from 'components/elements'
-import { Flex , CssGrid } from 'components/containers'
+import { Flex } from 'components/containers'
 import { localize } from 'components/localization'
 import device from 'themes/device'
 import PDFIcon from 'images/svg/pdf-icon-black.svg'
 import XLSXIcon from 'images/svg/excel.svg'
 
 const FlexText = styled(LinkText)`
+    width: 26%;
     display: flex;
     align-items: center;
+    justify-content: center;
 
     & > svg {
         margin-right: 0.8rem;
     }
+    @media ${device.laptopM} {
+        width: 40%;
+    }
+    @media ${device.tabletS} {
+        width: 100%;
+    }
 `
 
 const EdgeFlex = styled(Flex)`
+    flex-wrap: wrap;
+    justify-content: flex-start;
+
     /* Edge does not support space-evenly */
     @supports (-ms-ime-align: auto) {
         justify-content: space-around;
@@ -26,67 +37,60 @@ const EdgeFlex = styled(Flex)`
     }
 `
 
-const EdgeGrid = styled(CssGrid)`
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    justify-items: center;
-`
-
 const RTS27_28 = () => (
     <>
-        <Flex fd="column">
-            <EdgeGrid>
-                <FlexText
-                    color="red"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    href="/regulatory/RTS28-2019.pdf"
-                    m="1.6rem 2.4rem"
-                >
-                    <PDFIcon />
-                    <span>{localize('RTS28 2019')}</span>
-                </FlexText>
-                <FlexText
-                    color="red"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    href="/regulatory/RTS28-2018.pdf"
-                    m="1.6rem 2.4rem"
-                >
-                    <PDFIcon />
-                    <span>{localize('RTS28 2018')}</span>
-                </FlexText>
-                <FlexText
-                    color="red"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    href="/regulatory/RTS27-2020.xlsx"
-                    m="1.6rem 2.4rem"
-                >
-                    <XLSXIcon />
-                    <span>{localize('RTS27 2020')}</span>
-                </FlexText>
-                <FlexText
-                    color="red"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    href="/regulatory/RTS27-2019.xlsx"
-                    m="1.6rem 2.4rem"
-                >
-                    <XLSXIcon />
-                    <span>{localize('RTS27 2019')}</span>
-                </FlexText>
-                <FlexText
-                    color="red"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    href="/regulatory/RTS27-2018.xlsx"
-                    m="1.6rem 2.4rem"
-                >
-                    <XLSXIcon />
-                    <span>{localize('RTS27 2018')}</span>
-                </FlexText>
-            </EdgeGrid>
-        </Flex>
+        <EdgeFlex>
+            <FlexText
+                color="red"
+                target="_blank"
+                rel="noopener noreferrer"
+                href="/regulatory/RTS28-2019.pdf"
+                m="1.6rem 2.4rem"
+            >
+                <PDFIcon />
+                <span>{localize('RTS28 2019')}</span>
+            </FlexText>
+            <FlexText
+                color="red"
+                target="_blank"
+                rel="noopener noreferrer"
+                href="/regulatory/RTS28-2018.pdf"
+                m="1.6rem 2.4rem"
+            >
+                <PDFIcon />
+                <span>{localize('RTS28 2018')}</span>
+            </FlexText>
+            <FlexText
+                color="red"
+                target="_blank"
+                rel="noopener noreferrer"
+                href="/regulatory/RTS27-2020.xlsx"
+                m="1.6rem 2.4rem"
+            >
+                <XLSXIcon />
+                <span>{localize('RTS27 2020')}</span>
+            </FlexText>
+            <FlexText
+                color="red"
+                target="_blank"
+                rel="noopener noreferrer"
+                href="/regulatory/RTS27-2019.xlsx"
+                m="1.6rem 2.4rem"
+            >
+                <XLSXIcon />
+                <span>{localize('RTS27 2019')}</span>
+            </FlexText>
+            <FlexText
+                color="red"
+                target="_blank"
+                rel="noopener noreferrer"
+                href="/regulatory/RTS27-2018.xlsx"
+                m="1.6rem 2.4rem"
+            >
+                <XLSXIcon />
+                <span>{localize('RTS27 2018')}</span>
+            </FlexText>
+        </EdgeFlex>
     </>
 )
 

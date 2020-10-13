@@ -20,7 +20,7 @@ const FlexText = styled(LinkText)`
         width: 40%;
     }
     @media ${device.tabletS} {
-        width: 100%;
+        width: 88%;
     }
 `
 

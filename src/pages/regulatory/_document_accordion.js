@@ -20,10 +20,30 @@ const FlexText = styled(LinkText)`
         width: 40%;
     }
     @media ${device.tabletS} {
-        width: 88%;
+        width: 80%;
+        justify-content: flex-start;
+        padding-left: 16rem;
+    }
+    @media ${device.mobileL} {
+        padding-left: 10rem;
+    }
+    @media ${device.mobileM} {
+        padding-left: 8rem;
+    }
+    @media ${device.mobileS} {
+        padding-left: 6rem;
     }
 `
 
+const FlexText_Pillar = styled(LinkText)`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & > svg {
+        margin-right: 0.8rem;
+    }
+`
 const EdgeFlex = styled(Flex)`
     flex-wrap: wrap;
     justify-content: flex-start;
@@ -34,6 +54,9 @@ const EdgeFlex = styled(Flex)`
     }
     @media ${device.tabletS} {
         flex-direction: column;
+    }
+    @media ${device.mobileL} {
+        align-content: center;
     }
 `
 
@@ -127,7 +150,7 @@ const DocumentAccordion = () => {
                     )}
                 </Text>
                 <Flex mt="1.8rem">
-                    <FlexText
+                    <FlexText_Pillar
                         target="_blank"
                         rel="noopener noreferrer"
                         href="/regulatory/BIEL_Pillar_3.pdf"
@@ -135,7 +158,7 @@ const DocumentAccordion = () => {
                     >
                         <PDFIcon />
                         <span>{localize('Pillar III disclosure report')}</span>
-                    </FlexText>
+                    </FlexText_Pillar>
                 </Flex>
             </AccordionItem>
             <AccordionItem
@@ -151,7 +174,7 @@ const DocumentAccordion = () => {
                     )}
                 </Text>
                 <Flex ai="center" jc="center">
-                    <EdgeFlex mt="1.8rem" jc="space-evenly" fw="wrap" width="auto">
+                    <EdgeFlex mt="1.8rem">
                         <FlexText
                             color="red"
                             target="_blank"

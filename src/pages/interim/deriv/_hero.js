@@ -44,6 +44,7 @@ const Hero = () => {
                                         weight="bold"
                                         to="/"
                                         color="white"
+                                        size="2.4rem"
                                     />,
                                     <LocalizedLinkText
                                         key={1}
@@ -51,6 +52,7 @@ const Hero = () => {
                                         color="white"
                                         weight="bold"
                                         to="home"
+                                        size="2.4rem"
                                         is_binary_link
                                         target="_blank"
                                         rel="noopener noreferrer"

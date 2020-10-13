@@ -137,13 +137,13 @@ export const Hero = () => {
                         <Show.Desktop>
                             <Flex mb="1.6rem" direction="column">
                                 <StyledHeader color="white" ad="0.5s">
-                                    <Localize translate_text="Simple" />
+                                    <Localize translate_text="Simple." />
                                 </StyledHeader>
                                 <StyledHeader color="white" ad="0.6s">
-                                    <Localize translate_text="Flexible" />
+                                    <Localize translate_text="Flexible." />
                                 </StyledHeader>
                                 <StyledHeader color="white" ad="0.7s">
-                                    <Localize translate_text="Reliable" />
+                                    <Localize translate_text="Reliable." />
                                 </StyledHeader>
                             </Flex>
                         </Show.Desktop>

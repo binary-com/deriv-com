@@ -10,13 +10,18 @@ import { localize } from 'components/localization'
 import Chevron from 'images/svg/carousel-chevron.svg'
 import QuoteMark from 'images/svg/quotemark.svg'
 import NegarImage from 'images/common/careers/negar.jpg'
-import KelcentImage from 'images/common/careers/kelcent.jpg'
-import MahdiImage from 'images/common/careers/mahdi.jpg'
+import AhmadImage from 'images/common/careers/ahmad.png'
+import AdityaImage from 'images/common/careers/aditya.png'
+import GaryImage from 'images/common/careers/gary.png'
+import MeiThengImage from 'images/common/careers/mei_theng.png'
 
 const StyledSection = styled(SectionContainer)`
     @media ${device.tabletL} {
         height: unset;
         padding: 5rem 0;
+    }
+    @media ${device.mobileL} {
+        padding: 0;
     }
 `
 const StyledHeader = styled(Header)`
@@ -25,6 +30,13 @@ const StyledHeader = styled(Header)`
 
     @media ${device.tabletL} {
         font-size: 4.5rem;
+    }
+    @media ${device.tabletS} {
+        padding: 0 3rem;
+    }
+    @media ${device.mobileL} {
+        font-size: 3.2rem;
+        padding: 0 3.5rem;
     }
 `
 const StyledChevron = styled(Chevron)`
@@ -51,6 +63,15 @@ const EmployeeCard = styled.article`
     @media ${device.tabletL} {
         padding: 4rem;
     }
+    @media ${device.tablet} {
+        width: 55rem;
+    }
+    @media ${device.mobileL} {
+        width: 36rem;
+    }
+    @media ${device.mobileS} {
+        width: 34rem;
+    }
 `
 
 const QuoteText = styled(Text)`
@@ -65,12 +86,22 @@ const QuoteText = styled(Text)`
         padding-bottom: 1rem;
         font-size: 2rem;
         padding-top: 4rem;
+        max-width: 45rem;
     }
 `
 
 const ImageWrapper = styled.div`
     width: 100%;
     max-height: 31.7rem;
+
+    img {
+        object-fit: contain;
+    }
+
+    @media ${device.mobileL} {
+        width: 130%;
+        margin: -4rem -5rem 0 -5.5rem;
+    }
 `
 
 const SliderWrapper = styled.div`
@@ -104,11 +135,19 @@ const Prev = styled.div``
 
 const ButtonWrapper = styled.div`
     position: relative;
-    width: 99.6rem;
+    width: 88.8rem;
     margin: 0 auto;
 
     @media ${device.tablet} {
-        display: none;
+        width: 51.8rem;
+    }
+
+    @media ${device.mobileL} {
+        width: 42rem;
+    }
+
+    @media ${device.mobileM} {
+        width: 36rem;
     }
 
     svg {
@@ -141,12 +180,52 @@ const ButtonWrapper = styled.div`
         position: absolute;
     }
     ${Next} {
-        right: -2%;
+        right: -8%;
         bottom: -20rem;
+
+        @media ${device.tabletL} {
+            bottom: -23rem;
+        }
+
+        @media ${device.tablet} {
+            bottom: -34rem;
+        }
+
+        @media ${device.mobileL} {
+            right: 0%;
+        }
+
+        @media ${device.mobileM} {
+            right: -7%;
+        }
+
+        @media ${device.mobileS} {
+            right: -4%;
+        }
     }
     ${Prev} {
-        left: -2%;
+        left: -8%;
         bottom: -20rem;
+
+        @media ${device.tabletL} {
+            bottom: -23rem;
+        }
+
+        @media ${device.tablet} {
+            bottom: -34rem;
+        }
+
+        @media ${device.mobileL} {
+            left: 0%;
+        }
+
+        @media ${device.mobileM} {
+            left: -7%;
+        }
+
+        @media ${device.mobileS} {
+            left: -4%;
+        }
     }
 `
 const QuoteWrapper = styled(Flex)`
@@ -193,31 +272,44 @@ EmployeeSlide.propTypes = {
     title: PropTypes.string,
 }
 
-const kelcent = {
-    name: 'Kelcent Tan, Principal and Compliance Officer',
-    img_alt: localize('Kelcent - Principal and Compliance Officer'),
-    img_path: KelcentImage,
-    quote:
-        'We have a working culture where everyone is open and willing to share their  knowledge and expertise. This gives me invaluable insights into how other departments operate and helps me understand how my role impacts business operations as a whole.',
-    index: 1,
-}
 const negar = {
     name: 'Negar Naghshbandi, Front-end Developer & Team Lead',
     img_alt: localize('Negar - Front-end Developer & Team Lead'),
     img_path: NegarImage,
     quote:
         'The most exciting thing for me is the culture of the company and the people I work with. I learn something new everyday and I can pair-program with anyone when needed because everyone is approachable and eager to help.',
+    index: 1,
+}
+const ahmad = {
+    name: 'Ahmad Aizuddin Disaster, Recovery Analyst',
+    img_alt: localize('Ahmad - Recovery Analyst'),
+    img_path: AhmadImage,
+    quote: `One of the things I like best about working here is how we’re encouraged to take ownership of our tasks and goals. The autonomy and trust by the leadership team motivate me to excel in my role.`,
     index: 2,
 }
-const mahdi = {
-    name: 'Mahdi Pourziaei, Front-end Developer',
-    img_alt: localize('Mahdi - Front-end Developer'),
-    img_path: MahdiImage,
-    quote: `Two words: 'autonomy' and 'friendly'. Working at Deriv has been full of growth as I get to pick my own challenges and see them through, and it really wouldn’t feel as empowering without the friendly culture. I’m happy to be amongst all the brilliant people here.`,
+const aditya = {
+    name: 'Lalitaditya Addanki, DevOps Engineer',
+    img_alt: localize('Lalitaditya - DevOps Engineer'),
+    img_path: AdityaImage,
+    quote: `The best thing about my peers is that they are highly talented and skilled. Problem-solving and brainstorming with my team is fun, and they provide a great support structure. I’m able to produce higher quality work than what I would have achieved on my own.`,
     index: 3,
 }
+const mei_theng = {
+    name: 'Wong Mei Theng, Accounting Operations Lead',
+    img_alt: localize('Mei Theng - Accounting Operations Lead'),
+    img_path: MeiThengImage,
+    quote: `I love the people I work with, and the company culture that we share. Everyone contributes to a positive working environment by having fun together during the ups and shouldering the burden together during the downs.`,
+    index: 4,
+}
+const gary = {
+    name: 'Gary Ross Vytialingam, Chief Risk Officer',
+    img_alt: localize('Gary - Chief Risk Officer'),
+    img_path: GaryImage,
+    quote: `We encourage knowledge sharing at all levels, so I learn from the people I work with every day. Our company is enriched by the diversity of talented individuals from over 40 countries. It’s inspiring to be a leader of these motivated team players at Deriv.`,
+    index: 5,
+}
 
-const employee_testimonials = [kelcent, negar, mahdi]
+const employee_testimonials = [negar, ahmad, aditya, mei_theng, gary]
 
 const EmployeeTestimonialCarousel = () => {
     const ref = React.useRef(null)

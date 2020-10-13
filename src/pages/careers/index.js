@@ -2,7 +2,7 @@ import React from 'react'
 import Hero from './_hero'
 import WhoWeLookFor from './_who-we-look-for'
 import OurValues from './_our-values'
-// import EmployeeTestimonialCarousel from './_employee-testimonial-carousel'
+import EmployeeTestimonialCarousel from './_employee-testimonial-carousel'
 import LifeAtDerivCarousel from './_life-at-deriv-carousel'
 // import FindPlace from './_find-place'
 import OurHiringProcess from './_our-hiring-process'
@@ -23,7 +23,7 @@ const Careers = () => (
         <LifeAtDerivCarousel />
         <OurValues />
         {/* TODO: Show when employee replacements copy is ready */}
-        {/* <EmployeeTestimonialCarousel /> */}
+        <EmployeeTestimonialCarousel />
         {/* <FindPlace /> */}
         <OurHiringProcess />
     </Layout>

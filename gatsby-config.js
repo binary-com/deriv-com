@@ -128,7 +128,6 @@ module.exports = {
                     }),
             },
         },
-        'gatsby-plugin-offline',
         {
             resolve: 'gatsby-plugin-manifest',
             options: {
@@ -223,5 +222,6 @@ module.exports = {
                 includeInDevelopment: false,
             },
         },
+        'gatsby-plugin-offline',
     ],
 }

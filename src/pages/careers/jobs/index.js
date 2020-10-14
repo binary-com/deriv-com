@@ -106,6 +106,7 @@ const Jobs = () => {
                 description={localize(
                     'Find your role at Deriv by browsing our job listing. Filter by team and location to find the perfect job for you.',
                 )}
+                no_index
             />
             <SectionContainer>
                 <SearchContainer align="flex-start">

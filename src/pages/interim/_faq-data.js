@@ -76,7 +76,7 @@ const OtherChanges = () => (
     <>
         <Text>
             <Localize
-                translate_text="You see that <1>Deriv.com</1> has everything that <0>Binary.com</0> has, and more."
+                translate_text="You’ll see that <1>Deriv.com</1> has everything you get on <1>Binary.com</1>, and more."
                 components={[
                     <LocalizedLinkText
                         key={0}

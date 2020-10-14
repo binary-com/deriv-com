@@ -80,8 +80,7 @@ export const ImageWrapper = styled.div`
     max-width: 650px;
 `
 
-export const LinkWrapper = styled.div`
-    display: flex;
+export const LinkWrapper = styled(Flex)`
     padding: 2rem 2rem 1rem;
     width: 100%;
     justify-content: center;
@@ -163,8 +162,7 @@ export const StyledOl = styled.ol`
     }
 `
 
-export const StyledFormWrapper = styled.div`
-    display: flex;
+export const StyledFormWrapper = styled(Flex)`
     margin-right: 6.4rem;
     max-height: 705px;
 
@@ -233,15 +231,13 @@ export const CalculatorHeader = styled.div`
     background-color: var(--color-blue-4);
 `
 
-export const ActionSection = styled.div`
+export const ActionSection = styled(Flex)`
     padding: 2rem;
-    display: flex;
     justify-content: center;
 `
 
-export const SwapActionSection = styled.div`
+export const SwapActionSection = styled(Flex)`
     padding: 0 2rem 2rem 2rem;
-    display: flex;
     justify-content: center;
 `
 
@@ -262,14 +258,13 @@ export const StyledFormikDropdown = styled(FormikDropdown)`
     margin-bottom: 3.6rem;
 `
 
-export const HeaderTabItem = styled.div`
+export const HeaderTabItem = styled(Flex)`
     padding: 2.4rem 4rem;
     max-width: 35rem;
     width: 100%;
     height: 8.4rem;
     border-radius: 4px;
     border: solid 1px rgba(51, 51, 51, 0.1);
-    display: flex;
     justify-content: center;
     flex-direction: column;
     cursor: pointer;
@@ -292,12 +287,4 @@ export const HeaderTabItem = styled.div`
     @media ${device.mobileL} {
         padding: 12px 24px;
     }
-`
-
-export const BottomFlex = styled(Flex)`
-    max-width: 100%;
-    align-items: center;
-    margin-bottom: 9rem;
-    font-size: 1.6rem;
-    text-align: center;
 `

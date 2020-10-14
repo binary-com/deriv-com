@@ -35,10 +35,6 @@ const StyledSectionContainer = styled(SectionContainer)`
     }
 `
 
-const StyledFlex = styled(Flex)`
-    flex-direction: column;
-`
-
 const Row = styled(Flex)`
     flex-direction: row;
     justify-content: space-between;
@@ -59,8 +55,6 @@ const ImgWrapper = styled.div`
         margin: 2rem auto;
     }
 `
-
-const RowContent = styled.div``
 
 const ProfitText = styled.span`
     font-weight: bold;
@@ -116,25 +110,25 @@ const WhatAreOptions = () => {
             </SectionContainer>
             <StyledSectionContainer padding="4rem 0 4rem">
                 <SmallContainer direction="column" ai="flex-start">
-                    <StyledFlex>
+                    <Flex fd="column">
                         <Row mb="2rem">
-                            <RowContent>
+                            <div>
                                 <StyledHeaderContent as="h3" width="32rem">
                                     <Localize translate_text="Let’s say you predict that the market will go up." />
                                 </StyledHeaderContent>
-                            </RowContent>
+                            </div>
 
-                            <RowContent>
+                            <div>
                                 <ImgWrapper>
                                     <QueryImage data={data['stake_amount']} alt="tes2" />
                                 </ImgWrapper>
-                            </RowContent>
+                            </div>
                         </Row>
                         <Row>
-                            <RowContent>
+                            <div>
                                 <ImgWrapper>
                                     <QueryImage data={data['multiplier_no_multi_win']} alt="tes" />
-                                    <Text mt="1.6rem" mb="4rem" mr="1rem">
+                                    <Text m="1.6rem 1rem 4rem 0">
                                         <Localize
                                             translate_text="<0>Without a multiplier</0>, if the market goes up by 2%, you'll gain 2% * $100 = <1>$2 profit<1>."
                                             components={[
@@ -144,14 +138,14 @@ const WhatAreOptions = () => {
                                         />
                                     </Text>
                                 </ImgWrapper>
-                            </RowContent>
-                            <RowContent>
+                            </div>
+                            <div>
                                 <ImgWrapper>
                                     <QueryImage
                                         data={data['multiplier_with_multi_win']}
                                         alt="tes"
                                     />
-                                    <Text mt="1.6rem" mb="4rem" mr="1rem">
+                                    <Text m="1.6rem 1rem 4rem 0">
                                         <Localize
                                             translate_text="<0>With a x500 multiplier</0>, if the market goes up by 2%, you'll gain 2% * $100 * 500 = <1>$1,000 profit</1>."
                                             components={[
@@ -161,11 +155,11 @@ const WhatAreOptions = () => {
                                         />
                                     </Text>
                                 </ImgWrapper>
-                            </RowContent>
+                            </div>
                         </Row>
 
                         <Row>
-                            <RowContent>
+                            <div>
                                 <ImgWrapper>
                                     <QueryImage data={data['multiplier_no_multi_loss']} alt="tes" />
                                     <Text mt="1.6rem" mr="1rem">
@@ -175,8 +169,8 @@ const WhatAreOptions = () => {
                                         />
                                     </Text>
                                 </ImgWrapper>
-                            </RowContent>
-                            <RowContent>
+                            </div>
+                            <div>
                                 <ImgWrapper>
                                     <QueryImage
                                         data={data['multiplier_with_multi_loss']}
@@ -189,9 +183,9 @@ const WhatAreOptions = () => {
                                         />
                                     </Text>
                                 </ImgWrapper>
-                            </RowContent>
+                            </div>
                         </Row>
-                    </StyledFlex>
+                    </Flex>
                 </SmallContainer>
             </StyledSectionContainer>
             <SectionContainer background="grey-23" padding="4rem 0">

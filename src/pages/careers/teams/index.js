@@ -86,6 +86,7 @@ const Teams = () => {
                 description={localize(
                     'Join our team for a challenging and rewarding career. Browse job opportunities in front-end development, IT security, marketing, and more.',
                 )}
+                no_index
             />
             <SectionContainer background="black" padding="12rem 0">
                 <Container direction="column">

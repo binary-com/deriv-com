@@ -10,10 +10,10 @@ import { localize } from 'components/localization'
 import Chevron from 'images/svg/carousel-chevron.svg'
 import QuoteMark from 'images/svg/quotemark.svg'
 import NegarImage from 'images/common/careers/negar.jpg'
-import AhmadImage from 'images/common/careers/ahmad.png'
-import AdityaImage from 'images/common/careers/aditya.png'
-import GaryImage from 'images/common/careers/gary.png'
-import MeiThengImage from 'images/common/careers/mei_theng.png'
+import AhmadImage from 'images/common/careers/ahmad.jpg'
+import AdityaImage from 'images/common/careers/aditya.jpg'
+import GaryImage from 'images/common/careers/gary.jpg'
+import MeiThengImage from 'images/common/careers/mei_theng.jpg'
 
 const StyledSection = styled(SectionContainer)`
     @media ${device.tabletL} {
@@ -92,7 +92,7 @@ const QuoteText = styled(Text)`
 
 const ImageWrapper = styled.div`
     width: 100%;
-    max-height: 31.7rem;
+    max-height: 32.1rem;
 
     img {
         object-fit: contain;
@@ -100,7 +100,7 @@ const ImageWrapper = styled.div`
 
     @media ${device.mobileL} {
         width: 130%;
-        margin: -4rem -5rem 0 -5.5rem;
+        margin: -4.1rem -5rem 0 -5.5rem;
     }
 `
 

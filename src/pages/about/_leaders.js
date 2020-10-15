@@ -294,7 +294,7 @@ const Leaders = () => {
                 <Carousel {...settings}>
                     {leaders_data.map((leader, idx) => (
                         <div key={idx}>
-                            <QueryImage data={data[leader.image + '_mobile']} alt={leader.name} />
+                            <QueryImage data={data[`${leader.image}_mobile`]} alt={leader.name} />
                             <Header size="24px" align="center" m="16px 0 0 0">
                                 {leader.name}
                             </Header>

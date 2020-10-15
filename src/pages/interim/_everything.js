@@ -18,18 +18,16 @@ const Ul = styled(Flex).attrs({ as: 'ul' })`
 `
 const Li = styled(Flex).attrs({ as: 'li' })`
     justify-content: left;
-    max-width: 48.6rem;
+    max-width: 52rem;
     display: flex;
     margin: 2rem 1.2rem;
-    min-height: 130px;
+    min-height: 120px;
 
     @media ${device.mobileL} {
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
     }
 
-    @media (max-width: 1223px) {
+    @media (max-width: 1214px) {
         min-height: unset;
     }
 `

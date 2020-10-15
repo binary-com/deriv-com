@@ -67,9 +67,9 @@ const contents = [
     <Localize key={3} translate_text="100+ tradeable assets" />,
     <Localize key={4} translate_text="20+ years of experience" />,
 ]
-const TypeWriter = styled(Header)`
-    min-height: 7.2rem;
-`
+// const TypeWriter = styled(Header)`
+//     min-height: 7.2rem;
+// `
 const HeroContainer = styled(CssGrid)`
     grid-template-columns: repeat(12, 1fr);
     width: 100%;
@@ -108,24 +108,24 @@ const ImageWrapper = styled(Box)`
 `
 export const Hero = () => {
     const data = useStaticQuery(query)
-    const typewriter_text = localize('Trade forex, commodities, synthetic and stock indices')
-    const [type_writer, setTypeWriter] = React.useState('')
-    let type_writer_timeout
+    // const typewriter_text = localize('Trade forex, commodities, synthetic and stock indices')
+    // const [type_writer, setTypeWriter] = React.useState('')
+    // let type_writer_timeout
 
-    const typeWriterAnimation = (i = 0) => {
-        if (i < typewriter_text.length) {
-            setTypeWriter(typewriter_text.substring(0, i + 1))
-            type_writer_timeout = setTimeout(() => typeWriterAnimation(i + 1), 13)
-        }
-    }
+    // const typeWriterAnimation = (i = 0) => {
+    //     if (i < typewriter_text.length) {
+    //         setTypeWriter(typewriter_text.substring(0, i + 1))
+    //         type_writer_timeout = setTimeout(() => typeWriterAnimation(i + 1), 13)
+    //     }
+    // }
 
     React.useEffect(() => {
-        let start_animations_timeout = setTimeout(() => {
-            typeWriterAnimation()
-        }, 1200)
+        // let start_animations_timeout = setTimeout(() => {
+        //     typeWriterAnimation()
+        // }, 1200)
         return () => {
-            clearTimeout(start_animations_timeout)
-            clearTimeout(type_writer_timeout)
+            // clearTimeout(start_animations_timeout)
+            // clearTimeout(type_writer_timeout)
         }
     }, [])
 
@@ -154,9 +154,7 @@ export const Hero = () => {
                                 </StyledHeader>
                             </Flex>
                         </Show.Mobile>
-                        <TypeWriter as="h4" color="white" max_width="430px" weight="normal">
-                            {localize(type_writer)}
-                        </TypeWriter>
+                        {localize('Trade forex, commodities, synthetic and stock indices')}
                         <VerticalCarousel contents={contents} />
                     </Details>
                     <ImageWrapper>

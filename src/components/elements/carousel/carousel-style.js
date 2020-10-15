@@ -56,7 +56,14 @@ export const StyledButtonWrapper = styled.div`
 export const StyledChevron = styled(Chevron)`
     height: 24px;
     width: 24px;
-    ${(props) => (props.red ? 'width: 16px; height: 16px;' : null)}
+    ${(props) => {
+        if (props.red) {
+            return css`
+                width: 16px;
+                height: 16px;
+            `
+        }
+    }}
 
     g {
         g {

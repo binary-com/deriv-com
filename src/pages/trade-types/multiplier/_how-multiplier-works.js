@@ -71,6 +71,14 @@ const StyledHeader = styled(Header)`
     }
 `
 
+const StyledPurchaseHeader = styled(Header)`
+    margin-top: 3.2rem;
+
+    @media ${device.tablet} {
+        margin-top: 1rem;
+    }
+`
+
 const HowOptionsWorks = () => {
     const data = useStaticQuery(query)
     return (
@@ -217,9 +225,9 @@ const HowOptionsWorks = () => {
                         />
                     </SideTab.Panel>
                 </SideTab>
-                <Header as="h4" mb="2.4rem" mt="3.2rem">
+                <StyledPurchaseHeader as="h4" mb="2.4rem" mt="3.2rem">
                     {localize('Purchase your contract')}
-                </Header>
+                </StyledPurchaseHeader>
                 <SideTab>
                     <SideTab.Panel
                         label={<Localize translate_text="8. Purchase your contract" />}

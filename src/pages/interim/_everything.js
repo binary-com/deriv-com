@@ -21,13 +21,16 @@ const Li = styled(Flex).attrs({ as: 'li' })`
     max-width: 48.6rem;
     display: flex;
     margin: 2rem 1.2rem;
-    height: 120px;
+    min-height: 130px;
 
     @media ${device.mobileL} {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        height: auto;
+    }
+
+    @media (max-width: 1223px) {
+        min-height: unset;
     }
 `
 

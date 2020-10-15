@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useCallback } from 'react'
-import { useEmblaCarousel } from 'embla-carousel-react'
+import { useEmblaCarousel } from 'embla-carousel/react'
 import PropTypes from 'prop-types'
 import {
     Embla,
     EmblaContainer,
     EmblaSlideInner,
+    ViewPort,
     StyledButtonWrapper,
     ChevronRight,
     ChevronLeft,
@@ -43,7 +44,7 @@ export const NextButton = ({ enabled, onClick, color, style }) => (
 NextButton.propTypes = PrevButton.propTypes
 
 export const Carousel = ({ children, options, container_style, slide_style, chevron_style }) => {
-    const [EmblaCarouselReact, embla] = useEmblaCarousel(options)
+    const [emblaRef, embla] = useEmblaCarousel(options)
     const [prevBtnEnabled, setPrevBtnEnabled] = useState(false)
     const [nextBtnEnabled, setNextBtnEnabled] = useState(false)
 
@@ -70,7 +71,7 @@ export const Carousel = ({ children, options, container_style, slide_style, chev
     return (
         <div style={container_style}>
             <Embla>
-                <EmblaCarouselReact>
+                <ViewPort ref={emblaRef}>
                     <EmblaContainer>
                         {children.map((child, idx) => (
                             <div key={idx} style={slide_style}>
@@ -78,7 +79,7 @@ export const Carousel = ({ children, options, container_style, slide_style, chev
                             </div>
                         ))}
                     </EmblaContainer>
-                </EmblaCarouselReact>
+                </ViewPort>
                 {chevron_color && is_arrow && (
                     <PrevButton
                         color={chevron_color}

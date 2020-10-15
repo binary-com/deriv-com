@@ -7,6 +7,18 @@ export const Embla = styled.div`
     overflow: hidden;
 `
 
+export const ViewPort = styled.div`
+    overflow: hidden;
+
+    &.is-draggable {
+        cursor: move;
+        cursor: grab;
+    }
+    &.is-dragging {
+        cursor: grabbing;
+    }
+`
+
 export const EmblaContainer = styled.div`
     display: flex;
     will-change: transform;

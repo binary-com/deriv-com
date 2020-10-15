@@ -1,6 +1,6 @@
 import NProgress from 'nprogress'
 import { WrapPagesWithLocaleContext } from './src/components/localization'
-import { isProduction } from './src/common/websocket/config'
+import { isProduction, isLocalHost } from './src/common/websocket/config'
 import { CookieStorage, LocalStore } from './src/common/storage'
 import TrafficSource from './src/common/traffic-source'
 import isMobile from './src/common/os-detect'
@@ -55,22 +55,25 @@ export const onInitialClientRender = () => {
 export const onClientEntry = () => {
     NProgress.start()
 
-    // Add GTM script for test domain
-    if (window.location.hostname === gtm_test_domain) {
-        const gtm = document.createElement('script')
-        gtm.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-TNX2ZKH'
-        gtm.id = 'gtm-test-container'
-        document.body.appendChild(gtm)
+    if (!isLocalHost()) {
+        setTimeout(() => {
+            const gtm_id =
+                window.location.hostname === gtm_test_domain ? 'GTM-TNX2ZKH' : 'GTM-NF7884S'
+            const gtm = document.createElement('script')
 
-        const datalayer = document.createElement('script')
-        datalayer.text = `
-            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-            })(window,document,'script','dataLayer','GTM-TNX2ZKH');
-        `
-        document.body.appendChild(datalayer)
+            gtm.src = `https://www.googletagmanager.com/gtm.js?id=${gtm_id}`
+            gtm.id = 'gtm-test-container'
+            document.body.appendChild(gtm)
+            const datalayer = document.createElement('script')
+            datalayer.text = `
+                (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+                })(window,document,'script','dataLayer','${gtm_id}');
+            `
+            document.body.appendChild(datalayer)
+        }, 2000)
     }
 }
 

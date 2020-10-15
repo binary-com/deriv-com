@@ -138,7 +138,7 @@ const TradeTypesMobile = () => {
                 </Text>
                 <Carousel {...settings}>
                     {trade_types.map((trade_slide, idx) => (
-                        <div className="swiper-slide" key={idx}>
+                        <div key={idx}>
                             <TradeTypeSlide
                                 icon={trade_slide.icon}
                                 title={trade_slide.title}

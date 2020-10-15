@@ -10,7 +10,7 @@ import Pattern from 'images/common/trade-types/pattern-section.png'
 
 const PatternContainer = styled(SectionContainer)`
     background: url(${Pattern});
-    background-size: cover;
+    background-size: contain;
 `
 
 const FixTimeline = styled(Timeline)`

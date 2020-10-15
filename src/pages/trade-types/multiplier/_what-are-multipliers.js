@@ -20,6 +20,8 @@ const StyledHeader = styled(Header)`
     }
 `
 const StyledHeaderContent = styled(Header)`
+    line-height: 1.25;
+    width: 320px;
     @media ${device.tablet} {
         margin: auto;
         margin-bottom: 2rem;
@@ -48,7 +50,7 @@ const Row = styled(Flex)`
 `
 
 const ImgWrapper = styled.div`
-    width: 35.6rem;
+    width: 356px;
     margin-bottom: 2rem;
     @media ${device.tabletL} {
         max-width: 328px;
@@ -128,7 +130,7 @@ const WhatAreOptions = () => {
                             <div>
                                 <ImgWrapper>
                                     <QueryImage data={data['multiplier_no_multi_win']} alt="tes" />
-                                    <Text m="1.6rem 1rem 4rem 0">
+                                    <Text m="1.6rem 0 4rem 0">
                                         <Localize
                                             translate_text="<0>Without a multiplier</0>, if the market goes up by 2%, you'll gain 2% * $100 = <1>$2 profit<1>."
                                             components={[
@@ -145,7 +147,7 @@ const WhatAreOptions = () => {
                                         data={data['multiplier_with_multi_win']}
                                         alt="tes"
                                     />
-                                    <Text m="1.6rem 1rem 4rem 0">
+                                    <Text m="1.6rem 0 4rem 0">
                                         <Localize
                                             translate_text="<0>With a x500 multiplier</0>, if the market goes up by 2%, you'll gain 2% * $100 * 500 = <1>$1,000 profit</1>."
                                             components={[
@@ -162,7 +164,7 @@ const WhatAreOptions = () => {
                             <div>
                                 <ImgWrapper>
                                     <QueryImage data={data['multiplier_no_multi_loss']} alt="tes" />
-                                    <Text mt="1.6rem" mr="1rem">
+                                    <Text mt="1.6rem">
                                         <Localize
                                             translate_text="<0>With an equivalent $100 margin trade</0>, with 1:500 leverage, you risk 2% * $50,000 = <1>$1000 loss</1>."
                                             components={[<strong key={0} />, <LossText key={1} />]}
@@ -176,7 +178,7 @@ const WhatAreOptions = () => {
                                         data={data['multiplier_with_multi_loss']}
                                         alt="tes"
                                     />
-                                    <Text mt="1.6rem" mr="1rem">
+                                    <Text mt="1.6rem">
                                         <Localize
                                             translate_text="<0>With a x500 multiplier</0>, if the market goes down 2%, you'll <1>lose only $100</1>. An automatic stop out kicks in if your loss reaches your stake amount."
                                             components={[<strong key={0} />, <LossText key={1} />]}

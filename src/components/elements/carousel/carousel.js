@@ -10,9 +10,15 @@ import {
     ChevronLeft,
 } from './carousel-style'
 
-export const PrevButton = ({ enabled, onClick, chevron_style }) => (
-    <StyledButtonWrapper onClick={onClick} disabled={!enabled} style={chevron_style}>
-        {chevron_style ? <ChevronLeft /> : <ChevronLeft black />}
+export const PrevButton = ({ enabled, onClick, color, style }) => (
+    <StyledButtonWrapper onClick={onClick} disabled={!enabled} left style={style}>
+        {color === 'black' ? (
+            <ChevronLeft black />
+        ) : color === 'red' ? (
+            <ChevronLeft red />
+        ) : (
+            <ChevronLeft />
+        )}
     </StyledButtonWrapper>
 )
 
@@ -22,15 +28,21 @@ PrevButton.propTypes = {
     onClick: PropTypes.func,
 }
 
-export const NextButton = ({ enabled, onClick, chevron_style }) => (
-    <StyledButtonWrapper onClick={onClick} disabled={!enabled} style={chevron_style}>
-        {chevron_style ? <ChevronRight /> : <ChevronRight black />}
+export const NextButton = ({ enabled, onClick, color, style }) => (
+    <StyledButtonWrapper onClick={onClick} disabled={!enabled} style={style}>
+        {color === 'black' ? (
+            <ChevronRight black is_desabled={!!enabled} />
+        ) : color === 'red' ? (
+            <ChevronRight red is_desabled={!!enabled} />
+        ) : (
+            <ChevronRight is_desabled={!!enabled} />
+        )}
     </StyledButtonWrapper>
 )
 
 NextButton.propTypes = PrevButton.propTypes
 
-export const Carousel = ({ children, options, container_style, slide_style, button_style }) => {
+export const Carousel = ({ children, options, container_style, slide_style, chevron_style }) => {
     const [EmblaCarouselReact, embla] = useEmblaCarousel(options)
     const [prevBtnEnabled, setPrevBtnEnabled] = useState(false)
     const [nextBtnEnabled, setNextBtnEnabled] = useState(false)
@@ -50,9 +62,10 @@ export const Carousel = ({ children, options, container_style, slide_style, butt
         onSelect()
     }, [embla, onSelect])
 
-    const button = button_style?.button || button_style
-    const chevron_left = button_style?.chevron_left
-    const chevron_right = button_style?.chevron_right
+    const chevron_left = chevron_style?.chevron_left
+    const chevron_right = chevron_style?.chevron_right
+    const chevron_color = chevron_style?.chevron_color
+    const is_arrow = prevBtnEnabled || nextBtnEnabled
 
     return (
         <div style={container_style}>
@@ -66,19 +79,21 @@ export const Carousel = ({ children, options, container_style, slide_style, butt
                         ))}
                     </EmblaContainer>
                 </EmblaCarouselReact>
-                {button_style && (
-                    <StyledButtonWrapper style={button}>
-                        <PrevButton
-                            chevron_style={chevron_left}
-                            onClick={scrollPrev}
-                            enabled={prevBtnEnabled}
-                        />
-                        <NextButton
-                            chevron_style={chevron_right}
-                            onClick={scrollNext}
-                            enabled={nextBtnEnabled}
-                        />
-                    </StyledButtonWrapper>
+                {chevron_color && is_arrow && (
+                    <PrevButton
+                        color={chevron_color}
+                        onClick={scrollPrev}
+                        enabled={prevBtnEnabled}
+                        style={chevron_left}
+                    />
+                )}
+                {chevron_color && is_arrow && (
+                    <NextButton
+                        color={chevron_color}
+                        onClick={scrollNext}
+                        enabled={nextBtnEnabled}
+                        style={chevron_right}
+                    />
                 )}
             </Embla>
         </div>
@@ -86,7 +101,7 @@ export const Carousel = ({ children, options, container_style, slide_style, butt
 }
 
 Carousel.propTypes = {
-    button_style: PropTypes.object,
+    chevron_style: PropTypes.object,
     children: PropTypes.array,
     container_style: PropTypes.object,
     options: PropTypes.object,

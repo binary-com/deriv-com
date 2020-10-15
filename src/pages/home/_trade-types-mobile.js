@@ -119,7 +119,7 @@ const TradeTypesMobile = () => {
         slide_style: {
             width: '24rem',
             borderRadius: '8px',
-            paddingRight: '10px',
+            margin: '10px',
             boxShadow:
                 'rgba(0, 0, 0, 0.05) 0px 16px 20px 0px, rgba(0, 0, 0, 0.05) 0px 0px 20px 0px',
         },

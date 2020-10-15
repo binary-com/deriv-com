@@ -94,15 +94,7 @@ const LifeAtDerivCarousel = () => {
             width: '100%',
             position: 'relative',
         },
-        button_style: {
-            button: {
-                display: 'flex',
-                justifyContent: 'space-between',
-                position: 'sticky',
-                bottom: '50%',
-                padding: '5rem 0.9rem',
-                color: 'rgba(0, 0, 0, 0.25)',
-            },
+        chevron_style: {
             chevron_left: {
                 padding: '5rem 0.9rem',
                 backgroundColor: 'rgba(0, 0, 0, 0.25)',
@@ -113,6 +105,7 @@ const LifeAtDerivCarousel = () => {
                 backgroundColor: 'rgba(0, 0, 0, 0.25)',
                 marginRight: '-0.9rem',
             },
+            chevron_color: 'white',
         },
     }
 

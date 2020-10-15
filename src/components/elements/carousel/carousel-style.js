@@ -1,4 +1,5 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
+import device from 'themes/device'
 import Chevron from 'images/svg/carousel-chevron.svg'
 
 export const Embla = styled.div`
@@ -9,7 +10,6 @@ export const Embla = styled.div`
 export const EmblaContainer = styled.div`
     display: flex;
     will-change: transform;
-    left: 0% !important;
 `
 
 export const EmblaSlideInner = styled.div`
@@ -19,20 +19,58 @@ export const EmblaSlideInner = styled.div`
 `
 
 export const StyledButtonWrapper = styled.div`
+    position: absolute;
+    bottom: 50%;
+    opacity: ${(props) => (props.disabled ? '0.32' : '1')};
+    ${(props) => {
+        if (props.left)
+            return css`
+                left: 0;
+            `
+        return css`
+            right: 0;
+        `
+    }}
+
     &:hover {
         cursor: pointer;
+    }
+
+    @media ${device.tabletL} {
+        display: none;
     }
 `
 
 export const StyledChevron = styled(Chevron)`
+    height: 24px;
+    width: 24px;
+    ${(props) => (props.red ? 'width: 16px; height: 16px;' : null)}
+
     g {
         g {
-            fill: ${(props) => (props.black ? 'var(--color-black)' : 'var(--color-white)')};
+            ${(props) => {
+                if (props.black) {
+                    return css`
+                        fill: var(--color-black);
+                    `
+                } else if (props.red) {
+                    return css`
+                        fill: var(--color-red);
+                    `
+                }
+
+                return css`
+                    fill: var(--color-white);
+                `
+            }}
         }
     }
 `
 
 export const ChevronRight = styled(StyledChevron)`
     transform: rotate(180deg);
+    right: 0;
 `
-export const ChevronLeft = StyledChevron
+export const ChevronLeft = styled(StyledChevron)`
+    left: 0;
+`

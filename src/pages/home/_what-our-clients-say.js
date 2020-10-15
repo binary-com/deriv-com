@@ -228,12 +228,8 @@ const WhatOurClientsSay = () => {
             minWidth: '100%',
             paddingLeft: '1rem',
         },
-        button_style: {
-            display: 'flex',
-            position: 'sticky',
-            justifyContent: 'space-between',
-            overflow: 'hidden',
-            bottom: '60%',
+        chevron_style: {
+            chevron_color: 'black',
         },
     }
 

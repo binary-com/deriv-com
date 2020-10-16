@@ -280,7 +280,7 @@ const negar = {
     index: 1,
 }
 const ahmad = {
-    name: 'Ahmad Aizuddin Disaster, Recovery Analyst',
+    name: 'Ahmad Aizuddin, Disaster Recovery Analyst',
     img_alt: 'Ahmad - Recovery Analyst',
     img_path: AhmadImage,
     quote: `One of the things I like best about working here is how we’re encouraged to take ownership of our tasks and goals. The autonomy and trust by the leadership team motivate me to excel in my role.`,

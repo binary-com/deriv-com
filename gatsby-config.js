@@ -49,7 +49,7 @@ module.exports = {
                     '/**/homepage/**',
                     '/careers/jobs',
                     '/careers/jobs/**',
-                    'careers/job',
+                    '/careers/job',
                     '/careers/job/**',
                     'careers/teams',
                     '/careers/teams/**',

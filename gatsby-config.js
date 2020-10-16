@@ -51,7 +51,7 @@ module.exports = {
                     '/careers/jobs/**',
                     '/careers/job',
                     '/careers/job/**',
-                    'careers/teams',
+                    '/careers/teams',
                     '/careers/teams/**',
                     '/careers/team',
                     '/careers/team/**',

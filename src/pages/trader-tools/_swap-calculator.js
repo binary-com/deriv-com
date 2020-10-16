@@ -653,7 +653,12 @@ const SwapCalculator = () => {
                         </Text>
 
                         <LinkWrapper>
-                            <StyledLinkButton tertiary="true" to="/dmt5/">
+                            <StyledLinkButton
+                                tertiary="true"
+                                to="https://app.deriv.com/mt5"
+                                external="true"
+                                target="_blank"
+                            >
                                 {localize('Go to DMT5 dashboard')}
                             </StyledLinkButton>
                             <StyledLinkButton external secondary="true" to="/trade-types/margin">

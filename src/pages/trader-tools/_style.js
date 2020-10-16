@@ -245,9 +245,9 @@ export const StyledCurrencyLabel = styled.label`
     position: absolute;
     pointer-events: none;
     color: var(--color-blue-5);
-    font-size: 3rem;
+    font-size: 2.4rem;
     right: 20px;
-    top: 20px;
+    top: 24px;
 `
 
 export const StyledTextAreaContainer = styled.div`

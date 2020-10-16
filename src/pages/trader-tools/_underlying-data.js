@@ -426,7 +426,7 @@ export const financialItemLists = [
     },
     {
         name: 'XAGUSD',
-        display_name: localize('Silver/USD)'),
+        display_name: localize('Silver/USD'),
         icon: <SILVERUSD />,
         market: 'commodities',
     },

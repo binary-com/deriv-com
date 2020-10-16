@@ -172,11 +172,15 @@ const MarginCalculator = () => {
                         {({
                             values,
                             setFieldValue,
+                            setFieldError,
+                            setFieldTouched,
                             handleBlur,
                             errors,
                             touched,
                             setErrors,
                             resetForm,
+                            isValid,
+                            dirty,
                         }) => (
                             <StyledForm>
                                 <CalculatorHeader>
@@ -289,7 +293,11 @@ const MarginCalculator = () => {
                                                     autoComplete="off"
                                                     error={touched.assetPrice && errors.assetPrice}
                                                     onBlur={handleBlur}
-                                                    handleError={() => resetForm()}
+                                                    handleError={() => {
+                                                        setFieldValue('assetPrice', '', false)
+                                                        setFieldError('assetPrice', '')
+                                                        setFieldTouched('assetPrice', false, false)
+                                                    }}
                                                 />
                                             )}
                                         </Field>
@@ -310,7 +318,11 @@ const MarginCalculator = () => {
                                     />
                                 </CalculatorBody>
                                 <ActionSection>
-                                    <StyledButton secondary type="submit">
+                                    <StyledButton
+                                        secondary
+                                        type="submit"
+                                        disabled={!isValid || !dirty}
+                                    >
                                         {localize('Calculate')}
                                     </StyledButton>
                                 </ActionSection>
@@ -380,7 +392,12 @@ const MarginCalculator = () => {
                 </StyledText>
 
                 <LinkWrapper>
-                    <StyledLinkButton tertiary="true" to="/dmt5/">
+                    <StyledLinkButton
+                        tertiary="true"
+                        to="https://app.deriv.com/mt5"
+                        external="true"
+                        target="_blank"
+                    >
                         {localize('Go to DMT5 dashboard')}
                     </StyledLinkButton>
                     <StyledLinkButton secondary="true" to="/trade-types/margin">

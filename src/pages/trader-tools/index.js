@@ -78,7 +78,7 @@ const TraderTools = () => {
             <Hero jc="center" ai="center">
                 <Container>
                     <Header as="h1" color="white" align="center">
-                        {localize('Traders` tools')}
+                        {localize('Traders’ tools')}
                     </Header>
                 </Container>
             </Hero>

@@ -21,7 +21,7 @@ const StyledHeader = styled(Header)`
 `
 const StyledHeaderContent = styled(Header)`
     line-height: 1.25;
-    width: 320px;
+    width: 360px;
     @media ${device.tablet} {
         margin: auto;
         margin-bottom: 2rem;
@@ -49,12 +49,40 @@ const Row = styled(Flex)`
     }
 `
 
-const ImgWrapper = styled.div`
-    width: 356px;
-    margin-bottom: 2rem;
+const RowColumn = styled.div`
+    width: 360px;
+    margin-right: 40px;
+
+    &:last-child {
+        margin-right: 0;
+        margin-left: 40px;
+        text-align: right;
+    }
+
     @media ${device.tabletL} {
-        max-width: 328px;
-        margin: 2rem auto;
+        width: 328px;
+        margin: 0 auto;
+
+        &:last-child {
+            margin: 0 auto;
+        }
+    }
+`
+
+const ImgWrapper = styled.div`
+    width: 360px;
+    @media ${device.tabletL} {
+        width: 328px;
+        margin: 1rem auto;
+    }
+`
+
+const TextWrapper = styled.div`
+    margin-bottom: 2rem;
+    width: 360px;
+    @media ${device.tabletL} {
+        width: 328px;
+        margin: 0 auto;
     }
 `
 
@@ -114,22 +142,24 @@ const WhatAreOptions = () => {
                 <SmallContainer direction="column" ai="flex-start">
                     <Flex fd="column">
                         <Row mb="2rem">
-                            <div>
-                                <StyledHeaderContent as="h3" width="32rem">
+                            <RowColumn>
+                                <StyledHeaderContent as="h3">
                                     <Localize translate_text="Let’s say you predict that the market will go up." />
                                 </StyledHeaderContent>
-                            </div>
+                            </RowColumn>
 
-                            <div>
+                            <RowColumn>
                                 <ImgWrapper>
                                     <QueryImage data={data['stake_amount']} alt="tes2" />
                                 </ImgWrapper>
-                            </div>
+                            </RowColumn>
                         </Row>
                         <Row>
-                            <div>
+                            <RowColumn>
                                 <ImgWrapper>
                                     <QueryImage data={data['multiplier_no_multi_win']} alt="tes" />
+                                </ImgWrapper>
+                                <TextWrapper>
                                     <Text m="1.6rem 0 4rem 0">
                                         <Localize
                                             translate_text="<0>Without a multiplier</0>, if the market goes up by 2%, you'll gain 2% * $100 = <1>$2 profit<1>."
@@ -139,14 +169,17 @@ const WhatAreOptions = () => {
                                             ]}
                                         />
                                     </Text>
-                                </ImgWrapper>
-                            </div>
-                            <div>
+                                </TextWrapper>
+                            </RowColumn>
+                            <RowColumn>
                                 <ImgWrapper>
                                     <QueryImage
                                         data={data['multiplier_with_multi_win']}
                                         alt="tes"
                                     />
+                                </ImgWrapper>
+
+                                <TextWrapper>
                                     <Text m="1.6rem 0 4rem 0">
                                         <Localize
                                             translate_text="<0>With a x500 multiplier</0>, if the market goes up by 2%, you'll gain 2% * $100 * 500 = <1>$1,000 profit</1>."
@@ -156,36 +189,42 @@ const WhatAreOptions = () => {
                                             ]}
                                         />
                                     </Text>
-                                </ImgWrapper>
-                            </div>
+                                </TextWrapper>
+                            </RowColumn>
                         </Row>
 
                         <Row>
-                            <div>
+                            <RowColumn>
                                 <ImgWrapper>
                                     <QueryImage data={data['multiplier_no_multi_loss']} alt="tes" />
-                                    <Text mt="1.6rem">
+                                </ImgWrapper>
+
+                                <TextWrapper>
+                                    <Text m="1.6rem 0 4rem 0" width="340px">
                                         <Localize
                                             translate_text="<0>With an equivalent $100 margin trade</0>, with 1:500 leverage, you risk 2% * $50,000 = <1>$1000 loss</1>."
                                             components={[<strong key={0} />, <LossText key={1} />]}
                                         />
                                     </Text>
-                                </ImgWrapper>
-                            </div>
-                            <div>
+                                </TextWrapper>
+                            </RowColumn>
+                            <RowColumn>
                                 <ImgWrapper>
                                     <QueryImage
                                         data={data['multiplier_with_multi_loss']}
                                         alt="tes"
                                     />
+                                </ImgWrapper>
+
+                                <TextWrapper>
                                     <Text mt="1.6rem">
                                         <Localize
                                             translate_text="<0>With a x500 multiplier</0>, if the market goes down 2%, you'll <1>lose only $100</1>. An automatic stop out kicks in if your loss reaches your stake amount."
                                             components={[<strong key={0} />, <LossText key={1} />]}
                                         />
                                     </Text>
-                                </ImgWrapper>
-                            </div>
+                                </TextWrapper>
+                            </RowColumn>
                         </Row>
                     </Flex>
                 </SmallContainer>

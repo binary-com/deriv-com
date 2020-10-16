@@ -47,7 +47,7 @@ module.exports = {
                     '/homepage/**',
                     '/**/homepage',
                     '/**/homepage/**',
-                    'careers/jobs',
+                    '/careers/jobs',
                     '/careers/jobs/**',
                     'careers/job',
                     '/careers/job/**',

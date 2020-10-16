@@ -10,36 +10,6 @@ module.exports = {
         siteUrl: 'https://deriv.com',
     },
     plugins: [
-        // TODO: AMP will be disabled until further notice
-        // {
-        //     resolve: `gatsby-plugin-amp`,
-        //     options: {
-        //         analytics: {
-        //             type: 'gtag',
-        //             dataCredentials: 'include',
-        //             config: {
-        //                 vars: {
-        //                     gtag_id: 'UA-139927388-1',
-        //                     config: {
-        //                         'UA-139927388-1': {
-        //                             page_location: '{{pathname}}',
-        //                         },
-        //                     },
-        //                 },
-        //             },
-        //         },
-        //         canonicalBaseUrl: 'https://deriv.com/',
-        //         components: [
-        //             'amp-animation',
-        //             'amp-position-observer',
-        //             'amp-carousel',
-        //             'amp-iframe',
-        //         ],
-        //         pathIdentifier: '/amp/',
-        //         relAmpHtmlPattern: '{{canonicalBaseUrl}}{{pathname}}{{pathIdentifier}}',
-        //         useAmpClientIdApi: true,
-        //     },
-        // },
         'gatsby-plugin-react-helmet',
         'gatsby-plugin-styled-components',
         {
@@ -77,6 +47,14 @@ module.exports = {
                     '/homepage/**',
                     '/**/homepage',
                     '/**/homepage/**',
+                    '/careers/jobs',
+                    '/careers/jobs/**',
+                    '/careers/job',
+                    '/careers/job/**',
+                    '/careers/teams',
+                    '/careers/teams/**',
+                    '/careers/team',
+                    '/careers/team/**',
                 ],
                 serialize: ({ site, allSitePage }) =>
                     allSitePage.edges.map((edge) => {
@@ -207,6 +185,10 @@ module.exports = {
                             '/zh_tw/',
                             '/amp/',
                             '/homepage/',
+                            '/careers/jobs/',
+                            '/careers/job/',
+                            '/careers/teams/',
+                            '/careers/team/',
                             '*derivtnc*',
                             '*deriv_tnc*',
                         ],

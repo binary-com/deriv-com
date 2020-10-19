@@ -154,6 +154,7 @@ const MarginCalculator = () => {
             <WrapContainer mb="4.0rem">
                 <StyledFormWrapper>
                     <Formik
+                        enableReinitialize
                         initialValues={{
                             accountType: 'Synthetic',
                             margin: '',
@@ -251,7 +252,6 @@ const MarginCalculator = () => {
                                         onBlur={handleBlur}
                                         autocomplete="off"
                                         contractSize={values.contractSize}
-                                        required
                                     />
 
                                     <InputGroup>

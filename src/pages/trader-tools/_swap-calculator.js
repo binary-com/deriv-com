@@ -21,7 +21,7 @@ import {
     StyledLabel,
     CalculatorHeader,
     CalculatorBody,
-    SwapActionSection,
+    ActionSection,
     StyledCurrencyLabel,
     StyledTextAreaContainer,
     StyledFormikDropdown,
@@ -296,6 +296,7 @@ const SwapCalculator = () => {
                                                                     false,
                                                                 )
                                                             }}
+                                                            required
                                                         />
                                                     )}
                                                 </Field>
@@ -336,6 +337,7 @@ const SwapCalculator = () => {
                                                                     false,
                                                                 )
                                                             }}
+                                                            required
                                                         />
                                                     )}
                                                 </Field>
@@ -371,20 +373,21 @@ const SwapCalculator = () => {
                                                                     false,
                                                                 )
                                                             }}
+                                                            required
                                                         />
                                                     )}
                                                 </Field>
                                             </StyledInputGroup>
+                                            <ActionSection>
+                                                <StyledButton
+                                                    secondary
+                                                    type="submit"
+                                                    disabled={!isValid || !dirty}
+                                                >
+                                                    {localize('Calculate')}
+                                                </StyledButton>
+                                            </ActionSection>
                                         </CalculatorBody>
-                                        <SwapActionSection>
-                                            <StyledButton
-                                                secondary
-                                                type="submit"
-                                                disabled={!isValid || !dirty}
-                                            >
-                                                {localize('Calculate')}
-                                            </StyledButton>
-                                        </SwapActionSection>
                                     </StyledForm>
                                 )}
                             </Formik>
@@ -557,6 +560,7 @@ const SwapCalculator = () => {
                                                                     false,
                                                                 )
                                                             }}
+                                                            required
                                                         />
                                                     )}
                                                 </Field>
@@ -597,6 +601,7 @@ const SwapCalculator = () => {
                                                                     false,
                                                                 )
                                                             }}
+                                                            required
                                                         />
                                                     )}
                                                 </Field>
@@ -632,20 +637,21 @@ const SwapCalculator = () => {
                                                                     false,
                                                                 )
                                                             }}
+                                                            required
                                                         />
                                                     )}
                                                 </Field>
                                             </StyledInputGroup>
+                                            <ActionSection>
+                                                <StyledButton
+                                                    secondary
+                                                    type="submit"
+                                                    disabled={!isValid || !dirty}
+                                                >
+                                                    {localize('Calculate')}
+                                                </StyledButton>
+                                            </ActionSection>
                                         </CalculatorBody>
-                                        <SwapActionSection>
-                                            <StyledButton
-                                                secondary
-                                                type="submit"
-                                                disabled={!isValid || !dirty}
-                                            >
-                                                {localize('Calculate')}
-                                            </StyledButton>
-                                        </SwapActionSection>
                                     </StyledForm>
                                 )}
                             </Formik>

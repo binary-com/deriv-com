@@ -21,7 +21,7 @@ const Symbol = styled(Flex)`
     }
     ${Text} {
         font-weight: normal;
-        font-size: var(--text-size-xs);
+        font-size: 14px;
         line-height: 1.14;
         margin-top: 8px;
 
@@ -94,7 +94,7 @@ const DropdownSelected = styled.li`
     padding: 0 1.6rem;
     text-overflow: ellipsis;
     height: 100%;
-    font-size: var(--text-size-xs);
+    font-size: 14px;
     display: flex;
     align-items: center;
     ${(props) =>
@@ -116,7 +116,7 @@ const ListItem = styled.li`
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    font-size: var(--text-size-xs);
+    font-size: 14px;
     background-color: ${(props) =>
         props.is_selected ? 'var(--color-grey-6)' : 'var(--color-white)'};
 
@@ -134,6 +134,18 @@ const ListItem = styled.li`
 
     @media ${device.mobileL} {
         font-size: 14px;
+    }
+
+    ${Text} {
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 1.14;
+        margin-top: 8px;
+        color: ${(props) => (props.is_selected ? 'var(--color-red-1)' : 'var(--color-black-3)')};
+
+        @media ${device.mobileL} {
+            font-size: 14px;
+        }
     }
 `
 
@@ -178,7 +190,7 @@ const StyledLabel = styled.label`
     /* prettier-ignore */
     color: var(--color-${(props) => props.labelColor || 'grey'});
     background: var(--color-${(props) => props.labelColor || 'white'});
-    font-size: var(--text-size-xs);
+    font-size: 14px;
     position: absolute;
     pointer-events: none;
     left: 0.8rem;
@@ -313,7 +325,9 @@ const FormikDropdown = ({
 
     const handleChange = (option) => {
         onChange(option)
-        setIsNotDefault(true)
+        if (option.name !== 'default') {
+            setIsNotDefault(true)
+        }
         closeList()
     }
 

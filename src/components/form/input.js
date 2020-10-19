@@ -22,7 +22,7 @@ const InputWrapper = styled.div`
         border-color: var(--color-grey-5);
 
         & > label {
-            color: var(--color- ${(props) => props.labelHoverColor || 'black-3'});
+            color: var(--color-${(props) => props.labelHoverColor || 'black-3'});
         }
     }
     &:focus-within {
@@ -63,7 +63,7 @@ const StyledInput = styled.input`
     /* prettier-ignore */
     background: var(--color-${(props) => props.inputBackground || 'none'});
     color: var(--color-${(props) => props.inputColor || 'black'});
-    font-size: 16px;
+    font-size: 14px;
     padding: 1rem 1rem 1rem 0.8rem;
     width: 100%;
     display: block;
@@ -83,7 +83,7 @@ const StyledInput = styled.input`
         & ~ label {
             font-size: 1.5rem;
             top: 1.75rem;
-        }       
+        }
     }
 
     &::placeholder {

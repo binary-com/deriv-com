@@ -1,8 +1,7 @@
 import { localize } from 'components/localization'
 
 const validation_regex = {
-    number: /^[1-9]\d*$/,
-    swapRate: /^-?[0-9]\d*(\.\d+)?$/,
+    number: /^-?[0-9]\d*(\.\d+)?$/,
 }
 
 const validation = {
@@ -18,7 +17,7 @@ const validation = {
         if (!input) {
             return localize('Volume is required')
         } else if (!validation_regex.number.test(input)) {
-            return localize('Invalid volume input [0 - 9]')
+            return localize('Should be a valid number')
         } else {
             return null
         }
@@ -28,7 +27,7 @@ const validation = {
         if (!input) {
             return localize('Asset price is required')
         } else if (!validation_regex.number.test(input)) {
-            return localize('Invalid asset price input [0 - 9]')
+            return localize('Should be a valid number')
         } else {
             return null
         }
@@ -44,8 +43,8 @@ const validation = {
     swapRate: (input) => {
         if (!input) {
             return localize('Swap rate is required')
-        } else if (!validation_regex.swapRate.test(input)) {
-            return localize('Invalid swap rate price input [0.00 - 100%]')
+        } else if (!validation_regex.number.test(input)) {
+            return localize('Should be a valid number')
         } else {
             return null
         }
@@ -55,7 +54,7 @@ const validation = {
         if (!input) {
             return localize('Point value is required')
         } else if (!validation_regex.number.test(input)) {
-            return localize('Invalid point value input [0 - 9]')
+            return localize('Should be a valid number')
         } else {
             return null
         }

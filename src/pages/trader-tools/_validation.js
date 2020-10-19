@@ -4,6 +4,17 @@ const validation_regex = {
     number: /^-?[0-9]\d*(\.\d+)?$/,
 }
 
+const validation_digits = (input) => {
+    const max_number = 9999999999999
+    const min_number = -9999999999999
+
+    if (input > max_number || input < min_number) {
+        return false
+    }
+
+    return true
+}
+
 const validation = {
     symbol: (input) => {
         if (!input || input.display_name === '') {
@@ -19,6 +30,9 @@ const validation = {
         } else if (!validation_regex.number.test(input)) {
             return localize('Should be a valid number')
         } else {
+            if (!validation_digits(input)) {
+                return localize('Reached maximum number of digits')
+            }
             return null
         }
     },
@@ -29,6 +43,9 @@ const validation = {
         } else if (!validation_regex.number.test(input)) {
             return localize('Should be a valid number')
         } else {
+            if (!validation_digits(input)) {
+                return localize('Reached maximum number of digits')
+            }
             return null
         }
     },
@@ -46,6 +63,9 @@ const validation = {
         } else if (!validation_regex.number.test(input)) {
             return localize('Should be a valid number')
         } else {
+            if (!validation_digits(input)) {
+                return localize('Reached maximum number of digits')
+            }
             return null
         }
     },
@@ -56,6 +76,9 @@ const validation = {
         } else if (!validation_regex.number.test(input)) {
             return localize('Should be a valid number')
         } else {
+            if (!validation_digits(input)) {
+                return localize('Reached maximum number of digits')
+            }
             return null
         }
     },

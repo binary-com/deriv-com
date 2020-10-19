@@ -74,13 +74,17 @@ const SwapCalculator = () => {
     const getSwapChargeSynthetic = (values) => {
         const { volume, assetPrice, swapRate, contractSize } = values
         const swap_formula_synthetic = (volume * contractSize * assetPrice * (swapRate / 100)) / 360
-        return swap_formula_synthetic.toFixed(4)
+        return toFixed(swap_formula_synthetic)
     }
 
     const getSwapChargeForex = (values) => {
         const { volume, pointValue, swapRate, contractSize } = values
         const swap_formula_forex = volume * contractSize * pointValue * swapRate
-        return swap_formula_forex.toFixed(4)
+        return toFixed(swap_formula_forex)
+    }
+
+    const toFixed = (val) => {
+        return parseFloat(val.toFixed(4))
     }
 
     const resetValidationSynthetic = (values) => {

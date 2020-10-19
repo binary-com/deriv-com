@@ -39,6 +39,7 @@ const DropdownContainer = styled.ul`
     padding: 0;
     border-radius: 4px;
     height: 40px;
+    margin-bottom: 0;
 
     /* ul has no focus attributes, it needs to pass on active props instead */
     ${(props) => props.active && 'border-color: var(--color-green) !important;'}
@@ -78,6 +79,11 @@ const DropdownContainer = styled.ul`
                 color: var(--color-red-1) !important;
             }
         `}
+`
+
+const StyledDiv = styled.div`
+    position: relative;
+    top: -30px;
 `
 
 const DropdownSelected = styled.li`
@@ -170,7 +176,7 @@ const Arrow = styled(Chevron)`
 
 const StyledLabel = styled.label`
     /* prettier-ignore */
-    color: var(--color-${(props) => props.labelColor || 'black'});
+    color: var(--color-${(props) => props.labelColor || 'grey'});
     background: var(--color-${(props) => props.labelColor || 'white'});
     font-size: var(--text-size-xs);
     position: absolute;
@@ -201,6 +207,7 @@ const StyledLabel = styled.label`
 //     }
 // `
 const ErrorMessages = styled(Text)`
+    position: absolute;
     padding-left: 0.8rem;
     font-size: 1.2rem;
     min-height: 16px;
@@ -211,7 +218,7 @@ const ContractSizeWrapper = styled(Text)`
     font-size: 1.2rem;
     min-height: 16px;
     position: absolute;
-    bottom: -20px;
+    cursor: text;
     color: var(--color-grey-5);
 `
 
@@ -231,6 +238,7 @@ const FormikDropdown = ({
     ...props
 }) => {
     const [is_open, setOpen] = useState(false)
+    const [is_not_default, setIsNotDefault] = useState(false)
     const nodes = new Map()
     const dropdown_ref = useRef(null)
 
@@ -305,84 +313,89 @@ const FormikDropdown = ({
 
     const handleChange = (option) => {
         onChange(option)
+        setIsNotDefault(true)
         closeList()
     }
 
     return (
-        <DropdownContainer
-            active={is_open}
-            ref={dropdown_ref}
-            has_short_name={has_short_name}
-            error={error}
-            {...props}
-        >
-            <StyledLabel active={true}>{label}</StyledLabel>
-            <DropdownSelected
-                role="button"
-                id="selected_dropdown"
-                tabIndex="0"
-                onClick={toggleListVisibility}
-                onKeyDown={toggleListVisibility}
+        <>
+            <DropdownContainer
+                active={is_open}
+                ref={dropdown_ref}
                 has_short_name={has_short_name}
+                error={error}
+                {...props}
             >
-                <Symbol>
-                    {selected_option ? (
-                        <>
-                            {selected_option.icon}
-                            <Text>{selected_option.display_name}</Text>
-                        </>
-                    ) : (
-                        <>
-                            {default_option.icon}
-                            <DefaultOptionText>{default_option.display_name}</DefaultOptionText>
-                        </>
-                    )}
-                </Symbol>
-                <Arrow expanded={`${is_open ? 'true' : 'false'}`} />
-            </DropdownSelected>
-            <ListContainer aria-expanded={`${is_open ? 'true' : 'false'}`} role="list">
-                <UnorderedList open={is_open}>
-                    {option_list &&
-                        option_list.map(
-                            (option) =>
-                                option && (
-                                    <ListItem
-                                        tabIndex="0"
-                                        id={option?.name}
-                                        key={option?.name}
-                                        ref={(c) => nodes.set(option?.display_name, c)}
-                                        onClick={() => handleChange(option, error)}
-                                        onKeyDown={(e) => {
-                                            switch (e.keyCode) {
-                                                case Keycodes.TAB:
-                                                case Keycodes.ENTER:
-                                                    handleChange(option, error)
-                                                    break
-                                                default:
-                                                    break
-                                            }
-                                        }}
-                                        is_selected={option?.name === selected_option?.name}
-                                    >
-                                        <Symbol>
-                                            {option?.icon}
-                                            <Text>{option?.display_name}</Text>
-                                        </Symbol>
-                                    </ListItem>
-                                ),
+                <StyledLabel active={is_open || is_not_default}>{label}</StyledLabel>
+                <DropdownSelected
+                    role="button"
+                    id="selected_dropdown"
+                    tabIndex="0"
+                    onClick={toggleListVisibility}
+                    onKeyDown={toggleListVisibility}
+                    has_short_name={has_short_name}
+                >
+                    <Symbol>
+                        {selected_option ? (
+                            <>
+                                {selected_option.icon}
+                                <Text>{selected_option.display_name}</Text>
+                            </>
+                        ) : (
+                            <>
+                                {default_option.icon}
+                                <DefaultOptionText>{default_option.display_name}</DefaultOptionText>
+                            </>
                         )}
-                </UnorderedList>
-            </ListContainer>
-            <ErrorMessages lh="1.4" align="left" color="red-1">
-                {error}
-            </ErrorMessages>
+                    </Symbol>
+                    <Arrow expanded={`${is_open ? 'true' : 'false'}`} />
+                </DropdownSelected>
+                <ListContainer aria-expanded={`${is_open ? 'true' : 'false'}`} role="list">
+                    <UnorderedList open={is_open}>
+                        {option_list &&
+                            option_list.map(
+                                (option) =>
+                                    option && (
+                                        <ListItem
+                                            tabIndex="0"
+                                            id={option?.name}
+                                            key={option?.name}
+                                            ref={(c) => nodes.set(option?.display_name, c)}
+                                            onClick={() => handleChange(option, error)}
+                                            onKeyDown={(e) => {
+                                                switch (e.keyCode) {
+                                                    case Keycodes.TAB:
+                                                    case Keycodes.ENTER:
+                                                        handleChange(option, error)
+                                                        break
+                                                    default:
+                                                        break
+                                                }
+                                            }}
+                                            is_selected={option?.name === selected_option?.name}
+                                        >
+                                            <Symbol>
+                                                {option?.icon}
+                                                <Text>{option?.display_name}</Text>
+                                            </Symbol>
+                                        </ListItem>
+                                    ),
+                            )}
+                    </UnorderedList>
+                </ListContainer>
+            </DropdownContainer>
+            <StyledDiv>
+                <ErrorMessages lh="1.4" align="left" color="red-1">
+                    {error}
+                </ErrorMessages>
 
-            {contractSize && (
-                <ContractSizeWrapper lh="1.4" align="left">
-                    Contract size : {contractSize}
-                </ContractSizeWrapper>
-            )}
-        </DropdownContainer>
+                {contractSize && (
+                    <ContractSizeWrapper lh="1.4" align="left">
+                        Contract size : {contractSize}
+                    </ContractSizeWrapper>
+                )}
+            </StyledDiv>
+        </>
     )
 }
 

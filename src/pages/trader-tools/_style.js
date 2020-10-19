@@ -232,7 +232,7 @@ export const CalculatorHeader = styled.div`
 `
 
 export const ActionSection = styled(Flex)`
-    padding: 2rem;
+    margin-top: 3rem;
     justify-content: center;
 `
 

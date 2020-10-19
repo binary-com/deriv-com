@@ -222,7 +222,10 @@ const SwapCalculator = () => {
                                     handleBlur,
                                     errors,
                                     touched,
-                                    resetForm,
+                                    setFieldError,
+                                    setFieldTouched,
+                                    isValid,
+                                    dirty,
                                 }) => (
                                     <StyledForm>
                                         <CalculatorHeader>
@@ -284,7 +287,15 @@ const SwapCalculator = () => {
                                                             error={touched.volume && errors.volume}
                                                             onBlur={handleBlur}
                                                             data-lpignore="true"
-                                                            handleError={() => resetForm()}
+                                                            handleError={() => {
+                                                                setFieldValue('volume', '', false)
+                                                                setFieldError('volume', '')
+                                                                setFieldTouched(
+                                                                    'volume',
+                                                                    false,
+                                                                    false,
+                                                                )
+                                                            }}
                                                         />
                                                     )}
                                                 </Field>
@@ -312,7 +323,19 @@ const SwapCalculator = () => {
                                                             }
                                                             onBlur={handleBlur}
                                                             data-lpignore="true"
-                                                            handleError={() => resetForm()}
+                                                            handleError={() => {
+                                                                setFieldValue(
+                                                                    'assetPrice',
+                                                                    '',
+                                                                    false,
+                                                                )
+                                                                setFieldError('assetPrice', '')
+                                                                setFieldTouched(
+                                                                    'assetPrice',
+                                                                    false,
+                                                                    false,
+                                                                )
+                                                            }}
                                                         />
                                                     )}
                                                 </Field>
@@ -339,14 +362,26 @@ const SwapCalculator = () => {
                                                             }
                                                             onBlur={handleBlur}
                                                             data-lpignore="true"
-                                                            handleError={() => resetForm()}
+                                                            handleError={() => {
+                                                                setFieldValue('swapRate', '', false)
+                                                                setFieldError('swapRate', '')
+                                                                setFieldTouched(
+                                                                    'swapRate',
+                                                                    false,
+                                                                    false,
+                                                                )
+                                                            }}
                                                         />
                                                     )}
                                                 </Field>
                                             </StyledInputGroup>
                                         </CalculatorBody>
                                         <SwapActionSection>
-                                            <StyledButton secondary type="submit">
+                                            <StyledButton
+                                                secondary
+                                                type="submit"
+                                                disabled={!isValid || !dirty}
+                                            >
                                                 {localize('Calculate')}
                                             </StyledButton>
                                         </SwapActionSection>
@@ -450,7 +485,10 @@ const SwapCalculator = () => {
                                     handleBlur,
                                     errors,
                                     touched,
-                                    resetForm,
+                                    isValid,
+                                    dirty,
+                                    setFieldTouched,
+                                    setFieldError,
                                 }) => (
                                     <StyledForm>
                                         <CalculatorHeader>
@@ -510,7 +548,15 @@ const SwapCalculator = () => {
                                                             error={touched.volume && errors.volume}
                                                             onBlur={handleBlur}
                                                             data-lpignore="true"
-                                                            handleError={() => resetForm()}
+                                                            handleError={() => {
+                                                                setFieldValue('volume', '', false)
+                                                                setFieldError('volume', '')
+                                                                setFieldTouched(
+                                                                    'volume',
+                                                                    false,
+                                                                    false,
+                                                                )
+                                                            }}
                                                         />
                                                     )}
                                                 </Field>
@@ -538,7 +584,19 @@ const SwapCalculator = () => {
                                                             }
                                                             onBlur={handleBlur}
                                                             data-lpignore="true"
-                                                            handleError={() => resetForm()}
+                                                            handleError={() => {
+                                                                setFieldValue(
+                                                                    'pointValue',
+                                                                    '',
+                                                                    false,
+                                                                )
+                                                                setFieldError('pointValue', '')
+                                                                setFieldTouched(
+                                                                    'pointValue',
+                                                                    false,
+                                                                    false,
+                                                                )
+                                                            }}
                                                         />
                                                     )}
                                                 </Field>
@@ -565,14 +623,26 @@ const SwapCalculator = () => {
                                                             }
                                                             onBlur={handleBlur}
                                                             data-lpignore="true"
-                                                            handleError={() => resetForm()}
+                                                            handleError={() => {
+                                                                setFieldValue('swapRate', '', false)
+                                                                setFieldError('swapRate', '')
+                                                                setFieldTouched(
+                                                                    'swapRate',
+                                                                    false,
+                                                                    false,
+                                                                )
+                                                            }}
                                                         />
                                                     )}
                                                 </Field>
                                             </StyledInputGroup>
                                         </CalculatorBody>
                                         <SwapActionSection>
-                                            <StyledButton secondary type="submit">
+                                            <StyledButton
+                                                secondary
+                                                type="submit"
+                                                disabled={!isValid || !dirty}
+                                            >
                                                 {localize('Calculate')}
                                             </StyledButton>
                                         </SwapActionSection>

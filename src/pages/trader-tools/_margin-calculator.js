@@ -111,7 +111,8 @@ const MarginCalculator = () => {
                 if (symbol.name === 'DAX_30') {
                     currency = 'EUR'
                 } else {
-                    if (symbol.name !== 'default') currency = symbol.display_name.slice(-3)
+                    if (symbol.name !== 'default' && symbol.name !== 'CL_BRENT')
+                        currency = symbol.display_name.slice(-3)
                 }
             }
         }
@@ -236,7 +237,6 @@ const MarginCalculator = () => {
                                     </Flex>
 
                                     <StyledFormikDropdown
-                                        mb="2.4rem"
                                         option_list={values.optionList}
                                         label={localize('Symbol')}
                                         default_option={optionItemDefault}
@@ -251,6 +251,7 @@ const MarginCalculator = () => {
                                         onBlur={handleBlur}
                                         autocomplete="off"
                                         contractSize={values.contractSize}
+                                        required
                                     />
 
                                     <InputGroup>
@@ -270,7 +271,12 @@ const MarginCalculator = () => {
                                                     autoComplete="off"
                                                     error={touched.volume && errors.volume}
                                                     onBlur={handleBlur}
-                                                    handleError={() => resetForm()}
+                                                    handleError={() => {
+                                                        setFieldValue('volume', '', false)
+                                                        setFieldError('volume', '')
+                                                        setFieldTouched('volume', false, false)
+                                                    }}
+                                                    required
                                                 />
                                             )}
                                         </Field>
@@ -298,6 +304,7 @@ const MarginCalculator = () => {
                                                         setFieldError('assetPrice', '')
                                                         setFieldTouched('assetPrice', false, false)
                                                     }}
+                                                    required
                                                 />
                                             )}
                                         </Field>
@@ -316,16 +323,16 @@ const MarginCalculator = () => {
                                         autoComplete="off"
                                         data-lpignore="true"
                                     />
+                                    <ActionSection>
+                                        <StyledButton
+                                            secondary
+                                            type="submit"
+                                            disabled={!isValid || !dirty}
+                                        >
+                                            {localize('Calculate')}
+                                        </StyledButton>
+                                    </ActionSection>
                                 </CalculatorBody>
-                                <ActionSection>
-                                    <StyledButton
-                                        secondary
-                                        type="submit"
-                                        disabled={!isValid || !dirty}
-                                    >
-                                        {localize('Calculate')}
-                                    </StyledButton>
-                                </ActionSection>
                             </StyledForm>
                         )}
                     </Formik>

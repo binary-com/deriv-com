@@ -91,7 +91,7 @@ const DropdownSelected = styled.li`
     list-style-position: inside;
     white-space: nowrap;
     overflow: hidden;
-    padding: 0 1.6rem;
+    padding: 0 1rem;
     text-overflow: ellipsis;
     height: 100%;
     font-size: 14px;

@@ -78,7 +78,7 @@ const MarginCalculator = () => {
     }
 
     const toFixed = (val) => {
-        return parseFloat(val.toFixed(4))
+        return parseFloat(val.toFixed(2))
     }
 
     const resetValidation = (values) => {

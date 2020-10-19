@@ -21,7 +21,7 @@ const Symbol = styled(Flex)`
     }
     ${Text} {
         font-weight: normal;
-        font-size: 14px;
+        font-size: var(--text-size-xs);
         line-height: 1.14;
         margin-top: 8px;
 
@@ -94,7 +94,7 @@ const DropdownSelected = styled.li`
     padding: 0 1rem;
     text-overflow: ellipsis;
     height: 100%;
-    font-size: 14px;
+    font-size: var(--text-size-xs);
     display: flex;
     align-items: center;
     ${(props) =>
@@ -102,6 +102,10 @@ const DropdownSelected = styled.li`
         css`
             color: var(--color-white);
         `}
+
+    @media ${device.mobileL} {
+        font-size: 14px;
+    }
 `
 
 const ListContainer = styled.li`
@@ -116,7 +120,7 @@ const ListItem = styled.li`
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    font-size: 14px;
+    font-size: var(--text-size-xs);
     background-color: ${(props) =>
         props.is_selected ? 'var(--color-grey-6)' : 'var(--color-white)'};
 
@@ -138,7 +142,7 @@ const ListItem = styled.li`
 
     ${Text} {
         font-weight: normal;
-        font-size: 14px;
+        font-size: var(--text-size-xs);
         line-height: 1.14;
         margin-top: 8px;
         color: ${(props) => (props.is_selected ? 'var(--color-red-1)' : 'var(--color-black-3)')};
@@ -190,7 +194,7 @@ const StyledLabel = styled.label`
     /* prettier-ignore */
     color: var(--color-${(props) => props.labelColor || 'grey'});
     background: var(--color-${(props) => props.labelColor || 'white'});
-    font-size: 14px;
+    font-size: var(--text-size-xs);
     position: absolute;
     pointer-events: none;
     left: 0.8rem;
@@ -198,6 +202,10 @@ const StyledLabel = styled.label`
     transition: 0.25s ease transform;
     transform: translateZ(0);
     padding: 0 0.4rem;
+    @media ${device.tabletL} {
+        font-size: 14px;
+    }
+
     ${(props) =>
         props.active &&
         css`

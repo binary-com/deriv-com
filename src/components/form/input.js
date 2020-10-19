@@ -10,6 +10,7 @@ const RelativeWrapper = styled.div`
     position: relative;
 `
 const InputWrapper = styled.div`
+    /* prettier-ignore */
     width: 100%;
     border: ${(props) => props.border || '1px solid var(--color-grey-2)'};
     border-radius: 4px;
@@ -63,7 +64,7 @@ const StyledInput = styled.input`
     /* prettier-ignore */
     background: var(--color-${(props) => props.inputBackground || 'none'});
     color: var(--color-${(props) => props.inputColor || 'black'});
-    font-size: 14px;
+    font-size: var(--text-size-xs);
     padding: 1rem 1rem 1rem 0.8rem;
     width: 100%;
     display: block;

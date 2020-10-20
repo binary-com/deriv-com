@@ -4,7 +4,6 @@ import Loadable from '@loadable/component'
 import Markets from './home/_markets'
 import WhatOurClientsSay from './home/_what-our-clients-say'
 import TradeTypes from './home/_trade-types'
-import TradeTypesMobile from './home/_trade-types-mobile'
 import { Hero } from './home/_hero'
 import { SEO, Show } from 'components/containers'
 import Layout from 'components/layout/layout'
@@ -60,9 +59,6 @@ const Home = () => {
                 <Trade />
             </Show.Desktop>
 
-            <Show.Mobile>
-                <TradeTypesMobile />
-            </Show.Mobile>
             <Show.Desktop>
                 <TradeTypes />
             </Show.Desktop>

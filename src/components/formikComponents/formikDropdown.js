@@ -7,8 +7,6 @@ import Chevron from 'images/svg/chevron-bottom.svg'
 import device from 'themes/device'
 import { Flex } from 'components/containers'
 import { Text } from 'components/elements'
-// SVG Component
-// import CrossIcon from 'images/svg/cross.svg'
 
 const Symbol = styled(Flex)`
     width: fit-content;
@@ -213,19 +211,6 @@ const StyledLabel = styled.label`
         `}
 `
 
-// const StyledError = styled(CrossIcon)`
-//     position: absolute;
-//     right: 0.8rem;
-//     top: 1.2rem;
-//     height: 1.6rem;
-//     width: 1.6rem;
-//     cursor: pointer;
-
-//     @media ${device.tablet} {
-//         right: 2rem;
-//         top: 1.6rem;
-//     }
-// `
 const ErrorMessages = styled(Text)`
     position: absolute;
     padding-left: 0.8rem;

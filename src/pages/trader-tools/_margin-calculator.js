@@ -29,14 +29,13 @@ import {
     ActionSection,
     StyledCurrencyLabel,
     StyledTextAreaContainer,
-    StyledFormikDropdown,
+    StyledDropdown,
 } from './_style'
 import validation from './_validation'
 import { localize, Localize } from 'components/localization'
 import { Container, Flex } from 'components/containers'
-import { QueryImage } from 'components/elements'
+import { QueryImage, Dropdown } from 'components/elements'
 import Input from 'components/form/input'
-import FormikDropdown from 'components/formikComponents/formikDropdown'
 
 const MarginCalculator = () => {
     const query = graphql`
@@ -241,7 +240,7 @@ const MarginCalculator = () => {
                                         </AccountTypeTabItem>
                                     </Flex>
 
-                                    <StyledFormikDropdown
+                                    <StyledDropdown
                                         option_list={values.optionList}
                                         label={localize('Symbol')}
                                         default_option={optionItemDefault}
@@ -313,7 +312,7 @@ const MarginCalculator = () => {
                                             )}
                                         </Field>
                                     </InputGroup>
-                                    <FormikDropdown
+                                    <Dropdown
                                         option_list={leverageItemLists}
                                         id="leverage"
                                         label={localize('Leverage')}

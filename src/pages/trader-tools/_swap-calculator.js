@@ -24,7 +24,7 @@ import {
     ActionSection,
     StyledCurrencyLabel,
     StyledTextAreaContainer,
-    StyledFormikDropdown,
+    StyledDropdown,
 } from './_style'
 import validation from './_validation'
 import { localize, Localize } from 'components/localization'
@@ -249,7 +249,7 @@ const SwapCalculator = () => {
                                             </StyledTextAreaContainer>
                                         </CalculatorHeader>
                                         <CalculatorBody>
-                                            <StyledFormikDropdown
+                                            <StyledDropdown
                                                 mb="2.4rem"
                                                 option_list={values.optionList}
                                                 label={localize('Symbol')}
@@ -515,7 +515,7 @@ const SwapCalculator = () => {
                                             </StyledTextAreaContainer>
                                         </CalculatorHeader>
                                         <CalculatorBody>
-                                            <StyledFormikDropdown
+                                            <StyledDropdown
                                                 mb="2.4rem"
                                                 default_option={optionItemDefault}
                                                 option_list={values.optionList}

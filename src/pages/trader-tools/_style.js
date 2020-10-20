@@ -1,10 +1,9 @@
 import styled, { css } from 'styled-components'
 import { Form, Field } from 'formik'
 import { Flex } from 'components/containers'
-import { Header, Text } from 'components/elements'
+import { Header, Text, Dropdown } from 'components/elements'
 import { Button, LinkButton } from 'components/form'
 import device from 'themes/device'
-import FormikDropdown from 'components/formikComponents/formikDropdown'
 
 export const StyledText = styled(Text)`
     @media ${device.mobileL} {
@@ -254,7 +253,7 @@ export const StyledTextAreaContainer = styled.div`
     position: relative;
 `
 
-export const StyledFormikDropdown = styled(FormikDropdown)`
+export const StyledDropdown = styled(Dropdown)`
     margin-bottom: 3.6rem;
 `
 

@@ -1,30 +1,21 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
 import { LocationContext } from '../layout/location-context'
-import { size } from 'themes/device'
-
-const MaxWidth = styled.div`
-    @media (max-width: ${(props) => props.max_width}px) {
-        display: none !important;
-    }
-`
-
-const MinWidth = styled.div`
-    @media (min-width: ${(props) => props.min_width}px) {
-        display: none !important;
-    }
-`
+import { Media, MediaContextProvider } from 'themes/media'
 
 export const Desktop = ({ children, max_width, ...props }) => (
-    <MaxWidth max_width={max_width || size.tabletL} {...props}>
-        {children}
-    </MaxWidth>
+    <MediaContextProvider>
+        <Media greaterThan={max_width || 'tabletL'} {...props}>
+            {children}
+        </Media>
+    </MediaContextProvider>
 )
 export const Mobile = ({ children, min_width, ...props }) => (
-    <MinWidth min_width={min_width || size.tabletL} {...props}>
-        {children}
-    </MinWidth>
+    <MediaContextProvider>
+        <Media at={min_width || 'tabletL'} {...props}>
+            {children}
+        </Media>
+    </MediaContextProvider>
 )
 
 export const Eu = ({ children }) => {

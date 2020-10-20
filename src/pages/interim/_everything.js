@@ -18,7 +18,7 @@ const Ul = styled(Flex).attrs({ as: 'ul' })`
 `
 const Li = styled(Flex).attrs({ as: 'li' })`
     justify-content: left;
-    max-width: 48.6rem;
+    max-width: 52rem;
     display: flex;
     margin: 2rem 1.2rem;
     min-height: 120px;
@@ -28,7 +28,7 @@ const Li = styled(Flex).attrs({ as: 'li' })`
     }
 
     @media (max-width: 1214px) {
-        min-height: 0;
+        min-height: unset;
     }
 `
 

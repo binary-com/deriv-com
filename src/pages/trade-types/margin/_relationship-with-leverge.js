@@ -44,7 +44,7 @@ const RelationshipWithLeverge = () => {
                         )}
                     </Text>
                 </SmallContainer>
-                <Show.Desktop max_width={680}>
+                <Show.Desktop>
                     <SmallContainer direction="column" ai="flex-start">
                         <ImageWrapper>
                             <QueryImage
@@ -54,7 +54,7 @@ const RelationshipWithLeverge = () => {
                         </ImageWrapper>
                     </SmallContainer>
                 </Show.Desktop>
-                <Show.Mobile min_width={680}>
+                <Show.Mobile>
                     <ImageWrapper>
                         <QueryImage
                             data={data['margin_mobile_relationship_piechart']}

@@ -1,21 +1,17 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { LocationContext } from '../layout/location-context'
-import { Media, MediaContextProvider } from 'themes/media'
+import { Media } from 'themes/media'
 
 export const Desktop = ({ children, max_width, ...props }) => (
-    <MediaContextProvider>
-        <Media greaterThan={max_width || 'tabletL'} {...props}>
-            {children}
-        </Media>
-    </MediaContextProvider>
+    <Media greaterThanOrEqual={max_width || 'tabletL'} {...props}>
+        {children}
+    </Media>
 )
 export const Mobile = ({ children, min_width, ...props }) => (
-    <MediaContextProvider>
-        <Media at={min_width || 'tabletL'} {...props}>
-            {children}
-        </Media>
-    </MediaContextProvider>
+    <Media lessThan={min_width || 'tabletL'} {...props}>
+        {children}
+    </Media>
 )
 
 export const Eu = ({ children }) => {

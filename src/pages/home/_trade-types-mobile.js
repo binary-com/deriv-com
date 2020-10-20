@@ -40,7 +40,7 @@ const SliderWrapper = styled.div`
     width: 100%;
     position: relative;
 
-    @media ${device.laptopLC} {
+    @media ${device.laptopL} {
         padding-bottom: 0;
     }
 `

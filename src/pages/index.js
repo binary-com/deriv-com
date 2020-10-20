@@ -60,12 +60,12 @@ const Home = () => {
                 <Trade />
             </Show.Desktop>
 
-            <Show.Desktop>
-                <TradeTypes />
-            </Show.Desktop>
             <Show.Mobile>
                 <TradeTypesMobile />
             </Show.Mobile>
+            <Show.Desktop>
+                <TradeTypes />
+            </Show.Desktop>
             <Markets />
             <SimpleSteps
                 content={simple_step_content}

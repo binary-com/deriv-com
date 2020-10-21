@@ -63,6 +63,9 @@ const OptionItems = styled(Flex)`
             width: 20px;
             height: 20px;
         }
+        ${Text} {
+            margin-top: 0;
+        }
     }
 `
 const StyledHeader = styled(Header)`
@@ -82,7 +85,7 @@ const StyledDtraderHeader = styled(Header)`
 const HowOptionsWorks = () => {
     const data = useStaticQuery(query)
     return (
-        <SectionContainer p="8rem 0 4rem">
+        <SectionContainer p="rem 0 4rem">
             <SmallContainer direction="column" ai="flex-start">
                 <StyledHeader as="h2" mb="3.2rem">
                     {localize('How multipliers contracts work')}

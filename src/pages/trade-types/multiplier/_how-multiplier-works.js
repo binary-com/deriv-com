@@ -82,10 +82,22 @@ const StyledDtraderHeader = styled(Header)`
     }
 `
 
+const StyledFirstMultiplierHeader = styled(Header)`
+    @media ${device.tablet} {
+        margin-top: 8rem;
+    }
+`
+
+const StyledSectionContainer = styled(SectionContainer)`
+    @media ${device.tablet} {
+        padding-top: 4rem;
+    }
+`
+
 const HowOptionsWorks = () => {
     const data = useStaticQuery(query)
     return (
-        <SectionContainer p="rem 0 4rem">
+        <StyledSectionContainer padding="13rem 0 4rem">
             <SmallContainer direction="column" ai="flex-start">
                 <StyledHeader as="h2" mb="3.2rem">
                     {localize('How multipliers contracts work')}
@@ -138,9 +150,9 @@ const HowOptionsWorks = () => {
                         </Text>
                     </HowItWorksItem>
                 </OptionGrid>
-                <Header as="h3" mt="4rem">
+                <StyledFirstMultiplierHeader as="h3" mt="4rem">
                     {localize('How to buy your first multipliers contract on DTrader')}
-                </Header>
+                </StyledFirstMultiplierHeader>
                 <Header as="h4" mb="2.4rem" mt="3.2rem">
                     {localize('Define your position')}
                 </Header>
@@ -245,7 +257,7 @@ const HowOptionsWorks = () => {
                     </SideTab.Panel>
                 </SideTab>
             </SmallContainer>
-        </SectionContainer>
+        </StyledSectionContainer>
     )
 }
 

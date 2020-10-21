@@ -138,7 +138,7 @@ const WhatAreOptions = () => {
                     </Text>
                 </SmallContainer>
             </SectionContainer>
-            <StyledSectionContainer padding="4rem 0 4rem" mb="4rem">
+            <StyledSectionContainer padding="4rem 0">
                 <SmallContainer direction="column" ai="flex-start">
                     <Flex fd="column">
                         <Row mb="2rem">

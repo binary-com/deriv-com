@@ -35,9 +35,9 @@ const Rwanda = () => {
     return (
         <Layout type="careers">
             <SEO
-                title={localize('Limassol | Our office – Rwanda | Deriv')}
+                title={localize('Kigali | Our office – Rwanda | Deriv')}
                 description={localize(
-                    'Find your role with us by browsing Deriv job opportunities in Limassol, Rwanda.',
+                    'Find your role with us by browsing Deriv job opportunities in Kigali, Rwanda.',
                 )}
             />
             <LocationLayout location={rwanda} images={images} />

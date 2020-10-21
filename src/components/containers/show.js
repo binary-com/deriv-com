@@ -9,7 +9,7 @@ export const Desktop = ({ children, ...props }) => (
     </Media>
 )
 export const Mobile = ({ children, ...props }) => (
-    <Media lessThan="tabletL" {...props}>
+    <Media between={['start', 'tabletL']} {...props}>
         {children}
     </Media>
 )

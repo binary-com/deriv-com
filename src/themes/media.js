@@ -4,8 +4,15 @@ import { size } from './device'
 const AppMedia = createMedia({
     breakpoints: {
         start: 0,
+        mobileS: size.mobileS,
+        mobileM: size.mobileM,
+        tabletS: size.tabletS,
+        tablet: size.tablet,
         tabletL: size.tabletL,
         laptop: size.laptop,
+        laptopM: size.laptopM,
+        laptopL: size.laptopL,
+        desktopS: size.desktopS,
         desktop: size.desktop,
     },
 })

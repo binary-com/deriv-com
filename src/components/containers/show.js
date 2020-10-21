@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { LocationContext } from '../layout/location-context'
+import { useEuCountry } from 'components/hooks/eu-country-hooks'
 import { size } from 'themes/device'
 
 const MaxWidth = styled.div`
@@ -28,14 +28,14 @@ export const Mobile = ({ children, min_width, ...props }) => (
 )
 
 export const Eu = ({ children }) => {
-    const { is_eu_country } = React.useContext(LocationContext)
+    const [is_eu_country] = useEuCountry()
 
     if (is_eu_country) return <>{children}</>
     else return null
 }
 
 export const NonEU = ({ children }) => {
-    const { is_eu_country } = React.useContext(LocationContext)
+    const [is_eu_country] = useEuCountry()
 
     if (is_eu_country === false) return <>{children}</>
     else return null

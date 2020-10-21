@@ -5,11 +5,12 @@ import { Helmet } from 'react-helmet'
 import Scrollbar from 'react-perfect-scrollbar'
 import ExpandList from './_expanded-list'
 import payment_data from './_payment-data'
-import { LocationContext } from 'components/layout/location-context.js'
 import Layout from 'components/layout/layout'
 import { Text, Header, Divider, Accordion, AccordionItem } from 'components/elements'
 import { SEO, SectionContainer, Container } from 'components/containers'
 import { localize, WithIntl, Localize } from 'components/localization'
+import { useEuCountry } from 'components/hooks/eu-country-hooks'
+import { useCryptoConfig } from 'components/hooks/crypto-config-hooks'
 
 const AccordionContainer = styled.div`
     width: 100%;
@@ -61,7 +62,8 @@ const Notes = styled.div`
 `
 
 const DisplayAccordion = () => {
-    const { is_eu_country, crypto_config } = React.useContext(LocationContext)
+    const [crypto_config] = useCryptoConfig()
+    const [is_eu_country] = useEuCountry()
     return (
         <Accordion has_single_state>
             {payment_data.map((pd, idx) => {

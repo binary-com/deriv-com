@@ -36,7 +36,7 @@ const Cyprus = () => {
     const images = useStaticQuery(query)
 
     return (
-        <Layout type="careers" padding_top="10rem">
+        <Layout type="careers">
             <SEO
                 title={localize('Limassol | Our office – Cyprus | Deriv')}
                 description={localize(

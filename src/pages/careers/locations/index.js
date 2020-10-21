@@ -13,6 +13,7 @@ import {
     ipoh,
     melaka,
     cyprus,
+    rwanda,
 } from '../_model/_locations/_locations'
 import { SEO, SectionContainer, Container, Flex, CssGrid } from 'components/containers'
 import Layout from 'components/layout/layout'
@@ -23,6 +24,7 @@ import ParaguayFlagIcon from 'images/svg/flag_paraguay.svg'
 import UAEFlagIcon from 'images/svg/flag_uae.svg'
 import MaltaFlagIcon from 'images/svg/flag_malta.svg'
 import CyprusFlagIcon from 'images/svg/flag_cyprus.svg'
+import RwandaFlagIcon from 'images/svg/flag_rwanda.svg'
 import Chevron from 'images/svg/carousel-chevron.svg'
 
 const ChevronRight = styled(Chevron)`
@@ -132,6 +134,9 @@ const query = graphql`
         thumbnail_cyprus: file(relativePath: { eq: "careers/thumbnail_cyprus.png" }) {
             ...fadeIn
         }
+        thumbnail_rwanda: file(relativePath: { eq: "careers/thumbnail_rwanda.jpg" }) {
+            ...fadeIn
+        }
     }
 `
 
@@ -224,6 +229,14 @@ const Locations = () => {
                             city_name={'Limassol'}
                             open_positions={getPositionsByLocation(cyprus.name).length}
                             link={cyprus.link}
+                        />
+                        <CountryCard
+                            Icon={RwandaFlagIcon}
+                            img_data={images[rwanda.thumbnail]}
+                            country_name={rwanda.country}
+                            city_name={'Kigali'}
+                            open_positions={getPositionsByLocation(rwanda.name).length}
+                            link={rwanda.link}
                         />
                     </CssGrid>
                 </SectionContainer>

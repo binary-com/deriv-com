@@ -3,13 +3,13 @@ import PropTypes from 'prop-types'
 import { LocationContext } from '../layout/location-context'
 import { Media } from 'themes/media'
 
-export const Desktop = ({ children, ...props }) => (
-    <Media greaterThanOrEqual="tabletL" {...props}>
+export const Desktop = ({ children, max_width, ...props }) => (
+    <Media greaterThanOrEqual={max_width || 'tabletL'} {...props}>
         {children}
     </Media>
 )
-export const Mobile = ({ children, ...props }) => (
-    <Media between={['start', 'tabletL']} {...props}>
+export const Mobile = ({ children, min_width, ...props }) => (
+    <Media between={['start', ...(min_width ? [min_width] : ['tabletL'])]} {...props}>
         {children}
     </Media>
 )

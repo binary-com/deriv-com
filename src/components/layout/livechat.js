@@ -59,6 +59,7 @@ const LiveChat = ({ LC_API, is_livechat_interactive, setLiveChatInteractive }) =
                                 landing_company_shortcode: '',
                                 currency: '',
                                 residence: '',
+                                email: '',
                             }
 
                             if (client_information) {
@@ -80,25 +81,26 @@ const LiveChat = ({ LC_API, is_livechat_interactive, setLiveChatInteractive }) =
                                         }),
                                         ...(currency && { currency }),
                                         ...(residence && { residence }),
+                                        ...(email && { email }),
                                     }
 
                                     window.LiveChatWidget.call(
                                         'set_session_variables',
                                         session_variables,
                                     )
-                                    if (email)
+                                    if (email) {
                                         window.LiveChatWidget.call('set_customer_email', email)
-                                    if (first_name && last_name)
+                                    }
+                                    if (first_name && last_name) {
                                         window.LiveChatWidget.call(
                                             'set_customer_name',
                                             `${first_name} ${last_name}`,
                                         )
+                                    }
                                 }
                             }
 
                             if (visibility === 'maximized' && !client_information) {
-                                window.LiveChatWidget.call('set_customer_email', ' ')
-                                window.LiveChatWidget.call('set_customer_name', ' ')
                                 window.LiveChatWidget.call(
                                     'set_session_variables',
                                     session_variables,

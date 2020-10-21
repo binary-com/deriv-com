@@ -192,6 +192,7 @@ const NavLink = styled.li`
     align-items: center;
     text-align: center;
     margin-right: 2.4rem;
+    white-space: nowrap;
 
     &:last-child {
         margin-right: 0;
@@ -247,6 +248,10 @@ const LogoLinkMobile = styled(LocalizedLink)`
         cursor: pointer;
         margin-left: 2rem;
     }
+`
+
+const LoginButton = styled(Button)`
+    white-space: nowrap;
 `
 
 const MobileLogin = styled(Button)`
@@ -477,9 +482,9 @@ export const Nav = ({ base }) => {
                         has_scrolled={has_scrolled}
                     >
                         <LanguageSwitcher short_name="true" is_high_nav />
-                        <Button onClick={handleLogin} primary>
+                        <LoginButton onClick={handleLogin} primary>
                             <span>{localize('Log in')}</span>
-                        </Button>
+                        </LoginButton>
                         <LocalizedLink to="/signup/">
                             <SignupButton ref={button_ref} secondary="true">
                                 <span>{localize('Create free demo account')}</span>

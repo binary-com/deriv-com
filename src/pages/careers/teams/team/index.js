@@ -139,7 +139,7 @@ const Team = () => {
 
     return (
         <Layout type="careers" padding_top="10rem">
-            <SEO title={`Team ${team_names[team.name]}`} />
+            <SEO title={`Team ${team_names[team.name]}`} no_index />
             <Hero
                 background_image={team.hero_image}
                 display_name={team_names[team.name]}

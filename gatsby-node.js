@@ -4,7 +4,7 @@ const path = require('path')
 const translations_cache = {}
 // Based upon https://github.com/gatsbyjs/gatsby/tree/master/examples/using-i18n
 exports.onCreatePage = ({ page, actions }) => {
-    const { createPage, deletePage } = actions
+    const { createRedirect, createPage, deletePage } = actions
 
     // First delete the incoming page that was automatically created by Gatsby
     // So everything in src/pages/
@@ -36,7 +36,7 @@ exports.onCreatePage = ({ page, actions }) => {
             translations_cache[lang] = translation_json
         }
 
-        return createPage({
+        const current_page = createPage({
             // Pass on everything from the original page
             ...page,
             // Remove trailing slash from page.path (e.g. "/de/")
@@ -49,6 +49,14 @@ exports.onCreatePage = ({ page, actions }) => {
                 pathname: localized_path,
             },
         })
+
+        if (is_default) {
+            const en_path = `/en${localized_path.slice(0, -1)}`
+            createRedirect({ fromPath: en_path, toPath: localized_path, redirectInBrowser: true, isPermanent: true})
+            createRedirect({ fromPath: `${en_path}/`, toPath: localized_path, redirectInBrowser: true, isPermanent: true})
+        }
+
+        return current_page
     })
 }
 
@@ -60,9 +68,4 @@ exports.onCreateWebpackConfig = ({ actions, getConfig }) => {
             modules: [path.resolve(__dirname, 'src'), 'node_modules'],
         },
     })
-}
-
-exports.createPages = ({ actions }) => {
-    const { createRedirect } = actions //actions is collection of many actions - https://www.gatsbyjs.org/docs/actions
-    createRedirect({ fromPath: '/en', toPath: '/', isPermanent: true })
 }

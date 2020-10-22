@@ -184,7 +184,7 @@ const Carousel = ({ children, ...props }) => {
                     </SliderWrapper>
                 </Background>
             </Wrapper>
-            <Show.Mobile min_width={680}>
+            <Show.Mobile min_width={'bp680'}>
                 <MobileBackground>
                     <SmallContainer fd="column">{children}</SmallContainer>
                     <GreenBG />

@@ -9,7 +9,12 @@ export const Desktop = ({ children, max_width, ...props }) => (
     </Media>
 )
 export const Mobile = ({ children, min_width, ...props }) => (
-    <Media between={['start', ...(min_width ? [min_width] : ['tabletL'])]} {...props}>
+    <Media
+        between={['start', ...(min_width ? [min_width] : ['tabletL'])]}
+        {...props}
+        style="
+    width: 100%;"
+    >
         {children}
     </Media>
 )

@@ -3,8 +3,7 @@ import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { Flex, Show } from 'components/containers'
 import { Text } from 'components/elements'
-import device, { size } from 'themes/device'
-
+import device from 'themes/device'
 const TabContent = styled.div`
     flex: 1;
     width: 100%;
@@ -114,14 +113,14 @@ const Tabs = ({ children, is_reverse }) => {
                                 <Text weight="bold">{label}</Text>
                                 <Text mt="0.8rem">{description}</Text>
                             </TabButton>
-                            <Mobile min_width={size.tabletS}>
+                            <Mobile min_width={'tabletS'}>
                                 <Content>{selected_tab === index ? child : undefined}</Content>
                             </Mobile>
                         </>
                     )
                 })}
             </TabList>
-            <Desktop max_width={size.tabletS}>
+            <Desktop max_width={'tabletS'}>
                 <Content>
                     {React.Children.map(children, (el, index) => {
                         return selected_tab === index ? el : undefined

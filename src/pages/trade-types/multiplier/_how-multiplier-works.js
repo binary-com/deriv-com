@@ -97,7 +97,7 @@ const StyledSectionContainer = styled(SectionContainer)`
 const HowOptionsWorks = () => {
     const data = useStaticQuery(query)
     return (
-        <StyledSectionContainer padding="13rem 0 4rem">
+        <StyledSectionContainer padding="8rem 0 4rem">
             <SmallContainer direction="column" ai="flex-start">
                 <StyledHeader as="h2" mb="3.2rem">
                     {localize('How multipliers contracts work')}

@@ -34,6 +34,13 @@ const StyledSectionContainer = styled(SectionContainer)`
     background-position: 0 150px;
     @media ${device.tablet} {
         background: white;
+        padding-top: 8px;
+    }
+`
+
+const StyledSectionContainerHead = styled(SectionContainer)`
+    @media ${device.tablet} {
+        padding-top: 40px;
     }
 `
 
@@ -61,7 +68,7 @@ const RowColumn = styled.div`
 
     @media ${device.tabletL} {
         width: 328px;
-        margin: 0 auto;
+        margin: ${(props) => (props.isHeader ? '0' : '0 auto')};
 
         &:last-child {
             margin: 0 auto;
@@ -78,7 +85,6 @@ const ImgWrapper = styled.div`
 `
 
 const TextWrapper = styled.div`
-    margin-bottom: 2rem;
     width: 360px;
     @media ${device.tabletL} {
         width: 328px;
@@ -128,7 +134,7 @@ const WhatAreOptions = () => {
     const data = useStaticQuery(query)
     return (
         <>
-            <SectionContainer padding="8rem 0 4rem">
+            <StyledSectionContainerHead padding="8rem 0 4rem">
                 <SmallContainer direction="column" ai="flex-start">
                     <StyledHeader as="h2" mb="1.2rem">
                         {localize('What are multipliers?')}
@@ -137,12 +143,12 @@ const WhatAreOptions = () => {
                         <Localize translate_text="Deriv multipliers combines the upside of leverage trading with the limited risk of options. This means that when the market moves in your favour, you'll multiply your potential profits. If the market moves against your prediction, your losses are limited only to your stake." />
                     </Text>
                 </SmallContainer>
-            </SectionContainer>
-            <StyledSectionContainer padding="4rem 0">
+            </StyledSectionContainerHead>
+            <StyledSectionContainer padding="4rem 0 0">
                 <SmallContainer direction="column" ai="flex-start">
                     <Flex fd="column">
                         <Row mb="2rem">
-                            <RowColumn>
+                            <RowColumn isHeader>
                                 <StyledHeaderContent as="h3">
                                     <Localize translate_text="Let’s say you predict that the market will go up." />
                                 </StyledHeaderContent>
@@ -193,7 +199,7 @@ const WhatAreOptions = () => {
                             </RowColumn>
                         </Row>
 
-                        <Row>
+                        <Row mb="32px">
                             <RowColumn>
                                 <ImgWrapper>
                                     <QueryImage data={data['multiplier_no_multi_loss']} alt="tes" />
@@ -202,7 +208,7 @@ const WhatAreOptions = () => {
                                 <TextWrapper>
                                     <Text m="1.6rem 0 4rem 0" width="340px">
                                         <Localize
-                                            translate_text="<0>With an equivalent $100 margin trade</0>, with 1:500 leverage, you risk 2% * $50,000 = <1>$1000 loss</1>."
+                                            translate_text="<0>With an equivalent $100 margin trade</0>, with 1:500 leverage, you risk 2% * $50,000 = <1>$1,000 loss</1>."
                                             components={[<strong key={0} />, <LossText key={1} />]}
                                         />
                                     </Text>

@@ -178,7 +178,7 @@ export const LocationLayout = ({ location, images }) => {
                     </Flex>
                 </FirstSection>
             </Container>
-            <SectionContainer padding="0rem">
+            <SectionContainer padding={location.has_iframe ? '0rem' : '0 0 12rem'}>
                 <Header
                     align="center"
                     as="h2"
@@ -224,52 +224,45 @@ export const LocationLayout = ({ location, images }) => {
                     </Flex>
                 </Flex>
             </SectionContainer>
-            <SectionContainer padding="12rem 0">
-                <LocationCard>
-                    <Flex min_height="42.2rem" jc="unset" tablet_direction="column">
-                        <ImageWrapper>
-                            {location.has_iframe ? (
+            {location.has_iframe && (
+                <SectionContainer padding="12rem 0">
+                    <LocationCard>
+                        <Flex min_height="42.2rem" jc="unset" tablet_direction="column">
+                            <ImageWrapper>
                                 <Iframe
                                     src={`https://www.google.com/maps/embed/v1/place?q=place_id:${location.map}&key=${map_api_key}`}
                                 />
-                            ) : (
-                                <QueryImage
-                                    data={images[location.map]}
-                                    alt={location.display_name + localize(' Map')}
-                                    width="100%"
-                                    height="100%"
-                                />
-                            )}
-                        </ImageWrapper>
-                        <Flex p="3.2rem 6rem" direction="column" max_width="44.4rem">
-                            <div style={{ maxWidth: '32.4rem' }}>
-                                <Header as="h3">Location</Header>
-                                <CardText>{location.map_text}</CardText>
-                                <Flex jc="unset">
-                                    <Pin />
-                                    {location.google_map_link ? (
-                                        <LinkText
-                                            rel="noopener noreferrer"
-                                            target="_blank"
-                                            href={location.google_map_link}
-                                        >
-                                            {location.address.map((address, index) => (
-                                                <Text key={index}>{address}</Text>
-                                            ))}
-                                        </LinkText>
-                                    ) : (
-                                        <Text>
-                                            {location.address.map((address, index) => (
-                                                <Text key={index}>{address}</Text>
-                                            ))}
-                                        </Text>
-                                    )}
-                                </Flex>
-                            </div>
+                            </ImageWrapper>
+                            <Flex p="3.2rem 6rem" direction="column" max_width="44.4rem">
+                                <div style={{ maxWidth: '32.4rem' }}>
+                                    <Header as="h3">Location</Header>
+                                    <CardText>{location.map_text}</CardText>
+                                    <Flex jc="unset">
+                                        <Pin />
+                                        {location.google_map_link ? (
+                                            <LinkText
+                                                rel="noopener noreferrer"
+                                                target="_blank"
+                                                href={location.google_map_link}
+                                            >
+                                                {location.address.map((address, index) => (
+                                                    <Text key={index}>{address}</Text>
+                                                ))}
+                                            </LinkText>
+                                        ) : (
+                                            <Text>
+                                                {location.address.map((address, index) => (
+                                                    <Text key={index}>{address}</Text>
+                                                ))}
+                                            </Text>
+                                        )}
+                                    </Flex>
+                                </div>
+                            </Flex>
                         </Flex>
-                    </Flex>
-                </LocationCard>
-            </SectionContainer>
+                    </LocationCard>
+                </SectionContainer>
+            )}
 
             {/* TODO: Enable in the future when required to show positions available
             <Header

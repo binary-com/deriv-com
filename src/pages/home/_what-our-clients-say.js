@@ -1,13 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import Swiper from 'react-id-swiper'
-import { Helmet } from 'react-helmet'
-import { Header, Text, Divider } from 'components/elements'
+import { Carousel, Header, Text, Divider } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
 import { Container, SectionContainer, Flex } from 'components/containers'
-import Chevron from 'images/svg/carousel-chevron.svg'
 import FabioImage from 'images/common/fabio.png'
 import FernandoImage from 'images/common/fernando.png'
 import JoseImage from 'images/common/jose.png'
@@ -29,17 +26,6 @@ const StyledHeader = styled(Header)`
         font-size: 4.5rem;
     }
 `
-const StyledChevron = styled(Chevron)`
-    g {
-        g {
-            fill: var(--color-black);
-        }
-    }
-`
-const ChevronRight = styled(StyledChevron)`
-    transform: rotate(180deg);
-`
-const ChevronLeft = StyledChevron
 
 const ClientCard = styled.article`
     width: 58.2rem;
@@ -99,62 +85,6 @@ const ImageWrapper = styled.div`
     }
 `
 
-const SliderWrapper = styled.div`
-    width: 100%;
-    position: relative;
-
-    @media ${device.laptopLC} {
-        padding-bottom: 0;
-    }
-`
-const Next = styled.div``
-const Prev = styled.div``
-const ButtonWrapper = styled.div`
-    svg {
-        height: 21px;
-        width: 21px;
-    }
-    div {
-        button {
-            border: none;
-            background: transparent;
-
-            &:hover {
-                cursor: pointer;
-            }
-            &:focus {
-                outline: none;
-            }
-        }
-
-        z-index: 10;
-        position: absolute;
-    }
-    ${Next} {
-        top: 50%;
-        right: 20%;
-        width: 31px;
-
-        @media ${device.tabletL} {
-            right: 22%;
-        }
-        @media ${device.tabletS} {
-            right: 2px;
-        }
-    }
-    ${Prev} {
-        top: 50%;
-        left: 20%;
-        width: 31px;
-
-        @media ${device.tabletL} {
-            right: 5%;
-        }
-        @media ${device.tabletS} {
-            left: -3px;
-        }
-    }
-`
 const ClientSlide = ({ quote, img_path, img_alt, name, location }) => (
     <Flex ai="center" height="unset">
         <ClientCard>
@@ -286,73 +216,46 @@ const our_client_slides = [
 ]
 
 const WhatOurClientsSay = () => {
-    const ref = React.useRef(null)
-
-    const goNext = () => {
-        if (ref.current !== null && ref.current.swiper !== null) {
-            ref.current.swiper.slideNext()
-        }
-    }
-
-    const goPrev = () => {
-        if (ref.current !== null && ref.current.swiper !== null) {
-            ref.current.swiper.slidePrev()
-        }
-    }
-
-    const params = {
-        lazy: true,
-        slidesPerView: 1,
-        spaceBetween: 30,
-        loop: true,
-        height: '100%',
-        autoplay: {
-            delay: 6000,
-            disableOnInteraction: false,
+    const settings = {
+        options: {
+            loop: true,
+        },
+        container_style: {
+            maxWidth: '800px',
+            margin: '0 auto',
+        },
+        slide_style: {
+            minWidth: '100%',
+            paddingLeft: '1rem',
+            position: 'relative',
+        },
+        chevron_style: {
+            chevron_color: 'black',
         },
     }
+
     return (
         <>
-            <Helmet>
-                {/* browsers that support preload will preload --> other browsers (firefox, safari) will use normal link  */}
-                <link rel="preload" href="/css/swiper.css" as="style" />
-                <link rel="stylesheet" href="/css/swiper.css" />
-            </Helmet>
             <StyledSection>
                 <Container direction="column">
                     <StyledHeader align="center" as="h2">
                         {localize('What our clients say about Deriv')}
                     </StyledHeader>
                 </Container>
-                <SliderWrapper>
-                    <ButtonWrapper>
-                        <Next>
-                            <button onClick={goNext}>
-                                <ChevronRight />
-                            </button>
-                        </Next>
-                        <Prev>
-                            <button onClick={goPrev}>
-                                <ChevronLeft />
-                            </button>
-                        </Prev>
-                    </ButtonWrapper>
-                    <div style={{ maxWidth: '800px', margin: '0 auto' }}>
-                        <Swiper {...params} ref={ref}>
-                            {our_client_slides.map((trader) => (
-                                <div className="swiper-slide" key={trader.name}>
-                                    <ClientSlide
-                                        quote={trader.quote}
-                                        name={trader.name}
-                                        location={trader.location}
-                                        img_path={trader.img_path}
-                                        img_alt={trader.name + localize(" - Deriv's Client")}
-                                    />
-                                </div>
-                            ))}
-                        </Swiper>
-                    </div>
-                </SliderWrapper>
+                <Carousel {...settings}>
+                    {our_client_slides.map((trader, idx) => (
+                        <div key={idx}>
+                            <ClientSlide
+                                key={trader.name}
+                                quote={trader.quote}
+                                name={trader.name}
+                                location={trader.location}
+                                img_path={trader.img_path}
+                                img_alt={trader.name + localize(" - Deriv's Client")}
+                            />
+                        </div>
+                    ))}
+                </Carousel>
             </StyledSection>
         </>
     )

@@ -227,6 +227,7 @@ const WhatOurClientsSay = () => {
         slide_style: {
             minWidth: '100%',
             paddingLeft: '1rem',
+            position: 'relative',
         },
         chevron_style: {
             chevron_color: 'black',

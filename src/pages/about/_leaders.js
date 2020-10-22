@@ -225,7 +225,10 @@ const DescriptionWrapper = styled.div`
 `
 
 const LeaderWrapper = styled(Flex)`
-    height: auto;
+    width: '100%';
+    max-width: '304px';
+    box-shadow: '0 20px 20px 0 rgba(0, 0, 0, 0.2)';
+    border-radius: '4px';
 
     &:hover {
         ${DescriptionWrapper} {
@@ -239,6 +242,19 @@ const StyledHeader = styled(Header)`
     font-size: 2.3rem;
 `
 
+const LeaderMobile = styled.div`
+    width: 100%;
+    max-width: 304px;
+    box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    height: 532px;
+    margin-bottom: 30px;
+
+    > p {
+        max-width: 273px;
+    }
+`
+
 const Leaders = () => {
     const data = useStaticQuery(query)
 
@@ -246,14 +262,11 @@ const Leaders = () => {
         container_style: {
             width: '100%',
             overflow: 'hidden',
-            paddingBottom: '5rem',
         },
         slide_style: {
             minWidth: '273px',
-            maxWidth: '273px',
             height: 'auto',
-            borderRadius: '4px',
-            boxShadow: '0 10px 10px 0 rgba(0, 0, 0, 0.2)',
+            position: 'relative',
         },
     }
 
@@ -293,7 +306,7 @@ const Leaders = () => {
             <Show.Mobile>
                 <Carousel {...settings}>
                     {leaders_data.map((leader, idx) => (
-                        <div key={idx}>
+                        <LeaderMobile key={idx}>
                             <QueryImage data={data[`${leader.image}_mobile`]} alt={leader.name} />
                             <Header size="24px" align="center" m="16px 0 0">
                                 {leader.name}
@@ -304,7 +317,7 @@ const Leaders = () => {
                             <Text m="16px 16px 32px 16px" size="1.6rem">
                                 {leader.description}
                             </Text>
-                        </div>
+                        </LeaderMobile>
                     ))}
                 </Carousel>
             </Show.Mobile>

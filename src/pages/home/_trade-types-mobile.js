@@ -21,13 +21,11 @@ const TradingButton = styled(LinkButton)`
     align-items: center;
     width: 21.6rem;
     justify-content: center;
-    margin-top: 3.2rem;
 `
 
 const TradeTypeCard = styled.article`
     width: 25rem;
     position: relative;
-    overflow: hidden;
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.05);
     border-radius: 8px;
     padding: 2rem;
@@ -111,17 +109,22 @@ const trade_types = [margin, options, multipliers]
 
 const TradeTypesMobile = () => {
     const settings = {
+        options: {
+            align: 'center',
+        },
         container_style: {
-            width: '90%',
+            width: '100%',
             overflow: 'hidden',
-            paddingBottom: '4rem',
         },
         slide_style: {
-            width: '24rem',
+            minWidth: '24rem',
             borderRadius: '8px',
             margin: '10px',
-            boxShadow:
-                'rgba(0, 0, 0, 0.05) 0px 16px 20px 0px, rgba(0, 0, 0, 0.05) 0px 0px 20px 0px',
+            height: 'auto',
+            position: 'relative',
+        },
+        view_port: {
+            height: '350px',
         },
     }
 

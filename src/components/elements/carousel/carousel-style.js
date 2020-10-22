@@ -9,6 +9,7 @@ export const Embla = styled.div`
 
 export const ViewPort = styled.div`
     overflow: hidden;
+    width: 100%;
 
     &.is-draggable {
         cursor: move;
@@ -25,9 +26,9 @@ export const EmblaContainer = styled.div`
 `
 
 export const EmblaSlideInner = styled.div`
-    overflow: hidden;
     position: relative;
     padding-left: 10px;
+    margin: 0 auto;
 `
 
 export const StyledButtonWrapper = styled.div`
@@ -38,18 +39,50 @@ export const StyledButtonWrapper = styled.div`
         if (props.left)
             return css`
                 left: 0;
+
+                @media ${device.tabletL} {
+                    ${(props) => {
+                        if (props.is_reviews) {
+                            return css`
+                                @media ${device.tabletL} {
+                                    left: 22%;
+                                }
+                                @media ${device.tabletS} {
+                                    left: 3px;
+                                }
+                            `
+                        }
+                        return css`
+                            display: none;
+                        `
+                    }}
+                }
             `
         return css`
             right: 0;
+
+            @media ${device.tabletL} {
+                ${(props) => {
+                    if (props.is_reviews) {
+                        return css`
+                            @media ${device.tabletL} {
+                                right: 22%;
+                            }
+                            @media ${device.tabletS} {
+                                right: 2px;
+                            }
+                        `
+                    }
+                    return css`
+                        display: none;
+                    `
+                }}
+            }
         `
     }}
 
     &:hover {
         cursor: pointer;
-    }
-
-    @media ${device.tabletL} {
-        display: none;
     }
 `
 

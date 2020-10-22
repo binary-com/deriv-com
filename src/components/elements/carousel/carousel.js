@@ -11,8 +11,14 @@ import {
     ChevronLeft,
 } from './carousel-style'
 
-export const PrevButton = ({ enabled, onClick, color, style }) => (
-    <StyledButtonWrapper onClick={onClick} disabled={!enabled} left style={style}>
+export const PrevButton = ({ enabled, onClick, color, style, is_reviews }) => (
+    <StyledButtonWrapper
+        onClick={onClick}
+        disabled={!enabled}
+        left
+        style={style}
+        is_reviews={is_reviews}
+    >
         {color === 'black' ? (
             <ChevronLeft black />
         ) : color === 'red' ? (
@@ -29,21 +35,33 @@ PrevButton.propTypes = {
     onClick: PropTypes.func,
 }
 
-export const NextButton = ({ enabled, onClick, color, style }) => (
-    <StyledButtonWrapper onClick={onClick} disabled={!enabled} style={style}>
+export const NextButton = ({ enabled, onClick, color, style, is_reviews }) => (
+    <StyledButtonWrapper
+        onClick={onClick}
+        disabled={!enabled}
+        style={style}
+        is_reviews={is_reviews}
+    >
         {color === 'black' ? (
-            <ChevronRight black is_desabled={!!enabled} />
+            <ChevronRight black />
         ) : color === 'red' ? (
-            <ChevronRight red is_desabled={!!enabled} />
+            <ChevronRight red />
         ) : (
-            <ChevronRight is_desabled={!!enabled} />
+            <ChevronRight />
         )}
     </StyledButtonWrapper>
 )
 
 NextButton.propTypes = PrevButton.propTypes
 
-export const Carousel = ({ children, options, container_style, slide_style, chevron_style }) => {
+export const Carousel = ({
+    children,
+    options,
+    container_style,
+    slide_style,
+    view_port,
+    chevron_style,
+}) => {
     const [emblaRef, embla] = useEmblaCarousel(options)
     const [prevBtnEnabled, setPrevBtnEnabled] = useState(false)
     const [nextBtnEnabled, setNextBtnEnabled] = useState(false)
@@ -71,7 +89,7 @@ export const Carousel = ({ children, options, container_style, slide_style, chev
     return (
         <div style={container_style}>
             <Embla>
-                <ViewPort ref={emblaRef}>
+                <ViewPort style={view_port} ref={emblaRef}>
                     <EmblaContainer>
                         {children.map((child, idx) => (
                             <div key={idx} style={slide_style}>
@@ -86,6 +104,7 @@ export const Carousel = ({ children, options, container_style, slide_style, chev
                         onClick={scrollPrev}
                         enabled={prevBtnEnabled}
                         style={chevron_left}
+                        is_reviews={chevron_color === 'black'}
                     />
                 )}
                 {chevron_color && is_arrow && (
@@ -94,6 +113,7 @@ export const Carousel = ({ children, options, container_style, slide_style, chev
                         onClick={scrollNext}
                         enabled={nextBtnEnabled}
                         style={chevron_right}
+                        is_reviews={chevron_color === 'black'}
                     />
                 )}
             </Embla>
@@ -107,4 +127,5 @@ Carousel.propTypes = {
     container_style: PropTypes.object,
     options: PropTypes.object,
     slide_style: PropTypes.object,
+    view_port: PropTypes.object,
 }

@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="349" height="157" viewBox="0 0 349 157">
+    <defs>
+        <filter id="p9f7ixc84a" width="120.5%" height="182.1%" x="-10.3%" y="-41.1%" filterUnits="objectBoundingBox">
+            <feOffset dy="4" in="SourceAlpha" result="shadowOffsetOuter1"/>
+            <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="4"/>
+            <feColorMatrix in="shadowBlurOuter1" result="shadowMatrixOuter1" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.24 0"/>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+        <filter id="8qpmadujmb" width="101.8%" height="110%" x="-.9%" y="-2.5%" filterUnits="objectBoundingBox">
+            <feOffset dy="1" in="SourceAlpha" result="shadowOffsetOuter1"/>
+            <feColorMatrix in="shadowOffsetOuter1" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.16 0"/>
+        </filter>
+        <filter id="5mcd6vbfzd" width="111.6%" height="125%" x="-5.8%" y="-12.5%" filterUnits="objectBoundingBox">
+            <feOffset dy="1" in="SourceAlpha" result="shadowOffsetOuter1"/>
+            <feColorMatrix in="shadowOffsetOuter1" result="shadowMatrixOuter1" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.16 0"/>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+        <text id="04cs9yatdc" fill="#FFF" font-family="IBMPlexSans-Bold, IBM Plex Sans" font-size="14" font-weight="bold">
+            <tspan x="31.246" y="32">$100.00</tspan>
+        </text>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <g>
+            <g>
+                <g transform="translate(-765 -776) translate(0 473) translate(765 304)">
+                    <rect width="348" height="144" y="12" fill="#85ACB0" fill-rule="nonzero" opacity=".2" rx="4"/>
+                    <rect width="336" height="144" x="12" fill="#FFF" stroke="#85ACB0" rx="4"/>
+                    <text fill="#333" font-family="IBMPlexSans-Bold, IBM Plex Sans" font-size="24" font-weight="bold">
+                        <tspan x="111" y="49">$100 stake</tspan>
+                    </text>
+                    <g filter="url(#p9f7ixc84a)" transform="translate(62 64)">
+                        <rect width="224" height="56" fill="#4BB4B3" fill-rule="nonzero" rx="4"/>
+                        <g>
+                            <path fill="#3D9494" fill-rule="nonzero" d="M0 0h90c2.21 0 4 1.79 4 4v48c0 2.21-1.79 4-4 4H0l18.34-25.675c.993-1.39.993-3.26 0-4.65L0 0z" transform="translate(130)"/>
+                            <g fill="#FFF" transform="translate(130)">
+                                <use filter="url(#8qpmadujmb)" xlink:href="#04cs9yatdc"/>
+                                <use xlink:href="#04cs9yatdc"/>
+                            </g>
+                        </g>
+                        <g fill="#FFF" filter="url(#5mcd6vbfzd)" transform="translate(16 18)">
+                            <text font-family="IBMPlexSans-Bold, IBM Plex Sans" font-size="14" font-weight="bold">
+                                <tspan x="24" y="14">Up</tspan>
+                            </text>
+                            <g fill-rule="nonzero">
+                                <g>
+                                    <path d="M14 0H9c0 1.105.895 2 2 2h1.6L0 14.5V16h1.5L14 3.415V5c0 1.105.895 2 2 2V2c0-1.105-.895-2-2-2z" transform="translate(0 2)"/>
+                                    <path d="M10.5 9l5.5 5.5V16h-1.5L9 10.5 10.5 9zm-9-9L7 5.5 5.5 7 0 1.5V0h1.5z" transform="translate(0 2)"/>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

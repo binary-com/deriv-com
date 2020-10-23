@@ -92,6 +92,12 @@ const TextWrapper = styled.div`
     }
 `
 
+const StyledText = styled(Text)`
+    @media ${device.tabletL} {
+        margin-bottom: 4rem;
+    }
+`
+
 const ProfitText = styled.span`
     font-weight: bold;
     color: var(--color-blue-4);
@@ -206,12 +212,12 @@ const WhatAreOptions = () => {
                                 </ImgWrapper>
 
                                 <TextWrapper>
-                                    <Text m="1.6rem 0 4rem 0" width="340px">
+                                    <StyledText mt="1.6rem" width="340px">
                                         <Localize
                                             translate_text="<0>With an equivalent $100 margin trade</0>, with 1:500 leverage, you risk 2% * $50,000 = <1>$1,000 loss</1>."
                                             components={[<strong key={0} />, <LossText key={1} />]}
                                         />
-                                    </Text>
+                                    </StyledText>
                                 </TextWrapper>
                             </RowColumn>
                             <RowColumn>

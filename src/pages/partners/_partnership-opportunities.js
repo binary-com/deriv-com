@@ -70,7 +70,7 @@ const PartnershipOpportunities = () => (
                 </Flex>
                 <Text>
                     {localize(
-                        'Enjoy the flexibility to choose from a variety of affiliate and introducing broker programmes. Earn up to 45% commission from promoting our trading platforms or enjoy turnover-based commissions.',
+                        'Enjoy the flexibility to choose from a variety of affiliate and introducing broker programmes. Earn 45% commission from promoting our trading platforms or enjoy turnover-based commissions.',
                     )}
                 </Text>
             </ClientCard>

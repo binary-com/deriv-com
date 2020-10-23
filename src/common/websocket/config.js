@@ -67,4 +67,4 @@ const getSocketURL = () => {
     return `wss://${server_url}/websockets/v3`
 }
 
-export { getAppId, getSocketURL, isProduction }
+export { getAppId, getSocketURL, isProduction, isLocalHost }

@@ -1,11 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import Swiper from 'react-id-swiper'
-import { Helmet } from 'react-helmet'
 import { graphql, useStaticQuery } from 'gatsby'
 import device from 'themes/device'
 import { SectionContainer, Container, CssGrid, Flex, Box, Show } from 'components/containers'
-import { Header, Text, QueryImage } from 'components/elements'
+import { Carousel, Header, Text, QueryImage } from 'components/elements'
 import { Localize } from 'components/localization'
 
 const query = graphql`
@@ -227,7 +225,11 @@ const DescriptionWrapper = styled.div`
 `
 
 const LeaderWrapper = styled(Flex)`
+    width: '100%';
     height: auto;
+    max-width: '304px';
+    box-shadow: '0 20px 20px 0 rgba(0, 0, 0, 0.2)';
+    border-radius: '4px';
 
     &:hover {
         ${DescriptionWrapper} {
@@ -241,47 +243,36 @@ const StyledHeader = styled(Header)`
     font-size: 2.3rem;
 `
 
-const SliderWrapper = styled.div`
-    width: 100%;
-    position: relative;
-
-    @media ${device.laptopS} {
-        display: none;
-    }
-`
-const SwiperWrapper = styled.div`
-    .swiper-container {
-        min-height: 572px;
-    }
-`
 const LeaderMobile = styled.div`
     width: 100%;
     max-width: 304px;
     box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.2);
     border-radius: 4px;
+    height: 532px;
+    margin-bottom: 30px;
 
-    &.swiper-slide {
-        height: 532px;
-    }
     > p {
         max-width: 273px;
     }
 `
-const params = {
-    slidesPerView: 'auto',
-    centeredSlides: true,
-    spaceBetween: 8,
-    loop: false,
-    lazy: true,
-}
+
 const Leaders = () => {
     const data = useStaticQuery(query)
 
+    const settings = {
+        container_style: {
+            width: '100%',
+            overflow: 'hidden',
+        },
+        slide_style: {
+            minWidth: '273px',
+            height: 'auto',
+            position: 'relative',
+        },
+    }
+
     return (
         <StyledSection>
-            <Helmet>
-                <link rel="stylesheet" type="text/css" href="/css/swiper.css" />
-            </Helmet>
             <Container>
                 <Show.Desktop>
                     <CssGrid
@@ -313,31 +304,24 @@ const Leaders = () => {
                     </CssGrid>
                 </Show.Desktop>
             </Container>
-            <Container style={{ width: '100%', overflow: 'hidden' }}>
-                <SliderWrapper>
-                    <SwiperWrapper>
-                        <Swiper {...params}>
-                            {leaders_data.map((leader) => (
-                                <LeaderMobile key={leader.name}>
-                                    <QueryImage
-                                        data={data[leader.image + '_mobile']}
-                                        alt={leader.name}
-                                    />
-                                    <Header size="24px" align="center" m="16px 0 0 0">
-                                        {leader.name}
-                                    </Header>
-                                    <Text align="center" m="0 auto" size="2rem">
-                                        {leader.position}
-                                    </Text>
-                                    <Text m="16px 16px 32px 16px" size="1.6rem">
-                                        {leader.description}
-                                    </Text>
-                                </LeaderMobile>
-                            ))}
-                        </Swiper>
-                    </SwiperWrapper>
-                </SliderWrapper>
-            </Container>
+            <Show.Mobile>
+                <Carousel {...settings}>
+                    {leaders_data.map((leader, idx) => (
+                        <LeaderMobile key={idx}>
+                            <QueryImage data={data[`${leader.image}_mobile`]} alt={leader.name} />
+                            <Header size="24px" align="center" m="16px 0 0">
+                                {leader.name}
+                            </Header>
+                            <Text align="center" m="0 auto" size="2rem">
+                                {leader.position}
+                            </Text>
+                            <Text m="16px 16px 32px 16px" size="1.6rem">
+                                {leader.description}
+                            </Text>
+                        </LeaderMobile>
+                    ))}
+                </Carousel>
+            </Show.Mobile>
         </StyledSection>
     )
 }

@@ -126,9 +126,9 @@ const MarginCalculator = () => {
         let contractSize = 1
 
         if (symbol.market === 'forex') {
-            contractSize = 1000
+            contractSize = 100000
         } else if (symbol.name === 'XAGUSD') {
-            contractSize = 500
+            contractSize = 5000
         } else if (
             symbol.name === 'XAUUSD' ||
             symbol.name === 'XPDUSD' ||
@@ -140,6 +140,10 @@ const MarginCalculator = () => {
         }
 
         return contractSize
+    }
+
+    function numberWithCommas(x) {
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
     }
 
     return (
@@ -160,7 +164,7 @@ const MarginCalculator = () => {
                         enableReinitialize
                         initialValues={{
                             accountType: 'Synthetic',
-                            margin: '',
+                            margin: 0,
                             marginSymbol: 'USD',
                             symbol: '',
                             volume: '',
@@ -196,7 +200,7 @@ const MarginCalculator = () => {
                                         <StyledTextArea
                                             as="textarea"
                                             id="message"
-                                            value={values.margin}
+                                            value={numberWithCommas(values.margin)}
                                             disabled
                                         />
                                         <StyledCurrencyLabel>
@@ -360,7 +364,7 @@ const MarginCalculator = () => {
                         )}
                     </StyledText>
 
-                    <StyledHeader as="h3">{localize('Example Calculation')}</StyledHeader>
+                    <StyledHeader as="h3">{localize('Example calculation')}</StyledHeader>
 
                     <StyledText mb="1.6rem">
                         {localize(

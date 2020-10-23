@@ -1,7 +1,8 @@
 import { localize } from 'components/localization'
 
 const validation_regex = {
-    number: /^\d+(\.\d+)?$/,
+    number: /^\d*\.?\d+$/,
+    numberWithNegative: /^-?\d*\.{0,1}\d+$/,
     integer: /^\d+$/,
 }
 
@@ -38,9 +39,23 @@ const numberValidation = (input, fieldName) => {
     } else if (!validation_regex.number.test(input)) {
         return localize('Should be a valid number')
     } else if (!validation_is_exceed_number(input)) {
-        return localize('Reached maximum number(15) of digits')
+        return localize('Reached maximum number (15) of digits')
     } else if (!validation_is_not_zero(input)) {
         return localize('Input must be greater than 0')
+    }
+
+    return null
+}
+
+const numberWithNegativeValidation = (input, fieldName) => {
+    if (!input) {
+        return localize(`${fieldName} is required`)
+    } else if (!validation_regex.numberWithNegative.test(input)) {
+        return localize('Should be a valid number')
+    } else if (!validation_is_exceed_number(input)) {
+        return localize('Reached maximum number (15) of digits')
+    } else if (!validation_is_not_zero(input)) {
+        return localize('Input must not be  0')
     }
 
     return null
@@ -60,7 +75,7 @@ const validation = {
         } else if (!validation_regex.integer.test(input)) {
             return localize('Should be a valid integer')
         } else if (!validation_is_exceed_integer(input)) {
-            return localize('Reached maximum number(8) of digits')
+            return localize('Reached maximum number (8) of digits')
         } else if (!validation_is_not_zero(input)) {
             return localize('Input must be greater than 0')
         }
@@ -77,7 +92,7 @@ const validation = {
         return null
     },
     swapRate: (input) => {
-        return numberValidation(input, localize('Swap rate'))
+        return numberWithNegativeValidation(input, localize('Swap rate'))
     },
 
     pointValue: (input) => {

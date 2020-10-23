@@ -197,8 +197,9 @@ export const StyledTextArea = styled(Field)`
     border: 1.5px solid var(--color-blue-5);
     background-color: white;
     padding: 1.5rem 2rem;
-    font-size: 3rem;
+    font-size: 2.4rem;
     color: var(--color-blue-5);
+    -webkit-text-fill-color: var(--color-blue-5);
 `
 export const StyledButton = styled(Button)`
     width: 100%;

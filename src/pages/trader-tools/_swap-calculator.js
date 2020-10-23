@@ -157,9 +157,9 @@ const SwapCalculator = () => {
         let contractSize = 1
 
         if (symbol.market === 'forex') {
-            contractSize = 1000
+            contractSize = 100000
         } else if (symbol.name === 'XAGUSD') {
-            contractSize = 500
+            contractSize = 5000
         } else if (
             symbol.name === 'XAUUSD' ||
             symbol.name === 'XPDUSD' ||
@@ -171,6 +171,10 @@ const SwapCalculator = () => {
         }
 
         return contractSize
+    }
+
+    function numberWithCommas(x) {
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
     }
 
     return (
@@ -205,7 +209,7 @@ const SwapCalculator = () => {
                             <Formik
                                 enableReinitialize
                                 initialValues={{
-                                    swapCharge: '',
+                                    swapCharge: 0,
                                     swapChargeSymbol: 'USD',
                                     symbol: '',
                                     volume: '',
@@ -240,7 +244,7 @@ const SwapCalculator = () => {
                                                 <StyledTextArea
                                                     as="textarea"
                                                     id="message"
-                                                    value={values.swapCharge}
+                                                    value={numberWithCommas(values.swapCharge)}
                                                     disabled
                                                 />
                                                 <StyledCurrencyLabel>
@@ -411,7 +415,7 @@ const SwapCalculator = () => {
                                 <Localize translate_text="This gives you the swap charge in USD." />
                             </Text>
 
-                            <Header as="h3">{localize('Example Calculation')}</Header>
+                            <Header as="h3">{localize('Example calculation')}</Header>
 
                             <Text size="1.6rem" mb="2rem">
                                 {localize(
@@ -472,7 +476,7 @@ const SwapCalculator = () => {
                             <Formik
                                 enableReinitialize
                                 initialValues={{
-                                    swapCharge: '',
+                                    swapCharge: 0,
                                     swapChargeSymbol: 'USD',
                                     symbol: '',
                                     volume: '',
@@ -506,7 +510,7 @@ const SwapCalculator = () => {
                                                 <StyledTextArea
                                                     as="textarea"
                                                     id="message"
-                                                    value={values.swapCharge}
+                                                    value={numberWithCommas(values.swapCharge)}
                                                     disabled
                                                 />
                                                 <StyledCurrencyLabel>
@@ -679,7 +683,7 @@ const SwapCalculator = () => {
                                 <Localize translate_text="This gives you the swap charge in the quote currency for forex pairs, or in the denomination of the underlying asset for commodities. For instance, if you are trading the USD/JPY forex pair, the swap charge will be computed in Japanese Yen (JPY) which is the quote currency. On the other hand, if you are trading oil,  then the swap charge will be computed in US Dollar (USD), which is the denomination of the underlying asset – oil." />
                             </Text>
 
-                            <Header as="h3">{localize('Example Calculation')}</Header>
+                            <Header as="h3">{localize('Example calculation')}</Header>
 
                             <Text size="1.6rem" mb="2rem">
                                 {localize(

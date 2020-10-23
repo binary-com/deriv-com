@@ -324,6 +324,10 @@ const Dropdown = ({
         closeList()
     }
 
+    function numberWithCommas(x) {
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+    }
+
     return (
         <>
             <DropdownContainer
@@ -398,7 +402,7 @@ const Dropdown = ({
 
                 {contractSize && (
                     <ContractSizeWrapper lh="1.4" align="left">
-                        Contract size : {contractSize}
+                        Contract size : {numberWithCommas(contractSize)}
                     </ContractSizeWrapper>
                 )}
             </StyledDiv>

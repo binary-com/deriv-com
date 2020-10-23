@@ -5,17 +5,49 @@ import { Flex } from 'components/containers'
 import { localize } from 'components/localization'
 import device from 'themes/device'
 import PDFIcon from 'images/svg/pdf-icon-black.svg'
+import XLSXIcon from 'images/svg/excel.svg'
 
 const FlexText = styled(LinkText)`
+    width: 26%;
     display: flex;
     align-items: center;
+    justify-content: center;
+
+    & > svg {
+        margin-right: 0.8rem;
+    }
+    @media ${device.laptopM} {
+        width: 40%;
+    }
+    @media ${device.tabletS} {
+        width: 80%;
+        justify-content: flex-start;
+        padding-left: 16rem;
+    }
+    @media ${device.mobileL} {
+        padding-left: 10rem;
+    }
+    @media ${device.mobileM} {
+        padding-left: 8rem;
+    }
+    @media ${device.mobileS} {
+        padding-left: 6rem;
+    }
+`
+
+const FlexText_Pillar = styled(LinkText)`
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     & > svg {
         margin-right: 0.8rem;
     }
 `
-
 const EdgeFlex = styled(Flex)`
+    flex-wrap: wrap;
+    justify-content: flex-start;
+
     /* Edge does not support space-evenly */
     @supports (-ms-ime-align: auto) {
         justify-content: space-around;
@@ -23,11 +55,24 @@ const EdgeFlex = styled(Flex)`
     @media ${device.tabletS} {
         flex-direction: column;
     }
+    @media ${device.mobileL} {
+        align-content: center;
+    }
 `
 
-const RTS28 = () => (
+const RTS27_28 = () => (
     <>
-        <EdgeFlex m="1.8rem auto" jc="space-between" wrap="wrap" width="auto">
+        <EdgeFlex>
+            <FlexText
+                color="red"
+                target="_blank"
+                rel="noopener noreferrer"
+                href="/regulatory/RTS28-2019.pdf"
+                m="1.6rem 2.4rem"
+            >
+                <PDFIcon />
+                <span>{localize('RTS28 2019')}</span>
+            </FlexText>
             <FlexText
                 color="red"
                 target="_blank"
@@ -42,11 +87,31 @@ const RTS28 = () => (
                 color="red"
                 target="_blank"
                 rel="noopener noreferrer"
-                href="/regulatory/RTS28-2019.pdf"
+                href="/regulatory/RTS27-2020.xlsx"
                 m="1.6rem 2.4rem"
             >
-                <PDFIcon />
-                <span>{localize('RTS28 2019')}</span>
+                <XLSXIcon />
+                <span>{localize('RTS27 2020')}</span>
+            </FlexText>
+            <FlexText
+                color="red"
+                target="_blank"
+                rel="noopener noreferrer"
+                href="/regulatory/RTS27-2019.xlsx"
+                m="1.6rem 2.4rem"
+            >
+                <XLSXIcon />
+                <span>{localize('RTS27 2019')}</span>
+            </FlexText>
+            <FlexText
+                color="red"
+                target="_blank"
+                rel="noopener noreferrer"
+                href="/regulatory/RTS27-2018.xlsx"
+                m="1.6rem 2.4rem"
+            >
+                <XLSXIcon />
+                <span>{localize('RTS27 2018')}</span>
             </FlexText>
         </EdgeFlex>
     </>
@@ -85,7 +150,7 @@ const DocumentAccordion = () => {
                     )}
                 </Text>
                 <Flex mt="1.8rem">
-                    <FlexText
+                    <FlexText_Pillar
                         target="_blank"
                         rel="noopener noreferrer"
                         href="/regulatory/BIEL_Pillar_3.pdf"
@@ -93,7 +158,7 @@ const DocumentAccordion = () => {
                     >
                         <PDFIcon />
                         <span>{localize('Pillar III disclosure report')}</span>
-                    </FlexText>
+                    </FlexText_Pillar>
                 </Flex>
             </AccordionItem>
             <AccordionItem
@@ -109,7 +174,7 @@ const DocumentAccordion = () => {
                     )}
                 </Text>
                 <Flex ai="center" jc="center">
-                    <EdgeFlex mt="1.8rem" jc="space-evenly" fw="wrap" width="auto">
+                    <EdgeFlex mt="1.8rem">
                         <FlexText
                             color="red"
                             target="_blank"
@@ -153,7 +218,7 @@ const DocumentAccordion = () => {
                 parent_style={parent_style}
             >
                 <Flex>
-                    <RTS28 />
+                    <RTS27_28 />
                 </Flex>
             </AccordionItem>
         </Accordion>

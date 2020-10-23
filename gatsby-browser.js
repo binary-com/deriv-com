@@ -1,6 +1,6 @@
 import NProgress from 'nprogress'
 import { WrapPagesWithLocaleContext } from './src/components/localization'
-import { isProduction } from './src/common/websocket/config'
+import { isProduction, isLocalHost } from './src/common/websocket/config'
 import { CookieStorage, LocalStore } from './src/common/storage'
 import TrafficSource from './src/common/traffic-source'
 import isMobile from './src/common/os-detect'
@@ -56,7 +56,7 @@ export const onClientEntry = () => {
     NProgress.start()
 
     // Add GTM script for test domain
-    if (window.location.hostname === gtm_test_domain) {
+    if (!isLocalHost() && window.location.hostname === gtm_test_domain) {
         const gtm = document.createElement('script')
         gtm.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-TNX2ZKH'
         gtm.id = 'gtm-test-container'

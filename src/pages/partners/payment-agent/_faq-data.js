@@ -64,7 +64,7 @@ const AccountManagement = () => (
         </Header>
         <TextPrimary>
             <Localize
-                translate_text="To change your payment, please send an email to <0>support@deriv.com</0> for assistance."
+                translate_text="To change your payment method, please send an email to <0>support@deriv.com</0> for assistance."
                 components={[<StyledLink href="mailto:support@deriv.com" key={0} />]}
             />
         </TextPrimary>

@@ -63,6 +63,9 @@ const OptionItems = styled(Flex)`
             width: 20px;
             height: 20px;
         }
+        ${Text} {
+            margin-top: 0;
+        }
     }
 `
 const StyledHeader = styled(Header)`
@@ -71,10 +74,30 @@ const StyledHeader = styled(Header)`
     }
 `
 
+const StyledDtraderHeader = styled(Header)`
+    margin-top: 3.2rem;
+
+    @media ${device.tablet} {
+        margin-top: 2rem;
+    }
+`
+
+const StyledFirstMultiplierHeader = styled(Header)`
+    @media ${device.tablet} {
+        margin-top: 8rem;
+    }
+`
+
+const StyledSectionContainer = styled(SectionContainer)`
+    @media ${device.tablet} {
+        padding-top: 4rem;
+    }
+`
+
 const HowOptionsWorks = () => {
     const data = useStaticQuery(query)
     return (
-        <SectionContainer p="8rem 0 4rem">
+        <StyledSectionContainer padding="8rem 0 4rem">
             <SmallContainer direction="column" ai="flex-start">
                 <StyledHeader as="h2" mb="3.2rem">
                     {localize('How multipliers contracts work')}
@@ -127,9 +150,9 @@ const HowOptionsWorks = () => {
                         </Text>
                     </HowItWorksItem>
                 </OptionGrid>
-                <Header as="h3" mt="4rem">
+                <StyledFirstMultiplierHeader as="h3" mt="4rem">
                     {localize('How to buy your first multipliers contract on DTrader')}
-                </Header>
+                </StyledFirstMultiplierHeader>
                 <Header as="h4" mb="2.4rem" mt="3.2rem">
                     {localize('Define your position')}
                 </Header>
@@ -179,9 +202,9 @@ const HowOptionsWorks = () => {
                         />
                     </SideTab.Panel>
                 </SideTab>
-                <Header as="h4" mb="2.4rem" mt="3.2rem">
+                <StyledDtraderHeader as="h4" mb="2.4rem" mt="3.2rem">
                     {localize('Set optional parameters for your trade')}
-                </Header>
+                </StyledDtraderHeader>
                 <SideTab is_reverse>
                     <SideTab.Panel
                         label={<Localize translate_text="5. Take profit" />}
@@ -217,9 +240,9 @@ const HowOptionsWorks = () => {
                         />
                     </SideTab.Panel>
                 </SideTab>
-                <Header as="h4" mb="2.4rem" mt="3.2rem">
+                <StyledDtraderHeader as="h4" mb="2.4rem">
                     {localize('Purchase your contract')}
-                </Header>
+                </StyledDtraderHeader>
                 <SideTab>
                     <SideTab.Panel
                         label={<Localize translate_text="8. Purchase your contract" />}
@@ -234,7 +257,7 @@ const HowOptionsWorks = () => {
                     </SideTab.Panel>
                 </SideTab>
             </SmallContainer>
-        </SectionContainer>
+        </StyledSectionContainer>
     )
 }
 

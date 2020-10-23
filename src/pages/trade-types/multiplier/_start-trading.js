@@ -6,11 +6,11 @@ import { SectionContainer } from 'components/containers'
 import { Header } from 'components/elements'
 import { LinkButton } from 'components/form'
 import { localize, Localize } from 'components/localization'
-import Pattern from 'images/common/trade-types/pattern-section.png'
+import Pattern from 'images/common/trade-types/pattern-section-small.png'
 
 const PatternContainer = styled(SectionContainer)`
     background: url(${Pattern});
-    background-size: cover;
+    background-size: contain;
 `
 
 const FixTimeline = styled(Timeline)`

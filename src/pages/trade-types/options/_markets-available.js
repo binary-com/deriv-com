@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Helmet } from 'react-helmet'
-import Carousel from '../components/_carousel'
+import MarketsCarousel from '../components/_markets-carousel'
 import LearnMore from '../components/_learn-more'
 import { SmallContainer, Card, MarketsItem } from '../components/_style'
 import { SectionContainer, Flex } from 'components/containers'
@@ -35,17 +34,14 @@ const MobileCardHeader = styled(Flex)`
 const MarketsAvailable = () => {
     return (
         <>
-            <Helmet>
-                <link rel="stylesheet" type="text/css" href="/css/swiper.css" />
-            </Helmet>
             <SectionContainer background="white" padding="8rem 0" position="relative">
                 <SmallContainer direction="column" ai="flex-start">
                     <Header as="h3" mb="2.4rem">
                         {localize('Markets available for options trading')}
                     </Header>
                 </SmallContainer>
-                <Carousel>
-                    <Carousel.Item>
+                <MarketsCarousel>
+                    <MarketsCarousel.Item>
                         <MarketsItem>
                             <Card>
                                 <MobileCardHeader>
@@ -66,8 +62,8 @@ const MarketsAvailable = () => {
                                 />
                             </Card>
                         </MarketsItem>
-                    </Carousel.Item>
-                    <Carousel.Item>
+                    </MarketsCarousel.Item>
+                    <MarketsCarousel.Item>
                         <MarketsItem>
                             <Card>
                                 <MobileCardHeader>
@@ -88,8 +84,8 @@ const MarketsAvailable = () => {
                                 />
                             </Card>
                         </MarketsItem>
-                    </Carousel.Item>
-                    <Carousel.Item>
+                    </MarketsCarousel.Item>
+                    <MarketsCarousel.Item>
                         <MarketsItem>
                             <Card>
                                 <MobileCardHeader>
@@ -110,8 +106,8 @@ const MarketsAvailable = () => {
                                 />
                             </Card>
                         </MarketsItem>
-                    </Carousel.Item>
-                    <Carousel.Item>
+                    </MarketsCarousel.Item>
+                    <MarketsCarousel.Item>
                         <MarketsItem>
                             <Card>
                                 <MobileCardHeader>
@@ -132,8 +128,8 @@ const MarketsAvailable = () => {
                                 />
                             </Card>
                         </MarketsItem>
-                    </Carousel.Item>
-                </Carousel>
+                    </MarketsCarousel.Item>
+                </MarketsCarousel>
             </SectionContainer>
         </>
     )

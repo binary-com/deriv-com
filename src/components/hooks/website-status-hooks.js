@@ -4,14 +4,14 @@ import { BinarySocketBase } from 'common/websocket/socket_base'
 
 const WEBSITE_STATUS_COUNTRY_KEY = 'website_status'
 const website_status_country_cookie = new CookieStorage(WEBSITE_STATUS_COUNTRY_KEY)
+let loaded = false
 
 export const useWebsiteStatus = () => {
-    const [website_status, setWebsiteStatus] = React.useState(
-        website_status_country_cookie.get(WEBSITE_STATUS_COUNTRY_KEY),
-    )
+    const [website_status, setWebsiteStatus] = React.useState(null)
 
     React.useEffect(() => {
-        if (!website_status) {
+        if (!loaded) {
+            loaded = true
             const binary_socket = BinarySocketBase.init()
 
             binary_socket.onopen = () => {
@@ -20,6 +20,7 @@ export const useWebsiteStatus = () => {
 
             binary_socket.onmessage = (msg) => {
                 const response = JSON.parse(msg.data)
+
                 if (!response.error) {
                     setWebsiteStatus(response.website_status)
                     website_status_country_cookie.set(

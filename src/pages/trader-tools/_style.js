@@ -6,13 +6,20 @@ import { Button, LinkButton } from 'components/form'
 import device from 'themes/device'
 
 export const StyledText = styled(Text)`
-    @media ${device.mobileL} {
+    @media ${device.tabletL} {
         font-size: 16px;
     }
 `
+
+export const StyledTitleHeader = styled(Header)`
+    @media ${device.tabletL} {
+        font-size: 32px;
+    }
+`
+
 export const StyledHeader = styled(Header)`
     @media ${device.mobileL} {
-        font-size: 16px;
+        font-size: 24px;
     }
 `
 
@@ -149,6 +156,7 @@ export const FormulaText = styled.div`
     background-color: #f9fafc;
     padding: 1.6rem;
     font-size: 14px;
+    line-height: 2;
 `
 
 export const StyledOl = styled.ol`
@@ -162,16 +170,13 @@ export const StyledOl = styled.ol`
 `
 
 export const StyledFormWrapper = styled(Flex)`
-    margin-right: 6.4rem;
+    margin-right: 4.8rem;
     max-height: 705px;
+    width: unset;
 
     @media ${device.laptopM} {
-        margin-bottom: 40px;
+        margin-bottom: 6rem;
         margin-right: 0;
-    }
-
-    @media ${device.laptop} {
-        margin-bottom: 20px;
     }
 `
 
@@ -196,8 +201,9 @@ export const StyledTextArea = styled(Field)`
     box-sizing: border-box;
     border: 1.5px solid var(--color-blue-5);
     background-color: white;
-    padding: 1.5rem 2rem;
+    padding: 2rem;
     font-size: 2.4rem;
+    font-weight: 500;
     color: var(--color-blue-5);
     -webkit-text-fill-color: var(--color-blue-5);
 `
@@ -227,7 +233,7 @@ export const CalculatorBody = styled.div`
 `
 
 export const CalculatorHeader = styled.div`
-    padding: 3rem 2.4rem 3rem 2.4rem;
+    padding: 2.4rem;
     background-color: var(--color-blue-4);
 `
 
@@ -248,6 +254,10 @@ export const StyledCurrencyLabel = styled.label`
     font-size: 2.4rem;
     right: 20px;
     top: 24px;
+
+    @media ${device.tabletL} {
+        top: 20px;
+    }
 `
 
 export const StyledTextAreaContainer = styled.div`

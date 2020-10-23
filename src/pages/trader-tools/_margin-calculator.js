@@ -24,6 +24,7 @@ import {
     StyledButton,
     StyledLabel,
     StyledHeader,
+    StyledTitleHeader,
     CalculatorBody,
     CalculatorHeader,
     ActionSection,
@@ -148,15 +149,15 @@ const MarginCalculator = () => {
 
     return (
         <Container direction="column">
-            <StyledHeader as="h2" align="center" mt="8rem" mb="1.2rem">
+            <StyledTitleHeader as="h2" align="center" mt="8rem" mb="1.2rem">
                 {localize('Margin calculator')}
-            </StyledHeader>
+            </StyledTitleHeader>
 
-            <StyledHeader as="h5" align="center" mb="4rem" weight="normal">
+            <StyledText as="h5" align="center" mb="4rem" weight="normal">
                 {localize(
                     'Our margin calculator helps you to estimate the margin required to keep your positions open overnight on Deriv MetaTrader 5 (DMT5).',
                 )}
-            </StyledHeader>
+            </StyledText>
 
             <WrapContainer mb="4.0rem">
                 <StyledFormWrapper>
@@ -346,7 +347,9 @@ const MarginCalculator = () => {
                 </StyledFormWrapper>
 
                 <Flex direction="column" max_width="69rem">
-                    <StyledHeader as="h3">{localize('How margin is calculated')}</StyledHeader>
+                    <StyledHeader as="h3" mb="0.8rem">
+                        {localize('How margin is calculated')}
+                    </StyledHeader>
 
                     <StyledText mb="1.6rem">
                         <Localize

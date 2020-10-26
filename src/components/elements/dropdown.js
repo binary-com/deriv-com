@@ -200,8 +200,15 @@ const StyledLabel = styled.label`
     transition: 0.25s ease transform;
     transform: translateZ(0);
     padding: 0 0.4rem;
+
     @media ${device.tabletL} {
-        font-size: 14px;
+        font-size: 1.75rem;
+        top: 1.5rem;
+    }
+
+    @media ${device.mobileL} {
+        font-size: 1.5rem;
+        top: 1.75rem;
     }
 
     ${(props) =>

@@ -192,7 +192,6 @@ const NavLink = styled.li`
     align-items: center;
     text-align: center;
     margin-right: 2.4rem;
-    white-space: nowrap;
 
     &:last-child {
         margin-right: 0;
@@ -209,6 +208,7 @@ const StyledButton = styled.a`
     ${SharedLinkStyle}
     cursor: pointer;
     user-select: none;
+    white-space: nowrap;
 `
 
 const SignupButton = styled(Button)`

@@ -57,7 +57,6 @@ const StyledContainer = styled(Container)`
     justify-content: flex-start;
     align-items: flex-start;
     width: 100% !important;
-    white-space: nowrap;
 
     .active {
         border: 0.2rem solid var(--color-green);

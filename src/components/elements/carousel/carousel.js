@@ -80,10 +80,19 @@ export const Carousel = ({
         }
     }, [embla])
 
-    const { play } = useRecursiveTimeout(autoplay, autoplay_interval)
+    const { play, stop } = useRecursiveTimeout(autoplay, autoplay_interval)
 
-    const scrollPrev = useCallback(() => embla && embla.scrollPrev(), [embla])
-    const scrollNext = useCallback(() => embla && embla.scrollNext(), [embla])
+    const scrollPrev = useCallback(() => {
+        if (!embla) return
+        embla && embla.scrollPrev()
+        stop()
+    }, [embla, stop])
+
+    const scrollNext = useCallback(() => {
+        if (!embla) return
+        embla && embla.scrollNext()
+        stop()
+    }, [embla, stop])
 
     const onSelect = useCallback(() => {
         if (!embla) return
@@ -94,8 +103,8 @@ export const Carousel = ({
     useEffect(() => {
         if (!embla) return
         embla.on('select', onSelect)
-        onSelect()
-    }, [embla, onSelect])
+        embla.on('pointerDown', stop)
+    }, [embla, onSelect, stop])
 
     useEffect(() => {
         play()

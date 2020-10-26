@@ -198,7 +198,7 @@ const NavLink = styled.li`
     }
 
     @media ${device.laptopM} {
-        margin-right: 2.1rem;
+        margin-right: 1.6rem;
     }
 
     ${(props) => {

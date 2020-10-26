@@ -197,6 +197,10 @@ const NavLink = styled.li`
         margin-right: 0;
     }
 
+    @media ${device.laptopM} {
+        margin-right: 2.1rem;
+    }
+
     ${(props) => {
         if (props.margin) return 'margin: 0 4rem;'
     }}

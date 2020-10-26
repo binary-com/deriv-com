@@ -27,7 +27,7 @@ export const EmblaContainer = styled.div`
 
 export const EmblaSlideInner = styled.div`
     position: relative;
-    padding-left: 10px;
+    padding-left: 0;
     margin: 0 auto;
 `
 
@@ -48,7 +48,7 @@ export const StyledButtonWrapper = styled.div`
                                     left: 22%;
                                 }
                                 @media ${device.tabletS} {
-                                    left: 3px;
+                                    left: 2px;
                                 }
                             `
                         }

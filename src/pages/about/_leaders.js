@@ -267,6 +267,7 @@ const Leaders = () => {
             minWidth: '273px',
             height: 'auto',
             position: 'relative',
+            paddingRight: '10px',
         },
     }
 

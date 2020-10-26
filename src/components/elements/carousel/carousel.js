@@ -10,6 +10,7 @@ import {
     ChevronRight,
     ChevronLeft,
 } from './carousel-style'
+import { useRecursiveTimeout } from 'components/hooks/use-recursive-timeout'
 
 export const PrevButton = ({ enabled, onClick, color, style, is_reviews }) => (
     <StyledButtonWrapper
@@ -61,10 +62,25 @@ export const Carousel = ({
     slide_style,
     view_port,
     chevron_style,
+    has_autoplay,
+    autoplay_interval,
 }) => {
     const [emblaRef, embla] = useEmblaCarousel(options)
     const [prevBtnEnabled, setPrevBtnEnabled] = useState(false)
     const [nextBtnEnabled, setNextBtnEnabled] = useState(false)
+
+    const autoplay = useCallback(() => {
+        if (has_autoplay) {
+            if (!embla) return
+            if (embla.canScrollNext()) {
+                embla.scrollNext()
+            } else {
+                embla.scrollTo(0)
+            }
+        }
+    }, [embla])
+
+    const { play } = useRecursiveTimeout(autoplay, autoplay_interval)
 
     const scrollPrev = useCallback(() => embla && embla.scrollPrev(), [embla])
     const scrollNext = useCallback(() => embla && embla.scrollNext(), [embla])
@@ -80,6 +96,10 @@ export const Carousel = ({
         embla.on('select', onSelect)
         onSelect()
     }, [embla, onSelect])
+
+    useEffect(() => {
+        play()
+    }, [play])
 
     const chevron_left = chevron_style?.chevron_left
     const chevron_right = chevron_style?.chevron_right
@@ -122,9 +142,11 @@ export const Carousel = ({
 }
 
 Carousel.propTypes = {
+    autoplay_interval: PropTypes.number,
     chevron_style: PropTypes.object,
     children: PropTypes.array,
     container_style: PropTypes.object,
+    has_autoplay: PropTypes.bool,
     options: PropTypes.object,
     slide_style: PropTypes.object,
     view_port: PropTypes.object,

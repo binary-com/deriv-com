@@ -222,7 +222,7 @@ const MarginCalculator = () => {
                                             onClick={() => {
                                                 onTabClick('Synthetic')
                                                 setErrors({})
-                                                resetForm()
+                                                resetForm({})
                                             }}
                                         >
                                             <StyledText align="center">

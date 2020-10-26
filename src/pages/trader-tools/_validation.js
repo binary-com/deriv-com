@@ -6,18 +6,8 @@ const validation_regex = {
     integer: /^\d+$/,
 }
 
-const validation_is_exceed_integer = (input) => {
-    const max_digit = 8
-
-    if (input.length > max_digit) {
-        return false
-    }
-
-    return true
-}
-
-const validation_is_exceed_number = (input) => {
-    const max_digit = 15
+const validation_is_exceed_number = (input, maxDigit) => {
+    const max_digit = maxDigit || 15
 
     if (input.length > max_digit) {
         return false
@@ -33,29 +23,43 @@ const validation_is_not_zero = (input) => {
     return true
 }
 
-const numberValidation = (input, fieldName) => {
+const validation_is_not_exceed_two_decimal = (input) => {
+    if (input.includes('.')) {
+        const numb = input.split('.')[1]
+        if (numb != null && numb.length > 2) {
+            return true
+        }
+    }
+    return false
+}
+
+const numberValidation = (input, fieldName, maxDigit) => {
     if (!input) {
         return localize(`${fieldName} is required`)
     } else if (!validation_regex.number.test(input)) {
         return localize('Should be a valid number')
-    } else if (!validation_is_exceed_number(input)) {
-        return localize('Reached maximum number (15) of digits')
+    } else if (!validation_is_exceed_number(input, maxDigit)) {
+        return localize('Reached maximum number of digits')
     } else if (!validation_is_not_zero(input)) {
         return localize('Input must be greater than 0')
+    } else if (validation_is_not_exceed_two_decimal(input)) {
+        return localize('Decimal place must not be longer than 2')
     }
 
     return null
 }
 
-const numberWithNegativeValidation = (input, fieldName) => {
+const numberWithNegativeValidation = (input, fieldName, maxDigit) => {
     if (!input) {
         return localize(`${fieldName} is required`)
     } else if (!validation_regex.numberWithNegative.test(input)) {
         return localize('Should be a valid number')
-    } else if (!validation_is_exceed_number(input)) {
-        return localize('Reached maximum number (15) of digits')
+    } else if (!validation_is_exceed_number(input, maxDigit)) {
+        return localize('Reached maximum number of digits')
     } else if (!validation_is_not_zero(input)) {
         return localize('Input must not be  0')
+    } else if (validation_is_not_exceed_two_decimal(input)) {
+        return localize('Decimal place must not be longer than 2')
     }
 
     return null
@@ -70,20 +74,10 @@ const validation = {
         return null
     },
     volume: (input) => {
-        if (!input) {
-            return localize(`Volume is required`)
-        } else if (!validation_regex.integer.test(input)) {
-            return localize('Should be a valid integer')
-        } else if (!validation_is_exceed_integer(input)) {
-            return localize('Reached maximum number (8) of digits')
-        } else if (!validation_is_not_zero(input)) {
-            return localize('Input must be greater than 0')
-        }
-
-        return null
+        return numberValidation(input, localize('Volume'), 8)
     },
     assetPrice: (input) => {
-        return numberValidation(input, localize('Asset price'))
+        return numberValidation(input, localize('Asset price'), 15)
     },
     leverage: (input) => {
         if (!input || input.display_name === '') {
@@ -92,11 +86,11 @@ const validation = {
         return null
     },
     swapRate: (input) => {
-        return numberWithNegativeValidation(input, localize('Swap rate'))
+        return numberWithNegativeValidation(input, localize('Swap rate'), 15)
     },
 
     pointValue: (input) => {
-        return numberValidation(input, localize('Point value'))
+        return numberValidation(input, localize('Point value'), 15)
     },
 }
 

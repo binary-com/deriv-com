@@ -196,7 +196,7 @@ const StyledLabel = styled.label`
     position: absolute;
     pointer-events: none;
     left: 0.8rem;
-    top: 1.4rem;
+    top: 1.2rem;
     transition: 0.25s ease transform;
     transform: translateZ(0);
     padding: 0 0.4rem;

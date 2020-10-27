@@ -72,6 +72,17 @@ const ImageWrapper = styled.div`
     }
 `
 
+const ImageWrapperRemove = styled.div`
+    @media ${device.laptopL} {
+        margin-left: auto;
+    }
+    @media ${device.mobileL} {
+        & > img {
+            width: 20rem !important;
+        }
+    }
+`
+
 const Th = styled.th`
     vertical-align: middle;
     padding: 1.6rem 2rem;
@@ -166,7 +177,7 @@ const RemoveBlocks = () => (
                 "Just click on the block you want to remove and press 'Delete' on your keyboard. You can also drag the block to the recycle bin icon at the lower right corner of the workspace.",
             )}
         </Text>
-        <ImageWrapper>
+        <ImageWrapperRemove>
             <img
                 src={DeleteImage}
                 alt={localize('Remove block')}
@@ -174,7 +185,7 @@ const RemoveBlocks = () => (
                 style={{ width: '7.4rem' }}
                 loading="lazy"
             />
-        </ImageWrapper>
+        </ImageWrapperRemove>
     </ArticleWrapper>
 )
 const CreateVariables = () => (

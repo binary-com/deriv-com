@@ -78,7 +78,7 @@ const ImageWrapperRemove = styled.div`
     }
     @media ${device.mobileL} {
         & > img {
-            width: 20rem !important;
+            width: 10rem !important;
         }
     }
 `

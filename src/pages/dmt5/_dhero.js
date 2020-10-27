@@ -51,7 +51,7 @@ const HeroContent = styled(Flex)`
     ${Header} {
         color: var(--color-white);
         display: flex;
-        margin-top: 1.5rem;
+        margin-top: 1.6rem;
         line-height: 1.25;
     }
     @media ${device.laptopM} {
@@ -98,7 +98,7 @@ const LottieWrapper = styled.div`
 
 const LinkWrapper = styled.div`
     display: flex;
-    margin-top: 3.2rem;
+    margin-top: 6.3rem;
 
     @media (max-width: 1420px) {
         top: 480px;

@@ -226,6 +226,7 @@ const DescriptionWrapper = styled.div`
 
 const LeaderWrapper = styled(Flex)`
     width: '100%';
+    height: auto;
     max-width: '304px';
     box-shadow: '0 20px 20px 0 rgba(0, 0, 0, 0.2)';
     border-radius: '4px';

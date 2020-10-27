@@ -7,9 +7,9 @@ import { SectionContainer, Flex, Container } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
-import DefinePosition from 'images/svg/trade-types/define-your-position.svg'
-import GetQuote from 'images/svg/trade-types/get-quote.svg'
-import PurchaseContract from 'images/svg/trade-types/purchase-your-contract.svg'
+import { ReactComponent as DefinePosition } from 'images/svg/trade-types/define-your-position.svg'
+import { ReactComponent as GetQuote } from 'images/svg/trade-types/get-quote.svg'
+import { ReactComponent as PurchaseContract } from 'images/svg/trade-types/purchase-your-contract.svg'
 import Pattern from 'images/common/trade-types/pattern-section.png'
 
 const query = graphql`

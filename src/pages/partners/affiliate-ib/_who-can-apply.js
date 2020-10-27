@@ -7,12 +7,12 @@ import { LinkButton } from 'components/form'
 import { Timeline } from 'components/elements'
 import device from 'themes/device'
 import { affiliate_signup_url } from 'common/utility'
-import TradingExperts from 'images/svg/trading-experts.svg'
-import SoftwareDeveloper from 'images/svg/software-developer.svg'
-import CommunityManagers from 'images/svg/community-managers.svg'
-import Apply from 'images/svg/apply.svg'
-import Advertise from 'images/svg/advertise.svg'
-import Earn from 'images/svg/earn.svg'
+import { ReactComponent as TradingExperts } from 'images/svg/trading-experts.svg'
+import { ReactComponent as SoftwareDeveloper } from 'images/svg/software-developer.svg'
+import { ReactComponent as CommunityManagers } from 'images/svg/community-managers.svg'
+import { ReactComponent as Apply } from 'images/svg/apply.svg'
+import { ReactComponent as Advertise } from 'images/svg/advertise.svg'
+import { ReactComponent as Earn } from 'images/svg/earn.svg'
 
 const StyledSection = styled(Container)`
     display: flex;

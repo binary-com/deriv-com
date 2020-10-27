@@ -7,11 +7,11 @@ import Margin from './_margin.js'
 import DigitalOptions from './_digital-options.js'
 import SimpleSteps from 'components/custom/_simple-steps'
 import { Localize } from 'components/localization'
-import FriendlySupport from 'images/svg/friendly-support.svg'
-import ResponsiveWebsite from 'images/svg/responsive-website.svg'
-import NoCommission from 'images/svg/no-commission.svg'
-import MetalAndOil from 'images/svg/precious-metals-and-oils.svg'
-import VariableSpreads from 'images/svg/variable-spreads.svg'
+import { ReactComponent as FriendlySupport } from 'images/svg/friendly-support.svg'
+import { ReactComponent as ResponsiveWebsite } from 'images/svg/responsive-website.svg'
+import { ReactComponent as NoCommission } from 'images/svg/no-commission.svg'
+import { ReactComponent as MetalAndOil } from 'images/svg/precious-metals-and-oils.svg'
+import { ReactComponent as VariableSpreads } from 'images/svg/variable-spreads.svg'
 
 const Commodities = ({ simple_step_content }) => {
     simple_step_content[1].text = (

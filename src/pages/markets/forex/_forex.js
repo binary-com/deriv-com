@@ -9,11 +9,11 @@ import Multipliers from './_multipliers.js'
 import SimpleSteps from 'components/custom/_simple-steps'
 import { Localize } from 'components/localization'
 //SVG
-import FriendlySupport from 'images/svg/friendly-support.svg'
-import Deposit from 'images/svg/deposit-and-withdrawal.svg'
-import AdvancedCharting from 'images/svg/advanced-charting-widgets.svg'
-import ResponsiveWebsite from 'images/svg/responsive-website.svg'
-import Leverage from 'images/svg/leverage.svg'
+import { ReactComponent as FriendlySupport } from 'images/svg/friendly-support.svg'
+import { ReactComponent as Deposit } from 'images/svg/deposit-and-withdrawal.svg'
+import { ReactComponent as AdvancedCharting } from 'images/svg/advanced-charting-widgets.svg'
+import { ReactComponent as ResponsiveWebsite } from 'images/svg/responsive-website.svg'
+import { ReactComponent as Leverage } from 'images/svg/leverage.svg'
 
 const Forex = ({ simple_step_content }) => {
     return (

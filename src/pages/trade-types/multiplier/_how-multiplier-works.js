@@ -7,9 +7,9 @@ import { SectionContainer, Flex } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
-import DefinePosition from 'images/svg/trade-types/define-your-position.svg'
-import SetOptionalParameters from 'images/svg/trade-types/set-optional-parameters.svg'
-import PurchaseContract from 'images/svg/trade-types/purchase-your-contract.svg'
+import { ReactComponent as DefinePosition } from 'images/svg/trade-types/define-your-position.svg'
+import { ReactComponent as SetOptionalParameters } from 'images/svg/trade-types/set-optional-parameters.svg'
+import { ReactComponent as PurchaseContract } from 'images/svg/trade-types/purchase-your-contract.svg'
 
 const query = graphql`
     query {

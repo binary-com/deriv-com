@@ -6,8 +6,8 @@ import { LinkButton } from 'components/form'
 import { Header, Text } from 'components/elements'
 import { Container, SectionContainer, Flex, Show } from 'components/containers'
 import device from 'themes/device'
-import Pattern from 'images/svg/pattern.svg'
-import PatternMobile from 'images/svg/pattern-mobile.svg'
+import { ReactComponent as Pattern } from 'images/svg/pattern.svg'
+import { ReactComponent as PatternMobile } from 'images/svg/pattern-mobile.svg'
 
 const StyledSection = styled(SectionContainer)`
     position: relative;

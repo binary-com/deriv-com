@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 import device from 'themes/device'
-import Chevron from 'images/svg/carousel-chevron.svg'
+import { ReactComponent as Chevron } from 'images/svg/carousel-chevron.svg'
 
 export const Embla = styled.div`
     position: relative;

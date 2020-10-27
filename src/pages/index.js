@@ -11,9 +11,9 @@ import Layout from 'components/layout/layout'
 import { localize, WithIntl, Localize } from 'components/localization'
 import Signup, { Appearances } from 'components/custom/signup'
 import SimpleSteps from 'components/custom/_simple-steps'
-import PractiseIcon from 'images/svg/aim.svg'
-import TradeIcon from 'images/svg/trade.svg'
-import WithdrawIcon from 'images/svg/withdraw.svg'
+import { ReactComponent as PractiseIcon } from 'images/svg/aim.svg'
+import { ReactComponent as TradeIcon } from 'images/svg/trade.svg'
+import { ReactComponent as WithdrawIcon } from 'images/svg/withdraw.svg'
 
 const Trade = Loadable(() => import('./home/_trade'))
 const TradeTheWayYouLike = Loadable(() => import('./home/_trade-the-way-you-like'))

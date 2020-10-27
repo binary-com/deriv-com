@@ -5,11 +5,11 @@ import { Header, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import { LinkButton } from 'components/form'
 // Icon
-import FixedPayout from 'images/svg/trade-types/fixed-payout.svg'
-import SyntheticIndices from 'images/svg/trade-types/synthetic-indices.svg'
-import InstantAccess from 'images/svg/trade-types/instant-access.svg'
-import UserFriendly from 'images/svg/trade-types/user-friendly-platforms.svg'
-import FlexibleTrade from 'images/svg/trade-types/flexible-trade-types.svg'
+import { ReactComponent as FixedPayout } from 'images/svg/trade-types/fixed-payout.svg'
+import { ReactComponent as SyntheticIndices } from 'images/svg/trade-types/synthetic-indices.svg'
+import { ReactComponent as InstantAccess } from 'images/svg/trade-types/instant-access.svg'
+import { ReactComponent as UserFriendly } from 'images/svg/trade-types/user-friendly-platforms.svg'
+import { ReactComponent as FlexibleTrade } from 'images/svg/trade-types/flexible-trade-types.svg'
 
 const WhatAreOptions = () => {
     return (

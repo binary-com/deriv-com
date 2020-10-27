@@ -7,7 +7,7 @@ import { localize, WithIntl } from 'components/localization'
 import { SEO } from 'components/containers'
 import device from 'themes/device.js'
 import { Header, Text } from 'components/elements'
-import Graph from 'images/svg/graph.svg'
+import { ReactComponent as Graph } from 'images/svg/graph.svg'
 
 const Wrapper = styled.section`
     padding: 8rem 0;

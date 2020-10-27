@@ -9,12 +9,12 @@ import { Flex, Show } from 'components/containers'
 import { deriv_app_url } from 'common/utility'
 import device from 'themes/device.js'
 // SVG
-import Facebook from 'images/svg/facebook-blue.svg'
-import Google from 'images/svg/google.svg'
-import Arrow from 'images/svg/chervon-right.svg'
+import { ReactComponent as Facebook } from 'images/svg/facebook-blue.svg'
+import { ReactComponent as Google } from 'images/svg/google.svg'
+import { ReactComponent as Arrow } from 'images/svg/chervon-right.svg'
 import BackgroundPattern from 'images/common/bg_banner_signup.png'
-import Chevron from 'images/svg/carousel-chevron.svg'
-import RedBanner from 'images/svg/bg_banner_signup_mobile.svg'
+import { ReactComponent as Chevron } from 'images/svg/carousel-chevron.svg'
+import { ReactComponent as RedBanner } from 'images/svg/bg_banner_signup_mobile.svg'
 
 const query = graphql`
     query {

@@ -16,16 +16,16 @@ import { mga_link_url } from 'common/utility'
 import device from 'themes/device'
 import { localize, Localize, LocalizedLink } from 'components/localization'
 // Icons
-import CopyrightIc from 'images/svg/copyright.svg'
-import Logo from 'images/svg/deriv-footer.svg'
-import Twitter from 'images/svg/footer-twitter.svg'
-import Instagram from 'images/svg/footer-instagram.svg'
-import Facebook from 'images/svg/footer-facebook.svg'
-import Linkedin from 'images/svg/footer-linkedin.svg'
+import { ReactComponent as CopyrightIc } from 'images/svg/copyright.svg'
+import { ReactComponent as Logo } from 'images/svg/deriv-footer.svg'
+import { ReactComponent as Twitter } from 'images/svg/footer-twitter.svg'
+import { ReactComponent as Instagram } from 'images/svg/footer-instagram.svg'
+import { ReactComponent as Facebook } from 'images/svg/footer-facebook.svg'
+import { ReactComponent as Linkedin } from 'images/svg/footer-linkedin.svg'
 //EU icons
-import Gamstop from 'images/svg/gamstop.svg'
-import MgaLogo from 'images/svg/mga-logo.svg'
-import Over18 from 'images/svg/over-18.svg'
+import { ReactComponent as Gamstop } from 'images/svg/gamstop.svg'
+import { ReactComponent as MgaLogo } from 'images/svg/mga-logo.svg'
+import { ReactComponent as Over18 } from 'images/svg/over-18.svg'
 
 const StyledFooter = styled.footer`
     background-color: var(--color-grey-25);

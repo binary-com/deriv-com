@@ -4,8 +4,8 @@ import styled from 'styled-components'
 import { Text, LocalizedLinkText } from 'components/elements'
 import { Flex } from 'components/containers'
 import { Localize } from 'components/localization'
-import BinaryWhite from 'images/svg/interim/binary-white.svg'
-import BinaryBlue from 'images/svg/binary.svg'
+import { ReactComponent as BinaryWhite } from 'images/svg/interim/binary-white.svg'
+import { ReactComponent as BinaryBlue } from 'images/svg/binary.svg'
 
 const BinaryLink = styled(LocalizedLinkText)`
     &:hover {

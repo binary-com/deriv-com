@@ -5,7 +5,7 @@ import { Header, Text, LinkText } from 'components/elements'
 import { localize } from 'components/localization'
 import device from 'themes/device'
 // SVG
-import Mail from 'images/svg/contact/mail.svg'
+import { ReactComponent as Mail } from 'images/svg/contact/mail.svg'
 
 const Wrapper = styled(SectionContainer)`
     border-top: 1px solid var(--color-grey-2);

@@ -5,12 +5,12 @@ import { Header, Text, LocalizedLinkText } from 'components/elements'
 import { LinkButton } from 'components/form'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
-import Enhanced from 'images/svg/interim/enhanced.svg'
-import EasySignup from 'images/svg/interim/easy-sign-up.svg'
-import Support from 'images/svg/interim/support.svg'
-import SyntheticIndices from 'images/svg/interim/synthetic-indices.svg'
-import TradingPlatform from 'images/svg/interim/trading-platforms.svg'
-import UserFriendly from 'images/svg/interim/user-friendly.svg'
+import { ReactComponent as Enhanced } from 'images/svg/interim/enhanced.svg'
+import { ReactComponent as EasySignup } from 'images/svg/interim/easy-sign-up.svg'
+import { ReactComponent as Support } from 'images/svg/interim/support.svg'
+import { ReactComponent as SyntheticIndices } from 'images/svg/interim/synthetic-indices.svg'
+import { ReactComponent as TradingPlatform } from 'images/svg/interim/trading-platforms.svg'
+import { ReactComponent as UserFriendly } from 'images/svg/interim/user-friendly.svg'
 
 const Ul = styled(Flex).attrs({ as: 'ul' })`
     width: 100%;

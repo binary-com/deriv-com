@@ -12,10 +12,10 @@ import { Show, SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { size } from 'themes/device'
 import { isBrowser } from 'common/utility'
-import dtrader_logo from 'images/svg/dtrader-icon.svg'
+import { ReactComponent as dtrader_logo } from 'images/svg/dtrader-icon.svg'
 import { localize, WithIntl, Localize } from 'components/localization'
-import DTraderBGMobile from 'images/svg/dtrader-bg-mobile.svg'
-import DTraderBG from 'images/svg/dtrader-bg.svg'
+import { ReactComponent as DTraderBGMobile } from 'images/svg/dtrader-bg-mobile.svg'
+import { ReactComponent as DTraderBG } from 'images/svg/dtrader-bg.svg'
 import BackgroundPatternTrader from 'images/common/bg_banner_trader.png'
 
 const query = graphql`

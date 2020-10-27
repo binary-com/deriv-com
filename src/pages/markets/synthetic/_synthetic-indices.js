@@ -8,11 +8,11 @@ import DigitalOptions from './_digital-options.js'
 import Multipliers from './_multipliers.js'
 import SimpleSteps from 'components/custom/_simple-steps'
 import { Localize } from 'components/localization'
-import FriendlySupport from 'images/svg/friendly-support.svg'
-import ResponsiveWebsite from 'images/svg/responsive-website.svg'
-import ExclusiveTradeType from 'images/svg/exclusive-trade-types.svg'
-import MarketandRisk from 'images/svg/market-and-risk.svg'
-import SevenTrading from 'images/svg/seven-trading.svg'
+import { ReactComponent as FriendlySupport } from 'images/svg/friendly-support.svg'
+import { ReactComponent as ResponsiveWebsite } from 'images/svg/responsive-website.svg'
+import { ReactComponent as ExclusiveTradeType } from 'images/svg/exclusive-trade-types.svg'
+import { ReactComponent as MarketandRisk } from 'images/svg/market-and-risk.svg'
+import { ReactComponent as SevenTrading } from 'images/svg/seven-trading.svg'
 
 const StockIndices = ({ simple_step_content }) => {
     return (

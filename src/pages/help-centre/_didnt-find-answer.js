@@ -6,7 +6,7 @@ import { localize } from 'components/localization'
 import { Container } from 'components/containers'
 import { LocationContext } from 'components/layout/location-context.js'
 import device from 'themes/device'
-import ContactUsIcon from 'images/svg/livechat-red.svg'
+import { ReactComponent as ContactUsIcon } from 'images/svg/livechat-red.svg'
 
 const DFYAWrapper = styled.section`
     background-color: var(--color-black-3);

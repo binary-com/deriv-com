@@ -8,11 +8,11 @@ import { localize, LocalizedLink } from 'components/localization'
 import device from 'themes/device'
 // import { map_api_key } from 'common/utility'
 // SVG
-import Malta from 'images/svg/contact/malta.svg'
-import Dubai from 'images/svg/contact/dubai.svg'
-import Paraguay from 'images/svg/contact/paraguay.svg'
-import Malaysia from 'images/svg/contact/malaysia.svg'
-import Cyprus from 'images/svg/contact/cyprus.svg'
+import { ReactComponent as Malta } from 'images/svg/contact/malta.svg'
+import { ReactComponent as Dubai } from 'images/svg/contact/dubai.svg'
+import { ReactComponent as Paraguay } from 'images/svg/contact/paraguay.svg'
+import { ReactComponent as Malaysia } from 'images/svg/contact/malaysia.svg'
+import { ReactComponent as Cyprus } from 'images/svg/contact/cyprus.svg'
 
 const query = graphql`
     query {

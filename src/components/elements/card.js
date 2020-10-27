@@ -6,8 +6,8 @@ import { Flex } from 'components/containers'
 import { LocalizedLink } from 'components/localization'
 import device from 'themes/device'
 // SVG
-import Arrow from 'images/svg/card-arrow.svg'
-import Diagonal from 'images/svg/pink-right-diagonal.svg'
+import { ReactComponent as Arrow } from 'images/svg/card-arrow.svg'
+import { ReactComponent as Diagonal } from 'images/svg/pink-right-diagonal.svg'
 
 export const CardStyle = css`
     box-sizing: border-box;

@@ -8,9 +8,9 @@ import { Header, Text, LinkText, Checkbox } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device.js'
 // SVG
-import Facebook from 'images/svg/facebook-blue.svg'
-import BinaryLogo from 'images/svg/binary-logo.svg'
-import Google from 'images/svg/google.svg'
+import { ReactComponent as Facebook } from 'images/svg/facebook-blue.svg'
+import { ReactComponent as BinaryLogo } from 'images/svg/binary-logo.svg'
+import { ReactComponent as Google } from 'images/svg/google.svg'
 
 const SignupContent = styled.div`
     width: 48.4rem;

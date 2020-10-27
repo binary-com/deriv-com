@@ -17,8 +17,8 @@ import { localize, LocalizedLink, WithIntl, Localize } from 'components/localiza
 import { getLocationHash, sanitize } from 'common/utility'
 import device from 'themes/device'
 // Icons
-import SearchIcon from 'images/svg/search.svg'
-import CrossIcon from 'images/svg/cross.svg'
+import { ReactComponent as SearchIcon } from 'images/svg/search.svg'
+import { ReactComponent as CrossIcon } from 'images/svg/cross.svg'
 
 const getAllArticles = (articles) =>
     articles
@@ -81,7 +81,7 @@ const SearchForm = styled.form`
         }
     }
 `
-const SearchIconBig = styled(SearchIcon)`
+const SearchIconBig = styled.img`
     width: 2.3rem;
     height: 2.3rem;
     position: absolute;
@@ -310,7 +310,7 @@ class HelpCentre extends Component {
                                     {localize('How can we help?')}
                                 </ResponsiveHeader>
                                 <SearchForm onSubmit={this.handleSubmit}>
-                                    <SearchIconBig />
+                                    <SearchIconBig src={SearchIcon} alt="search-icon" />
                                     <Search
                                         autoFocus
                                         name="search"

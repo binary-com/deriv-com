@@ -5,6 +5,7 @@
     "author": "Deriv",
     "dependencies": {
         "@loadable/component": "^5.13.2",
+        "@svgr/webpack": "^5.4.0",
         "commander": "^6.1.0",
         "crc-32": "^1.2.0",
         "embla-carousel": "^4.0.5",
@@ -22,6 +23,7 @@
         "gatsby-plugin-robots-txt": "^1.5.3",
         "gatsby-plugin-sharp": "^2.6.36",
         "gatsby-plugin-sitemap": "^2.4.13",
+        "gatsby-plugin-svgr": "^2.0.2",
         "gatsby-source-filesystem": "^2.3.30",
         "gatsby-transformer-sharp": "^2.5.15",
         "i18next": "^19.7.0",
@@ -45,7 +47,6 @@
         "eslint-plugin-react": "^7.20.6",
         "gatsby-plugin-eslint": "^2.0.8",
         "gatsby-plugin-force-trailing-slashes": "^1.0.4",
-        "gatsby-plugin-react-svg": "^3.0.0",
         "gatsby-plugin-styled-components": "^3.3.11",
         "gatsby-plugin-stylelint": "^3.2.0",
         "gh-pages": "^3.1.0",

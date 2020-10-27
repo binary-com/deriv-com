@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components'
 import { Text } from '../elements'
 import device from 'themes/device'
 // SVG Component
-import CrossIcon from 'images/svg/cross.svg'
+import { ReactComponent as CrossIcon } from 'images/svg/cross.svg'
 
 const RelativeWrapper = styled.div`
     position: relative;
@@ -22,7 +22,7 @@ const InputWrapper = styled.div`
         border-color: var(--color-grey-5);
 
         & > label {
-            color: var(--color- ${(props) => props.labelHoverColor || 'black-3'});
+            color: var(--color-${(props) => props.labelHoverColor || 'black-3'});
         }
     }
     &:focus-within {
@@ -83,7 +83,7 @@ const StyledInput = styled.input`
         & ~ label {
             font-size: 1.5rem;
             top: 1.75rem;
-        }       
+        }
     }
 
     &::placeholder {

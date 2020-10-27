@@ -3,10 +3,10 @@ import styled from 'styled-components'
 import { Container, CssGrid, SectionContainer, Flex } from 'components/containers'
 import { Header, Text } from 'components/elements'
 // SVG
-import Integrity from 'images/svg/career-integrity.svg'
-import Customer from 'images/svg/career-customer.svg'
-import Competence from 'images/svg/career-competence.svg'
-import Teamwork from 'images/svg/career-teamwork.svg'
+import { ReactComponent as Integrity } from 'images/svg/career-integrity.svg'
+import { ReactComponent as Customer } from 'images/svg/career-customer.svg'
+import { ReactComponent as Competence } from 'images/svg/career-competence.svg'
+import { ReactComponent as Teamwork } from 'images/svg/career-teamwork.svg'
 
 const StyledHeader = styled(Header)`
     margin-bottom: 6.4rem;

@@ -6,8 +6,8 @@ import { SmallContainer, Card, MarketsItem } from '../components/_style'
 import { SectionContainer, Flex } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
-import Forex from 'images/svg/trade-types/forex.svg'
-import SyntheticIndices from 'images/svg/trade-types/synthetic-indices.svg'
+import { ReactComponent as Forex } from 'images/svg/trade-types/forex.svg'
+import { ReactComponent as SyntheticIndices } from 'images/svg/trade-types/synthetic-indices.svg'
 
 const MobileCardHeader = styled(Flex)`
     margin-bottom: 0.8rem;

@@ -10,7 +10,7 @@ import Commodities from 'components/svgs/_market-commodities.js'
 import Forex from 'components/svgs/_market-forex.js'
 import StockIndices from 'components/svgs/_market-stock.js'
 import SyntheticIndices from 'components/svgs/_market-synthetic.js'
-import Arrow from 'images/svg/arrow-right.svg'
+import { ReactComponent as Arrow } from 'images/svg/arrow-right.svg'
 import device from 'themes/device'
 
 const markets_type = {

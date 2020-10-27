@@ -4,7 +4,7 @@ import { SmallContainer, Ul } from '../components/_style'
 import { SectionContainer, Flex } from 'components/containers'
 import { Header, Text, CardStyle } from 'components/elements'
 import { localize, Localize } from 'components/localization'
-import Info from 'images/svg/trade-types/info.svg'
+import { ReactComponent as Info } from 'images/svg/trade-types/info.svg'
 
 const Card = styled.article`
     ${CardStyle}

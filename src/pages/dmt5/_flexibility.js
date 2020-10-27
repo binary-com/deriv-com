@@ -4,9 +4,9 @@ import { Flex, SectionContainer } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { LinkButton } from 'components/form'
 import { Localize, localize } from 'components/localization'
-import FinancialStpIcon from 'images/svg/financial-stp.svg'
-import FinancialIcon from 'images/svg/financial.svg'
-import SyntheticIcon from 'images/svg/synthetic.svg'
+import { ReactComponent as FinancialStpIcon } from 'images/svg/financial-stp.svg'
+import { ReactComponent as FinancialIcon } from 'images/svg/financial.svg'
+import { ReactComponent as SyntheticIcon } from 'images/svg/synthetic.svg'
 import device from 'themes/device'
 
 const BaseIconStyle = css`

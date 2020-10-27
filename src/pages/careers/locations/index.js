@@ -18,13 +18,13 @@ import { SEO, SectionContainer, Container, Flex, CssGrid } from 'components/cont
 import Layout from 'components/layout/layout'
 import { WithIntl, localize } from 'components/localization'
 import { Header, Text, QueryImage } from 'components/elements'
-import MalaysiaFlagIcon from 'images/svg/flag_malaysia.svg'
-import ParaguayFlagIcon from 'images/svg/flag_paraguay.svg'
-import UAEFlagIcon from 'images/svg/flag_uae.svg'
-import MaltaFlagIcon from 'images/svg/flag_malta.svg'
-import CyprusFlagIcon from 'images/svg/flag_cyprus.svg'
-import RwandaFlagIcon from 'images/svg/flag_rwanda.svg'
-import Chevron from 'images/svg/carousel-chevron.svg'
+import { ReactComponent as MalaysiaFlagIcon } from 'images/svg/flag_malaysia.svg'
+import { ReactComponent as ParaguayFlagIcon } from 'images/svg/flag_paraguay.svg'
+import { ReactComponent as UAEFlagIcon } from 'images/svg/flag_uae.svg'
+import { ReactComponent as MaltaFlagIcon } from 'images/svg/flag_malta.svg'
+import { ReactComponent as CyprusFlagIcon } from 'images/svg/flag_cyprus.svg'
+import { ReactComponent as RwandaFlagIcon } from 'images/svg/flag_rwanda.svg'
+import { ReactComponent as Chevron } from 'images/svg/carousel-chevron.svg'
 
 const ChevronRight = styled(Chevron)`
     transform: rotate(180deg);

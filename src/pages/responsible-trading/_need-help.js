@@ -4,10 +4,10 @@ import { Header, Text, LocalizedLinkText } from 'components/elements'
 import { Container, SectionContainer, Flex } from 'components/containers'
 import device from 'themes/device'
 import { Localize, localize } from 'components/localization'
-import GamStop from 'images/svg/gamstop.svg'
-import BeGambleAware from 'images/svg/begambleaware.svg'
-import Underage from 'images/svg/underage.svg'
-import Filtering from 'images/svg/filtering-controls.svg'
+import { ReactComponent as GamStop } from 'images/svg/gamstop.svg'
+import { ReactComponent as BeGambleAware } from 'images/svg/begambleaware.svg'
+import { ReactComponent as Underage } from 'images/svg/underage.svg'
+import { ReactComponent as Filtering } from 'images/svg/filtering-controls.svg'
 
 const help_content = [
     {

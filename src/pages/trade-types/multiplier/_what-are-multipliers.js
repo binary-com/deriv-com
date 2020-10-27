@@ -7,11 +7,11 @@ import { Header, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import { LinkButton } from 'components/form'
 // Icon
-import MinimalRisk from 'images/svg/trade-types/minimal-risk.svg'
-import FullControl from 'images/svg/trade-types/full-control.svg'
-import ResponsivePlatform from 'images/svg/trade-types/responsive-platform.svg'
-import FriendlySupport from 'images/svg/trade-types/friendly-support.svg'
-import Seven from 'images/svg/trade-types/seven.svg'
+import { ReactComponent as MinimalRisk } from 'images/svg/trade-types/minimal-risk.svg'
+import { ReactComponent as FullControl } from 'images/svg/trade-types/full-control.svg'
+import { ReactComponent as ResponsivePlatform } from 'images/svg/trade-types/responsive-platform.svg'
+import { ReactComponent as FriendlySupport } from 'images/svg/trade-types/friendly-support.svg'
+import { ReactComponent as Seven } from 'images/svg/trade-types/seven.svg'
 
 const StyledHeader = styled(Header)`
     @media ${device.tablet} {

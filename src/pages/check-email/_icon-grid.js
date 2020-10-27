@@ -5,10 +5,10 @@ import device from 'themes/device'
 import { Text } from 'components/elements'
 import { localize } from 'components/localization'
 // Icons
-import Spam from 'images/svg/spam.svg'
-import Typo from 'images/svg/typo.svg'
-import WorkEmail from 'images/svg/work-email.svg'
-import Firewalls from 'images/svg/firewalls.svg'
+import { ReactComponent as Spam } from 'images/svg/spam.svg'
+import { ReactComponent as Typo } from 'images/svg/typo.svg'
+import { ReactComponent as WorkEmail } from 'images/svg/work-email.svg'
+import { ReactComponent as Firewalls } from 'images/svg/firewalls.svg'
 import { Container } from 'components/containers'
 
 const Grid = styled(Container)`

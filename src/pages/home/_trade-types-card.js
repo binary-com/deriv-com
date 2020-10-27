@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { Header, Text } from 'components/elements'
 import { localize, LocalizedLink } from 'components/localization'
-import Arrow from 'images/svg/arrow-right.svg'
+import { ReactComponent as Arrow } from 'images/svg/arrow-right.svg'
 
 const CustomLinkWrap = styled.div`
     display: flex;

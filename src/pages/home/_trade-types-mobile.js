@@ -8,7 +8,7 @@ import { LinkButton } from 'components/form'
 import MarginLogo from 'components/svgs/margin'
 import OptionsLogo from 'components/svgs/options'
 import MultipliersLogo from 'components/svgs/multipliers'
-import Arrow from 'images/svg/arrow-right.svg'
+import { ReactComponent as Arrow } from 'images/svg/arrow-right.svg'
 
 const StyledSection = styled(SectionContainer)`
     display: flex;

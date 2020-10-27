@@ -6,13 +6,13 @@ import { GridContainer, CssGrid, CssGridColumn, Show } from 'components/containe
 import { Header, Text } from 'components/elements'
 import { localize } from 'components/localization'
 // Icons
-import General from 'images/svg/general-tc.svg'
-import Trading from 'images/svg/trading-tc.svg'
-import Funds from 'images/svg/funds-transfers-tc.svg'
-import Security from 'images/svg/security-privacy-tc.svg'
-import Risk from 'images/svg/risk-tc.svg'
-import PDF from 'images/svg/pdf-icon-black.svg'
-import BFX from 'images/svg/bfx-tc.svg'
+import { ReactComponent as General } from 'images/svg/general-tc.svg'
+import { ReactComponent as Trading } from 'images/svg/trading-tc.svg'
+import { ReactComponent as Funds } from 'images/svg/funds-transfers-tc.svg'
+import { ReactComponent as Security } from 'images/svg/security-privacy-tc.svg'
+import { ReactComponent as Risk } from 'images/svg/risk-tc.svg'
+import { ReactComponent as PDF } from 'images/svg/pdf-icon-black.svg'
+import { ReactComponent as BFX } from 'images/svg/bfx-tc.svg'
 
 const StyledContainer = styled(GridContainer)`
     margin-top: 8rem;

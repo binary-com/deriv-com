@@ -4,9 +4,9 @@ import { SectionContainer, Container, Flex } from 'components/containers'
 import { Header, Text } from 'components/elements/typography'
 import { localize } from 'components/localization'
 import device from 'themes/device'
-import GlobalAffiliate from 'images/svg/global-affiliate-support.svg'
-import ProvenReferral from 'images/svg/proven-referral-tools.svg'
-import HighValue from 'images/svg/high-value-partnership.svg'
+import { ReactComponent as GlobalAffiliate } from 'images/svg/global-affiliate-support.svg'
+import { ReactComponent as ProvenReferral } from 'images/svg/proven-referral-tools.svg'
+import { ReactComponent as HighValue } from 'images/svg/high-value-partnership.svg'
 
 const Reason = styled.div`
     width: 38.4rem;

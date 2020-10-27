@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Flex, Box } from 'components/containers'
 import device from 'themes/device'
-import ChevronThick from 'images/svg/chevron-thick.svg'
+import { ReactComponent as ChevronThick } from 'images/svg/chevron-thick.svg'
 
 const Wrapper = styled.div`
     border: 1px solid var(--color-grey-22);

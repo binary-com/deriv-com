@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Text, Header } from 'components/elements'
 import { LinkButton } from 'components/form'
 import { localize } from 'components/localization'
-import Checklist from 'images/svg/checklist.svg'
+import { ReactComponent as Checklist } from 'images/svg/checklist.svg'
 
 const WhyDerivMobileContainer = styled.div`
     padding: 4rem 0 2rem 0;

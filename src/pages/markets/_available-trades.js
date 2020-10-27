@@ -6,9 +6,9 @@ import { Localize } from 'components/localization'
 import { Header } from 'components/elements'
 import device from 'themes/device'
 //SVG
-import MarginIcon from 'images/svg/margin.svg'
-import OptionsIcon from 'images/svg/options.svg'
-import MultipliersIcon from 'images/svg/multipliers.svg'
+import { ReactComponent as MarginIcon } from 'images/svg/margin.svg'
+import { ReactComponent as OptionsIcon } from 'images/svg/options.svg'
+import { ReactComponent as MultipliersIcon } from 'images/svg/multipliers.svg'
 
 const StyledSection = styled(SectionContainer)`
     padding: 5rem 0;

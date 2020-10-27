@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import Cookies from 'js-cookie'
 import styled from 'styled-components'
 import { isBrowser } from 'common/utility'
-import LiveChatIC from 'images/svg/livechat.svg'
-import LiveChatHover from 'images/svg/livechat-hover.svg'
+import { ReactComponent as LiveChatIC } from 'images/svg/livechat.svg'
+import { ReactComponent as LiveChatHover } from 'images/svg/livechat-hover.svg'
 import device from 'themes/device'
 
 const StyledLiveChat = styled.div`

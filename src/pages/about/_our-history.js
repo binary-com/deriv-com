@@ -9,7 +9,7 @@ import { Header, Text, QueryImage } from 'components/elements'
 import { Flex } from 'components/containers'
 import { localize } from 'components/localization'
 import device, { size } from 'themes/device'
-import StorySVG from 'images/svg/story-line.svg'
+import { ReactComponent as StorySVG } from 'images/svg/story-line.svg'
 import { isBrowser } from 'common/utility'
 
 const query = graphql`

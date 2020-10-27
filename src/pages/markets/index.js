@@ -12,9 +12,9 @@ import { localize, Localize, WithIntl } from 'components/localization'
 import { SEO, Flex, Box } from 'components/containers'
 import device from 'themes/device'
 import { Header } from 'components/elements'
-import PractiseIcon from 'images/svg/aim.svg'
-import TradeIcon from 'images/svg/trade.svg'
-import WithdrawIcon from 'images/svg/withdraw.svg'
+import { ReactComponent as PractiseIcon } from 'images/svg/aim.svg'
+import { ReactComponent as TradeIcon } from 'images/svg/trade.svg'
+import { ReactComponent as WithdrawIcon } from 'images/svg/withdraw.svg'
 
 const simple_step_content_forex = [
     {

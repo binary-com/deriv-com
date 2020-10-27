@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Text, Header } from 'components/elements'
-import Checklist from 'images/svg/checklist-red.svg'
+import { ReactComponent as Checklist } from 'images/svg/checklist-red.svg'
 
 const StyledItem = styled.div`
     display: flex;

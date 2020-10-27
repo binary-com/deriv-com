@@ -8,8 +8,8 @@ import { Container } from 'components/containers'
 import device from 'themes/device.js'
 import { deriv_app_url } from 'common/utility'
 // SVG
-import Facebook from 'images/svg/facebook-blue.svg'
-import Google from 'images/svg/google.svg'
+import { ReactComponent as Facebook } from 'images/svg/facebook-blue.svg'
+import { ReactComponent as Google } from 'images/svg/google.svg'
 
 const Wrapper = styled.div`
     padding: 3.3rem 8.5rem;

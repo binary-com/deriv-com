@@ -6,11 +6,11 @@ import { GridContainer, CssGrid, CssGridColumn } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { localize } from 'components/localization'
 // Icons
-import General from 'images/svg/business-general-tc.svg'
-import Partners from 'images/svg/business-partners-tc.svg'
-import PA from 'images/svg/business-pa-tc.svg'
-import API from 'images/svg/business-api-tc.svg'
-import PDF from 'images/svg/pdf-icon-black.svg'
+import { ReactComponent as General } from 'images/svg/business-general-tc.svg'
+import { ReactComponent as Partners } from 'images/svg/business-partners-tc.svg'
+import { ReactComponent as PA } from 'images/svg/business-pa-tc.svg'
+import { ReactComponent as API } from 'images/svg/business-api-tc.svg'
+import { ReactComponent as PDF } from 'images/svg/pdf-icon-black.svg'
 
 const StyledContainer = styled(GridContainer)`
     margin-top: 8rem;

@@ -26,12 +26,12 @@ import Login from 'common/login'
 import device from 'themes/device'
 import { affiliate_signin_url, affiliate_signup_url } from 'common/utility'
 // Icons
-import Logo from 'images/svg/logo-deriv.svg'
-import LogoPartner from 'images/svg/logo-partners.svg'
-import Hamburger from 'images/svg/hamburger_menu.svg'
-import Close from 'images/svg/close-long.svg'
-import LogoOnly from 'images/svg/logo-deriv-only.svg'
-import LogoCombinedShape from 'images/svg/logo-combined-shape.svg'
+import { ReactComponent as Logo } from 'images/svg/logo-deriv.svg'
+import { ReactComponent as LogoPartner } from 'images/svg/logo-partners.svg'
+import { ReactComponent as Hamburger } from 'images/svg/hamburger_menu.svg'
+import { ReactComponent as Close } from 'images/svg/close-long.svg'
+import { ReactComponent as LogoOnly } from 'images/svg/logo-deriv-only.svg'
+import { ReactComponent as LogoCombinedShape } from 'images/svg/logo-combined-shape.svg'
 
 const query = graphql`
     query {

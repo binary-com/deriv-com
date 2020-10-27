@@ -16,7 +16,7 @@ import {
 } from 'components/containers'
 import { localize, WithIntl, Localize, LocalizedLink } from 'components/localization'
 // Icons
-import EU from 'images/svg/europe-map.svg'
+import { ReactComponent as EU } from 'images/svg/europe-map.svg'
 import Vanuatu from 'images/common/regulatory/vanuatu.png'
 import FSC from 'images/common/regulatory/bvi.png'
 import Labuan from 'images/common/regulatory/labuan.png'
@@ -24,7 +24,7 @@ import Deriv from 'images/common/regulatory/deriv.png'
 import TFC from 'images/common/regulatory/tfc.png'
 import MGA from 'images/common/regulatory/mga.png'
 import IOM from 'images/common/regulatory/iom.png'
-import SVG from 'images/svg/regulatory/svg.svg'
+import { ReactComponent as SVG } from 'images/svg/regulatory/svg.svg'
 import device from 'themes/device.js'
 
 const Img = styled.img`

@@ -5,10 +5,10 @@ import { Flex } from 'components/containers'
 import { Text } from 'components/elements'
 import { localize, LocalizedLink } from 'components/localization'
 import device from 'themes/device'
-import DMT5 from 'images/svg/dmt5-icon.svg'
-import DTrader from 'images/svg/dtrader-icon.svg'
-import DBot from 'images/svg/dbot-icon.svg'
-import SmartTrader from 'images/svg/smarttrader.svg'
+import { ReactComponent as DMT5 } from 'images/svg/dmt5-icon.svg'
+import { ReactComponent as DTrader } from 'images/svg/dtrader-icon.svg'
+import { ReactComponent as DBot } from 'images/svg/dbot-icon.svg'
+import { ReactComponent as SmartTrader } from 'images/svg/smarttrader.svg'
 
 const PlatformsContainer = styled(Flex)`
     justify-content: space-around;

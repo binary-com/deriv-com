@@ -4,10 +4,10 @@ import { Container, SectionContainer, Flex, CssGrid } from 'components/container
 import { localize } from 'components/localization'
 import { Header, Text } from 'components/elements'
 // SVG
-import Comission from 'images/svg/pa-comission.svg'
-import WithdrawDeposit from 'images/svg/pa-withdraw-deposit.svg'
-import OpenAccount from 'images/svg/pa-open-account.svg'
-import CloseAccount from 'images/svg/pa-close-account.svg'
+import { ReactComponent as Comission } from 'images/svg/pa-comission.svg'
+import { ReactComponent as WithdrawDeposit } from 'images/svg/pa-withdraw-deposit.svg'
+import { ReactComponent as OpenAccount } from 'images/svg/pa-open-account.svg'
+import { ReactComponent as CloseAccount } from 'images/svg/pa-close-account.svg'
 
 const Card = styled(Flex)`
     padding: 3.2rem;

@@ -2,7 +2,7 @@ import React from 'react'
 import { Box, Container } from 'components/containers'
 import { Text } from 'components/elements'
 import { localize } from 'components/localization'
-import CopyrightIc from 'images/svg/copyright.svg'
+import { ReactComponent as CopyrightIc } from 'images/svg/copyright.svg'
 
 const Copyright = () => {
     return (

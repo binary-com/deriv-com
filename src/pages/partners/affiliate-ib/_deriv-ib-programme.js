@@ -9,7 +9,7 @@ import { localize, Localize } from 'components/localization'
 import { Button, LinkButton } from 'components/form'
 import { affiliate_signup_url } from 'common/utility'
 import device from 'themes/device'
-import Chevron from 'images/svg/chevron-bottom-bold.svg'
+import { ReactComponent as Chevron } from 'images/svg/chevron-bottom-bold.svg'
 
 const TitleWrapper = styled.div`
     max-width: 104.5rem;

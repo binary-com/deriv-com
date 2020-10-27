@@ -8,7 +8,7 @@ import { localize, Localize, LocalizedLink } from 'components/localization'
 import Login from 'common/login'
 import device, { size } from 'themes/device'
 import { isBrowser } from 'common/utility'
-// import MobileBackground from 'images/svg/dmt5-start-mobile-background.svg'
+// import { ReactComponent as MobileBackground } from 'images/svg/dmt5-start-mobile-background.svg'
 
 const query = graphql`
     query {

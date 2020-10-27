@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { Flex } from 'components/containers'
 import { Text } from 'components/elements'
 import device from 'themes/device'
-import Info from 'images/svg/trade-types/info.svg'
+import { ReactComponent as Info } from 'images/svg/trade-types/info.svg'
 
 const StyledNote = styled(Flex)`
     padding: 1.6rem 4rem 1.6rem 2.4rem;

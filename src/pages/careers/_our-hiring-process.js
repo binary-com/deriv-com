@@ -5,12 +5,12 @@ import { Container, SectionContainer, Flex } from 'components/containers'
 import { Text, Header } from 'components/elements'
 import device from 'themes/device'
 // SVG
-import Career1 from 'images/svg/career-1.svg'
-import Career2 from 'images/svg/career-2.svg'
-import Career3 from 'images/svg/career-3.svg'
-import Career4 from 'images/svg/career-4.svg'
-import DownwardsLeft from 'images/svg/downwards-left.svg'
-import DownwardsRight from 'images/svg/downwards-right.svg'
+import { ReactComponent as Career1 } from 'images/svg/career-1.svg'
+import { ReactComponent as Career2 } from 'images/svg/career-2.svg'
+import { ReactComponent as Career3 } from 'images/svg/career-3.svg'
+import { ReactComponent as Career4 } from 'images/svg/career-4.svg'
+import { ReactComponent as DownwardsLeft } from 'images/svg/downwards-left.svg'
+import { ReactComponent as DownwardsRight } from 'images/svg/downwards-right.svg'
 
 const StyledHeader = styled(Header)`
     margin-bottom: 5.8rem;

@@ -43,7 +43,9 @@ const numberValidation = (input, fieldName, maxDigit) => {
     } else if (!validation_is_not_zero(input)) {
         return localize('Input must be greater than 0')
     } else if (validation_is_not_exceed_two_decimal(input)) {
-        return localize('Decimal place must not be longer than 2')
+        if (fieldName !== localize('Point value')) {
+            return localize('Decimal place must not be longer than 2')
+        }
     }
 
     return null

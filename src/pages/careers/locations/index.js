@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
-import { getPositionsByLocation } from '../_controller/_teams'
 import { StyledCard } from '../_layout-components/_team-card'
 import {
     cyberjaya,
@@ -13,6 +12,7 @@ import {
     ipoh,
     melaka,
     cyprus,
+    rwanda,
 } from '../_model/_locations/_locations'
 import { SEO, SectionContainer, Container, Flex, CssGrid } from 'components/containers'
 import Layout from 'components/layout/layout'
@@ -23,6 +23,7 @@ import ParaguayFlagIcon from 'images/svg/flag_paraguay.svg'
 import UAEFlagIcon from 'images/svg/flag_uae.svg'
 import MaltaFlagIcon from 'images/svg/flag_malta.svg'
 import CyprusFlagIcon from 'images/svg/flag_cyprus.svg'
+import RwandaFlagIcon from 'images/svg/flag_rwanda.svg'
 import Chevron from 'images/svg/carousel-chevron.svg'
 
 const ChevronRight = styled(Chevron)`
@@ -132,6 +133,9 @@ const query = graphql`
         thumbnail_cyprus: file(relativePath: { eq: "careers/thumbnail_cyprus.png" }) {
             ...fadeIn
         }
+        thumbnail_rwanda: file(relativePath: { eq: "careers/thumbnail_rwanda.jpg" }) {
+            ...fadeIn
+        }
     }
 `
 
@@ -167,7 +171,6 @@ const Locations = () => {
                             country_name={malta.country}
                             city_name={malta.display_name}
                             link={malta.link}
-                            open_positions={getPositionsByLocation(malta.name).length}
                         />
                         <CountryCard
                             Icon={UAEFlagIcon}
@@ -175,7 +178,6 @@ const Locations = () => {
                             country_name={dubai.country}
                             city_name={dubai.display_name}
                             link={dubai.link}
-                            open_positions={getPositionsByLocation(dubai.name).length}
                         />
                         <CountryCard
                             Icon={MalaysiaFlagIcon}
@@ -183,7 +185,6 @@ const Locations = () => {
                             country_name={cyberjaya.country}
                             city_name={cyberjaya.display_name}
                             link={cyberjaya.link}
-                            open_positions={getPositionsByLocation(cyberjaya.name).length}
                         />
                         <CountryCard
                             Icon={MalaysiaFlagIcon}
@@ -191,14 +192,12 @@ const Locations = () => {
                             country_name={labuan.country}
                             city_name={labuan.display_name}
                             link={labuan.link}
-                            open_positions={getPositionsByLocation(labuan.name).length}
                         />
                         <CountryCard
                             Icon={MalaysiaFlagIcon}
                             img_data={images[ipoh.thumbnail]}
                             country_name={ipoh.country}
                             city_name={ipoh.display_name}
-                            open_positions={getPositionsByLocation(ipoh.name).length}
                             link={ipoh.link}
                         />
                         <CountryCard
@@ -206,7 +205,6 @@ const Locations = () => {
                             img_data={images[melaka.thumbnail]}
                             country_name={melaka.country}
                             city_name={melaka.display_name}
-                            open_positions={getPositionsByLocation(melaka.name).length}
                             link={melaka.link}
                         />
                         <CountryCard
@@ -214,7 +212,6 @@ const Locations = () => {
                             img_data={images[asuncion.thumbnail]}
                             country_name={asuncion.country}
                             city_name={asuncion.display_name}
-                            open_positions={getPositionsByLocation(asuncion.name).length}
                             link={asuncion.link}
                         />
                         <CountryCard
@@ -222,8 +219,14 @@ const Locations = () => {
                             img_data={images[cyprus.thumbnail]}
                             country_name={cyprus.country}
                             city_name={'Limassol'}
-                            open_positions={getPositionsByLocation(cyprus.name).length}
                             link={cyprus.link}
+                        />
+                        <CountryCard
+                            Icon={RwandaFlagIcon}
+                            img_data={images[rwanda.thumbnail]}
+                            country_name={rwanda.country}
+                            city_name={'Kigali'}
+                            link={rwanda.link}
                         />
                     </CssGrid>
                 </SectionContainer>

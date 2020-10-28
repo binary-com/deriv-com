@@ -160,6 +160,26 @@ export const cyprus = {
     google_map_link: 'https://goo.gl/maps/MP8aqZQ4xt8LJ9id9',
     has_iframe: true,
 }
+
+export const rwanda = {
+    name: 'rwanda',
+    link: '/careers/locations/rwanda',
+    display_name: 'Rwanda',
+    country: 'Rwanda',
+    thumbnail: 'thumbnail_rwanda',
+    header_p:
+        'Rwanda, the heart of Africa, is quickly becoming a regional hub for business communications and IT. The government has implemented progressive policies to create a knowledge-based economy. With beautiful mountains and grasslands, and a strong economy driven by agriculture and tourism, Rwanda is an East African gem waiting to be discovered.',
+    first_p:
+        'Rwanda is home to friendly locals, rich art, and unique cuisines. An environmentally-conscious country with zero plastic bags and a huge recycling initiative, Rwanda is one of the cleanest countries in Africa. With a stable political environment, tropical highland climate, and a growing expat community, it is an ideal location to live and work.',
+    first_img: 'living_in_rwanda',
+    grid_images: ['rwanda_grid_1', 'rwanda_grid_2', 'rwanda_grid_3', 'rwanda_grid_4'],
+    map: '',
+    map_text: '',
+    address: '',
+    google_map_link: '',
+    has_iframe: false,
+}
+
 export const locations = {
     cyberjaya: `${cyberjaya.display_name}, ${cyberjaya.country}`,
     malta: `${malta.display_name}`,
@@ -169,4 +189,5 @@ export const locations = {
     melaka: `${melaka.display_name}, ${melaka.country}`,
     ipoh: `${ipoh.display_name}, ${ipoh.country}`,
     cyprus: `${cyprus.display_name}, ${cyprus.country}`,
+    rwanda: `${rwanda.display_name}, ${rwanda.country}`,
 }

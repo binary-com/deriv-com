@@ -19,6 +19,7 @@ import Tabs from './default-tab'
 import { Text, LinkText, LocalizedLinkText, Header, BaseElement } from './typography'
 import Timeline from './timeline'
 import { Ul, Li } from './lists'
+import { Carousel } from './carousel'
 
 export {
     Accordion,
@@ -27,6 +28,7 @@ export {
     BackgroundImage,
     BaseElement,
     Card,
+    Carousel,
     CardChildren,
     CardLink,
     CardStyle,

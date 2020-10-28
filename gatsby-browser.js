@@ -65,25 +65,22 @@ export const onInitialClientRender = () => {
 export const onClientEntry = () => {
     NProgress.start()
 
-    if (!isLocalHost()) {
-        setTimeout(() => {
-            const gtm_id =
-                window.location.hostname === gtm_test_domain ? 'GTM-TNX2ZKH' : 'GTM-NF7884S'
-            const gtm = document.createElement('script')
+    // Add GTM script for test domain
+    if (!isLocalHost() && window.location.hostname === gtm_test_domain) {
+        const gtm = document.createElement('script')
+        gtm.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-TNX2ZKH'
+        gtm.id = 'gtm-test-container'
+        document.body.appendChild(gtm)
 
-            gtm.src = `https://www.googletagmanager.com/gtm.js?id=${gtm_id}`
-            gtm.id = 'gtm-test-container'
-            document.body.appendChild(gtm)
-            const datalayer = document.createElement('script')
-            datalayer.text = `
-                (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-                new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-                'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-                })(window,document,'script','dataLayer','${gtm_id}');
-            `
-            document.body.appendChild(datalayer)
-        }, 2000)
+        const datalayer = document.createElement('script')
+        datalayer.text = `
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-TNX2ZKH');
+        `
+        document.body.appendChild(datalayer)
     }
 }
 

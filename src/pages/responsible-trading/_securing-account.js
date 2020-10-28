@@ -4,10 +4,10 @@ import { Container, Flex, Box } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { localize } from 'components/localization'
 import device from 'themes/device'
-import { ReactComponent as InstallAntivirus } from 'images/svg/install-latest-antivirus.svg'
-import { ReactComponent as DifferentPassword } from 'images/svg/diff-password.svg'
-import { ReactComponent as PaymentMethod } from 'images/svg/payment-method.svg'
-import { ReactComponent as SecureBrowser } from 'images/svg/secure-browser.svg'
+import InstallAntivirus from 'images/svg/install-latest-antivirus.svg'
+import DifferentPassword from 'images/svg/diff-password.svg'
+import PaymentMethod from 'images/svg/payment-method.svg'
+import SecureBrowser from 'images/svg/secure-browser.svg'
 
 const Ul = styled(Flex).attrs({ as: 'ul' })`
     width: 100%;
@@ -56,7 +56,12 @@ const SecureAccount = () => {
                 <Ul jc="center" ai="center">
                     <Li>
                         <div>
-                            <DifferentPassword width="64" height="64" />
+                            <img
+                                src={DifferentPassword}
+                                alt="diff password"
+                                width="64"
+                                height="64"
+                            />
                         </div>
                         <ResponsiveBox ml="1.6rem">
                             <Text>
@@ -68,7 +73,7 @@ const SecureAccount = () => {
                     </Li>
                     <Li>
                         <div>
-                            <SecureBrowser width="64" height="64" />
+                            <img src={SecureBrowser} alt="secure browser" width="64" height="64" />
                         </div>
                         <ResponsiveBox ml="1.6rem">
                             <Text>
@@ -80,7 +85,7 @@ const SecureAccount = () => {
                     </Li>
                     <Li>
                         <div>
-                            <PaymentMethod width="64" height="64" />
+                            <img src={PaymentMethod} alt="payment method" width="64" height="64" />
                         </div>
                         <ResponsiveBox ml="1.6rem">
                             <Text>
@@ -92,7 +97,12 @@ const SecureAccount = () => {
                     </Li>
                     <Li>
                         <div>
-                            <InstallAntivirus width="64" height="64" />
+                            <img
+                                src={InstallAntivirus}
+                                alt="install latest antivirus"
+                                width="64"
+                                height="64"
+                            />
                         </div>
                         <ResponsiveBox ml="1.6rem">
                             <Text>

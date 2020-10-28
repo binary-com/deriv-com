@@ -12,9 +12,9 @@ import { localize, Localize, WithIntl } from 'components/localization'
 import { SEO, Flex, Box } from 'components/containers'
 import device from 'themes/device'
 import { Header } from 'components/elements'
-import { ReactComponent as PractiseIcon } from 'images/svg/aim.svg'
-import { ReactComponent as TradeIcon } from 'images/svg/trade.svg'
-import { ReactComponent as WithdrawIcon } from 'images/svg/withdraw.svg'
+import PractiseIcon from 'images/svg/aim.svg'
+import TradeIcon from 'images/svg/trade.svg'
+import WithdrawIcon from 'images/svg/withdraw.svg'
 
 const simple_step_content_forex = [
     {
@@ -22,21 +22,21 @@ const simple_step_content_forex = [
         text: (
             <Localize translate_text="Open a demo account and practise with an unlimited amount of virtual funds." />
         ),
-        icon: <PractiseIcon />,
+        icon: <img src={PractiseIcon} alt="aim" />,
     },
     {
         header: <Localize translate_text="Trade" />,
         text: (
             <Localize translate_text="Open a real account, make a deposit, and start trading forex and other markets." />
         ),
-        icon: <TradeIcon />,
+        icon: <img src={TradeIcon} alt="trade" />,
     },
     {
         header: <Localize translate_text="Withdraw" />,
         text: (
             <Localize translate_text="Conveniently withdraw your funds through any of our supported withdrawal methods." />
         ),
-        icon: <WithdrawIcon />,
+        icon: <img src={WithdrawIcon} alt="withdraw" />,
     },
 ]
 const simple_step_content_synthetic = [
@@ -45,21 +45,21 @@ const simple_step_content_synthetic = [
         text: (
             <Localize translate_text="Open a demo account and practise with an unlimited amount of virtual funds." />
         ),
-        icon: <PractiseIcon />,
+        icon: <img src={PractiseIcon} alt="aim" />,
     },
     {
         header: <Localize translate_text="Trade" />,
         text: (
             <Localize translate_text="Open a real account, make a deposit, and start trading synthetic indices and other markets." />
         ),
-        icon: <TradeIcon />,
+        icon: <img src={TradeIcon} alt="trade" />,
     },
     {
         header: <Localize translate_text="Withdraw" />,
         text: (
             <Localize translate_text="Conveniently withdraw your funds through any of our supported withdrawal methods." />
         ),
-        icon: <WithdrawIcon />,
+        icon: <img src={WithdrawIcon} alt="withdraw" />,
     },
 ]
 const simple_step_content_stock = [
@@ -68,21 +68,21 @@ const simple_step_content_stock = [
         text: (
             <Localize translate_text="Open a demo account and practise with an unlimited amount of virtual funds." />
         ),
-        icon: <PractiseIcon />,
+        icon: <img src={PractiseIcon} alt="aim" />,
     },
     {
         header: <Localize translate_text="Trade" />,
         text: (
             <Localize translate_text="Open a real account, make a deposit, and start trading stock indices and other markets." />
         ),
-        icon: <TradeIcon />,
+        icon: <img src={TradeIcon} alt="trade" />,
     },
     {
         header: <Localize translate_text="Withdraw" />,
         text: (
             <Localize translate_text="Conveniently withdraw your funds through any of our supported withdrawal methods." />
         ),
-        icon: <WithdrawIcon />,
+        icon: <img src={WithdrawIcon} alt="withdraw" />,
     },
 ]
 const simple_step_content_commodities = [
@@ -91,21 +91,21 @@ const simple_step_content_commodities = [
         text: (
             <Localize translate_text="Open a demo account and practise with an unlimited amount of virtual funds." />
         ),
-        icon: <PractiseIcon />,
+        icon: <img src={PractiseIcon} alt="aim" />,
     },
     {
         header: <Localize translate_text="Trade" />,
         text: (
             <Localize translate_text="Open a real account, make a deposit, and start trading commodities and other markets. " />
         ),
-        icon: <TradeIcon />,
+        icon: <img src={TradeIcon} alt="trade" />,
     },
     {
         header: <Localize translate_text="Withdraw" />,
         text: (
             <Localize translate_text="Conveniently withdraw your funds through any of our supported withdrawal methods." />
         ),
-        icon: <WithdrawIcon />,
+        icon: <img src={WithdrawIcon} alt="withdraw" />,
     },
 ]
 

@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Text, Header } from 'components/elements'
-import { ReactComponent as Checklist } from 'images/svg/checklist-red.svg'
+import Checklist from 'images/svg/checklist-red.svg'
 
 const StyledItem = styled.div`
     display: flex;
@@ -18,7 +18,7 @@ const StyledItem = styled.div`
 const Container = styled.div`
     margin-left: 40px;
 `
-const Oval = styled(Checklist)`
+const Oval = styled.img`
     margin-right: 2.4rem;
     position: absolute;
     left: -12px;
@@ -28,7 +28,7 @@ const Timeline = ({ children, ...props }) => {
         <div {...props}>
             {children.map((child, idx) => (
                 <StyledItem key={idx}>
-                    <Oval />
+                    <Oval src={Checklist} alt="checklist" />
                     <Container>
                         <Header mb="0.8rem" mt="-5px" as="h4">
                             {child.props.title}

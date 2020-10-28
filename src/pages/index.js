@@ -11,9 +11,9 @@ import Layout from 'components/layout/layout'
 import { localize, WithIntl, Localize } from 'components/localization'
 import Signup, { Appearances } from 'components/custom/signup'
 import SimpleSteps from 'components/custom/_simple-steps'
-import { ReactComponent as PractiseIcon } from 'images/svg/aim.svg'
-import { ReactComponent as TradeIcon } from 'images/svg/trade.svg'
-import { ReactComponent as WithdrawIcon } from 'images/svg/withdraw.svg'
+import PractiseIcon from 'images/svg/aim.svg'
+import TradeIcon from 'images/svg/trade.svg'
+import WithdrawIcon from 'images/svg/withdraw.svg'
 
 const Trade = Loadable(() => import('./home/_trade'))
 const TradeTheWayYouLike = Loadable(() => import('./home/_trade-the-way-you-like'))
@@ -24,21 +24,21 @@ const simple_step_content = [
         text: (
             <Localize translate_text="Open a demo account and start trading for free. Practise with an unlimited amount of virtual funds." />
         ),
-        icon: <PractiseIcon />,
+        icon: <img src={PractiseIcon} alt="aim" />,
     },
     {
         header: <Localize translate_text="Trade" />,
         text: (
             <Localize translate_text="Open a real account, make a deposit, and start trading for real. Trade forex, indices, commodities, and more." />
         ),
-        icon: <TradeIcon />,
+        icon: <img src={TradeIcon} alt="trade" />,
     },
     {
         header: <Localize translate_text="Withdraw" />,
         text: (
             <Localize translate_text="Get your funds quickly and easily. We support a variety of withdrawal options." />
         ),
-        icon: <WithdrawIcon />,
+        icon: <img src={WithdrawIcon} alt="withdraw" />,
     },
 ]
 const Home = () => {

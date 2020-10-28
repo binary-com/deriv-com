@@ -7,12 +7,12 @@ import { LinkButton } from 'components/form'
 import { Timeline } from 'components/elements'
 import device from 'themes/device'
 import { affiliate_signup_url } from 'common/utility'
-import { ReactComponent as TradingExperts } from 'images/svg/trading-experts.svg'
-import { ReactComponent as SoftwareDeveloper } from 'images/svg/software-developer.svg'
-import { ReactComponent as CommunityManagers } from 'images/svg/community-managers.svg'
-import { ReactComponent as Apply } from 'images/svg/apply.svg'
-import { ReactComponent as Advertise } from 'images/svg/advertise.svg'
-import { ReactComponent as Earn } from 'images/svg/earn.svg'
+import TradingExperts from 'images/svg/trading-experts.svg'
+import SoftwareDeveloper from 'images/svg/software-developer.svg'
+import CommunityManagers from 'images/svg/community-managers.svg'
+import Apply from 'images/svg/apply.svg'
+import Advertise from 'images/svg/advertise.svg'
+import Earn from 'images/svg/earn.svg'
 
 const StyledSection = styled(Container)`
     display: flex;
@@ -41,11 +41,14 @@ const Wrapper = styled.div`
     width: 100%;
     display: flex;
     margin-top: 4rem;
-
-    svg {
-        margin-right: 1.6rem;
-    }
 `
+
+const ImageWrapper = styled.img`
+    margin-right: 1.6rem;
+    width: 48px;
+    height: 48px;
+`
+
 const Content = styled.div`
     display: flex;
     flex-direction: column;
@@ -133,7 +136,7 @@ const WhoCanApply = () => {
                     <WhoCanApplyWrapper>
                         <StyledHeader size="3.6rem">{localize('Who can apply')}</StyledHeader>
                         <Wrapper>
-                            <TradingExperts />
+                            <ImageWrapper src={TradingExperts} alt="trading experts" />
                             <Content max_width="36.4rem">
                                 <Header as="h4">{localize('Trading experts')}</Header>
                                 <Text>
@@ -144,7 +147,7 @@ const WhoCanApply = () => {
                             </Content>
                         </Wrapper>
                         <Wrapper>
-                            <SoftwareDeveloper />
+                            <ImageWrapper src={SoftwareDeveloper} alt="software developer" />
                             <Content max_width="36.4rem">
                                 <Header as="h4">{localize('Software developers')}</Header>
                                 <Text>
@@ -155,7 +158,7 @@ const WhoCanApply = () => {
                             </Content>
                         </Wrapper>
                         <Wrapper>
-                            <CommunityManagers />
+                            <ImageWrapper src={CommunityManagers} alt="community managers" />
                             <Content max_width="36.4rem">
                                 <Header as="h4">{localize('Community managers')}</Header>
                                 <Text>
@@ -176,7 +179,7 @@ const WhoCanApply = () => {
                         <Timeline>
                             <Timeline.Item>
                                 <HowToApplyContent>
-                                    <Apply />
+                                    <ImageWrapper src={Apply} alt="apply" />
                                     <Content max_width="32.4rem">
                                         <Header as="h4">{localize('Sign up')}</Header>
                                         <Text>
@@ -189,7 +192,7 @@ const WhoCanApply = () => {
                             </Timeline.Item>
                             <Timeline.Item>
                                 <HowToApplyContent>
-                                    <Advertise />
+                                    <ImageWrapper src={Advertise} alt="advertise" />
                                     <Content max_width="32.4rem">
                                         <Header as="h4">{localize('Advertise')}</Header>
                                         <Text>
@@ -202,7 +205,7 @@ const WhoCanApply = () => {
                             </Timeline.Item>
                             <Timeline.Item>
                                 <HowToApplyContent>
-                                    <Earn />
+                                    <ImageWrapper src={Earn} alt="earn" />
                                     <Content max_width="32.4rem">
                                         <Header as="h4">{localize('Earn')}</Header>
                                         <Text>

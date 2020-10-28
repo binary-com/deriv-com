@@ -5,11 +5,11 @@ import { Header, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import { LinkButton } from 'components/form'
 // Icon
-import { ReactComponent as FixedPayout } from 'images/svg/trade-types/fixed-payout.svg'
-import { ReactComponent as SyntheticIndices } from 'images/svg/trade-types/synthetic-indices.svg'
-import { ReactComponent as InstantAccess } from 'images/svg/trade-types/instant-access.svg'
-import { ReactComponent as UserFriendly } from 'images/svg/trade-types/user-friendly-platforms.svg'
-import { ReactComponent as FlexibleTrade } from 'images/svg/trade-types/flexible-trade-types.svg'
+import FixedPayout from 'images/svg/trade-types/fixed-payout.svg'
+import SyntheticIndices from 'images/svg/trade-types/synthetic-indices.svg'
+import InstantAccess from 'images/svg/trade-types/instant-access.svg'
+import UserFriendly from 'images/svg/trade-types/user-friendly-platforms.svg'
+import FlexibleTrade from 'images/svg/trade-types/flexible-trade-types.svg'
 
 const WhatAreOptions = () => {
     return (
@@ -66,7 +66,7 @@ const WhatAreOptions = () => {
                     <Grid>
                         <WhyTradeItem>
                             <div>
-                                <FixedPayout />
+                                <img src={FixedPayout} alt="fixed payout" />
                             </div>
                             <Text mt="1.6rem" mb="0.8rem" weight="bold">
                                 {localize('Fixed, predictable payout')}
@@ -79,7 +79,7 @@ const WhatAreOptions = () => {
                         </WhyTradeItem>
                         <WhyTradeItem>
                             <div>
-                                <SyntheticIndices />
+                                <img src={SyntheticIndices} alt="synthetic indices" />
                             </div>
                             <Text mt="1.6rem" mb="0.8rem" weight="bold">
                                 {localize('All favourite markets and more')}
@@ -92,7 +92,7 @@ const WhatAreOptions = () => {
                         </WhyTradeItem>
                         <WhyTradeItem>
                             <div>
-                                <InstantAccess />
+                                <img src={InstantAccess} alt="instant access" />
                             </div>
                             <Text mt="1.6rem" mb="0.8rem" weight="bold">
                                 {localize('Instant access')}
@@ -101,7 +101,7 @@ const WhatAreOptions = () => {
                         </WhyTradeItem>
                         <WhyTradeItem>
                             <div>
-                                <UserFriendly />
+                                <img src={UserFriendly} alt="user friendly platforms" />
                             </div>
                             <Text mt="1.6rem" mb="0.8rem" weight="bold">
                                 {localize('User-friendly platforms with powerful chart widgets')}
@@ -114,7 +114,7 @@ const WhatAreOptions = () => {
                         </WhyTradeItem>
                         <WhyTradeItem>
                             <div>
-                                <FlexibleTrade />
+                                <img src={FlexibleTrade} alt="flexible trade types" />
                             </div>
                             <Text mt="1.6rem" mb="0.8rem" weight="bold">
                                 {localize('Flexible trade types with minimal capital requirements')}

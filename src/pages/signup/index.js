@@ -7,7 +7,7 @@ import { localize, WithIntl } from 'components/localization'
 import { SEO } from 'components/containers'
 import device from 'themes/device.js'
 import { Header, Text } from 'components/elements'
-import { ReactComponent as Graph } from 'images/svg/graph.svg'
+import Graph from 'images/svg/graph.svg'
 
 const Wrapper = styled.section`
     padding: 8rem 0;
@@ -51,7 +51,7 @@ const StyledDiv = styled.div`
     }
 `
 
-const StyledGraph = styled(Graph)`
+const StyledGraph = styled.img`
     overflow: initial;
 
     @media ${device.laptop} {
@@ -76,7 +76,7 @@ const NewSignup = () => {
             <Wrapper>
                 {!(submitState === 'success' || submitState === 'error') && (
                     <Content>
-                        <StyledGraph />
+                        <StyledGraph src={Graph} alt="graph" />
                         <Header mt="2.4rem" size="3.2rem">
                             {localize('Start trading with Deriv')}
                         </Header>

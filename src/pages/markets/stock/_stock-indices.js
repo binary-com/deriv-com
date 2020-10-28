@@ -7,11 +7,11 @@ import Margin from './_margin.js'
 import DigitalOptions from './_digital-options.js'
 import SimpleSteps from 'components/custom/_simple-steps'
 import { localize, Localize } from 'components/localization'
-import { ReactComponent as FriendlySupport } from 'images/svg/friendly-support.svg'
-import { ReactComponent as ResponsiveWebsite } from 'images/svg/responsive-website.svg'
-import { ReactComponent as Deposit } from 'images/svg/deposit-and-withdrawal.svg'
-import { ReactComponent as ExtendedTime } from 'images/svg/extended-trading-times.svg'
-import { ReactComponent as MinimalCapital } from 'images/svg/minimal-capital.svg'
+import FriendlySupport from 'images/svg/friendly-support.svg'
+import ResponsiveWebsite from 'images/svg/responsive-website.svg'
+import Deposit from 'images/svg/deposit-and-withdrawal.svg'
+import ExtendedTime from 'images/svg/extended-trading-times.svg'
+import MinimalCapital from 'images/svg/minimal-capital.svg'
 
 const StockIndices = ({ simple_step_content }) => {
     simple_step_content[1].text = localize(
@@ -27,25 +27,25 @@ const StockIndices = ({ simple_step_content }) => {
             >
                 <div
                     text={<Localize translate_text="Minimal capital requirements, limited risk" />}
-                    icon={<MinimalCapital />}
+                    icon={<img src={MinimalCapital} alt="minimal capital" />}
                 ></div>
                 <div
                     text={<Localize translate_text="Extended trading time, up to 18 hours a day" />}
-                    icon={<ExtendedTime />}
+                    icon={<img src={ExtendedTime} alt="extended trading times" />}
                 ></div>
                 <div
                     text={
                         <Localize translate_text="Fast and secure deposit and withdrawal options" />
                     }
-                    icon={<Deposit />}
+                    icon={<img src={Deposit} alt="deposit and withdrawal" />}
                 ></div>
                 <div
                     text={<Localize translate_text="Responsive, easy-to-use platforms" />}
-                    icon={<ResponsiveWebsite />}
+                    icon={<img src={ResponsiveWebsite} alt="responsive website" />}
                 ></div>
                 <div
                     text={<Localize translate_text="Smart and friendly support, 7 days a week" />}
-                    icon={<FriendlySupport />}
+                    icon={<img src={FriendlySupport} alt="friendly support" />}
                 ></div>
             </WhyTrade>
             <AvailableTrades

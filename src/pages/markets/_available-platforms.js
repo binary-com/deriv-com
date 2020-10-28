@@ -5,10 +5,10 @@ import { Flex } from 'components/containers'
 import { Text } from 'components/elements'
 import { localize, LocalizedLink } from 'components/localization'
 import device from 'themes/device'
-import { ReactComponent as DMT5 } from 'images/svg/dmt5-icon.svg'
-import { ReactComponent as DTrader } from 'images/svg/dtrader-icon.svg'
-import { ReactComponent as DBot } from 'images/svg/dbot-icon.svg'
-import { ReactComponent as SmartTrader } from 'images/svg/smarttrader.svg'
+import DMT5 from 'images/svg/dmt5-icon.svg'
+import DTrader from 'images/svg/dtrader-icon.svg'
+import DBot from 'images/svg/dbot-icon.svg'
+import SmartTrader from 'images/svg/smarttrader.svg'
 
 const PlatformsContainer = styled(Flex)`
     justify-content: space-around;
@@ -84,7 +84,7 @@ const AvailablePlatforms = ({
                 {dmt5 && (
                     <LocalizedLink to="/dmt5/">
                         <StyledFlex direction="row" ai="center">
-                            <DMT5 />
+                            <img src={DMT5} alt="dmt5 icon" width="32" height="32" />
                             <Text ml="0.4rem">{localize('MetaTrader5 (DMT5)')}</Text>
                         </StyledFlex>
                     </LocalizedLink>
@@ -92,7 +92,7 @@ const AvailablePlatforms = ({
                 {dtrader && (
                     <LocalizedLink to="/dtrader/">
                         <StyledFlex direction="row" ai="center">
-                            <DTrader />
+                            <img src={DTrader} alt="dtrader icon" width="32" height="32" />
                             <Text ml="0.4rem">{localize('DTrader')}</Text>
                         </StyledFlex>
                     </LocalizedLink>
@@ -100,7 +100,7 @@ const AvailablePlatforms = ({
                 {dbot && (
                     <LocalizedLink to="/dbot/">
                         <StyledFlex direction="row" ai="center">
-                            <DBot />
+                            <img src={DBot} alt="dbot icon" width="32" height="32" />
                             <Text ml="0.4rem">{localize('DBot')}</Text>
                         </StyledFlex>
                     </LocalizedLink>
@@ -112,7 +112,7 @@ const AvailablePlatforms = ({
                         rel="noopener noreferrer"
                     >
                         <StyledFlex direction="row" ai="center">
-                            <SmartTrader />
+                            <img src={SmartTrader} alt="smarttrader" width="32" height="32" />
                             <Text ml="0.4rem">{localize('SmartTrader')}</Text>
                         </StyledFlex>
                     </a>

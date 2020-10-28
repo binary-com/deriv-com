@@ -4,10 +4,10 @@ import { Container, SectionContainer, Flex, CssGrid } from 'components/container
 import { localize } from 'components/localization'
 import { Header, Text } from 'components/elements'
 // SVG
-import { ReactComponent as Comission } from 'images/svg/pa-comission.svg'
-import { ReactComponent as WithdrawDeposit } from 'images/svg/pa-withdraw-deposit.svg'
-import { ReactComponent as OpenAccount } from 'images/svg/pa-open-account.svg'
-import { ReactComponent as CloseAccount } from 'images/svg/pa-close-account.svg'
+import Comission from 'images/svg/pa-comission.svg'
+import WithdrawDeposit from 'images/svg/pa-withdraw-deposit.svg'
+import OpenAccount from 'images/svg/pa-open-account.svg'
+import CloseAccount from 'images/svg/pa-close-account.svg'
 
 const Card = styled(Flex)`
     padding: 3.2rem;
@@ -43,7 +43,7 @@ const YourControl = () => {
                     mobile_columns="1fr"
                 >
                     <Card>
-                        <Comission />
+                        <img src={Comission} alt="comission" />
                         <CardText>
                             {localize(
                                 'Determine your commission per transaction, subject to our established thresholds.',
@@ -51,17 +51,17 @@ const YourControl = () => {
                         </CardText>
                     </Card>
                     <Card>
-                        <OpenAccount />
+                        <img src={OpenAccount} alt="open account" />
                         <CardText>{localize('Open an agency account with just $200.')}</CardText>
                     </Card>
                     <Card>
-                        <WithdrawDeposit />
+                        <img src={WithdrawDeposit} alt="withdraw deposit" />
                         <CardText>
                             {localize('Perform multiple deposits and withdrawals per day.')}
                         </CardText>
                     </Card>
                     <Card>
-                        <CloseAccount />
+                        <img src={CloseAccount} alt="close account" />
                         <CardText>{localize('Close your account at any time you want.')}</CardText>
                     </Card>
                 </CssGrid>

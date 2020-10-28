@@ -6,8 +6,8 @@ import { LinkButton } from 'components/form'
 import { Header, Text } from 'components/elements'
 import { Container, SectionContainer, Flex, Show } from 'components/containers'
 import device from 'themes/device'
-import { ReactComponent as Pattern } from 'images/svg/pattern.svg'
-import { ReactComponent as PatternMobile } from 'images/svg/pattern-mobile.svg'
+import Pattern from 'images/svg/pattern.svg'
+import PatternMobile from 'images/svg/pattern-mobile.svg'
 
 const StyledSection = styled(SectionContainer)`
     position: relative;
@@ -78,7 +78,7 @@ const ClientCard = styled.article`
         }
     }
 `
-const BackgroundPattern = styled(Pattern)`
+const BackgroundPattern = styled.img`
     z-index: 0;
     position: absolute;
     width: 100%;
@@ -91,7 +91,7 @@ const BackgroundPattern = styled(Pattern)`
     right: 0;
     bottom: 0;
 `
-const MobileBackgroundPattern = styled(PatternMobile)`
+const MobileBackgroundPattern = styled.img`
     z-index: 0;
     position: absolute;
     width: 100%;
@@ -121,10 +121,10 @@ const StyledHeader = styled(Header)`
 const SimpleSteps = ({ header, content, sign_up }) => (
     <StyledSection>
         <Show.Desktop>
-            <BackgroundPattern />
+            <BackgroundPattern src={Pattern} alt="pattern" />
         </Show.Desktop>
         <Show.Mobile>
-            <MobileBackgroundPattern />
+            <MobileBackgroundPattern src={PatternMobile} alt="pattern mobile" />
         </Show.Mobile>
         <Container direction="column">
             <StyledHeader align="center" size="var(--text-size-header-1)" as="h2">

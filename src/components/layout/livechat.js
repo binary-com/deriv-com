@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import Cookies from 'js-cookie'
 import styled from 'styled-components'
 import { isBrowser } from 'common/utility'
-import { ReactComponent as LiveChatIC } from 'images/svg/livechat.svg'
-import { ReactComponent as LiveChatHover } from 'images/svg/livechat-hover.svg'
+import LiveChatIC from 'images/svg/livechat.svg'
+import LiveChatHover from 'images/svg/livechat-hover.svg'
 import device from 'themes/device'
 
 const StyledLiveChat = styled.div`
@@ -122,7 +122,11 @@ const LiveChat = ({ LC_API, is_livechat_interactive, setLiveChatInteractive }) =
                     onMouseEnter={() => setLivechatHover(true)}
                     onMouseLeave={() => setLivechatHover(false)}
                 >
-                    {is_livechat_hover ? <LiveChatHover /> : <LiveChatIC />}
+                    {is_livechat_hover ? (
+                        <img src={LiveChatHover} alt="livechat hover" />
+                    ) : (
+                        <img src={LiveChatIC} alt="livechat ic" />
+                    )}
                 </StyledLiveChat>
             )}
         </>

@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components'
 import { Text } from '../elements'
 import device from 'themes/device'
 // SVG Component
-import { ReactComponent as CrossIcon } from 'images/svg/cross.svg'
+import CrossIcon from 'images/svg/cross.svg'
 
 const RelativeWrapper = styled.div`
     position: relative;
@@ -45,7 +45,7 @@ const InputWrapper = styled.div`
         `}
 `
 
-const StyledError = styled(CrossIcon)`
+const StyledError = styled.img`
     position: absolute;
     right: 0.8rem;
     top: 1.2rem;
@@ -178,7 +178,7 @@ const Input = ({
         <ErrorMessages lh="1.4" align="left" color="red-1">
             {error}
         </ErrorMessages>
-        {error && <StyledError onClick={handleError} />}
+        {error && <StyledError src={CrossIcon} alt="error icon" onClick={handleError} />}
     </RelativeWrapper>
 )
 

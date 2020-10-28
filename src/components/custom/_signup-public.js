@@ -49,6 +49,16 @@ const Wrapper = styled.div`
     }
 `
 
+const MobileWrapper = styled.div`
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    overflow: hidden;
+    border-top: 1px solid rgba(151, 151, 151, 0.2);
+`
+
 const SignupFormWrapper = styled(Flex)`
     width: 50%;
     align-items: center;
@@ -66,16 +76,26 @@ const SignupFormWrapper = styled(Flex)`
     }
 `
 
+const MobileSignupFormWrapper = styled(Flex)`
+    width: 50%;
+    align-items: center;
+    padding: 0 2rem;
+
+    @media ${device.mobileM} {
+        width: 100%;
+
+        & > div {
+            width: 100%;
+        }
+    }
+`
+
 const BackgroundWrapper = styled(Flex)`
     min-height: 35.3rem;
     height: 100%;
     width: 50%;
     background-image: url(${BackgroundPattern});
     clip-path: polygon(14rem 0, 100% 0%, 100% 100%, 0% 100%);
-
-    @media (max-width: 991px) {
-        display: none;
-    }
 `
 
 const InputWrapper = styled.div`
@@ -161,9 +181,6 @@ const ImageWrapper = styled(Flex)`
     @media (max-width: 1350px) {
         width: 25rem;
     }
-    @media (max-width: 1230px) {
-        display: none;
-    }
 `
 const redirectToDerivApp = (e) => {
     e.preventDefault()
@@ -183,10 +200,6 @@ const MobileBackground = styled.div`
     align-items: center;
     position: relative;
     padding-bottom: 4rem;
-
-    @media (min-width: 991px) {
-        display: none;
-    }
 `
 
 const DerivExperience = styled.div`
@@ -227,120 +240,203 @@ const SignupPublic = ({
 }) => {
     const data = useStaticQuery(query)
     return (
-        <Wrapper>
-            <div style={{ position: 'absolute', left: '50%', height: '100%' }}>
-                <ImageWrapper ai="center">
-                    <QueryImage data={data['deriv_platform']} alt="deriv platform" width="100%" />
-                </ImageWrapper>
-            </div>
-            <SignupFormWrapper>
-                <div>
-                    <StyledHeader size="3.2rem">
-                        {localize('Join over 1 million traders worldwide')}
-                    </StyledHeader>
-                    <br />
-                    <StyledHeader as="h4" weight="normal" size="1.6rem">
-                        {localize('Sign up for your demo account now.')}
-                    </StyledHeader>
-                    <InputGroup>
-                        <InputWrapper>
-                            <Input
-                                id="email"
-                                name="email"
-                                type="text"
-                                error={email_error_msg}
-                                value={email}
-                                background="white"
-                                tabletBackground="green-1"
-                                inputColor="var(grey-5)"
-                                inputBackground="grey-8"
-                                labelFocusColor="grey-7"
-                                labelColor="black-3"
-                                label={localize('Email')}
-                                placeholder={'example@mail.com'}
-                                handleError={clearEmail}
-                                onChange={handleInputChange}
-                                onBlur={handleValidation}
-                                autoFocus={autofocus}
-                                autoComplete="off"
-                                required
-                                border="unset"
-                                focusBorder="var(--color-grey-7)"
+        <>
+            <Show.Desktop>
+                <Wrapper>
+                    <div style={{ position: 'absolute', left: '50%', height: '100%' }}>
+                        <ImageWrapper ai="center">
+                            <QueryImage
+                                data={data['deriv_platform']}
+                                alt="deriv platform"
+                                width="100%"
                             />
-                        </InputWrapper>
-                        <EmailButton
-                            id="gtm-signup-email"
-                            type="submit"
-                            secondary="true"
-                            disabled={is_submitting}
-                        >
-                            {localize('Sign up')}
-                        </EmailButton>
-                    </InputGroup>
-                    <SocialWrapper jc="unset" ai="center">
-                        <StyledText>{localize('or sign up with')}</StyledText>
-                        <SocialButton
-                            onClick={handleSocialSignup}
-                            provider="facebook"
-                            data-provider="facebook"
-                            id="gtm-signup-facebook"
-                            type="button"
-                            social
-                        >
-                            <span>
-                                <Facebook />
-                            </span>
-                        </SocialButton>
-                        <SocialButton
-                            onClick={handleSocialSignup}
-                            provider="google"
-                            data-provider="google"
-                            id="gtm-signup-google"
-                            type="button"
-                            social
-                        >
-                            <span>
-                                <Google />
-                            </span>
-                        </SocialButton>
-                    </SocialWrapper>
-                </div>
-            </SignupFormWrapper>
-            <BackgroundWrapper direction="column" ai="center">
-                <LinkFlex ai="center" external="true" href={deriv_app_url} target="_blank">
-                    <StyledHeader
-                        size="2.8rem"
-                        max_width="28.2rem"
-                        align="center"
-                        color="grey-8"
-                        mr="1.2rem"
-                    >
-                        {localize('Get a taste of the Deriv experience')}
-                    </StyledHeader>
-                    <ChevronRight />
-                </LinkFlex>
-            </BackgroundWrapper>
-            <Show.Mobile style={{ width: '100%' }}>
-                <MobileBackground>
-                    <MobilePlatform>
-                        <QueryImage
-                            data={data['deriv_platform']}
-                            alt="deriv platform"
-                            width="100%"
-                        />
-                    </MobilePlatform>
-                    <MobileRedBanner>
-                        <RedBanner width="100%" />
-                    </MobileRedBanner>
-                    <DerivExperience onClick={redirectToDerivApp}>
-                        <Header size="3rem">
-                            {localize('Get a taste of the Deriv experience')}
-                        </Header>
-                        <Arrow />
-                    </DerivExperience>
-                </MobileBackground>
+                        </ImageWrapper>
+                    </div>
+                    <SignupFormWrapper>
+                        <div>
+                            <StyledHeader size="3.2rem">
+                                {localize('Join over 1 million traders worldwide')}
+                            </StyledHeader>
+                            <br />
+                            <StyledHeader as="h4" weight="normal" size="1.6rem">
+                                {localize('Sign up for your demo account now.')}
+                            </StyledHeader>
+                            <InputGroup>
+                                <InputWrapper>
+                                    <Input
+                                        id="email"
+                                        name="email"
+                                        type="text"
+                                        error={email_error_msg}
+                                        value={email}
+                                        background="white"
+                                        tabletBackground="green-1"
+                                        inputColor="var(grey-5)"
+                                        inputBackground="grey-8"
+                                        labelFocusColor="grey-7"
+                                        labelColor="black-3"
+                                        label={localize('Email')}
+                                        placeholder={'example@mail.com'}
+                                        handleError={clearEmail}
+                                        onChange={handleInputChange}
+                                        onBlur={handleValidation}
+                                        autoFocus={autofocus}
+                                        autoComplete="off"
+                                        required
+                                        border="unset"
+                                        focusBorder="var(--color-grey-7)"
+                                    />
+                                </InputWrapper>
+                                <EmailButton
+                                    id="gtm-signup-email"
+                                    type="submit"
+                                    secondary="true"
+                                    disabled={is_submitting}
+                                >
+                                    {localize('Sign up')}
+                                </EmailButton>
+                            </InputGroup>
+                            <SocialWrapper jc="unset" ai="center">
+                                <StyledText>{localize('or sign up with')}</StyledText>
+                                <SocialButton
+                                    onClick={handleSocialSignup}
+                                    provider="facebook"
+                                    data-provider="facebook"
+                                    id="gtm-signup-facebook"
+                                    type="button"
+                                    social
+                                >
+                                    <span>
+                                        <Facebook />
+                                    </span>
+                                </SocialButton>
+                                <SocialButton
+                                    onClick={handleSocialSignup}
+                                    provider="google"
+                                    data-provider="google"
+                                    id="gtm-signup-google"
+                                    type="button"
+                                    social
+                                >
+                                    <span>
+                                        <Google />
+                                    </span>
+                                </SocialButton>
+                            </SocialWrapper>
+                        </div>
+                    </SignupFormWrapper>
+                    <BackgroundWrapper direction="column" ai="center">
+                        <LinkFlex ai="center" external="true" href={deriv_app_url} target="_blank">
+                            <StyledHeader
+                                size="2.8rem"
+                                max_width="28.2rem"
+                                align="center"
+                                color="grey-8"
+                                mr="1.2rem"
+                            >
+                                {localize('Get a taste of the Deriv experience')}
+                            </StyledHeader>
+                            <ChevronRight />
+                        </LinkFlex>
+                    </BackgroundWrapper>
+                </Wrapper>
+            </Show.Desktop>
+            <Show.Mobile>
+                <MobileWrapper>
+                    <MobileSignupFormWrapper>
+                        <div>
+                            <StyledHeader size="3.2rem">
+                                {localize('Join over 1 million traders worldwide')}
+                            </StyledHeader>
+                            <br />
+                            <StyledHeader as="h4" weight="normal" size="1.6rem">
+                                {localize('Sign up for your demo account now.')}
+                            </StyledHeader>
+                            <InputGroup>
+                                <InputWrapper>
+                                    <Input
+                                        id="email"
+                                        name="email"
+                                        type="text"
+                                        error={email_error_msg}
+                                        value={email}
+                                        background="white"
+                                        tabletBackground="green-1"
+                                        inputColor="var(grey-5)"
+                                        inputBackground="grey-8"
+                                        labelFocusColor="grey-7"
+                                        labelColor="black-3"
+                                        label={localize('Email')}
+                                        placeholder={'example@mail.com'}
+                                        handleError={clearEmail}
+                                        onChange={handleInputChange}
+                                        onBlur={handleValidation}
+                                        autoFocus={autofocus}
+                                        autoComplete="off"
+                                        required
+                                        border="unset"
+                                        focusBorder="var(--color-grey-7)"
+                                    />
+                                </InputWrapper>
+                                <EmailButton
+                                    id="gtm-signup-email"
+                                    type="submit"
+                                    secondary="true"
+                                    disabled={is_submitting}
+                                >
+                                    {localize('Sign up')}
+                                </EmailButton>
+                            </InputGroup>
+                            <SocialWrapper jc="unset" ai="center">
+                                <StyledText>{localize('or sign up with')}</StyledText>
+                                <SocialButton
+                                    onClick={handleSocialSignup}
+                                    provider="facebook"
+                                    data-provider="facebook"
+                                    id="gtm-signup-facebook"
+                                    type="button"
+                                    social
+                                >
+                                    <span>
+                                        <Facebook />
+                                    </span>
+                                </SocialButton>
+                                <SocialButton
+                                    onClick={handleSocialSignup}
+                                    provider="google"
+                                    data-provider="google"
+                                    id="gtm-signup-google"
+                                    type="button"
+                                    social
+                                >
+                                    <span>
+                                        <Google />
+                                    </span>
+                                </SocialButton>
+                            </SocialWrapper>
+                        </div>
+                    </MobileSignupFormWrapper>
+                    <MobileBackground>
+                        <MobilePlatform>
+                            <QueryImage
+                                data={data['deriv_platform']}
+                                alt="deriv platform"
+                                width="100%"
+                            />
+                        </MobilePlatform>
+                        <MobileRedBanner>
+                            <RedBanner width="100%" />
+                        </MobileRedBanner>
+                        <DerivExperience onClick={redirectToDerivApp}>
+                            <Header size="3rem">
+                                {localize('Get a taste of the Deriv experience')}
+                            </Header>
+                            <Arrow />
+                        </DerivExperience>
+                    </MobileBackground>
+                </MobileWrapper>
             </Show.Mobile>
-        </Wrapper>
+        </>
     )
 }
 

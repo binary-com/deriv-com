@@ -156,6 +156,7 @@ const Input = ({
     background,
     tabletBackground,
     handleError,
+    maxLength,
     ...props
 }) => (
     <RelativeWrapper>
@@ -166,7 +167,7 @@ const Input = ({
             error={error}
             className="input-wrapper"
         >
-            <StyledInput id={id} background={background} {...props} />
+            <StyledInput id={id} background={background} maxLength={maxLength} {...props} />
             <StyledLabel
                 tabletBackground={tabletBackground}
                 error={error}
@@ -194,6 +195,7 @@ Input.propTypes = {
     label: PropTypes.string,
     labelColor: PropTypes.string,
     labelHoverColor: PropTypes.string,
+    maxLength: PropTypes.string,
     tabletBackground: PropTypes.string,
     width: PropTypes.string,
 }

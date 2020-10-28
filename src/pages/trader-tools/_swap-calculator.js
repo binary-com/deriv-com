@@ -45,6 +45,10 @@ const StyledInputGroup = styled(InputGroup)`
     margin: 0;
 `
 
+const StyledActionSection = styled(ActionSection)`
+    margin-top: 2rem;
+`
+
 const SwapCalculator = () => {
     const query = graphql`
         query {
@@ -309,6 +313,7 @@ const SwapCalculator = () => {
                                                                     false,
                                                                 )
                                                             }}
+                                                            maxLength="8"
                                                             required
                                                         />
                                                     )}
@@ -350,6 +355,7 @@ const SwapCalculator = () => {
                                                                     false,
                                                                 )
                                                             }}
+                                                            maxLength="15"
                                                             required
                                                         />
                                                     )}
@@ -386,12 +392,13 @@ const SwapCalculator = () => {
                                                                     false,
                                                                 )
                                                             }}
+                                                            maxLength="15"
                                                             required
                                                         />
                                                     )}
                                                 </Field>
                                             </StyledInputGroup>
-                                            <ActionSection>
+                                            <StyledActionSection>
                                                 <StyledButton
                                                     secondary
                                                     type="submit"
@@ -399,7 +406,7 @@ const SwapCalculator = () => {
                                                 >
                                                     {localize('Calculate')}
                                                 </StyledButton>
-                                            </ActionSection>
+                                            </StyledActionSection>
                                         </CalculatorBody>
                                     </StyledForm>
                                 )}
@@ -575,6 +582,7 @@ const SwapCalculator = () => {
                                                                     false,
                                                                 )
                                                             }}
+                                                            maxLength="8"
                                                             required
                                                         />
                                                     )}
@@ -616,6 +624,7 @@ const SwapCalculator = () => {
                                                                     false,
                                                                 )
                                                             }}
+                                                            maxLength="15"
                                                             required
                                                         />
                                                     )}
@@ -652,12 +661,13 @@ const SwapCalculator = () => {
                                                                     false,
                                                                 )
                                                             }}
+                                                            maxLength="15"
                                                             required
                                                         />
                                                     )}
                                                 </Field>
                                             </StyledInputGroup>
-                                            <ActionSection>
+                                            <StyledActionSection>
                                                 <StyledButton
                                                     secondary
                                                     type="submit"
@@ -665,7 +675,7 @@ const SwapCalculator = () => {
                                                 >
                                                     {localize('Calculate')}
                                                 </StyledButton>
-                                            </ActionSection>
+                                            </StyledActionSection>
                                         </CalculatorBody>
                                     </StyledForm>
                                 )}

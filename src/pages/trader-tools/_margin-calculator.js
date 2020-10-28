@@ -284,6 +284,7 @@ const MarginCalculator = () => {
                                                         setFieldError('volume', '')
                                                         setFieldTouched('volume', false, false)
                                                     }}
+                                                    maxLength="8"
                                                     required
                                                 />
                                             )}
@@ -312,6 +313,7 @@ const MarginCalculator = () => {
                                                         setFieldError('assetPrice', '')
                                                         setFieldTouched('assetPrice', false, false)
                                                     }}
+                                                    maxLength="15"
                                                     required
                                                 />
                                             )}

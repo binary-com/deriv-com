@@ -8,11 +8,11 @@ import DigitalOptions from './_digital-options.js'
 import Multipliers from './_multipliers.js'
 import SimpleSteps from 'components/custom/_simple-steps'
 import { Localize } from 'components/localization'
-import { ReactComponent as FriendlySupport } from 'images/svg/friendly-support.svg'
-import { ReactComponent as ResponsiveWebsite } from 'images/svg/responsive-website.svg'
-import { ReactComponent as ExclusiveTradeType } from 'images/svg/exclusive-trade-types.svg'
-import { ReactComponent as MarketandRisk } from 'images/svg/market-and-risk.svg'
-import { ReactComponent as SevenTrading } from 'images/svg/seven-trading.svg'
+import FriendlySupport from 'images/svg/friendly-support.svg'
+import ResponsiveWebsite from 'images/svg/responsive-website.svg'
+import ExclusiveTradeType from 'images/svg/exclusive-trade-types.svg'
+import MarketandRisk from 'images/svg/market-and-risk.svg'
+import SevenTrading from 'images/svg/seven-trading.svg'
 
 const StockIndices = ({ simple_step_content }) => {
     return (
@@ -27,25 +27,25 @@ const StockIndices = ({ simple_step_content }) => {
                     text={
                         <Localize translate_text="High leverage, tight spreads, and 24/7 trading" />
                     }
-                    icon={<SevenTrading />}
+                    icon={<img src={SevenTrading} alt="seven trading" />}
                 ></div>
                 <div
                     text={
                         <Localize translate_text="Free from real-world market and liquidity risks" />
                     }
-                    icon={<MarketandRisk />}
+                    icon={<img src={MarketandRisk} alt="market and risk" />}
                 ></div>
                 <div
                     text={<Localize translate_text="Responsive, easy-to-use platforms" />}
-                    icon={<ResponsiveWebsite />}
+                    icon={<img src={ResponsiveWebsite} alt="responsive website" />}
                 ></div>
                 <div
                     text={<Localize translate_text="Exclusive access to innovative trade types" />}
-                    icon={<ExclusiveTradeType />}
+                    icon={<img src={ExclusiveTradeType} alt="exclusive trade types" />}
                 ></div>
                 <div
                     text={<Localize translate_text="Smart and friendly support, 7 days a week" />}
-                    icon={<FriendlySupport />}
+                    icon={<img src={FriendlySupport} alt="friendly support" />}
                 ></div>
             </WhyTrade>
             <AvailableTrades

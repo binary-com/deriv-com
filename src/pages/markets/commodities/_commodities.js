@@ -7,11 +7,11 @@ import Margin from './_margin.js'
 import DigitalOptions from './_digital-options.js'
 import SimpleSteps from 'components/custom/_simple-steps'
 import { Localize } from 'components/localization'
-import { ReactComponent as FriendlySupport } from 'images/svg/friendly-support.svg'
-import { ReactComponent as ResponsiveWebsite } from 'images/svg/responsive-website.svg'
-import { ReactComponent as NoCommission } from 'images/svg/no-commission.svg'
-import { ReactComponent as MetalAndOil } from 'images/svg/precious-metals-and-oils.svg'
-import { ReactComponent as VariableSpreads } from 'images/svg/variable-spreads.svg'
+import FriendlySupport from 'images/svg/friendly-support.svg'
+import ResponsiveWebsite from 'images/svg/responsive-website.svg'
+import NoCommission from 'images/svg/no-commission.svg'
+import MetalAndOil from 'images/svg/precious-metals-and-oils.svg'
+import VariableSpreads from 'images/svg/variable-spreads.svg'
 
 const Commodities = ({ simple_step_content }) => {
     simple_step_content[1].text = (
@@ -27,27 +27,27 @@ const Commodities = ({ simple_step_content }) => {
             >
                 <div
                     text={<Localize translate_text="Competitive fixed and variable spreads" />}
-                    icon={<VariableSpreads />}
+                    icon={<img src={VariableSpreads} alt="variable spreads" />}
                 />
                 <div
                     text={<Localize translate_text="No commission on any commodity contract" />}
-                    icon={<NoCommission />}
+                    icon={<img src={NoCommission} alt="no commission" />}
                 />
                 <div
                     text={
                         <Localize translate_text="All four precious metals and crude oil available" />
                     }
-                    icon={<MetalAndOil />}
+                    icon={<img src={MetalAndOil} alt="precious metals and oils" />}
                 />
                 <div
                     text={
                         <Localize translate_text="Easy-to-use platforms, superior chart technology" />
                     }
-                    icon={<ResponsiveWebsite />}
+                    icon={<img src={ResponsiveWebsite} alt="responsive website" />}
                 />
                 <div
                     text={<Localize translate_text="Smart and friendly support, 7 days a week" />}
-                    icon={<FriendlySupport />}
+                    icon={<img src={FriendlySupport} alt="friendly support" />}
                 />
             </WhyTrade>
             <AvailableTrades

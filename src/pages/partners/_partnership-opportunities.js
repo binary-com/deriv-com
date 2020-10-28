@@ -5,8 +5,8 @@ import { localize, LocalizedLink } from 'components/localization'
 import { Container, SectionContainer, Flex } from 'components/containers'
 // import device from 'themes/device'
 // Icons
-import { ReactComponent as PartnerAffiliate } from 'images/svg/partner-affiliate.svg'
-import { ReactComponent as PartnerPaymentAgent } from 'images/svg/partner-payment-agent.svg'
+import PartnerAffiliate from 'images/svg/partner-affiliate.svg'
+import PartnerPaymentAgent from 'images/svg/partner-payment-agent.svg'
 
 const ClientCard = styled(LocalizedLink)`
     ${CardStyle}
@@ -66,7 +66,7 @@ const PartnershipOpportunities = () => (
                     <Header as="h4" size="var(--text-size-sm)">
                         {localize('Affiliate and IB programmes')}
                     </Header>
-                    <PartnerAffiliate />
+                    <img src={PartnerAffiliate} alt="partner affiliate" />
                 </Flex>
                 <Text>
                     {localize(
@@ -79,7 +79,7 @@ const PartnershipOpportunities = () => (
                     <Header as="h4" size="var(--text-size-sm)">
                         {localize('Payment agent programme')}
                     </Header>
-                    <PartnerPaymentAgent />
+                    <img src={PartnerPaymentAgent} alt="partner payment agent" />
                 </Flex>
                 <Text>
                     {localize(

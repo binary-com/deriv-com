@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Text } from 'components/elements'
 import { LocalizedLink } from 'components/localization'
-import { ReactComponent as Arrow } from 'images/svg/arrow-right.svg'
+import Arrow from 'images/svg/arrow-right.svg'
 
 const Wrapper = styled.div`
     position: absolute;
@@ -46,7 +46,7 @@ const LearnMore = ({ text, to }) => {
                     <Text mr="0.8rem" weight="bold" color="red">
                         {text}
                     </Text>
-                    <Arrow />
+                    <img src={Arrow} alt="arrow right" />
                 </Item>
             </Link>
         </Wrapper>

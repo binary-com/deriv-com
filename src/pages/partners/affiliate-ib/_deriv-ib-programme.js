@@ -9,7 +9,7 @@ import { localize, Localize } from 'components/localization'
 import { Button, LinkButton } from 'components/form'
 import { affiliate_signup_url } from 'common/utility'
 import device from 'themes/device'
-import { ReactComponent as Chevron } from 'images/svg/chevron-bottom-bold.svg'
+import Chevron from 'images/svg/chevron-bottom-bold.svg'
 
 const TitleWrapper = styled.div`
     max-width: 104.5rem;
@@ -127,7 +127,7 @@ const DerivIBProgramme = () => {
     )
 }
 
-const StyledChevron = styled(Chevron)`
+const StyledChevron = styled.img`
     width: 100%;
     margin-top: 0.8rem;
     height: 16px;
@@ -211,6 +211,8 @@ const DMT5Synthetic = ({ data }) => {
                         </SyntheticTable>
                         {has_expansion && (
                             <StyledChevron
+                                src={Chevron}
+                                alt="chevron"
                                 onClick={toggleExpand}
                                 is_expand={is_expand.toString()}
                             />

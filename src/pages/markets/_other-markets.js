@@ -10,7 +10,7 @@ import Commodities from 'components/svgs/_market-commodities.js'
 import Forex from 'components/svgs/_market-forex.js'
 import StockIndices from 'components/svgs/_market-stock.js'
 import SyntheticIndices from 'components/svgs/_market-synthetic.js'
-import { ReactComponent as Arrow } from 'images/svg/arrow-right.svg'
+import Arrow from 'images/svg/arrow-right.svg'
 import device from 'themes/device'
 
 const markets_type = {
@@ -156,7 +156,7 @@ const Card = ({ name }) => {
             <Text mt="0.8rem">{markets_type[name].content}</Text>
             <LearnMore to={markets_type[name].to} visibility={button_visibility}>
                 <Text mr="1rem">{localize('Learn more')}</Text>
-                <Arrow />
+                <img src={Arrow} alt="arrow right" />
             </LearnMore>
         </StyledFlex>
     )
@@ -174,7 +174,7 @@ const MobileCard = ({ name }) => {
             <Text size="2rem">{markets_type[name].content}</Text>
             <LearnMore to={markets_type[name].to} visibility="true">
                 <Text>{localize('Learn more')}</Text>
-                <Arrow />
+                <img src={Arrow} alt="arrow right" />
             </LearnMore>
         </MobileCardWrapper>
     )

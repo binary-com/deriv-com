@@ -6,8 +6,8 @@ import { SmallContainer, Card, MarketsItem } from '../components/_style'
 import { SectionContainer, Flex } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
-import { ReactComponent as Forex } from 'images/svg/trade-types/forex.svg'
-import { ReactComponent as SyntheticIndices } from 'images/svg/trade-types/synthetic-indices.svg'
+import Forex from 'images/svg/trade-types/forex.svg'
+import SyntheticIndices from 'images/svg/trade-types/synthetic-indices.svg'
 
 const MobileCardHeader = styled(Flex)`
     margin-bottom: 0.8rem;
@@ -43,7 +43,7 @@ const MarketsAvailable = () => {
                         <MarketsItem>
                             <Card>
                                 <MobileCardHeader>
-                                    <Forex />
+                                    <img src={Forex} alt="forex" width="64" height="64" />
 
                                     <Text weight="bold" mt="1.6rem">
                                         {localize('Forex')}
@@ -65,7 +65,12 @@ const MarketsAvailable = () => {
                         <MarketsItem>
                             <Card>
                                 <MobileCardHeader>
-                                    <SyntheticIndices />
+                                    <img
+                                        src={SyntheticIndices}
+                                        alt="synthetic indices"
+                                        width="64"
+                                        height="64"
+                                    />
 
                                     <Text weight="bold" mt="1.6rem">
                                         {localize('Synthetic indices')}

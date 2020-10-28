@@ -5,12 +5,12 @@ import { Header, Text, LocalizedLinkText } from 'components/elements'
 import { LinkButton } from 'components/form'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
-import { ReactComponent as Enhanced } from 'images/svg/interim/enhanced.svg'
-import { ReactComponent as EasySignup } from 'images/svg/interim/easy-sign-up.svg'
-import { ReactComponent as Support } from 'images/svg/interim/support.svg'
-import { ReactComponent as SyntheticIndices } from 'images/svg/interim/synthetic-indices.svg'
-import { ReactComponent as TradingPlatform } from 'images/svg/interim/trading-platforms.svg'
-import { ReactComponent as UserFriendly } from 'images/svg/interim/user-friendly.svg'
+import Enhanced from 'images/svg/interim/enhanced.svg'
+import EasySignup from 'images/svg/interim/easy-sign-up.svg'
+import Support from 'images/svg/interim/support.svg'
+import SyntheticIndices from 'images/svg/interim/synthetic-indices.svg'
+import TradingPlatform from 'images/svg/interim/trading-platforms.svg'
+import UserFriendly from 'images/svg/interim/user-friendly.svg'
 
 const Ul = styled(Flex).attrs({ as: 'ul' })`
     width: 100%;
@@ -49,7 +49,7 @@ const Everything = () => {
                 <Ul jc="center" ai="center">
                     <Li>
                         <div>
-                            <EasySignup width="64" height="64" />
+                            <img src={EasySignup} alt="easy sign up" width="64" height="64" />
                         </div>
                         <ResponsiveBox ml="1.6rem">
                             <Header as="h4">{localize('No sign up required')}</Header>
@@ -73,7 +73,12 @@ const Everything = () => {
                     </Li>
                     <Li>
                         <div>
-                            <SyntheticIndices width="64" height="64" />
+                            <img
+                                src={SyntheticIndices}
+                                alt="synthetic indices"
+                                width="64"
+                                height="64"
+                            />
                         </div>
                         <ResponsiveBox ml="1.6rem">
                             <Header as="h4">{localize('Over 100+ financial instruments')}</Header>
@@ -86,7 +91,7 @@ const Everything = () => {
                     </Li>
                     <Li>
                         <div>
-                            <Enhanced width="64" height="64" />
+                            <img src={Enhanced} alt="enhanced" width="64" height="64" />
                         </div>
                         <ResponsiveBox ml="1.6rem">
                             <Header as="h4">{localize('An enhanced experience')}</Header>
@@ -99,7 +104,12 @@ const Everything = () => {
                     </Li>
                     <Li>
                         <div>
-                            <TradingPlatform width="64" height="64" />
+                            <img
+                                src={TradingPlatform}
+                                alt="trading platforms"
+                                width="64"
+                                height="64"
+                            />
                         </div>
                         <ResponsiveBox ml="1.6rem">
                             <Header as="h4">{localize('4 trading platforms in one place')}</Header>
@@ -112,7 +122,7 @@ const Everything = () => {
                     </Li>
                     <Li>
                         <div>
-                            <UserFriendly width="64" height="64" />
+                            <img src={UserFriendly} alt="user friendly" width="64" height="64" />
                         </div>
                         <ResponsiveBox ml="1.6rem">
                             <Header as="h4">{localize('User-friendly, modern design')}</Header>
@@ -125,7 +135,7 @@ const Everything = () => {
                     </Li>
                     <Li>
                         <div>
-                            <Support width="64" height="64" />
+                            <img src={Support} alt="support" width="64" height="64" />
                         </div>
                         <ResponsiveBox ml="1.6rem">
                             <Header as="h4">{localize('Support when you need it')}</Header>

@@ -23,15 +23,15 @@ const validation_is_not_zero = (input) => {
     return true
 }
 
-const validation_is_not_exceed_two_decimal = (input) => {
-    if (input.includes('.')) {
-        const numb = input.split('.')[1]
-        if (numb != null && numb.length > 2) {
-            return true
-        }
-    }
-    return false
-}
+// const validation_is_not_exceed_two_decimal = (input) => {
+//     if (input.includes('.')) {
+//         const numb = input.split('.')[1]
+//         if (numb != null && numb.length > 2) {
+//             return true
+//         }
+//     }
+//     return false
+// }
 
 const numberValidation = (input, fieldName, maxDigit) => {
     if (!input) {
@@ -42,10 +42,6 @@ const numberValidation = (input, fieldName, maxDigit) => {
         return localize('Reached maximum number of digits')
     } else if (!validation_is_not_zero(input)) {
         return localize('Input must be greater than 0')
-    } else if (validation_is_not_exceed_two_decimal(input)) {
-        if (fieldName !== localize('Point value')) {
-            return localize('Decimal place must not be longer than 2')
-        }
     }
 
     return null
@@ -60,8 +56,6 @@ const numberWithNegativeValidation = (input, fieldName, maxDigit) => {
         return localize('Reached maximum number of digits')
     } else if (!validation_is_not_zero(input)) {
         return localize('Input must not be  0')
-    } else if (validation_is_not_exceed_two_decimal(input)) {
-        return localize('Decimal place must not be longer than 2')
     }
 
     return null

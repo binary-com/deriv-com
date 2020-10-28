@@ -211,7 +211,7 @@ const SocialWrapper = styled.div`
     background: var(--color-grey-25);
     margin: 1.6rem 0;
 
-    svg {
+    img {
         margin-left: 1.6rem;
     }
 

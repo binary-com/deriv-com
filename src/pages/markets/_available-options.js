@@ -11,7 +11,7 @@ const StyledFlex = styled(Flex)`
     }
 `
 const AvailableOptions = ({ title, content, remove_title, svg, mobile_pt }) => {
-    const Icon = styled(svg)`
+    const Icon = styled.img`
         margin-right: 1.6rem;
         width: 80px;
         height: 80px;
@@ -33,7 +33,7 @@ const AvailableOptions = ({ title, content, remove_title, svg, mobile_pt }) => {
                 </Box>
             )}
             <Flex jc="flex-start">
-                <Icon />
+                <Icon src={svg} />
                 <Box max_width="28.8rem">
                     <Text>{content}</Text>
                 </Box>

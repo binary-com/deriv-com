@@ -9,11 +9,11 @@ import { SectionContainer, Flex, CssGrid } from 'components/containers'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
 //SVG
-import { ReactComponent as RiseFall } from 'images/svg/options/rise-fall.svg'
-import { ReactComponent as HigherLower } from 'images/svg/options/higher-lower.svg'
-import { ReactComponent as EbEo } from 'images/svg/options/eb-eo.svg'
-import { ReactComponent as SbGo } from 'images/svg/options/sb-go.svg'
-import { ReactComponent as TNT } from 'images/svg/options/tnt.svg'
+import RiseFall from 'images/svg/options/rise-fall.svg'
+import HigherLower from 'images/svg/options/higher-lower.svg'
+import EbEo from 'images/svg/options/eb-eo.svg'
+import SbGo from 'images/svg/options/sb-go.svg'
+import TNT from 'images/svg/options/tnt.svg'
 
 const Descriptions = styled.div`
     padding-bottom: 4rem;

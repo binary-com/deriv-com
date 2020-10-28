@@ -4,7 +4,7 @@ import { General, AccountManagement } from './_faq-data'
 import { SectionContainer } from 'components/containers'
 import { localize } from 'components/localization'
 import { Header, Accordion, AccordionItem } from 'components/elements'
-import { ReactComponent as DotPattern } from 'images/svg/dot-pattern.svg'
+import DotPattern from 'images/svg/dot-pattern.svg'
 
 const AccordionWrapper = styled.div`
     max-width: 99.6rem;
@@ -18,12 +18,12 @@ const RelativeContainer = styled(SectionContainer)`
     overflow: hidden;
 `
 
-const TopLeftDot = styled(DotPattern)`
+const TopLeftDot = styled.img`
     position: absolute;
     top: 4px;
     left: 0;
 `
-const BottomRightDot = styled(DotPattern)`
+const BottomRightDot = styled.img`
     position: absolute;
     bottom: 16px;
     right: 0;
@@ -67,8 +67,8 @@ const Faq = () => {
                     </AccordionItem>
                 </Accordion>
             </AccordionWrapper>
-            <TopLeftDot />
-            <BottomRightDot />
+            <TopLeftDot src={DotPattern} />
+            <BottomRightDot src={DotPattern} />
         </RelativeContainer>
     )
 }

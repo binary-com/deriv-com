@@ -4,7 +4,7 @@ import { SmallContainer, Ul } from '../components/_style'
 import { SectionContainer, Flex } from 'components/containers'
 import { Header, Text, CardStyle } from 'components/elements'
 import { localize, Localize } from 'components/localization'
-import { ReactComponent as Info } from 'images/svg/trade-types/info.svg'
+import Info from 'images/svg/trade-types/info.svg'
 
 const Card = styled.article`
     ${CardStyle}
@@ -115,7 +115,7 @@ const Policies = () => {
                     <Card>
                         <CardHeading>
                             <InfoWrapper>
-                                <Info />
+                                <img src={Info} alt="info" />
                             </InfoWrapper>
                             <Header as="h4">
                                 {localize('Important notes on our swap rates (overnight funding)')}

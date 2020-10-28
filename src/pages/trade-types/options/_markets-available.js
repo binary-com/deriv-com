@@ -6,10 +6,10 @@ import { SmallContainer, Card, MarketsItem } from '../components/_style'
 import { SectionContainer, Flex } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
-import { ReactComponent as Forex } from 'images/svg/trade-types/forex.svg'
-import { ReactComponent as Commodities } from 'images/svg/trade-types/commodities.svg'
-import { ReactComponent as SyntheticIndices } from 'images/svg/trade-types/synthetic-indices.svg'
-import { ReactComponent as StockIndices } from 'images/svg/trade-types/stock-indices.svg'
+import Forex from 'images/svg/trade-types/forex.svg'
+import Commodities from 'images/svg/trade-types/commodities.svg'
+import SyntheticIndices from 'images/svg/trade-types/synthetic-indices.svg'
+import StockIndices from 'images/svg/trade-types/stock-indices.svg'
 
 const MobileCardHeader = styled(Flex)`
     margin-bottom: 0.8rem;
@@ -45,7 +45,7 @@ const MarketsAvailable = () => {
                         <MarketsItem>
                             <Card>
                                 <MobileCardHeader>
-                                    <Forex />
+                                    <img src={Forex} alt="forex" width="64" height="64" />
 
                                     <Text weight="bold" mt="1.6rem">
                                         {localize('Forex')}
@@ -67,7 +67,12 @@ const MarketsAvailable = () => {
                         <MarketsItem>
                             <Card>
                                 <MobileCardHeader>
-                                    <SyntheticIndices />
+                                    <img
+                                        src={SyntheticIndices}
+                                        alt="synthetic indices"
+                                        width="64"
+                                        height="64"
+                                    />
 
                                     <Text weight="bold" mt="1.6rem">
                                         {localize('Synthetic indices')}
@@ -89,7 +94,12 @@ const MarketsAvailable = () => {
                         <MarketsItem>
                             <Card>
                                 <MobileCardHeader>
-                                    <Commodities />
+                                    <img
+                                        src={Commodities}
+                                        alt="commodities"
+                                        width="64"
+                                        height="64"
+                                    />
 
                                     <Text weight="bold" mt="1.6rem">
                                         {localize('Commodities')}
@@ -111,7 +121,12 @@ const MarketsAvailable = () => {
                         <MarketsItem>
                             <Card>
                                 <MobileCardHeader>
-                                    <StockIndices />
+                                    <img
+                                        src={StockIndices}
+                                        alt="stock indices"
+                                        width="64"
+                                        height="64"
+                                    />
 
                                     <Text weight="bold" mt="1.6rem">
                                         {localize('Stock indices')}

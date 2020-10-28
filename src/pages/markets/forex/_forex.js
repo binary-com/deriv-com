@@ -9,11 +9,11 @@ import Multipliers from './_multipliers.js'
 import SimpleSteps from 'components/custom/_simple-steps'
 import { Localize } from 'components/localization'
 //SVG
-import { ReactComponent as FriendlySupport } from 'images/svg/friendly-support.svg'
-import { ReactComponent as Deposit } from 'images/svg/deposit-and-withdrawal.svg'
-import { ReactComponent as AdvancedCharting } from 'images/svg/advanced-charting-widgets.svg'
-import { ReactComponent as ResponsiveWebsite } from 'images/svg/responsive-website.svg'
-import { ReactComponent as Leverage } from 'images/svg/leverage.svg'
+import FriendlySupport from 'images/svg/friendly-support.svg'
+import Deposit from 'images/svg/deposit-and-withdrawal.svg'
+import AdvancedCharting from 'images/svg/advanced-charting-widgets.svg'
+import ResponsiveWebsite from 'images/svg/responsive-website.svg'
+import Leverage from 'images/svg/leverage.svg'
 
 const Forex = ({ simple_step_content }) => {
     return (
@@ -26,23 +26,23 @@ const Forex = ({ simple_step_content }) => {
             >
                 <div
                     text={<Localize translate_text="High leverage, tight spreads" />}
-                    icon={<Leverage />}
+                    icon={<img src={Leverage} alt="leverage" />}
                 ></div>
                 <div
                     text={<Localize translate_text="Responsive, easy-to-use platforms" />}
-                    icon={<ResponsiveWebsite />}
+                    icon={<img src={ResponsiveWebsite} alt="responsive website" />}
                 ></div>
                 <div
                     text={<Localize translate_text="Advanced charting widgets" />}
-                    icon={<AdvancedCharting />}
+                    icon={<img src={AdvancedCharting} alt="advanced charting widgets" />}
                 ></div>
                 <div
                     text={<Localize translate_text="Convenient deposit and withdrawal methods" />}
-                    icon={<Deposit />}
+                    icon={<img src={Deposit} alt="deposit and withdrawal" />}
                 ></div>
                 <div
                     text={<Localize translate_text="Smart and friendly support, 7 days a week" />}
-                    icon={<FriendlySupport />}
+                    icon={<img src={FriendlySupport} alt="friendly support" />}
                 ></div>
             </WhyTrade>
             <AvailableTrades

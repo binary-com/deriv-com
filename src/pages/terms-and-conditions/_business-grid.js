@@ -6,11 +6,11 @@ import { GridContainer, CssGrid, CssGridColumn } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { localize } from 'components/localization'
 // Icons
-import { ReactComponent as General } from 'images/svg/business-general-tc.svg'
-import { ReactComponent as Partners } from 'images/svg/business-partners-tc.svg'
-import { ReactComponent as PA } from 'images/svg/business-pa-tc.svg'
-import { ReactComponent as API } from 'images/svg/business-api-tc.svg'
-import { ReactComponent as PDF } from 'images/svg/pdf-icon-black.svg'
+import General from 'images/svg/business-general-tc.svg'
+import Partners from 'images/svg/business-partners-tc.svg'
+import PA from 'images/svg/business-pa-tc.svg'
+import API from 'images/svg/business-api-tc.svg'
+import PDF from 'images/svg/pdf-icon-black.svg'
 
 const StyledContainer = styled(GridContainer)`
     margin-top: 8rem;
@@ -75,12 +75,12 @@ const Cta = styled.div`
 const Col = ({ Icon, content, link_title, title, url }) => (
     <GridCol>
         <IconWrapper>
-            <Icon />
+            <img src={Icon} />
         </IconWrapper>
         <StyledHeader as="h4">{title}</StyledHeader>
         <Text lh="1.55">{content}</Text>
         <Cta>
-            <PDF />
+            <img src={PDF} alt="pdf icon black" />
             <a href={url} target="_blank" rel="noopener noreferrer">
                 {link_title}
             </a>

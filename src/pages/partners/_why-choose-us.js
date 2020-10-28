@@ -4,12 +4,18 @@ import { Container, Flex, SectionContainer } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { localize } from 'components/localization'
 // SVG
-import { ReactComponent as Hand } from 'images/svg/hand-icon.svg'
-import { ReactComponent as Lamp } from 'images/svg/lamp-icon.svg'
-import { ReactComponent as HiddenFee } from 'images/svg/hidden-fee-icon.svg'
+import Hand from 'images/svg/hand-icon.svg'
+import Lamp from 'images/svg/lamp-icon.svg'
+import HiddenFee from 'images/svg/hidden-fee-icon.svg'
 
 const Wrapper = styled(Flex)`
     flex-wrap: wrap;
+`
+
+const ImageWrapper = styled.img`
+    margin-bottom: 1.6rem;
+    width: 64px;
+    height: 64px;
 `
 
 const Card = styled(Flex)`
@@ -42,7 +48,7 @@ const WhyChooseUs = () => {
                 </Header>
                 <Wrapper>
                     <Card direction="column">
-                        <Hand />
+                        <ImageWrapper src={Hand} alt="hand icon" />
                         <Header as="h4" mb="0.8rem">
                             {localize('Partnership with a trusted pioneer')}
                         </Header>
@@ -53,7 +59,7 @@ const WhyChooseUs = () => {
                         </Text>
                     </Card>
                     <Card direction="column">
-                        <Lamp />
+                        <ImageWrapper src={Lamp} alt="lamp icon" />
                         <Header as="h4" mb="0.8rem">
                             {localize('Diverse opportunities')}
                         </Header>
@@ -64,7 +70,7 @@ const WhyChooseUs = () => {
                         </Text>
                     </Card>
                     <Card direction="column">
-                        <HiddenFee />
+                        <ImageWrapper src={HiddenFee} alt="hidden fee icon" />
                         <Header as="h4" mb="0.8rem">
                             {localize('No charges or hidden fees')}
                         </Header>

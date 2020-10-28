@@ -6,13 +6,13 @@ import { GridContainer, CssGrid, CssGridColumn, Show } from 'components/containe
 import { Header, Text } from 'components/elements'
 import { localize } from 'components/localization'
 // Icons
-import { ReactComponent as General } from 'images/svg/general-tc.svg'
-import { ReactComponent as Trading } from 'images/svg/trading-tc.svg'
-import { ReactComponent as Funds } from 'images/svg/funds-transfers-tc.svg'
-import { ReactComponent as Security } from 'images/svg/security-privacy-tc.svg'
-import { ReactComponent as Risk } from 'images/svg/risk-tc.svg'
-import { ReactComponent as PDF } from 'images/svg/pdf-icon-black.svg'
-import { ReactComponent as BFX } from 'images/svg/bfx-tc.svg'
+import General from 'images/svg/general-tc.svg'
+import Trading from 'images/svg/trading-tc.svg'
+import Funds from 'images/svg/funds-transfers-tc.svg'
+import Security from 'images/svg/security-privacy-tc.svg'
+import Risk from 'images/svg/risk-tc.svg'
+import PDF from 'images/svg/pdf-icon-black.svg'
+import BFX from 'images/svg/bfx-tc.svg'
 
 const StyledContainer = styled(GridContainer)`
     margin-top: 8rem;
@@ -94,19 +94,19 @@ const Col = ({
 }) => (
     <GridCol>
         <IconWrapper>
-            <Icon />
+            <img src={Icon} />
         </IconWrapper>
         <StyledHeader as="h4">{title}</StyledHeader>
         <Text lh="1.55">{content}</Text>
         <Cta>
-            <PDF />
+            <img src={PDF} alt="pdf icon black" />
             <a href={url} target="_blank" rel="noopener noreferrer">
                 {link_title}
             </a>
         </Cta>
         {url2 && link_title2 && (
             <Cta>
-                <PDF />
+                <img src={PDF} alt="pdf icon black" />
                 <a href={url2} target="_blank" rel="noopener noreferrer">
                     {link_title2}
                 </a>
@@ -115,7 +115,7 @@ const Col = ({
         {url3 && link_title3 && (
             <Show.Eu>
                 <Cta>
-                    <PDF />
+                    <img src={PDF} alt="pdf icon black" />
                     <a href={url3} target="_blank" rel="noopener noreferrer">
                         {link_title3}
                     </a>
@@ -125,7 +125,7 @@ const Col = ({
         {url4 && link_title4 && (
             <Show.Eu>
                 <Cta>
-                    <PDF />
+                    <img src={PDF} alt="pdf icon black" />
                     <a href={url4} target="_blank" rel="noopener noreferrer">
                         {link_title4}
                     </a>

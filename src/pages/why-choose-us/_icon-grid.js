@@ -6,13 +6,13 @@ import { GridContainer, CssGrid, CssGridColumn } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { localize, Localize, LocalizedLink } from 'components/localization'
 // Icons
-import { ReactComponent as ProvenTrackRecord } from 'images/svg/wd-proven-track-record.svg'
-import { ReactComponent as LicensedRegulated } from 'images/svg/wd-licensed-regulated.svg'
-import { ReactComponent as ClientProtection } from 'images/svg/wd-client-money-protection.svg'
-import { ReactComponent as Risk } from 'images/svg/wd-risk.svg'
-import { ReactComponent as Help } from 'images/svg/wd-help.svg'
-import { ReactComponent as Safety } from 'images/svg/wd-your-safety.svg'
-import { ReactComponent as CustomerFirst } from 'images/svg/wd-customer-first-trading.svg'
+import ProvenTrackRecord from 'images/svg/wd-proven-track-record.svg'
+import LicensedRegulated from 'images/svg/wd-licensed-regulated.svg'
+import ClientProtection from 'images/svg/wd-client-money-protection.svg'
+import Risk from 'images/svg/wd-risk.svg'
+import Help from 'images/svg/wd-help.svg'
+import Safety from 'images/svg/wd-your-safety.svg'
+import CustomerFirst from 'images/svg/wd-customer-first-trading.svg'
 
 const GridCol = styled(CssGridColumn)`
     width: 100%;
@@ -60,7 +60,7 @@ const Container = styled.div`
 
 const Col = ({ Icon, content, title }) => (
     <GridCol>
-        <Icon />
+        <img src={Icon} />
         <Container>
             <StyledHeader as="h4">{title}</StyledHeader>
             <Text lh="1.55" mt="1.8rem">

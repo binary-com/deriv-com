@@ -6,11 +6,11 @@ import { localize, LocalizedLink } from 'components/localization'
 import Map from 'images/svg/world-map.svg'
 import SmallMap from 'images/svg/world-map-small.svg'
 import device from 'themes/device'
-import { ReactComponent as Labuan } from 'images/svg/labuan-pin-location.svg'
-import { ReactComponent as Cyberjaya } from 'images/svg/cyberjaya-pin-location.svg'
-import { ReactComponent as Dubai } from 'images/svg/dubai-pin-location.svg'
-import { ReactComponent as Paraguay } from 'images/svg/paraguay-pin-location.svg'
-import { ReactComponent as Malta } from 'images/svg/malta-pin-location.svg'
+import Labuan from 'images/svg/labuan-pin-location.svg'
+import Cyberjaya from 'images/svg/cyberjaya-pin-location.svg'
+import Dubai from 'images/svg/dubai-pin-location.svg'
+import Paraguay from 'images/svg/paraguay-pin-location.svg'
+import Malta from 'images/svg/malta-pin-location.svg'
 
 const OfficeContainer = styled.section`
     width: 100%;
@@ -69,36 +69,22 @@ const Pinpoint = styled.div`
     top: ${(props) => props.top + '%'};
     left: ${(props) => props.left + '%'};
 
-    > svg {
+    > img {
         opacity: 0;
         transition: visibility 0s, opacity 0.5s linear;
     }
     &:hover {
-        > svg {
+        > img {
             opacity: 1;
         }
     }
 `
 
-const PinpointWrapper = styled(Labuan)`
+const PinpointWrapper = styled.img`
     position: relative;
-    left: ${(props) => props.left || '-4%'};
+    left: ${(props) => props.left || '0'};
 `
-const CyberjayaWrapper = styled(Cyberjaya)`
-    ${PinpointWrapper}
-`
-const LabuanWrapper = styled(Labuan)`
-    ${PinpointWrapper}
-`
-const DubaiWrapper = styled(Dubai)`
-    ${PinpointWrapper}
-`
-const ParaguayWrapper = styled(Paraguay)`
-    ${PinpointWrapper}
-`
-const MaltaWrapper = styled(Malta)`
-    ${PinpointWrapper}
-`
+
 const NumberWrapper = styled.div`
     display: flex;
     flex-direction: row;
@@ -182,31 +168,31 @@ export const OurOffices = () => {
                     <MapLink to="/contact-us/#paraguay" anchor>
                         <Pinpoint top="66" left="25">
                             <Oval />
-                            <ParaguayWrapper />
+                            <PinpointWrapper src={Paraguay} alt="paraguay" />
                         </Pinpoint>
                     </MapLink>
                     <MapLink to="/contact-us/#malta" anchor>
                         <Pinpoint top="21.6" left="49.6">
                             <Oval />
-                            <MaltaWrapper />
+                            <PinpointWrapper src={Malta} alt="malta" />
                         </Pinpoint>
                     </MapLink>
                     <MapLink to="/contact-us/#dubai" anchor>
                         <Pinpoint top="30.6" left="63.7">
                             <Oval />
-                            <DubaiWrapper />
+                            <PinpointWrapper src={Dubai} alt="dubai" />
                         </Pinpoint>
                     </MapLink>
                     <MapLink to="/contact-us/#cyberjaya" anchor>
                         <Pinpoint top="46" left="63.6">
                             <Oval top="83" left="88" />
-                            <CyberjayaWrapper />
+                            <PinpointWrapper src={Cyberjaya} alt="cyberjaya" />
                         </Pinpoint>
                     </MapLink>
                     <MapLink to="/contact-us/#labuan" anchor>
                         <Pinpoint top="44.6" left="85">
                             <Oval left="8" />
-                            <LabuanWrapper />
+                            <PinpointWrapper src={Labuan} alt="labuan" />
                         </Pinpoint>
                     </MapLink>
                 </Show.Desktop>

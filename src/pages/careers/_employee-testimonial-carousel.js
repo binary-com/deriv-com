@@ -7,7 +7,7 @@
 // import device from 'themes/device'
 // import { SectionContainer, Flex } from 'components/containers'
 // import { localize } from 'components/localization'
-// import { ReactComponent as Chevron } from 'images/svg/carousel-chevron.svg'
+// import {  Chevron } from 'images/svg/carousel-chevron.svg'
 // import { ReactComponent as QuoteMark } from 'images/svg/quotemark.svg'
 // import NegarImage from 'images/common/careers/negar.jpg'
 // import KelcentImage from 'images/common/careers/kelcent.jpg'

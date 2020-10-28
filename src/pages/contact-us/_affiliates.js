@@ -5,7 +5,7 @@ import { Header, Text, LinkText } from 'components/elements'
 import { localize } from 'components/localization'
 import device from 'themes/device'
 // SVG
-import { ReactComponent as Mail } from 'images/svg/contact/mail.svg'
+import Mail from 'images/svg/contact/mail.svg'
 
 const Wrapper = styled(SectionContainer)`
     border-top: 1px solid var(--color-grey-2);
@@ -66,7 +66,7 @@ const Item = styled(Flex)`
     }
 `
 
-const AbsoluteMail = styled(Mail)`
+const AbsoluteMail = styled.img`
     position: absolute;
     top: calc(50% - 32px);
     left: calc(50% - 32px);
@@ -119,7 +119,7 @@ export const Affiliates = () => {
                         marketing@deriv.com
                     </LinkText>
                 </Item>
-                <AbsoluteMail />
+                <AbsoluteMail src={Mail} alt="mail" />
                 <AbsoluteDivider />
             </CardContainer>
         </Wrapper>

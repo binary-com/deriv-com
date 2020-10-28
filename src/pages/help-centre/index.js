@@ -17,8 +17,8 @@ import { localize, LocalizedLink, WithIntl, Localize } from 'components/localiza
 import { getLocationHash, sanitize } from 'common/utility'
 import device from 'themes/device'
 // Icons
-import { ReactComponent as SearchIcon } from 'images/svg/search.svg'
-import { ReactComponent as CrossIcon } from 'images/svg/cross.svg'
+import SearchIcon from 'images/svg/search.svg'
+import CrossIcon from 'images/svg/cross.svg'
 
 const getAllArticles = (articles) =>
     articles
@@ -51,7 +51,7 @@ const SearchSection = styled.section`
     }
 `
 
-const SearchCrossIcon = styled(CrossIcon)`
+const SearchCrossIcon = styled.img`
     width: 2.3rem;
     height: 2.3rem;
     position: absolute;
@@ -321,7 +321,11 @@ class HelpCentre extends Component {
                                         autoComplete="off"
                                     />
                                     {search.length > 0 && (
-                                        <SearchCrossIcon onClick={this.clearSearch} />
+                                        <SearchCrossIcon
+                                            src={CrossIcon}
+                                            alt="cross icon"
+                                            onClick={this.clearSearch}
+                                        />
                                     )}
                                 </SearchForm>
                                 <ResultWrapper>

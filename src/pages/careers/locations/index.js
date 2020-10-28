@@ -18,15 +18,15 @@ import { SEO, SectionContainer, Container, Flex, CssGrid } from 'components/cont
 import Layout from 'components/layout/layout'
 import { WithIntl, localize } from 'components/localization'
 import { Header, Text, QueryImage } from 'components/elements'
-import { ReactComponent as MalaysiaFlagIcon } from 'images/svg/flag_malaysia.svg'
-import { ReactComponent as ParaguayFlagIcon } from 'images/svg/flag_paraguay.svg'
-import { ReactComponent as UAEFlagIcon } from 'images/svg/flag_uae.svg'
-import { ReactComponent as MaltaFlagIcon } from 'images/svg/flag_malta.svg'
-import { ReactComponent as CyprusFlagIcon } from 'images/svg/flag_cyprus.svg'
-import { ReactComponent as RwandaFlagIcon } from 'images/svg/flag_rwanda.svg'
-import { ReactComponent as Chevron } from 'images/svg/carousel-chevron.svg'
+import MalaysiaFlagIcon from 'images/svg/flag_malaysia.svg'
+import ParaguayFlagIcon from 'images/svg/flag_paraguay.svg'
+import UAEFlagIcon from 'images/svg/flag_uae.svg'
+import MaltaFlagIcon from 'images/svg/flag_malta.svg'
+import CyprusFlagIcon from 'images/svg/flag_cyprus.svg'
+import RwandaFlagIcon from 'images/svg/flag_rwanda.svg'
+import Chevron from 'images/svg/carousel-chevron.svg'
 
-const ChevronRight = styled(Chevron)`
+const ChevronRight = styled.img`
     transform: rotate(180deg);
     width: 16px;
     height: 16px;
@@ -46,6 +46,10 @@ const BackDrop = styled.section`
         max-width: 79.2rem;
         text-align: center;
     }
+`
+
+const StyledImg = styled.img`
+    margin-right: 8px;
 `
 
 const Hero = () => (
@@ -84,14 +88,14 @@ const CountryCard = ({ country_name, city_name, link, img_data, Icon }) => {
                     {city_name}
                 </Header>
                 <Flex jc="unset" ai="center" mt="8px" mb="8px">
-                    <Icon />
+                    <StyledImg src={Icon} alt="icon" />
                     <Text weight="bold">{country_name}</Text>
                 </Flex>
                 <Flex ai="center" jc="flex-end">
                     {/* <Text>
                         {open_positions} {'open positions'}
                     </Text> */}
-                    <ChevronRight />
+                    <ChevronRight src={Chevron} alt="chevron" />
                 </Flex>
             </div>
         </CountryCardWrapper>

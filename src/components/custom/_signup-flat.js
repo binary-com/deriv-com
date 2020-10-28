@@ -8,8 +8,8 @@ import { Container } from 'components/containers'
 import device from 'themes/device.js'
 import { deriv_app_url } from 'common/utility'
 // SVG
-import { ReactComponent as Facebook } from 'images/svg/facebook-blue.svg'
-import { ReactComponent as Google } from 'images/svg/google.svg'
+import Facebook from 'images/svg/facebook-blue.svg'
+import Google from 'images/svg/google.svg'
 
 const Wrapper = styled.div`
     padding: 3.3rem 8.5rem;
@@ -164,12 +164,12 @@ const SignupFlat = ({
                             onClick={handleSocialSignup}
                             provider="google"
                             data-provider="google"
-                            id="gtm-signup-facebook"
+                            id="gtm-signup-google"
                             type="button"
                             social
                         >
                             <span>
-                                <Google />
+                                <img src={Google} alt="google" />
                             </span>
                         </SocialButton>
                         <SocialButton
@@ -182,7 +182,7 @@ const SignupFlat = ({
                             social
                         >
                             <span>
-                                <Facebook />
+                                <img src={Facebook} alt="facebook" />
                             </span>
                         </SocialButton>
                     </SocialWrapper>

@@ -6,7 +6,7 @@ import { localize } from 'components/localization'
 import { Container } from 'components/containers'
 import { LocationContext } from 'components/layout/location-context.js'
 import device from 'themes/device'
-import { ReactComponent as ContactUsIcon } from 'images/svg/livechat-red.svg'
+import ContactUsIcon from 'images/svg/livechat-red.svg'
 
 const DFYAWrapper = styled.section`
     background-color: var(--color-black-3);
@@ -30,7 +30,7 @@ const DFYASection = styled(Container)`
         width: auto;
     }
 `
-const StyledIcon = styled(ContactUsIcon)`
+const StyledIcon = styled.img`
     @media ${device.tabletL} {
         width: 48px;
         height: 48px;
@@ -50,7 +50,7 @@ export const DidntFindYourAnswerBanner = () => {
     return (
         <DFYAWrapper>
             <DFYASection>
-                <StyledIcon />
+                <StyledIcon src={ContactUsIcon} alt="contact us icon" />
                 <MiddleText size="var(--text-size-l)" color="white" m="0 2.4rem">
                     {localize('Didn’t find your answer? We can help.')}
                 </MiddleText>

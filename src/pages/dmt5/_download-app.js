@@ -4,12 +4,12 @@ import { graphql, useStaticQuery } from 'gatsby'
 import { Flex, SectionContainer, Box, Show } from 'components/containers'
 import { Header, QueryImage, Text } from 'components/elements'
 import { localize, Localize, LocalizedLink } from 'components/localization'
-import { ReactComponent as AppStore } from 'images/svg/app-store.svg'
-import { ReactComponent as GooglePlay } from 'images/svg/google-play.svg'
-import { ReactComponent as GooglePlayMobile } from 'images/svg/google-play-mobile.svg'
-import { ReactComponent as Linux } from 'images/svg/linux.svg'
-import { ReactComponent as MoreInfo } from 'images/svg/more-info.svg'
-import { ReactComponent as Windows } from 'images/svg/windows.svg'
+import AppStore from 'images/svg/app-store.svg'
+import GooglePlay from 'images/svg/google-play.svg'
+import GooglePlayMobile from 'images/svg/google-play-mobile.svg'
+import Linux from 'images/svg/linux.svg'
+import MoreInfo from 'images/svg/more-info.svg'
+import Windows from 'images/svg/windows.svg'
 import device from 'themes/device'
 import { dmt5_windows_url, dmt5_linux_url, dmt5_android_url, dmt5_ios_url } from 'common/utility'
 
@@ -58,7 +58,7 @@ const ImageWrapper = styled.div`
         margin-top: 24px;
     }
 `
-const StyledInfo = styled(MoreInfo)`
+const StyledInfo = styled.img`
     margin-top: 0.5rem;
 `
 const StyledHeader = styled(Header)`
@@ -92,7 +92,7 @@ const DownloadApp = () => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                <Windows />
+                                <img src={Windows} alt="windows" />
                             </LocalizedLink>
                         </Box>
                         <LocalizedLink
@@ -101,7 +101,7 @@ const DownloadApp = () => {
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            <Linux />
+                            <img src={Linux} alt="linux" />
                         </LocalizedLink>
                     </Flex>
 
@@ -116,7 +116,7 @@ const DownloadApp = () => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                <AppStore />
+                                <img src={AppStore} alt="app store" />
                             </LocalizedLink>
                         </Box>
                         <LocalizedLink
@@ -125,7 +125,7 @@ const DownloadApp = () => {
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            <GooglePlay />
+                            <img src={GooglePlay} alt="google play" />
                         </LocalizedLink>
                     </Flex>
                 </Show.Desktop>
@@ -140,7 +140,7 @@ const DownloadApp = () => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                <AppStore />
+                                <img src={AppStore} alt="appstore mobile" />
                             </LocalizedLink>
                         </Box>
                         <LocalizedLink
@@ -149,7 +149,7 @@ const DownloadApp = () => {
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            <GooglePlayMobile />
+                            <img src={GooglePlayMobile} alt="google play mobile" />
                         </LocalizedLink>
                     </Flex>
                     <StyledHeader mt="2.4rem" as="h4">
@@ -163,7 +163,7 @@ const DownloadApp = () => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                <Windows />
+                                <img src={Windows} alt="windows mobile" />
                             </LocalizedLink>
                         </Box>
                         <LocalizedLink
@@ -172,7 +172,7 @@ const DownloadApp = () => {
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            <Linux />
+                            <img src={Linux} alt="linux mobile" />
                         </LocalizedLink>
                     </Flex>
                 </Show.Mobile>
@@ -189,7 +189,7 @@ const DownloadApp = () => {
                 tabletL={{ max_width: '290px', mt: '40px' }}
                 laptopM={{ mr: '2px', ml: '2px' }}
             >
-                <StyledInfo />
+                <StyledInfo src={MoreInfo} alt="more info" />
                 <Text width="100%" ml="1.6rem" size="var(--text-size-m)">
                     <Localize
                         translate_text="For mobile app sign-ups, set the broker code to <0>Deriv Limited</0>."

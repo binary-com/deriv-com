@@ -9,7 +9,7 @@ import { Header, Text, QueryImage } from 'components/elements'
 import { Flex } from 'components/containers'
 import { localize } from 'components/localization'
 import device, { size } from 'themes/device'
-import { ReactComponent as StorySVG } from 'images/svg/story-line.svg'
+import StorySVG from 'images/svg/story-line.svg'
 import { isBrowser } from 'common/utility'
 
 const query = graphql`
@@ -201,13 +201,14 @@ const LogoDiv = styled.div`
 
 const SVGContainer = styled.div`
     position: absolute;
-    height: 93%;
-    left: 50%;
-    width: 22px;
-`
-const StyledLine = styled(StorySVG)`
-    position: absolute;
     height: 100%;
+    width: 22px;
+    left: 50%;
+`
+const StyledLine = styled.img`
+    position: absolute;
+    height: 93%;
+    width: 20px;
     left: 0;
     top: 0;
 
@@ -240,7 +241,7 @@ export const OurHistory = (props) => {
                 </Header>
             </Show.Desktop>
             <SVGContainer>
-                <StyledLine />
+                <StyledLine src={StorySVG} alt="story svg" />
             </SVGContainer>
             {Stories.map((story, idx) => (
                 <Story key={idx} bgColor={story.bgColor}>

@@ -3,8 +3,8 @@ import styled from 'styled-components'
 import Show from 'components/containers/show'
 import { Header, Text } from 'components/elements'
 import { localize, LocalizedLink } from 'components/localization'
-import { ReactComponent as Map } from 'images/svg/world-map.svg'
-import { ReactComponent as SmallMap } from 'images/svg/world-map-small.svg'
+import Map from 'images/svg/world-map.svg'
+import SmallMap from 'images/svg/world-map-small.svg'
 import device from 'themes/device'
 import { ReactComponent as Labuan } from 'images/svg/labuan-pin-location.svg'
 import { ReactComponent as Cyberjaya } from 'images/svg/cyberjaya-pin-location.svg'
@@ -34,7 +34,7 @@ const MapWrapper = styled.div`
         max-width: 1440px;
     }
 `
-const StyledMap = styled(Map)`
+const StyledMap = styled.img`
     height: 100%;
     width: 100%;
 
@@ -42,7 +42,7 @@ const StyledMap = styled(Map)`
         width: 996px;
     }
 `
-const StyledSmallMap = styled(SmallMap)`
+const StyledSmallMap = styled.img`
     transform: translate(0, 0);
 `
 const Oval = styled.div`
@@ -147,7 +147,7 @@ export const OurOffices = () => {
 
             <MapWrapper>
                 <Show.Mobile>
-                    <StyledSmallMap />
+                    <StyledSmallMap src={SmallMap} alt="small map" />
                     <MapLink to="/contact-us/#paraguay" anchor>
                         <Pinpoint top="72" left="26">
                             <Oval />
@@ -178,7 +178,7 @@ export const OurOffices = () => {
                 </Show.Mobile>
 
                 <Show.Desktop>
-                    <StyledMap />
+                    <StyledMap src={Map} alt="map" />
                     <MapLink to="/contact-us/#paraguay" anchor>
                         <Pinpoint top="66" left="25">
                             <Oval />

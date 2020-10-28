@@ -7,8 +7,8 @@ import { Header, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device.js'
 // SVG
-import { ReactComponent as Facebook } from 'images/svg/facebook.svg'
-import { ReactComponent as Google } from 'images/svg/google.svg'
+import Facebook from 'images/svg/facebook.svg'
+import Google from 'images/svg/google.svg'
 
 const Wrapper = styled.div`
     width: 80%;
@@ -108,7 +108,7 @@ const SignupDefault = ({
                     social
                 >
                     <span>
-                        <Google />
+                        <img src={Google} alt="google" />
                     </span>
                 </SocialButton>
                 <SocialButton
@@ -120,7 +120,7 @@ const SignupDefault = ({
                     social
                 >
                     <span>
-                        <Facebook />
+                        <img src={Facebook} alt="facebook" />
                     </span>
                 </SocialButton>
             </SocialWrapper>

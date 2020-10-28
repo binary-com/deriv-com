@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import { ReactComponent as InstantAccess } from 'images/svg/trade-types/instant-access.svg'
-import { ReactComponent as MinimalRisk } from 'images/svg/trade-types/minimal-risk.svg'
-import { ReactComponent as Seven } from 'images/svg/trade-types/seven.svg'
-import { ReactComponent as SyntheticIndices } from 'images/svg/trade-types/synthetic-indices.svg'
+import InstantAccess from 'images/svg/trade-types/instant-access.svg'
+import MinimalRisk from 'images/svg/trade-types/minimal-risk.svg'
+import Seven from 'images/svg/trade-types/seven.svg'
+import SyntheticIndices from 'images/svg/trade-types/synthetic-indices.svg'
 import { localize } from 'components/localization'
 import { Header, Text } from 'components/elements'
 import { Flex, SectionContainer } from 'components/containers'
@@ -84,7 +84,7 @@ const WhyTrader = () => {
             <CardContainer>
                 <Card>
                     <div>
-                        <InstantAccess />
+                        <img src={InstantAccess} alt="instant access" />
                     </div>
                     <StyledCardHeader mt="0.8rem" mb="0.8rem" as="h4">
                         {localize('Quick demo account sign-up')}
@@ -97,7 +97,7 @@ const WhyTrader = () => {
                 </Card>
                 <Card>
                     <div>
-                        <SyntheticIndices />
+                        <img src={SyntheticIndices} alt="syntethic indices" />
                     </div>
                     <StyledCardHeader mt="0.8rem" mb="0.8rem" as="h4">
                         {localize('Multiple assets on a single platform')}
@@ -110,7 +110,7 @@ const WhyTrader = () => {
                 </Card>
                 <Card>
                     <div>
-                        <Seven />
+                        <img src={Seven} alt="seven" />
                     </div>
                     <StyledCardHeader mt="0.8rem" mb="0.8rem" as="h4">
                         {localize('24/7 trading')}
@@ -123,7 +123,7 @@ const WhyTrader = () => {
                 </Card>
                 <Card>
                     <div>
-                        <MinimalRisk />
+                        <img src={MinimalRisk} alt="minimal risk" />
                     </div>
                     <StyledCardHeader mt="0.8rem" mb="0.8rem" as="h4">
                         {localize('Licensed and regulated')}

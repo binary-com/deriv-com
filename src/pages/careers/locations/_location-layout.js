@@ -8,9 +8,9 @@ import { Text, LinkText, Header, BackgroundImage, QueryImage } from 'components/
 import { LinkButton } from 'components/form'
 import { map_api_key, zoho_url } from 'common/utility'
 import { localize } from 'components/localization'
-import { ReactComponent as MapPin } from 'images/svg/map.svg'
+import MapPin from 'images/svg/map.svg'
 
-const Pin = styled(MapPin)`
+const Pin = styled.img`
     min-width: 24px;
     height: 24px;
     margin-right: 13px;
@@ -226,7 +226,7 @@ export const LocationLayout = ({ location, images }) => {
                                     <Header as="h3">Location</Header>
                                     <CardText>{location.map_text}</CardText>
                                     <Flex jc="unset">
-                                        <Pin />
+                                        <Pin src={MapPin} alt="map pin" />
                                         {location.google_map_link ? (
                                             <LinkText
                                                 rel="noopener noreferrer"

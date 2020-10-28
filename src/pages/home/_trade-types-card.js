@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { Header, Text } from 'components/elements'
 import { localize, LocalizedLink } from 'components/localization'
-import { ReactComponent as Arrow } from 'images/svg/arrow-right.svg'
+import Arrow from 'images/svg/arrow-right.svg'
 
 const CustomLinkWrap = styled.div`
     display: flex;
@@ -79,7 +79,7 @@ const TradeTypesCard = ({ icon, title, description, link, linkTitle }) => {
                 <Text weight="bold" mr="0.8rem" color="red">
                     {localize('Learn more')}
                 </Text>{' '}
-                <Arrow />
+                <img src={Arrow} alt="arrow" />
             </CustomLinkWrap>
         </StyledCard>
     )

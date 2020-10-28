@@ -224,13 +224,13 @@ const DHero = ({
             min-height: 0;
         }
     `
-    const BackgroundSVG = styled(background_svg)`
+    const BackgroundSVG = styled.img`
         ${HeroBackground}
         position: absolute;
         top: 170px;
         right: 0;
     `
-    const BackgroundSVG2 = styled(background_svg2)`
+    const BackgroundSVG2 = styled.img`
         ${HeroBackground}
         position: absolute;
         top: 0;
@@ -245,8 +245,8 @@ const DHero = ({
         <Wrapper>
             {!is_mobile && (
                 <>
-                    <BackgroundSVG />
-                    <BackgroundSVG2 />
+                    <BackgroundSVG src={background_svg} alt="background svg" />
+                    <BackgroundSVG2 src={background_svg2} alt="background svg 2" />
                 </>
             )}
 

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Text, Header } from 'components/elements'
 import { LinkButton } from 'components/form'
 import { localize } from 'components/localization'
-import { ReactComponent as Checklist } from 'images/svg/checklist.svg'
+import Checklist from 'images/svg/checklist.svg'
 
 const WhyDerivMobileContainer = styled.div`
     padding: 4rem 0 2rem 0;
@@ -62,27 +62,27 @@ const WhyDerivMobile = () => {
             </Header>
             <Card>
                 <CardItem>
-                    <Checklist />
+                    <img src={Checklist} alt="checklist" />
                     <Text>{localize('Exclusive synthetic market available 24/7')}</Text>
                 </CardItem>
                 <CardItem>
-                    <Checklist />
+                    <img src={Checklist} alt="checklist" />
                     <Text>{localize('USD 5 minimum deposit')}</Text>
                 </CardItem>
                 <CardItem>
-                    <Checklist />
+                    <img src={Checklist} alt="checklist" />
                     <Text>{localize('Stakes as low as USD 0.35')}</Text>
                 </CardItem>
                 <CardItem>
-                    <Checklist />
+                    <img src={Checklist} alt="checklist" />
                     <Text>{localize('Payouts up to USD 50,000')}</Text>
                 </CardItem>
                 <CardItem>
-                    <Checklist />
+                    <img src={Checklist} alt="checklist" />
                     <Text>{localize('Patented, licensed, and regulated')}</Text>
                 </CardItem>
                 <CardItem>
-                    <Checklist />
+                    <img src={Checklist} alt="checklist" />
                     <Text>{localize('Short to long-term trades')}</Text>
                 </CardItem>
             </Card>

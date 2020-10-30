@@ -5,6 +5,7 @@ import Footer from './footer'
 import Copyright from './copyright'
 import { Nav, NavStatic, NavPartners, NavInterim } from './nav'
 import { NavCareers } from './nav-careers'
+import { NavP2P } from './nav-p2p'
 import { LocationProvider } from './location-context'
 import LiveChat from './livechat'
 import EURedirect, { useModal } from 'components/custom/_eu-redirect-modal.js'
@@ -30,7 +31,7 @@ const clients_country_cookie = new CookieStorage(CLIENTS_COUNTRY_KEY)
 const tracking_status_cookie = new CookieStorage(TRACKING_STATUS_KEY)
 const crypto_config_cookie = new CookieStorage(CRYPTO_CONFIG_KEY)
 
-const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) => {
+const Layout = ({ children, type, interim_type, padding_top, no_login_signup, no_live_chat }) => {
     const [clients_country, setClientCountry] = React.useState(
         clients_country_cookie.get(CLIENTS_COUNTRY_KEY),
     )
@@ -128,6 +129,10 @@ const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) 
             Navigation = <NavCareers />
             FooterNav = <Footer no_language={true} />
             break
+        case 'p2p':
+            Navigation = <NavP2P />
+            FooterNav = <Copyright />
+            break
         default:
             Navigation = <Nav />
             FooterNav = <Footer />
@@ -156,11 +161,13 @@ const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) 
                     is_open={show_cookie_banner}
                 />
             )}
-            <LiveChat
-                LC_API={LC_API}
-                is_livechat_interactive={is_livechat_interactive}
-                setLiveChatInteractive={setLiveChatInteractive}
-            />
+            {!no_live_chat && (
+                <LiveChat
+                    LC_API={LC_API}
+                    is_livechat_interactive={is_livechat_interactive}
+                    setLiveChatInteractive={setLiveChatInteractive}
+                />
+            )}
             {FooterNav}
             <EURedirect
                 toggle={toggleModal}
@@ -179,6 +186,7 @@ const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) 
 Layout.propTypes = {
     children: PropTypes.node.isRequired,
     interim_type: PropTypes.string,
+    no_live_chat: PropTypes.bool,
     no_login_signup: PropTypes.bool,
     padding_top: PropTypes.string,
     type: PropTypes.string,

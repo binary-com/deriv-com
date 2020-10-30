@@ -119,6 +119,7 @@ const CardChildrenWrapper = styled.article`
             }
         }
     }
+    svg,
     img {
         margin: 0.2rem 0 0.8rem 0;
     }
@@ -147,7 +148,8 @@ const Content = ({ content }) => (
 )
 
 const IconWrapper = styled.div`
-    & > img {
+    & > svg,
+    img {
         width: 7.9rem;
         height: 7.9rem;
     }
@@ -318,7 +320,8 @@ const FlexHover = styled(Flex)`
 `
 
 const SvgWrapper = styled.div`
-    & > img {
+    & > svg,
+    img {
         width: 33px;
         height: 33px;
         margin-right: 1.6rem;
@@ -403,7 +406,8 @@ const LinkRightDiagonal = styled.div`
     justify-self: flex-end;
     align-self: center;
 
-    & > img {
+    & > svg,
+    img {
         width: 16px;
         height: 16px;
     }
@@ -420,7 +424,8 @@ const HoverFlex = styled(Flex)`
 `
 
 const IconRightWrapper = styled.div`
-    & > img {
+    & > svg,
+    img {
         height: 24px;
         width: 24px;
         margin-right: 1.6rem;

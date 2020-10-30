@@ -4,9 +4,9 @@ import styled, { keyframes } from 'styled-components'
 import { QueryImage, Text, Header } from 'components/elements'
 import { LocalizedLink, localize } from 'components/localization'
 // SVG
-import Chevron from 'images/svg/carousel-chevron.svg'
+import { ReactComponent as Chevron } from 'images/svg/carousel-chevron.svg'
 
-const ChevronRight = styled.img`
+const ChevronRight = styled(Chevron)`
     transform: rotate(180deg);
     width: 16px;
     height: 16px;
@@ -95,7 +95,7 @@ const TeamCard = ({ to, img_data, display_team_name, tagline }) => (
             <StyledHeader as="h5">{display_team_name}</StyledHeader>
             <Text>{tagline}</Text>
             <StyledLink>
-                <ChevronRight src={Chevron} alt="chevron" />
+                <ChevronRight />
             </StyledLink>
         </StyledContent>
     </StyledCard>

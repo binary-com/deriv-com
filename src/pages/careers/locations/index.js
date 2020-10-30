@@ -24,9 +24,9 @@ import UAEFlagIcon from 'images/svg/flag_uae.svg'
 import MaltaFlagIcon from 'images/svg/flag_malta.svg'
 import CyprusFlagIcon from 'images/svg/flag_cyprus.svg'
 import RwandaFlagIcon from 'images/svg/flag_rwanda.svg'
-import Chevron from 'images/svg/carousel-chevron.svg'
+import { ReactComponent as Chevron } from 'images/svg/carousel-chevron.svg'
 
-const ChevronRight = styled.img`
+const ChevronRight = styled(Chevron)`
     transform: rotate(180deg);
     width: 16px;
     height: 16px;
@@ -95,7 +95,7 @@ const CountryCard = ({ country_name, city_name, link, img_data, Icon }) => {
                     {/* <Text>
                         {open_positions} {'open positions'}
                     </Text> */}
-                    <ChevronRight src={Chevron} alt="chevron" />
+                    <ChevronRight />
                 </Flex>
             </div>
         </CountryCardWrapper>

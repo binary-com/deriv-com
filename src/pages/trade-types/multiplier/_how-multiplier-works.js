@@ -71,6 +71,15 @@ const StyledHeader = styled(Header)`
     }
 `
 
+const StyledText = styled(Text)`
+    font-weight: bold;
+    margin-top: 1.6rem;
+
+    @media ${device.mobileL} {
+        margin-top: 0;
+    }
+`
+
 const HowOptionsWorks = () => {
     const data = useStaticQuery(query)
     return (
@@ -85,9 +94,7 @@ const HowOptionsWorks = () => {
                             <div>
                                 <img src={DefinePosition} alt="define your position" />
                             </div>
-                            <Text weight="bold" mt="1.6rem">
-                                {localize('Define your position')}
-                            </Text>
+                            <StyledText>{localize('Define your position')}</StyledText>
                         </OptionItems>
 
                         <Text>
@@ -101,9 +108,7 @@ const HowOptionsWorks = () => {
                             <div>
                                 <img src={SetOptionalParameters} alt="set optional parameters" />
                             </div>
-                            <Text weight="bold" mt="1.6rem">
-                                {localize('Set optional parameters')}
-                            </Text>
+                            <StyledText>{localize('Set optional parameters')}</StyledText>
                         </OptionItems>
                         <Text>
                             {localize(
@@ -116,9 +121,7 @@ const HowOptionsWorks = () => {
                             <div>
                                 <img src={PurchaseContract} alt="purchase your contract" />
                             </div>
-                            <Text weight="bold" mt="1.6rem">
-                                {localize('Purchase your contract')}
-                            </Text>
+                            <StyledText>{localize('Purchase your contract')}</StyledText>
                         </OptionItems>
                         <Text>
                             {localize(

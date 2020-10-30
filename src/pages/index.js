@@ -53,19 +53,19 @@ const Home = () => {
             />
             <Hero />
 
-            <Show.Mobile min_width="992">
+            <Show.Mobile>
                 <TradeTheWayYouLike />
             </Show.Mobile>
-            <Show.Desktop max_width="991">
+            <Show.Desktop>
                 <Trade />
             </Show.Desktop>
 
-            <Show.Desktop max_width="851">
-                <TradeTypes />
-            </Show.Desktop>
-            <Show.Mobile min_width="852">
+            <Show.Mobile>
                 <TradeTypesMobile />
             </Show.Mobile>
+            <Show.Desktop>
+                <TradeTypes />
+            </Show.Desktop>
             <Markets />
             <SimpleSteps
                 content={simple_step_content}

@@ -9,9 +9,9 @@ import { LocationProvider } from './location-context'
 import LiveChat from './livechat'
 import EURedirect, { useModal } from 'components/custom/_eu-redirect-modal.js'
 import CookieBanner from 'components/custom/cookie-banner'
-import { useEuCountry } from 'components/hooks/eu-country-hooks'
 import { CookieStorage } from 'common/storage'
 import { isBrowser } from 'common/utility'
+import { DerivStore } from 'store'
 
 const Main = styled.main`
     padding-top: ${(props) => props.padding_top || '7rem'};
@@ -26,7 +26,7 @@ const TRACKING_STATUS_KEY = 'tracking_status'
 const tracking_status_cookie = new CookieStorage(TRACKING_STATUS_KEY)
 
 const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) => {
-    const [is_eu_country] = useEuCountry()
+    const { is_eu_country } = React.useContext(DerivStore)
     const [has_mounted, setMounted] = React.useState(false)
     const [show_cookie_banner, setShowCookieBanner] = React.useState(false)
     const [show_modal, toggleModal, closeModal] = useModal()

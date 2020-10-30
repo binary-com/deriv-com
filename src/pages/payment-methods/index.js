@@ -9,8 +9,7 @@ import Layout from 'components/layout/layout'
 import { Text, Header, Divider, Accordion, AccordionItem } from 'components/elements'
 import { SEO, SectionContainer, Container } from 'components/containers'
 import { localize, WithIntl, Localize } from 'components/localization'
-import { useEuCountry } from 'components/hooks/eu-country-hooks'
-import { useCryptoConfig } from 'components/hooks/crypto-config-hooks'
+import { DerivStore } from 'store'
 
 const AccordionContainer = styled.div`
     width: 100%;
@@ -62,8 +61,7 @@ const Notes = styled.div`
 `
 
 const DisplayAccordion = () => {
-    const [crypto_config] = useCryptoConfig()
-    const [is_eu_country] = useEuCountry()
+    const { is_eu_country, crypto_config } = React.useContext(DerivStore)
     return (
         <Accordion has_single_state>
             {payment_data.map((pd, idx) => {

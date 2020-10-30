@@ -15,7 +15,7 @@ import {
 import { Container, SectionContainer, Flex } from 'components/containers'
 import { Header, Text, Accordion, AccordionItem, Divider } from 'components/elements'
 import { localize, Localize } from 'components/localization'
-import { useEuCountry } from 'components/hooks/eu-country-hooks'
+import { DerivStore } from 'store'
 import device from 'themes/device'
 
 const Question = styled.div`
@@ -57,7 +57,7 @@ const FAQ = () => {
         padding: '1.6rem 2.4rem',
         border: 'none',
     }
-    const [is_eu_country] = useEuCountry()
+    const { is_eu_country } = React.useContext(DerivStore)
     return (
         <SectionContainer background="var(--color-grey-25)">
             <Container direction="column">

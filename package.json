@@ -4,6 +4,7 @@
     "version": "0.1.0",
     "author": "Deriv",
     "dependencies": {
+        "@artsy/fresnel": "^1.2.2",
         "@loadable/component": "^5.13.2",
         "commander": "^6.1.0",
         "crc-32": "^1.2.0",

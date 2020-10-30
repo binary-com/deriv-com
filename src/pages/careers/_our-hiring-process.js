@@ -217,7 +217,7 @@ const OurHiringProcess = () => (
                 <ResponsiveFlex1 direction="row">
                     <TipsCard
                         content={
-                            "Apply for the jobs that match your skills and interest. If you want, link or add your portfolio or other samples of work that demonstrate you're the one for the role."
+                            "Apply for the jobs that match your skills and interest. If you want, link to your portfolio or other examples of work that demonstrate you're the one for the role."
                         }
                         style={{ marginTop: '4.7rem' }}
                         right
@@ -225,7 +225,7 @@ const OurHiringProcess = () => (
                     <SubResponsiveFlex1 direction="row" justify="unset">
                         <StyledCareer1 />
                         <Process
-                            title={'Application'}
+                            title={'Apply'}
                             description={
                                 "Found a great role in an ad or our website? Let us know you're interested by sending us your CV. Every CV is read by our recruitment team. If there's a match, we'll get in touch."
                             }
@@ -237,9 +237,9 @@ const OurHiringProcess = () => (
                 <ResponsiveFlex2 direction="row" ml="2.4rem" mt="1rem" width="unset">
                     <SubResponsiveFlex2 direction="row" width="unset">
                         <Process
-                            title={'Testing'}
+                            title={'Application form'}
                             description={
-                                'Complete a self-assessment questionnaire to tell us more about yourself, and a talent test to showcase your domain knowledge and approach to problem-solving.'
+                                'Complete our comprehensive application form to tell us more about yourself and showcase your approach to problem-solving.'
                             }
                             style={{ maxWidth: '38.4rem' }}
                         />
@@ -247,7 +247,7 @@ const OurHiringProcess = () => (
                     </SubResponsiveFlex2>
                     <TipsCard
                         content={
-                            'The self-assessment questionnaire is your opportunity to tell us about your background, values, character, and attitude. The questionnaire helps us to evaluate if our culture is right for you to be happy and productive.'
+                            'The application form gives you an opportunity to tell us about your background, values, and character strengths in your own words. It helps us to evaluate if our company can be a productive work environment for you.'
                         }
                         style={{ maxWidth: '35.7rem', marginTop: '2.3rem' }}
                     />
@@ -276,7 +276,7 @@ const OurHiringProcess = () => (
                 <ResponsiveFlex4 direction="row" mt="1.6rem" width="unset">
                     <SubResponsiveFlex4 direction="row" width="unset">
                         <Process
-                            title={'Offer'}
+                            title={'Decision'}
                             description={
                                 "We make a decision and proceed with reference and background checks. If all is well, you'll receive an official offer letter in your email inbox. Then it's over to you."
                             }

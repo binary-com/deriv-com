@@ -16,6 +16,17 @@ const Symbol = styled(Flex)`
         width: 32px;
         height: 32px;
         margin-right: 0.8rem;
+
+        @media ${device.tabletL} {
+            width: unset;
+            height: 36px;
+        }
+
+        @media ${device.tabletM} {
+            width: unset;
+            margin-top: 4px;
+            height: 24px;
+        }
     }
     ${Text} {
         font-weight: normal;
@@ -215,6 +226,10 @@ const StyledLabel = styled.label`
         props.active &&
         css`
             transform: translate(-0.6rem, -2.2rem) scale(0.7);
+
+            @media ${device.tabletL} {
+                top: 9px;
+            }
         `}
 `
 

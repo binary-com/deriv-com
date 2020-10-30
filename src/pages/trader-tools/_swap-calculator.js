@@ -46,7 +46,7 @@ const StyledInputGroup = styled(InputGroup)`
 `
 
 const StyledActionSection = styled(ActionSection)`
-    margin-top: 2rem;
+    margin-top: 1.5rem;
 `
 
 const SwapCalculator = () => {
@@ -189,7 +189,7 @@ const SwapCalculator = () => {
     return (
         <Container direction="column">
             <Header as="h2" align="center" mt="8rem" mb="1.2rem">
-                {localize('Swap Calculator')}
+                {localize('Swap calculator')}
             </Header>
 
             <StyledText as="h5" align="center" mb="4rem" weight="normal">
@@ -699,7 +699,7 @@ const SwapCalculator = () => {
                             </StyledText>
 
                             <StyledText size="1.6rem" mb="2rem">
-                                <Localize translate_text="This gives you the swap charge in the quote currency for forex pairs, or in the denomination of the underlying asset for commodities. For instance, if you are trading the USD/JPY forex pair, the swap charge will be computed in Japanese Yen (JPY) which is the quote currency. On the other hand, if you are trading oil,  then the swap charge will be computed in US Dollar (USD), which is the denomination of the underlying asset – oil." />
+                                <Localize translate_text="For instance, if you are trading the USD/JPY forex pair, the swap charge will be computed in Japanese Yen (JPY) which is the quote currency. On the other hand, if you are trading oil,  then the swap charge will be computed in US Dollar (USD), which is the denomination of the underlying asset – oil." />
                             </StyledText>
 
                             <Header as="h3">{localize('Example calculation')}</Header>

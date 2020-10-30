@@ -119,6 +119,10 @@ const StyledInput = styled.input`
             transform: translate(-0.6rem, -2rem) scale(0.7);
             color: var(--color-black-3);
 
+            @media ${device.tabletL} {
+                top: 9px;
+            }
+
             /* prettier-ignore */
             background-color: var(--color-${(props) => props.background || 'grey-1'});
         }

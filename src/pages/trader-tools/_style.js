@@ -206,6 +206,9 @@ export const StyledTextArea = styled(Field)`
     font-weight: 500;
     color: var(--color-blue-5);
     -webkit-text-fill-color: var(--color-blue-5);
+    @media ${device.tabletL} {
+        font-size: 18px;
+    }
 `
 export const StyledButton = styled(Button)`
     width: 100%;
@@ -251,12 +254,14 @@ export const StyledCurrencyLabel = styled.label`
     position: absolute;
     pointer-events: none;
     color: var(--color-blue-5);
+    font-weight: bold;
     font-size: 2.4rem;
     right: 20px;
     top: 24px;
 
     @media ${device.tabletL} {
-        top: 20px;
+        top: 21px;
+        font-size: 18px;
     }
 `
 

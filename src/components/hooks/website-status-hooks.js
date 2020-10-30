@@ -4,16 +4,14 @@ import { BinarySocketBase } from 'common/websocket/socket_base'
 
 const WEBSITE_STATUS_COUNTRY_KEY = 'website_status'
 const website_status_country_cookie = new CookieStorage(WEBSITE_STATUS_COUNTRY_KEY)
-let loaded = false
 
 export const useWebsiteStatus = () => {
     const [website_status, setWebsiteStatus] = React.useState(
-        JSON.parse(website_status_country_cookie.get(WEBSITE_STATUS_COUNTRY_KEY)),
+        JSON.parse(website_status_country_cookie.get(WEBSITE_STATUS_COUNTRY_KEY) || null),
     )
 
     React.useEffect(() => {
-        if (!loaded) {
-            loaded = true
+        if (!website_status) {
             const binary_socket = BinarySocketBase.init()
 
             binary_socket.onopen = () => {
@@ -24,10 +22,18 @@ export const useWebsiteStatus = () => {
                 const response = JSON.parse(msg.data)
 
                 if (!response.error) {
+                    const today = new Date()
+                    const next_week_date = new Date(
+                        today.getFullYear(),
+                        today.getMonth(),
+                        today.getDate() + 7,
+                    )
                     setWebsiteStatus(response.website_status)
+                    const { clients_country, crypto_config } = response.website_status
                     website_status_country_cookie.set(
                         WEBSITE_STATUS_COUNTRY_KEY,
-                        JSON.stringify(response.website_status),
+                        JSON.stringify({ clients_country, crypto_config }),
+                        { expires: next_week_date },
                     )
                 }
 

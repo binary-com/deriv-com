@@ -27,7 +27,7 @@ export const EmblaContainer = styled.div`
 
 export const EmblaSlideInner = styled.div`
     position: relative;
-    padding-left: 0;
+    padding-left: 10px;
     margin: 0 auto;
 `
 
@@ -39,7 +39,6 @@ export const StyledButtonWrapper = styled.div`
         if (props.left)
             return css`
                 left: 0;
-
                 @media ${device.tabletL} {
                     ${(props) => {
                         if (props.is_reviews) {
@@ -48,7 +47,7 @@ export const StyledButtonWrapper = styled.div`
                                     left: 22%;
                                 }
                                 @media ${device.tabletS} {
-                                    left: 2px;
+                                    left: 3px;
                                 }
                             `
                         }
@@ -60,7 +59,6 @@ export const StyledButtonWrapper = styled.div`
             `
         return css`
             right: 0;
-
             @media ${device.tabletL} {
                 ${(props) => {
                     if (props.is_reviews) {
@@ -80,15 +78,14 @@ export const StyledButtonWrapper = styled.div`
             }
         `
     }}
-
     &:hover {
         cursor: pointer;
     }
 `
 
 export const StyledChevron = styled(Chevron)`
-    height: 24px;
-    width: 24px;
+    height: 48px;
+    width: 48px;
     ${(props) => {
         if (props.red) {
             return css`
@@ -97,7 +94,6 @@ export const StyledChevron = styled(Chevron)`
             `
         }
     }}
-
     g {
         g {
             ${(props) => {
@@ -110,7 +106,6 @@ export const StyledChevron = styled(Chevron)`
                         fill: var(--color-red);
                     `
                 }
-
                 return css`
                     fill: var(--color-white);
                 `

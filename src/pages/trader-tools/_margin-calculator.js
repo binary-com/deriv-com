@@ -177,6 +177,11 @@ const MarginCalculator = () => {
                         validate={resetValidation}
                         onSubmit={(values, { setFieldValue }) => {
                             setFieldValue('margin', getMargin(values))
+                            setFieldValue('volume', values.volume.replace(/^0+(?!\.|$)/, ''))
+                            setFieldValue(
+                                'assetPrice',
+                                values.assetPrice.replace(/^0+(?!\.|$)/, ''),
+                            )
                         }}
                     >
                         {({

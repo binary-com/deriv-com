@@ -222,7 +222,6 @@ const SwapCalculator = () => {
                                     swapChargeSymbol: 'USD',
                                     symbol: '',
                                     volume: '',
-                                    pointValue: '',
                                     optionList: syntheticItemLists,
                                     contractSize: '',
                                     swapRate: '',
@@ -231,6 +230,18 @@ const SwapCalculator = () => {
                                 validate={resetValidationSynthetic}
                                 onSubmit={(values, { setFieldValue }) => {
                                     setFieldValue('swapCharge', getSwapChargeSynthetic(values))
+                                    setFieldValue(
+                                        'volume',
+                                        values.volume.replace(/^0+(?!\.|$)/, ''),
+                                    )
+                                    setFieldValue(
+                                        'swapRate',
+                                        values.swapRate.replace(/^(-?)0+/, '$1'),
+                                    )
+                                    setFieldValue(
+                                        'assetPrice',
+                                        values.assetPrice.replace(/^0+(?!\.|$)/, ''),
+                                    )
                                 }}
                             >
                                 {({
@@ -502,6 +513,18 @@ const SwapCalculator = () => {
                                 validate={resetValidationForex}
                                 onSubmit={(values, { setFieldValue }) => {
                                     setFieldValue('swapCharge', getSwapChargeForex(values))
+                                    setFieldValue(
+                                        'volume',
+                                        values.volume.replace(/^0+(?!\.|$)/, ''),
+                                    )
+                                    setFieldValue(
+                                        'swapRate',
+                                        values.swapRate.replace(/^(-?)0+/, '$1'),
+                                    )
+                                    setFieldValue(
+                                        'pointValue',
+                                        values.pointValue.replace(/^0+(?!\.|$)/, ''),
+                                    )
                                 }}
                             >
                                 {({

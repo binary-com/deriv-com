@@ -257,7 +257,7 @@ export const StyledCurrencyLabel = styled.label`
     font-weight: bold;
     font-size: 2.4rem;
     right: 20px;
-    top: 24px;
+    top: 25px;
 
     @media ${device.tabletL} {
         top: 21px;

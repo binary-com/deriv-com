@@ -23,9 +23,9 @@ import Instagram from 'images/svg/footer-instagram.svg'
 import Facebook from 'images/svg/footer-facebook.svg'
 import Linkedin from 'images/svg/footer-linkedin.svg'
 //EU icons
-import { ReactComponent as Gamstop } from 'images/svg/gamstop.svg'
-import { ReactComponent as MgaLogo } from 'images/svg/mga-logo.svg'
-import { ReactComponent as Over18 } from 'images/svg/over-18.svg'
+import Gamstop from 'images/svg/gamstop.svg'
+import MgaLogo from 'images/svg/mga-logo.svg'
+import Over18 from 'images/svg/over-18.svg'
 
 const StyledFooter = styled.footer`
     background-color: var(--color-grey-25);
@@ -261,13 +261,13 @@ const BinaryLinkText = styled(LocalizedLinkText)`
     }
 `
 
-const StyledGamstop = styled(Gamstop)`
+const StyledGamstop = styled.img`
     margin-right: 2.4rem;
 `
 const StyledCoatArms = styled.div`
     margin-right: 2.4rem;
 `
-const StyledMgaLogo = styled(MgaLogo)`
+const StyledMgaLogo = styled.img`
     margin-right: 2.4rem;
 `
 const StyledLogo = styled.img`
@@ -892,7 +892,7 @@ const Footer = () => {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
-                                    <StyledGamstop />
+                                    <StyledGamstop src={Gamstop} alt="gamstop desktop" />
                                 </LocalizedLink>
 
                                 <LocalizedLink
@@ -916,9 +916,9 @@ const Footer = () => {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
-                                    <StyledMgaLogo />
+                                    <StyledMgaLogo src={MgaLogo} alt="mga logo desktop" />
                                 </LocalizedLink>
-                                <Over18 />
+                                <img src={Over18} alt="over18 desktop" />
                             </EuLogoWrapper>
                         </Show.Desktop>
                         <Show.Mobile>
@@ -945,7 +945,7 @@ const Footer = () => {
                                         target="_blank"
                                         rel="noopener noreferrer"
                                     >
-                                        <StyledMgaLogo />
+                                        <StyledMgaLogo src={MgaLogo} alt="mga logo" />
                                     </LocalizedLink>
                                     <LocalizedLink
                                         external="true"
@@ -953,10 +953,10 @@ const Footer = () => {
                                         target="_blank"
                                         rel="noopener noreferrer"
                                     >
-                                        <StyledGamstop />
+                                        <StyledGamstop src={Gamstop} alt="gamstop mobile" />
                                     </LocalizedLink>
                                 </Flex>
-                                <Over18 />
+                                <img src={Over18} alt="over18 mobile" />
                             </EuLogoWrapper>
                         </Show.Mobile>
                     </Show.Eu>

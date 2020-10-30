@@ -6,9 +6,9 @@ import { Text } from 'components/elements'
 import { Flex } from 'components/containers'
 import { LocalizedLink } from 'components/localization'
 import device from 'themes/device'
-import Chevron from 'images/svg/carousel-chevron.svg'
+import { ReactComponent as Chevron } from 'images/svg/carousel-chevron.svg'
 
-const ChevronRight = styled.img`
+const ChevronRight = styled(Chevron)`
     width: 16px;
     height: 16px;
     transform: rotate(180deg);
@@ -83,7 +83,7 @@ export const LinkList = ({ list_items }) => (
                                 </Flex>
                                 <Flex ai="center" width="unset">
                                     {item.number && <Circle>{item.number}</Circle>}
-                                    <ChevronRight src={Chevron} alt="chevron" />
+                                    <ChevronRight />
                                 </Flex>
                             </Flex>
                         </LocalizedLink>

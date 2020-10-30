@@ -7,7 +7,9 @@ const website_status_country_cookie = new CookieStorage(WEBSITE_STATUS_COUNTRY_K
 let loaded = false
 
 export const useWebsiteStatus = () => {
-    const [website_status, setWebsiteStatus] = React.useState(null)
+    const [website_status, setWebsiteStatus] = React.useState(
+        JSON.parse(website_status_country_cookie.get(WEBSITE_STATUS_COUNTRY_KEY)),
+    )
 
     React.useEffect(() => {
         if (!loaded) {
@@ -25,7 +27,7 @@ export const useWebsiteStatus = () => {
                     setWebsiteStatus(response.website_status)
                     website_status_country_cookie.set(
                         WEBSITE_STATUS_COUNTRY_KEY,
-                        response.website_status,
+                        JSON.stringify(response.website_status),
                     )
                 }
 

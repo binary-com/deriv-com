@@ -11,24 +11,14 @@ import device from 'themes/device.js'
 // SVG
 import Facebook from 'images/svg/facebook-blue.svg'
 import Google from 'images/svg/google.svg'
-import Arrow from 'images/svg/chervon-right.svg'
+import Arrow from 'images/svg/chevron-right.svg'
 import BackgroundPattern from 'images/common/bg_banner_signup.png'
-import { ReactComponent as Chevron } from 'images/svg/carousel-chevron.svg'
 import RedBanner from 'images/svg/bg_banner_signup_mobile.svg'
 
 const query = graphql`
     query {
         deriv_platform: file(relativePath: { eq: "deriv-platform-banner.png" }) {
             ...fadeIn
-        }
-    }
-`
-const ChevronRight = styled(Chevron)`
-    transform: rotate(180deg);
-
-    g {
-        g {
-            fill: var(--color-grey-8);
         }
     }
 `
@@ -317,7 +307,7 @@ const SignupPublic = ({
                     >
                         {localize('Get a taste of the Deriv experience')}
                     </StyledHeader>
-                    <ChevronRight />
+                    <img src={Arrow} as="arrow" />
                 </LinkFlex>
             </BackgroundWrapper>
             <Show.Mobile style={{ width: '100%' }}>
@@ -336,7 +326,7 @@ const SignupPublic = ({
                         <Header size="3rem">
                             {localize('Get a taste of the Deriv experience')}
                         </Header>
-                        <img src={Arrow} alt="arrow" />
+                        <Arrow src={Arrow} as="arrow mobile" />
                     </DerivExperience>
                 </MobileBackground>
             </Show.Mobile>

@@ -128,17 +128,18 @@ const GoToLiveDemo = styled(LinkButton)`
     color: var(--color-white);
     border-color: var(--color-black-5);
     margin-left: 1.6rem;
-    padding: 1.1rem 1.6rem;
+    padding: 1.2rem 1.6rem;
     width: auto;
 
     @media ${device.laptopM} {
         font-size: 14px;
-        margin-left: 0;
     }
     @media ${device.mobileL} {
         max-width: 100%;
         padding: 10px 11px;
+        height: 42px;
         white-space: nowrap;
+        margin-left: 0;
     }
 `
 const DemoButton = styled(LinkButton)`

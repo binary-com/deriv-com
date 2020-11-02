@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import { optionItemDefault, syntheticItemLists, financialItemLists } from './_underlying-data'
 import {
     StyledText,
+    StyledTitleText,
     HeaderTabItem,
     WrapContainer,
     ImageWrapper,
@@ -192,11 +193,11 @@ const SwapCalculator = () => {
                 {localize('Swap calculator')}
             </Header>
 
-            <StyledText as="h5" align="center" mb="4rem" weight="normal">
+            <StyledTitleText as="h5" align="center" mb="4rem" weight="normal">
                 {localize(
                     'Our swap calculator helps you to estimate the swap charges required to keep your positions open overnight on Deriv MetaTrader 5 (DMT5).',
                 )}
-            </StyledText>
+            </StyledTitleText>
 
             <Flex mb="8rem" p="0 1.6rem" tablet={{ mb: '32px', height: 'unset' }}>
                 <HeaderTabItem active={tab === 'Synthetic'} onClick={() => onTabClick('Synthetic')}>

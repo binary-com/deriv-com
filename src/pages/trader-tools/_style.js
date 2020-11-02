@@ -17,6 +17,13 @@ export const StyledTitleHeader = styled(Header)`
     }
 `
 
+export const StyledTitleText = styled(Text)`
+    width: 79.2rem;
+    @media ${device.tablet} {
+        width: unset;
+    }
+`
+
 export const StyledHeader = styled(Header)`
     @media ${device.mobileL} {
         font-size: 24px;

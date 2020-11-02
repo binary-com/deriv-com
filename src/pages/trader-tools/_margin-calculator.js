@@ -9,6 +9,7 @@ import {
 } from './_underlying-data'
 import {
     StyledText,
+    StyledTitleText,
     AccountTypeTabItem,
     WrapContainer,
     ImageWrapper,
@@ -153,11 +154,11 @@ const MarginCalculator = () => {
                 {localize('Margin calculator')}
             </StyledTitleHeader>
 
-            <StyledText as="h5" align="center" mb="4rem" weight="normal">
+            <StyledTitleText as="h5" align="center" mb="4rem" weight="normal">
                 {localize(
                     'Our margin calculator helps you to estimate the margin required to keep your positions open overnight on Deriv MetaTrader 5 (DMT5).',
                 )}
-            </StyledText>
+            </StyledTitleText>
 
             <WrapContainer mb="4.0rem">
                 <StyledFormWrapper>

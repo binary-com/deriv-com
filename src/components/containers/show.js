@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { LocationContext } from '../layout/location-context'
 import { Media } from 'themes/media'
+import { DerivStore } from 'store'
 
 export const Desktop = ({ children, max_width, ...props }) => (
     <Media greaterThanOrEqual={max_width || 'tabletL'} {...props}>
@@ -15,14 +15,14 @@ export const Mobile = ({ children, min_width, ...props }) => (
 )
 
 export const Eu = ({ children }) => {
-    const { is_eu_country } = React.useContext(LocationContext)
+    const { is_eu_country } = React.useContext(DerivStore)
 
     if (is_eu_country) return <>{children}</>
     else return null
 }
 
 export const NonEU = ({ children }) => {
-    const { is_eu_country } = React.useContext(LocationContext)
+    const { is_eu_country } = React.useContext(DerivStore)
 
     if (is_eu_country === false) return <>{children}</>
     else return null

@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
-import { Container, SectionContainer, Flex } from 'components/containers'
-import { Text, Header } from 'components/elements'
+import { Container, SectionContainer, Flex, Show } from 'components/containers'
+import { Text, Header, LinkText } from 'components/elements'
 import device from 'themes/device'
 // SVG
 import Career1 from 'images/svg/career-1.svg'
@@ -207,6 +207,10 @@ const SubResponsiveFlex4 = styled(Flex)`
     }
 `
 
+const StyledText = styled(Text)`
+    font-size: 1.6rem;
+`
+
 const OurHiringProcess = () => (
     <SectionContainer padding="0 0 12rem">
         <Container direction="column">
@@ -293,6 +297,23 @@ const OurHiringProcess = () => (
                 </ResponsiveFlex4>
             </ProcessContainer>
         </Container>
+        <Show.Eu>
+            <Container>
+                <StyledText mt="8rem">
+                    Please read this{' '}
+                    <LinkText
+                        color="red"
+                        key={0}
+                        target="_blank"
+                        href="/regulatory/Job_application_privacy_policy_.pdf"
+                        rel="noopener noreferrer"
+                    >
+                        privacy policy
+                    </LinkText>{' '}
+                    before submitting your application.
+                </StyledText>
+            </Container>
+        </Show.Eu>
     </SectionContainer>
 )
 

@@ -81,6 +81,8 @@ const StyledInput = styled.input`
     }
 
     @media ${device.mobileL} {
+        font-size: 14px;
+
         & ~ label {
             font-size: 1.5rem;
             top: 1.75rem;

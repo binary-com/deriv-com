@@ -33,7 +33,7 @@ const Wrapper = styled(Container)`
 
 const BackgroundWrapper = styled(Background)`
     background-position-x: 40%;
-    background-position-y: ${(props) => (props.is_mobile ? '20%' : '50%')};
+    background-position-y: ${(props) => (props.is_mobile ? '50%' : '20%')};
 `
 
 const TryButton = styled(LinkButton)`
@@ -115,6 +115,7 @@ const P2PBanner = ({ title, is_mobile }) => {
             style={{ height: is_mobile ? '402px' : '340px' }}
             data={data[is_mobile ? 'p2p_banner_mobile' : 'p2p_banner']}
             is_mobile={is_mobile}
+            key={is_mobile ? `mobile` : `desktop`}
         >
             <Wrapper>
                 <InformationWrapper height="unset" direction="column">

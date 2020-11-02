@@ -32,7 +32,8 @@ const Wrapper = styled(Container)`
 `
 
 const BackgroundWrapper = styled(Background)`
-    background-position: ${(props) => (props.is_mobile ? '40% 50%' : '40% 20%')};
+    background-position-x: 40%;
+    background-position-y: ${(props) => (props.is_mobile ? '20%' : '50%')};
 `
 
 const TryButton = styled(LinkButton)`

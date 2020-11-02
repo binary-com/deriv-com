@@ -15,6 +15,15 @@ const query = graphql`
     }
 `
 
+const StyledLogoLink = styled(LogoLink)`
+    @media ${device.tabletS} {
+        & svg,
+        .gatsby-image-wrapper {
+            width: 100%;
+        }
+    }
+`
+
 const P2PNavLeft = styled(NavLeft)`
     @media ${device.tabletL} {
         display: flex;
@@ -38,7 +47,7 @@ export const NavP2P = () => {
                 <StyledNav>
                     <Wrapper>
                         <P2PNavLeft>
-                            <LogoLink to={'/'} aria-label={localize('Home')}>
+                            <StyledLogoLink to={'/'} aria-label={localize('Home')}>
                                 <QueryImage
                                     data={data['deriv']}
                                     alt={localize('Deriv')}
@@ -46,7 +55,7 @@ export const NavP2P = () => {
                                     width="100%"
                                     height="auto"
                                 />
-                            </LogoLink>
+                            </StyledLogoLink>
                             <Line />
                             <LogoCombinedShape />
                         </P2PNavLeft>

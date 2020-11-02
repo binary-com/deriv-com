@@ -201,18 +201,21 @@ export const StyledForm = styled(Form)`
 `
 
 export const StyledTextArea = styled(Field)`
-    width: 100%;
-    height: 7.5rem;
+    margin: 2px;
+    width: 80%;
+    white-space: nowrap;
     resize: none;
-    border-radius: 5px;
-    box-sizing: border-box;
-    border: 1.5px solid var(--color-blue-5);
     background-color: white;
+    height: 95%;
+    border: 0;
     padding: 2rem;
     font-size: 2.4rem;
     font-weight: 500;
     color: var(--color-blue-5);
+    overflow-x: auto;
+    overflow-y: hidden;
     -webkit-text-fill-color: var(--color-blue-5);
+
     @media ${device.tabletL} {
         font-size: 18px;
     }
@@ -221,6 +224,14 @@ export const StyledTextArea = styled(Field)`
         padding-top: 2.2rem;
         font-size: 16px;
     }
+
+    &::-webkit-scrollbar {
+        width: 0;
+        background: transparent; /* Chrome/Safari/Webkit */
+    }
+
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE 10+ */
 `
 export const StyledButton = styled(Button)`
     width: 100%;
@@ -284,6 +295,11 @@ export const StyledCurrencyLabel = styled.label`
 
 export const StyledTextAreaContainer = styled.div`
     position: relative;
+    border-radius: 5px;
+    box-sizing: border-box;
+    height: 7.5rem;
+    border: 1.5px solid var(--color-blue-5);
+    background-color: white;
 `
 
 export const StyledDropdown = styled(Dropdown)`

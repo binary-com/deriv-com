@@ -149,6 +149,12 @@ const OfficeWrapper = styled(Flex)`
 `
 
 const NumberWrapper = styled(Flex)`
+    @media ${device.laptopL} {
+        margin-left: 150px;
+    }
+    @media ${device.tabletL} {
+        margin-left: 32px;
+    }
     @media ${device.tabletS} {
         flex-direction: row;
         margin: 0 16px;
@@ -156,8 +162,9 @@ const NumberWrapper = styled(Flex)`
 `
 
 const OfficeContainer = styled(Container)`
-    @media ${device.tabletS} {
+    @media ${device.laptopL} {
         width: 100%;
+        max-width: 1440px;
     }
 `
 
@@ -212,28 +219,43 @@ export const OurOffices = () => {
                         <MapImage data={data['office_background_map']}>
                             <MapPin
                                 left="19%"
-                                top="65%"
+                                top="75%"
                                 title="Paraguay"
                                 link="/contact-us#paraguay"
                             />
-                            <MapPin left="46%" top="27%" title="Malta" link="/contact-us#malta" />
                             <MapPin
-                                left="52.4%"
-                                top="26.8%"
+                                left="45.5%"
+                                top="32.5%"
+                                title="Malta"
+                                link="/contact-us#malta"
+                            />
+                            <MapPin
+                                left="51.5%"
+                                top="32%"
                                 title="Cyprus"
                                 link="/contact-us#cyprus"
                             />
-                            <MapPin left="52%" top="51%" title="Rwanda" link="/contact-us#rwanda" />
-                            <MapPin left="62%" top="32%" title="Dubai" link="/contact-us#dubai" />
-                            <MapPin left="81.5%" top="48.5%" title="Ipoh" link="/contact-us#ipoh" />
+                            <MapPin left="52%" top="58%" title="Rwanda" link="/contact-us#rwanda" />
+                            <MapPin left="63.5%" top="40%" title="Dubai" link="/contact-us#dubai" />
+                            <MapPin left="81%" top="55.5%" title="Ipoh" link="/contact-us#ipoh" />
                             <MapPin
-                                left="82%"
-                                top="52%"
+                                left="81.8%"
+                                top="58.5%"
                                 title="Cyberjaya"
                                 link="/contact-us#cyberjaya"
                             />
-                            <MapPin left="83%" top="55%" title="Melaka" link="/contact-us#melaka" />
-                            <MapPin left="88%" top="48%" title="Labuan" link="/contact-us#labuan" />
+                            <MapPin
+                                left="83%"
+                                top="60.3%"
+                                title="Melaka"
+                                link="/contact-us#melaka"
+                            />
+                            <MapPin
+                                left="88%"
+                                top="55.5%"
+                                title="Labuan"
+                                link="/contact-us#labuan"
+                            />
                         </MapImage>
                     </Show.Desktop>
 

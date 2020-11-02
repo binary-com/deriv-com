@@ -101,7 +101,7 @@ export const Affiliates = () => {
                     <LinkText
                         color="red"
                         size="var(--text-size-m)"
-                        to="mailto:partners@deriv.com"
+                        href="mailto:partners@deriv.com"
                         external="true"
                     >
                         partners@deriv.com
@@ -113,7 +113,7 @@ export const Affiliates = () => {
                     <LinkText
                         color="red"
                         size="var(--text-size-m)"
-                        to="mailto:marketing@deriv.com"
+                        href="mailto:marketing@deriv.com"
                         external="true"
                     >
                         marketing@deriv.com

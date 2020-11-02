@@ -14,12 +14,12 @@ const ImageWrapper = styled.div`
     }
 `
 
-const QueryImage = ({ data, alt, width, height }) => {
+const QueryImage = ({ data, alt, width, height, className }) => {
     if (data) {
         const data_fluid = data.childImageSharp.fluid
         const data_fixed = data.childImageSharp.fixed
         return (
-            <ImageWrapper width={width} height={height}>
+            <ImageWrapper width={width} height={height} className={className}>
                 <Img
                     alt={alt}
                     {...(data_fluid ? { fluid: data_fluid } : { fixed: data_fixed })}
@@ -34,6 +34,7 @@ const QueryImage = ({ data, alt, width, height }) => {
 
 QueryImage.propTypes = {
     alt: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+    className: PropTypes.string,
     data: PropTypes.object.isRequired,
     height: PropTypes.string,
     width: PropTypes.string,

@@ -7,6 +7,7 @@ import {
     address_ipoh,
     address_melaka,
     address_cyprus,
+    address_rwanda,
 } from './_contact-details'
 
 export const cyberjaya = {
@@ -173,11 +174,11 @@ export const rwanda = {
         'Rwanda is home to friendly locals, rich art, and unique cuisines. An environmentally-conscious country with zero plastic bags and a huge recycling initiative, Rwanda is one of the cleanest countries in Africa. With a stable political environment, tropical highland climate, and a growing expat community, it is an ideal location to live and work.',
     first_img: 'living_in_rwanda',
     grid_images: ['rwanda_grid_1', 'rwanda_grid_2', 'rwanda_grid_3', 'rwanda_grid_4'],
-    map: '',
-    map_text: '',
-    address: '',
-    google_map_link: '',
-    has_iframe: false,
+    map: 'ChIJwc77Waml3BkRKuYdzjsIu7c',
+    map_text: `We are located in Kigali, the capital and largest city of Rwanda. Its modern infrastructure consists of advanced security systems, fiber optic internet, and cashless payment systems. Experience Kigali's vibrant nightlife and its intriguing mix of cultures. During your leisure time, enjoy freshly brewed coffee, sample tasty dishes, and visit a variety of museums and art galleries.`,
+    address: address_rwanda,
+    google_map_link: 'https://goo.gl/maps/hp1dv3TpYNMxa5fM9',
+    has_iframe: true,
 }
 
 export const locations = {

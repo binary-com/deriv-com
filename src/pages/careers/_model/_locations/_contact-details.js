@@ -18,6 +18,8 @@ const address_melaka = ['69, Jalan KLJ 6,', 'Taman Kota Laksamana Jaya,', 'Melak
 
 const address_cyprus = ['42 Agias Filaxeos, 5th floor,', 'Limassol 3025']
 
+const address_rwanda = ['Level 2 East Wing, Kigali Heights, KG7', 'Avenue, Kigali']
+
 export {
     address_cyberjaya,
     address_dubai,
@@ -27,4 +29,5 @@ export {
     address_ipoh,
     address_melaka,
     address_cyprus,
+    address_rwanda,
 }

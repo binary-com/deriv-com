@@ -211,6 +211,10 @@ const StyledText = styled(Text)`
     font-size: 1.6rem;
 `
 
+const StyledLinkText = styled(LinkText)`
+    margin: 0.5rem;
+`
+
 const OurHiringProcess = () => (
     <SectionContainer padding="0 0 12rem">
         <Container direction="column">
@@ -300,8 +304,8 @@ const OurHiringProcess = () => (
         <Show.Eu>
             <Container>
                 <StyledText mt="8rem">
-                    Please read this{' '}
-                    <LinkText
+                    Please read this
+                    <StyledLinkText
                         color="red"
                         key={0}
                         target="_blank"
@@ -309,7 +313,7 @@ const OurHiringProcess = () => (
                         rel="noopener noreferrer"
                     >
                         privacy policy
-                    </LinkText>{' '}
+                    </StyledLinkText>
                     before submitting your application.
                 </StyledText>
             </Container>

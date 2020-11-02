@@ -122,7 +122,7 @@ const P2PBanner = ({ title, is_mobile }) => {
                     <StyledHeader as="h3" weight={500}>
                         {title}
                     </StyledHeader>
-                    <TryButton secondary="true" to="">
+                    <TryButton secondary="true" external is_deriv_app_link to="/cashier/P2P">
                         {localize('Try P2P now')}
                     </TryButton>
                 </InformationWrapper>

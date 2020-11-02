@@ -5,6 +5,7 @@ import Mobile from 'images/svg/p2p-mobile.svg'
 import { localize, Localize } from 'components/localization'
 import { Header, LocalizedLinkText, Text } from 'components/elements'
 import { Flex, SectionContainer } from 'components/containers'
+import Login from 'common/login'
 import device from 'themes/device'
 
 const Row = styled.div`
@@ -87,6 +88,10 @@ const Line = styled.div`
 `
 
 const Availability = () => {
+    const handleLogin = () => {
+        Login.redirectToLogin()
+    }
+
     return (
         <Section>
             <StyledHeader
@@ -125,8 +130,19 @@ const Availability = () => {
                             <Localize
                                 translate_text="1. <0>Log in</0> to your Deriv account. Don’t have one? <1>Sign up</1> for free."
                                 components={[
-                                    <LocalizedLinkText size={24} to="/" color="red" key={0} />,
-                                    <LocalizedLinkText size={24} to="/" color="red" key={1} />,
+                                    <LocalizedLinkText
+                                        size={24}
+                                        to="/"
+                                        onClick={handleLogin}
+                                        color="red"
+                                        key={0}
+                                    />,
+                                    <LocalizedLinkText
+                                        size={24}
+                                        to="/signup"
+                                        color="red"
+                                        key={1}
+                                    />,
                                 ]}
                             />
                         </StyledText>

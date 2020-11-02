@@ -47,7 +47,7 @@ const ClientCard = styled.article`
             margin: 0 0 24px 0;
         }
     }
-    @media ${device.mobileS} {
+    @media ${device.mobileM} {
         max-width: 310px;
     }
 `
@@ -57,14 +57,6 @@ const StyledHeader = styled(Header)`
         margin-bottom: 24px;
     }
 `
-// const StyledCardHeader = styled(Header)`
-//     @media ${device.mobileL} {
-//         font-size: 20px;
-//         margin-bottom: 8px;
-//         margin-top: 8px;
-//         line-height: 1.2;
-//     }
-// `
 const StyledText = styled(Text)`
     font-size: 24px;
     margin-bottom: 3rem;
@@ -73,7 +65,6 @@ const StyledText = styled(Text)`
         font-size: 16px;
     }
 `
-
 const Line = styled.div`
     width: 1px;
     height: 38rem;

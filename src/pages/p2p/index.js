@@ -11,7 +11,7 @@ import { SEO } from 'components/containers'
 import { size } from 'themes/device'
 import { isBrowser } from 'common/utility'
 
-const trading = [
+const P2P_CONTENT = [
     {
         title: <Localize translate_text="Save time" />,
         subtitle: <Localize translate_text="Exchange in minutes. Less waiting, more trading." />,
@@ -41,31 +41,34 @@ const P2P = () => {
     const [is_mobile, setMobile] = useState('')
 
     const handleResizeWindow = () => {
-        setMobile(isBrowser() ? window.screen.width <= size.tabletS : false)
+        setMobile(isBrowser() ? window.screen.width <= size.tabletL : false)
     }
 
     useEffect(() => {
-        setMobile(isBrowser() ? window.screen.width <= size.tabletS : false)
+        setMobile(isBrowser() ? window.screen.width <= size.tabletL : false)
         window.addEventListener('resize', handleResizeWindow)
     })
 
     return (
         <Layout type="p2p" no_live_chat>
-            <SEO title={localize('P2P')} description={localize('')} />
+            <SEO
+                title={localize('P2P')}
+                description={localize('Hassle-free deposits and withdrawals')}
+            />
             <Hero
                 title={localize('Hassle-free deposits and withdrawals')}
                 content={
                     <Localize translate_text="Can’t make deposits and withdrawals in your local currency? No problem. Exchange with fellow traders in minutes." />
                 }
-                image_name="dmt5"
+                image_name="P2P"
             />
-            <DP2P reverse trading={trading} />
+            <DP2P reverse P2P={P2P_CONTENT} />
             <Numbers />
             <ExchangeSteps />
             <Availability />
             <P2PBanner
                 title={localize('Get hassle-free deposits and withdrawals today')}
-                image_name="dmt5"
+                image_name="P2P"
                 is_mobile={is_mobile}
             />
         </Layout>

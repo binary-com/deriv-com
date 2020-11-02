@@ -7,7 +7,7 @@ import DotLoader from './dot-loader'
 import Dropdown from './dropdown'
 import Checkbox from './checkbox'
 import Image from './image'
-import QueryImage from './query-image'
+import QueryImage, { ImageWrapper } from './query-image'
 import { StyledLink } from './link'
 import {
     OffCanvasMenuWrapper as OffCanvasMenu,
@@ -35,6 +35,7 @@ export {
     Dropdown,
     Checkbox,
     Image,
+    ImageWrapper,
     QueryImage,
     StyledLink,
     NavCard,

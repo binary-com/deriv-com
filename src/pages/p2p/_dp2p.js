@@ -11,7 +11,7 @@ const StyledSection = styled(SectionContainer)`
     background-color: var(--color-white);
 
     @media ${device.tabletL} {
-        padding: 1.74rem 0 4rem 0;
+        padding: 8rem 0;
     }
 `
 const StyledContainer = styled(Container)`
@@ -54,12 +54,14 @@ const StyledHeader = styled(Header)`
         margin-top: 2rem;
     }
 `
-
 const StyledText = styled(Text)`
     font-size: 3.2rem;
     text-align: center;
-`
 
+    @media ${device.mobileL} {
+        font-size: 16px;
+    }
+`
 const Row = styled.div`
     flex-direction: ${(props) => props.flex_direction};
     width: 100%;
@@ -87,7 +89,7 @@ const query = graphql`
         }
     }
 `
-const DP2P = ({ trading, reverse, two_title }) => {
+const DP2P = ({ P2P, reverse, two_title }) => {
     const data = useStaticQuery(query)
     return (
         <StyledSection>
@@ -97,7 +99,7 @@ const DP2P = ({ trading, reverse, two_title }) => {
                         'DP2P is Deriv’s peer-to-peer deposit and withdrawal service. It’s where you can get money in and out of your Deriv account via exchanges with fellow traders.',
                     )}
                 </StyledText>
-                {trading.map((item, index) => {
+                {P2P.map((item, index) => {
                     let is_even = reverse ? (index + 1) % 2 : index % 2
                     return (
                         <Row flex_direction={!is_even ? 'row' : 'row-reverse'} key={index}>
@@ -127,8 +129,8 @@ const DP2P = ({ trading, reverse, two_title }) => {
 }
 
 DP2P.propTypes = {
+    P2P: PropTypes.array,
     reverse: PropTypes.bool,
-    trading: PropTypes.array,
     two_title: PropTypes.bool,
 }
 

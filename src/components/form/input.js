@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { Text } from '../elements'
@@ -162,31 +162,47 @@ const Input = ({
     handleError,
     maxLength,
     ...props
-}) => (
-    <RelativeWrapper>
-        <InputWrapper
-            border={border}
-            focusBorder={focusBorder}
-            labelHoverColor={labelHoverColor}
-            error={error}
-            className="input-wrapper"
-        >
-            <StyledInput id={id} background={background} maxLength={maxLength} {...props} />
-            <StyledLabel
-                tabletBackground={tabletBackground}
+}) => {
+    let myInp = useRef(null)
+
+    return (
+        <RelativeWrapper>
+            <InputWrapper
+                border={border}
+                focusBorder={focusBorder}
+                labelHoverColor={labelHoverColor}
                 error={error}
-                htmlFor={id}
-                labelColor={labelColor}
+                className="input-wrapper"
             >
-                {label}
-            </StyledLabel>
-        </InputWrapper>
-        <ErrorMessages lh="1.4" align="left" color="red-1">
-            {error}
-        </ErrorMessages>
-        {error && <StyledError onClick={handleError} />}
-    </RelativeWrapper>
-)
+                <StyledInput
+                    id={id}
+                    background={background}
+                    maxLength={maxLength}
+                    {...props}
+                    ref={(ip) => (myInp = ip)}
+                />
+                <StyledLabel
+                    tabletBackground={tabletBackground}
+                    error={error}
+                    htmlFor={id}
+                    labelColor={labelColor}
+                >
+                    {label}
+                </StyledLabel>
+            </InputWrapper>
+            <ErrorMessages lh="1.4" align="left" color="red-1">
+                {error}
+            </ErrorMessages>
+            {error && (
+                <StyledError
+                    onClick={() => {
+                        handleError(myInp)
+                    }}
+                />
+            )}
+        </RelativeWrapper>
+    )
+}
 
 Input.propTypes = {
     background: PropTypes.string,

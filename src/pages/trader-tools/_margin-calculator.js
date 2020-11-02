@@ -284,10 +284,11 @@ const MarginCalculator = () => {
                                                     autoComplete="off"
                                                     error={touched.volume && errors.volume}
                                                     onBlur={handleBlur}
-                                                    handleError={() => {
+                                                    handleError={(myInp) => {
                                                         setFieldValue('volume', '', false)
                                                         setFieldError('volume', '')
                                                         setFieldTouched('volume', false, false)
+                                                        myInp.focus()
                                                     }}
                                                     maxLength="8"
                                                     required
@@ -313,10 +314,11 @@ const MarginCalculator = () => {
                                                     autoComplete="off"
                                                     error={touched.assetPrice && errors.assetPrice}
                                                     onBlur={handleBlur}
-                                                    handleError={() => {
+                                                    handleError={(myInp) => {
                                                         setFieldValue('assetPrice', '', false)
                                                         setFieldError('assetPrice', '')
                                                         setFieldTouched('assetPrice', false, false)
+                                                        myInp.focus()
                                                     }}
                                                     maxLength="15"
                                                     required

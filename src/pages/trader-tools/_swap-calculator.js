@@ -315,7 +315,7 @@ const SwapCalculator = () => {
                                                             error={touched.volume && errors.volume}
                                                             onBlur={handleBlur}
                                                             data-lpignore="true"
-                                                            handleError={() => {
+                                                            handleError={(myInp) => {
                                                                 setFieldValue('volume', '', false)
                                                                 setFieldError('volume', '')
                                                                 setFieldTouched(
@@ -323,6 +323,7 @@ const SwapCalculator = () => {
                                                                     false,
                                                                     false,
                                                                 )
+                                                                myInp.focus()
                                                             }}
                                                             maxLength="8"
                                                             required
@@ -353,7 +354,7 @@ const SwapCalculator = () => {
                                                             }
                                                             onBlur={handleBlur}
                                                             data-lpignore="true"
-                                                            handleError={() => {
+                                                            handleError={(myInp) => {
                                                                 setFieldValue(
                                                                     'assetPrice',
                                                                     '',
@@ -365,6 +366,7 @@ const SwapCalculator = () => {
                                                                     false,
                                                                     false,
                                                                 )
+                                                                myInp.focus()
                                                             }}
                                                             maxLength="15"
                                                             required
@@ -394,7 +396,7 @@ const SwapCalculator = () => {
                                                             }
                                                             onBlur={handleBlur}
                                                             data-lpignore="true"
-                                                            handleError={() => {
+                                                            handleError={(myInp) => {
                                                                 setFieldValue('swapRate', '', false)
                                                                 setFieldError('swapRate', '')
                                                                 setFieldTouched(
@@ -402,6 +404,7 @@ const SwapCalculator = () => {
                                                                     false,
                                                                     false,
                                                                 )
+                                                                myInp.focus()
                                                             }}
                                                             maxLength="15"
                                                             required
@@ -596,7 +599,7 @@ const SwapCalculator = () => {
                                                             error={touched.volume && errors.volume}
                                                             onBlur={handleBlur}
                                                             data-lpignore="true"
-                                                            handleError={() => {
+                                                            handleError={(myInp) => {
                                                                 setFieldValue('volume', '', false)
                                                                 setFieldError('volume', '')
                                                                 setFieldTouched(
@@ -604,6 +607,7 @@ const SwapCalculator = () => {
                                                                     false,
                                                                     false,
                                                                 )
+                                                                myInp.focus()
                                                             }}
                                                             maxLength="8"
                                                             required
@@ -634,7 +638,7 @@ const SwapCalculator = () => {
                                                             }
                                                             onBlur={handleBlur}
                                                             data-lpignore="true"
-                                                            handleError={() => {
+                                                            handleError={(myInp) => {
                                                                 setFieldValue(
                                                                     'pointValue',
                                                                     '',
@@ -646,6 +650,7 @@ const SwapCalculator = () => {
                                                                     false,
                                                                     false,
                                                                 )
+                                                                myInp.focus()
                                                             }}
                                                             maxLength="15"
                                                             required
@@ -675,7 +680,7 @@ const SwapCalculator = () => {
                                                             }
                                                             onBlur={handleBlur}
                                                             data-lpignore="true"
-                                                            handleError={() => {
+                                                            handleError={(myInp) => {
                                                                 setFieldValue('swapRate', '', false)
                                                                 setFieldError('swapRate', '')
                                                                 setFieldTouched(
@@ -683,6 +688,7 @@ const SwapCalculator = () => {
                                                                     false,
                                                                     false,
                                                                 )
+                                                                myInp.focus()
                                                             }}
                                                             maxLength="15"
                                                             required

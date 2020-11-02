@@ -209,6 +209,11 @@ export const StyledTextArea = styled(Field)`
     @media ${device.tabletL} {
         font-size: 18px;
     }
+
+    @media ${device.mobileL} {
+        padding-top: 2.2rem;
+        font-size: 16px;
+    }
 `
 export const StyledButton = styled(Button)`
     width: 100%;
@@ -262,6 +267,11 @@ export const StyledCurrencyLabel = styled.label`
     @media ${device.tabletL} {
         top: 21px;
         font-size: 18px;
+    }
+
+    @media ${device.mobileL} {
+        right: 16px;
+        font-size: 16px;
     }
 `
 

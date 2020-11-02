@@ -371,12 +371,10 @@ const Dropdown = ({
                     <Symbol>
                         {selected_option ? (
                             <>
-                                {selected_option.icon}
                                 <Text>{selected_option.display_name}</Text>
                             </>
                         ) : (
                             <>
-                                {default_option.icon}
                                 <DefaultOptionText>{default_option.display_name}</DefaultOptionText>
                             </>
                         )}

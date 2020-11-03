@@ -24,7 +24,7 @@ const Energy = () => {
     return (
         <>
             <Symbol ai="center">
-                <OILUSD />
+                <img src={OILUSD} />
                 <Text>{localize('Oil/USD')}</Text>
             </Symbol>
         </>

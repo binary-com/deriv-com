@@ -23,19 +23,19 @@ const CrashBoom = () => {
     return (
         <>
             <Symbol ai="center">
-                <BOOM1000 />
+                <img src={BOOM1000} />
                 <Text>{localize('Boom 1000 Index')}</Text>
             </Symbol>
             <Symbol ai="center">
-                <BOOM500 />
+                <img src={BOOM500} />
                 <Text>{localize('Boom 500 Index')}</Text>
             </Symbol>
             <Symbol ai="center">
-                <CRASH1000 />
+                <img src={CRASH1000} />
                 <Text>{localize('Crash 1000 Index')}</Text>
             </Symbol>
             <Symbol ai="center">
-                <CRASH500 />
+                <img src={CRASH500} />
                 <Text>{localize('Crash 500 Index')}</Text>
             </Symbol>
         </>

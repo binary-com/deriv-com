@@ -24,19 +24,19 @@ const Metals = () => {
     return (
         <>
             <Symbol ai="center">
-                <GOLDUSD />
+                <img src={GOLDUSD} />
                 <Text>{localize('Gold/USD')}</Text>
             </Symbol>
             <Symbol ai="center">
-                <PALLADIUMUSD />
+                <img src={PALLADIUMUSD} />
                 <Text>{localize('Palladium/USD')}</Text>
             </Symbol>
             <Symbol ai="center">
-                <PLATINUMUSD />
+                <img src={PLATINUMUSD} />
                 <Text>{localize('Platinum/USD')}</Text>
             </Symbol>
             <Symbol ai="center">
-                <SILVERUSD />
+                <img src={SILVERUSD} />
                 <Text>{localize('Silver/USD')}</Text>
             </Symbol>
         </>

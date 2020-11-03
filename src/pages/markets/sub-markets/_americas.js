@@ -24,15 +24,15 @@ const Americas = () => {
     return (
         <>
             <Symbol ai="center">
-                <OTCUS />
+                <img src={OTCUS} />
                 <Text>{localize('US Index')}</Text>
             </Symbol>
             <Symbol ai="center">
-                <OTCUSTECH />
+                <img src={OTCUSTECH} />
                 <Text>{localize('US Tech Index')}</Text>
             </Symbol>
             <Symbol ai="center">
-                <OTCWALLSTREET />
+                <img src={OTCWALLSTREET} />
                 <Text>{localize('Wall Street Index')}</Text>
             </Symbol>
         </>

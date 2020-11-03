@@ -123,7 +123,7 @@ const Margin = () => {
                                 </Col>
                                 <MarketsList>
                                     <Symbol ai="center">
-                                        <OTCGERMAN />
+                                        <img src={OTCGERMAN} />
                                         <Text>{localize('German Index')}</Text>
                                     </Symbol>
                                 </MarketsList>

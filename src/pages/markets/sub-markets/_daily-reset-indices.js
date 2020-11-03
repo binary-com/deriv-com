@@ -23,11 +23,11 @@ const DailyResetIndices = () => {
     return (
         <>
             <Symbol ai="center">
-                <MARKETBEAR />
+                <img src={MARKETBEAR} />
                 <Text>{localize('Bear Market Index')}</Text>
             </Symbol>
             <Symbol ai="center">
-                <MARKETBULL />
+                <img src={MARKETBULL} />
                 <Text>{localize('Bull Market Index')}</Text>
             </Symbol>
         </>

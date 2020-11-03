@@ -24,15 +24,15 @@ const AsiaOceania = () => {
     return (
         <>
             <Symbol ai="center">
-                <OTCAUSTRALIAN />
+                <img src={OTCAUSTRALIAN} />
                 <Text>{localize('Australian Index')}</Text>
             </Symbol>
             <Symbol ai="center">
-                <OTCHONGKONG />
+                <img src={OTCHONGKONG} />
                 <Text>{localize('Hong Kong Index')}</Text>
             </Symbol>
             <Symbol ai="center">
-                <OTCJAPANESE />
+                <img src={OTCJAPANESE} />
                 <Text>{localize('Japanese Index')}</Text>
             </Symbol>
         </>

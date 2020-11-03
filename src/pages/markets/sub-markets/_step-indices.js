@@ -23,7 +23,7 @@ const StepIndices = () => {
     return (
         <>
             <Symbol ai="center">
-                <STEPINDICES />
+                <img src={STEPINDICES} />
                 <Text>{localize('Step Index')}</Text>
             </Symbol>
         </>

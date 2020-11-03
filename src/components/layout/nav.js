@@ -574,7 +574,7 @@ export const NavInterim = ({ interim_type }) => (
                     <StyledLogo to={`/interim/${interim_type}`} aria-label={localize('Home')}>
                         <Flex ai="center">
                             <img src={Logo} alt="logo" />
-                            <LogoCombinedShape />
+                            <img src={LogoCombinedShape} alt="logo combined shape desktop" />
                         </Flex>
                     </StyledLogo>
                 </Show.Desktop>
@@ -584,7 +584,7 @@ export const NavInterim = ({ interim_type }) => (
                             <img src={LogoOnly} alt="logo only 2" width="115px" />
                             <LogoDescription ai="center">
                                 <Line />
-                                <LogoCombinedShape />
+                                <img src={LogoCombinedShape} alt="logo combined shape mobile" />
                             </LogoDescription>
                         </Flex>
                     </LogoLinkMobile>
@@ -606,7 +606,7 @@ export const NavStatic = () => (
             <Flex ai="center">
                 <img src={LogoOnly} alt="logo only nav static" />
                 <Line />
-                <LogoCombinedShape />
+                <img src={LogoCombinedShape} alt="logo combined shape nav static" />
             </Flex>
         </LogoLink>
     </StaticWrapper>

@@ -105,7 +105,7 @@ const DBanner = ({ title, data, background_pattern }) => {
                 </ImageWrapper>
             </ImageContainer>
             <BackgroundWrapper
-                background_pattern={<img src={background_pattern} alt="background pattern" />}
+                background_pattern={background_pattern}
                 direction="column"
                 ai="center"
             ></BackgroundWrapper>

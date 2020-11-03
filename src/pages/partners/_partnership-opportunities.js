@@ -5,8 +5,8 @@ import { localize, LocalizedLink } from 'components/localization'
 import { Container, SectionContainer, Flex } from 'components/containers'
 // import device from 'themes/device'
 // Icons
-import PartnerAffiliate from 'images/svg/partner-affiliate.svg'
-import PartnerPaymentAgent from 'images/svg/partner-payment-agent.svg'
+import { ReactComponent as PartnerAffiliate } from 'images/svg/partner-affiliate.svg'
+import { ReactComponent as PartnerPaymentAgent } from 'images/svg/partner-payment-agent.svg'
 
 const ClientCard = styled(LocalizedLink)`
     ${CardStyle}
@@ -26,7 +26,7 @@ const ClientCard = styled(LocalizedLink)`
     &:last-child {
         margin-right: 0;
     }
-    & img {
+    & svg {
         width: 24px;
         height: 24px;
     }
@@ -40,10 +40,15 @@ const ClientCard = styled(LocalizedLink)`
                       }
                   `
                 : css`
-                      svg > g > g > path {
+                      svg > g > path:nth-child(2) {
                           fill: var(--color-red);
                       }
-                      svg > g > g > g > path:last-child {
+
+                      svg > g > path:nth-child(3) {
+                          fill: var(--color-red);
+                      }
+
+                      svg > g > g > path:last-child {
                           fill: var(--color-red);
                       }
                   `}
@@ -66,7 +71,7 @@ const PartnershipOpportunities = () => (
                     <Header as="h4" size="var(--text-size-sm)">
                         {localize('Affiliate and IB programmes')}
                     </Header>
-                    <img src={PartnerAffiliate} alt="partner affiliate" />
+                    <PartnerAffiliate />
                 </Flex>
                 <Text>
                     {localize(
@@ -79,7 +84,7 @@ const PartnershipOpportunities = () => (
                     <Header as="h4" size="var(--text-size-sm)">
                         {localize('Payment agent programme')}
                     </Header>
-                    <img src={PartnerPaymentAgent} alt="partner payment agent" />
+                    <PartnerPaymentAgent />
                 </Flex>
                 <Text>
                     {localize(

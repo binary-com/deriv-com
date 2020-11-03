@@ -41,8 +41,8 @@ export const StyledCard = styled(LocalizedLink)`
     &:hover {
         transform: translateY(-1.1rem) scale(1.02);
 
-        #carousel-chevron-icon-svg {
-            g {
+        svg {
+            path {
                 fill: var(--color-red);
             }
 

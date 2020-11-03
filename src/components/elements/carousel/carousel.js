@@ -10,6 +10,7 @@ import {
     ChevronRight,
     ChevronLeft,
 } from './carousel-style'
+import { useRecursiveTimeout } from 'components/hooks/use-recursive-timeout'
 
 export const PrevButton = ({ enabled, onClick, color, style, is_reviews }) => (
     <StyledButtonWrapper
@@ -61,13 +62,37 @@ export const Carousel = ({
     slide_style,
     view_port,
     chevron_style,
+    has_autoplay,
+    autoplay_interval,
 }) => {
     const [emblaRef, embla] = useEmblaCarousel(options)
     const [prevBtnEnabled, setPrevBtnEnabled] = useState(false)
     const [nextBtnEnabled, setNextBtnEnabled] = useState(false)
 
-    const scrollPrev = useCallback(() => embla && embla.scrollPrev(), [embla])
-    const scrollNext = useCallback(() => embla && embla.scrollNext(), [embla])
+    const autoplay = useCallback(() => {
+        if (has_autoplay) {
+            if (!embla) return
+            if (embla.canScrollNext()) {
+                embla.scrollNext()
+            } else {
+                embla.scrollTo(0)
+            }
+        }
+    }, [embla])
+
+    const { play, stop } = useRecursiveTimeout(autoplay, autoplay_interval)
+
+    const scrollPrev = useCallback(() => {
+        if (!embla) return
+        embla && embla.scrollPrev()
+        stop()
+    }, [embla, stop])
+
+    const scrollNext = useCallback(() => {
+        if (!embla) return
+        embla && embla.scrollNext()
+        stop()
+    }, [embla, stop])
 
     const onSelect = useCallback(() => {
         if (!embla) return
@@ -77,14 +102,20 @@ export const Carousel = ({
 
     useEffect(() => {
         if (!embla) return
-        embla.on('select', onSelect)
         onSelect()
-    }, [embla, onSelect])
+        embla.on('select', onSelect)
+        embla.on('pointerDown', stop)
+    }, [embla, onSelect, stop])
+
+    useEffect(() => {
+        play()
+    }, [play])
 
     const chevron_left = chevron_style?.chevron_left
     const chevron_right = chevron_style?.chevron_right
     const chevron_color = chevron_style?.chevron_color
     const is_arrow = prevBtnEnabled || nextBtnEnabled
+
     return (
         <div style={container_style}>
             <Embla>
@@ -121,9 +152,11 @@ export const Carousel = ({
 }
 
 Carousel.propTypes = {
+    autoplay_interval: PropTypes.number,
     chevron_style: PropTypes.object,
     children: PropTypes.array,
     container_style: PropTypes.object,
+    has_autoplay: PropTypes.bool,
     options: PropTypes.object,
     slide_style: PropTypes.object,
     view_port: PropTypes.object,

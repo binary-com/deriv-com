@@ -29,11 +29,13 @@ const Wrapper = styled(Container)`
         height: unset;
         padding: 0 16px 40px 16px;
     }
+    @media ${device.mobileL} {
+        padding: 0 0 40px 0;
+    }
 `
 
 const BackgroundWrapper = styled(Background)`
-    background-position-x: 40%;
-    background-position-y: ${(props) => (props.is_mobile ? '50%' : '20%')};
+    background-position: ${(props) => (props.is_mobile ? '40% 50%' : '20% 20%')};
 `
 
 const TryButton = styled(LinkButton)`

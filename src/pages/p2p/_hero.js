@@ -9,57 +9,75 @@ import { Background } from 'components/elements/background-image'
 import { LinkButton } from 'components/form'
 import device from 'themes/device.js'
 
+const BackgroundWrapper = styled(Background)`
+    height: 100%;
+    width: 100%;
+`
+
 const Wrapper = styled(Container)`
     justify-content: space-between;
     background-color: transparent;
-    max-width: 1440px;
+    max-width: 1600px;
     width: 80%;
-    height: 70rem;
-    padding: 8rem 0;
-    margin: 0 auto;
+    height: 700px;
 
-    @media ${device.laptopM} {
-        height: 52.7rem;
-    }
-    @media ${device.laptop} {
-        height: 56.8rem;
-    }
     @media ${device.tabletL} {
         height: 95.4rem;
         flex-direction: column-reverse;
-    }
-    @media ${device.tabletS} {
-        height: 89.4rem;
-    }
-    @media ${device.mobileL} {
-        height: 85rem;
+        justify-content: center;
     }
     @media ${device.mobileM} {
-        height: 67.8rem;
-        padding: 0 0;
+        height: 75rem;
     }
 `
 
-const BackgroundWrapper = styled(Background)`
-    height: 70rem;
+const ImgWrapper = styled.div`
+    width: 100%;
+    height: 100%;
+    max-width: 576px;
+    max-height: 700px;
 
-    @media ${device.laptopM} {
-        height: 52.7rem;
+    .gatsby-image-wrapper {
+        width: 100%;
+        height: 100%;
     }
-    @media ${device.laptop} {
-        height: 56.8rem;
+    ${ImageWrapper} {
+        width: 100%;
+        height: 100%;
+
+        picture > img {
+            object-fit: contain !important;
+        }
     }
+
     @media ${device.tabletL} {
-        height: 95.4rem;
-    }
-    @media ${device.tabletS} {
-        height: 89.4rem;
+        max-width: 313px;
+        max-height: 380px;
     }
     @media ${device.mobileL} {
-        height: 85rem;
+        max-width: 240px;
+        max-height: 292px;
+    }
+`
+
+const InformationWrapper = styled(Flex)`
+    width: 100%;
+    max-width: 48.6rem;
+    z-index: 1;
+
+    @media ${device.tabletL} {
+        max-width: 40rem;
+    }
+    @media ${device.tablet} {
+        top: 280px;
+        max-width: 350px;
+        padding: 0 16px;
+    }
+    @media ${device.mobileL} {
+        max-width: 328px;
     }
     @media ${device.mobileM} {
-        height: 67.8rem;
+        padding: 0;
     }
 `
 
@@ -106,6 +124,7 @@ const StyledHeader = styled(Header)`
         line-height: 8rem;
     }
     @media ${device.tabletL} {
+        margin-top: 2rem;
         width: 45rem;
         font-size: 4.5rem;
         line-height: 6rem;
@@ -114,83 +133,6 @@ const StyledHeader = styled(Header)`
         width: 250px;
         font-size: 24px;
         line-height: 4.5rem;
-    }
-`
-const ImgWrapper = styled.div`
-    .gatsby-image-wrapper {
-        width: 100%;
-        height: 100%;
-    }
-
-    @media ${device.laptopL} {
-        margin-left: 4rem;
-    }
-
-    @media ${device.laptopM} {
-        width: 43.4rem;
-        height: 52.7rem;
-        margin-right: 4rem;
-
-        ${ImageWrapper} {
-            width: 43.4rem;
-            height: 52.7rem;
-        }
-    }
-    @media ${device.tabletL} {
-        margin-top: -30px;
-        width: 288px;
-        height: 350px;
-
-        ${ImageWrapper} {
-            width: 288px;
-            height: 350px;
-        }
-    }
-    @media ${device.mobileL} {
-        margin-top: 0;
-        width: 247px;
-        height: 300px;
-
-        ${ImageWrapper} {
-            width: 247px;
-            height: 300px;
-        }
-    }
-    @media ${device.mobileM} {
-        width: 240px;
-        height: 292px;
-
-        ${ImageWrapper} {
-            margin-top: 10px;
-            width: 240px;
-            height: 292px;
-        }
-    }
-`
-
-const ImageWrapperHero = styled(QueryImage)`
-    width: 57.6rem;
-    height: 70rem;
-`
-
-const InformationWrapper = styled(Flex)`
-    width: 100%;
-    max-width: 48.6rem;
-    z-index: 1;
-
-    @media ${device.tabletL} {
-        max-width: 40rem;
-    }
-    @media ${device.tablet} {
-        top: 280px;
-        max-width: 350px;
-        padding: 0 16px;
-    }
-    @media ${device.mobileL} {
-        max-width: 328px;
-    }
-    @media ${device.mobileM} {
-        padding: 0;
     }
 `
 
@@ -241,7 +183,7 @@ const Hero = ({ title, content }) => {
                     </TryButton>
                 </InformationWrapper>
                 <ImgWrapper>
-                    <ImageWrapperHero
+                    <QueryImage
                         data={data['p2p_hero_img']}
                         alt={'p2p background'}
                         height={'700px'}

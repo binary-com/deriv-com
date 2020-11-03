@@ -38,7 +38,7 @@ const Section = styled(SectionContainer)`
     padding: 8rem auto;
     align-items: center;
     justify-content: center;
-    box-shadow: inset 0 1px 0 0 #f2f3f4;
+    box-shadow: inset 0 1px 0 0 var(--color-grey-8);
 
     @media ${device.tablet} {
         padding: 40px 16px;
@@ -52,8 +52,7 @@ const CardContainer = styled(Flex)`
 `
 const Card = styled(Flex)`
     flex-direction: column;
-    min-width: 38.4rem;
-    max-width: 38.4rem;
+    width: 38.4rem;
     height: auto;
     margin-right: 2.4rem;
     margin-bottom: 2rem;
@@ -65,6 +64,7 @@ const Card = styled(Flex)`
 
     @media ${device.laptopM} {
         margin-right: 0;
+        width: 328px;
     }
     @media ${device.tablet} {
         margin-bottom: 24px;
@@ -92,7 +92,7 @@ const StyledCardHeader = styled(Header)`
     }
 `
 const StyledText = styled(Text)`
-    font-size: 24px;
+    font-size: 2.4rem;
 
     @media ${device.tabletL} {
         font-size: 16px;

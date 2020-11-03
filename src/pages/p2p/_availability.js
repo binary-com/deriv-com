@@ -22,7 +22,7 @@ const Section = styled(SectionContainer)`
     margin: 0 auto;
     align-items: center;
     justify-content: center;
-    box-shadow: inset 0 1px 0 0 #f2f3f4;
+    box-shadow: inset 0 1px 0 0 var(--color-grey-8);
 
     @media ${device.tablet} {
         padding: 40px 16px;
@@ -39,14 +39,10 @@ const ClientCard = styled.article`
         height: 100%;
     }
     @media ${device.tablet} {
-        margin: 0 0 24px 0;
+        margin-bottom: 24px;
         max-height: unset;
         padding: 24px 24px 24px;
         max-width: 328px;
-
-        :first-child {
-            margin: 0 0 24px 0;
-        }
     }
     @media ${device.mobileM} {
         max-width: 310px;

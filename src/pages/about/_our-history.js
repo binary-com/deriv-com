@@ -53,6 +53,9 @@ const query = graphql`
         deriv_laptop: file(relativePath: { eq: "deriv-laptop.png" }) {
             ...fadeIn
         }
+        location_flags: file(relativePath: { eq: "location-flags.png" }) {
+            ...fadeIn
+        }
     }
 `
 const StorySection = styled.section`
@@ -104,6 +107,7 @@ const YearWrapper = styled.div`
         align-items: left;
         max-width: 42.9rem;
         width: auto;
+        margin-bottom: 4rem;
     }
 `
 const ContentWrapper = styled.div`

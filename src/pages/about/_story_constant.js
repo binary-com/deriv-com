@@ -299,9 +299,9 @@ const Stories = [
     },
     {
         year: '2020',
-        bgColor: 'black',
+        bgColor: 'white',
         left: true,
-        color: 'white',
+        color: 'black',
         contents: [
             {
                 left: true,
@@ -318,12 +318,30 @@ const Stories = [
                 image_position: 'center',
                 margin_right: '6rem',
                 margin_left: '-0.7rem',
-                margin_bottom: '6rem',
+                margin_bottom: '4rem',
                 outer_image_width: '35.7rem',
                 content_width: '40rem',
                 image_width: '30.4rem',
                 image_mobile_width: '27.9rem',
                 asset_height: '26rem',
+            },
+            {
+                left: false,
+                headers: [{ header: <Localize translate_text="Rapid growth" /> }],
+                texts: [
+                    {
+                        text: (
+                            <Localize translate_text="Continuing its global expansion, Deriv.com opens offices in Cyprus and Rwanda. It also strengthens its Malaysian presence with 2 new offices in Ipoh and Melaka." />
+                        ),
+                    },
+                ],
+
+                image: 'location_flags',
+                image_alt: <Localize translate_text="Locations flag" />,
+                image_position: 'left',
+                image_width: '34.8rem',
+                image_mobile_width: '328px',
+                margin_bottom: '8rem',
             },
         ],
     },

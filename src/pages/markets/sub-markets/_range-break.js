@@ -24,11 +24,11 @@ const RangeBreak = () => {
     return (
         <>
             <Symbol ai="center">
-                <img src={RANGEBREAK100} />
+                <img src={RANGEBREAK100} alt="rangebreak 100" />
                 <Text>{localize('Range Break 100 Index')}</Text>
             </Symbol>
             <Symbol ai="center">
-                <img src={RANGEBREAK200} />
+                <img src={RANGEBREAK200} alt="rangebreak 200" />
                 <Text>{localize('Range Break 200 Index')}</Text>
             </Symbol>
         </>

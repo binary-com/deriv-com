@@ -84,8 +84,6 @@ export const StyledButtonWrapper = styled.div`
 `
 
 export const StyledChevron = styled(Chevron)`
-    height: 48px;
-    width: 48px;
     ${(props) => {
         if (props.red) {
             return css`
@@ -94,23 +92,22 @@ export const StyledChevron = styled(Chevron)`
             `
         }
     }}
-    g {
-        g {
-            ${(props) => {
-                if (props.black) {
-                    return css`
-                        fill: var(--color-black);
-                    `
-                } else if (props.red) {
-                    return css`
-                        fill: var(--color-red);
-                    `
-                }
+
+    path {
+        ${(props) => {
+            if (props.black) {
                 return css`
-                    fill: var(--color-white);
+                    fill: var(--color-black);
                 `
-            }}
-        }
+            } else if (props.red) {
+                return css`
+                    fill: var(--color-red);
+                `
+            }
+            return css`
+                fill: var(--color-white);
+            `
+        }}
     }
 `
 

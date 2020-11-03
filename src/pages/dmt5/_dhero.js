@@ -192,7 +192,9 @@ const DHero = ({
         const path = image_name === 'dbot' ? '/bot' : '/'
         return path
     }
-    const DLogo = styled(Logo)`
+    const DLogo = styled.img`
+        width: 32px !important;
+        height: 32px !important;
         margin-right: 1.6rem;
     `
     const HeroBackground = css`
@@ -252,7 +254,7 @@ const DHero = ({
 
             <InformationWrapper height="unset" direction="column">
                 <StyledHeader as="h1" weight={500}>
-                    <DLogo />
+                    <DLogo src={Logo} alt="logo" />
                     {title}
                 </StyledHeader>
                 <HeroContent>
@@ -299,7 +301,7 @@ DHero.propTypes = {
     image_name: PropTypes.string,
     is_mobile: PropTypes.bool,
     join_us_for_free: PropTypes.bool,
-    Logo: PropTypes.func,
+    Logo: PropTypes.any,
     title: PropTypes.string,
 }
 

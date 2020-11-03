@@ -236,6 +236,8 @@ const DHero = ({
         return path
     }
     const DLogo = styled.img`
+        width: 32px !important;
+        height: 32px !important;
         margin-right: 1.6rem;
     `
     const BackgroundSVG = styled.img`

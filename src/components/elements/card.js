@@ -148,8 +148,7 @@ const Content = ({ content }) => (
 )
 
 const IconWrapper = styled.div`
-    & > svg,
-    img {
+    & > svg {
         width: 7.9rem;
         height: 7.9rem;
     }

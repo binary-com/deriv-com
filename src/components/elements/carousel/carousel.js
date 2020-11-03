@@ -85,7 +85,6 @@ export const Carousel = ({
     const chevron_right = chevron_style?.chevron_right
     const chevron_color = chevron_style?.chevron_color
     const is_arrow = prevBtnEnabled || nextBtnEnabled
-
     return (
         <div style={container_style}>
             <Embla>

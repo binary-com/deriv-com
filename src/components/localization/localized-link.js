@@ -13,6 +13,7 @@ import {
     smarttrader_url,
     deriv_app_url,
 } from 'common/utility'
+import { DerivStore } from 'store'
 
 const non_localized_links = ['/careers', '/careers/']
 
@@ -55,7 +56,8 @@ const ExternalLink = styled.a`
 export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
     // Use the globally available context to choose the right path
     const { locale } = React.useContext(LocaleContext)
-    const { is_eu_country, setModalPayload, toggleModal } = React.useContext(LocationContext)
+    const { is_eu_country } = React.useContext(DerivStore)
+    const { setModalPayload, toggleModal } = React.useContext(LocationContext)
 
     const is_index = to === `/`
     const {

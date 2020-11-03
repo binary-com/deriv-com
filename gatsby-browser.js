@@ -7,6 +7,7 @@ import TrafficSource from './src/common/traffic-source'
 import isMobile from './src/common/os-detect'
 import { gtm_test_domain } from './src/common/utility'
 import { MediaContextProvider } from './src/themes/media'
+import { DerivProvider } from './src/store'
 import 'typeface-ibm-plex-sans'
 
 const is_browser = typeof window !== 'undefined'
@@ -21,9 +22,9 @@ const checkDomain = () => {
 
 export const wrapRootElement = ({ element }) => {
     return (
-        <MediaContextProvider>
-            {element}
-        </MediaContextProvider>
+        <DerivProvider>
+            <MediaContextProvider>{element}</MediaContextProvider>
+        </DerivProvider>
     )
 }
 

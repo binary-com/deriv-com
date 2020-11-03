@@ -137,7 +137,6 @@ const GoToLiveDemo = styled(LinkButton)`
     @media ${device.mobileL} {
         max-width: 100%;
         padding: 10px 11px;
-        height: 42px;
         white-space: nowrap;
         margin-left: 0;
     }
@@ -151,7 +150,6 @@ const DemoButton = styled(LinkButton)`
 
     @media ${device.mobileL} {
         padding: 1.5rem 1.6rem;
-        height: 42px;
         white-space: nowrap;
     }
     @media (max-width: 460px) {

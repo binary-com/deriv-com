@@ -44,41 +44,46 @@ const StyledText = styled(Text)`
     }
 `
 
-const Col = ({ Icon, content }) => (
+const Col = ({ Icon, alt, content }) => (
     <GridCol>
-        <Icon />
+        <img src={Icon} alt={alt} />
         <StyledText color="black-3" lh="1.55" mt="0.8rem">
             {content}
         </StyledText>
     </GridCol>
 )
 Col.propTypes = {
+    alt: PropTypes.string,
     content: PropTypes.string,
-    Icon: PropTypes.func,
+    Icon: PropTypes.any,
 }
 
 export const IconGrid = () => (
     <Grid>
         <Col
-            Icon={<img src={Spam} alt="spam" />}
+            Icon={Spam}
+            alt="spam"
             content={localize(
                 'The email is in your spam folder (Sometimes things get lost there).',
             )}
         />
         <Col
-            Icon={<img src={Typo} alt="typo" />}
+            Icon={Typo}
+            alt="typo"
             content={localize(
                 'The email address you entered had a mistake or typo (happens to the best of us).',
             )}
         />
         <Col
-            Icon={<img src={WorkEmail} alt="work email" />}
+            Icon={WorkEmail}
+            alt="work email"
             content={localize(
                 'You accidentally gave us another email address (Usually a work or a personal one instead of the one you meant).',
             )}
         />
         <Col
-            Icon={<img src={Firewalls} alt="firewalls" />}
+            Icon={Firewalls}
+            alt="firewalls"
             content={localize(
                 'We can’t deliver the email to this address (Usually because of firewalls or filtering).',
             )}

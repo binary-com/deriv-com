@@ -211,7 +211,7 @@ const SVGContainer = styled.div`
 `
 const StyledLine = styled(StorySVG)`
     position: absolute;
-    height: 100%;
+    height: 102%;
     left: 0;
     top: 0;
 

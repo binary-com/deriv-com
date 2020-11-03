@@ -107,7 +107,7 @@ const LiveChat = ({ LC_API, is_livechat_interactive, setLiveChatInteractive }) =
                         })
                     })
                 })
-            }, 2000)
+            }, 3500)
         }
     }, [])
 

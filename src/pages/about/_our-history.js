@@ -113,7 +113,7 @@ const YearWrapper = styled.div`
 const ContentWrapper = styled.div`
     width: ${(props) => props.content_width || '38.4rem'};
     padding: 0;
-    margin-left: 1.2rem;
+    margin-left: ${(props) => (props.left ? '1.2rem' : '0.8rem')};
 
     @media ${device.tablet} {
         width: 328px;

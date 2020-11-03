@@ -342,6 +342,7 @@ const Stories = [
                 image_width: '34.8rem',
                 image_mobile_width: '328px',
                 margin_bottom: '8rem',
+                margin_left: '-0.8rem',
             },
         ],
     },

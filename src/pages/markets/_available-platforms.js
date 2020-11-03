@@ -18,7 +18,7 @@ const PlatformsContainer = styled(Flex)`
         text-decoration: none;
         margin-right: 0.8rem;
     }
-    svg {
+    img {
         width: 24px;
         height: 24px;
         margin: 0 0.3rem;

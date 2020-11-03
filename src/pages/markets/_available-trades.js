@@ -66,7 +66,7 @@ const CardContainer = styled(Flex)`
     ${Flex} {
         padding: 2.71rem 0 0 3.2rem;
 
-        svg {
+        img {
             width: 32px;
             height: 32px;
             margin-right: 1.6rem;
@@ -83,7 +83,7 @@ const CardContainer = styled(Flex)`
             justify-content: flex-start;
             padding: 10px 44px 0 0;
 
-            svg {
+            img {
                 width: 16px;
                 height: 16px;
                 margin-right: 1rem;

@@ -36,7 +36,7 @@ const MarketsList = styled(CssGrid)`
         grid-template-columns: ${(props) =>
             props.mobile_col_template ? props.mobile_col_template : 'repeat(3, 1fr)'};
 
-        svg {
+        img {
             width: 16px;
             height: 16px;
             margin-right: 4px;

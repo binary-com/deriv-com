@@ -8,7 +8,7 @@ import { OTCAUSTRALIAN, OTCHONGKONG, OTCJAPANESE } from 'components/elements/sym
 const Symbol = styled(Flex)`
     width: fit-content;
 
-    svg {
+    img {
         width: 32px;
         height: 32px;
         margin-right: 0.8rem;

@@ -13,7 +13,7 @@ const FlexText = styled(LinkText)`
     align-items: center;
     justify-content: center;
 
-    & > svg {
+    & > img {
         margin-right: 0.8rem;
     }
     @media ${device.laptopM} {
@@ -40,7 +40,7 @@ const FlexText_Pillar = styled(LinkText)`
     align-items: center;
     justify-content: center;
 
-    & > svg {
+    & > img {
         margin-right: 0.8rem;
     }
 `

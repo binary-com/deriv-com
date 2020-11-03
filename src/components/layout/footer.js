@@ -214,7 +214,7 @@ const SocialWrapper = styled.div`
         margin: 3rem 0 1rem;
 
         a:first-child {
-            svg {
+            img {
                 margin-left: 0;
             }
         }

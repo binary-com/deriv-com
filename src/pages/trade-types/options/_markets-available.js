@@ -21,7 +21,7 @@ const MobileCardHeader = styled(Flex)`
         justify-content: space-between;
         align-items: center;
 
-        > svg {
+        > img {
             width: 48px;
             height: 48px;
         }

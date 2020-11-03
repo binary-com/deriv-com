@@ -93,12 +93,12 @@ const MobileCardWrapper = styled(Flex)`
     align-items: center;
     flex-direction: column;
 
-    svg {
+    img {
         width: 48px;
         height: 48px;
     }
     ${LearnMore} {
-        svg {
+        img {
             width: 16px;
             height: 16px;
         }
@@ -123,7 +123,7 @@ const StyledFlex = styled(Flex)`
     min-height: 29.6rem;
 
     ${LearnMore} {
-        svg {
+        img {
             transform: rotate(0);
             width: 16px;
             height: 16px;

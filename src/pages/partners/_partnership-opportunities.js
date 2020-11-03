@@ -26,7 +26,7 @@ const ClientCard = styled(LocalizedLink)`
     &:last-child {
         margin-right: 0;
     }
-    & svg {
+    & img {
         width: 24px;
         height: 24px;
     }

@@ -30,7 +30,7 @@ const Card = styled(Flex)`
     &:last-child {
         margin-right: 0;
     }
-    & > svg {
+    & > img {
         margin-bottom: 1.6rem;
         width: 64px;
         height: 64px;

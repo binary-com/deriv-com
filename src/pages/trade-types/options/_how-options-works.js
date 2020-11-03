@@ -50,7 +50,7 @@ const OptionItems = styled(Flex)`
         justify-content: space-between;
         align-items: center;
 
-        & > div > svg {
+        & > div > img {
             width: 20px;
             height: 20px;
         }

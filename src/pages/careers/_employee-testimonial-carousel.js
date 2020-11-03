@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import { Carousel, Header, Text } from 'components/elements'
 import device from 'themes/device'
 import { SectionContainer, Flex } from 'components/containers'
-import { ReactComponent as QuoteMark } from 'images/svg/quotemark.svg'
+import QuoteMark from 'images/svg/quotemark.svg'
 import NegarImage from 'images/common/careers/negar.jpg'
 import AhmadImage from 'images/common/careers/ahmad.jpg'
 import AdityaImage from 'images/common/careers/aditya.jpg'
@@ -74,7 +74,7 @@ const ImageWrapper = styled.div`
 const QuoteWrapper = styled(Flex)`
     position: relative;
 
-    svg {
+    img {
         position: absolute;
         right: 15px;
         top: 16px;
@@ -97,7 +97,7 @@ const EmployeeSlide = ({ quote, img_path, img_alt, name }) => {
                         </ImageWrapper>
                     </Flex>
                     <QuoteWrapper direction="column">
-                        <QuoteMark />
+                        <img src={QuoteMark} alt="quotemark" />
                         <QuoteText as="blockquote">{quote}</QuoteText>
                         <Text weight="bold">{name}</Text>
                     </QuoteWrapper>

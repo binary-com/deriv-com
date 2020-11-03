@@ -117,6 +117,8 @@ const SocialWrapper = styled(Flex)`
     }
 `
 const SocialButton = styled(Button)`
+    width: 56px;
+    justify-content: center;
     display: flex;
     background-color: var(--color-white);
     border: solid 1px var(--color-grey-7);

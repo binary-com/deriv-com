@@ -8,7 +8,7 @@ import { BOOM500, BOOM1000, CRASH500, CRASH1000 } from 'components/elements/symb
 const Symbol = styled(Flex)`
     width: fit-content;
 
-    svg {
+    img {
         width: 32px;
         height: 32px;
         margin-right: 0.8rem;

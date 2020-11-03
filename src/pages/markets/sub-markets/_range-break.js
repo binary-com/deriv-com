@@ -9,7 +9,7 @@ const Symbol = styled(Flex)`
     width: 22rem;
     justify-content: flex-start;
 
-    svg {
+    img {
         width: 32px;
         height: 32px;
         margin-right: 0.8rem;

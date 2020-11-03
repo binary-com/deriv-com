@@ -123,7 +123,7 @@ const HowToApplyContent = styled.div`
     display: flex;
     padding-bottom: 4 rem;
 
-    svg {
+    img {
         margin-right: 1.6rem;
     }
 `

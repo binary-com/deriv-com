@@ -301,7 +301,6 @@ const Stories = [
         year: '2020',
         bgColor: 'white',
         left: true,
-        color: 'black',
         contents: [
             {
                 left: true,

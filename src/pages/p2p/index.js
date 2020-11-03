@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import Hero from './_hero.js'
 import DP2P from './_dp2p'
 import ExchangeSteps from './_exchange-steps.js'
@@ -8,8 +8,6 @@ import Availability from './_availability'
 import { localize, Localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { SEO } from 'components/containers'
-import { size } from 'themes/device'
-import { isBrowser } from 'common/utility'
 
 const P2P_CONTENT = [
     {
@@ -17,14 +15,14 @@ const P2P_CONTENT = [
         subtitle: <Localize translate_text="Exchange in minutes. Less waiting, more trading." />,
 
         image_name: 'buy_sell',
-        image_alt: localize('Charts'),
+        image_alt: localize('Buy and sell'),
     },
     {
         title: <Localize translate_text="Works in your local currency" />,
         subtitle: <Localize translate_text="Exchange with fellow traders at pre-agreed rates." />,
 
         image_name: 'local_currency',
-        image_alt: localize('Trading Market'),
+        image_alt: localize('Local currency'),
     },
     {
         title: <Localize translate_text="Available as web and mobile apps" />,
@@ -33,22 +31,11 @@ const P2P_CONTENT = [
         ),
 
         image_name: 'web_and_mobile',
-        image_alt: localize('Trade Types'),
+        image_alt: localize('Web and mobile apps'),
     },
 ]
 
 const P2P = () => {
-    const [is_mobile, setMobile] = useState('')
-
-    const handleResizeWindow = () => {
-        setMobile(isBrowser() ? window.screen.width <= size.tabletL : false)
-    }
-
-    useEffect(() => {
-        setMobile(isBrowser() ? window.screen.width <= size.tabletL : false)
-        window.addEventListener('resize', handleResizeWindow)
-    })
-
     return (
         <Layout type="p2p" no_live_chat>
             <SEO
@@ -69,7 +56,6 @@ const P2P = () => {
             <P2PBanner
                 title={localize('Get hassle-free deposits and withdrawals today')}
                 image_name="P2P"
-                is_mobile={is_mobile}
             />
         </Layout>
     )

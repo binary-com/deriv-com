@@ -18,12 +18,6 @@ const Column = styled.div`
     :first-child {
         flex-basis: 10%;
     }
-
-    @media ${device.tablet} {
-        :first-child {
-            flex-basis: 6%;
-        }
-    }
 `
 
 const Row = styled.div`
@@ -77,7 +71,7 @@ const Card = styled(Flex)`
 `
 const StyledHeader = styled(Header)`
     @media ${device.mobileL} {
-        font-size: 32px;
+        font-size: 24px;
         margin-bottom: 24px;
     }
 `

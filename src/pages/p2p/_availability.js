@@ -29,7 +29,7 @@ const Section = styled(SectionContainer)`
     }
 `
 
-const ClientCard = styled.article`
+const PlatformCard = styled.article`
     background-color: var(--color-white);
     width: 48.6rem;
     position: relative;
@@ -39,7 +39,6 @@ const ClientCard = styled.article`
         height: 100%;
     }
     @media ${device.tablet} {
-        margin-bottom: 24px;
         max-height: unset;
         padding: 24px 24px 24px;
         max-width: 328px;
@@ -50,7 +49,16 @@ const ClientCard = styled.article`
 `
 const StyledHeader = styled(Header)`
     @media ${device.mobileL} {
-        font-size: 32px;
+        font-size: 24px;
+        margin-bottom: 24px;
+    }
+`
+const StyledCardHeader = styled(Header)`
+    font-size: 24px;
+    margin-top: 1.6rem;
+
+    @media ${device.mobileL} {
+        font-size: 20px;
         margin-bottom: 24px;
     }
 `
@@ -68,6 +76,9 @@ const Line = styled.div`
     border: solid 1px var(--color-grey-21);
     margin: 0 4.5rem;
 
+    @media ${device.laptop} {
+        height: 47rem;
+    }
     @media ${device.tablet} {
         height: 1px;
         width: 50rem;
@@ -106,20 +117,14 @@ const Availability = () => {
                 tablet={{ m: '0' }}
                 jc="space-between"
             >
-                <ClientCard>
+                <PlatformCard>
                     <Row>
                         <Desktop />
                     </Row>
                     <Row>
-                        <StyledHeader
-                            mobile_margin="unset"
-                            mobile_font_size="20px"
-                            mt="1.2rem"
-                            mb="4rem"
-                            as="h4"
-                        >
+                        <StyledCardHeader mobile_margin="unset" as="h4">
                             <Localize translate_text="DP2P on your computer" />
-                        </StyledHeader>
+                        </StyledCardHeader>
                     </Row>
                     <div>
                         <StyledText>
@@ -149,22 +154,16 @@ const Availability = () => {
                             <Localize translate_text="3. Start exchanging." />
                         </StyledText>
                     </div>
-                </ClientCard>
+                </PlatformCard>
                 <Line />
-                <ClientCard>
+                <PlatformCard>
                     <Row>
                         <Mobile />
                     </Row>
                     <Row>
-                        <StyledHeader
-                            mobile_margin="unset"
-                            mobile_font_size="20px"
-                            mt="1.2rem"
-                            mb="4rem"
-                            as="h4"
-                        >
+                        <StyledCardHeader mobile_margin="unset" as="h4">
                             <Localize translate_text="DP2P on your mobile" />
-                        </StyledHeader>
+                        </StyledCardHeader>
                     </Row>
                     <div>
                         <StyledText>
@@ -182,7 +181,7 @@ const Availability = () => {
                             <Localize translate_text="3. Start exchanging." />
                         </StyledText>
                     </div>
-                </ClientCard>
+                </PlatformCard>
             </Flex>
         </Section>
     )

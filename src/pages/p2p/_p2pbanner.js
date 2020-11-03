@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { graphql, useStaticQuery } from 'gatsby'
-import { Flex, Container } from 'components/containers'
+import { Flex, Container, Show } from 'components/containers'
 import { Header } from 'components/elements'
 import { LinkButton } from 'components/form'
 import { localize } from 'components/localization'
@@ -33,11 +33,6 @@ const Wrapper = styled(Container)`
         padding: 0 0 40px 0;
     }
 `
-
-const BackgroundWrapper = styled(Background)`
-    background-position: ${(props) => (props.is_mobile ? '40% 50%' : '20% 20%')};
-`
-
 const TryButton = styled(LinkButton)`
     padding: 1.4rem 1.6rem;
     width: 125px;
@@ -73,7 +68,6 @@ const InformationWrapper = styled(Flex)`
         padding: 0 0;
     }
 `
-
 const StyledHeader = styled(Header)`
     font-size: 3.2rem;
     font-weight: bold;
@@ -109,27 +103,56 @@ const query = graphql`
     }
 `
 
-const P2PBanner = ({ title, is_mobile }) => {
+const P2PBanner = ({ title }) => {
     const data = useStaticQuery(query)
 
     return (
-        <BackgroundWrapper
-            style={{ height: is_mobile ? '402px' : '340px' }}
-            data={data[is_mobile ? 'p2p_banner_mobile' : 'p2p_banner']}
-            is_mobile={is_mobile}
-            key={is_mobile ? `mobile` : `desktop`}
-        >
-            <Wrapper>
-                <InformationWrapper height="unset" direction="column">
-                    <StyledHeader as="h3" weight={500}>
-                        {title}
-                    </StyledHeader>
-                    <TryButton secondary="true" external is_deriv_app_link to="/cashier/P2P">
-                        {localize('Try P2P now')}
-                    </TryButton>
-                </InformationWrapper>
-            </Wrapper>
-        </BackgroundWrapper>
+        <div>
+            <Show.Desktop max_width="992">
+                <Background
+                    style={{ height: '340px', backgroundPosition: '20% 20%' }}
+                    data={data['p2p_banner']}
+                >
+                    <Wrapper>
+                        <InformationWrapper height="unset" direction="column">
+                            <StyledHeader as="h3" weight={500}>
+                                {title}
+                            </StyledHeader>
+                            <TryButton
+                                secondary="true"
+                                external
+                                is_deriv_app_link
+                                to="/cashier/P2P"
+                            >
+                                {localize('Try P2P now')}
+                            </TryButton>
+                        </InformationWrapper>
+                    </Wrapper>
+                </Background>
+            </Show.Desktop>
+            <Show.Mobile>
+                <Background
+                    style={{ height: '402px', backgroundPosition: '40% 50%' }}
+                    data={data['p2p_banner_mobile']}
+                >
+                    <Wrapper>
+                        <InformationWrapper height="unset" direction="column">
+                            <StyledHeader as="h3" weight={500}>
+                                {title}
+                            </StyledHeader>
+                            <TryButton
+                                secondary="true"
+                                external
+                                is_deriv_app_link
+                                to="/cashier/P2P"
+                            >
+                                {localize('Try P2P now')}
+                            </TryButton>
+                        </InformationWrapper>
+                    </Wrapper>
+                </Background>
+            </Show.Mobile>
+        </div>
     )
 }
 

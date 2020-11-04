@@ -259,6 +259,7 @@ export const CalculatorBody = styled.div`
 `
 
 export const CalculatorHeader = styled.div`
+    border-radius: 8px 8px 0 0;
     padding: 2.4rem;
     background-color: var(--color-blue-4);
 `

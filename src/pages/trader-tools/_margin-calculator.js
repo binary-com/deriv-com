@@ -75,11 +75,11 @@ const MarginCalculator = () => {
 
         const margin_formula = (volume * contractSize * assetPrice) / leverage.display_name
 
-        return toFixed(margin_formula).toLocaleString()
+        return toFixed(margin_formula)
     }
 
     const toFixed = (val) => {
-        return parseFloat(val.toFixed(2))
+        return parseFloat(val.toFixed(2)).toLocaleString()
     }
 
     const resetValidation = (values) => {

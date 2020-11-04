@@ -776,7 +776,7 @@ const SwapCalculator = () => {
                     <BottomContent direction="column">
                         <StyledText size="1.6rem" mb="2.4rem" mt="2.4rem">
                             <Localize
-                                translate_text="To view the asset price and swap rate, go to Deriv MetaTrader 5 (DMT5), click on the <0>View </0> tab and select<0> Market Watch</0>, then right-click on the symbol you want to trade and select <0>Specification.</0>"
+                                translate_text="To view the swap rate and digits of the asset, go to Deriv MetaTrader 5 (DMT5), click on the View tab and select Market Watch, then right-click on the symbol you want to trade and select Specification. click on the <0>View </0> tab and select<0> Market Watch</0>, then right-click on the symbol you want to trade and select <0>Specification.</0>"
                                 components={[<strong key={0} />]}
                             />
                         </StyledText>

@@ -117,17 +117,21 @@ const StyledInput = styled.input`
         }
     }
     &:valid {
-        & ~ label {
-            transform: translate(-0.6rem, -2rem) scale(0.7);
-            color: var(--color-black-3);
+        ${(props) =>
+            props.value != '' &&
+            css`
+                & ~ label {
+                    transform: translate(-0.6rem, -2rem) scale(0.7);
+                    color: var(--color-black-3);
 
-            @media ${device.tabletL} {
-                top: 9px;
-            }
+                    @media ${device.tabletL} {
+                        top: 9px;
+                    }
 
-            /* prettier-ignore */
-            background-color: var(--color-${(props) => props.background || 'grey-1'});
-        }
+                    /* prettier-ignore */
+                    background-color: var(--color-${(props) => props.background || 'grey-1'});
+                }
+            `}
     }
 `
 
@@ -180,6 +184,7 @@ const Input = ({
                     id={id}
                     background={background}
                     maxLength={maxLength}
+                    error={error}
                     {...props}
                     ref={(ip) => (myInp = ip)}
                 />

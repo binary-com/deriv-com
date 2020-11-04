@@ -236,9 +236,10 @@ const MarginCalculator = () => {
                                             active={tab === 'Financial'}
                                             disabled={tab === 'Financial'}
                                             onClick={() => {
-                                                resetForm()
-                                                setFieldValue('accountType', 'Financial')
                                                 onTabClick('Financial')
+                                                setErrors({})
+                                                resetForm({})
+                                                setFieldValue('accountType', 'Financial')
                                                 setFieldValue('optionList', financialItemLists)
                                             }}
                                         >
@@ -289,7 +290,6 @@ const MarginCalculator = () => {
                                                         myInp.focus()
                                                     }}
                                                     maxLength="8"
-                                                    required
                                                 />
                                             )}
                                         </Field>
@@ -319,7 +319,6 @@ const MarginCalculator = () => {
                                                         myInp.focus()
                                                     }}
                                                     maxLength="15"
-                                                    required
                                                 />
                                             )}
                                         </Field>

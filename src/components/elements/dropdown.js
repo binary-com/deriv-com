@@ -265,7 +265,6 @@ const Dropdown = ({
     ...props
 }) => {
     const [is_open, setOpen] = useState(false)
-    const [is_not_default, setIsNotDefault] = useState(false)
     const nodes = new Map()
     const dropdown_ref = useRef(null)
 
@@ -340,9 +339,6 @@ const Dropdown = ({
 
     const handleChange = (option) => {
         onChange(option)
-        if (option.name !== 'default') {
-            setIsNotDefault(true)
-        }
         closeList()
     }
 
@@ -359,7 +355,7 @@ const Dropdown = ({
                 error={error}
                 {...props}
             >
-                <StyledLabel active={is_open || is_not_default}>{label}</StyledLabel>
+                <StyledLabel active={is_open || (!is_open && selected_option)}>{label}</StyledLabel>
                 <DropdownSelected
                     role="button"
                     id="selected_dropdown"

@@ -327,7 +327,6 @@ const SwapCalculator = () => {
                                                                 myInp.focus()
                                                             }}
                                                             maxLength="8"
-                                                            required
                                                         />
                                                     )}
                                                 </Field>
@@ -370,7 +369,6 @@ const SwapCalculator = () => {
                                                                 myInp.focus()
                                                             }}
                                                             maxLength="15"
-                                                            required
                                                         />
                                                     )}
                                                 </Field>
@@ -408,7 +406,6 @@ const SwapCalculator = () => {
                                                                 myInp.focus()
                                                             }}
                                                             maxLength="15"
-                                                            required
                                                         />
                                                     )}
                                                 </Field>
@@ -611,7 +608,6 @@ const SwapCalculator = () => {
                                                                 myInp.focus()
                                                             }}
                                                             maxLength="8"
-                                                            required
                                                         />
                                                     )}
                                                 </Field>
@@ -654,7 +650,6 @@ const SwapCalculator = () => {
                                                                 myInp.focus()
                                                             }}
                                                             maxLength="15"
-                                                            required
                                                         />
                                                     )}
                                                 </Field>
@@ -692,7 +687,6 @@ const SwapCalculator = () => {
                                                                 myInp.focus()
                                                             }}
                                                             maxLength="15"
-                                                            required
                                                         />
                                                     )}
                                                 </Field>

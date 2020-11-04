@@ -767,6 +767,7 @@ export const NavPartners = ({ no_login_signup }) => {
                                     is_affiliate_sign_in_link
                                     target="_blank"
                                     primary
+                                    style={{ width: '12rem' }}
                                 >
                                     <span>{localize('Affiliate & IB log in')}</span>
                                 </LinkButton>
@@ -777,6 +778,7 @@ export const NavPartners = ({ no_login_signup }) => {
                                     target="_blank"
                                     ref={button_ref}
                                     secondary="true"
+                                    style={{ width: '12rem' }}
                                 >
                                     <span>{localize('Affiliate & IB sign up')}</span>
                                 </LinkSignupButton>

@@ -124,7 +124,7 @@ const P2PBanner = ({ title }) => {
                                 is_deriv_app_link
                                 to="/cashier/P2P"
                             >
-                                {localize('Try P2P now')}
+                                {localize('Try DP2P now')}
                             </TryButton>
                         </InformationWrapper>
                     </Wrapper>

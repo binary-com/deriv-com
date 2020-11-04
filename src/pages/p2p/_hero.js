@@ -179,7 +179,7 @@ const Hero = ({ title, content }) => {
                         <Header as="h1">{content}</Header>
                     </HeroContent>
                     <TryButton secondary="true" external is_deriv_app_link to="/cashier/P2P">
-                        {localize('Try P2P now')}
+                        {localize('Try DP2P now')}
                     </TryButton>
                 </InformationWrapper>
                 <ImgWrapper>

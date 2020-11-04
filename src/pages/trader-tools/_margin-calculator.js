@@ -204,12 +204,9 @@ const MarginCalculator = () => {
                                         {localize('Margin required')}
                                     </StyledLabel>
                                     <StyledTextAreaContainer>
-                                        <StyledTextArea
-                                            as="textarea"
-                                            id="message"
-                                            value={numberWithCommas(values.margin)}
-                                            disabled
-                                        />
+                                        <StyledTextArea>
+                                            {numberWithCommas(values.margin)}
+                                        </StyledTextArea>
                                         <StyledCurrencyLabel>
                                             {values.marginSymbol}
                                         </StyledCurrencyLabel>

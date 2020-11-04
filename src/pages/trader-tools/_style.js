@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import { Form, Field } from 'formik'
+import { Form } from 'formik'
 import { Flex } from 'components/containers'
 import { Header, Text, Dropdown } from 'components/elements'
 import { Button, LinkButton } from 'components/form'
@@ -200,12 +200,13 @@ export const StyledForm = styled(Form)`
     }
 `
 
-export const StyledTextArea = styled(Field)`
+export const StyledTextArea = styled(Flex)`
     margin: 2px;
     width: 80%;
     white-space: nowrap;
     resize: none;
     background-color: white;
+    justify-content: flex-start;
     height: 95%;
     border: 0;
     padding: 2rem;

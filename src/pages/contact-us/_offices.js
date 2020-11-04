@@ -371,9 +371,9 @@ export const Offices = () => {
                                             target="_blank"
                                             rel="noopener noreferrer"
                                         >
-                                            69, Jalan KLJ 6, Taman Kota
+                                            67-1 &amp; 69-1, Jalan KLJ 6, Taman Kota
                                             <br></br>
-                                            Laksamana Jaya, 75200 Melaka
+                                            Laksamana Jaya, Melaka 75200
                                         </LocalizedLinkText>
                                     </Box>
                                 </FullBox>

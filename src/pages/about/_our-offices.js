@@ -1,267 +1,294 @@
 import React from 'react'
-import styled from 'styled-components'
+import PropTypes from 'prop-types'
+import { graphql, useStaticQuery } from 'gatsby'
+import styled, { keyframes } from 'styled-components'
 import Show from 'components/containers/show'
-import { Header, Text } from 'components/elements'
+import { Header, Text, BackgroundImage } from 'components/elements'
+import { SectionContainer, Flex, Container } from 'components/containers'
 import { localize, LocalizedLink } from 'components/localization'
-import Map from 'images/svg/world-map.svg'
-import SmallMap from 'images/svg/world-map-small.svg'
 import device from 'themes/device'
-import Labuan from 'images/svg/labuan-pin-location.svg'
-import Cyberjaya from 'images/svg/cyberjaya-pin-location.svg'
-import Dubai from 'images/svg/dubai-pin-location.svg'
-import Paraguay from 'images/svg/paraguay-pin-location.svg'
-import Malta from 'images/svg/malta-pin-location.svg'
+import Chevron from 'images/svg/chevron-thick.svg'
 
-const OfficeContainer = styled.section`
-    width: 100%;
-    padding: 8rem 22.2rem;
-    margin: auto;
-    background-color: var(--color-white);
-
-    @media ${device.laptopLC} {
-        padding: 8rem 2rem;
-    }
-    @media ${device.laptopLC} {
-        padding: 5rem 2rem;
+const query = graphql`
+    query {
+        office_background_map: file(relativePath: { eq: "about/about-us-office-map.png" }) {
+            ...fadeIn
+        }
+        office_background_map_mobile: file(
+            relativePath: { eq: "about/about-us-office-map-mobile.png" }
+        ) {
+            ...fadeIn
+        }
     }
 `
-const MapWrapper = styled.div`
-    position: relative;
-    margin: 0 auto;
-    width: fit-content;
 
-    @media ${device.desktop} {
+const Pulse = keyframes`
+    0% {
+        box-shadow: 0 0 0 0.5rem rgba(255, 68, 79, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 0 1rem rgba(255, 68, 79, 0.3);
+    }
+    100% {
+        box-shadow: 0 0 0 0.5rem rgba(255, 68, 79, 0.3);
+    }
+`
+
+const ChevronRight = styled(Chevron)`
+    transform: rotate(90deg);
+    width: 16px;
+    height: 16px;
+
+    .chevron-thick-path {
+        fill: var(--color-red);
+    }
+`
+const MapImage = styled(BackgroundImage)`
+    position: relative;
+    width: 100%;
+    height: 639px;
+    background-color: transparent;
+    background-size: contain;
+
+    @media ${device.tabletS} {
+        height: 340px;
+        margin-bottom: 25px;
+    }
+    @media ${device.mobileL} {
+        height: 266px;
+    }
+    @media ${device.mobileM} {
+        height: 228px;
+    }
+`
+
+const PinContent = styled(LocalizedLink)`
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--color-white);
+    box-shadow: rgba(0, 0, 0, 0.05) 0 16px 20px 0, rgba(0, 0, 0, 0.05) 0 0 20px 0;
+    border-radius: 5px;
+    padding: 1rem 1.6rem;
+    text-align: center;
+    position: relative;
+    left: -43%;
+    top: -55px;
+    transition: opacity 0.25s;
+    z-index: 3;
+    text-decoration: none;
+
+    &::after {
+        content: '';
+        width: 12px;
+        height: 12px;
+        background: var(--color-white);
+        position: absolute;
+        transform: rotate(45deg);
+        top: 83%;
+        left: 40.5%;
+    }
+`
+
+const PinWrapper = styled.div`
+    position: absolute;
+    top: ${(props) => props.top};
+    left: ${(props) => props.left};
+    cursor: pointer;
+`
+
+const Pin = styled.div`
+    width: 0.8rem;
+    height: 0.8rem;
+    background-color: var(--color-red);
+    box-shadow: 0 0 0 0.5rem rgba(255, 68, 79, 0.3);
+    animation: ${Pulse} 2s infinite;
+    border-radius: 50%;
+`
+
+const MapPin = ({ top, left, title, link }) => {
+    const [is_pin_show, setPinShow] = React.useState(false)
+    return (
+        <PinWrapper
+            onMouseEnter={() => setPinShow(true)}
+            onMouseLeave={() => setPinShow(false)}
+            top={top}
+            left={left}
+            to={link}
+        >
+            <Pin />
+            {is_pin_show && (
+                <PinContent to={link} anchor>
+                    <Text color="red" mr="8px">
+                        {title}
+                    </Text>
+                    <ChevronRight />
+                </PinContent>
+            )}
+        </PinWrapper>
+    )
+}
+
+const OfficeWrapper = styled(Flex)`
+    @media ${device.tabletS} {
+        flex-direction: column-reverse;
+    }
+
+    @media ${device.tabletS} {
+        .fresnel-between-start-tabletS {
+            width: 100%;
+        }
+        .fresnel-greaterThanOrEqual-tabletS {
+            width: auto;
+        }
+    }
+
+    .fresnel-greaterThanOrEqual-tabletS {
+        width: 100%;
+    }
+`
+
+const NumberWrapper = styled(Flex)`
+    @media ${device.laptopL} {
+        margin-left: 150px;
+    }
+    @media ${device.tabletL} {
+        margin-left: 32px;
+    }
+    @media ${device.tabletS} {
+        flex-direction: row;
+        margin: 0 16px;
+    }
+`
+
+const OfficeContainer = styled(Container)`
+    @media ${device.laptopL} {
+        width: 100%;
         max-width: 1440px;
     }
 `
-const StyledMap = styled(Map)`
-    height: 100%;
-    width: 100%;
 
-    @media ${device.laptopLC} {
-        width: 996px;
-    }
-`
-const StyledSmallMap = styled(SmallMap)`
-    transform: translate(0, 0);
-`
-const Oval = styled.div`
-    width: 1rem;
-    height: 1rem;
-    background-color: var(--color-red);
-    box-shadow: 0 0 0 0.5rem rgba(255, 68, 79, 0.3);
-    border-radius: 50%;
-    position: absolute;
-    visibility: visible;
-    top: ${(props) => (props.top ? props.top + '%' : '87%')};
-    left: ${(props) => (props.left ? props.left + '%' : '11%')};
-
-    @media ${device.tablet} {
-        width: 0.5rem;
-        height: 0.5rem;
-        box-shadow: 0 0 0 0.3rem rgba(255, 68, 79, 0.3);
-        top: ${(props) => props.top || '87%'};
-        left: ${(props) => (props.left ? props.left - 50 + '%' : '11%')};
-    }
-`
-const Pinpoint = styled.div`
-    position: absolute;
-    top: ${(props) => props.top + '%'};
-    left: ${(props) => props.left + '%'};
-
-    > svg {
-        opacity: 0;
-        transition: visibility 0s, opacity 0.5s linear;
-    }
-    &:hover {
-        > svg {
-            opacity: 1;
-        }
+const HeaderOffice = styled(Header)`
+    @media ${device.tabletS} {
+        margin-bottom: 32px;
     }
 `
 
-const PinpointWrapper = styled(Labuan)`
-    position: relative;
-    left: ${(props) => props.left || '-4%'};
-`
-const CyberjayaWrapper = styled(Cyberjaya)`
-    ${PinpointWrapper}
-`
-const LabuanWrapper = styled(Labuan)`
-    ${PinpointWrapper}
-`
-const DubaiWrapper = styled(Dubai)`
-    ${PinpointWrapper}
-`
-const ParaguayWrapper = styled(Paraguay)`
-    ${PinpointWrapper}
-`
-const MaltaWrapper = styled(Malta)`
-    ${PinpointWrapper}
-`
-const NumberWrapper = styled.div`
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    flex-wrap: nowrap;
-    text-align: center;
-    align-items: center;
-    margin-top: 2.4rem;
+MapPin.propTypes = {
+    left: PropTypes.string,
+    link: PropTypes.string,
+    title: PropTypes.string,
+    top: PropTypes.string,
+}
 
-    @media ${device.laptopLC} {
-        padding: 0 15rem;
-    }
-    @media ${device.tablet} {
-        flex-direction: column;
-        padding: 0 5rem;
-    }
-`
-const Number = styled.div`
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    align-items: center;
-
-    @media ${device.tablet} {
-        :not(:last-child) {
-            margin-bottom: 4rem;
-        }
-    }
-`
-const MapLink = styled(LocalizedLink)`
-    cursor: pointer;
-`
 export const OurOffices = () => {
+    const data = useStaticQuery(query)
     return (
-        <OfficeContainer>
-            <Show.Mobile>
-                <Header align="center" size="4.5rem" mb="3.2rem">
+        <SectionContainer>
+            <OfficeContainer direction="column">
+                <HeaderOffice as="h3" size="3.2rem" mb="4rem" align="center">
                     {localize('Our offices')}
-                </Header>
-            </Show.Mobile>
-            <Show.Desktop>
-                <Header align="center" size="3.6rem" mb="4rem">
-                    {localize('Our offices')}
-                </Header>
-            </Show.Desktop>
-
-            <MapWrapper>
-                <Show.Mobile>
-                    <StyledSmallMap />
-                    <MapLink to="/contact-us/#paraguay" anchor>
-                        <Pinpoint top="72" left="26">
-                            <Oval />
-                        </Pinpoint>
-                    </MapLink>
-
-                    <MapLink to="/contact-us/#malta" anchor>
-                        <Pinpoint top="29.6" left="51">
-                            <Oval />
-                        </Pinpoint>
-                    </MapLink>
-                    <MapLink to="/contact-us/#dubai" anchor>
-                        <Pinpoint top="37.6" left="64.7">
-                            <Oval />
-                        </Pinpoint>
-                    </MapLink>
-
-                    <MapLink to="/contact-us/#cyberjaya" anchor>
-                        <Pinpoint top="55" left="81.6">
-                            <Oval top="83" left="88" />
-                        </Pinpoint>
-                    </MapLink>
-                    <MapLink to="/contact-us/#labuan" anchor>
-                        <Pinpoint top="53.6" left="87">
-                            <Oval left="8" />
-                        </Pinpoint>
-                    </MapLink>
-                </Show.Mobile>
-
-                <Show.Desktop>
-                    <StyledMap />
-                    <MapLink to="/contact-us/#paraguay" anchor>
-                        <Pinpoint top="66" left="25">
-                            <Oval />
-                            <ParaguayWrapper />
-                        </Pinpoint>
-                    </MapLink>
-                    <MapLink to="/contact-us/#malta" anchor>
-                        <Pinpoint top="21.6" left="49.6">
-                            <Oval />
-                            <MaltaWrapper />
-                        </Pinpoint>
-                    </MapLink>
-                    <MapLink to="/contact-us/#dubai" anchor>
-                        <Pinpoint top="30.6" left="63.7">
-                            <Oval />
-                            <DubaiWrapper />
-                        </Pinpoint>
-                    </MapLink>
-                    <MapLink to="/contact-us/#cyberjaya" anchor>
-                        <Pinpoint top="46" left="63.6">
-                            <Oval top="83" left="88" />
-                            <CyberjayaWrapper />
-                        </Pinpoint>
-                    </MapLink>
-                    <MapLink to="/contact-us/#labuan" anchor>
-                        <Pinpoint top="44.6" left="85">
-                            <Oval left="8" />
-                            <LabuanWrapper />
-                        </Pinpoint>
-                    </MapLink>
-                </Show.Desktop>
-            </MapWrapper>
-
-            <NumberWrapper>
-                <Number>
-                    <Show.Mobile>
-                        <Header align="center" size="6rem">
-                            250+
-                        </Header>
-                        <Text size="2rem" align="center">
-                            {localize('Team members')}
-                        </Text>
-                    </Show.Mobile>
-                    <Show.Desktop>
-                        <Header align="center" as="h2">
-                            250+
-                        </Header>
-                        <Text align="center">{localize('Team members')}</Text>
+                </HeaderOffice>
+                <OfficeWrapper ai="center" jc="center">
+                    <NumberWrapper fd="column" width="auto">
+                        <Flex fd="column" ai="center" mb="8rem" tabletS={{ mb: '0' }}>
+                            <Text color="red" size="4.8rem" align="center" weight="bold">
+                                400+
+                            </Text>
+                            <Text align="center">{localize('Team members')}</Text>
+                        </Flex>
+                        <Flex
+                            fd="column"
+                            ai="center"
+                            mb="8rem"
+                            tabletS={{ mb: '0', ml: '25px', mr: '25px' }}
+                        >
+                            <Text align="center" color="red" size="4.8rem" weight="bold">
+                                40+
+                            </Text>
+                            <Text align="center">{localize('Nationalities')}</Text>
+                        </Flex>
+                        <Flex fd="column" ai="center">
+                            <Text align="center" color="red" size="4.8rem" weight="bold">
+                                9
+                            </Text>
+                            <Text align="center">{localize('Corporate offices')}</Text>
+                        </Flex>
+                    </NumberWrapper>
+                    <Show.Desktop max_width="tabletS">
+                        <MapImage data={data['office_background_map']}>
+                            <MapPin
+                                left="19%"
+                                top="75%"
+                                title="Paraguay"
+                                link="/contact-us#paraguay"
+                            />
+                            <MapPin
+                                left="45.5%"
+                                top="32.5%"
+                                title="Malta"
+                                link="/contact-us#malta"
+                            />
+                            <MapPin
+                                left="51.5%"
+                                top="32%"
+                                title="Cyprus"
+                                link="/contact-us#cyprus"
+                            />
+                            <MapPin left="52%" top="58%" title="Rwanda" link="/contact-us#rwanda" />
+                            <MapPin left="63.5%" top="40%" title="Dubai" link="/contact-us#dubai" />
+                            <MapPin left="81%" top="55.5%" title="Ipoh" link="/contact-us#ipoh" />
+                            <MapPin
+                                left="81.8%"
+                                top="58.5%"
+                                title="Cyberjaya"
+                                link="/contact-us#cyberjaya"
+                            />
+                            <MapPin
+                                left="83%"
+                                top="60.3%"
+                                title="Melaka"
+                                link="/contact-us#melaka"
+                            />
+                            <MapPin
+                                left="88%"
+                                top="55.5%"
+                                title="Labuan"
+                                link="/contact-us#labuan"
+                            />
+                        </MapImage>
                     </Show.Desktop>
-                </Number>
-                <Number>
-                    <Show.Mobile>
-                        <Header align="center" size="6rem">
-                            40+
-                        </Header>
-                        <Text size="2rem" align="center">
-                            {localize('Nationalites')}
-                        </Text>
+
+                    <Show.Mobile min_width="tabletS">
+                        <MapImage data={data['office_background_map_mobile']}>
+                            <MapPin
+                                left="19%"
+                                top="65%"
+                                title="Paraguay"
+                                link="/contact-us#paraguay"
+                            />
+                            <MapPin left="46%" top="27%" title="Malta" link="/contact-us#malta" />
+                            <MapPin
+                                left="52.4%"
+                                top="26.8%"
+                                title="Cyprus"
+                                link="/contact-us#cyprus"
+                            />
+                            <MapPin left="52%" top="51%" title="Rwanda" link="/contact-us#rwanda" />
+                            <MapPin left="62%" top="32%" title="Dubai" link="/contact-us#dubai" />
+                            <MapPin left="81.5%" top="48.5%" title="Ipoh" link="/contact-us#ipoh" />
+                            <MapPin
+                                left="82%"
+                                top="52%"
+                                title="Cyberjaya"
+                                link="/contact-us#cyberjaya"
+                            />
+                            <MapPin left="83%" top="55%" title="Melaka" link="/contact-us#melaka" />
+                            <MapPin left="88%" top="48%" title="Labuan" link="/contact-us#labuan" />
+                        </MapImage>
                     </Show.Mobile>
-                    <Show.Desktop>
-                        <Header align="center" as="h2">
-                            40+
-                        </Header>
-                        <Text align="center">{localize('Nationalites')}</Text>
-                    </Show.Desktop>
-                </Number>
-                <Number>
-                    <Show.Mobile>
-                        <Header align="center" size="6rem">
-                            5
-                        </Header>
-                        <Text size="2rem" align="center">
-                            {localize('Corporate offices')}
-                        </Text>
-                    </Show.Mobile>
-                    <Show.Desktop>
-                        <Header align="center" as="h2">
-                            5
-                        </Header>
-                        <Text align="center">{localize('Corporate offices')}</Text>
-                    </Show.Desktop>
-                </Number>
-            </NumberWrapper>
-        </OfficeContainer>
+                </OfficeWrapper>
+            </OfficeContainer>
+        </SectionContainer>
     )
 }

@@ -215,6 +215,7 @@ export const StyledTextArea = styled(Field)`
     overflow-x: auto;
     overflow-y: hidden;
     -webkit-text-fill-color: var(--color-blue-5);
+    opacity: 1;
 
     @media ${device.tabletL} {
         font-size: 18px;

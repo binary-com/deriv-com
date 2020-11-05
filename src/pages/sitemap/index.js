@@ -1,14 +1,17 @@
 import React from 'react'
 import styled from 'styled-components'
-import { DesktopSitemap } from './_desktop-sitemap'
-import { MobileSitemap } from './_mobile-sitemap'
+import PropTypes from 'prop-types'
+import { AboutUs, Trade, TradeTypes, Markets, Legal, Partner, Resources } from './_sitemap-content'
+import { GridSubWrapper } from './_sitemap-styles'
 import { deriv_app_url } from 'common/utility'
-import { SEO } from 'components/containers'
+import { SEO, Flex, Show } from 'components/containers'
 import { Text } from 'components/elements'
 import { LinkButton } from 'components/form'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl, Localize } from 'components/localization'
 import BackgroundPatternSitemap from 'images/common/bg_sitemap.png'
+import SitemapTree from 'images/svg/sitemap/sitemap-tree.svg'
+import SitemapVTree from 'images/svg/sitemap/sitemap-mobile-tree.svg'
 import device from 'themes/device'
 
 const HeroWrapper = styled.div`
@@ -60,6 +63,112 @@ const ButtonWrapper = styled(LinkButton)`
     }
 `
 
+export const ContentTitleWrapper = styled(Text)`
+    color: var(--color-black-3);
+    padding-top: 80px;
+    padding-bottom: 24px;
+    text-align: center;
+
+    @media ${device.laptopM} {
+        padding-top: 40px;
+        padding-bottom: 32px;
+        font-size: 24px;
+        text-align: left;
+    }
+`
+
+const StyledTree = styled(SitemapTree)`
+    margin-right: 40px;
+`
+
+const GridWrapper = styled.div`
+    display:  grid;
+    grid-template-columns: 157px 80px 89px 108px 196px 108px 115px;
+    grid-gap: 40px;
+    justify-content: center;
+`
+
+const LinksCol = styled(Flex)`
+    flex-direction: column;
+    width: 100%;
+    min-width: 100px;
+    margin-right: 20px;
+    justify-content: flex-start;
+
+    :last-child {
+        margin-right: 0;
+    }
+`
+
+const StyledVTree = styled(SitemapVTree)`
+    margin-top: 60px;
+`
+
+const ContentVWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+`
+
+const LinksRow = styled(Flex)`
+    flex-direction: column;
+    margin-bottom: ${props => props.last_child === "true" ? 'unset' : "32px"};
+
+    div {
+        margin-top: 8px;
+
+        :first-child {
+            margin-top: 4.2px;            
+        }
+    }
+`
+
+const SitemapContent = ({ children }) => {
+    return (
+        <>
+        <Show.Desktop max_width={"laptopM"}>
+            <Flex direction="column" ai="center">
+            <ContentTitleWrapper size="32px" weight="bold">
+                <Localize
+                    translate_text="Homepage"
+                />
+            </ContentTitleWrapper>
+            <StyledTree />
+            </Flex>
+            <GridWrapper>
+                {children.map((child, idx) => (
+                    <LinksCol key={idx}>
+                        {child}
+                    </LinksCol>
+                ))}
+            </GridWrapper>
+        </Show.Desktop>
+        <Show.Mobile min_width={"laptopM"}>
+            <GridSubWrapper size="74px 200px" style={{justifyContent: 'center'}}>
+                <StyledVTree />
+                <Flex direction="column">
+                    <ContentTitleWrapper size="32px" weight="bold">
+                        <Localize
+                            translate_text="Homepage"
+                        />
+                    </ContentTitleWrapper>
+                    <ContentVWrapper>
+                        {children.map((child, idx) => (
+                            <LinksRow key={idx}>
+                                {child}
+                            </LinksRow>
+                        ))}
+                    </ContentVWrapper>
+                </Flex>
+            </GridSubWrapper>
+        </Show.Mobile>
+        </>
+    )
+}
+
+SitemapContent.propTypes = {
+    children: PropTypes.object
+}
+
 const Sitemap = () => {
     return (
         <Layout>
@@ -79,9 +188,16 @@ const Sitemap = () => {
                     />
                 </HeroTitleWrapper>
             </HeroWrapper>
+            <SitemapContent>
+                <AboutUs />
+                <Trade />
+                <TradeTypes />
+                <Markets />
+                <Legal />
+                <Partner />
+                <Resources />
+            </SitemapContent>
             <ContentWrapper>
-                <DesktopSitemap />
-                <MobileSitemap />
                 <ButtonWrapper type="submit" secondary="true" to={deriv_app_url}>
                         {localize('Start trading now')}
                 </ButtonWrapper>

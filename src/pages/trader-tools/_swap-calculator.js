@@ -30,7 +30,7 @@ import {
 import validation from './_validation'
 import { localize, Localize } from 'components/localization'
 import { Header, QueryImage } from 'components/elements'
-import { Container, Flex } from 'components/containers'
+import { Container, Flex, Show } from 'components/containers'
 import Input from 'components/form/input'
 import device from 'themes/device'
 
@@ -53,22 +53,22 @@ const StyledActionSection = styled(ActionSection)`
 const SwapCalculator = () => {
     const query = graphql`
         query {
-            margin_calc: file(relativePath: { eq: "trade-tools/margin-calc.png" }) {
+            swap_synthetic_formula: file(
+                relativePath: { eq: "trade-tools/swap-synthetic-formula.png" }
+            ) {
                 ...fadeIn
             }
-            margin_formula: file(relativePath: { eq: "trade-tools/margin-formula.png" }) {
+            swap_forex_formula: file(relativePath: { eq: "trade-tools/swap-forex-formula.png" }) {
                 ...fadeIn
             }
-            margin_info: file(relativePath: { eq: "trade-tools/margin-info.png" }) {
+            swap_synthetic_formula_mobile: file(
+                relativePath: { eq: "trade-tools/swap-synthetic-formula-mobile.png" }
+            ) {
                 ...fadeIn
             }
-            swap_calc: file(relativePath: { eq: "trade-tools/synthetic-calc.png" }) {
-                ...fadeIn
-            }
-            swap_formula: file(relativePath: { eq: "trade-tools/synthetic-formula.png" }) {
-                ...fadeIn
-            }
-            swap_forex_formula: file(relativePath: { eq: "trade-tools/forex-formula.png" }) {
+            swap_forex_formula_mobile: file(
+                relativePath: { eq: "trade-tools/swap-forex-formula-mobile.png" }
+            ) {
                 ...fadeIn
             }
         }
@@ -449,7 +449,18 @@ const SwapCalculator = () => {
                                 )}
                             </StyledText>
                             <ImageWrapper>
-                                <QueryImage data={data.swap_formula} alt={'Swap formula'} />
+                                <Show.Desktop>
+                                    <QueryImage
+                                        data={data.swap_synthetic_formula}
+                                        alt={'swap synthetic formula'}
+                                    />
+                                </Show.Desktop>
+                                <Show.Mobile>
+                                    <QueryImage
+                                        data={data.swap_synthetic_formula_mobile}
+                                        alt={'swap synthetic formula mobile'}
+                                    />
+                                </Show.Mobile>
                                 <FormulaText size="14px">
                                     <StyledOl>
                                         <li>
@@ -734,10 +745,18 @@ const SwapCalculator = () => {
                                 )}
                             </StyledText>
                             <ImageWrapper>
-                                <QueryImage
-                                    data={data.swap_forex_formula}
-                                    alt={'Swap forex formula'}
-                                />
+                                <Show.Desktop>
+                                    <QueryImage
+                                        data={data.swap_forex_formula}
+                                        alt={'Swap forex formula'}
+                                    />
+                                </Show.Desktop>
+                                <Show.Mobile>
+                                    <QueryImage
+                                        data={data.swap_forex_formula_mobile}
+                                        alt={'Swap forex formula mobile'}
+                                    />
+                                </Show.Mobile>
                                 <FormulaText size="14px">
                                     <StyledOl>
                                         <li>

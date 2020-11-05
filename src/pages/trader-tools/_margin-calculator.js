@@ -35,29 +35,22 @@ import {
 } from './_style'
 import validation from './_validation'
 import { localize, Localize } from 'components/localization'
-import { Container, Flex } from 'components/containers'
+import { Container, Flex, Show } from 'components/containers'
 import { QueryImage, Dropdown } from 'components/elements'
 import Input from 'components/form/input'
 
 const MarginCalculator = () => {
     const query = graphql`
         query {
-            margin_calc: file(relativePath: { eq: "trade-tools/margin-calc.png" }) {
-                ...fadeIn
-            }
             margin_formula: file(relativePath: { eq: "trade-tools/margin-formula.png" }) {
                 ...fadeIn
             }
             margin_info: file(relativePath: { eq: "trade-tools/margin-info.png" }) {
                 ...fadeIn
             }
-            swap_calc: file(relativePath: { eq: "trade-tools/synthetic-calc.png" }) {
-                ...fadeIn
-            }
-            swap_formula: file(relativePath: { eq: "trade-tools/synthetic-formula.png" }) {
-                ...fadeIn
-            }
-            swap_forex_formula: file(relativePath: { eq: "trade-tools/forex-formula.png" }) {
+            margin_formula_mobile: file(
+                relativePath: { eq: "trade-tools/margin-formula-mobile.png" }
+            ) {
                 ...fadeIn
             }
         }
@@ -381,7 +374,15 @@ const MarginCalculator = () => {
                         )}
                     </StyledText>
                     <ImageWrapper>
-                        <QueryImage data={data.margin_formula} alt={'Margin formula'} />
+                        <Show.Desktop>
+                            <QueryImage data={data.margin_formula} alt={'Margin formula'} />
+                        </Show.Desktop>
+                        <Show.Mobile>
+                            <QueryImage
+                                data={data.margin_formula_mobile}
+                                alt={'Margin formula mobile'}
+                            />
+                        </Show.Mobile>
                         <FormulaText>
                             <StyledOl>
                                 <li>

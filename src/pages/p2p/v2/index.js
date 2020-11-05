@@ -1,15 +1,15 @@
 import React from 'react'
-import Hero from './_hero.js'
-import DP2P from './_dp2p'
-import ExchangeSteps from './_exchange-steps.js'
-import P2PBanner from './_p2pbanner'
-import Numbers from './_numbers'
-import Availability from './_availability'
+import Hero from '../components/_hero'
+import DP2P from '../components/_dp2p'
+import ExchangeSteps from '../components/_exchange-steps'
+import P2PBanner from '../components/_p2pbanner'
+import Numbers from '../components/_numbers'
+import Availability from '../components/_availability'
 import { localize, Localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { SEO } from 'components/containers'
 
-const P2P_CONTENT = [
+const DP2P_CONTENT = [
     {
         title: <Localize translate_text="Save time" />,
         subtitle: <Localize translate_text="Exchange in minutes. Less waiting, more trading." />,
@@ -35,30 +35,30 @@ const P2P_CONTENT = [
     },
 ]
 
-const P2P = () => {
+const DP2P_v2 = () => {
     return (
         <Layout type="p2p" no_live_chat>
             <SEO
-                title={localize('P2P')}
-                description={localize('Hassle-free deposits and withdrawals')}
+                title={localize('DP2P')}
+                description={localize('Faster deposits and withdrawals')}
             />
             <Hero
-                title={localize('Hassle-free deposits and withdrawals')}
+                title={localize('Faster deposits and withdrawals')}
                 content={
-                    <Localize translate_text="Can’t make deposits and withdrawals in your local currency? No problem. Exchange with fellow traders in minutes." />
+                    <Localize translate_text="Waiting too long? With DP2P, it just takes minutes. Spend more time on things that really matter." />
                 }
-                image_name="P2P"
+                image_name="DP2P"
             />
-            <DP2P reverse P2P={P2P_CONTENT} />
+            <DP2P reverse P2P={DP2P_CONTENT} />
             <Numbers />
             <ExchangeSteps />
             <Availability />
             <P2PBanner
-                title={localize('Get hassle-free deposits and withdrawals today')}
-                image_name="P2P"
+                title={localize('Get speedier deposits and withdrawals today')}
+                image_name="DP2P"
             />
         </Layout>
     )
 }
 
-export default WithIntl()(P2P)
+export default WithIntl()(DP2P_v2)

@@ -201,7 +201,6 @@ export const StyledForm = styled(Form)`
 `
 
 export const StyledTextArea = styled(Flex)`
-    margin: 2px;
     width: 80%;
     white-space: nowrap;
     resize: none;
@@ -209,7 +208,7 @@ export const StyledTextArea = styled(Flex)`
     justify-content: flex-start;
     height: 95%;
     border: 0;
-    padding: 2rem;
+    padding: 2.2rem;
     font-size: 2.4rem;
     font-weight: 500;
     color: var(--color-blue-5);
@@ -218,13 +217,14 @@ export const StyledTextArea = styled(Flex)`
     -webkit-text-fill-color: var(--color-blue-5);
     opacity: 1;
     -webkit-opacity: 1;
+    margin: 1px;
 
     @media ${device.tabletL} {
         font-size: 18px;
     }
 
     @media ${device.mobileL} {
-        padding-top: 2.2rem;
+        padding-top: 2.4rem;
         font-size: 16px;
     }
 
@@ -278,26 +278,23 @@ export const SwapActionSection = styled(Flex)`
 `
 
 export const StyledCurrencyLabel = styled.label`
-    position: absolute;
+    margin: 1px;
     pointer-events: none;
     color: var(--color-blue-5);
     font-weight: bold;
     font-size: 2.4rem;
-    right: 20px;
-    top: 25px;
-
+    padding: 2.2rem;
     @media ${device.tabletL} {
-        top: 21px;
         font-size: 18px;
     }
 
     @media ${device.mobileL} {
-        right: 16px;
         font-size: 16px;
+        padding-top: 2.4rem;
     }
 `
 
-export const StyledTextAreaContainer = styled.div`
+export const StyledTextAreaContainer = styled(Flex)`
     position: relative;
     border-radius: 5px;
     box-sizing: border-box;

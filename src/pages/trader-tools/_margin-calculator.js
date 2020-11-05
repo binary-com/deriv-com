@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Formik, Field } from 'formik'
 import { graphql, useStaticQuery } from 'gatsby'
+import styled from 'styled-components'
 import {
     optionItemDefault,
     leverageItemLists,
@@ -34,10 +35,27 @@ import {
     StyledDropdown,
 } from './_style'
 import validation from './_validation'
+import device from 'themes/device'
 import { localize, Localize } from 'components/localization'
 import { Container, Flex, Show } from 'components/containers'
 import { QueryImage, Dropdown } from 'components/elements'
 import Input from 'components/form/input'
+
+const StyledContainer = styled(Container)`
+    @media ${device.tablet} {
+        width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+    }
+`
+
+// const StyledSection = styled(SectionContainer)`
+//     position: relative;
+
+//     @media ${device.tabletL} {
+//         padding: 0;
+//     }
+// `
 
 const MarginCalculator = () => {
     const query = graphql`
@@ -154,7 +172,7 @@ const MarginCalculator = () => {
     }
 
     return (
-        <Container direction="column">
+        <StyledContainer direction="column">
             <StyledTitleHeader as="h2" align="center" mt="8rem" mb="1.2rem">
                 {localize('Margin calculator')}
             </StyledTitleHeader>
@@ -441,7 +459,7 @@ const MarginCalculator = () => {
                     </StyledLinkButton>
                 </LinkWrapper>
             </BottomContent>
-        </Container>
+        </StyledContainer>
     )
 }
 

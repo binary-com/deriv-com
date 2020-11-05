@@ -71,19 +71,21 @@ const StyledFlex = styled(Flex)`
     margin-left: auto;
     margin-right: auto;
     margin-top: 4rem;
+    padding: 1.2rem 0;
     flex-direction: row;
     justify-content: center;
     align-items: center;
 
     @media ${device.tabletS} {
         max-height: 10rem;
-        padding: 1rem 0.5rem 1rem 0;
+        padding: 1.2rem 0.6rem 1.2rem 0;
     }
 
     @media ${device.mobileM} {
         max-height: 12rem;
         border-radius: 2rem;
         margin-bottom: 1rem;
+        padding: 2rem 0.6rem 2.5rem 0;
     }
 
     @media ${device.mobileS} {

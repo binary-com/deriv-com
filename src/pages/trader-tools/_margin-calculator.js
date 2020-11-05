@@ -64,9 +64,21 @@ const MarginCalculator = () => {
     }
 
     const getMargin = (values) => {
-        const { volume, assetPrice, leverage, contractSize } = values
+        const { symbol, volume, assetPrice, leverage, contractSize } = values
+        let margin_formula
+        const STEPINDEX_VALUE = 100
+        const RANGEBREAK100VALUE = 400
+        const RANGEBREAK200VALUE = 800
 
-        const margin_formula = (volume * contractSize * assetPrice) / leverage.display_name
+        if (symbol.name === 'Step Index') {
+            margin_formula = volume * STEPINDEX_VALUE
+        } else if (symbol.name === 'Range Break 100 Index') {
+            margin_formula = volume * RANGEBREAK100VALUE
+        } else if (symbol.name === 'Range Break 200 Index') {
+            margin_formula = volume * RANGEBREAK200VALUE
+        } else {
+            margin_formula = (volume * contractSize * assetPrice) / leverage.display_name
+        }
 
         return toFixed(margin_formula)
     }

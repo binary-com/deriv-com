@@ -467,7 +467,7 @@ export const Offices = () => {
                         <Flex fd="column" max_width="48.6rem" id="rwanda">
                             <OfficeHeader>
                                 <div>
-                                    <Rwanda />
+                                    <img src={Rwanda} alt="rwanda" />
                                 </div>
                                 <Header as="h4" mt="0.8rem" mb="1.6rem">
                                     {localize('Rwanda')}

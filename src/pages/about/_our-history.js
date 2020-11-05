@@ -53,6 +53,9 @@ const query = graphql`
         deriv_laptop: file(relativePath: { eq: "deriv-laptop.png" }) {
             ...fadeIn
         }
+        location_flags: file(relativePath: { eq: "location-flags.png" }) {
+            ...fadeIn
+        }
     }
 `
 const StorySection = styled.section`
@@ -104,12 +107,13 @@ const YearWrapper = styled.div`
         align-items: left;
         max-width: 42.9rem;
         width: auto;
+        margin-bottom: 4rem;
     }
 `
 const ContentWrapper = styled.div`
     width: ${(props) => props.content_width || '38.4rem'};
     padding: 0;
-    margin-left: 1.2rem;
+    margin-left: ${(props) => (props.left ? '1.2rem' : '0.8rem')};
 
     @media ${device.tablet} {
         width: 328px;
@@ -207,8 +211,7 @@ const SVGContainer = styled.div`
 `
 const StyledLine = styled.img`
     position: absolute;
-    height: 93%;
-    width: 20px;
+    height: 102%;
     left: 0;
     top: 0;
 

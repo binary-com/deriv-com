@@ -178,7 +178,7 @@ const NavRight = styled.div`
         }}
     );
 
-    > a {
+    > a:last-child {
         pointer-events: ${(props) => (props.move ? 'visible' : 'none')};
         cursor: ${(props) => (props.move ? 'pointer' : 'default')};
     }

@@ -86,7 +86,7 @@ const StyledText = styled(Text)`
 `
 
 const StyledLinkButton = styled(LinkButton)`
-    padding: 1.4rem 1.6rem;
+    padding: 14px 16px;
     font-size: 14px;
     border: unset;
     max-width: 125px;

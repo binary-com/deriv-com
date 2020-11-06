@@ -2,39 +2,43 @@ import React from 'react'
 import styled, { css } from 'styled-components'
 import { Localize } from 'components/localization'
 // SVG
-import BankTransfer from 'images/svg/payment-bank-transfer.svg'
-import Paytrust from 'images/svg/payment-paytrust.svg'
-import Visa from 'images/svg/payment-visa.svg'
-import MasterCard from 'images/svg/payment-mastercard.svg'
-import Maestro from 'images/svg/payment-maestro.svg'
-import Fasapay from 'images/svg/payment-fasapay.svg'
-import PerfectMoney from 'images/svg/payment-perfect-money.svg'
-import Skrill from 'images/svg/payment-skrill.svg'
-import Neteller from 'images/svg/payment-neteller.svg'
-import Webmoney from 'images/svg/payment-webmoney.svg'
-import Qiwi from 'images/svg/payment-qiwi.svg'
-import PaysafeCard from 'images/svg/payment-paysafe.svg'
-import Jeton from 'images/svg/payment-jeton.svg'
-import Sticpay from 'images/svg/payment-sticpay.svg'
-import Airtm from 'images/svg/payment-airtm.svg'
-import Bitcoin from 'images/svg/payment-bitcoin.svg'
-import Ethereum from 'images/svg/payment-ethereum.svg'
-import Litecoin from 'images/svg/payment-litecoin.svg'
-import Tether from 'images/svg/payment-tether.svg'
-import Help2Pay from 'images/svg/payment-help-pay.svg'
-import DragonPhoenix from 'images/svg/payment-dragon-phoenix.svg'
-import ZingPay from 'images/svg/payment-zing-pay.svg'
-import DragonPay from 'images/svg/payment-dragon-pay.svg'
-import NganLuong from 'images/svg/payment-ngan-luong.svg'
-import Diners from 'images/svg/payment-diners.svg'
-// import Bianance from 'images/svg/payment-binance-usd.svg'
-// import Dai from 'images/svg/payment-multi-collateral-dai.svg'
-// import StasisEuro from 'images/svg/payment-stasis-euro.svg'
-// import Idk from 'images/svg/payment-idk.svg'
-// import Paxos from 'images/svg/payment-paxos-standard.svg'
-// import True from 'images/svg/payment-true-usd.svg'
-import UsdCoin from 'images/svg/payment-usd-coin.svg'
-// import Usdk from 'images/svg/payment-usdk.svg'
+import BankTransfer from 'images/svg/payment-methods/payment-bank-transfer.svg'
+import Paytrust from 'images/svg/payment-methods/payment-paytrust.svg'
+import Visa from 'images/svg/payment-methods/payment-visa.svg'
+import MasterCard from 'images/svg/payment-methods/payment-mastercard.svg'
+import Maestro from 'images/svg/payment-methods/payment-maestro.svg'
+import Fasapay from 'images/svg/payment-methods/payment-fasapay.svg'
+import PerfectMoney from 'images/svg/payment-methods/payment-perfect-money.svg'
+import Skrill from 'images/svg/payment-methods/payment-skrill.svg'
+import Neteller from 'images/svg/payment-methods/payment-neteller.svg'
+import Webmoney from 'images/svg/payment-methods/payment-webmoney.svg'
+import Qiwi from 'images/svg/payment-methods/payment-qiwi.svg'
+import PaysafeCard from 'images/svg/payment-methods/payment-paysafe.svg'
+import Jeton from 'images/svg/payment-methods/payment-jeton.svg'
+import Sticpay from 'images/svg/payment-methods/payment-sticpay.svg'
+import Airtm from 'images/svg/payment-methods/payment-airtm.svg'
+import Bitcoin from 'images/svg/payment-methods/payment-bitcoin.svg'
+import Ethereum from 'images/svg/payment-methods/payment-ethereum.svg'
+import Litecoin from 'images/svg/payment-methods/payment-litecoin.svg'
+import Tether from 'images/svg/payment-methods/payment-tether.svg'
+import Help2Pay from 'images/svg/payment-methods/payment-help-pay.svg'
+import DragonPhoenix from 'images/svg/payment-methods/payment-dragon-phoenix.svg'
+import ZingPay from 'images/svg/payment-methods/payment-zing-pay.svg'
+import DragonPay from 'images/svg/payment-methods/payment-dragon-pay.svg'
+import NganLuong from 'images/svg/payment-methods/payment-ngan-luong.svg'
+import Diners from 'images/svg/payment-methods/payment-diners.svg'
+// import Bianance from 'images/svg/payment-methods/payment-binance-usd.svg'
+// import Dai from 'images/svg/payment-methods/payment-multi-collateral-dai.svg'
+// import StasisEuro from 'images/svg/payment-methods/payment-stasis-euro.svg'
+// import Idk from 'images/svg/payment-methods/payment-idk.svg'
+// import Paxos from 'images/svg/payment-methods/payment-paxos-standard.svg'
+// import True from 'images/svg/payment-methods/payment-true-usd.svg'
+import UsdCoin from 'images/svg/payment-methods/payment-usd-coin.svg'
+// import Usdk from 'images/svg/payment-methods/payment-usdk.svg'
+import Changelly from 'images/svg/payment-methods/payment-changelly.svg'
+// import Wyre from 'images/svg/payment-methods/payment-wyre.svg'
+// import Xanpool from 'images/svg/payment-methods/payment-xanpool.svg'
+import Banxa from 'images/svg/payment-methods/payment-banxa.svg'
 
 const icon_css = css`
     width: 72px;
@@ -141,6 +145,20 @@ const UsdCoinIc = styled.img`
 // const UsdkIc = styled(Usdk)`
 //     ${icon_css}
 // `
+
+const ChangellyIc = styled(Changelly)`
+    ${icon_css}
+`
+// const WyreIc = styled(Wyre)`
+//     ${icon_css}
+// `
+// const XanpoolIc = styled(Xanpool)`
+//     ${icon_css}
+// `
+const BanxaIc = styled(Banxa)`
+    ${icon_css}
+`
+
 const payment_data = [
     {
         name: <Localize translate_text="Bank wire" />,
@@ -605,6 +623,53 @@ const payment_data = [
             //     ),
             //     name: 'eUSDT',
             // },
+        ],
+    },
+    {
+        name: <Localize translate_text="Fiat onramp - Buy crypto on popular exchanges." />,
+        is_fiat_onramp: true,
+        data: [
+            {
+                method: <ChangellyIc />,
+                currencies: 'USD EUR GBP BTC',
+                min_max_deposit: 'USD50',
+                deposit_time: <Localize translate_text="Funds available as soon as confirmed" />,
+                description: (
+                    <Localize translate_text="Your simple access to crypto. Fast and secure way to exchange and purchase 150+ cryptocurrencies. 24/7 live-chat support." />
+                ),
+                name: 'Changelly',
+                reference: 'changelly-payment-method.pdf',
+            },
+            // {
+            //     method: <WyreIc />,
+            //     currencies: 'USD EUR GBP AUD MXN BTC ETH WETH DAI',
+            //     min_max_deposit: <Localize translate_text="No minimum" />,
+            //     deposit_time: <Localize translate_text="Funds available as soon as confirmed" />,
+            //     description: (
+            //         <Localize translate_text="Wyre gives you a secure bridge between fiat currencies and cryptocurrencies." />
+            //     ),
+            //     name: 'Wyre',
+            // },
+            // {
+            //     method: <XanpoolIc />,
+            //     currencies: 'HKD SGD MYR PHP THB INR VND IDR BTC ETH LTC USDT',
+            //     min_max_deposit: <Localize translate_text="No minimum" />,
+            //     deposit_time: <Localize translate_text="Funds available as soon as confirmed" />,
+            //     description: (
+            //         <Localize translate_text="Buy cryptocurrencies in an instant. Enjoy easy, quick, and secure exchanges using your local payment methods." />
+            //     ),
+            //     name: 'Xanpool',
+            // },
+            {
+                method: <BanxaIc />,
+                currencies: 'USD EUR GBP AUD CAD BTC LTC USDT USDC',
+                min_max_deposit: 'USD20',
+                deposit_time: <Localize translate_text="Funds available as soon as confirmed" />,
+                description: (
+                    <Localize translate_text="A fast and secure fiat-to-crypto payment service. Deposit cryptocurrencies from anywhere in the world using credit/debit cards and bank transfers." />
+                ),
+                name: 'Banxa',
+            },
         ],
     },
 ]

@@ -69,7 +69,7 @@ const options = {
     icon: <OptionsLogo dynamic_id="options-desktop" />,
     title: <Localize translate_text="Options" />,
     description: (
-        <Localize translate_text="Earn fixed payouts by predicting an assets price movement within a fixed time." />
+        <Localize translate_text="Earn fixed payouts by predicting an asset's price movement within a fixed time." />
     ),
     link: '/trade-types/options',
     linkTitle: localize('Options'),

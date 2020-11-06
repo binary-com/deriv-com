@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Desktop from 'images/svg/p2p-desktop.svg'
 import Mobile from 'images/svg/p2p-mobile.svg'
 import { localize, Localize } from 'components/localization'
-import { Header, LocalizedLinkText, Text } from 'components/elements'
+import { Header, LocalizedLinkText, SpanLinkText, Text } from 'components/elements'
 import { Flex, SectionContainer } from 'components/containers'
 import Login from 'common/login'
 import device from 'themes/device'
@@ -18,7 +18,7 @@ const Section = styled(SectionContainer)`
     display: flex;
     flex-direction: column;
     padding: 0 12rem 8rem 12rem;
-    max-width: 1600px;
+    max-width: 1440px;
     margin: 0 auto;
     align-items: center;
     justify-content: center;
@@ -131,11 +131,11 @@ const Availability = () => {
                             <Localize
                                 translate_text="1. <0>Log in</0> to your Deriv account. Don’t have one? <1>Sign up</1> for free."
                                 components={[
-                                    <LocalizedLinkText
+                                    <SpanLinkText
                                         size={24}
-                                        to="/"
                                         onClick={handleLogin}
                                         color="red"
+                                        external
                                         key={0}
                                     />,
                                     <LocalizedLinkText
@@ -170,7 +170,15 @@ const Availability = () => {
                             <Localize
                                 translate_text="1. Get the app from the <0>Google Play Store</0>."
                                 components={[
-                                    <LocalizedLinkText size={24} to="/" color="red" key={0} />,
+                                    <LocalizedLinkText
+                                        size={24}
+                                        external="true"
+                                        to="https://play.google.com/store/apps/details?id=com.deriv.dp2p"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        color="red"
+                                        key={0}
+                                    />,
                                 ]}
                             />
                         </StyledText>

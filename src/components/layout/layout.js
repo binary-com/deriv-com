@@ -31,7 +31,15 @@ const clients_country_cookie = new CookieStorage(CLIENTS_COUNTRY_KEY)
 const tracking_status_cookie = new CookieStorage(TRACKING_STATUS_KEY)
 const crypto_config_cookie = new CookieStorage(CRYPTO_CONFIG_KEY)
 
-const Layout = ({ children, type, interim_type, padding_top, no_login_signup, no_live_chat }) => {
+const Layout = ({
+    children,
+    type,
+    interim_type,
+    padding_top,
+    no_login_signup,
+    no_live_chat,
+    is_p2p_v1,
+}) => {
     const [clients_country, setClientCountry] = React.useState(
         clients_country_cookie.get(CLIENTS_COUNTRY_KEY),
     )
@@ -130,7 +138,7 @@ const Layout = ({ children, type, interim_type, padding_top, no_login_signup, no
             FooterNav = <Footer no_language={true} />
             break
         case 'p2p':
-            Navigation = <NavP2P />
+            Navigation = <NavP2P is_p2p_v1={is_p2p_v1} />
             FooterNav = <Copyright />
             break
         default:
@@ -186,6 +194,7 @@ const Layout = ({ children, type, interim_type, padding_top, no_login_signup, no
 Layout.propTypes = {
     children: PropTypes.node.isRequired,
     interim_type: PropTypes.string,
+    is_p2p_v1: PropTypes.bool,
     no_live_chat: PropTypes.bool,
     no_login_signup: PropTypes.bool,
     padding_top: PropTypes.string,

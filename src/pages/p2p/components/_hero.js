@@ -17,7 +17,6 @@ const BackgroundWrapper = styled(Background)`
 const Wrapper = styled(Container)`
     justify-content: space-between;
     background-color: transparent;
-    max-width: 1600px;
     width: 80%;
     height: 700px;
 

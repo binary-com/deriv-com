@@ -16,7 +16,7 @@ import {
 } from './off-canvas-menu'
 import SideTab from './side-tab'
 import Tabs from './default-tab'
-import { Text, LinkText, LocalizedLinkText, Header, BaseElement } from './typography'
+import { Text, LinkText, LocalizedLinkText, Header, BaseElement, SpanLinkText } from './typography'
 import Timeline from './timeline'
 import { Ul, Li } from './lists'
 
@@ -48,6 +48,7 @@ export {
     LinkText,
     LocalizedLinkText,
     Header,
+    SpanLinkText,
     Timeline,
     Ul,
     Li,

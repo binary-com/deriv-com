@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { StyledNav, NavWrapper, LogoLink, Wrapper, NavLeft } from './nav'
@@ -38,7 +39,7 @@ const Line = styled.div`
     background-color: var(--color-white);
 `
 
-export const NavP2P = () => {
+export const NavP2P = ({ is_p2p_v1 }) => {
     const data = useStaticQuery(query)
 
     return (
@@ -47,7 +48,10 @@ export const NavP2P = () => {
                 <StyledNav>
                     <Wrapper>
                         <P2PNavLeft>
-                            <StyledLogoLink to={'/'} aria-label={localize('Home')}>
+                            <StyledLogoLink
+                                to={is_p2p_v1 ? '/p2p/v1' : '/p2p/v2'}
+                                aria-label={localize('Home')}
+                            >
                                 <QueryImage
                                     data={data['deriv']}
                                     alt={localize('Deriv')}
@@ -64,6 +68,10 @@ export const NavP2P = () => {
             </NavWrapper>
         </>
     )
+}
+
+NavP2P.propTypes = {
+    is_p2p_v1: PropTypes.bool,
 }
 
 export default { NavP2P }

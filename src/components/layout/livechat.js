@@ -102,10 +102,8 @@ const LiveChat = ({ LC_API, is_livechat_interactive, setLiveChatInteractive }) =
 
                             if (visibility === 'maximized' && !client_information) {
                                 if (
-                                    !(
-                                        window.LiveChatWidget.get('customer_data').status ==
-                                        'chatting'
-                                    )
+                                    window.LiveChatWidget.get('customer_data').status !==
+                                    'chatting'
                                 ) {
                                     window.LiveChatWidget.call('set_customer_email', ' ')
                                     window.LiveChatWidget.call('set_customer_name', ' ')

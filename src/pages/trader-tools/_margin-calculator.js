@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { Formik, Field } from 'formik'
 import { graphql, useStaticQuery } from 'gatsby'
-import styled from 'styled-components'
 import {
     optionItemDefault,
     leverageItemLists,
@@ -10,52 +9,39 @@ import {
 } from './_underlying-data'
 import {
     StyledText,
-    StyledTitleText,
-    AccountTypeTabItem,
-    WrapContainer,
-    ImageWrapper,
-    LinkWrapper,
-    BottomContent,
+    StyledSection,
+    SectionHeader,
+    SectionSubtitle,
+    ContentContainer,
+    FormWrapper,
+    CalculatorForm,
+    CalculatorHeader,
+    CalculatorLabel,
+    CalculatorOutputContainer,
+    CalculatorOutputField,
+    CalculatorOutputSymbol,
+    CalculatorBody,
+    CalculatorTabItem,
+    CalculatorDropdown,
     InputGroup,
-    StyledLinkButton,
+    ActionSection,
+    CalculateButton,
+    RightContent,
+    RightContentHeader,
+    TextWrapper,
+    ImageWrapper,
     FormulaText,
     StyledOl,
-    StyledFormWrapper,
-    StyledForm,
-    StyledTextArea,
-    StyledButton,
-    StyledLabel,
-    StyledHeader,
-    StyledTitleHeader,
-    CalculatorBody,
-    CalculatorHeader,
-    ActionSection,
-    StyledCurrencyLabel,
-    StyledTextAreaContainer,
-    StyledDropdown,
+    LinkWrapper,
+    BottomContent,
+    BottomText,
+    StyledLinkButton,
 } from './_style'
 import validation from './_validation'
-import device from 'themes/device'
 import { localize, Localize } from 'components/localization'
-import { Container, Flex, Show } from 'components/containers'
+import { Flex, Show } from 'components/containers'
 import { QueryImage, Dropdown } from 'components/elements'
 import Input from 'components/form/input'
-
-const StyledContainer = styled(Container)`
-    @media ${device.tablet} {
-        width: 100%;
-        padding-left: 0;
-        padding-right: 0;
-    }
-`
-
-// const StyledSection = styled(SectionContainer)`
-//     position: relative;
-
-//     @media ${device.tabletL} {
-//         padding: 0;
-//     }
-// `
 
 const MarginCalculator = () => {
     const query = graphql`
@@ -172,19 +158,19 @@ const MarginCalculator = () => {
     }
 
     return (
-        <StyledContainer direction="column">
-            <StyledTitleHeader as="h2" align="center" mt="8rem" mb="1.2rem">
+        <StyledSection direction="column">
+            <SectionHeader as="h2" align="center" mt="6rem" mb="1.2rem">
                 {localize('Margin calculator')}
-            </StyledTitleHeader>
+            </SectionHeader>
 
-            <StyledTitleText as="h5" align="center" mb="4rem" weight="normal">
+            <SectionSubtitle as="h5" align="center" weight="normal">
                 {localize(
                     'Our margin calculator helps you to estimate the margin required to keep your positions open overnight on Deriv MetaTrader 5 (DMT5).',
                 )}
-            </StyledTitleText>
+            </SectionSubtitle>
 
-            <WrapContainer mb="4.0rem">
-                <StyledFormWrapper>
+            <ContentContainer mb="4.0rem">
+                <FormWrapper>
                     <Formik
                         enableReinitialize
                         initialValues={{
@@ -221,29 +207,30 @@ const MarginCalculator = () => {
                             isValid,
                             dirty,
                         }) => (
-                            <StyledForm>
+                            <CalculatorForm>
                                 <CalculatorHeader>
-                                    <StyledLabel htmlFor="message">
+                                    <CalculatorLabel htmlFor="message">
                                         {localize('Margin required')}
-                                    </StyledLabel>
-                                    <StyledTextAreaContainer>
-                                        <StyledTextArea>
+                                    </CalculatorLabel>
+                                    <CalculatorOutputContainer>
+                                        <CalculatorOutputField>
                                             {numberWithCommas(values.margin)}
-                                        </StyledTextArea>
-                                        <StyledCurrencyLabel>
+                                        </CalculatorOutputField>
+                                        <CalculatorOutputSymbol>
                                             {values.marginSymbol}
-                                        </StyledCurrencyLabel>
-                                    </StyledTextAreaContainer>
+                                        </CalculatorOutputSymbol>
+                                    </CalculatorOutputContainer>
                                 </CalculatorHeader>
+
                                 <CalculatorBody>
-                                    <StyledLabel>{localize('Account type')}</StyledLabel>
+                                    <CalculatorLabel>{localize('Account type')}</CalculatorLabel>
                                     <Flex
                                         mb="3rem"
                                         mt="1rem"
                                         jc="space-between"
                                         tablet={{ height: 'unset' }}
                                     >
-                                        <AccountTypeTabItem
+                                        <CalculatorTabItem
                                             active={tab === 'Synthetic'}
                                             onClick={() => {
                                                 onTabClick('Synthetic')
@@ -254,8 +241,8 @@ const MarginCalculator = () => {
                                             <StyledText align="center">
                                                 {localize('Synthetic')}
                                             </StyledText>
-                                        </AccountTypeTabItem>
-                                        <AccountTypeTabItem
+                                        </CalculatorTabItem>
+                                        <CalculatorTabItem
                                             active={tab === 'Financial'}
                                             disabled={tab === 'Financial'}
                                             onClick={() => {
@@ -269,10 +256,10 @@ const MarginCalculator = () => {
                                             <StyledText align="center">
                                                 {localize('Financial')}
                                             </StyledText>
-                                        </AccountTypeTabItem>
+                                        </CalculatorTabItem>
                                     </Flex>
 
-                                    <StyledDropdown
+                                    <CalculatorDropdown
                                         option_list={values.optionList}
                                         label={localize('Symbol')}
                                         default_option={optionItemDefault}
@@ -361,58 +348,65 @@ const MarginCalculator = () => {
                                         data-lpignore="true"
                                     />
                                     <ActionSection>
-                                        <StyledButton
+                                        <CalculateButton
                                             secondary
                                             type="submit"
                                             disabled={!isValid || !dirty}
                                         >
                                             {localize('Calculate')}
-                                        </StyledButton>
+                                        </CalculateButton>
                                     </ActionSection>
                                 </CalculatorBody>
-                            </StyledForm>
+                            </CalculatorForm>
                         )}
                     </Formik>
-                </StyledFormWrapper>
+                </FormWrapper>
 
-                <Flex direction="column" max_width="69rem">
-                    <StyledHeader as="h3" mb="0.8rem">
-                        {localize('How margin is calculated')}
-                    </StyledHeader>
+                <RightContent>
+                    <TextWrapper>
+                        <RightContentHeader as="h3" mb="0.8rem">
+                            {localize('How margin is calculated')}
+                        </RightContentHeader>
 
-                    <StyledText mb="1.6rem">
-                        <Localize
-                            translate_text="The margin required for a contract on DMT5 is calculated based on the formula:<1></1><0> Margin = volume in lots × contract size × asset price/leverage </0>"
-                            components={[<strong key={0} />, <br key={1} />]}
-                        />
-                    </StyledText>
+                        <StyledText mb="1.6rem">
+                            <Localize
+                                translate_text="The margin required for a contract on DMT5 is calculated based on the formula:<1></1><0> Margin = volume in lots × contract size × asset price/leverage </0>"
+                                components={[<strong key={0} />, <br key={1} />]}
+                            />
+                        </StyledText>
 
-                    <StyledText mb="1.6rem">
-                        <Localize translate_text="This gives you the margin requirement in the quote currency for forex pairs, or in the denomination of the underlying asset for other instruments." />
-                    </StyledText>
-                    <StyledText mb="2.4rem">
-                        {localize(
-                            'For instance, if you are trading the USD/CHF forex pair, the margin requirement will be calculated in Swiss Franc (CHF) which is the quote currency. On the other hand, if you are trading Volatility Index 75,  then the margin requirement will be computed in US Dollar (USD), which is the denomination of the underlying asset – Volatility Index 75.',
-                        )}
-                    </StyledText>
+                        <StyledText mb="1.6rem">
+                            <Localize translate_text="This gives you the margin requirement in the quote currency for forex pairs, or in the denomination of the underlying asset for other instruments." />
+                        </StyledText>
+                        <StyledText mb="2.4rem">
+                            {localize(
+                                'For instance, if you are trading the USD/CHF forex pair, the margin requirement will be calculated in Swiss Franc (CHF) which is the quote currency. On the other hand, if you are trading Volatility Index 75,  then the margin requirement will be computed in US Dollar (USD), which is the denomination of the underlying asset – Volatility Index 75.',
+                            )}
+                        </StyledText>
 
-                    <StyledHeader as="h3">{localize('Example calculation')}</StyledHeader>
+                        <RightContentHeader as="h3" mb="0.8rem">
+                            {localize('Example calculation')}
+                        </RightContentHeader>
 
-                    <StyledText mb="1.6rem">
-                        {localize(
-                            'Let’s say you want to trade two lots of EUR/USD with an asset price of 1.10 USD and leverage of 100.',
-                        )}
-                    </StyledText>
+                        <StyledText mb="16px">
+                            {localize(
+                                'Let’s say you want to trade two lots of EUR/USD with an asset price of 1.10 USD and leverage of 100.',
+                            )}
+                        </StyledText>
+                    </TextWrapper>
+
                     <ImageWrapper>
                         <Show.Desktop>
                             <QueryImage data={data.margin_formula} alt={'Margin formula'} />
                         </Show.Desktop>
+
                         <Show.Mobile>
                             <QueryImage
                                 data={data.margin_formula_mobile}
                                 alt={'Margin formula mobile'}
                             />
                         </Show.Mobile>
+
                         <FormulaText>
                             <StyledOl>
                                 <li>
@@ -423,27 +417,30 @@ const MarginCalculator = () => {
                             </StyledOl>
                         </FormulaText>
                     </ImageWrapper>
-                    <StyledText mb="1.6rem" mt="1.6rem">
-                        <Localize
-                            translate_text="So you will require a margin rate of <0>2,200 USD</0> to open the above position."
-                            components={[<strong key={0} />]}
-                        />
-                    </StyledText>
-                    <StyledText>
-                        {localize(
-                            'Note that these are approximate values only and will differ depending on the leverage that is set for your account and the asset you want to trade.',
-                        )}
-                    </StyledText>
-                </Flex>
-            </WrapContainer>
+
+                    <TextWrapper>
+                        <StyledText mb="1.6rem" mt="1.6rem">
+                            <Localize
+                                translate_text="So you will require a margin rate of <0>2,200 USD</0> to open the above position."
+                                components={[<strong key={0} />]}
+                            />
+                        </StyledText>
+                        <StyledText>
+                            {localize(
+                                'Note that these are approximate values only and will differ depending on the leverage that is set for your account and the asset you want to trade.',
+                            )}
+                        </StyledText>
+                    </TextWrapper>
+                </RightContent>
+            </ContentContainer>
 
             <BottomContent direction="column">
-                <StyledText mb="2.4rem">
+                <BottomText mb="2.4rem">
                     <Localize
                         translate_text="To view the asset price, go to Deriv MetaTrader 5 (DMT5), click on the <0>View </0> tab and select<0> Market Watch</0>, then right-click on the symbol you want to trade and select <0>Specification.</0>"
                         components={[<strong key={0} />]}
                     />
-                </StyledText>
+                </BottomText>
 
                 <LinkWrapper>
                     <StyledLinkButton
@@ -459,7 +456,7 @@ const MarginCalculator = () => {
                     </StyledLinkButton>
                 </LinkWrapper>
             </BottomContent>
-        </StyledContainer>
+        </StyledSection>
     )
 }
 

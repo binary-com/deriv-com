@@ -46,7 +46,7 @@ const Item = styled.div`
     }
     @media (max-width: 468px) {
         ${Header} {
-            font-size: 14px;
+            font-size: 16px;
         }
     }
 `

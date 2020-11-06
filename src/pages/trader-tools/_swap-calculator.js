@@ -4,43 +4,40 @@ import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import { optionItemDefault, syntheticItemLists, financialItemLists } from './_underlying-data'
 import {
+    SwapTabSelector,
     StyledText,
-    StyledTitleText,
-    HeaderTabItem,
-    WrapContainer,
-    ImageWrapper,
-    LinkWrapper,
-    BottomContent,
+    StyledSection,
+    SectionHeader,
+    SectionSubtitle,
+    ContentContainer,
+    SwapFormWrapper,
+    CalculatorForm,
+    CalculatorHeader,
+    CalculatorLabel,
+    CalculatorOutputContainer,
+    CalculatorOutputField,
+    CalculatorOutputSymbol,
+    CalculatorBody,
+    CalculatorDropdown,
     InputGroup,
-    StyledLinkButton,
+    ActionSection,
+    CalculateButton,
+    RightContent,
+    RightContentHeader,
+    TextWrapper,
+    ImageWrapper,
     FormulaText,
     StyledOl,
-    StyledFormWrapper,
-    StyledForm,
-    StyledTextArea,
-    StyledButton,
-    StyledLabel,
-    CalculatorHeader,
-    CalculatorBody,
-    ActionSection,
-    StyledCurrencyLabel,
-    StyledTextAreaContainer,
-    StyledDropdown,
+    LinkWrapper,
+    BottomContent,
+    BottomText,
+    StyledLinkButton,
 } from './_style'
 import validation from './_validation'
 import { localize, Localize } from 'components/localization'
-import { Header, QueryImage } from 'components/elements'
-import { Container, Flex, Show } from 'components/containers'
+import { QueryImage } from 'components/elements'
+import { Flex, Show } from 'components/containers'
 import Input from 'components/form/input'
-import device from 'themes/device'
-
-const SwapFormWrapper = styled(StyledFormWrapper)`
-    max-height: 580px;
-    margin-top: 40px;
-    @media ${device.tabletL} {
-        margin-top: 0;
-    }
-`
 
 const StyledInputGroup = styled(InputGroup)`
     margin: 0;
@@ -188,33 +185,36 @@ const SwapCalculator = () => {
     }
 
     return (
-        <Container direction="column">
-            <Header as="h2" align="center" mt="8rem" mb="1.2rem">
+        <StyledSection direction="column">
+            <SectionHeader as="h2" align="center" mt="8rem" mb="1.2rem">
                 {localize('Swap calculator')}
-            </Header>
+            </SectionHeader>
 
-            <StyledTitleText as="h5" align="center" mb="4rem" weight="normal">
+            <SectionSubtitle as="h5" align="center" mb="4rem" weight="normal">
                 {localize(
                     'Our swap calculator helps you to estimate the swap charges required to keep your positions open overnight on Deriv MetaTrader 5 (DMT5).',
                 )}
-            </StyledTitleText>
+            </SectionSubtitle>
 
             <Flex mb="8rem" p="0 1.6rem" tablet={{ mb: '32px', height: 'unset' }}>
-                <HeaderTabItem active={tab === 'Synthetic'} onClick={() => onTabClick('Synthetic')}>
+                <SwapTabSelector
+                    active={tab === 'Synthetic'}
+                    onClick={() => onTabClick('Synthetic')}
+                >
                     <StyledText size="var(--text-size-m)" align="center">
                         {localize('Synthetic indices')}
                     </StyledText>
-                </HeaderTabItem>
-                <HeaderTabItem active={tab === 'Real'} onClick={() => onTabClick('Real')}>
+                </SwapTabSelector>
+                <SwapTabSelector active={tab === 'Real'} onClick={() => onTabClick('Real')}>
                     <StyledText size="var(--text-size-m)" align="center">
                         {localize('Forex and commodities')}
                     </StyledText>
-                </HeaderTabItem>
+                </SwapTabSelector>
             </Flex>
 
             {tab === 'Synthetic' ? (
                 <>
-                    <WrapContainer mb="4.0rem">
+                    <ContentContainer mb="4.0rem">
                         <SwapFormWrapper>
                             <Formik
                                 enableReinitialize
@@ -256,25 +256,23 @@ const SwapCalculator = () => {
                                     isValid,
                                     dirty,
                                 }) => (
-                                    <StyledForm>
+                                    <CalculatorForm>
                                         <CalculatorHeader>
-                                            <StyledLabel htmlFor="message">
+                                            <CalculatorLabel htmlFor="message">
                                                 {localize('Swap charge')}
-                                            </StyledLabel>
-                                            <StyledTextAreaContainer>
-                                                <StyledTextArea
-                                                    as="textarea"
-                                                    id="message"
-                                                    value={numberWithCommas(values.swapCharge)}
-                                                    disabled
-                                                />
-                                                <StyledCurrencyLabel>
+                                            </CalculatorLabel>
+                                            <CalculatorOutputContainer>
+                                                <CalculatorOutputField>
+                                                    {numberWithCommas(values.swapCharge)}
+                                                </CalculatorOutputField>
+                                                <CalculatorOutputSymbol>
                                                     {values.swapChargeSymbol}
-                                                </StyledCurrencyLabel>
-                                            </StyledTextAreaContainer>
+                                                </CalculatorOutputSymbol>
+                                            </CalculatorOutputContainer>
                                         </CalculatorHeader>
+
                                         <CalculatorBody>
-                                            <StyledDropdown
+                                            <CalculatorDropdown
                                                 mb="2.4rem"
                                                 option_list={values.optionList}
                                                 label={localize('Symbol')}
@@ -411,43 +409,47 @@ const SwapCalculator = () => {
                                                 </Field>
                                             </StyledInputGroup>
                                             <StyledActionSection>
-                                                <StyledButton
+                                                <CalculateButton
                                                     secondary
                                                     type="submit"
                                                     disabled={!isValid || !dirty}
                                                 >
                                                     {localize('Calculate')}
-                                                </StyledButton>
+                                                </CalculateButton>
                                             </StyledActionSection>
                                         </CalculatorBody>
-                                    </StyledForm>
+                                    </CalculatorForm>
                                 )}
                             </Formik>
                         </SwapFormWrapper>
 
-                        <Flex direction="column" max_width="69rem">
-                            <Header as="h3" mb="8px">
-                                {localize('How swap charges are calculated')}
-                            </Header>
+                        <RightContent>
+                            <TextWrapper>
+                                <RightContentHeader as="h3" mb="8px">
+                                    {localize('How swap charges are calculated')}
+                                </RightContentHeader>
 
-                            <StyledText size="1.6rem" mb="2rem">
-                                <Localize
-                                    translate_text="For synthetic indices, the swap charge is calculated on an annual basis for long and short positions using the formula:<1></1><0>Swap charge = volume × contract size × asset price × (swap rate/100) /360</0>"
-                                    components={[<strong key={0} />, <br key={1} />]}
-                                />
-                            </StyledText>
+                                <StyledText size="1.6rem" mb="2rem">
+                                    <Localize
+                                        translate_text="For synthetic indices, the swap charge is calculated on an annual basis for long and short positions using the formula:<1></1><0>Swap charge = volume × contract size × asset price × (swap rate/100) /360</0>"
+                                        components={[<strong key={0} />, <br key={1} />]}
+                                    />
+                                </StyledText>
 
-                            <StyledText size="1.6rem" mb="2rem">
-                                <Localize translate_text="This gives you the swap charge in USD." />
-                            </StyledText>
+                                <StyledText size="1.6rem" mb="2rem">
+                                    <Localize translate_text="This gives you the swap charge in USD." />
+                                </StyledText>
 
-                            <Header as="h3">{localize('Example calculation')}</Header>
+                                <RightContentHeader as="h3">
+                                    {localize('Example calculation')}
+                                </RightContentHeader>
 
-                            <StyledText size="1.6rem" mb="2rem">
-                                {localize(
-                                    'Let’s say you want to keep 0.01 lots of Volatility 75 Index with an asset price of 400,000 USD and swap rate of -7.5 open for one night.',
-                                )}
-                            </StyledText>
+                                <StyledText size="1.6rem" mb="2rem">
+                                    {localize(
+                                        'Let’s say you want to keep 0.01 lots of Volatility 75 Index with an asset price of 400,000 USD and swap rate of -7.5 open for one night.',
+                                    )}
+                                </StyledText>
+                            </TextWrapper>
                             <ImageWrapper>
                                 <Show.Desktop>
                                     <QueryImage
@@ -471,14 +473,16 @@ const SwapCalculator = () => {
                                     </StyledOl>
                                 </FormulaText>
                             </ImageWrapper>
-                            <StyledText size="1.6rem" mb="2rem" mt="1.6rem">
-                                <Localize
-                                    translate_text="So you will be required to pay a swap charge of <0>0.83 USD</0> to keep the position open for one night."
-                                    components={[<strong key={0} />]}
-                                />
-                            </StyledText>
-                        </Flex>
-                    </WrapContainer>
+                            <TextWrapper>
+                                <StyledText size="1.6rem" mb="2rem" mt="1.6rem">
+                                    <Localize
+                                        translate_text="So you will be required to pay a swap charge of <0>0.83 USD</0> to keep the position open for one night."
+                                        components={[<strong key={0} />]}
+                                    />
+                                </StyledText>
+                            </TextWrapper>
+                        </RightContent>
+                    </ContentContainer>
 
                     <BottomContent direction="column">
                         <StyledText size="1.6rem" mb="2.4rem">
@@ -508,7 +512,7 @@ const SwapCalculator = () => {
                 </>
             ) : (
                 <>
-                    <WrapContainer mb="2.0rem">
+                    <ContentContainer mb="2.0rem">
                         <SwapFormWrapper>
                             <Formik
                                 enableReinitialize
@@ -550,25 +554,23 @@ const SwapCalculator = () => {
                                     setFieldTouched,
                                     setFieldError,
                                 }) => (
-                                    <StyledForm>
+                                    <CalculatorForm>
                                         <CalculatorHeader>
-                                            <StyledLabel htmlFor="message">
+                                            <CalculatorLabel htmlFor="message">
                                                 {localize('Swap charge')}
-                                            </StyledLabel>
-                                            <StyledTextAreaContainer>
-                                                <StyledTextArea
-                                                    as="textarea"
-                                                    id="message"
-                                                    value={numberWithCommas(values.swapCharge)}
-                                                    disabled
-                                                />
-                                                <StyledCurrencyLabel>
+                                            </CalculatorLabel>
+                                            <CalculatorOutputContainer>
+                                                <CalculatorOutputField>
+                                                    {numberWithCommas(values.swapCharge)}
+                                                </CalculatorOutputField>
+                                                <CalculatorOutputSymbol>
                                                     {values.swapChargeSymbol}
-                                                </StyledCurrencyLabel>
-                                            </StyledTextAreaContainer>
+                                                </CalculatorOutputSymbol>
+                                            </CalculatorOutputContainer>
                                         </CalculatorHeader>
+
                                         <CalculatorBody>
-                                            <StyledDropdown
+                                            <CalculatorDropdown
                                                 mb="2.4rem"
                                                 default_option={optionItemDefault}
                                                 option_list={values.optionList}
@@ -703,47 +705,51 @@ const SwapCalculator = () => {
                                                 </Field>
                                             </StyledInputGroup>
                                             <StyledActionSection>
-                                                <StyledButton
+                                                <CalculateButton
                                                     secondary
                                                     type="submit"
                                                     disabled={!isValid || !dirty}
                                                 >
                                                     {localize('Calculate')}
-                                                </StyledButton>
+                                                </CalculateButton>
                                             </StyledActionSection>
                                         </CalculatorBody>
-                                    </StyledForm>
+                                    </CalculatorForm>
                                 )}
                             </Formik>
                         </SwapFormWrapper>
 
-                        <Flex direction="column" max_width="69rem">
-                            <Header as="h3" mb="8px">
-                                {localize('How swap charges are calculated')}
-                            </Header>
+                        <RightContent direction="column" max_width="69rem">
+                            <TextWrapper>
+                                <RightContentHeader as="h3" mb="8px">
+                                    {localize('How swap charges are calculated')}
+                                </RightContentHeader>
 
-                            <StyledText size="1.6rem" mb="2rem">
-                                <Localize
-                                    translate_text="For forex and commodities, the swap charge is calculated using the formula is:<1></1><0>Swap charge = volume × contract size × point value × swap rate</0>"
-                                    components={[<strong key={0} />, <br key={1} />]}
-                                />
-                            </StyledText>
+                                <StyledText size="1.6rem" mb="2rem">
+                                    <Localize
+                                        translate_text="For forex and commodities, the swap charge is calculated using the formula is:<1></1><0>Swap charge = volume × contract size × point value × swap rate</0>"
+                                        components={[<strong key={0} />, <br key={1} />]}
+                                    />
+                                </StyledText>
 
-                            <StyledText size="1.6rem" mb="2rem">
-                                <Localize translate_text="This gives you the swap charge in the quote currency for forex pairs, or in the denomination of the underlying asset for commodities." />
-                            </StyledText>
+                                <StyledText size="1.6rem" mb="2rem">
+                                    <Localize translate_text="This gives you the swap charge in the quote currency for forex pairs, or in the denomination of the underlying asset for commodities." />
+                                </StyledText>
 
-                            <StyledText size="1.6rem" mb="2rem">
-                                <Localize translate_text="For instance, if you are trading the USD/JPY forex pair, the swap charge will be computed in Japanese Yen (JPY) which is the quote currency. On the other hand, if you are trading oil,  then the swap charge will be computed in US Dollar (USD), which is the denomination of the underlying asset – oil." />
-                            </StyledText>
+                                <StyledText size="1.6rem" mb="2rem">
+                                    <Localize translate_text="For instance, if you are trading the USD/JPY forex pair, the swap charge will be computed in Japanese Yen (JPY) which is the quote currency. On the other hand, if you are trading oil,  then the swap charge will be computed in US Dollar (USD), which is the denomination of the underlying asset – oil." />
+                                </StyledText>
 
-                            <Header as="h3">{localize('Example calculation')}</Header>
+                                <RightContentHeader as="h3">
+                                    {localize('Example calculation')}
+                                </RightContentHeader>
 
-                            <StyledText size="1.6rem" mb="2rem">
-                                {localize(
-                                    'Let’s say you want to keep two lots of EUR/USD with a point value of 0.00001 and swap rate of -0.12 open for one night.',
-                                )}
-                            </StyledText>
+                                <StyledText size="1.6rem" mb="2rem">
+                                    {localize(
+                                        'Let’s say you want to keep two lots of EUR/USD with a point value of 0.00001 and swap rate of -0.12 open for one night.',
+                                    )}
+                                </StyledText>
+                            </TextWrapper>
                             <ImageWrapper>
                                 <Show.Desktop>
                                     <QueryImage
@@ -777,22 +783,24 @@ const SwapCalculator = () => {
                                     </StyledOl>
                                 </FormulaText>
                             </ImageWrapper>
-                            <StyledText size="1.6rem" mt="1.6rem">
-                                <Localize
-                                    translate_text="So you will be required to pay a swap charge of <0>0.24 USD</0> to keep the position open for one night."
-                                    components={[<strong key={0} />]}
-                                />
-                            </StyledText>
-                        </Flex>
-                    </WrapContainer>
+                            <TextWrapper>
+                                <StyledText size="1.6rem" mt="1.6rem">
+                                    <Localize
+                                        translate_text="So you will be required to pay a swap charge of <0>0.24 USD</0> to keep the position open for one night."
+                                        components={[<strong key={0} />]}
+                                    />
+                                </StyledText>
+                            </TextWrapper>
+                        </RightContent>
+                    </ContentContainer>
 
                     <BottomContent direction="column">
-                        <StyledText size="1.6rem" mb="2.4rem" mt="2.4rem">
+                        <BottomText size="1.6rem" mb="2.4rem" mt="2.4rem">
                             <Localize
                                 translate_text="To view the swap rate and digits of the asset, go to Deriv MetaTrader 5 (DMT5), click on the View tab and select Market Watch, then right-click on the symbol you want to trade and select Specification. click on the <0>View </0> tab and select<0> Market Watch</0>, then right-click on the symbol you want to trade and select <0>Specification.</0>"
                                 components={[<strong key={0} />]}
                             />
-                        </StyledText>
+                        </BottomText>
 
                         <StyledText size="1.6rem" mb="2.4rem">
                             <Localize translate_text="You can derive the point value from the current digits of the asset. Typically, if the digit is 3, then the point value will be 0.001. If the digit is 5, then the point value will be 0.00001, and so on." />
@@ -814,7 +822,7 @@ const SwapCalculator = () => {
                     </BottomContent>
                 </>
             )}
-        </Container>
+        </StyledSection>
     )
 }
 

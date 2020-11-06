@@ -17,12 +17,11 @@ const Row = styled.div`
 const Section = styled(SectionContainer)`
     display: flex;
     flex-direction: column;
-    padding: 8rem 12rem;
+    padding: 0 12rem 8rem 12rem;
     max-width: 1600px;
     margin: 0 auto;
     align-items: center;
     justify-content: center;
-    box-shadow: inset 0 1px 0 0 var(--color-grey-8);
 
     @media ${device.tablet} {
         padding: 40px 16px;
@@ -56,6 +55,7 @@ const StyledHeader = styled(Header)`
 const StyledCardHeader = styled(Header)`
     font-size: 24px;
     margin-top: 1.6rem;
+    margin-bottom: 4rem;
 
     @media ${device.mobileL} {
         font-size: 20px;

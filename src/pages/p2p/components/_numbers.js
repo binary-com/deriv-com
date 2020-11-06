@@ -13,7 +13,7 @@ const content = [
     },
     {
         header: <Localize translate_text="USD500k+" />,
-        text: <Localize translate_text="exchange to date" />,
+        text: <Localize translate_text="exchanged to date" />,
     },
 ]
 

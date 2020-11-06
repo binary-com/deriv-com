@@ -10,20 +10,20 @@ import device from 'themes/device.js'
 import { Background } from 'components/elements/background-image'
 
 const Wrapper = styled(Container)`
-    padding-left: 16rem;
+    padding-left: 8rem;
     height: 34rem;
     justify-content: flex-start;
     background-color: transparent;
 
-    @media ${device.laptopM} {
-        padding-left: 80px;
-    }
     @media ${device.tabletL} {
         justify-content: center;
         align-items: flex-start;
         height: 402px;
         padding-left: 0;
         padding-right: 0;
+    }
+    @media ${device.laptopM} {
+        padding-left: 80px;
     }
     @media ${device.tabletS} {
         height: unset;
@@ -34,7 +34,7 @@ const Wrapper = styled(Container)`
     }
 `
 const TryButton = styled(LinkButton)`
-    padding: 1.4rem 1.6rem;
+    padding: 14px 16px;
     width: 125px;
     font-size: 14px;
     margin-top: 2.4rem;
@@ -120,9 +120,11 @@ const P2PBanner = ({ title }) => {
                             </StyledHeader>
                             <TryButton
                                 secondary="true"
-                                external
-                                is_deriv_app_link
                                 to="/cashier/P2P"
+                                external="true"
+                                is_deriv_app_link
+                                target="_blank"
+                                rel="noopener noreferrer"
                             >
                                 {localize('Try DP2P now')}
                             </TryButton>
@@ -142,9 +144,11 @@ const P2PBanner = ({ title }) => {
                             </StyledHeader>
                             <TryButton
                                 secondary="true"
-                                external
-                                is_deriv_app_link
                                 to="/cashier/P2P"
+                                external="true"
+                                is_deriv_app_link
+                                target="_blank"
+                                rel="noopener noreferrer"
                             >
                                 {localize('Try P2P now')}
                             </TryButton>
@@ -157,10 +161,7 @@ const P2PBanner = ({ title }) => {
 }
 
 P2PBanner.propTypes = {
-    content: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-    data: PropTypes.object.isRequired,
     image_name: PropTypes.string,
-    is_mobile: PropTypes.bool,
     title: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
 }
 

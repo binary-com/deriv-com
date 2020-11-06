@@ -137,7 +137,7 @@ const StyledHeader = styled(Header)`
 `
 
 const TryButton = styled(LinkButton)`
-    padding: 1.4rem 1.6rem;
+    padding: 14px 16px;
     width: 125px;
     font-size: 14px;
     margin-top: 3.2rem;
@@ -178,7 +178,14 @@ const Hero = ({ title, content }) => {
                     <HeroContent>
                         <Header as="h1">{content}</Header>
                     </HeroContent>
-                    <TryButton secondary="true" external is_deriv_app_link to="/cashier/P2P">
+                    <TryButton
+                        secondary="true"
+                        to="/cashier/P2P"
+                        external="true"
+                        is_deriv_app_link
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
                         {localize('Try DP2P now')}
                     </TryButton>
                 </InformationWrapper>
@@ -196,14 +203,8 @@ const Hero = ({ title, content }) => {
 }
 
 Hero.propTypes = {
-    background_alt: PropTypes.string,
-    background_image_name: PropTypes.string,
     content: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-    go_to_live_demo: PropTypes.bool,
     image_name: PropTypes.string,
-    is_mobile: PropTypes.bool,
-    join_us_for_free: PropTypes.bool,
-    Logo: PropTypes.func,
     title: PropTypes.string,
 }
 

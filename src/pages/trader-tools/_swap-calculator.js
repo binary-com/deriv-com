@@ -440,7 +440,7 @@ const SwapCalculator = () => {
                                     <Localize translate_text="This gives you the swap charge in USD." />
                                 </StyledText>
 
-                                <RightContentHeader as="h3">
+                                <RightContentHeader as="h3" mb="0.8rem">
                                     {localize('Example calculation')}
                                 </RightContentHeader>
 
@@ -485,12 +485,12 @@ const SwapCalculator = () => {
                     </ContentContainer>
 
                     <BottomContent direction="column">
-                        <StyledText size="1.6rem" mb="2.4rem">
+                        <BottomText size="1.6rem" mb="2.4rem">
                             <Localize
                                 translate_text="To view the asset price and swap rate, go to Deriv MetaTrader 5 (DMT5), click on the <0>View </0> tab and select<0> Market Watch</0>, then right-click on the symbol you want to trade and select <0>Specification.</0>"
                                 components={[<strong key={0} />]}
                             />
-                        </StyledText>
+                        </BottomText>
 
                         <LinkWrapper>
                             {
@@ -740,7 +740,7 @@ const SwapCalculator = () => {
                                     <Localize translate_text="For instance, if you are trading the USD/JPY forex pair, the swap charge will be computed in Japanese Yen (JPY) which is the quote currency. On the other hand, if you are trading oil,  then the swap charge will be computed in US Dollar (USD), which is the denomination of the underlying asset – oil." />
                                 </StyledText>
 
-                                <RightContentHeader as="h3">
+                                <RightContentHeader as="h3" mb="0.8rem">
                                     {localize('Example calculation')}
                                 </RightContentHeader>
 
@@ -795,16 +795,16 @@ const SwapCalculator = () => {
                     </ContentContainer>
 
                     <BottomContent direction="column">
-                        <BottomText size="1.6rem" mb="2.4rem" mt="2.4rem">
+                        <BottomText mb="2.4rem" mt="2.4rem">
                             <Localize
                                 translate_text="To view the swap rate and digits of the asset, go to Deriv MetaTrader 5 (DMT5), click on the View tab and select Market Watch, then right-click on the symbol you want to trade and select Specification. click on the <0>View </0> tab and select<0> Market Watch</0>, then right-click on the symbol you want to trade and select <0>Specification.</0>"
                                 components={[<strong key={0} />]}
                             />
                         </BottomText>
 
-                        <StyledText size="1.6rem" mb="2.4rem">
+                        <BottomText mb="2.4rem">
                             <Localize translate_text="You can derive the point value from the current digits of the asset. Typically, if the digit is 3, then the point value will be 0.001. If the digit is 5, then the point value will be 0.00001, and so on." />
-                        </StyledText>
+                        </BottomText>
 
                         <LinkWrapper>
                             <StyledLinkButton

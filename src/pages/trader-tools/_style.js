@@ -274,7 +274,12 @@ export const TextWrapper = styled.div`
 `
 
 export const ImageWrapper = styled.div`
+    padding-left: 16px;
     max-width: 650px;
+
+    @media ${device.laptop} {
+        padding-left: 0;
+    }
 `
 
 export const FormulaText = styled.div`

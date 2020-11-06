@@ -11,7 +11,7 @@ const FlexText = styled(LinkText)`
     width: 26%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
 
     & > svg {
         margin-right: 0.8rem;
@@ -22,16 +22,16 @@ const FlexText = styled(LinkText)`
     @media ${device.tabletS} {
         width: 80%;
         justify-content: flex-start;
-        padding-left: 16rem;
+        padding-left: 15rem;
     }
-    @media ${device.mobileL} {
-        padding-left: 10rem;
+    @media (max-width: 500px) {
+        padding-left: 8.5rem;
     }
     @media ${device.mobileM} {
-        padding-left: 8rem;
+        padding-left: 6rem;
     }
     @media ${device.mobileS} {
-        padding-left: 6rem;
+        padding-left: 4.5rem;
     }
 `
 
@@ -47,16 +47,21 @@ const FlexText_Pillar = styled(LinkText)`
 const EdgeFlex = styled(Flex)`
     flex-wrap: wrap;
     justify-content: flex-start;
+    margin-left: 5%;
 
     /* Edge does not support space-evenly */
     @supports (-ms-ime-align: auto) {
         justify-content: space-around;
     }
+    @media ${device.laptopM} {
+        margin-left: 9%;
+    }
+    @media ${device.tabletL} {
+        margin-left: 18%;
+    }
     @media ${device.tabletS} {
         flex-direction: column;
-    }
-    @media ${device.mobileL} {
-        align-content: center;
+        margin-left: 10%;
     }
 `
 
@@ -173,7 +178,7 @@ const DocumentAccordion = () => {
                         'These documents provide you with key information about our investment products. This information is required by law to help you understand the nature, risks, costs, potential gains, and losses of these products and to help you compare them with other products.',
                     )}
                 </Text>
-                <Flex ai="center" jc="center">
+                <Flex>
                     <EdgeFlex mt="1.8rem">
                         <FlexText
                             color="red"
@@ -206,6 +211,16 @@ const DocumentAccordion = () => {
                         >
                             <PDFIcon />
                             <span>{localize('Cryptocurrency')}</span>
+                        </FlexText>
+                        <FlexText
+                            color="red"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            href="/regulatory/kid_deriv_multipliers.pdf"
+                            m="1.6rem 2.4rem"
+                        >
+                            <PDFIcon />
+                            <span>{localize('Multipliers')}</span>
                         </FlexText>
                     </EdgeFlex>
                 </Flex>

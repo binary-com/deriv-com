@@ -35,8 +35,7 @@ export const SectionSubtitle = styled(Text)`
 
 export const SwapTabSelector = styled(Flex)`
     padding: 2.4rem 4rem;
-    max-width: 35rem;
-    width: 100%;
+    width: 35rem;
     height: 8.4rem;
     border-radius: 4px;
     border: solid 1px rgba(51, 51, 51, 0.1);
@@ -60,6 +59,7 @@ export const SwapTabSelector = styled(Flex)`
               `}
 
     @media ${device.mobileL} {
+        width: 164px;
         padding: 12px 24px;
     }
 `

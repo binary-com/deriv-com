@@ -26,7 +26,7 @@ const Wrapper = styled(Container)`
         justify-content: center;
     }
     @media ${device.mobileM} {
-        height: 75rem;
+        height: 678px;
     }
 `
 
@@ -103,10 +103,11 @@ const HeroContent = styled(Flex)`
             font-size: 16px;
         }
     }
-    @media ${device.mobileM} {
+    @media ${device.mobileL} {
         ${Header} {
-            font-size: 14px;
-            line-height: 2.8rem;
+            font-size: 20px;
+            line-height: 25px;
+            margin-top: 16px;
         }
     }
 `
@@ -125,13 +126,12 @@ const StyledHeader = styled(Header)`
     @media ${device.tabletL} {
         margin-top: 2rem;
         width: 45rem;
-        font-size: 4.5rem;
+        font-size: 40px;
         line-height: 6rem;
     }
     @media ${device.mobileL} {
         width: 250px;
-        font-size: 24px;
-        line-height: 4.5rem;
+        line-height: 50px;
     }
 `
 
@@ -140,6 +140,7 @@ const TryButton = styled(LinkButton)`
     width: 125px;
     font-size: 14px;
     margin-top: 3.2rem;
+    margin-bottom: 40px;
     border: unset;
 
     @media ${device.mobileL} {
@@ -148,8 +149,9 @@ const TryButton = styled(LinkButton)`
         white-space: nowrap;
         margin-bottom: 2rem;
     }
-    @media ${device.mobileM} {
-        margin-bottom: 4rem;
+    @media ${device.mobileL} {
+        margin-top: 24px;
+        margin-bottom: 40px;
     }
 `
 

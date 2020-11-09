@@ -25,7 +25,7 @@ const Wrapper = styled(Container)`
     @media ${device.laptopM} {
         padding-left: 80px;
     }
-    @media ${device.tabletS} {
+    @media ${device.tabletL} {
         height: unset;
         padding: 0 16px 40px 16px;
     }

@@ -43,7 +43,7 @@ const YourControl = () => {
                     mobile_columns="1fr"
                 >
                     <Card>
-                        <Comission />
+                        <img src={Comission} alt="comission" />
                         <CardText>
                             {localize(
                                 'Determine your commission per transaction, subject to our established thresholds.',
@@ -51,17 +51,17 @@ const YourControl = () => {
                         </CardText>
                     </Card>
                     <Card>
-                        <OpenAccount />
+                        <img src={OpenAccount} alt="open account" />
                         <CardText>{localize('Open an agency account with just $200.')}</CardText>
                     </Card>
                     <Card>
-                        <WithdrawDeposit />
+                        <img src={WithdrawDeposit} alt="withdraw deposit" />
                         <CardText>
                             {localize('Perform multiple deposits and withdrawals per day.')}
                         </CardText>
                     </Card>
                     <Card>
-                        <CloseAccount />
+                        <img src={CloseAccount} alt="close account" />
                         <CardText>{localize('Close your account at any time you want.')}</CardText>
                     </Card>
                 </CssGrid>

@@ -53,6 +53,9 @@ const query = graphql`
         deriv_laptop: file(relativePath: { eq: "deriv-laptop.png" }) {
             ...fadeIn
         }
+        location_flags: file(relativePath: { eq: "location-flags.png" }) {
+            ...fadeIn
+        }
     }
 `
 const StorySection = styled.section`
@@ -104,12 +107,13 @@ const YearWrapper = styled.div`
         align-items: left;
         max-width: 42.9rem;
         width: auto;
+        margin-bottom: 4rem;
     }
 `
 const ContentWrapper = styled.div`
     width: ${(props) => props.content_width || '38.4rem'};
     padding: 0;
-    margin-left: 1.2rem;
+    margin-left: ${(props) => (props.left ? '1.2rem' : '0.8rem')};
 
     @media ${device.tablet} {
         width: 328px;
@@ -202,13 +206,13 @@ const LogoDiv = styled.div`
 const SVGContainer = styled.div`
     position: absolute;
     height: 93%;
-    left: 50%;
     width: 22px;
+    left: 50%;
 `
-const StyledLine = styled(StorySVG)`
+const StyledLine = styled.img`
     position: absolute;
-    height: 100%;
-    left: 0;
+    height: 102%;
+    left: -1px;
     top: 0;
 
     @media ${device.tablet} {
@@ -240,7 +244,7 @@ export const OurHistory = (props) => {
                 </Header>
             </Show.Desktop>
             <SVGContainer>
-                <StyledLine />
+                <StyledLine src={StorySVG} alt="story svg" />
             </SVGContainer>
             {Stories.map((story, idx) => (
                 <Story key={idx} bgColor={story.bgColor}>

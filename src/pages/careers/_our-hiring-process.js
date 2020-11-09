@@ -87,7 +87,7 @@ const Process = ({ title, description, style }) => (
     </ProcessWrapper>
 )
 
-const StyledCareer1 = styled(Career1)`
+const StyledCareer1 = styled.img`
     margin-left: 6.4rem;
     margin-right: 4rem;
 
@@ -96,7 +96,7 @@ const StyledCareer1 = styled(Career1)`
     }
 `
 
-const StyledCareer2 = styled(Career2)`
+const StyledCareer2 = styled.img`
     margin-left: 4rem;
     margin-right: 6.4rem;
 
@@ -105,7 +105,7 @@ const StyledCareer2 = styled(Career2)`
     }
 `
 
-const StyledCareer3 = styled(Career3)`
+const StyledCareer3 = styled.img`
     margin-left: 6.4rem;
     margin-right: 4rem;
 
@@ -114,7 +114,7 @@ const StyledCareer3 = styled(Career3)`
     }
 `
 
-const StyledCareer4 = styled(Career4)`
+const StyledCareer4 = styled.img`
     margin-left: 4rem;
     margin-right: 6.4rem;
 
@@ -123,7 +123,7 @@ const StyledCareer4 = styled(Career4)`
     }
 `
 
-const DownwardsRight1 = styled(DownwardsRight)`
+const DownwardsRight1 = styled.img`
     margin-left: 43.5%;
     margin-top: -6.5%;
 
@@ -132,7 +132,7 @@ const DownwardsRight1 = styled(DownwardsRight)`
     }
 `
 
-const DownwardsRight2 = styled(DownwardsRight)`
+const DownwardsRight2 = styled.img`
     margin-left: 43.5%;
     margin-top: -9.5%;
 
@@ -141,7 +141,7 @@ const DownwardsRight2 = styled(DownwardsRight)`
     }
 `
 
-const DownwardsLeft1 = styled(DownwardsLeft)`
+const DownwardsLeft1 = styled.img`
     margin-left: 49%;
     margin-top: -6%;
 
@@ -231,7 +231,7 @@ const OurHiringProcess = () => (
                         right
                     />
                     <SubResponsiveFlex1 direction="row" justify="unset">
-                        <StyledCareer1 />
+                        <StyledCareer1 src={Career1} alt="career1" />
                         <Process
                             title={'Apply'}
                             description={
@@ -241,7 +241,7 @@ const OurHiringProcess = () => (
                         />
                     </SubResponsiveFlex1>
                 </ResponsiveFlex1>
-                <DownwardsRight1 />
+                <DownwardsRight1 src={DownwardsRight} alt="downwards right" />
                 <ResponsiveFlex2 direction="row" ml="2.4rem" mt="1rem" width="unset">
                     <SubResponsiveFlex2 direction="row" width="unset">
                         <Process
@@ -251,7 +251,7 @@ const OurHiringProcess = () => (
                             }
                             style={{ maxWidth: '38.4rem' }}
                         />
-                        <StyledCareer2 />
+                        <StyledCareer2 src={Career2} alt="career2" />
                     </SubResponsiveFlex2>
                     <TipsCard
                         content={
@@ -260,7 +260,7 @@ const OurHiringProcess = () => (
                         style={{ maxWidth: '35.7rem', marginTop: '2.3rem' }}
                     />
                 </ResponsiveFlex2>
-                <DownwardsLeft1 />
+                <DownwardsLeft1 src={DownwardsLeft} alt="downwards left" />
                 <ResponsiveFlex3 direction="row" mt="2rem">
                     <TipsCard
                         content={
@@ -270,7 +270,7 @@ const OurHiringProcess = () => (
                         style={{ marginTop: '4.7rem', maxWidth: '35.6rem' }}
                     />
                     <SubResponsiveFlex3 direction="row">
-                        <StyledCareer3 />
+                        <StyledCareer3 src={Career3} alt="career3" />
                         <Process
                             title={'Interview'}
                             description={
@@ -280,7 +280,7 @@ const OurHiringProcess = () => (
                         />
                     </SubResponsiveFlex3>
                 </ResponsiveFlex3>
-                <DownwardsRight2 />
+                <DownwardsRight2 src={DownwardsRight} alt="downwards right 2" />
                 <ResponsiveFlex4 direction="row" mt="1.6rem" width="unset">
                     <SubResponsiveFlex4 direction="row" width="unset">
                         <Process
@@ -290,7 +290,7 @@ const OurHiringProcess = () => (
                             }
                             style={{ maxWidth: '38.4rem' }}
                         />
-                        <StyledCareer4 />
+                        <StyledCareer4 src={Career4} alt="career4" />
                     </SubResponsiveFlex4>
                     <TipsCard
                         content={

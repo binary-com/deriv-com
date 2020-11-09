@@ -1,4 +1,5 @@
 import React from 'react'
+import Loadable from '@loadable/component'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Footer from './footer'
@@ -6,12 +7,13 @@ import Copyright from './copyright'
 import { Nav, NavStatic, NavPartners, NavInterim } from './nav'
 import { NavCareers } from './nav-careers'
 import { LocationProvider } from './location-context'
-import LiveChat from './livechat'
 import EURedirect, { useModal } from 'components/custom/_eu-redirect-modal.js'
 import CookieBanner from 'components/custom/cookie-banner'
 import { CookieStorage } from 'common/storage'
 import { isBrowser } from 'common/utility'
 import { DerivStore } from 'store'
+
+const LiveChat = Loadable(() => import('./livechat'))
 
 const Main = styled.main`
     padding-top: ${(props) => props.padding_top || '7rem'};

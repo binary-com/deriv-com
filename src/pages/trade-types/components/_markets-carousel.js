@@ -52,7 +52,7 @@ Item.propTypes = {
 }
 
 const MarketsCarousel = ({ children, ...props }) => {
-    const carsouel_props = {
+    const carousel_props = {
         options: {
             align: 'start',
             containScroll: 'trimSnaps',
@@ -76,7 +76,7 @@ const MarketsCarousel = ({ children, ...props }) => {
         <>
             <Wrapper>
                 <Background {...props}>
-                    <Carousel {...carsouel_props}>{children.map((child) => child)}</Carousel>
+                    <Carousel {...carousel_props}>{children.map((child) => child)}</Carousel>
                 </Background>
             </Wrapper>
             <Show.Mobile min_width={'bp680'}>

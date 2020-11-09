@@ -6,7 +6,7 @@ import { localize } from 'components/localization'
 
 const ThingsInMind = () => {
     return (
-        <SectionContainer padding="0 0 4rem">
+        <SectionContainer padding="4rem 0 4rem">
             <SmallContainer fd="column" jc="flex-start">
                 <Header as="h3" mb="3.2rem">
                     {localize('Things to keep in mind when trading multipliers')}

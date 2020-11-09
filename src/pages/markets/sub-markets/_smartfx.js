@@ -8,7 +8,7 @@ import { AUDINDEX, EURINDEX, GBPINDEX, USDINDEX } from 'components/elements/symb
 const Symbol = styled(Flex)`
     width: fit-content;
 
-    svg {
+    img {
         width: 32px;
         height: 32px;
         margin-right: 0.8rem;
@@ -24,19 +24,19 @@ const SmartFX = () => {
     return (
         <>
             <Symbol ai="center">
-                <AUDINDEX />
+                <img src={AUDINDEX} />
                 <Text>{localize('AUD Index')}</Text>
             </Symbol>
             <Symbol ai="center">
-                <EURINDEX />
+                <img src={EURINDEX} />
                 <Text>{localize('EUR Index')}</Text>
             </Symbol>
             <Symbol ai="center">
-                <GBPINDEX />
+                <img src={GBPINDEX} />
                 <Text>{localize('GBP Index')}</Text>
             </Symbol>
             <Symbol ai="center">
-                <USDINDEX />
+                <img src={USDINDEX} />
                 <Text>{localize('USD Index')}</Text>
             </Symbol>
         </>

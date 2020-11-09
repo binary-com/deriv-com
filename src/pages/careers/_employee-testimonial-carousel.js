@@ -74,7 +74,7 @@ const ImageWrapper = styled.div`
 const QuoteWrapper = styled(Flex)`
     position: relative;
 
-    svg {
+    img {
         position: absolute;
         right: 15px;
         top: 16px;
@@ -97,7 +97,7 @@ const EmployeeSlide = ({ quote, img_path, img_alt, name }) => {
                         </ImageWrapper>
                     </Flex>
                     <QuoteWrapper direction="column">
-                        <QuoteMark />
+                        <img src={QuoteMark} alt="quotemark" />
                         <QuoteText as="blockquote">{quote}</QuoteText>
                         <Text weight="bold">{name}</Text>
                     </QuoteWrapper>

@@ -56,7 +56,12 @@ const SecureAccount = () => {
                 <Ul jc="center" ai="center">
                     <Li>
                         <div>
-                            <DifferentPassword width="64" height="64" />
+                            <img
+                                src={DifferentPassword}
+                                alt="diff password"
+                                width="64"
+                                height="64"
+                            />
                         </div>
                         <ResponsiveBox ml="1.6rem">
                             <Text>
@@ -68,7 +73,7 @@ const SecureAccount = () => {
                     </Li>
                     <Li>
                         <div>
-                            <SecureBrowser width="64" height="64" />
+                            <img src={SecureBrowser} alt="secure browser" width="64" height="64" />
                         </div>
                         <ResponsiveBox ml="1.6rem">
                             <Text>
@@ -80,7 +85,7 @@ const SecureAccount = () => {
                     </Li>
                     <Li>
                         <div>
-                            <PaymentMethod width="64" height="64" />
+                            <img src={PaymentMethod} alt="payment method" width="64" height="64" />
                         </div>
                         <ResponsiveBox ml="1.6rem">
                             <Text>
@@ -92,7 +97,12 @@ const SecureAccount = () => {
                     </Li>
                     <Li>
                         <div>
-                            <InstallAntivirus width="64" height="64" />
+                            <img
+                                src={InstallAntivirus}
+                                alt="install latest antivirus"
+                                width="64"
+                                height="64"
+                            />
                         </div>
                         <ResponsiveBox ml="1.6rem">
                             <Text>

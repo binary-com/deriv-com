@@ -60,7 +60,7 @@ const TradeTypeSlide = ({ icon, title, description, link, linkTitle }) => {
                             <Text weight="bold" mr="0.8rem" color="red" size="16px">
                                 {localize('Learn more')}{' '}
                             </Text>
-                            <Arrow />
+                            <img src={Arrow} alt="arrow" />
                         </CustomLinkWrap>
                     </Flex>
                 </TradeTypeCard>
@@ -90,7 +90,7 @@ const options = {
     icon: <OptionsLogo dynamic_id="options-mobile" />,
     title: <Localize translate_text="Options" />,
     description: (
-        <Localize translate_text="Earn fixed payouts by predicting an assets price movement within a fixed time." />
+        <Localize translate_text="Earn fixed payouts by predicting an asset's price movement within a fixed time." />
     ),
     link: '/trade-types/options',
     linkTitle: localize('Options'),

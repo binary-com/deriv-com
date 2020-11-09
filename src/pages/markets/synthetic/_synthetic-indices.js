@@ -27,25 +27,25 @@ const StockIndices = ({ simple_step_content }) => {
                     text={
                         <Localize translate_text="High leverage, tight spreads, and 24/7 trading" />
                     }
-                    icon={<SevenTrading />}
+                    icon={<img src={SevenTrading} alt="seven trading" />}
                 ></div>
                 <div
                     text={
                         <Localize translate_text="Free from real-world market and liquidity risks" />
                     }
-                    icon={<MarketandRisk />}
+                    icon={<img src={MarketandRisk} alt="market and risk" />}
                 ></div>
                 <div
                     text={<Localize translate_text="Responsive, easy-to-use platforms" />}
-                    icon={<ResponsiveWebsite />}
+                    icon={<img src={ResponsiveWebsite} alt="responsive website" />}
                 ></div>
                 <div
                     text={<Localize translate_text="Exclusive access to innovative trade types" />}
-                    icon={<ExclusiveTradeType />}
+                    icon={<img src={ExclusiveTradeType} alt="exclusive trade types" />}
                 ></div>
                 <div
                     text={<Localize translate_text="Smart and friendly support, 7 days a week" />}
-                    icon={<FriendlySupport />}
+                    icon={<img src={FriendlySupport} alt="friendly support" />}
                 ></div>
             </WhyTrade>
             <AvailableTrades

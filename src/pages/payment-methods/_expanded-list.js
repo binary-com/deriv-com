@@ -13,13 +13,13 @@ const StyledButton = styled(Button)`
     margin-top: 1.6rem;
 `
 
-const StyledChevron = styled(Chevron)`
+const StyledChevron = styled.img`
     height: 16px;
     width: 16px;
     transform: ${(props) => (props.expanded ? 'inherit' : 'rotate(-180deg)')};
     transition: transform 0.25s ease-out;
 `
-const StyledPDF = styled(PDF)`
+const StyledPDF = styled.img`
     height: 32px;
     width: 32px;
 `
@@ -139,14 +139,14 @@ const ExpandList = ({ data, config, is_crypto }) => {
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            <StyledPDF />
+                            <StyledPDF src={PDF} alt="PDF" />
                         </CenterIcon>
                     ) : (
                         <Text align="center">-</Text>
                     )}
                 </Td>
                 <HoverTd onClick={toggleExpand}>
-                    <StyledChevron expanded={is_expanded} />
+                    <StyledChevron src={Chevron} alt="chevron" expanded={is_expanded} />
                 </HoverTd>
             </Tr>
             <tr>

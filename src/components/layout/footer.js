@@ -204,7 +204,7 @@ const SocialWrapper = styled.div`
     background: var(--color-grey-25);
     margin: 1.6rem 0;
 
-    svg {
+    img {
         margin-left: 1.6rem;
     }
 
@@ -214,7 +214,7 @@ const SocialWrapper = styled.div`
         margin: 3rem 0 1rem;
 
         a:first-child {
-            svg {
+            img {
                 margin-left: 0;
             }
         }
@@ -240,16 +240,16 @@ const Item = styled.div`
     }
 `
 
-const StyledGamstop = styled(Gamstop)`
+const StyledGamstop = styled.img`
     margin-right: 2.4rem;
 `
 const StyledCoatArms = styled.div`
     margin-right: 2.4rem;
 `
-const StyledMgaLogo = styled(MgaLogo)`
+const StyledMgaLogo = styled.img`
     margin-right: 2.4rem;
 `
-const StyledLogo = styled(Logo)`
+const StyledLogo = styled.img`
     width: 18.2rem;
 `
 
@@ -271,7 +271,7 @@ const SocialWrapperComponent = () => {
                 target="_blank"
                 rel="noopener noreferrer"
             >
-                <Facebook />
+                <img src={Facebook} alt="facebook" />
             </LocalizedLink>
             <LocalizedLink
                 external="true"
@@ -279,7 +279,7 @@ const SocialWrapperComponent = () => {
                 target="_blank"
                 rel="noopener noreferrer"
             >
-                <Twitter />
+                <img src={Twitter} alt="twitter" />
             </LocalizedLink>
             <LocalizedLink
                 external="true"
@@ -287,7 +287,7 @@ const SocialWrapperComponent = () => {
                 target="_blank"
                 rel="noopener noreferrer"
             >
-                <Instagram />
+                <img src={Instagram} alt="instagram" />
             </LocalizedLink>
             <LocalizedLink
                 external="true"
@@ -295,7 +295,7 @@ const SocialWrapperComponent = () => {
                 target="_blank"
                 rel="noopener noreferrer"
             >
-                <Linkedin />
+                <img src={Linkedin} alt="linkedin" />
             </LocalizedLink>
         </SocialWrapper>
     )
@@ -320,7 +320,7 @@ const Footer = () => {
             <Container>
                 <StyledGrid>
                     <DerivLogoWrapper>
-                        <StyledLogo />
+                        <StyledLogo src={Logo} alt="logo" />
                         <Show.Eu>
                             <Show.Desktop>
                                 <SocialWrapperComponent />
@@ -771,7 +771,7 @@ const Footer = () => {
                                     </Show.NonEU>
                                     <Show.Eu>
                                         <DisclaimerParagraph no_margin>
-                                            <Localize translate_text="The financial products offered on this website include options and contracts for difference (CFDs) which are considered complex derivatives and may not be suitable for everyone. CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. 71% of retail investor accounts lose money when trading CFDs with Deriv Investments (Europe) Limited. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money. The products mentioned here may be affected by changes in currency exchange rates. If you invest in these products, you may lose some or all of your investment and the value of your investment may fluctuate. You should never invest money that you cannot afford to lose and never trade with borrowed money." />
+                                            <Localize translate_text="The financial products offered on this website include options and contracts for difference (CFDs) which are considered complex derivatives and may not be suitable for everyone. CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. 74% of retail investor accounts lose money when trading CFDs with Deriv Investments (Europe) Limited. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money. The products mentioned here may be affected by changes in currency exchange rates. If you invest in these products, you may lose some or all of your investment and the value of your investment may fluctuate. You should never invest money that you cannot afford to lose and never trade with borrowed money." />
                                         </DisclaimerParagraph>
                                         <DisclaimerParagraph>
                                             <Localize
@@ -797,7 +797,7 @@ const Footer = () => {
                             <Show.Mobile>
                                 <Show.Eu>
                                     <DisclaimerParagraph no_margin>
-                                        <Localize translate_text="The financial products offered on this website include options and contracts for difference (CFDs) which are considered complex derivatives and may not be suitable for everyone. CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. 71% of retail investor accounts lose money when trading CFDs with Deriv Investments (Europe) Limited. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money. The products mentioned here may be affected by changes in currency exchange rates. If you invest in these products, you may lose some or all of your investment and the value of your investment may fluctuate. You should never invest money that you cannot afford to lose and never trade with borrowed money." />
+                                        <Localize translate_text="The financial products offered on this website include options and contracts for difference (CFDs) which are considered complex derivatives and may not be suitable for everyone. CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. 74% of retail investor accounts lose money when trading CFDs with Deriv Investments (Europe) Limited. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money. The products mentioned here may be affected by changes in currency exchange rates. If you invest in these products, you may lose some or all of your investment and the value of your investment may fluctuate. You should never invest money that you cannot afford to lose and never trade with borrowed money." />
                                     </DisclaimerParagraph>
                                     <DisclaimerParagraph>
                                         <Localize
@@ -842,7 +842,7 @@ const Footer = () => {
                         </RiskWarning>
                     </Disclaimer>
                     <Copyright>
-                        <CopyrightIc width="16px" />
+                        <img src={CopyrightIc} alt="copyright ic" width="16px" />
                         <Text ml="0.4rem">{localize('2020 Deriv | All rights reserved')}</Text>
                     </Copyright>
                     <Show.NonEU>
@@ -862,7 +862,7 @@ const Footer = () => {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
-                                    <StyledGamstop />
+                                    <StyledGamstop src={Gamstop} alt="gamstop desktop" />
                                 </LocalizedLink>
 
                                 <LocalizedLink
@@ -886,9 +886,9 @@ const Footer = () => {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
-                                    <StyledMgaLogo />
+                                    <StyledMgaLogo src={MgaLogo} alt="mga logo desktop" />
                                 </LocalizedLink>
-                                <Over18 />
+                                <img src={Over18} alt="over18 desktop" />
                             </EuLogoWrapper>
                         </Show.Desktop>
                         <Show.Mobile>
@@ -915,7 +915,7 @@ const Footer = () => {
                                         target="_blank"
                                         rel="noopener noreferrer"
                                     >
-                                        <StyledMgaLogo />
+                                        <StyledMgaLogo src={MgaLogo} alt="mga logo" />
                                     </LocalizedLink>
                                     <LocalizedLink
                                         external="true"
@@ -923,10 +923,10 @@ const Footer = () => {
                                         target="_blank"
                                         rel="noopener noreferrer"
                                     >
-                                        <StyledGamstop />
+                                        <StyledGamstop src={Gamstop} alt="gamstop mobile" />
                                     </LocalizedLink>
                                 </Flex>
-                                <Over18 />
+                                <img src={Over18} alt="over18 mobile" />
                             </EuLogoWrapper>
                         </Show.Mobile>
                     </Show.Eu>

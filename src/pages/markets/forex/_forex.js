@@ -26,23 +26,23 @@ const Forex = ({ simple_step_content }) => {
             >
                 <div
                     text={<Localize translate_text="High leverage, tight spreads" />}
-                    icon={<Leverage />}
+                    icon={<img src={Leverage} alt="leverage" />}
                 ></div>
                 <div
                     text={<Localize translate_text="Responsive, easy-to-use platforms" />}
-                    icon={<ResponsiveWebsite />}
+                    icon={<img src={ResponsiveWebsite} alt="responsive website" />}
                 ></div>
                 <div
                     text={<Localize translate_text="Advanced charting widgets" />}
-                    icon={<AdvancedCharting />}
+                    icon={<img src={AdvancedCharting} alt="advanced charting widgets" />}
                 ></div>
                 <div
                     text={<Localize translate_text="Convenient deposit and withdrawal methods" />}
-                    icon={<Deposit />}
+                    icon={<img src={Deposit} alt="deposit and withdrawal" />}
                 ></div>
                 <div
                     text={<Localize translate_text="Smart and friendly support, 7 days a week" />}
-                    icon={<FriendlySupport />}
+                    icon={<img src={FriendlySupport} alt="friendly support" />}
                 ></div>
             </WhyTrade>
             <AvailableTrades

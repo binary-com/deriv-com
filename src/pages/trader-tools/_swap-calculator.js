@@ -470,7 +470,7 @@ const SwapCalculator = () => {
                                     <StyledOl>
                                         <li>
                                             <span>
-                                                <Localize translate_text="If the swap rate is positive, your account will be credited with the swap amount. If it is negative, your account will be debited" />
+                                                <Localize translate_text="If the swap rate is positive, your account will be credited with the swap amount. If it is negative, your account will be deducted" />
                                             </span>
                                         </li>
                                     </StyledOl>

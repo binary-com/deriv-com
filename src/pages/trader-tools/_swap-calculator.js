@@ -325,6 +325,7 @@ const SwapCalculator = () => {
                                                                 myInp.focus()
                                                             }}
                                                             maxLength="8"
+                                                            background="white"
                                                         />
                                                     )}
                                                 </Field>
@@ -367,6 +368,7 @@ const SwapCalculator = () => {
                                                                 myInp.focus()
                                                             }}
                                                             maxLength="15"
+                                                            background="white"
                                                         />
                                                     )}
                                                 </Field>
@@ -404,6 +406,7 @@ const SwapCalculator = () => {
                                                                 myInp.focus()
                                                             }}
                                                             maxLength="15"
+                                                            background="white"
                                                         />
                                                     )}
                                                 </Field>
@@ -494,7 +497,12 @@ const SwapCalculator = () => {
 
                         <LinkWrapper>
                             {
-                                <StyledLinkButton tertiary="true" to="/dmt5/">
+                                <StyledLinkButton
+                                    tertiary="true"
+                                    to="https://app.deriv.com/mt5"
+                                    external="true"
+                                    target="_blank"
+                                >
                                     {localize('Go to DMT5 dashboard')}
                                 </StyledLinkButton>
                             }
@@ -621,6 +629,7 @@ const SwapCalculator = () => {
                                                                 myInp.focus()
                                                             }}
                                                             maxLength="8"
+                                                            background="white"
                                                         />
                                                     )}
                                                 </Field>
@@ -663,6 +672,7 @@ const SwapCalculator = () => {
                                                                 myInp.focus()
                                                             }}
                                                             maxLength="15"
+                                                            background="white"
                                                         />
                                                     )}
                                                 </Field>
@@ -700,6 +710,7 @@ const SwapCalculator = () => {
                                                                 myInp.focus()
                                                             }}
                                                             maxLength="15"
+                                                            background="white"
                                                         />
                                                     )}
                                                 </Field>

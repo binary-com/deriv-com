@@ -300,6 +300,7 @@ const MarginCalculator = () => {
                                                         myInp.focus()
                                                     }}
                                                     maxLength="8"
+                                                    background="white"
                                                 />
                                             )}
                                         </Field>
@@ -329,6 +330,7 @@ const MarginCalculator = () => {
                                                         myInp.focus()
                                                     }}
                                                     maxLength="15"
+                                                    background="white"
                                                 />
                                             )}
                                         </Field>

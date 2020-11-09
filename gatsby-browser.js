@@ -66,8 +66,11 @@ export const onInitialClientRender = () => {
 export const onClientEntry = () => {
     NProgress.start()
 
+    const is_gtm_test_domain = window.location.hostname === gtm_test_domain
+    const is_deriv_domain = window.location.hostname.includes('deriv.com')
+
     // Add GTM script for test domain
-    if (!isLocalHost() && window.location.hostname === gtm_test_domain) {
+    if (!isLocalHost() && is_gtm_test_domain) {
         const gtm = document.createElement('script')
         gtm.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-TNX2ZKH'
         gtm.id = 'gtm-test-container'
@@ -82,6 +85,41 @@ export const onClientEntry = () => {
             })(window,document,'script','dataLayer','GTM-TNX2ZKH');
         `
         document.body.appendChild(datalayer)
+    }
+
+    function initGTMOnEvent(event) {
+        initGTM()
+        event.currentTarget.removeEventListener(event.type, initGTMOnEvent)
+    }
+
+    function initGTM() {
+        if (window.gtmDidInit) {
+            return false
+        }
+        window.gtmDidInit = true
+        const script = document.createElement('script')
+        script.type = 'text/javascript'
+        script.async = true
+        script.onload = () => {
+            window.dataLayer.push({
+                event: 'gtm.js',
+                'gtm.start': new Date().getTime(),
+                'gtm.uniqueEventId': 0,
+            })
+        }
+        script.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-NF7884S'
+
+        document.head.appendChild(script)
+    }
+
+    if (is_deriv_domain) {
+        document.addEventListener('DOMContentLoaded', () => {
+            /** init gtm after 3500 seconds - this could be adjusted */
+            setTimeout(initGTM, 3500)
+        })
+        document.addEventListener('scroll', initGTMOnEvent)
+        document.addEventListener('mousemove', initGTMOnEvent)
+        document.addEventListener('touchstart', initGTMOnEvent)
     }
 }
 

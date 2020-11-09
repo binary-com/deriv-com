@@ -10,6 +10,7 @@ import { ReactComponent as Plus } from 'images/svg/plus.svg'
 import device from 'themes/device'
 
 const ThickArrow = styled(ChevronThick)`
+    width: 24px;
     transform: rotate(-180deg);
     transition: transform 0.25s linear;
     ${(props) => (props.expanded === 'true' ? 'transform: inherit;' : '')}

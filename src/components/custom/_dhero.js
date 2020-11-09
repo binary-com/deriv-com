@@ -127,17 +127,14 @@ const LinkWrapper = styled.div`
 const GoToLiveDemo = styled(LinkButton)`
     color: var(--color-white);
     border-color: var(--color-black-5);
-    margin-left: 1.6rem;
     padding: 1.1rem 1.6rem;
     width: auto;
 
     @media ${device.laptopM} {
         font-size: 14px;
-        margin-left: 0;
     }
     @media ${device.mobileL} {
         max-width: 100%;
-        padding: 10px 11px;
         white-space: nowrap;
     }
 `
@@ -145,7 +142,7 @@ const DemoButton = styled(LinkButton)`
     padding: 1.4rem 1.6rem;
     width: auto;
     font-size: 14px;
-    margin-right: 2px;
+    margin-right: 1.6rem;
     border: unset;
 
     @media ${device.mobileL} {
@@ -192,7 +189,6 @@ const InformationWrapper = styled(Flex)`
     }
     @media ${device.mobileM} {
         top: 230px;
-        max-width: 328px;
     }
 `
 

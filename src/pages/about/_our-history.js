@@ -205,14 +205,14 @@ const LogoDiv = styled.div`
 
 const SVGContainer = styled.div`
     position: absolute;
-    height: 100%;
+    height: 93%;
     width: 22px;
     left: 50%;
 `
 const StyledLine = styled.img`
     position: absolute;
     height: 102%;
-    left: 0;
+    left: -1px;
     top: 0;
 
     @media ${device.tablet} {

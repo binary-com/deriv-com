@@ -106,7 +106,7 @@ const ImageWrapper = styled(Box)`
         margin-top: 0;
     }
 `
-export const Hero = () => {
+const Hero = () => {
     const data = useStaticQuery(query)
     const typewriter_text = localize('Trade forex, commodities, synthetic and stock indices')
     const [type_writer, setTypeWriter] = React.useState('')
@@ -172,3 +172,5 @@ export const Hero = () => {
         </HeroWrapper>
     )
 }
+
+export default Hero

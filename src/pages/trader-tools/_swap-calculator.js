@@ -470,7 +470,7 @@ const SwapCalculator = () => {
                                     <StyledOl>
                                         <li>
                                             <span>
-                                                <Localize translate_text="If the swap rate is positive, your account will be credited with the swap amount. If it is negative, your account will be deducted" />
+                                                <Localize translate_text="If the swap rate is positive, your account will be credited with the swap amount. If it is negative, your account will be debited" />
                                             </span>
                                         </li>
                                     </StyledOl>
@@ -788,7 +788,7 @@ const SwapCalculator = () => {
                                         </li>
                                         <li>
                                             <span>
-                                                <Localize translate_text="If the swap rate is positive, your account will be credited with the swap amount. If it is negative, your account will be deducted" />
+                                                <Localize translate_text="If the swap rate is positive, your account will be credited with the swap amount. If it is negative, your account will be debited" />
                                             </span>
                                         </li>
                                     </StyledOl>
@@ -808,7 +808,7 @@ const SwapCalculator = () => {
                     <BottomContent direction="column">
                         <BottomText mb="2.4rem" mt="2.4rem">
                             <Localize
-                                translate_text="To view the swap rate and digits of the asset, go to Deriv MetaTrader 5 (DMT5), click on the View tab and select Market Watch, then right-click on the symbol you want to trade and select Specification. click on the <0>View </0> tab and select<0> Market Watch</0>, then right-click on the symbol you want to trade and select <0>Specification.</0>"
+                                translate_text="To view the swap rate and digits of the asset, go to Deriv MetaTrader 5 (DMT5), click on the <0>View </0> tab and select<0> Market Watch</0>, then right-click on the symbol you want to trade and select <0>Specification.</0>"
                                 components={[<strong key={0} />]}
                             />
                         </BottomText>

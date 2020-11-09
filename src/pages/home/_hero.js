@@ -5,13 +5,17 @@ import VerticalCarousel from './_vertical-carousel.js'
 import device from 'themes/device'
 import { LinkButton } from 'components/form'
 import { Container, CssGrid, Box, Flex, Show } from 'components/containers'
-import { Header, QueryImage } from 'components/elements'
+import { Header } from 'components/elements'
 import { Localize, localize } from 'components/localization'
 
 const query = graphql`
     query {
         background: file(relativePath: { eq: "platform_devices.png" }) {
-            ...fadeIn
+            childImageSharp {
+                base64: sizes(base64Width: 493, quality: 300) {
+                  base64
+                }
+              }
         }
     }
 `
@@ -160,7 +164,7 @@ export const Hero = () => {
                         <VerticalCarousel contents={contents} />
                     </Details>
                     <ImageWrapper>
-                        <QueryImage data={data.background} alt="platform devices" width="100%" />
+                        <img data={data.background.childImageSharp.base64.base64} alt="platform devices" width="100%" />
                     </ImageWrapper>
                     <ButtonWrapper>
                         <HeroButton secondary="true" to="/signup/">

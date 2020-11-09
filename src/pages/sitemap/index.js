@@ -77,7 +77,7 @@ export const ContentTitleWrapper = styled(Text)`
     }
 `
 
-const StyledTree = styled(SitemapTree)`
+const StyledTree = styled.img`
     margin-right: 40px;
 `
 
@@ -100,7 +100,7 @@ const LinksCol = styled(Flex)`
     }
 `
 
-const StyledVTree = styled(SitemapVTree)`
+const StyledVTree = styled.img`
     margin-top: 60px;
 `
 
@@ -132,7 +132,7 @@ const SitemapContent = ({ children }) => {
                     translate_text="Homepage"
                 />
             </ContentTitleWrapper>
-            <StyledTree />
+            <StyledTree src={SitemapTree} alt="sitemap tree" />
             </Flex>
             <GridWrapper>
                 {children.map((child, idx) => (
@@ -144,7 +144,7 @@ const SitemapContent = ({ children }) => {
         </Show.Desktop>
         <Show.Mobile min_width={"laptopM"}>
             <GridSubWrapper size="74px 200px" style={{justifyContent: 'center'}}>
-                <StyledVTree />
+                <StyledVTree src={SitemapVTree} alt="sitemap vertical tree" />
                 <Flex direction="column">
                     <ContentTitleWrapper size="32px" weight="bold">
                         <Localize

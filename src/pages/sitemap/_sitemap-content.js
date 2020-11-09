@@ -178,7 +178,7 @@ export const Legal = () => {
                     {localize('Terms and conditions')}
                 </Link>
                 <GridSubWrapper>
-                    <SitemapSubTree />
+                    <img src={SitemapSubTree} alt="sub tree" />
                     <GridLinkWrapper>
                         <SubLinkWrapper first_child="true">
                             <Link to="#">
@@ -217,7 +217,7 @@ export const Partner = () => {
                     {localize('Affiliates and IBs')}
                 </Link>
                 <GridSubWrapper>
-                    <SitemapSubTree />
+                    <img src={SitemapSubTree} alt="sub tree" />
                     <GridLinkWrapper>
                         <LinkWrapper>
                             <LoginWrapper onClick={handleLogin}>

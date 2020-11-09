@@ -12,7 +12,7 @@ const query = graphql`
     query {
         background: file(relativePath: { eq: "platform_devices.png" }) {
             childImageSharp {
-                base64: sizes(base64Width: 493, quality: 300) {
+                base64: sizes(base64Width: 1380, quality: 100) {
                   base64
                 }
               }
@@ -164,7 +164,7 @@ export const Hero = () => {
                         <VerticalCarousel contents={contents} />
                     </Details>
                     <ImageWrapper>
-                        <img data={data.background.childImageSharp.base64.base64} alt="platform devices" />
+                        <img src={data.background.childImageSharp.base64.base64} alt="platform devices" width='493px' />
                     </ImageWrapper>
                     <ButtonWrapper>
                         <HeroButton secondary="true" to="/signup/">

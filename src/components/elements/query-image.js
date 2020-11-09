@@ -14,7 +14,7 @@ const ImageWrapper = styled.div`
     }
 `
 
-const QueryImage = ({ data, alt, width, height, className }) => {
+const QueryImage = ({ data, alt, width, height, className, eager }) => {
     if (data) {
         const data_fluid = data.childImageSharp.fluid
         const data_fixed = data.childImageSharp.fixed
@@ -24,6 +24,7 @@ const QueryImage = ({ data, alt, width, height, className }) => {
                     alt={alt}
                     {...(data_fluid ? { fluid: data_fluid } : { fixed: data_fixed })}
                     height="100%"
+                    loading={eager ? 'eager' : ''}
                 />
             </ImageWrapper>
         )
@@ -36,6 +37,7 @@ QueryImage.propTypes = {
     alt: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
     className: PropTypes.string,
     data: PropTypes.object.isRequired,
+    eager: PropTypes.bool,
     height: PropTypes.string,
     width: PropTypes.string,
 }

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { CssGrid, CssGridColumn } from 'components/containers'
 import { localize, WithIntl, Localize } from 'components/localization'
-import ViewLicense from 'images/svg/view-license.svg'
+import { ReactComponent as ViewLicense } from 'images/svg/view-license.svg'
 
 const Country = styled.div`
     margin-bottom: 2.4rem;

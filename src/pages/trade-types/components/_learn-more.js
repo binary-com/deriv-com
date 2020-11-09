@@ -46,7 +46,7 @@ const LearnMore = ({ text, to }) => {
                     <Text mr="0.8rem" weight="bold" color="red">
                         {text}
                     </Text>
-                    <Arrow />
+                    <img src={Arrow} alt="arrow right" />
                 </Item>
             </Link>
         </Wrapper>

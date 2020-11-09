@@ -21,7 +21,7 @@ const MobileCardHeader = styled(Flex)`
         justify-content: space-between;
         align-items: center;
 
-        > svg {
+        > img {
             width: 48px;
             height: 48px;
         }
@@ -45,7 +45,7 @@ const AvailableMarkets = () => {
                         <MarketsItem>
                             <Card>
                                 <MobileCardHeader>
-                                    <Forex />
+                                    <img src={Forex} alt="forex" width="64" height="64" />
 
                                     <Text weight="bold" mt="1.6rem">
                                         {localize('Forex')}
@@ -67,7 +67,12 @@ const AvailableMarkets = () => {
                         <MarketsItem>
                             <Card>
                                 <MobileCardHeader>
-                                    <SyntheticIndices />
+                                    <img
+                                        src={SyntheticIndices}
+                                        alt="synthetic indices"
+                                        width="64"
+                                        height="64"
+                                    />
 
                                     <Text weight="bold" mt="1.6rem">
                                         {localize('Synthetic indices')}
@@ -89,7 +94,12 @@ const AvailableMarkets = () => {
                         <MarketsItem>
                             <Card>
                                 <MobileCardHeader>
-                                    <Commodities />
+                                    <img
+                                        src={Commodities}
+                                        alt="commodities"
+                                        width="64"
+                                        height="64"
+                                    />
 
                                     <Text weight="bold" mt="1.6rem">
                                         {localize('Commodities')}
@@ -111,7 +121,12 @@ const AvailableMarkets = () => {
                         <MarketsItem>
                             <Card>
                                 <MobileCardHeader>
-                                    <StockIndices />
+                                    <img
+                                        src={StockIndices}
+                                        alt="stock indices"
+                                        width="64"
+                                        height="64"
+                                    />
 
                                     <Text weight="bold" mt="1.6rem">
                                         {localize('Stock indices')}

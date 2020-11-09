@@ -22,21 +22,21 @@ const simple_step_content_forex = [
         text: (
             <Localize translate_text="Open a demo account and practise with an unlimited amount of virtual funds." />
         ),
-        icon: <PractiseIcon />,
+        icon: <img src={PractiseIcon} alt="aim" />,
     },
     {
         header: <Localize translate_text="Trade" />,
         text: (
             <Localize translate_text="Open a real account, make a deposit, and start trading forex and other markets." />
         ),
-        icon: <TradeIcon />,
+        icon: <img src={TradeIcon} alt="trade" />,
     },
     {
         header: <Localize translate_text="Withdraw" />,
         text: (
             <Localize translate_text="Conveniently withdraw your funds through any of our supported withdrawal methods." />
         ),
-        icon: <WithdrawIcon />,
+        icon: <img src={WithdrawIcon} alt="withdraw" />,
     },
 ]
 const simple_step_content_synthetic = [
@@ -45,21 +45,21 @@ const simple_step_content_synthetic = [
         text: (
             <Localize translate_text="Open a demo account and practise with an unlimited amount of virtual funds." />
         ),
-        icon: <PractiseIcon />,
+        icon: <img src={PractiseIcon} alt="aim" />,
     },
     {
         header: <Localize translate_text="Trade" />,
         text: (
             <Localize translate_text="Open a real account, make a deposit, and start trading synthetic indices and other markets." />
         ),
-        icon: <TradeIcon />,
+        icon: <img src={TradeIcon} alt="trade" />,
     },
     {
         header: <Localize translate_text="Withdraw" />,
         text: (
             <Localize translate_text="Conveniently withdraw your funds through any of our supported withdrawal methods." />
         ),
-        icon: <WithdrawIcon />,
+        icon: <img src={WithdrawIcon} alt="withdraw" />,
     },
 ]
 const simple_step_content_stock = [
@@ -68,21 +68,21 @@ const simple_step_content_stock = [
         text: (
             <Localize translate_text="Open a demo account and practise with an unlimited amount of virtual funds." />
         ),
-        icon: <PractiseIcon />,
+        icon: <img src={PractiseIcon} alt="aim" />,
     },
     {
         header: <Localize translate_text="Trade" />,
         text: (
             <Localize translate_text="Open a real account, make a deposit, and start trading stock indices and other markets." />
         ),
-        icon: <TradeIcon />,
+        icon: <img src={TradeIcon} alt="trade" />,
     },
     {
         header: <Localize translate_text="Withdraw" />,
         text: (
             <Localize translate_text="Conveniently withdraw your funds through any of our supported withdrawal methods." />
         ),
-        icon: <WithdrawIcon />,
+        icon: <img src={WithdrawIcon} alt="withdraw" />,
     },
 ]
 const simple_step_content_commodities = [
@@ -91,21 +91,21 @@ const simple_step_content_commodities = [
         text: (
             <Localize translate_text="Open a demo account and practise with an unlimited amount of virtual funds." />
         ),
-        icon: <PractiseIcon />,
+        icon: <img src={PractiseIcon} alt="aim" />,
     },
     {
         header: <Localize translate_text="Trade" />,
         text: (
             <Localize translate_text="Open a real account, make a deposit, and start trading commodities and other markets. " />
         ),
-        icon: <TradeIcon />,
+        icon: <img src={TradeIcon} alt="trade" />,
     },
     {
         header: <Localize translate_text="Withdraw" />,
         text: (
             <Localize translate_text="Conveniently withdraw your funds through any of our supported withdrawal methods." />
         ),
-        icon: <WithdrawIcon />,
+        icon: <img src={WithdrawIcon} alt="withdraw" />,
     },
 ]
 

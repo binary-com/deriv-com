@@ -100,7 +100,7 @@ const StyledHeader = styled(Header)`
 `
 
 const DBanner = ({ title, data, background_pattern }) => {
-    const BackgroundPattern = styled(background_pattern)`
+    const BackgroundPattern = styled.img`
         position: absolute;
         top: 0;
         right: 0;
@@ -137,7 +137,7 @@ const DBanner = ({ title, data, background_pattern }) => {
                         {localize('Create free demo account')}
                     </StyledLinkButton>
                 </TextWrapper>
-                <BackgroundPattern />
+                <BackgroundPattern src={background_pattern} alt="background pattern" />
             </Wrapper>
         </Flex>
     )

@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 import device from 'themes/device'
-import Chevron from 'images/svg/carousel-chevron.svg'
+import { ReactComponent as Chevron } from 'images/svg/carousel-chevron.svg'
 
 export const Embla = styled.div`
     position: relative;
@@ -98,24 +98,22 @@ export const StyledChevron = styled(Chevron)`
         }
     }}
 
-    g {
-        g {
-            ${(props) => {
-                if (props.black) {
-                    return css`
-                        fill: var(--color-black);
-                    `
-                } else if (props.red) {
-                    return css`
-                        fill: var(--color-red);
-                    `
-                }
-
+    path {
+        ${(props) => {
+            if (props.black) {
                 return css`
-                    fill: var(--color-white);
+                    fill: var(--color-black);
                 `
-            }}
-        }
+            } else if (props.red) {
+                return css`
+                    fill: var(--color-red);
+                `
+            }
+
+            return css`
+                fill: var(--color-white);
+            `
+        }}
     }
 `
 

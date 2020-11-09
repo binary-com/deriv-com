@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import styled, { keyframes } from 'styled-components'
 import { useOutsideClick } from 'components/hooks/outside-click'
 import { QueryImage, Text } from 'components/elements'
-import Chevron from 'images/svg/chevron-bottom.svg'
+import { ReactComponent as Chevron } from 'images/svg/chevron-bottom.svg'
 import device from 'themes/device'
 
 const Container = styled.div`

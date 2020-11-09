@@ -8,7 +8,7 @@ import { OTCAUSTRALIAN, OTCHONGKONG, OTCJAPANESE } from 'components/elements/sym
 const Symbol = styled(Flex)`
     width: fit-content;
 
-    svg {
+    img {
         width: 32px;
         height: 32px;
         margin-right: 0.8rem;
@@ -24,15 +24,15 @@ const AsiaOceania = () => {
     return (
         <>
             <Symbol ai="center">
-                <OTCAUSTRALIAN />
+                <img src={OTCAUSTRALIAN} />
                 <Text>{localize('Australian Index')}</Text>
             </Symbol>
             <Symbol ai="center">
-                <OTCHONGKONG />
+                <img src={OTCHONGKONG} />
                 <Text>{localize('Hong Kong Index')}</Text>
             </Symbol>
             <Symbol ai="center">
-                <OTCJAPANESE />
+                <img src={OTCJAPANESE} />
                 <Text>{localize('Japanese Index')}</Text>
             </Symbol>
         </>

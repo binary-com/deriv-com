@@ -15,13 +15,13 @@ const BaseIconStyle = css`
         height: 32px;
     }
 `
-const StyledFinancialStpIcon = styled(FinancialStpIcon)`
+const StyledFinancialStpIcon = styled.img`
     ${BaseIconStyle}
 `
-const StyledFinancialIcon = styled(FinancialIcon)`
+const StyledFinancialIcon = styled.img`
     ${BaseIconStyle}
 `
-const StyledSyntheticIcon = styled(SyntheticIcon)`
+const StyledSyntheticIcon = styled.img`
     ${BaseIconStyle}
 `
 
@@ -31,21 +31,21 @@ const content = [
         text: (
             <Localize translate_text="Trade CFDs on our exclusive, proprietary synthetic indices 24/7 which simulate real-world market movements." />
         ),
-        icon: <StyledSyntheticIcon />,
+        icon: <StyledSyntheticIcon src={SyntheticIcon} alt="synthetic icon" />,
     },
     {
         header: <Localize translate_text="Financial" />,
         text: (
             <Localize translate_text="Trade forex, commodities, cryptocurrencies, major (standard and micro-lots), and minor currency pairs on high leverage." />
         ),
-        icon: <StyledFinancialIcon />,
+        icon: <StyledFinancialIcon src={FinancialIcon} alt="financial icon" />,
     },
     {
         header: <Localize translate_text="Financial STP" />,
         text: (
             <Localize translate_text="Trade major, minor, and exotic currency pairs, and cryptocurrencies with tight spreads and higher trade volumes, straight to the market." />
         ),
-        icon: <StyledFinancialStpIcon />,
+        icon: <StyledFinancialStpIcon src={FinancialStpIcon} alt="financial stp icon" />,
     },
 ]
 const Section = styled(SectionContainer)`

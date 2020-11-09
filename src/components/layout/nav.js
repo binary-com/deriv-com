@@ -225,7 +225,7 @@ const LinkSignupButton = styled(LinkButton)`
     margin-left: 1.6rem;
 `
 
-const HamburgerMenu = styled(Hamburger)`
+const HamburgerMenu = styled.img`
     cursor: pointer;
     display: none;
     @media ${device.tabletL} {
@@ -234,7 +234,7 @@ const HamburgerMenu = styled(Hamburger)`
     }
 `
 
-const CloseMenu = styled(Close)`
+const CloseMenu = styled.img`
     cursor: pointer;
     display: none;
     @media ${device.tabletL} {
@@ -439,7 +439,7 @@ export const Nav = ({ base }) => {
                             />
                         </LogoLink>
                         <Line />
-                        <LogoCombinedShape />
+                        <img src={LogoCombinedShape} alt="logo combined shape" />
                     </NavLeft>
                     <NavCenter>
                         <NavLink onClick={handleTradeClick}>
@@ -496,17 +496,27 @@ export const Nav = ({ base }) => {
                         </LocalizedLink>
                     </NavRight>
                     {is_canvas_menu_open ? (
-                        <CloseMenu onClick={closeOffCanvasMenu} width="16px" />
+                        <CloseMenu
+                            src={Close}
+                            alt="close menu"
+                            onClick={closeOffCanvasMenu}
+                            width="16px"
+                        />
                     ) : (
-                        <HamburgerMenu onClick={openOffCanvasMenu} width="16px" />
+                        <HamburgerMenu
+                            src={Hamburger}
+                            alt="hamburger"
+                            onClick={openOffCanvasMenu}
+                            width="16px"
+                        />
                     )}
 
                     <LogoLinkMobile to="/" aria-label={localize('Home')}>
                         <Flex>
-                            <LogoOnly width="115px" />
+                            <img src={LogoOnly} alt="logo only" width="115px" />
                             <LogoDescription ai="center">
                                 <Line />
-                                <LogoCombinedShape />
+                                <img src={LogoCombinedShape} alt="logo combined shape 2" />
                             </LogoDescription>
                         </Flex>
                     </LogoLinkMobile>
@@ -563,18 +573,18 @@ export const NavInterim = ({ interim_type }) => (
                 <Show.Desktop>
                     <StyledLogo to={`/interim/${interim_type}`} aria-label={localize('Home')}>
                         <Flex ai="center">
-                            <Logo />
-                            <LogoCombinedShape />
+                            <img src={Logo} alt="logo" />
+                            <img src={LogoCombinedShape} alt="logo combined shape desktop" />
                         </Flex>
                     </StyledLogo>
                 </Show.Desktop>
                 <Show.Mobile>
                     <LogoLinkMobile to={`/interim/${interim_type}`} aria-label={localize('Home')}>
                         <Flex>
-                            <LogoOnly width="115px" />
+                            <img src={LogoOnly} alt="logo only 2" width="115px" />
                             <LogoDescription ai="center">
                                 <Line />
-                                <LogoCombinedShape />
+                                <img src={LogoCombinedShape} alt="logo combined shape mobile" />
                             </LogoDescription>
                         </Flex>
                     </LogoLinkMobile>
@@ -594,9 +604,9 @@ export const NavStatic = () => (
     <StaticWrapper>
         <LogoLink mw="31rem" to="/" aria-label={localize('Home')}>
             <Flex ai="center">
-                <LogoOnly />
+                <img src={LogoOnly} alt="logo only nav static" />
                 <Line />
-                <LogoCombinedShape />
+                <img src={LogoCombinedShape} alt="logo combined shape nav static" />
             </Flex>
         </LogoLink>
     </StaticWrapper>
@@ -648,7 +658,7 @@ const Mobile = styled(Show.Mobile)`
     width: 100%;
 `
 
-const ResLogo = styled(LogoOnly)`
+const ResLogo = styled.img`
     width: 115px;
     @media ${device.mobileM} {
         width: 98px;
@@ -730,7 +740,7 @@ export const NavPartners = ({ no_login_signup }) => {
                     <StyledNavWrapper no_login_signup>
                         <NavLeft>
                             <NavLogoLink to="/partners/" aria-label={localize('Partners')}>
-                                <LogoPartner />
+                                <img src={LogoPartner} alt="logo partner" />
                             </NavLogoLink>
                         </NavLeft>
                         <StyledNavCenter>
@@ -793,15 +803,25 @@ export const NavPartners = ({ no_login_signup }) => {
                         )}
 
                         {is_canvas_menu_open ? (
-                            <CloseMenu onClick={closeOffCanvasMenu} width="16px" />
+                            <CloseMenu
+                                src={Close}
+                                alt="close menu 2"
+                                onClick={closeOffCanvasMenu}
+                                width="16px"
+                            />
                         ) : (
-                            <HamburgerMenu onClick={openOffCanvasMenu} width="16px" />
+                            <HamburgerMenu
+                                src={Hamburger}
+                                alt="hamburger menu2"
+                                onClick={openOffCanvasMenu}
+                                width="16px"
+                            />
                         )}
 
                         <Mobile>
                             <Flex ai="center">
                                 <LogoLinkMobile to="/" aria-label={localize('Home')}>
-                                    <ResLogo />
+                                    <ResLogo src={LogoOnly} alt="reslogo" />
                                 </LogoLinkMobile>
                                 <Flex ml="auto" ai="center" width="auto">
                                     <LanguageSwitcher short_name="true" is_high_nav />

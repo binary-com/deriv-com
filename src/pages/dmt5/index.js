@@ -27,6 +27,7 @@ const query = graphql`
         }
     }
 `
+
 const DMT5 = () => {
     const [is_mobile, setMobile] = useState(false)
     const handleResizeWindow = () => {

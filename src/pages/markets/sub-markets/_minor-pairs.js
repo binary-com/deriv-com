@@ -23,7 +23,7 @@ import {
 const Symbol = styled(Flex)`
     width: fit-content;
 
-    svg {
+    img {
         width: 32px;
         height: 32px;
         margin-right: 0.8rem;
@@ -39,59 +39,59 @@ const MinorPairs = () => {
     return (
         <>
             <Symbol ai="center">
-                <AUDCAD />
+                <img src={AUDCAD} />
                 <Text>{localize('AUD/CAD')}</Text>
             </Symbol>
             <Symbol ai="center">
-                <AUDCHF />
+                <img src={AUDCHF} />
                 <Text>{localize('AUD/CHF')}</Text>
             </Symbol>
             <Symbol ai="center">
-                <AUDNZD />
+                <img src={AUDNZD} />
                 <Text>{localize('AUD/NZD')}</Text>
             </Symbol>
             <Symbol ai="center">
-                <EURNZD />
+                <img src={EURNZD} />
                 <Text>{localize('EUR/NZD')}</Text>
             </Symbol>
             <Symbol ai="center">
-                <GBPCAD />
+                <img src={GBPCAD} />
                 <Text>{localize('GBP/CAD')}</Text>
             </Symbol>
             <Symbol ai="center">
-                <GBPCHF />
+                <img src={GBPCHF} />
                 <Text>{localize('GBP/CHF')}</Text>
             </Symbol>
             <Symbol ai="center">
-                <GBPNOK />
+                <img src={GBPNOK} />
                 <Text>{localize('GBP/NOK')}</Text>
             </Symbol>
             <Symbol ai="center">
-                <GBPNZD />
+                <img src={GBPNZD} />
                 <Text>{localize('GBP/NZD')}</Text>
             </Symbol>
             <Symbol ai="center">
-                <NZDJPY />
+                <img src={NZDJPY} />
                 <Text>{localize('NZD/JPY')}</Text>
             </Symbol>
             <Symbol ai="center">
-                <NZDUSD />
+                <img src={NZDUSD} />
                 <Text>{localize('NZD/USD')}</Text>
             </Symbol>
             <Symbol ai="center">
-                <USDMXN />
+                <img src={USDMXN} />
                 <Text>{localize('USD/MXN')}</Text>
             </Symbol>
             <Symbol ai="center">
-                <USDNOK />
+                <img src={USDNOK} />
                 <Text>{localize('USD/NOK')}</Text>
             </Symbol>
             <Symbol ai="center">
-                <USDPLN />
+                <img src={USDPLN} />
                 <Text>{localize('USD/PLN')}</Text>
             </Symbol>
             <Symbol ai="center">
-                <USDSEK />
+                <img src={USDSEK} />
                 <Text>{localize('USD/SEK')}</Text>
             </Symbol>
         </>

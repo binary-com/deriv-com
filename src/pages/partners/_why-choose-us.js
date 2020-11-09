@@ -12,6 +12,12 @@ const Wrapper = styled(Flex)`
     flex-wrap: wrap;
 `
 
+const ImageWrapper = styled.img`
+    margin-bottom: 1.6rem;
+    width: 64px;
+    height: 64px;
+`
+
 const Card = styled(Flex)`
     padding: 2.4rem;
     max-width: 38.4rem;
@@ -24,7 +30,7 @@ const Card = styled(Flex)`
     &:last-child {
         margin-right: 0;
     }
-    & > svg {
+    & > img {
         margin-bottom: 1.6rem;
         width: 64px;
         height: 64px;
@@ -42,7 +48,7 @@ const WhyChooseUs = () => {
                 </Header>
                 <Wrapper>
                     <Card direction="column">
-                        <Hand />
+                        <ImageWrapper src={Hand} alt="hand icon" />
                         <Header as="h4" mb="0.8rem">
                             {localize('Partnership with a trusted pioneer')}
                         </Header>
@@ -53,7 +59,7 @@ const WhyChooseUs = () => {
                         </Text>
                     </Card>
                     <Card direction="column">
-                        <Lamp />
+                        <ImageWrapper src={Lamp} alt="lamp icon" />
                         <Header as="h4" mb="0.8rem">
                             {localize('Diverse opportunities')}
                         </Header>
@@ -64,7 +70,7 @@ const WhyChooseUs = () => {
                         </Text>
                     </Card>
                     <Card direction="column">
-                        <HiddenFee />
+                        <ImageWrapper src={HiddenFee} alt="hidden fee icon" />
                         <Header as="h4" mb="0.8rem">
                             {localize('No charges or hidden fees')}
                         </Header>

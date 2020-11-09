@@ -23,7 +23,7 @@ import {
 const Symbol = styled(Flex)`
     width: fit-content;
 
-    svg {
+    img {
         width: 32px;
         height: 32px;
         margin-right: 0.8rem;
@@ -39,59 +39,59 @@ const MajorPairs = () => {
     return (
         <>
             <Symbol ai="center">
-                <AUDJPY />
+                <img src={AUDJPY} />
                 <Text>{localize('AUD/JPY')}</Text>
             </Symbol>
             <Symbol ai="center">
-                <AUDUSD />
+                <img src={AUDUSD} />
                 <Text>{localize('AUD/USD')}</Text>
             </Symbol>
             <Symbol ai="center">
-                <EURAUD />
+                <img src={EURAUD} />
                 <Text>{localize('EUR/AUD')}</Text>
             </Symbol>
             <Symbol ai="center">
-                <EURCAD />
+                <img src={EURCAD} />
                 <Text>{localize('EUR/CAD')}</Text>
             </Symbol>
             <Symbol ai="center">
-                <EURCHF />
+                <img src={EURCHF} />
                 <Text>{localize('EUR/CHF')}</Text>
             </Symbol>
             <Symbol ai="center">
-                <EURGBP />
+                <img src={EURGBP} />
                 <Text>{localize('EUR/GBP')}</Text>
             </Symbol>
             <Symbol ai="center">
-                <EURJPY />
+                <img src={EURJPY} />
                 <Text>{localize('EUR/JPY')}</Text>
             </Symbol>
             <Symbol ai="center">
-                <EURUSD />
+                <img src={EURUSD} />
                 <Text>{localize('EUR/USD')}</Text>
             </Symbol>
             <Symbol ai="center">
-                <GBPAUD />
+                <img src={GBPAUD} />
                 <Text>{localize('GBP/AUD')}</Text>
             </Symbol>
             <Symbol ai="center">
-                <GBPJPY />
+                <img src={GBPJPY} />
                 <Text>{localize('GBP/JPY')}</Text>
             </Symbol>
             <Symbol ai="center">
-                <GBPUSD />
+                <img src={GBPUSD} />
                 <Text>{localize('GBP/USD')}</Text>
             </Symbol>
             <Symbol ai="center">
-                <USDCAD />
+                <img src={USDCAD} />
                 <Text>{localize('USD/CAD')}</Text>
             </Symbol>
             <Symbol ai="center">
-                <USDCHF />
+                <img src={USDCHF} />
                 <Text>{localize('USD/CHF')}</Text>
             </Symbol>
             <Symbol ai="center">
-                <USDJPY />
+                <img src={USDJPY} />
                 <Text>{localize('USD/JPY')}</Text>
             </Symbol>
         </>

@@ -71,7 +71,7 @@ SVG will be handled by `gatsby-plugin-react-svg` which overriding `svg-react-loa
 Usage example:
 
 ```js
-import Logo from 'images/svg/logo-header.svg'
+import { ReactComponent as Logo } from 'images/svg/logo-header.svg'
 ;<Logo />
 ```
 

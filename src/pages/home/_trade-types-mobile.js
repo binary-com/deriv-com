@@ -60,7 +60,7 @@ const TradeTypeSlide = ({ icon, title, description, link, linkTitle }) => {
                             <Text weight="bold" mr="0.8rem" color="red" size="16px">
                                 {localize('Learn more')}{' '}
                             </Text>
-                            <Arrow />
+                            <img src={Arrow} alt="arrow" />
                         </CustomLinkWrap>
                     </Flex>
                 </TradeTypeCard>

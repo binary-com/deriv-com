@@ -7,7 +7,7 @@ import { LocalizedLink } from 'components/localization'
 import device from 'themes/device'
 // SVG
 import Arrow from 'images/svg/card-arrow.svg'
-import Diagonal from 'images/svg/pink-right-diagonal.svg'
+import { ReactComponent as Diagonal } from 'images/svg/pink-right-diagonal.svg'
 
 export const CardStyle = css`
     box-sizing: border-box;
@@ -119,7 +119,8 @@ const CardChildrenWrapper = styled.article`
             }
         }
     }
-    svg {
+    svg,
+    img {
         margin: 0.2rem 0 0.8rem 0;
     }
 `
@@ -191,7 +192,7 @@ export const Card = ({
                                     ) : (
                                         <h4>{cover_content}</h4>
                                     )}
-                                    <Arrow />
+                                    <img src={Arrow} alt="arrow" />
                                 </div>
                             </CardCover>
                             <IconContainer>
@@ -318,7 +319,8 @@ const FlexHover = styled(Flex)`
 `
 
 const SvgWrapper = styled.div`
-    & > svg {
+    & > svg,
+    img {
         width: 33px;
         height: 33px;
         margin-right: 1.6rem;
@@ -403,7 +405,8 @@ const LinkRightDiagonal = styled.div`
     justify-self: flex-end;
     align-self: center;
 
-    & > svg {
+    & > svg,
+    img {
         width: 16px;
         height: 16px;
     }
@@ -420,7 +423,8 @@ const HoverFlex = styled(Flex)`
 `
 
 const IconRightWrapper = styled.div`
-    & > svg {
+    & > svg,
+    img {
         height: 24px;
         width: 24px;
         margin-right: 1.6rem;

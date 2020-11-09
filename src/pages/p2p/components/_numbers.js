@@ -29,6 +29,7 @@ const Section = styled(SectionContainer)`
         padding: 6.4rem 7.2rem;
     }
     @media ${device.tablet} {
+        margin-top: 40px;
         padding: 6.4rem 9.6rem;
     }
 `

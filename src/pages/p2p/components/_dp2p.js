@@ -9,10 +9,7 @@ import { localize } from 'components/localization'
 
 const StyledSection = styled(SectionContainer)`
     background-color: var(--color-white);
-
-    @media ${device.tabletL} {
-        padding: 8rem 0;
-    }
+    padding: 8rem 0 0 0;
 `
 const StyledContainer = styled(Container)`
     display: flex;
@@ -28,7 +25,7 @@ const Content = styled.div`
 
     ${Text} {
         font-size: 2.4rem;
-        margin-top: 2.2rem;
+        margin-top: 0.8rem;
     }
 
     @media ${device.tabletL} {

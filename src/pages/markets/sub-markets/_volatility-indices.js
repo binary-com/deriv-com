@@ -19,7 +19,7 @@ import {
 const Symbol = styled(Flex)`
     width: fit-content;
 
-    svg {
+    img {
         width: 32px;
         height: 32px;
         margin-right: 0.8rem;
@@ -35,43 +35,43 @@ const VolatilityIndices = () => {
     return (
         <>
             <Symbol ai="center">
-                <INDEX10S1 />
+                <img src={INDEX10S1} />
                 <Text>{localize('Volatility 10 (1s) Index')}</Text>
             </Symbol>
             <Symbol ai="center">
-                <INDEX25S1 />
+                <img src={INDEX25S1} />
                 <Text>{localize('Volatility 25 (1s) Index')}</Text>
             </Symbol>
             <Symbol ai="center">
-                <INDEX50S1 />
+                <img src={INDEX50S1} />
                 <Text>{localize('Volatility 50 (1s) Index')}</Text>
             </Symbol>
             <Symbol ai="center">
-                <INDEX75S1 />
+                <img src={INDEX75S1} />
                 <Text>{localize('Volatility 75 (1s) Index')}</Text>
             </Symbol>
             <Symbol ai="center">
-                <INDEX100S1 />
+                <img src={INDEX100S1} />
                 <Text>{localize('Volatility 100 (1s) Index')}</Text>
             </Symbol>
             <Symbol ai="center">
-                <INDEX10 />
+                <img src={INDEX10} />
                 <Text>{localize('Volatility 10 Index')}</Text>
             </Symbol>
             <Symbol ai="center">
-                <INDEX25 />
+                <img src={INDEX25} />
                 <Text>{localize('Volatility 25 Index')}</Text>
             </Symbol>
             <Symbol ai="center">
-                <INDEX50 />
+                <img src={INDEX50} />
                 <Text>{localize('Volatility 50 Index')}</Text>
             </Symbol>
             <Symbol ai="center">
-                <INDEX75 />
+                <img src={INDEX75} />
                 <Text>{localize('Volatility 75 Index')}</Text>
             </Symbol>
             <Symbol ai="center">
-                <INDEX100 />
+                <img src={INDEX100} />
                 <Text>{localize('Volatility 100 Index')}</Text>
             </Symbol>
         </>

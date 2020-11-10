@@ -19,7 +19,7 @@ const MobileCardHeader = styled(Flex)`
         justify-content: space-between;
         align-items: center;
 
-        > svg {
+        > img {
             width: 48px;
             height: 48px;
         }
@@ -43,7 +43,7 @@ const MarketsAvailable = () => {
                         <MarketsItem>
                             <Card>
                                 <MobileCardHeader>
-                                    <Forex />
+                                    <img src={Forex} alt="forex" width="64" height="64" />
 
                                     <Text weight="bold" mt="1.6rem">
                                         {localize('Forex')}
@@ -65,7 +65,12 @@ const MarketsAvailable = () => {
                         <MarketsItem>
                             <Card>
                                 <MobileCardHeader>
-                                    <SyntheticIndices />
+                                    <img
+                                        src={SyntheticIndices}
+                                        alt="synthetic indices"
+                                        width="64"
+                                        height="64"
+                                    />
 
                                     <Text weight="bold" mt="1.6rem">
                                         {localize('Synthetic indices')}

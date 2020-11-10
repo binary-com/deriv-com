@@ -122,7 +122,11 @@ const LiveChat = ({ LC_API, is_livechat_interactive, setLiveChatInteractive }) =
                     onMouseEnter={() => setLivechatHover(true)}
                     onMouseLeave={() => setLivechatHover(false)}
                 >
-                    {is_livechat_hover ? <LiveChatHover /> : <LiveChatIC />}
+                    {is_livechat_hover ? (
+                        <img src={LiveChatHover} alt="livechat hover" />
+                    ) : (
+                        <img src={LiveChatIC} alt="livechat ic" />
+                    )}
                 </StyledLiveChat>
             )}
         </>

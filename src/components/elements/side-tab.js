@@ -7,7 +7,7 @@ import { getLocationHash, isBrowser } from 'common/utility'
 import device, { size } from 'themes/device'
 import { Box } from 'components/containers'
 import { Desktop, Mobile } from 'components/containers/show'
-import Chevron from 'images/svg/chevron.svg'
+import { ReactComponent as Chevron } from 'images/svg/chevron.svg'
 
 const StyledSideTab = styled(Box)`
     padding: 0;

@@ -37,11 +37,14 @@ const HowToApply = styled(Col)`
 const HowToApplyContent = styled.div`
     margin-top: 0;
     display: flex;
-
-    svg {
-        margin-right: 1.6rem;
-    }
 `
+
+const ImageWrapper = styled.img`
+    margin-right: 1.6rem;
+    width: 48px;
+    height: 48px;
+`
+
 const WhoCanApplyWrapper = styled(Col)`
     width: 100%;
     max-width: 42.8rem;
@@ -76,7 +79,7 @@ const WhoCanApply = () => {
                     <WhoCanApplyWrapper>
                         <StyledHeader size="3.6rem">{localize('Who can apply')}</StyledHeader>
                         <Wrapper>
-                            <TradingExperts />
+                            <ImageWrapper src={TradingExperts} alt="trading experts" />
                             <Content max_width="36.4rem">
                                 <Header as="h4">{localize('Currency exchangers')}</Header>
                                 <Text>
@@ -87,7 +90,7 @@ const WhoCanApply = () => {
                             </Content>
                         </Wrapper>
                         <Wrapper>
-                            <Affiliates />
+                            <ImageWrapper src={Affiliates} alt="affiliates" />
                             <Content max_width="36.4rem">
                                 <Header as="h4">{localize('Affiliates')}</Header>
                                 <Text>
@@ -98,7 +101,7 @@ const WhoCanApply = () => {
                             </Content>
                         </Wrapper>
                         <Wrapper>
-                            <CommunityManagers />
+                            <ImageWrapper src={CommunityManagers} alt="community managers" />
                             <Content max_width="36.4rem">
                                 <Header as="h4">{localize('Community managers')}</Header>
                                 <Text>
@@ -119,7 +122,7 @@ const WhoCanApply = () => {
                         <Timeline>
                             <Timeline.Item>
                                 <HowToApplyContent>
-                                    <Email />
+                                    <ImageWrapper src={Email} alt="email" />
                                     <Content margin-top="0 px" max_width="36.4rem">
                                         <Header as="h4">{localize('Drop us an email')}</Header>
                                         <Text>
@@ -160,7 +163,7 @@ const WhoCanApply = () => {
                             </Timeline.Item>
                             <Timeline.Item>
                                 <HowToApplyContent>
-                                    <Reply />
+                                    <ImageWrapper src={Reply} alt="reply" />
                                     <Content max_width="36.4rem">
                                         <Header as="h4">{localize('Wait for our reply')}</Header>
                                         <SecondaryText>
@@ -173,7 +176,7 @@ const WhoCanApply = () => {
                             </Timeline.Item>
                             <Timeline.Item>
                                 <HowToApplyContent>
-                                    <Listed />
+                                    <ImageWrapper src={Listed} alt="listed" />
                                     <Content max_width="36.4rem">
                                         <Header as="h4">{localize('Get listed')}</Header>
                                         <SecondaryText>

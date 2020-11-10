@@ -66,7 +66,7 @@ const Item = styled(Flex)`
     }
 `
 
-const AbsoluteMail = styled(Mail)`
+const AbsoluteMail = styled.img`
     position: absolute;
     top: calc(50% - 32px);
     left: calc(50% - 32px);
@@ -119,7 +119,7 @@ export const Affiliates = () => {
                         marketing@deriv.com
                     </LinkText>
                 </Item>
-                <AbsoluteMail />
+                <AbsoluteMail src={Mail} alt="mail" />
                 <AbsoluteDivider />
             </CardContainer>
         </Wrapper>

@@ -9,7 +9,7 @@ const Symbol = styled(Flex)`
     width: 22rem;
     justify-content: flex-start;
 
-    svg {
+    img {
         width: 32px;
         height: 32px;
         margin-right: 0.8rem;
@@ -24,11 +24,11 @@ const RangeBreak = () => {
     return (
         <>
             <Symbol ai="center">
-                <RANGEBREAK100 />
+                <img src={RANGEBREAK100} alt="rangebreak 100" />
                 <Text>{localize('Range Break 100 Index')}</Text>
             </Symbol>
             <Symbol ai="center">
-                <RANGEBREAK200 />
+                <img src={RANGEBREAK200} alt="rangebreak 200" />
                 <Text>{localize('Range Break 200 Index')}</Text>
             </Symbol>
         </>

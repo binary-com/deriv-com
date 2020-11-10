@@ -29,7 +29,7 @@ const StyledText = styled(Text)`
 const Symbol = styled(Flex)`
     width: fit-content;
 
-    svg {
+    img {
         width: 32px;
         height: 32px;
         margin-right: 0.8rem;
@@ -51,7 +51,7 @@ const MarketsList = styled(CssGrid)`
     @media ${device.tabletL} {
         grid-template-columns: repeat(1, 1fr);
 
-        svg {
+        img {
             width: 16px;
             height: 16px;
             margin-right: 4px;
@@ -123,7 +123,7 @@ const Margin = () => {
                                 </Col>
                                 <MarketsList>
                                     <Symbol ai="center">
-                                        <OTCGERMAN />
+                                        <img src={OTCGERMAN} />
                                         <Text>{localize('German Index')}</Text>
                                     </Symbol>
                                 </MarketsList>

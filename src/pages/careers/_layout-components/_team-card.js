@@ -4,7 +4,7 @@ import styled, { keyframes } from 'styled-components'
 import { QueryImage, Text, Header } from 'components/elements'
 import { LocalizedLink, localize } from 'components/localization'
 // SVG
-import Chevron from 'images/svg/carousel-chevron.svg'
+import { ReactComponent as Chevron } from 'images/svg/carousel-chevron.svg'
 
 const ChevronRight = styled(Chevron)`
     transform: rotate(180deg);
@@ -41,8 +41,8 @@ export const StyledCard = styled(LocalizedLink)`
     &:hover {
         transform: translateY(-1.1rem) scale(1.02);
 
-        #carousel-chevron-icon-svg {
-            g {
+        svg {
+            path {
                 fill: var(--color-red);
             }
 

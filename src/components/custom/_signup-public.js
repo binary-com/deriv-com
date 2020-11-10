@@ -11,24 +11,14 @@ import device from 'themes/device.js'
 // SVG
 import Facebook from 'images/svg/facebook-blue.svg'
 import Google from 'images/svg/google.svg'
-import Arrow from 'images/svg/chervon-right.svg'
+import Arrow from 'images/svg/chevron-right.svg'
 import BackgroundPattern from 'images/common/bg_banner_signup.png'
-import Chevron from 'images/svg/carousel-chevron.svg'
 import RedBanner from 'images/svg/bg_banner_signup_mobile.svg'
 
 const query = graphql`
     query {
         deriv_platform: file(relativePath: { eq: "deriv-platform-banner.png" }) {
             ...fadeIn
-        }
-    }
-`
-const ChevronRight = styled(Chevron)`
-    transform: rotate(180deg);
-
-    g {
-        g {
-            fill: var(--color-grey-8);
         }
     }
 `
@@ -42,7 +32,6 @@ const Wrapper = styled.div`
     width: 100%;
     overflow: hidden;
     border-top: 1px solid rgba(151, 151, 151, 0.2);
-
     @media (max-width: 991px) {
         flex-direction: column;
         height: auto;
@@ -62,11 +51,9 @@ const MobileWrapper = styled.div`
 const SignupFormWrapper = styled(Flex)`
     width: 50%;
     align-items: center;
-
     @media ${device.tablet} {
         padding: 0 2rem;
     }
-
     @media ${device.mobileM} {
         width: 100%;
 
@@ -80,7 +67,6 @@ const MobileSignupFormWrapper = styled(Flex)`
     width: 50%;
     align-items: center;
     padding: 0 2rem;
-
     @media ${device.mobileM} {
         width: 100%;
 
@@ -100,7 +86,6 @@ const BackgroundWrapper = styled(Flex)`
 
 const InputWrapper = styled.div`
     width: 28rem;
-
     @media ${device.tabletL} {
         margin-right: 1rem;
     }
@@ -114,7 +99,6 @@ const InputGroup = styled.div`
 const EmailButton = styled(Button)`
     margin-left: 2rem;
     height: 4rem;
-
     @media ${device.tabletL} {
         width: auto;
         font-size: 1.4rem;
@@ -126,7 +110,6 @@ const EmailButton = styled(Button)`
 const SocialWrapper = styled(Flex)`
     width: 100%;
     margin-top: 1.8rem;
-
     @media ${device.tabletL} {
         button {
             width: 14.25rem;
@@ -134,12 +117,13 @@ const SocialWrapper = styled(Flex)`
     }
 `
 const SocialButton = styled(Button)`
+    width: 56px;
+    justify-content: center;
     display: flex;
     background-color: var(--color-white);
     border: solid 1px var(--color-grey-7);
     height: 4rem;
     margin: 0 0.8rem;
-
     @media ${device.tabletL} {
         justify-content: center;
         align-items: center;
@@ -148,11 +132,9 @@ const SocialButton = styled(Button)`
 
 const StyledHeader = styled(Header)`
     width: ${(props) => props.width || '41.4rem'};
-
     @media ${device.tablet} {
         width: auto;
     }
-
     @media (max-width: 991px) {
         margin-top: 2rem;
         ${(props) => (props.as === 'h4' ? 'font-size: 2rem; margin-top: 0;' : '')}
@@ -161,7 +143,6 @@ const StyledHeader = styled(Header)`
 const StyledText = styled(Text)`
     width: auto;
     margin-right: 2rem;
-
     @media ${device.tabletL} {
         width: max-content-fit;
         margin-right: 1rem;
@@ -177,7 +158,6 @@ const ImageWrapper = styled(Flex)`
     div {
         width: 100%;
     }
-
     @media (max-width: 1350px) {
         width: 25rem;
     }
@@ -207,7 +187,7 @@ const DerivExperience = styled.div`
     align-items: center;
     margin-top: 4rem;
 
-    svg {
+    img {
         z-index: 10;
     }
     ${Header} {
@@ -307,7 +287,7 @@ const SignupPublic = ({
                                     social
                                 >
                                     <span>
-                                        <Facebook />
+                                        <img src={Facebook} alt="facebook" />
                                     </span>
                                 </SocialButton>
                                 <SocialButton
@@ -319,7 +299,7 @@ const SignupPublic = ({
                                     social
                                 >
                                     <span>
-                                        <Google />
+                                        <img src={Google} alt="google" />
                                     </span>
                                 </SocialButton>
                             </SocialWrapper>
@@ -336,7 +316,7 @@ const SignupPublic = ({
                             >
                                 {localize('Get a taste of the Deriv experience')}
                             </StyledHeader>
-                            <ChevronRight />
+                            <img src={Arrow} alt="arrow desktop" />
                         </LinkFlex>
                     </BackgroundWrapper>
                 </Wrapper>
@@ -398,7 +378,7 @@ const SignupPublic = ({
                                     social
                                 >
                                     <span>
-                                        <Facebook />
+                                        <img src={Facebook} alt="facebook" />
                                     </span>
                                 </SocialButton>
                                 <SocialButton
@@ -410,7 +390,7 @@ const SignupPublic = ({
                                     social
                                 >
                                     <span>
-                                        <Google />
+                                        <img src={Google} alt="google" />
                                     </span>
                                 </SocialButton>
                             </SocialWrapper>
@@ -425,13 +405,13 @@ const SignupPublic = ({
                             />
                         </MobilePlatform>
                         <MobileRedBanner>
-                            <RedBanner width="100%" />
+                            <img src={RedBanner} alt="redbanner" width="100%" />
                         </MobileRedBanner>
                         <DerivExperience onClick={redirectToDerivApp}>
                             <Header size="3rem">
                                 {localize('Get a taste of the Deriv experience')}
                             </Header>
-                            <Arrow />
+                            <img src={Arrow} alt="arrow mobile" />
                         </DerivExperience>
                     </MobileBackground>
                 </MobileWrapper>

@@ -136,7 +136,7 @@ module.exports = {
             },
         },
         {
-            resolve: 'gatsby-plugin-react-svg',
+            resolve: 'gatsby-plugin-svgr',
             options: {
                 rule: {
                     include: /svg/, // See below to configure properly

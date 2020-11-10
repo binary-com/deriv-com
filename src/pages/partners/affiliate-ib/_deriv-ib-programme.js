@@ -127,7 +127,7 @@ const DerivIBProgramme = () => {
     )
 }
 
-const StyledChevron = styled(Chevron)`
+const StyledChevron = styled.img`
     width: 100%;
     margin-top: 0.8rem;
     height: 16px;
@@ -211,6 +211,8 @@ const DMT5Synthetic = ({ data }) => {
                         </SyntheticTable>
                         {has_expansion && (
                             <StyledChevron
+                                src={Chevron}
+                                alt="chevron"
                                 onClick={toggleExpand}
                                 is_expand={is_expand.toString()}
                             />

@@ -2,7 +2,7 @@ import React from 'react'
 import styled, { css } from 'styled-components'
 import { localize } from 'components/localization'
 import { Header } from 'components/elements'
-import MacBook from 'images/svg/macbook.svg'
+import { ReactComponent as Macbook } from 'images/svg/macbook.svg'
 import device from 'themes/device.js'
 import { isBrowser } from 'common/utility'
 import { LinkButton } from 'components/form'
@@ -70,7 +70,7 @@ const VideoWrapper = styled.div`
         margin-top: 2rem;
     }
 `
-const MacbookFrame = styled(MacBook)`
+const MacbookFrame = styled(Macbook)`
     position: absolute;
     width: 100%;
     height: 100%;
@@ -242,7 +242,6 @@ class DtraderTabs extends React.Component {
                 </TabsWrapper>
                 <VideoWrapper>
                     <MacbookFrame />
-
                     <Video
                         ref={this.my_ref}
                         controls={this.state.is_ios}

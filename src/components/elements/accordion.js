@@ -3,13 +3,14 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { Text } from './typography'
 import { useStateWithCallback } from 'components/hooks/use-state-with-callback'
-import Chevron from 'images/svg/chevron-bottom.svg'
-import ChevronThick from 'images/svg/chevron-thick.svg'
-import Minus from 'images/svg/minus.svg'
-import Plus from 'images/svg/plus.svg'
+import { ReactComponent as Chevron } from 'images/svg/chevron-bottom.svg'
+import { ReactComponent as ChevronThick } from 'images/svg/chevron-thick.svg'
+import { ReactComponent as Minus } from 'images/svg/minus.svg'
+import { ReactComponent as Plus } from 'images/svg/plus.svg'
 import device from 'themes/device'
 
 const ThickArrow = styled(ChevronThick)`
+    width: 24px;
     transform: rotate(-180deg);
     transition: transform 0.25s linear;
     ${(props) => (props.expanded === 'true' ? 'transform: inherit;' : '')}

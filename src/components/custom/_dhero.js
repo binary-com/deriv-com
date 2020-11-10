@@ -127,8 +127,7 @@ const LinkWrapper = styled.div`
 const GoToLiveDemo = styled(LinkButton)`
     color: var(--color-white);
     border-color: var(--color-black-5);
-    margin-left: 1.6rem;
-    padding: 1.2rem 1.6rem;
+    padding: 1.1rem 1.6rem;
     width: auto;
 
     @media ${device.laptopM} {
@@ -144,7 +143,7 @@ const DemoButton = styled(LinkButton)`
     padding: 1.4rem 1.6rem;
     width: auto;
     font-size: 14px;
-    margin-right: 2px;
+    margin-right: 1.6rem;
     border: unset;
 
     @media ${device.mobileL} {
@@ -189,7 +188,6 @@ const InformationWrapper = styled(Flex)`
     }
     @media ${device.mobileM} {
         top: 230px;
-        max-width: 328px;
     }
 `
 
@@ -232,10 +230,12 @@ const DHero = ({
         const path = image_name === 'dbot' ? '/bot' : '/'
         return path
     }
-    const DLogo = styled(Logo)`
+    const DLogo = styled.img`
+        width: 32px !important;
+        height: 32px !important;
         margin-right: 1.6rem;
     `
-    const BackgroundSVG = styled(background_svg)`
+    const BackgroundSVG = styled.img`
         position: absolute;
         top: 0;
         right: 0;
@@ -271,10 +271,10 @@ const DHero = ({
     `
     return (
         <Wrapper>
-            <BackgroundSVG />
+            <BackgroundSVG src={background_svg} alt="background svg" />
             <InformationWrapper height="unset" direction="column">
                 <StyledHeader as="h1" weight={500}>
-                    <DLogo />
+                    <DLogo src={Logo} alt="logo" />
                     {title}
                 </StyledHeader>
                 <HeroContent>

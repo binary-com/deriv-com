@@ -11,7 +11,7 @@ const Item = styled(Flex)`
     max-width: 18rem;
     width: 100%;
 
-    svg {
+    img {
         width: 48px;
         height: 48px;
     }

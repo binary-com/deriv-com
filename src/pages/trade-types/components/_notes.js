@@ -23,7 +23,7 @@ const Notes = ({ text }) => {
     return (
         <StyledNote ai="center" jc="flex-start">
             <div>
-                <Info />
+                <img src={Info} alt="info" />
             </div>
 
             <Text ml="1.6rem">{text}</Text>

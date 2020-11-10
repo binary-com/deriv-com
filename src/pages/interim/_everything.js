@@ -49,7 +49,7 @@ const Everything = () => {
                 <Ul jc="center" ai="center">
                     <Li>
                         <div>
-                            <EasySignup width="64" height="64" />
+                            <img src={EasySignup} alt="easy sign up" width="64" height="64" />
                         </div>
                         <ResponsiveBox ml="1.6rem">
                             <Header as="h4">{localize('No sign up required')}</Header>
@@ -73,7 +73,12 @@ const Everything = () => {
                     </Li>
                     <Li>
                         <div>
-                            <SyntheticIndices width="64" height="64" />
+                            <img
+                                src={SyntheticIndices}
+                                alt="synthetic indices"
+                                width="64"
+                                height="64"
+                            />
                         </div>
                         <ResponsiveBox ml="1.6rem">
                             <Header as="h4">{localize('Over 100+ financial instruments')}</Header>
@@ -86,7 +91,7 @@ const Everything = () => {
                     </Li>
                     <Li>
                         <div>
-                            <Enhanced width="64" height="64" />
+                            <img src={Enhanced} alt="enhanced" width="64" height="64" />
                         </div>
                         <ResponsiveBox ml="1.6rem">
                             <Header as="h4">{localize('An enhanced experience')}</Header>
@@ -99,7 +104,12 @@ const Everything = () => {
                     </Li>
                     <Li>
                         <div>
-                            <TradingPlatform width="64" height="64" />
+                            <img
+                                src={TradingPlatform}
+                                alt="trading platforms"
+                                width="64"
+                                height="64"
+                            />
                         </div>
                         <ResponsiveBox ml="1.6rem">
                             <Header as="h4">{localize('4 trading platforms in one place')}</Header>
@@ -112,7 +122,7 @@ const Everything = () => {
                     </Li>
                     <Li>
                         <div>
-                            <UserFriendly width="64" height="64" />
+                            <img src={UserFriendly} alt="user friendly" width="64" height="64" />
                         </div>
                         <ResponsiveBox ml="1.6rem">
                             <Header as="h4">{localize('User-friendly, modern design')}</Header>
@@ -125,7 +135,7 @@ const Everything = () => {
                     </Li>
                     <Li>
                         <div>
-                            <Support width="64" height="64" />
+                            <img src={Support} alt="support" width="64" height="64" />
                         </div>
                         <ResponsiveBox ml="1.6rem">
                             <Header as="h4">{localize('Support when you need it')}</Header>

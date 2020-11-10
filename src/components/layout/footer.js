@@ -204,7 +204,7 @@ const SocialWrapper = styled.div`
     background: var(--color-grey-25);
     margin: 1.6rem 0;
 
-    svg {
+    img {
         margin-left: 1.6rem;
     }
 
@@ -214,23 +214,23 @@ const SocialWrapper = styled.div`
         margin: 3rem 0 1rem;
 
         a:first-child {
-            svg {
+            img {
                 margin-left: 0;
             }
         }
     }
 `
 
-const StyledGamstop = styled(Gamstop)`
+const StyledGamstop = styled.img`
     margin-right: 2.4rem;
 `
 const StyledCoatArms = styled.div`
     margin-right: 2.4rem;
 `
-const StyledMgaLogo = styled(MgaLogo)`
+const StyledMgaLogo = styled.img`
     margin-right: 2.4rem;
 `
-const StyledLogo = styled(Logo)`
+const StyledLogo = styled.img`
     width: 18.2rem;
 `
 
@@ -252,7 +252,7 @@ const SocialWrapperComponent = () => {
                 target="_blank"
                 rel="noopener noreferrer"
             >
-                <Facebook />
+                <img src={Facebook} alt="facebook" />
             </LocalizedLink>
             <LocalizedLink
                 external="true"
@@ -260,7 +260,7 @@ const SocialWrapperComponent = () => {
                 target="_blank"
                 rel="noopener noreferrer"
             >
-                <Twitter />
+                <img src={Twitter} alt="twitter" />
             </LocalizedLink>
             <LocalizedLink
                 external="true"
@@ -268,7 +268,7 @@ const SocialWrapperComponent = () => {
                 target="_blank"
                 rel="noopener noreferrer"
             >
-                <Instagram />
+                <img src={Instagram} alt="instagram" />
             </LocalizedLink>
             <LocalizedLink
                 external="true"
@@ -276,7 +276,7 @@ const SocialWrapperComponent = () => {
                 target="_blank"
                 rel="noopener noreferrer"
             >
-                <Linkedin />
+                <img src={Linkedin} alt="linkedin" />
             </LocalizedLink>
         </SocialWrapper>
     )
@@ -301,7 +301,7 @@ const Footer = () => {
             <Container>
                 <StyledGrid>
                     <DerivLogoWrapper>
-                        <StyledLogo />
+                        <StyledLogo src={Logo} alt="logo" />
                         <Show.Eu>
                             <Show.Desktop>
                                 <SocialWrapperComponent />
@@ -655,7 +655,7 @@ const Footer = () => {
                         </RiskWarning>
                     </Disclaimer>
                     <Copyright>
-                        <CopyrightIc width="16px" />
+                        <img src={CopyrightIc} alt="copyright ic" width="16px" />
                         <Text ml="0.4rem">{localize('2020 Deriv | All rights reserved')}</Text>
                     </Copyright>
                     <Show.NonEU>
@@ -675,7 +675,7 @@ const Footer = () => {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
-                                    <StyledGamstop />
+                                    <StyledGamstop src={Gamstop} alt="gamstop desktop" />
                                 </LocalizedLink>
 
                                 <LocalizedLink
@@ -699,9 +699,9 @@ const Footer = () => {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
-                                    <StyledMgaLogo />
+                                    <StyledMgaLogo src={MgaLogo} alt="mga logo desktop" />
                                 </LocalizedLink>
-                                <Over18 />
+                                <img src={Over18} alt="over18 desktop" />
                             </EuLogoWrapper>
                         </Show.Desktop>
                         <Show.Mobile>
@@ -728,7 +728,7 @@ const Footer = () => {
                                         target="_blank"
                                         rel="noopener noreferrer"
                                     >
-                                        <StyledMgaLogo />
+                                        <StyledMgaLogo src={MgaLogo} alt="mga logo" />
                                     </LocalizedLink>
                                     <LocalizedLink
                                         external="true"
@@ -736,10 +736,10 @@ const Footer = () => {
                                         target="_blank"
                                         rel="noopener noreferrer"
                                     >
-                                        <StyledGamstop />
+                                        <StyledGamstop src={Gamstop} alt="gamstop mobile" />
                                     </LocalizedLink>
                                 </Flex>
-                                <Over18 />
+                                <img src={Over18} alt="over18 mobile" />
                             </EuLogoWrapper>
                         </Show.Mobile>
                     </Show.Eu>

@@ -206,13 +206,13 @@ const LogoDiv = styled.div`
 const SVGContainer = styled.div`
     position: absolute;
     height: 93%;
-    left: 50%;
     width: 22px;
+    left: 50%;
 `
-const StyledLine = styled(StorySVG)`
+const StyledLine = styled.img`
     position: absolute;
     height: 102%;
-    left: 0;
+    left: -1px;
     top: 0;
 
     @media ${device.tablet} {
@@ -244,7 +244,7 @@ export const OurHistory = (props) => {
                 </Header>
             </Show.Desktop>
             <SVGContainer>
-                <StyledLine />
+                <StyledLine src={StorySVG} alt="story svg" />
             </SVGContainer>
             {Stories.map((story, idx) => (
                 <Story key={idx} bgColor={story.bgColor}>

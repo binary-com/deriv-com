@@ -27,27 +27,27 @@ const Commodities = ({ simple_step_content }) => {
             >
                 <div
                     text={<Localize translate_text="Competitive fixed and variable spreads" />}
-                    icon={<VariableSpreads />}
+                    icon={<img src={VariableSpreads} alt="variable spreads" />}
                 />
                 <div
                     text={<Localize translate_text="No commission on any commodity contract" />}
-                    icon={<NoCommission />}
+                    icon={<img src={NoCommission} alt="no commission" />}
                 />
                 <div
                     text={
                         <Localize translate_text="All four precious metals and crude oil available" />
                     }
-                    icon={<MetalAndOil />}
+                    icon={<img src={MetalAndOil} alt="precious metals and oils" />}
                 />
                 <div
                     text={
                         <Localize translate_text="Easy-to-use platforms, superior chart technology" />
                     }
-                    icon={<ResponsiveWebsite />}
+                    icon={<img src={ResponsiveWebsite} alt="responsive website" />}
                 />
                 <div
                     text={<Localize translate_text="Smart and friendly support, 7 days a week" />}
-                    icon={<FriendlySupport />}
+                    icon={<img src={FriendlySupport} alt="friendly support" />}
                 />
             </WhyTrade>
             <AvailableTrades

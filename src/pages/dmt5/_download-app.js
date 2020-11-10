@@ -58,7 +58,7 @@ const ImageWrapper = styled.div`
         margin-top: 24px;
     }
 `
-const StyledInfo = styled(MoreInfo)`
+const StyledInfo = styled.img`
     margin-top: 0.5rem;
 `
 const StyledHeader = styled(Header)`
@@ -92,7 +92,7 @@ const DownloadApp = () => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                <Windows />
+                                <img src={Windows} alt="windows" />
                             </LocalizedLink>
                         </Box>
                         <LocalizedLink
@@ -101,7 +101,7 @@ const DownloadApp = () => {
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            <Linux />
+                            <img src={Linux} alt="linux" />
                         </LocalizedLink>
                     </Flex>
 
@@ -116,7 +116,7 @@ const DownloadApp = () => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                <AppStore />
+                                <img src={AppStore} alt="app store" />
                             </LocalizedLink>
                         </Box>
                         <LocalizedLink
@@ -125,7 +125,7 @@ const DownloadApp = () => {
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            <GooglePlay />
+                            <img src={GooglePlay} alt="google play" />
                         </LocalizedLink>
                     </Flex>
                 </Show.Desktop>
@@ -140,7 +140,7 @@ const DownloadApp = () => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                <AppStore />
+                                <img src={AppStore} alt="appstore mobile" />
                             </LocalizedLink>
                         </Box>
                         <LocalizedLink
@@ -149,7 +149,7 @@ const DownloadApp = () => {
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            <GooglePlayMobile />
+                            <img src={GooglePlayMobile} alt="google play mobile" />
                         </LocalizedLink>
                     </Flex>
                     <StyledHeader mt="2.4rem" as="h4">
@@ -163,7 +163,7 @@ const DownloadApp = () => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                <Windows />
+                                <img src={Windows} alt="windows mobile" />
                             </LocalizedLink>
                         </Box>
                         <LocalizedLink
@@ -172,7 +172,7 @@ const DownloadApp = () => {
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            <Linux />
+                            <img src={Linux} alt="linux mobile" />
                         </LocalizedLink>
                     </Flex>
                 </Show.Mobile>
@@ -189,7 +189,7 @@ const DownloadApp = () => {
                 tabletL={{ max_width: '290px', mt: '40px' }}
                 laptopM={{ mr: '2px', ml: '2px' }}
             >
-                <StyledInfo />
+                <StyledInfo src={MoreInfo} alt="more info" />
                 <Text width="100%" ml="1.6rem" size="var(--text-size-m)">
                     <Localize
                         translate_text="For mobile app sign-ups, set the broker code to <0>Deriv Limited</0>."

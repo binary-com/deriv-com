@@ -127,7 +127,7 @@ const LinkWrapper = styled.div`
 const GoToLiveDemo = styled(LinkButton)`
     color: var(--color-white);
     border-color: var(--color-black-5);
-    padding: 1.1rem 1.6rem;
+    padding: 1.2rem 1.6rem;
     width: auto;
 
     @media ${device.laptopM} {
@@ -137,6 +137,10 @@ const GoToLiveDemo = styled(LinkButton)`
         max-width: 100%;
         white-space: nowrap;
         margin-left: 0;
+    }
+
+    @media (max-width: 460px) {
+        white-space: nowrap;
     }
 `
 const DemoButton = styled(LinkButton)`
@@ -150,7 +154,7 @@ const DemoButton = styled(LinkButton)`
         white-space: nowrap;
     }
     @media (max-width: 460px) {
-        margin-bottom: 2rem;
+        margin-bottom: 1.6rem;
     }
 `
 const StyledContent = styled(Header)`

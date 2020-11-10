@@ -119,7 +119,7 @@ const LinkWrapper = styled.div`
         top: unset;
         justify-content: start;
     }
-    @media (max-width: 460px) {
+    @media (max-width: 360px) {
         flex-wrap: wrap;
     }
 `
@@ -139,7 +139,7 @@ const GoToLiveDemo = styled(LinkButton)`
         margin-left: 0;
     }
 
-    @media (max-width: 460px) {
+    @media (max-width: 360px) {
         white-space: nowrap;
     }
 `
@@ -153,7 +153,7 @@ const DemoButton = styled(LinkButton)`
     @media ${device.mobileL} {
         white-space: nowrap;
     }
-    @media (max-width: 460px) {
+    @media (max-width: 360px) {
         margin-bottom: 1.6rem;
     }
 `

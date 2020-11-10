@@ -17,6 +17,7 @@ const Card = styled(Flex)`
     height: 13.6rem;
     width: auto;
     justify-content: flex-start;
+    align-items: center;
 `
 
 const CardText = styled(Text)`

@@ -186,6 +186,7 @@ const DownloadApp = () => {
                 max_width="31rem"
                 mt="10.8rem"
                 mr="5.6rem"
+                ai="flex-start"
                 tabletL={{ max_width: '290px', mt: '40px' }}
                 laptopM={{ mr: '2px', ml: '2px' }}
             >

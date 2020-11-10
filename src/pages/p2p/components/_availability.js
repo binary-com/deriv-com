@@ -24,7 +24,7 @@ const Section = styled(SectionContainer)`
     justify-content: center;
 
     @media ${device.tablet} {
-        padding: 40px 16px;
+        padding: 0 16px 40px 16px;
     }
 `
 
@@ -68,6 +68,10 @@ const StyledText = styled(Text)`
 
     @media ${device.mobileL} {
         font-size: 16px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
     }
 `
 const Line = styled.div`
@@ -82,7 +86,8 @@ const Line = styled.div`
     @media ${device.tablet} {
         height: 1px;
         width: 50rem;
-        margin: 4.5rem 0;
+        margin: 1.5rem 0;
+        border: solid 1px #979797;
     }
 
     @media ${device.mobileL} {

@@ -160,7 +160,7 @@ export const Hero = () => {
                         <VerticalCarousel contents={contents} />
                     </Details>
                     <ImageWrapper>
-                        <QueryImage data={data.background} alt="platform devices" width="100%" eager />
+                        <QueryImage data={data.background} alt="platform devices" width="100%" eager noFadeIn />
                     </ImageWrapper>
                     <ButtonWrapper>
                         <HeroButton secondary="true" to="/signup/">

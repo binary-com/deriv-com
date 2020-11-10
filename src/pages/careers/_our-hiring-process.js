@@ -123,31 +123,18 @@ const StyledCareer4 = styled.img`
     }
 `
 
-const DownwardsRight1 = styled.img`
-    margin-left: 43.5%;
-    margin-top: -6.5%;
-
-    @media ${device.tablet} {
-        display: none;
-    }
+const DownwardsShape = styled(Show.Desktop)`
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
 `
 
-const DownwardsRight2 = styled.img`
-    margin-left: 43.5%;
-    margin-top: -9.5%;
-
-    @media ${device.tablet} {
-        display: none;
-    }
+const StyledDownwardsRight = styled.img`
+    margin: -25px 60px -40px 0;
 `
 
-const DownwardsLeft1 = styled.img`
-    margin-left: 49%;
-    margin-top: -6%;
-
-    @media ${device.tablet} {
-        display: none;
-    }
+const StyledDownwardsLeft = styled.img`
+    margin: -25px 0 -70px 50px;
 `
 
 const ResponsiveFlex1 = styled(Flex)`
@@ -160,6 +147,7 @@ const SubResponsiveFlex1 = styled(Flex)`
     @media ${device.tablet} {
         flex-direction: column;
         justify-content: flex-start;
+        align-items: flex-start;
     }
 `
 
@@ -189,6 +177,7 @@ const SubResponsiveFlex3 = styled(Flex)`
     @media ${device.tablet} {
         flex-direction: column;
         justify-content: flex-start;
+        align-items: flex-start;
     }
 `
 
@@ -241,7 +230,9 @@ const OurHiringProcess = () => (
                         />
                     </SubResponsiveFlex1>
                 </ResponsiveFlex1>
-                <DownwardsRight1 src={DownwardsRight} alt="downwards right" />
+                <DownwardsShape>
+                    <StyledDownwardsRight src={DownwardsRight} alt="downwards right" />
+                </DownwardsShape>
                 <ResponsiveFlex2 direction="row" ml="2.4rem" mt="1rem" width="unset">
                     <SubResponsiveFlex2 direction="row" width="unset">
                         <Process
@@ -260,7 +251,9 @@ const OurHiringProcess = () => (
                         style={{ maxWidth: '35.7rem', marginTop: '2.3rem' }}
                     />
                 </ResponsiveFlex2>
-                <DownwardsLeft1 src={DownwardsLeft} alt="downwards left" />
+                <DownwardsShape>
+                    <StyledDownwardsLeft src={DownwardsLeft} alt="downwards left" />
+                </DownwardsShape>
                 <ResponsiveFlex3 direction="row" mt="2rem">
                     <TipsCard
                         content={
@@ -280,7 +273,9 @@ const OurHiringProcess = () => (
                         />
                     </SubResponsiveFlex3>
                 </ResponsiveFlex3>
-                <DownwardsRight2 src={DownwardsRight} alt="downwards right 2" />
+                <DownwardsShape>
+                    <StyledDownwardsRight src={DownwardsRight} alt="downwards right 2" />
+                </DownwardsShape>
                 <ResponsiveFlex4 direction="row" mt="1.6rem" width="unset">
                     <SubResponsiveFlex4 direction="row" width="unset">
                         <Process

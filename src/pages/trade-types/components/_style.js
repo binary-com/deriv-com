@@ -100,7 +100,8 @@ const Card = styled.article`
 
 const WhyTradeItem = styled(Flex)`
     flex-direction: column;
-    justify-content: start;
+    justify-content: flex-start;
+    align-items: flex-start;
     max-width: 23.7rem;
     height: auto;
 

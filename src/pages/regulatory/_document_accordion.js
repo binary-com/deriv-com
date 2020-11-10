@@ -219,7 +219,7 @@ const DocumentAccordion = () => {
                             href="/regulatory/kid_deriv_multipliers.pdf"
                             m="1.6rem 2.4rem"
                         >
-                            <PDFIcon />
+                            <img src={PDFIcon} alt="pdf icon black" />
                             <span>{localize('Multipliers')}</span>
                         </FlexText>
                     </EdgeFlex>

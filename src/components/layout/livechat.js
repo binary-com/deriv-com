@@ -70,9 +70,8 @@ const LiveChat = ({ LC_API, is_livechat_interactive, setLiveChatInteractive }) =
     }();
 
     React.useEffect(() => {
-
-        const cookie_interval = setInterval(checkCookie, 500);
         if (isBrowser()) {
+            const cookie_interval = setInterval(checkCookie, 500);
             // The purpose is to load the script after everything is load but not async or defer. Therefore, it will be ignored in the rendering timeline
             setTimeout(() => {
                 loadLiveChatScript(() => {

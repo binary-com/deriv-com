@@ -21,6 +21,17 @@ const TitleWrapper = styled.section`
     }
 `
 
+const SubtitleHeader = styled(Header)`
+    width: 792px;
+    @media ${device.laptopL} {
+        width: 100%;
+    }
+`
+
+const ComissionPlanContainer = styled(SectionContainer)`
+    padding: 4rem 0;
+`
+
 const StyledText = styled(Text)`
     font-size: 1.4rem;
     line-height: 1.15;
@@ -54,6 +65,7 @@ const StyledCard = styled(Card)`
 `
 
 const StyledHeaderCommission = styled(StyledHeader)`
+    margin-bottom: 0;
     @media (max-width: 1428px) {
         text-align: center;
     }
@@ -104,17 +116,17 @@ const DerivAffiliateProgramme = () => {
         <StyledSection>
             <Container direction="column">
                 <TitleWrapper>
-                    <Header as="h3" type="section-title" align="center" mb="1.6rem">
+                    <Header size="4.8rem" align="center" as="h3" mb="1.6rem">
                         {localize('Deriv Affiliate Programme')}
                     </Header>
-                    <Header as="h4" type="sub-section-title" align="center" weight="500">
+                    <SubtitleHeader as="h4" align="center" weight="normal">
                         {localize(
                             'Partner with us as an affiliate. Earn commission from the total net revenue of your referred clients’ trades on DTrader and DBot.',
                         )}
-                    </Header>
+                    </SubtitleHeader>
                 </TitleWrapper>
-                <SectionContainer>
-                    <StyledHeaderCommission as="h4" type="sub-section-title">
+                <ComissionPlanContainer>
+                    <StyledHeaderCommission as="h4" size="1.6rem">
                         {localize('Choose a commission plan:')}
                     </StyledHeaderCommission>
                     <CardWrapper>
@@ -161,7 +173,10 @@ const DerivAffiliateProgramme = () => {
                                     {localize('Turnover')}
                                 </Header>
                                 <Text>
-                                    {localize('Earn based on each contract’s payout probability.')}
+                                    <Localize
+                                        translate_text="<0>Options:</0> Earn based on each contract’s payout probability."
+                                        components={[<strong key={0} />]}
+                                    />
                                 </Text>
                                 <Table grid_col_number={2}>
                                     {Turnover.map((col, index) => (
@@ -213,7 +228,7 @@ const DerivAffiliateProgramme = () => {
                                     </Text>
                                     <Text>
                                         <Localize
-                                            translate_text="This plan is only available for clients based in the EU."
+                                            translate_text="This plan is available exclusively for EU-based clients."
                                             components={[<strong key={0} />]}
                                         />
                                     </Text>
@@ -232,7 +247,7 @@ const DerivAffiliateProgramme = () => {
                             </div>
                         </StyledCard>
                     </CardWrapper>
-                </SectionContainer>
+                </ComissionPlanContainer>
             </Container>
         </StyledSection>
     )

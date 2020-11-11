@@ -134,9 +134,7 @@ const WhoCanApply = () => {
             <StyledSection>
                 <Flex>
                     <WhoCanApplyWrapper>
-                        <StyledHeader as="h3" type="section-title">
-                            {localize('Who can apply')}
-                        </StyledHeader>
+                        <StyledHeader size="3.2rem">{localize('Who can apply')}</StyledHeader>
                         <Wrapper>
                             <ImageWrapper src={TradingExperts} alt="trading experts" />
                             <Content max_width="36.4rem">
@@ -181,7 +179,7 @@ const WhoCanApply = () => {
                 <Separator />
                 <Flex>
                     <HowToApply>
-                        <SecondaryHeader mb="4rem" as="h3" type="section-title">
+                        <SecondaryHeader mb="4rem" size="3.2rem">
                             {localize('Get started easily')}
                         </SecondaryHeader>
                         <Timeline>

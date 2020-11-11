@@ -8,6 +8,8 @@ import Layout from 'components/layout/layout'
 import { SectionContainer, Container, SEO } from 'components/containers'
 import { localize, Localize, WithIntl } from 'components/localization'
 import { affiliate_signup_url } from 'common/utility'
+import device from 'themes/device'
+
 const DNumber = Loadable(() => import('components/custom/_dnumbers.js'))
 const WhyUs = Loadable(() => import('./_why-us.js'))
 const WhoCanAplly = Loadable(() => import('./_who-can-apply.js'))
@@ -22,6 +24,14 @@ const StyledHeader = styled(Header)`
     max-width: 70rem;
     margin-bottom: 4rem;
 `
+
+const SubtitleHeader = styled(Header)`
+    width: 1170px;
+    @media ${device.laptopL} {
+        width: 100%;
+    }
+`
+
 const items = [
     { title: '47K+', subtitle: <Localize translate_text="members" /> },
     { title: '$14M+', subtitle: <Localize translate_text="paid out" /> },
@@ -82,11 +92,11 @@ const AffiliateIb = () => {
             </Hero>
             <SectionContainer padding="8rem 0 4rem">
                 <Container direction="column">
-                    <Header as="h4" type="sub-section-title" weight="500" align="center">
+                    <SubtitleHeader as="h4" weight="normal" align="center">
                         {localize(
-                            'Earn 45% lifetime commission with an online trading provider that enables anyone to trade on popular financial markets with the utmost convenience. Deriv Group Ltd - the owner of Binary.com and Deriv.com - has a proven track record of running successful referral programmes with prompt payouts.',
+                            'Earn up to 45% lifetime commission with an online trading provider that enables anyone to trade on several popular financial markets with the utmost convenience. Binary Group – the owner of Binary.com and Deriv.com – has a proven track record of running successful referral programmes with prompt payouts.',
                         )}
-                    </Header>
+                    </SubtitleHeader>
                     <DNumber items={items} justify="space-around" />
                 </Container>
             </SectionContainer>

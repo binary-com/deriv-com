@@ -16,6 +16,13 @@ const TitleWrapper = styled.div`
     margin: 0 auto;
 `
 
+const StyledCardWrapper = styled(CardWrapper)`
+    flex-wrap: nowrap;
+    @media ${device.laptopL} {
+        flex-wrap: wrap;
+    }
+`
+
 const StyledSection = styled(SectionContainer)`
     box-shadow: ${(props) => (props.shadow ? '0 1px 0 0 rgba(0, 0, 0, 0.1)' : '')};
     padding-bottom: 0;
@@ -66,6 +73,7 @@ const ButtonWrapper = styled.div`
 `
 
 const StyledHeaderCommission = styled(StyledHeader)`
+    margin-bottom: 0;
     @media (max-width: 1428px) {
         text-align: center;
     }
@@ -87,35 +95,29 @@ const DerivIBProgramme = () => {
         <StyledSection shadow id="deriv-ib">
             <Container direction="column">
                 <TitleWrapper>
-                    <Header mb="1.6rem" as="h3" type="section-title" align="center">
+                    <Header mb="1.6rem" size="4.8rem" align="center">
                         {localize('Deriv IB Programme')}
                     </Header>
-                    <Header as="h4" type="sub-section-title" align="center" weight="500">
+                    <Header as="h4" align="center" weight="normal">
                         {localize(
                             'Our introducing broker programme is available to all Deriv affiliates.',
                         )}
                     </Header>
-                    <Header as="h4" type="sub-section-title" align="center" weight="500">
+                    <Header as="h4" align="center" weight="normal">
                         {localize('Earn commission from your clients’ trades on DMT5.')}
                     </Header>
                 </TitleWrapper>
                 <SectionContainer padding="4rem 0 9.6rem 0">
-                    <StyledHeaderCommission as="h4" type="sub-section-title" mb="1.6rem">
+                    <StyledHeaderCommission as="h4" mb="1.6rem" size="1.6rem">
                         {localize('Choose a commission plan:')}
                     </StyledHeaderCommission>
-                    <CardWrapper>
+                    <StyledCardWrapper>
+                        <DMT5Synthetic data={ib_dmt5_synthetic} />
                         <DMT5Standard data={ib_dmt5_standard} />
                         <DMT5Advanced data={ib_dmt5_advanced} />
-                        <DMT5Synthetic data={ib_dmt5_synthetic} />
-                    </CardWrapper>
+                    </StyledCardWrapper>
                     <StyledSection padding="4rem 0 0 0" align="center">
-                        <StyledHeader
-                            as="h4"
-                            type="sub-section-title"
-                            align="center"
-                            weight="500"
-                            mb="2.6rem"
-                        >
+                        <StyledHeader as="h4" align="center" weight="medium" mb="3.2rem">
                             {localize('Can’t decide which programme or commission plan suits you?')}
                         </StyledHeader>
                         <LinkButton
@@ -170,7 +172,7 @@ const DMT5Synthetic = ({ data }) => {
         setExpand(!is_expand)
     }
     return (
-        <Card
+        <StyledCard
             height={is_expand && !is_calculated ? '100rem' : '49rem'}
             padding="3.2rem 1.6rem 8.2rem"
             width="43rem"
@@ -254,7 +256,7 @@ const DMT5Synthetic = ({ data }) => {
                     </>
                 )}
             </div>
-        </Card>
+        </StyledCard>
     )
 }
 const DMT5Standard = ({ data }) => {
@@ -435,7 +437,7 @@ const DMT5Advanced = ({ data }) => {
 const ib_dmt5_standard = {
     name: <Localize translate_text="DMT5 Financial" />,
     description: (
-        <Localize translate_text="Earn when your clients trade on a DMT5 Financial account." />
+        <Localize translate_text="Earn when your clients trade on a DMT5 Standard account." />
     ),
     assets: [
         [
@@ -466,12 +468,13 @@ const ib_dmt5_standard = {
 const ib_dmt5_advanced = {
     name: <Localize translate_text="DMT5 Financial STP" />,
     description: (
-        <Localize translate_text="Earn when your clients trade on a DMT5 Financial STP account." />
+        <Localize translate_text="Earn when your clients trade on a DMT5 Advanced account." />
     ),
     assets: [
         [
             { title: <Localize translate_text="Asset" />, style: { minWidth: '13rem' } },
-            <Localize key={0} translate_text="Forex and metals" />,
+            <Localize key={0} translate_text="Forex" />,
+            <Localize key={1} translate_text="Cryptocurrencies" />,
         ],
         [
             {
@@ -479,6 +482,7 @@ const ib_dmt5_advanced = {
                 style: { maxWidth: '16rem' },
             },
             <Localize key={0} translate_text="5 per lot" />,
+            <Localize key={1} translate_text="0.3% per lot" />,
         ],
     ],
     calculation: (
@@ -488,9 +492,9 @@ const ib_dmt5_advanced = {
     ),
 }
 const ib_dmt5_synthetic = {
-    name: <Localize translate_text="DMT5 Synthetic" />,
+    name: <Localize translate_text="DMT5 Synthetic indices" />,
     description: (
-        <Localize translate_text="Earn when your clients trade on a DMT5 Synthetic account." />
+        <Localize translate_text="Earn when your clients trade on a DMT5 Synthetic Indices account." />
     ),
     assets: [
         [

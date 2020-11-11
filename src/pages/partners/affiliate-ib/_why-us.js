@@ -32,6 +32,11 @@ const StyledContainer = styled(SectionContainer)`
         padding-bottom: 0;
     }
 `
+
+const StyledHeader = styled(Header)`
+    margin-bottom: 0 !important;
+`
+
 const Row = styled(SectionContainer)`
     display: flex;
     flex-direction: ${(props) => props.flex_direction};
@@ -67,7 +72,7 @@ const WhyUs = ({ items }) => {
     return (
         <StyledContainer>
             <Container direction="column">
-                <Header as="h3" type="section-title" align="center">
+                <Header size="4.8rem" align="center">
                     {localize('Why partner with us')}
                 </Header>
                 {items.map((item, index) => {
@@ -75,9 +80,7 @@ const WhyUs = ({ items }) => {
                     return (
                         <Row flex_direction={is_even ? 'row-reverse' : 'row'} key={index}>
                             <Content>
-                                <Header as="h3" type="section-title">
-                                    {item.title}
-                                </Header>
+                                <StyledHeader size="2.4rem">{item.title}</StyledHeader>
                                 <Text mt="0.8rem">{item.subtitle}</Text>
                             </Content>
                             <QueryImage

@@ -6,8 +6,7 @@ import { Header, Text, LinkText } from 'components/elements'
 import { isBrowser, affiliate_signup_url } from 'common/utility'
 
 const ItemContainer = styled(SectionContainer)`
-    padding: 4rem 0;
-    max-width: 79rem;
+    padding: 0;
 `
 
 const HeaderPrimary = styled(Header)`

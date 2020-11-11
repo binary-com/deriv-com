@@ -37,7 +37,7 @@ const AccordionWrapper = styled.div`
 
 const Faq = () => {
     const parent_style = {
-        marginBottom: '4rem',
+        marginBottom: '2.4rem',
     }
     const item_style = {
         padding: '4rem',
@@ -52,7 +52,7 @@ const Faq = () => {
             <Header as="h3" type="section-title" align="center">
                 {localize('Browse our FAQ')}
             </Header>
-            <Header as="h4" type="sub-section-title" align="center" m="4rem 0" weight="500">
+            <Header as="h4" align="center" m="4rem 0" weight="normal">
                 {localize('Deriv Affiliate Programme')}
             </Header>
             <AccordionWrapper>
@@ -86,11 +86,11 @@ const Faq = () => {
                     </AccordionItem>
                 </Accordion>
             </AccordionWrapper>
-            <Header as="h4" type="sub-section-title" align="center" m="8rem 0 4rem 0 " weight="500">
+            <Header as="h4" align="center" m="8rem 0 4rem 0 " weight="normal">
                 {localize('Deriv IB Programme')}
             </Header>
             <AccordionWrapper>
-                <Accordion has_single_state>
+                <Accordion has_single_state is_faq>
                     <AccordionItem
                         header={localize('General')}
                         parent_style={parent_style}

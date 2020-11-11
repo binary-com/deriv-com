@@ -88,64 +88,66 @@ const LiveChat = ({ LC_API, is_livechat_interactive, setLiveChatInteractive }) =
     }, [])
 
     React.useEffect(() => {
-        setTimeout(() => {
-            loadLiveChatScript(() => {
-                window.LiveChatWidget.on('ready', () => {
-                    let session_variables = {
-                        loginid: '',
-                        landing_company_shortcode: '',
-                        currency: '',
-                        residence: '',
-                        email: '',
-                    }
-                    if (is_logged_in) {
-                        const client_information = Cookies.get('client_information', {
-                            domain,
-                        })
-                        const {
-                            loginid,
-                            email,
-                            landing_company_shortcode,
-                            currency,
-                            residence,
-                            first_name,
-                            last_name,
-                        } = JSON.parse(client_information)
-
-                        session_variables = {
-                            ...(loginid && { loginid }),
-                            ...(landing_company_shortcode && {
+        if (isBrowser()) {
+            setTimeout(() => {
+                loadLiveChatScript(() => {
+                    window.LiveChatWidget.on('ready', () => {
+                        let session_variables = {
+                            loginid: '',
+                            landing_company_shortcode: '',
+                            currency: '',
+                            residence: '',
+                            email: '',
+                        }
+                        if (is_logged_in) {
+                            const client_information = Cookies.get('client_information', {
+                                domain,
+                            })
+                            const {
+                                loginid,
+                                email,
                                 landing_company_shortcode,
-                            }),
-                            ...(currency && { currency }),
-                            ...(residence && { residence }),
-                            ...(email && { email }),
-                        }
+                                currency,
+                                residence,
+                                first_name,
+                                last_name,
+                            } = JSON.parse(client_information)
 
-                        window.LiveChatWidget.call(
-                            'set_session_variables',
-                            session_variables,
-                        )
-                        if (email) {
-                            window.LiveChatWidget.call('set_customer_email', email)
-                        }
-                        if (first_name && last_name) {
+                            session_variables = {
+                                ...(loginid && { loginid }),
+                                ...(landing_company_shortcode && {
+                                    landing_company_shortcode,
+                                }),
+                                ...(currency && { currency }),
+                                ...(residence && { residence }),
+                                ...(email && { email }),
+                            }
+
                             window.LiveChatWidget.call(
-                                'set_customer_name',
-                                `${first_name} ${last_name}`,
+                                'set_session_variables',
+                                session_variables,
                             )
+                            if (email) {
+                                window.LiveChatWidget.call('set_customer_email', email)
+                            }
+                            if (first_name && last_name) {
+                                window.LiveChatWidget.call(
+                                    'set_customer_name',
+                                    `${first_name} ${last_name}`,
+                                )
+                            }
+                        } else {
+                            if (window.LiveChatWidget.get('chat_data')) {
+                                const chatID = window.LiveChatWidget.get('chat_data').chatId;
+                                customerSDK.deactivateChat({ chatId: chatID })
+                            }
+                            window.LiveChatWidget.call('set_customer_email', ' ')
+                            window.LiveChatWidget.call('set_customer_name', ' ')
                         }
-                    } else {
-                        if (window.LiveChatWidget.get('chat_data')) {
-                            const chatID = window.LiveChatWidget.get('chat_data').chatId;
-                            customerSDK.deactivateChat({ chatId: chatID })
-                        }
-                        window.LiveChatWidget.call('set_customer_email', ' ')
-                        window.LiveChatWidget.call('set_customer_name', ' ')
-                    }
+                    })
                 })
-            })
-        }, 2000)
+            }, 2000)
+        }
 
     }, [is_logged_in])
 

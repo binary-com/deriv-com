@@ -7,6 +7,7 @@ import { Container, SEO } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { Input, Button } from 'components/form'
 import validation from 'common/validation'
+import { trimSpaces } from 'common/utility'
 import { BinarySocketBase } from 'common/websocket/socket_base'
 import Login from 'common/login'
 
@@ -29,8 +30,6 @@ const InputGroup = styled.div`
 const StyledButton = styled(Button)`
     margin: 0.8rem 0.4rem;
 `
-
-const trimSpaces = value => value.trim()
 
 const resetValidation = (values) => {
     let errors = {}

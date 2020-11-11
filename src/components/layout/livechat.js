@@ -33,11 +33,6 @@ const LiveChat = ({ LC_API, is_livechat_interactive, setLiveChatInteractive }) =
         : 'binary.sx'
     )
 
-    const customerSDK = CustomerSDK.init({
-        licenseId: 12049137,
-        clientId: '66aa088aad5a414484c1fd1fa8a5ace7',
-    })
-
     const loadLiveChatScript = (callback) => {
         const livechat_script = document.createElement('script')
         livechat_script.innerHTML = `
@@ -89,6 +84,10 @@ const LiveChat = ({ LC_API, is_livechat_interactive, setLiveChatInteractive }) =
 
     React.useEffect(() => {
         if (isBrowser()) {
+            const customerSDK = CustomerSDK.init({
+                licenseId: 12049137,
+                clientId: '66aa088aad5a414484c1fd1fa8a5ace7',
+            })
             setTimeout(() => {
                 loadLiveChatScript(() => {
                     window.LiveChatWidget.on('ready', () => {

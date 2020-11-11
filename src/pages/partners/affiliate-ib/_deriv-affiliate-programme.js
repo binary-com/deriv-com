@@ -11,7 +11,7 @@ import device from 'themes/device'
 
 const StyledSection = styled(SectionContainer)`
     padding-bottom: 0;
-    background-color: var(--color-grey-8);
+    background-color: var(--color-grey-31);
 `
 const TitleWrapper = styled.section`
     max-width: 99.6rem;
@@ -29,7 +29,7 @@ const SubtitleHeader = styled(Header)`
 `
 
 const ComissionPlanContainer = styled(SectionContainer)`
-    padding: 4rem 0;
+    padding: 4rem 0 8rem 0;
 `
 
 const StyledText = styled(Text)`
@@ -116,7 +116,7 @@ const DerivAffiliateProgramme = () => {
         <StyledSection>
             <Container direction="column">
                 <TitleWrapper>
-                    <Header size="4.8rem" align="center" as="h3" mb="1.6rem">
+                    <Header size="4.8rem" align="center" as="h3" mb="1.2rem">
                         {localize('Deriv Affiliate Programme')}
                     </Header>
                     <SubtitleHeader as="h4" align="center" weight="normal">
@@ -132,7 +132,7 @@ const DerivAffiliateProgramme = () => {
                     <CardWrapper>
                         <StyledCard height="55.3rem">
                             <div>
-                                <Header as="h4" type="sub-section-title">
+                                <Header as="h4" mb="0.8rem">
                                     {localize('Revenue share')}
                                 </Header>
                                 <Text>
@@ -169,7 +169,7 @@ const DerivAffiliateProgramme = () => {
                         </StyledCard>
                         <StyledCard height="55.3rem">
                             <div>
-                                <Header as="h4" type="sub-section-title">
+                                <Header as="h4" mb="0.8rem">
                                     {localize('Turnover')}
                                 </Header>
                                 <Text>
@@ -215,7 +215,7 @@ const DerivAffiliateProgramme = () => {
                         </StyledCard>
                         <StyledCard height="55.3rem">
                             <div>
-                                <Header as="h4" type="sub-section-title">
+                                <Header as="h4" mb="0.8rem">
                                     {localize('CPA (EU only)')}
                                 </Header>
                                 <Text>{localize('Earn based on each successful referral.')}</Text>

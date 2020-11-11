@@ -29,7 +29,7 @@ const TextList = styled(Text)`
 
 const StyledLink = styled(LinkText)`
     color: var(--color-red);
-    font-weight: bold;
+    font-weight: normal;
 `
 
 const StyledUl = styled.ul`
@@ -40,7 +40,7 @@ const StyledUl = styled.ul`
 
 const LocalizedLinkText = styled((props) => <LocalizedLink {...props} />)`
     color: var(--color-red);
-    font-weight: bold;
+    font-weight: normal;
     text-decoration: none;
 
     &:hover {

@@ -24,7 +24,6 @@ const StyledCardWrapper = styled(CardWrapper)`
 `
 
 const StyledSection = styled(SectionContainer)`
-    box-shadow: ${(props) => (props.shadow ? '0 1px 0 0 rgba(0, 0, 0, 0.1)' : '')};
     padding-bottom: 0;
     text-align: ${(props) => props.align || 'left'};
 `
@@ -39,6 +38,7 @@ const BackButton = styled(Button)`
     color: var(--color-black);
     height: 40px;
     padding: 0 1.6rem;
+    margin-right: 1.6rem;
 `
 
 const StyledText = styled(Text)`
@@ -59,7 +59,7 @@ const HowItsCalculate = styled.div`
 
 const ButtonWrapper = styled.div`
     display: flex;
-    justify-content: flex-start;
+    justify-content: flex-end;
     margin-top: 1.6rem;
     position: absolute;
     bottom: 0;
@@ -88,14 +88,16 @@ const StyledCard = styled(Card)`
 `
 
 const TitleTR = styled(TR)`
-    height: 6rem;
+    height: 5rem;
+    display: flex;
+    align-items: center;
 `
 const DerivIBProgramme = () => {
     return (
         <StyledSection shadow id="deriv-ib">
             <Container direction="column">
                 <TitleWrapper>
-                    <Header mb="1.6rem" size="4.8rem" align="center">
+                    <Header mb="1.2rem" size="4.8rem" align="center">
                         {localize('Deriv IB Programme')}
                     </Header>
                     <Header as="h4" align="center" weight="normal">
@@ -148,7 +150,7 @@ const StyledTR = styled(TR)`
 `
 
 const SyntheticTable = styled(Table)`
-    grid-template-columns: 55% 47%;
+    grid-template-columns: 53% 50%;
 `
 const StyledLinkButton = styled(LinkButton)`
     height: 40px;
@@ -173,14 +175,14 @@ const DMT5Synthetic = ({ data }) => {
     }
     return (
         <StyledCard
-            height={is_expand && !is_calculated ? '100rem' : '49rem'}
-            padding="3.2rem 1.6rem 8.2rem"
+            height={is_expand && !is_calculated ? '76rem' : '43rem'}
+            padding="3.2rem 3.2rem 8.2rem"
             width="43rem"
         >
             <div>
                 {!is_calculated ? (
                     <div>
-                        <Header as="h4" type="sub-section-title">
+                        <Header as="h4" mb="0.8rem">
                             {data.name}
                         </Header>
                         <Text>{data.description}</Text>
@@ -235,11 +237,14 @@ const DMT5Synthetic = ({ data }) => {
                     </div>
                 ) : (
                     <>
-                        <Header as="h4" type="sub-section-title" lh="1.5">
+                        <Header as="h4" mb="0.8rem" lh="1.5">
                             {localize('How it’s calculated')}
                         </Header>
                         {data.calculation}
                         <ButtonWrapper>
+                            <BackButton tertiary onClick={toggleCalculated}>
+                                {localize('Back')}
+                            </BackButton>
                             <StyledLinkButton
                                 secondary
                                 to={affiliate_signup_url}
@@ -249,9 +254,6 @@ const DMT5Synthetic = ({ data }) => {
                             >
                                 {localize('Become an affiliate')}
                             </StyledLinkButton>
-                            <BackButton tertiary onClick={toggleCalculated}>
-                                {localize('Back')}
-                            </BackButton>
                         </ButtonWrapper>
                     </>
                 )}
@@ -265,11 +267,11 @@ const DMT5Standard = ({ data }) => {
         setCalculated(!is_calculated)
     }
     return (
-        <Card padding="3.2rem 3.2rem 8.2rem" width="43rem">
+        <Card padding="3.2rem 3.2rem 8.2rem" width="43rem" height="43rem">
             <div>
                 {!is_calculated ? (
                     <div>
-                        <Header as="h4" type="sub-section-title">
+                        <Header as="h4" mb="0.8rem">
                             {data.name}
                         </Header>
                         <Text>{data.description}</Text>
@@ -322,11 +324,14 @@ const DMT5Standard = ({ data }) => {
                     </div>
                 ) : (
                     <>
-                        <Header as="h4" type="sub-section-title">
+                        <Header as="h4" mb="0.8rem">
                             {localize('How it’s calculated')}
                         </Header>
                         {data.calculation}
                         <ButtonWrapper>
+                            <BackButton tertiary onClick={toggleCalculated}>
+                                {localize('Back')}
+                            </BackButton>
                             <StyledLinkButton
                                 secondary
                                 to={affiliate_signup_url}
@@ -336,9 +341,6 @@ const DMT5Standard = ({ data }) => {
                             >
                                 {localize('Become an affiliate')}
                             </StyledLinkButton>
-                            <BackButton tertiary onClick={toggleCalculated}>
-                                {localize('Back')}
-                            </BackButton>
                         </ButtonWrapper>
                     </>
                 )}
@@ -352,11 +354,11 @@ const DMT5Advanced = ({ data }) => {
         setCalculated(!is_calculated)
     }
     return (
-        <StyledCard padding="3.2rem 3.2rem 8.2rem" width="43rem">
+        <StyledCard padding="3.2rem 3.2rem 8.2rem" width="43rem" height="43rem">
             <div>
                 {!is_calculated ? (
                     <div>
-                        <Header as="h4" type="sub-section-title">
+                        <Header as="h4" mb="0.8rem">
                             {data.name}
                         </Header>
                         <Text>{data.description}</Text>
@@ -410,11 +412,14 @@ const DMT5Advanced = ({ data }) => {
                     </div>
                 ) : (
                     <>
-                        <Header as="h4" type="sub-section-title">
+                        <Header as="h4" mb="0.8rem">
                             {localize('How it’s calculated')}
                         </Header>
                         {data.calculation}
                         <ButtonWrapper>
+                            <BackButton tertiary onClick={toggleCalculated}>
+                                {localize('Back')}
+                            </BackButton>
                             <StyledLinkButton
                                 secondary
                                 to={affiliate_signup_url}
@@ -424,9 +429,6 @@ const DMT5Advanced = ({ data }) => {
                             >
                                 {localize('Become an affiliate')}
                             </StyledLinkButton>
-                            <BackButton tertiary onClick={toggleCalculated}>
-                                {localize('Back')}
-                            </BackButton>
                         </ButtonWrapper>
                     </>
                 )}
@@ -486,9 +488,14 @@ const ib_dmt5_advanced = {
         ],
     ],
     calculation: (
-        <Text>
-            <Localize translate_text="For forex assets, your commission is represented in the base currency. For example, a round trade of 1 lot of EUR/USD will pay out EUR 5 in commission. A round trade of 1 lot of USD/CAD will pay out USD 5 in commission." />
-        </Text>
+        <>
+            <Text>
+                <Localize translate_text="For forex assets, your commission is represented in the base currency. For example, a round trade (i.e. opening and closing a position) of 1 lot of EUR/USD will pay out EUR 5 in commission. A round trade of 1 lot of USD/CAD will pay out USD 5 in commission." />
+            </Text>
+            <Text mt="2rem">
+                <Localize translate_text="For cryptocurrency assets, a round trade of 1 lot of BTC/USD with a spot price of USD 10,000 will pay out USD 20 in commission." />
+            </Text>
+        </>
     ),
 }
 const ib_dmt5_synthetic = {
@@ -499,26 +506,19 @@ const ib_dmt5_synthetic = {
     assets: [
         [
             <Localize key={0} translate_text="Asset" />,
-            <Localize key={1} translate_text="Crash 1000 Index" />,
-            <Localize key={2} translate_text="Crash 500 Index" />,
-            <Localize key={3} translate_text="Boom 1000 Index" />,
-            <Localize key={4} translate_text="Boom 500 Index" />,
-            <Localize key={5} translate_text="Range Break 100 Index" />,
-            <Localize key={6} translate_text="Range Break 200 Index" />,
-            <Localize key={7} translate_text="Step Index" />,
-            <Localize key={8} translate_text="Volatility 10 Index" />,
-            <Localize key={9} translate_text="Volatility 10 (1s) Index" />,
-            <Localize key={10} translate_text="Volatility 25 Index" />,
-            <Localize key={11} translate_text="Volatility 25 (1s) Index" />,
-            <Localize key={12} translate_text="Volatility 50 Index" />,
-            <Localize key={13} translate_text="Volatility 50 (1s) Index" />,
-            <Localize key={14} translate_text="Volatility 75 Index" />,
-            <Localize key={15} translate_text="Volatility 75 (1s) Index" />,
-            <Localize key={16} translate_text="Volatility 100 Index" />,
-            <Localize key={17} translate_text="Volatility 100 (1s) Index" />,
-            <Localize key={18} translate_text="HF Volatility 10 Index" />,
-            <Localize key={19} translate_text="HF Volatility 50 Index" />,
-            <Localize key={20} translate_text="HF Volatility 100 Index" />,
+            <Localize key={1} translate_text="Crash 500 Index" />,
+            <Localize key={2} translate_text="Crash 1000 Index" />,
+            <Localize key={3} translate_text="Boom 500 Index" />,
+            <Localize key={4} translate_text="Boom 1000 Index" />,
+            <Localize key={5} translate_text="Volatility 10 Index" />,
+            <Localize key={6} translate_text="Volatility 25 Index" />,
+            <Localize key={7} translate_text="Volatility 50 Index" />,
+            <Localize key={8} translate_text="Volatility 75 Index" />,
+            <Localize key={9} translate_text="Volatility 100 Index" />,
+            <Localize key={10} translate_text="HF Volatility 10 Index" />,
+            <Localize key={11} translate_text="HF Volatility 50 Index" />,
+            <Localize key={12} translate_text="HF Volatility 100 Index" />,
+            <Localize key={13} translate_text="Step Index" />,
         ],
         [
             <Localize key={0} translate_text="Commission per round trade (per USD 100k)" />,
@@ -549,12 +549,12 @@ const ib_dmt5_synthetic = {
             <Text>
                 <Localize translate_text="For example, a round trade of 1 lot of the Volatility 75 Index for a price of USD 125,000 would pay out USD 12.5 in commission based on the following formula:" />
             </Text>
-            <Text weight="bold" m="2.5rem 0">
+            <Text weight="bold" m="1.6rem 0">
                 <Localize translate_text="USD 10 X 1 lot X USD 125,000 / 100,000 = USD 12.5" />
             </Text>
-            <StyledText size="var(--text-size-s)" lh="1.5">
+            <Text>
                 <Localize translate_text="If your account currency is in euro or pound sterling, your commission will be converted based on the latest exchange rate." />
-            </StyledText>
+            </Text>
         </>
     ),
 }

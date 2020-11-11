@@ -46,6 +46,7 @@ const Faq = () => {
     const header_style = {
         padding: '1.6rem 4rem',
         border: 'none',
+        borderRadius: '8px',
     }
     return (
         <RelativeContainer>

@@ -150,7 +150,7 @@ const P2PBanner = ({ title }) => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                {localize('Try P2P now')}
+                                {localize('Try DP2P now')}
                             </TryButton>
                         </InformationWrapper>
                     </Wrapper>

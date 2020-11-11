@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { graphql, useStaticQuery } from 'gatsby'
-import { Flex, Container } from 'components/containers'
+import { Flex, Container, Show } from 'components/containers'
 import { Header, QueryImage, ImageWrapper } from 'components/elements'
 import { localize } from 'components/localization'
 import { Background } from 'components/elements/background-image'
@@ -155,22 +155,9 @@ const TryButton = styled(LinkButton)`
     }
 `
 
-const query = graphql`
-    query {
-        p2p_hero_background: file(relativePath: { eq: "p2p_hero_background.png" }) {
-            ...fadeIn
-        }
-        p2p_hero_img: file(relativePath: { eq: "p2p_hero_img.png" }) {
-            ...fadeIn
-        }
-    }
-`
-
-const Hero = ({ title, content }) => {
-    const data = useStaticQuery(query)
-
+const HeroComponent = ({ title, content, background_data, img_data }) => {
     return (
-        <BackgroundWrapper data={data['p2p_hero_background']}>
+        <BackgroundWrapper data={background_data}>
             <Wrapper>
                 <InformationWrapper height="unset" direction="column">
                     <StyledHeader as="h1" weight={500}>
@@ -192,7 +179,7 @@ const Hero = ({ title, content }) => {
                 </InformationWrapper>
                 <ImgWrapper>
                     <QueryImage
-                        data={data['p2p_hero_img']}
+                        data={img_data}
                         alt={'p2p background'}
                         height={'700px'}
                         width={'576px'}
@@ -203,9 +190,54 @@ const Hero = ({ title, content }) => {
     )
 }
 
+const query = graphql`
+    query {
+        p2p_hero_background: file(relativePath: { eq: "p2p_hero_background.png" }) {
+            ...fadeIn
+        }
+        p2p_hero_background_mobile: file(relativePath: { eq: "p2p_hero_background_mobile.png" }) {
+            ...fadeIn
+        }
+        p2p_hero_img: file(relativePath: { eq: "p2p_hero_img.png" }) {
+            ...fadeIn
+        }
+    }
+`
+
+const Hero = ({ title, content }) => {
+    const data = useStaticQuery(query)
+
+    return (
+        <div>
+            <Show.Desktop max_width="992">
+                <HeroComponent
+                    title={title}
+                    content={content}
+                    background_data={data['p2p_hero_background']}
+                    img_data={data['p2p_hero_img']}
+                />
+            </Show.Desktop>
+            <Show.Mobile>
+                <HeroComponent
+                    title={title}
+                    content={content}
+                    background_data={data['p2p_hero_background_mobile']}
+                    img_data={data['p2p_hero_img']}
+                />
+            </Show.Mobile>
+        </div>
+    )
+}
+
+HeroComponent.propTypes = {
+    background_data: PropTypes.any,
+    content: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+    img_data: PropTypes.any,
+    title: PropTypes.string,
+}
+
 Hero.propTypes = {
     content: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-    image_name: PropTypes.string,
     title: PropTypes.string,
 }
 

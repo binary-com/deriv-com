@@ -10,6 +10,10 @@ import { localize } from 'components/localization'
 const StyledSection = styled(SectionContainer)`
     background-color: var(--color-white);
     padding: 8rem 0 0 0;
+
+    @media ${device.tabletL} {
+        padding-top: 40px;
+    }
 `
 const StyledContainer = styled(Container)`
     display: flex;
@@ -26,6 +30,11 @@ const Content = styled.div`
     ${Text} {
         font-size: 2.4rem;
         margin-top: 0.8rem;
+
+        @media ${device.tabletL} {
+            text-align: center;
+            font-size: 16px;
+        }
     }
 
     @media ${device.tabletL} {
@@ -48,15 +57,19 @@ const StyledHeader = styled(Header)`
     line-height: 1.25;
 
     @media ${device.tabletL} {
-        margin-top: 2rem;
+        margin-top: 0;
+        text-align: center;
+        font-size: 24px;
     }
 `
 const StyledText = styled(Text)`
     font-size: 3.2rem;
+    line-height: 40px;
     text-align: center;
 
-    @media ${device.mobileL} {
+    @media ${device.tabletL} {
         font-size: 16px;
+        line-height: 24px;
     }
 `
 const Row = styled.div`
@@ -71,6 +84,7 @@ const Row = styled.div`
 
     @media ${device.tabletL} {
         flex-direction: column;
+        margin-top: 40px;
     }
 `
 const query = graphql`

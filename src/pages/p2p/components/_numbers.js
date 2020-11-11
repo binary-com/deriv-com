@@ -97,6 +97,7 @@ const StyledLinkButton = styled(LinkButton)`
     border: unset;
     width: 125px;
     margin: 80px auto 0 auto;
+    white-space: nowrap;
 
     @media ${device.tablet} {
         margin-top: 40px;

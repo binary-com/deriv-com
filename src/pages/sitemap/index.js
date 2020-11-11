@@ -105,8 +105,8 @@ const StyledVTree = styled.img`
 `
 
 const ContentVWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-rows: 210px 200px 125px 180px 215px 220px 145px;
 `
 
 const LinksRow = styled(Flex)`
@@ -117,7 +117,7 @@ const LinksRow = styled(Flex)`
         margin-top: 8px;
 
         :first-child {
-            margin-top: 4.2px;            
+            margin-top: 0;
         }
     }
 `

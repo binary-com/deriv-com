@@ -181,12 +181,12 @@ export const Legal = () => {
                     <img src={SitemapSubTree} alt="sub tree" />
                     <GridLinkWrapper>
                         <SubLinkWrapper first_child>
-                            <Link to="#">
+                            <Link to="/terms-and-conditions#clients">
                                 {localize('For clients')}
                             </Link>
                         </SubLinkWrapper>
                         <SubLinkWrapper>
-                            <Link to="#">
+                            <Link to="/terms-and-conditions#business-partners">
                                 {localize('For business partners')}
                             </Link>
                         </SubLinkWrapper>

@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { Header } from 'components/elements'
+import { Text } from 'components/elements'
 import { Flex, Box } from 'components/containers'
 import device from 'themes/device'
 
@@ -23,7 +23,7 @@ const VerticalCarouselContainer = styled(Box)`
     transition-timing-function: linear;
     visibility: ${(props) => props.visibility};
 `
-const StyledHeader = styled(Header)`
+const StyledText = styled(Text)`
     opacity: ${(props) => (props.active_header == props.index ? '1' : '0.5')};
     font-size: ${(props) =>
         props.active_header == props.index ? 'var(--text-size-m)' : 'var(--text-size-sm)'};
@@ -62,14 +62,15 @@ const VerticalCarousel = ({ contents }) => {
         <VerticalCarouselWrapper direction="column">
             <VerticalCarouselContainer transform={transform} visibility={visibility}>
                 {contents.map((content, index) => (
-                    <StyledHeader
+                    <StyledText
                         color="white"
+                        weight="bold"
                         active_header={active_header}
                         index={index}
                         key={index}
                     >
                         {content}
-                    </StyledHeader>
+                    </StyledText>
                 ))}
             </VerticalCarouselContainer>
         </VerticalCarouselWrapper>

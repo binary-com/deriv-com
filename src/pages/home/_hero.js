@@ -60,6 +60,10 @@ const StyledHeader = styled(Header)`
         font-size: 4rem;
     }
 `
+
+const MobileHeader = styled(Header)`
+    font-size: 4rem;
+`
 const contents = [
     <Localize key={0} translate_text="Tight spreads" />,
     <Localize key={1} translate_text="Sharp prices" />,
@@ -149,12 +153,18 @@ export const Hero = () => {
                         </Show.Desktop>
                         <Show.Mobile>
                             <Flex>
-                                <StyledHeader color="white" ad="0.5s" mb="2rem">
+                                <MobileHeader color="white" mb="2rem">
                                     <Localize translate_text="Simple. Flexible. Reliable." />
-                                </StyledHeader>
+                                </MobileHeader>
                             </Flex>
                         </Show.Mobile>
-                        <TypeWriter as="h4" color="white" max_width="430px" weight="normal">
+                        <TypeWriter
+                            as="h2"
+                            size="var(--text-size-m)"
+                            color="white"
+                            max_width="430px"
+                            weight="normal"
+                        >
                             {localize(type_writer)}
                         </TypeWriter>
                         <VerticalCarousel contents={contents} />

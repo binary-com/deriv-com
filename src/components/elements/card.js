@@ -44,13 +44,6 @@ const CardCover = styled.div`
         width: 100%;
         padding: 0 1.6rem;
         align-items: center;
-
-        h4 {
-            color: var(--color-white);
-            font-size: 2.8rem;
-            font-weight: bold;
-            line-height: 1.25;
-        }
     }
 `
 
@@ -154,6 +147,12 @@ const IconWrapper = styled.div`
     }
 `
 
+const CoverContet = styled(Text)`
+    color: white;
+    font-weight: bold;
+    font-size: var(--text-size-m);
+`
+
 Content.propTypes = {
     content: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
 }
@@ -186,11 +185,13 @@ export const Card = ({
                                 <div>
                                     {word_break_cover ? (
                                         <Flex direction="column" jc="flex-start" ai="flex-start">
-                                            <h4>{cover_content.split(' ')[0]}</h4>
-                                            <h4>{cover_content.split(' ').slice(1).join(' ')}</h4>
+                                            <CoverContet>{cover_content.split(' ')[0]}</CoverContet>
+                                            <CoverContet>
+                                                {cover_content.split(' ').slice(1).join(' ')}
+                                            </CoverContet>
                                         </Flex>
                                     ) : (
-                                        <h4>{cover_content}</h4>
+                                        <CoverContet>{cover_content}</CoverContet>
                                     )}
                                     <img src={Arrow} alt="arrow" />
                                 </div>

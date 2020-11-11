@@ -68,7 +68,9 @@ const Markets = () => (
                 <MarketCard mr="2.4rem" mb="4rem">
                     <ForexIcon dynamic_id={'home_page_market_forex'} />
                     <div>
-                        <Header as="h4">{localize('Forex')}</Header>
+                        <Header as="h3" size="var(--text-size-m)">
+                            {localize('Forex')}
+                        </Header>
                         <Text>
                             {localize(
                                 'Take part in the world’s largest financial market where more than $5 trillion worth of currencies are bought and sold each day.',
@@ -79,7 +81,9 @@ const Markets = () => (
                 <MarketCard mb="4rem">
                     <StockIcon dynamic_id="home_page_market_stock" />
                     <div>
-                        <Header as="h4">{localize('Stock indices')}</Header>
+                        <Header as="h3" size="var(--text-size-m)">
+                            {localize('Stock indices')}
+                        </Header>
                         <Text>
                             {localize(
                                 'Predict broader market trends and diversify your risk with indices that measure the overall performance of a market.',
@@ -90,7 +94,9 @@ const Markets = () => (
                 <MarketCard mr="2.4rem">
                     <CommoditiesIcon dynamic_id="home_page_market_commodities" />
                     <div>
-                        <Header as="h4">{localize('Commodities')}</Header>
+                        <Header as="h3" size="var(--text-size-m)">
+                            {localize('Commodities')}
+                        </Header>
                         <Text>
                             {localize(
                                 'Trade natural resources that are central to the world’s economy and profit from the opportunities created by volatile markets.',
@@ -101,7 +107,9 @@ const Markets = () => (
                 <MarketCard>
                     <SyntheticIndicesIcon dynamic_id="home_page_market_synthetic" />
                     <div>
-                        <Header as="h4">{localize('Synthetic indices')}</Header>
+                        <Header as="h3" size="var(--text-size-m)">
+                            {localize('Synthetic indices')}
+                        </Header>
                         <Text>
                             {localize(
                                 'Enjoy synthetic markets that emulate the excitement of real-world markets without unpredictable real-world disruptions.',

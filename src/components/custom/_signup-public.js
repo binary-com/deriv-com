@@ -137,7 +137,18 @@ const StyledHeader = styled(Header)`
     }
     @media (max-width: 991px) {
         margin-top: 2rem;
-        ${(props) => (props.as === 'h4' ? 'font-size: 2rem; margin-top: 0;' : '')}
+    }
+`
+
+const StyledHeaderText = styled(Text)`
+    width: ${(props) => props.width || '41.4rem'};
+    font-size: var(--text-size-m);
+    @media ${device.tablet} {
+        width: auto;
+    }
+    @media (max-width: 991px) {
+        margin-top: 0;
+        font-size: 2rem;
     }
 `
 const StyledText = styled(Text)`
@@ -238,9 +249,9 @@ const SignupPublic = ({
                                 {localize('Join over 1 million traders worldwide')}
                             </StyledHeader>
                             <br />
-                            <StyledHeader as="h4" weight="normal" size="1.6rem">
+                            <StyledHeaderText weight="normal" size="1.6rem">
                                 {localize('Sign up for your demo account now.')}
-                            </StyledHeader>
+                            </StyledHeaderText>
                             <InputGroup>
                                 <InputWrapper>
                                     <Input
@@ -329,9 +340,9 @@ const SignupPublic = ({
                                 {localize('Join over 1 million traders worldwide')}
                             </StyledHeader>
                             <br />
-                            <StyledHeader as="h4" weight="normal" size="1.6rem">
+                            <StyledHeaderText weight="normal" size="1.6rem">
                                 {localize('Sign up for your demo account now.')}
-                            </StyledHeader>
+                            </StyledHeaderText>
                             <InputGroup>
                                 <InputWrapper>
                                     <Input

@@ -143,7 +143,7 @@ const SitemapContent = ({ children }) => {
             </GridWrapper>
         </Show.Desktop>
         <Show.Mobile min_width={"laptopM"}>
-            <GridSubWrapper size="74px 200px" style={{justifyContent: 'center'}}>
+            <GridSubWrapper main_grid>
                 <StyledVTree src={SitemapVTree} alt="sitemap vertical tree" />
                 <Flex direction="column">
                     <ContentTitleWrapper size="32px" weight="bold">

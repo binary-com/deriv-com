@@ -9,7 +9,7 @@ import SitemapSubTree from 'images/svg/sitemap/sitemap-sub-tree.svg'
 import device from 'themes/device'
 
 export const LinkWrapper = styled.div`
-    margin-top: ${(props) => (props.first_child == 'true' ? '0.8rem' : '1.6rem')};
+    margin-top: ${(props) => (props.first_child ? '0.8rem' : '1.6rem')};
 `
 
 export const Title = styled(Text)`
@@ -30,7 +30,7 @@ export const GridLinkWrapper = styled(Flex)`
 `
 
 export const SubLinkWrapper = styled.div`
-    margin-top: ${props => props.first_child === "true" ? "1.6rem" : "11px"};
+    margin-top: ${props => props.first_child ? "1.6rem" : "11px"};
 
     @media ${device.laptopM} {
         margin-top: 7.2px !important;
@@ -55,7 +55,7 @@ export const AboutUs = () => {
             <LinkWrapper>
             <Title>{localize('About us')}</Title>
             </LinkWrapper>
-            <LinkWrapper first_child="true">
+            <LinkWrapper first_child>
                 <Link to="/about#story">{localize('Our story')}</Link>
             </LinkWrapper>
             <LinkWrapper>
@@ -89,7 +89,7 @@ export const Trade = () => {
             <LinkWrapper>
                 <Title>{localize('Trade')}</Title>
             </LinkWrapper>
-            <LinkWrapper first_child="true">
+            <LinkWrapper first_child>
                 <Link to="/dtrader">{localize('DTrader')}</Link>
             </LinkWrapper>
             <LinkWrapper>
@@ -119,7 +119,7 @@ export const TradeTypes = () => {
             <LinkWrapper>
                 <Title>{localize('Trade types')}</Title>
             </LinkWrapper>
-            <LinkWrapper first_child="true">
+            <LinkWrapper first_child>
                 <Link to="/trade-types/margin">
                     {localize('Margin')}
                 </Link>
@@ -142,7 +142,7 @@ export const Markets = () => {
             <LinkWrapper>
                 <Title>{localize('Markets')}</Title>
             </LinkWrapper>
-            <LinkWrapper first_child="true">
+            <LinkWrapper first_child>
                 <Link to="/markets#forex">{localize('Forex')}</Link>
             </LinkWrapper>
             <LinkWrapper>
@@ -168,7 +168,7 @@ export const Legal = () => {
             <LinkWrapper>
                 <Title>{localize('Legal')}</Title>
             </LinkWrapper>
-            <LinkWrapper first_child="true">
+            <LinkWrapper first_child>
                 <Link to="/regulatory">
                     {localize('Regulatory information')}
                 </Link>
@@ -180,7 +180,7 @@ export const Legal = () => {
                 <GridSubWrapper>
                     <img src={SitemapSubTree} alt="sub tree" />
                     <GridLinkWrapper>
-                        <SubLinkWrapper first_child="true">
+                        <SubLinkWrapper first_child>
                             <Link to="#">
                                 {localize('For clients')}
                             </Link>
@@ -212,7 +212,7 @@ export const Partner = () => {
             <LinkWrapper>
                 <Title>{localize('Partner')}</Title>
             </LinkWrapper>
-            <LinkWrapper first_child="true">
+            <LinkWrapper first_child>
                 <Link to="/partners/affiliate-ib/">
                     {localize('Affiliates and IBs')}
                 </Link>
@@ -252,7 +252,7 @@ export const Resources = () => {
             <LinkWrapper>
                 <Title>{localize('Resources')}</Title>
             </LinkWrapper>
-            <LinkWrapper first_child="true">
+            <LinkWrapper first_child>
                 <Link to="/help-centre">{localize('Help centre')}</Link>
             </LinkWrapper>
             <LinkWrapper>

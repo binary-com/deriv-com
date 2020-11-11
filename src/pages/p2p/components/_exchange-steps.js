@@ -61,18 +61,27 @@ const Card = styled(Flex)`
         width: 328px;
     }
     @media ${device.tablet} {
-        margin-bottom: 24px;
+        margin-bottom: 40px;
         max-width: 100%;
+
+        :last-child {
+            margin-bottom: 0;
+        }
     }
     @media ${device.mobileL} {
-        padding: 24px;
         height: auto;
+
+        :last-child {
+            padding-bottom: 0;
+        }
     }
 `
 const StyledHeader = styled(Header)`
+    @media ${device.tablet} {
+        margin-bottom: 24px;
+    }
     @media ${device.mobileL} {
         font-size: 24px;
-        margin-bottom: 24px;
     }
 `
 const StyledCardHeader = styled(Header)`
@@ -81,7 +90,7 @@ const StyledCardHeader = styled(Header)`
     @media ${device.mobileL} {
         font-size: 20px;
         margin-bottom: 8px;
-        margin-top: 8px;
+        margin-top: 16px;
         line-height: 1.2;
     }
 `

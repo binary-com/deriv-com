@@ -30,7 +30,7 @@ const Section = styled(SectionContainer)`
     }
     @media ${device.tablet} {
         margin-top: 40px;
-        padding: 6.4rem 9.6rem;
+        padding: 40px 16px;
     }
 `
 
@@ -55,34 +55,39 @@ const ClientCard = styled.article`
     @media ${device.tablet} {
         margin: 0 0 24px 0;
         max-height: unset;
-        padding: 24px 24px 24px;
-        max-width: 328px;
+        width: 328px;
+        height: 184px;
+        padding: 46px 44px;
 
         :first-child {
             margin: 0 0 24px 0;
         }
+        :last-child {
+            margin-bottom: 0;
+        }
     }
-    @media ${device.mobileL} {
-        width: 30.4rem;
-        height: 18.4rem;
+    @media ${device.mobileM} {
+        max-width: 290px;
+        height: unset;
     }
 `
 const StyledHeader = styled(Header)`
     text-align: center;
     font-size: 48px;
 
-    @media ${device.mobileL} {
-        font-size: 36px;
-        margin-top: 1.2rem;
+    @media ${device.tablet} {
+        font-size: 40px;
+        line-height: 50px;
+        margin-bottom: 16px;
     }
 `
 const StyledText = styled(Text)`
     font-size: 24px;
     text-align: center;
 
-    @media ${device.mobileL} {
+    @media ${device.tablet} {
         font-size: 20px;
-        line-height: 24px;
+        line-height: 25px;
     }
 `
 
@@ -90,8 +95,7 @@ const StyledLinkButton = styled(LinkButton)`
     padding: 14px 16px;
     font-size: 14px;
     border: unset;
-    max-width: 125px;
-    width: 100%;
+    width: 125px;
     margin: 80px auto 0 auto;
 
     @media ${device.tablet} {
@@ -102,7 +106,7 @@ const StyledLinkButton = styled(LinkButton)`
 const Numbers = () => {
     return (
         <Section>
-            <Flex mb="4rem" tablet_direction="column" tablet_ai="center" tablet={{ m: '0' }}>
+            <Flex tablet_direction="column" tablet_ai="center" tablet={{ m: '0' }}>
                 {content.map((item, idx) => {
                     return (
                         <ClientCard key={idx}>

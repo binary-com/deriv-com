@@ -39,7 +39,7 @@ const PlatformCard = styled.article`
     }
     @media ${device.tablet} {
         max-height: unset;
-        padding: 24px 24px 24px;
+        padding: 0 24px;
         max-width: 328px;
     }
     @media ${device.mobileM} {
@@ -47,6 +47,9 @@ const PlatformCard = styled.article`
     }
 `
 const StyledHeader = styled(Header)`
+    @media ${device.tablet} {
+        margin-bottom: 40px;
+    }
     @media ${device.mobileL} {
         font-size: 24px;
         margin-bottom: 24px;
@@ -66,12 +69,12 @@ const StyledText = styled(Text)`
     font-size: 24px;
     margin-bottom: 3rem;
 
+    :last-child {
+        margin-bottom: 0;
+    }
+
     @media ${device.mobileL} {
         font-size: 16px;
-
-        &:last-child {
-            margin-bottom: 0;
-        }
     }
 `
 const Line = styled.div`
@@ -86,7 +89,7 @@ const Line = styled.div`
     @media ${device.tablet} {
         height: 1px;
         width: 50rem;
-        margin: 1.5rem 0;
+        margin: 24px 0;
         border: solid 1px #979797;
     }
 
@@ -116,7 +119,6 @@ const Availability = () => {
                 {localize('Available on desktop and mobile')}
             </StyledHeader>
             <Flex
-                mb="4rem"
                 tablet_direction="column"
                 tablet_ai="center"
                 tablet={{ m: '0' }}

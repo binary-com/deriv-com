@@ -50,28 +50,19 @@ const LiveChat = ({ LC_API, is_livechat_interactive, setLiveChatInteractive }) =
     }
 
     const checkCookie = function () {
-
         let lastCookie = document.cookie; // 'static' memory between function calls
-
         return function () {
-
             const currentCookie = document.cookie;
-
             if (currentCookie != lastCookie) {
-
                 const client_information = Cookies.get('client_information', {
                     domain,
                 })
-
                 if (client_information) {
                     setLoggedIn(true)
                 }
                 else {
                     setLoggedIn(false)
                 }
-
-                // something useful like parse cookie, run a callback fn, etc.
-
                 lastCookie = currentCookie; // store latest cookie
 
             }
@@ -148,14 +139,7 @@ const LiveChat = ({ LC_API, is_livechat_interactive, setLiveChatInteractive }) =
                     } else {
                         if (window.LiveChatWidget.get('chat_data')) {
                             const chatID = window.LiveChatWidget.get('chat_data').chatId;
-                            customerSDK
-                                .deactivateChat({ chatId: chatID })
-                                .then(response => {
-                                    console.log(response) //eslint-disable-line
-                                })
-                                .catch(error => {
-                                    console.log(error) //eslint-disable-line
-                                })
+                            customerSDK.deactivateChat({ chatId: chatID })
                         }
                         window.LiveChatWidget.call('set_customer_email', ' ')
                         window.LiveChatWidget.call('set_customer_name', ' ')

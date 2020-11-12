@@ -629,17 +629,46 @@ const HomeContainer = styled(Container)`
 
 const StyledNavCenter = styled(NavCenter)`
     margin-left: 13.3rem;
+    white-space: nowrap;
 
     @media (max-width: 1300px) {
-        margin-left: 7.3rem;
+        margin-left: 9.3rem;
+        font-size: 12px !important;
     }
     @media (max-width: 1080px) {
-        margin-left: 2.4rem;
+        margin-left: 7.3rem;
     }
 `
 
 const StyledNavRight = styled(NavRight)`
     margin-left: auto;
+    transform: translateX(
+        ${(props) => {
+            if (props.move) {
+                if (props.button_ref.current && props.mounted) {
+                    props.button_ref.current.style.opacity = 1
+                }
+                return '100px'
+            } else {
+                if (props.button_ref.current && props.mounted) {
+                    props.button_ref.current.style.opacity = 0
+
+                    const calculation = props.button_ref.current.offsetWidth + 110
+                    return `${calculation}px`
+                }
+                return '300px'
+            }
+        }}
+    );
+
+    > a {
+        pointer-events: visible;
+        cursor: pointer;
+    }
+    > a:last-child {
+        pointer-events: ${(props) => (props.move ? 'visible' : 'none')};
+        cursor: ${(props) => (props.move ? 'pointer' : 'default')};
+    }
 `
 
 const StyledNavWrapper = styled(Wrapper)`
@@ -777,6 +806,7 @@ export const NavPartners = ({ no_login_signup }) => {
                                     is_affiliate_sign_in_link
                                     target="_blank"
                                     primary
+                                    style={{ width: '14rem' }}
                                 >
                                     <span>{localize('Affiliate & IB log in')}</span>
                                 </LinkButton>
@@ -787,6 +817,7 @@ export const NavPartners = ({ no_login_signup }) => {
                                     target="_blank"
                                     ref={button_ref}
                                     secondary="true"
+                                    style={{ width: '14rem' }}
                                 >
                                     <span>{localize('Affiliate & IB sign up')}</span>
                                 </LinkSignupButton>

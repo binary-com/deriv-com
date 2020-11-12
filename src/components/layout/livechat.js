@@ -44,28 +44,28 @@ const LiveChat = ({ LC_API, is_livechat_interactive, setLiveChatInteractive }) =
         if (callback) callback()
     }
 
-    const checkCookie = function () {
-        let lastCookie = document.cookie; // 'static' memory between function calls
-        return function () {
-            const currentCookie = document.cookie;
-            if (currentCookie != lastCookie) {
-                const client_information = Cookies.get('client_information', {
-                    domain,
-                })
-                if (client_information) {
-                    setLoggedIn(true)
-                }
-                else {
-                    setLoggedIn(false)
-                }
-                lastCookie = currentCookie; // store latest cookie
-
-            }
-        };
-    }();
-
     React.useEffect(() => {
         if (isBrowser()) {
+            const checkCookie = function () {
+                let lastCookie = document.cookie; // 'static' memory between function calls
+                return function () {
+                    const currentCookie = document.cookie;
+                    if (currentCookie != lastCookie) {
+                        const client_information = Cookies.get('client_information', {
+                            domain,
+                        })
+                        if (client_information) {
+                            setLoggedIn(true)
+                        }
+                        else {
+                            setLoggedIn(false)
+                        }
+                        lastCookie = currentCookie; // store latest cookie
+
+                    }
+                };
+            }();
+
             const cookie_interval = setInterval(checkCookie, 500);
             // The purpose is to load the script after everything is load but not async or defer. Therefore, it will be ignored in the rendering timeline
             setTimeout(() => {

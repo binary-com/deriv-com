@@ -7,6 +7,7 @@ import { Container, SEO } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { Input, Button } from 'components/form'
 import validation from 'common/validation'
+import { trimSpaces } from 'common/utility'
 import { BinarySocketBase } from 'common/websocket/socket_base'
 import Login from 'common/login'
 
@@ -33,7 +34,7 @@ const StyledButton = styled(Button)`
 const resetValidation = (values) => {
     let errors = {}
 
-    const email_error = validation.email(values.email)
+    const email_error = validation.email(trimSpaces(values.email))
 
     if (email_error) {
         errors.email = email_error
@@ -46,7 +47,7 @@ const resetSubmission = (values, actions) => {
     const binary_socket = BinarySocketBase.init()
 
     binary_socket.onopen = () => {
-        binary_socket.send(JSON.stringify({ verify_email: values.email, type: 'reset_password' }))
+        binary_socket.send(JSON.stringify({ verify_email: trimSpaces(values.email), type: 'reset_password' }))
     }
     binary_socket.onmessage = (msg) => {
         const response = JSON.parse(msg.data)
@@ -105,7 +106,7 @@ const ResetPassword = () => (
                                 id="email"
                                 name="email"
                                 error={errors.email}
-                                value={values.email}
+                                value={trimSpaces(values.email)}
                                 handleError={resetForm}
                                 onChange={handleChange}
                                 onBlur={handleBlur}

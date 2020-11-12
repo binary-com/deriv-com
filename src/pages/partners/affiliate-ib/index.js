@@ -25,10 +25,21 @@ const StyledHeader = styled(Header)`
     margin-bottom: 4rem;
 `
 
+const StyledSectionContainer = styled(SectionContainer)`
+    @media ${device.mobileL} {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+`
+
 const SubtitleHeader = styled(Header)`
     width: 1170px;
     @media ${device.laptopL} {
         width: 100%;
+    }
+    @media ${device.mobileL} {
+        font-size: 16px;
+        text-align: left;
     }
 `
 
@@ -90,7 +101,7 @@ const AffiliateIb = () => {
                     {localize('Sign up as our affiliate & IB')}
                 </LinkButton>
             </Hero>
-            <SectionContainer padding="8rem 0 4rem">
+            <StyledSectionContainer padding="8rem 0 4rem">
                 <Container direction="column">
                     <SubtitleHeader as="h4" weight="normal" align="center">
                         {localize(
@@ -99,7 +110,7 @@ const AffiliateIb = () => {
                     </SubtitleHeader>
                     <DNumber items={items} justify="space-around" />
                 </Container>
-            </SectionContainer>
+            </StyledSectionContainer>
             <DerivAffiliateProgramme />
             <DerivIBProgramme />
             <WhyUs items={why_partner_with_us_items} />

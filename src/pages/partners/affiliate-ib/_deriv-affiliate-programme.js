@@ -19,12 +19,21 @@ const TitleWrapper = styled.section`
     h1:first-child {
         margin-bottom: 1.6rem;
     }
+
+    @media ${device.mobileL} {
+        ${Header} {
+            font-size: 24px;
+        }
+    }
 `
 
 const SubtitleHeader = styled(Header)`
     width: 792px;
     @media ${device.laptopL} {
         width: 100%;
+    }
+    @media ${device.mobileL} {
+        font-size: 16px !important;
     }
 `
 
@@ -46,6 +55,10 @@ const StyledHeader = styled(Header)`
 const ApplyNow = styled(LinkButton)`
     display: block;
     width: 100%;
+
+    @media ${device.mobileL} {
+        font-size: 14px;
+    }
 `
 
 const CPAContent = styled.div`
@@ -55,6 +68,8 @@ const CPAContent = styled.div`
 `
 
 const StyledCard = styled(Card)`
+    border-radius: 8px;
+
     :nth-child(2) {
         margin: 1.6rem 2.4rem 0;
 
@@ -62,12 +77,25 @@ const StyledCard = styled(Card)`
             margin: 2.4rem 0;
         }
     }
+
+    @media ${device.tabletL} {
+        height: ${(props) => (props.tabletHeight ? props.tabletHeight : '')};
+        width: 328px;
+        padding: 16px;
+    }
 `
 
 const StyledHeaderCommission = styled(StyledHeader)`
     margin-bottom: 0;
+    font-size: 16px;
     @media (max-width: 1428px) {
         text-align: center;
+    }
+
+    @media ${device.mobileL} {
+        font-size: 20px;
+        text-align: left;
+        margin: auto;
     }
 `
 
@@ -126,11 +154,11 @@ const DerivAffiliateProgramme = () => {
                     </SubtitleHeader>
                 </TitleWrapper>
                 <ComissionPlanContainer>
-                    <StyledHeaderCommission as="h4" size="1.6rem">
+                    <StyledHeaderCommission as="h4">
                         {localize('Choose a commission plan:')}
                     </StyledHeaderCommission>
                     <CardWrapper>
-                        <StyledCard height="55.3rem">
+                        <StyledCard height="55.3rem" tabletHeight="348px">
                             <div>
                                 <Header as="h4" mb="0.8rem">
                                     {localize('Revenue share')}
@@ -213,7 +241,7 @@ const DerivAffiliateProgramme = () => {
                                 </ApplyNow>
                             </div>
                         </StyledCard>
-                        <StyledCard height="55.3rem">
+                        <StyledCard height="55.3rem" tabletHeight="336px">
                             <div>
                                 <Header as="h4" mb="0.8rem">
                                     {localize('CPA (EU only)')}

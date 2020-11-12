@@ -1,4 +1,6 @@
 import styled from 'styled-components'
+import device from 'themes/device'
+import { Header } from 'components/elements/typography'
 
 function ColGen(num, is_balance) {
     let grid_col_template = ''
@@ -40,5 +42,11 @@ const TR = styled.div`
     padding: 0.8rem 1rem 0.8rem 0;
     background-color: ${(props) => (props.isTitle === 'true' ? 'var(--color-grey-8)' : 'unset')};
     border-bottom: 2px solid var(--color-grey-8);
+
+    @media ${device.mobileL} {
+        ${Header} {
+            font-size: 16px;
+        }
+    }
 `
 export { TR, TC, Table }

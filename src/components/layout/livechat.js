@@ -2,8 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Cookies from 'js-cookie'
 import styled from 'styled-components'
-import * as CustomerSDK from '@livechat/customer-sdk'
-import { isBrowser } from 'common/utility'
+import { isBrowser, livechat_client_id, livechat_license_id } from 'common/utility'
 import LiveChatIC from 'images/svg/livechat.svg'
 import LiveChatHover from 'images/svg/livechat-hover.svg'
 import device from 'themes/device'
@@ -28,10 +27,7 @@ const StyledLiveChat = styled.div`
 const LiveChat = ({ LC_API, is_livechat_interactive, setLiveChatInteractive }) => {
     const [is_livechat_hover, setLivechatHover] = React.useState(false)
     const [is_logged_in, setLoggedIn] = React.useState(false)
-    const domain = (window.location.hostname.includes('deriv.com')
-        ? 'deriv.com'
-        : 'binary.sx'
-    )
+    const CustomerSdk = React.useRef(null)
 
     const loadLiveChatScript = (callback) => {
         const livechat_script = document.createElement('script')
@@ -45,8 +41,17 @@ const LiveChat = ({ LC_API, is_livechat_interactive, setLiveChatInteractive }) =
     }
 
     React.useEffect(() => {
+        let cookie_interval = null;
+        let script_timeout = null
         if (isBrowser()) {
-            const checkCookie = function () {
+            const domain = (window.location.hostname.includes('deriv.com')
+                ? 'deriv.com'
+                : 'binary.sx'
+            )
+            import('@livechat/customer-sdk').then(CSDK => {
+                CustomerSdk.current = CSDK
+            })
+            const checkCookie = (() => {
                 let lastCookie = document.cookie; // 'static' memory between function calls
                 return function () {
                     const currentCookie = document.cookie;
@@ -64,30 +69,40 @@ const LiveChat = ({ LC_API, is_livechat_interactive, setLiveChatInteractive }) =
 
                     }
                 };
-            }();
+            })();
 
-            const cookie_interval = setInterval(checkCookie, 500);
+            cookie_interval = setInterval(checkCookie, 500);
+
             // The purpose is to load the script after everything is load but not async or defer. Therefore, it will be ignored in the rendering timeline
-            setTimeout(() => {
+            script_timeout = setTimeout(() => {
                 loadLiveChatScript(() => {
                     window.LiveChatWidget.on('ready', () => {
                         setLiveChatInteractive(true)
                     })
                 })
-
-                return () => {
-                    clearInterval(cookie_interval)
-                }
             }, 2000)
+        }
+
+        return () => {
+            clearInterval(cookie_interval)
+            clearTimeout(script_timeout)
         }
     }, [])
 
     React.useEffect(() => {
         if (isBrowser()) {
-            const customerSDK = CustomerSDK.init({
-                licenseId: 12049137,
-                clientId: '66aa088aad5a414484c1fd1fa8a5ace7',
-            })
+            let customerSDK = null
+            const domain = (window.location.hostname.includes('deriv.com')
+                ? 'deriv.com'
+                : 'binary.sx'
+            )
+            if (CustomerSdk.current) {
+                customerSDK = CustomerSdk.current.init({
+                    licenseId: livechat_license_id,
+                    clientId: livechat_client_id
+                })
+            }
+
             setTimeout(() => {
                 loadLiveChatScript(() => {
                     window.LiveChatWidget.on('ready', () => {
@@ -138,7 +153,7 @@ const LiveChat = ({ LC_API, is_livechat_interactive, setLiveChatInteractive }) =
                         } else {
                             if (window.LiveChatWidget.get('chat_data')) {
                                 const chatID = window.LiveChatWidget.get('chat_data').chatId;
-                                customerSDK.deactivateChat({ chatId: chatID })
+                                customerSDK?.deactivateChat({ chatId: chatID })
                             }
                             window.LiveChatWidget.call('set_customer_email', ' ')
                             window.LiveChatWidget.call('set_customer_name', ' ')
@@ -148,7 +163,7 @@ const LiveChat = ({ LC_API, is_livechat_interactive, setLiveChatInteractive }) =
             }, 2000)
         }
 
-    }, [is_logged_in])
+    }, [is_logged_in, CustomerSdk])
 
     return (
         <>

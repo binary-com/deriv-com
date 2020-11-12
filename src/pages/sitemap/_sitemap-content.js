@@ -237,11 +237,6 @@ export const Partner = () => {
                     {localize('Payment agents')}
                 </Link>
             </LinkWrapper>
-            <LinkWrapper>
-                <Link to="/partners/payment-agent">
-                    {localize('Developers')}
-                </Link>
-            </LinkWrapper>
         </>
     )
 }

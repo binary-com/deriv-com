@@ -147,7 +147,7 @@ const IconWrapper = styled.div`
     }
 `
 
-const CoverContet = styled(Text)`
+const CoverContent = styled(Text)`
     color: white;
     font-weight: bold;
     font-size: var(--text-size-m);
@@ -185,13 +185,15 @@ export const Card = ({
                                 <div>
                                     {word_break_cover ? (
                                         <Flex direction="column" jc="flex-start" ai="flex-start">
-                                            <CoverContet>{cover_content.split(' ')[0]}</CoverContet>
-                                            <CoverContet>
+                                            <CoverContent>
+                                                {cover_content.split(' ')[0]}
+                                            </CoverContent>
+                                            <CoverContent>
                                                 {cover_content.split(' ').slice(1).join(' ')}
-                                            </CoverContet>
+                                            </CoverContent>
                                         </Flex>
                                     ) : (
-                                        <CoverContet>{cover_content}</CoverContet>
+                                        <CoverContent>{cover_content}</CoverContent>
                                     )}
                                     <img src={Arrow} alt="arrow" />
                                 </div>

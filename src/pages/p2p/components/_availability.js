@@ -179,8 +179,8 @@ const Availability = () => {
                                 components={[
                                     <LocalizedLinkText
                                         size={24}
-                                        external="true"
                                         to="https://play.google.com/store/apps/details?id=com.deriv.dp2p"
+                                        external
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         color="red"

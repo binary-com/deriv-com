@@ -16,6 +16,12 @@ const query = graphql`
     }
 `
 
+const StyledWrapper = styled(Wrapper)`
+    @media ${device.tabletL} {
+        justify-content: center;
+    }
+`
+
 const StyledLogoLink = styled(LogoLink)`
     @media ${device.tabletS} {
         & svg,
@@ -28,6 +34,7 @@ const StyledLogoLink = styled(LogoLink)`
 const P2PNavLeft = styled(NavLeft)`
     @media ${device.tabletL} {
         display: flex;
+        width: 180px;
     }
 `
 
@@ -37,6 +44,12 @@ const Line = styled.div`
     margin-right: 8px;
     margin-left: 8px;
     background-color: var(--color-white);
+
+    @media ${device.tabletL} {
+        height: 16px;
+        margin-left: 5px;
+        margin-right: 4px;
+    }
 `
 
 export const NavP2P = ({ is_p2p_v1 }) => {
@@ -46,7 +59,7 @@ export const NavP2P = ({ is_p2p_v1 }) => {
         <>
             <NavWrapper>
                 <StyledNav>
-                    <Wrapper>
+                    <StyledWrapper>
                         <P2PNavLeft>
                             <StyledLogoLink
                                 to={is_p2p_v1 ? '/p2p/v1' : '/p2p/v2'}
@@ -63,7 +76,7 @@ export const NavP2P = ({ is_p2p_v1 }) => {
                             <Line />
                             <LogoCombinedShape />
                         </P2PNavLeft>
-                    </Wrapper>
+                    </StyledWrapper>
                 </StyledNav>
             </NavWrapper>
         </>

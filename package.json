@@ -4,11 +4,8 @@
     "version": "0.1.0",
     "author": "Deriv",
     "dependencies": {
-<<<<<<< HEAD
         "@livechat/customer-sdk": "^2.0.4",
-=======
         "@artsy/fresnel": "^1.2.2",
->>>>>>> e70748b6267efebd97c623a74cb8b683c84040e2
         "@loadable/component": "^5.13.2",
         "@svgr/webpack": "^5.4.0",
         "commander": "^6.1.0",

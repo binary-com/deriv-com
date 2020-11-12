@@ -14,6 +14,7 @@ const VerticalCarousel = ({ contents }) => {
         options: {
             loop: true,
             axis: 'y',
+            draggable: false,
         },
         container_style: {
             maxWidth: 'auto',

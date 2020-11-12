@@ -26,6 +26,7 @@ const VerticalCarousel = ({ contents }) => {
         vertical_container: {
             flexDirection: 'column',
             height: '43px',
+            width: 'max-content',
         },
     }
     return (

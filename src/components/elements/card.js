@@ -201,9 +201,9 @@ export const Card = ({
                                     <Icon />
                                 </IconWrapper>
                                 <CardContentContainer>
-                                    <Header as="h4" weight="bold">
+                                    <Text size="var(--text-size-m)" weight="bold">
                                         {title}
-                                    </Header>
+                                    </Text>
                                     <Content content={content} />
                                 </CardContentContainer>
                             </IconContainer>
@@ -212,9 +212,9 @@ export const Card = ({
                         <>
                             <Icon />
                             <ContentWrapper>
-                                <Header as="h4" weight="bold">
+                                <Text size="var(--text-size-m)" weight="bold">
                                     {title}
-                                </Header>
+                                </Text>
                                 <Content content={content} />
                             </ContentWrapper>
                         </>

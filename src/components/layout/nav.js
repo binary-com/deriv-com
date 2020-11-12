@@ -45,6 +45,13 @@ export const NavWrapper = styled.div`
     width: 100%;
     position: fixed;
     z-index: 100;
+
+    @media ${device.tabletL} {
+        .fresnel-between-start-tabletL {
+            display: flex;
+            width: 100%;
+        }
+    }
 `
 
 const InterimNav = styled.nav`
@@ -299,6 +306,7 @@ const LogoDescription = styled(Flex)`
         display: none;
     }
 `
+
 export const Nav = ({ base }) => {
     const data = useStaticQuery(query)
     const button_ref = useRef(null)
@@ -495,41 +503,43 @@ export const Nav = ({ base }) => {
                             </SignupButton>
                         </LocalizedLink>
                     </NavRight>
-                    {is_canvas_menu_open ? (
-                        <CloseMenu
-                            src={Close}
-                            alt="close menu"
-                            onClick={closeOffCanvasMenu}
-                            width="16px"
-                        />
-                    ) : (
-                        <HamburgerMenu
-                            src={Hamburger}
-                            alt="hamburger"
-                            onClick={openOffCanvasMenu}
-                            width="16px"
-                        />
-                    )}
+                    <Show.Mobile>
+                        {is_canvas_menu_open ? (
+                            <CloseMenu
+                                src={Close}
+                                alt="close menu"
+                                onClick={closeOffCanvasMenu}
+                                width="16px"
+                            />
+                        ) : (
+                            <HamburgerMenu
+                                src={Hamburger}
+                                alt="hamburger"
+                                onClick={openOffCanvasMenu}
+                                width="16px"
+                            />
+                        )}
 
-                    <LogoLinkMobile to="/" aria-label={localize('Home')}>
-                        <Flex>
-                            <img src={LogoOnly} alt="logo only" width="115px" />
-                            <LogoDescription ai="center">
-                                <Line />
-                                <img src={LogoCombinedShape} alt="logo combined shape 2" />
-                            </LogoDescription>
-                        </Flex>
-                    </LogoLinkMobile>
-                    <MobileRight>
-                        <LanguageSwitcher short_name="true" is_high_nav />
-                        <MobileLogin onClick={handleLogin} primary>
-                            <span>{localize('Log in')}</span>
-                        </MobileLogin>
-                    </MobileRight>
-                    <OffCanvasMenu
-                        is_canvas_menu_open={is_canvas_menu_open}
-                        closeOffCanvasMenu={closeOffCanvasMenu}
-                    />
+                        <LogoLinkMobile to="/" aria-label={localize('Home')}>
+                            <Flex>
+                                <img src={LogoOnly} alt="logo only" width="115px" />
+                                <LogoDescription ai="center">
+                                    <Line />
+                                    <img src={LogoCombinedShape} alt="logo combined shape 2" />
+                                </LogoDescription>
+                            </Flex>
+                        </LogoLinkMobile>
+                        <MobileRight>
+                            <LanguageSwitcher short_name="true" is_high_nav />
+                            <MobileLogin onClick={handleLogin} primary>
+                                <span>{localize('Log in')}</span>
+                            </MobileLogin>
+                        </MobileRight>
+                        <OffCanvasMenu
+                            is_canvas_menu_open={is_canvas_menu_open}
+                            closeOffCanvasMenu={closeOffCanvasMenu}
+                        />
+                    </Show.Mobile>
                 </Wrapper>
             </StyledNav>
         </NavWrapper>

@@ -416,6 +416,7 @@ export const NavResources = ({ onClick }) => (
             to={community_url}
             target="_blank"
             external="true"
+            rel="noopener noreferrer"
         />
         <CardLink
             icon={() => <Payment dynamic_id="payment-desktop" />}

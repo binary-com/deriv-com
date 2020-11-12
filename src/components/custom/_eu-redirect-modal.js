@@ -125,7 +125,6 @@ const EURedirect = ({ toggle, is_open, closeModal, to, target, rel, ref, aria_la
                         <Proceed
                             target={target}
                             rel={rel}
-                            data-amp-replace="QUERY_PARAM"
                             ref={ref}
                             href={to}
                             aria-label={aria_label}

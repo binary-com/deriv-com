@@ -327,7 +327,13 @@ export const OffCanvasMenuWrapper = (props) => {
                             </div>
                             <span>{localize('Payment methods')}</span>
                         </StyledLink>
-                        <StyledLink to={community_url} onClick={handleArrowClick} target="_blank">
+                        <StyledLink
+                            to={community_url}
+                            onClick={handleArrowClick}
+                            external="true"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
                             <div>
                                 <Community dynamic_id="community-mobile" />
                             </div>

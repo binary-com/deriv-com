@@ -47,14 +47,6 @@ module.exports = {
                     '/homepage/**',
                     '/**/homepage',
                     '/**/homepage/**',
-                    '/careers/jobs',
-                    '/careers/jobs/**',
-                    '/careers/job',
-                    '/careers/job/**',
-                    '/careers/teams',
-                    '/careers/teams/**',
-                    '/careers/team',
-                    '/careers/team/**',
                 ],
                 serialize: ({ site, allSitePage }) =>
                     allSitePage.edges.map((edge) => {
@@ -144,7 +136,7 @@ module.exports = {
             },
         },
         {
-            resolve: 'gatsby-plugin-react-svg',
+            resolve: 'gatsby-plugin-svgr',
             options: {
                 rule: {
                     include: /svg/, // See below to configure properly
@@ -185,10 +177,6 @@ module.exports = {
                             '/zh_tw/',
                             '/amp/',
                             '/homepage/',
-                            '/careers/jobs/',
-                            '/careers/job/',
-                            '/careers/teams/',
-                            '/careers/team/',
                             '*derivtnc*',
                             '*deriv_tnc*',
                         ],
@@ -210,6 +198,19 @@ module.exports = {
                 minimum: 0.4,
             },
         },
+        {
+            resolve: 'gatsby-plugin-google-tagmanager',
+            options: {
+                id: 'GTM-NF7884S',
+                includeInDevelopment: false,
+            },
+        },
         'gatsby-plugin-offline',
+        {
+            resolve: 'gatsby-plugin-anchor-links',
+            options: {
+                offset: -100,
+            },
+        },
     ],
 }

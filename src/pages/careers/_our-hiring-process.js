@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
-import { Container, SectionContainer, Flex } from 'components/containers'
-import { Text, Header } from 'components/elements'
+import { Container, SectionContainer, Flex, Show } from 'components/containers'
+import { Text, Header, LinkText } from 'components/elements'
 import device from 'themes/device'
 // SVG
 import Career1 from 'images/svg/career-1.svg'
@@ -87,7 +87,7 @@ const Process = ({ title, description, style }) => (
     </ProcessWrapper>
 )
 
-const StyledCareer1 = styled(Career1)`
+const StyledCareer1 = styled.img`
     margin-left: 6.4rem;
     margin-right: 4rem;
 
@@ -96,7 +96,7 @@ const StyledCareer1 = styled(Career1)`
     }
 `
 
-const StyledCareer2 = styled(Career2)`
+const StyledCareer2 = styled.img`
     margin-left: 4rem;
     margin-right: 6.4rem;
 
@@ -105,7 +105,7 @@ const StyledCareer2 = styled(Career2)`
     }
 `
 
-const StyledCareer3 = styled(Career3)`
+const StyledCareer3 = styled.img`
     margin-left: 6.4rem;
     margin-right: 4rem;
 
@@ -114,7 +114,7 @@ const StyledCareer3 = styled(Career3)`
     }
 `
 
-const StyledCareer4 = styled(Career4)`
+const StyledCareer4 = styled.img`
     margin-left: 4rem;
     margin-right: 6.4rem;
 
@@ -123,31 +123,18 @@ const StyledCareer4 = styled(Career4)`
     }
 `
 
-const DownwardsRight1 = styled(DownwardsRight)`
-    margin-left: 43.5%;
-    margin-top: -6.5%;
-
-    @media ${device.tablet} {
-        display: none;
-    }
+const DownwardsShape = styled(Show.Desktop)`
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
 `
 
-const DownwardsRight2 = styled(DownwardsRight)`
-    margin-left: 43.5%;
-    margin-top: -9.5%;
-
-    @media ${device.tablet} {
-        display: none;
-    }
+const StyledDownwardsRight = styled.img`
+    margin: -25px 60px -40px 0;
 `
 
-const DownwardsLeft1 = styled(DownwardsLeft)`
-    margin-left: 49%;
-    margin-top: -6%;
-
-    @media ${device.tablet} {
-        display: none;
-    }
+const StyledDownwardsLeft = styled.img`
+    margin: -25px 0 -70px 50px;
 `
 
 const ResponsiveFlex1 = styled(Flex)`
@@ -160,6 +147,7 @@ const SubResponsiveFlex1 = styled(Flex)`
     @media ${device.tablet} {
         flex-direction: column;
         justify-content: flex-start;
+        align-items: flex-start;
     }
 `
 
@@ -189,6 +177,7 @@ const SubResponsiveFlex3 = styled(Flex)`
     @media ${device.tablet} {
         flex-direction: column;
         justify-content: flex-start;
+        align-items: flex-start;
     }
 `
 
@@ -207,6 +196,14 @@ const SubResponsiveFlex4 = styled(Flex)`
     }
 `
 
+const StyledText = styled(Text)`
+    font-size: 1.6rem;
+`
+
+const StyledLinkText = styled(LinkText)`
+    margin: 0.5rem;
+`
+
 const OurHiringProcess = () => (
     <SectionContainer padding="0 0 12rem">
         <Container direction="column">
@@ -217,15 +214,15 @@ const OurHiringProcess = () => (
                 <ResponsiveFlex1 direction="row">
                     <TipsCard
                         content={
-                            "Apply for the jobs that match your skills and interest. If you want, link or add your portfolio or other samples of work that demonstrate you're the one for the role."
+                            "Apply for the jobs that match your skills and interest. If you want, link to your portfolio or other examples of work that demonstrate you're the one for the role."
                         }
                         style={{ marginTop: '4.7rem' }}
                         right
                     />
                     <SubResponsiveFlex1 direction="row" justify="unset">
-                        <StyledCareer1 />
+                        <StyledCareer1 src={Career1} alt="career1" />
                         <Process
-                            title={'Application'}
+                            title={'Apply'}
                             description={
                                 "Found a great role in an ad or our website? Let us know you're interested by sending us your CV. Every CV is read by our recruitment team. If there's a match, we'll get in touch."
                             }
@@ -233,26 +230,30 @@ const OurHiringProcess = () => (
                         />
                     </SubResponsiveFlex1>
                 </ResponsiveFlex1>
-                <DownwardsRight1 />
+                <DownwardsShape>
+                    <StyledDownwardsRight src={DownwardsRight} alt="downwards right" />
+                </DownwardsShape>
                 <ResponsiveFlex2 direction="row" ml="2.4rem" mt="1rem" width="unset">
                     <SubResponsiveFlex2 direction="row" width="unset">
                         <Process
-                            title={'Testing'}
+                            title={'Application form'}
                             description={
-                                'Complete a self-assessment questionnaire to tell us more about yourself, and a talent test to showcase your domain knowledge and approach to problem-solving.'
+                                'Complete our comprehensive application form to tell us more about yourself and showcase your approach to problem-solving.'
                             }
                             style={{ maxWidth: '38.4rem' }}
                         />
-                        <StyledCareer2 />
+                        <StyledCareer2 src={Career2} alt="career2" />
                     </SubResponsiveFlex2>
                     <TipsCard
                         content={
-                            'The self-assessment questionnaire is your opportunity to tell us about your background, values, character, and attitude. The questionnaire helps us to evaluate if our culture is right for you to be happy and productive.'
+                            'The application form gives you an opportunity to tell us about your background, values, and character strengths in your own words. It helps us to evaluate if our company can be a productive work environment for you.'
                         }
                         style={{ maxWidth: '35.7rem', marginTop: '2.3rem' }}
                     />
                 </ResponsiveFlex2>
-                <DownwardsLeft1 />
+                <DownwardsShape>
+                    <StyledDownwardsLeft src={DownwardsLeft} alt="downwards left" />
+                </DownwardsShape>
                 <ResponsiveFlex3 direction="row" mt="2rem">
                     <TipsCard
                         content={
@@ -262,7 +263,7 @@ const OurHiringProcess = () => (
                         style={{ marginTop: '4.7rem', maxWidth: '35.6rem' }}
                     />
                     <SubResponsiveFlex3 direction="row">
-                        <StyledCareer3 />
+                        <StyledCareer3 src={Career3} alt="career3" />
                         <Process
                             title={'Interview'}
                             description={
@@ -272,17 +273,19 @@ const OurHiringProcess = () => (
                         />
                     </SubResponsiveFlex3>
                 </ResponsiveFlex3>
-                <DownwardsRight2 />
+                <DownwardsShape>
+                    <StyledDownwardsRight src={DownwardsRight} alt="downwards right 2" />
+                </DownwardsShape>
                 <ResponsiveFlex4 direction="row" mt="1.6rem" width="unset">
                     <SubResponsiveFlex4 direction="row" width="unset">
                         <Process
-                            title={'Offer'}
+                            title={'Decision'}
                             description={
                                 "We make a decision and proceed with reference and background checks. If all is well, you'll receive an official offer letter in your email inbox. Then it's over to you."
                             }
                             style={{ maxWidth: '38.4rem' }}
                         />
-                        <StyledCareer4 />
+                        <StyledCareer4 src={Career4} alt="career4" />
                     </SubResponsiveFlex4>
                     <TipsCard
                         content={
@@ -293,6 +296,23 @@ const OurHiringProcess = () => (
                 </ResponsiveFlex4>
             </ProcessContainer>
         </Container>
+        <Show.Eu>
+            <Container>
+                <StyledText mt="8rem">
+                    Please read this
+                    <StyledLinkText
+                        color="red"
+                        key={0}
+                        target="_blank"
+                        href="/regulatory/Job_application_privacy_policy_.pdf"
+                        rel="noopener noreferrer"
+                    >
+                        privacy policy
+                    </StyledLinkText>
+                    before submitting your application.
+                </StyledText>
+            </Container>
+        </Show.Eu>
     </SectionContainer>
 )
 

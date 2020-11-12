@@ -11,9 +11,9 @@ const FlexText = styled(LinkText)`
     width: 26%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
 
-    & > svg {
+    & > img {
         margin-right: 0.8rem;
     }
     @media ${device.laptopM} {
@@ -22,16 +22,16 @@ const FlexText = styled(LinkText)`
     @media ${device.tabletS} {
         width: 80%;
         justify-content: flex-start;
-        padding-left: 16rem;
+        padding-left: 15rem;
     }
-    @media ${device.mobileL} {
-        padding-left: 10rem;
+    @media (max-width: 500px) {
+        padding-left: 8.5rem;
     }
     @media ${device.mobileM} {
-        padding-left: 8rem;
+        padding-left: 6rem;
     }
     @media ${device.mobileS} {
-        padding-left: 6rem;
+        padding-left: 4.5rem;
     }
 `
 
@@ -40,23 +40,28 @@ const FlexText_Pillar = styled(LinkText)`
     align-items: center;
     justify-content: center;
 
-    & > svg {
+    & > img {
         margin-right: 0.8rem;
     }
 `
 const EdgeFlex = styled(Flex)`
     flex-wrap: wrap;
     justify-content: flex-start;
+    margin-left: 5%;
 
     /* Edge does not support space-evenly */
     @supports (-ms-ime-align: auto) {
         justify-content: space-around;
     }
+    @media ${device.laptopM} {
+        margin-left: 9%;
+    }
+    @media ${device.tabletL} {
+        margin-left: 18%;
+    }
     @media ${device.tabletS} {
         flex-direction: column;
-    }
-    @media ${device.mobileL} {
-        align-content: center;
+        margin-left: 10%;
     }
 `
 
@@ -70,7 +75,7 @@ const RTS27_28 = () => (
                 href="/regulatory/RTS28-2019.pdf"
                 m="1.6rem 2.4rem"
             >
-                <PDFIcon />
+                <img src={PDFIcon} alt="pdf icon black" />
                 <span>{localize('RTS28 2019')}</span>
             </FlexText>
             <FlexText
@@ -80,7 +85,7 @@ const RTS27_28 = () => (
                 href="/regulatory/RTS28-2018.pdf"
                 m="1.6rem 2.4rem"
             >
-                <PDFIcon />
+                <img src={PDFIcon} alt="pdf icon black" />
                 <span>{localize('RTS28 2018')}</span>
             </FlexText>
             <FlexText
@@ -90,7 +95,7 @@ const RTS27_28 = () => (
                 href="/regulatory/RTS27-2020.xlsx"
                 m="1.6rem 2.4rem"
             >
-                <XLSXIcon />
+                <img src={XLSXIcon} alt="excel" />
                 <span>{localize('RTS27 2020')}</span>
             </FlexText>
             <FlexText
@@ -100,7 +105,7 @@ const RTS27_28 = () => (
                 href="/regulatory/RTS27-2019.xlsx"
                 m="1.6rem 2.4rem"
             >
-                <XLSXIcon />
+                <img src={XLSXIcon} alt="excel" />
                 <span>{localize('RTS27 2019')}</span>
             </FlexText>
             <FlexText
@@ -110,7 +115,7 @@ const RTS27_28 = () => (
                 href="/regulatory/RTS27-2018.xlsx"
                 m="1.6rem 2.4rem"
             >
-                <XLSXIcon />
+                <img src={XLSXIcon} alt="excel" />
                 <span>{localize('RTS27 2018')}</span>
             </FlexText>
         </EdgeFlex>
@@ -156,7 +161,7 @@ const DocumentAccordion = () => {
                         href="/regulatory/BIEL_Pillar_3.pdf"
                         color="red"
                     >
-                        <PDFIcon />
+                        <img src={PDFIcon} alt="pdf icon black" />
                         <span>{localize('Pillar III disclosure report')}</span>
                     </FlexText_Pillar>
                 </Flex>
@@ -173,7 +178,7 @@ const DocumentAccordion = () => {
                         'These documents provide you with key information about our investment products. This information is required by law to help you understand the nature, risks, costs, potential gains, and losses of these products and to help you compare them with other products.',
                     )}
                 </Text>
-                <Flex ai="center" jc="center">
+                <Flex>
                     <EdgeFlex mt="1.8rem">
                         <FlexText
                             color="red"
@@ -182,7 +187,7 @@ const DocumentAccordion = () => {
                             href="/regulatory/kid_deriv_commodities.pdf"
                             m="1.6rem 2.4rem"
                         >
-                            <PDFIcon />
+                            <img src={PDFIcon} alt="pdf icon black" />
                             <span>{localize('Commodities')}</span>
                         </FlexText>
                         <FlexText
@@ -194,7 +199,7 @@ const DocumentAccordion = () => {
                             href="/regulatory/kid_deriv_forex.pdf"
                             m="1.6rem 2.4rem"
                         >
-                            <PDFIcon />
+                            <img src={PDFIcon} alt="pdf icon black" />
                             <span>{localize('Forex')}</span>
                         </FlexText>
                         <FlexText
@@ -204,8 +209,18 @@ const DocumentAccordion = () => {
                             href="/regulatory/kid_deriv_crypto.pdf"
                             m="1.6rem 2.4rem"
                         >
-                            <PDFIcon />
+                            <img src={PDFIcon} alt="pdf icon black" />
                             <span>{localize('Cryptocurrency')}</span>
+                        </FlexText>
+                        <FlexText
+                            color="red"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            href="/regulatory/kid_deriv_multipliers.pdf"
+                            m="1.6rem 2.4rem"
+                        >
+                            <img src={PDFIcon} alt="pdf icon black" />
+                            <span>{localize('Multipliers')}</span>
                         </FlexText>
                     </EdgeFlex>
                 </Flex>

@@ -32,3 +32,5 @@ const eu_countries = [
 ]
 
 export const isEuCountry = (clients_country) => eu_countries.includes(clients_country)
+
+export const isUK = (clients_country) => clients_country === 'gb'

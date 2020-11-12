@@ -29,7 +29,7 @@ import {
 const Symbol = styled(Flex)`
     width: fit-content;
 
-    svg {
+    img {
         width: 32px;
         height: 32px;
         margin-right: 0.8rem;
@@ -45,83 +45,83 @@ const ExoticPairs = () => {
     return (
         <>
             <Symbol ai="center">
-                <AUDSGD />
+                <img src={AUDSGD} />
                 <Text>{localize('AUD/SGD')}</Text>
             </Symbol>
             <Symbol ai="center">
-                <CHFJPY />
+                <img src={CHFJPY} />
                 <Text>{localize('CHF/JPY')}</Text>
             </Symbol>
             <Symbol ai="center">
-                <EURHKD />
+                <img src={EURHKD} />
                 <Text>{localize('EUR/HKD')}</Text>
             </Symbol>
             <Symbol ai="center">
-                <EURILS />
+                <img src={EURILS} />
                 <Text>{localize('EUR/ILS')}</Text>
             </Symbol>
             <Symbol ai="center">
-                <EURMXN />
+                <img src={EURMXN} />
                 <Text>{localize('EUR/MXN')}</Text>
             </Symbol>
             <Symbol ai="center">
-                <EURSGD />
+                <img src={EURSGD} />
                 <Text>{localize('EUR/SGD')}</Text>
             </Symbol>
             <Symbol ai="center">
-                <EURTRY />
+                <img src={EURTRY} />
                 <Text>{localize('EUR/TRY')}</Text>
             </Symbol>
             <Symbol ai="center">
-                <EURZAR />
+                <img src={EURZAR} />
                 <Text>{localize('EUR/ZAR')}</Text>
             </Symbol>
             <Symbol ai="center">
-                <GBPSGD />
+                <img src={GBPSGD} />
                 <Text>{localize('GBP/SGD')}</Text>
             </Symbol>
             <Symbol ai="center">
-                <GBPTRY />
+                <img src={GBPTRY} />
                 <Text>{localize('GBP/TRY')}</Text>
             </Symbol>
             <Symbol ai="center">
-                <HKDJPY />
+                <img src={HKDJPY} />
                 <Text>{localize('HKD/JPY')}</Text>
             </Symbol>
             <Symbol ai="center">
-                <NZDCHF />
+                <img src={NZDCHF} />
                 <Text>{localize('NZD/CHF')}</Text>
             </Symbol>
             <Symbol ai="center">
-                <NZDSGD />
+                <img src={NZDSGD} />
                 <Text>{localize('NZD/SGD')}</Text>
             </Symbol>
             <Symbol ai="center">
-                <SGDJPY />
+                <img src={SGDJPY} />
                 <Text>{localize('SGD/JPY')}</Text>
             </Symbol>
             <Symbol ai="center">
-                <USDHKD />
+                <img src={USDHKD} />
                 <Text>{localize('USD/HKD')}</Text>
             </Symbol>
             <Symbol ai="center">
-                <USDILS />
+                <img src={USDILS} />
                 <Text>{localize('USD/ILS')}</Text>
             </Symbol>
             <Symbol ai="center">
-                <USDRUB />
+                <img src={USDRUB} />
                 <Text>{localize('USD/RUB')}</Text>
             </Symbol>
             <Symbol ai="center">
-                <USDSGD />
+                <img src={USDSGD} />
                 <Text>{localize('USD/SGD')}</Text>
             </Symbol>
             <Symbol ai="center">
-                <USDTHB />
+                <img src={USDTHB} />
                 <Text>{localize('USD/THB')}</Text>
             </Symbol>
             <Symbol ai="center">
-                <USDTRY />
+                <img src={USDTRY} />
                 <Text>{localize('USD/TRY')}</Text>
             </Symbol>
         </>

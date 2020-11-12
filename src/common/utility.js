@@ -87,8 +87,13 @@ function debounce(func, wait, immediate) {
     }
 }
 
+<<<<<<< HEAD
 const livechat_client_id = '66aa088aad5a414484c1fd1fa8a5ace7'
 const livechat_license_id = 12049137
+=======
+const trimSpaces = value => value.trim()
+
+>>>>>>> e70748b6267efebd97c623a74cb8b683c84040e2
 const deriv_app_url = 'https://app.deriv.com'
 const deriv_bot_app_url = 'https://app.deriv.com/bot'
 const smarttrader_url = 'https://smarttrader.deriv.com'
@@ -145,4 +150,5 @@ export {
     toISOFormat,
     toHashFormat,
     zoho_url,
+    trimSpaces,
 }

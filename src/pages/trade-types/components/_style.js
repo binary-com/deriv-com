@@ -1,7 +1,8 @@
 import styled from 'styled-components'
+import PatternsMobile from 'images/common/trade-types/trade-patterns-mobile.png'
+import Patterns from 'images/common/trade-types/trade-patterns.png'
 import { Container, Flex } from 'components/containers'
 import device from 'themes/device'
-import Patterns from 'images/common/trade-types/trade-patterns.png'
 
 const SmallContainer = styled(Container)`
     width: 60%;
@@ -28,6 +29,11 @@ const Hero = styled(Flex)`
     background: var(--color-black);
     background-image: url(${Patterns});
     background-size: cover;
+    background-position: center center;
+
+    @media ${device.mobileL} {
+        background-image: url(${PatternsMobile});
+    }
 `
 
 const Ul = styled.ul`
@@ -94,7 +100,8 @@ const Card = styled.article`
 
 const WhyTradeItem = styled(Flex)`
     flex-direction: column;
-    justify-content: start;
+    justify-content: flex-start;
+    align-items: flex-start;
     max-width: 23.7rem;
     height: auto;
 

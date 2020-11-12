@@ -1,4 +1,5 @@
 import React from 'react'
+import Loadable from '@loadable/component'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Footer from './footer'
@@ -6,13 +7,13 @@ import Copyright from './copyright'
 import { Nav, NavStatic, NavPartners, NavInterim } from './nav'
 import { NavCareers } from './nav-careers'
 import { LocationProvider } from './location-context'
-import LiveChat from './livechat'
 import EURedirect, { useModal } from 'components/custom/_eu-redirect-modal.js'
 import CookieBanner from 'components/custom/cookie-banner'
-import { isEuCountry } from 'common/country-base'
 import { CookieStorage } from 'common/storage'
-import { BinarySocketBase } from 'common/websocket/socket_base'
 import { isBrowser } from 'common/utility'
+import { DerivStore } from 'store'
+
+const LiveChat = Loadable(() => import('./livechat'))
 
 const Main = styled.main`
     padding-top: ${(props) => props.padding_top || '7rem'};
@@ -23,78 +24,37 @@ const Main = styled.main`
 
 const has_dataLayer = isBrowser() && window.dataLayer
 
-const CLIENTS_COUNTRY_KEY = 'clients_country'
 const TRACKING_STATUS_KEY = 'tracking_status'
-const CRYPTO_CONFIG_KEY = 'crypto_config'
-const clients_country_cookie = new CookieStorage(CLIENTS_COUNTRY_KEY)
 const tracking_status_cookie = new CookieStorage(TRACKING_STATUS_KEY)
-const crypto_config_cookie = new CookieStorage(CRYPTO_CONFIG_KEY)
 
 const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) => {
-    const [clients_country, setClientCountry] = React.useState(
-        clients_country_cookie.get(CLIENTS_COUNTRY_KEY),
-    )
+    const { is_eu_country } = React.useContext(DerivStore)
     const [has_mounted, setMounted] = React.useState(false)
     const [show_cookie_banner, setShowCookieBanner] = React.useState(false)
     const [show_modal, toggleModal, closeModal] = useModal()
     const [modal_payload, setModalPayload] = React.useState({})
-    const [crypto_config, setCryptoConfig] = React.useState(
-        crypto_config_cookie.get(CRYPTO_CONFIG_KEY),
-    )
     const LC_API = (isBrowser() && window.LC_API) || {}
     const [is_livechat_interactive, setLiveChatInteractive] = React.useState(false)
 
     const is_static = type === 'static'
 
+    // Every layout change will trigger scroll to top
     React.useEffect(() => {
-        if (!clients_country || !crypto_config) {
-            const binary_socket = BinarySocketBase.init()
-
-            binary_socket.onopen = () => {
-                binary_socket.send(JSON.stringify({ website_status: 1 }))
-            }
-
-            binary_socket.onmessage = (msg) => {
-                const response = JSON.parse(msg.data)
-                if (!response.error) {
-                    if (!clients_country) {
-                        setClientCountry(response.website_status.clients_country)
-                        clients_country_cookie.set(
-                            CLIENTS_COUNTRY_KEY,
-                            response.website_status.clients_country,
-                        )
-                    }
-                    if (!crypto_config) {
-                        setCryptoConfig(response.website_status.crypto_config)
-                        crypto_config_cookie.set(
-                            CRYPTO_CONFIG_KEY,
-                            response.website_status.crypto_config,
-                        )
-                    }
-                }
-
-                binary_socket.close()
-            }
-        }
         if (isBrowser()) {
             window.scrollTo(0, 0)
         }
     }, [])
 
+    // Allow tracking cookie banner setup
     React.useEffect(() => {
-        if (!clients_country) return
-        if (document.readyState === 'complete' || document.readyState === 'interactive') {
-            const is_eu_country = isEuCountry(clients_country)
-            const tracking_status = tracking_status_cookie.get(TRACKING_STATUS_KEY)
-            if (is_eu_country && !tracking_status) setShowCookieBanner(true)
+        const tracking_status = tracking_status_cookie.get(TRACKING_STATUS_KEY)
+        if (is_eu_country && !tracking_status) setShowCookieBanner(true)
 
-            const allow_tracking =
-                (!is_eu_country || tracking_status === 'accepted') && has_dataLayer
+        const allow_tracking = (!is_eu_country || tracking_status === 'accepted') && has_dataLayer
 
-            if (allow_tracking) window.dataLayer.push({ event: 'allow_tracking' })
-            setMounted(true)
-        }
-    }, [clients_country])
+        if (allow_tracking) window.dataLayer.push({ event: 'allow_tracking' })
+        setMounted(true)
+    }, [is_eu_country])
 
     const onAccept = () => {
         tracking_status_cookie.set(TRACKING_STATUS_KEY, 'accepted')
@@ -137,10 +97,8 @@ const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) 
     return (
         <LocationProvider
             has_mounted={has_mounted}
-            is_eu_country={clients_country ? isEuCountry(clients_country) : undefined}
             show_cookie_banner={show_cookie_banner}
             toggleModal={toggleModal}
-            crypto_config={crypto_config}
             setModalPayload={setModalPayload}
             is_livechat_interactive={is_livechat_interactive}
             LC_API={LC_API}

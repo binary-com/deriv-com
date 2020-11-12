@@ -76,7 +76,7 @@ const OtherChanges = () => (
     <>
         <Text>
             <Localize
-                translate_text="You see that <1>Deriv.com</1> has everything that <0>Binary.com</0> has, and more."
+                translate_text="You’ll see that <1>Deriv.com</1> has everything you get on <1>Binary.com</1>, and more."
                 components={[
                     <LocalizedLinkText
                         key={0}
@@ -93,12 +93,12 @@ const OtherChanges = () => (
         </Text>
         <TextPrimary>
             {localize(
-                'Besides a new, modern look, we’re working on adding new products like Multiplier Options and a peer-to-peer cashier. We’re creating resources that will help you build your confidence in the world of online trading.',
+                "Besides an improved, modern look, we’ve introduced a new trade type called multipliers and a peer-to-peer payment facility (DP2P) that's available on our website and as a mobile app.  We’re also creating more resources to help you improve your trading skills.",
             )}
         </TextPrimary>
         <TextPrimary>
             {localize(
-                'We’re working on rebranding our social media profiles too, so keep an eye out for @Derivdotcom on Facebook, Instagram and Twitter.',
+                'One more thing: We’ve rebranded our social media profiles to @Derivdotcom on Facebook, Instagram, and Twitter. Like and follow us to stay updated with our latest news.',
             )}
         </TextPrimary>
     </>

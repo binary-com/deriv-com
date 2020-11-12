@@ -93,12 +93,12 @@ const MobileCardWrapper = styled(Flex)`
     align-items: center;
     flex-direction: column;
 
-    svg {
+    img {
         width: 48px;
         height: 48px;
     }
     ${LearnMore} {
-        svg {
+        img {
             width: 16px;
             height: 16px;
         }
@@ -123,7 +123,7 @@ const StyledFlex = styled(Flex)`
     min-height: 29.6rem;
 
     ${LearnMore} {
-        svg {
+        img {
             transform: rotate(0);
             width: 16px;
             height: 16px;
@@ -156,7 +156,7 @@ const Card = ({ name }) => {
             <Text mt="0.8rem">{markets_type[name].content}</Text>
             <LearnMore to={markets_type[name].to} visibility={button_visibility}>
                 <Text mr="1rem">{localize('Learn more')}</Text>
-                <Arrow />
+                <img src={Arrow} alt="arrow right" />
             </LearnMore>
         </StyledFlex>
     )
@@ -174,7 +174,7 @@ const MobileCard = ({ name }) => {
             <Text size="2rem">{markets_type[name].content}</Text>
             <LearnMore to={markets_type[name].to} visibility="true">
                 <Text>{localize('Learn more')}</Text>
-                <Arrow />
+                <img src={Arrow} alt="arrow right" />
             </LearnMore>
         </MobileCardWrapper>
     )

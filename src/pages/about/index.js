@@ -260,48 +260,77 @@ const About = () => {
                         </ContentWrapper>
                     )}
                     {is_leadership && (
-                        <ContentWrapper>
-                            <LeadershipWrapper mt="4rem" ai="center">
-                                <Show.Desktop>
-                                    <Box max_width="28.2rem" mr="2.4rem">
+                        <>
+                            <Show.Desktop>
+                                <ContentWrapper>
+                                    <LeadershipWrapper mt="4rem" ai="center">
+                                        <Box max_width="28.2rem" mr="2.4rem">
+                                            <QueryImage
+                                                data={data['jean_yves']}
+                                                alt={localize('Jean Yves')}
+                                                width="28.2rem"
+                                            />
+                                        </Box>
+
+                                        <div>
+                                            <LeadershipTitle
+                                                as="h3"
+                                                size="var(--text-size-header-1)"
+                                                color="white"
+                                            >
+                                                <Localize translate_text="Jean-Yves Sireau" />
+                                            </LeadershipTitle>
+                                            <LeadershipPosition
+                                                as="h4"
+                                                weight="normal"
+                                                color="white"
+                                                lh="3.6rem"
+                                            >
+                                                {localize('Founder and Chief Executive Officer')}
+                                            </LeadershipPosition>
+                                            <StyledText color="white">
+                                                {localize(
+                                                    'Jean-Yves has been an entrepreneur since the age of 20. From 1997 to 1999, he developed the algorithms that would become one of the world’s first trading platforms. He was granted a patent for his binary options trading system in 2007, and granted two more patents in 2011 for systems and methods that enable financial market speculation.',
+                                                )}
+                                            </StyledText>
+                                        </div>
+                                    </LeadershipWrapper>
+                                </ContentWrapper>
+                            </Show.Desktop>
+                            <Show.Mobile>
+                                <ContentWrapper>
+                                    <LeadershipWrapper mt="4rem" ai="center">
                                         <QueryImage
-                                            data={data['jean_yves']}
+                                            data={data['jean_yves_mobile']}
                                             alt={localize('Jean Yves')}
-                                            width="28.2rem"
+                                            width="100%"
                                         />
-                                    </Box>
-                                </Show.Desktop>
-                                <Show.Mobile style={{ width: '100%' }}>
-                                    <QueryImage
-                                        data={data['jean_yves_mobile']}
-                                        alt={localize('Jean Yves')}
-                                        width="100%"
-                                    />
-                                </Show.Mobile>
-                                <div>
-                                    <LeadershipTitle
-                                        as="h3"
-                                        size="var(--text-size-header-1)"
-                                        color="white"
-                                    >
-                                        <Localize translate_text="Jean-Yves Sireau" />
-                                    </LeadershipTitle>
-                                    <LeadershipPosition
-                                        as="h4"
-                                        weight="normal"
-                                        color="white"
-                                        lh="3.6rem"
-                                    >
-                                        {localize('Founder and Chief Executive Officer')}
-                                    </LeadershipPosition>
-                                    <StyledText color="white">
-                                        {localize(
-                                            'Jean-Yves has been an entrepreneur since the age of 20. From 1997 to 1999, he developed the algorithms that would become one of the world’s first trading platforms. He was granted a patent for his binary options trading system in 2007, and granted two more patents in 2011 for systems and methods that enable financial market speculation.',
-                                        )}
-                                    </StyledText>
-                                </div>
-                            </LeadershipWrapper>
-                        </ContentWrapper>
+                                        <div>
+                                            <LeadershipTitle
+                                                as="h3"
+                                                size="var(--text-size-header-1)"
+                                                color="white"
+                                            >
+                                                <Localize translate_text="Jean-Yves Sireau" />
+                                            </LeadershipTitle>
+                                            <LeadershipPosition
+                                                as="h4"
+                                                weight="normal"
+                                                color="white"
+                                                lh="3.6rem"
+                                            >
+                                                {localize('Founder and Chief Executive Officer')}
+                                            </LeadershipPosition>
+                                            <StyledText color="white">
+                                                {localize(
+                                                    'Jean-Yves has been an entrepreneur since the age of 20. From 1997 to 1999, he developed the algorithms that would become one of the world’s first trading platforms. He was granted a patent for his binary options trading system in 2007, and granted two more patents in 2011 for systems and methods that enable financial market speculation.',
+                                                )}
+                                            </StyledText>
+                                        </div>
+                                    </LeadershipWrapper>
+                                </ContentWrapper>
+                            </Show.Mobile>
+                        </>
                     )}
                 </StyledContainer>
             </Background>

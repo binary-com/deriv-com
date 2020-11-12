@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Flex, Box } from 'components/containers'
 import device from 'themes/device'
-import ChevronThick from 'images/svg/chevron-thick.svg'
+import { ReactComponent as ChevronThick } from 'images/svg/chevron-thick.svg'
 
 const Wrapper = styled.div`
     border: 1px solid var(--color-grey-22);
@@ -49,6 +49,8 @@ const MarketsAccordion = ({ renderTitle, renderDetails }) => {
                 {renderTitle()}
                 <Button onClick={() => setShow(!is_show_detail)}>
                     <StyledChevron
+                        src={ChevronThick}
+                        alt="chevron"
                         width="16px"
                         height="16px"
                         is_show_detail={String(is_show_detail)}

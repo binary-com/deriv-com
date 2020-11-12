@@ -38,7 +38,7 @@ const WhatIsMargin = () => {
                         )}
                     </Text>
                 </SmallContainer>
-                <Show.Desktop max_width={680}>
+                <Show.Desktop max_width={'bp680'}>
                     <SmallContainer direction="column" ai="flex-start">
                         <ImageWrapper>
                             <QueryImage
@@ -49,7 +49,7 @@ const WhatIsMargin = () => {
                         </ImageWrapper>
                     </SmallContainer>
                 </Show.Desktop>
-                <Show.Mobile min_width={680}>
+                <Show.Mobile min_width={'bp680'}>
                     <ImageWrapper>
                         <QueryImage
                             data={data['margin_mobile_piechart']}

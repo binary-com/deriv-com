@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Container, Flex, Show, Box } from 'components/containers'
 import { Header, LocalizedLinkText, Text } from 'components/elements'
+import { isUK } from 'common/country-base'
 import { Localize, localize } from 'components/localization'
 import { TimelineTick } from 'components/elements/timeline'
 import device from 'themes/device'
@@ -214,9 +215,13 @@ const TradingLimits = () => {
                                     </TimelineTick.Item>
                                     <TimelineTick.Item>
                                         <Text>
-                                            {localize(
-                                                'If you do not wish to renew the self-exclusion and you make a request to trade again, there will be a cooling-off period of 1 day before you are allowed access to our site. Please note that email is insufficient and your request must be made by phone.',
-                                            )}
+                                            {isUK
+                                                ? localize(
+                                                      'If you do not wish to renew the self-exclusion and you make a request to trade again, there will be a cooling-off period of 1 day before you are allowed access to our site. Please note that you must contact our Customer Support team by calling + 447723580049. It is not enough to send an email.',
+                                                  )
+                                                : localize(
+                                                      'If you do not wish to renew the self-exclusion and you make a request to trade again, there will be a cooling-off period of 1 day before you are allowed access to our site. If you’re a UK resident, please note that you must contact our Customer Support team by calling + 447723580049. It is not enough to send an email.',
+                                                  )}
                                         </Text>
                                     </TimelineTick.Item>
                                 </TimelineTick>

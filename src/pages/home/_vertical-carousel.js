@@ -7,6 +7,7 @@ const StyledHeader = styled(Header)`
     font-size: var(--text-size-m);
     line-height: 1.5;
     height: 36px;
+    margin: 10px 0;
 `
 
 const VerticalCarousel = ({ contents }) => {
@@ -15,6 +16,7 @@ const VerticalCarousel = ({ contents }) => {
             loop: true,
             axis: 'y',
             draggable: false,
+            speed: 7,
         },
         container_style: {
             maxWidth: 'auto',
@@ -26,11 +28,10 @@ const VerticalCarousel = ({ contents }) => {
         vertical_container: {
             flexDirection: 'column',
             height: '43px',
-            width: 'max-content',
         },
     }
     return (
-        <Carousel has_autoplay autoplay_interval={4000} {...settings}>
+        <Carousel has_autoplay autoplay_interval={2500} {...settings}>
             {contents.map((content, index) => (
                 <StyledHeader
                     color="white"

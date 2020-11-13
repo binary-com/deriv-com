@@ -5,7 +5,6 @@ import Mobile from 'images/svg/p2p-mobile.svg'
 import { localize, Localize } from 'components/localization'
 import { Header, StyledLink, SpanLinkText } from 'components/elements'
 import { Flex, SectionContainer } from 'components/containers'
-import { BoldLink } from 'components/layout/footer'
 import Login from 'common/login'
 import device from 'themes/device'
 
@@ -83,6 +82,15 @@ const ListNoBullets = styled.ul`
         li {
             font-size: 16px;
         }
+    }
+`
+
+const BoldLink = styled(StyledLink)`
+    font-weight: bold;
+    color: var(--color-black-3);
+    font-size: var(--text-size-xs);
+    @media ${device.tabletL} {
+        font-size: var(--text-size-sm);
     }
 `
 

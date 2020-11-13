@@ -173,7 +173,7 @@ const RiskWarning = styled.div`
     }
 `
 
-export const BoldLink = styled(StyledLink)`
+const BoldLink = styled(StyledLink)`
     font-weight: bold;
     color: var(--color-black-3);
     font-size: var(--text-size-xs);

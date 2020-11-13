@@ -22,9 +22,7 @@ const NumberWrapper = styled.div`
     @media ${device.tabletL} {
         margin: 1.2rem 0;
         width: unset;
-    }
 
-    @media ${device.mobileL} {
         ${Header} {
             font-size: 24px;
         }
@@ -39,16 +37,16 @@ const DnumberContainer = styled(Flex)`
     margin-bottom: 2.4rem;
     flex-direction: row;
 
-    @media ${device.mobileL} {
+    @media ${device.tabletL} {
         margin-bottom: 0;
+        flex-direction: column;
     }
 `
 
 const DnumberContent = styled(Flex)`
     justify-content: space-between;
-
     @media ${device.tabletL} {
-        flex-direction: column;
+        justify-content: space-around;
     }
 `
 

@@ -30,6 +30,19 @@ const StyledSection = styled(SectionContainer)`
 const StyledHeader = styled(Header)`
     @media ${device.tabletL} {
         text-align: center;
+        font-size: 16px;
+    }
+`
+
+const CardHeader = styled(Header)`
+    @media ${device.tabletL} {
+        font-size: 16px;
+    }
+`
+
+const CardText = styled(Text)`
+    @media ${device.tabletL} {
+        font-size: 14px;
     }
 `
 
@@ -39,6 +52,22 @@ const BackButton = styled(Button)`
     height: 40px;
     padding: 0 1.6rem;
     margin-right: 1.6rem;
+`
+
+const StyledButton = styled(Button)`
+    @media ${device.tabletL} {
+        font-size: 14px;
+    }
+`
+
+const LinkButtonContactUs = styled(LinkButton)`
+    @media ${device.tablet} {
+        display: block;
+        margin: auto;
+        font-size: 14px;
+        width: 216px;
+        height: 40px;
+    }
 `
 
 const StyledText = styled(Text)`
@@ -74,16 +103,41 @@ const ButtonWrapper = styled.div`
 
 const StyledHeaderCommission = styled(StyledHeader)`
     margin-bottom: 0;
+    font-size: 16px;
     @media (max-width: 1428px) {
         text-align: center;
+    }
+
+    @media ${device.tabletL} {
+        font-size: 20px;
+        text-align: left;
+        margin: auto;
     }
 `
 
 const StyledCard = styled(Card)`
+    border-radius: 8px;
     margin: 1.6rem 2.4rem 0;
-
     @media ${device.tabletL} {
-        margin: 2.4rem 0;
+        width: 328px;
+        padding: 16px;
+        margin: 1.6rem 0 1.6rem 0;
+        height: ${(props) => (props.tabletHeight ? props.tabletHeight : '')};
+    }
+`
+
+const StyledTitleHeader = styled(Header)`
+    @media ${device.tabletL} {
+        font-size: 24px;
+    }
+`
+
+const SubtitleHeader = styled(Header)`
+    @media ${device.laptopL} {
+        width: 100%;
+    }
+    @media ${device.tabletL} {
+        font-size: 16px !important;
     }
 `
 
@@ -97,17 +151,17 @@ const DerivIBProgramme = () => {
         <StyledSection shadow id="deriv-ib">
             <Container direction="column">
                 <TitleWrapper>
-                    <Header mb="1.2rem" size="4.8rem" align="center">
+                    <StyledTitleHeader mb="1.2rem" size="4.8rem" align="center">
                         {localize('Deriv IB Programme')}
-                    </Header>
-                    <Header as="h4" align="center" weight="normal">
+                    </StyledTitleHeader>
+                    <SubtitleHeader as="h4" align="center" weight="normal">
                         {localize(
                             'Our introducing broker programme is available to all Deriv affiliates.',
                         )}
-                    </Header>
-                    <Header as="h4" align="center" weight="normal">
+                    </SubtitleHeader>
+                    <SubtitleHeader as="h4" align="center" weight="normal">
                         {localize('Earn commission from your clients’ trades on DMT5.')}
-                    </Header>
+                    </SubtitleHeader>
                 </TitleWrapper>
                 <SectionContainer padding="4rem 0 9.6rem 0">
                     <StyledHeaderCommission as="h4" mb="1.6rem" size="1.6rem">
@@ -122,14 +176,14 @@ const DerivIBProgramme = () => {
                         <StyledHeader as="h4" align="center" weight="medium" mb="3.2rem">
                             {localize('Can’t decide which programme or commission plan suits you?')}
                         </StyledHeader>
-                        <LinkButton
+                        <LinkButtonContactUs
                             external="true"
                             secondary
                             to="mailto:partners@deriv.com"
                             is_mail_link
                         >
                             {localize('Contact us')}
-                        </LinkButton>
+                        </LinkButtonContactUs>
                     </StyledSection>
                 </SectionContainer>
             </Container>
@@ -155,7 +209,7 @@ const SyntheticTable = styled(Table)`
 const StyledLinkButton = styled(LinkButton)`
     height: 40px;
 
-    @media ${device.mobileL} {
+    @media ${device.tabletL} {
         padding: 1.5rem 1.6rem;
         height: 40px;
         white-space: nowrap;
@@ -182,10 +236,10 @@ const DMT5Synthetic = ({ data }) => {
             <div>
                 {!is_calculated ? (
                     <div>
-                        <Header as="h4" mb="0.8rem">
+                        <CardHeader as="h4" mb="0.8rem">
                             {data.name}
-                        </Header>
-                        <Text>{data.description}</Text>
+                        </CardHeader>
+                        <CardText>{data.description}</CardText>
                         <SyntheticTable grid_col_number={data.assets.length} is_balance={true}>
                             {data.assets.map((asset, idx) => (
                                 <TC grid_area={`area${idx}`} key={idx}>
@@ -230,16 +284,16 @@ const DMT5Synthetic = ({ data }) => {
                             />
                         )}
                         <HowItsCalculate>
-                            <Button flat onClick={toggleCalculated}>
+                            <StyledButton flat onClick={toggleCalculated}>
                                 {localize("How it's calculated")}
-                            </Button>
+                            </StyledButton>
                         </HowItsCalculate>
                     </div>
                 ) : (
                     <>
-                        <Header as="h4" mb="0.8rem" lh="1.5">
+                        <CardHeader as="h4" mb="0.8rem" lh="1.5">
                             {localize('How it’s calculated')}
-                        </Header>
+                        </CardHeader>
                         {data.calculation}
                         <ButtonWrapper>
                             <BackButton tertiary onClick={toggleCalculated}>
@@ -267,14 +321,14 @@ const DMT5Standard = ({ data }) => {
         setCalculated(!is_calculated)
     }
     return (
-        <Card padding="3.2rem 3.2rem 8.2rem" width="43rem" height="43rem">
+        <StyledCard padding="3.2rem 3.2rem 8.2rem" width="43rem" height="43rem">
             <div>
                 {!is_calculated ? (
                     <div>
-                        <Header as="h4" mb="0.8rem">
+                        <CardHeader as="h4" mb="0.8rem">
                             {data.name}
-                        </Header>
-                        <Text>{data.description}</Text>
+                        </CardHeader>
+                        <CardText>{data.description}</CardText>
                         <Table grid_col_number={data.assets.length}>
                             {data.assets.map((asset, idx) => (
                                 <TC grid_area={`area${idx}`} key={idx}>
@@ -317,16 +371,16 @@ const DMT5Standard = ({ data }) => {
                             ))}
                         </Table>
                         <HowItsCalculate>
-                            <Button flat onClick={toggleCalculated}>
+                            <StyledButton flat onClick={toggleCalculated}>
                                 {localize("How it's calculated")}
-                            </Button>
+                            </StyledButton>
                         </HowItsCalculate>
                     </div>
                 ) : (
                     <>
-                        <Header as="h4" mb="0.8rem">
+                        <CardHeader as="h4" mb="0.8rem">
                             {localize('How it’s calculated')}
-                        </Header>
+                        </CardHeader>
                         {data.calculation}
                         <ButtonWrapper>
                             <BackButton tertiary onClick={toggleCalculated}>
@@ -345,7 +399,7 @@ const DMT5Standard = ({ data }) => {
                     </>
                 )}
             </div>
-        </Card>
+        </StyledCard>
     )
 }
 const DMT5Advanced = ({ data }) => {
@@ -358,10 +412,10 @@ const DMT5Advanced = ({ data }) => {
             <div>
                 {!is_calculated ? (
                     <div>
-                        <Header as="h4" mb="0.8rem">
+                        <CardHeader as="h4" mb="0.8rem">
                             {data.name}
-                        </Header>
-                        <Text>{data.description}</Text>
+                        </CardHeader>
+                        <CardText>{data.description}</CardText>
                         <Table grid_col_number={data.assets.length}>
                             {data.assets.map((asset, idx) => (
                                 <TC grid_area={`area${idx}`} key={idx}>
@@ -405,16 +459,16 @@ const DMT5Advanced = ({ data }) => {
                             ))}
                         </Table>
                         <HowItsCalculate>
-                            <Button flat onClick={toggleCalculated}>
+                            <StyledButton flat onClick={toggleCalculated}>
                                 {localize("How it's calculated")}
-                            </Button>
+                            </StyledButton>
                         </HowItsCalculate>
                     </div>
                 ) : (
                     <>
-                        <Header as="h4" mb="0.8rem">
+                        <CardHeader as="h4" mb="0.8rem">
                             {localize('How it’s calculated')}
-                        </Header>
+                        </CardHeader>
                         {data.calculation}
                         <ButtonWrapper>
                             <BackButton tertiary onClick={toggleCalculated}>
@@ -458,12 +512,12 @@ const ib_dmt5_standard = {
     ],
     calculation: (
         <>
-            <Text>
+            <CardText>
                 <Localize translate_text="For forex and metal assets, your commission is represented in the base currency. For example, a round trade (i.e. opening and closing a position) of 1 lot of EUR/USD will pay out EUR 10 in commission. A round trade of 1 lot of USD/CAD will pay out USD 10 in commission." />
-            </Text>
-            <Text mt="2rem">
+            </CardText>
+            <CardText mt="2rem">
                 <Localize translate_text="For cryptocurrency assets, a round trade of 1 lot of BTC/USD with a spot price of USD 10,000 will pay out USD 30 in commission." />
-            </Text>
+            </CardText>
         </>
     ),
 }
@@ -489,12 +543,12 @@ const ib_dmt5_advanced = {
     ],
     calculation: (
         <>
-            <Text>
+            <CardText>
                 <Localize translate_text="For forex assets, your commission is represented in the base currency. For example, a round trade (i.e. opening and closing a position) of 1 lot of EUR/USD will pay out EUR 5 in commission. A round trade of 1 lot of USD/CAD will pay out USD 5 in commission." />
-            </Text>
-            <Text mt="2rem">
+            </CardText>
+            <CardText mt="2rem">
                 <Localize translate_text="For cryptocurrency assets, a round trade of 1 lot of BTC/USD with a spot price of USD 10,000 will pay out USD 20 in commission." />
-            </Text>
+            </CardText>
         </>
     ),
 }
@@ -546,15 +600,15 @@ const ib_dmt5_synthetic = {
     ],
     calculation: (
         <>
-            <Text>
+            <CardText>
                 <Localize translate_text="For example, a round trade of 1 lot of the Volatility 75 Index for a price of USD 125,000 would pay out USD 12.5 in commission based on the following formula:" />
-            </Text>
-            <Text weight="bold" m="1.6rem 0">
+            </CardText>
+            <CardText weight="bold" m="1.6rem 0">
                 <Localize translate_text="USD 10 X 1 lot X USD 125,000 / 100,000 = USD 12.5" />
-            </Text>
-            <Text>
+            </CardText>
+            <CardText>
                 <Localize translate_text="If your account currency is in euro or pound sterling, your commission will be converted based on the latest exchange rate." />
-            </Text>
+            </CardText>
         </>
     ),
 }

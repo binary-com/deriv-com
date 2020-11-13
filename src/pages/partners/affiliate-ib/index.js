@@ -22,13 +22,30 @@ const CTA = Loadable(() => import('./_partner-cta'))
 const StyledHeader = styled(Header)`
     width: 100%;
     max-width: 70rem;
-    margin-bottom: 4rem;
+    @media ${device.tabletS} {
+        font-size: 40px;
+        text-align: left;
+    }
+
+    &:nth-child(2) {
+        margin-bottom: 4rem;
+    }
+`
+
+const StyledLinkButton = styled(LinkButton)`
+    @media ${device.tabletS} {
+        font-size: 14px;
+        width: 216px;
+        height: 40px;
+    }
 `
 
 const StyledSectionContainer = styled(SectionContainer)`
-    @media ${device.mobileL} {
+    @media ${device.tabletL} {
         padding-top: 40px;
         padding-bottom: 40px;
+        padding-right: 16px;
+        padding-left: 16px;
     }
 `
 
@@ -37,9 +54,9 @@ const SubtitleHeader = styled(Header)`
     @media ${device.laptopL} {
         width: 100%;
     }
-    @media ${device.mobileL} {
+    @media ${device.tabletL} {
         font-size: 16px;
-        text-align: left;
+        text-align: justify;
     }
 `
 
@@ -88,10 +105,13 @@ const AffiliateIb = () => {
                 )}
             />
             <Hero>
-                <StyledHeader as="h1" type="display-title" color="white" align="center" lh="1.25">
-                    {localize('Partner with a trusted online trading provider')}
+                <StyledHeader as="h1" color="white" align="center" lh="1.25">
+                    {localize('Partner with a trusted')}
                 </StyledHeader>
-                <LinkButton
+                <StyledHeader as="h1" color="white" align="center" lh="1.25">
+                    {localize('online trading provider')}
+                </StyledHeader>
+                <StyledLinkButton
                     to={affiliate_signup_url}
                     external="true"
                     target="_blank"
@@ -99,7 +119,7 @@ const AffiliateIb = () => {
                     secondary
                 >
                     {localize('Sign up as our affiliate & IB')}
-                </LinkButton>
+                </StyledLinkButton>
             </Hero>
             <StyledSectionContainer padding="8rem 0 4rem">
                 <Container direction="column">

@@ -31,10 +31,24 @@ const StyledContainer = styled(SectionContainer)`
     section:last-child {
         padding-bottom: 0;
     }
+
+    @media ${device.tabletL} {
+        padding: 40px 0;
+    }
 `
 
 const StyledHeader = styled(Header)`
     margin-bottom: 0 !important;
+    @media ${device.tabletL} {
+        text-align: left !important;
+        font-size: 20px;
+    }
+`
+
+const WhyUsHeader = styled(Header)`
+    @media ${device.tabletL} {
+        font-size: 24px;
+    }
 `
 
 const Row = styled(SectionContainer)`
@@ -49,10 +63,14 @@ const Row = styled(SectionContainer)`
     }
 
     @media ${device.tabletL} {
-        flex-direction: column;
+        flex-direction: column-reverse;
 
         div {
             max-width: unset;
+        }
+        ${Text} {
+            text-align: justify;
+            font-size: 16px;
         }
     }
 `
@@ -72,9 +90,9 @@ const WhyUs = ({ items }) => {
     return (
         <StyledContainer>
             <Container direction="column">
-                <Header size="4.8rem" align="center">
+                <WhyUsHeader size="3.6rem" align="center">
                     {localize('Why partner with us')}
-                </Header>
+                </WhyUsHeader>
                 {items.map((item, index) => {
                     let is_even = index % 2
                     return (

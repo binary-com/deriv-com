@@ -28,6 +28,13 @@ const StyledSection = styled(Container)`
 const SectionWrapper = styled(SectionContainer)`
     box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.1);
 `
+
+const StyledSectionWrapper = styled(SectionWrapper)`
+    @media ${device.tabletL} {
+        padding: 40px 0;
+    }
+`
+
 const CenteredSection = styled(SectionContainer)`
     text-align: center;
 `
@@ -67,6 +74,11 @@ const Separator = styled.div`
 const StyledHeader = styled(Header)`
     width: 100%;
     max-width: 42.8rem;
+
+    @media ${device.tabletL} {
+        font-size: 24px;
+        text-align: center;
+    }
 `
 
 const SecondaryHeader = styled(StyledHeader)`
@@ -118,6 +130,11 @@ const WhoCanApplyWrapper = styled(Col)`
     display: flex;
     flex-direction: column;
 `
+const ContentWrapper = styled(Wrapper)`
+    @media (max-width: 749px) {
+        flex-flow: wrap;
+    }
+`
 
 const HowToApplyContent = styled.div`
     display: flex;
@@ -126,16 +143,22 @@ const HowToApplyContent = styled.div`
     img {
         margin-right: 1.6rem;
     }
+
+    @media (max-width: 749px) {
+        svg {
+            display: none;
+        }
+    }
 `
 
 const WhoCanApply = () => {
     return (
-        <SectionWrapper padding="8rem 0 4rem">
+        <StyledSectionWrapper padding="8rem 0 4rem">
             <StyledSection>
                 <Flex>
                     <WhoCanApplyWrapper>
                         <StyledHeader size="3.2rem">{localize('Who can apply')}</StyledHeader>
-                        <Wrapper>
+                        <ContentWrapper>
                             <ImageWrapper src={TradingExperts} alt="trading experts" />
                             <Content max_width="36.4rem">
                                 <Header as="h4" type="sub-section-title">
@@ -147,8 +170,8 @@ const WhoCanApply = () => {
                                     )}
                                 </Text>
                             </Content>
-                        </Wrapper>
-                        <Wrapper>
+                        </ContentWrapper>
+                        <ContentWrapper>
                             <ImageWrapper src={SoftwareDeveloper} alt="software developer" />
                             <Content max_width="36.4rem">
                                 <Header as="h4" type="sub-section-title">
@@ -160,8 +183,8 @@ const WhoCanApply = () => {
                                     )}
                                 </Text>
                             </Content>
-                        </Wrapper>
-                        <Wrapper>
+                        </ContentWrapper>
+                        <ContentWrapper>
                             <ImageWrapper src={CommunityManagers} alt="community managers" />
                             <Content max_width="36.4rem">
                                 <Header as="h4" type="sub-section-title">
@@ -173,7 +196,7 @@ const WhoCanApply = () => {
                                     )}
                                 </Text>
                             </Content>
-                        </Wrapper>
+                        </ContentWrapper>
                     </WhoCanApplyWrapper>
                 </Flex>
                 <Separator />
@@ -243,7 +266,7 @@ const WhoCanApply = () => {
                     {localize('Sign up')}
                 </LinkButton>
             </CenteredSection>
-        </SectionWrapper>
+        </StyledSectionWrapper>
     )
 }
 

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Desktop from 'images/svg/p2p-desktop.svg'
 import Mobile from 'images/svg/p2p-mobile.svg'
 import { localize, Localize } from 'components/localization'
-import { Header, LocalizedLinkText, SpanLinkText, Text } from 'components/elements'
+import { Header, LocalizedLinkText, SpanLinkText } from 'components/elements'
 import { Flex, SectionContainer } from 'components/containers'
 import Login from 'common/login'
 import device from 'themes/device'
@@ -65,18 +65,26 @@ const StyledCardHeader = styled(Header)`
         margin-bottom: 24px;
     }
 `
-const StyledText = styled(Text)`
-    font-size: 24px;
-    margin-bottom: 3rem;
 
-    :last-child {
-        margin-bottom: 0;
+const ListNoBullets = styled.ul`
+    list-style: none;
+
+    li {
+        font-size: 24px;
+        line-height: 1.5;
+        margin-bottom: 3rem;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
     }
-
     @media ${device.mobileL} {
-        font-size: 16px;
+        li {
+            font-size: 16px;
+        }
     }
 `
+
 const Line = styled.div`
     width: 1px;
     height: 38rem;
@@ -133,8 +141,8 @@ const Availability = () => {
                             <Localize translate_text="DP2P on your computer" />
                         </StyledCardHeader>
                     </Row>
-                    <div>
-                        <StyledText>
+                    <ListNoBullets>
+                        <li>
                             <Localize
                                 translate_text="1. <0>Log in</0> to your Deriv account. Don’t have one? <1>Sign up</1> for free."
                                 components={[
@@ -153,14 +161,14 @@ const Availability = () => {
                                     />,
                                 ]}
                             />
-                        </StyledText>
-                        <StyledText>
+                        </li>
+                        <li>
                             <Localize translate_text="2. Go to Cashier > DP2P and register." />
-                        </StyledText>
-                        <StyledText>
+                        </li>
+                        <li>
                             <Localize translate_text="3. Start exchanging." />
-                        </StyledText>
-                    </div>
+                        </li>
+                    </ListNoBullets>
                 </PlatformCard>
                 <Line />
                 <PlatformCard>
@@ -172,8 +180,8 @@ const Availability = () => {
                             <Localize translate_text="DP2P on your mobile" />
                         </StyledCardHeader>
                     </Row>
-                    <div>
-                        <StyledText>
+                    <ListNoBullets>
+                        <li>
                             <Localize
                                 translate_text="1. Get the app from the <0>Google Play Store</0>."
                                 components={[
@@ -188,14 +196,14 @@ const Availability = () => {
                                     />,
                                 ]}
                             />
-                        </StyledText>
-                        <StyledText>
+                        </li>
+                        <li>
                             <Localize translate_text="2. Log in to your Deriv account, and register for DP2P." />
-                        </StyledText>
-                        <StyledText>
+                        </li>
+                        <li>
                             <Localize translate_text="3. Start exchanging." />
-                        </StyledText>
-                    </div>
+                        </li>
+                    </ListNoBullets>
                 </PlatformCard>
             </Flex>
         </Section>

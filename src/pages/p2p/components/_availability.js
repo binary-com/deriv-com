@@ -85,6 +85,15 @@ const ListNoBullets = styled.ul`
     }
 `
 
+const RedLinkText = styled(LocalizedLinkText)`
+    font-size: 24px;
+    color: var(--color-red);
+
+    @media ${device.mobileL} {
+        font-size: 16px;
+    }
+`
+
 const Line = styled.div`
     width: 1px;
     height: 38rem;
@@ -153,12 +162,7 @@ const Availability = () => {
                                         external
                                         key={0}
                                     />,
-                                    <LocalizedLinkText
-                                        size={24}
-                                        to="/signup"
-                                        color="red"
-                                        key={1}
-                                    />,
+                                    <RedLinkText to="/signup" key={1} />,
                                 ]}
                             />
                         </li>
@@ -183,15 +187,13 @@ const Availability = () => {
                     <ListNoBullets>
                         <li>
                             <Localize
-                                translate_text="1. Get the app from the <0>Google Play Store</0>."
+                                translate_text="1. Get the app from the <0>Google Play Store.</0>"
                                 components={[
-                                    <LocalizedLinkText
-                                        external="true"
+                                    <RedLinkText
+                                        external
                                         to="https://play.google.com/store/apps/details?id=com.deriv.dp2p"
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        color="red"
-                                        size={24}
                                         key={0}
                                     />,
                                 ]}

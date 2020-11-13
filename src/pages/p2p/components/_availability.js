@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Desktop from 'images/svg/p2p-desktop.svg'
 import Mobile from 'images/svg/p2p-mobile.svg'
 import { localize, Localize } from 'components/localization'
-import { Header, LocalizedLinkText, SpanLinkText } from 'components/elements'
+import { Header, StyledLink, SpanLinkText } from 'components/elements'
 import { Flex, SectionContainer } from 'components/containers'
 import Login from 'common/login'
 import device from 'themes/device'
@@ -85,7 +85,7 @@ const ListNoBullets = styled.ul`
     }
 `
 
-const RedLinkText = styled(LocalizedLinkText)`
+const RedLinkText = styled(StyledLink)`
     font-size: 24px;
     color: var(--color-red);
 
@@ -193,7 +193,6 @@ const Availability = () => {
                                         external
                                         to="https://play.google.com/store/apps/details?id=com.deriv.dp2p"
                                         target="_blank"
-                                        rel="noopener noreferrer"
                                         key={0}
                                     />,
                                 ]}

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Desktop from 'images/svg/p2p-desktop.svg'
 import Mobile from 'images/svg/p2p-mobile.svg'
 import { localize, Localize } from 'components/localization'
-import { Header, StyledLink, SpanLinkText } from 'components/elements'
+import { Header, LocalizedLinkText, SpanLinkText, Text } from 'components/elements'
 import { Flex, SectionContainer } from 'components/containers'
 import Login from 'common/login'
 import device from 'themes/device'
@@ -65,44 +65,18 @@ const StyledCardHeader = styled(Header)`
         margin-bottom: 24px;
     }
 `
-
-const ListNoBullets = styled.ul`
-    list-style: none;
-
-    li {
-        font-size: 24px;
-        line-height: 1.5;
-        margin-bottom: 3rem;
-
-        &:last-child {
-            margin-bottom: 0;
-        }
-    }
-    @media ${device.mobileL} {
-        li {
-            font-size: 16px;
-        }
-    }
-`
-
-const BoldLink = styled(StyledLink)`
-    font-weight: bold;
-    color: var(--color-black-3);
-    font-size: var(--text-size-xs);
-    @media ${device.tabletL} {
-        font-size: var(--text-size-sm);
-    }
-`
-
-const RedLinkText = styled(StyledLink)`
+const StyledText = styled(Text)`
     font-size: 24px;
-    color: var(--color-red);
+    margin-bottom: 3rem;
+
+    :last-child {
+        margin-bottom: 0;
+    }
 
     @media ${device.mobileL} {
         font-size: 16px;
     }
 `
-
 const Line = styled.div`
     width: 1px;
     height: 38rem;
@@ -159,8 +133,8 @@ const Availability = () => {
                             <Localize translate_text="DP2P on your computer" />
                         </StyledCardHeader>
                     </Row>
-                    <ListNoBullets>
-                        <li>
+                    <div>
+                        <StyledText>
                             <Localize
                                 translate_text="1. <0>Log in</0> to your Deriv account. Don’t have one? <1>Sign up</1> for free."
                                 components={[
@@ -171,17 +145,22 @@ const Availability = () => {
                                         external
                                         key={0}
                                     />,
-                                    <RedLinkText to="/signup" key={1} />,
+                                    <LocalizedLinkText
+                                        to="/signup"
+                                        size={24}
+                                        color="red"
+                                        key={1}
+                                    />,
                                 ]}
                             />
-                        </li>
-                        <li>
+                        </StyledText>
+                        <StyledText>
                             <Localize translate_text="2. Go to Cashier > DP2P and register." />
-                        </li>
-                        <li>
+                        </StyledText>
+                        <StyledText>
                             <Localize translate_text="3. Start exchanging." />
-                        </li>
-                    </ListNoBullets>
+                        </StyledText>
+                    </div>
                 </PlatformCard>
                 <Line />
                 <PlatformCard>
@@ -193,27 +172,29 @@ const Availability = () => {
                             <Localize translate_text="DP2P on your mobile" />
                         </StyledCardHeader>
                     </Row>
-                    <ListNoBullets>
-                        <li>
+                    <div>
+                        <StyledText>
                             <Localize
-                                translate_text="1. Get the app from the <0>Google Play Store.</0>"
+                                translate_text="1. Get the app from the <0>Google Play Store</0>."
                                 components={[
-                                    <BoldLink
+                                    <LocalizedLinkText
                                         external
                                         to="https://play.google.com/store/apps/details?id=com.deriv.dp2p"
                                         target="_blank"
+                                        size={24}
+                                        color="red"
                                         key={0}
                                     />,
                                 ]}
                             />
-                        </li>
-                        <li>
+                        </StyledText>
+                        <StyledText>
                             <Localize translate_text="2. Log in to your Deriv account, and register for DP2P." />
-                        </li>
-                        <li>
+                        </StyledText>
+                        <StyledText>
                             <Localize translate_text="3. Start exchanging." />
-                        </li>
-                    </ListNoBullets>
+                        </StyledText>
+                    </div>
                 </PlatformCard>
             </Flex>
         </Section>

@@ -1,10 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-// import { getPositionsByLocation } from '../_controller/_teams'
-// import { LinkList } from '../_layout-components/_link-list'
 import Container from '../_layout-components/_container'
-// import { NoOpenPositionsHeader } from '../_layout-components/_no-open-positions'
 import device from 'themes/device'
 import { SectionContainer, Flex } from 'components/containers'
 import { Text, LinkText, Header, BackgroundImage, QueryImage } from 'components/elements'
@@ -144,15 +141,6 @@ export const LocationLayout = ({ location, images }) => {
     const { display_name } = location
     if (!display_name) return null
 
-    //TODO: Enable in the future when required to show positions available
-    //const positions = getPositionsByLocation(name).sort((a, b) => a.title.localeCompare(b.title))
-    // const mapped_positions = positions
-    //     ? positions.map((position) => ({
-    //           text: position.title,
-    //           to: `/careers/jobs/job#${toHashFormat(position.id)}`,
-    //       }))
-    //     : []
-
     return (
         <>
             <Hero
@@ -263,25 +251,6 @@ export const LocationLayout = ({ location, images }) => {
                     </LocationCard>
                 </SectionContainer>
             )}
-
-            {/* TODO: Enable in the future when required to show positions available
-            <Header
-                align="center"
-                as="h2"
-                size={'var(--text-size-header-1)'}
-                style={{ marginBottom: '6.4rem' }}
-            >
-                {`Open positions in ${display_name}`}
-            </Header>
-            {mapped_positions.length ? (
-                <div style={{ marginBottom: '12rem' }}>
-                    <LinkList list_items={mapped_positions} />
-                </div>
-            ) : (
-                <NoOpenPositionsHeader mb="8rem">
-                    {`Sorry, there are currently no open positions in ${location.display_name}`}
-                </NoOpenPositionsHeader>
-            )} */}
         </>
     )
 }

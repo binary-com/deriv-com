@@ -5,7 +5,6 @@ import { SmallContainer, Ul } from '../components/_style'
 import { SectionContainer, Show } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
 import { localize, Localize } from 'components/localization'
-import { size } from 'themes/device'
 
 const container_style = css`
     flex: 1;
@@ -76,7 +75,7 @@ const Contracts = () => {
                             </Text>
                         </li>
                     </Ul>
-                    <Desktop max_width={size.tabletS}>
+                    <Desktop max_width={'tabletS'}>
                         <ImageWrapper>
                             <QueryImage
                                 data={data['margin_numbers']}
@@ -85,7 +84,7 @@ const Contracts = () => {
                         </ImageWrapper>
                     </Desktop>
                 </SmallContainer>
-                <Mobile min_width={size.tabletS}>
+                <Mobile min_width={'tabletS'}>
                     <ImageWrapper>
                         <QueryImage
                             data={data['margin_mobile_numbers']}
@@ -104,7 +103,7 @@ const Contracts = () => {
                             </Text>
                         </li>
                     </Ul>
-                    <Desktop max_width={size.tabletS}>
+                    <Desktop max_width={'tabletS'}>
                         <ImageWrapper>
                             <QueryImage
                                 data={data['margin_rate_numbers']}
@@ -113,7 +112,7 @@ const Contracts = () => {
                         </ImageWrapper>
                     </Desktop>
                 </SmallContainer>
-                <Mobile min_width={size.tabletS}>
+                <Mobile min_width={'tabletS'}>
                     <ImageWrapper>
                         <QueryImage
                             data={data['margin_mobile_rate_numbers']}

@@ -93,6 +93,7 @@ const LifeAtDerivCarousel = () => {
         slide_style: {
             width: '100%',
             position: 'relative',
+            paddingRight: '10px',
         },
         chevron_style: {
             chevron_left: {

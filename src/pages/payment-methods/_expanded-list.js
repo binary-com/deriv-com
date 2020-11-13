@@ -77,7 +77,7 @@ const StyledText = styled(Text)`
 
 const Deposit = styled(Td)`
     & > p {
-        max-width: 12rem;
+        max-width: ${(props) => (props.is_fiat_onramp ? '21rem' : '12rem')};
     }
 `
 
@@ -92,7 +92,11 @@ const Withdrawal = styled(Td)`
     }
 `
 
-const ExpandList = ({ data, config, is_crypto }) => {
+const Currencies = styled(Td)`
+    width: 289px;
+`
+
+const ExpandList = ({ data, config, is_crypto, is_fiat_onramp }) => {
     const [is_expanded, setIsExpanded] = React.useState(false)
 
     const toggleExpand = () => {
@@ -105,9 +109,16 @@ const ExpandList = ({ data, config, is_crypto }) => {
         <>
             <Tr is_expanded={is_expanded}>
                 <Td>{data.method}</Td>
-                <Td>
-                    <Text>{data.currencies}</Text>
-                </Td>
+                {is_fiat_onramp ? (
+                    <Currencies>
+                        <Text>{data.currencies}</Text>
+                    </Currencies>
+                ) : (
+                    <Td>
+                        <Text>{data.currencies}</Text>
+                    </Td>
+                )}
+
                 <Td>
                     {Array.isArray(data.min_max_deposit) ? (
                         data.min_max_deposit.map((md, idx) => <Text key={idx}>{md}</Text>)
@@ -115,23 +126,31 @@ const ExpandList = ({ data, config, is_crypto }) => {
                         <Text>{data.min_max_deposit}</Text>
                     )}
                 </Td>
-                <Td>
-                    <>
-                        {Array.isArray(data.min_max_withdrawal) ? (
-                            data.min_max_withdrawal.map((md, idx) => <Text key={idx}>{md}</Text>)
-                        ) : is_crypto ? (
-                            <Text>{getCryptoConfig(data.name)}</Text>
-                        ) : (
-                            <Text>{data.min_max_withdrawal}</Text>
-                        )}
-                    </>
-                </Td>
-                <Deposit>
+                {!is_fiat_onramp && (
+                    <Td>
+                        <>
+                            {Array.isArray(data.min_max_withdrawal) ? (
+                                data.min_max_withdrawal.map((md, idx) => (
+                                    <Text key={idx}>{md}</Text>
+                                ))
+                            ) : is_crypto ? (
+                                <Text>{getCryptoConfig(data.name)}</Text>
+                            ) : (
+                                <Text>{data.min_max_withdrawal}</Text>
+                            )}
+                        </>
+                    </Td>
+                )}
+                <Deposit is_fiat_onramp={is_fiat_onramp}>
                     <Text>{data.deposit_time}</Text>
                 </Deposit>
-                <Withdrawal>
-                    <Text>{data.withdrawal_time}</Text>
-                </Withdrawal>
+
+                {!is_fiat_onramp && (
+                    <Withdrawal>
+                        <Text>{data.withdrawal_time}</Text>
+                    </Withdrawal>
+                )}
+
                 <Td>
                     {data.reference ? (
                         <CenterIcon
@@ -169,6 +188,7 @@ ExpandList.propTypes = {
     config: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
     data: PropTypes.object,
     is_crypto: PropTypes.bool,
+    is_fiat_onramp: PropTypes.bool,
 }
 
 export default ExpandList

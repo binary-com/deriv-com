@@ -13,6 +13,7 @@ import Dubai from 'images/svg/contact/dubai.svg'
 import Paraguay from 'images/svg/contact/paraguay.svg'
 import Malaysia from 'images/svg/contact/malaysia.svg'
 import Cyprus from 'images/svg/contact/cyprus.svg'
+import Rwanda from 'images/svg/contact/rwanda.svg'
 
 const query = graphql`
     query {
@@ -40,6 +41,9 @@ const query = graphql`
         map_cyprus: file(relativePath: { eq: "maps/map-cyprus.png" }) {
             ...fadeIn
         }
+        map_rwanda: file(relativePath: { eq: "maps/map-rwanda.png" }) {
+            ...fadeIn
+        }
     }
 `
 
@@ -52,6 +56,7 @@ const GridLayout = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 2.4rem;
+    grid-row-gap: ${(props) => props.row_gap || '2.4rem'};
     width: 100%;
     margin-top: ${(props) => props.mt || 0};
 
@@ -164,7 +169,7 @@ export const Offices = () => {
                 <Content>
                     <ResHeader as="h2">{localize('Our offices')}</ResHeader>
                     <GridLayout>
-                        <Flex fd="column" max_width="48.6rem">
+                        <Flex fd="column" max_width="48.6rem" id="malta">
                             <OfficeHeader>
                                 <div>
                                     <Malta />
@@ -205,7 +210,7 @@ export const Offices = () => {
                                 </LocalizedLinkText>
                             </BorderBox>
                         </Flex>
-                        <Flex fd="column" max_width="48.6rem">
+                        <Flex fd="column" max_width="48.6rem" id="dubai">
                             <OfficeHeader>
                                 <div>
                                     <Dubai />
@@ -244,7 +249,7 @@ export const Offices = () => {
                             </BorderBox>
                         </Flex>
                     </GridLayout>
-                    <Flex fd="column" m="4rem 0">
+                    <Flex fd="column" m="4rem 0" id="malaysia">
                         <OfficeHeader>
                             <div>
                                 <Malaysia />
@@ -255,7 +260,7 @@ export const Offices = () => {
                         </OfficeHeader>
                         <FullBorder>
                             <GridLayout>
-                                <FullBox>
+                                <FullBox id="cyberjaya">
                                     <MapContainer>
                                         <LocalizedLink
                                             to="https://goo.gl/maps/ExoJcRaRjcGdpMY78"
@@ -286,7 +291,7 @@ export const Offices = () => {
                                         </LocalizedLinkText>
                                     </Box>
                                 </FullBox>
-                                <FullBox>
+                                <FullBox id="labuan">
                                     <MapContainer>
                                         <LocalizedLink
                                             to="https://goo.gl/maps/HGEKsJfUXHrTAj299"
@@ -317,7 +322,7 @@ export const Offices = () => {
                                         </LocalizedLinkText>
                                     </Box>
                                 </FullBox>
-                                <FullBox>
+                                <FullBox id="ipoh">
                                     <MapContainer>
                                         <LocalizedLink
                                             to="https://goo.gl/maps/mFhCyN4gPksudC156"
@@ -348,7 +353,7 @@ export const Offices = () => {
                                         </LocalizedLinkText>
                                     </Box>
                                 </FullBox>
-                                <FullBox>
+                                <FullBox id="melaka">
                                     <MapContainer>
                                         <LocalizedLink
                                             to="https://goo.gl/maps/n2bm52JrWy9M2ARV9"
@@ -371,17 +376,17 @@ export const Offices = () => {
                                             target="_blank"
                                             rel="noopener noreferrer"
                                         >
-                                            69, Jalan KLJ 6, Taman Kota
+                                            67-1 &amp; 69-1, Jalan KLJ 6, Taman Kota
                                             <br></br>
-                                            Laksamana Jaya, 75200 Melaka
+                                            Laksamana Jaya, Melaka 75200
                                         </LocalizedLinkText>
                                     </Box>
                                 </FullBox>
                             </GridLayout>
                         </FullBorder>
                     </Flex>
-                    <GridLayout mt="4rem">
-                        <Flex fd="column" max_width="48.6rem">
+                    <GridLayout mt="4rem" row_gap="4rem">
+                        <Flex fd="column" max_width="48.6rem" id="paraguay">
                             <OfficeHeader>
                                 <div>
                                     <Paraguay />
@@ -421,7 +426,7 @@ export const Offices = () => {
                                 </LocalizedLinkText>
                             </BorderBox>
                         </Flex>
-                        <Flex fd="column" max_width="48.6rem">
+                        <Flex fd="column" max_width="48.6rem" id="cyprus">
                             <OfficeHeader>
                                 <div>
                                     <Cyprus />
@@ -456,6 +461,44 @@ export const Offices = () => {
                                     42 Agias Filaxeos, 5th floor,
                                     <br></br>
                                     Limassol 3025
+                                </LocalizedLinkText>
+                            </BorderBox>
+                        </Flex>
+                        <Flex fd="column" max_width="48.6rem" id="rwanda">
+                            <OfficeHeader>
+                                <div>
+                                    <Rwanda />
+                                </div>
+                                <Header as="h4" mt="0.8rem" mb="1.6rem">
+                                    {localize('Rwanda')}
+                                </Header>
+                            </OfficeHeader>
+                            <BorderBox>
+                                <MapContainer>
+                                    <LocalizedLink
+                                        to="https://goo.gl/maps/hp1dv3TpYNMxa5fM9"
+                                        external
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        <QueryImage
+                                            alt="Map Rwanda"
+                                            data={data['map_rwanda']}
+                                            height="100%"
+                                        />
+                                    </LocalizedLink>
+                                </MapContainer>
+                                <LocalizedLinkText
+                                    to="https://goo.gl/maps/hp1dv3TpYNMxa5fM9"
+                                    external
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    mt="0.8rem"
+                                    ml="1.6rem"
+                                >
+                                    Level 2 East Wing, Kigali Heights,
+                                    <br></br>
+                                    KG7 Avenue, Kigali
                                 </LocalizedLinkText>
                             </BorderBox>
                         </Flex>

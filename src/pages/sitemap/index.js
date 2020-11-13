@@ -58,7 +58,7 @@ const ButtonWrapper = styled(LinkButton)`
     font-size: 14px;
 
     @media ${device.laptop} {
-        margin-top: 42px;
+        margin-top: -20px;
         margin-bottom: 40px;
     }
 `
@@ -106,7 +106,7 @@ const StyledVTree = styled.img`
 
 const ContentVWrapper = styled.div`
     display: grid;
-    grid-template-rows: 210px 200px 125px 180px 215px 220px 145px;
+    grid-template-rows: 210px 200px 125px 180px 215px 190px 200px;
 `
 
 const LinksRow = styled(Flex)`
@@ -117,7 +117,7 @@ const LinksRow = styled(Flex)`
         margin-top: 8px;
 
         :first-child {
-            margin-top: 0;
+            margin-top: 4px;
         }
     }
 `

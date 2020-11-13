@@ -178,12 +178,12 @@ const Availability = () => {
                                 translate_text="1. Get the app from the <0>Google Play Store</0>."
                                 components={[
                                     <LocalizedLinkText
-                                        size={24}
+                                        external="true"
                                         to="https://play.google.com/store/apps/details?id=com.deriv.dp2p"
-                                        external
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         color="red"
+                                        size={24}
                                         key={0}
                                     />,
                                 ]}

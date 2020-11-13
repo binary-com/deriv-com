@@ -5,6 +5,7 @@ import Mobile from 'images/svg/p2p-mobile.svg'
 import { localize, Localize } from 'components/localization'
 import { Header, StyledLink, SpanLinkText } from 'components/elements'
 import { Flex, SectionContainer } from 'components/containers'
+import { BoldLink } from 'components/layout/footer'
 import Login from 'common/login'
 import device from 'themes/device'
 
@@ -189,7 +190,7 @@ const Availability = () => {
                             <Localize
                                 translate_text="1. Get the app from the <0>Google Play Store.</0>"
                                 components={[
-                                    <RedLinkText
+                                    <BoldLink
                                         external
                                         to="https://play.google.com/store/apps/details?id=com.deriv.dp2p"
                                         target="_blank"

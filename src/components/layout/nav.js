@@ -46,6 +46,10 @@ export const NavWrapper = styled.div`
     position: fixed;
     z-index: 100;
 
+    .fresnel-between-start-tabletL {
+        display: none;
+    }
+
     @media ${device.tabletL} {
         .fresnel-between-start-tabletL {
             display: flex;

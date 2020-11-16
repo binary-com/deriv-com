@@ -35,6 +35,12 @@ const StyledSectionWrapper = styled(SectionWrapper)`
     }
 `
 
+const ImageWrapper = styled.img`
+    margin-right: 1.6rem;
+    width: 48px;
+    height: 48px;
+`
+
 const CenteredSection = styled(SectionContainer)`
     text-align: center;
 `

@@ -24,9 +24,16 @@ const StyledCardWrapper = styled(CardWrapper)`
 `
 
 const StyledSection = styled(SectionContainer)`
+    box-shadow: ${(props) => (props.shadow ? '0 1px 0 0 rgba(0, 0, 0, 0.1)' : '')};
     padding-bottom: 0;
     text-align: ${(props) => props.align || 'left'};
 
+    @media ${device.tabletL} {
+        padding: 40px 0;
+    }
+`
+
+const DecideSection = styled(StyledSection)`
     @media ${device.tabletL} {
         padding: 40px 0 0 0;
     }
@@ -185,7 +192,7 @@ const DerivIBProgramme = () => {
                         <DMT5Standard data={ib_dmt5_standard} />
                         <DMT5Advanced data={ib_dmt5_advanced} />
                     </StyledCardWrapper>
-                    <StyledSection padding="4rem 0 0 0" align="center">
+                    <DecideSection align="center">
                         <StyledHeader as="h4" align="center" weight="medium" mb="3.2rem">
                             {localize('Can’t decide which programme or commission plan suits you?')}
                         </StyledHeader>
@@ -197,7 +204,7 @@ const DerivIBProgramme = () => {
                         >
                             {localize('Contact us')}
                         </LinkButtonContactUs>
-                    </StyledSection>
+                    </DecideSection>
                 </IBSectionContainer>
             </Container>
         </StyledSection>
@@ -220,7 +227,7 @@ const SyntheticTable = styled(Table)`
     grid-template-columns: 53% 50%;
 
     @media ${device.tabletL} {
-        grid-template-columns: 53% 55%;
+        grid-template-columns: 55% 50%;
     }
 `
 const StyledLinkButton = styled(LinkButton)`
@@ -246,7 +253,7 @@ const DMT5Synthetic = ({ data }) => {
     }
     return (
         <StyledCard
-            height={is_expand && !is_calculated ? '76rem' : '43rem'}
+            height={is_expand && !is_calculated ? '80rem' : '43rem'}
             padding="3.2rem 3.2rem 8.2rem"
             width="43rem"
         >

@@ -1,6 +1,6 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
-import { SectionContainer, Container } from 'components/containers'
+import { SectionContainer, Container, Show } from 'components/containers'
 import { Header, Text } from 'components/elements/typography'
 import { localize } from 'components/localization'
 import { LinkButton } from 'components/form'
@@ -60,7 +60,18 @@ const Content = styled.div`
     display: flex;
     flex-direction: column;
     max-width: ${(props) => props.max_width};
+
+    @media ${device.tabletL} {
+        margin-top: ${(props) => props.mt_mobile};
+    }
 `
+
+const GetStartedContent = styled(Content)`
+    @media (max-width: 749px) {
+        max-width: 360px;
+    }
+`
+
 const Separator = styled.div`
     width: 1px;
     height: 50rem;
@@ -88,6 +99,8 @@ const SecondaryHeader = styled(StyledHeader)`
     }
     @media ${device.mobileM} {
         margin-left: 0;
+        margin-top: 32px;
+        margin-bottom: 16px;
     }
 `
 const Flex = styled.div`
@@ -117,10 +130,6 @@ const HowToApply = styled(Col)`
     }
 
     @media ${device.tablet} {
-        margin-left: 7rem;
-    }
-
-    @media ${device.mobileM} {
         margin-left: 1rem;
     }
 `
@@ -139,15 +148,19 @@ const ContentWrapper = styled(Wrapper)`
 const HowToApplyContent = styled.div`
     display: flex;
     padding-bottom: 4 rem;
-
+    
     img {
         margin-right: 1.6rem;
     }
+`
 
-    @media (max-width: 749px) {
-        svg {
-            display: none;
-        }
+const StyledLinkButton = styled(LinkButton)`
+    @media ${device.tablet} {
+        display: block;
+        margin: auto;
+        font-size: 14px;
+        width: 216px;
+        height: 40px;
     }
 `
 
@@ -160,10 +173,8 @@ const WhoCanApply = () => {
                         <StyledHeader size="3.2rem">{localize('Who can apply')}</StyledHeader>
                         <ContentWrapper>
                             <ImageWrapper src={TradingExperts} alt="trading experts" />
-                            <Content max_width="36.4rem">
-                                <Header as="h4" type="sub-section-title">
-                                    {localize('Trading experts')}
-                                </Header>
+                            <Content max_width="36.4rem" mt_mobile="15px">
+                                <Header as="h4">{localize('Trading experts')}</Header>
                                 <Text>
                                     {localize(
                                         'Provide expert tips and opinions on online trading via a website, blog, YouTube channel, webinars, or other forms of digital media.',
@@ -173,10 +184,8 @@ const WhoCanApply = () => {
                         </ContentWrapper>
                         <ContentWrapper>
                             <ImageWrapper src={SoftwareDeveloper} alt="software developer" />
-                            <Content max_width="36.4rem">
-                                <Header as="h4" type="sub-section-title">
-                                    {localize('Software developers')}
-                                </Header>
+                            <Content max_width="36.4rem" mt_mobile="15px">
+                                <Header as="h4">{localize('Software developers')}</Header>
                                 <Text>
                                     {localize(
                                         'Develop web, desktop, and mobile applications. Also has extensive experience working with APIs.',
@@ -186,10 +195,8 @@ const WhoCanApply = () => {
                         </ContentWrapper>
                         <ContentWrapper>
                             <ImageWrapper src={CommunityManagers} alt="community managers" />
-                            <Content max_width="36.4rem">
-                                <Header as="h4" type="sub-section-title">
-                                    {localize('Community managers')}
-                                </Header>
+                            <Content max_width="36.4rem" mt_mobile="15px">
+                                <Header as="h4">{localize('Community managers')}</Header>
                                 <Text>
                                     {localize(
                                         'Manage an active online community that’s passionate about online trading, investing, or personal finance.',
@@ -208,47 +215,47 @@ const WhoCanApply = () => {
                         <Timeline>
                             <Timeline.Item>
                                 <HowToApplyContent>
-                                    <ImageWrapper src={Apply} alt="apply" />
-                                    <Content max_width="32.4rem">
-                                        <Header as="h4" type="sub-section-title">
-                                            {localize('Sign up')}
-                                        </Header>
+                                    <Show.Desktop max_width="bp749">
+                                        <ImageWrapper src={Apply} alt="apply" />
+                                    </Show.Desktop>
+                                    <GetStartedContent max_width="32.4rem">
+                                        <Header as="h4">{localize('Sign up')}</Header>
                                         <Text>
                                             {localize(
                                                 'Fill out the online application form. We’ll review your application and get in touch once it’s approved.',
                                             )}
                                         </Text>
-                                    </Content>
+                                    </GetStartedContent>
                                 </HowToApplyContent>
                             </Timeline.Item>
                             <Timeline.Item>
                                 <HowToApplyContent>
-                                    <ImageWrapper src={Advertise} alt="advertise" />
-                                    <Content max_width="32.4rem">
-                                        <Header as="h4" type="sub-section-title">
-                                            {localize('Advertise')}
-                                        </Header>
+                                    <Show.Desktop max_width="bp749">
+                                        <ImageWrapper src={Advertise} alt="advertise" />
+                                    </Show.Desktop>
+                                    <GetStartedContent max_width="32.4rem">
+                                        <Header as="h4">{localize('Advertise')}</Header>
                                         <Text>
                                             {localize(
                                                 'Use your unique affiliate link and our tried-and-tested referral tools to bring new clients to Deriv.',
                                             )}
                                         </Text>
-                                    </Content>
+                                    </GetStartedContent>
                                 </HowToApplyContent>
                             </Timeline.Item>
                             <Timeline.Item>
                                 <HowToApplyContent>
-                                    <ImageWrapper src={Earn} alt="earn" />
-                                    <Content max_width="32.4rem">
-                                        <Header as="h4" type="sub-section-title">
-                                            {localize('Earn')}
-                                        </Header>
+                                    <Show.Desktop max_width="bp749">
+                                        <ImageWrapper src={Earn} alt="earn" />
+                                    </Show.Desktop>
+                                    <GetStartedContent max_width="32.4rem">
+                                        <Header as="h4">{localize('Earn')}</Header>
                                         <Text>
                                             {localize(
                                                 'Start earning based on your chosen commission plan –– 45% of the total net revenue generated by your referred clients.',
                                             )}
                                         </Text>
-                                    </Content>
+                                    </GetStartedContent>
                                 </HowToApplyContent>
                             </Timeline.Item>
                         </Timeline>
@@ -256,7 +263,7 @@ const WhoCanApply = () => {
                 </Flex>
             </StyledSection>
             <CenteredSection padding="2rem 0">
-                <LinkButton
+                <StyledLinkButton
                     secondary
                     to={affiliate_signup_url}
                     external="true"
@@ -264,7 +271,7 @@ const WhoCanApply = () => {
                     is_affiliate_link
                 >
                     {localize('Sign up')}
-                </LinkButton>
+                </StyledLinkButton>
             </CenteredSection>
         </StyledSectionWrapper>
     )

@@ -26,6 +26,16 @@ const StyledCardWrapper = styled(CardWrapper)`
 const StyledSection = styled(SectionContainer)`
     padding-bottom: 0;
     text-align: ${(props) => props.align || 'left'};
+
+    @media ${device.tabletL} {
+        padding: 40px 0 0 0;
+    }
+`
+
+const IBSectionContainer = styled(SectionContainer)`
+    @media ${device.tabletL} {
+        padding: 16px 0 0;
+    }
 `
 const StyledHeader = styled(Header)`
     @media ${device.tabletL} {
@@ -73,6 +83,9 @@ const LinkButtonContactUs = styled(LinkButton)`
 const StyledText = styled(Text)`
     font-size: 1.4rem;
     line-height: 1.15;
+    @media ${device.tabletL} {
+        font-size: 14px;
+    }
 `
 
 const HowItsCalculate = styled.div`
@@ -163,7 +176,7 @@ const DerivIBProgramme = () => {
                         {localize('Earn commission from your clients’ trades on DMT5.')}
                     </SubtitleHeader>
                 </TitleWrapper>
-                <SectionContainer padding="4rem 0 9.6rem 0">
+                <IBSectionContainer padding="4rem 0 9.6rem 0">
                     <StyledHeaderCommission as="h4" mb="1.6rem" size="1.6rem">
                         {localize('Choose a commission plan:')}
                     </StyledHeaderCommission>
@@ -185,7 +198,7 @@ const DerivIBProgramme = () => {
                             {localize('Contact us')}
                         </LinkButtonContactUs>
                     </StyledSection>
-                </SectionContainer>
+                </IBSectionContainer>
             </Container>
         </StyledSection>
     )
@@ -205,6 +218,10 @@ const StyledTR = styled(TR)`
 
 const SyntheticTable = styled(Table)`
     grid-template-columns: 53% 50%;
+
+    @media ${device.tabletL} {
+        grid-template-columns: 53% 55%;
+    }
 `
 const StyledLinkButton = styled(LinkButton)`
     height: 40px;

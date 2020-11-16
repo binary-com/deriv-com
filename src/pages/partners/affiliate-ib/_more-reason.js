@@ -8,6 +8,12 @@ import GlobalAffiliate from 'images/svg/global-affiliate-support.svg'
 import ProvenReferral from 'images/svg/proven-referral-tools.svg'
 import HighValue from 'images/svg/high-value-partnership.svg'
 
+const ReasonHeader = styled(Header)`
+    @media ${device.tabletL} {
+        font-size: 24px;
+    }
+`
+
 const Reason = styled.div`
     width: 38.4rem;
     margin-top: 4rem;
@@ -24,6 +30,19 @@ const Reason = styled.div`
     h4 {
         margin-top: 1.6rem;
     }
+
+    @media ${device.tabletL} {
+        text-align: center;
+
+        h4 {
+            text-align: center;
+            font-size: 16px;
+        }
+        p {
+            text-align: center;
+            font-size: 14px;
+        }
+    }
 `
 const StyledFlex = styled(Flex)`
     margin-top: -2rem;
@@ -34,15 +53,19 @@ const StyledFlex = styled(Flex)`
 `
 const StyledSection = styled(SectionContainer)`
     box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.1);
+
+    @media ${device.tabletL} {
+        padding: 40px 0;
+    }
 `
 
 const MoreReason = () => {
     return (
         <StyledSection>
             <Container direction="column">
-                <Header as="h3" size="3.2rem" align="center" mb="2rem">
+                <ReasonHeader as="h3" size="3.2rem" align="center" mb="2rem">
                     {localize('More reasons to join')}
-                </Header>
+                </ReasonHeader>
                 <StyledFlex wrap="wrap" jc="center">
                     <Reason>
                         <img src={HighValue} alt="high value partnership" />

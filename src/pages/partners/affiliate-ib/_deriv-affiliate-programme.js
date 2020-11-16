@@ -12,7 +12,17 @@ import device from 'themes/device'
 const StyledSection = styled(SectionContainer)`
     padding-bottom: 0;
     background-color: var(--color-grey-31);
+    @media ${device.tabletL} {
+        padding: 40px 0;
+    }
 `
+
+const ContentContainer = styled(Container)`
+    @media ${device.tabletL} {
+        padding: 0;
+    }
+`
+
 const TitleWrapper = styled.section`
     max-width: 99.6rem;
 
@@ -39,6 +49,9 @@ const SubtitleHeader = styled(Header)`
 
 const ComissionPlanContainer = styled(SectionContainer)`
     padding: 4rem 0 8rem 0;
+    @media ${device.tabletL} {
+        padding: 16px 0 0 0;
+    }
 `
 
 const StyledText = styled(Text)`
@@ -81,7 +94,7 @@ const ApplyNow = styled(LinkButton)`
 
     @media ${device.tabletL} {
         font-size: 14px;
-        margin-bottom: 18px;
+        margin-bottom: 16px;
         height: 40px;
     }
 `
@@ -167,7 +180,7 @@ const Turnover = [
 const DerivAffiliateProgramme = () => {
     return (
         <StyledSection>
-            <Container direction="column">
+            <ContentContainer direction="column">
                 <TitleWrapper>
                     <Header size="4.8rem" align="center" as="h3" mb="1.2rem">
                         {localize('Deriv Affiliate Programme')}
@@ -305,7 +318,7 @@ const DerivAffiliateProgramme = () => {
                         </StyledCard>
                     </CardWrapper>
                 </ComissionPlanContainer>
-            </Container>
+            </ContentContainer>
         </StyledSection>
     )
 }

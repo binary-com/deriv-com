@@ -8,6 +8,7 @@ import {
     IBAccountManagement,
     IBReferralTools,
 } from './_faq-data'
+import device from 'themes/device'
 import { SectionContainer } from 'components/containers'
 import { localize } from 'components/localization'
 import { Header, Accordion, AccordionItem } from 'components/elements'
@@ -16,6 +17,10 @@ import DotPattern from 'images/svg/dot-pattern.svg'
 const RelativeContainer = styled(SectionContainer)`
     position: relative;
     overflow: hidden;
+
+    @media ${device.tabletL} {
+        padding: 40px 0;
+    }
 `
 
 const TopLeftDot = styled.img`
@@ -35,6 +40,13 @@ const AccordionWrapper = styled.div`
     z-index: 2;
 `
 
+const StyledAccordionWrapper = styled(AccordionWrapper)`
+    p,
+    h1,
+    h5 {
+        font-size: 16px !important;
+    }
+`
 const Faq = () => {
     const parent_style = {
         marginBottom: '2.4rem',
@@ -56,7 +68,7 @@ const Faq = () => {
             <Header as="h4" align="center" m="4rem 0" weight="normal">
                 {localize('Deriv Affiliate Programme')}
             </Header>
-            <AccordionWrapper>
+            <StyledAccordionWrapper>
                 <Accordion has_single_state>
                     <AccordionItem
                         header={localize('General')}
@@ -86,11 +98,11 @@ const Faq = () => {
                         {<AffiliateReferralTools />}
                     </AccordionItem>
                 </Accordion>
-            </AccordionWrapper>
+            </StyledAccordionWrapper>
             <Header as="h4" align="center" m="8rem 0 4rem 0 " weight="normal">
                 {localize('Deriv IB Programme')}
             </Header>
-            <AccordionWrapper>
+            <StyledAccordionWrapper>
                 <Accordion has_single_state is_faq>
                     <AccordionItem
                         header={localize('General')}
@@ -120,7 +132,7 @@ const Faq = () => {
                         {<IBReferralTools />}
                     </AccordionItem>
                 </Accordion>
-            </AccordionWrapper>
+            </StyledAccordionWrapper>
             <TopLeftDot src={DotPattern} />
             <BottomRightDot src={DotPattern} />
         </RelativeContainer>

@@ -12,7 +12,7 @@ const Symbol = styled(Flex)`
     width: fit-content;
     margin-top: 8px;
 
-    svg {
+    img {
         width: 32px;
         height: 32px;
         margin-right: 0.8rem;

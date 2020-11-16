@@ -111,7 +111,7 @@ const DisplayAccordianItem = ({ pd, crypto_config }) => {
                                 <BoldText>{localize('Currencies')}</BoldText>
                             </Th>
                             <Th>
-                                {pd.is_crypto ? (
+                                {pd.is_crypto || pd.is_fiat_onramp ? (
                                     <BoldText>{localize('Min deposit')}</BoldText>
                                 ) : (
                                     <React.Fragment>
@@ -120,26 +120,38 @@ const DisplayAccordianItem = ({ pd, crypto_config }) => {
                                     </React.Fragment>
                                 )}
                             </Th>
-                            <Th>
-                                {pd.is_crypto ? (
-                                    <>
-                                        <BoldText>{localize('Min withdrawal')}</BoldText>
-                                    </>
-                                ) : (
-                                    <React.Fragment>
-                                        <BoldText>{localize('Min-max')}</BoldText>
-                                        <BoldText>{localize('withdrawal')}</BoldText>
-                                    </React.Fragment>
-                                )}
-                            </Th>
-                            <Th>
-                                <BoldText>{localize('Deposit')}</BoldText>
-                                <BoldText>{localize('processing time')}</BoldText>
-                            </Th>
-                            <Th>
-                                <BoldText>{localize('Withdrawal')}</BoldText>
-                                <BoldText>{localize('processing time')}</BoldText>
-                            </Th>
+                            {!pd.is_fiat_onramp && (
+                                <Th>
+                                    {pd.is_crypto ? (
+                                        <>
+                                            <BoldText>{localize('Min withdrawal')}</BoldText>
+                                        </>
+                                    ) : (
+                                        <React.Fragment>
+                                            <BoldText>{localize('Min-max')}</BoldText>
+                                            <BoldText>{localize('withdrawal')}</BoldText>
+                                        </React.Fragment>
+                                    )}
+                                </Th>
+                            )}
+                            {pd.is_fiat_onramp ? (
+                                <Th>
+                                    <BoldText>{localize('Deposit processing time')}</BoldText>
+                                </Th>
+                            ) : (
+                                <Th>
+                                    <BoldText>{localize('Deposit')}</BoldText>
+                                    <BoldText>{localize('processing time')}</BoldText>
+                                </Th>
+                            )}
+
+                            {!pd.is_fiat_onramp && (
+                                <Th>
+                                    <BoldText>{localize('Withdrawal')}</BoldText>
+                                    <BoldText>{localize('processing time')}</BoldText>
+                                </Th>
+                            )}
+
                             <Th>
                                 <BoldText>{localize('Reference')}</BoldText>
                             </Th>
@@ -148,15 +160,14 @@ const DisplayAccordianItem = ({ pd, crypto_config }) => {
                     </Thead>
                     <Tbody>
                         {pd.data.map((data, indx) => {
-                            return pd.is_crypto ? (
+                            return (
                                 <ExpandList
                                     key={indx}
                                     data={data}
                                     is_crypto={pd.is_crypto}
                                     config={crypto_config}
+                                    is_fiat_onramp={pd.is_fiat_onramp}
                                 />
-                            ) : (
-                                <ExpandList key={indx} data={data} is_crypto={pd.is_crypto} />
                             )
                         })}
                     </Tbody>

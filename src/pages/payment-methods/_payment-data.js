@@ -146,7 +146,7 @@ const UsdCoinIc = styled.img`
 //     ${icon_css}
 // `
 
-const ChangellyIc = styled(Changelly)`
+const ChangellyIc = styled.img`
     ${icon_css}
 `
 // const WyreIc = styled(Wyre)`
@@ -155,7 +155,7 @@ const ChangellyIc = styled(Changelly)`
 // const XanpoolIc = styled(Xanpool)`
 //     ${icon_css}
 // `
-const BanxaIc = styled(Banxa)`
+const BanxaIc = styled.img`
     ${icon_css}
 `
 
@@ -630,7 +630,7 @@ const payment_data = [
         is_fiat_onramp: true,
         data: [
             {
-                method: <ChangellyIc />,
+                method: <ChangellyIc src={Changelly} alt="Changelly" />,
                 currencies: 'USD EUR GBP BTC',
                 min_max_deposit: 'USD50',
                 deposit_time: <Localize translate_text="Funds available as soon as confirmed" />,
@@ -661,7 +661,7 @@ const payment_data = [
             //     name: 'Xanpool',
             // },
             {
-                method: <BanxaIc />,
+                method: <BanxaIc src={Banxa} alt="Banxa" />,
                 currencies: 'USD EUR GBP AUD CAD BTC LTC USDT USDC',
                 min_max_deposit: 'USD20',
                 deposit_time: <Localize translate_text="Funds available as soon as confirmed" />,

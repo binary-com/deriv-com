@@ -74,7 +74,7 @@ const NewSignup = () => {
                 )}
             />
             <Wrapper>
-                {!(submitState === 'success' || submitState === 'error') && (
+                {!(submitState === 'success') && (
                     <Content>
                         <StyledGraph src={Graph} alt="graph" />
                         <Header mt="2.4rem" size="3.2rem">

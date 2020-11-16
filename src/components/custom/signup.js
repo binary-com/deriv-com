@@ -62,14 +62,14 @@ class Signup extends Component {
 
     validateEmail = (email) => {
         const error_message = validation.email(email) || this.state.submit_error_msg
-    
+
         if (this.state.submit_error_msg) {
             this.setState({
                 submit_error_msg: '',
                 submit_status: '',
             })
         }
-    
+
         return error_message
     }
 
@@ -146,14 +146,14 @@ class Signup extends Component {
                     submit_error_msg: response.error.message,
                 })
                 this.handleValidation(email)
-                return
+            } else {
+                this.setState({
+                    is_submitting: false,
+                    submit_status: 'success',
+                })
+                if (this.props.onSubmit) this.props.onSubmit(this.state.submit_status)
             }
 
-            this.setState({
-                is_submitting: false,
-                submit_status: 'success',
-            })
-            if (this.props.onSubmit) this.props.onSubmit(this.state.submit_status)
             binary_socket.close()
         }
     }

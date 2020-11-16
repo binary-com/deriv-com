@@ -470,11 +470,6 @@ const Footer = () => {
                                             {localize('Payment methods')}
                                         </Link>
                                     </LinkWrapper>
-                                    <LinkWrapper>
-                                        <Link to="/sitemap">
-                                            {localize('Sitemap')}
-                                        </Link>
-                                    </LinkWrapper>
                                 </LinksCol>
                             </Flex>
                         </Show.Desktop>
@@ -630,11 +625,6 @@ const Footer = () => {
                                         <Item>
                                             <Link to="/payment-methods">
                                                 {localize('Payment methods')}
-                                            </Link>
-                                        </Item>
-                                        <Item>
-                                            <Link to="/sitemap">
-                                                {localize('Sitemap')}
                                             </Link>
                                         </Item>
                                     </AccordionItem>

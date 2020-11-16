@@ -8,7 +8,7 @@ import { MARKETBULL, MARKETBEAR } from 'components/elements/symbols.js'
 const Symbol = styled(Flex)`
     width: fit-content;
 
-    svg {
+    img {
         width: 32px;
         height: 32px;
         margin-right: 0.8rem;
@@ -23,11 +23,11 @@ const DailyResetIndices = () => {
     return (
         <>
             <Symbol ai="center">
-                <MARKETBEAR />
+                <img src={MARKETBEAR} />
                 <Text>{localize('Bear Market Index')}</Text>
             </Symbol>
             <Symbol ai="center">
-                <MARKETBULL />
+                <img src={MARKETBULL} />
                 <Text>{localize('Bull Market Index')}</Text>
             </Symbol>
         </>

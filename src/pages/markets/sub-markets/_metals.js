@@ -8,7 +8,7 @@ import { GOLDUSD, PALLADIUMUSD, PLATINUMUSD, SILVERUSD } from 'components/elemen
 const Symbol = styled(Flex)`
     width: fit-content;
 
-    svg {
+    img {
         width: 32px;
         height: 32px;
         margin-right: 0.8rem;
@@ -24,19 +24,19 @@ const Metals = () => {
     return (
         <>
             <Symbol ai="center">
-                <GOLDUSD />
+                <img src={GOLDUSD} />
                 <Text>{localize('Gold/USD')}</Text>
             </Symbol>
             <Symbol ai="center">
-                <PALLADIUMUSD />
+                <img src={PALLADIUMUSD} />
                 <Text>{localize('Palladium/USD')}</Text>
             </Symbol>
             <Symbol ai="center">
-                <PLATINUMUSD />
+                <img src={PLATINUMUSD} />
                 <Text>{localize('Platinum/USD')}</Text>
             </Symbol>
             <Symbol ai="center">
-                <SILVERUSD />
+                <img src={SILVERUSD} />
                 <Text>{localize('Silver/USD')}</Text>
             </Symbol>
         </>

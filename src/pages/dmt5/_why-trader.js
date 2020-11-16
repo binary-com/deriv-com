@@ -84,7 +84,7 @@ const WhyTrader = () => {
             <CardContainer>
                 <Card>
                     <div>
-                        <InstantAccess />
+                        <img src={InstantAccess} alt="instant access" />
                     </div>
                     <StyledCardHeader mt="0.8rem" mb="0.8rem" as="h4">
                         {localize('Quick demo account sign-up')}
@@ -97,7 +97,7 @@ const WhyTrader = () => {
                 </Card>
                 <Card>
                     <div>
-                        <SyntheticIndices />
+                        <img src={SyntheticIndices} alt="syntethic indices" />
                     </div>
                     <StyledCardHeader mt="0.8rem" mb="0.8rem" as="h4">
                         {localize('Multiple assets on a single platform')}
@@ -110,7 +110,7 @@ const WhyTrader = () => {
                 </Card>
                 <Card>
                     <div>
-                        <Seven />
+                        <img src={Seven} alt="seven" />
                     </div>
                     <StyledCardHeader mt="0.8rem" mb="0.8rem" as="h4">
                         {localize('24/7 trading')}
@@ -123,7 +123,7 @@ const WhyTrader = () => {
                 </Card>
                 <Card>
                     <div>
-                        <MinimalRisk />
+                        <img src={MinimalRisk} alt="minimal risk" />
                     </div>
                     <StyledCardHeader mt="0.8rem" mb="0.8rem" as="h4">
                         {localize('Licensed and regulated')}

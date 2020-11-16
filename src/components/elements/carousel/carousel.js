@@ -64,6 +64,7 @@ export const Carousel = ({
     chevron_style,
     has_autoplay,
     autoplay_interval,
+    vertical_container,
 }) => {
     const [emblaRef, embla] = useEmblaCarousel(options)
     const [prevBtnEnabled, setPrevBtnEnabled] = useState(false)
@@ -103,9 +104,9 @@ export const Carousel = ({
     useEffect(() => {
         if (!embla) return
         onSelect()
-        embla.on("select", onSelect)
-        embla.on("pointerDown", stop)
-      }, [embla, onSelect, stop])
+        embla.on('select', onSelect)
+        embla.on('pointerDown', stop)
+    }, [embla, onSelect, stop])
 
     useEffect(() => {
         play()
@@ -120,7 +121,7 @@ export const Carousel = ({
         <div style={container_style}>
             <Embla>
                 <ViewPort style={view_port} ref={emblaRef}>
-                    <EmblaContainer>
+                    <EmblaContainer style={vertical_container ? vertical_container : null}>
                         {children.map((child, idx) => (
                             <div key={idx} style={slide_style}>
                                 <EmblaSlideInner>{child}</EmblaSlideInner>
@@ -159,5 +160,6 @@ Carousel.propTypes = {
     has_autoplay: PropTypes.bool,
     options: PropTypes.object,
     slide_style: PropTypes.object,
+    vertical_container: PropTypes.object,
     view_port: PropTypes.object,
 }

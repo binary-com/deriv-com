@@ -66,8 +66,10 @@ export const onInitialClientRender = () => {
 export const onClientEntry = () => {
     NProgress.start()
 
+    const is_gtm_test_domain = window.location.hostname === gtm_test_domain
+
     // Add GTM script for test domain
-    if (!isLocalHost() && window.location.hostname === gtm_test_domain) {
+    if (!isLocalHost() && is_gtm_test_domain) {
         const gtm = document.createElement('script')
         gtm.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-TNX2ZKH'
         gtm.id = 'gtm-test-container'

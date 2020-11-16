@@ -164,12 +164,12 @@ const SignupFlat = ({
                             onClick={handleSocialSignup}
                             provider="google"
                             data-provider="google"
-                            id="gtm-signup-facebook"
+                            id="gtm-signup-google"
                             type="button"
                             social
                         >
                             <span>
-                                <Google />
+                                <img src={Google} alt="google" />
                             </span>
                         </SocialButton>
                         <SocialButton
@@ -182,7 +182,7 @@ const SignupFlat = ({
                             social
                         >
                             <span>
-                                <Facebook />
+                                <img src={Facebook} alt="facebook" />
                             </span>
                         </SocialButton>
                     </SocialWrapper>

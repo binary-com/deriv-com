@@ -8,7 +8,7 @@ import { OTCUS, OTCUSTECH, OTCWALLSTREET } from 'components/elements/symbols.js'
 const Symbol = styled(Flex)`
     width: fit-content;
 
-    svg {
+    img {
         width: 32px;
         height: 32px;
         margin-right: 0.8rem;
@@ -24,15 +24,15 @@ const Americas = () => {
     return (
         <>
             <Symbol ai="center">
-                <OTCUS />
+                <img src={OTCUS} />
                 <Text>{localize('US Index')}</Text>
             </Symbol>
             <Symbol ai="center">
-                <OTCUSTECH />
+                <img src={OTCUSTECH} />
                 <Text>{localize('US Tech Index')}</Text>
             </Symbol>
             <Symbol ai="center">
-                <OTCWALLSTREET />
+                <img src={OTCWALLSTREET} />
                 <Text>{localize('Wall Street Index')}</Text>
             </Symbol>
         </>

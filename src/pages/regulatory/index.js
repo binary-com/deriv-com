@@ -70,7 +70,7 @@ const Box = styled.div`
         text-align: center;
     }
 `
-const Europe = styled(EU)`
+const Europe = styled.img`
     max-width: 69rem;
     max-height: 63rem;
     width: 100%;
@@ -167,7 +167,7 @@ const Regulatory = () => {
                         mobile_row_gap="2rem"
                     >
                         <CssGridColumn>
-                            <Europe />
+                            <Europe src={EU} alt="europe" />
                         </CssGridColumn>
                         <CssGridColumn padding="0.8rem 0 0">
                             <EUgrid />
@@ -410,7 +410,7 @@ const Regulatory = () => {
                                     {localize('Deriv (SVG) LLC')}
                                 </StyledHeader>
                             </Mobile>
-                            <SVG />
+                            <img src={SVG} alt="svg" />
                         </ResponsiveGrid>
                         <CssGridColumn>
                             <Desktop>

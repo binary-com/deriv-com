@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components'
 import { Text } from 'components/elements/typography'
 import Keycodes from 'common/keycodes'
 import { useOutsideClick } from 'components/hooks/outside-click'
-import Chevron from 'images/svg/chevron-bottom.svg'
+import { ReactComponent as Chevron } from 'images/svg/chevron-bottom.svg'
 import device from 'themes/device'
 import { Flex } from 'components/containers'
 

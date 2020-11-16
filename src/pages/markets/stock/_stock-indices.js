@@ -27,25 +27,25 @@ const StockIndices = ({ simple_step_content }) => {
             >
                 <div
                     text={<Localize translate_text="Minimal capital requirements, limited risk" />}
-                    icon={<MinimalCapital />}
+                    icon={<img src={MinimalCapital} alt="minimal capital" />}
                 ></div>
                 <div
                     text={<Localize translate_text="Extended trading time, up to 18 hours a day" />}
-                    icon={<ExtendedTime />}
+                    icon={<img src={ExtendedTime} alt="extended trading times" />}
                 ></div>
                 <div
                     text={
                         <Localize translate_text="Fast and secure deposit and withdrawal options" />
                     }
-                    icon={<Deposit />}
+                    icon={<img src={Deposit} alt="deposit and withdrawal" />}
                 ></div>
                 <div
                     text={<Localize translate_text="Responsive, easy-to-use platforms" />}
-                    icon={<ResponsiveWebsite />}
+                    icon={<img src={ResponsiveWebsite} alt="responsive website" />}
                 ></div>
                 <div
                     text={<Localize translate_text="Smart and friendly support, 7 days a week" />}
-                    icon={<FriendlySupport />}
+                    icon={<img src={FriendlySupport} alt="friendly support" />}
                 ></div>
             </WhyTrade>
             <AvailableTrades

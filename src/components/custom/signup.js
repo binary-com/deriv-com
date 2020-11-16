@@ -43,12 +43,6 @@ const EmailLink = styled(StyledLink)`
     text-align: center;
 `
 
-const validateEmail = (email) => {
-    const error_message = validation.email(email)
-
-    return error_message
-}
-
 export const Appearances = {
     default: 'default',
     simple: 'simple',
@@ -65,11 +59,25 @@ class Signup extends Component {
         submit_status: '',
         submit_error_msg: '',
     }
+
+    validateEmail = (email) => {
+        const error_message = validation.email(email) || this.state.submit_error_msg
+
+        if (this.state.submit_error_msg) {
+            this.setState({
+                submit_error_msg: '',
+                submit_status: '',
+            })
+        }
+
+        return error_message
+    }
+
     handleValidation = (param) => {
         const message = typeof param === 'object' ? param.target.value : param
 
         this.setState({
-            email_error_msg: validateEmail(message.replace(/\s/g, '')),
+            email_error_msg: this.validateEmail(message.replace(/\s/g, '')),
         })
     }
 
@@ -116,7 +124,7 @@ class Signup extends Component {
         let { email, email_error_msg } = this.state
         email = email.replace(/\s/g, '')
         this.handleValidation(email)
-        const has_error_email = validateEmail(email)
+        const has_error_email = this.validateEmail(email)
 
         if (has_error_email || email_error_msg) {
             return this.setState({ is_submitting: false })
@@ -132,18 +140,20 @@ class Signup extends Component {
             const response = JSON.parse(msg.data)
             if (response.error) {
                 binary_socket.close()
-                return this.setState({
+                this.setState({
                     is_submitting: false,
                     submit_status: 'error',
                     submit_error_msg: response.error.message,
                 })
+                this.handleValidation(email)
+            } else {
+                this.setState({
+                    is_submitting: false,
+                    submit_status: 'success',
+                })
+                if (this.props.onSubmit) this.props.onSubmit(this.state.submit_status)
             }
 
-            this.setState({
-                is_submitting: false,
-                submit_status: 'success',
-            })
-            if (this.props.onSubmit) this.props.onSubmit(this.state.submit_status)
             binary_socket.close()
         }
     }
@@ -174,6 +184,7 @@ class Signup extends Component {
             handleValidation: this.handleValidation,
             is_submitting: this.state.is_submitting,
         }
+
         switch (param) {
             case Appearances.simple:
                 return <SignupSimple {...parameters}></SignupSimple>
@@ -230,11 +241,6 @@ class Signup extends Component {
                         <EmailLink to="/check-email/" align="center">
                             {localize("Didn't receive your email?")}
                         </EmailLink>
-                    </ResponseWrapper>
-                )}
-                {this.state.submit_status === 'error' && this.state.submit_error_msg && (
-                    <ResponseWrapper>
-                        <Text align="center">{this.state.submit_error_msg}</Text>
                     </ResponseWrapper>
                 )}
             </>

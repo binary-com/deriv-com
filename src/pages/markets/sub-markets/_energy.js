@@ -8,7 +8,7 @@ import { OILUSD } from 'components/elements/symbols.js'
 const Symbol = styled(Flex)`
     width: fit-content;
 
-    svg {
+    img {
         width: 32px;
         height: 32px;
         margin-right: 0.8rem;
@@ -24,7 +24,7 @@ const Energy = () => {
     return (
         <>
             <Symbol ai="center">
-                <OILUSD />
+                <img src={OILUSD} />
                 <Text>{localize('Oil/USD')}</Text>
             </Symbol>
         </>

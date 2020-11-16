@@ -59,7 +59,7 @@ const OptionItems = styled(Flex)`
         justify-content: space-between;
         align-items: center;
 
-        & > div > svg {
+        & > div > img {
             width: 20px;
             height: 20px;
         }
@@ -115,7 +115,7 @@ const HowOptionsWorks = () => {
                     <HowItWorksItem>
                         <OptionItems>
                             <div>
-                                <DefinePosition />
+                                <img src={DefinePosition} alt="define your position" />
                             </div>
                             <StyledText>{localize('Define your position')}</StyledText>
                         </OptionItems>
@@ -129,7 +129,7 @@ const HowOptionsWorks = () => {
                     <HowItWorksItem>
                         <OptionItems>
                             <div>
-                                <SetOptionalParameters />
+                                <img src={SetOptionalParameters} alt="set optional parameters" />
                             </div>
                             <StyledText>{localize('Set optional parameters')}</StyledText>
                         </OptionItems>
@@ -142,7 +142,7 @@ const HowOptionsWorks = () => {
                     <HowItWorksItem>
                         <OptionItems>
                             <div>
-                                <PurchaseContract />
+                                <img src={PurchaseContract} alt="purchase your contract" />
                             </div>
                             <StyledText>{localize('Purchase your contract')}</StyledText>
                         </OptionItems>

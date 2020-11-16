@@ -60,7 +60,7 @@ const Container = styled.div`
 
 const Col = ({ Icon, content, title }) => (
     <GridCol>
-        <Icon />
+        <img src={Icon} />
         <Container>
             <StyledHeader as="h4">{title}</StyledHeader>
             <Text lh="1.55" mt="1.8rem">

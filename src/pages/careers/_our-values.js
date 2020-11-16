@@ -14,8 +14,9 @@ const StyledHeader = styled(Header)`
 
 const GridItem = styled(Flex)`
     justify-content: flex-start;
+    align-items: flex-start;
 
-    svg {
+    img {
         width: 6.4rem;
         height: 6.4rem;
     }
@@ -43,7 +44,7 @@ const OurValues = () => (
                 mobile_columns="38.4rem"
             >
                 <GridItem direction="column">
-                    <Integrity />
+                    <img src={Integrity} alt="integrity" />
                     <MiddleText as="h4">Integrity</MiddleText>
                     <Text>
                         We believe that we should always do the right thing. This includes serving
@@ -52,7 +53,7 @@ const OurValues = () => (
                     </Text>
                 </GridItem>
                 <GridItem direction="column">
-                    <Customer />
+                    <img src={Customer} alt="customer" />
                     <MiddleText as="h4">Customer focus</MiddleText>
                     <Text>
                         We always put our customers first and dedicate ourselves to building
@@ -60,7 +61,7 @@ const OurValues = () => (
                     </Text>
                 </GridItem>
                 <GridItem direction="column">
-                    <Competence />
+                    <img src={Competence} alt="competence" />
                     <MiddleText as="h4">Competence</MiddleText>
                     <Text>
                         We love to work with smart and talented people who are eager to roll up
@@ -68,7 +69,7 @@ const OurValues = () => (
                     </Text>
                 </GridItem>
                 <GridItem direction="column">
-                    <Teamwork />
+                    <img src={Teamwork} alt="teamwork" />
                     <MiddleText as="h4">Teamwork</MiddleText>
                     <Text>
                         We value positive team players who can work together to overcome challenges

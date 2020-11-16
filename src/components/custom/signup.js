@@ -146,14 +146,14 @@ class Signup extends Component {
                     submit_error_msg: response.error.message,
                 })
                 this.handleValidation(email)
-                return
+            } else {
+                this.setState({
+                    is_submitting: false,
+                    submit_status: 'success',
+                })
+                if (this.props.onSubmit) this.props.onSubmit(this.state.submit_status)
             }
 
-            this.setState({
-                is_submitting: false,
-                submit_status: 'success',
-            })
-            if (this.props.onSubmit) this.props.onSubmit(this.state.submit_status)
             binary_socket.close()
         }
     }

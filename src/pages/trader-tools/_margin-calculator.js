@@ -81,7 +81,7 @@ const MarginCalculator = () => {
         } else if (symbol.name === 'Range Break 200 Index') {
             margin_formula = volume * RANGEBREAK200VALUE
         } else {
-            margin_formula = (volume * contractSize * assetPrice) / leverage.display_name
+            margin_formula = (volume * contractSize * assetPrice) / leverage.name
         }
 
         return toFixed(margin_formula)
@@ -116,20 +116,18 @@ const MarginCalculator = () => {
 
     const getMarginCurrency = (symbol) => {
         let currency = 'USD'
-        if (symbol.market === 'synthetic_indices') {
+        if (symbol.market === 'synthetic_indices' || symbol.market === 'commodities') {
             currency = 'USD'
-        } else {
-            if (symbol.market === 'commodities') {
-                currency = 'USD'
-            } else {
-                if (symbol.name === 'DAX_30') {
-                    currency = 'EUR'
-                } else {
-                    if (symbol.name !== 'default' && symbol.name !== 'CL_BRENT')
-                        currency = symbol.display_name.slice(-3)
-                }
-            }
         }
+
+        if (symbol.name === 'DAX_30') {
+            currency = 'EUR'
+        }
+
+        if (symbol.market === 'forex' && symbol.name !== 'default' && symbol.name !== 'CL_BRENT') {
+            currency = symbol.display_name.slice(-3)
+        }
+
         return currency
     }
 
@@ -138,23 +136,34 @@ const MarginCalculator = () => {
 
         if (symbol.market === 'forex') {
             contractSize = 100000
-        } else if (symbol.name === 'XAGUSD') {
-            contractSize = 5000
-        } else if (
-            symbol.name === 'XAUUSD' ||
-            symbol.name === 'XPDUSD' ||
-            symbol.name === 'XPTUSD'
-        ) {
-            contractSize = 100
-        } else if (symbol.name === 'Step Index') {
+        }
+
+        if (symbol.market === 'commodities') {
+            switch (symbol.name) {
+                case 'XAGUSD':
+                    contractSize = 5000
+                    break
+                case 'XAUUSD':
+                case 'XPDUSD':
+                case 'XPTUSD':
+                    contractSize = 100
+                    break
+            }
+        }
+
+        if (symbol.name === 'Step Index') {
             contractSize = 10
         }
 
         return contractSize
     }
 
-    function numberWithCommas(x) {
-        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+    const numberWithCommas = (input) => {
+        return input.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+    }
+
+    const numberSubmitFormat = (input) => {
+        return input.replace(/^0+(?!\.|$)/, '')
     }
 
     return (
@@ -187,11 +196,8 @@ const MarginCalculator = () => {
                         validate={resetValidation}
                         onSubmit={(values, { setFieldValue }) => {
                             setFieldValue('margin', getMargin(values))
-                            setFieldValue('volume', values.volume.replace(/^0+(?!\.|$)/, ''))
-                            setFieldValue(
-                                'assetPrice',
-                                values.assetPrice.replace(/^0+(?!\.|$)/, ''),
-                            )
+                            setFieldValue('volume', numberSubmitFormat(values.volume))
+                            setFieldValue('assetPrice', numberSubmitFormat(values.assetPrice))
                         }}
                     >
                         {({
@@ -293,11 +299,11 @@ const MarginCalculator = () => {
                                                     autoComplete="off"
                                                     error={touched.volume && errors.volume}
                                                     onBlur={handleBlur}
-                                                    handleError={(myInp) => {
+                                                    handleError={(current_input) => {
                                                         setFieldValue('volume', '', false)
                                                         setFieldError('volume', '')
                                                         setFieldTouched('volume', false, false)
-                                                        myInp.focus()
+                                                        current_input.focus()
                                                     }}
                                                     maxLength="8"
                                                     background="white"
@@ -323,11 +329,11 @@ const MarginCalculator = () => {
                                                     autoComplete="off"
                                                     error={touched.assetPrice && errors.assetPrice}
                                                     onBlur={handleBlur}
-                                                    handleError={(myInp) => {
+                                                    handleError={(current_input) => {
                                                         setFieldValue('assetPrice', '', false)
                                                         setFieldError('assetPrice', '')
                                                         setFieldTouched('assetPrice', false, false)
-                                                        myInp.focus()
+                                                        current_input.focus()
                                                     }}
                                                     maxLength="15"
                                                     background="white"

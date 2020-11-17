@@ -73,21 +73,20 @@ const DropdownContainer = styled.ul`
             }
         `}
 
-    ${(props) =>
-        !props.error &&
-        css`
+    ${(props) => {
+        if (props.error)
+            return css`
+                border-color: var(--color-red-1) !important;
+
+                & > label {
+                    color: var(--color-red-1) !important;
+                }
+            `
+
+        return css`
             border-color: var(--color-grey-7);
-        `}
-
-    ${(props) =>
-        props.error &&
-        css`
-            border-color: var(--color-red-1) !important;
-
-            & > label {
-                color: var(--color-red-1) !important;
-            }
-        `}
+        `
+    }}
 `
 
 const StyledDiv = styled.div`
@@ -342,8 +341,8 @@ const Dropdown = ({
         closeList()
     }
 
-    function numberWithCommas(x) {
-        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+    const numberWithCommas = (input) => {
+        return input.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
     }
 
     return (

@@ -118,7 +118,7 @@ const StyledInput = styled.input`
     }
     &:valid {
         ${(props) =>
-            props.value != '' &&
+            props.value &&
             css`
                 & ~ label {
                     transform: translate(-0.6rem, -2rem) scale(0.7);
@@ -169,7 +169,7 @@ const Input = ({
     maxLength,
     ...props
 }) => {
-    let myInp = useRef(null)
+    let current_input = useRef(null)
 
     return (
         <RelativeWrapper>
@@ -186,7 +186,7 @@ const Input = ({
                     maxLength={maxLength}
                     error={error}
                     {...props}
-                    ref={(ip) => (myInp = ip)}
+                    ref={(ip) => (current_input = ip)}
                 />
                 <StyledLabel
                     tabletBackground={tabletBackground}
@@ -205,7 +205,7 @@ const Input = ({
                     src={CrossIcon}
                     alt="error icon"
                     onClick={() => {
-                        handleError(myInp)
+                        handleError(current_input)
                     }}
                 />
             )}

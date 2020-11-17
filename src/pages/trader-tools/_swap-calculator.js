@@ -79,8 +79,22 @@ const SwapCalculator = () => {
     }
 
     const getSwapChargeSynthetic = (values) => {
-        const { volume, assetPrice, swapRate, contractSize } = values
-        const swap_formula_synthetic = (volume * contractSize * assetPrice * (swapRate / 100)) / 360
+        const { volume, assetPrice, swapRate, contractSize, symbol } = values
+
+        let swap_formula_synthetic
+        const STEPINDEX_VALUE = 100
+        const RANGEBREAK100VALUE = 400
+        const RANGEBREAK200VALUE = 800
+
+        if (symbol.name === 'Step Index') {
+            swap_formula_synthetic = volume * STEPINDEX_VALUE
+        } else if (symbol.name === 'Range Break 100 Index') {
+            swap_formula_synthetic = volume * RANGEBREAK100VALUE
+        } else if (symbol.name === 'Range Break 200 Index') {
+            swap_formula_synthetic = volume * RANGEBREAK200VALUE
+        } else {
+            swap_formula_synthetic = (volume * contractSize * assetPrice * (swapRate / 100)) / 360
+        }
         return toFixed(swap_formula_synthetic)
     }
 
@@ -144,19 +158,18 @@ const SwapCalculator = () => {
 
     const getCurrencySwap = (symbol) => {
         let currency = 'USD'
-        if (symbol.market === 'synthetic_indices') {
+        if (symbol.market === 'synthetic_indices' || symbol.market === 'commodities') {
             currency = 'USD'
-        } else {
-            if (symbol.market === 'commodities') {
-                currency = 'USD'
-            } else {
-                if (symbol.name === 'DAX_30') {
-                    currency = 'EUR'
-                } else {
-                    if (symbol.name !== 'default') currency = symbol.display_name.slice(-3)
-                }
-            }
         }
+
+        if (symbol.name === 'DAX_30') {
+            currency = 'EUR'
+        }
+
+        if (symbol.market === 'forex' && symbol.name !== 'default' && symbol.name !== 'CL_BRENT') {
+            currency = symbol.display_name.slice(-3)
+        }
+
         return currency
     }
 
@@ -165,23 +178,38 @@ const SwapCalculator = () => {
 
         if (symbol.market === 'forex') {
             contractSize = 100000
-        } else if (symbol.name === 'XAGUSD') {
-            contractSize = 5000
-        } else if (
-            symbol.name === 'XAUUSD' ||
-            symbol.name === 'XPDUSD' ||
-            symbol.name === 'XPTUSD'
-        ) {
-            contractSize = 100
-        } else if (symbol.name === 'Step Index') {
+        }
+
+        if (symbol.market === 'commodities') {
+            switch (symbol.name) {
+                case 'XAGUSD':
+                    contractSize = 5000
+                    break
+                case 'XAUUSD':
+                case 'XPDUSD':
+                case 'XPTUSD':
+                    contractSize = 100
+                    break
+            }
+        }
+
+        if (symbol.name === 'Step Index') {
             contractSize = 10
         }
 
         return contractSize
     }
 
-    function numberWithCommas(x) {
-        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+    const numberWithCommas = (input) => {
+        return input.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+    }
+
+    const numberSubmitFormat = (input) => {
+        return input.replace(/^0+(?!\.|$)/, '')
+    }
+
+    const numberSubmitFormatNegative = (input) => {
+        return input.replace(/^(-?)0+/, '$1')
     }
 
     return (
@@ -231,17 +259,14 @@ const SwapCalculator = () => {
                                 validate={resetValidationSynthetic}
                                 onSubmit={(values, { setFieldValue }) => {
                                     setFieldValue('swapCharge', getSwapChargeSynthetic(values))
-                                    setFieldValue(
-                                        'volume',
-                                        values.volume.replace(/^0+(?!\.|$)/, ''),
-                                    )
+                                    setFieldValue('volume', numberSubmitFormat(values.volume))
                                     setFieldValue(
                                         'swapRate',
-                                        values.swapRate.replace(/^(-?)0+/, '$1'),
+                                        numberSubmitFormatNegative(values.swapRate),
                                     )
                                     setFieldValue(
                                         'assetPrice',
-                                        values.assetPrice.replace(/^0+(?!\.|$)/, ''),
+                                        numberSubmitFormat(values.assetPrice),
                                     )
                                 }}
                             >
@@ -314,7 +339,7 @@ const SwapCalculator = () => {
                                                             error={touched.volume && errors.volume}
                                                             onBlur={handleBlur}
                                                             data-lpignore="true"
-                                                            handleError={(myInp) => {
+                                                            handleError={(current_input) => {
                                                                 setFieldValue('volume', '', false)
                                                                 setFieldError('volume', '')
                                                                 setFieldTouched(
@@ -322,7 +347,7 @@ const SwapCalculator = () => {
                                                                     false,
                                                                     false,
                                                                 )
-                                                                myInp.focus()
+                                                                current_input.focus()
                                                             }}
                                                             maxLength="8"
                                                             background="white"
@@ -353,7 +378,7 @@ const SwapCalculator = () => {
                                                             }
                                                             onBlur={handleBlur}
                                                             data-lpignore="true"
-                                                            handleError={(myInp) => {
+                                                            handleError={(current_input) => {
                                                                 setFieldValue(
                                                                     'assetPrice',
                                                                     '',
@@ -365,7 +390,7 @@ const SwapCalculator = () => {
                                                                     false,
                                                                     false,
                                                                 )
-                                                                myInp.focus()
+                                                                current_input.focus()
                                                             }}
                                                             maxLength="15"
                                                             background="white"
@@ -395,7 +420,7 @@ const SwapCalculator = () => {
                                                             }
                                                             onBlur={handleBlur}
                                                             data-lpignore="true"
-                                                            handleError={(myInp) => {
+                                                            handleError={(current_input) => {
                                                                 setFieldValue('swapRate', '', false)
                                                                 setFieldError('swapRate', '')
                                                                 setFieldTouched(
@@ -403,7 +428,7 @@ const SwapCalculator = () => {
                                                                     false,
                                                                     false,
                                                                 )
-                                                                myInp.focus()
+                                                                current_input.focus()
                                                             }}
                                                             maxLength="15"
                                                             background="white"
@@ -537,17 +562,14 @@ const SwapCalculator = () => {
                                 validate={resetValidationForex}
                                 onSubmit={(values, { setFieldValue }) => {
                                     setFieldValue('swapCharge', getSwapChargeForex(values))
-                                    setFieldValue(
-                                        'volume',
-                                        values.volume.replace(/^0+(?!\.|$)/, ''),
-                                    )
+                                    setFieldValue('volume', numberSubmitFormat(values.volume))
                                     setFieldValue(
                                         'swapRate',
-                                        values.swapRate.replace(/^(-?)0+/, '$1'),
+                                        numberSubmitFormatNegative(values.swapRate),
                                     )
                                     setFieldValue(
                                         'pointValue',
-                                        values.pointValue.replace(/^0+(?!\.|$)/, ''),
+                                        numberSubmitFormat(values.pointValue),
                                     )
                                 }}
                             >
@@ -618,7 +640,7 @@ const SwapCalculator = () => {
                                                             error={touched.volume && errors.volume}
                                                             onBlur={handleBlur}
                                                             data-lpignore="true"
-                                                            handleError={(myInp) => {
+                                                            handleError={(current_input) => {
                                                                 setFieldValue('volume', '', false)
                                                                 setFieldError('volume', '')
                                                                 setFieldTouched(
@@ -626,7 +648,7 @@ const SwapCalculator = () => {
                                                                     false,
                                                                     false,
                                                                 )
-                                                                myInp.focus()
+                                                                current_input.focus()
                                                             }}
                                                             maxLength="8"
                                                             background="white"
@@ -657,7 +679,7 @@ const SwapCalculator = () => {
                                                             }
                                                             onBlur={handleBlur}
                                                             data-lpignore="true"
-                                                            handleError={(myInp) => {
+                                                            handleError={(current_input) => {
                                                                 setFieldValue(
                                                                     'pointValue',
                                                                     '',
@@ -669,7 +691,7 @@ const SwapCalculator = () => {
                                                                     false,
                                                                     false,
                                                                 )
-                                                                myInp.focus()
+                                                                current_input.focus()
                                                             }}
                                                             maxLength="15"
                                                             background="white"
@@ -699,7 +721,7 @@ const SwapCalculator = () => {
                                                             }
                                                             onBlur={handleBlur}
                                                             data-lpignore="true"
-                                                            handleError={(myInp) => {
+                                                            handleError={(current_input) => {
                                                                 setFieldValue('swapRate', '', false)
                                                                 setFieldError('swapRate', '')
                                                                 setFieldTouched(
@@ -707,7 +729,7 @@ const SwapCalculator = () => {
                                                                     false,
                                                                     false,
                                                                 )
-                                                                myInp.focus()
+                                                                current_input.focus()
                                                             }}
                                                             maxLength="15"
                                                             background="white"

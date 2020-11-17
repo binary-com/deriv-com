@@ -23,16 +23,6 @@ const validation_is_not_zero = (input) => {
     return true
 }
 
-// const validation_is_not_exceed_two_decimal = (input) => {
-//     if (input.includes('.')) {
-//         const numb = input.split('.')[1]
-//         if (numb != null && numb.length > 2) {
-//             return true
-//         }
-//     }
-//     return false
-// }
-
 const numberValidation = (input, fieldName, maxDigit) => {
     if (!input) {
         return localize(`${fieldName} is required`)

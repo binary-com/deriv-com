@@ -47,7 +47,9 @@ const resetSubmission = (values, actions) => {
     const binary_socket = BinarySocketBase.init()
 
     binary_socket.onopen = () => {
-        binary_socket.send(JSON.stringify({ verify_email: trimSpaces(values.email), type: 'reset_password' }))
+        binary_socket.send(
+            JSON.stringify({ verify_email: trimSpaces(values.email), type: 'reset_password' }),
+        )
     }
     binary_socket.onmessage = (msg) => {
         const response = JSON.parse(msg.data)

@@ -35,7 +35,7 @@ const Layout = ({
     padding_top,
     no_login_signup,
     no_live_chat,
-    is_p2p_v1,
+    nav_type,
 }) => {
     const { is_eu_country } = React.useContext(DerivStore)
     const [has_mounted, setMounted] = React.useState(false)
@@ -98,7 +98,7 @@ const Layout = ({
             FooterNav = <Footer no_language={true} />
             break
         case 'p2p':
-            Navigation = <NavP2P is_p2p_v1={is_p2p_v1} />
+            Navigation = <NavP2P nav_type={nav_type} />
             FooterNav = <Copyright />
             break
         default:
@@ -152,7 +152,7 @@ const Layout = ({
 Layout.propTypes = {
     children: PropTypes.node.isRequired,
     interim_type: PropTypes.string,
-    is_p2p_v1: PropTypes.bool,
+    nav_type: PropTypes.string,
     no_live_chat: PropTypes.bool,
     no_login_signup: PropTypes.bool,
     padding_top: PropTypes.string,

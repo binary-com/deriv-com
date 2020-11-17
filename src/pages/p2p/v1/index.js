@@ -37,7 +37,7 @@ const DP2P_CONTENT = [
 
 const DP2P_v1 = () => {
     return (
-        <Layout type="p2p" no_live_chat is_p2p_v1>
+        <Layout type="p2p" nav_type="p2p-v1" no_live_chat>
             <SEO
                 title={localize('DP2P')}
                 description={localize('Hassle-free deposits and withdrawals')}

@@ -53,7 +53,7 @@ const Line = styled.div`
     }
 `
 
-export const NavP2P = ({ is_p2p_v1 }) => {
+export const NavP2P = ({ nav_type }) => {
     const data = useStaticQuery(query)
 
     return (
@@ -63,7 +63,7 @@ export const NavP2P = ({ is_p2p_v1 }) => {
                     <StyledWrapper>
                         <P2PNavLeft>
                             <StyledLogoLink
-                                to={is_p2p_v1 ? '/p2p/v1' : '/p2p/v2'}
+                                to={nav_type === 'p2p-v1' ? '/p2p/v1' : '/p2p/v2'}
                                 aria-label={localize('Home')}
                             >
                                 <QueryImage
@@ -90,7 +90,7 @@ export const NavP2P = ({ is_p2p_v1 }) => {
 }
 
 NavP2P.propTypes = {
-    is_p2p_v1: PropTypes.bool,
+    nav_type: PropTypes.string,
 }
 
 export default { NavP2P }

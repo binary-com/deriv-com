@@ -13,13 +13,13 @@ const StyledButton = styled(Button)`
     margin-top: 1.6rem;
 `
 
-const StyledChevron = styled(Chevron)`
+const StyledChevron = styled.img`
     height: 16px;
     width: 16px;
     transform: ${(props) => (props.expanded ? 'inherit' : 'rotate(-180deg)')};
     transition: transform 0.25s ease-out;
 `
-const StyledPDF = styled(PDF)`
+const StyledPDF = styled.img`
     height: 32px;
     width: 32px;
 `
@@ -77,7 +77,7 @@ const StyledText = styled(Text)`
 
 const Deposit = styled(Td)`
     & > p {
-        max-width: 12rem;
+        max-width: ${(props) => (props.is_fiat_onramp ? '21rem' : '12rem')};
     }
 `
 
@@ -92,7 +92,11 @@ const Withdrawal = styled(Td)`
     }
 `
 
-const ExpandList = ({ data, config, is_crypto }) => {
+const Currencies = styled(Td)`
+    width: 289px;
+`
+
+const ExpandList = ({ data, config, is_crypto, is_fiat_onramp }) => {
     const [is_expanded, setIsExpanded] = React.useState(false)
 
     const toggleExpand = () => {
@@ -105,9 +109,16 @@ const ExpandList = ({ data, config, is_crypto }) => {
         <>
             <Tr is_expanded={is_expanded}>
                 <Td>{data.method}</Td>
-                <Td>
-                    <Text>{data.currencies}</Text>
-                </Td>
+                {is_fiat_onramp ? (
+                    <Currencies>
+                        <Text>{data.currencies}</Text>
+                    </Currencies>
+                ) : (
+                    <Td>
+                        <Text>{data.currencies}</Text>
+                    </Td>
+                )}
+
                 <Td>
                     {Array.isArray(data.min_max_deposit) ? (
                         data.min_max_deposit.map((md, idx) => <Text key={idx}>{md}</Text>)
@@ -115,23 +126,31 @@ const ExpandList = ({ data, config, is_crypto }) => {
                         <Text>{data.min_max_deposit}</Text>
                     )}
                 </Td>
-                <Td>
-                    <>
-                        {Array.isArray(data.min_max_withdrawal) ? (
-                            data.min_max_withdrawal.map((md, idx) => <Text key={idx}>{md}</Text>)
-                        ) : is_crypto ? (
-                            <Text>{getCryptoConfig(data.name)}</Text>
-                        ) : (
-                            <Text>{data.min_max_withdrawal}</Text>
-                        )}
-                    </>
-                </Td>
-                <Deposit>
+                {!is_fiat_onramp && (
+                    <Td>
+                        <>
+                            {Array.isArray(data.min_max_withdrawal) ? (
+                                data.min_max_withdrawal.map((md, idx) => (
+                                    <Text key={idx}>{md}</Text>
+                                ))
+                            ) : is_crypto ? (
+                                <Text>{getCryptoConfig(data.name)}</Text>
+                            ) : (
+                                <Text>{data.min_max_withdrawal}</Text>
+                            )}
+                        </>
+                    </Td>
+                )}
+                <Deposit is_fiat_onramp={is_fiat_onramp}>
                     <Text>{data.deposit_time}</Text>
                 </Deposit>
-                <Withdrawal>
-                    <Text>{data.withdrawal_time}</Text>
-                </Withdrawal>
+
+                {!is_fiat_onramp && (
+                    <Withdrawal>
+                        <Text>{data.withdrawal_time}</Text>
+                    </Withdrawal>
+                )}
+
                 <Td>
                     {data.reference ? (
                         <CenterIcon
@@ -139,14 +158,14 @@ const ExpandList = ({ data, config, is_crypto }) => {
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            <StyledPDF />
+                            <StyledPDF src={PDF} alt="PDF" />
                         </CenterIcon>
                     ) : (
                         <Text align="center">-</Text>
                     )}
                 </Td>
                 <HoverTd onClick={toggleExpand}>
-                    <StyledChevron expanded={is_expanded} />
+                    <StyledChevron src={Chevron} alt="chevron" expanded={is_expanded} />
                 </HoverTd>
             </Tr>
             <tr>
@@ -169,6 +188,7 @@ ExpandList.propTypes = {
     config: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
     data: PropTypes.object,
     is_crypto: PropTypes.bool,
+    is_fiat_onramp: PropTypes.bool,
 }
 
 export default ExpandList

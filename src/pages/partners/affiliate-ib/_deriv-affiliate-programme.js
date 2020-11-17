@@ -108,7 +108,7 @@ const DerivAffiliateProgramme = () => {
                         {localize('Choose a commission plan:')}
                     </StyledHeaderCommission>
                     <CardWrapper>
-                        <StyledCard height="47.2rem">
+                        <StyledCard height="55.3rem">
                             <div>
                                 <Header as="h4">{localize('Revenue share')}</Header>
                                 <Text>
@@ -143,7 +143,7 @@ const DerivAffiliateProgramme = () => {
                                 </ApplyNow>
                             </div>
                         </StyledCard>
-                        <StyledCard height="47.2rem">
+                        <StyledCard height="55.3rem">
                             <div>
                                 <Header as="h4">{localize('Turnover')}</Header>
                                 <Text>
@@ -165,6 +165,12 @@ const DerivAffiliateProgramme = () => {
                                         </TC>
                                     ))}
                                 </Table>
+                                <Text mt="3.2rem">
+                                    <Localize
+                                        translate_text="<0>Multipliers:</0> Earn 40% of the commissions generated from your clients’ trades."
+                                        components={[<strong key={0} />]}
+                                    />
+                                </Text>
                             </div>
                             <div>
                                 <ApplyNow
@@ -178,7 +184,7 @@ const DerivAffiliateProgramme = () => {
                                 </ApplyNow>
                             </div>
                         </StyledCard>
-                        <StyledCard height="47.2rem">
+                        <StyledCard height="55.3rem">
                             <div>
                                 <Header as="h4">{localize('CPA (EU only)')}</Header>
                                 <Text>{localize('Earn based on each successful referral.')}</Text>

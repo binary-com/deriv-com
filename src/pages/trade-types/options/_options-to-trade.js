@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { SmallContainer, OptionGrid, OptionGridSecondary } from '../components/_style'
 import Notes from '../components/_notes'
-import { Flex, SectionContainer } from 'components/containers'
+import { Flex, SectionContainer, Show } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
@@ -70,6 +70,13 @@ const WhatAreOptions = () => {
                         <Localize translate_text="Lookback options are available only on synthetic indices." />
                     }
                 />
+                <Show.Eu>
+                    <Text mt="0.8rem" color="grey-5" size="var(--text-size-xs)">
+                        {localize(
+                            'Return to player (RTP) % for lookbacks for a multiplier of 1 and 1m duration is around 87% on average.',
+                        )}
+                    </Text>
+                </Show.Eu>
                 <Header as="h4" mt="4rem" mb="1.6rem">
                     {localize('Call/Put Spreads')}
                 </Header>
@@ -89,7 +96,7 @@ const UpDownGrid = () => {
         <OptionGrid>
             <Flex fd="column" jc="flex-start" height="auto">
                 <div>
-                    <RiseFall />
+                    <img src={RiseFall} alt="rise fall" />
                 </div>
                 <Text weight="bold" mt="1.6rem" mb="0.8rem">
                     {localize('Rise/Fall')}
@@ -117,7 +124,7 @@ const UpDownGrid = () => {
             </Flex>
             <Flex fd="column" jc="flex-start" height="auto">
                 <div>
-                    <HigherLower />
+                    <img src={HigherLower} alt="higher lower" />
                 </div>
                 <Text weight="bold" mt="1.6rem" mb="0.8rem">
                     {localize('Higher/Lower')}
@@ -152,7 +159,7 @@ const InOutGrid = () => {
         <OptionGrid>
             <Flex fd="column" jc="flex-start" height="auto">
                 <div>
-                    <EbEo />
+                    <img src={EbEo} alt="eb eo" />
                 </div>
                 <Text weight="bold" mt="1.6rem" mb="0.8rem">
                     {localize('Ends Between/Ends Outside')}
@@ -181,7 +188,7 @@ const InOutGrid = () => {
             </Flex>
             <Flex fd="column" jc="flex-start" height="auto">
                 <div>
-                    <SbGo />
+                    <img src={SbGo} alt="sb go" />
                 </div>
                 <Text weight="bold" mt="1.6rem" mb="0.8rem">
                     {localize('Stays Between/Goes Outside')}
@@ -211,7 +218,7 @@ const DigitsGrid = () => {
         <OptionGrid>
             <Flex fd="column" jc="flex-start" height="auto">
                 <div>
-                    <MatchDiffers />
+                    <img src={MatchDiffers} alt="matches differs" />
                 </div>
                 <Text weight="bold" mt="1.6rem" mb="0.8rem">
                     {localize('Matches/Differs')}
@@ -234,7 +241,7 @@ const DigitsGrid = () => {
             </Flex>
             <Flex fd="column" jc="flex-start" height="auto">
                 <div>
-                    <EvenOdd />
+                    <img src={EvenOdd} alt="even odd" />
                 </div>
                 <Text weight="bold" mt="1.6rem" mb="0.8rem">
                     {localize('Even/Odd')}
@@ -257,7 +264,7 @@ const DigitsGrid = () => {
             </Flex>
             <Flex fd="column" jc="flex-start" height="auto">
                 <div>
-                    <OverUnder />
+                    <img src={OverUnder} alt="over under" />
                 </div>
                 <Text weight="bold" mt="1.6rem" mb="0.8rem">
                     {localize('Over/Under')}
@@ -290,7 +297,7 @@ const SingleOptionsGrid = () => {
                     {localize('Reset Call/Reset Put')}
                 </Header>
                 <div>
-                    <RcRp />
+                    <img src={RcRp} alt="rc rp" />
                 </div>
                 <MiddleText mt="1.6rem">
                     {localize(
@@ -318,7 +325,7 @@ const SingleOptionsGrid = () => {
                     {localize('High/Low Ticks')}
                 </Header>
                 <div>
-                    <HighLowTicks />
+                    <img src={HighLowTicks} alt="hl ticks" />
                 </div>
                 <MiddleText mt="1.6rem">
                     {localize(
@@ -341,7 +348,7 @@ const SingleOptionsGrid = () => {
                     {localize('Touch/No Touch')}
                 </Header>
                 <div>
-                    <TnT />
+                    <img src={TnT} alt="tnt" />
                 </div>
                 <MiddleText mt="1.6rem">
                     {localize(
@@ -364,7 +371,7 @@ const SingleOptionsGrid = () => {
                     {localize('Asians')}
                 </Header>
                 <div>
-                    <Asians />
+                    <img src={Asians} alt="asians" />
                 </div>
                 <MiddleText mt="1.6rem">
                     {localize(
@@ -392,7 +399,7 @@ const SingleOptionsGrid = () => {
                     {localize('Only Ups/Only Downs')}
                 </Header>
                 <div>
-                    <OuOd />
+                    <img src={OuOd} alt="ou od" />
                 </div>
                 <MiddleText mt="1.6rem">
                     {localize(
@@ -419,7 +426,7 @@ const LookbacksGrid = () => {
         <OptionGrid>
             <Flex fd="column" jc="flex-start" height="auto">
                 <div>
-                    <HighClose />
+                    <img src={HighClose} alt="high close" />
                 </div>
                 <Text weight="bold" mt="1.6rem" mb="0.8rem">
                     {localize('High-Close')}
@@ -432,7 +439,7 @@ const LookbacksGrid = () => {
             </Flex>
             <Flex fd="column" jc="flex-start" height="auto">
                 <div>
-                    <CloseLow />
+                    <img src={CloseLow} alt="close low" />
                 </div>
                 <Text weight="bold" mt="1.6rem" mb="0.8rem">
                     {localize('Close-Low')}
@@ -445,7 +452,7 @@ const LookbacksGrid = () => {
             </Flex>
             <Flex fd="column" jc="flex-start" height="auto">
                 <div>
-                    <HighLow />
+                    <img src={HighLow} alt="high low" />
                 </div>
                 <Text weight="bold" mt="1.6rem" mb="0.8rem">
                     {localize('High-Low')}
@@ -465,7 +472,7 @@ const SpreadGrid = () => {
         <OptionGrid>
             <Flex fd="column" jc="flex-start" height="auto">
                 <div>
-                    <CallSpread />
+                    <img src={CallSpread} alt="call spread" />
                 </div>
                 <Text weight="bold" mt="1.6rem" mb="0.8rem">
                     {localize('Call Spread')}
@@ -483,7 +490,7 @@ const SpreadGrid = () => {
             </Flex>
             <Flex fd="column" jc="flex-start" height="auto">
                 <div>
-                    <PutSpread />
+                    <img src={PutSpread} alt="put spread" />
                 </div>
                 <Text weight="bold" mt="1.6rem" mb="0.8rem">
                     {localize('Put Spread')}

@@ -51,7 +51,7 @@ const StyledDiv = styled.div`
     }
 `
 
-const StyledGraph = styled(Graph)`
+const StyledGraph = styled.img`
     overflow: initial;
 
     @media ${device.laptop} {
@@ -74,9 +74,9 @@ const NewSignup = () => {
                 )}
             />
             <Wrapper>
-                {!(submitState === 'success' || submitState === 'error') && (
+                {!(submitState === 'success') && (
                     <Content>
-                        <StyledGraph />
+                        <StyledGraph src={Graph} alt="graph" />
                         <Header mt="2.4rem" size="3.2rem">
                             {localize('Start trading with Deriv')}
                         </Header>

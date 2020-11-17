@@ -66,7 +66,7 @@ const CardContainer = styled(Flex)`
     ${Flex} {
         padding: 2.71rem 0 0 3.2rem;
 
-        svg {
+        img {
             width: 32px;
             height: 32px;
             margin-right: 1.6rem;
@@ -83,7 +83,7 @@ const CardContainer = styled(Flex)`
             justify-content: flex-start;
             padding: 10px 44px 0 0;
 
-            svg {
+            img {
                 width: 16px;
                 height: 16px;
                 margin-right: 1rem;
@@ -120,7 +120,7 @@ const CardContainer = styled(Flex)`
         padding-right: 0;
     }
 `
-const TabMarginIcon = styled(MarginIcon)`
+const TabMarginIcon = styled.img`
     min-width: 16px;
     ${(props) => {
         if (props.active_tab === props.name)
@@ -129,7 +129,7 @@ const TabMarginIcon = styled(MarginIcon)`
             `
     }}
 `
-const TabOptionIcon = styled(OptionsIcon)`
+const TabOptionIcon = styled.img`
     min-width: 16px;
     ${(props) => {
         if (props.active_tab === props.name)
@@ -138,7 +138,7 @@ const TabOptionIcon = styled(OptionsIcon)`
             `
     }}
 `
-const TabMultiplierIcon = styled(MultipliersIcon)`
+const TabMultiplierIcon = styled.img`
     min-width: 16px;
     ${(props) => {
         if (props.active_tab === props.name)
@@ -168,10 +168,29 @@ const Card = ({ display_name, active_tab, onTabChange, name }) => {
     return (
         <CardContainer name={name} active_tab={active_tab} onClick={() => onTabChange(name)}>
             <Flex height="fit-content" jc="flex-start" ai="center">
-                {active_tab === 'Margin' && <TabMarginIcon name={name} active_tab={active_tab} />}
-                {active_tab === 'Options' && <TabOptionIcon name={name} active_tab={active_tab} />}
+                {active_tab === 'Margin' && (
+                    <TabMarginIcon
+                        src={MarginIcon}
+                        alt="margin icon"
+                        name={name}
+                        active_tab={active_tab}
+                    />
+                )}
+                {active_tab === 'Options' && (
+                    <TabOptionIcon
+                        src={OptionsIcon}
+                        alt="option icon"
+                        name={name}
+                        active_tab={active_tab}
+                    />
+                )}
                 {active_tab === 'Multipliers' && (
-                    <TabMultiplierIcon name={name} active_tab={active_tab} />
+                    <TabMultiplierIcon
+                        src={MultipliersIcon}
+                        alt="multiplier icon"
+                        name={name}
+                        active_tab={active_tab}
+                    />
                 )}
                 <CardHeader as="h4" width="auto">
                     {display_name}

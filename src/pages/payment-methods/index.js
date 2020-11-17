@@ -5,11 +5,11 @@ import { Helmet } from 'react-helmet'
 import Scrollbar from 'react-perfect-scrollbar'
 import ExpandList from './_expanded-list'
 import payment_data from './_payment-data'
-import { LocationContext } from 'components/layout/location-context.js'
 import Layout from 'components/layout/layout'
 import { Text, Header, Divider, Accordion, AccordionItem } from 'components/elements'
 import { SEO, SectionContainer, Container } from 'components/containers'
 import { localize, WithIntl, Localize } from 'components/localization'
+import { DerivStore } from 'store'
 
 const AccordionContainer = styled.div`
     width: 100%;
@@ -61,7 +61,7 @@ const Notes = styled.div`
 `
 
 const DisplayAccordion = () => {
-    const { is_eu_country, crypto_config } = React.useContext(LocationContext)
+    const { is_eu_country, crypto_config } = React.useContext(DerivStore)
     return (
         <Accordion has_single_state>
             {payment_data.map((pd, idx) => {
@@ -111,7 +111,7 @@ const DisplayAccordianItem = ({ pd, crypto_config }) => {
                                 <BoldText>{localize('Currencies')}</BoldText>
                             </Th>
                             <Th>
-                                {pd.is_crypto ? (
+                                {pd.is_crypto || pd.is_fiat_onramp ? (
                                     <BoldText>{localize('Min deposit')}</BoldText>
                                 ) : (
                                     <React.Fragment>
@@ -120,26 +120,38 @@ const DisplayAccordianItem = ({ pd, crypto_config }) => {
                                     </React.Fragment>
                                 )}
                             </Th>
-                            <Th>
-                                {pd.is_crypto ? (
-                                    <>
-                                        <BoldText>{localize('Min withdrawal')}</BoldText>
-                                    </>
-                                ) : (
-                                    <React.Fragment>
-                                        <BoldText>{localize('Min-max')}</BoldText>
-                                        <BoldText>{localize('withdrawal')}</BoldText>
-                                    </React.Fragment>
-                                )}
-                            </Th>
-                            <Th>
-                                <BoldText>{localize('Deposit')}</BoldText>
-                                <BoldText>{localize('processing time')}</BoldText>
-                            </Th>
-                            <Th>
-                                <BoldText>{localize('Withdrawal')}</BoldText>
-                                <BoldText>{localize('processing time')}</BoldText>
-                            </Th>
+                            {!pd.is_fiat_onramp && (
+                                <Th>
+                                    {pd.is_crypto ? (
+                                        <>
+                                            <BoldText>{localize('Min withdrawal')}</BoldText>
+                                        </>
+                                    ) : (
+                                        <React.Fragment>
+                                            <BoldText>{localize('Min-max')}</BoldText>
+                                            <BoldText>{localize('withdrawal')}</BoldText>
+                                        </React.Fragment>
+                                    )}
+                                </Th>
+                            )}
+                            {pd.is_fiat_onramp ? (
+                                <Th>
+                                    <BoldText>{localize('Deposit processing time')}</BoldText>
+                                </Th>
+                            ) : (
+                                <Th>
+                                    <BoldText>{localize('Deposit')}</BoldText>
+                                    <BoldText>{localize('processing time')}</BoldText>
+                                </Th>
+                            )}
+
+                            {!pd.is_fiat_onramp && (
+                                <Th>
+                                    <BoldText>{localize('Withdrawal')}</BoldText>
+                                    <BoldText>{localize('processing time')}</BoldText>
+                                </Th>
+                            )}
+
                             <Th>
                                 <BoldText>{localize('Reference')}</BoldText>
                             </Th>
@@ -148,15 +160,14 @@ const DisplayAccordianItem = ({ pd, crypto_config }) => {
                     </Thead>
                     <Tbody>
                         {pd.data.map((data, indx) => {
-                            return pd.is_crypto ? (
+                            return (
                                 <ExpandList
                                     key={indx}
                                     data={data}
                                     is_crypto={pd.is_crypto}
                                     config={crypto_config}
+                                    is_fiat_onramp={pd.is_fiat_onramp}
                                 />
-                            ) : (
-                                <ExpandList key={indx} data={data} is_crypto={pd.is_crypto} />
                             )
                         })}
                     </Tbody>

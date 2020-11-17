@@ -36,7 +36,7 @@ const MarketsList = styled(CssGrid)`
         grid-template-columns: repeat(2, 1fr);
         padding: 2rem;
 
-        svg {
+        img {
             width: 24px;
             height: 24px;
             margin-right: 4px;

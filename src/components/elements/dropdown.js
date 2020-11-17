@@ -5,7 +5,7 @@ import styled, { css } from 'styled-components'
 import Scrollbar from 'react-perfect-scrollbar'
 import Keycodes from 'common/keycodes'
 import { useOutsideClick } from 'components/hooks/outside-click'
-import Chevron from 'images/svg/chevron-bottom.svg'
+import { ReactComponent as Chevron } from 'images/svg/chevron-bottom.svg'
 import device from 'themes/device'
 
 const DropdownContainer = styled.ul`

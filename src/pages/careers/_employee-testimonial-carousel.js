@@ -1,17 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import Swiper from 'react-id-swiper'
-import { Helmet } from 'react-helmet'
-import { Header, Text } from 'components/elements'
+import { Carousel, Header, Text } from 'components/elements'
 import device from 'themes/device'
 import { SectionContainer, Flex } from 'components/containers'
-import { localize } from 'components/localization'
-import Chevron from 'images/svg/carousel-chevron.svg'
 import QuoteMark from 'images/svg/quotemark.svg'
 import NegarImage from 'images/common/careers/negar.jpg'
-import KelcentImage from 'images/common/careers/kelcent.jpg'
-import MahdiImage from 'images/common/careers/mahdi.jpg'
+import AhmadImage from 'images/common/careers/ahmad.jpg'
+import AdityaImage from 'images/common/careers/aditya.jpg'
+import GaryImage from 'images/common/careers/gary.jpg'
+import MeiThengImage from 'images/common/careers/mei_theng.jpg'
 
 const StyledSection = styled(SectionContainer)`
     @media ${device.tabletL} {
@@ -26,18 +24,14 @@ const StyledHeader = styled(Header)`
     @media ${device.tabletL} {
         font-size: 4.5rem;
     }
-`
-const StyledChevron = styled(Chevron)`
-    g {
-        g {
-            fill: var(--color-black);
-        }
+    @media ${device.tabletS} {
+        padding: 0 3rem;
+    }
+    @media ${device.mobileL} {
+        font-size: 3.2rem;
+        padding: 0 3.5rem;
     }
 `
-const ChevronRight = styled(StyledChevron)`
-    transform: rotate(180deg);
-`
-const ChevronLeft = StyledChevron
 
 const EmployeeCard = styled.article`
     width: 99.6rem;
@@ -48,8 +42,12 @@ const EmployeeCard = styled.article`
     border-radius: 8px;
     margin: 2rem;
 
-    @media ${device.tabletL} {
+    @media ${device.tablet} {
         padding: 4rem;
+    }
+
+    @media ${device.tablet} {
+        width: 49.8rem;
     }
 `
 
@@ -73,86 +71,10 @@ const ImageWrapper = styled.div`
     max-height: 31.7rem;
 `
 
-const SliderWrapper = styled.div`
-    width: 100%;
-    position: relative;
-
-    @media ${device.laptopLC} {
-        padding-bottom: 0;
-    }
-`
-const SwiperWrapper = styled.div`
-    .swiper-container {
-        padding-bottom: 4rem;
-    }
-    .swiper-slide {
-        width: 99.6rem;
-    }
-    .swiper-pagination {
-        bottom: 0;
-    }
-    .swiper-pagination-bullet {
-        width: 10px;
-        height: 10px;
-    }
-    .swiper-pagination-bullet-active {
-        background-color: var(--color-black);
-    }
-`
-const Next = styled.div``
-const Prev = styled.div``
-
-const ButtonWrapper = styled.div`
-    position: relative;
-    width: 99.6rem;
-    margin: 0 auto;
-
-    @media ${device.tablet} {
-        display: none;
-    }
-
-    svg {
-        height: 15px;
-        width: 15px;
-        opacity: 15px;
-    }
-    div {
-        button {
-            padding: 10px 12px;
-            border-radius: 50%;
-            width: 42px;
-            height: 42px;
-            box-shadow: 0 7px 20px 0 rgba(0, 0, 0, 0.13);
-            border: none;
-            background: var(--color-white);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            &:hover {
-                cursor: pointer;
-            }
-            &:focus {
-                outline: none;
-            }
-        }
-
-        z-index: 10;
-        position: absolute;
-    }
-    ${Next} {
-        right: -2%;
-        bottom: -20rem;
-    }
-    ${Prev} {
-        left: -2%;
-        bottom: -20rem;
-    }
-`
 const QuoteWrapper = styled(Flex)`
     position: relative;
 
-    svg {
+    img {
         position: absolute;
         right: 15px;
         top: 16px;
@@ -175,7 +97,7 @@ const EmployeeSlide = ({ quote, img_path, img_alt, name }) => {
                         </ImageWrapper>
                     </Flex>
                     <QuoteWrapper direction="column">
-                        <QuoteMark />
+                        <img src={QuoteMark} alt="quotemark" />
                         <QuoteText as="blockquote">{quote}</QuoteText>
                         <Text weight="bold">{name}</Text>
                     </QuoteWrapper>
@@ -193,99 +115,87 @@ EmployeeSlide.propTypes = {
     title: PropTypes.string,
 }
 
-const kelcent = {
-    name: 'Kelcent Tan, Principal and Compliance Officer',
-    img_alt: localize('Kelcent - Principal and Compliance Officer'),
-    img_path: KelcentImage,
-    quote:
-        'We have a working culture where everyone is open and willing to share their  knowledge and expertise. This gives me invaluable insights into how other departments operate and helps me understand how my role impacts business operations as a whole.',
-    index: 1,
-}
 const negar = {
     name: 'Negar Naghshbandi, Front-end Developer & Team Lead',
-    img_alt: localize('Negar - Front-end Developer & Team Lead'),
+    img_alt: 'Negar - Front-end Developer & Team Lead',
     img_path: NegarImage,
     quote:
         'The most exciting thing for me is the culture of the company and the people I work with. I learn something new everyday and I can pair-program with anyone when needed because everyone is approachable and eager to help.',
+    index: 1,
+}
+const ahmad = {
+    name: 'Ahmad Aizuddin, Disaster Recovery Analyst',
+    img_alt: 'Ahmad - Recovery Analyst',
+    img_path: AhmadImage,
+    quote: `One of the things I like best about working here is how we’re encouraged to take ownership of our tasks and goals. The autonomy and trust by the leadership team motivate me to excel in my role.`,
     index: 2,
 }
-const mahdi = {
-    name: 'Mahdi Pourziaei, Front-end Developer',
-    img_alt: localize('Mahdi - Front-end Developer'),
-    img_path: MahdiImage,
-    quote: `Two words: 'autonomy' and 'friendly'. Working at Deriv has been full of growth as I get to pick my own challenges and see them through, and it really wouldn’t feel as empowering without the friendly culture. I’m happy to be amongst all the brilliant people here.`,
+const aditya = {
+    name: 'Lalitaditya Addanki, DevOps Engineer',
+    img_alt: 'Lalitaditya - DevOps Engineer',
+    img_path: AdityaImage,
+    quote: `The best thing about my peers is that they are highly talented and skilled. Problem-solving and brainstorming with my team is fun, and they provide a great support structure. I’m able to produce higher quality work than what I would have achieved on my own.`,
     index: 3,
 }
+const mei_theng = {
+    name: 'Wong Mei Theng, Accounting Operations Lead',
+    img_alt: 'Mei Theng - Accounting Operations Lead',
+    img_path: MeiThengImage,
+    quote: `I love the people I work with, and the company culture that we share. Everyone contributes to a positive working environment by having fun together during the ups and shouldering the burden together during the downs.`,
+    index: 4,
+}
+const gary = {
+    name: 'Gary Ross Vytialingam, Chief Risk Officer',
+    img_alt: 'Gary - Chief Risk Officer',
+    img_path: GaryImage,
+    quote: `We encourage knowledge sharing at all levels, so I learn from the people I work with every day. Our company is enriched by the diversity of talented individuals from over 40 countries. It’s inspiring to be a leader of these motivated team players at Deriv.`,
+    index: 5,
+}
 
-const employee_testimonials = [kelcent, negar, mahdi]
+const employee_testimonials = [negar, ahmad, aditya, mei_theng, gary]
 
 const EmployeeTestimonialCarousel = () => {
-    const ref = React.useRef(null)
-
-    const goNext = () => {
-        if (ref.current !== null && ref.current.swiper !== null) {
-            ref.current.swiper.slideNext()
-        }
-    }
-
-    const goPrev = () => {
-        if (ref.current !== null && ref.current.swiper !== null) {
-            ref.current.swiper.slidePrev()
-        }
-    }
-
-    const params = {
-        lazy: true,
-        slidesPerView: 1,
-        spaceBetween: 30,
-        loop: true,
-        autoplay: {
-            delay: 15000,
-            disableOnInteraction: false,
+    const settings = {
+        options: {
+            loop: true,
         },
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
+        container_style: {
+            maxWidth: '1200px',
+            margin: '0 auto',
+        },
+        slide_style: {
+            minWidth: '100%',
+            position: 'relative',
+        },
+        chevron_style: {
+            chevron_color: 'black',
+            chevron_left: {
+                left: '2px',
+            },
+            chevron_right: {
+                right: '2px',
+            },
         },
     }
 
     return (
         <>
-            <Helmet>
-                <link rel="stylesheet" type="text/css" href="/css/swiper.css" />
-            </Helmet>
             <StyledSection padding="12rem 0">
                 <StyledHeader align="center" as="h2">
                     In the words of our employees
                 </StyledHeader>
-                <ButtonWrapper>
-                    <Next>
-                        <button onClick={goNext}>
-                            <ChevronRight />
-                        </button>
-                    </Next>
-                    <Prev>
-                        <button onClick={goPrev}>
-                            <ChevronLeft />
-                        </button>
-                    </Prev>
-                </ButtonWrapper>
-                <SliderWrapper>
-                    <SwiperWrapper>
-                        <Swiper {...params} ref={ref}>
-                            {employee_testimonials.map((employee_slide) => (
-                                <div className="swiper-slide" key={employee_slide.name}>
-                                    <EmployeeSlide
-                                        quote={employee_slide.quote}
-                                        name={employee_slide.name}
-                                        img_path={employee_slide.img_path}
-                                        img_alt={employee_slide.img_alt}
-                                    />
-                                </div>
-                            ))}
-                        </Swiper>
-                    </SwiperWrapper>
-                </SliderWrapper>
+                <Carousel has_autoplay autoplay_interval={4000} {...settings}>
+                    {employee_testimonials.map((employee_slide) => (
+                        <div className="swiper-slide" key={employee_slide.name}>
+                            <EmployeeSlide
+                                quote={employee_slide.quote}
+                                name={employee_slide.name}
+                                img_path={employee_slide.img_path}
+                                img_alt={employee_slide.img_alt}
+                            />
+                        </div>
+                    ))}
+                </Carousel>
             </StyledSection>
         </>
     )

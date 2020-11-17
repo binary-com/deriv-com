@@ -7,6 +7,7 @@ import {
     address_ipoh,
     address_melaka,
     address_cyprus,
+    address_rwanda,
 } from './_contact-details'
 
 export const cyberjaya = {
@@ -97,11 +98,11 @@ export const asuncion = {
     first_p: `Asunción has one of the lowest costs of living in the world, being ranked 386th out of 441 cities by Numbeo, the world's largest database of crowdsourced consumer data. International schools with a bilingual curriculum (Spanish and English) are popular among foreigners with children. You'll also have easy access to quality healthcare with well-equipped private hospitals staffed with English-speaking doctors.`,
     first_img: 'living_in_asuncion',
     grid_images: ['asuncion_grid_1', 'asuncion_grid_2', 'asuncion_grid_3', 'asuncion_grid_4'],
-    map: 'ChIJZ3I_twKmXZQRo0ucm6mpNjg',
+    map: 'ChIJJee11ZCpXZQRmP9o0jGMz98',
     map_text:
         'In Paraguay, our office is located at Edificio Australia, a picturesque building in the financial centre area of Asunción, the capital of Paraguay. Buses are the main mode of public transportation in this metropolitan city.',
     address: address_asuncion,
-    google_map_link: 'https://goo.gl/maps/Eii4K8ZHY94zjFf36',
+    google_map_link: 'https://goo.gl/maps/Y2VJmt6cPkdJpEoM7',
     has_iframe: true,
 }
 
@@ -154,13 +155,32 @@ export const cyprus = {
         'Cyprus has become an attractive place to live in with its gorgeous nature, excellent transport links to European and Middle Eastern countries, and growing expat communities. The mild, sub-tropical weather, delicious local cuisine, and stunning nature make working in Cyprus a daily joy.',
     first_img: 'living_in_cyprus',
     grid_images: ['cyprus_grid_1', 'cyprus_grid_2', 'cyprus_grid_3', 'cyprus_grid_4'],
-    map:
-        'EiNBZ2lhcyBGaWxheGVvcyA0MiwgTGltYXNzb2wsIEN5cHJ1cyIwEi4KFAoSCYs2ltEFM-cUEdbBL7gS9VPuECoqFAoSCUdu53KgM-cUEeQAkUhBWm5d',
+    map: 'ChIJa2t-XPkz5xQRSW5oufRJk-8',
     map_text: `We’re in Limassol, a city on the southern coast of Cyprus and about 85 km from the capital Nicosia. Lovely beaches, delicious cuisine, and golden weather make this city irresistible. A large expat community, widely accessible healthcare, and solid urban infrastructure make living and working here all the more joyful.`,
     address: address_cyprus,
-    google_map_link: 'https://goo.gl/maps/BA77GZmuEQzb798Q7',
+    google_map_link: 'https://goo.gl/maps/MP8aqZQ4xt8LJ9id9',
     has_iframe: true,
 }
+
+export const rwanda = {
+    name: 'rwanda',
+    link: '/careers/locations/rwanda',
+    display_name: 'Rwanda',
+    country: 'Rwanda',
+    thumbnail: 'thumbnail_rwanda',
+    header_p:
+        'Rwanda, the heart of Africa, is quickly becoming a regional hub for business communications and IT. The government has implemented progressive policies to create a knowledge-based economy. With beautiful mountains and grasslands, and a strong economy driven by agriculture and tourism, Rwanda is an East African gem waiting to be discovered.',
+    first_p:
+        'Rwanda is home to friendly locals, rich art, and unique cuisines. An environmentally-conscious country with zero plastic bags and a huge recycling initiative, Rwanda is one of the cleanest countries in Africa. With a stable political environment, tropical highland climate, and a growing expat community, it is an ideal location to live and work.',
+    first_img: 'living_in_rwanda',
+    grid_images: ['rwanda_grid_1', 'rwanda_grid_2', 'rwanda_grid_3', 'rwanda_grid_4'],
+    map: 'ChIJwc77Waml3BkRKuYdzjsIu7c',
+    map_text: `We are located in Kigali, the capital and largest city of Rwanda. Its modern infrastructure consists of advanced security systems, fiber optic internet, and cashless payment systems. Experience Kigali's vibrant nightlife and its intriguing mix of cultures. During your leisure time, enjoy freshly brewed coffee, sample tasty dishes, and visit a variety of museums and art galleries.`,
+    address: address_rwanda,
+    google_map_link: 'https://goo.gl/maps/hp1dv3TpYNMxa5fM9',
+    has_iframe: true,
+}
+
 export const locations = {
     cyberjaya: `${cyberjaya.display_name}, ${cyberjaya.country}`,
     malta: `${malta.display_name}`,
@@ -170,4 +190,5 @@ export const locations = {
     melaka: `${melaka.display_name}, ${melaka.country}`,
     ipoh: `${ipoh.display_name}, ${ipoh.country}`,
     cyprus: `${cyprus.display_name}, ${cyprus.country}`,
+    rwanda: `${rwanda.display_name}, ${rwanda.country}`,
 }

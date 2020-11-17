@@ -61,11 +61,11 @@ const StyledHeader = styled(Header)`
     }
 `
 const contents = [
-    <Localize key={0} translate_text="Tight spreads" />,
-    <Localize key={1} translate_text="Sharp prices" />,
+    <Localize key={0} translate_text="20+ years of experience" />,
+    <Localize key={1} translate_text="100+ tradeable assets" />,
     <Localize key={2} translate_text="24x7 trading" />,
-    <Localize key={3} translate_text="100+ tradeable assets" />,
-    <Localize key={4} translate_text="20+ years of experience" />,
+    <Localize key={3} translate_text="Sharp prices" />,
+    <Localize key={4} translate_text="Tight spreads" />,
 ]
 const TypeWriter = styled(Header)`
     min-height: 7.2rem;
@@ -137,20 +137,20 @@ export const Hero = () => {
                         <Show.Desktop>
                             <Flex mb="1.6rem" direction="column">
                                 <StyledHeader color="white" ad="0.5s">
-                                    <Localize translate_text="Simple" />
+                                    <Localize translate_text="Simple." />
                                 </StyledHeader>
                                 <StyledHeader color="white" ad="0.6s">
-                                    <Localize translate_text="Flexible" />
+                                    <Localize translate_text="Flexible." />
                                 </StyledHeader>
                                 <StyledHeader color="white" ad="0.7s">
-                                    <Localize translate_text="Reliable" />
+                                    <Localize translate_text="Reliable." />
                                 </StyledHeader>
                             </Flex>
                         </Show.Desktop>
                         <Show.Mobile>
                             <Flex>
                                 <StyledHeader color="white" ad="0.5s" mb="2rem">
-                                    <Localize translate_text="Simple Flexible Reliable" />
+                                    <Localize translate_text="Simple. Flexible. Reliable." />
                                 </StyledHeader>
                             </Flex>
                         </Show.Mobile>

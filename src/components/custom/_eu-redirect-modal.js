@@ -36,7 +36,7 @@ const ModalCard = styled.div`
         width: 80%;
     }
 `
-const CloseButton = styled(Close)`
+const CloseButton = styled.img`
     &:hover {
         cursor: pointer;
     }
@@ -108,8 +108,9 @@ const EURedirect = ({ toggle, is_open, closeModal, to, target, rel, ref, aria_la
                         <Text weight="bold">
                             <Localize translate_text="Redirect notice" />
                         </Text>
-                        <CloseButton onClick={toggle} />
+                        <CloseButton src={Close} alt="close-2" onClick={toggle} />
                     </Action>
+
                     <div>
                         <Text size="var(--text-size-xs)" m="2.4rem 0">
                             <Localize translate_text="You are being redirected to an external website." />

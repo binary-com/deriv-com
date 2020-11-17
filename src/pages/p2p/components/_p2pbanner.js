@@ -108,7 +108,7 @@ const P2PBanner = ({ title }) => {
 
     return (
         <div>
-            <Show.Desktop max_width="992">
+            <Show.Desktop min_width="992">
                 <Background
                     style={{ height: '340px', backgroundPosition: '20% 20%' }}
                     data={data['p2p_banner']}

@@ -1,41 +1,28 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
-import { LocationContext } from '../layout/location-context'
-import { size } from 'themes/device'
-
-const MaxWidth = styled.div`
-    @media (max-width: ${(props) => props.max_width}px) {
-        display: none !important;
-    }
-`
-
-const MinWidth = styled.div`
-    @media (min-width: ${(props) => props.min_width}px) {
-        display: none !important;
-    }
-`
+import { Media } from 'themes/media'
+import { DerivStore } from 'store'
 
 export const Desktop = ({ children, max_width, ...props }) => (
-    <MaxWidth max_width={max_width || size.tabletL} {...props}>
+    <Media greaterThanOrEqual={max_width || 'tabletL'} {...props}>
         {children}
-    </MaxWidth>
+    </Media>
 )
 export const Mobile = ({ children, min_width, ...props }) => (
-    <MinWidth min_width={min_width || size.tabletL} {...props}>
+    <Media between={['start', ...(min_width ? [min_width] : ['tabletL'])]} {...props}>
         {children}
-    </MinWidth>
+    </Media>
 )
 
 export const Eu = ({ children }) => {
-    const { is_eu_country } = React.useContext(LocationContext)
+    const { is_eu_country } = React.useContext(DerivStore)
 
     if (is_eu_country) return <>{children}</>
     else return null
 }
 
 export const NonEU = ({ children }) => {
-    const { is_eu_country } = React.useContext(LocationContext)
+    const { is_eu_country } = React.useContext(DerivStore)
 
     if (is_eu_country === false) return <>{children}</>
     else return null

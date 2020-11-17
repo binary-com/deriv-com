@@ -45,7 +45,7 @@ const MoreReason = () => {
                 </Header>
                 <StyledFlex wrap="wrap" jc="center">
                     <Reason>
-                        <HighValue />
+                        <img src={HighValue} alt="high value partnership" />
                         <Header as="h4" lh="1.5">
                             {localize('High-value partnership')}
                         </Header>
@@ -56,7 +56,7 @@ const MoreReason = () => {
                         </Text>
                     </Reason>
                     <Reason>
-                        <ProvenReferral />
+                        <img src={ProvenReferral} alt="proven referral tools" />
                         <Header as="h4" lh="1.5">
                             {localize('Proven creative materials')}
                         </Header>
@@ -67,7 +67,7 @@ const MoreReason = () => {
                         </Text>
                     </Reason>
                     <Reason>
-                        <GlobalAffiliate />
+                        <img src={GlobalAffiliate} alt="global affiliate support" />
                         <Header as="h4" lh="1.5">
                             {localize('Global affiliate support')}
                         </Header>

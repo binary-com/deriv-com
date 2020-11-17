@@ -75,12 +75,12 @@ const Cta = styled.div`
 const Col = ({ Icon, content, link_title, title, url }) => (
     <GridCol>
         <IconWrapper>
-            <Icon />
+            <img src={Icon} />
         </IconWrapper>
         <StyledHeader as="h4">{title}</StyledHeader>
         <Text lh="1.55">{content}</Text>
         <Cta>
-            <PDF />
+            <img src={PDF} alt="pdf icon black" />
             <a href={url} target="_blank" rel="noopener noreferrer">
                 {link_title}
             </a>

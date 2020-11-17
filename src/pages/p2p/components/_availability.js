@@ -126,7 +126,7 @@ const Availability = () => {
             >
                 <PlatformCard>
                     <Row>
-                        <Desktop />
+                        <img src={Desktop} alt="Desktop" />
                     </Row>
                     <Row>
                         <StyledCardHeader mobile_margin="unset" as="h4">
@@ -165,7 +165,7 @@ const Availability = () => {
                 <Line />
                 <PlatformCard>
                     <Row>
-                        <Mobile />
+                        <img src={Mobile} alt="Mobile" />
                     </Row>
                     <Row>
                         <StyledCardHeader mobile_margin="unset" as="h4">

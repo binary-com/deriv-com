@@ -15,7 +15,7 @@ import {
 const Symbol = styled(Flex)`
     width: fit-content;
 
-    svg {
+    img {
         width: 32px;
         height: 32px;
         margin-right: 0.8rem;
@@ -31,27 +31,27 @@ const Europe = () => {
     return (
         <>
             <Symbol ai="center">
-                <OTCDUTCH />
+                <img src={OTCDUTCH} />
                 <Text>{localize('Dutch Index')}</Text>
             </Symbol>
             <Symbol ai="center">
-                <EURO50INDEX />
+                <img src={EURO50INDEX} />
                 <Text>{localize('Euro 50 Index')}</Text>
             </Symbol>
             <Symbol ai="center">
-                <OTCFRENCH />
+                <img src={OTCFRENCH} />
                 <Text>{localize('French Index')}</Text>
             </Symbol>
             <Symbol ai="center">
-                <OTCGERMAN />
+                <img src={OTCGERMAN} />
                 <Text>{localize('German Index')}</Text>
             </Symbol>
             <Symbol ai="center">
-                <OTCSWISS />
+                <img src={OTCSWISS} />
                 <Text>{localize('Swiss Index')}</Text>
             </Symbol>
             <Symbol ai="center">
-                <OTCUK />
+                <img src={OTCUK} />
                 <Text>{localize('UK Index')}</Text>
             </Symbol>
         </>

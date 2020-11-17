@@ -209,7 +209,7 @@ const Hero = ({ title, content }) => {
 
     return (
         <div>
-            <Show.Desktop max_width="992">
+            <Show.Desktop min_width="992">
                 <HeroComponent
                     title={title}
                     content={content}

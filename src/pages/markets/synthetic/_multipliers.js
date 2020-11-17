@@ -44,7 +44,7 @@ const MarketsList = styled(CssGrid)`
         grid-template-columns: ${(props) =>
             props.mobile_col_template ? props.mobile_col_template : 'repeat(1, 1fr)'};
 
-        svg {
+        img {
             width: 16px;
             height: 16px;
             margin-right: 4px;
@@ -130,7 +130,7 @@ const Multipliers = () => {
                 <Show.Eu>
                     <Text mt="1.6rem" color="grey-5" size="var(--text-size-xs)">
                         {localize(
-                            'Return to player (RTP) % for a multiplier of 200 and a 1 hour duration is about 95% on average',
+                            'Return to Player (RTP) for multiplier options using multiplier 100 and duration of 1 hour is in the range of 98-99 % on an average. Using a different multiplier or duration may affect the RTP.',
                         )}
                     </Text>
                 </Show.Eu>

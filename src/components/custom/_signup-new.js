@@ -108,6 +108,11 @@ const SocialButton = styled(Button)`
         width: 20rem;
         height: 6rem;
     }
+    @media ${device.mobileM} {
+        &:first-child {
+            margin-right: 1.2rem;
+        }
+    }
 `
 
 const SocialWrapper = styled.div`
@@ -166,7 +171,7 @@ const StyledLinkText = styled(LinkText)`
         font-size: ${(props) => props.size};
     }
 `
-const StyledBinaryLogo = styled(BinaryLogo)`
+const StyledBinaryLogo = styled.img`
     margin-right: 0.8rem;
     margin-top: 1rem;
 
@@ -213,7 +218,7 @@ const SignupNew = ({
             </Show.Mobile>
 
             <NoteBox>
-                <StyledBinaryLogo />
+                <StyledBinaryLogo src={BinaryLogo} alt="binarylogo" />
                 <div>
                     <StyledText
                         mb="0.4rem"
@@ -310,7 +315,7 @@ const SignupNew = ({
                     social
                 >
                     <span>
-                        <Google />
+                        <img src={Google} alt="google" />
                     </span>
                     <Span>Google</Span>
                 </SocialButton>
@@ -323,7 +328,7 @@ const SignupNew = ({
                     social
                 >
                     <span>
-                        <Facebook />
+                        <img src={Facebook} alt="facebook" />
                     </span>
                     <Span>Facebook</Span>
                 </SocialButton>

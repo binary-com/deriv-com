@@ -5,6 +5,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import { StyledNav, NavWrapper, LogoLink, Wrapper, NavLeft } from './nav'
 import { localize } from 'components/localization'
 import { QueryImage } from 'components/elements'
+import { Show } from 'components/containers'
 import device from 'themes/device'
 import LogoCombinedShape from 'images/svg/logo-combined-shape.svg'
 
@@ -74,7 +75,12 @@ export const NavP2P = ({ is_p2p_v1 }) => {
                                 />
                             </StyledLogoLink>
                             <Line />
-                            <LogoCombinedShape />
+                            <Show.Desktop min_width="992">
+                                <img src={LogoCombinedShape} alt="get trading" />
+                            </Show.Desktop>
+                            <Show.Mobile>
+                                <img src={LogoCombinedShape} alt="get trading" width="71px" />
+                            </Show.Mobile>
                         </P2PNavLeft>
                     </StyledWrapper>
                 </StyledNav>

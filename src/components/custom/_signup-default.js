@@ -108,7 +108,7 @@ const SignupDefault = ({
                     social
                 >
                     <span>
-                        <Google />
+                        <img src={Google} alt="google" />
                     </span>
                 </SocialButton>
                 <SocialButton
@@ -120,7 +120,7 @@ const SignupDefault = ({
                     social
                 >
                     <span>
-                        <Facebook />
+                        <img src={Facebook} alt="facebook" />
                     </span>
                 </SocialButton>
             </SocialWrapper>

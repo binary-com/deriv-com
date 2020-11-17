@@ -7,7 +7,7 @@ import { Header, Accordion, AccordionItem } from 'components/elements'
 import DotPattern from 'images/svg/dot-pattern.svg'
 
 const AccordionWrapper = styled.div`
-    max-width: 99.6rem;
+    max-width: 79.2rem;
     margin: 0 auto;
     position: relative;
     z-index: 2;
@@ -18,12 +18,12 @@ const RelativeContainer = styled(SectionContainer)`
     overflow: hidden;
 `
 
-const TopLeftDot = styled(DotPattern)`
+const TopLeftDot = styled.img`
     position: absolute;
     top: 8rem;
     left: 0;
 `
-const BottomRightDot = styled(DotPattern)`
+const BottomRightDot = styled.img`
     position: absolute;
     bottom: 16px;
     right: 0;
@@ -89,8 +89,8 @@ const Faq = () => {
                     </AccordionItem>
                 </Accordion>
             </AccordionWrapper>
-            <TopLeftDot />
-            <BottomRightDot />
+            <TopLeftDot src={DotPattern} />
+            <BottomRightDot src={DotPattern} />
         </RelativeContainer>
     )
 }

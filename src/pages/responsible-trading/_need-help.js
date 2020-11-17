@@ -20,7 +20,7 @@ const help_content = [
         text2: (
             <Localize translate_text="GAMSTOP is a free service that enables you to self-exclude from all online gambling companies licensed in Great Britain." />
         ),
-        icon: <GamStop style={{ width: '91%', height: '100%' }} />,
+        icon: <img src={GamStop} alt="gamstop" style={{ width: '91%', height: '100%' }} />,
         link: (
             <LocalizedLinkText
                 mt="1rem"
@@ -41,7 +41,7 @@ const help_content = [
                 <Localize translate_text="Deriv.com supports BeGambleAware, the leading charity in Britain committed to minimising gambling-related harm. BeGambleAware offers a helpline for those seeking advice about their gambling. It also has resources to help assess potential gambling problems, and an online gambling calculator to see how much you can really spend." />
             </Text>
         ),
-        icon: <BeGambleAware style={{ width: '50%' }} />,
+        icon: <img src={BeGambleAware} alt="begambleaware" style={{ width: '50%' }} />,
         link: (
             <LocalizedLinkText
                 mt="1rem"
@@ -62,7 +62,7 @@ const help_content = [
                 <Localize translate_text="Clients must be aware that underage gambling is an offence. Deriv.com does not support gambling by those who are underaged. If a client, upon age verification, is proven to be underaged, they will be deprived of any winnings and only deposits made shall be refunded." />
             </Text>
         ),
-        icon: <Underage style={{ width: '60%' }} />,
+        icon: <img src={Underage} alt="underage" style={{ width: '60%' }} />,
     },
 
     {
@@ -72,7 +72,7 @@ const help_content = [
                 <Localize translate_text="Our site can be filtered using a number of filtering systems available on the market which could be used to restrict one's access to our site." />
             </Text>
         ),
-        icon: <Filtering style={{ width: '60%' }} />,
+        icon: <img src={Filtering} alt="filtering controls" style={{ width: '60%' }} />,
     },
 ]
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { Hero, SmallContainer, StyledHeader } from './components/_style'
 import HowTo from './components/_how-to'
@@ -74,7 +74,6 @@ const Separator = styled.div`
 
 const DMT5TradingSignals = () => {
     const [active_tab, setTab] = useTabState()
-    const [is_provider] = useState(true)
 
     React.useEffect(() => {
         if (getLocationHash() === active_tab) return
@@ -86,6 +85,8 @@ const DMT5TradingSignals = () => {
         }
         scrollTop()
     }, [getLocationHash()])
+
+    React.useEffect(() => {}, [active_tab])
 
     const handleTabChange = (tab_name) => {
         setTab(tab_name)
@@ -125,7 +126,7 @@ const DMT5TradingSignals = () => {
                 )}
                 {active_tab === 'signal-provider' && <Signal content={signal_content_provider} />}
             </Box>
-            <HowTo Steps={SignalSteps} is_provider={is_provider} />
+            <HowTo Steps={SignalSteps} active_tab={active_tab} />
         </Layout>
     )
 }

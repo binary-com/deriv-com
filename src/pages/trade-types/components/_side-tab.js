@@ -79,25 +79,26 @@ const Mobile = styled(Show.Mobile)`
     }
 `
 
-const TabPanel = ({ children }) => (
-    <TabContent role="tabpanel" tabindex="0">
+const TabPanel = ({ children, className }) => (
+    <TabContent className={className} role="tabpanel" tabindex="0">
         {children}
     </TabContent>
 )
 
 TabPanel.propTypes = {
     children: PropTypes.node,
+    className: PropTypes.string,
 }
 
-const Tabs = ({ children, is_reverse }) => {
+const Tabs = ({ children, is_reverse, className, max_width }) => {
     const [selected_tab, setSelectedTab] = React.useState(0)
     const selectTab = (tabIndex) => {
         setSelectedTab(tabIndex)
     }
 
     return (
-        <Flex ai="flex-start" direction={is_reverse ? 'row-reverse' : 'row'}>
-            <TabList role="tablist" is_reverse={is_reverse}>
+        <Flex className={className} ai="flex-start" direction={is_reverse ? 'row-reverse' : 'row'}>
+            <TabList className="side-tab__list" role="tablist" is_reverse={is_reverse}>
                 {React.Children.map(children, (child, index) => {
                     const {
                         props: { label, description },
@@ -110,17 +111,21 @@ const Tabs = ({ children, is_reverse }) => {
                                 aria-selected={selected_tab === index ? 'true' : 'false'}
                                 onClick={() => selectTab(index)}
                             >
-                                <Text weight="bold">{label}</Text>
-                                <Text mt="0.8rem">{description}</Text>
+                                <Text className="side-tab__label" weight="bold">
+                                    {label}
+                                </Text>
+                                <Text className="side-tab__description" mt="0.8rem">
+                                    {description}
+                                </Text>
                             </TabButton>
-                            <Mobile min_width={'tabletS'}>
+                            <Mobile className="side-tab__mobile" min_width={max_width || 'tabletS'}>
                                 <Content>{selected_tab === index ? child : undefined}</Content>
                             </Mobile>
                         </>
                     )
                 })}
             </TabList>
-            <Desktop max_width={'tabletS'}>
+            <Desktop className="side-tab__desktop" max_width={max_width || 'tabletS'}>
                 <Content>
                     {React.Children.map(children, (el, index) => {
                         return selected_tab === index ? el : undefined
@@ -135,7 +140,9 @@ Tabs.Panel = TabPanel
 
 Tabs.propTypes = {
     children: PropTypes.node,
+    className: PropTypes.string,
     is_reverse: PropTypes.bool,
+    max_width: PropTypes.string,
     tab_break: PropTypes.string,
 }
 

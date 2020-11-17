@@ -56,12 +56,6 @@ const Wrapper = styled.div`
     margin-top: 4rem;
 `
 
-const ImageWrapper = styled.img`
-    margin-right: 1.6rem;
-    width: 48px;
-    height: 48px;
-`
-
 const Content = styled.div`
     display: flex;
     flex-direction: column;
@@ -154,7 +148,7 @@ const ContentWrapper = styled(Wrapper)`
 const HowToApplyContent = styled.div`
     display: flex;
     padding-bottom: 4 rem;
-    
+
     img {
         margin-right: 1.6rem;
     }

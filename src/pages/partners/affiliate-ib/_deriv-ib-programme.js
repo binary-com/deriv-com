@@ -165,6 +165,10 @@ const TitleTR = styled(TR)`
     height: 5rem;
     display: flex;
     align-items: center;
+
+    @media ${device.tabletL} {
+        height: 60px;
+    }
 `
 const DerivIBProgramme = () => {
     return (
@@ -227,7 +231,7 @@ const SyntheticTable = styled(Table)`
     grid-template-columns: 53% 50%;
 
     @media ${device.tabletL} {
-        grid-template-columns: 55% 50%;
+        grid-template-columns: 54% 50%;
     }
 `
 const StyledLinkButton = styled(LinkButton)`
@@ -253,7 +257,7 @@ const DMT5Synthetic = ({ data }) => {
     }
     return (
         <StyledCard
-            height={is_expand && !is_calculated ? '80rem' : '43rem'}
+            height={is_expand && !is_calculated ? '83rem' : '44rem'}
             padding="3.2rem 3.2rem 8.2rem"
             width="43rem"
         >

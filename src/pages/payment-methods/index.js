@@ -5,6 +5,7 @@ import { Helmet } from 'react-helmet'
 import Scrollbar from 'react-perfect-scrollbar'
 import ExpandList from './_expanded-list'
 import payment_data from './_payment-data'
+import Dp2p from './_dp2p'
 import Layout from 'components/layout/layout'
 import { Text, Header, Divider, Accordion, AccordionItem } from 'components/elements'
 import { SEO, SectionContainer, Container } from 'components/containers'
@@ -226,6 +227,12 @@ const PaymentMethods = () => {
                             components={[<strong key={0} />]}
                         />
                     </Text>
+                </Container>
+            </SectionContainer>
+            <Divider height="2px" />
+            <SectionContainer>
+                <Container direction="column">
+                    <Dp2p />
                 </Container>
             </SectionContainer>
         </Layout>

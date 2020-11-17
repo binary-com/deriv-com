@@ -53,7 +53,9 @@ const Variables = css`
         --color-blue: #4c76be;
         --color-blue-2: #365899;
         --color-blue-3: #2a3052;
-        --color-blue-4: #4fb5b3;
+        --color-blue-4: #f1f6f7;
+        --color-blue-5: #85abaf;
+        --color-blue-6: #4fb5b3;
         --color-yellow: #fff2df;
         --color-orange: #ff6544;
         --color-green-1: #bccdce;

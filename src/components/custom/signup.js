@@ -104,9 +104,38 @@ class Signup extends Component {
             type: 'account_opening',
             url_parameters: {
                 utm_source: TrafficSource.getSource(utm_data),
+                ...(utm_data.utm_ad_id && {
+                    utm_ad_id: utm_data.utm_ad_id,
+                }),
+                ...(utm_data.utm_adgroup_id && {
+                    utm_adgroup_id: utm_data.utm_adgroup_id,
+                }),
+                ...(utm_data.utm_adrollclk_id && {
+                    utm_adrollclk_id: utm_data.utm_adrollclk_id,
+                }),
                 ...(utm_data.utm_campaign && {
-                    utm_medium: utm_data.utm_medium,
                     utm_campaign: utm_data.utm_campaign,
+                }),
+                ...(utm_data.utm_campaign_id && {
+                    utm_campaign_id: utm_data.utm_campaign_id,
+                }),
+                ...(utm_data.utm_content && {
+                    utm_content: utm_data.utm_content,
+                }),
+                ...(utm_data.utm_fbcl_id && {
+                    utm_fbcl_id: utm_data.utm_fbcl_id,
+                }),
+                ...(utm_data.utm_gl_client_id && {
+                    utm_gl_client_id: utm_data.utm_gl_client_id,
+                }),
+                ...(utm_data.utm_medium && {
+                    utm_medium: utm_data.utm_medium,
+                }),
+                ...(utm_data.utm_msclk_id && {
+                    utm_msclk_id: utm_data.utm_msclk_id,
+                }),
+                ...(utm_data.utm_term && {
+                    utm_term: utm_data.utm_term,
                 }),
                 ...(affiliate_token && { affiliate_token: affiliate_token }),
                 ...(gclid && { gclid_url: gclid }),

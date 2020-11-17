@@ -25,6 +25,15 @@ const Login = (() => {
         const utm_data = TrafficSource.getData()
         const utm_source = TrafficSource.getSource(utm_data)
         const utm_source_link = utm_source ? `&utm_source=${utm_source}` : ''
+        const utm_ad_id_link = utm_data.utm_ad_id ? `&utm_medium=${utm_data.utm_ad_id}` : ''
+        const utm_adgroup_id_link = utm_data.utm_adgroup_id ? `&utm_medium=${utm_data.utm_adgroup_id}` : ''
+        const utm_adrollclk_id_link = utm_data.utm_adrollclk_id ? `&utm_medium=${utm_data.utm_adrollclk_id}` : ''
+        const utm_campaign_id_link = utm_data.utm_campaign_id ? `&utm_medium=${utm_data.utm_campaign_id}` : ''
+        const utm_content_link = utm_data.utm_content ? `&utm_medium=${utm_data.utm_content}` : ''
+        const utm_fbcl_id_link = utm_data.utm_fbcl_id ? `&utm_medium=${utm_data.utm_fbcl_id}` : ''
+        const utm_gl_client_id_link = utm_data.utm_gl_client_id ? `&utm_medium=${utm_data.utm_gl_client_id}` : ''
+        const utm_msclk_id_link = utm_data.utm_msclk_id ? `&utm_medium=${utm_data.utm_msclk_id}` : ''
+        const utm_term_link = utm_data.utm_term ? `&utm_medium=${utm_data.utm_term}` : ''
         const utm_medium_link = utm_data.utm_medium ? `&utm_medium=${utm_data.utm_medium}` : ''
         const utm_campaign_link = utm_data.utm_campaign
             ? `&utm_campaign=${utm_data.utm_campaign}`
@@ -35,8 +44,8 @@ const Login = (() => {
         const deriv_app_app_id = 16929
 
         return server_url && /qa/.test(server_url)
-            ? `https://${server_url}/oauth2/authorize?app_id=${getAppId()}&l=${language}${marketing_queries}&brand=${brand_name.toLowerCase()}${affiliate_token_link}${utm_source_link}${utm_medium_link}${utm_campaign_link}`
-            : `https://oauth.deriv.com/oauth2/authorize?app_id=${deriv_app_app_id}&l=${language}${marketing_queries}&brand=${brand_name.toLowerCase()}${affiliate_token_link}${utm_source_link}${utm_medium_link}${utm_campaign_link}`
+            ? `https://${server_url}/oauth2/authorize?app_id=${getAppId()}&l=${language}${marketing_queries}&brand=${brand_name.toLowerCase()}${affiliate_token_link}${utm_source_link}${utm_medium_link}${utm_campaign_link}${utm_ad_id_link}${utm_adgroup_id_link}${utm_adrollclk_id_link}${utm_campaign_id_link}${utm_content_link}${utm_fbcl_id_link}${utm_gl_client_id_link}${utm_msclk_id_link}${utm_term_link}`
+            : `https://oauth.deriv.com/oauth2/authorize?app_id=${deriv_app_app_id}&l=${language}${marketing_queries}&brand=${brand_name.toLowerCase()}${affiliate_token_link}${utm_source_link}${utm_medium_link}${utm_campaign_link}${utm_ad_id_link}${utm_adgroup_id_link}${utm_adrollclk_id_link}${utm_campaign_id_link}${utm_content_link}${utm_fbcl_id_link}${utm_gl_client_id_link}${utm_msclk_id_link}${utm_term_link}`
     }
 
     const initOneAll = (provider) => {

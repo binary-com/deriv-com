@@ -141,7 +141,7 @@ const DocumentAccordion = () => {
     }
 
     return (
-        <Accordion has_single_state>
+        <Accordion has_single_state id="kid">
             <AccordionItem
                 header={localize('Pillar III disclosures')}
                 content_style={content_style}

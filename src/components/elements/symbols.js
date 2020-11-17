@@ -5,7 +5,15 @@ import AUDJPY from 'images/svg/symbols/aud-jpy.svg'
 import AUDNZD from 'images/svg/symbols/aud-nzd.svg'
 import AUDSGD from 'images/svg/symbols/aud-sgd.svg'
 import AUDUSD from 'images/svg/symbols/aud-usd.svg'
+import BCHUSD from 'images/svg/symbols/bch-usd.svg'
+import BTCUSD from 'images/svg/symbols/btc-usd.svg'
+import CADCHF from 'images/svg/symbols/cad-chf.svg'
+import CADJPY from 'images/svg/symbols/cad-jpy.svg'
+import CLBRENT from 'images/svg/symbols/cl-brent.svg'
 import CHFJPY from 'images/svg/symbols/chf-jpy.svg'
+import DAX30 from 'images/svg/symbols/dax-30.svg'
+import DSHUSD from 'images/svg/symbols/dsh-usd.svg'
+import EOSUSD from 'images/svg/symbols/eos-usd.svg'
 import EURAUD from 'images/svg/symbols/eur-aud.svg'
 import EURCAD from 'images/svg/symbols/eur-cad.svg'
 import EURCHF from 'images/svg/symbols/eur-chf.svg'
@@ -31,6 +39,8 @@ import GBPSGD from 'images/svg/symbols/gbp-sgd.svg'
 import GBPTRY from 'images/svg/symbols/gbp-try.svg'
 import GBPUSD from 'images/svg/symbols/gbp-usd.svg'
 import HKDJPY from 'images/svg/symbols/hkd-jpy.svg'
+import LTCUSD from 'images/svg/symbols/lct-usd.svg'
+import NZDCAD from 'images/svg/symbols/nzd-cad.svg'
 import NZDCHF from 'images/svg/symbols/nzd-chf.svg'
 import NZDJPY from 'images/svg/symbols/nzd-jpy.svg'
 import NZDSGD from 'images/svg/symbols/nzd-sgd.svg'
@@ -50,6 +60,7 @@ import USDSEK from 'images/svg/symbols/usd-sek.svg'
 import USDSGD from 'images/svg/symbols/usd-sgd.svg'
 import USDTHB from 'images/svg/symbols/usd-thb.svg'
 import USDTRY from 'images/svg/symbols/usd-try.svg'
+import USDZAR from 'images/svg/symbols/usd-zar.svg'
 import INDEX10 from 'images/svg/symbols/index10.svg'
 import INDEX25 from 'images/svg/symbols/index25.svg'
 import INDEX50 from 'images/svg/symbols/index50.svg'
@@ -89,6 +100,7 @@ import OILUSD from 'images/svg/symbols/oil-usd.svg'
 import EURO50INDEX from 'images/svg/symbols/euro50index.svg'
 import RANGEBREAK100 from 'images/svg/symbols/rb-100.svg'
 import RANGEBREAK200 from 'images/svg/symbols/rb-200.svg'
+import XRPUSD from 'images/svg/symbols/xrp-usd.svg'
 
 export {
     AUDCAD,
@@ -98,7 +110,14 @@ export {
     AUDNZD,
     AUDSGD,
     AUDUSD,
+    BCHUSD,
+    BTCUSD,
+    CADCHF,
+    CADJPY,
     CHFJPY,
+    CLBRENT,
+    DSHUSD,
+    EOSUSD,
     EURAUD,
     EURCAD,
     EURCHF,
@@ -123,7 +142,10 @@ export {
     GBPSGD,
     GBPTRY,
     GBPUSD,
+    DAX30,
     HKDJPY,
+    LTCUSD,
+    NZDCAD,
     NZDCHF,
     NZDJPY,
     NZDSGD,
@@ -143,6 +165,7 @@ export {
     USDSGD,
     USDTHB,
     USDTRY,
+    USDZAR,
     INDEX10,
     INDEX25,
     INDEX50,
@@ -182,4 +205,5 @@ export {
     EURO50INDEX,
     RANGEBREAK100,
     RANGEBREAK200,
+    XRPUSD,
 }

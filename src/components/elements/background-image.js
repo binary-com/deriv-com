@@ -12,7 +12,7 @@ const StyledBackground = styled(BackgroundImage)`
     }
 `
 
-const Background = ({ children, data, style, dark, ...props }) => {
+export const Background = ({ children, data, style, dark, ...props }) => {
     return (
         <StyledBackground
             Tag="div"

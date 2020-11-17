@@ -65,11 +65,11 @@ const AccordionWrapper = styled.div`
 const TRANSITION_DURATION = 250
 
 // TODO: keyboard events and find a way to add proper focus handling
-const Accordion = ({ children, has_single_state, is_default_open }) => {
+const Accordion = ({ children, has_single_state, id, is_default_open }) => {
     const nodes = []
 
     return has_single_state ? (
-        <SingleAccordionContent is_default_open={is_default_open} nodes={nodes}>
+        <SingleAccordionContent id={id} is_default_open={is_default_open} nodes={nodes}>
             {children}
         </SingleAccordionContent>
     ) : (
@@ -79,11 +79,12 @@ const Accordion = ({ children, has_single_state, is_default_open }) => {
 Accordion.propTypes = {
     children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
     has_single_state: PropTypes.bool,
+    id: PropTypes.string,
     is_default_open: PropTypes.bool,
     nodes: PropTypes.array,
 }
 
-const ItemExpanded = ({ is_default_open, child, child_idx, nodes }) => {
+const ItemExpanded = ({ is_default_open, child, child_idx, nodes, id }) => {
     const getHeight = (active_idx) => {
         return (
             nodes[active_idx] &&
@@ -95,7 +96,7 @@ const ItemExpanded = ({ is_default_open, child, child_idx, nodes }) => {
         // set height to auto to allow content that can resize inside the accordion
         // reset height to content height before collapse for transition (height: auto does not support transitions)
         if (is_expanded) setTimeout(() => setHeight('auto'), 200)
-        else setTimeout(() => setHeight(0), 50)
+        else setHeight(0)
     })
 
     React.useEffect(() => {
@@ -110,6 +111,7 @@ const ItemExpanded = ({ is_default_open, child, child_idx, nodes }) => {
                 <ResponsiveWrapper
                     key={child_idx}
                     style={child.props.parent_style}
+                    id={id}
                     ref={(div) => {
                         nodes[child_idx] = { ref: div }
                     }}
@@ -168,11 +170,12 @@ const ItemExpanded = ({ is_default_open, child, child_idx, nodes }) => {
 ItemExpanded.propTypes = {
     child: PropTypes.any,
     child_idx: PropTypes.any,
+    id: PropTypes.string,
     is_default_open: PropTypes.bool,
     nodes: PropTypes.any,
 }
 
-const SingleAccordionContent = ({ is_default_open = false, nodes, children }) => {
+const SingleAccordionContent = ({ is_default_open = false, nodes, children, id }) => {
     const render_nodes = React.Children.map(children, (child, child_idx) => {
         return (
             <ItemExpanded
@@ -181,6 +184,7 @@ const SingleAccordionContent = ({ is_default_open = false, nodes, children }) =>
                 child={child}
                 child_idx={child_idx}
                 nodes={nodes}
+                id={id}
             />
         )
     })
@@ -190,6 +194,7 @@ const SingleAccordionContent = ({ is_default_open = false, nodes, children }) =>
 
 SingleAccordionContent.propTypes = {
     children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
+    id: PropTypes.string,
     is_default_open: PropTypes.bool,
     nodes: PropTypes.array,
 }
@@ -280,12 +285,13 @@ const AccordionContent = ({ children, nodes }) => {
 AccordionContent.propTypes = {
     children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
     has_single_state: PropTypes.bool,
+    id: PropTypes.string,
     nodes: PropTypes.array,
 }
 
-const AccordionItem = ({ text, children, style }) => {
+const AccordionItem = ({ id, text, children, style }) => {
     return (
-        <div style={style} header={text}>
+        <div style={style} header={text} id={id}>
             {children}
         </div>
     )
@@ -293,6 +299,7 @@ const AccordionItem = ({ text, children, style }) => {
 
 AccordionItem.propTypes = {
     children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
+    id: PropTypes.string,
     is_showed: PropTypes.bool,
     style: PropTypes.object,
     text: PropTypes.string,

@@ -119,6 +119,8 @@ const Item = styled.div`
 `
 
 const ResponsiveText = styled(Text)`
+    white-space: nowrap;
+
     @media ${device.mobileL} {
         display: none;
     }

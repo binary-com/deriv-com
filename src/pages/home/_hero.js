@@ -65,11 +65,11 @@ const MobileHeader = styled(Header)`
     font-size: 4rem;
 `
 const contents = [
-    <Localize key={0} translate_text="Tight spreads" />,
-    <Localize key={1} translate_text="Sharp prices" />,
+    <Localize key={0} translate_text="20+ years of experience" />,
+    <Localize key={1} translate_text="100+ tradeable assets" />,
     <Localize key={2} translate_text="24x7 trading" />,
-    <Localize key={3} translate_text="100+ tradeable assets" />,
-    <Localize key={4} translate_text="20+ years of experience" />,
+    <Localize key={3} translate_text="Sharp prices" />,
+    <Localize key={4} translate_text="Tight spreads" />,
 ]
 const TypeWriter = styled(Header)`
     min-height: 7.2rem;

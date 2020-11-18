@@ -4,7 +4,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import { OurStory } from './_our-story'
 import Leaders from './_leaders'
 import { Container, Box, Flex, SEO, Show } from 'components/containers'
-import { isBrowser } from 'common/utility'
+import { getWindowWidth, isBrowser } from 'common/utility'
 import { useTabState } from 'components/hooks/use-tab-state'
 import Layout from 'components/layout/layout'
 import { localize, Localize, WithIntl } from 'components/localization'
@@ -163,8 +163,8 @@ const About = () => {
     const [is_leadership, setLeadership] = useState(false)
 
     useEffect(() => {
-        setMobile(isBrowser() && window.screen.width <= size.tablet)
-    }, [window.screen.width])
+        setMobile(isBrowser() && getWindowWidth() <= size.tablet)
+    }, [getWindowWidth()])
 
     useEffect(() => {
         setStory(active_tab === 'story')

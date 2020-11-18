@@ -1,41 +1,32 @@
 import { useState, useEffect } from 'react'
-import { isBrowser, scrollTop } from 'common/utility'
-
-const getHashValue = hash => hash ? hash.slice(1) : null
-const checkTabList = (tab_list, tab) => tab_list.includes(tab)
+import { checkElemInArray, getLocationHash, isBrowser, routeBack, scrollTop, setLocationHash,  } from 'common/utility'
 
 export const useTabState = (tab_list) => {
     const [active_tab, setActiveTab] = useState(tab_list[0])
 
     useEffect(() => {
-        const hash_val = getHashValue(location.hash)
-        
-        if (!location.hash || !checkTabList(tab_list, hash_val)) {
-            location.hash = `#${active_tab}`
+        if (!getLocationHash() || !checkElemInArray(tab_list, getLocationHash())) {
+            setLocationHash(active_tab)
         } else {
-            setActiveTab(hash_val)
+            setActiveTab(getLocationHash())
             scrollTop()
         }
     }, [])
 
     useEffect(() => {
-        const hash_val = getHashValue(location.hash)
-        
-        if (hash_val !== active_tab && isBrowser()) {
-            location.hash = `#${active_tab}`
+        if (getLocationHash() !== active_tab && isBrowser()) {
+            setLocationHash(active_tab)
         }
     }, [active_tab])
 
     useEffect(() => {
-        const hash_val = getHashValue(location.hash)
-        
-        if (hash_val !== active_tab && checkTabList(tab_list, hash_val)) {
-            setActiveTab(hash_val)
+        if (getLocationHash() !== active_tab && checkElemInArray(tab_list, getLocationHash())) {
+            setActiveTab(getLocationHash())
             scrollTop()
-        } else if (!checkTabList(tab_list, hash_val)) {
-            window.history.back()
+        } else if (!checkElemInArray(tab_list, getLocationHash())) {
+            routeBack()
         }
-    }, [location.hash])
+    }, [getLocationHash()])
 
     return [active_tab, setActiveTab]
 }

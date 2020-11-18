@@ -179,6 +179,7 @@ export const Hero = () => {
                                 data={data.background_mobile}
                                 alt="platform devices mobile"
                                 width="100%"
+                                height="233"
                             />
                         </Show.Mobile>
                         <Show.Desktop>
@@ -186,6 +187,7 @@ export const Hero = () => {
                                 data={data.background}
                                 alt="platform devices"
                                 width="100%"
+                                height="346"
                             />
                         </Show.Desktop>
                     </ImageWrapper>

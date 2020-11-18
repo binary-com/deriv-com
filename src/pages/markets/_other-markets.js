@@ -44,7 +44,7 @@ const markets_type = {
 
     commodities: {
         // eslint-disable-next-line react/display-name
-        icon: () => <img src={Commodities} width="64" height="64" />,
+        icon: () => <img src={Commodities} alt="commodities" width="64" height="64" />,
         title: <Localize translate_text="Commodities" />,
         content: (
             <Localize translate_text="Commodities trading on Deriv lets you profit from correctly predicting the market movement on precious metals and crude oil." />

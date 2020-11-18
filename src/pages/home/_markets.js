@@ -100,7 +100,7 @@ const Markets = () => (
                     </div>
                 </MarketCard>
                 <MarketCard mr="2.4rem">
-                    <img src={CommoditiesIcon} width="64" height="64" />
+                    <img src={CommoditiesIcon} alt="commodities" width="64" height="64" />
                     <div>
                         <Header as="h3" size="var(--text-size-m)">
                             {localize('Commodities')}

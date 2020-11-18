@@ -19,17 +19,17 @@ import { ReactComponent as MarginTrading } from 'images/svg/margin-trading-nav.s
 import { ReactComponent as Options } from 'images/svg/options-nav.svg'
 import { ReactComponent as Multipliers } from 'images/svg/multipliers-nav.svg'
 import Story from 'images/svg/menu/story.svg'
-import Leadership from 'components/svgs/leadership'
-import Partner from 'components/svgs/partner'
-import Choose from 'components/svgs/choose'
-import Contact from 'components/svgs/contact'
-import Career from 'components/svgs/careers'
-import Help from 'components/svgs/help-centre'
-import Payment from 'components/svgs/payment-methods'
-import Regulatory from 'components/svgs/regulatory'
-import Terms from 'components/svgs/terms'
-import SecureTrading from 'components/svgs/secure-trading'
-import Community from 'components/svgs/community'
+import Leadership from 'images/svg/menu/leadership.svg'
+import Partner from 'images/svg/menu/partner.svg'
+import Choose from 'images/svg/menu/choose.svg'
+import Contact from 'images/svg/menu/contact.svg'
+import Career from 'images/svg/menu/careers.svg'
+import Help from 'images/svg/menu/help-center.svg'
+import Payment from 'images/svg/menu/payment-methods.svg'
+import Regulatory from 'images/svg/menu/regulatory.svg'
+import Terms from 'images/svg/menu/terms.svg'
+import SecureTrading from 'images/svg/menu/secure-trading.svg'
+import Community from 'images/svg/menu/community.svg'
 import { ReactComponent as Diagonal } from 'images/svg/pink-right-diagonal.svg'
 
 const OffCanvasMenu = styled.section`
@@ -279,31 +279,31 @@ export const OffCanvasMenuWrapper = (props) => {
                         </StyledLink>
                         <StyledLink to="/about/#leadership" onClick={handleArrowClick}>
                             <div>
-                                <Leadership dynamic_id="leadership-mobile" />
+                                <img src={Leadership} alt="leadership" width="24" height="24" />
                             </div>
                             <span>{localize('Our leadership')}</span>
                         </StyledLink>
                         <StyledLink to="/partners/" onClick={handleArrowClick}>
                             <div>
-                                <Partner dynamic_id="partner-mobile" />
+                                <img src={Partner} alt="partner" width="24" height="24" />
                             </div>
                             <span>{localize('Partnership programmes')}</span>
                         </StyledLink>
                         <StyledLink to="/why-choose-us/" onClick={handleArrowClick}>
                             <div>
-                                <Choose dynamic_id="choose-mobile" />
+                                <img src={Choose} alt="choose" width="24" height="24" />
                             </div>
                             <span>{localize('Why choose us?')}</span>
                         </StyledLink>
                         <StyledLink to="/contact-us/" onClick={handleArrowClick}>
                             <div>
-                                <Contact dynamic_id="contact-mobile" />
+                                <img src={Contact} alt="contact" width="24" height="24" />
                             </div>
                             <span>{localize('Contact us')}</span>
                         </StyledLink>
                         <StyledLink to="/careers/" onClick={handleArrowClick}>
                             <div>
-                                <Career dynamic_id="career-mobile" />
+                                <img src={Career} alt="career" width="24" height="24" />
                             </div>
                             <Span>{localize('Careers')}</Span>
                             <SpanSvg>
@@ -318,7 +318,7 @@ export const OffCanvasMenuWrapper = (props) => {
                     >
                         <StyledLink to="/help-centre/" onClick={handleArrowClick}>
                             <div>
-                                <Help dynamic_id="help-mobile" />
+                                <img src={Help} alt="help" width="24" height="24" />
                             </div>
                             <span>{localize('Help centre')}</span>
                         </StyledLink>
@@ -328,7 +328,7 @@ export const OffCanvasMenuWrapper = (props) => {
                         </StyledLink> */}
                         <StyledLink to="/payment-methods/" onClick={handleArrowClick}>
                             <div>
-                                <Payment dynamic_id="payment-mobile" />
+                                <img src={Payment} alt="payment" width="24" height="24" />
                             </div>
                             <span>{localize('Payment methods')}</span>
                         </StyledLink>
@@ -340,7 +340,7 @@ export const OffCanvasMenuWrapper = (props) => {
                             rel="noopener noreferrer"
                         >
                             <div>
-                                <Community dynamic_id="community-mobile" />
+                                <img src={Community} alt="community" width="24" height="24" />
                             </div>
                             <Span>{localize('Community')}</Span>
                             <SpanSvg>
@@ -355,19 +355,24 @@ export const OffCanvasMenuWrapper = (props) => {
                     >
                         <StyledLink to="/regulatory/" onClick={handleArrowClick}>
                             <div>
-                                <Regulatory dynamic_id="regulatory-mobile" />
+                                <img src={Regulatory} alt="regulatory" width="24" height="24" />
                             </div>
                             <span>{localize('Regulatory information')}</span>
                         </StyledLink>
                         <StyledLink to="/terms-and-conditions/" onClick={handleArrowClick}>
                             <div>
-                                <Terms dynamic_id="terms-mobile" />
+                                <img src={Terms} alt="terms" width="24" height="24" />
                             </div>
                             <span>{localize('Terms and conditions')}</span>
                         </StyledLink>
                         <StyledLink to="/responsible-trading/" onClick={handleArrowClick}>
                             <div>
-                                <SecureTrading dynamic_id="secure-trading-mobile" />
+                                <img
+                                    src={SecureTrading}
+                                    alt="secure trading"
+                                    width="24"
+                                    height="24"
+                                />
                             </div>
                             <span>{localize('Secure and responsible trading')}</span>
                         </StyledLink>

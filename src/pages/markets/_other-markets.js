@@ -5,17 +5,18 @@ import { Flex, SectionContainer, Show } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { localize, Localize, LocalizedLink } from 'components/localization'
 import Box from 'components/containers/box'
-import Commodities from 'images/svg/markets/commodities.svg'
 //TODO: using temp svg as a function for having dynamic id
-import Forex from 'components/svgs/_market-forex.js'
-import StockIndices from 'components/svgs/_market-stock.js'
-import SyntheticIndices from 'components/svgs/_market-synthetic.js'
+import Commodities from 'images/svg/markets/commodities.svg'
+import Forex from 'images/svg/markets/forex.svg'
+import StockIndices from 'images/svg/markets/stock.svg'
+import SyntheticIndices from 'images/svg/markets/synthetic.svg'
 import Arrow from 'images/svg/arrow-right.svg'
 import device from 'themes/device'
 
 const markets_type = {
     forex: {
-        icon: Forex,
+        // eslint-disable-next-line react/display-name
+        icon: () => <img src={Forex} alt="forex" width="64" height="64" />,
         title: <Localize translate_text="Forex" />,
         content: (
             <Localize translate_text="Forex trading gives you the chance to profit from changes in the relative values of currencies on the forex market." />
@@ -24,7 +25,8 @@ const markets_type = {
         id: 'marketforexothermarkets',
     },
     Synthetic_Indices: {
-        icon: SyntheticIndices,
+        // eslint-disable-next-line react/display-name
+        icon: () => <img src={SyntheticIndices} alt="synthetic" width="64" height="64" />,
         title: <Localize translate_text="Synthetic indices" />,
         content: (
             <Localize translate_text="Synthetic indices are our proprietary indices that simulate real-world market movements while being free of market and liquidity risks." />
@@ -33,7 +35,8 @@ const markets_type = {
         id: 'marketsyntheticothermarkets',
     },
     stock_indices: {
-        icon: StockIndices,
+        // eslint-disable-next-line react/display-name
+        icon: () => <img src={StockIndices} alt="stock" width="64" height="64" />,
         title: <Localize translate_text="Stock indices" />,
         content: (
             <Localize translate_text="Stock indices trading allows you to profit from the price movements in a market without buying the underlying assets." />

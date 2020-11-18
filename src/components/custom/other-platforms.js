@@ -27,15 +27,15 @@ import { ReactComponent as Commodities } from 'images/svg/commodities-nav.svg'
 import { ReactComponent as StockIndices } from 'images/svg/stock-indices-nav.svg'
 import { ReactComponent as SyntheticIndices } from 'images/svg/synthetic-indices-nav.svg'
 import Story from 'images/svg/menu/story.svg'
-import Leadership from 'components/svgs/leadership'
-import Partner from 'components/svgs/partner'
-import Choose from 'components/svgs/choose'
-import Contact from 'components/svgs/contact'
-import Career from 'components/svgs/careers'
-import Help from 'components/svgs/help-centre'
-import Community from 'components/svgs/community'
-import Payment from 'components/svgs/payment-methods'
-import RegulatoryInfo from 'components/svgs/regulatory-info'
+import Leadership from 'images/svg/menu/leadership.svg'
+import Partner from 'images/svg/menu/partner.svg'
+import Choose from 'images/svg/menu/choose.svg'
+import Contact from 'images/svg/menu/contact.svg'
+import Career from 'images/svg/menu/careers.svg'
+import Help from 'images/svg/menu/help-center.svg'
+import Community from 'images/svg/menu/community.svg'
+import Payment from 'images/svg/menu/payment-methods.svg'
+import RegulatoryInfo from 'images/svg/menu/regulatory.svg'
 
 const MarginDivider = styled(Divider)`
     margin: 0 0.8rem;
@@ -357,38 +357,38 @@ export const NavCompany = ({ onClick }) => (
             to="/about/#story"
         />
         <CardLink
-            icon={() => <Leadership dynamic_id="leadership-desktop" />}
+            icon={() => <img src={Leadership} alt="leadership" width="24" height="24" />}
             title={localize('Our leadership')}
             onClick={onClick}
             to="/about/#leadership"
         />
         <CardLink
-            icon={() => <RegulatoryInfo dynamic_id="regulatory-information" />}
+            icon={() => <img src={RegulatoryInfo} alt="regulatory" width="24" height="24" />}
             title={localize('Regulatory information')}
             onClick={onClick}
             to="/regulatory/"
         />
         <CardLink
-            icon={() => <Choose dynamic_id="choose-desktop" />}
+            icon={() => <img src={Choose} alt="choose" width="24" height="24" />}
             title={localize('Why choose us?')}
             onClick={onClick}
             to="/why-choose-us/"
         />
         <CardLink
-            icon={() => <Partner dynamic_id="partner-desktop" />}
+            icon={() => <img src={Partner} alt="partner" width="24" height="24" />}
             title={localize('Partnership programmes')}
             onClick={onClick}
             to="/partners/"
         />
 
         <CardLink
-            icon={() => <Contact dynamic_id="contact-desktop" />}
+            icon={() => <img src={Contact} alt="contact" width="24" height="24" />}
             title={localize('Contact us')}
             onClick={onClick}
             to="/contact-us/"
         />
         <CardLink
-            icon={() => <Career dynamic_id="career-desktop" />}
+            icon={() => <img src={Career} alt="career" width="24" height="24" />}
             title={localize('Careers')}
             onClick={onClick}
             to="/careers/"
@@ -404,13 +404,13 @@ NavCompany.propTypes = {
 export const NavResources = ({ onClick }) => (
     <Flex direction="column" wrap="wrap" jc="flex-start" max_width="42rem">
         <CardLink
-            icon={() => <Help dynamic_id="help-desktop" />}
+            icon={() => <img src={Help} alt="help" width="24" height="24" />}
             title={localize('Help centre')}
             onClick={onClick}
             to="/help-centre/"
         />
         <CardLink
-            icon={() => <Community dynamic_id="community-desktop" />}
+            icon={() => <img src={Community} alt="community" width="24" height="24" />}
             title={localize('Community')}
             onClick={onClick}
             to={community_url}
@@ -419,7 +419,7 @@ export const NavResources = ({ onClick }) => (
             rel="noopener noreferrer"
         />
         <CardLink
-            icon={() => <Payment dynamic_id="payment-desktop" />}
+            icon={() => <img src={Payment} alt="payment" width="24" height="24" />}
             title={localize('Payment methods')}
             onClick={onClick}
             to="/payment-methods/"

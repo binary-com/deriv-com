@@ -6,9 +6,9 @@ import { Container, SectionContainer, Flex } from 'components/containers'
 import device from 'themes/device'
 // Icons
 import CommoditiesIcon from 'images/svg/markets/commodities.svg'
-import ForexIcon from 'components/svgs/_market-forex.js'
-import StockIcon from 'components/svgs/_market-stock.js'
-import SyntheticIndicesIcon from 'components/svgs/_market-synthetic.js'
+import ForexIcon from 'images/svg/markets/forex.svg'
+import StockIcon from 'images/svg/markets/stock.svg'
+import SyntheticIndicesIcon from 'images/svg/markets/synthetic.svg'
 // Images
 const StyledSection = styled(SectionContainer)`
     background-color: rgba(242, 243, 244, 0.3);
@@ -74,7 +74,7 @@ const Markets = () => (
             </Header>
             <MarketWrapper wrap="wrap">
                 <MarketCard mr="2.4rem" mb="4rem">
-                    <ForexIcon dynamic_id={'home_page_market_forex'} />
+                    <img src={ForexIcon} alt="forex" width="64" height="64" />
                     <div>
                         <Header as="h3" size="var(--text-size-m)">
                             {localize('Forex')}
@@ -87,7 +87,7 @@ const Markets = () => (
                     </div>
                 </MarketCard>
                 <MarketCard mb="4rem">
-                    <StockIcon dynamic_id="home_page_market_stock" />
+                    <img src={StockIcon} alt="stock" width="64" height="64" />
                     <div>
                         <Header as="h3" size="var(--text-size-m)">
                             {localize('Stock indices')}
@@ -113,7 +113,7 @@ const Markets = () => (
                     </div>
                 </MarketCard>
                 <MarketCard>
-                    <SyntheticIndicesIcon dynamic_id="home_page_market_synthetic" />
+                    <img src={SyntheticIndicesIcon} alt="synthetic" width="64" height="64" />
                     <div>
                         <Header as="h3" size="var(--text-size-m)">
                             {localize('Synthetic indices')}

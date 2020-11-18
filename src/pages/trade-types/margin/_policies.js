@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { SmallContainer, Ul } from '../components/_style'
-import { SectionContainer } from 'components/containers'
+import { SectionContainer, Show } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
 import { localize } from 'components/localization'
@@ -13,9 +13,36 @@ query {
     example: file(relativePath: { eq: "trade-types/margin-example-crash-boom.png" }) {
         ...fadeIn
     }
+    example_mobile: file(relativePath: { eq: "trade-types/margin-example-crash-boom-mobile.png" }) {
+        ...fadeIn
+    }
 }
 `
 
+const ShowWrapper = styled.div`
+    width:100%;
+`
+
+const ExampleImage = styled(QueryImage)`
+    margin:${(props) => (props.center ? '0 auto' : 'unset')};
+    width: 792px;
+    height: 453px;
+
+    @media ${device.laptop}{
+        width: 630px;
+        height: 361px;
+    }
+
+    @media ${device.tabletL}{
+        width:328px;
+        height:506px;
+    }
+
+    @media ${device.mobileM}{
+        width:275px;
+        height:431px;
+    }
+`
 const StyledLinkButton = styled(LinkButton)`
     padding: 1.2rem 1.5rem;
     font-size: 14px;
@@ -140,8 +167,14 @@ const Policies = () => {
                             "Your trade will automatically close at 8,100, which is the nearest applicable market price to your stop loss level.",
                         )}
                     </Text>
-
-                    <QueryImage data={data['example']} width='792px' height='453px' />
+                    <Show.Desktop>
+                        <ExampleImage data={data['example']} />
+                    </Show.Desktop>
+                    <ShowWrapper>
+                        <Show.Mobile width="100%">
+                            <ExampleImage center data={data['example_mobile']} />
+                        </Show.Mobile>
+                    </ShowWrapper>
 
                     <Text size="var(--text-size-m)" weight="bold" mb="0.8rem" mt="2.4rem">
                         {localize('Margin call')}

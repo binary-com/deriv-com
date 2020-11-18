@@ -117,7 +117,7 @@ const Item = styled.div`
     z-index: 10;
 
     h4 {
-        color: var(--color-red);
+        color: var(--color-black);
         opacity: ${(props) => (props.name === props.active_tab ? '1' : '0.32')};
         font-weight: ${(props) => (props.name === props.active_tab ? 'bold' : 'normal')};
     }

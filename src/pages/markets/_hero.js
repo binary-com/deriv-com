@@ -8,6 +8,19 @@ import { Container } from 'components/containers'
 import { useLazyVideo } from 'components/hooks/lazy-video'
 import device from 'themes/device'
 
+const MarketHeader = styled(Header)`
+    font-size: 64px;
+    @media ${device.tabletL} {
+        font-size: 40px !important;
+    }
+`
+
+const MarketSubHeader = styled(Header)`
+    font-size: 24px;
+    @media ${device.tabletL} {
+        font-size: 18px !important;
+    }
+`
 const BackgroundWrapper = styled.div`
     position: relative;
     height: 60rem;
@@ -68,10 +81,10 @@ export const Hero = () => {
                 <source data-src={Globe2} type="video/webm" />
             </Video>
             <StyledContainer direction="column">
-                <Header as="h1" color="white" lh="1.15" align="center">
+                <MarketHeader as="h1" color="white" lh="1.15" align="center">
                     {localize('Markets to trade on Deriv')}
-                </Header>
-                <Header
+                </MarketHeader>
+                <MarketSubHeader
                     as="h4"
                     color="white"
                     lh="1.5"
@@ -83,7 +96,7 @@ export const Hero = () => {
                     {localize(
                         'Get the guidance you need to start trading on our platform. Browse through all the markets that we offer, learn about our trade types, and gain insight on how to make smarter trading decisions.',
                     )}
-                </Header>
+                </MarketSubHeader>
             </StyledContainer>
         </BackgroundWrapper>
     )

@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
-import { navigate } from '@reach/router'
 import { Text, Header } from './typography'
-import { getLocationHash, isBrowser } from 'common/utility'
-import device, { size } from 'themes/device'
+import device from 'themes/device'
 import { Box } from 'components/containers'
 import { Desktop, Mobile } from 'components/containers/show'
+import { useTabState } from 'components/hooks/use-tab-state'
 import { ReactComponent as Chevron } from 'images/svg/chevron.svg'
 
 const StyledSideTab = styled(Box)`
@@ -113,28 +112,16 @@ const Tab = ({ active_tab, label, onClick, text, mobile, font_size }) => {
     )
 }
 
-const SideTab = ({ children, has_hash_routing, is_sticky, onTabChange, tab_header, font_size }) => {
-    // we should check the window because When building, Gatsby renders these components on the server where window is not defined.
-    const first_tab = isBrowser()
-        ? window.innerWidth > size.tabletL
-            ? children[0].props.label
-            : '-'
-        : children[0].props.label
+const getTabs = (children) => children.map(child => child.props.label)
 
-    const [active_tab, setTab, previous_tab, setLastActiveTab] = useTabs(
-        first_tab,
-        has_hash_routing,
-    )
+const SideTab = ({ children, is_sticky, onTabChange, tab_header, font_size }) => {
+    // we should check the window because When building, Gatsby renders these components on the server where window is not defined.
+    const [active_tab, setActiveTab] = useTabState([...getTabs(children), '-'])
+    const [previous_tab, setLastActiveTab] = useState('-')
+
     const handleReset = () => {
         setLastActiveTab(active_tab)
-        active_tab !== '-' ? setTab('-') : setTab(previous_tab)
-    }
-
-    if (has_hash_routing) {
-        useEffect(() => {
-            const new_tab = getLocationHash() || first_tab
-            setTab(new_tab)
-        })
+        active_tab !== '-' ? setActiveTab('-') : setActiveTab(previous_tab)
     }
     const current_active_tab = children.find((child) => child.props.label === active_tab)
 
@@ -154,7 +141,7 @@ const SideTab = ({ children, has_hash_routing, is_sticky, onTabChange, tab_heade
                                 onClick(e)
                             }
 
-                            setTab(e)
+                            setActiveTab(e)
                         }}
                         active_tab={active_tab}
                         label={label}
@@ -196,24 +183,9 @@ const SideTab = ({ children, has_hash_routing, is_sticky, onTabChange, tab_heade
     )
 }
 
-const useTabs = (initial_active_tab = '', has_hash_routing) => {
-    const [active_tab, setActiveTab] = useState(initial_active_tab)
-    const [previous_tab, setLastActiveTab] = useState('-')
-
-    const setTab = (tab) => {
-        if (tab === active_tab) return
-        setActiveTab(tab)
-
-        if (has_hash_routing) navigate(`#${tab}`)
-    }
-
-    return [active_tab, setTab, previous_tab, setLastActiveTab]
-}
-
 SideTab.propTypes = {
     children: PropTypes.instanceOf(Array).isRequired,
     font_size: PropTypes.string,
-    has_hash_routing: PropTypes.bool,
     is_mobile: PropTypes.bool,
     is_sticky: PropTypes.bool,
     onTabChange: PropTypes.func,

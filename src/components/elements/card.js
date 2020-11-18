@@ -195,7 +195,7 @@ export const Card = ({
                                     ) : (
                                         <CoverContent>{cover_content}</CoverContent>
                                     )}
-                                    <img src={Arrow} alt="arrow" />
+                                    <img src={Arrow} alt="arrow" width="16" height="16" />
                                 </div>
                             </CardCover>
                             <IconContainer>

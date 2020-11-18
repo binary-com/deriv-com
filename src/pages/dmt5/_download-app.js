@@ -125,7 +125,7 @@ const DownloadApp = () => {
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            <img src={GooglePlay} alt="google play" />
+                            <img src={GooglePlay} alt="google play" width="138" height="40" />
                         </LocalizedLink>
                     </Flex>
                 </Show.Desktop>
@@ -149,7 +149,12 @@ const DownloadApp = () => {
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            <img src={GooglePlayMobile} alt="google play mobile" />
+                            <img
+                                src={GooglePlayMobile}
+                                alt="google play mobile"
+                                width="138"
+                                height="40"
+                            />
                         </LocalizedLink>
                     </Flex>
                     <StyledHeader mt="2.4rem" as="h4">

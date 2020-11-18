@@ -315,7 +315,7 @@ const SignupNew = ({
                     social
                 >
                     <span>
-                        <img src={Google} alt="google" />
+                        <img src={Google} alt="google" width="22" height="23" />
                     </span>
                     <Span>Google</Span>
                 </SocialButton>
@@ -328,7 +328,7 @@ const SignupNew = ({
                     social
                 >
                     <span>
-                        <img src={Facebook} alt="facebook" />
+                        <img src={Facebook} alt="facebook" width="12" height="22" />
                     </span>
                     <Span>Facebook</Span>
                 </SocialButton>

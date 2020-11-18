@@ -451,7 +451,12 @@ export const Nav = ({ base }) => {
                             />
                         </LogoLink>
                         <Line />
-                        <img src={LogoCombinedShape} alt="logo combined shape" />
+                        <img
+                            src={LogoCombinedShape}
+                            alt="logo combined shape"
+                            width="120"
+                            height="17"
+                        />
                     </NavLeft>
                     <Show.Desktop>
                         <NavCenter>
@@ -525,6 +530,7 @@ export const Nav = ({ base }) => {
                                 alt="hamburger"
                                 onClick={openOffCanvasMenu}
                                 width="16px"
+                                height="16px"
                             />
                         )}
 
@@ -533,7 +539,12 @@ export const Nav = ({ base }) => {
                                 <img src={LogoOnly} alt="logo only" width="115px" />
                                 <LogoDescription ai="center">
                                     <Line />
-                                    <img src={LogoCombinedShape} alt="logo combined shape 2" />
+                                    <img
+                                        src={LogoCombinedShape}
+                                        alt="logo combined shape 2"
+                                        width="120"
+                                        height="17"
+                                    />
                                 </LogoDescription>
                             </Flex>
                         </LogoLinkMobile>
@@ -592,7 +603,12 @@ export const NavInterim = ({ interim_type }) => (
                     <StyledLogo to={`/interim/${interim_type}`} aria-label={localize('Home')}>
                         <Flex ai="center">
                             <img src={Logo} alt="logo" />
-                            <img src={LogoCombinedShape} alt="logo combined shape desktop" />
+                            <img
+                                src={LogoCombinedShape}
+                                alt="logo combined shape desktop"
+                                width="120"
+                                height="17"
+                            />
                         </Flex>
                     </StyledLogo>
                 </Show.Desktop>
@@ -602,7 +618,12 @@ export const NavInterim = ({ interim_type }) => (
                             <img src={LogoOnly} alt="logo only 2" width="115px" />
                             <LogoDescription ai="center">
                                 <Line />
-                                <img src={LogoCombinedShape} alt="logo combined shape mobile" />
+                                <img
+                                    src={LogoCombinedShape}
+                                    alt="logo combined shape mobile"
+                                    width="120"
+                                    height="17"
+                                />
                             </LogoDescription>
                         </Flex>
                     </LogoLinkMobile>
@@ -624,7 +645,12 @@ export const NavStatic = () => (
             <Flex ai="center">
                 <img src={LogoOnly} alt="logo only nav static" />
                 <Line />
-                <img src={LogoCombinedShape} alt="logo combined shape nav static" />
+                <img
+                    src={LogoCombinedShape}
+                    alt="logo combined shape nav static"
+                    width="120"
+                    height="17"
+                />
             </Flex>
         </LogoLink>
     </StaticWrapper>
@@ -864,6 +890,7 @@ export const NavPartners = ({ no_login_signup }) => {
                                 alt="hamburger menu2"
                                 onClick={openOffCanvasMenu}
                                 width="16px"
+                                height="16px"
                             />
                         )}
 

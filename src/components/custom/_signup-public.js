@@ -298,7 +298,7 @@ const SignupPublic = ({
                                     social
                                 >
                                     <span>
-                                        <img src={Facebook} alt="facebook" />
+                                        <img src={Facebook} alt="facebook" width="12" height="22" />
                                     </span>
                                 </SocialButton>
                                 <SocialButton
@@ -310,7 +310,7 @@ const SignupPublic = ({
                                     social
                                 >
                                     <span>
-                                        <img src={Google} alt="google" />
+                                        <img src={Google} alt="google" width="22" height="23" />
                                     </span>
                                 </SocialButton>
                             </SocialWrapper>
@@ -389,7 +389,7 @@ const SignupPublic = ({
                                     social
                                 >
                                     <span>
-                                        <img src={Facebook} alt="facebook" />
+                                        <img src={Facebook} alt="facebook" width="12" height="22" />
                                     </span>
                                 </SocialButton>
                                 <SocialButton
@@ -401,7 +401,7 @@ const SignupPublic = ({
                                     social
                                 >
                                     <span>
-                                        <img src={Google} alt="google" />
+                                        <img src={Google} alt="google" width="22" height="23" />
                                     </span>
                                 </SocialButton>
                             </SocialWrapper>
@@ -416,13 +416,13 @@ const SignupPublic = ({
                             />
                         </MobilePlatform>
                         <MobileRedBanner>
-                            <img src={RedBanner} alt="redbanner" width="100%" />
+                            <img src={RedBanner} alt="redbanner" width="100%" height="248" />
                         </MobileRedBanner>
                         <DerivExperience onClick={redirectToDerivApp}>
                             <Header size="3rem">
                                 {localize('Get a taste of the Deriv experience')}
                             </Header>
-                            <img src={Arrow} alt="arrow mobile" />
+                            <img src={Arrow} alt="arrow mobile" width="32" height="33" />
                         </DerivExperience>
                     </MobileBackground>
                 </MobileWrapper>

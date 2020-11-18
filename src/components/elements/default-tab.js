@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
+import { getLocationHash, isBrowser, scrollTop } from 'common/utility'
 import { Flex } from 'components/containers'
 import { Text } from 'components/elements'
 
@@ -81,10 +82,27 @@ TabPanel.propTypes = {
     children: PropTypes.node,
 }
 
-const Tabs = ({ children, tab_break }) => {
-    const [selected_tab, setSelectedTab] = React.useState(0)
-    const selectTab = (tabIndex) => {
-        setSelectedTab(tabIndex)
+const Tabs = ({ children, tab_break, tab_list }) => {
+    const [selected_tab, setSelectedTab] = useState(0)
+    const [active_tab, setTab] = useState('clients')
+    
+    useEffect(() => {
+        if (getLocationHash() === active_tab) return
+        if (getLocationHash().length === 0) {
+            setTab('clients')
+            isBrowser() && window.history.pushState(null, null, '#clients')
+            setSelectedTab(0)
+        } else {
+            setTab(getLocationHash())
+            setSelectedTab(getLocationHash() === tab_list[0] ? 0 : 1)
+        }
+        scrollTop()
+    }, [getLocationHash()])
+    
+    const handleTabChange = (tab_name, tab_index) => {
+        setTab(tab_name)
+        isBrowser() && window.history.pushState(null, null, `#${tab_name}`)
+        setSelectedTab(tab_index)
     }
 
     return (
@@ -95,7 +113,7 @@ const Tabs = ({ children, tab_break }) => {
                         role="tab"
                         selected={selected_tab === index}
                         aria-selected={selected_tab === index ? 'true' : 'false'}
-                        onClick={() => selectTab(index)}
+                        onClick={() => handleTabChange(tab_list[index], index)}
                     >
                         <Text align="center" size="var(--text-size-m)" color="red-2" weight="bold">
                             {label}
@@ -119,6 +137,7 @@ Tabs.Panel = TabPanel
 Tabs.propTypes = {
     children: PropTypes.node,
     tab_break: PropTypes.string,
+    tab_list: PropTypes.array,
 }
 
 export default Tabs

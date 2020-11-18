@@ -89,13 +89,13 @@ const Row = styled.div`
 `
 const query = graphql`
     query {
-        buy_sell: file(relativePath: { eq: "p2p_buy_sell.png" }) {
+        buy_sell: file(relativePath: { eq: "p2p/p2p_buy_sell.png" }) {
             ...fadeIn
         }
-        local_currency: file(relativePath: { eq: "p2p_local_currency.png" }) {
+        local_currency: file(relativePath: { eq: "p2p/p2p_local_currency.png" }) {
             ...fadeIn
         }
-        web_and_mobile: file(relativePath: { eq: "p2p_web_and_mobile.png" }) {
+        web_and_mobile: file(relativePath: { eq: "p2p/p2p_web_and_mobile.png" }) {
             ...fadeIn
         }
     }

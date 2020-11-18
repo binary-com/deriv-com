@@ -8,6 +8,7 @@ import { Header, LocalizedLinkText, SpanLinkText, Text, QueryImage } from 'compo
 import { Flex, SectionContainer, Show } from 'components/containers'
 import Login from 'common/login'
 import device from 'themes/device'
+import { p2p_playstore_url } from 'common/utility'
 
 const Row = styled.div`
     display: flex;
@@ -116,7 +117,7 @@ const Right = styled.div`
 
 const query = graphql`
     query {
-        qr_code: file(relativePath: { eq: "p2p_playstore.png" }) {
+        qr_code: file(relativePath: { eq: "p2p/p2p_playstore.png" }) {
             ...fadeIn
         }
     }
@@ -214,7 +215,7 @@ const Availability = () => {
                                             components={[
                                                 <LocalizedLinkText
                                                     external
-                                                    to="https://play.google.com/store/apps/details?id=com.deriv.dp2p"
+                                                    to={p2p_playstore_url}
                                                     target="_blank"
                                                     size={24}
                                                     color="red"
@@ -239,7 +240,7 @@ const Availability = () => {
                                     components={[
                                         <LocalizedLinkText
                                             external
-                                            to="https://play.google.com/store/apps/details?id=com.deriv.dp2p"
+                                            to={p2p_playstore_url}
                                             target="_blank"
                                             size={24}
                                             color="red"

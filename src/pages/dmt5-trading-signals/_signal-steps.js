@@ -82,80 +82,14 @@ const content = {
     },
 }
 
-// const Tab = styled.div`
-//     width: 100%;
-//     margin-top: 2.4rem;
-// `
-// const TabsWrapper = styled.div`
-//     width: 50.7rem;
-//     margin-left: 4rem;
-
-//     div:first-child {
-//         margin-top: 0;
-//     }
-
-//     @media ${device.tabletL} {
-//         width: 90%;
-//         margin: 2rem 0 0;
-//         max-width: 425px;
-//     }
-//     @media ${device.mobileL} {
-//         width: 100%;
-//     }
-// `
-// const VideoWrapper = styled.div`
-//     max-width: 56rem;
-//     width: 100%;
-
-//     @media ${device.tabletL} {
-//         margin-top: 24px;
-//     }
-// `
-// const StepCommon = css`
-//     cursor: pointer;
-//     padding-left: 1.8rem;
-//     ${(props) =>
-//         props.current_step === props.image_name
-//             ? 'color: var(--color-black-3); border-left: 5px solid var(--color-red)'
-//             : 'opacity: 0.2; border-left: 5px solid rgb(0, 0, 0, 0.2)'};
-
-//     @media ${device.tabletL} {
-//         font-size: 16px;
-//         text-align: left;
-//         ${(props) =>
-//             props.current_step === props.image_name
-//                 ? 'color: var(--color-black-3); border-left: 4px solid var(--color-red)'
-//                 : 'opacity: 0.2; border-left: 4px solid rgb(0, 0, 0, 0.2)'};
-//     }
-// `
-// const StepHeader = styled(Header)`
-//     ${StepCommon}
-//     font-weight: bold;
-//     font-size: 2.4rem;
-// `
-// const StepText = styled(Text)`
-//     ${StepCommon}
-//     font-size: 2.4rem;
-//     padding-top: 0.8rem;
-
-//     @media ${device.tabletL} {
-//         padding-top: 8px;
-//         margin: 0;
-//     }
-// `
-
 const StyledTabs = styled(Tabs)`
     .side-tab__list {
-        max-width: 500px;
+        max-width: 380px;
         width: 100%;
-    }
-    .side-tab__label,
-    .side-tab__description {
-        font-size: 24px;
     }
     .side-tab__desktop {
         max-width: 56rem;
-        margin-right: 2rem;
+        margin-right: 2.4rem;
     }
 
     @media ${device.tabletL} {
@@ -163,24 +97,17 @@ const StyledTabs = styled(Tabs)`
             max-width: 100%;
             margin-left: 0;
         }
-        .side-tab__label,
-        .side-tab__description {
-            font-size: 16px;
-        }
         .side-tab__mobile {
             max-width: 500px;
         }
     }
 `
+
 const StyledPanel = styled(Tabs.Panel)``
 
 const SignalSteps = (active_tab) => {
     const data = useStaticQuery(query)
-    // const [current_step, setStep] = React.useState('step_1')
-    // const clickHandler = (incoming_step) => {
-    //     if (incoming_step == current_step) return
-    //     setStep(incoming_step)
-    // }
+
     return (
         <>
             {active_tab.active_tab === 'signal-subscriber' && (

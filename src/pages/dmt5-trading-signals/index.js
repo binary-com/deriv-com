@@ -4,6 +4,7 @@ import { Hero, SmallContainer, StyledHeader } from './components/_style'
 import HowTo from './components/_how-to'
 import { Signal } from './_signal'
 import SignalSteps from './_signal-steps'
+import Subscription from './_subscription'
 import { SEO, Flex, Box } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
@@ -127,6 +128,7 @@ const DMT5TradingSignals = () => {
                 {active_tab === 'signal-provider' && <Signal content={signal_content_provider} />}
             </Box>
             <HowTo Steps={SignalSteps} active_tab={active_tab} />
+            {active_tab === 'signal-subscriber' && <Subscription />}
         </Layout>
     )
 }

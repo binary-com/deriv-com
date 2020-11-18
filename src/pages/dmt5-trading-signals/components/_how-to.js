@@ -6,7 +6,7 @@ import { Container, Flex, SectionContainer } from 'components/containers'
 import { Header, Text, LocalizedLinkText } from 'components/elements'
 import { LinkButton } from 'components/form'
 import device from 'themes/device.js'
-import Info from 'images/svg/trade-types/info.svg'
+import { ReactComponent as Info } from 'images/svg/trade-types/info.svg'
 
 const content = {
     subscriber: {
@@ -97,7 +97,7 @@ const StyledInfo = styled(Info)`
 const StyledText = styled(Text)`
     font-size: 1.6rem;
     line-height: 2.4rem;
-    max-width: 52.2rem;
+    max-width: 36rem;
 
     @media ${device.tabletL} {
         font-size: 16px;

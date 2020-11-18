@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import { Text, Header } from 'components/elements'
 import { SectionContainer, Flex } from 'components/containers'
 import device from 'themes/device'
-import Checklist from 'images/svg/checklist-red.svg'
+import { ReactComponent as Checklist } from 'images/svg/checklist-red.svg'
 
 const ContentWrapper = styled(Flex)`
     margin: 8rem auto;
@@ -28,8 +28,8 @@ const CardWrapper = styled(Flex)`
 `
 
 const StyledText = styled(Text)`
-    padding: 4rem 0;
-    font-size: 2.4rem;
+    padding: 8rem 0 0 0;
+    font-size: 1.6rem;
     line-height: 1.5;
     text-align: center;
 
@@ -42,7 +42,7 @@ const StyledText = styled(Text)`
 const StyledHeader = styled(Header)`
     font-size: 4.8rem;
     line-height: 1.25;
-    max-width: 38.3rem;
+    max-width: 38.4rem;
     margin-right: 2.4rem;
 
     @media ${device.tabletL} {
@@ -65,26 +65,19 @@ const Card = styled.div`
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    padding: 2.4rem 2.4rem;
+    padding: 1.6rem;
     width: 48.6rem;
-    height: 72px;
+    height: 56px;
     border-radius: 5.1px;
-    box-shadow: 0 13px 17px 0 rgba(0, 0, 0, 0.05), 0 0 17px 0 rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 8px 0 rgba(14, 14, 14, 0.1);
     margin-bottom: 1.6rem;
 
     &:last-child {
         margin-bottom: 0;
     }
-    svg {
-        margin-right: 1.4rem;
-    }
     @media ${device.tabletL} {
         width: 328px;
         padding: 16px;
-
-        svg {
-            margin-right: 17px;
-        }
     }
 `
 
@@ -94,6 +87,14 @@ const CardText = styled(Text)`
 
     @media ${device.tabletL} {
         width: 86%;
+    }
+`
+
+const StyledChecklist = styled(Checklist)`
+    margin-right: 1.6rem;
+
+    @media ${device.tabletL} {
+        margin-right: 17px;
     }
 `
 
@@ -108,7 +109,7 @@ export const Signal = ({ content }) => {
                         {content.list.map((text, idx) => {
                             return (
                                 <Card key={idx}>
-                                    <Checklist />
+                                    <StyledChecklist />
                                     <CardText>{text}</CardText>
                                 </Card>
                             )

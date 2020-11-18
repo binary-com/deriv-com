@@ -320,7 +320,7 @@ const Footer = () => {
             <Container>
                 <StyledGrid>
                     <DerivLogoWrapper>
-                        <StyledLogo src={Logo} alt="logo" />
+                        <StyledLogo src={Logo} alt="logo" width="147" height="25" />
                         <Show.Eu>
                             <Show.Desktop>
                                 <SocialWrapperComponent />

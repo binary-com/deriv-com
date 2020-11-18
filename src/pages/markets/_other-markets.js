@@ -5,7 +5,7 @@ import { Flex, SectionContainer, Show } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { localize, Localize, LocalizedLink } from 'components/localization'
 import Box from 'components/containers/box'
-import Commodities from 'components/svgs/_market-commodities.js'
+import Commodities from 'images/svg/markets/commodities.svg'
 //TODO: using temp svg as a function for having dynamic id
 import Forex from 'components/svgs/_market-forex.js'
 import StockIndices from 'components/svgs/_market-stock.js'
@@ -43,7 +43,8 @@ const markets_type = {
     },
 
     commodities: {
-        icon: Commodities,
+        // eslint-disable-next-line react/display-name
+        icon: () => <img src={Commodities} width="64" height="64" />,
         title: <Localize translate_text="Commodities" />,
         content: (
             <Localize translate_text="Commodities trading on Deriv lets you profit from correctly predicting the market movement on precious metals and crude oil." />

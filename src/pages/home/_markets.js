@@ -5,9 +5,9 @@ import { localize } from 'components/localization'
 import { Container, SectionContainer, Flex } from 'components/containers'
 import device from 'themes/device'
 // Icons
+import CommoditiesIcon from 'images/svg/markets/commodities.svg'
 import ForexIcon from 'components/svgs/_market-forex.js'
 import StockIcon from 'components/svgs/_market-stock.js'
-import CommoditiesIcon from 'components/svgs/_market-commodities.js'
 import SyntheticIndicesIcon from 'components/svgs/_market-synthetic.js'
 // Images
 const StyledSection = styled(SectionContainer)`
@@ -35,6 +35,9 @@ const MarketCard = styled.article`
     svg {
         margin-right: 2rem;
     }
+    img {
+        margin-right: 2rem;
+    }
     div {
         max-width: 40rem;
 
@@ -49,6 +52,11 @@ const MarketCard = styled.article`
         flex-direction: column;
 
         svg {
+            width: 6rem;
+            height: 6rem;
+            margin-bottom: 1rem;
+        }
+        img {
             width: 6rem;
             height: 6rem;
             margin-bottom: 1rem;
@@ -92,7 +100,7 @@ const Markets = () => (
                     </div>
                 </MarketCard>
                 <MarketCard mr="2.4rem">
-                    <CommoditiesIcon dynamic_id="home_page_market_commodities" />
+                    <img src={CommoditiesIcon} width="64" height="64" />
                     <div>
                         <Header as="h3" size="var(--text-size-m)">
                             {localize('Commodities')}

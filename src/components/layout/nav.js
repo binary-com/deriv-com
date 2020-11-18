@@ -537,7 +537,7 @@ export const Nav = ({ base }) => {
 
                         <LogoLinkMobile to="/" aria-label={localize('Home')}>
                             <Flex>
-                                <img src={LogoOnly} alt="logo only" width="115px" />
+                                <img src={LogoOnly} alt="logo only" width="115px" height="27px" />
                                 <LogoDescription ai="center">
                                     <Line />
                                     <img
@@ -603,7 +603,7 @@ export const NavInterim = ({ interim_type }) => (
                 <Show.Desktop>
                     <StyledLogo to={`/interim/${interim_type}`} aria-label={localize('Home')}>
                         <Flex ai="center">
-                            <img src={Logo} alt="logo" />
+                            <img src={Logo} alt="logo" width="190px" height="27px" />
                             <img
                                 src={LogoCombinedShape}
                                 alt="logo combined shape desktop"
@@ -616,7 +616,7 @@ export const NavInterim = ({ interim_type }) => (
                 <Show.Mobile>
                     <LogoLinkMobile to={`/interim/${interim_type}`} aria-label={localize('Home')}>
                         <Flex>
-                            <img src={LogoOnly} alt="logo only 2" width="115px" />
+                            <img src={LogoOnly} alt="logo only 2" width="115px" height="27px" />
                             <LogoDescription ai="center">
                                 <Line />
                                 <img
@@ -644,7 +644,7 @@ export const NavStatic = () => (
     <StaticWrapper>
         <LogoLink mw="31rem" to="/" aria-label={localize('Home')}>
             <Flex ai="center">
-                <img src={LogoOnly} alt="logo only nav static" />
+                <img src={LogoOnly} alt="logo only nav static" width="160px" height="27px" />
                 <Line />
                 <img
                     src={LogoCombinedShape}

@@ -10,7 +10,10 @@ import { Localize, localize } from 'components/localization'
 
 const query = graphql`
     query {
-        background: file(relativePath: { eq: "platform_devices.png" }) {
+        background: file(relativePath: { eq: "home/platform_devices.png" }) {
+            ...fadeIn
+        }
+        background_mobile: file(relativePath: { eq: "home/platform_devices_mobile.png" }) {
             ...fadeIn
         }
     }
@@ -171,7 +174,20 @@ export const Hero = () => {
                         <VerticalCarousel contents={contents} />
                     </Details>
                     <ImageWrapper>
-                        <QueryImage data={data.background} alt="platform devices" width="100%" />
+                        <Show.Mobile>
+                            <QueryImage
+                                data={data.background_mobile}
+                                alt="platform devices mobile"
+                                width="100%"
+                            />
+                        </Show.Mobile>
+                        <Show.Desktop>
+                            <QueryImage
+                                data={data.background}
+                                alt="platform devices"
+                                width="100%"
+                            />
+                        </Show.Desktop>
                     </ImageWrapper>
                     <ButtonWrapper>
                         <HeroButton secondary="true" to="/signup/">

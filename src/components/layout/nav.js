@@ -219,7 +219,7 @@ const NavLink = styled.li`
 export const StyledLink = styled(LocalizedLink)`
     ${SharedLinkStyle}
 `
-const StyledButton = styled.a`
+const StyledButton = styled.span`
     ${SharedLinkStyle}
     cursor: pointer;
     user-select: none;
@@ -453,60 +453,64 @@ export const Nav = ({ base }) => {
                         <Line />
                         <img src={LogoCombinedShape} alt="logo combined shape" />
                     </NavLeft>
-                    <NavCenter>
-                        <NavLink onClick={handleTradeClick}>
-                            <StyledButton
-                                aria-label={localize('Trade')}
-                                active={is_trade_open}
-                                ref={link_trade_ref}
-                            >
-                                {localize('Trade')}
-                            </StyledButton>
-                        </NavLink>
-                        <NavLink onClick={handleMarketClick}>
-                            <StyledButton
-                                aria-label={localize('Markets')}
-                                active={is_market_open}
-                                ref={link_market_ref}
-                            >
-                                {localize('Markets')}
-                            </StyledButton>
-                        </NavLink>
-                        <NavLink onClick={handleCompanyClick}>
-                            <StyledButton
-                                aria-label={localize('About us')}
-                                active={is_company_open}
-                                ref={link_company_ref}
-                            >
-                                {localize('About us')}
-                            </StyledButton>
-                        </NavLink>
-                        <NavLink onClick={handleResourcesClick}>
-                            <StyledButton
-                                aria-label={localize('Resources')}
-                                active={is_resources_open}
-                                ref={link_resources_ref}
-                            >
-                                {localize('Resources')}
-                            </StyledButton>
-                        </NavLink>
-                    </NavCenter>
-                    <NavRight
-                        move={show_button}
-                        button_ref={button_ref}
-                        mounted={mounted}
-                        has_scrolled={has_scrolled}
-                    >
-                        <LanguageSwitcher short_name="true" is_high_nav />
-                        <LoginButton onClick={handleLogin} primary>
-                            <span>{localize('Log in')}</span>
-                        </LoginButton>
-                        <LocalizedLink to="/signup/">
-                            <SignupButton ref={button_ref} secondary="true">
-                                <span>{localize('Create free demo account')}</span>
-                            </SignupButton>
-                        </LocalizedLink>
-                    </NavRight>
+                    <Show.Desktop>
+                        <NavCenter>
+                            <NavLink onClick={handleTradeClick}>
+                                <StyledButton
+                                    aria-label={localize('Trade')}
+                                    active={is_trade_open}
+                                    ref={link_trade_ref}
+                                >
+                                    {localize('Trade')}
+                                </StyledButton>
+                            </NavLink>
+                            <NavLink onClick={handleMarketClick}>
+                                <StyledButton
+                                    aria-label={localize('Markets')}
+                                    active={is_market_open}
+                                    ref={link_market_ref}
+                                >
+                                    {localize('Markets')}
+                                </StyledButton>
+                            </NavLink>
+                            <NavLink onClick={handleCompanyClick}>
+                                <StyledButton
+                                    aria-label={localize('About us')}
+                                    active={is_company_open}
+                                    ref={link_company_ref}
+                                >
+                                    {localize('About us')}
+                                </StyledButton>
+                            </NavLink>
+                            <NavLink onClick={handleResourcesClick}>
+                                <StyledButton
+                                    aria-label={localize('Resources')}
+                                    active={is_resources_open}
+                                    ref={link_resources_ref}
+                                >
+                                    {localize('Resources')}
+                                </StyledButton>
+                            </NavLink>
+                        </NavCenter>
+                    </Show.Desktop>
+                    <Show.Desktop>
+                        <NavRight
+                            move={show_button}
+                            button_ref={button_ref}
+                            mounted={mounted}
+                            has_scrolled={has_scrolled}
+                        >
+                            <LanguageSwitcher short_name="true" is_high_nav />
+                            <LoginButton onClick={handleLogin} primary>
+                                <span>{localize('Log in')}</span>
+                            </LoginButton>
+                            <LocalizedLink to="/signup/">
+                                <SignupButton ref={button_ref} secondary="true">
+                                    <span>{localize('Create free demo account')}</span>
+                                </SignupButton>
+                            </LocalizedLink>
+                        </NavRight>
+                    </Show.Desktop>
                     <Show.Mobile>
                         {is_canvas_menu_open ? (
                             <CloseMenu

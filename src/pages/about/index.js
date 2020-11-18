@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import styled, { css } from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
-import { navigate } from '@reach/router'
-import { Show } from '../../components/containers'
 import { OurStory } from './_our-story'
 import Leaders from './_leaders'
-import { Container, Box, Flex, SEO } from 'components/containers'
-import { getLocationHash, isBrowser, scrollTop } from 'common/utility'
+import { Container, Box, Flex, SEO, Show } from 'components/containers'
+import { isBrowser } from 'common/utility'
+import { useTabState } from 'components/hooks/use-tab-state'
 import Layout from 'components/layout/layout'
 import { localize, Localize, WithIntl } from 'components/localization'
 import { Header, Text, QueryImage } from 'components/elements'
@@ -157,27 +156,20 @@ const StyledText = styled(Text)`
         font-size: var(--text-size-sm);
     }
 `
-const useTabState = (tab) => {
-    const [active_tab, setActiveTab] = useState(tab)
-    const setTab = (tab) => {
-        if (tab === active_tab) return
-        setActiveTab(tab)
-        navigate(`#${tab}`)
-    }
-    return [active_tab, setTab]
-}
-// Test notification netlify
 const About = () => {
     const [is_mobile, setMobile] = useState(false)
-    const [active_tab, setTab] = useTabState('story')
-    const is_story = active_tab === 'story'
-    const is_leadership = active_tab === 'leadership'
+    const [active_tab, setActiveTab] = useTabState(['story', 'leadership'])
+    const [is_story, setStory] = useState(false)
+    const [is_leadership, setLeadership] = useState(false)
+
     useEffect(() => {
-        const new_tab = getLocationHash() || 'story'
-        setTab(new_tab)
-        setMobile(isBrowser() ? window.screen.width <= size.tablet : false)
-        scrollTop()
-    }, [getLocationHash()])
+        setMobile(isBrowser() && window.screen.width <= size.tablet)
+    }, [window.screen.width])
+
+    useEffect(() => {
+        setStory(active_tab === 'story')
+        setLeadership(active_tab === 'leadership')
+    }, [active_tab])
 
     const data = useStaticQuery(query)
     return (
@@ -198,7 +190,7 @@ const About = () => {
                             left
                             width="auto"
                             direction="column"
-                            onClick={() => setTab('story')}
+                            onClick={() => setActiveTab('story')}
                         >
                             <StyledHeader
                                 as="h2"
@@ -214,7 +206,7 @@ const About = () => {
                         <Navigation
                             width="auto"
                             direction="column"
-                            onClick={() => setTab('leadership')}
+                            onClick={() => setActiveTab('leadership')}
                         >
                             <StyledHeader
                                 as="h2"

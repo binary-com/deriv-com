@@ -26,7 +26,7 @@ import { ReactComponent as Forex } from 'images/svg/forex-nav.svg'
 import { ReactComponent as Commodities } from 'images/svg/commodities-nav.svg'
 import { ReactComponent as StockIndices } from 'images/svg/stock-indices-nav.svg'
 import { ReactComponent as SyntheticIndices } from 'images/svg/synthetic-indices-nav.svg'
-import Story from 'components/svgs/story'
+import Story from 'images/svg/menu/story.svg'
 import Leadership from 'components/svgs/leadership'
 import Partner from 'components/svgs/partner'
 import Choose from 'components/svgs/choose'
@@ -351,7 +351,7 @@ NavMarket.propTypes = {
 export const NavCompany = ({ onClick }) => (
     <Flex direction="column" wrap="wrap" jc="flex-start" max_width="42rem">
         <CardLink
-            icon={() => <Story dynamic_id="story-desktop" />}
+            icon={() => <img src={Story} alt="story" width="24" height="24" />}
             title={localize('Our story')}
             onClick={onClick}
             to="/about/#story"

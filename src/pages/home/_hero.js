@@ -96,7 +96,7 @@ const HeroContainer = styled(CssGrid)`
 
 const Details = styled(Box)`
     grid-area: details;
-    max-height: 48.7rem;
+    max-height: 58.7rem;
 `
 const ButtonWrapper = styled(Box)`
     grid-area: button;

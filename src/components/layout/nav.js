@@ -54,6 +54,7 @@ export const NavWrapper = styled.div`
         .fresnel-between-start-tabletL {
             display: flex;
             width: 100%;
+            align-items: center;
         }
     }
 `

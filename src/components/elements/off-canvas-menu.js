@@ -18,7 +18,7 @@ import { ReactComponent as SyntheticIndices } from 'images/svg/synthetic-indices
 import { ReactComponent as MarginTrading } from 'images/svg/margin-trading-nav.svg'
 import { ReactComponent as Options } from 'images/svg/options-nav.svg'
 import { ReactComponent as Multipliers } from 'images/svg/multipliers-nav.svg'
-import Story from 'components/svgs/story'
+import Story from 'images/svg/menu/story.svg'
 import Leadership from 'components/svgs/leadership'
 import Partner from 'components/svgs/partner'
 import Choose from 'components/svgs/choose'
@@ -69,6 +69,11 @@ const StyledLink = styled((props) => <LocalizedLink {...props} />)`
     align-items: center;
 
     & > div > svg {
+        width: 24px;
+        height: 24px;
+        margin-right: 8px;
+    }
+    & > div > img {
         width: 24px;
         height: 24px;
         margin-right: 8px;
@@ -268,7 +273,7 @@ export const OffCanvasMenuWrapper = (props) => {
                     >
                         <StyledLink to="/about/#story" onClick={handleArrowClick}>
                             <div>
-                                <Story dynamic_id="story-mobile" />
+                                <img src={Story} alt="story" width="24" height="24" />
                             </div>
                             <span>{localize('Our story')}</span>
                         </StyledLink>

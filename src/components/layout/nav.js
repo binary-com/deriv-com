@@ -307,7 +307,7 @@ const MobileRight = styled.div`
     }
 `
 const LogoDescription = styled(Flex)`
-    @media ${device.mobileL} {
+    @media (max-width: 525px) {
         display: none;
     }
 `

@@ -110,7 +110,6 @@ const ImageWrapper = styled(Box)`
     margin-top: 4rem;
 
     @media ${device.tabletL} {
-        min-height: 25rem;
         margin-top: 0;
     }
 `

@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { Text, Header } from './typography'
-import device from 'themes/device'
+import device, {size} from 'themes/device'
+import { getWindowWidth } from 'common/utility'
 import { Box } from 'components/containers'
 import { Desktop, Mobile } from 'components/containers/show'
 import { useTabState } from 'components/hooks/use-tab-state'
@@ -173,7 +174,7 @@ const SideTab = ({ children, is_sticky, tab_header, font_size }) => {
                 </Mobile>
             </TabList>
             <TabContent>
-                {!is_menu && children.map((child) => (child.props.label === active_tab ? child : undefined))}
+                {(!is_menu || getWindowWidth() >= size.tabletL) && children.map((child) => (child.props.label === active_tab ? child : undefined))}
             </TabContent>
         </StyledSideTab>
     )

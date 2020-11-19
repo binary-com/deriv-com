@@ -20,6 +20,7 @@ exports.onCreatePage = ({ page, actions }) => {
         const homepage_regex = /homepage/g
         // TODO: this is a temporary workaround to remove a/b testing page
         const amp_regex = /amp/g
+        const offline_plugin_regex = /^[a-z-]+\/offline-plugin-app-shell-fallback\//g
 
         if (is_production) {
             if (path === 'ach') return
@@ -27,7 +28,8 @@ exports.onCreatePage = ({ page, actions }) => {
         if (
             careers_regex.test(localized_path) ||
             homepage_regex.test(localized_path) ||
-            amp_regex.test(localized_path)
+            amp_regex.test(localized_path) ||
+            offline_plugin_regex.test(localized_path)
         )
             return
 
@@ -52,8 +54,8 @@ exports.onCreatePage = ({ page, actions }) => {
 
         if (is_default) {
             const en_path = `/en${localized_path.slice(0, -1)}`
-            createRedirect({ fromPath: en_path, toPath: localized_path, redirectInBrowser: true, isPermanent: true})
-            createRedirect({ fromPath: `${en_path}/`, toPath: localized_path, redirectInBrowser: true, isPermanent: true})
+            createRedirect({ fromPath: en_path, toPath: localized_path, redirectInBrowser: true, isPermanent: true })
+            createRedirect({ fromPath: `${en_path}/`, toPath: localized_path, redirectInBrowser: true, isPermanent: true })
         }
 
         return current_page

@@ -15,7 +15,7 @@ import {
 } from 'common/utility'
 import { DerivStore } from 'store'
 
-const non_localized_links = ['/careers', '/careers/', '/offline-plugin-app-shell-fallback', '/offline-plugin-app-shell-fallback/']
+const non_localized_links = ['/careers', '/careers/']
 
 export const SharedLinkStyle = css`
     color: var(--color-white);

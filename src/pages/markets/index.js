@@ -118,7 +118,6 @@ const Item = styled.div`
 
     h4 {
         color: var(--color-black);
-        opacity: ${(props) => (props.name === props.active_tab ? '1' : '0.32')};
         font-weight: ${(props) => (props.name === props.active_tab ? 'bold' : 'normal')};
     }
     @media ${device.tabletL} {

@@ -98,7 +98,7 @@ const InputGroup = styled.div`
     margin-top: 3.5rem;
 `
 const EmailButton = styled(Button)`
-    margin-left: 2rem;
+    margin-left: 1rem;
     min-width: 105px;
     height: 40px;
     padding: 10px 28px;
@@ -121,7 +121,8 @@ const SocialWrapper = styled(Flex)`
     }
 `
 const SocialButton = styled(Button)`
-    width: 56px;
+    width: 70px;
+    border-radius: 4px;
     justify-content: center;
     display: flex;
     background-color: var(--color-white);
@@ -239,7 +240,10 @@ const SignupPublic = ({
                     <SignupFormWrapper>
                         <div>
                             <StyledHeader size="3.2rem">
-                                {localize('Join over 1 million traders worldwide')}
+                                {localize('Join over 1 million')}
+                            </StyledHeader>
+                            <StyledHeader size="3.2rem">
+                                {localize('traders worldwide')}
                             </StyledHeader>
                             <br />
                             <StyledHeader as="h4" weight="normal" size="1.6rem">
@@ -270,6 +274,7 @@ const SignupPublic = ({
                                         autoComplete="off"
                                         required
                                         border="unset"
+                                        height="40px"
                                         focusBorder="var(--color-grey-7)"
                                     />
                                 </InputWrapper>

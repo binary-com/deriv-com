@@ -60,6 +60,7 @@ const StyledInput = styled.input`
     color: var(--color-${(props) => props.inputColor || 'black'});
     font-size: var(--text-size-xs);
     padding: 1rem 1rem 1rem 0.8rem;
+    height: ${(props) => props.height || '40px'};
     width: 100%;
     display: block;
     border: none;
@@ -140,6 +141,7 @@ const StyledLabel = styled.label`
 
 const Input = ({
     label,
+    height,
     border,
     focusBorder,
     labelHoverColor,
@@ -168,6 +170,7 @@ const Input = ({
                     background={background}
                     maxLength={maxLength}
                     error={error}
+                    height={height}
                     {...props}
                     ref={(ip) => (current_input = ip)}
                 />
@@ -203,6 +206,7 @@ Input.propTypes = {
     error: PropTypes.string,
     focusBorder: PropTypes.string,
     handleError: PropTypes.func,
+    height: PropTypes.any,
     id: PropTypes.string,
     label: PropTypes.string,
     labelColor: PropTypes.string,

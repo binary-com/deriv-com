@@ -7,6 +7,7 @@ import { Flex, Show } from 'components/containers'
 import { Button, LinkButton } from 'components/form'
 import { localize, Localize } from 'components/localization'
 import { isBrowser, deriv_dp2p_app_url, dp2p_google_play_url } from 'common/utility'
+import { mobileOSDetect } from 'common/os-detect'
 import Checkmark from 'images/svg/checkmark.svg'
 
 const query = graphql`
@@ -96,19 +97,24 @@ const ButtonWrapper = styled.div`
 `
 
 const ButtonLearnMore = styled(LinkButton)`
-    height: 4rem;
+    height: 4.2rem;
+    line-height: 1.25;
     @media ${device.mobileL} {
-        margin-bottom: 16px;
+        height: auto;
         width: 100%;
+        margin-bottom: 16px;
+        font-size: 14px;
+        padding: 12px 16px;
     }
 `
 
 const ButtonDp2p = styled(Button)`
     margin-left: 1.6rem;
-    height: 4rem;
     @media ${device.mobileL} {
         margin-left: 0;
         width: 100%;
+        font-size: 14px;
+        padding: 12px 16px;
     }
 `
 
@@ -123,7 +129,13 @@ const Dp2p = () => {
     })
 
     const handleExternalLink = () => {
-        const link = is_mobile ? dp2p_google_play_url : deriv_dp2p_app_url
+        let link = deriv_dp2p_app_url
+        if (is_mobile) {
+            // TODO handle IOS case once the app is ready
+            if (mobileOSDetect() === 'Android') {
+                link = dp2p_google_play_url
+            }
+        }
         window.open(link, '_blank')
     }
 
@@ -217,7 +229,7 @@ const Dp2p = () => {
                         <ButtonLearnMore tertiary to="/p2p/v1">
                             {localize('Learn more')}
                         </ButtonLearnMore>
-                        <ButtonDp2p secondary="true" onClick={handleExternalLink} target="_blank">
+                        <ButtonDp2p secondary="true" onClick={handleExternalLink}>
                             {localize('Take me to DP2P')}
                         </ButtonDp2p>
                     </ButtonWrapper>

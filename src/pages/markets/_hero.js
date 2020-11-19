@@ -8,19 +8,6 @@ import { Container } from 'components/containers'
 import { useLazyVideo } from 'components/hooks/lazy-video'
 import device from 'themes/device'
 
-const MarketHeader = styled(Header)`
-    font-size: 64px;
-    @media ${device.tabletL} {
-        font-size: 40px !important;
-    }
-`
-
-const MarketSubHeader = styled(Header)`
-    font-size: 24px;
-    @media ${device.tabletL} {
-        font-size: 18px !important;
-    }
-`
 const BackgroundWrapper = styled.div`
     position: relative;
     height: 60rem;
@@ -50,11 +37,9 @@ const StyledContainer = styled(Container)`
         padding: 12.5rem 0;
 
         h1 {
-            font-size: var(--text-size-xl);
             text-align: left;
         }
         h4 {
-            font-size: 3rem;
             text-align: left;
         }
     }
@@ -69,6 +54,20 @@ const Video = styled.video`
 
     @media ${device.tabletL} {
         transform: translate(-50%, -50%) scale(1.5);
+    }
+`
+
+const MarketHeader = styled(Header)`
+    font-size: 64px;
+    @media ${device.tabletL} {
+        font-size: 40px;
+    }
+`
+
+const MarketSubHeader = styled(Header)`
+    font-size: 24px;
+    @media ${device.tabletL} {
+        font-size: 18px;
     }
 `
 export const Hero = () => {

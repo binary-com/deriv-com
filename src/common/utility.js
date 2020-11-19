@@ -115,6 +115,7 @@ const zoho_url = 'https://deriv.zohorecruit.com/'
 const brand_name = 'Deriv'
 const map_api_key = 'AIzaSyAEha6-HeZuI95L9JWmX3m6o-AxQr_oFqU'
 const gtm_test_domain = 'deriv-com.binary.sx'
+const p2p_playstore_url = 'https://play.google.com/store/apps/details?id=com.deriv.dp2p'
 const mga_link_url =
     'https://authorisation.mga.org.mt/verification.aspx?lang=EN&company=a5fd1edc-d072-4c26-b0cd-ab3fa0f0cc40&details=1'
 
@@ -162,4 +163,5 @@ export {
     toHashFormat,
     zoho_url,
     trimSpaces,
+    p2p_playstore_url,
 }

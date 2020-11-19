@@ -87,7 +87,7 @@ function debounce(func, wait, immediate) {
     }
 }
 
-const trimSpaces = value => value.trim()
+const trimSpaces = (value) => value.trim()
 
 const deriv_app_url = 'https://app.deriv.com'
 const deriv_bot_app_url = 'https://app.deriv.com/bot'

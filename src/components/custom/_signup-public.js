@@ -137,7 +137,18 @@ const StyledHeader = styled(Header)`
     }
     @media (max-width: 991px) {
         margin-top: 2rem;
-        ${(props) => (props.as === 'h4' ? 'font-size: 2rem; margin-top: 0;' : '')}
+    }
+`
+
+const StyledHeaderText = styled(Text)`
+    width: ${(props) => props.width || '41.4rem'};
+    font-size: var(--text-size-m);
+    @media ${device.tablet} {
+        width: auto;
+    }
+    @media (max-width: 991px) {
+        margin-top: 0;
+        font-size: 2rem;
     }
 `
 const StyledText = styled(Text)`
@@ -238,9 +249,9 @@ const SignupPublic = ({
                                 {localize('Join over 1 million traders worldwide')}
                             </StyledHeader>
                             <br />
-                            <StyledHeader as="h4" weight="normal" size="1.6rem">
+                            <StyledHeaderText weight="normal" size="1.6rem">
                                 {localize('Sign up for your demo account now.')}
-                            </StyledHeader>
+                            </StyledHeaderText>
                             <InputGroup>
                                 <InputWrapper>
                                     <Input
@@ -287,7 +298,7 @@ const SignupPublic = ({
                                     social
                                 >
                                     <span>
-                                        <img src={Facebook} alt="facebook" />
+                                        <img src={Facebook} alt="facebook" width="12" height="22" />
                                     </span>
                                 </SocialButton>
                                 <SocialButton
@@ -299,7 +310,7 @@ const SignupPublic = ({
                                     social
                                 >
                                     <span>
-                                        <img src={Google} alt="google" />
+                                        <img src={Google} alt="google" width="22" height="23" />
                                     </span>
                                 </SocialButton>
                             </SocialWrapper>
@@ -329,9 +340,9 @@ const SignupPublic = ({
                                 {localize('Join over 1 million traders worldwide')}
                             </StyledHeader>
                             <br />
-                            <StyledHeader as="h4" weight="normal" size="1.6rem">
+                            <StyledHeaderText weight="normal" size="1.6rem">
                                 {localize('Sign up for your demo account now.')}
-                            </StyledHeader>
+                            </StyledHeaderText>
                             <InputGroup>
                                 <InputWrapper>
                                     <Input
@@ -378,7 +389,7 @@ const SignupPublic = ({
                                     social
                                 >
                                     <span>
-                                        <img src={Facebook} alt="facebook" />
+                                        <img src={Facebook} alt="facebook" width="12" height="22" />
                                     </span>
                                 </SocialButton>
                                 <SocialButton
@@ -390,7 +401,7 @@ const SignupPublic = ({
                                     social
                                 >
                                     <span>
-                                        <img src={Google} alt="google" />
+                                        <img src={Google} alt="google" width="22" height="23" />
                                     </span>
                                 </SocialButton>
                             </SocialWrapper>
@@ -405,13 +416,13 @@ const SignupPublic = ({
                             />
                         </MobilePlatform>
                         <MobileRedBanner>
-                            <img src={RedBanner} alt="redbanner" width="100%" />
+                            <img src={RedBanner} alt="redbanner" width="100%" height="248" />
                         </MobileRedBanner>
                         <DerivExperience onClick={redirectToDerivApp}>
                             <Header size="3rem">
                                 {localize('Get a taste of the Deriv experience')}
                             </Header>
-                            <img src={Arrow} alt="arrow mobile" />
+                            <img src={Arrow} alt="arrow mobile" width="32" height="33" />
                         </DerivExperience>
                     </MobileBackground>
                 </MobileWrapper>

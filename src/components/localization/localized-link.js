@@ -113,7 +113,6 @@ export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
                     target={target}
                     rel={rel}
                     className={className}
-                    data-amp-replace="QUERY_PARAM"
                     style={style ? style : { cursor: 'pointer' }}
                     ref={ref}
                     aria-label={ariaLabel}
@@ -140,7 +139,6 @@ export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
                     target={target}
                     rel={rel}
                     className={className}
-                    data-amp-replace="QUERY_PARAM"
                     style={style}
                     href={lang_to}
                     ref={ref}
@@ -174,7 +172,6 @@ export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
         <GatsbyLink
             target={target}
             rel={rel}
-            data-amp-replace="QUERY_PARAM"
             className={className}
             style={style}
             to={internal_to}

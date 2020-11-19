@@ -252,7 +252,7 @@ const SocialWrapperComponent = () => {
                 target="_blank"
                 rel="noopener noreferrer"
             >
-                <img src={Facebook} alt="facebook" />
+                <img src={Facebook} alt="facebook" width="41" height="41" />
             </LocalizedLink>
             <LocalizedLink
                 external="true"
@@ -260,7 +260,7 @@ const SocialWrapperComponent = () => {
                 target="_blank"
                 rel="noopener noreferrer"
             >
-                <img src={Twitter} alt="twitter" />
+                <img src={Twitter} alt="twitter" width="41" height="41" />
             </LocalizedLink>
             <LocalizedLink
                 external="true"
@@ -268,7 +268,7 @@ const SocialWrapperComponent = () => {
                 target="_blank"
                 rel="noopener noreferrer"
             >
-                <img src={Instagram} alt="instagram" />
+                <img src={Instagram} alt="instagram" width="41" height="41" />
             </LocalizedLink>
             <LocalizedLink
                 external="true"
@@ -276,7 +276,7 @@ const SocialWrapperComponent = () => {
                 target="_blank"
                 rel="noopener noreferrer"
             >
-                <img src={Linkedin} alt="linkedin" />
+                <img src={Linkedin} alt="linkedin" width="41" height="41" />
             </LocalizedLink>
         </SocialWrapper>
     )
@@ -301,7 +301,7 @@ const Footer = () => {
             <Container>
                 <StyledGrid>
                     <DerivLogoWrapper>
-                        <StyledLogo src={Logo} alt="logo" />
+                        <StyledLogo src={Logo} alt="logo" width="147" height="25" />
                         <Show.Eu>
                             <Show.Desktop>
                                 <SocialWrapperComponent />
@@ -655,7 +655,7 @@ const Footer = () => {
                         </RiskWarning>
                     </Disclaimer>
                     <Copyright>
-                        <img src={CopyrightIc} alt="copyright ic" width="16px" />
+                        <img src={CopyrightIc} alt="copyright ic" width="16" height="16" />
                         <Text ml="0.4rem">{localize('2020 Deriv | All rights reserved')}</Text>
                     </Copyright>
                     <Show.NonEU>

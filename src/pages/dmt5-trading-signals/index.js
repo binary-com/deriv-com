@@ -57,11 +57,11 @@ const Item = styled.div`
         font-weight: ${(props) => (props.name === props.active_tab ? 'bold' : 'normal')};
     }
     @media ${device.tabletL} {
-        padding: 1.5rem 3rem;
+        padding: 12px 8px 12px 7px;
         margin-top: 24px;
 
         ${Header} {
-            font-size: 16px;
+            font-size: 20px;
         }
     }
 `

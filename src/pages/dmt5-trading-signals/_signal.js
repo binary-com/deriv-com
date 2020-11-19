@@ -47,9 +47,9 @@ const StyledHeader = styled(Header)`
 
     @media ${device.tabletL} {
         margin: 0 0 24px 0;
-        font-size: 24px;
+        font-size: 32px;
+        line-height: 40px;
         text-align: center;
-        line-height: 30px;
     }
 `
 
@@ -67,7 +67,7 @@ const Card = styled.div`
     align-items: center;
     padding: 1.6rem;
     width: 48.6rem;
-    height: 56px;
+    height: unset;
     border-radius: 5.1px;
     box-shadow: 0 4px 8px 0 rgba(14, 14, 14, 0.1);
     margin-bottom: 1.6rem;
@@ -87,6 +87,8 @@ const CardText = styled(Text)`
 
     @media ${device.tabletL} {
         width: 86%;
+        font-size: 16px;
+        line-height: 24px;
     }
 `
 

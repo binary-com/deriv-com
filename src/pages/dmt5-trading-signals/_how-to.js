@@ -1,8 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { SmallContainer } from './_style'
 import { localize } from 'components/localization'
-import { Container, SectionContainer } from 'components/containers'
+import { SectionContainer } from 'components/containers'
 import { Header } from 'components/elements'
 import { LinkButton } from 'components/form'
 import device from 'themes/device.js'
@@ -21,9 +22,7 @@ const StyledSectionContainer = styled(SectionContainer)`
     background-color: ${(props) =>
         props.active_tab === 'signal-subscriber' ? 'var(--color-grey-25)' : 'var(--color-white)'};
     box-shadow: ${(props) =>
-        props.active_tab === 'signal-subscriber'
-            ? 'none'
-            : 'inset 1px 0 0 1px var(--color-grey-2);'};
+        props.active_tab === 'signal-subscriber' ? 'none' : 'inset 0 1px 0 0 var(--color-grey-2);'};
 
     @media ${device.tabletL} {
         padding: 29px 0 40px 0;
@@ -35,8 +34,9 @@ const StyledHeader = styled(Header)`
     font-size: 4.8rem;
 
     @media ${device.tabletL} {
-        margin-bottom: 17px;
-        font-size: 24px;
+        margin-bottom: 25px;
+        font-size: 32px;
+        line-height: 40px;
     }
 `
 
@@ -55,7 +55,7 @@ const DMT5Button = styled(LinkButton)`
 const HowTo = ({ Steps, active_tab }) => {
     return (
         <StyledSectionContainer active_tab={active_tab}>
-            <Container justify="center" direction="column">
+            <SmallContainer justify="center" direction="column">
                 <StyledHeader as="h2">
                     {active_tab === 'signal-subscriber'
                         ? content.subscriber.header
@@ -74,7 +74,7 @@ const HowTo = ({ Steps, active_tab }) => {
                         {localize('Go to your DMT5 terminal')}
                     </DMT5Button>
                 )}
-            </Container>
+            </SmallContainer>
         </StyledSectionContainer>
     )
 }

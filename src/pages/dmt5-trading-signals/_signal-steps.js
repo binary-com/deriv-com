@@ -68,6 +68,7 @@ const content = {
                         external="true"
                         to="https://www.mql5.com/en/signals"
                         color="red"
+                        size={16}
                         key={0}
                     />,
                 ]}

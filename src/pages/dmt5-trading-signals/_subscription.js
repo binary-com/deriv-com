@@ -43,7 +43,7 @@ const StyledHeader = styled(Header)`
     font-size: 4.8rem;
 
     @media ${device.tabletL} {
-        font-size: 24px;
+        font-size: 32px;
     }
 `
 
@@ -57,8 +57,7 @@ const StyledText = styled(Text)`
     @media ${device.tabletL} {
         font-size: 16px;
         line-height: 24px;
-        margin-top: 16px;
-        text-align: left;
+        margin-top: 12px;
     }
 `
 
@@ -68,6 +67,7 @@ const CardContainer = styled(Flex)`
     @media ${device.laptopM} {
         max-width: 58rem;
         flex-wrap: wrap;
+        margin-top: 0;
     }
 `
 const Card = styled(Flex)`
@@ -100,7 +100,6 @@ const Card = styled(Flex)`
 const StyledCardText = styled(Text)`
     font-size: 1.6rem;
     text-align: left;
-    margin-top: 16px;
 
     @media ${device.tabletL} {
         font-size: 16px;
@@ -136,7 +135,7 @@ const DMT5Button = styled(LinkButton)`
     white-space: nowrap;
 
     @media ${device.tabletL} {
-        margin-top: 32px;
+        margin-top: 24px;
     }
 `
 
@@ -219,7 +218,7 @@ const Subscription = () => {
                     <StyledCardText>
                         <Localize translate_text="<0>Note:</0>" components={[<strong key={0} />]} />
                     </StyledCardText>
-                    <StyledCardText>
+                    <StyledCardText mt="8px">
                         <Localize
                             translate_text="1. You must have an MQL5 community account to subscribe to trading signals. If you don't have an account yet, please go to <0>MQL5.com</0> to register."
                             components={[
@@ -233,7 +232,7 @@ const Subscription = () => {
                             ]}
                         />
                     </StyledCardText>
-                    <StyledCardText>
+                    <StyledCardText mt="16px">
                         <Localize
                             translate_text="2. You'll need to <0>fund your MQL5 account</0> to subscribe to paid signals."
                             components={[
@@ -247,17 +246,17 @@ const Subscription = () => {
                             ]}
                         />
                     </StyledCardText>
-                    <StyledCardText>
+                    <StyledCardText mt="16px">
                         {localize(
                             '3. You can only subscribe to one signal provider with one DMT5 account at any given time. You can use your signal on up to 3 computers.',
                         )}
                     </StyledCardText>
-                    <StyledCardText>
+                    <StyledCardText mt="16px">
                         {localize(
                             "4. You won't be able to trade manually with the same DMT5 account once you've subscribed to a signal.",
                         )}
                     </StyledCardText>
-                    <StyledCardText>
+                    <StyledCardText mt="8px">
                         <Localize
                             translate_text="Have more questions? Check out the <0>FAQ section</0> on the MQL5 website."
                             components={[

@@ -115,6 +115,7 @@ const StyledText = styled(Text)`
     @media ${device.tabletL} {
         font-size: 16px;
         line-height: 24px;
+        max-width: 100%;
     }
 `
 

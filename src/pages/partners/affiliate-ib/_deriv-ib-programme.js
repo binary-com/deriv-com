@@ -140,7 +140,15 @@ const StyledHeaderCommission = styled(StyledHeader)`
 
 const StyledCard = styled(Card)`
     border-radius: 8px;
-    margin: 1.6rem 2.4rem 0;
+
+    :nth-child(2) {
+        margin: 1.6rem 2.4rem 0;
+
+        @media ${device.tabletL} {
+            margin: 24px 0;
+        }
+    }
+
     @media ${device.tabletL} {
         width: 328px;
         padding: 16px;

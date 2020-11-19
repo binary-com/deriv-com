@@ -117,6 +117,7 @@ export const Hero = () => {
     const data = useStaticQuery(query)
     const typewriter_text = localize('Trade forex, commodities, synthetic and stock indices')
     const [type_writer, setTypeWriter] = React.useState('')
+    const [check_first_load, setFirstLoad] = React.useState(false)
     let type_writer_timeout
 
     const typeWriterAnimation = (i = 0) => {
@@ -130,6 +131,7 @@ export const Hero = () => {
         let start_animations_timeout = setTimeout(() => {
             typeWriterAnimation()
         }, 1200)
+        setFirstLoad(true)
         return () => {
             clearTimeout(start_animations_timeout)
             clearTimeout(type_writer_timeout)
@@ -154,13 +156,16 @@ export const Hero = () => {
                                 </StyledHeader>
                             </Flex>
                         </Show.Desktop>
-                        <Show.Mobile>
-                            <Flex>
-                                <MobileHeader color="white" mb="2rem">
-                                    <Localize translate_text="Simple. Flexible. Reliable." />
-                                </MobileHeader>
-                            </Flex>
-                        </Show.Mobile>
+                        {check_first_load && (
+                            <Show.Mobile>
+                                <Flex>
+                                    <MobileHeader color="white" mb="2rem">
+                                        <Localize translate_text="Simple. Flexible. Reliable." />
+                                    </MobileHeader>
+                                </Flex>
+                            </Show.Mobile>
+                        )}
+
                         <TypeWriter
                             as="h2"
                             size="var(--text-size-m)"
@@ -173,14 +178,16 @@ export const Hero = () => {
                         <VerticalCarousel contents={contents} />
                     </Details>
                     <ImageWrapper>
-                        <Show.Mobile>
-                            <QueryImage
-                                data={data.background_mobile}
-                                alt="platform devices mobile"
-                                width="100%"
-                                height="233"
-                            />
-                        </Show.Mobile>
+                        {check_first_load && (
+                            <Show.Mobile>
+                                <QueryImage
+                                    data={data.background_mobile}
+                                    alt="platform devices mobile"
+                                    width="100%"
+                                    height="233"
+                                />
+                            </Show.Mobile>
+                        )}
                         <Show.Desktop>
                             <QueryImage
                                 data={data.background}

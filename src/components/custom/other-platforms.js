@@ -15,17 +15,17 @@ import { localize, LocalizedLink, Localize } from 'components/localization'
 import device from 'themes/device'
 import { community_url } from 'common/utility'
 // icons
-import { ReactComponent as DTrader } from 'images/svg/dtrader-icon.svg'
-import { ReactComponent as DMT5 } from 'images/svg/dmt5-icon.svg'
-import { ReactComponent as DBot } from 'images/svg/dbot-icon.svg'
-import { ReactComponent as Smarttrader } from 'images/svg/smarttrader.svg'
-import { ReactComponent as Margin } from 'images/svg/margin-trading-nav.svg'
-import { ReactComponent as Options } from 'images/svg/options-nav.svg'
-import { ReactComponent as Multipliers } from 'images/svg/multipliers-nav.svg'
-import { ReactComponent as Forex } from 'images/svg/forex-nav.svg'
-import { ReactComponent as Commodities } from 'images/svg/commodities-nav.svg'
-import { ReactComponent as StockIndices } from 'images/svg/stock-indices-nav.svg'
-import { ReactComponent as SyntheticIndices } from 'images/svg/synthetic-indices-nav.svg'
+import DTrader from 'images/svg/dtrader-icon.svg'
+import DMT5 from 'images/svg/dmt5-icon.svg'
+import DBot from 'images/svg/dbot-icon.svg'
+import Smarttrader from 'images/svg/smarttrader.svg'
+import Margin from 'images/svg/margin-trading-nav.svg'
+import Options from 'images/svg/options-nav.svg'
+import Multipliers from 'images/svg/multipliers-nav.svg'
+import Forex from 'images/svg/forex-nav.svg'
+import Commodities from 'images/svg/commodities-nav.svg'
+import StockIndices from 'images/svg/stock-indices-nav.svg'
+import SyntheticIndices from 'images/svg/synthetic-indices-nav.svg'
 import Story from 'images/svg/menu/story.svg'
 import Leadership from 'images/svg/menu/leadership.svg'
 import Partner from 'images/svg/menu/partner.svg'
@@ -55,17 +55,17 @@ const icon72 = css`
     width: 72px;
     height: 72px;
 `
-const StyledDbot = styled(DBot)`
+const StyledDbot = styled.img`
     ${icon72}
 `
-const StyledDmt5 = styled(DMT5)`
+const StyledDmt5 = styled.img`
     ${icon72}
 `
-const StyledDTrader = styled(DTrader)`
+const StyledDTrader = styled.img`
     ${icon72}
 `
 
-const StyledSmarttrader = styled(Smarttrader)`
+const StyledSmarttrader = styled.img`
     width: 72px;
     height: 72px;
 `
@@ -99,7 +99,7 @@ export const TraderCard = ({ is_selected, word_break_cover }) => (
             cover_background="var(--color-red)"
             cover_content={localize('Discover DTrader now')}
             title={localize('DTrader')}
-            Icon={StyledDTrader}
+            Icon={() => <StyledDTrader src={DTrader} width="72" height="72" alt="Dtrader" />}
             content={[localize('The platform to start with. It’s powerful yet easy to use.')]}
             is_inline_icon
             min_height="12.4rem"
@@ -116,7 +116,7 @@ export const BotCard = ({ is_selected, word_break_cover }) => (
             cover_background="var(--color-orange)"
             cover_content={localize('Discover DBot now')}
             title={localize('DBot')}
-            Icon={StyledDbot}
+            Icon={() => <StyledDbot src={DBot} width="72" height="72" alt="DBot" />}
             content={[localize('Automated trading at your fingertips. No coding needed.')]}
             is_inline_icon
             min_height="12.4rem"
@@ -133,7 +133,7 @@ export const DMT5Card = ({ is_selected, word_break_cover }) => (
             cover_background="var(--color-green)"
             cover_content={localize('Discover DMT5 now')}
             title={localize('DMT5')}
-            Icon={StyledDmt5}
+            Icon={() => <StyledDmt5 src={DMT5} alt="DMT5" width="72" height="72" />}
             content={[
                 localize(
                     'Trade on Deriv MetaTrader 5 (DMT5), the all-in-one FX and CFD trading platform.',
@@ -160,7 +160,9 @@ export const SmarttraderCard = ({ is_selected, word_break_cover }) => (
             cover_background="var(--color-blue-3)"
             cover_content={localize('Discover SmartTrader now')}
             title={localize('SmartTrader')}
-            Icon={StyledSmarttrader}
+            Icon={() => (
+                <StyledSmarttrader src={Smarttrader} alt="Smarttrader" height="72" width="72" />
+            )}
             content={[
                 <Localize
                     key={0}
@@ -224,7 +226,7 @@ export const NavPlatform = ({ onClick }) => (
         <Flex direction="column" wrap="wrap" jc="flex-start">
             <StyledText>{localize('Trading platforms')}</StyledText>
             <NavCard
-                icon={DTrader}
+                icon={() => <img src={DTrader} alt="Dtrader" width="32" height="32" />}
                 content={
                     <Localize translate_text="A whole new trading experience on a powerful yet easy to use platform." />
                 }
@@ -233,7 +235,7 @@ export const NavPlatform = ({ onClick }) => (
                 to="/dtrader"
             />
             <NavCard
-                icon={DBot}
+                icon={() => <img src={DBot} alt="DBot" width="32" height="32" />}
                 content={
                     <Localize translate_text="Automated trading at your fingertips. No coding needed." />
                 }
@@ -242,7 +244,7 @@ export const NavPlatform = ({ onClick }) => (
                 to="/dbot"
             />
             <NavCard
-                icon={DMT5}
+                icon={() => <img src={DMT5} alt="DMT5" width="32" height="32" />}
                 content={
                     <Localize translate_text="Trade on Deriv MetaTrader 5 (DMT5), the all-in-one FX and CFD trading platform." />
                 }
@@ -251,7 +253,7 @@ export const NavPlatform = ({ onClick }) => (
                 to="/dmt5"
             />
             <NavCard
-                icon={Smarttrader}
+                icon={() => <img src={Smarttrader} alt="Smarttrader" width="32" height="32" />}
                 content={
                     <Localize translate_text="Trade the world’s markets with our popular user-friendly platform." />
                 }
@@ -268,7 +270,7 @@ export const NavPlatform = ({ onClick }) => (
         <Flex direction="column" wrap="wrap" jc="flex-start">
             <StyledText>{localize('Trade types')}</StyledText>
             <NavCard
-                icon={Margin}
+                icon={() => <img src={Margin} alt="Margin" width="32" height="32" />}
                 content={
                     <Localize translate_text="Trade with leverage and low spreads for better returns on successful trades." />
                 }
@@ -278,7 +280,7 @@ export const NavPlatform = ({ onClick }) => (
             />
 
             <NavCard
-                icon={Options}
+                icon={() => <img src={Options} alt="Options" width="32" height="32" />}
                 content={
                     <Localize translate_text="Earn fixed payouts by predicting an asset's price movement." />
                 }
@@ -287,7 +289,7 @@ export const NavPlatform = ({ onClick }) => (
                 to="/trade-types/options"
             />
             <NavCard
-                icon={Multipliers}
+                icon={() => <img src={Multipliers} alt="Multipliers" width="32" height="32" />}
                 content={
                     <Localize translate_text="Combine the upside of margin trading with the simplicity of options." />
                 }
@@ -306,7 +308,7 @@ NavPlatform.propTypes = {
 export const NavMarket = ({ onClick }) => (
     <Flex direction="column" wrap="wrap" jc="flex-start">
         <NavCard
-            icon={Forex}
+            icon={() => <img src={Forex} alt="Forex" width="32" height="32" />}
             content={
                 <Localize translate_text="Trade the world’s largest financial market with popular forex pairs." />
             }
@@ -315,7 +317,9 @@ export const NavMarket = ({ onClick }) => (
             to="/markets#forex"
         />
         <NavCard
-            icon={SyntheticIndices}
+            icon={() => (
+                <img src={SyntheticIndices} alt="SyntheticIndices" width="32" height="32" />
+            )}
             content={
                 <Localize translate_text="Enjoy synthetic markets that emulate real-world market movements." />
             }
@@ -324,7 +328,7 @@ export const NavMarket = ({ onClick }) => (
             to="/markets#synthetic"
         />
         <NavCard
-            icon={StockIndices}
+            icon={() => <img src={StockIndices} alt="StockIndices" width="32" height="32" />}
             content={
                 <Localize translate_text="Predict broader market trends and diversify your risk with stock indices." />
             }
@@ -333,7 +337,7 @@ export const NavMarket = ({ onClick }) => (
             to="/markets#stock"
         />
         <NavCard
-            icon={Commodities}
+            icon={() => <img src={Commodities} alt="Commodities" width="32" height="32" />}
             content={
                 <Localize translate_text="Trade natural resources that are central to the world's economy." />
             }

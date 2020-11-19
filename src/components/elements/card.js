@@ -7,7 +7,7 @@ import { LocalizedLink } from 'components/localization'
 import device from 'themes/device'
 // SVG
 import Arrow from 'images/svg/card-arrow.svg'
-import { ReactComponent as Diagonal } from 'images/svg/pink-right-diagonal.svg'
+import Diagonal from 'images/svg/pink-right-diagonal.svg'
 
 export const CardStyle = css`
     box-sizing: border-box;
@@ -268,7 +268,7 @@ const NavContent = styled.div`
     display: flex;
     flex-direction: column;
 `
-const RightDiagonal = styled(Diagonal)`
+const RightDiagonal = styled.img`
     opacity: 0;
     transition: opacity 0.2s;
     position: absolute;
@@ -380,7 +380,7 @@ export const NavCard = ({
                 </NavContent>
                 {external && (
                     <div>
-                        <RightDiagonal />
+                        <RightDiagonal src={Diagonal} alt="Diagonal" widht="16" height="16" />
                     </div>
                 )}
             </FlexHover>
@@ -469,7 +469,7 @@ export const CardLink = ({ icon: Icon, title, to, style, external, target, onCli
                     </ResponsiveHeader>
                     {external && (
                         <LinkRightDiagonal>
-                            <Diagonal />
+                            <img src={Diagonal} alt="Diagonal" width="16" height="16" />
                         </LinkRightDiagonal>
                     )}
                 </RelativeFlex>

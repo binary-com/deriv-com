@@ -343,13 +343,13 @@ const Footer = () => {
                                         </Link>
                                     </LinkWrapper>
                                     <LinkWrapper>
-                                        <Link to="/partners">
-                                            {localize('Partnership programmes')}
+                                        <Link to="/why-choose-us">
+                                            {localize('Why choose us?')}
                                         </Link>
                                     </LinkWrapper>
                                     <LinkWrapper>
-                                        <Link to="/why-choose-us">
-                                            {localize('Why choose us?')}
+                                        <Link to="/partners">
+                                            {localize('Partnership programmes')}
                                         </Link>
                                     </LinkWrapper>
                                     <LinkWrapper>
@@ -490,13 +490,13 @@ const Footer = () => {
                                             </Link>
                                         </Item>
                                         <Item>
-                                            <Link to="/partners">
-                                                {localize('Partnership programmes')}
+                                            <Link to="/why-choose-us">
+                                                {localize('Why choose us?')}
                                             </Link>
                                         </Item>
                                         <Item>
-                                            <Link to="/why-choose-us">
-                                                {localize('Why choose us?')}
+                                            <Link to="/partners">
+                                                {localize('Partnership programmes')}
                                             </Link>
                                         </Item>
                                         <Item>

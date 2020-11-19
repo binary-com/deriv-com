@@ -32,6 +32,7 @@ const Wrapper = styled.div`
     width: 100%;
     overflow: hidden;
     border-top: 1px solid rgba(151, 151, 151, 0.2);
+    border-bottom: 1px solid rgba(151, 151, 151, 0.2);
     @media (max-width: 991px) {
         flex-direction: column;
         height: auto;
@@ -98,7 +99,10 @@ const InputGroup = styled.div`
 `
 const EmailButton = styled(Button)`
     margin-left: 2rem;
-    height: 4rem;
+    min-width: 105px;
+    height: 40px;
+    padding: 10px 28px;
+    border-radius: 4px;
     @media ${device.tabletL} {
         width: auto;
         font-size: 1.4rem;
@@ -255,6 +259,8 @@ const SignupPublic = ({
                                         inputBackground="grey-8"
                                         labelFocusColor="grey-7"
                                         labelColor="black-3"
+                                        labelSize="16px"
+                                        labelTop="1.2rem"
                                         label={localize('Email')}
                                         placeholder={'example@mail.com'}
                                         handleError={clearEmail}
@@ -277,7 +283,7 @@ const SignupPublic = ({
                                 </EmailButton>
                             </InputGroup>
                             <SocialWrapper jc="unset" ai="center">
-                                <StyledText>{localize('or sign up with')}</StyledText>
+                                <StyledText>{localize('or sign in with')}</StyledText>
                                 <SocialButton
                                     onClick={handleSocialSignup}
                                     provider="facebook"
@@ -368,7 +374,7 @@ const SignupPublic = ({
                                 </EmailButton>
                             </InputGroup>
                             <SocialWrapper jc="unset" ai="center">
-                                <StyledText>{localize('or sign up with')}</StyledText>
+                                <StyledText>{localize('or sign in with')}</StyledText>
                                 <SocialButton
                                     onClick={handleSocialSignup}
                                     provider="facebook"

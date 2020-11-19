@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { Text } from '../elements'
@@ -10,17 +10,15 @@ const RelativeWrapper = styled.div`
     position: relative;
 `
 const InputWrapper = styled.div`
+    /* prettier-ignore */
     width: 100%;
     border: ${(props) => props.border || '1px solid var(--color-grey-2)'};
     border-radius: 4px;
-
     @media ${device.tabletL} {
         height: 5rem;
     }
-
     &:hover {
         border-color: var(--color-grey-5);
-
         & > label {
             color: var(--color-${(props) => props.labelHoverColor || 'black-3'});
         }
@@ -28,7 +26,6 @@ const InputWrapper = styled.div`
     &:focus-within {
         border-color: ${(props) => props.focusBorder || 'var(--color-green)'};
     }
-
     ${(props) =>
         !props.error &&
         css`
@@ -38,7 +35,6 @@ const InputWrapper = styled.div`
         props.error &&
         css`
             border-color: var(--color-red-1) !important;
-
             & > label {
                 color: var(--color-red-1) !important;
             }
@@ -52,7 +48,6 @@ const StyledError = styled.img`
     height: 1.6rem;
     width: 1.6rem;
     cursor: pointer;
-
     @media ${device.tablet} {
         right: 2rem;
         top: 1.6rem;
@@ -63,29 +58,26 @@ const StyledInput = styled.input`
     /* prettier-ignore */
     background: var(--color-${(props) => props.inputBackground || 'none'});
     color: var(--color-${(props) => props.inputColor || 'black'});
-    font-size: 16px;
+    font-size: var(--text-size-xs);
     padding: 1rem 1rem 1rem 0.8rem;
     width: 100%;
     display: block;
     border: none;
     border-radius: 4px;
-
     @media ${device.tabletL} {
         height: 100%;
-
         & ~ label {
             font-size: 1.75rem;
             top: 1.5rem;
         }
     }
-
     @media ${device.mobileL} {
+        font-size: 14px;
         & ~ label {
             font-size: 1.5rem;
             top: 1.75rem;
         }
     }
-
     &::placeholder {
         opacity: 0;
         transition: opacity 0.25s;
@@ -93,16 +85,12 @@ const StyledInput = styled.input`
     }
     &:focus {
         outline: none;
-
         & ~ label {
             transform: translate(-0.6rem, -2rem) scale(0.7);
-
             /* prettier-ignore */
             color: var(--color-${(props) => props.labelFocusColor || 'green'});
-
             /* prettier-ignore */
             background-color: var(--color-${(props) => props.background || 'grey-1'});
-
             @media ${device.mobileL} {
                 transform: translate(-0.6rem, -20px) scale(0.7);
             }
@@ -114,13 +102,19 @@ const StyledInput = styled.input`
         }
     }
     &:valid {
-        & ~ label {
-            transform: translate(-0.6rem, -2rem) scale(0.7);
-            color: var(--color-black-3);
-
-            /* prettier-ignore */
-            background-color: var(--color-${(props) => props.background || 'grey-1'});
-        }
+        ${(props) =>
+            props.value &&
+            css`
+                & ~ label {
+                    transform: translate(-0.6rem, -2rem) scale(0.7);
+                    color: var(--color-black-3);
+                    @media ${device.tabletL} {
+                        top: 9px;
+                    }
+                    /* prettier-ignore */
+                    background-color: var(--color-${(props) => props.background || 'grey-1'});
+                }
+            `}
     }
 `
 
@@ -155,32 +149,52 @@ const Input = ({
     background,
     tabletBackground,
     handleError,
+    maxLength,
     ...props
-}) => (
-    <RelativeWrapper>
-        <InputWrapper
-            border={border}
-            focusBorder={focusBorder}
-            labelHoverColor={labelHoverColor}
-            error={error}
-            className="input-wrapper"
-        >
-            <StyledInput id={id} background={background} {...props} />
-            <StyledLabel
-                tabletBackground={tabletBackground}
+}) => {
+    let current_input = useRef(null)
+
+    return (
+        <RelativeWrapper>
+            <InputWrapper
+                border={border}
+                focusBorder={focusBorder}
+                labelHoverColor={labelHoverColor}
                 error={error}
-                htmlFor={id}
-                labelColor={labelColor}
+                className="input-wrapper"
             >
-                {label}
-            </StyledLabel>
-        </InputWrapper>
-        <ErrorMessages lh="1.4" align="left" color="red-1">
-            {error}
-        </ErrorMessages>
-        {error && <StyledError src={CrossIcon} alt="error icon" onClick={handleError} />}
-    </RelativeWrapper>
-)
+                <StyledInput
+                    id={id}
+                    background={background}
+                    maxLength={maxLength}
+                    error={error}
+                    {...props}
+                    ref={(ip) => (current_input = ip)}
+                />
+                <StyledLabel
+                    tabletBackground={tabletBackground}
+                    error={error}
+                    htmlFor={id}
+                    labelColor={labelColor}
+                >
+                    {label}
+                </StyledLabel>
+            </InputWrapper>
+            <ErrorMessages lh="1.4" align="left" color="red-1">
+                {error}
+            </ErrorMessages>
+            {error && (
+                <StyledError
+                    src={CrossIcon}
+                    alt="error icon"
+                    onClick={() => {
+                        handleError(current_input)
+                    }}
+                />
+            )}
+        </RelativeWrapper>
+    )
+}
 
 Input.propTypes = {
     background: PropTypes.string,
@@ -193,6 +207,7 @@ Input.propTypes = {
     label: PropTypes.string,
     labelColor: PropTypes.string,
     labelHoverColor: PropTypes.string,
+    maxLength: PropTypes.string,
     tabletBackground: PropTypes.string,
     width: PropTypes.string,
 }

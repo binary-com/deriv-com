@@ -58,6 +58,7 @@ const StyledSection = styled(SectionContainer)`
     }
 `
 const StyledButton = styled(LinkButton)`
+    border-radius: 4px;
     @media ${device.tabletL} {
         font-size: 1.75rem;
         padding: 1.25rem 4.75rem;

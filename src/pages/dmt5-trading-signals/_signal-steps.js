@@ -3,8 +3,138 @@ import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import Tabs from '../trade-types/components/_side-tab'
 import { Localize } from 'components/localization'
-import { QueryImage } from 'components/elements'
+import { QueryImage, LocalizedLinkText } from 'components/elements'
 import device from 'themes/device.js'
+
+const Container = styled.section`
+    width: 100%;
+    max-width: 100rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-top: 4rem;
+    align-items: center;
+
+    @media ${device.tabletL} {
+        flex-direction: column-reverse;
+        justify-content: center;
+        margin: 0;
+    }
+`
+const content = {
+    subscriber: {
+        header: <Localize translate_text="How to subscribe to an MT5 signal" />,
+        step_one_header: <Localize translate_text="1. Click on the Signals tab" />,
+        step_one_text: (
+            <Localize translate_text="From your Deriv MT5 trading terminal, click on the Signals tab to view the list of signal providers." />
+        ),
+        step_two_header: <Localize translate_text="2. Subscribe to a signal provider" />,
+        step_two_text: (
+            <Localize translate_text="Select the signal provider you prefer and click the Subscribe button." />
+        ),
+        step_three_header: <Localize translate_text="3. Configure the parameters" />,
+        step_three_text: (
+            <Localize
+                translate_text="Configure your trading and risk management parameters. Then click <0>OK</0> to complete the process."
+                components={[<strong key={0} />]}
+            />
+        ),
+        notice: (
+            <Localize
+                translate_text="<0>Note:</0> For a wider selection of signal providers for Deriv, go to <1>MQL5 showcase page</1> and search for <0>Deriv</0> under the <0>Broker</0> server field."
+                components={[
+                    <strong key={0} />,
+                    <LocalizedLinkText
+                        external="true"
+                        to="https://www.mql5.com/en/signals"
+                        color="red"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        size={16}
+                        key={1}
+                    />,
+                ]}
+            />
+        ),
+    },
+    provider: {
+        header: <Localize translate_text="How to register as a signals provider" />,
+        step_one_header: <Localize translate_text="1. Create signal" />,
+        step_one_text: (
+            <Localize
+                translate_text="Go to the <0>MQL5 signals showcase page</0> and click on the Create signal button."
+                components={[
+                    <LocalizedLinkText
+                        external="true"
+                        to="https://www.mql5.com/en/signals"
+                        color="red"
+                        key={0}
+                    />,
+                ]}
+            />
+        ),
+        step_two_header: <Localize translate_text="2. Fill the broker field" />,
+        step_two_text: (
+            <Localize translate_text="Complete the form with your Deriv MT5 account credentials. For the Broker field, add Deriv-Server as your broker or Deriv-Demo if your signal is for demo accounts only." />
+        ),
+        step_three_header: <Localize translate_text="3. Complete the registration" />,
+        step_three_text: (
+            <Localize
+                translate_text="Click <0>OK</0> and add a description to complete the registration"
+                components={[<strong key={0} />]}
+            />
+        ),
+        notice: (
+            <Localize
+                translate_text="<0>Note:</0> You need to upgrade your MQL5 account to seller status to be able to add a signal. If you’ve not upgraded yet, <1>follow the steps on this page</1> to register as a seller."
+                components={[
+                    <strong key={0} />,
+                    <LocalizedLinkText
+                        external="true"
+                        to="https://www.metatrader5.com/en/terminal/help/signals/signal_provider"
+                        color="red"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        size={16}
+                        key={1}
+                    />,
+                ]}
+            />
+        ),
+    },
+}
+
+const StyledTabs = styled(Tabs)`
+    .side-tab__wrapper {
+        max-width: 380px;
+        width: 100%;
+    }
+    .side-tab__desktop {
+        margin-right: 2.4rem;
+        max-width: 588px;
+    }
+
+    @media ${device.tabletL} {
+        .side-tab__wrapper {
+            max-width: 100%;
+            margin-left: 0;
+        }
+        .side-tab__list {
+            margin-left: -10px;
+        }
+        .side-tab__label,
+        .side-tab__description {
+            font-size: 16px;
+        }
+    }
+`
+
+const StyledQueryImage = styled(QueryImage)`
+    .gatsby-image-wrapper {
+        max-width: 588px;
+        max-height: 401px;
+    }
+`
 
 const query = graphql`
     query {
@@ -29,82 +159,6 @@ const query = graphql`
     }
 `
 
-const Container = styled.section`
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    margin-top: 4rem;
-    align-items: center;
-
-    @media ${device.tabletL} {
-        flex-direction: column-reverse;
-        justify-content: center;
-        margin: 0 0;
-    }
-`
-const content = {
-    subscriber: {
-        header: <Localize translate_text="How to subscribe to an MT5 signal" />,
-        step_one_header: <Localize translate_text="1. Click on signals tab" />,
-        step_one_text: (
-            <Localize translate_text="From your Deriv MT5 trading terminal, click on the Signals tab to view the list of signal providers." />
-        ),
-        step_two_header: <Localize translate_text="2. Subscribe on signals provider" />,
-        step_two_text: (
-            <Localize translate_text="Select the signal provider you prefer and click the Subscribe button." />
-        ),
-        step_three_header: <Localize translate_text="3. Configure the parameters" />,
-        step_three_text: (
-            <Localize
-                translate_text="Configure your trading and risk management parameters. Then click <0>OK</0> to complete the process."
-                components={[<strong key={0} />]}
-            />
-        ),
-    },
-    provider: {
-        header: <Localize translate_text="How to register as a signals provider" />,
-        step_one_header: <Localize translate_text="1. Create signal" />,
-        step_one_text: (
-            <Localize translate_text="Go to the MQL5 signals showcase page and click on the Create signal button." />
-        ),
-        step_two_header: <Localize translate_text="2. Choose broker field" />,
-        step_two_text: (
-            <Localize translate_text="Complete the form with your Deriv MT5 account credentials. For the Broker field, add Deriv-Server as your broker or Deriv-Demo if your signal is for demo accounts only." />
-        ),
-        step_three_header: <Localize translate_text="3. Complete the registration" />,
-        step_three_text: (
-            <Localize
-                translate_text="Click <0>OK</0> and add a description to complete the registration"
-                components={[<strong key={0} />]}
-            />
-        ),
-    },
-}
-
-const StyledTabs = styled(Tabs)`
-    .side-tab__list {
-        max-width: 380px;
-        width: 100%;
-    }
-    .side-tab__desktop {
-        max-width: 56rem;
-        margin-right: 2.4rem;
-    }
-
-    @media ${device.tabletL} {
-        .side-tab__list {
-            max-width: 100%;
-            margin-left: 0;
-        }
-        .side-tab__mobile {
-            max-width: 500px;
-        }
-    }
-`
-
-const StyledPanel = styled(Tabs.Panel)``
-
 const SignalSteps = (active_tab) => {
     const data = useStaticQuery(query)
 
@@ -112,67 +166,77 @@ const SignalSteps = (active_tab) => {
         <>
             {active_tab.active_tab === 'signal-subscriber' && (
                 <Container>
-                    <StyledTabs is_reverse max_width={'tabletL'}>
-                        <StyledPanel
+                    <StyledTabs
+                        is_reverse
+                        max_width={'tabletL'}
+                        has_notice
+                        notice_content={content.subscriber.notice}
+                    >
+                        <Tabs.Panel
                             label={content.subscriber.step_one_header}
                             description={content.subscriber.step_one_text}
                         >
-                            <QueryImage
+                            <StyledQueryImage
                                 data={data['subscriber_step_1']}
                                 alt="Trade types option market"
                             />
-                        </StyledPanel>
-                        <StyledPanel
+                        </Tabs.Panel>
+                        <Tabs.Panel
                             label={content.subscriber.step_two_header}
                             description={content.subscriber.step_two_text}
                         >
-                            <QueryImage
+                            <StyledQueryImage
                                 data={data['subscriber_step_2']}
                                 alt="Trade types option trade type open"
                             />
-                        </StyledPanel>
-                        <StyledPanel
+                        </Tabs.Panel>
+                        <Tabs.Panel
                             label={content.subscriber.step_three_header}
                             description={content.subscriber.step_three_text}
                         >
-                            <QueryImage
+                            <StyledQueryImage
                                 data={data['subscriber_step_3']}
                                 alt="Trade types option duration"
                             />
-                        </StyledPanel>
+                        </Tabs.Panel>
                     </StyledTabs>
                 </Container>
             )}
             {active_tab.active_tab === 'signal-provider' && (
                 <Container>
-                    <StyledTabs is_reverse max_width={'tabletL'}>
-                        <StyledPanel
+                    <StyledTabs
+                        is_reverse
+                        max_width={'tabletL'}
+                        has_notice
+                        notice_content={content.provider.notice}
+                    >
+                        <Tabs.Panel
                             label={content.provider.step_one_header}
                             description={content.provider.step_one_text}
                         >
-                            <QueryImage
+                            <StyledQueryImage
                                 data={data['provider_step_1']}
                                 alt="Trade types option market"
                             />
-                        </StyledPanel>
-                        <StyledPanel
+                        </Tabs.Panel>
+                        <Tabs.Panel
                             label={content.provider.step_two_header}
                             description={content.provider.step_two_text}
                         >
-                            <QueryImage
+                            <StyledQueryImage
                                 data={data['provider_step_2']}
                                 alt="Trade types option trade type open"
                             />
-                        </StyledPanel>
-                        <StyledPanel
+                        </Tabs.Panel>
+                        <Tabs.Panel
                             label={content.provider.step_three_header}
                             description={content.provider.step_three_text}
                         >
-                            <QueryImage
+                            <StyledQueryImage
                                 data={data['provider_step_3']}
                                 alt="Trade types option duration"
                             />
-                        </StyledPanel>
+                        </Tabs.Panel>
                     </StyledTabs>
                 </Container>
             )}

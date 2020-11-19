@@ -91,6 +91,7 @@ const trimSpaces = (value) => value.trim()
 
 const deriv_app_url = 'https://app.deriv.com'
 const deriv_bot_app_url = 'https://app.deriv.com/bot'
+const deriv_dp2p_app_url = 'https://app.deriv.com/cashier/p2p'
 const smarttrader_url = 'https://smarttrader.deriv.com'
 const binary_url = 'https://binary.com'
 const deriv_cookie_domain = 'deriv.com'
@@ -110,6 +111,8 @@ const dmt5_linux_url = 'https://www.metatrader5.com/en/terminal/help/start_advan
 const dmt5_android_url =
     'https://download.mql5.com/cdn/mobile/mt5/android?server=Deriv-Demo,Deriv-Server'
 const dmt5_ios_url = 'https://download.mql5.com/cdn/mobile/mt5/ios?server=Deriv-Demo,Deriv-Server'
+const dp2p_google_play_url =
+    'https://play.google.com/store/apps/details?id=com.deriv.dp2p&hl=en&gl=US'
 
 export {
     affiliate_signin_url,
@@ -123,6 +126,8 @@ export {
     community_url,
     deriv_app_url,
     deriv_bot_app_url,
+    deriv_dp2p_app_url,
+    dp2p_google_play_url,
     mga_link_url,
     debounce,
     brand_name,

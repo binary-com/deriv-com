@@ -79,7 +79,7 @@ const TradeTypesCard = ({ icon, title, description, link, linkTitle }) => {
                 <Text weight="bold" mr="0.8rem" color="red">
                     {localize('Learn more')}
                 </Text>{' '}
-                <img src={Arrow} alt="arrow" />
+                <img src={Arrow} alt="arrow" width="16" height="16" />
             </CustomLinkWrap>
         </StyledCard>
     )

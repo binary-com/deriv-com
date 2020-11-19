@@ -278,7 +278,7 @@ const DHero = ({
             <BackgroundSVG src={background_svg} alt="background svg" />
             <InformationWrapper height="unset" direction="column">
                 <StyledHeader as="h1" weight={500}>
-                    <DLogo src={Logo} alt="logo" />
+                    <DLogo src={Logo} alt="logo" width="32" height="32" />
                     {title}
                 </StyledHeader>
                 <HeroContent>

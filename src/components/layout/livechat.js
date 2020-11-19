@@ -45,7 +45,11 @@ const LiveChat = ({ LC_API, is_livechat_interactive, setLiveChatInteractive }) =
                 loadLiveChatScript(() => {
                     window.LiveChatWidget.on('ready', () => {
                         setLiveChatInteractive(true)
-
+                        const url_params = new URLSearchParams(window.location.search)
+                        const is_livechat_query = url_params.get('is_livechat_open')
+                        if (is_livechat_query) {
+                            window.LC_API.open_chat_window()
+                        }
                         window.LiveChatWidget.on('visibility_changed', ({ visibility }) => {
                             const domain = window.location.hostname.includes('deriv.com')
                                 ? 'deriv.com'

@@ -20,7 +20,7 @@ exports.onCreatePage = ({ page, actions }) => {
         const homepage_regex = /homepage/g
         // TODO: this is a temporary workaround to remove a/b testing page
         const amp_regex = /amp/g
-        const offline_plugin_regex = /^[a-z-]+\/offline-plugin-app-shell-fallback\//g
+        const offline_plugin_regex = /^[a-z-]+\/offline-plugin-app-shell-fallback/g
 
         if (is_production) {
             if (path === 'ach') return

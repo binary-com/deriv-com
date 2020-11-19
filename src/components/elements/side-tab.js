@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { Text, Header } from './typography'
@@ -113,19 +113,16 @@ const Tab = ({ active_tab, label, onClick, text, mobile, font_size }) => {
 }
 
 const getTabs = (children) => children.map(child => child.props.label)
+const findCurrentTab = (children, active_tab) => children.find(child => child.props.label === active_tab)
 
-const SideTab = ({ children, is_sticky, onTabChange, tab_header, font_size }) => {
-    // we should check the window because When building, Gatsby renders these components on the server where window is not defined.
-    const [active_tab, setActiveTab] = useTabState([...getTabs(children), '-'])
-    const [previous_tab, setLastActiveTab] = useState('-')
+const SideTab = ({ children, is_sticky, tab_header, font_size }) => {
+    const [active_tab, setActiveTab] = useTabState(getTabs(children))
+    const [current_active_tab, setCurrentActiveTab] = useState(findCurrentTab(children, active_tab))
+    const [is_menu, setMenu] = useState(false)
 
-    const handleReset = () => {
-        setLastActiveTab(active_tab)
-        active_tab !== '-' ? setActiveTab('-') : setActiveTab(previous_tab)
-    }
-    const current_active_tab = children.find((child) => child.props.label === active_tab)
-
-    if (onTabChange) onTabChange(current_active_tab)
+    useEffect(() => {
+        setCurrentActiveTab(!is_menu ? findCurrentTab(children, active_tab) : null)
+    }, [active_tab, is_menu])
 
     const Tabs = (props) => {
         return children.map((child, idx) => {
@@ -142,6 +139,7 @@ const SideTab = ({ children, is_sticky, onTabChange, tab_header, font_size }) =>
                             }
 
                             setActiveTab(e)
+                            setMenu(!is_menu)
                         }}
                         active_tab={active_tab}
                         label={label}
@@ -163,21 +161,19 @@ const SideTab = ({ children, is_sticky, onTabChange, tab_header, font_size }) =>
                     <Tabs />
                 </Desktop>
                 <Mobile>
-                    <StyledDropDown onClick={handleReset}>
-                        {current_active_tab ? (
+                    <StyledDropDown onClick={() => setMenu(!is_menu)}>
+                        {current_active_tab && (
                             <StyledActiveTabText>
                                 {current_active_tab.props.text}
                             </StyledActiveTabText>
-                        ) : (
-                            <StyledActiveTabText>-</StyledActiveTabText>
                         )}
                         <ChevronWrapper active_tab={active_tab} />
                     </StyledDropDown>
-                    {current_active_tab ? undefined : <Tabs is_mobile={true} />}
+                    {is_menu && <Tabs is_mobile={true} />}
                 </Mobile>
             </TabList>
             <TabContent>
-                {children.map((child) => (child.props.label === active_tab ? child : undefined))}
+                {!is_menu && children.map((child) => (child.props.label === active_tab ? child : undefined))}
             </TabContent>
         </StyledSideTab>
     )
@@ -188,7 +184,6 @@ SideTab.propTypes = {
     font_size: PropTypes.string,
     is_mobile: PropTypes.bool,
     is_sticky: PropTypes.bool,
-    onTabChange: PropTypes.func,
     tab_header: PropTypes.string,
 }
 

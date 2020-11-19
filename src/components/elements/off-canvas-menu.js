@@ -31,6 +31,8 @@ import Terms from 'components/svgs/terms'
 import SecureTrading from 'components/svgs/secure-trading'
 import Community from 'components/svgs/community'
 import { ReactComponent as Diagonal } from 'images/svg/pink-right-diagonal.svg'
+import AffiliateIb from 'images/svg/menu/affiliate-ib.svg'
+import PaymentAgent from 'images/svg/menu/payment-agent.svg'
 
 const OffCanvasMenu = styled.section`
     position: fixed;
@@ -54,7 +56,8 @@ const Span = styled.span`
 `
 
 const SpanSvg = styled.span`
-    & > svg {
+    & > svg,
+    img {
         width: 16px;
         height: 16px;
     }
@@ -68,7 +71,8 @@ const StyledLink = styled((props) => <LocalizedLink {...props} />)`
     display: flex;
     align-items: center;
 
-    & > div > svg {
+    & > div > svg,
+    & > div > img {
         width: 24px;
         height: 24px;
         margin-right: 8px;
@@ -361,6 +365,29 @@ export const OffCanvasMenuWrapper = (props) => {
                             <span>{localize('Secure and responsible trading')}</span>
                         </StyledLink>
                     </AccordionItem>
+                    <AccordionItem
+                        header={localize('Partner')}
+                        header_style={header_style}
+                        style={content_style}
+                    >
+                        <StyledLink to="/partners/affiliate-ib/" onClick={handleArrowClick}>
+                            <div>
+                                <img src={AffiliateIb} alt="affiliate ib" width="32" height="32" />
+                            </div>
+                            <span>{localize('Affiliates and IBs')}</span>
+                        </StyledLink>
+                        <StyledLink to="/partners/payment-agent/" onClick={handleArrowClick}>
+                            <div>
+                                <img
+                                    src={PaymentAgent}
+                                    alt="payment agent"
+                                    width="32"
+                                    height="32"
+                                />
+                            </div>
+                            <span>{localize('Payment agents')}</span>
+                        </StyledLink>
+                    </AccordionItem>
                 </Accordion>
             </OffCanvasMenuContainer>
         </OffCanvasMenu>
@@ -371,12 +398,6 @@ OffCanvasMenuWrapper.propTypes = {
     closeOffCanvasMenu: PropTypes.func,
     is_canvas_menu_open: PropTypes.bool,
 }
-
-const SingleLink = styled(StyledLink)`
-    font-weight: bold;
-    margin-top: 1.6rem;
-    margin-bottom: 1.6rem;
-`
 
 export const OffCanvasMenuPartner = (props) => {
     const canvas = useRef()
@@ -401,12 +422,18 @@ export const OffCanvasMenuPartner = (props) => {
     return (
         <OffCanvasMenuSecondary is_canvas_menu_open={props.is_canvas_menu_open} ref={canvas}>
             <OffCanvasMenuContainer>
-                <SingleLink weight="bold" to="/partners/affiliate-ib/" onClick={handleArrowClick}>
-                    {localize('Affiliates and IBs')}
-                </SingleLink>
-                <SingleLink weight="bold" to="/partners/payment-agent/" onClick={handleArrowClick}>
-                    {localize('Payment agents')}
-                </SingleLink>
+                <StyledLink to="/partners/affiliate-ib/" onClick={handleArrowClick}>
+                    <div>
+                        <img src={AffiliateIb} alt="affiliate ib" width="32" height="32" />
+                    </div>
+                    <span>{localize('Affiliates and IBs')}</span>
+                </StyledLink>
+                <StyledLink to="/partners/payment-agent/" onClick={handleArrowClick}>
+                    <div>
+                        <img src={PaymentAgent} alt="payment agent" width="32" height="32" />
+                    </div>
+                    <span>{localize('Payment agents')}</span>
+                </StyledLink>
             </OffCanvasMenuContainer>
         </OffCanvasMenuSecondary>
     )

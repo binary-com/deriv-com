@@ -14,6 +14,11 @@ import { localize } from 'components/localization'
 import { Header, Accordion, AccordionItem } from 'components/elements'
 import DotPattern from 'images/svg/dot-pattern.svg'
 
+const FaqHeader = styled(Header)`
+    @media ${device.tabletL} {
+        font-size: 24px;
+    }
+`
 const RelativeContainer = styled(SectionContainer)`
     position: relative;
     overflow: hidden;
@@ -24,14 +29,22 @@ const RelativeContainer = styled(SectionContainer)`
 `
 
 const TopLeftDot = styled.img`
+    width: 581px;
     position: absolute;
     top: 4px;
     left: 0;
+    @media ${device.tabletL} {
+        left: -450px;
+    }
 `
 const BottomRightDot = styled.img`
     position: absolute;
     bottom: 16px;
     right: 0;
+    height: 154px;
+    @media ${device.tabletL} {
+        right: -450px;
+    }
 `
 const AccordionWrapper = styled.div`
     max-width: 99.6rem;
@@ -53,7 +66,7 @@ const Faq = () => {
     }
     const item_style = {
         padding: '4rem',
-        background: 'var(--color-grey-4)',
+        background: 'var(--color-grey-32)',
     }
     const header_style = {
         padding: '1.6rem 4rem',
@@ -62,9 +75,9 @@ const Faq = () => {
     }
     return (
         <RelativeContainer>
-            <Header as="h3" type="section-title" align="center">
+            <FaqHeader size="4.8rem" align="center">
                 {localize('Browse our FAQ')}
-            </Header>
+            </FaqHeader>
             <Header as="h4" align="center" m="4rem 0" weight="normal">
                 {localize('Deriv Affiliate Programme')}
             </Header>

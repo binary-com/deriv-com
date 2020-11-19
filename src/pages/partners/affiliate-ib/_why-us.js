@@ -90,7 +90,7 @@ const WhyUs = ({ items }) => {
     return (
         <StyledContainer>
             <Container direction="column">
-                <WhyUsHeader size="3.6rem" align="center">
+                <WhyUsHeader size="4.8rem" align="center">
                     {localize('Why partner with us')}
                 </WhyUsHeader>
                 {items.map((item, index) => {

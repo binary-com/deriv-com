@@ -4,13 +4,13 @@
     <title id='logo-partner'>Deriv</title>
     <desc>Deriv powered by Binary.com</desc>
     <defs>
-        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
-            <stop stop-color="#FF6544" offset="0%"></stop>
-            <stop stop-color="#FF4449" offset="100%"></stop>
+        <linearGradient id="lug5d72ofa" x1="50%" x2="50%" y1="0%" y2="100%">
+            <stop offset="0%" stop-color="#FF6544"/>
+            <stop offset="100%" stop-color="#FF4449"/>
         </linearGradient>
     </defs>
-    <g id="Responsible-trading" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g transform="translate(-120.000000, -23.000000)" id="Header">
+    <g fill="none" fill-rule="evenodd">
+        <g>
             <g>
                 <g id="Group">
                     <g transform="translate(120.000000, 0.000000)">
@@ -48,6 +48,7 @@
                             </g>
                         </g>
                     </g>
+                    <path stroke="#FFF" d="M176 0L176 27" transform="translate(-120 -55) translate(0 32) translate(120 23)"/>
                 </g>
             </g>
         </g>

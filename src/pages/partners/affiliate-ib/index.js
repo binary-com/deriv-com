@@ -33,6 +33,7 @@ const StyledHeader = styled(Header)`
 `
 
 const StyledLinkButton = styled(LinkButton)`
+    border-radius: 4px;
     @media ${device.tabletS} {
         font-size: 14px;
         width: 216px;
@@ -118,7 +119,7 @@ const AffiliateIb = () => {
                     is_affiliate_link
                     secondary
                 >
-                    {localize('Sign up as our affiliate & IB')}
+                    {localize('Sign up as our affiliate and IB')}
                 </StyledLinkButton>
             </Hero>
             <StyledSectionContainer padding="8rem 0 4rem">

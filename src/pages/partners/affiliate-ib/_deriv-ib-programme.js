@@ -119,6 +119,9 @@ const ButtonWrapper = styled.div`
     button:last-child {
         margin-left: 1.6rem;
     }
+    @media ${device.tabletL} {
+        justify-content: center;
+    }
 `
 
 const StyledHeaderCommission = styled(StyledHeader)`

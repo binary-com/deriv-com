@@ -29,6 +29,21 @@ const StyledSection = styled(SectionContainer)`
 const LightButton = styled(LinkButton)`
     color: var(--color-white);
     margin-top: 1.6rem;
+    border-radius: 4px;
+    border: solid 1px #6e6e6e;
+    padding-top: 0.5rem;
+    height: 32px;
+    @media ${device.tabletL} {
+        padding-top: 1rem;
+    }
+`
+const RedButton = styled(LinkButton)`
+    border-radius: 4px;
+    padding-top: 0.5rem;
+    height: 32px;
+    @media ${device.tabletL} {
+        padding-top: 1rem;
+    }
 `
 
 const CTA = () => {
@@ -57,7 +72,7 @@ const CTA = () => {
                             'Enjoy generous commissions and all the other benefits of being a Deriv partner',
                         )}
                     </Header>
-                    <LinkButton
+                    <RedButton
                         mt="2rem"
                         to={affiliate_signup_url}
                         external="true"
@@ -66,7 +81,7 @@ const CTA = () => {
                         secondary
                     >
                         {localize('Sign up')}
-                    </LinkButton>
+                    </RedButton>
                 </Flex>
             </Container>
         </StyledSection>

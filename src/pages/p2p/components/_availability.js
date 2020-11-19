@@ -1,12 +1,14 @@
 import React from 'react'
+import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import Desktop from 'images/svg/p2p-desktop.svg'
 import Mobile from 'images/svg/p2p-mobile.svg'
 import { localize, Localize } from 'components/localization'
-import { Header, LocalizedLinkText, SpanLinkText, Text } from 'components/elements'
-import { Flex, SectionContainer } from 'components/containers'
+import { Header, LocalizedLinkText, SpanLinkText, Text, QueryImage } from 'components/elements'
+import { Flex, SectionContainer, Show } from 'components/containers'
 import Login from 'common/login'
 import device from 'themes/device'
+import { p2p_playstore_url } from 'common/utility'
 
 const Row = styled.div`
     display: flex;
@@ -79,12 +81,15 @@ const StyledText = styled(Text)`
 `
 const Line = styled.div`
     width: 1px;
-    height: 38rem;
+    height: 44rem;
     border: solid 1px var(--color-grey-21);
     margin: 0 4.5rem;
 
     @media ${device.laptop} {
         height: 47rem;
+    }
+    @media ${device.tabletL} {
+        height: 52rem;
     }
     @media ${device.tablet} {
         height: 1px;
@@ -102,7 +107,24 @@ const Line = styled.div`
     }
 `
 
+const Left = styled.div`
+    width: 78%;
+`
+
+const Right = styled.div`
+    width: 22%;
+`
+
+const query = graphql`
+    query {
+        qr_code: file(relativePath: { eq: "p2p/p2p_playstore.png" }) {
+            ...fadeIn
+        }
+    }
+`
+
 const Availability = () => {
+    const data = useStaticQuery(query)
     const handleLogin = () => {
         Login.redirectToLogin()
     }
@@ -116,7 +138,8 @@ const Availability = () => {
                 as="h2"
                 mb="4rem"
             >
-                {localize('Available on desktop and mobile')}
+                <Show.Desktop min_width="992">{localize('How to get DP2P')}</Show.Desktop>
+                <Show.Mobile>{localize('Available on desktop and mobile')}</Show.Mobile>
             </StyledHeader>
             <Flex
                 tablet_direction="column"
@@ -130,7 +153,12 @@ const Availability = () => {
                     </Row>
                     <Row>
                         <StyledCardHeader mobile_margin="unset" as="h4">
-                            <Localize translate_text="DP2P on your computer" />
+                            <Show.Desktop min_width="992">
+                                <Localize translate_text="On your computer" />
+                            </Show.Desktop>
+                            <Show.Mobile>
+                                <Localize translate_text="DP2P on your computer" />
+                            </Show.Mobile>
                         </StyledCardHeader>
                     </Row>
                     <div>
@@ -169,24 +197,58 @@ const Availability = () => {
                     </Row>
                     <Row>
                         <StyledCardHeader mobile_margin="unset" as="h4">
-                            <Localize translate_text="DP2P on your mobile" />
+                            <Show.Desktop min_width="992">
+                                <Localize translate_text="On your mobile" />
+                            </Show.Desktop>
+                            <Show.Mobile>
+                                <Localize translate_text="DP2P on your mobile" />
+                            </Show.Mobile>
                         </StyledCardHeader>
                     </Row>
                     <div>
                         <StyledText>
-                            <Localize
-                                translate_text="1. Get the app from the <0>Google Play Store</0>."
-                                components={[
-                                    <LocalizedLinkText
-                                        external
-                                        to="https://play.google.com/store/apps/details?id=com.deriv.dp2p"
-                                        target="_blank"
-                                        size={24}
-                                        color="red"
-                                        key={0}
-                                    />,
-                                ]}
-                            />
+                            <Show.Desktop min_width="992">
+                                <Flex>
+                                    <Left>
+                                        <Localize
+                                            translate_text="1. Scan this QR code to download the app from the <0>Google Play Store</0>."
+                                            components={[
+                                                <LocalizedLinkText
+                                                    external
+                                                    to={p2p_playstore_url}
+                                                    target="_blank"
+                                                    size={24}
+                                                    color="red"
+                                                    key={0}
+                                                />,
+                                            ]}
+                                        />
+                                    </Left>
+                                    <Right>
+                                        <QueryImage
+                                            data={data['qr_code']}
+                                            alt={'play store'}
+                                            width="108px"
+                                            height="108px"
+                                        />
+                                    </Right>
+                                </Flex>
+                            </Show.Desktop>
+                            <Show.Mobile>
+                                <Localize
+                                    translate_text="1. Get the app from the <0>Google Play Store</0>."
+                                    components={[
+                                        <LocalizedLinkText
+                                            external
+                                            to={p2p_playstore_url}
+                                            target="_blank"
+                                            size={24}
+                                            color="red"
+                                            key={0}
+                                        />,
+                                    ]}
+                                />
+                            </Show.Mobile>
                         </StyledText>
                         <StyledText>
                             <Localize translate_text="2. Log in to your Deriv account, and register for DP2P." />

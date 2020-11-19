@@ -192,13 +192,15 @@ const HeroComponent = ({ title, content, background_data, img_data }) => {
 
 const query = graphql`
     query {
-        p2p_hero_background: file(relativePath: { eq: "p2p_hero_background.png" }) {
+        p2p_hero_background: file(relativePath: { eq: "p2p/p2p_hero_background.png" }) {
             ...fadeIn
         }
-        p2p_hero_background_mobile: file(relativePath: { eq: "p2p_hero_background_mobile.png" }) {
+        p2p_hero_background_mobile: file(
+            relativePath: { eq: "p2p/p2p_hero_background_mobile.png" }
+        ) {
             ...fadeIn
         }
-        p2p_hero_img: file(relativePath: { eq: "p2p_hero_img.png" }) {
+        p2p_hero_img: file(relativePath: { eq: "p2p/p2p_hero_img.png" }) {
             ...fadeIn
         }
     }

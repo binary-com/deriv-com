@@ -94,10 +94,10 @@ const StyledHeader = styled(Header)`
 
 const query = graphql`
     query {
-        p2p_banner: file(relativePath: { eq: "p2p_banner.png" }) {
+        p2p_banner: file(relativePath: { eq: "p2p/p2p_banner.png" }) {
             ...fadeIn
         }
-        p2p_banner_mobile: file(relativePath: { eq: "p2p_banner_mobile.png" }) {
+        p2p_banner_mobile: file(relativePath: { eq: "p2p/p2p_banner_mobile.png" }) {
             ...fadeIn
         }
     }

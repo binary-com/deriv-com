@@ -43,7 +43,7 @@ export const Article = ({ children, header }) => {
                 </StyledLink>
                 <Content>
                     <TabWrapper>
-                        <SideTab has_hash_routing tab_header={header} size="var(--text-size-s)">
+                        <SideTab tab_header={header} size="var(--text-size-s)">
                             {children}
                         </SideTab>
                     </TabWrapper>

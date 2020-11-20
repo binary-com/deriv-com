@@ -42,12 +42,14 @@ const TR = styled.div`
     border-bottom: 2px solid var(--color-grey-8);
     @media ${device.tabletL} {
         p {
-            font-size: 12px !important;
+            white-space: ${(props) => (props.isTitle === 'true' ? '' : 'nowrap')};
+            overflow-x: auto;
+            font-size: 14px !important;
         }
     }
 `
 
-const TRIB = styled.div`
+const TRAP = styled.div`
     padding: 0.8rem 1rem 0.8rem 0;
     background-color: ${(props) => (props.isTitle === 'true' ? 'var(--color-grey-8)' : 'unset')};
     border-bottom: 2px solid var(--color-grey-8);
@@ -57,10 +59,5 @@ const TRIB = styled.div`
         display: flex;
         align-items: center;
     }
-    @media ${device.tabletL} {
-        p {
-            font-size: 12px !important;
-        }
-    }
 `
-export { TR, TRIB, TC, Table }
+export { TR, TRAP, TC, Table }

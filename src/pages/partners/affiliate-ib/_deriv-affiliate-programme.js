@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Card, CardWrapper } from './_partner-card.js'
-import { Table, TRIB, TC } from './_table.js'
+import { Table, TRAP, TC } from './_table.js'
 import { SectionContainer, Container } from 'components/containers'
 import { Header, Text } from 'components/elements/typography'
 import { localize, Localize } from 'components/localization'
@@ -220,15 +220,15 @@ const DerivAffiliateProgramme = () => {
                                 <Table grid_col_number={2}>
                                     {RevenueShare.map((col, index) => (
                                         <TC grid_area={'area' + index} key={index}>
-                                            <TRIB isTitle="true">
+                                            <TRAP isTitle="true">
                                                 <StyledTextHeading weight="bold">
                                                     {col.title}
                                                 </StyledTextHeading>
-                                            </TRIB>
+                                            </TRAP>
                                             {col.data.map((data, index) => (
-                                                <TRIB key={index}>
+                                                <TRAP key={index}>
                                                     <StyledText>{data}</StyledText>
-                                                </TRIB>
+                                                </TRAP>
                                             ))}
                                         </TC>
                                     ))}
@@ -260,15 +260,15 @@ const DerivAffiliateProgramme = () => {
                                 <Table grid_col_number={2}>
                                     {Turnover.map((col, index) => (
                                         <TC grid_area={'area' + index} key={index}>
-                                            <TRIB isTitle="true">
+                                            <TRAP isTitle="true">
                                                 <StyledText weight="bold">
                                                     {localize(col.title)}
                                                 </StyledText>
-                                            </TRIB>
+                                            </TRAP>
                                             {col.data.map((data, index) => (
-                                                <TRIB key={index}>
+                                                <TRAP key={index}>
                                                     <StyledText>{localize(data)}</StyledText>
-                                                </TRIB>
+                                                </TRAP>
                                             ))}
                                         </TC>
                                     ))}

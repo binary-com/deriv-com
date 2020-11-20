@@ -172,11 +172,7 @@ const Policies = () => {
                     </Show.Desktop>
                     <ShowWrapper>
                         <Show.Mobile width="100%">
-<<<<<<< HEAD
-                            <ExampleImage center data={data['example_mobile']} />
-=======
                             <ExampleImage data={data['example_mobile']} />
->>>>>>> ad8e563085 (fix image size and position)
                         </Show.Mobile>
                     </ShowWrapper>
 

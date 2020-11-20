@@ -25,7 +25,6 @@ const StyledSectionContainer = styled(SectionContainer)`
     margin: 0;
     padding: 0;
     background-color: var(--color-white);
-    box-shadow: inset 0 1px 0 0 var(--color-grey-2);
 `
 const StyledContainer = styled(Container)`
     flex-direction: column;

@@ -147,6 +147,7 @@ const Tabs = ({ children, is_reverse, className, max_width, has_notice, notice_c
                         return (
                             <>
                                 <TabButton
+                                    className="side-tab__button"
                                     role="tab"
                                     selected={selected_tab === index}
                                     aria-selected={selected_tab === index ? 'true' : 'false'}

@@ -1,9 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { SmallContainer } from './_style'
 import { localize } from 'components/localization'
-import { SectionContainer } from 'components/containers'
+import { SectionContainer, Container } from 'components/containers'
 import { Header } from 'components/elements'
 import { LinkButton } from 'components/form'
 import device from 'themes/device.js'
@@ -26,6 +25,13 @@ const StyledSectionContainer = styled(SectionContainer)`
 
     @media ${device.tabletL} {
         padding: 29px 0 40px 0;
+    }
+`
+const StyledContainer = styled(Container)`
+    @media ${device.tabletL} {
+        width: 90%;
+        padding-left: 0;
+        padding-right: 0;
     }
 `
 
@@ -55,7 +61,7 @@ const DMT5Button = styled(LinkButton)`
 const HowTo = ({ Steps, active_tab }) => {
     return (
         <StyledSectionContainer active_tab={active_tab}>
-            <SmallContainer justify="center" direction="column">
+            <StyledContainer justify="center" direction="column">
                 <StyledHeader as="h2">
                     {active_tab === 'signal-subscriber'
                         ? content.subscriber.header
@@ -74,7 +80,7 @@ const HowTo = ({ Steps, active_tab }) => {
                         {localize('Go to your DMT5 terminal')}
                     </DMT5Button>
                 )}
-            </SmallContainer>
+            </StyledContainer>
         </StyledSectionContainer>
     )
 }

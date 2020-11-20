@@ -74,6 +74,14 @@ const DetailsContainer = styled(Flex)`
         }
     }
 `
+
+const CrashText = styled(Text)`
+    width: 690px;
+    @media ${device.tabletL} {
+        width: 100%;
+    }
+`
+
 const ContinuousIndicesDetails = () => (
     <DetailsContainer>
         <Text>
@@ -98,12 +106,12 @@ const ContinuousIndicesDetails = () => (
 
 const CrashBoomDetails = () => (
     <DetailsContainer>
-        <Text>
+        <CrashText>
             <Localize
                 translate_text="With these indices, there is an average of one drop (crash) or one spike (boom) in prices that occur in a <0>series of 1000 or 500 ticks</0>."
                 components={[<strong key={0} />]}
             />
-        </Text>
+        </CrashText>
     </DetailsContainer>
 )
 const StepIndicesDetails = () => (

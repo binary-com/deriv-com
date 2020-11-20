@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { Article } from './_article'
 import { ArticleWrapper, StyledHeader, StyledText } from './_help-centre-style'
 import { Text } from 'components/elements'
+import { SEO } from 'components/containers'
 import { localize, Localize, WithIntl } from 'components/localization'
 import device from 'themes/device'
 // Images
@@ -702,56 +703,64 @@ const ViewChart = () => (
 
 const DBotArticle = () => {
     return (
-        <Article header="DBot">
-            <WhatIsDBot text={localize('What is DBot?')} label="what-is-dbot" />
-            <FindBlocks text={localize('How do I find the blocks I need?')} label="find-blocks" />
-            <RemoveBlocks
-                text={localize('How do I remove blocks from the workspace?')}
-                label="remove-blocks"
+        <div>
+            <SEO
+                title={localize('Help centre | Frequently asked questions | DBot | Deriv')}
+                description={localize(
+                    'Frequently asked questions - DBot',
+                )}
             />
-            <CreateVariables
-                text={localize('How do I create variables?')}
-                label="create-variables"
-            />
-            <QuickStrategy
-                text={localize('What is a quick strategy and how do I use it?')}
-                label="quick-strategy"
-            />
-            <MartingaleStrategy
-                text={localize('What is the Martingale strategy?')}
-                label="martingale-strategy"
-            />
-            <AlembertStrategy
-                text={localize('What is the D’Alembert strategy?')}
-                label="dalembert-strategy"
-            />
-            <OskarStrategy
-                text={localize("What is the Oscar's Grind strategy?")}
-                label="oscars-grind-strategy"
-            />
-            <SaveStrategy text={localize('How do I save my strategy?')} label="save-strategy" />
-            <ImportStrategy
-                text={localize('How do I import my strategies into DBot?')}
-                label="import-strategy"
-            />
-            <ResetWorkspace
-                text={localize('How do I reset the workspace?')}
-                label="reset-workspace"
-            />
-            <TransactionLog
-                text={localize('How do I clear my transaction log?')}
-                label="clear-transaction-log"
-            />
-            <ControlLosses
-                text={localize('How do I control my losses with DBot?')}
-                label="control-loss"
-            />
-            <TradeStatus
-                text={localize('Where can I see the status of my trades in DBot?')}
-                label="status-of-trades"
-            />
-            <ViewChart text={localize('How do I view the chart in DBot?')} label="view-chart" />
-        </Article>
+            <Article header="DBot">
+                <WhatIsDBot text={localize('What is DBot?')} label="what-is-dbot" />
+                <FindBlocks text={localize('How do I find the blocks I need?')} label="find-blocks" />
+                <RemoveBlocks
+                    text={localize('How do I remove blocks from the workspace?')}
+                    label="remove-blocks"
+                />
+                <CreateVariables
+                    text={localize('How do I create variables?')}
+                    label="create-variables"
+                />
+                <QuickStrategy
+                    text={localize('What is a quick strategy and how do I use it?')}
+                    label="quick-strategy"
+                />
+                <MartingaleStrategy
+                    text={localize('What is the Martingale strategy?')}
+                    label="martingale-strategy"
+                />
+                <AlembertStrategy
+                    text={localize('What is the D’Alembert strategy?')}
+                    label="dalembert-strategy"
+                />
+                <OskarStrategy
+                    text={localize("What is the Oscar's Grind strategy?")}
+                    label="oscars-grind-strategy"
+                />
+                <SaveStrategy text={localize('How do I save my strategy?')} label="save-strategy" />
+                <ImportStrategy
+                    text={localize('How do I import my strategies into DBot?')}
+                    label="import-strategy"
+                />
+                <ResetWorkspace
+                    text={localize('How do I reset the workspace?')}
+                    label="reset-workspace"
+                />
+                <TransactionLog
+                    text={localize('How do I clear my transaction log?')}
+                    label="clear-transaction-log"
+                />
+                <ControlLosses
+                    text={localize('How do I control my losses with DBot?')}
+                    label="control-loss"
+                />
+                <TradeStatus
+                    text={localize('Where can I see the status of my trades in DBot?')}
+                    label="status-of-trades"
+                />
+                <ViewChart text={localize('How do I view the chart in DBot?')} label="view-chart" />
+            </Article>
+        </div>
     )
 }
 

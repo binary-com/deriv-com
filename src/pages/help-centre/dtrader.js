@@ -2,6 +2,7 @@ import React from 'react'
 import { Article } from './_article'
 import { ArticleWrapper, StyledHeader } from './_help-centre-style'
 import { Text } from 'components/elements'
+import { SEO } from 'components/containers'
 import { localize, WithIntl } from 'components/localization'
 
 const WhatIsDMT5 = () => (
@@ -37,17 +38,25 @@ const DTraderContracts = () => (
 
 const DTraderArticle = () => {
     return (
-        <Article header="DTrader">
-            <WhatIsDMT5 text={localize('What is DTrader?')} label="what-is-dtrader" />
-            <DTraderMarkets
-                text={localize('What markets can I trade on DTrader?')}
-                label="markets-on-dtrader"
+        <div>
+            <SEO
+                title={localize('Help centre | Frequently asked questions | DTrader | Deriv')}
+                description={localize(
+                    'Frequently asked questions - DTrader',
+                )}
             />
-            <DTraderContracts
-                text={localize('What contract types can I use on DTrader?')}
-                label="contracts-on-dtrader"
-            />
-        </Article>
+            <Article header="DTrader">
+                <WhatIsDMT5 text={localize('What is DTrader?')} label="what-is-dtrader" />
+                <DTraderMarkets
+                    text={localize('What markets can I trade on DTrader?')}
+                    label="markets-on-dtrader"
+                />
+                <DTraderContracts
+                    text={localize('What contract types can I use on DTrader?')}
+                    label="contracts-on-dtrader"
+                />
+            </Article>
+        </div>
     )
 }
 

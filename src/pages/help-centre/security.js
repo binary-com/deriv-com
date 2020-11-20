@@ -2,6 +2,7 @@ import React from 'react'
 import { Article } from './_article'
 import { ArticleWrapper, StyledHeader } from './_help-centre-style'
 import { Text } from 'components/elements'
+import { SEO } from 'components/containers'
 import { localize, WithIntl } from 'components/localization'
 
 const VerifyAccount = () => (
@@ -43,20 +44,28 @@ const DocumentsDeclined = () => (
 
 const SecurityArticle = () => {
     return (
-        <Article header={localize('Security')}>
-            <VerifyAccount
-                text={localize('Do I need to verify my Deriv account?')}
-                label="verify-account"
+        <div>
+            <SEO
+                title={localize('Help centre | Frequently asked questions | Security | Deriv')}
+                description={localize(
+                    'Frequently asked questions - Security',
+                )}
             />
-            <VerificationDuration
-                text={localize('How long does verification take?')}
-                label="verification-duration"
-            />
-            <DocumentsDeclined
-                text={localize('Why were my documents declined?')}
-                label="documents-declined"
-            />
-        </Article>
+            <Article header={localize('Security')}>
+                <VerifyAccount
+                    text={localize('Do I need to verify my Deriv account?')}
+                    label="verify-account"
+                />
+                <VerificationDuration
+                    text={localize('How long does verification take?')}
+                    label="verification-duration"
+                />
+                <DocumentsDeclined
+                    text={localize('Why were my documents declined?')}
+                    label="documents-declined"
+                />
+            </Article>
+        </div>
     )
 }
 

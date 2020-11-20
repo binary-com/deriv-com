@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
-import { navigate } from '@reach/router'
 import { Text, Header } from './typography'
-import { getLocationHash, isBrowser } from 'common/utility'
 import device, { size } from 'themes/device'
+import { getWindowWidth } from 'common/utility'
 import { Box } from 'components/containers'
 import { Desktop, Mobile } from 'components/containers/show'
+import { useTabState } from 'components/hooks/use-tab-state'
 import { ReactComponent as Chevron } from 'images/svg/chevron.svg'
 
 const StyledSideTab = styled(Box)`
@@ -113,32 +113,18 @@ const Tab = ({ active_tab, label, onClick, text, mobile, font_size }) => {
     )
 }
 
-const SideTab = ({ children, has_hash_routing, is_sticky, onTabChange, tab_header, font_size }) => {
-    // we should check the window because When building, Gatsby renders these components on the server where window is not defined.
-    const first_tab = isBrowser()
-        ? window.innerWidth > size.tabletL
-            ? children[0].props.label
-            : '-'
-        : children[0].props.label
+const getTabs = (children) => children.map((child) => child.props.label)
+const findCurrentTab = (children, active_tab) =>
+    children.find((child) => child.props.label === active_tab)
 
-    const [active_tab, setTab, previous_tab, setLastActiveTab] = useTabs(
-        first_tab,
-        has_hash_routing,
-    )
-    const handleReset = () => {
-        setLastActiveTab(active_tab)
-        active_tab !== '-' ? setTab('-') : setTab(previous_tab)
-    }
+const SideTab = ({ children, is_sticky, tab_header, font_size }) => {
+    const [active_tab, setActiveTab] = useTabState(getTabs(children))
+    const [current_active_tab, setCurrentActiveTab] = useState(findCurrentTab(children, active_tab))
+    const [is_menu, setMenu] = useState(false)
 
-    if (has_hash_routing) {
-        useEffect(() => {
-            const new_tab = getLocationHash() || first_tab
-            setTab(new_tab)
-        })
-    }
-    const current_active_tab = children.find((child) => child.props.label === active_tab)
-
-    if (onTabChange) onTabChange(current_active_tab)
+    useEffect(() => {
+        setCurrentActiveTab(!is_menu ? findCurrentTab(children, active_tab) : null)
+    }, [active_tab, is_menu])
 
     const Tabs = (props) => {
         return children.map((child, idx) => {
@@ -154,7 +140,8 @@ const SideTab = ({ children, has_hash_routing, is_sticky, onTabChange, tab_heade
                                 onClick(e)
                             }
 
-                            setTab(e)
+                            setActiveTab(e)
+                            setMenu(!is_menu)
                         }}
                         active_tab={active_tab}
                         label={label}
@@ -176,47 +163,30 @@ const SideTab = ({ children, has_hash_routing, is_sticky, onTabChange, tab_heade
                     <Tabs />
                 </Desktop>
                 <Mobile>
-                    <StyledDropDown onClick={handleReset}>
-                        {current_active_tab ? (
+                    <StyledDropDown onClick={() => setMenu(!is_menu)}>
+                        {current_active_tab && (
                             <StyledActiveTabText>
                                 {current_active_tab.props.text}
                             </StyledActiveTabText>
-                        ) : (
-                            <StyledActiveTabText>-</StyledActiveTabText>
                         )}
                         <ChevronWrapper active_tab={active_tab} />
                     </StyledDropDown>
-                    {current_active_tab ? undefined : <Tabs is_mobile={true} />}
+                    {is_menu && <Tabs is_mobile={true} />}
                 </Mobile>
             </TabList>
             <TabContent>
-                {children.map((child) => (child.props.label === active_tab ? child : undefined))}
+                {(!is_menu || getWindowWidth() >= size.tabletL) &&
+                    children.map((child) => (child.props.label === active_tab ? child : undefined))}
             </TabContent>
         </StyledSideTab>
     )
 }
 
-const useTabs = (initial_active_tab = '', has_hash_routing) => {
-    const [active_tab, setActiveTab] = useState(initial_active_tab)
-    const [previous_tab, setLastActiveTab] = useState('-')
-
-    const setTab = (tab) => {
-        if (tab === active_tab) return
-        setActiveTab(tab)
-
-        if (has_hash_routing) navigate(`#${tab}`)
-    }
-
-    return [active_tab, setTab, previous_tab, setLastActiveTab]
-}
-
 SideTab.propTypes = {
     children: PropTypes.instanceOf(Array).isRequired,
     font_size: PropTypes.string,
-    has_hash_routing: PropTypes.bool,
     is_mobile: PropTypes.bool,
     is_sticky: PropTypes.bool,
-    onTabChange: PropTypes.func,
     tab_header: PropTypes.string,
 }
 

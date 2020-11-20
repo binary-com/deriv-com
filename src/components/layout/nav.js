@@ -45,6 +45,18 @@ export const NavWrapper = styled.div`
     width: 100%;
     position: fixed;
     z-index: 100;
+
+    .fresnel-between-start-tabletL {
+        display: none;
+    }
+
+    @media ${device.tabletL} {
+        .fresnel-between-start-tabletL {
+            display: flex;
+            width: 100%;
+            align-items: center;
+        }
+    }
 `
 
 const InterimNav = styled.nav`
@@ -208,7 +220,7 @@ const NavLink = styled.li`
 export const StyledLink = styled(LocalizedLink)`
     ${SharedLinkStyle}
 `
-const StyledButton = styled.a`
+const StyledButton = styled.span`
     ${SharedLinkStyle}
     cursor: pointer;
     user-select: none;
@@ -295,10 +307,11 @@ const MobileRight = styled.div`
     }
 `
 const LogoDescription = styled(Flex)`
-    @media ${device.mobileL} {
+    @media (max-width: 525px) {
         display: none;
     }
 `
+
 export const Nav = ({ base }) => {
     const data = useStaticQuery(query)
     const button_ref = useRef(null)
@@ -439,97 +452,114 @@ export const Nav = ({ base }) => {
                             />
                         </LogoLink>
                         <Line />
-                        <img src={LogoCombinedShape} alt="logo combined shape" />
+                        <img
+                            src={LogoCombinedShape}
+                            alt="logo combined shape"
+                            width="120"
+                            height="17"
+                        />
                     </NavLeft>
-                    <NavCenter>
-                        <NavLink onClick={handleTradeClick}>
-                            <StyledButton
-                                aria-label={localize('Trade')}
-                                active={is_trade_open}
-                                ref={link_trade_ref}
-                            >
-                                {localize('Trade')}
-                            </StyledButton>
-                        </NavLink>
-                        <NavLink onClick={handleMarketClick}>
-                            <StyledButton
-                                aria-label={localize('Markets')}
-                                active={is_market_open}
-                                ref={link_market_ref}
-                            >
-                                {localize('Markets')}
-                            </StyledButton>
-                        </NavLink>
-                        <NavLink onClick={handleCompanyClick}>
-                            <StyledButton
-                                aria-label={localize('About us')}
-                                active={is_company_open}
-                                ref={link_company_ref}
-                            >
-                                {localize('About us')}
-                            </StyledButton>
-                        </NavLink>
-                        <NavLink onClick={handleResourcesClick}>
-                            <StyledButton
-                                aria-label={localize('Resources')}
-                                active={is_resources_open}
-                                ref={link_resources_ref}
-                            >
-                                {localize('Resources')}
-                            </StyledButton>
-                        </NavLink>
-                    </NavCenter>
-                    <NavRight
-                        move={show_button}
-                        button_ref={button_ref}
-                        mounted={mounted}
-                        has_scrolled={has_scrolled}
-                    >
-                        <LanguageSwitcher short_name="true" is_high_nav />
-                        <LoginButton onClick={handleLogin} primary>
-                            <span>{localize('Log in')}</span>
-                        </LoginButton>
-                        <LocalizedLink to="/signup/">
-                            <SignupButton ref={button_ref} secondary="true">
-                                <span>{localize('Create free demo account')}</span>
-                            </SignupButton>
-                        </LocalizedLink>
-                    </NavRight>
-                    {is_canvas_menu_open ? (
-                        <CloseMenu
-                            src={Close}
-                            alt="close menu"
-                            onClick={closeOffCanvasMenu}
-                            width="16px"
-                        />
-                    ) : (
-                        <HamburgerMenu
-                            src={Hamburger}
-                            alt="hamburger"
-                            onClick={openOffCanvasMenu}
-                            width="16px"
-                        />
-                    )}
+                    <Show.Desktop>
+                        <NavCenter>
+                            <NavLink onClick={handleTradeClick}>
+                                <StyledButton
+                                    aria-label={localize('Trade')}
+                                    active={is_trade_open}
+                                    ref={link_trade_ref}
+                                >
+                                    {localize('Trade')}
+                                </StyledButton>
+                            </NavLink>
+                            <NavLink onClick={handleMarketClick}>
+                                <StyledButton
+                                    aria-label={localize('Markets')}
+                                    active={is_market_open}
+                                    ref={link_market_ref}
+                                >
+                                    {localize('Markets')}
+                                </StyledButton>
+                            </NavLink>
+                            <NavLink onClick={handleCompanyClick}>
+                                <StyledButton
+                                    aria-label={localize('About us')}
+                                    active={is_company_open}
+                                    ref={link_company_ref}
+                                >
+                                    {localize('About us')}
+                                </StyledButton>
+                            </NavLink>
+                            <NavLink onClick={handleResourcesClick}>
+                                <StyledButton
+                                    aria-label={localize('Resources')}
+                                    active={is_resources_open}
+                                    ref={link_resources_ref}
+                                >
+                                    {localize('Resources')}
+                                </StyledButton>
+                            </NavLink>
+                        </NavCenter>
+                    </Show.Desktop>
+                    <Show.Desktop>
+                        <NavRight
+                            move={show_button}
+                            button_ref={button_ref}
+                            mounted={mounted}
+                            has_scrolled={has_scrolled}
+                        >
+                            <LanguageSwitcher short_name="true" is_high_nav />
+                            <LoginButton onClick={handleLogin} primary>
+                                <span>{localize('Log in')}</span>
+                            </LoginButton>
+                            <LocalizedLink to="/signup/">
+                                <SignupButton ref={button_ref} secondary="true">
+                                    <span>{localize('Create free demo account')}</span>
+                                </SignupButton>
+                            </LocalizedLink>
+                        </NavRight>
+                    </Show.Desktop>
+                    <Show.Mobile>
+                        {is_canvas_menu_open ? (
+                            <CloseMenu
+                                src={Close}
+                                alt="close menu"
+                                onClick={closeOffCanvasMenu}
+                                width="16px"
+                            />
+                        ) : (
+                            <HamburgerMenu
+                                src={Hamburger}
+                                alt="hamburger"
+                                onClick={openOffCanvasMenu}
+                                width="16px"
+                                height="16px"
+                            />
+                        )}
 
-                    <LogoLinkMobile to="/" aria-label={localize('Home')}>
-                        <Flex>
-                            <img src={LogoOnly} alt="logo only" width="115px" />
-                            <LogoDescription ai="center">
-                                <Line />
-                                <img src={LogoCombinedShape} alt="logo combined shape 2" />
-                            </LogoDescription>
-                        </Flex>
-                    </LogoLinkMobile>
-                    <MobileRight>
-                        <LanguageSwitcher short_name="true" is_high_nav />
-                        <MobileLogin onClick={handleLogin} primary>
-                            <span>{localize('Log in')}</span>
-                        </MobileLogin>
-                    </MobileRight>
-                    <OffCanvasMenu
-                        is_canvas_menu_open={is_canvas_menu_open}
-                        closeOffCanvasMenu={closeOffCanvasMenu}
-                    />
+                        <LogoLinkMobile to="/" aria-label={localize('Home')}>
+                            <Flex>
+                                <img src={LogoOnly} alt="logo only" width="115px" height="27px" />
+                                <LogoDescription ai="center">
+                                    <Line />
+                                    <img
+                                        src={LogoCombinedShape}
+                                        alt="logo combined shape 2"
+                                        width="120"
+                                        height="17"
+                                    />
+                                </LogoDescription>
+                            </Flex>
+                        </LogoLinkMobile>
+                        <MobileRight>
+                            <LanguageSwitcher short_name="true" is_high_nav />
+                            <MobileLogin onClick={handleLogin} primary>
+                                <span>{localize('Log in')}</span>
+                            </MobileLogin>
+                        </MobileRight>
+                        <OffCanvasMenu
+                            is_canvas_menu_open={is_canvas_menu_open}
+                            closeOffCanvasMenu={closeOffCanvasMenu}
+                        />
+                    </Show.Mobile>
                 </Wrapper>
             </StyledNav>
         </NavWrapper>
@@ -573,18 +603,28 @@ export const NavInterim = ({ interim_type }) => (
                 <Show.Desktop>
                     <StyledLogo to={`/interim/${interim_type}`} aria-label={localize('Home')}>
                         <Flex ai="center">
-                            <img src={Logo} alt="logo" />
-                            <img src={LogoCombinedShape} alt="logo combined shape desktop" />
+                            <img src={Logo} alt="logo" width="190px" height="27px" />
+                            <img
+                                src={LogoCombinedShape}
+                                alt="logo combined shape desktop"
+                                width="120"
+                                height="17"
+                            />
                         </Flex>
                     </StyledLogo>
                 </Show.Desktop>
                 <Show.Mobile>
                     <LogoLinkMobile to={`/interim/${interim_type}`} aria-label={localize('Home')}>
                         <Flex>
-                            <img src={LogoOnly} alt="logo only 2" width="115px" />
+                            <img src={LogoOnly} alt="logo only 2" width="115px" height="27px" />
                             <LogoDescription ai="center">
                                 <Line />
-                                <img src={LogoCombinedShape} alt="logo combined shape mobile" />
+                                <img
+                                    src={LogoCombinedShape}
+                                    alt="logo combined shape mobile"
+                                    width="120"
+                                    height="17"
+                                />
                             </LogoDescription>
                         </Flex>
                     </LogoLinkMobile>
@@ -604,9 +644,14 @@ export const NavStatic = () => (
     <StaticWrapper>
         <LogoLink mw="31rem" to="/" aria-label={localize('Home')}>
             <Flex ai="center">
-                <img src={LogoOnly} alt="logo only nav static" />
+                <img src={LogoOnly} alt="logo only nav static" width="160px" height="27px" />
                 <Line />
-                <img src={LogoCombinedShape} alt="logo combined shape nav static" />
+                <img
+                    src={LogoCombinedShape}
+                    alt="logo combined shape nav static"
+                    width="120"
+                    height="17"
+                />
             </Flex>
         </LogoLink>
     </StaticWrapper>
@@ -846,6 +891,7 @@ export const NavPartners = ({ no_login_signup }) => {
                                 alt="hamburger menu2"
                                 onClick={openOffCanvasMenu}
                                 width="16px"
+                                height="16px"
                             />
                         )}
 

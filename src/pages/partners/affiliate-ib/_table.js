@@ -40,6 +40,11 @@ const TR = styled.div`
     padding: 0.8rem 1rem 0.8rem 0;
     background-color: ${(props) => (props.isTitle === 'true' ? 'var(--color-grey-8)' : 'unset')};
     border-bottom: 2px solid var(--color-grey-8);
+    @media ${device.tabletL} {
+        p {
+            font-size: 12px !important;
+        }
+    }
 `
 
 const TRIB = styled.div`
@@ -51,6 +56,11 @@ const TRIB = styled.div`
         height: ${(props) => (props.isTitle === 'true' ? '60px' : '40px')};
         display: flex;
         align-items: center;
+    }
+    @media ${device.tabletL} {
+        p {
+            font-size: 12px !important;
+        }
     }
 `
 export { TR, TRIB, TC, Table }

@@ -38,6 +38,7 @@ const StyledLinkButton = styled(LinkButton)`
         font-size: 14px;
         width: 216px;
         height: 40px;
+        padding: 1.2rem 1rem;
     }
 `
 

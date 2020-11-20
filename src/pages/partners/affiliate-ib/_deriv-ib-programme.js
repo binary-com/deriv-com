@@ -43,6 +43,9 @@ const IBSectionContainer = styled(SectionContainer)`
     @media ${device.tabletL} {
         padding: 16px 0 0;
     }
+    @media ${device.mobileM} {
+        width: unset;
+    }
 `
 const StyledHeader = styled(Header)`
     @media ${device.tabletL} {
@@ -150,10 +153,18 @@ const StyledCard = styled(Card)`
     }
 
     @media ${device.tabletL} {
-        width: 328px;
+        min-width: 328px;
         padding: 16px;
         margin: 1.6rem 0 1.6rem 0;
         height: ${(props) => (props.tabletHeight ? props.tabletHeight : '')};
+    }
+
+    @media ${device.mobileM} {
+        min-width: unset;
+
+        p {
+            font-size: 12px;
+        }
     }
 `
 
@@ -239,11 +250,7 @@ const StyledTR = styled(TR)`
 `
 
 const SyntheticTable = styled(Table)`
-    grid-template-columns: 53% 50%;
-
-    @media ${device.tabletL} {
-        grid-template-columns: 54% 50%;
-    }
+    grid-template-columns: 50% 50%;
 `
 const StyledLinkButton = styled(LinkButton)`
     height: 40px;

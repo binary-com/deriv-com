@@ -19,6 +19,13 @@ const FaqHeader = styled(Header)`
         font-size: 24px;
     }
 `
+
+const FaqSubHeader = styled(Header)`
+    @media ${device.tabletL} {
+        margin-top: 24px;
+    }
+`
+
 const RelativeContainer = styled(SectionContainer)`
     position: relative;
     overflow: hidden;
@@ -78,9 +85,9 @@ const Faq = () => {
             <FaqHeader size="4.8rem" align="center">
                 {localize('Browse our FAQ')}
             </FaqHeader>
-            <Header as="h4" align="center" m="4rem 0" weight="normal">
+            <FaqSubHeader as="h4" align="center" m="4rem 0" weight="normal">
                 {localize('Deriv Affiliate Programme')}
-            </Header>
+            </FaqSubHeader>
             <StyledAccordionWrapper>
                 <Accordion has_single_state>
                     <AccordionItem
@@ -112,9 +119,9 @@ const Faq = () => {
                     </AccordionItem>
                 </Accordion>
             </StyledAccordionWrapper>
-            <Header as="h4" align="center" m="8rem 0 4rem 0 " weight="normal">
+            <FaqSubHeader as="h4" align="center" m="8rem 0 4rem 0 " weight="normal">
                 {localize('Deriv IB Programme')}
-            </Header>
+            </FaqSubHeader>
             <StyledAccordionWrapper>
                 <Accordion has_single_state is_faq>
                     <AccordionItem

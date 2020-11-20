@@ -52,6 +52,9 @@ const ComissionPlanContainer = styled(SectionContainer)`
     @media ${device.tabletL} {
         padding: 16px 0 0 0;
     }
+    @media ${device.mobileM} {
+        width: unset;
+    }
 `
 
 const StyledText = styled(Text)`
@@ -117,9 +120,17 @@ const StyledCard = styled(Card)`
     }
 
     @media ${device.tabletL} {
-        width: 328px;
+        min-width: 328px;
         padding: 16px;
         height: ${(props) => (props.tabletHeight ? props.tabletHeight : '')};
+    }
+
+    @media ${device.mobileM} {
+        min-width: unset;
+
+        p {
+            font-size: 12px;
+        }
     }
 `
 

@@ -4,9 +4,9 @@ import TradeTypesCard from './_trade-types-card'
 import { Header, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import { Container, Flex } from 'components/containers'
-import MarginLogo from 'components/svgs/margin'
-import OptionsLogo from 'components/svgs/options'
-import MultipliersLogo from 'components/svgs/multipliers'
+import MarginLogo from 'images/svg/trade-types/margin.svg'
+import OptionsLogo from 'images/svg/trade-types/options.svg'
+import MultipliersLogo from 'images/svg/trade-types/multipliers.svg'
 import { LinkButton } from 'components/form'
 
 const TradingButton = styled(LinkButton)`
@@ -57,7 +57,7 @@ const TradeTypes = () => {
 }
 
 const margin = {
-    icon: <MarginLogo dynamic_id="margin-desktop" />,
+    icon: <img src={MarginLogo} alt="margin" width="48" height="49" />,
     title: <Localize translate_text="Margin Trading" />,
     description: (
         <Localize translate_text="Trade with leverage and low spreads for better returns on successful trades." />
@@ -66,7 +66,7 @@ const margin = {
     linkTitle: localize('Margin'),
 }
 const options = {
-    icon: <OptionsLogo dynamic_id="options-desktop" />,
+    icon: <img src={OptionsLogo} alt="options" width="48" height="49" />,
     title: <Localize translate_text="Options" />,
     description: (
         <Localize translate_text="Earn fixed payouts by predicting an asset's price movement within a fixed time." />
@@ -75,7 +75,7 @@ const options = {
     linkTitle: localize('Options'),
 }
 const multipliers = {
-    icon: <MultipliersLogo dynamic_id="multipliers-desktop" />,
+    icon: <img src={MultipliersLogo} alt="multipliers" width="48" height="49" />,
     title: <Localize translate_text="Multipliers" />,
     description: (
         <Localize translate_text="Get the best of both - the upside of margin trading with the simplicity of options." />

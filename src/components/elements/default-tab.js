@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { Flex } from 'components/containers'
 import { Text } from 'components/elements'
+import { useTabState } from 'components/hooks/use-tab-state'
 
 const TabContent = styled.div`
     flex: 1;
@@ -81,11 +82,13 @@ TabPanel.propTypes = {
     children: PropTypes.node,
 }
 
-const Tabs = ({ children, tab_break }) => {
-    const [selected_tab, setSelectedTab] = React.useState(0)
-    const selectTab = (tabIndex) => {
-        setSelectedTab(tabIndex)
-    }
+const Tabs = ({ children, tab_break, tab_list }) => {
+    const [selected_tab, setSelectedTab] = useState(0)
+    const [active_tab, setActiveTab] = useTabState(['clients', 'business-partners'])
+
+    useEffect(() => {
+        setSelectedTab(tab_list.indexOf(active_tab))
+    }, [active_tab])
 
     return (
         <Flex direction="column">
@@ -95,7 +98,7 @@ const Tabs = ({ children, tab_break }) => {
                         role="tab"
                         selected={selected_tab === index}
                         aria-selected={selected_tab === index ? 'true' : 'false'}
-                        onClick={() => selectTab(index)}
+                        onClick={() => setActiveTab(tab_list[index])}
                     >
                         <Text align="center" size="var(--text-size-m)" color="red-2" weight="bold">
                             {label}
@@ -119,6 +122,7 @@ Tabs.Panel = TabPanel
 Tabs.propTypes = {
     children: PropTypes.node,
     tab_break: PropTypes.string,
+    tab_list: PropTypes.array,
 }
 
 export default Tabs

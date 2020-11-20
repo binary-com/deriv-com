@@ -26,6 +26,9 @@ const query = graphql`
         rwanda_grid_4: file(relativePath: { eq: "careers/rwanda_grid_4.jpg" }) {
             ...fadeIn
         }
+        rwanda_map: file(relativePath: { eq: "maps/map-rwanda-career.png" }) {
+            ...fadeIn
+        }
     }
 `
 

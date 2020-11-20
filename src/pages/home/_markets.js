@@ -5,10 +5,10 @@ import { localize } from 'components/localization'
 import { Container, SectionContainer, Flex } from 'components/containers'
 import device from 'themes/device'
 // Icons
-import ForexIcon from 'components/svgs/_market-forex.js'
-import StockIcon from 'components/svgs/_market-stock.js'
-import CommoditiesIcon from 'components/svgs/_market-commodities.js'
-import SyntheticIndicesIcon from 'components/svgs/_market-synthetic.js'
+import CommoditiesIcon from 'images/svg/markets/commodities.svg'
+import ForexIcon from 'images/svg/markets/forex.svg'
+import StockIcon from 'images/svg/markets/stock.svg'
+import SyntheticIndicesIcon from 'images/svg/markets/synthetic.svg'
 // Images
 const StyledSection = styled(SectionContainer)`
     background-color: rgba(242, 243, 244, 0.3);
@@ -35,6 +35,9 @@ const MarketCard = styled.article`
     svg {
         margin-right: 2rem;
     }
+    img {
+        margin-right: 2rem;
+    }
     div {
         max-width: 40rem;
 
@@ -53,6 +56,11 @@ const MarketCard = styled.article`
             height: 6rem;
             margin-bottom: 1rem;
         }
+        img {
+            width: 6rem;
+            height: 6rem;
+            margin-bottom: 1rem;
+        }
     }
     @media (max-width: 860px) {
         margin-bottom: 4rem;
@@ -66,9 +74,11 @@ const Markets = () => (
             </Header>
             <MarketWrapper wrap="wrap">
                 <MarketCard mr="2.4rem" mb="4rem">
-                    <ForexIcon dynamic_id={'home_page_market_forex'} />
+                    <img src={ForexIcon} alt="forex" width="64" height="64" />
                     <div>
-                        <Header as="h4">{localize('Forex')}</Header>
+                        <Header as="h3" size="var(--text-size-m)">
+                            {localize('Forex')}
+                        </Header>
                         <Text>
                             {localize(
                                 'Take part in the world’s largest financial market where more than $5 trillion worth of currencies are bought and sold each day.',
@@ -77,9 +87,11 @@ const Markets = () => (
                     </div>
                 </MarketCard>
                 <MarketCard mb="4rem">
-                    <StockIcon dynamic_id="home_page_market_stock" />
+                    <img src={StockIcon} alt="stock" width="64" height="64" />
                     <div>
-                        <Header as="h4">{localize('Stock indices')}</Header>
+                        <Header as="h3" size="var(--text-size-m)">
+                            {localize('Stock indices')}
+                        </Header>
                         <Text>
                             {localize(
                                 'Predict broader market trends and diversify your risk with indices that measure the overall performance of a market.',
@@ -88,9 +100,11 @@ const Markets = () => (
                     </div>
                 </MarketCard>
                 <MarketCard mr="2.4rem">
-                    <CommoditiesIcon dynamic_id="home_page_market_commodities" />
+                    <img src={CommoditiesIcon} alt="commodities" width="64" height="64" />
                     <div>
-                        <Header as="h4">{localize('Commodities')}</Header>
+                        <Header as="h3" size="var(--text-size-m)">
+                            {localize('Commodities')}
+                        </Header>
                         <Text>
                             {localize(
                                 'Trade natural resources that are central to the world’s economy and profit from the opportunities created by volatile markets.',
@@ -99,9 +113,11 @@ const Markets = () => (
                     </div>
                 </MarketCard>
                 <MarketCard>
-                    <SyntheticIndicesIcon dynamic_id="home_page_market_synthetic" />
+                    <img src={SyntheticIndicesIcon} alt="synthetic" width="64" height="64" />
                     <div>
-                        <Header as="h4">{localize('Synthetic indices')}</Header>
+                        <Header as="h3" size="var(--text-size-m)">
+                            {localize('Synthetic indices')}
+                        </Header>
                         <Text>
                             {localize(
                                 'Enjoy synthetic markets that emulate the excitement of real-world markets without unpredictable real-world disruptions.',

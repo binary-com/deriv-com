@@ -14,8 +14,9 @@ const StyledHeader = styled(Header)`
 
 const GridItem = styled(Flex)`
     justify-content: flex-start;
+    align-items: flex-start;
 
-    svg {
+    img {
         width: 6.4rem;
         height: 6.4rem;
     }

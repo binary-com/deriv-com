@@ -45,8 +45,21 @@ const getPropertyValue = (obj, k) => {
     // else return clone of object to avoid overwriting data
     return obj ? cloneObject(obj[keys[0]]) : undefined
 }
-const getLocationHash = () =>
-    isBrowser() && (location.hash ? location.hash.substring(1).replace(/\/$/, '') : '')
+const getLocationHash = () => (isBrowser() && location.hash ? location.hash.slice(1) : '')
+
+const setLocationHash = (tab) => {
+    if (isBrowser()) {
+        location.hash = `#${tab}`
+    }
+}
+const routeBack = () => {
+    if (isBrowser) {
+        window.history.back()
+    }
+}
+const checkElemInArray = (tab_list, tab) => tab_list.includes(tab)
+
+const getWindowWidth = () => (isBrowser() && window.screen ? window.screen.width : '')
 
 const getLanguage = () => (isBrowser() ? localStorage.getItem('i18n') || navigator.language : null)
 
@@ -86,6 +99,8 @@ function debounce(func, wait, immediate) {
         if (callNow) func.apply(context, args)
     }
 }
+
+const trimSpaces = (value) => value.trim()
 
 const deriv_app_url = 'https://app.deriv.com'
 const deriv_bot_app_url = 'https://app.deriv.com/bot'
@@ -131,6 +146,10 @@ export {
     getPropertyValue,
     getLanguage,
     getLocationHash,
+    setLocationHash,
+    routeBack,
+    checkElemInArray,
+    getWindowWidth,
     gtm_test_domain,
     map_api_key,
     PromiseClass,
@@ -141,4 +160,5 @@ export {
     toISOFormat,
     toHashFormat,
     zoho_url,
+    trimSpaces,
 }

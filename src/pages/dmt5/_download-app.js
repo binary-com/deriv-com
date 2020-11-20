@@ -125,7 +125,7 @@ const DownloadApp = () => {
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            <img src={GooglePlay} alt="google play" />
+                            <img src={GooglePlay} alt="google play" width="138" height="40" />
                         </LocalizedLink>
                     </Flex>
                 </Show.Desktop>
@@ -149,7 +149,12 @@ const DownloadApp = () => {
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            <img src={GooglePlayMobile} alt="google play mobile" />
+                            <img
+                                src={GooglePlayMobile}
+                                alt="google play mobile"
+                                width="138"
+                                height="40"
+                            />
                         </LocalizedLink>
                     </Flex>
                     <StyledHeader mt="2.4rem" as="h4">
@@ -186,6 +191,7 @@ const DownloadApp = () => {
                 max_width="31rem"
                 mt="10.8rem"
                 mr="5.6rem"
+                ai="flex-start"
                 tabletL={{ max_width: '290px', mt: '40px' }}
                 laptopM={{ mr: '2px', ml: '2px' }}
             >

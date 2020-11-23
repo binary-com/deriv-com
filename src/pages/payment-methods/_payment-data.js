@@ -513,6 +513,7 @@ const payment_data = [
                     <Localize translate_text="Deposit and withdraw in Ethereum, among the top 3 most used cryptocurrencies." />
                 ),
                 name: 'ETH',
+                reference: 'ETH-payment-method.pdf',
             },
             // {
             //     method: <StasisEuroIc />,

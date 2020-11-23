@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import { Article } from './_article'
 import { ArticleWrapper, StyledHeader, StyledText } from './_help-centre-style'
 import { Text } from 'components/elements'
-import { SEO } from 'components/containers'
 import { localize, Localize, WithIntl } from 'components/localization'
 import device from 'themes/device'
 // Images
@@ -704,13 +703,7 @@ const ViewChart = () => (
 const DBotArticle = () => {
     return (
         <div>
-            <SEO
-                title={localize('Help centre | Frequently asked questions | DBot | Deriv')}
-                description={localize(
-                    'Frequently asked questions - DBot',
-                )}
-            />
-            <Article header="DBot">
+            <Article header="DBot" title={localize('Help centre | Frequently asked questions | DBot | Deriv')} description={localize('Frequently asked questions - DBot')}>
                 <WhatIsDBot text={localize('What is DBot?')} label="what-is-dbot" />
                 <FindBlocks text={localize('How do I find the blocks I need?')} label="find-blocks" />
                 <RemoveBlocks

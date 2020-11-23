@@ -3,7 +3,6 @@ import { Article } from './_article'
 import { ArticleWrapper, ExternalLink, StyledHeader, StyledText } from './_help-centre-style'
 import { deriv_app_url } from 'common/utility'
 import { Text } from 'components/elements'
-import { SEO } from 'components/containers'
 import { localize, Localize, WithIntl } from 'components/localization'
 
 const WhatIsDMT5 = () => (
@@ -144,13 +143,9 @@ const ResetDMT5Password = () => (
 const DMT5Article = () => {
     return (
         <div>
-            <SEO
-                title={localize('Help centre | Frequently asked questions | DMT5 | Deriv')}
-                description={localize(
-                    'Frequently asked questions - DMT5',
-                )}
-            />
-            <Article header="DMT5">
+            <Article header="DMT5" title={localize('Help centre | Frequently asked questions | DMT5 | Deriv')} description={localize(
+                'Frequently asked questions - DMT5',
+            )}>
                 <WhatIsDMT5 text={localize('What is DMT5?')} label="what-is-dmt5" />
                 <DifferenceDMT5DTrader
                     text={localize('What are the major differences between DTrader and DMT5?')}

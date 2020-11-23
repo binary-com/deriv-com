@@ -4,7 +4,6 @@ import { Article } from './_article'
 import { ArticleWrapper, ExternalLink, StyledHeader, StyledText } from './_help-centre-style'
 import { deriv_app_url } from 'common/utility'
 import { Text } from 'components/elements'
-import { SEO } from 'components/containers'
 import { localize, Localize, WithIntl } from 'components/localization'
 
 const StyledList = styled.ul`
@@ -147,13 +146,7 @@ const DormantFee = () => (
 const AccountArticle = () => {
     return (
         <div>
-            <SEO
-                title={localize('Help centre | Frequently asked questions | Account | Deriv')}
-                description={localize(
-                    'Frequently asked questions - Account',
-                )}
-            />
-            <Article header={localize('Account')}>
+            <Article header={localize('Account')} title={localize('Help centre | Frequently asked questions | Account | Deriv')} description={localize('Frequently asked questions - Account')}>
                 <WhoCanOpenAnAccount
                     text={localize("Why can't I create an account?")}
                     label="who-can-open-an-account"

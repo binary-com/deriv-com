@@ -4,7 +4,6 @@ import { ArticleWrapper, ExternalLink, StyledHeader } from './_help-centre-style
 import { deriv_app_url } from 'common/utility'
 import { Text } from 'components/elements'
 import { localize, Localize, WithIntl } from 'components/localization'
-import { SEO } from 'components/containers'
 
 const Forex = () => (
     <ArticleWrapper>
@@ -117,13 +116,7 @@ const WeekendContracts = () => (
 const TradingArticle = () => {
     return (
         <div>
-            <SEO
-                title={localize('Help centre | Frequently asked questions | Trading | Deriv')}
-                description={localize(
-                    'Frequently asked questions - Trading',
-                )}
-            />
-            <Article header={localize('Trading')}>
+            <Article header={localize('Trading')} title={localize('Help centre | Frequently asked questions | Trading | Deriv')} description={localize('Frequently asked questions - Trading')}>
                 <Forex text={localize('What is forex?')} label="what-is-forex" />
                 <Commodities text={localize('What are commodities?')} label="what-are-commodities" />
                 <StockIndices

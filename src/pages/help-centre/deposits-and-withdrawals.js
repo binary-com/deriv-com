@@ -3,7 +3,6 @@ import { Article } from './_article'
 import { ArticleWrapper, ExternalLink, StyledHeader, StyledText } from './_help-centre-style'
 import { deriv_app_url } from 'common/utility'
 import { Text } from 'components/elements'
-import { SEO } from 'components/containers'
 import { Localize, localize, WithIntl } from 'components/localization'
 
 const PaymentMethods = () => (
@@ -125,13 +124,7 @@ const WithdrawMaestroMastercard = () => (
 const DepositsAndWithdrawalArticle = () => {
     return (
         <div>
-            <SEO
-                title={localize('Help centre | Frequently asked questions | Deposits and withdrawals | Deriv')}
-                description={localize(
-                    'Frequently asked questions - Deposits and withdrawals',
-                )}
-            />
-            <Article header={localize('Deposits and withdrawals')}>
+            <Article header={localize('Deposits and withdrawals')} title={localize('Help centre | Frequently asked questions | Deposits and withdrawals | Deriv')} description={localize('Frequently asked questions - Deposits and withdrawals')}>
                 <PaymentMethods
                     text={localize('What payment methods do you support?')}
                     label="payment-methods"

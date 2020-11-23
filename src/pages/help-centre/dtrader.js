@@ -2,7 +2,6 @@ import React from 'react'
 import { Article } from './_article'
 import { ArticleWrapper, StyledHeader } from './_help-centre-style'
 import { Text } from 'components/elements'
-import { SEO } from 'components/containers'
 import { localize, WithIntl } from 'components/localization'
 
 const WhatIsDMT5 = () => (
@@ -39,13 +38,7 @@ const DTraderContracts = () => (
 const DTraderArticle = () => {
     return (
         <div>
-            <SEO
-                title={localize('Help centre | Frequently asked questions | DTrader | Deriv')}
-                description={localize(
-                    'Frequently asked questions - DTrader',
-                )}
-            />
-            <Article header="DTrader">
+            <Article header="DTrader" title={localize('Help centre | Frequently asked questions | DTrader | Deriv')} description={localize('Frequently asked questions - DTrader')}>
                 <WhatIsDMT5 text={localize('What is DTrader?')} label="what-is-dtrader" />
                 <DTraderMarkets
                     text={localize('What markets can I trade on DTrader?')}

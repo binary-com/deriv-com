@@ -31,10 +31,10 @@ const LightButton = styled(LinkButton)`
     margin-top: 1.6rem;
     border-radius: 4px;
     border: solid 1px #6e6e6e;
-    padding-top: 0.7rem;
+    padding-top: 7px;
     height: 32px;
     @media ${device.tabletL} {
-        padding-top: 1.2rem;
+        padding-top: 9px;
     }
 `
 const RedButton = styled(LinkButton)`

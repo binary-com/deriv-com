@@ -36,12 +36,12 @@ const RelativeContainer = styled(SectionContainer)`
 `
 
 const TopLeftDot = styled.img`
-    width: 581px;
+    width: 630px;
     position: absolute;
     top: 4px;
     left: 0;
     @media ${device.tabletL} {
-        left: -450px;
+        left: -500px;
     }
 `
 const BottomRightDot = styled.img`

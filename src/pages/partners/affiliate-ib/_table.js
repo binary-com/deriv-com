@@ -43,7 +43,12 @@ const TR = styled.div`
     @media ${device.tabletL} {
         p {
             white-space: ${(props) => (props.isTitle === 'true' ? '' : 'nowrap')};
-            font-size: 14px !important;
+            font-size: 14px;
+        }
+    }
+    @media ${device.mobileL} {
+        p {
+            font-size: 12px;
         }
     }
 `

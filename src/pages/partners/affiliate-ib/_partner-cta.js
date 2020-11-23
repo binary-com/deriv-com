@@ -31,10 +31,10 @@ const LightButton = styled(LinkButton)`
     margin-top: 1.6rem;
     border-radius: 4px;
     border: solid 1px #6e6e6e;
-    padding-top: 0.5rem;
+    padding-top: 0.7rem;
     height: 32px;
     @media ${device.tabletL} {
-        padding-top: 1rem;
+        padding-top: 1.2rem;
     }
 `
 const RedButton = styled(LinkButton)`
@@ -59,7 +59,7 @@ const CTA = () => {
                     </Text>
                     <LightButton
                         external="true"
-                        to="mailto:partners@deriv.com"
+                        to="mailto:affiliates@deriv.com"
                         tertiary
                         is_mail_link
                     >

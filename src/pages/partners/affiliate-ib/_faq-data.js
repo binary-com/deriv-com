@@ -42,6 +42,7 @@ const LocalizedLinkText = styled((props) => <LocalizedLink {...props} />)`
     color: var(--color-red);
     font-weight: normal;
     text-decoration: none;
+    size: 14px;
 
     &:hover {
         text-decoration: underline;

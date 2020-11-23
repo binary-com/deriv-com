@@ -41,6 +41,14 @@ const ImageWrapper = styled.img`
     height: 48px;
 `
 
+const ApplyImageWrapper = styled(ImageWrapper)`
+    margin-top: 0;
+`
+
+const TradingExpertsImageWrapper = styled(ImageWrapper)`
+    margin-top: 10px;
+`
+
 const CenteredSection = styled(SectionContainer)`
     text-align: center;
 `
@@ -61,7 +69,7 @@ const Content = styled.div`
     flex-direction: column;
     max-width: ${(props) => props.max_width};
 
-    @media ${device.tabletL} {
+    @media (max-width: 749px) {
         margin-top: ${(props) => props.mt_mobile};
     }
 `
@@ -69,12 +77,16 @@ const Content = styled.div`
 const GetStartedContent = styled(Content)`
     @media (max-width: 749px) {
         max-width: 360px;
+        position: relative;
+        top: -3px;
     }
 `
 
 const Separator = styled.div`
+    position: relative;
+    top: 40px;
     width: 1px;
-    height: 50rem;
+    height: 452px;
     background-color: var(--color-grey-8);
     margin: 0 9.2rem;
 
@@ -142,6 +154,7 @@ const WhoCanApplyWrapper = styled(Col)`
 const ContentWrapper = styled(Wrapper)`
     @media (max-width: 749px) {
         flex-flow: wrap;
+        margin-top: 0;
     }
 `
 
@@ -172,9 +185,14 @@ const WhoCanApply = () => {
                     <WhoCanApplyWrapper>
                         <StyledHeader size="3.2rem">{localize('Who can apply')}</StyledHeader>
                         <ContentWrapper>
-                            <ImageWrapper src={TradingExperts} alt="trading experts" />
+                            <TradingExpertsImageWrapper
+                                src={TradingExperts}
+                                alt="trading experts"
+                            />
                             <Content max_width="36.4rem" mt_mobile="15px">
-                                <Header as="h4">{localize('Trading experts')}</Header>
+                                <Header as="h4" mb="8px">
+                                    {localize('Trading experts')}
+                                </Header>
                                 <Text>
                                     {localize(
                                         'Provide expert tips and opinions on online trading via a website, blog, YouTube channel, webinars, or other forms of digital media.',
@@ -185,7 +203,9 @@ const WhoCanApply = () => {
                         <ContentWrapper>
                             <ImageWrapper src={SoftwareDeveloper} alt="software developer" />
                             <Content max_width="36.4rem" mt_mobile="15px">
-                                <Header as="h4">{localize('Software developers')}</Header>
+                                <Header as="h4" mb="8px">
+                                    {localize('Software developers')}
+                                </Header>
                                 <Text>
                                     {localize(
                                         'Develop web, desktop, and mobile applications. Also has extensive experience working with APIs.',
@@ -196,7 +216,9 @@ const WhoCanApply = () => {
                         <ContentWrapper>
                             <ImageWrapper src={CommunityManagers} alt="community managers" />
                             <Content max_width="36.4rem" mt_mobile="15px">
-                                <Header as="h4">{localize('Community managers')}</Header>
+                                <Header as="h4" mb="8px">
+                                    {localize('Community managers')}
+                                </Header>
                                 <Text>
                                     {localize(
                                         'Manage an active online community that’s passionate about online trading, investing, or personal finance.',
@@ -209,17 +231,19 @@ const WhoCanApply = () => {
                 <Separator />
                 <Flex>
                     <HowToApply>
-                        <SecondaryHeader mb="4rem" size="3.2rem">
+                        <SecondaryHeader mb="40px" size="3.2rem">
                             {localize('Get started easily')}
                         </SecondaryHeader>
                         <Timeline>
                             <Timeline.Item>
                                 <HowToApplyContent>
                                     <Show.Desktop max_width="bp749">
-                                        <ImageWrapper src={Apply} alt="apply" />
+                                        <ApplyImageWrapper src={Apply} alt="apply" />
                                     </Show.Desktop>
                                     <GetStartedContent max_width="32.4rem">
-                                        <Header as="h4">{localize('Sign up')}</Header>
+                                        <Header as="h4" mb="8px">
+                                            {localize('Sign up')}
+                                        </Header>
                                         <Text>
                                             {localize(
                                                 'Fill out the online application form. We’ll review your application and get in touch once it’s approved.',
@@ -234,7 +258,9 @@ const WhoCanApply = () => {
                                         <ImageWrapper src={Advertise} alt="advertise" />
                                     </Show.Desktop>
                                     <GetStartedContent max_width="32.4rem">
-                                        <Header as="h4">{localize('Advertise')}</Header>
+                                        <Header as="h4" mb="8px">
+                                            {localize('Advertise')}
+                                        </Header>
                                         <Text>
                                             {localize(
                                                 'Use your unique affiliate link and our tried-and-tested referral tools to bring new clients to Deriv.',
@@ -249,7 +275,9 @@ const WhoCanApply = () => {
                                         <ImageWrapper src={Earn} alt="earn" />
                                     </Show.Desktop>
                                     <GetStartedContent max_width="32.4rem">
-                                        <Header as="h4">{localize('Earn')}</Header>
+                                        <Header as="h4" mb="8px">
+                                            {localize('Earn')}
+                                        </Header>
                                         <Text>
                                             {localize(
                                                 'Start earning based on your chosen commission plan –– 45% of the total net revenue generated by your referred clients.',

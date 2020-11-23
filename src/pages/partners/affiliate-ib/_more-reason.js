@@ -59,6 +59,10 @@ const StyledSection = styled(SectionContainer)`
     }
 `
 
+const StyledHeader = styled(Header)`
+    margin-top: 0 !important;
+`
+
 const MoreReason = () => {
     return (
         <StyledSection>
@@ -69,7 +73,7 @@ const MoreReason = () => {
                 <StyledFlex wrap="wrap" jc="center">
                     <Reason>
                         <img src={HighValue} alt="high value partnership" />
-                        <Header as="h4" type="sub-section-title" lh="1.5">
+                        <Header as="h4" lh="1.5" mb="8px">
                             {localize('High-value partnership')}
                         </Header>
                         <Text>
@@ -80,7 +84,7 @@ const MoreReason = () => {
                     </Reason>
                     <Reason>
                         <img src={ProvenReferral} alt="proven referral tools" />
-                        <Header as="h4" type="sub-section-title" lh="1.5">
+                        <Header as="h4" lh="1.5" mb="8px">
                             {localize('Proven creative materials')}
                         </Header>
                         <Text>
@@ -91,9 +95,9 @@ const MoreReason = () => {
                     </Reason>
                     <Reason>
                         <img src={GlobalAffiliate} alt="global affiliate support" />
-                        <Header as="h4" type="sub-section-title" lh="1.5">
+                        <StyledHeader as="h4" lh="1.5" mb="8px">
                             {localize('Global affiliate support')}
-                        </Header>
+                        </StyledHeader>
                         <Text>
                             {localize(
                                 'Got questions? Need help? Call or email a dedicated team of affiliate managers for all the answers.',

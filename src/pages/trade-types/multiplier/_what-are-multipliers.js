@@ -13,6 +13,7 @@ import FullControl from 'images/svg/trade-types/full-control.svg'
 import ResponsivePlatform from 'images/svg/trade-types/responsive-platform.svg'
 import FriendlySupport from 'images/svg/trade-types/friendly-support.svg'
 import Seven from 'images/svg/trade-types/seven.svg'
+import CrashBoom from 'images/svg/trade-types/crash-boom.svg'
 
 const StyledHeader = styled(Header)`
     @media ${device.tablet} {
@@ -307,6 +308,19 @@ const WhatAreOptions = () => {
                             <Text>
                                 {localize(
                                     'Offered on forex and synthetic indices, you can trade multipliers 24/7, all-year-round.',
+                                )}
+                            </Text>
+                        </WhyTradeItem>
+                        <WhyTradeItem>
+                            <div>
+                                <img src={CrashBoom} alt="crash boom" />
+                            </div>
+                            <Text mt="1.6rem" mb="0.8rem" weight="bold">
+                                {localize('Crash/Boom indices')}
+                            </Text>
+                            <Text>
+                                {localize(
+                                    'Predict and gain from exciting spikes and dips with our Crash/Boom indices.',
                                 )}
                             </Text>
                         </WhyTradeItem>

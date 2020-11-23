@@ -9,13 +9,13 @@ import device from 'themes/device'
 
 const query = graphql`
     query {
-        signals: file(relativePath: { eq: "dmt5_signals.png" }) {
+        signals: file(relativePath: { eq: "dmt5-signals/dmt5_signals.png" }) {
             ...fadeIn
         }
-        statistics: file(relativePath: { eq: "dmt5_statistics.png" }) {
+        statistics: file(relativePath: { eq: "dmt5-signals/dmt5_statistics.png" }) {
             ...fadeIn
         }
-        renew: file(relativePath: { eq: "dmt5_renew.png" }) {
+        renew: file(relativePath: { eq: "dmt5-signals/dmt5_renew.png" }) {
             ...fadeIn
         }
     }
@@ -23,8 +23,6 @@ const query = graphql`
 
 const StyledSectionContainer = styled(SectionContainer)`
     margin: 0;
-    padding: 0;
-    background-color: var(--color-white);
 `
 const StyledContainer = styled(Container)`
     flex-direction: column;
@@ -47,8 +45,6 @@ const StyledHeader = styled(Header)`
 `
 
 const StyledText = styled(Text)`
-    font-size: 1.6rem;
-    line-height: 3.6rem;
     max-width: 97.6rem;
     text-align: center;
     margin-top: 1.2rem;
@@ -141,7 +137,7 @@ const DMT5Button = styled(LinkButton)`
 const Subscription = () => {
     const data = useStaticQuery(query)
     return (
-        <StyledSectionContainer>
+        <StyledSectionContainer padding="0" background="white">
             <StyledContainer>
                 <StyledHeader as="h2">
                     {localize('How to renew or cancel your subscription')}

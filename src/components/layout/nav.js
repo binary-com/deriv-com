@@ -684,7 +684,6 @@ const StyledNavCenter = styled(NavCenter)`
     white-space: nowrap;
 
     @media (max-width: 1300px) {
-        margin-left: 9.3rem;
         font-size: 12px !important;
     }
 `

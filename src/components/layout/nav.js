@@ -45,6 +45,18 @@ export const NavWrapper = styled.div`
     width: 100%;
     position: fixed;
     z-index: 100;
+
+    .fresnel-between-start-tabletL {
+        display: none;
+    }
+
+    @media ${device.tabletL} {
+        .fresnel-between-start-tabletL {
+            display: flex;
+            width: 100%;
+            align-items: center;
+        }
+    }
 `
 
 const InterimNav = styled.nav`
@@ -208,7 +220,7 @@ const NavLink = styled.li`
 export const StyledLink = styled(LocalizedLink)`
     ${SharedLinkStyle}
 `
-const StyledButton = styled.a`
+const StyledButton = styled.span`
     ${SharedLinkStyle}
     cursor: pointer;
     user-select: none;
@@ -295,7 +307,7 @@ const MobileRight = styled.div`
     }
 `
 const LogoDescription = styled(Flex)`
-    @media ${device.mobileL} {
+    @media (max-width: 525px) {
         display: none;
     }
 `
@@ -597,18 +609,28 @@ export const NavInterim = ({ interim_type }) => (
                 <Show.Desktop>
                     <StyledLogo to={`/interim/${interim_type}`} aria-label={localize('Home')}>
                         <Flex ai="center">
-                            <img src={Logo} alt="logo" />
-                            <img src={LogoCombinedShape} alt="logo combined shape desktop" />
+                            <img src={Logo} alt="logo" width="190px" height="27px" />
+                            <img
+                                src={LogoCombinedShape}
+                                alt="logo combined shape desktop"
+                                width="120"
+                                height="17"
+                            />
                         </Flex>
                     </StyledLogo>
                 </Show.Desktop>
                 <Show.Mobile>
                     <LogoLinkMobile to={`/interim/${interim_type}`} aria-label={localize('Home')}>
                         <Flex>
-                            <img src={LogoOnly} alt="logo only 2" width="115px" />
+                            <img src={LogoOnly} alt="logo only 2" width="115px" height="27px" />
                             <LogoDescription ai="center">
                                 <Line />
-                                <img src={LogoCombinedShape} alt="logo combined shape mobile" />
+                                <img
+                                    src={LogoCombinedShape}
+                                    alt="logo combined shape mobile"
+                                    width="120"
+                                    height="17"
+                                />
                             </LogoDescription>
                         </Flex>
                     </LogoLinkMobile>
@@ -628,9 +650,14 @@ export const NavStatic = () => (
     <StaticWrapper>
         <LogoLink mw="31rem" to="/" aria-label={localize('Home')}>
             <Flex ai="center">
-                <img src={LogoOnly} alt="logo only nav static" />
+                <img src={LogoOnly} alt="logo only nav static" width="160px" height="27px" />
                 <Line />
-                <img src={LogoCombinedShape} alt="logo combined shape nav static" />
+                <img
+                    src={LogoCombinedShape}
+                    alt="logo combined shape nav static"
+                    width="120"
+                    height="17"
+                />
             </Flex>
         </LogoLink>
     </StaticWrapper>

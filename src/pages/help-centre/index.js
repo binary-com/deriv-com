@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import matchSorter from 'match-sorter'
+import { matchSorter } from 'match-sorter'
 import styled from 'styled-components'
 import { Helmet } from 'react-helmet'
 import { navigate } from '@reach/router'

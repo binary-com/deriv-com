@@ -21,9 +21,9 @@ export const PrevButton = ({ enabled, onClick, color, style, is_reviews }) => (
         is_reviews={is_reviews}
     >
         {color === 'black' ? (
-            <ChevronLeft black />
+            <ChevronLeft black="true" />
         ) : color === 'red' ? (
-            <ChevronLeft red />
+            <ChevronLeft red="true" />
         ) : (
             <ChevronLeft />
         )}
@@ -44,9 +44,9 @@ export const NextButton = ({ enabled, onClick, color, style, is_reviews }) => (
         is_reviews={is_reviews}
     >
         {color === 'black' ? (
-            <ChevronRight black />
+            <ChevronRight black="true" />
         ) : color === 'red' ? (
-            <ChevronRight red />
+            <ChevronRight red="true" />
         ) : (
             <ChevronRight />
         )}

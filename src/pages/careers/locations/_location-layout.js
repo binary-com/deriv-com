@@ -231,7 +231,9 @@ export const LocationLayout = ({ location, images }) => {
                         </ImageWrapper>
                         <Flex p="3.2rem 6rem" direction="column" max_width="44.4rem">
                             <div style={{ maxWidth: '32.4rem' }}>
-                                <Header as="h3">Location</Header>
+                                <Header as="h3" size={'24px'}>
+                                    Location
+                                </Header>
                                 <CardText>{location.map_text}</CardText>
                                 <Flex jc="unset">
                                     <Pin src={MapPin} alt="map pin" />

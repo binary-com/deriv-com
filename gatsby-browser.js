@@ -1,5 +1,6 @@
 import React from 'react'
 import NProgress from 'nprogress'
+import Cookies from 'js-cookie'
 import { WrapPagesWithLocaleContext } from './src/components/localization'
 import { isProduction, isLocalHost } from './src/common/websocket/config'
 import { CookieStorage, LocalStore } from './src/common/storage'
@@ -33,6 +34,11 @@ export const onInitialClientRender = () => {
     // Check if not production and match ach or ach/
     if (is_browser) {
         const match_ach = window.location.pathname.match(/^(\/ach\/)|\/ach$/)
+        const has_datalayer = window.dataLayer
+        const domain = window.location.hostname.includes('deriv.com') ? 'deriv.com' : 'binary.sx'
+        const is_logged_in = Cookies.get('client_information', {
+            domain,
+        })
 
         if (match_ach) {
             // TODO: remove this line when production ready for translation
@@ -51,6 +57,10 @@ export const onInitialClientRender = () => {
                 document.head.appendChild(crowdin);
             `
             document.head.appendChild(jipt)
+        }
+
+        if (has_datalayer) {
+            window.dataLayer.push({ logged_in: is_logged_in })
         }
     }
     // Configure traffic source

@@ -104,11 +104,12 @@ const EmailButton = styled(Button)`
     padding: 10px 28px;
     border-radius: 4px;
     @media ${device.tabletL} {
-        width: auto;
+        padding: 10px;
+        min-width: unset;
         font-size: 1.4rem;
         margin-left: 0;
-        height: 5rem;
-        min-width: 15rem;
+        height: 40px;
+        width: 81px;
     }
 `
 const SocialWrapper = styled(Flex)`
@@ -130,6 +131,8 @@ const SocialButton = styled(Button)`
     height: 4rem;
     margin: 0 0.8rem;
     @media ${device.tabletL} {
+        width: 114px;
+        height: 48px;
         justify-content: center;
         align-items: center;
     }
@@ -149,9 +152,16 @@ const StyledText = styled(Text)`
     width: auto;
     margin-right: 2rem;
     @media ${device.tabletL} {
-        width: max-content-fit;
-        margin-right: 1rem;
+        width: 90px;
+        margin-right: 0;
     }
+`
+
+const StyledSpan = styled.span`
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--color-grey-32);
+    margin-left: 4px;
 `
 const ImageWrapper = styled(Flex)`
     position: relative;
@@ -259,7 +269,7 @@ const SignupPublic = ({
                                         value={email}
                                         background="white"
                                         tabletBackground="green-1"
-                                        inputColor="var(grey-5)"
+                                        inputColor="grey-5"
                                         inputBackground="grey-8"
                                         labelFocusColor="grey-7"
                                         labelColor="black-3"
@@ -288,7 +298,7 @@ const SignupPublic = ({
                                 </EmailButton>
                             </InputGroup>
                             <SocialWrapper jc="unset" ai="center">
-                                <StyledText>{localize('or sign in with')}</StyledText>
+                                <StyledText>{localize('Or sign in with')}</StyledText>
                                 <SocialButton
                                     onClick={handleSocialSignup}
                                     provider="facebook"
@@ -353,7 +363,7 @@ const SignupPublic = ({
                                         value={email}
                                         background="white"
                                         tabletBackground="green-1"
-                                        inputColor="var(grey-5)"
+                                        inputColor="grey-5"
                                         inputBackground="grey-8"
                                         labelFocusColor="grey-7"
                                         labelColor="black-3"
@@ -379,19 +389,7 @@ const SignupPublic = ({
                                 </EmailButton>
                             </InputGroup>
                             <SocialWrapper jc="unset" ai="center">
-                                <StyledText>{localize('or sign in with')}</StyledText>
-                                <SocialButton
-                                    onClick={handleSocialSignup}
-                                    provider="facebook"
-                                    data-provider="facebook"
-                                    id="gtm-signup-facebook"
-                                    type="button"
-                                    social
-                                >
-                                    <span>
-                                        <img src={Facebook} alt="facebook" />
-                                    </span>
-                                </SocialButton>
+                                <StyledText>{localize('Or sign in with')}</StyledText>
                                 <SocialButton
                                     onClick={handleSocialSignup}
                                     provider="google"
@@ -403,6 +401,20 @@ const SignupPublic = ({
                                     <span>
                                         <img src={Google} alt="google" />
                                     </span>
+                                    <StyledSpan>Google</StyledSpan>
+                                </SocialButton>
+                                <SocialButton
+                                    onClick={handleSocialSignup}
+                                    provider="facebook"
+                                    data-provider="facebook"
+                                    id="gtm-signup-facebook"
+                                    type="button"
+                                    social
+                                >
+                                    <span>
+                                        <img src={Facebook} alt="facebook" />
+                                    </span>
+                                    <StyledSpan>Facebook</StyledSpan>
                                 </SocialButton>
                             </SocialWrapper>
                         </div>

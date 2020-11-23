@@ -127,7 +127,7 @@ const DP2P = ({ P2P, reverse, two_title }) => {
                             <ImageWrapper margin_right={!is_even ? '0' : '12.6rem'}>
                                 <QueryImage
                                     data={data[item.image_name]}
-                                    alt={data[item.image_alt]}
+                                    alt={item.image_alt}
                                     width="100%"
                                 />
                             </ImageWrapper>

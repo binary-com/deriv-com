@@ -39,6 +39,7 @@ const StyledLinkButton = styled(LinkButton)`
         width: 216px;
         height: 40px;
         padding: 1.2rem 1rem;
+        white-space: nowrap;
     }
 `
 

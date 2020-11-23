@@ -47,7 +47,7 @@ const LiveChat = ({ LC_API, is_livechat_interactive, setLiveChatInteractive }) =
                         setLiveChatInteractive(true)
                         const url_params = new URLSearchParams(window.location.search)
                         const is_livechat_query = url_params.get('is_livechat_open')
-                        if (is_livechat_query) {
+                        if (is_livechat_query?.toLowerCase() === 'true') {
                             window.LC_API.open_chat_window()
                         }
                         window.LiveChatWidget.on('visibility_changed', ({ visibility }) => {

@@ -9,7 +9,7 @@ import { SEO, Flex, Box } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
 import { Header } from 'components/elements'
-import { getLocationHash, isBrowser, scrollTop } from 'common/utility'
+import { useTabState } from 'components/hooks/use-tab-state'
 import device from 'themes/device'
 
 const signal_content_subscriber = {
@@ -74,25 +74,7 @@ const Separator = styled.div`
 `
 
 const DMT5TradingSignals = () => {
-    const [active_tab, setTab] = useTabState()
-
-    React.useEffect(() => {
-        if (getLocationHash() === active_tab) return
-        if (getLocationHash().length === 0) {
-            setTab('signal-subscriber')
-            isBrowser() && window.history.pushState(null, null, '#signal-subscriber')
-        } else {
-            setTab(getLocationHash())
-        }
-        scrollTop()
-    }, [getLocationHash()])
-
-    React.useEffect(() => {}, [active_tab])
-
-    const handleTabChange = (tab_name) => {
-        setTab(tab_name)
-        isBrowser() && window.history.pushState(null, null, `#${tab_name}`)
-    }
+    const [active_tab, setActiveTab] = useTabState(['signal-subscriber', 'signal-provider'])
 
     return (
         <Layout>
@@ -106,14 +88,14 @@ const DMT5TradingSignals = () => {
             </Hero>
             <TabsContainer>
                 <Item
-                    onClick={() => handleTabChange('signal-subscriber')}
+                    onClick={() => setActiveTab('signal-subscriber')}
                     active_tab={active_tab}
                     name="signal-subscriber"
                 >
                     <Header as="h4">{localize('Signal subscriber')}</Header>
                 </Item>
                 <Item
-                    onClick={() => handleTabChange('signal-provider')}
+                    onClick={() => setActiveTab('signal-provider')}
                     active_tab={active_tab}
                     name="signal-provider"
                 >
@@ -131,15 +113,6 @@ const DMT5TradingSignals = () => {
             {active_tab === 'signal-subscriber' && <Subscription />}
         </Layout>
     )
-}
-
-const useTabState = () => {
-    const [active_tab, setActiveTab] = React.useState('signal-subscriber')
-    const setTab = (tab) => {
-        if (tab === active_tab) return
-        setActiveTab(tab)
-    }
-    return [active_tab, setTab]
 }
 
 export default WithIntl()(DMT5TradingSignals)

@@ -43,7 +43,6 @@ const TR = styled.div`
     @media ${device.tabletL} {
         p {
             white-space: ${(props) => (props.isTitle === 'true' ? '' : 'nowrap')};
-            overflow-x: auto;
             font-size: 14px !important;
         }
     }

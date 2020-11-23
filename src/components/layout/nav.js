@@ -687,9 +687,6 @@ const StyledNavCenter = styled(NavCenter)`
         margin-left: 9.3rem;
         font-size: 12px !important;
     }
-    @media (max-width: 1080px) {
-        margin-left: 7.3rem;
-    }
 `
 
 const StyledNavRight = styled(NavRight)`

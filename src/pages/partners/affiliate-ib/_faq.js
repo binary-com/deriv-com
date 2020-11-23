@@ -79,6 +79,8 @@ const Faq = () => {
         padding: '1.6rem 4rem',
         border: 'none',
         borderRadius: '8px',
+        position: 'relative',
+        boxShadow: '0 4px 8px 0 rgba(14, 14, 14, 0.1)',
     }
     return (
         <RelativeContainer>

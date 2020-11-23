@@ -34,12 +34,14 @@ const StyledSection = styled(SectionContainer)`
 `
 
 const DecideSection = styled(StyledSection)`
+    padding-top: 40px;
     @media ${device.tabletL} {
         padding: 40px 0 0 0;
     }
 `
 
 const IBSectionContainer = styled(SectionContainer)`
+    padding-bottom: 80px;
     @media ${device.tabletL} {
         padding: 16px 0 0;
     }
@@ -247,6 +249,7 @@ const StyledChevron = styled.img`
 
 const StyledTR = styled(TR)`
     display: ${(props) => (props.hidden ? 'hidden' : 'block')};
+    white-space: nowrap;
 `
 
 const SyntheticTable = styled(Table)`
@@ -275,7 +278,7 @@ const DMT5Synthetic = ({ data }) => {
     }
     return (
         <StyledCard
-            height={is_expand && !is_calculated ? '83rem' : '44rem'}
+            height={is_expand && !is_calculated ? '83rem' : '43rem'}
             padding="3.2rem 3.2rem 8.2rem"
             width="43rem"
         >

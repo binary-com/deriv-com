@@ -44,7 +44,7 @@ const TermsAndConditions = () => {
                     </Flex>
                 </Container>
                 <TabWrapper>
-                    <Tabs tab_break="360px" tab_list={['clients', 'business-partners']}>
+                    <Tabs tab_list={['clients', 'business-partners']}>
                         <Tabs.Panel label={localize('FOR CLIENTS')}>
                             <ClientGrid />
                         </Tabs.Panel>

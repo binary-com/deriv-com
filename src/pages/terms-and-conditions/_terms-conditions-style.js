@@ -5,13 +5,22 @@ import { Text } from 'components/elements'
 
 export const StyledContainer = styled(GridContainer)`
     margin-top: 8rem;
+
+    @media ${device.tabletS} {
+        margin-top: 4rem;
+    }
 `
 
 export const IconWrapper = styled.div`
     margin-left: -2.4rem;
 
     @media ${device.tabletS} {
-        margin-left: 0;
+        margin-left: -1.5rem;
+
+        img {
+            width: 122px;
+            height: 72px;
+        }
     }
 `
 

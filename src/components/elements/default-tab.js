@@ -91,7 +91,7 @@ TabPanel.propTypes = {
     children: PropTypes.node,
 }
 
-const Tabs = ({ children, tab_break, tab_list }) => {
+const Tabs = ({ children, tab_list }) => {
     const [selected_tab, setSelectedTab] = useState(0)
     const [active_tab, setActiveTab] = useTabState(['clients', 'business-partners'])
     
@@ -101,7 +101,7 @@ const Tabs = ({ children, tab_break, tab_list }) => {
 
     return (
         <Flex direction="column">
-            <TabList breakPoint={tab_break} role="tablist">
+            <TabList role="tablist">
                 {React.Children.map(children, ({ props: { label } }, index) => (
                     <TabButton
                         role="tab"
@@ -130,7 +130,6 @@ Tabs.Panel = TabPanel
 
 Tabs.propTypes = {
     children: PropTypes.node,
-    tab_break: PropTypes.string,
     tab_list: PropTypes.array,
 }
 

@@ -16,7 +16,7 @@ const address_ipoh = ['E-5-6, Soho Ipoh 2,', 'Jalan Sultan Idris Shah,', 'Ipoh 3
 
 const address_melaka = ['67-1 & 69-1, Jalan KLJ 6, Taman Kota', 'Laksamana Jaya, Melaka 75200']
 
-const address_cyprus = ['42 Agias Filaxeos, 5th floor,', 'Limassol 3025']
+const address_cyprus = ['Level 5, 42 Agias Filaxeos', 'Limassol 3025']
 
 const address_rwanda = ['Level 2 East Wing, Kigali Heights, KG7', 'Avenue, Kigali']
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { StyledContainer, IconWrapper, GridCol, Cta } from './_terms-conditions-style'
-import { CssGrid, Show } from 'components/containers'
+import { StyledGrid, StyledContainer, IconWrapper, GridCol, Cta } from './_terms-conditions-style'
+import { Show } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { localize } from 'components/localization'
 // Icons
@@ -84,7 +84,7 @@ Col.propTypes = {
 
 const IconGrid = () => (
     <StyledContainer>
-        <CssGrid
+        <StyledGrid
             columns="repeat(3, 1fr)"
             column_gap="15.4rem"
             row_gap="8rem"
@@ -146,7 +146,7 @@ const IconGrid = () => (
                 link_title3={localize('Deriv (Europe) Limited')}
                 link_title4={localize('Deriv (MX) Ltd')}
             />
-        </CssGrid>
+        </StyledGrid>
     </StyledContainer>
 )
 

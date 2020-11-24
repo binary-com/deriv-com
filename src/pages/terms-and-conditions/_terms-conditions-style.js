@@ -1,7 +1,13 @@
 import styled from 'styled-components'
 import device from 'themes/device'
-import { GridContainer, CssGridColumn} from 'components/containers'
+import { CssGrid, GridContainer, CssGridColumn} from 'components/containers'
 import { Text } from 'components/elements'
+
+export const StyledGrid = styled(CssGrid)`
+    @media ${device.tabletS} {
+        grid-row-gap: 4rem;
+    }
+`
 
 export const StyledContainer = styled(GridContainer)`
     margin-top: 8rem;

@@ -44,6 +44,7 @@ const query = graphql`
 export const NavWrapper = styled.div`
     width: 100%;
     position: fixed;
+    top: 0;
     z-index: 100;
 
     .fresnel-between-start-tabletL {

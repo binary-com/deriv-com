@@ -111,11 +111,18 @@ const Column = styled.div`
     :first-child {
         flex-basis: 6%;
     }
+
+    @media ${device.tabletL} {
+        :first-child {
+            flex-basis: 7%;
+        }
+    }
 `
 const Row = styled.div`
     display: flex;
     flex-direction: row;
     width: 100%;
+    margin-top: 16px;
 `
 const NoteContainer = styled(Flex)`
     flex-direction: column;
@@ -125,6 +132,7 @@ const NoteContainer = styled(Flex)`
 const DMT5Button = styled(LinkButton)`
     margin-top: 4rem;
     height: 40px;
+    width: 204px;
     padding: 10px 16px;
     font-size: 14px;
     white-space: nowrap;
@@ -251,7 +259,7 @@ const Subscription = () => {
                             "4. You won't be able to trade manually with the same DMT5 account once you've subscribed to a signal.",
                         )}
                     </StyledCardText>
-                    <StyledCardText mt="8px">
+                    <StyledCardText mt="16px">
                         <Localize
                             translate_text="Have more questions? Check out the <0>FAQ section</0> on the MQL5 website."
                             components={[

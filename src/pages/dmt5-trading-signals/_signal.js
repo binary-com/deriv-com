@@ -42,14 +42,18 @@ const StyledText = styled(Text)`
 const StyledHeader = styled(Header)`
     font-size: 4.8rem;
     line-height: 1.25;
-    max-width: 38.4rem;
+    max-width: 37.8rem;
     margin-right: 2.4rem;
 
     @media ${device.tabletL} {
         margin: 0 0 24px 0;
+        max-width: 375px;
         font-size: 32px;
         line-height: 40px;
         text-align: center;
+    }
+    @media ${device.mobileL} {
+        max-width: 275px;
     }
 `
 
@@ -64,7 +68,7 @@ const StyledSection = styled(SectionContainer)`
 const Card = styled.div`
     display: flex;
     justify-content: flex-start;
-    align-items: center;
+    align-items: flex-start;
     padding: 1.6rem;
     width: 48.6rem;
     height: unset;
@@ -96,7 +100,7 @@ const StyledChecklist = styled(Checklist)`
     margin-right: 1.6rem;
 
     @media ${device.tabletL} {
-        margin-right: 17px;
+        margin-right: 16px;
     }
 `
 

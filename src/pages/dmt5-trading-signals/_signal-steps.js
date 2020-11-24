@@ -35,10 +35,7 @@ const content = {
         ),
         step_three_header: <Localize translate_text="3. Configure the parameters" />,
         step_three_text: (
-            <Localize
-                translate_text="Configure your trading and risk management parameters. Then click <0>OK</0> to complete the process."
-                components={[<strong key={0} />]}
-            />
+            <Localize translate_text="Configure your trading and risk management parameters. Then click OK to complete the process." />
         ),
         notice: (
             <Localize
@@ -63,7 +60,7 @@ const content = {
         step_one_header: <Localize translate_text="1. Create signal" />,
         step_one_text: (
             <Localize
-                translate_text="Go to the <0>MQL5 signals showcase page</0> and click on the Create signal button."
+                translate_text="Go to the <0>MQL5 signals showcase</0> page and click on the Create signal button."
                 components={[
                     <LocalizedLinkText
                         external="true"
@@ -77,14 +74,14 @@ const content = {
         ),
         step_two_header: <Localize translate_text="2. Fill the broker field" />,
         step_two_text: (
-            <Localize translate_text="Complete the form with your Deriv MT5 account credentials. For the Broker field, add Deriv-Server as your broker or Deriv-Demo if your signal is for demo accounts only." />
+            <Localize
+                translate_text="Complete the form with your Deriv MT5 account credentials. For the Broker field, add <0>Deriv-Server</0> as your broker or <0>Deriv-Demo</0> if your signal is for demo accounts only."
+                components={[<strong key={0} />]}
+            />
         ),
         step_three_header: <Localize translate_text="3. Complete the registration" />,
         step_three_text: (
-            <Localize
-                translate_text="Click <0>OK</0> and add a description to complete the registration"
-                components={[<strong key={0} />]}
-            />
+            <Localize translate_text="Click OK and add a description to complete the registration" />
         ),
         notice: (
             <Localize

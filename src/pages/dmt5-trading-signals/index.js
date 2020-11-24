@@ -7,26 +7,37 @@ import SignalSteps from './_signal-steps'
 import Subscription from './_subscription'
 import { SEO, Flex, Box } from 'components/containers'
 import Layout from 'components/layout/layout'
-import { localize, WithIntl } from 'components/localization'
+import { localize, Localize, WithIntl } from 'components/localization'
 import { Header } from 'components/elements'
 import { useTabState } from 'components/hooks/use-tab-state'
 import device from 'themes/device'
 
 const signal_content_subscriber = {
-    header: 'Benefits of subscribing to MT5 signals',
-    text:
+    header: (
+        <Localize
+            translate_text="Benefits of subscribing to MT5 signals"
+            components={[<br key={0} />]}
+        />
+    ),
+    text: localize(
         'The MT5 trading signals service allows you to copy the trades of more experienced traders to your MT5 account. Once you’ve subscribed to a signal, the provider’s deals will be automatically replicated on your Deriv MT5 trading account each time they place a trade.',
+    ),
     list: [
-        'Minimise trading risk by copying from expert traders.',
-        'Save time – no need to open, monitor, and close trades.',
-        'Easy to set up – no installation required.',
-        'Full disclosure of each providers’ performances.',
-        'No hidden fees or commissions.',
+        localize('Minimise trading risk by copying from expert traders.'),
+        localize('Save time – no need to open, monitor, and close trades.'),
+        localize('Easy to set up – no installation required.'),
+        localize('Full disclosure of each providers’ performances.'),
+        localize('No hidden fees or commissions.'),
     ],
 }
 
 const signal_content_provider = {
-    header: 'Benefits of being an MT5 signals provider',
+    header: (
+        <Localize
+            translate_text="Benefits of being an MT5<0 /> signals provider"
+            components={[<br key={0} />]}
+        />
+    ),
     text:
         'If you are a professional trader, the MT5 trading signals service allows you to share your strategies with other traders for free or a subscription fee that you determine. When traders subscribe to your signal, your deals are automatically replicated on their accounts each time you place a trade.',
     list: [

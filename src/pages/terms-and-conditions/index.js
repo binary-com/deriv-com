@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import CustomerGrid from './_customers-grid'
+import ClientGrid from './_clients-grid'
 import BusinessGrid from './_business-grid'
 import { SEO, SectionContainer, Container, Flex } from 'components/containers'
 import Layout from 'components/layout/layout'
@@ -44,9 +44,9 @@ const TermsAndConditions = () => {
                     </Flex>
                 </Container>
                 <TabWrapper>
-                    <Tabs tab_break="500px" tab_list={['clients', 'business-partners']}>
+                    <Tabs tab_list={['clients', 'business-partners']}>
                         <Tabs.Panel label={localize('FOR CLIENTS')}>
-                            <CustomerGrid />
+                            <ClientGrid />
                         </Tabs.Panel>
                         <Tabs.Panel label={localize('FOR BUSINESS PARTNERS')}>
                             <BusinessGrid />

@@ -17,6 +17,7 @@
 -   [Developer guide](documents/developer-guide.md) - Contain advice for developers working on this project
 -   [Git best practice](documents/git-best-practices.md) - Contain git practices and commit guidelines
 -   [File structures](documents/file-structures.md)
+-   [GTM Workflow](documents/gtm-workflow.md) - Contains Google Tag Manager workflow and additional information
 
 ## Pre-installation
 

@@ -185,12 +185,7 @@ module.exports = {
                 ],
             },
         },
-        {
-            resolve: 'gatsby-plugin-anchor-links',
-            options: {
-                offset: -300,
-            },
-        },
+        'gatsby-plugin-anchor-links',
         {
             resolve: `gatsby-plugin-nprogress`,
             options: {

@@ -11,8 +11,8 @@ import StockIcon from 'images/svg/markets/stock.svg'
 import SyntheticIndicesIcon from 'images/svg/markets/synthetic.svg'
 // Images
 const StyledSection = styled(SectionContainer)`
-    background-color: rgba(242, 243, 244, 0.3);
     box-shadow: inset 0 1px 0 0 var(--color-grey-8);
+    padding: 0 0 6rem;
 
     @media ${device.tabletL} {
         padding: 5rem 0;

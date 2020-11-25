@@ -4,13 +4,13 @@ import DontBorrow from 'images/svg/dont-borrow.svg'
 import FreeDemo from 'images/svg/free-demo.svg'
 import SetLimitLosses from 'images/svg/set-limit-chart.svg'
 import BadJudgement from 'images/svg/bad-judgement.svg'
-import { ReactComponent as Info } from 'images/svg/info.svg'
+import Info from 'images/svg/info.svg'
 import { SectionContainer, Flex, Show } from 'components/containers'
 import { Header, Text, Divider, CardStyle, LocalizedLinkText } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
 
-const IcInfo = styled(Info)`
+const IcInfo = styled.img`
     margin-left: 1.5rem;
 `
 
@@ -159,7 +159,7 @@ const TradingResponsibly = () => {
                     </ContentWrapper>
                     <Show.Eu>
                         <StyledFlex>
-                            <IcInfo />
+                            <IcInfo src={Info} alt="info" width="24" height="24" />
                             <NoticeText size="1.4rem" ml="1.6rem" mr="1.5rem">
                                 <Localize
                                     translate_text="For more details on our products and the risks involved in online trading, read our <0>key information documents (KIDs)</0> on commodities, forex, and cryptocurrencies."

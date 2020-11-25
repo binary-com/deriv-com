@@ -468,7 +468,7 @@ const payment_data = [
                 deposit_time: <Localize translate_text="Instant" />,
                 withdrawal_time: <Localize translate_text="1 working day" />,
                 description: (
-                    <Localize translate_text="Use Paylivre to make deposits and withdrawals with your Brazilian bank account." />
+                    <Localize translate_text="Use PayLivre to make deposits and withdrawals with your Brazilian bank account." />
                 ),
                 url: 'https://paylivre.com/',
                 name: 'paylivre',

@@ -58,12 +58,12 @@ const MarketsCarousel = ({ children, ...props }) => {
             containScroll: 'trimSnaps',
         },
         container_style: {
-            width: '85%',
+            width: '90%',
             position: 'relative',
             margin: '0 auto',
         },
         slide_style: {
-            minWidth: '34rem',
+            flex: '0 0 50%',
             position: 'relative',
             marginTop: '4rem',
         },

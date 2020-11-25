@@ -36,7 +36,7 @@ const StyledLinkButton = styled(LinkButton)`
     border-radius: 4px;
     @media ${device.tabletS} {
         font-size: 14px;
-        width: 216px;
+        width: 230px;
         height: 40px;
         padding: 1.2rem 1rem;
         white-space: nowrap;
@@ -128,7 +128,7 @@ const AffiliateIb = () => {
                 <Container direction="column">
                     <SubtitleHeader as="h4" weight="normal" align="center">
                         {localize(
-                            'Earn up to 45% lifetime commission with an online trading provider that enables anyone to trade on several popular financial markets with the utmost convenience. Binary Group – the owner of Binary.com and Deriv.com – has a proven track record of running successful referral programmes with prompt payouts.',
+                            'Earn up to 45% lifetime commission with an online trading provider that enables anyone to trade on popular financial markets with the utmost convenience. Deriv Group Ltd – the owner of Binary.com and Deriv.com – has a proven track record of running successful referral programmes with prompt payouts.',
                         )}
                     </SubtitleHeader>
                     <DNumber items={items} justify="space-around" />

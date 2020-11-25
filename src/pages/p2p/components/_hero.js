@@ -26,7 +26,7 @@ const Wrapper = styled(Container)`
         justify-content: center;
     }
     @media ${device.mobileM} {
-        height: 678px;
+        height: unset;
     }
 `
 
@@ -61,11 +61,11 @@ const ImgWrapper = styled.div`
 
 const InformationWrapper = styled(Flex)`
     width: 100%;
-    max-width: 48.6rem;
+    max-width: 60.5rem;
     z-index: 1;
 
     @media ${device.tabletL} {
-        max-width: 40rem;
+        max-width: 42rem;
     }
     @media ${device.tablet} {
         top: 280px;
@@ -119,7 +119,7 @@ const StyledHeader = styled(Header)`
     font-size: 8rem;
 
     @media ${device.laptopM} {
-        width: 40rem;
+        width: 100%;
         font-size: 6rem;
         line-height: 8rem;
     }
@@ -137,7 +137,7 @@ const StyledHeader = styled(Header)`
 
 const TryButton = styled(LinkButton)`
     padding: 14px 16px;
-    width: 125px;
+    width: 220px;
     font-size: 14px;
     margin-top: 3.2rem;
     margin-bottom: 40px;

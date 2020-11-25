@@ -41,22 +41,23 @@ const ClientCard = styled.article`
     border-radius: 10px;
     box-shadow: 0 20px 30px 0 rgba(0, 0, 0, 0.2);
     width: 38.4rem;
-    height: 21.6rem;
+    height: unset;
     padding: 5.2rem;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
     :first-child {
         margin: -20rem 0 0 0;
     }
     @media ${device.laptopM} {
         min-height: 22rem;
-        height: 100%;
     }
     @media ${device.tablet} {
         margin: 0 0 24px 0;
         max-height: unset;
         width: 328px;
-        height: 184px;
         padding: 46px 44px;
 
         :first-child {
@@ -68,7 +69,6 @@ const ClientCard = styled.article`
     }
     @media ${device.mobileM} {
         max-width: 290px;
-        height: unset;
     }
 `
 const StyledHeader = styled(Header)`
@@ -95,7 +95,7 @@ const StyledLinkButton = styled(LinkButton)`
     padding: 14px 16px;
     font-size: 14px;
     border: unset;
-    width: 125px;
+    width: 220px;
     margin: 80px auto 0 auto;
     white-space: nowrap;
 

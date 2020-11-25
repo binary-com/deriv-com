@@ -36,10 +36,20 @@ const RelativeContainer = styled(SectionContainer)`
 `
 
 const TopLeftDot = styled.img`
-    width: 630px;
+    width: 730px;
     position: absolute;
     top: 4px;
     left: 0;
+
+    @media ${device.laptopL} {
+        width: 630px;
+        left: -50px;
+    }
+
+    @media ${device.laptop} {
+        left: -250px;
+    }
+
     @media ${device.tabletL} {
         left: -500px;
     }
@@ -49,6 +59,15 @@ const BottomRightDot = styled.img`
     bottom: 16px;
     right: 0;
     height: 154px;
+
+    @media ${device.laptopL} {
+        right: 0;
+    }
+
+    @media ${device.laptop} {
+        right: -200px;
+    }
+
     @media ${device.tabletL} {
         right: -450px;
     }

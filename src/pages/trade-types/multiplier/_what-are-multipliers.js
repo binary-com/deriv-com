@@ -101,7 +101,7 @@ const StyledText = styled(Text)`
 
 const ProfitText = styled.span`
     font-weight: bold;
-    color: var(--color-blue-4);
+    color: var(--color-blue-7);
 `
 
 const LossText = styled.span`

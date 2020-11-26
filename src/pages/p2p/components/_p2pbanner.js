@@ -84,7 +84,8 @@ const StyledHeader = styled(Header)`
         margin-top: 40px;
     }
     @media ${device.tabletS} {
-        font-size: 32px;
+        font-size: 24px;
+        max-width: 70%;
         margin-top: 20px;
     }
     @media ${device.mobileL} {

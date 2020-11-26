@@ -57,6 +57,7 @@ const StyledHeader = styled(Header)`
     line-height: 1.25;
 
     @media ${device.tabletL} {
+        width: 98%;
         margin-top: 0;
         text-align: center;
         font-size: 24px;

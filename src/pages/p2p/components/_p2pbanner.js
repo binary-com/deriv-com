@@ -134,7 +134,7 @@ const P2PBanner = ({ title }) => {
             </Show.Desktop>
             <Show.Mobile>
                 <Background
-                    style={{ height: '500px', backgroundPosition: '40% 50%' }}
+                    style={{ height: '402px', backgroundPosition: '40% 50%' }}
                     data={data['p2p_banner_mobile']}
                 >
                     <Wrapper>

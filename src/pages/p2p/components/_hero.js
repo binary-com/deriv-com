@@ -88,6 +88,7 @@ const HeroContent = styled(Flex)`
         display: flex;
         margin-top: 1.6rem;
         line-height: 3.6rem;
+        max-width: 78%;
     }
     @media ${device.laptopM} {
         ${Header} {
@@ -97,6 +98,7 @@ const HeroContent = styled(Flex)`
     @media ${device.tabletL} {
         ${Header} {
             font-size: 16px;
+            max-width: 74%;
         }
     }
     @media ${device.mobileL} {
@@ -104,6 +106,11 @@ const HeroContent = styled(Flex)`
             font-size: 20px;
             line-height: 25px;
             margin-top: 16px;
+        }
+    }
+    @media ${device.mobileS} {
+        ${Header} {
+            max-width: 98%;
         }
     }
 `
@@ -121,12 +128,10 @@ const StyledHeader = styled(Header)`
     }
     @media ${device.tabletL} {
         margin-top: 2rem;
-        width: 45rem;
         font-size: 40px;
         line-height: 6rem;
     }
     @media ${device.mobileL} {
-        width: 250px;
         line-height: 50px;
     }
 `
@@ -161,7 +166,7 @@ const HeroComponent = ({ title, content, background_data, img_data }) => {
                         {title}
                     </StyledHeader>
                     <HeroContent>
-                        <Header as="h1">{content}</Header>
+                        <Header as="h2">{content}</Header>
                     </HeroContent>
                     <TryButton
                         secondary="true"

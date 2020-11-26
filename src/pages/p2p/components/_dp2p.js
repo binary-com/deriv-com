@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { graphql, useStaticQuery } from 'gatsby'
 import device from 'themes/device'
-import { Container, SectionContainer } from 'components/containers'
+import { Container, SectionContainer, Show } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
 import { localize } from 'components/localization'
 
@@ -117,7 +117,12 @@ const DP2P = ({ P2P, reverse, two_title }) => {
                         <Row flex_direction={!is_even ? 'row' : 'row-reverse'} key={index}>
                             <Content margin_right={!is_even ? '12.6rem' : '0'}>
                                 <StyledHeader>{item.title}</StyledHeader>
-                                <Text>{item.subtitle}</Text>
+                                <Show.Desktop>
+                                    <Text>{item.subtitle}</Text>
+                                </Show.Desktop>
+                                <Show.Mobile>
+                                    <Text>{item.subtitle_mobile}</Text>
+                                </Show.Mobile>
                                 {two_title && (
                                     <>
                                         <StyledHeader mt="2.4rem">{item.second_title}</StyledHeader>

@@ -7,7 +7,7 @@ import Numbers from '../components/_numbers'
 import Availability from '../components/_availability'
 import { localize, Localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
-import { SEO } from 'components/containers'
+import { SEO, Show } from 'components/containers'
 
 const DP2P_CONTENT = [
     {
@@ -42,13 +42,29 @@ const DP2P_v2 = () => {
                 title={localize('DP2P')}
                 description={localize('Faster deposits and withdrawals')}
             />
-            <Hero
-                title={localize('Faster deposits and withdrawals')}
-                content={
-                    <Localize translate_text="Waiting too long? With DP2P, it just takes minutes. Spend more time on things that really matter." />
-                }
-                image_name="DP2P"
-            />
+            <Show.Desktop>
+                <Hero
+                    title={
+                        <Localize
+                            translate_text="Faster <0 />deposits and withdrawals"
+                            components={[<br key={0} />]}
+                        />
+                    }
+                    content={
+                        <Localize translate_text="Waiting too long? With DP2P, it just takes minutes. Spend more time on things that really matter." />
+                    }
+                    image_name="DP2P"
+                />
+            </Show.Desktop>
+            <Show.Mobile>
+                <Hero
+                    title={localize('Faster deposits and withdrawals')}
+                    content={
+                        <Localize translate_text="Waiting too long? With DP2P, it just takes minutes. Spend more time on things that really matter." />
+                    }
+                    image_name="DP2P"
+                />
+            </Show.Mobile>
             <DP2P reverse P2P={DP2P_CONTENT} />
             <Numbers />
             <ExchangeSteps />

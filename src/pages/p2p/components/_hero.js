@@ -18,15 +18,11 @@ const Wrapper = styled(Container)`
     justify-content: space-between;
     background-color: transparent;
     width: 80%;
-    height: 700px;
+    height: unset;
 
     @media ${device.tabletL} {
-        height: 95.4rem;
         flex-direction: column-reverse;
         justify-content: center;
-    }
-    @media ${device.mobileM} {
-        height: unset;
     }
 `
 

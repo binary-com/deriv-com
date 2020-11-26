@@ -63,6 +63,7 @@ export const NavWrapper = styled.div`
 const InterimNav = styled.nav`
     width: 100%;
     position: fixed;
+    top: 0;
     z-index: 100;
     background: var(--color-black);
 `

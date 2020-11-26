@@ -137,7 +137,8 @@ const StyledHeader = styled(Header)`
 
 const TryButton = styled(LinkButton)`
     padding: 14px 16px;
-    width: 220px;
+    width: min-content;
+    white-space: nowrap;
     font-size: 14px;
     margin-top: 3.2rem;
     margin-bottom: 40px;

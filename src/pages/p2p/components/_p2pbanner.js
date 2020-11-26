@@ -35,7 +35,8 @@ const Wrapper = styled(Container)`
 `
 const TryButton = styled(LinkButton)`
     padding: 14px 16px;
-    width: 220px;
+    width: min-content;
+    white-space: nowrap;
     font-size: 14px;
     margin-top: 2.4rem;
     border: unset;
@@ -43,7 +44,6 @@ const TryButton = styled(LinkButton)`
     @media ${device.mobileL} {
         padding: 1.5rem 1.6rem;
         height: 42px;
-        white-space: nowrap;
     }
     @media (max-width: 460px) {
         margin-bottom: 2rem;

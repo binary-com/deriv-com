@@ -95,7 +95,7 @@ const StyledLinkButton = styled(LinkButton)`
     padding: 14px 16px;
     font-size: 14px;
     border: unset;
-    width: 220px;
+    width: min-content;
     margin: 80px auto 0 auto;
     white-space: nowrap;
 

@@ -564,48 +564,46 @@ const Footer = () => {
                         </DisclaimerParagraph>
                         <RiskWarning>
                             <Show.Desktop>
-                                <DisclaimerParagraph no_margin>
-                                    <Show.NonEU>
-                                        <DisclaimerParagraph no_margin>
-                                            <Localize translate_text="The financial products offered on this website include options and contracts for difference (CFDs) which are considered complex derivatives and may not be suitable for everyone. CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money. The products mentioned here may be affected by changes in currency exchange rates. If you invest in these products, you may lose some or all of your investment, and the value of your investment may fluctuate. You should never invest money that you cannot afford to lose and never trade with borrowed money." />
-                                        </DisclaimerParagraph>
-                                        <DisclaimerParagraph>
-                                            <Localize
-                                                translate_text="Before trading in the complex financial products offered, please be sure to understand the risks involved and learn about <0>Secure and responsible trading</0>."
-                                                components={[
-                                                    <BoldLink
-                                                        key={0}
-                                                        target="_blank"
-                                                        to="/responsible-trading/"
-                                                    />,
-                                                ]}
-                                            />
-                                        </DisclaimerParagraph>
-                                    </Show.NonEU>
-                                    <Show.Eu>
-                                        <DisclaimerParagraph no_margin>
-                                            <Localize translate_text="The financial products offered on this website include options and contracts for difference (CFDs) which are considered complex derivatives and may not be suitable for everyone. CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. 74% of retail investor accounts lose money when trading CFDs with Deriv Investments (Europe) Limited. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money. The products mentioned here may be affected by changes in currency exchange rates. If you invest in these products, you may lose some or all of your investment and the value of your investment may fluctuate. You should never invest money that you cannot afford to lose and never trade with borrowed money." />
-                                        </DisclaimerParagraph>
-                                        <DisclaimerParagraph>
-                                            <Localize
-                                                translate_text="Gambling can be addictive, so please play responsibly. Visit <0>Secure and responsible trading</0> and <1>begambleaware.org</1> for more information."
-                                                components={[
-                                                    <BoldLink
-                                                        key={0}
-                                                        target="_blank"
-                                                        to="/responsible-trading/"
-                                                    />,
-                                                    <BoldLink
-                                                        external
-                                                        key={0}
-                                                        target="_blank"
-                                                        to="https://www.begambleaware.org/"
-                                                    />,
-                                                ]}
-                                            />
-                                        </DisclaimerParagraph>
-                                    </Show.Eu>
-                                </DisclaimerParagraph>
+                                <Show.NonEU>
+                                    <DisclaimerParagraph no_margin>
+                                        <Localize translate_text="The financial products offered on this website include options and contracts for difference (CFDs) which are considered complex derivatives and may not be suitable for everyone. CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money. The products mentioned here may be affected by changes in currency exchange rates. If you invest in these products, you may lose some or all of your investment, and the value of your investment may fluctuate. You should never invest money that you cannot afford to lose and never trade with borrowed money." />
+                                    </DisclaimerParagraph>
+                                    <DisclaimerParagraph>
+                                        <Localize
+                                            translate_text="Before trading in the complex financial products offered, please be sure to understand the risks involved and learn about <0>Secure and responsible trading</0>."
+                                            components={[
+                                                <BoldLink
+                                                    key={0}
+                                                    target="_blank"
+                                                    to="/responsible-trading/"
+                                                />,
+                                            ]}
+                                        />
+                                    </DisclaimerParagraph>
+                                </Show.NonEU>
+                                <Show.Eu>
+                                    <DisclaimerParagraph no_margin>
+                                        <Localize translate_text="The financial products offered on this website include options and contracts for difference (CFDs) which are considered complex derivatives and may not be suitable for everyone. CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. 74% of retail investor accounts lose money when trading CFDs with Deriv Investments (Europe) Limited. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money. The products mentioned here may be affected by changes in currency exchange rates. If you invest in these products, you may lose some or all of your investment and the value of your investment may fluctuate. You should never invest money that you cannot afford to lose and never trade with borrowed money." />
+                                    </DisclaimerParagraph>
+                                    <DisclaimerParagraph>
+                                        <Localize
+                                            translate_text="Gambling can be addictive, so please play responsibly. Visit <0>Secure and responsible trading</0> and <1>begambleaware.org</1> for more information."
+                                            components={[
+                                                <BoldLink
+                                                    key={0}
+                                                    target="_blank"
+                                                    to="/responsible-trading/"
+                                                />,
+                                                <BoldLink
+                                                    external
+                                                    key={0}
+                                                    target="_blank"
+                                                    to="https://www.begambleaware.org/"
+                                                />,
+                                            ]}
+                                        />
+                                    </DisclaimerParagraph>
+                                </Show.Eu>
                             </Show.Desktop>
                             <Show.Mobile>
                                 <Show.Eu>

@@ -10,7 +10,7 @@ import { Header, Text, Divider, CardStyle, LocalizedLinkText } from 'components/
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
 
-const IcInfo = styled(Info)`
+const IcInfo = styled.img`
     margin-left: 1.5rem;
 `
 
@@ -57,6 +57,16 @@ const StyledText = styled(Text)`
         max-width: 98%;
     }
 `
+const NoticeText = styled(Text)`
+    max-width: 85%;
+
+    @media ${device.tabletS} {
+        max-width: 80%;
+    }
+    @media ${device.mobileM} {
+        max-width: 75%;
+    }
+`
 const ContentWrapper = styled(Flex)`
     @media ${device.tabletS} {
         flex-direction: column;
@@ -71,14 +81,14 @@ const StyledFlex = styled(Flex)`
     margin-left: auto;
     margin-right: auto;
     margin-top: 4rem;
-    padding: 1.2rem 0;
+    padding: 12px 0;
     flex-direction: row;
     justify-content: center;
     align-items: center;
 
     @media ${device.tabletS} {
         max-height: 10rem;
-        padding: 1.2rem 0.6rem 1.2rem 0;
+        padding: 12px 6px 12px 0;
     }
 
     @media ${device.mobileM} {
@@ -149,8 +159,8 @@ const TradingResponsibly = () => {
                     </ContentWrapper>
                     <Show.Eu>
                         <StyledFlex>
-                            <IcInfo />
-                            <Text size="1.4rem" ml="1.6rem" mr="1.5rem">
+                            <IcInfo src={Info} alt="info" width="24" height="24" />
+                            <NoticeText size="1.4rem" ml="1.6rem" mr="1.5rem">
                                 <Localize
                                     translate_text="For more details on our products and the risks involved in online trading, read our <0>key information documents (KIDs)</0> on commodities, forex, and cryptocurrencies."
                                     components={[
@@ -162,7 +172,7 @@ const TradingResponsibly = () => {
                                         />,
                                     ]}
                                 />
-                            </Text>
+                            </NoticeText>
                         </StyledFlex>
                     </Show.Eu>
                 </Card>

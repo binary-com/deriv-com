@@ -701,12 +701,12 @@ const StyledNavRight = styled(NavRight)`
             if (props.button_ref.current && props.mounted) {
                 props.button_ref.current.style.opacity = 1
             }
-            return '100px'
+            return '50px'
         } else {
             if (props.button_ref.current && props.mounted) {
                 props.button_ref.current.style.opacity = 0
 
-                const calculation = props.button_ref.current.offsetWidth + 110
+                const calculation = props.button_ref.current.offsetWidth + 50
                 return `${calculation}px`
             }
             return '300px'

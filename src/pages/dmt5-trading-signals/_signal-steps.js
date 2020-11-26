@@ -81,7 +81,7 @@ const content = {
         ),
         step_three_header: <Localize translate_text="3. Complete the registration" />,
         step_three_text: (
-            <Localize translate_text="Click OK and add a description to complete the registration." />
+            <Localize translate_text="Click Save and add a description to complete the registration." />
         ),
         notice: (
             <Localize

@@ -766,6 +766,19 @@ const NavLogoLink = styled(LogoLink)`
     }
 `
 
+const LSContainer = styled(Container)`
+    text-align: right;
+    margin-right: 60px;
+`
+
+const DesktopLS = styled(Show.Desktop)`
+    z-index: 2;
+`
+
+const StyledContainer = styled(Container)`
+    margin: 0;
+`
+
 // Note: When using layout component for partners page, please add type='partners' and padding_top='10rem'
 export const NavPartners = ({ no_login_signup }) => {
     const nav_ref = useRef(null)
@@ -808,22 +821,29 @@ export const NavPartners = ({ no_login_signup }) => {
             <NavWrapper ref={nav_ref}>
                 <CFDWarning />
                 <DerivHomeWrapper>
-                    <HomeContainer justify="flex-start">
-                        <HomeLink to="/">
-                            <Text color="grey-19" size="var(--text-size-xxs)">
-                                {localize('Deriv website')}
-                            </Text>
-                        </HomeLink>
-                        <HomeLink to="/about">
-                            <Text color="grey-19" size="var(--text-size-xxs)">
-                                {localize('About us')}
-                            </Text>
-                        </HomeLink>
-                        <HomeLink to="/contact-us">
-                            <Text color="grey-19" size="var(--text-size-xxs)">
-                                {localize('Contact us')}
-                            </Text>
-                        </HomeLink>
+                    <HomeContainer justify="space-between">
+                        <StyledContainer justify="flex-start">
+                            <HomeLink to="/">
+                                <Text color="grey-19" size="var(--text-size-xxs)">
+                                    {localize('Deriv website')}
+                                </Text>
+                            </HomeLink>
+                            <HomeLink to="/about">
+                                <Text color="grey-19" size="var(--text-size-xxs)">
+                                    {localize('About us')}
+                                </Text>
+                            </HomeLink>
+                            <HomeLink to="/contact-us">
+                                <Text color="grey-19" size="var(--text-size-xxs)">
+                                    {localize('Contact us')}
+                                </Text>
+                            </HomeLink>
+                        </StyledContainer>
+                        <DesktopLS>
+                            <LSContainer>
+                                <LanguageSwitcher short_name="true" />
+                            </LSContainer>
+                        </DesktopLS>
                     </HomeContainer>
                 </DerivHomeWrapper>
                 <StyledNav>
@@ -880,7 +900,6 @@ export const NavPartners = ({ no_login_signup }) => {
                                 mounted={mounted}
                                 has_scrolled={has_scrolled}
                             >
-                                <LanguageSwitcher short_name="true" is_high_nav />
                                 <LinkButton
                                     to={affiliate_signin_url}
                                     external="true"

@@ -163,6 +163,7 @@ const StyledCard = styled(Card)`
 
     @media ${device.mobileM} {
         min-width: unset;
+        height: ${(props) => (props.mobileHeight ? props.mobileHeight : '')};
 
         p {
             font-size: 12px;
@@ -280,6 +281,7 @@ const DMT5Synthetic = ({ data }) => {
         <StyledCard
             height={is_expand && !is_calculated ? '83rem' : '43rem'}
             padding="3.2rem 3.2rem 8.2rem"
+            mobileHeight={is_expand && !is_calculated ? '78rem' : '43rem'}
             width="43rem"
         >
             <div>

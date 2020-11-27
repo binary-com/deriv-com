@@ -18,15 +18,11 @@ const Wrapper = styled(Container)`
     justify-content: space-between;
     background-color: transparent;
     width: 80%;
-    height: 700px;
+    height: unset;
 
     @media ${device.tabletL} {
-        height: 95.4rem;
         flex-direction: column-reverse;
         justify-content: center;
-    }
-    @media ${device.mobileM} {
-        height: 678px;
     }
 `
 
@@ -61,11 +57,11 @@ const ImgWrapper = styled.div`
 
 const InformationWrapper = styled(Flex)`
     width: 100%;
-    max-width: 48.6rem;
+    max-width: 60.5rem;
     z-index: 1;
 
     @media ${device.tabletL} {
-        max-width: 40rem;
+        max-width: 42rem;
     }
     @media ${device.tablet} {
         top: 280px;
@@ -92,6 +88,7 @@ const HeroContent = styled(Flex)`
         display: flex;
         margin-top: 1.6rem;
         line-height: 3.6rem;
+        max-width: 78%;
     }
     @media ${device.laptopM} {
         ${Header} {
@@ -101,6 +98,7 @@ const HeroContent = styled(Flex)`
     @media ${device.tabletL} {
         ${Header} {
             font-size: 16px;
+            max-width: 74%;
         }
     }
     @media ${device.mobileL} {
@@ -108,6 +106,11 @@ const HeroContent = styled(Flex)`
             font-size: 20px;
             line-height: 25px;
             margin-top: 16px;
+        }
+    }
+    @media ${device.mobileS} {
+        ${Header} {
+            max-width: 98%;
         }
     }
 `
@@ -119,25 +122,24 @@ const StyledHeader = styled(Header)`
     font-size: 8rem;
 
     @media ${device.laptopM} {
-        width: 40rem;
+        width: 100%;
         font-size: 6rem;
         line-height: 8rem;
     }
     @media ${device.tabletL} {
         margin-top: 2rem;
-        width: 45rem;
         font-size: 40px;
         line-height: 6rem;
     }
     @media ${device.mobileL} {
-        width: 250px;
         line-height: 50px;
     }
 `
 
 const TryButton = styled(LinkButton)`
     padding: 14px 16px;
-    width: 125px;
+    width: min-content;
+    white-space: nowrap;
     font-size: 14px;
     margin-top: 3.2rem;
     margin-bottom: 40px;
@@ -164,7 +166,7 @@ const HeroComponent = ({ title, content, background_data, img_data }) => {
                         {title}
                     </StyledHeader>
                     <HeroContent>
-                        <Header as="h1">{content}</Header>
+                        <Header as="h2">{content}</Header>
                     </HeroContent>
                     <TryButton
                         secondary="true"

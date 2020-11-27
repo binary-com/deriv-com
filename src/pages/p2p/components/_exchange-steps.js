@@ -46,7 +46,7 @@ const CardContainer = styled(Flex)`
 `
 const Card = styled(Flex)`
     flex-direction: column;
-    width: 38.4rem;
+    width: 38.1rem;
     height: auto;
     margin-right: 2.4rem;
     margin-bottom: 2rem;

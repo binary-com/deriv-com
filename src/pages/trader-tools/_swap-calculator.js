@@ -210,6 +210,7 @@ const SwapCalculator = () => {
 
     const numberSubmitFormatNegative = (input) => {
         let result = input.replace(/^(-?)0+/, '$1')
+
         if (result.charAt(0) == '-' && result.charAt(1) == '.') {
             result = result.slice(0, 1) + '0' + result.slice(1)
         } else if (result.charAt(0) == '.') {

@@ -191,6 +191,7 @@ DisplayAccordianItem.propTypes = {
 }
 
 const PaymentMethods = () => {
+    const { is_p2p_allowed_country } = React.useContext(DerivStore)
     return (
         <Layout>
             <Helmet>
@@ -229,12 +230,16 @@ const PaymentMethods = () => {
                     </Text>
                 </Container>
             </SectionContainer>
-            <Divider height="2px" />
-            <SectionContainer>
-                <Container direction="column">
-                    <Dp2p />
-                </Container>
-            </SectionContainer>
+            {is_p2p_allowed_country && (
+                <>
+                    <Divider height="2px" />
+                    <SectionContainer>
+                        <Container direction="column">
+                            <Dp2p />
+                        </Container>
+                    </SectionContainer>
+                </>
+            )}
         </Layout>
     )
 }

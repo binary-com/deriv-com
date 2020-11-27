@@ -21,7 +21,6 @@ module.exports = {
         },
         'gatsby-transformer-sharp',
         'gatsby-plugin-sharp',
-        `gatsby-plugin-force-trailing-slashes`,
         {
             resolve: 'gatsby-plugin-sitemap',
             options: {
@@ -186,12 +185,7 @@ module.exports = {
                 ],
             },
         },
-        {
-            resolve: 'gatsby-plugin-anchor-links',
-            options: {
-                offset: -300,
-            },
-        },
+        'gatsby-plugin-anchor-links',
         {
             resolve: `gatsby-plugin-nprogress`,
             options: {

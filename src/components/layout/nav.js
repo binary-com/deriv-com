@@ -44,6 +44,7 @@ const query = graphql`
 export const NavWrapper = styled.div`
     width: 100%;
     position: fixed;
+    top: 0;
     z-index: 100;
 
     .fresnel-between-start-tabletL {
@@ -173,21 +174,21 @@ const NavRight = styled.div`
     }};
     transform: translateX(
         ${(props) => {
-        if (props.move) {
-            if (props.button_ref.current && props.mounted) {
-                props.button_ref.current.style.opacity = 1
-            }
-            return 0
-        } else {
-            if (props.button_ref.current && props.mounted) {
-                props.button_ref.current.style.opacity = 0
+            if (props.move) {
+                if (props.button_ref.current && props.mounted) {
+                    props.button_ref.current.style.opacity = 1
+                }
+                return 0
+            } else {
+                if (props.button_ref.current && props.mounted) {
+                    props.button_ref.current.style.opacity = 0
 
-                const calculation = props.button_ref.current.offsetWidth + 2
-                return `${calculation}px`
+                    const calculation = props.button_ref.current.offsetWidth + 2
+                    return `${calculation}px`
+                }
+                return '300px'
             }
-            return '300px'
-        }
-    }}
+        }}
     );
 
     > a {
@@ -317,26 +318,20 @@ const handleLogin = () => {
 }
 
 const NavMobile = () => {
-
     const [is_canvas_menu_open, openOffCanvasMenu, closeOffCanvasMenu] = moveOffCanvasMenu()
 
     return (
         <Wrapper>
             {is_canvas_menu_open ? (
-                <CloseMenu
-                    src={Close}
-                    alt="close menu"
-                    onClick={closeOffCanvasMenu}
+                <CloseMenu src={Close} alt="close menu" onClick={closeOffCanvasMenu} width="16px" />
+            ) : (
+                <HamburgerMenu
+                    src={Hamburger}
+                    alt="hamburger"
+                    onClick={openOffCanvasMenu}
                     width="16px"
                 />
-            ) : (
-                    <HamburgerMenu
-                        src={Hamburger}
-                        alt="hamburger"
-                        onClick={openOffCanvasMenu}
-                        width="16px"
-                    />
-                )}
+            )}
 
             <LogoLinkMobile to="/" aria-label={localize('Home')}>
                 <Flex>
@@ -362,7 +357,6 @@ const NavMobile = () => {
 }
 
 const NavDesktop = ({ base }) => {
-
     const data = useStaticQuery(query)
     const button_ref = useRef(null)
     const [show_button, showButton, hideButton] = moveButton()
@@ -553,7 +547,6 @@ const NavDesktop = ({ base }) => {
 }
 
 export const Nav = ({ base }) => {
-
     return (
         <NavWrapper>
             <StyledNav>
@@ -695,21 +688,21 @@ const StyledNavRight = styled(NavRight)`
     margin-left: auto;
     transform: translateX(
         ${(props) => {
-        if (props.move) {
-            if (props.button_ref.current && props.mounted) {
-                props.button_ref.current.style.opacity = 1
-            }
-            return '100px'
-        } else {
-            if (props.button_ref.current && props.mounted) {
-                props.button_ref.current.style.opacity = 0
+            if (props.move) {
+                if (props.button_ref.current && props.mounted) {
+                    props.button_ref.current.style.opacity = 1
+                }
+                return '100px'
+            } else {
+                if (props.button_ref.current && props.mounted) {
+                    props.button_ref.current.style.opacity = 0
 
-                const calculation = props.button_ref.current.offsetWidth + 110
-                return `${calculation}px`
+                    const calculation = props.button_ref.current.offsetWidth + 110
+                    return `${calculation}px`
+                }
+                return '300px'
             }
-            return '300px'
-        }
-    }}
+        }}
     );
 
     > a {
@@ -874,15 +867,15 @@ export const NavPartners = ({ no_login_signup }) => {
                                 </LinkSignupButton>
                             </StyledNavRight>
                         ) : (
-                                <NavRight
-                                    move={show_button}
-                                    button_ref={button_ref}
-                                    mounted={mounted}
-                                    has_scrolled={has_scrolled}
-                                >
-                                    <LanguageSwitcher short_name="true" is_high_nav />
-                                </NavRight>
-                            )}
+                            <NavRight
+                                move={show_button}
+                                button_ref={button_ref}
+                                mounted={mounted}
+                                has_scrolled={has_scrolled}
+                            >
+                                <LanguageSwitcher short_name="true" is_high_nav />
+                            </NavRight>
+                        )}
 
                         {is_canvas_menu_open ? (
                             <CloseMenu
@@ -892,13 +885,13 @@ export const NavPartners = ({ no_login_signup }) => {
                                 width="16px"
                             />
                         ) : (
-                                <HamburgerMenu
-                                    src={Hamburger}
-                                    alt="hamburger menu2"
-                                    onClick={openOffCanvasMenu}
-                                    width="16px"
-                                />
-                            )}
+                            <HamburgerMenu
+                                src={Hamburger}
+                                alt="hamburger menu2"
+                                onClick={openOffCanvasMenu}
+                                width="16px"
+                            />
+                        )}
 
                         <Mobile>
                             <Flex ai="center">

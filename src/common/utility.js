@@ -46,9 +46,9 @@ const getPropertyValue = (obj, k) => {
     return obj ? cloneObject(obj[keys[0]]) : undefined
 }
 const getLocationHash = () =>
-    (isBrowser() && location.hash) ? location.hash.slice(1) : ''
+    isBrowser() && location.hash ? location.hash.slice(1).replace(/(\/)$/g, '') : ''
 
-const setLocationHash = tab => {
+const setLocationHash = (tab) => {
     if (isBrowser()) {
         location.hash = `#${tab}`
     }
@@ -60,7 +60,7 @@ const routeBack = () => {
 }
 const checkElemInArray = (tab_list, tab) => tab_list.includes(tab)
 
-const getWindowWidth = () => isBrowser() && window.screen ? window.screen.width : ''
+const getWindowWidth = () => (isBrowser() && window.screen ? window.screen.width : '')
 
 const getLanguage = () => (isBrowser() ? localStorage.getItem('i18n') || navigator.language : null)
 

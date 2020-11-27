@@ -66,7 +66,7 @@ const NewSignup = () => {
         setSubmitState(submitStatus)
     }
     return (
-        <Layout type="static" padding_top="0">
+        <Layout type="static" margin_top="0">
             <SEO
                 title={localize('Easy And Free Sign Up | Online Trading | Deriv.com')}
                 description={localize(

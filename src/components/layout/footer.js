@@ -2,7 +2,7 @@ import React from 'react'
 import styled, { css } from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { Container, CssGrid, Flex, Show } from '../containers'
-import { Accordion, AccordionItem, StyledLink, Text, QueryImage } from '../elements'
+import { StyledLink, Text, QueryImage } from '../elements'
 import { LocationContext } from './location-context'
 import { mga_link_url } from 'common/utility'
 // TODO: (discussion) make footer pure component, and move usage of footer to custom
@@ -218,25 +218,6 @@ const SocialWrapper = styled.div`
                 margin-left: 0;
             }
         }
-    }
-`
-
-const MobileAccordion = styled.section`
-    background-color: var(--color-grey-25);
-
-    p {
-        font-size: 2rem !important;
-    }
-    div {
-        background: var(--color-grey-25);
-    }
-`
-const Item = styled.div`
-    padding: 0 0 3rem 4rem;
-    background-color: var(--color-grey-25);
-
-    a {
-        font-size: var(--text-size-sm);
     }
 `
 
@@ -473,164 +454,6 @@ const Footer = () => {
                                 </LinksCol>
                             </Flex>
                         </Show.Desktop>
-                        <Show.Mobile>
-                            <MobileAccordion>
-                                <Accordion>
-                                    <AccordionItem
-                                        header={localize('ABOUT')}
-                                        arrow_thin
-                                        header_style={mobile_accordion_header_about}
-                                    >
-                                        <Item>
-                                            <Link to="/about/#story">{localize('Our story')}</Link>
-                                        </Item>
-                                        <Item>
-                                            <Link to="/about/#leadership">
-                                                {localize('Our leadership')}
-                                            </Link>
-                                        </Item>
-                                        <Item>
-                                            <Link to="/partners">
-                                                {localize('Partnership programmes')}
-                                            </Link>
-                                        </Item>
-                                        <Item>
-                                            <Link to="/why-choose-us">
-                                                {localize('Why choose us?')}
-                                            </Link>
-                                        </Item>
-                                        <Item>
-                                            <Link to="/contact-us">{localize('Contact us')}</Link>
-                                        </Item>
-                                        <Item>
-                                            <Link to="/careers">{localize('Careers')}</Link>
-                                        </Item>
-                                    </AccordionItem>
-                                    <AccordionItem
-                                        header={localize('TRADE')}
-                                        arrow_thin
-                                        header_style={mobile_accordion_header}
-                                    >
-                                        <Item>
-                                            <Link to="/dtrader">{localize('DTrader')}</Link>
-                                        </Item>
-                                        <Item>
-                                            <Link to="/dbot">{localize('DBot')}</Link>
-                                        </Item>
-                                        <Item>
-                                            <Link to="/dmt5">{localize('DMT5')}</Link>
-                                        </Item>
-                                        <Item>
-                                            <Link
-                                                to="trading"
-                                                is_smarttrader_link
-                                                external="true"
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                            >
-                                                {localize('SmartTrader')}
-                                            </Link>
-                                        </Item>
-                                    </AccordionItem>
-                                    <AccordionItem
-                                        header={localize('TRADE TYPES')}
-                                        arrow_thin
-                                        header_style={mobile_accordion_header}
-                                    >
-                                        <Item>
-                                            <Link to="/trade-types/margin">
-                                                {localize('Margin trading')}
-                                            </Link>
-                                        </Item>
-                                        <Item>
-                                            <Link to="/trade-types/options">
-                                                {localize('Options')}
-                                            </Link>
-                                        </Item>
-                                        <Item>
-                                            <Link to="/trade-types/multiplier">
-                                                {localize('Multipliers')}
-                                            </Link>
-                                        </Item>
-                                    </AccordionItem>
-                                    <AccordionItem
-                                        header={localize('MARKETS')}
-                                        arrow_thin
-                                        header_style={mobile_accordion_header}
-                                    >
-                                        <Item>
-                                            <Link to="/markets#forex">{localize('Forex')}</Link>
-                                        </Item>
-                                        <Item>
-                                            <Link to="/markets#synthetic">
-                                                {localize('Synthetic indices')}
-                                            </Link>
-                                        </Item>
-                                        <Item>
-                                            <Link to="/markets#stock">
-                                                {localize('Stock indices')}
-                                            </Link>
-                                        </Item>
-                                        <Item>
-                                            <Link to="/markets#commodities">
-                                                {localize('Commodities')}
-                                            </Link>
-                                        </Item>
-                                    </AccordionItem>
-                                    <AccordionItem
-                                        header={localize('LEGAL')}
-                                        arrow_thin
-                                        header_style={mobile_accordion_header}
-                                    >
-                                        <Item>
-                                            <Link to="/regulatory">
-                                                {localize('Regulatory information')}
-                                            </Link>
-                                        </Item>
-                                        <Item>
-                                            <Link to="/terms-and-conditions">
-                                                {localize('Terms and conditions')}
-                                            </Link>
-                                        </Item>
-                                        <Item>
-                                            <Link to="/responsible-trading">
-                                                {localize('Secure and responsible trading')}
-                                            </Link>
-                                        </Item>
-                                    </AccordionItem>
-                                    <AccordionItem
-                                        header={localize('PARTNER')}
-                                        arrow_thin
-                                        header_style={mobile_accordion_header}
-                                    >
-                                        <Item>
-                                            <Link to="/partners/affiliate-ib/">
-                                                {localize('Affiliates and IBs')}
-                                            </Link>
-                                        </Item>
-                                        <Item>
-                                            <Link to="/partners/payment-agent">
-                                                {localize('Payment agents')}
-                                            </Link>
-                                        </Item>
-                                    </AccordionItem>
-                                    <AccordionItem
-                                        header={localize('RESOURCES')}
-                                        arrow_thin
-                                        header_style={mobile_accordion_header}
-                                    >
-                                        <Item>
-                                            <Link to="/help-centre">{localize('Help centre')}</Link>
-                                        </Item>
-                                        <Item>
-                                            <Link to="/payment-methods">
-                                                {localize('Payment methods')}
-                                            </Link>
-                                        </Item>
-                                    </AccordionItem>
-                                </Accordion>
-                            </MobileAccordion>
-                        </Show.Mobile>
                     </LinksWrapper>
                     <Disclaimer>
                         <Show.NonEU>
@@ -741,48 +564,46 @@ const Footer = () => {
                         </DisclaimerParagraph>
                         <RiskWarning>
                             <Show.Desktop>
-                                <DisclaimerParagraph no_margin>
-                                    <Show.NonEU>
-                                        <DisclaimerParagraph no_margin>
-                                            <Localize translate_text="The financial products offered on this website include options and contracts for difference (CFDs) which are considered complex derivatives and may not be suitable for everyone. CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money. The products mentioned here may be affected by changes in currency exchange rates. If you invest in these products, you may lose some or all of your investment, and the value of your investment may fluctuate. You should never invest money that you cannot afford to lose and never trade with borrowed money." />
-                                        </DisclaimerParagraph>
-                                        <DisclaimerParagraph>
-                                            <Localize
-                                                translate_text="Before trading in the complex financial products offered, please be sure to understand the risks involved and learn about <0>Secure and responsible trading</0>."
-                                                components={[
-                                                    <BoldLink
-                                                        key={0}
-                                                        target="_blank"
-                                                        to="/responsible-trading/"
-                                                    />,
-                                                ]}
-                                            />
-                                        </DisclaimerParagraph>
-                                    </Show.NonEU>
-                                    <Show.Eu>
-                                        <DisclaimerParagraph no_margin>
-                                            <Localize translate_text="The financial products offered on this website include options and contracts for difference (CFDs) which are considered complex derivatives and may not be suitable for everyone. CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. 74% of retail investor accounts lose money when trading CFDs with Deriv Investments (Europe) Limited. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money. The products mentioned here may be affected by changes in currency exchange rates. If you invest in these products, you may lose some or all of your investment and the value of your investment may fluctuate. You should never invest money that you cannot afford to lose and never trade with borrowed money." />
-                                        </DisclaimerParagraph>
-                                        <DisclaimerParagraph>
-                                            <Localize
-                                                translate_text="Gambling can be addictive, so please play responsibly. Visit <0>Secure and responsible trading</0> and <1>begambleaware.org</1> for more information."
-                                                components={[
-                                                    <BoldLink
-                                                        key={0}
-                                                        target="_blank"
-                                                        to="/responsible-trading/"
-                                                    />,
-                                                    <BoldLink
-                                                        external
-                                                        key={0}
-                                                        target="_blank"
-                                                        to="https://www.begambleaware.org/"
-                                                    />,
-                                                ]}
-                                            />
-                                        </DisclaimerParagraph>
-                                    </Show.Eu>
-                                </DisclaimerParagraph>
+                                <Show.NonEU>
+                                    <DisclaimerParagraph no_margin>
+                                        <Localize translate_text="The financial products offered on this website include options and contracts for difference (CFDs) which are considered complex derivatives and may not be suitable for everyone. CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money. The products mentioned here may be affected by changes in currency exchange rates. If you invest in these products, you may lose some or all of your investment, and the value of your investment may fluctuate. You should never invest money that you cannot afford to lose and never trade with borrowed money." />
+                                    </DisclaimerParagraph>
+                                    <DisclaimerParagraph>
+                                        <Localize
+                                            translate_text="Before trading in the complex financial products offered, please be sure to understand the risks involved and learn about <0>Secure and responsible trading</0>."
+                                            components={[
+                                                <BoldLink
+                                                    key={0}
+                                                    target="_blank"
+                                                    to="/responsible-trading/"
+                                                />,
+                                            ]}
+                                        />
+                                    </DisclaimerParagraph>
+                                </Show.NonEU>
+                                <Show.Eu>
+                                    <DisclaimerParagraph no_margin>
+                                        <Localize translate_text="The financial products offered on this website include options and contracts for difference (CFDs) which are considered complex derivatives and may not be suitable for everyone. CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. 74% of retail investor accounts lose money when trading CFDs with Deriv Investments (Europe) Limited. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money. The products mentioned here may be affected by changes in currency exchange rates. If you invest in these products, you may lose some or all of your investment and the value of your investment may fluctuate. You should never invest money that you cannot afford to lose and never trade with borrowed money." />
+                                    </DisclaimerParagraph>
+                                    <DisclaimerParagraph>
+                                        <Localize
+                                            translate_text="Gambling can be addictive, so please play responsibly. Visit <0>Secure and responsible trading</0> and <1>begambleaware.org</1> for more information."
+                                            components={[
+                                                <BoldLink
+                                                    key={0}
+                                                    target="_blank"
+                                                    to="/responsible-trading/"
+                                                />,
+                                                <BoldLink
+                                                    external
+                                                    key={0}
+                                                    target="_blank"
+                                                    to="https://www.begambleaware.org/"
+                                                />,
+                                            ]}
+                                        />
+                                    </DisclaimerParagraph>
+                                </Show.Eu>
                             </Show.Desktop>
                             <Show.Mobile>
                                 <Show.Eu>

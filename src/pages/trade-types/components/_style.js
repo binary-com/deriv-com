@@ -122,7 +122,7 @@ const HowItWorksItem = styled(Flex)`
 
     @media ${device.mobileL} {
         justify-content: flex-start;
-        min-height: auto;
+        min-height: 123px;
     }
 `
 

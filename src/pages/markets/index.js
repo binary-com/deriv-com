@@ -155,7 +155,7 @@ const Markets = () => {
             <Hero />
             <TabsContainer pt="4rem" background="var(--color-grey-23)">
                 <Item onClick={() => setActiveTab('forex')} active_tab={active_tab} name="forex">
-                    <Header as="h4" type="sub-section-title">
+                    <Header as="h4" type="sub-section-title" id="forex">
                         {localize('Forex')}
                     </Header>
                 </Item>
@@ -164,12 +164,12 @@ const Markets = () => {
                     active_tab={active_tab}
                     name="synthetic"
                 >
-                    <Header as="h4" type="sub-section-title">
+                    <Header as="h4" type="sub-section-title" id="synthetic">
                         {localize('Synthetic indices')}
                     </Header>
                 </Item>
                 <Item onClick={() => setActiveTab('stock')} active_tab={active_tab} name="stock">
-                    <Header as="h4" type="sub-section-title">
+                    <Header as="h4" type="sub-section-title" id="stock">
                         {localize('Stock indices')}
                     </Header>
                 </Item>
@@ -178,7 +178,7 @@ const Markets = () => {
                     active_tab={active_tab}
                     name="commodities"
                 >
-                    <Header as="h4" type="sub-section-title">
+                    <Header as="h4" type="sub-section-title" id="commodities">
                         {localize('Commodities')}
                     </Header>
                 </Item>

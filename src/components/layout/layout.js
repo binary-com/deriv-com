@@ -16,7 +16,7 @@ import { DerivStore } from 'store'
 const LiveChat = Loadable(() => import('./livechat'))
 
 const Main = styled.main`
-    padding-top: ${(props) => props.padding_top || '7rem'};
+    margin-top: ${(props) => props.margin_top || '7rem'};
     background: var(--color-white);
     height: 100%;
     position: relative;
@@ -27,7 +27,7 @@ const has_dataLayer = isBrowser() && window.dataLayer
 const TRACKING_STATUS_KEY = 'tracking_status'
 const tracking_status_cookie = new CookieStorage(TRACKING_STATUS_KEY)
 
-const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) => {
+const Layout = ({ children, type, interim_type, margin_top, no_login_signup }) => {
     const { is_eu_country } = React.useContext(DerivStore)
     const [has_mounted, setMounted] = React.useState(false)
     const [show_cookie_banner, setShowCookieBanner] = React.useState(false)
@@ -104,7 +104,7 @@ const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) 
             LC_API={LC_API}
         >
             {Navigation}
-            <Main padding_top={padding_top} is_static={is_static}>
+            <Main margin_top={margin_top} is_static={is_static}>
                 {children}
             </Main>
             {show_cookie_banner && (
@@ -137,8 +137,8 @@ const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) 
 Layout.propTypes = {
     children: PropTypes.node.isRequired,
     interim_type: PropTypes.string,
+    margin_top: PropTypes.string,
     no_login_signup: PropTypes.bool,
-    padding_top: PropTypes.string,
     type: PropTypes.string,
 }
 

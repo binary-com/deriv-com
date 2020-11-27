@@ -98,12 +98,6 @@ const ContactWrapper = styled.article`
         max-width: 55rem;
         margin-top: 0;
 
-        h3 {
-            font-size: 24px;
-        }
-        h4 {
-            font-size: 20px;
-        }
         ${Flex} {
             padding-bottom: 2rem;
             align-items: center;
@@ -134,11 +128,12 @@ const ContactWays = () => {
                                     />
                                 </ImgWrapper>
 
-                                <Header mt="2.4rem" as="h3" align="center">
+                                <Header mt="2.4rem" as="h3" type="section-title" align="center">
                                     {item.header}
                                 </Header>
                                 <Header
                                     as="h4"
+                                    type="sub-section-title"
                                     weight="normal"
                                     mb="2.4rem"
                                     mt="0.8rem"

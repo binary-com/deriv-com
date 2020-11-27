@@ -65,10 +65,17 @@ const WhyChooseUs = () => {
             />
             <Section>
                 <GridContainer>
-                    <ResponsiveHeader as="h1" align="center" lh="7.2rem">
+                    <ResponsiveHeader as="h1" type="display-title" align="center">
                         {localize('Why choose Deriv')}
                     </ResponsiveHeader>
-                    <StyledHeader as="h4" align="center" weight="normal" lh="3rem" pt="1.6rem">
+                    <StyledHeader
+                        as="h4"
+                        type="sub-section-title"
+                        align="center"
+                        weight="normal"
+                        lh="3rem"
+                        pt="1.6rem"
+                    >
                         {localize(
                             'Client trust is our highest priority, and that’s why millions of users choose us. Here are some of the things that make us a leading online trading service provider.',
                         )}
@@ -82,12 +89,12 @@ const WhyChooseUs = () => {
             <Divider />
             <Section>
                 <GridContainer>
-                    <Header as="h2" size="4rem" align="center">
+                    <Header as="h2" type="page-title" size="4rem" align="center">
                         {localize('Try Deriv at no risk')}
                     </Header>
                     <ColumnContainer mt="4rem" jc="space-around">
                         <Column>
-                            <Header as="h4" align="center">
+                            <Header as="h4" type="sub-section-title" align="center">
                                 {localize('Unlimited virtual funds')}
                             </Header>
                             <Text align="center">
@@ -97,7 +104,7 @@ const WhyChooseUs = () => {
                             </Text>
                         </Column>
                         <Column>
-                            <Header as="h4" align="center">
+                            <Header as="h4" type="sub-section-title" align="center">
                                 {localize('All markets and platforms')}
                             </Header>
                             <Text align="center">
@@ -105,7 +112,7 @@ const WhyChooseUs = () => {
                             </Text>
                         </Column>
                         <Column>
-                            <Header as="h4" align="center">
+                            <Header as="h4" type="sub-section-title" align="center">
                                 {localize('No credit card needed')}
                             </Header>
                             <Text align="center">

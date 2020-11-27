@@ -150,7 +150,7 @@ const ListNoBullets = styled.ul`
 const StyledLink = styled(LocalizedLink)`
     text-decoration: none;
     color: black;
-    font-size: var(--text-size-s);
+    font-size: 16px;
 
     :hover {
         color: red;
@@ -161,7 +161,7 @@ const StyledLink = styled(LocalizedLink)`
 const StyledView = styled.div`
     text-decoration: none;
     color: red;
-    font-size: var(--text-size-s);
+    font-size: 16px;
 
     :hover {
         cursor: pointer;
@@ -306,7 +306,7 @@ class HelpCentre extends Component {
                     <Backdrop>
                         <Container align="left" justify="flex-start" direction="column">
                             <StyledContainer align="normal" direction="column">
-                                <ResponsiveHeader mb="4rem" as="h1">
+                                <ResponsiveHeader as="h1" type="display-title" mb="4rem">
                                     {localize('How can we help?')}
                                 </ResponsiveHeader>
                                 <SearchForm onSubmit={this.handleSubmit}>
@@ -353,7 +353,12 @@ class HelpCentre extends Component {
                                             return (
                                                 <ArticleDiv key={idx}>
                                                     <ListWrapper>
-                                                        <Header size="3.6rem" mb="1.6rem">
+                                                        <Header
+                                                            as="h3"
+                                                            type="section-title"
+                                                            size="3.6rem"
+                                                            mb="1.6rem"
+                                                        >
                                                             {item.category}
                                                         </Header>
                                                         {item.articles.map((ar, idxb) => {

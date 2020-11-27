@@ -30,7 +30,7 @@ const Timeline = ({ children, ...props }) => {
                 <StyledItem key={idx}>
                     <Oval src={Checklist} alt="checklist" />
                     <Container>
-                        <Header mb="0.8rem" mt="-5px" as="h4">
+                        <Header mb="0.8rem" mt="-5px" as="h4" size="2.4rem">
                             {child.props.title}
                         </Header>
                         <Text>{child}</Text>

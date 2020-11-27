@@ -29,13 +29,25 @@ const Hero = () => {
             <Section bg="var(--color-black)" p="8rem 0">
                 <Container fw="wrap">
                     <ResponsiveFlex fd="column" max_width="58.8rem" ai="center">
-                        <ResponsiveHeader as="h2" align="center" lh="1.25">
+                        <ResponsiveHeader as="h2" type="page-title" align="center" lh="1.25">
                             {localize('You inspired us')}
                         </ResponsiveHeader>
-                        <ResponsiveHeader as="h2" mb="1.2rem" align="center" lh="1.25">
+                        <ResponsiveHeader
+                            as="h2"
+                            type="page-title"
+                            mb="1.2rem"
+                            align="center"
+                            lh="1.25"
+                        >
                             {localize('to create something new')}
                         </ResponsiveHeader>
-                        <Header as="h4" weight="normal" mb="4rem" align="center">
+                        <Header
+                            as="h4"
+                            type="sub-section-title"
+                            weight="normal"
+                            mb="4rem"
+                            align="center"
+                        >
                             <Localize
                                 translate_text="Enjoy trading your way on <0>Deriv.com</0>, <1>Binary.com</1>’s new home"
                                 components={[
@@ -79,7 +91,7 @@ const Hero = () => {
                 </Container>
             </Section>
             <Container p="8rem 0" fd="column">
-                <Header as="h4" weight="normal" align="center">
+                <Header as="h4" type="sub-section-title" weight="normal" align="center">
                     {localize(
                         'In 2019, we celebrated our 20th year anniversary. Inspired by your love for online trading, we decided to create something new as part of our renewed commitment to making online trading effortless and accessible for you.',
                     )}

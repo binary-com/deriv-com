@@ -94,7 +94,9 @@ export const Affiliates = () => {
         <Wrapper padding="4rem 0">
             <CardContainer>
                 <Item>
-                    <Header as="h3">{localize('Affiliates')}</Header>
+                    <Header as="h3" type="section-title">
+                        {localize('Affiliates')}
+                    </Header>
                     <Text m="0.8rem 0">
                         {localize('For enquiries about our affiliate and IB programmes')}
                     </Text>
@@ -108,7 +110,9 @@ export const Affiliates = () => {
                     </LinkText>
                 </Item>
                 <Item>
-                    <Header as="h3">{localize('Business development')}</Header>
+                    <Header as="h3" type="section-title">
+                        {localize('Business development')}
+                    </Header>
                     <Text m="0.8rem 0">{localize('For collaboration opportunities')}</Text>
                     <LinkText
                         color="red"

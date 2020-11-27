@@ -14,16 +14,12 @@ import Layout from 'components/layout/layout'
 import { SectionContainer, Container, SEO } from 'components/containers'
 import DNumber from 'components/custom/_dnumbers.js'
 import { localize, Localize, WithIntl } from 'components/localization'
-import device from 'themes/device'
 import { affiliate_signup_url } from 'common/utility'
 
 const StyledHeader = styled(Header)`
     width: 100%;
     max-width: 70rem;
     margin-bottom: 4rem;
-    @media ${device.tabletL} {
-        font-size: var(--text-size-xl);
-    }
 `
 const items = [
     { title: '47K+', subtitle: <Localize translate_text="members" /> },
@@ -70,7 +66,7 @@ const AffiliateIb = () => {
                 )}
             />
             <Hero>
-                <StyledHeader as="h1" color="white" align="center" lh="1.25">
+                <StyledHeader as="h1" type="display-title" color="white" align="center" lh="1.25">
                     {localize('Partner with a trusted online trading provider')}
                 </StyledHeader>
                 <LinkButton
@@ -85,7 +81,7 @@ const AffiliateIb = () => {
             </Hero>
             <SectionContainer padding="8rem 0 4rem">
                 <Container direction="column">
-                    <Header as="h4" weight="500" align="center">
+                    <Header as="h4" type="sub-section-title" weight="500" align="center">
                         {localize(
                             'Earn 45% lifetime commission with an online trading provider that enables anyone to trade on popular financial markets with the utmost convenience. Deriv Group Ltd - the owner of Binary.com and Deriv.com - has a proven track record of running successful referral programmes with prompt payouts.',
                         )}

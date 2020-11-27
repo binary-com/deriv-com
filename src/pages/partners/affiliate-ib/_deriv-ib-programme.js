@@ -87,20 +87,20 @@ const DerivIBProgramme = () => {
         <StyledSection shadow id="deriv-ib">
             <Container direction="column">
                 <TitleWrapper>
-                    <Header mb="1.6rem" size="3.6rem" align="center">
+                    <Header mb="1.6rem" as="h3" type="section-title" align="center">
                         {localize('Deriv IB Programme')}
                     </Header>
-                    <Header as="h4" align="center" weight="500">
+                    <Header as="h4" type="sub-section-title" align="center" weight="500">
                         {localize(
                             'Our introducing broker programme is available to all Deriv affiliates.',
                         )}
                     </Header>
-                    <Header as="h4" align="center" weight="500">
+                    <Header as="h4" type="sub-section-title" align="center" weight="500">
                         {localize('Earn commission from your clients’ trades on DMT5.')}
                     </Header>
                 </TitleWrapper>
                 <SectionContainer padding="4rem 0 9.6rem 0">
-                    <StyledHeaderCommission as="h4" mb="1.6rem">
+                    <StyledHeaderCommission as="h4" type="sub-section-title" mb="1.6rem">
                         {localize('Choose a commission plan:')}
                     </StyledHeaderCommission>
                     <CardWrapper>
@@ -109,7 +109,13 @@ const DerivIBProgramme = () => {
                         <DMT5Synthetic data={ib_dmt5_synthetic} />
                     </CardWrapper>
                     <StyledSection padding="4rem 0 0 0" align="center">
-                        <StyledHeader as="h4" align="center" weight="500" mb="2.6rem">
+                        <StyledHeader
+                            as="h4"
+                            type="sub-section-title"
+                            align="center"
+                            weight="500"
+                            mb="2.6rem"
+                        >
                             {localize('Can’t decide which programme or commission plan suits you?')}
                         </StyledHeader>
                         <LinkButton
@@ -172,7 +178,9 @@ const DMT5Synthetic = ({ data }) => {
             <div>
                 {!is_calculated ? (
                     <div>
-                        <Header as="h4">{data.name}</Header>
+                        <Header as="h4" type="sub-section-title">
+                            {data.name}
+                        </Header>
                         <Text>{data.description}</Text>
                         <SyntheticTable grid_col_number={data.assets.length} is_balance={true}>
                             {data.assets.map((asset, idx) => (
@@ -225,7 +233,7 @@ const DMT5Synthetic = ({ data }) => {
                     </div>
                 ) : (
                     <>
-                        <Header as="h4" lh="1.5">
+                        <Header as="h4" type="sub-section-title" lh="1.5">
                             {localize('How it’s calculated')}
                         </Header>
                         {data.calculation}
@@ -259,7 +267,9 @@ const DMT5Standard = ({ data }) => {
             <div>
                 {!is_calculated ? (
                     <div>
-                        <Header as="h4">{data.name}</Header>
+                        <Header as="h4" type="sub-section-title">
+                            {data.name}
+                        </Header>
                         <Text>{data.description}</Text>
                         <Table grid_col_number={data.assets.length}>
                             {data.assets.map((asset, idx) => (
@@ -310,7 +320,9 @@ const DMT5Standard = ({ data }) => {
                     </div>
                 ) : (
                     <>
-                        <Header as="h4">{localize('How it’s calculated')}</Header>
+                        <Header as="h4" type="sub-section-title">
+                            {localize('How it’s calculated')}
+                        </Header>
                         {data.calculation}
                         <ButtonWrapper>
                             <StyledLinkButton
@@ -342,7 +354,9 @@ const DMT5Advanced = ({ data }) => {
             <div>
                 {!is_calculated ? (
                     <div>
-                        <Header as="h4">{data.name}</Header>
+                        <Header as="h4" type="sub-section-title">
+                            {data.name}
+                        </Header>
                         <Text>{data.description}</Text>
                         <Table grid_col_number={data.assets.length}>
                             {data.assets.map((asset, idx) => (
@@ -394,7 +408,9 @@ const DMT5Advanced = ({ data }) => {
                     </div>
                 ) : (
                     <>
-                        <Header as="h4">{localize('How it’s calculated')}</Header>
+                        <Header as="h4" type="sub-section-title">
+                            {localize('How it’s calculated')}
+                        </Header>
                         {data.calculation}
                         <ButtonWrapper>
                             <StyledLinkButton

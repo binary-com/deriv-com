@@ -77,7 +77,9 @@ const Col = ({ Icon, content, link_title, title, url }) => (
         <IconWrapper>
             <img src={Icon} />
         </IconWrapper>
-        <StyledHeader as="h4">{title}</StyledHeader>
+        <StyledHeader as="h4" type="sub-section-title">
+            {title}
+        </StyledHeader>
         <Text lh="1.55">{content}</Text>
         <Cta>
             <img src={PDF} alt="pdf icon black" />

@@ -108,7 +108,7 @@ const HowOptionsWorks = () => {
     return (
         <StyledSectionContainer padding="8rem 0 4rem">
             <SmallContainer direction="column" ai="flex-start">
-                <StyledHeader as="h2" mb="3.2rem">
+                <StyledHeader as="h2" size="4.8rem" mb="3.2rem">
                     {localize('How multipliers contracts work')}
                 </StyledHeader>
                 <OptionGrid>
@@ -153,10 +153,10 @@ const HowOptionsWorks = () => {
                         </Text>
                     </HowItWorksItem>
                 </OptionGrid>
-                <StyledFirstMultiplierHeader as="h3" mt="4rem">
+                <StyledFirstMultiplierHeader as="h3" size="3.2rem" mt="4rem">
                     {localize('How to buy your first multipliers contract on DTrader')}
                 </StyledFirstMultiplierHeader>
-                <Header as="h4" mb="2.4rem" mt="3.2rem">
+                <Header as="h4" size="2.4rem" mb="2.4rem" mt="3.2rem">
                     {localize('Define your position')}
                 </Header>
                 <SideTab>
@@ -205,7 +205,7 @@ const HowOptionsWorks = () => {
                         />
                     </SideTab.Panel>
                 </SideTab>
-                <StyledDtraderHeader as="h4" mb="2.4rem" mt="3.2rem">
+                <StyledDtraderHeader as="h4" size="2.4rem" mb="2.4rem" mt="3.2rem">
                     {localize('Set optional parameters for your trade')}
                 </StyledDtraderHeader>
                 <SideTab is_reverse>
@@ -243,7 +243,7 @@ const HowOptionsWorks = () => {
                         />
                     </SideTab.Panel>
                 </SideTab>
-                <StyledDtraderHeader as="h4" mb="2.4rem">
+                <StyledDtraderHeader as="h4" size="2.4rem" mb="2.4rem">
                     {localize('Purchase your contract')}
                 </StyledDtraderHeader>
                 <SideTab>

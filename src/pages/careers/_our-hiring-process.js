@@ -82,7 +82,9 @@ const ProcessWrapper = styled(Flex)`
 
 const Process = ({ title, description, style }) => (
     <ProcessWrapper direction="column" style={style}>
-        <SecondaryHeader as="h2">{title}</SecondaryHeader>
+        <SecondaryHeader as="h2" type="page-title">
+            {title}
+        </SecondaryHeader>
         <Text size="var(--text-size-sm)">{description}</Text>
     </ProcessWrapper>
 )
@@ -207,7 +209,7 @@ const StyledLinkText = styled(LinkText)`
 const OurHiringProcess = () => (
     <SectionContainer padding="0 0 12rem">
         <Container direction="column">
-            <StyledHeader as="h3" align="center">
+            <StyledHeader as="h3" type="section-title" align="center">
                 Our hiring process
             </StyledHeader>
             <ProcessContainer>

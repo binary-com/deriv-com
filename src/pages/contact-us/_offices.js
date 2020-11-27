@@ -167,14 +167,16 @@ export const Offices = () => {
         <SectionContainer>
             <Container>
                 <Content>
-                    <ResHeader as="h2">{localize('Our offices')}</ResHeader>
+                    <ResHeader as="h2" type="page-title">
+                        {localize('Our offices')}
+                    </ResHeader>
                     <GridLayout>
                         <Flex fd="column" max_width="48.6rem" id="malta">
                             <OfficeHeader>
                                 <div>
                                     <img src={Malta} alt="malta" />
                                 </div>
-                                <Header as="h4" mt="0.8rem" mb="1.6rem">
+                                <Header as="h4" type="sub-section-title" mt="0.8rem" mb="1.6rem">
                                     {localize('Malta')}
                                 </Header>
                             </OfficeHeader>
@@ -215,7 +217,7 @@ export const Offices = () => {
                                 <div>
                                     <img src={Dubai} alt="dubai" />
                                 </div>
-                                <Header as="h4" mt="0.8rem" mb="1.6rem">
+                                <Header as="h4" type="sub-section-title" mt="0.8rem" mb="1.6rem">
                                     {localize('Dubai')}
                                 </Header>
                             </OfficeHeader>
@@ -254,7 +256,7 @@ export const Offices = () => {
                             <div>
                                 <img src={Malaysia} alt="malaysia" />
                             </div>
-                            <Header as="h4" mt="0.8rem" mb="1.6rem">
+                            <Header as="h4" type="sub-section-title" mt="0.8rem" mb="1.6rem">
                                 {localize('Malaysia')}
                             </Header>
                         </OfficeHeader>
@@ -391,7 +393,7 @@ export const Offices = () => {
                                 <div>
                                     <img src={Paraguay} alt="paraguay" />
                                 </div>
-                                <Header as="h4" mt="0.8rem" mb="1.6rem">
+                                <Header as="h4" type="sub-section-title" mt="0.8rem" mb="1.6rem">
                                     {localize('Paraguay')}
                                 </Header>
                             </OfficeHeader>
@@ -431,7 +433,7 @@ export const Offices = () => {
                                 <div>
                                     <img src={Cyprus} alt="cyprus" />
                                 </div>
-                                <Header as="h4" mt="0.8rem" mb="1.6rem">
+                                <Header as="h4" type="sub-section-title" mt="0.8rem" mb="1.6rem">
                                     {localize('Cyprus')}
                                 </Header>
                             </OfficeHeader>
@@ -469,7 +471,7 @@ export const Offices = () => {
                                 <div>
                                     <img src={Rwanda} alt="rwanda" />
                                 </div>
-                                <Header as="h4" mt="0.8rem" mb="1.6rem">
+                                <Header as="h4" type="sub-section-title" mt="0.8rem" mb="1.6rem">
                                     {localize('Rwanda')}
                                 </Header>
                             </OfficeHeader>

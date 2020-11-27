@@ -23,7 +23,7 @@ const Margin = () => {
             />
             <Hero jc="cneter" ai="center">
                 <SmallContainer>
-                    <Header as="h1" color="white" align="center">
+                    <Header as="h1" type="display-title" color="white" align="center">
                         {localize('Margin trading')}
                     </Header>
                 </SmallContainer>

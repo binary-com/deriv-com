@@ -134,11 +134,15 @@ const WhoCanApply = () => {
             <StyledSection>
                 <Flex>
                     <WhoCanApplyWrapper>
-                        <StyledHeader size="3.6rem">{localize('Who can apply')}</StyledHeader>
+                        <StyledHeader as="h3" type="section-title">
+                            {localize('Who can apply')}
+                        </StyledHeader>
                         <Wrapper>
                             <ImageWrapper src={TradingExperts} alt="trading experts" />
                             <Content max_width="36.4rem">
-                                <Header as="h4">{localize('Trading experts')}</Header>
+                                <Header as="h4" type="sub-section-title">
+                                    {localize('Trading experts')}
+                                </Header>
                                 <Text>
                                     {localize(
                                         'Provide expert tips and opinions on online trading via a website, blog, YouTube channel, webinars, or other forms of digital media.',
@@ -149,7 +153,9 @@ const WhoCanApply = () => {
                         <Wrapper>
                             <ImageWrapper src={SoftwareDeveloper} alt="software developer" />
                             <Content max_width="36.4rem">
-                                <Header as="h4">{localize('Software developers')}</Header>
+                                <Header as="h4" type="sub-section-title">
+                                    {localize('Software developers')}
+                                </Header>
                                 <Text>
                                     {localize(
                                         'Develop web, desktop, and mobile applications. Also has extensive experience working with APIs.',
@@ -160,7 +166,9 @@ const WhoCanApply = () => {
                         <Wrapper>
                             <ImageWrapper src={CommunityManagers} alt="community managers" />
                             <Content max_width="36.4rem">
-                                <Header as="h4">{localize('Community managers')}</Header>
+                                <Header as="h4" type="sub-section-title">
+                                    {localize('Community managers')}
+                                </Header>
                                 <Text>
                                     {localize(
                                         'Manage an active online community that’s passionate about online trading, investing, or personal finance.',
@@ -173,7 +181,7 @@ const WhoCanApply = () => {
                 <Separator />
                 <Flex>
                     <HowToApply>
-                        <SecondaryHeader mb="4rem" size="3.6rem">
+                        <SecondaryHeader mb="4rem" as="h3" type="section-title">
                             {localize('Get started easily')}
                         </SecondaryHeader>
                         <Timeline>
@@ -181,7 +189,9 @@ const WhoCanApply = () => {
                                 <HowToApplyContent>
                                     <ImageWrapper src={Apply} alt="apply" />
                                     <Content max_width="32.4rem">
-                                        <Header as="h4">{localize('Sign up')}</Header>
+                                        <Header as="h4" type="sub-section-title">
+                                            {localize('Sign up')}
+                                        </Header>
                                         <Text>
                                             {localize(
                                                 'Fill out the online application form. We’ll review your application and get in touch once it’s approved.',
@@ -194,7 +204,9 @@ const WhoCanApply = () => {
                                 <HowToApplyContent>
                                     <ImageWrapper src={Advertise} alt="advertise" />
                                     <Content max_width="32.4rem">
-                                        <Header as="h4">{localize('Advertise')}</Header>
+                                        <Header as="h4" type="sub-section-title">
+                                            {localize('Advertise')}
+                                        </Header>
                                         <Text>
                                             {localize(
                                                 'Use your unique affiliate link and our tried-and-tested referral tools to bring new clients to Deriv.',
@@ -207,7 +219,9 @@ const WhoCanApply = () => {
                                 <HowToApplyContent>
                                     <ImageWrapper src={Earn} alt="earn" />
                                     <Content max_width="32.4rem">
-                                        <Header as="h4">{localize('Earn')}</Header>
+                                        <Header as="h4" type="sub-section-title">
+                                            {localize('Earn')}
+                                        </Header>
                                         <Text>
                                             {localize(
                                                 'Start earning based on your chosen commission plan –– 45% of the total net revenue generated by your referred clients.',

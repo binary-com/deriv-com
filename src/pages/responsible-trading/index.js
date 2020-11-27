@@ -26,7 +26,6 @@ const Section = styled(SectionContainer)`
 
 const StyledHeader = styled(Header)`
     @media ${device.tablet} {
-        font-size: var(--text-size-l);
         max-width: 90%;
         margin: auto;
         margin-bottom: 1.6rem;
@@ -48,7 +47,8 @@ const ResponsibleTrading = () => {
                     <Container>
                         <Flex direction="column">
                             <StyledHeader
-                                size="var(--text-size-xxl)"
+                                as="h1"
+                                type="display-title"
                                 color="white"
                                 align="center"
                                 lh="1.25"

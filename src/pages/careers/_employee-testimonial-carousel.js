@@ -18,17 +18,12 @@ const StyledSection = styled(SectionContainer)`
     }
 `
 const StyledHeader = styled(Header)`
-    font-size: var(--text-size-header-1);
     padding-bottom: 4.4rem;
 
-    @media ${device.tabletL} {
-        font-size: 4.5rem;
-    }
     @media ${device.tabletS} {
         padding: 0 3rem;
     }
     @media ${device.mobileL} {
-        font-size: 3.2rem;
         padding: 0 3.5rem;
     }
 `
@@ -181,7 +176,7 @@ const EmployeeTestimonialCarousel = () => {
     return (
         <>
             <StyledSection padding="12rem 0">
-                <StyledHeader align="center" as="h2">
+                <StyledHeader align="center" as="h3" type="section-title">
                     In the words of our employees
                 </StyledHeader>
                 <Carousel has_autoplay autoplay_interval={4000} {...settings}>

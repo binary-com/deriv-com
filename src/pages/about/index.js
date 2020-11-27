@@ -182,7 +182,7 @@ const About = () => {
             />
             <Background>
                 <StyledContainer direction="column">
-                    <Header as="h1" color="white" align="center">
+                    <Header as="h1" type="display-title" color="white" align="center">
                         {localize('About us')}
                     </Header>
                     <NavigationWrapper direction="row">
@@ -194,7 +194,7 @@ const About = () => {
                         >
                             <StyledHeader
                                 as="h2"
-                                size="var(--text-size-m)"
+                                type="sub-section-title"
                                 weight="normal"
                                 active={is_story}
                             >
@@ -210,7 +210,7 @@ const About = () => {
                         >
                             <StyledHeader
                                 as="h2"
-                                size="var(--text-size-m)"
+                                type="sub-section-title"
                                 weight="normal"
                                 active={is_leadership}
                             >
@@ -267,13 +267,14 @@ const About = () => {
                                         <div>
                                             <LeadershipTitle
                                                 as="h3"
-                                                size="var(--text-size-header-1)"
+                                                type="section-title"
                                                 color="white"
                                             >
                                                 <Localize translate_text="Jean-Yves Sireau" />
                                             </LeadershipTitle>
                                             <LeadershipPosition
                                                 as="h4"
+                                                type="sub-section-title"
                                                 weight="normal"
                                                 color="white"
                                                 lh="3.6rem"

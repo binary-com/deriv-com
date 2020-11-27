@@ -25,8 +25,12 @@ export const BaseElement = css`
 export const Text = styled.p`
     ${BaseElement}
     font-weight: ${(props) => props.weight || 'normal'};
-    font-size: ${(props) => props.size || 'var(--text-size-s)'};
+    font-size: ${(props) => props.size || '1.6rem'};
     width: ${(props) => props.width || 'auto'};
+
+    @media ${device.tabletL} {
+        font-size: ${(props) => props.size || '16px'};
+    }
 `
 
 export const Header = styled(({ as = 'h1', children, ...props }) =>
@@ -36,13 +40,41 @@ export const Header = styled(({ as = 'h1', children, ...props }) =>
     font-weight: ${(props) => props.weight || 'bold'};
     font-size: ${(props) => {
         if (props.size) return props.size
-        if (props.as === 'h1') return 'var(--text-size-xxl)'
-        if (props.as === 'h2') return 'var(--text-size-xl)'
-        if (props.as === 'h3') return 'var(--text-size-l)'
-        if (props.as === 'h4') return 'var(--text-size-m)'
-        if (props.as === 'h5') return 'var(--text-size-s)'
+        if (props.type === 'display-title') return '6.4rem'
+        if (props.type === 'page-title') return '4.8rem'
+        if (props.type === 'section-title') return '3.2rem'
+        if (props.type === 'sub-section-title') return '2.4rem'
+        if (props.type === 'main-paragraph') return '1.6rem'
+        if (props.type === 'sub-paragraph') return '1.4rem'
+    }};
+    line-height: ${(props) => {
+        if (props.type === 'display-title') return '8rem'
+        if (props.type === 'page-title') return '6rem'
+        if (props.type === 'section-title') return '4rem'
+        if (props.type === 'sub-section-title') return '3rem'
+        if (props.type === 'main-paragraph') return '2.4rem'
+        if (props.type === 'sub-paragraph') return '2rem'
     }};
     width: ${(props) => props.width || '100%'};
+
+    @media ${device.tabletL} {
+        font-size: ${(props) => {
+            if (props.type === 'display-title') return '40px'
+            if (props.type === 'page-title') return '32px'
+            if (props.type === 'section-title') return '24px'
+            if (props.type === 'sub-section-title') return '20px'
+            if (props.type === 'main-paragraph') return '16px'
+            if (props.type === 'sub-paragraph') return '14px'
+        }};
+        line-height: ${(props) => {
+            if (props.type === 'display-title') return '50px'
+            if (props.type === 'page-title') return '40px'
+            if (props.type === 'section-title') return '30px'
+            if (props.type === 'sub-section-title') return '25px'
+            if (props.type === 'main-paragraph') return '24px'
+            if (props.type === 'sub-paragraph') return '21px'
+        }};
+    }
 `
 
 export const LinkText = styled(Text).attrs({ as: 'a' })`
@@ -58,12 +90,16 @@ export const LinkText = styled(Text).attrs({ as: 'a' })`
 export const LocalizedLinkText = styled((props) => <LocalizedLink {...props} />)`
     ${BaseElement}
     font-weight: ${(props) => props.weight || 'normal'};
-    font-size: ${(props) => props.size || 'var(--text-size-s)'};
+    font-size: ${(props) => props.size || '1.6rem'};
     text-decoration: none;
     cursor: pointer;
 
     &:hover {
         color: var(--color-red);
         text-decoration: underline;
+    }
+
+    @media ${device.tabletL} {
+        font-size: ${(props) => props.size || '16px'};
     }
 `

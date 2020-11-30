@@ -188,8 +188,7 @@ export const CalculatorBody = styled.div`
 =======
     /* stylelint-disable property-no-vendor-prefix */
     ul::-webkit-scrollbar {
-        width: 13px;
-        height: 80px;
+        width: 12px;
     }
     ul::-webkit-scrollbar-thumb {
         border: 4px solid rgba(0, 0, 0, 0);

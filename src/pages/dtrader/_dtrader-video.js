@@ -200,7 +200,10 @@ class DtraderTabs extends React.Component {
                             start_time={0}
                             end_time={7}
                             current_time={this.state.current_time}
-                            onClick={() => this.clickHandler(0)}
+                            onClick={() => {
+                                this.clickHandler(0)
+                                this.updatePlay()
+                            }}
                         >
                             {localize('1. Select an asset')}
                         </Step>
@@ -213,7 +216,10 @@ class DtraderTabs extends React.Component {
                             start_time={7}
                             end_time={13}
                             current_time={this.state.current_time}
-                            onClick={() => this.clickHandler(7)}
+                            onClick={() => {
+                                this.clickHandler(7)
+                                this.updatePlay()
+                            }}
                         >
                             {localize('2. Monitor the chart')}
                         </Step>
@@ -226,7 +232,10 @@ class DtraderTabs extends React.Component {
                             start_time={13}
                             end_time={30}
                             current_time={this.state.current_time}
-                            onClick={() => this.clickHandler(13)}
+                            onClick={() => {
+                                this.clickHandler(13)
+                                this.updatePlay()
+                            }}
                         >
                             {localize('3. Place a trade')}
                         </Step>

@@ -55,11 +55,11 @@ const Step = styled(Header)`
     ${StepCommon}
     margin-top: 0;
     ${(props) =>
-        props.start_time <= props.current_time && props.current_time < props.end_time
+        props.start_time < props.current_time && props.current_time < props.end_time
             ? 'color: var(--color-black-3); border-left: 4px solid var(--color-red)'
             : 'opacity: 0.2; border-left: 4px solid rgb(0, 0, 0, 0)'};
     pointer-events: ${(props) =>
-        props.start_time <= props.current_time && props.current_time < props.end_time
+        props.start_time < props.current_time && props.current_time < props.end_time
             ? ' none;'
             : ''};
 `

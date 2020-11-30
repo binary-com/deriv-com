@@ -83,7 +83,7 @@ const StyledLink = styled((props) => <LocalizedLink {...props} />)`
 const OffCanvasMenuContainer = styled.div`
     display: flex;
     flex-direction: column;
-    padding: 4rem 1.6rem;
+    padding: 0 1.6rem 21rem;
 
     div {
         a:first-child {

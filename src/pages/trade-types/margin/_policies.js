@@ -117,7 +117,7 @@ const Policies = () => {
                             <InfoWrapper>
                                 <img src={Info} alt="info" />
                             </InfoWrapper>
-                            <Header as="h4">
+                            <Header as="h4" id="swap-policy">
                                 {localize('Important notes on our swap rates (overnight funding)')}
                             </Header>
                         </CardHeading>

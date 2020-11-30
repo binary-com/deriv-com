@@ -184,6 +184,27 @@ export const CalculatorOutputSymbol = styled.label`
 
 export const CalculatorBody = styled.div`
     padding: 2.4rem;
+<<<<<<< HEAD
+=======
+    /* stylelint-disable property-no-vendor-prefix */
+    ul::-webkit-scrollbar {
+        width: 13px;
+        height: 80px;
+    }
+    ul::-webkit-scrollbar-thumb {
+        border: 4px solid rgba(0, 0, 0, 0);
+        background-clip: padding-box;
+        -webkit-border-radius: 7px;
+        border-radius: 7px;
+        background-color: var(--color-grey-32);
+        -webkit-box-shadow: inset -1px -1px 0 rgba(0, 0, 0, 0.05),
+            inset 1px 1px 0 rgba(0, 0, 0, 0.05);
+        box-shadow: inset -1px -1px 0 rgba(0, 0, 0, 0.05), inset 1px 1px 0 rgba(0, 0, 0, 0.05);
+    }
+    ul::-webkit-scrollbar-corner {
+        background-color: transparent;
+    }
+>>>>>>> feat: update scroll and anchor hash link
 `
 
 export const CalculatorTabItem = styled.div`

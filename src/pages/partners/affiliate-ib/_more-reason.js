@@ -83,7 +83,7 @@ const MoreReason = () => {
                         </Text>
                     </Reason>
                     <Reason>
-                        <img src={ProvenReferral} alt="proven referral tools" />
+                        <img src={ProvenReferral} alt="proven referral tool" />
                         <Header as="h4" lh="1.5" mb="8px">
                             {localize('Proven creative materials')}
                         </Header>

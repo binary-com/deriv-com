@@ -4,7 +4,7 @@ import { StaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import PropTypes from 'prop-types'
 
-const ImageWrapper = styled.div`
+export const ImageWrapper = styled.div`
     & .gatsby-image-wrapper {
         width: ${(props) => props.width};
         height: ${(props) => props.height};

@@ -6,6 +6,16 @@ import device from 'themes/device'
 
 const createElement = React.createElement
 
+export const BaseLink = css`
+    text-decoration: none;
+    cursor: pointer;
+
+    &:hover {
+        color: var(--color-red);
+        text-decoration: underline;
+    }
+`
+
 export const BaseElement = css`
     text-align: ${(props) => props.align || 'left'};
     padding: ${(props) => props.padding || ''};
@@ -46,13 +56,11 @@ export const Header = styled(({ as = 'h1', children, ...props }) =>
 `
 
 export const LinkText = styled(Text).attrs({ as: 'a' })`
-    text-decoration: none;
-    cursor: pointer;
+    ${BaseLink}
+`
 
-    &:hover {
-        color: var(--color-red);
-        text-decoration: underline;
-    }
+export const SpanLinkText = styled(Text).attrs({ as: 'span' })`
+    ${BaseLink}
 `
 
 export const LocalizedLinkText = styled((props) => <LocalizedLink {...props} />)`

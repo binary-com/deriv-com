@@ -22,14 +22,9 @@ const ThingsInMind = () => {
                 <Header as="h4" mb="0.8rem">
                     {localize('Multipliers on Crash and Boom')}
                 </Header>
-                <Text mb="0" width="100%">
-                    {localize(
-                        'Deal cancellation isn’t available for Crash and Boom indices.',
-                    )}
-                </Text>
                 <Text mb="3.2rem">
                     {localize(
-                        'The stop-out feature will close your contract automatically when your loss reaches or exceeds a percentage of your stake. The stop-out percentage is shown below your stake on DTrader and varies according to your chosen multiplier.',
+                        'Deal cancellation isn’t available for Crash and Boom indices. The stop-out feature will close your contract automatically when your loss reaches or exceeds a percentage of your stake. The stop-out percentage is shown below your stake on DTrader and varies according to your chosen multiplier.',
                     )}
                 </Text>
                 <Header as="h4" mb="0.8rem">

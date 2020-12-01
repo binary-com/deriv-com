@@ -965,7 +965,12 @@ export const NavPartners = ({ no_login_signup }) => {
                                         target="_blank"
                                         primary
                                     >
-                                        <span>{localize('Affiliate & IB Log in')}</span>
+                                        <Show.Desktop>
+                                            <span>{localize('Affiliate & IB log in')}</span>
+                                        </Show.Desktop>
+                                        <Show.Mobile>
+                                            <span>{localize('Log in')}</span>
+                                        </Show.Mobile>
                                     </LinkMobileLogin>
                                 )}
                             </Flex>

@@ -96,7 +96,7 @@ const Currencies = styled(Td)`
     width: 289px;
 `
 
-const ExpandList = ({ data, config, is_crypto, is_fiat_onramp }) => {
+const ExpandList = ({ data, config, is_crypto, is_fiat_onramp, locale }) => {
     const [is_expanded, setIsExpanded] = React.useState(false)
 
     const toggleExpand = () => {
@@ -154,7 +154,7 @@ const ExpandList = ({ data, config, is_crypto, is_fiat_onramp }) => {
                 <Td>
                     {data.reference ? (
                         <CenterIcon
-                            href={`/payment-methods/${data.reference}`}
+                            href={`/payment-methods/${(data.reference == "nganluong-payment-method.pdf" && locale.language == 'vi') ? 'vi/' : ''}${data.reference}`}
                             target="_blank"
                             rel="noopener noreferrer"
                         >
@@ -189,6 +189,7 @@ ExpandList.propTypes = {
     data: PropTypes.object,
     is_crypto: PropTypes.bool,
     is_fiat_onramp: PropTypes.bool,
+    locale:PropTypes.object,
 }
 
 export default ExpandList

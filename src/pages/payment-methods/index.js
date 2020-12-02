@@ -61,7 +61,7 @@ const Notes = styled.div`
     bottom: 0;
 `
 
-const DisplayAccordion = () => {
+const DisplayAccordion = ({locale}) => {
     const { is_eu_country, crypto_config } = React.useContext(DerivStore)
     return (
         <Accordion has_single_state>
@@ -90,7 +90,7 @@ const DisplayAccordion = () => {
                             }}
                             header={pd.name}
                         >
-                            <DisplayAccordianItem pd={pd} crypto_config={crypto_config} />
+                            <DisplayAccordianItem pd={pd} crypto_config={crypto_config} locale={locale}/>
                         </AccordionItem>
                     )
             })}
@@ -98,7 +98,11 @@ const DisplayAccordion = () => {
     )
 }
 
-const DisplayAccordianItem = ({ pd, crypto_config }) => {
+DisplayAccordion.propTypes = {
+    locale:PropTypes.object,
+}
+
+const DisplayAccordianItem = ({ pd, crypto_config, locale }) => {
     return (
         <>
             <Scrollbar options={{ suppressScrollY: true }}>
@@ -168,6 +172,7 @@ const DisplayAccordianItem = ({ pd, crypto_config }) => {
                                     is_crypto={pd.is_crypto}
                                     config={crypto_config}
                                     is_fiat_onramp={pd.is_fiat_onramp}
+                                    locale={locale}
                                 />
                             )
                         })}
@@ -187,10 +192,11 @@ const DisplayAccordianItem = ({ pd, crypto_config }) => {
 
 DisplayAccordianItem.propTypes = {
     crypto_config: PropTypes.object,
+    locale:PropTypes.object,
     pd: PropTypes.object,
 }
 
-const PaymentMethods = () => {
+const PaymentMethods = (locale) => {
     const { is_p2p_allowed_country } = React.useContext(DerivStore)
     return (
         <Layout>
@@ -220,7 +226,7 @@ const PaymentMethods = () => {
             <SectionContainer>
                 <Container direction="column">
                     <AccordionContainer>
-                        <DisplayAccordion />
+                        <DisplayAccordion locale={locale}/>
                     </AccordionContainer>
                     <Text mt="1.6rem" size="var(--text-size-xs)" align="left">
                         <Localize
@@ -242,6 +248,10 @@ const PaymentMethods = () => {
             )}
         </Layout>
     )
+}
+
+PaymentMethods.propTypes = {
+    locale:PropTypes.object,
 }
 
 export default WithIntl()(PaymentMethods)

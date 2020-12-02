@@ -3,10 +3,10 @@ import PropTypes from 'prop-types'
 import { graphql, StaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import Cookies from 'js-cookie'
+import { getUTMData } from 'common/utility'
 import { Box } from 'components/containers'
 import Login from 'common/login'
 import { CookieStorage, LocalStore } from 'common/storage'
-import TrafficSource from 'common/traffic-source'
 import validation from 'common/validation'
 import { BinarySocketBase } from 'common/websocket/socket_base'
 import SignupDefault from 'components/custom/_signup-default'
@@ -91,7 +91,9 @@ class Signup extends Component {
     }
 
     getVerifyEmailRequest = (email) => {
-        const utm_data = TrafficSource.getData()
+        const utm_data_cookies = new CookieStorage('utm_data')
+        const utm_data_value = utm_data_cookies.get('utm_data')
+        const utm_data = utm_data_value ? getUTMData(utm_data_value) : {}
         const affiliate_token = Cookies.getJSON('affiliate_tracking')
         const signup_device_cookie = new CookieStorage('signup_device')
         const signup_device = signup_device_cookie.get('signup_device')
@@ -103,7 +105,7 @@ class Signup extends Component {
             verify_email: email,
             type: 'account_opening',
             url_parameters: {
-                utm_source: TrafficSource.getSource(utm_data),
+                utm_source: utm_data.utm_source || utm_data.referrer || 'direct',
                 ...(utm_data.utm_ad_id && {
                     utm_ad_id: utm_data.utm_ad_id,
                 }),

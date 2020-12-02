@@ -12,6 +12,13 @@ const toISOFormat = (date) => {
     return ''
 }
 
+const getUTMData = (data) => {
+    Object.keys(data).map((key) => {
+        data[key] = (data[key] || '').replace(/[^a-zA-Z0-9\s-._]/gi, '').substring(0, 100)
+    })
+    return data
+}
+
 const toHashFormat = (string) => string.replace(/\s+/g, '-').toLowerCase() // change space to dash then lowercase all
 
 const isBrowser = () => typeof window !== 'undefined'
@@ -162,6 +169,7 @@ export {
     routeBack,
     checkElemInArray,
     getWindowWidth,
+    getUTMData,
     gtm_test_domain,
     livechat_client_id,
     livechat_license_id,

@@ -99,13 +99,16 @@ class Signup extends Component {
         const signup_device = signup_device_cookie.get('signup_device')
         const date_first_contact_cookie = new CookieStorage('date_first_contact')
         const date_first_contact = date_first_contact_cookie.get('date_first_contact')
-        const gclid = LocalStore.get('gclid')
+        const gclid_cookies = new CookieStorage('gclid')
+        const gclid = gclid_cookies.get('gclid')
 
         return {
             verify_email: email,
             type: 'account_opening',
             url_parameters: {
-                utm_source: utm_data.utm_source || utm_data.referrer || 'direct',
+                ...(utm.data.utm_source && {
+                    utm_source: utm_data.utm_source
+                }),
                 ...(utm_data.utm_ad_id && {
                     utm_ad_id: utm_data.utm_ad_id,
                 }),

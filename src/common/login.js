@@ -24,7 +24,7 @@ const Login = (() => {
         const utm_data_cookies = new CookieStorage('utm_data')
         const utm_data_value = utm_data_cookies.get('utm_data')
         const utm_data = utm_data_value ? getUTMData(utm_data_value) : {}
-        const utm_source = utm_data.utm_source || utm_data.referrer || 'direct'
+        const utm_source = utm_data.utm_source
         const utm_source_link = utm_source ? `&utm_source=${utm_source}` : ''
         const utm_ad_id_link = utm_data.utm_ad_id ? `&utm_medium=${utm_data.utm_ad_id}` : ''
         const utm_adgroup_id_link = utm_data.utm_adgroup_id

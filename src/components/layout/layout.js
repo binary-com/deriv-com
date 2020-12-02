@@ -1,5 +1,5 @@
 import React from 'react'
-import Loadable from '@loadable/component'
+// import Loadable from '@loadable/component'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Footer from './footer'
@@ -14,7 +14,7 @@ import { CookieStorage } from 'common/storage'
 import { isBrowser } from 'common/utility'
 import { DerivStore } from 'store'
 
-const LiveChat = Loadable(() => import('./livechat'))
+// const LiveChat = Loadable(() => import('./livechat'))
 
 const Main = styled.main`
     margin-top: ${(props) => props.margin_top || '7rem'};
@@ -34,7 +34,7 @@ const Layout = ({
     interim_type,
     margin_top,
     no_login_signup,
-    no_live_chat,
+    // no_live_chat,
     nav_type,
 }) => {
     const { is_eu_country } = React.useContext(DerivStore)
@@ -43,7 +43,7 @@ const Layout = ({
     const [show_modal, toggleModal, closeModal] = useModal()
     const [modal_payload, setModalPayload] = React.useState({})
     const LC_API = (isBrowser() && window.LC_API) || {}
-    const [is_livechat_interactive, setLiveChatInteractive] = React.useState(false)
+    // const [is_livechat_interactive, setLiveChatInteractive] = React.useState(false)
 
     const is_static = type === 'static'
 
@@ -113,7 +113,8 @@ const Layout = ({
             show_cookie_banner={show_cookie_banner}
             toggleModal={toggleModal}
             setModalPayload={setModalPayload}
-            is_livechat_interactive={is_livechat_interactive}
+            // is_livechat_interactive={is_livechat_interactive}
+            is_livechat_interactive={false}
             LC_API={LC_API}
         >
             {Navigation}
@@ -127,13 +128,13 @@ const Layout = ({
                     is_open={show_cookie_banner}
                 />
             )}
-            {!no_live_chat && (
+            {/* {!no_live_chat && (
                 <LiveChat
                     LC_API={LC_API}
                     is_livechat_interactive={is_livechat_interactive}
                     setLiveChatInteractive={setLiveChatInteractive}
                 />
-            )}
+            )} */}
             {FooterNav}
             <EURedirect
                 toggle={toggleModal}

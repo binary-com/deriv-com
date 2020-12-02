@@ -194,13 +194,13 @@ module.exports = {
                 minimum: 0.4,
             },
         },
-        // {
-        //     resolve: 'gatsby-plugin-google-tagmanager',
-        //     options: {
-        //         id: 'GTM-NF7884S',
-        //         includeInDevelopment: false,
-        //     },
-        // },
+        {
+            resolve: 'gatsby-plugin-google-tagmanager',
+            options: {
+                id: 'GTM-NF7884S',
+                includeInDevelopment: false,
+            },
+        },
         'gatsby-plugin-offline',
         {
             resolve: 'gatsby-plugin-anchor-links',

@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
-import Numbers from './_numbers.js'
-import WhatIsTrader from './_what-is-trader.js'
-import WhyTrader from './_why-trader.js'
-import StartTrader from './_start-trader.js'
-import DownloadApp from './_download-app.js'
+import {
+    Numbers,
+    WhatIsTrader,
+    WhyTrader,
+    StartTrader,
+    DownloadApp,
+    Flexibility,
+    DBanner,
+} from './_lazy-load'
 // import TradeControl from './_trade-control.js'
-import Flexibility from './_flexibility.js'
 import DHero from './_dhero.js'
-import DBanner from './_dbanner.js'
 import BackgroundPatternDMT5 from 'images/svg/bg_banner_dmt5.svg'
 import BackgroundPatternDMT5_mobile from 'images/svg/bg_banner_dmt5_mobile.svg'
 import Layout from 'components/layout/layout'

@@ -1,22 +1,23 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { graphql, StaticQuery } from 'gatsby'
-import DBotVideo from './_dbot-video.js'
-import DHowItWorks from 'components/custom/_dhow-it-works.js'
-import DTrading from 'components/custom/_dtrading.js'
-import DHero from 'components/custom/_dhero.js'
-import DBanner from 'components/custom/_dbanner.js'
-import DNumber from 'components/custom/_dnumbers.js'
+import Loadable from '@loadable/component'
 import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { localize, Localize, WithIntl } from 'components/localization'
 import dbot_logo from 'images/svg/dbot-icon.svg'
-import { OtherPlatform } from 'components/custom/other-platforms.js'
 import DBotBG from 'images/svg/dbot-bg.svg'
 import DBotBGMobile from 'images/svg/dbot-bg-mobile.svg'
 import { size } from 'themes/device'
 import { isBrowser } from 'common/utility'
 import BackgroundPatternDBot from 'images/common/bg_banner_signup.png'
+import DHero from 'components/custom/_dhero.js'
+const DBotVideo = Loadable(() => import('./_dbot-video.js'))
+const DHowItWorks = Loadable(() => import('components/custom/_dhow-it-works.js'))
+const DTrading = Loadable(() => import('components/custom/_dtrading.js'))
+const DBanner = Loadable(() => import('components/custom/_dbanner.js'))
+const DNumber = Loadable(() => import('components/custom/_dnumbers.js'))
+const OtherPlatform = Loadable(() => import('components/custom/other-platforms.js'))
 
 const query = graphql`
     query {

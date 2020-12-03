@@ -383,3 +383,5 @@ export const OurHistory = (props) => {
 OurHistory.propTypes = {
     is_mobile_menu: PropTypes.bool,
 }
+
+export default OurHistory

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import styled, { css } from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
+import Loadable from '@loadable/component'
 import { OurStory } from './_our-story'
-import Leaders from './_leaders'
 import { Container, Box, Flex, SEO, Show } from 'components/containers'
 import { getWindowWidth, isBrowser } from 'common/utility'
 import { useTabState } from 'components/hooks/use-tab-state'
@@ -10,6 +10,8 @@ import Layout from 'components/layout/layout'
 import { localize, Localize, WithIntl } from 'components/localization'
 import { Header, Text, QueryImage } from 'components/elements'
 import device, { size } from 'themes/device'
+
+const Leaders = Loadable(() => import('./_leaders'))
 
 const query = graphql`
     query {

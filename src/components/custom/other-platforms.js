@@ -436,3 +436,5 @@ export const NavResources = ({ onClick }) => (
 NavResources.propTypes = {
     onClick: PropTypes.func,
 }
+
+export default OtherPlatform

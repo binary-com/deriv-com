@@ -420,11 +420,13 @@ const MarginCalculator = () => {
                             <FormulaContainer>
                                 <FormulaHighlight>
                                     <FormulaValue>
-                                        2
+                                        <Localize translate_text="2" />
                                         <PointerContainer>
                                             <PointerDot />
                                             <PointerStick />
-                                            <PointerText>Volume</PointerText>
+                                            <PointerText>
+                                                <Localize translate_text="Volume" />
+                                            </PointerText>
                                         </PointerContainer>
                                     </FormulaValue>
 
@@ -433,13 +435,18 @@ const MarginCalculator = () => {
                                     </FormulaValue>
 
                                     <FormulaValue>
-                                        100,000
+                                        <Localize translate_text="100,000" />
                                         <PointerContainer>
                                             <PointerDot />
                                             <PointerStick />
-                                            <PointerText>Contract</PointerText>
                                             <PointerText>
-                                                size <Sup>1</Sup>
+                                                <Localize translate_text="Contract" />
+                                            </PointerText>
+                                            <PointerText>
+                                                <Localize
+                                                    translate_text="Size <0>1</0>"
+                                                    components={[<Sup key={0} />]}
+                                                />
                                             </PointerText>
                                         </PointerContainer>
                                     </FormulaValue>
@@ -449,11 +456,13 @@ const MarginCalculator = () => {
                                     </FormulaValue>
 
                                     <FormulaValue>
-                                        1.10
+                                        <Localize translate_text="1.10" />
                                         <PointerContainer>
                                             <PointerDot />
                                             <PointerStick />
-                                            <PointerText>Asset price</PointerText>
+                                            <PointerText>
+                                                <Localize translate_text="Asset price" />
+                                            </PointerText>
                                         </PointerContainer>
                                     </FormulaValue>
 
@@ -462,11 +471,13 @@ const MarginCalculator = () => {
                                     </FormulaValue>
 
                                     <FormulaValue>
-                                        100
+                                        <Localize translate_text="100" />
                                         <PointerContainer>
                                             <PointerDot />
                                             <PointerStick />
-                                            <PointerText>Leverage</PointerText>
+                                            <PointerText>
+                                                <Localize translate_text="Leverage" />
+                                            </PointerText>
                                         </PointerContainer>
                                     </FormulaValue>
 
@@ -475,12 +486,17 @@ const MarginCalculator = () => {
                                     </FormulaValue>
 
                                     <FormulaValue>
-                                        <FormulaGreen>2,200 USD</FormulaGreen>
-
+                                        <Localize
+                                            translate_text="<0>2,200 USD</0>"
+                                            components={[<FormulaGreen key={0} />]}
+                                        />
                                         <PointerContainer>
                                             <PointerDot />
                                             <PointerStick />
-                                            <PointerText>Margin required</PointerText>
+                                            <PointerText>
+                                                {' '}
+                                                <Localize translate_text="Margin required" />
+                                            </PointerText>
                                         </PointerContainer>
                                     </FormulaValue>
                                 </FormulaHighlight>

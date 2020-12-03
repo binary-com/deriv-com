@@ -184,8 +184,6 @@ export const CalculatorOutputSymbol = styled.label`
 
 export const CalculatorBody = styled.div`
     padding: 2.4rem;
-<<<<<<< HEAD
-=======
     /* stylelint-disable property-no-vendor-prefix */
     ul::-webkit-scrollbar {
         width: 12px;
@@ -203,7 +201,6 @@ export const CalculatorBody = styled.div`
     ul::-webkit-scrollbar-corner {
         background-color: transparent;
     }
->>>>>>> feat: update scroll and anchor hash link
 `
 
 export const CalculatorTabItem = styled.div`

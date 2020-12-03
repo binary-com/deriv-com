@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import Hero from './_hero'
 import WhoWeLookFor from './_who-we-look-for'
 import OurValues from './_our-values'
-import EmployeeTestimonialCarousel from './_employee-testimonial-carousel'
+import EmployeeTestimonial from './_employee-testimonial'
 import LifeAtDerivCarousel from './_life-at-deriv-carousel'
 import OurHiringProcess from './_our-hiring-process'
 import { SEO } from 'components/containers'
@@ -21,7 +21,9 @@ const Careers = () => (
         <WhoWeLookFor />
         <LifeAtDerivCarousel />
         <OurValues />
-        <EmployeeTestimonialCarousel />
+        <Suspense fallback={null}>
+            <EmployeeTestimonial />
+        </Suspense>
         <OurHiringProcess />
     </Layout>
 )

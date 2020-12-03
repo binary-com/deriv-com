@@ -1,5 +1,4 @@
-import React from 'react'
-import Loadable from '@loadable/component'
+import React, { lazy, Suspense } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Footer from './footer'
@@ -14,7 +13,7 @@ import { CookieStorage } from 'common/storage'
 import { isBrowser } from 'common/utility'
 import { DerivStore } from 'store'
 
-const LiveChat = Loadable(() => import('./livechat'))
+const LiveChat = lazy(() => import('./livechat'))
 
 const Main = styled.main`
     margin-top: ${(props) => props.margin_top || '7rem'};
@@ -128,11 +127,13 @@ const Layout = ({
                 />
             )}
             {!no_live_chat && (
-                <LiveChat
-                    LC_API={LC_API}
-                    is_livechat_interactive={is_livechat_interactive}
-                    setLiveChatInteractive={setLiveChatInteractive}
-                />
+                <Suspense fallback={null}>
+                    <LiveChat
+                        LC_API={LC_API}
+                        is_livechat_interactive={is_livechat_interactive}
+                        setLiveChatInteractive={setLiveChatInteractive}
+                    />
+                </Suspense>
             )}
             {FooterNav}
             <EURedirect

@@ -1,5 +1,4 @@
-import React from 'react'
-import Loadable from '@loadable/component'
+import React, { lazy, Suspense } from 'react'
 // import Ticker from './home/_ticker'
 import Markets from './home/_markets'
 import WhatOurClientsSay from './home/_what-our-clients-say'
@@ -15,8 +14,8 @@ import PractiseIcon from 'images/svg/aim.svg'
 import TradeIcon from 'images/svg/trade.svg'
 import WithdrawIcon from 'images/svg/withdraw.svg'
 
-const Trade = Loadable(() => import('./home/_trade'))
-const TradeTheWayYouLike = Loadable(() => import('./home/_trade-the-way-you-like'))
+const Trade = lazy(() => import('./home/_trade'))
+const TradeTheWayYouLike = lazy(() => import('./home/_trade-the-way-you-like'))
 
 const simple_step_content = [
     {
@@ -53,12 +52,14 @@ const Home = () => {
             />
             <Hero />
 
-            <Show.Mobile>
-                <TradeTheWayYouLike />
-            </Show.Mobile>
-            <Show.Desktop>
-                <Trade />
-            </Show.Desktop>
+            <Suspense fallback={null}>
+                <Show.Mobile>
+                    <TradeTheWayYouLike />
+                </Show.Mobile>
+                <Show.Desktop>
+                    <Trade />
+                </Show.Desktop>
+            </Suspense>
 
             <Show.Mobile>
                 <TradeTypesMobile />
@@ -71,7 +72,9 @@ const Home = () => {
                 content={simple_step_content}
                 header={<Localize translate_text="3 simple steps" />}
             />
-            <WhatOurClientsSay />
+            <Suspense fallback={null}>
+                <WhatOurClientsSay />
+            </Suspense>
             <Signup appearance={Appearances.public} />
             {/* TODO: investigate performance and enable later */}
             {/* {!isProduction() && <Ticker />} */}

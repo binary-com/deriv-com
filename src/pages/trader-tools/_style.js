@@ -304,6 +304,7 @@ export const FormulaText = styled.div`
     background-color: #f9fafc;
     padding: 1.6rem;
     font-size: 14px;
+    width: 650px;
     line-height: 2;
 `
 
@@ -404,4 +405,74 @@ export const StyledLinkButton = styled(LinkButton)`
     :focus {
         outline: 0;
     }
+`
+
+export const FormulaContainer = styled(Flex)`
+    width: 650px;
+    height: 172px;
+    margin: 16px 0 0;
+    border-radius: 4px;
+    background-color: var(--color-blue-4);
+`
+export const FormulaHighlight = styled(Flex)`
+    margin-top: 24px;
+    width: 618px;
+    height: 72px;
+    border-radius: 4px;
+    border: 1.5px solid var(--color-blue-5);
+    background-color: #ffffff;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 600;
+`
+
+export const FormulaValue = styled.div`
+    display: inline-block;
+    min-width: 55px;
+    text-align: center;
+`
+
+export const FormulaGreen = styled.span`
+    display: inline-block;
+    color: var(--color-blue-5);
+`
+
+export const PointerContainer = styled.div`
+    display: flex;
+    position: absolute;
+    height: 80px;
+    margin-top: 10px;
+    flex-direction: column;
+    align-items: center;
+    max-width: 55px;
+    white-space: nowrap;
+`
+
+export const PointerDot = styled.div`
+    height: 9px;
+    width: 9px;
+    background-color: black;
+    border-radius: 50%;
+    opacity: 0.1;
+`
+
+export const PointerStick = styled.div`
+    position: relative;
+    height: 20px;
+    width: 1px;
+    background-color: black;
+    opacity: 0.1;
+`
+
+export const PointerText = styled.div`
+    margin-top: 5px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-blue-5);
+`
+
+export const Sup = styled.span`
+    color: black;
+    font-size: xx-small;
+    vertical-align: super;
 `

@@ -36,6 +36,15 @@ import {
     BottomContent,
     BottomText,
     StyledLinkButton,
+    FormulaContainer,
+    FormulaHighlight,
+    FormulaValue,
+    FormulaGreen,
+    PointerContainer,
+    PointerDot,
+    PointerStick,
+    PointerText,
+    Sup,
 } from './_style'
 import validation from './_validation'
 import { localize, Localize } from 'components/localization'
@@ -408,7 +417,74 @@ const MarginCalculator = () => {
 
                     <ImageWrapper>
                         <Show.Desktop>
-                            <QueryImage data={data.margin_formula} alt={'Margin formula'} />
+                            <FormulaContainer>
+                                <FormulaHighlight>
+                                    <FormulaValue>
+                                        2
+                                        <PointerContainer>
+                                            <PointerDot />
+                                            <PointerStick />
+                                            <PointerText>Volume</PointerText>
+                                        </PointerContainer>
+                                    </FormulaValue>
+
+                                    <FormulaValue>
+                                        <FormulaGreen> x </FormulaGreen>
+                                    </FormulaValue>
+
+                                    <FormulaValue>
+                                        100,000
+                                        <PointerContainer>
+                                            <PointerDot />
+                                            <PointerStick />
+                                            <PointerText>Contract</PointerText>
+                                            <PointerText>
+                                                size <Sup>1</Sup>
+                                            </PointerText>
+                                        </PointerContainer>
+                                    </FormulaValue>
+
+                                    <FormulaValue>
+                                        <FormulaGreen>x</FormulaGreen>
+                                    </FormulaValue>
+
+                                    <FormulaValue>
+                                        1.10
+                                        <PointerContainer>
+                                            <PointerDot />
+                                            <PointerStick />
+                                            <PointerText>Asset price</PointerText>
+                                        </PointerContainer>
+                                    </FormulaValue>
+
+                                    <FormulaValue>
+                                        <FormulaGreen>&divide; </FormulaGreen>
+                                    </FormulaValue>
+
+                                    <FormulaValue>
+                                        100
+                                        <PointerContainer>
+                                            <PointerDot />
+                                            <PointerStick />
+                                            <PointerText>Leverage</PointerText>
+                                        </PointerContainer>
+                                    </FormulaValue>
+
+                                    <FormulaValue>
+                                        <FormulaGreen>=</FormulaGreen>
+                                    </FormulaValue>
+
+                                    <FormulaValue>
+                                        <FormulaGreen>2,200 USD</FormulaGreen>
+
+                                        <PointerContainer>
+                                            <PointerDot />
+                                            <PointerStick />
+                                            <PointerText>Margin required</PointerText>
+                                        </PointerContainer>
+                                    </FormulaValue>
+                                </FormulaHighlight>
+                            </FormulaContainer>
                         </Show.Desktop>
 
                         <Show.Mobile>

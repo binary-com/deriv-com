@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { Helmet } from 'react-helmet'
-import Scrollbar from 'react-perfect-scrollbar'
 import ExpandList from './_expanded-list'
 import payment_data from './_payment-data'
 import Dp2p from './_dp2p'
@@ -21,13 +20,21 @@ const Th = styled.th`
     padding: 1.6rem 2rem;
 
     :first-child {
+        position: sticky;
+        /* stylelint-disable-next-line value-no-vendor-prefix */
+        position: -webkit-sticky;
+        left: -5px; /* required */
+        background-color: white;
+        z-index: 2;
+
         p {
-            text-align: center;
+            text-align: center !important;
         }
     }
 `
 
 const StyledTable = styled.table`
+    table-layout: fixed;
     border-collapse: collapse;
     width: 110.4rem;
     margin-bottom: ${(props) => (props.has_note ? '2.4rem' : 0)};
@@ -59,8 +66,16 @@ const Notes = styled.div`
     background: var(--color-grey-8);
     left: 0;
     bottom: 0;
+    z-index: 3;
+`
+const OuterDiv = styled.div`
+    position: relative;
 `
 
+const InnerDiv = styled.div`
+    overflow-x: auto;
+    overflow-y: visible;
+`
 const DisplayAccordion = () => {
     const { is_eu_country, crypto_config } = React.useContext(DerivStore)
     return (
@@ -101,79 +116,81 @@ const DisplayAccordion = () => {
 const DisplayAccordianItem = ({ pd, crypto_config }) => {
     return (
         <>
-            <Scrollbar options={{ suppressScrollY: true }}>
-                <StyledTable has_note={!!pd.note}>
-                    <Thead>
-                        <Tr>
-                            <Th>
-                                <BoldText>{localize('Method')}</BoldText>
-                            </Th>
-                            <Th>
-                                <BoldText>{localize('Currencies')}</BoldText>
-                            </Th>
-                            <Th>
-                                {pd.is_crypto || pd.is_fiat_onramp ? (
-                                    <BoldText>{localize('Min deposit')}</BoldText>
-                                ) : (
-                                    <React.Fragment>
-                                        <BoldText>{localize('Min-max')}</BoldText>
-                                        <BoldText>{localize('deposit')}</BoldText>
-                                    </React.Fragment>
-                                )}
-                            </Th>
-                            {!pd.is_fiat_onramp && (
+            <OuterDiv>
+                <InnerDiv>
+                    <StyledTable has_note={!!pd.note}>
+                        <Thead>
+                            <Tr>
                                 <Th>
-                                    {pd.is_crypto ? (
-                                        <>
-                                            <BoldText>{localize('Min withdrawal')}</BoldText>
-                                        </>
+                                    <BoldText>{localize('Method')}</BoldText>
+                                </Th>
+                                <Th>
+                                    <BoldText>{localize('Currencies')}</BoldText>
+                                </Th>
+                                <Th>
+                                    {pd.is_crypto || pd.is_fiat_onramp ? (
+                                        <BoldText>{localize('Min deposit')}</BoldText>
                                     ) : (
                                         <React.Fragment>
                                             <BoldText>{localize('Min-max')}</BoldText>
-                                            <BoldText>{localize('withdrawal')}</BoldText>
+                                            <BoldText>{localize('deposit')}</BoldText>
                                         </React.Fragment>
                                     )}
                                 </Th>
-                            )}
-                            {pd.is_fiat_onramp ? (
-                                <Th>
-                                    <BoldText>{localize('Deposit processing time')}</BoldText>
-                                </Th>
-                            ) : (
-                                <Th>
-                                    <BoldText>{localize('Deposit')}</BoldText>
-                                    <BoldText>{localize('processing time')}</BoldText>
-                                </Th>
-                            )}
+                                {!pd.is_fiat_onramp && (
+                                    <Th>
+                                        {pd.is_crypto ? (
+                                            <>
+                                                <BoldText>{localize('Min withdrawal')}</BoldText>
+                                            </>
+                                        ) : (
+                                            <React.Fragment>
+                                                <BoldText>{localize('Min-max')}</BoldText>
+                                                <BoldText>{localize('withdrawal')}</BoldText>
+                                            </React.Fragment>
+                                        )}
+                                    </Th>
+                                )}
+                                {pd.is_fiat_onramp ? (
+                                    <Th>
+                                        <BoldText>{localize('Deposit processing time')}</BoldText>
+                                    </Th>
+                                ) : (
+                                    <Th>
+                                        <BoldText>{localize('Deposit')}</BoldText>
+                                        <BoldText>{localize('processing time')}</BoldText>
+                                    </Th>
+                                )}
 
-                            {!pd.is_fiat_onramp && (
-                                <Th>
-                                    <BoldText>{localize('Withdrawal')}</BoldText>
-                                    <BoldText>{localize('processing time')}</BoldText>
-                                </Th>
-                            )}
+                                {!pd.is_fiat_onramp && (
+                                    <Th>
+                                        <BoldText>{localize('Withdrawal')}</BoldText>
+                                        <BoldText>{localize('processing time')}</BoldText>
+                                    </Th>
+                                )}
 
-                            <Th>
-                                <BoldText>{localize('Reference')}</BoldText>
-                            </Th>
-                            <Th />
-                        </Tr>
-                    </Thead>
-                    <Tbody>
-                        {pd.data.map((data, indx) => {
-                            return (
-                                <ExpandList
-                                    key={indx}
-                                    data={data}
-                                    is_crypto={pd.is_crypto}
-                                    config={crypto_config}
-                                    is_fiat_onramp={pd.is_fiat_onramp}
-                                />
-                            )
-                        })}
-                    </Tbody>
-                </StyledTable>
-            </Scrollbar>
+                                <Th>
+                                    <BoldText>{localize('Reference')}</BoldText>
+                                </Th>
+                                <Th />
+                            </Tr>
+                        </Thead>
+                        <Tbody>
+                            {pd.data.map((data, indx) => {
+                                return (
+                                    <ExpandList
+                                        key={indx}
+                                        data={data}
+                                        is_crypto={pd.is_crypto}
+                                        config={crypto_config}
+                                        is_fiat_onramp={pd.is_fiat_onramp}
+                                    />
+                                )
+                            })}
+                        </Tbody>
+                    </StyledTable>
+                </InnerDiv>
+            </OuterDiv>
             {pd.note && (
                 <Notes>
                     <Text weight="500" size="var(--text-size-xs)">

@@ -6,7 +6,7 @@ import {
     OurValues,
     EmployeeTestimonial,
     OurHiringProcess,
-} from './lazy-load'
+} from './_lazy-load'
 import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'

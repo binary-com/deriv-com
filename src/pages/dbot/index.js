@@ -12,11 +12,11 @@ import { size } from 'themes/device'
 import { isBrowser } from 'common/utility'
 import BackgroundPatternDBot from 'images/common/bg_banner_signup.png'
 import DHero from 'components/custom/_dhero.js'
+import DNumber from 'components/custom/_dnumbers.js'
 const DBotVideo = Loadable(() => import('./_dbot-video.js'))
 const DHowItWorks = Loadable(() => import('components/custom/_dhow-it-works.js'))
 const DTrading = Loadable(() => import('components/custom/_dtrading.js'))
 const DBanner = Loadable(() => import('components/custom/_dbanner.js'))
-const DNumber = Loadable(() => import('components/custom/_dnumbers.js'))
 const OtherPlatform = Loadable(() => import('components/custom/other-platforms.js'))
 
 const query = graphql`

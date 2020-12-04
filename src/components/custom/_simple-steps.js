@@ -100,12 +100,16 @@ const MobileBackgroundPattern = styled.img`
     left: 0;
     top: 0;
 `
+
 const LinkButtonWrapper = styled.div`
     margin-top: 4.2rem;
     text-align: center;
     height: 3rem;
 
     ${LinkButton} {
+        width: 113px;
+        height: 40px;
+        border-radius: 4px;
         position: relative;
     }
 

@@ -1,8 +1,19 @@
 import { useState, useEffect } from 'react'
-import { checkElemInArray, getLocationHash, isBrowser, routeBack, scrollTop, setLocationHash } from 'common/utility'
+import {
+    checkElemInArray,
+    getLocationHash,
+    isBrowser,
+    routeBack,
+    scrollTop,
+    setLocationHash,
+} from 'common/utility'
 
 export const useTabState = (tab_list) => {
-    const [active_tab, setActiveTab] = useState(getLocationHash() && checkElemInArray(tab_list, getLocationHash()) ? getLocationHash() : tab_list[0])
+    const [active_tab, setActiveTab] = useState(
+        getLocationHash() && checkElemInArray(tab_list, getLocationHash())
+            ? getLocationHash()
+            : tab_list[0],
+    )
 
     useEffect(() => {
         if (!getLocationHash() || !checkElemInArray(tab_list, getLocationHash())) {

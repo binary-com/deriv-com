@@ -12,7 +12,7 @@ import SyntheticIndicesIcon from 'images/svg/markets/synthetic.svg'
 // Images
 const StyledSection = styled(SectionContainer)`
     box-shadow: inset 0 1px 0 0 var(--color-grey-8);
-    padding: 0 0 6rem;
+    padding: 8rem 0 6rem;
 
     @media ${device.tabletL} {
         padding: 5rem 0;

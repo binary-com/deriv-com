@@ -26,7 +26,7 @@ const Item = styled(Flex)`
 `
 const ItemContainer = styled(Box)`
     display: flex;
-    margin: 3.2rem 0;
+    margin: 4rem 0;
     flex-direction: row;
     justify-content: space-between;
     max-width: 140.4rem;
@@ -58,6 +58,7 @@ const StyledSection = styled(SectionContainer)`
     }
 `
 const StyledButton = styled(LinkButton)`
+    border-radius: 4px;
     @media ${device.tabletL} {
         font-size: 1.75rem;
         padding: 1.25rem 4.75rem;

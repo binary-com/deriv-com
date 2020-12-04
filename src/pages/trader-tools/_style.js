@@ -297,6 +297,9 @@ export const ImageWrapper = styled.div`
 
     @media ${device.laptop} {
         padding-left: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 `
 
@@ -306,6 +309,10 @@ export const FormulaText = styled.div`
     font-size: 14px;
     width: 650px;
     line-height: 2;
+
+    @media ${device.tabletL} {
+        width: 360px;
+    }
 `
 
 export const StyledOl = styled.ol`
@@ -414,6 +421,13 @@ export const FormulaContainer = styled(Flex)`
     border-radius: 4px;
     background-color: var(--color-blue-4);
 `
+
+export const FormulaContainerMobile = styled(Flex)`
+    width: 360px;
+    height: 160px;
+    background-color: var(--color-blue-4);
+`
+
 export const FormulaHighlight = styled(Flex)`
     margin-top: 24px;
     width: 618px;
@@ -426,9 +440,28 @@ export const FormulaHighlight = styled(Flex)`
     font-weight: 600;
 `
 
+export const FormulaHighlightMobile = styled(Flex)`
+    margin-top: 54px;
+    margin-bottom: 53px;
+    width: 328px;
+    height: 53px;
+    border-radius: 4px;
+    border: 1.5px solid var(--color-blue-5);
+    background-color: #ffffff;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 600;
+`
+
 export const FormulaValue = styled.div`
     display: inline-block;
     min-width: 55px;
+    text-align: center;
+`
+
+export const FormulaValueMobile = styled.div`
+    display: inline-block;
+    min-width: 20px;
     text-align: center;
 `
 
@@ -448,6 +481,18 @@ export const PointerContainer = styled.div`
     white-space: nowrap;
 `
 
+export const PointerContainerMobile = styled.div`
+    display: flex;
+    position: absolute;
+    height: 80px;
+    margin-top: ${(props) => (props.top ? '-100px' : '8px')};
+    flex-direction: ${(props) => (props.top ? 'column-reverse' : 'column')};
+    margin-left: ${(props) => (props.ml ? props.ml : '0')};
+    align-items: center;
+    max-width: 20px;
+    white-space: nowrap;
+`
+
 export const PointerDot = styled.div`
     height: 9px;
     width: 9px;
@@ -456,9 +501,25 @@ export const PointerDot = styled.div`
     opacity: 0.1;
 `
 
+export const PointerDotMobile = styled.div`
+    height: 7px;
+    width: 7px;
+    background-color: black;
+    border-radius: 50%;
+    opacity: 0.1;
+`
+
 export const PointerStick = styled.div`
     position: relative;
-    height: 20px;
+    height: 25px;
+    width: 1px;
+    background-color: black;
+    opacity: 0.1;
+`
+
+export const PointerStickMobile = styled.div`
+    position: relative;
+    height: 18px;
     width: 1px;
     background-color: black;
     opacity: 0.1;
@@ -467,6 +528,14 @@ export const PointerStick = styled.div`
 export const PointerText = styled.div`
     margin-top: 5px;
     font-size: 16px;
+    font-weight: 600;
+    color: var(--color-blue-5);
+`
+
+export const PointerTextMobile = styled.div`
+    margin-top: ${(props) => (props.top ? '0' : '5px')};
+    margin-bottom: ${(props) => (props.top ? '5px' : '0')};
+    font-size: 14px;
     font-weight: 600;
     color: var(--color-blue-5);
 `

@@ -12,7 +12,7 @@ const content = [
         text: <Localize translate_text="active users" />,
     },
     {
-        header: <Localize translate_text="USD500k+" />,
+        header: <Localize translate_text="USD1M" />,
         text: <Localize translate_text="exchanged to date" />,
     },
 ]

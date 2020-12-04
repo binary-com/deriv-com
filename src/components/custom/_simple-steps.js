@@ -140,7 +140,9 @@ const SimpleSteps = ({ header, content, sign_up }) => (
                 return (
                     <ClientCard key={idx}>
                         <Flex ai="center">
-                            <Header as="h4">{item.header}</Header>
+                            <Header as="h3" size="var(--text-size-m)">
+                                {item.header}
+                            </Header>
                             {item.icon}
                         </Flex>
                         <Text>{item.text}</Text>

@@ -46,7 +46,21 @@ const getPropertyValue = (obj, k) => {
     return obj ? cloneObject(obj[keys[0]]) : undefined
 }
 const getLocationHash = () =>
-    isBrowser() && (location.hash ? location.hash.substring(1).replace(/\/$/, '') : '')
+    isBrowser() && location.hash ? location.hash.slice(1).replace(/(\/)$/g, '') : ''
+
+const setLocationHash = (tab) => {
+    if (isBrowser()) {
+        location.hash = `#${tab}`
+    }
+}
+const routeBack = () => {
+    if (isBrowser) {
+        window.history.back()
+    }
+}
+const checkElemInArray = (tab_list, tab) => tab_list.includes(tab)
+
+const getWindowWidth = () => (isBrowser() && window.screen ? window.screen.width : '')
 
 const getLanguage = () => (isBrowser() ? localStorage.getItem('i18n') || navigator.language : null)
 
@@ -87,10 +101,11 @@ function debounce(func, wait, immediate) {
     }
 }
 
-const trimSpaces = value => value.trim()
+const trimSpaces = (value) => value.trim()
 
 const deriv_app_url = 'https://app.deriv.com'
 const deriv_bot_app_url = 'https://app.deriv.com/bot'
+const deriv_dp2p_app_url = 'https://app.deriv.com/cashier/p2p'
 const smarttrader_url = 'https://smarttrader.deriv.com'
 const binary_url = 'https://binary.com'
 const deriv_cookie_domain = 'deriv.com'
@@ -101,6 +116,7 @@ const zoho_url = 'https://deriv.zohorecruit.com/'
 const brand_name = 'Deriv'
 const map_api_key = 'AIzaSyAEha6-HeZuI95L9JWmX3m6o-AxQr_oFqU'
 const gtm_test_domain = 'deriv-com.binary.sx'
+const p2p_playstore_url = 'https://play.google.com/store/apps/details?id=com.deriv.dp2p'
 const mga_link_url =
     'https://authorisation.mga.org.mt/verification.aspx?lang=EN&company=a5fd1edc-d072-4c26-b0cd-ab3fa0f0cc40&details=1'
 
@@ -109,6 +125,8 @@ const dmt5_linux_url = 'https://www.metatrader5.com/en/terminal/help/start_advan
 const dmt5_android_url =
     'https://download.mql5.com/cdn/mobile/mt5/android?server=Deriv-Demo,Deriv-Server'
 const dmt5_ios_url = 'https://download.mql5.com/cdn/mobile/mt5/ios?server=Deriv-Demo,Deriv-Server'
+const dp2p_google_play_url =
+    'https://play.google.com/store/apps/details?id=com.deriv.dp2p&hl=en&gl=US'
 
 export {
     affiliate_signin_url,
@@ -122,6 +140,8 @@ export {
     community_url,
     deriv_app_url,
     deriv_bot_app_url,
+    deriv_dp2p_app_url,
+    dp2p_google_play_url,
     mga_link_url,
     debounce,
     brand_name,
@@ -133,6 +153,10 @@ export {
     getPropertyValue,
     getLanguage,
     getLocationHash,
+    setLocationHash,
+    routeBack,
+    checkElemInArray,
+    getWindowWidth,
     gtm_test_domain,
     map_api_key,
     PromiseClass,
@@ -144,4 +168,5 @@ export {
     toHashFormat,
     zoho_url,
     trimSpaces,
+    p2p_playstore_url,
 }

@@ -64,6 +64,7 @@ export const Community = () => {
                             external="true"
                             to={community_url}
                             target="_blank"
+                            rel="noopener noreferrer"
                         >
                             {localize('Ask the community')}
                         </StyledLinkButton>

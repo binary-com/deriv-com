@@ -13,9 +13,8 @@ import Login from 'common/login'
 
 const StyledContainer = styled(Container)`
     text-align: center;
-    margin-top: 8rem;
     height: 72rem;
-    padding-bottom: 33rem;
+    padding: auto 0;
 `
 
 const ButtonContainer = styled.div`
@@ -47,7 +46,9 @@ const resetSubmission = (values, actions) => {
     const binary_socket = BinarySocketBase.init()
 
     binary_socket.onopen = () => {
-        binary_socket.send(JSON.stringify({ verify_email: trimSpaces(values.email), type: 'reset_password' }))
+        binary_socket.send(
+            JSON.stringify({ verify_email: trimSpaces(values.email), type: 'reset_password' }),
+        )
     }
     binary_socket.onmessage = (msg) => {
         const response = JSON.parse(msg.data)
@@ -70,7 +71,7 @@ const resetSubmission = (values, actions) => {
 }
 
 const ResetPassword = () => (
-    <Layout type="static">
+    <Layout type="static" margin_top="0">
         <SEO
             title={localize('Reset password | Deriv')}
             description={localize(

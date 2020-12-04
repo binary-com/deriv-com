@@ -31,6 +31,40 @@ const eu_countries = [
     'mt',
 ]
 
+const p2p_allowed_countries = [
+    'ng',
+    'za',
+    'zw',
+    'tz',
+    'gh',
+    'zm',
+    'bw',
+    'na',
+    'ke',
+    'aq',
+    'so',
+    'pk',
+    'in',
+    'bd',
+    'ik',
+    'ci',
+    'ar',
+    'bo',
+    'cl',
+    'co',
+    'ec',
+    'gf',
+    'gy',
+    'py',
+    'pe',
+    'sr',
+    'uy',
+    've',
+]
+
 export const isEuCountry = (clients_country) => eu_countries.includes(clients_country)
+
+export const isP2PAllowedCountry = (clients_country) =>
+    p2p_allowed_countries.includes(clients_country)
 
 export const isUK = (clients_country) => clients_country === 'gb'

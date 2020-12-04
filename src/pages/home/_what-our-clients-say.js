@@ -93,7 +93,7 @@ const ClientSlide = ({ quote, img_path, img_alt, name, location }) => (
             <Flex p="1.7rem 0 0 0">
                 <Flex ai="center" width="auto">
                     <ImageWrapper>
-                        <img src={img_path} alt={img_alt} loading="lazy" />
+                        <img src={img_path} alt={img_alt} width="50" height="50" loading="lazy" />
                     </ImageWrapper>
                 </Flex>
                 <figure>

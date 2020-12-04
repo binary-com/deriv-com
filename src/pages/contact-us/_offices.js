@@ -376,9 +376,9 @@ export const Offices = () => {
                                             target="_blank"
                                             rel="noopener noreferrer"
                                         >
-                                            67-1 &amp; 69-1, Jalan KLJ 6, Taman Kota
+                                            67-1 &amp; 69-1, Jalan KLJ 6, Taman
                                             <br></br>
-                                            Laksamana Jaya, Melaka 75200
+                                            Kota Laksamana Jaya, Melaka 75200
                                         </LocalizedLinkText>
                                     </Box>
                                 </FullBox>
@@ -458,7 +458,7 @@ export const Offices = () => {
                                     mt="0.8rem"
                                     ml="1.6rem"
                                 >
-                                    42 Agias Filaxeos, 5th floor,
+                                    Level 5, 42 Agias Filaxeos,
                                     <br></br>
                                     Limassol 3025
                                 </LocalizedLinkText>
@@ -476,7 +476,7 @@ export const Offices = () => {
                             <BorderBox>
                                 <MapContainer>
                                     <LocalizedLink
-                                        to="https://goo.gl/maps/hp1dv3TpYNMxa5fM9"
+                                        to="https://goo.gl/maps/dy3BPr2y29usir648"
                                         external
                                         target="_blank"
                                         rel="noopener noreferrer"
@@ -489,7 +489,7 @@ export const Offices = () => {
                                     </LocalizedLink>
                                 </MapContainer>
                                 <LocalizedLinkText
-                                    to="https://goo.gl/maps/hp1dv3TpYNMxa5fM9"
+                                    to="https://goo.gl/maps/dy3BPr2y29usir648"
                                     external
                                     target="_blank"
                                     rel="noopener noreferrer"

@@ -126,7 +126,7 @@ const DTrading = ({ trading, reverse, two_title }) => {
                             <ImageWrapper margin_right={!is_even ? '0' : '2.4rem'}>
                                 <QueryImage
                                     data={data[item.image_name]}
-                                    alt={data[item.image_alt]}
+                                    alt={item.image_alt}
                                     width="100%"
                                 />
                             </ImageWrapper>

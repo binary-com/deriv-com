@@ -6,6 +6,7 @@ import Footer from './footer'
 import Copyright from './copyright'
 import { Nav, NavStatic, NavPartners, NavInterim } from './nav'
 import { NavCareers } from './nav-careers'
+import { NavP2P } from './nav-p2p'
 import { LocationProvider } from './location-context'
 import EURedirect, { useModal } from 'components/custom/_eu-redirect-modal.js'
 import CookieBanner from 'components/custom/cookie-banner'
@@ -16,7 +17,7 @@ import { DerivStore } from 'store'
 const LiveChat = Loadable(() => import('./livechat'))
 
 const Main = styled.main`
-    padding-top: ${(props) => props.padding_top || '7rem'};
+    margin-top: ${(props) => props.margin_top || '7rem'};
     background: var(--color-white);
     height: 100%;
     position: relative;
@@ -27,7 +28,15 @@ const has_dataLayer = isBrowser() && window.dataLayer
 const TRACKING_STATUS_KEY = 'tracking_status'
 const tracking_status_cookie = new CookieStorage(TRACKING_STATUS_KEY)
 
-const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) => {
+const Layout = ({
+    children,
+    type,
+    interim_type,
+    margin_top,
+    no_login_signup,
+    no_live_chat,
+    nav_type,
+}) => {
     const { is_eu_country } = React.useContext(DerivStore)
     const [has_mounted, setMounted] = React.useState(false)
     const [show_cookie_banner, setShowCookieBanner] = React.useState(false)
@@ -88,6 +97,10 @@ const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) 
             Navigation = <NavCareers />
             FooterNav = <Footer no_language={true} />
             break
+        case 'p2p':
+            Navigation = <NavP2P nav_type={nav_type} />
+            FooterNav = <Copyright />
+            break
         default:
             Navigation = <Nav />
             FooterNav = <Footer />
@@ -104,7 +117,7 @@ const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) 
             LC_API={LC_API}
         >
             {Navigation}
-            <Main padding_top={padding_top} is_static={is_static}>
+            <Main margin_top={margin_top} is_static={is_static}>
                 {children}
             </Main>
             {show_cookie_banner && (
@@ -114,11 +127,13 @@ const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) 
                     is_open={show_cookie_banner}
                 />
             )}
-            <LiveChat
-                LC_API={LC_API}
-                is_livechat_interactive={is_livechat_interactive}
-                setLiveChatInteractive={setLiveChatInteractive}
-            />
+            {!no_live_chat && (
+                <LiveChat
+                    LC_API={LC_API}
+                    is_livechat_interactive={is_livechat_interactive}
+                    setLiveChatInteractive={setLiveChatInteractive}
+                />
+            )}
             {FooterNav}
             <EURedirect
                 toggle={toggleModal}
@@ -137,8 +152,10 @@ const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) 
 Layout.propTypes = {
     children: PropTypes.node.isRequired,
     interim_type: PropTypes.string,
+    margin_top: PropTypes.string,
+    nav_type: PropTypes.string,
+    no_live_chat: PropTypes.bool,
     no_login_signup: PropTypes.bool,
-    padding_top: PropTypes.string,
     type: PropTypes.string,
 }
 

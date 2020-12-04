@@ -10,7 +10,7 @@ import { localize, WithIntl } from 'components/localization'
 
 const PaymentAgent = () => {
     return (
-        <Layout type="partners" padding_top="10rem" no_login_signup>
+        <Layout type="partners" margin_top="10rem" no_login_signup>
             <SEO
                 title={localize('Payment agents | Partners | Deriv')}
                 description={localize(

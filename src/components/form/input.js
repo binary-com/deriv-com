@@ -17,8 +17,10 @@ const InputWrapper = styled.div`
     @media ${device.tabletL} {
         height: 5rem;
     }
+
     &:hover {
         border-color: var(--color-grey-5);
+
         & > label {
             color: var(--color-${(props) => props.labelHoverColor || 'black-3'});
         }
@@ -26,6 +28,7 @@ const InputWrapper = styled.div`
     &:focus-within {
         border-color: ${(props) => props.focusBorder || 'var(--color-green)'};
     }
+
     ${(props) =>
         !props.error &&
         css`
@@ -67,6 +70,7 @@ const StyledInput = styled.input`
     border-radius: 4px;
     @media ${device.tabletL} {
         height: 100%;
+
         & ~ label {
             font-size: 1.75rem;
             top: 1.5rem;
@@ -74,11 +78,13 @@ const StyledInput = styled.input`
     }
     @media ${device.mobileL} {
         font-size: 14px;
+
         & ~ label {
             font-size: 1.5rem;
             top: 1.75rem;
         }
     }
+
     &::placeholder {
         opacity: 0;
         transition: opacity 0.25s;
@@ -86,10 +92,13 @@ const StyledInput = styled.input`
     }
     &:focus {
         outline: none;
+
         & ~ label {
             transform: translate(-0.6rem, -2rem) scale(0.7);
+
             /* prettier-ignore */
             color: var(--color-${(props) => props.labelFocusColor || 'green'});
+
             /* prettier-ignore */
             background-color: var(--color-${(props) => props.background || 'grey-1'});
             @media ${device.mobileL} {

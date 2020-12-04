@@ -21,7 +21,6 @@ module.exports = {
         },
         'gatsby-transformer-sharp',
         'gatsby-plugin-sharp',
-        `gatsby-plugin-force-trailing-slashes`,
         {
             resolve: 'gatsby-plugin-sitemap',
             options: {
@@ -47,6 +46,8 @@ module.exports = {
                     '/homepage/**',
                     '/**/homepage',
                     '/**/homepage/**',
+                    '/offline-plugin-app-shell-fallback',
+                    '/**/offline-plugin-app-shell-fallback',
                 ],
                 serialize: ({ site, allSitePage }) =>
                     allSitePage.edges.map((edge) => {
@@ -184,12 +185,7 @@ module.exports = {
                 ],
             },
         },
-        {
-            resolve: 'gatsby-plugin-anchor-links',
-            options: {
-                offset: -300,
-            },
-        },
+        'gatsby-plugin-anchor-links',
         {
             resolve: `gatsby-plugin-nprogress`,
             options: {

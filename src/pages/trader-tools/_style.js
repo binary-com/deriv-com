@@ -346,22 +346,6 @@ export const BottomText = styled(StyledText)`
     }
 `
 
-// export const RightContentHeaderP = styled.div`
-//     font-size: 16px;
-//     font-weight: normal;
-//     font-stretch: normal;
-//     font-style: normal;
-//     line-height: 1.5;
-//     letter-spacing: normal;
-//     text-align: center;
-//     color: #333333;
-//     margin-bottom: 40px;
-
-//     @media ${device.mobileL} {
-//         margin-bottom: 16px;
-//     }
-// `
-
 export const LinkWrapper = styled(Flex)`
     padding: 2rem 2rem 1rem;
     width: 100%;
@@ -424,7 +408,7 @@ export const FormulaContainer = styled(Flex)`
 
 export const FormulaContainerMobile = styled(Flex)`
     width: 360px;
-    height: 160px;
+    height: ${(props) => (props.height ? props.height : '160px')};
     background-color: var(--color-blue-4);
 `
 
@@ -445,13 +429,14 @@ export const FormulaHighlightMobile = styled(Flex)`
     margin-top: 54px;
     margin-bottom: 53px;
     width: 328px;
-    height: 53px;
+    height: ${(props) => (props.height ? props.height : '53px')};
     border-radius: 4px;
     border: 1.5px solid var(--color-blue-5);
     background-color: #ffffff;
     align-items: center;
     font-size: 14px;
     font-weight: 600;
+    flex-direction: ${(props) => (props.syn_mobile ? 'column' : '')};
 `
 
 export const FormulaValue = styled.div`
@@ -486,6 +471,7 @@ export const PointerContainer = styled.div`
     align-items: center;
     max-width: 55px;
     white-space: nowrap;
+    margin-left: ${(props) => (props.ml ? props.ml : '0')};
 `
 
 export const PointerContainerMobile = styled.div`
@@ -526,7 +512,7 @@ export const PointerStick = styled.div`
 
 export const PointerStickMobile = styled.div`
     position: relative;
-    height: 18px;
+    height: ${(props) => (props.height ? props.height : '18px')};
     width: 1px;
     background-color: black;
     opacity: 0.1;
@@ -551,4 +537,14 @@ export const Sup = styled.span`
     color: black;
     font-size: xx-small;
     vertical-align: super;
+`
+
+export const FormulaTopWrapper = styled.div`
+    display: block;
+`
+
+export const FormulaBottomWrapper = styled.div`
+    display: block;
+    margin-top: 10px;
+    margin-left: 210px;
 `

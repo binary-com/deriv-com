@@ -82,9 +82,10 @@ export const FormWrapper = styled(Flex)`
     }
 `
 export const SwapFormWrapper = styled(FormWrapper)`
-    max-height: 580px;
-    margin-top: 40px;
+    height: 569px;
+    margin-top: 45px;
     @media ${device.tabletL} {
+        height: unset;
         margin-top: 0;
     }
 `

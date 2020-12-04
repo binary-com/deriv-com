@@ -9,7 +9,6 @@ import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { getLocationHash, isBrowser, scrollTop } from 'common/utility'
 import Patterns from 'images/common/trade-tools/trade-tools-bg.png'
-import Signup, { Appearances } from 'components/custom/signup'
 
 const Hero = styled(Flex)`
     height: 40rem;
@@ -33,7 +32,6 @@ const Item = styled.div`
 
     h4 {
         color: var(--color-black);
-        opacity: ${(props) => (props.name === props.active_tab ? '1' : '0.32')};
         font-weight: ${(props) => (props.name === props.active_tab ? 'bold' : 'normal')};
     }
     @media ${device.tabletL} {
@@ -103,7 +101,6 @@ const TraderTools = () => {
                 {active_tab === 'marginCalculator' && <MarginCalculator />}
                 {active_tab === 'swapCalculator' && <SwapCalculator />}
             </Box>
-            <Signup appearance={Appearances.public} />
         </Layout>
     )
 }

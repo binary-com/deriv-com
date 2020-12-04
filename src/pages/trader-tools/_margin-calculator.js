@@ -433,7 +433,7 @@ const MarginCalculator = () => {
                                             </PointerText>
                                             <PointerText>
                                                 <Localize
-                                                    translate_text="Size <0>1</0>"
+                                                    translate_text="size <0>1</0>"
                                                     components={[<Sup key={0} />]}
                                                 />
                                             </PointerText>
@@ -517,7 +517,7 @@ const MarginCalculator = () => {
                                             <PointerStickMobile />
                                             <PointerTextMobile top>
                                                 <Localize
-                                                    translate_text="Contract Size <0>1</0>"
+                                                    translate_text="Contract size <0>1</0>"
                                                     components={[<Sup key={0} />]}
                                                 />
                                             </PointerTextMobile>

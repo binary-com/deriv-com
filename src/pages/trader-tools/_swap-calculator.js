@@ -32,6 +32,22 @@ import {
     BottomContent,
     BottomText,
     StyledLinkButton,
+    FormulaContainer,
+    FormulaHighlight,
+    FormulaValueSwapSynthetic,
+    FormulaGreen,
+    PointerContainer,
+    PointerDot,
+    PointerStick,
+    PointerText,
+    FormulaContainerMobile,
+    FormulaHighlightMobile,
+    FormulaValueMobile,
+    PointerContainerMobile,
+    PointerStickMobile,
+    PointerDotMobile,
+    PointerTextMobile,
+    Sup,
 } from './_style'
 import validation from './_validation'
 import { localize, Localize } from 'components/localization'
@@ -489,19 +505,193 @@ const SwapCalculator = () => {
                                     )}
                                 </StyledText>
                             </TextWrapper>
+
                             <ImageWrapper>
                                 <Show.Desktop>
-                                    <QueryImage
-                                        data={data.swap_synthetic_formula}
-                                        alt={'swap synthetic formula'}
-                                    />
+                                    <FormulaContainer>
+                                        <FormulaHighlight>
+                                            <FormulaValueSwapSynthetic>
+                                                <Localize translate_text="0.01" />
+                                                <PointerContainer>
+                                                    <PointerDot />
+                                                    <PointerStick />
+                                                    <PointerText>
+                                                        <Localize translate_text="Volume" />
+                                                    </PointerText>
+                                                </PointerContainer>
+                                            </FormulaValueSwapSynthetic>
+
+                                            <FormulaValueSwapSynthetic>
+                                                <FormulaGreen> x </FormulaGreen>
+                                            </FormulaValueSwapSynthetic>
+
+                                            <FormulaValueSwapSynthetic>
+                                                <Localize translate_text="1" />
+                                                <PointerContainer>
+                                                    <PointerDot />
+                                                    <PointerStick />
+                                                    <PointerText>
+                                                        <Localize translate_text="Contract" />
+                                                    </PointerText>
+                                                    <PointerText>
+                                                        <Localize translate_text="size" />
+                                                    </PointerText>
+                                                </PointerContainer>
+                                            </FormulaValueSwapSynthetic>
+
+                                            <FormulaValueSwapSynthetic>
+                                                <FormulaGreen>x</FormulaGreen>
+                                            </FormulaValueSwapSynthetic>
+
+                                            <FormulaValueSwapSynthetic>
+                                                <Localize translate_text="400,000" />
+                                                <PointerContainer>
+                                                    <PointerDot />
+                                                    <PointerStick />
+                                                    <PointerText>
+                                                        <Localize translate_text="Asset price" />
+                                                    </PointerText>
+                                                </PointerContainer>
+                                            </FormulaValueSwapSynthetic>
+
+                                            <FormulaValueSwapSynthetic>
+                                                <FormulaGreen>x</FormulaGreen>
+                                            </FormulaValueSwapSynthetic>
+
+                                            <FormulaValueSwapSynthetic>
+                                                <Localize translate_text="( -7.5 " />
+                                                <PointerContainer>
+                                                    <PointerDot />
+                                                    <PointerStick />
+                                                    <PointerText>
+                                                        <Localize
+                                                            translate_text="Swap rate <0>1</0>"
+                                                            components={[<Sup key={0} />]}
+                                                        />
+                                                    </PointerText>
+                                                </PointerContainer>
+                                            </FormulaValueSwapSynthetic>
+
+                                            <FormulaValueSwapSynthetic>
+                                                <FormulaGreen>&divide;</FormulaGreen>
+                                            </FormulaValueSwapSynthetic>
+
+                                            <FormulaValueSwapSynthetic>
+                                                <Localize translate_text="100 )" />
+                                            </FormulaValueSwapSynthetic>
+
+                                            <FormulaValueSwapSynthetic>
+                                                <FormulaGreen>&divide;</FormulaGreen>
+                                            </FormulaValueSwapSynthetic>
+
+                                            <FormulaValueSwapSynthetic>
+                                                <Localize translate_text="360" />
+                                            </FormulaValueSwapSynthetic>
+
+                                            <FormulaValueSwapSynthetic>
+                                                <FormulaGreen>=</FormulaGreen>
+                                            </FormulaValueSwapSynthetic>
+
+                                            <FormulaValueSwapSynthetic>
+                                                <Localize
+                                                    translate_text="<0>-0.83 USD</0>"
+                                                    components={[<FormulaGreen key={0} />]}
+                                                />
+                                                <PointerContainer>
+                                                    <PointerDot />
+                                                    <PointerStick />
+                                                    <PointerText>
+                                                        <Localize translate_text="Swap charge" />
+                                                    </PointerText>
+                                                </PointerContainer>
+                                            </FormulaValueSwapSynthetic>
+                                        </FormulaHighlight>
+                                    </FormulaContainer>
                                 </Show.Desktop>
+
                                 <Show.Mobile>
-                                    <QueryImage
-                                        data={data.swap_synthetic_formula_mobile}
-                                        alt={'swap synthetic formula mobile'}
-                                    />
+                                    <FormulaContainerMobile>
+                                        <FormulaHighlightMobile>
+                                            <FormulaValueMobile>
+                                                <Localize translate_text="2" />
+                                                <PointerContainerMobile>
+                                                    <PointerDotMobile />
+                                                    <PointerStickMobile />
+                                                    <PointerTextMobile>
+                                                        <Localize translate_text="Volume" />
+                                                    </PointerTextMobile>
+                                                </PointerContainerMobile>
+                                            </FormulaValueMobile>
+
+                                            <FormulaValueMobile>
+                                                <FormulaGreen> x </FormulaGreen>
+                                            </FormulaValueMobile>
+
+                                            <FormulaValueMobile>
+                                                <Localize translate_text="100,000" />
+                                                <PointerContainerMobile top ml="12px">
+                                                    <PointerDotMobile />
+                                                    <PointerStickMobile />
+                                                    <PointerTextMobile top>
+                                                        <Localize
+                                                            translate_text="Contract Size <0>1</0>"
+                                                            components={[<Sup key={0} />]}
+                                                        />
+                                                    </PointerTextMobile>
+                                                </PointerContainerMobile>
+                                            </FormulaValueMobile>
+
+                                            <FormulaValueMobile>
+                                                <FormulaGreen>x</FormulaGreen>
+                                            </FormulaValueMobile>
+
+                                            <FormulaValueMobile>
+                                                <Localize translate_text="1.10" />
+                                                <PointerContainerMobile ml="3px">
+                                                    <PointerDotMobile />
+                                                    <PointerStickMobile />
+                                                    <PointerTextMobile>
+                                                        <Localize translate_text="Asset price" />
+                                                    </PointerTextMobile>
+                                                </PointerContainerMobile>
+                                            </FormulaValueMobile>
+
+                                            <FormulaValueMobile>
+                                                <FormulaGreen>&divide; </FormulaGreen>
+                                            </FormulaValueMobile>
+
+                                            <FormulaValueMobile>
+                                                <Localize translate_text="100" />
+                                                <PointerContainerMobile top ml="4px">
+                                                    <PointerDotMobile />
+                                                    <PointerStickMobile />
+                                                    <PointerTextMobile top>
+                                                        <Localize translate_text="Leverage" />
+                                                    </PointerTextMobile>
+                                                </PointerContainerMobile>
+                                            </FormulaValueMobile>
+
+                                            <FormulaValueMobile>
+                                                <FormulaGreen>=</FormulaGreen>
+                                            </FormulaValueMobile>
+
+                                            <FormulaValueMobile>
+                                                <Localize
+                                                    translate_text="<0>2,200 USD</0>"
+                                                    components={[<FormulaGreen key={0} />]}
+                                                />
+                                                <PointerContainerMobile ml="16px">
+                                                    <PointerDotMobile />
+                                                    <PointerStickMobile />
+                                                    <PointerTextMobile>
+                                                        <Localize translate_text="Margin required" />
+                                                    </PointerTextMobile>
+                                                </PointerContainerMobile>
+                                            </FormulaValueMobile>
+                                        </FormulaHighlightMobile>
+                                    </FormulaContainerMobile>
                                 </Show.Mobile>
+
                                 <FormulaText size="14px">
                                     <StyledOl>
                                         <li>
@@ -511,6 +701,15 @@ const SwapCalculator = () => {
                                         </li>
                                     </StyledOl>
                                 </FormulaText>
+                            </ImageWrapper>
+
+                            <ImageWrapper>
+                                <Show.Mobile>
+                                    <QueryImage
+                                        data={data.swap_synthetic_formula_mobile}
+                                        alt={'swap synthetic formula mobile'}
+                                    />
+                                </Show.Mobile>
                             </ImageWrapper>
                             <TextWrapper>
                                 <StyledText size="1.6rem" mt="1.6rem">

@@ -459,6 +459,12 @@ export const FormulaValue = styled.div`
     text-align: center;
 `
 
+export const FormulaValueSwapSynthetic = styled.div`
+    display: inline-block;
+    min-width: 40px;
+    text-align: center;
+`
+
 export const FormulaValueMobile = styled.div`
     display: inline-block;
     min-width: 20px;

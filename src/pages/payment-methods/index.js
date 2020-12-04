@@ -5,6 +5,7 @@ import { Helmet } from 'react-helmet'
 import Scrollbar from 'react-perfect-scrollbar'
 import ExpandList from './_expanded-list'
 import payment_data from './_payment-data'
+import Dp2p from './_dp2p'
 import Layout from 'components/layout/layout'
 import { Text, Header, Divider, Accordion, AccordionItem } from 'components/elements'
 import { SEO, SectionContainer, Container } from 'components/containers'
@@ -190,6 +191,7 @@ DisplayAccordianItem.propTypes = {
 }
 
 const PaymentMethods = () => {
+    const { is_p2p_allowed_country } = React.useContext(DerivStore)
     return (
         <Layout>
             <Helmet>
@@ -228,6 +230,16 @@ const PaymentMethods = () => {
                     </Text>
                 </Container>
             </SectionContainer>
+            {is_p2p_allowed_country && (
+                <>
+                    <Divider height="2px" />
+                    <SectionContainer>
+                        <Container direction="column">
+                            <Dp2p />
+                        </Container>
+                    </SectionContainer>
+                </>
+            )}
         </Layout>
     )
 }

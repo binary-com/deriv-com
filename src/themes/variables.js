@@ -49,11 +49,15 @@ const Variables = css`
         --color-grey-29: #edeeef;
         --color-grey-30: #f5f7fa;
         --color-grey-31: #f8fafc;
+        --color-grey-32: #dcdee0;
         --color-green: #85acb0;
         --color-blue: #4c76be;
         --color-blue-2: #365899;
         --color-blue-3: #2a3052;
-        --color-blue-4: #4fb5b3;
+        --color-blue-4: #f1f6f7;
+        --color-blue-5: #85abaf;
+        --color-blue-6: #4fb5b3;
+        --color-blue-7: #4bb4b3;
         --color-yellow: #fff2df;
         --color-orange: #ff6544;
         --color-green-1: #bccdce;

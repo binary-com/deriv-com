@@ -310,7 +310,7 @@ export const FormulaText = styled.div`
     width: 650px;
     line-height: 2;
 
-    @media ${device.tabletL} {
+    @media ${device.tablet} {
         width: 360px;
     }
 `
@@ -341,7 +341,7 @@ export const BottomText = styled(StyledText)`
         width: auto;
     }
 
-    @media ${device.tabletL} {
+    @media ${device.tablet} {
         font-size: 16px;
     }
 `
@@ -438,6 +438,7 @@ export const FormulaHighlight = styled(Flex)`
     align-items: center;
     font-size: 16px;
     font-weight: 600;
+    padding-right: ${(props) => (props.pr ? props.pr : '0')};
 `
 
 export const FormulaHighlightMobile = styled(Flex)`

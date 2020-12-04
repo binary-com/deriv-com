@@ -405,7 +405,7 @@ const MarginCalculator = () => {
                     </TextWrapper>
 
                     <ImageWrapper>
-                        <Show.Desktop>
+                        <Show.Desktop max_width="tablet">
                             <FormulaContainer>
                                 <FormulaHighlight>
                                     <FormulaValue>
@@ -492,7 +492,7 @@ const MarginCalculator = () => {
                             </FormulaContainer>
                         </Show.Desktop>
 
-                        <Show.Mobile>
+                        <Show.Mobile min_width="tablet">
                             <FormulaContainerMobile>
                                 <FormulaHighlightMobile>
                                     <FormulaValueMobile>

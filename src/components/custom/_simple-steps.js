@@ -91,6 +91,7 @@ const BackgroundPattern = styled.img`
 const MobileBackgroundPattern = styled.img`
     z-index: 0;
     position: absolute;
+    object-fit: cover;
     width: 100%;
     height: 100%;
     left: 0;
@@ -124,7 +125,7 @@ const SimpleSteps = ({ header, content, sign_up }) => (
             <MobileBackgroundPattern src={PatternMobile} alt="pattern mobile" />
         </Show.Mobile>
         <Container direction="column">
-            <StyledHeader align="center" size="var(--text-size-header-1)" as="h2">
+            <StyledHeader align="center" as="h2">
                 {header}
             </StyledHeader>
         </Container>

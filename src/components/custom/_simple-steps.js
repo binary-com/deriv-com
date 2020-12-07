@@ -81,12 +81,9 @@ const ClientCard = styled.article`
 const BackgroundPattern = styled.img`
     z-index: 0;
     position: absolute;
+    object-fit: cover;
     width: 100%;
     height: 100%;
-    max-width: 1440px;
-    max-height: 497px;
-    margin-left: auto;
-    margin-right: auto;
     left: 0;
     right: 0;
     bottom: 0;

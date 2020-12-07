@@ -27,7 +27,7 @@ const Th = styled.th`
         z-index: 2;
 
         p {
-            text-align: center !important;
+            text-align: center;
         }
     }
 `

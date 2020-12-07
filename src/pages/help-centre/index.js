@@ -9,7 +9,7 @@ import { SearchSuccess, SearchError } from './_search-results'
 // TODO: active this line after having mail service
 import { convertToHash } from './_utility'
 import { faq_schema } from './_faq-schema'
-import { SEO, Container } from 'components/containers'
+import { SEO, Show, Container } from 'components/containers'
 import { Header } from 'components/elements'
 import Layout from 'components/layout/layout'
 import { localize, LocalizedLink, WithIntl, Localize } from 'components/localization'
@@ -39,6 +39,10 @@ const Backdrop = styled.div`
     padding: 8rem 0;
     background-color: var(--color-white);
     border-bottom: 1px solid var(--color-grey-8);
+
+    @media ${device.tabletL} {
+        padding: 8rem 0 4rem;
+    }
 `
 const StyledContainer = styled.div`
     @media ${device.tabletL} {
@@ -136,6 +140,7 @@ const ArticleSection = styled.section`
 
     @media ${device.tabletL} {
         flex-wrap: wrap;
+        padding: 0 0 8rem;
     }
 `
 const ListNoBullets = styled.ul`
@@ -184,10 +189,12 @@ const ArticleDiv = styled.div`
     width: 100%;
     display: flex;
     flex-direction: column;
-    margin-bottom: 8rem;
 `
 
 const ResponsiveHeader = styled(Header)`
+    @media ${device.tabletL} {
+        text-align: center;
+    }
     @media ${device.mobileM} {
         font-size: 4rem;
     }
@@ -445,9 +452,9 @@ class HelpCentre extends Component {
                         })}
                     </ArticleSection>
                 </Container>
-
-                <Community />
-
+                <Show.Desktop max_width="tabletS">
+                    <Community />
+                </Show.Desktop>
                 <DidntFindYourAnswerBanner />
             </Layout>
         )

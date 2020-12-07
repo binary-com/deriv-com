@@ -24,12 +24,12 @@ const StyledCardWrapper = styled(CardWrapper)`
 `
 
 const StyledSection = styled(SectionContainer)`
-    box-shadow: ${(props) => (props.shadow ? '0 1px 0 0 rgba(0, 0, 0, 0.1)' : '')};
     padding-bottom: 0;
     text-align: ${(props) => props.align || 'left'};
 
     @media ${device.tabletL} {
         padding: 40px 0;
+        box-shadow: ${(props) => (props.shadow ? '0 1px 0 0 rgba(0, 0, 0, 0.1)' : '')};
     }
 `
 

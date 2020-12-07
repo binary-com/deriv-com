@@ -24,7 +24,6 @@ const TextSecondary = styled(Text)`
 const TextList = styled(Text)`
     margin-top: 1.6rem;
     margin-bottom: 0.8rem;
-    font-weight: bold;
 `
 
 const StyledLink = styled(LinkText)`

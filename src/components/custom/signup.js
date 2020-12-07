@@ -6,7 +6,7 @@ import Cookies from 'js-cookie'
 import { getUTMData } from 'common/utility'
 import { Box } from 'components/containers'
 import Login from 'common/login'
-import { CookieStorage, LocalStore } from 'common/storage'
+import { CookieStorage } from 'common/storage'
 import validation from 'common/validation'
 import { BinarySocketBase } from 'common/websocket/socket_base'
 import SignupDefault from 'components/custom/_signup-default'
@@ -106,7 +106,7 @@ class Signup extends Component {
             verify_email: email,
             type: 'account_opening',
             url_parameters: {
-                ...(utm.data.utm_source && {
+                ...(utm_data.utm_source && {
                     utm_source: utm_data.utm_source
                 }),
                 ...(utm_data.utm_ad_id && {

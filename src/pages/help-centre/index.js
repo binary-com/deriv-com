@@ -125,7 +125,7 @@ const ArticleSection = styled.section`
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    padding: 8rem 0;
+    padding: 0 0 8rem;
 
     @media ${device.tabletL} {
         flex-wrap: wrap;
@@ -143,6 +143,17 @@ const ListNoBullets = styled.ul`
         padding-bottom: 1.6rem;
     }
 `
+
+const StyledHeader = styled(Header)`
+    font-size: 2.4rem;
+    margin-bottom: 1.6rem;
+    margin-top: ${({ is_first_row }) => is_first_row ? "4rem" : "8rem"};
+
+    @media ${device.mobileL} {
+        margin-top: 4rem;
+    }
+`
+
 const StyledLink = styled(LocalizedLink)`
     text-decoration: none;
     color: black;
@@ -184,7 +195,7 @@ const ResponsiveHeader = styled(Header)`
     @media ${device.tabletL} {
         text-align: center;
     }
-    @media ${device.mobileM} {
+    @media ${device.mobileL} {
         font-size: 4rem;
     }
 `
@@ -351,14 +362,9 @@ class HelpCentre extends Component {
                                             return (
                                                 <ArticleDiv key={idx}>
                                                     <ListWrapper>
-                                                        <Header
-                                                            as="h3"
-                                                            type="section-title"
-                                                            size="3.6rem"
-                                                            mb="1.6rem"
-                                                        >
+                                                        <StyledHeader is_first_row={!!id} type="section-title">
                                                             {item.category}
-                                                        </Header>
+                                                        </StyledHeader>
                                                         {item.articles.map((ar, idxb) => {
                                                             const category_is_expanded =
                                                                 ar.category in all_categories &&
@@ -441,7 +447,7 @@ class HelpCentre extends Component {
                         })}
                     </ArticleSection>
                 </Container>
-                <Show.Desktop max_width="tabletL">
+                <Show.Desktop max_width={"tabletS"}>
                     <Community />
                 </Show.Desktop>
                 <DidntFindYourAnswerBanner />

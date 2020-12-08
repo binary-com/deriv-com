@@ -1,7 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Article } from './_article'
-import { Text, Header } from 'components/elements'
+import { ArticleWrapper, StyledHeader, StyledText } from './_styled-help-centre'
+import { Text } from 'components/elements'
 import { localize, Localize, WithIntl } from 'components/localization'
 import device from 'themes/device'
 // Images
@@ -34,27 +35,6 @@ import SummaryTabImage from 'images/common/help-centre/dbot-summary-tab.png'
 import TransactionsImage from 'images/common/help-centre/dbot-transactions.png'
 import ChartImage from 'images/common/help-centre/dbot-chart.png'
 
-const ArticleWrapper = styled.div`
-    max-width: 71.2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    height: 100%;
-    font-size: var(--text-size-s);
-    line-height: 1.5;
-    margin-left: 12.6rem;
-    margin-top: 1.6rem;
-
-    @media ${device.laptopL} {
-        margin-left: 2rem;
-    }
-    @media ${device.tabletL} {
-        margin-left: 0;
-    }
-`
-const StyledText = styled(Text)`
-    margin-top: 1.7rem;
-`
 const ImageWrapper = styled.div`
     padding: 2.4rem 10.2rem;
     max-width: 60rem;
@@ -116,12 +96,9 @@ const StyledTable = styled.table`
     width: 100%;
     margin-bottom: ${(props) => (props.has_note ? '2.4rem' : 0)};
 `
-const StyledHeader = styled(Header)`
-    margin-bottom: 2.4rem;
-`
 
 const WhatIsDBot = () => (
-    <ArticleWrapper>
+    <ArticleWrapper margin_left="2rem">
         <StyledHeader as="h4">{localize('What is DBot?')}</StyledHeader>
         <Text>
             {localize(
@@ -131,7 +108,7 @@ const WhatIsDBot = () => (
     </ArticleWrapper>
 )
 const FindBlocks = () => (
-    <ArticleWrapper>
+    <ArticleWrapper margin_left="2rem">
         <StyledHeader as="h4">{localize('How do I find the blocks I need?')}</StyledHeader>
         <Text>
             {localize("1. Click 'Get started' at the top left corner to open the blocks menu.")}
@@ -167,7 +144,7 @@ const FindBlocks = () => (
     </ArticleWrapper>
 )
 const RemoveBlocks = () => (
-    <ArticleWrapper>
+    <ArticleWrapper margin_left="2rem">
         <StyledHeader as="h4">
             {localize('How do I remove blocks from the workspace?')}
         </StyledHeader>
@@ -188,7 +165,7 @@ const RemoveBlocks = () => (
     </ArticleWrapper>
 )
 const CreateVariables = () => (
-    <ArticleWrapper>
+    <ArticleWrapper margin_left="2rem">
         <StyledHeader as="h4">{localize('How do I create variables?')}</StyledHeader>
         <Text>{localize("1. Click 'Get started' to open the blocks menu.")}</Text>
         <ImageWrapper>
@@ -241,7 +218,7 @@ const CreateVariables = () => (
     </ArticleWrapper>
 )
 const QuickStrategy = () => (
-    <ArticleWrapper>
+    <ArticleWrapper margin_left="2rem">
         <StyledHeader as="h4">
             {localize('What is a quick strategy and how do I use it?')}
         </StyledHeader>
@@ -330,7 +307,7 @@ const QuickStrategy = () => (
     </ArticleWrapper>
 )
 const MartingaleStrategy = () => (
-    <ArticleWrapper>
+    <ArticleWrapper margin_left="2rem">
         <StyledHeader as="h4">{localize('What is the Martingale strategy?')}</StyledHeader>
         <Text>
             {localize(
@@ -340,7 +317,7 @@ const MartingaleStrategy = () => (
     </ArticleWrapper>
 )
 const AlembertStrategy = () => (
-    <ArticleWrapper>
+    <ArticleWrapper margin_left="2rem">
         <StyledHeader as="h4">{localize('What is the D’Alembert strategy?')}</StyledHeader>
         <Text>
             {localize(
@@ -350,7 +327,7 @@ const AlembertStrategy = () => (
     </ArticleWrapper>
 )
 const OskarStrategy = () => (
-    <ArticleWrapper>
+    <ArticleWrapper margin_left="2rem">
         <StyledHeader as="h4">{localize("What is the Oscar's Grind strategy?")}</StyledHeader>
         <Text>
             {localize(
@@ -360,7 +337,7 @@ const OskarStrategy = () => (
     </ArticleWrapper>
 )
 const SaveStrategy = () => (
-    <ArticleWrapper>
+    <ArticleWrapper margin_left="2rem">
         <StyledHeader as="h4">{localize('How do I save my strategy?')}</StyledHeader>
         <Text>
             {localize(
@@ -450,7 +427,7 @@ const SaveStrategy = () => (
     </ArticleWrapper>
 )
 const ImportStrategy = () => (
-    <ArticleWrapper>
+    <ArticleWrapper margin_left="2rem">
         <StyledHeader as="h4">{localize('How do I import my strategies into DBot?')}</StyledHeader>
         <Text>
             {localize(
@@ -505,7 +482,7 @@ const ImportStrategy = () => (
     </ArticleWrapper>
 )
 const ResetWorkspace = () => (
-    <ArticleWrapper>
+    <ArticleWrapper margin_left="2rem">
         <StyledHeader as="h4">{localize('How do I reset the workspace?')}</StyledHeader>
         <Text>
             {localize(
@@ -524,7 +501,7 @@ const ResetWorkspace = () => (
     </ArticleWrapper>
 )
 const TransactionLog = () => (
-    <ArticleWrapper>
+    <ArticleWrapper margin_left="2rem">
         <StyledHeader as="h4">{localize('How do I clear my transaction log?')}</StyledHeader>
         <Text>
             {localize("1. In the panel on the right of the workspace, click 'Clear stat'.")}
@@ -551,7 +528,7 @@ const TransactionLog = () => (
     </ArticleWrapper>
 )
 const ControlLosses = () => (
-    <ArticleWrapper>
+    <ArticleWrapper margin_left="2rem">
         <StyledHeader as="h4">{localize('How do I control my losses with DBot?')}</StyledHeader>
         <Text>
             {localize(
@@ -664,7 +641,7 @@ const ControlLosses = () => (
 )
 
 const TradeStatus = () => (
-    <ArticleWrapper>
+    <ArticleWrapper margin_left="2rem">
         <StyledHeader as="h4">
             {localize('Where can I see the status of my trades in DBot?')}
         </StyledHeader>
@@ -701,7 +678,7 @@ const TradeStatus = () => (
     </ArticleWrapper>
 )
 const ViewChart = () => (
-    <ArticleWrapper>
+    <ArticleWrapper margin_left="2rem">
         <StyledHeader as="h4">{localize('How do I view the chart in DBot?')}</StyledHeader>
         <Text>
             {localize(

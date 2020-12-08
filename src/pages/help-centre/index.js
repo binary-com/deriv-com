@@ -7,7 +7,9 @@ import Loadable from '@loadable/component'
 import { articles } from './_help-articles'
 import { SearchSuccess, SearchError } from './_search-results'
 // TODO: active this line after having mail service
-import { convertToHash } from './_utility'
+import { DidntFindYourAnswerBanner } from './_didnt-find-answer'
+import { Community } from './_community'
+import { convertToHash, getAllArticles, splitArticles } from './_utility'
 import { faq_schema } from './_faq-schema'
 import { SEO, Show, Container } from 'components/containers'
 import { Header } from 'components/elements'
@@ -21,19 +23,6 @@ import CrossIcon from 'images/svg/cross.svg'
 //Lazy-load
 const DidntFindYourAnswerBanner = Loadable(() => import('./_didnt-find-answer'))
 const Community = Loadable(() => import('./_community'))
-
-const getAllArticles = (articles) =>
-    articles
-        .map((category) => category.articles)
-        // flatten the array, gatsby build does not support .flat() yet
-        .reduce((arr, article_arr) => arr.concat(article_arr), [])
-
-const splitArticles = (array, length) =>
-    array.reduce((result, item, index) => {
-        if (index % length === 0) result.push([])
-        result[Math.floor(index / length)].push(item)
-        return result
-    }, [])
 
 const Backdrop = styled.div`
     padding: 8rem 0;
@@ -452,7 +441,7 @@ class HelpCentre extends Component {
                         })}
                     </ArticleSection>
                 </Container>
-                <Show.Desktop max_width="tabletS">
+                <Show.Desktop max_width="tabletL">
                     <Community />
                 </Show.Desktop>
                 <DidntFindYourAnswerBanner />

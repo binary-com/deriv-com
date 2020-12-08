@@ -24,11 +24,6 @@ const StyledLinkButton = styled(LinkButton)`
         padding: 10px 16px;
     }
 `
-const StyledHeader = styled(Header)`
-    @media ${device.tablet} {
-        text-align: center;
-    }
-`
 
 const StyledQueryImage = styled(QueryImage)`
     @media ${device.tablet} {
@@ -53,9 +48,9 @@ export const Community = () => {
                 <Flex tablet_direction="column" tablet_ai="center" max_width="92rem">
                     <StyledQueryImage data={data['community']} width="41rem" />
                     <StyledFlex tablet_ai="center" ml="5rem" direction="column">
-                        <StyledHeader mt="1rem" as="h3" type="section-title">
+                        <Header mt="1rem" as="h3" type="section-title">
                             {localize('Have a question?')}
-                        </StyledHeader>
+                        </Header>
                         <Text size="var(--text-size-m)" pt="0.8rem" pb="3.4rem">
                             {localize('Our Deriv support community can help you find answers.')}
                         </Text>

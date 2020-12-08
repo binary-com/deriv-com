@@ -1,35 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Article } from './_article'
+import { ArticleWrapper, ExternalLink, StyledHeader, StyledText } from './_styled-help-centre'
 import { deriv_app_url } from 'common/utility'
-import { Text, Header, LocalizedLinkText } from 'components/elements/typography'
+import { Text } from 'components/elements'
 import { localize, Localize, WithIntl } from 'components/localization'
-import device from 'themes/device'
 
-const ArticleWrapper = styled.div`
-    max-width: 71.2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    height: 100%;
-    font-size: var(--text-size-s);
-    line-height: 1.5;
-    margin-left: 12.6rem;
-    margin-top: 1.6rem;
-
-    @media ${device.tabletL} {
-        margin-left: 0;
-    }
-`
-const StyledText = styled(Text)`
-    margin-top: 1.7rem;
-`
 const StyledListItem = styled.li`
     text-indent: -1.4em;
     padding-left: 1.4em;
-`
-const StyledHeader = styled(Header)`
-    margin-bottom: 2.4rem;
 `
 
 const WhoCanOpenAnAccount = () => (
@@ -46,7 +25,7 @@ const WhoCanOpenAnAccount = () => (
             </StyledListItem>
             <StyledListItem>
                 {localize(
-                    'Clients cannot be a resident in Canada, France, Hong Kong, Israel, Jersey, Malaysia, Malta, Paraguay, UAE, USA, or a restricted country which has been identified by the Financial Action Task Force (FATF) as having strategic deficiencies.',
+                    'Clients cannot be a resident in Canada, Hong Kong, Israel, Jersey, Malaysia, Malta, Paraguay, UAE, USA, or a restricted country which has been identified by the Financial Action Task Force (FATF) as having strategic deficiencies.',
                 )}
             </StyledListItem>
         </div>
@@ -60,7 +39,7 @@ const ChangingPersonalDetails = () => (
                 translate_text="If your account is not authenticated, you can change your name, date of birth, or citizenship by going to <0>Settings ></0> <1>Personal details</1>."
                 components={[
                     <strong key={0} />,
-                    <LocalizedLinkText
+                    <ExternalLink
                         to={`${deriv_app_url}/account/personal-details`}
                         external="true"
                         weight="bold"
@@ -99,7 +78,7 @@ const RecoveringPassword = () => (
             <Localize
                 translate_text="If you’ve forgotten your Google/Facebook account password, you can <0>reset your Deriv account password</0> to log in to Deriv."
                 components={[
-                    <LocalizedLinkText
+                    <ExternalLink
                         to="/reset-password"
                         weight="bold"
                         target="_blank"
@@ -131,7 +110,7 @@ const UnsubscribeEmail = () => (
                 translate_text="You can do this easily by going to <0>Settings > Profile ></0> <1>Personal details</1>. Uncheck the email preference box, and click the ‘Submit’ button to unsubscribe."
                 components={[
                     <strong key={0} />,
-                    <LocalizedLinkText
+                    <ExternalLink
                         to={`${deriv_app_url}/account/personal-details`}
                         target="_blank"
                         external="true"

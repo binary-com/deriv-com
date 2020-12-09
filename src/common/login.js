@@ -1,6 +1,6 @@
 import Cookies from 'js-cookie'
 import { CookieStorage, isStorageSupported } from './storage'
-import { brand_name, getUTMData } from './utility'
+import { brand_name, getDataObjFromCookie, getUTMFields } from './utility'
 import { getAppId } from './websocket/config'
 
 const Login = (() => {
@@ -21,11 +21,9 @@ const Login = (() => {
             date_first_contact ? `&date_first_contact=${date_first_contact}` : ''
         }`
         const affiliate_tracking = Cookies.getJSON('affiliate_tracking')
-        const utm_data_cookies = new CookieStorage('utm_data')
-        const utm_data_value = utm_data_cookies.get('utm_data')
-        const utm_data = utm_data_value ? getUTMData(utm_data_value) : {}
-        const utm_source = utm_data.utm_source
-        const utm_source_link = utm_source ? `&utm_source=${utm_source}` : ''
+        const utm_data_cookie = new CookieStorage('utm_data')
+        const utm_data = getDataObjFromCookie(utm_data_cookie, getUTMFields())
+        const utm_source_link = utm_data.utm_source ? `&utm_source=${utm_data.utm_source}` : ''
         const utm_ad_id_link = utm_data.utm_ad_id ? `&utm_medium=${utm_data.utm_ad_id}` : ''
         const utm_adgroup_id_link = utm_data.utm_adgroup_id
             ? `&utm_medium=${utm_data.utm_adgroup_id}`

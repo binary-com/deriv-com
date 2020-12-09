@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { graphql, StaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import Cookies from 'js-cookie'
-import { getUTMData } from 'common/utility'
+import { getDataObjFromCookie, getUTMFields } from 'common/utility'
 import { Box } from 'components/containers'
 import Login from 'common/login'
 import { CookieStorage } from 'common/storage'
@@ -91,9 +91,8 @@ class Signup extends Component {
     }
 
     getVerifyEmailRequest = (email) => {
-        const utm_data_cookies = new CookieStorage('utm_data')
-        const utm_data_value = utm_data_cookies.get('utm_data')
-        const utm_data = utm_data_value ? getUTMData(utm_data_value) : {}
+        const utm_data_cookie = new CookieStorage('utm_data')
+        const utm_data = getDataObjFromCookie(utm_data_cookie, getUTMFields())
         const affiliate_token = Cookies.getJSON('affiliate_tracking')
         const signup_device_cookie = new CookieStorage('signup_device')
         const signup_device = signup_device_cookie.get('signup_device')
@@ -101,47 +100,12 @@ class Signup extends Component {
         const date_first_contact = date_first_contact_cookie.get('date_first_contact')
         const gclid_cookies = new CookieStorage('gclid')
         const gclid = gclid_cookies.get('gclid')
-
+    
         return {
             verify_email: email,
             type: 'account_opening',
             url_parameters: {
-                ...(utm_data.utm_source && {
-                    utm_source: utm_data.utm_source
-                }),
-                ...(utm_data.utm_ad_id && {
-                    utm_ad_id: utm_data.utm_ad_id,
-                }),
-                ...(utm_data.utm_adgroup_id && {
-                    utm_adgroup_id: utm_data.utm_adgroup_id,
-                }),
-                ...(utm_data.utm_adrollclk_id && {
-                    utm_adrollclk_id: utm_data.utm_adrollclk_id,
-                }),
-                ...(utm_data.utm_campaign && {
-                    utm_campaign: utm_data.utm_campaign,
-                }),
-                ...(utm_data.utm_campaign_id && {
-                    utm_campaign_id: utm_data.utm_campaign_id,
-                }),
-                ...(utm_data.utm_content && {
-                    utm_content: utm_data.utm_content,
-                }),
-                ...(utm_data.utm_fbcl_id && {
-                    utm_fbcl_id: utm_data.utm_fbcl_id,
-                }),
-                ...(utm_data.utm_gl_client_id && {
-                    utm_gl_client_id: utm_data.utm_gl_client_id,
-                }),
-                ...(utm_data.utm_medium && {
-                    utm_medium: utm_data.utm_medium,
-                }),
-                ...(utm_data.utm_msclk_id && {
-                    utm_msclk_id: utm_data.utm_msclk_id,
-                }),
-                ...(utm_data.utm_term && {
-                    utm_term: utm_data.utm_term,
-                }),
+                ...(utm_data && { ...utm_data }),
                 ...(affiliate_token && { affiliate_token: affiliate_token }),
                 ...(gclid && { gclid_url: gclid }),
                 ...(signup_device && { signup_device: signup_device }),

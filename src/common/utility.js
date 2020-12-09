@@ -12,12 +12,18 @@ const toISOFormat = (date) => {
     return ''
 }
 
-const getUTMData = (data) => {
-    Object.keys(data).map((key) => {
-        data[key] = (data[key] || '').replace(/[^a-zA-Z0-9\s-._]/gi, '').substring(0, 100)
+const getDataObjFromCookie = (cookie, fields) => {
+    const data = {}
+    fields.forEach((elem) => {
+        const cookie_value = cookie.get(elem)
+        if (cookie_value) {
+            data[elem] = cookie_value
+        }
     })
     return data
 }
+
+const getUTMFields = () => ['utm_source', 'utm_ad_id', 'utm_adgroup_id', 'utm_adrollclk_id', 'utm_campaign', 'utm_campaign_id', 'utm_content', 'utm_fbcl_id', 'utm_gl_client_id', 'utm_medium', 'utm_msclk_id', 'utm_term']
 
 const toHashFormat = (string) => string.replace(/\s+/g, '-').toLowerCase() // change space to dash then lowercase all
 
@@ -169,7 +175,8 @@ export {
     routeBack,
     checkElemInArray,
     getWindowWidth,
-    getUTMData,
+    getDataObjFromCookie,
+    getUTMFields,
     gtm_test_domain,
     livechat_client_id,
     livechat_license_id,

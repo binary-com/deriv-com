@@ -1,6 +1,12 @@
 import Cookies from 'js-cookie'
-import { CookieStorage, isStorageSupported } from './storage'
-import { brand_name, getDataObjFromCookie, getDataLink, getUTMFields } from './utility'
+import { isStorageSupported } from './storage'
+import { brand_name } from './utility'
+import {
+    getDataObjFromCookies,
+    getDataLink,
+    getCookiesFields,
+    getCookiesObject,
+} from './cookies'
 import { getAppId } from './websocket/config'
 
 const Login = (() => {
@@ -13,17 +19,13 @@ const Login = (() => {
     const loginUrl = () => {
         const server_url = localStorage.getItem('config.server_url')
         const language = localStorage.getItem('i18n')?.replace('-', '_')
-        const signup_device_cookie = new CookieStorage('signup_device')
-        const signup_device = signup_device_cookie.get('signup_device')
-        const date_first_contact_cookie = new CookieStorage('date_first_contact')
-        const date_first_contact = date_first_contact_cookie.get('date_first_contact')
-        const marketing_queries = `&signup_device=${signup_device}${
-            date_first_contact ? `&date_first_contact=${date_first_contact}` : ''
-        }`
+
+        const cookies = getCookiesFields()
+        const cookies_objects = getCookiesObject(cookies)
+        const cookies_value = getDataObjFromCookies(cookies_objects, cookies)
+        const cookies_link = getDataLink(cookies_value)
+
         const affiliate_tracking = Cookies.getJSON('affiliate_tracking')
-        const utm_data_cookie = new CookieStorage('utm_data')
-        const utm_data = getDataObjFromCookie(utm_data_cookie, getUTMFields())
-        const utm_data_link = getDataLink(utm_data)
 
         const affiliate_token_link = affiliate_tracking
             ? `&affiliate_token=${affiliate_tracking}`
@@ -31,8 +33,8 @@ const Login = (() => {
         const deriv_app_app_id = 16929
 
         return server_url && /qa/.test(server_url)
-            ? `https://${server_url}/oauth2/authorize?app_id=${getAppId()}&l=${language}${marketing_queries}&brand=${brand_name.toLowerCase()}${affiliate_token_link}${utm_data_link}`
-            : `https://oauth.deriv.com/oauth2/authorize?app_id=${deriv_app_app_id}&l=${language}${marketing_queries}&brand=${brand_name.toLowerCase()}${affiliate_token_link}${utm_data_link}`
+            ? `https://${server_url}/oauth2/authorize?app_id=${getAppId()}&l=${language}&brand=${brand_name.toLowerCase()}${affiliate_token_link}${cookies_link}`
+            : `https://oauth.deriv.com/oauth2/authorize?app_id=${deriv_app_app_id}&l=${language}&brand=${brand_name.toLowerCase()}${affiliate_token_link}${cookies_link}`
     }
 
     const initOneAll = (provider) => {

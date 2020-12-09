@@ -3,10 +3,9 @@ import PropTypes from 'prop-types'
 import { graphql, StaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import Cookies from 'js-cookie'
-import { getDataObjFromCookie, getUTMFields } from 'common/utility'
+import { getCookiesObject, getCookiesFields, getDataObjFromCookies } from 'common/cookies'
 import { Box } from 'components/containers'
 import Login from 'common/login'
-import { CookieStorage } from 'common/storage'
 import validation from 'common/validation'
 import { BinarySocketBase } from 'common/websocket/socket_base'
 import SignupDefault from 'components/custom/_signup-default'
@@ -91,27 +90,18 @@ class Signup extends Component {
     }
 
     getVerifyEmailRequest = (email) => {
-        const utm_data_cookie = new CookieStorage('utm_data')
-        const utm_data = getDataObjFromCookie(utm_data_cookie, getUTMFields())
         const affiliate_token = Cookies.getJSON('affiliate_tracking')
-        const signup_device_cookie = new CookieStorage('signup_device')
-        const signup_device = signup_device_cookie.get('signup_device')
-        const date_first_contact_cookie = new CookieStorage('date_first_contact')
-        const date_first_contact = date_first_contact_cookie.get('date_first_contact')
-        const gclid_cookies = new CookieStorage('gclid')
-        const gclid = gclid_cookies.get('gclid')
+
+        const cookies = getCookiesFields()
+        const cookies_objects = getCookiesObject(cookies)
+        const cookies_value = getDataObjFromCookies(cookies_objects, cookies)
 
         return {
             verify_email: email,
             type: 'account_opening',
             url_parameters: {
-                ...(utm_data && { ...utm_data }),
                 ...(affiliate_token && { affiliate_token: affiliate_token }),
-                ...(gclid && { gclid_url: gclid }),
-                ...(signup_device && { signup_device: signup_device }),
-                ...(date_first_contact && {
-                    date_first_contact: date_first_contact,
-                }),
+                ...(cookies_value && { ...cookies_value }),
             },
         }
     }

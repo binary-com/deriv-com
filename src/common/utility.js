@@ -12,42 +12,6 @@ const toISOFormat = (date) => {
     return ''
 }
 
-const getDataObjFromCookie = (cookie, fields) => {
-    const data = {}
-    fields.forEach((elem) => {
-        const cookie_value = cookie.get(elem)
-        if (cookie_value) {
-            data[elem] = cookie_value
-        }
-    })
-    return data
-}
-
-const getDataLink = (data) => {
-    let data_link = ''
-
-    Object.keys(data).forEach((elem) => {
-        data_link += `&${elem}=${data[elem]}`
-    })
-
-    return data_link
-}
-
-const getUTMFields = () => [
-    'utm_source',
-    'utm_ad_id',
-    'utm_adgroup_id',
-    'utm_adrollclk_id',
-    'utm_campaign',
-    'utm_campaign_id',
-    'utm_content',
-    'utm_fbcl_id',
-    'utm_gl_client_id',
-    'utm_medium',
-    'utm_msclk_id',
-    'utm_term',
-]
-
 const toHashFormat = (string) => string.replace(/\s+/g, '-').toLowerCase() // change space to dash then lowercase all
 
 const isBrowser = () => typeof window !== 'undefined'
@@ -195,9 +159,6 @@ export {
     getLocationHash,
     getPropertyValue,
     getWindowWidth,
-    getDataObjFromCookie,
-    getDataLink,
-    getUTMFields,
     gtm_test_domain,
     isBrowser,
     isEmptyObject,

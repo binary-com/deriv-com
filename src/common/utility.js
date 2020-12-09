@@ -23,7 +23,20 @@ const getDataObjFromCookie = (cookie, fields) => {
     return data
 }
 
-const getUTMFields = () => ['utm_source', 'utm_ad_id', 'utm_adgroup_id', 'utm_adrollclk_id', 'utm_campaign', 'utm_campaign_id', 'utm_content', 'utm_fbcl_id', 'utm_gl_client_id', 'utm_medium', 'utm_msclk_id', 'utm_term']
+const getUTMFields = () => [
+    'utm_source',
+    'utm_ad_id',
+    'utm_adgroup_id',
+    'utm_adrollclk_id',
+    'utm_campaign',
+    'utm_campaign_id',
+    'utm_content',
+    'utm_fbcl_id',
+    'utm_gl_client_id',
+    'utm_medium',
+    'utm_msclk_id',
+    'utm_term',
+]
 
 const toHashFormat = (string) => string.replace(/\s+/g, '-').toLowerCase() // change space to dash then lowercase all
 

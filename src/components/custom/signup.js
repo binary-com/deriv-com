@@ -100,7 +100,7 @@ class Signup extends Component {
         const date_first_contact = date_first_contact_cookie.get('date_first_contact')
         const gclid_cookies = new CookieStorage('gclid')
         const gclid = gclid_cookies.get('gclid')
-    
+
         return {
             verify_email: email,
             type: 'account_opening',

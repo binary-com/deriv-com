@@ -14,6 +14,7 @@ import Paraguay from 'images/svg/contact/paraguay.svg'
 import Malaysia from 'images/svg/contact/malaysia.svg'
 import Cyprus from 'images/svg/contact/cyprus.svg'
 import Rwanda from 'images/svg/contact/rwanda.svg'
+import Belarus from 'images/svg/contact/belarus.svg'
 
 const query = graphql`
     query {
@@ -42,6 +43,9 @@ const query = graphql`
             ...fadeIn
         }
         map_rwanda: file(relativePath: { eq: "maps/map-rwanda.png" }) {
+            ...fadeIn
+        }
+        map_belarus: file(relativePath: { eq: "maps/map-belarus.png" }) {
             ...fadeIn
         }
     }
@@ -499,6 +503,44 @@ export const Offices = () => {
                                     Level 2 East Wing, Kigali Heights,
                                     <br></br>
                                     KG7 Avenue, Kigali
+                                </LocalizedLinkText>
+                            </BorderBox>
+                        </Flex>
+                        <Flex fd="column" max_width="48.6rem" id="belarus">
+                            <OfficeHeader>
+                                <div>
+                                    <img src={Belarus} alt="belarus" />
+                                </div>
+                                <Header as="h4" mt="0.8rem" mb="1.6rem">
+                                    {localize('Belarus')}
+                                </Header>
+                            </OfficeHeader>
+                            <BorderBox>
+                                <MapContainer>
+                                    <LocalizedLink
+                                        to="https://goo.gl/maps/dy3BPr2y29usir648"
+                                        external
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        <QueryImage
+                                            alt="Map Belarus"
+                                            data={data['map_belarus']}
+                                            height="100%"
+                                        />
+                                    </LocalizedLink>
+                                </MapContainer>
+                                <LocalizedLinkText
+                                    to="https://goo.gl/maps/dy3BPr2y29usir648"
+                                    external
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    mt="0.8rem"
+                                    ml="1.6rem"
+                                >
+                                    Duis 6, 73 aute irure dolor in,
+                                    <br></br>
+                                    reprehenderit, Minsk 3417
                                 </LocalizedLinkText>
                             </BorderBox>
                         </Flex>

@@ -8,6 +8,7 @@ import {
     address_melaka,
     address_cyprus,
     address_rwanda,
+    address_belarus,
 } from './_contact-details'
 
 export const cyberjaya = {
@@ -182,6 +183,26 @@ export const rwanda = {
     has_iframe: false,
 }
 
+export const minsk = {
+    name: 'minsk',
+    link: '/careers/locations/minsk',
+    display_name: 'Minsk',
+    country: 'Belarus',
+    thumbnail: 'thumbnail_minsk',
+    header_p:
+        'Minsk, the capital of Belarus, is a modern European city located in the centre of the country by the Svislach river. The country has two official languages: Belarussian and Russian, but the younger population is fluent in English too. Today, Minsk is known for its rich historical Soviet architecture, theatres, museums, and art galleries.',
+    first_p:
+        'Minsk is one of the cleanest cities in Belarus with its gleaming streets and well-maintained public facilities. From cafés to film screenings, to underground music shows, there’s a lot going on in Minsk to keep you entertained. Enjoy The nightlife in Minsk is vibrant with trendy bars and restaurants, with the downtown buildings illuminated by coloured lights that completely transform the city’s architecture.',
+    first_img: 'living_in_minsk',
+    grid_images: ['minsk_grid_1', 'minsk_grid_2', 'minsk_grid_3', 'minsk_grid_4'],
+    map: 'ChIJwc77Waml3BkRKuYdzjsIu7c',
+    map_text: `We’re located in Minsk, the largest city of Belarus. Minsk has an international airport and efficient public transportation that connects to other major cities in Belarus. The temperate continental climate with fascinating parks and gardens, delicious local cuisine, and intriguing cultures, make Minsk a great location to work.`,
+    address: address_belarus,
+    map_img: 'minsk_map',
+    google_map_link: 'https://goo.gl/maps/T3Xm8VEUp4XaXybZ6',
+    has_iframe: false,
+}
+
 export const locations = {
     cyberjaya: `${cyberjaya.display_name}, ${cyberjaya.country}`,
     malta: `${malta.display_name}`,
@@ -192,4 +213,5 @@ export const locations = {
     ipoh: `${ipoh.display_name}, ${ipoh.country}`,
     cyprus: `${cyprus.display_name}, ${cyprus.country}`,
     rwanda: `${rwanda.display_name}, ${rwanda.country}`,
+    belarus: `${minsk.display_name}, ${minsk.country}`,
 }

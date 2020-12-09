@@ -23,6 +23,16 @@ const getDataObjFromCookie = (cookie, fields) => {
     return data
 }
 
+const getDataLink = (data) => {
+    let data_link = ''
+
+    Object.keys(data).forEach((elem) => {
+        data_link += `&${elem}=${data[elem]}`
+    })
+
+    return data_link
+}
+
 const getUTMFields = () => [
     'utm_source',
     'utm_ad_id',
@@ -189,6 +199,7 @@ export {
     checkElemInArray,
     getWindowWidth,
     getDataObjFromCookie,
+    getDataLink,
     getUTMFields,
     gtm_test_domain,
     livechat_client_id,

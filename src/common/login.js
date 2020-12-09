@@ -1,6 +1,6 @@
 import Cookies from 'js-cookie'
 import { CookieStorage, isStorageSupported } from './storage'
-import { brand_name, getDataObjFromCookie, getUTMFields } from './utility'
+import { brand_name, getDataObjFromCookie, getDataLink, getUTMFields } from './utility'
 import { getAppId } from './websocket/config'
 
 const Login = (() => {
@@ -23,11 +23,7 @@ const Login = (() => {
         const affiliate_tracking = Cookies.getJSON('affiliate_tracking')
         const utm_data_cookie = new CookieStorage('utm_data')
         const utm_data = getDataObjFromCookie(utm_data_cookie, getUTMFields())
-        let utm_data_link = ''
-
-        Object.keys(utm_data).forEach((elem) => {
-            utm_data_link += `&${elem}=${utm_data[elem]}`
-        })
+        const utm_data_link = getDataLink(utm_data)
 
         const affiliate_token_link = affiliate_tracking
             ? `&affiliate_token=${affiliate_tracking}`

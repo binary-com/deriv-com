@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Article } from './_article'
-import { ArticleWrapper, StyledHeader, StyledText } from './_styled-help-centre'
+import { ArticleWrapper, StyledHeader, StyledText } from './_help-centre-style'
 import { Text } from 'components/elements'
 import { localize, Localize, WithIntl } from 'components/localization'
 import device from 'themes/device'

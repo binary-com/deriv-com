@@ -1,6 +1,7 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 import { Text, LocalizedLinkText } from 'components/elements/typography'
 import { Header, QueryImage } from 'components/elements'
 import { SectionContainer, Container, Flex, Box } from 'components/containers'
@@ -164,7 +165,8 @@ const FullBox = styled(Flex)`
     }
 `
 
-export const Offices = () => {
+// TODO: remove enableBelarus boolean once address is confirmed.
+export const Offices = ({ enableBelarus }) => {
     const data = useStaticQuery(query)
 
     return (
@@ -506,47 +508,53 @@ export const Offices = () => {
                                 </LocalizedLinkText>
                             </BorderBox>
                         </Flex>
-                        <Flex fd="column" max_width="48.6rem" id="belarus">
-                            <OfficeHeader>
-                                <div>
-                                    <img src={Belarus} alt="belarus" />
-                                </div>
-                                <Header as="h4" mt="0.8rem" mb="1.6rem">
-                                    {localize('Belarus')}
-                                </Header>
-                            </OfficeHeader>
-                            <BorderBox>
-                                <MapContainer>
-                                    <LocalizedLink
+                        {enableBelarus && (
+                            <Flex fd="column" max_width="48.6rem" id="belarus">
+                                <OfficeHeader>
+                                    <div>
+                                        <img src={Belarus} alt="belarus" />
+                                    </div>
+                                    <Header as="h4" mt="0.8rem" mb="1.6rem">
+                                        {localize('Belarus')}
+                                    </Header>
+                                </OfficeHeader>
+                                <BorderBox>
+                                    <MapContainer>
+                                        <LocalizedLink
+                                            to="https://goo.gl/maps/dy3BPr2y29usir648"
+                                            external
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                        >
+                                            <QueryImage
+                                                alt="Map Belarus"
+                                                data={data['map_belarus']}
+                                                height="100%"
+                                            />
+                                        </LocalizedLink>
+                                    </MapContainer>
+                                    <LocalizedLinkText
                                         to="https://goo.gl/maps/dy3BPr2y29usir648"
                                         external
                                         target="_blank"
                                         rel="noopener noreferrer"
+                                        mt="0.8rem"
+                                        ml="1.6rem"
                                     >
-                                        <QueryImage
-                                            alt="Map Belarus"
-                                            data={data['map_belarus']}
-                                            height="100%"
-                                        />
-                                    </LocalizedLink>
-                                </MapContainer>
-                                <LocalizedLinkText
-                                    to="https://goo.gl/maps/dy3BPr2y29usir648"
-                                    external
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    mt="0.8rem"
-                                    ml="1.6rem"
-                                >
-                                    Duis 6, 73 aute irure dolor in,
-                                    <br></br>
-                                    reprehenderit, Minsk 3417
-                                </LocalizedLinkText>
-                            </BorderBox>
-                        </Flex>
+                                        Duis 6, 73 aute irure dolor in,
+                                        <br></br>
+                                        reprehenderit, Minsk 3417
+                                    </LocalizedLinkText>
+                                </BorderBox>
+                            </Flex>
+                        )}
                     </GridLayout>
                 </Content>
             </Container>
         </SectionContainer>
     )
+}
+
+Offices.propTypes = {
+    enableBelarus: PropTypes.bool,
 }

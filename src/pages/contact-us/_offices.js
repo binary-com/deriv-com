@@ -165,8 +165,8 @@ const FullBox = styled(Flex)`
     }
 `
 
-// TODO: remove enable_belarus boolean once address is confirmed.
-export const Offices = ({ enable_belarus }) => {
+// TODO: remove is_belarus_enabled boolean once address is confirmed.
+export const Offices = ({ is_belarus_enabled }) => {
     const data = useStaticQuery(query)
 
     return (
@@ -508,7 +508,7 @@ export const Offices = ({ enable_belarus }) => {
                                 </LocalizedLinkText>
                             </BorderBox>
                         </Flex>
-                        {enable_belarus && (
+                        {is_belarus_enabled && (
                             <Flex fd="column" max_width="48.6rem" id="belarus">
                                 <OfficeHeader>
                                     <div>
@@ -554,5 +554,5 @@ export const Offices = ({ enable_belarus }) => {
 }
 
 Offices.propTypes = {
-    enable_belarus: PropTypes.bool,
+    is_belarus_enabled: PropTypes.bool,
 }

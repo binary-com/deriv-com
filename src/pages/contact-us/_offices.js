@@ -540,11 +540,7 @@ export const Offices = ({ enableBelarus }) => {
                                         rel="noopener noreferrer"
                                         mt="0.8rem"
                                         ml="1.6rem"
-                                    >
-                                        Duis 6, 73 aute irure dolor in,
-                                        <br></br>
-                                        reprehenderit, Minsk 3417
-                                    </LocalizedLinkText>
+                                    ></LocalizedLinkText>
                                 </BorderBox>
                             </Flex>
                         )}

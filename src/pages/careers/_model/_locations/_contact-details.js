@@ -23,7 +23,7 @@ const address_cyprus = ['Level 5, 42 Agias Filaxeos', 'Limassol 3025']
 
 const address_rwanda = ['Level 2 East Wing, Kigali Heights, KG7', 'Avenue, Kigali']
 
-const address_belarus = ['Duis 6,', '73 aute irure dolor in reprehenderit,', 'Minsk 3417']
+const address_belarus = ['', '', '']
 
 export {
     address_cyberjaya,

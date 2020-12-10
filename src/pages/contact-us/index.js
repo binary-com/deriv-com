@@ -50,7 +50,7 @@ const ContactUs = () => {
                 </HeroWrapper>
             </SectionContainer>
             <ContactWays />
-            <Offices />
+            <Offices enableBelarus={true} />
             <Affiliates />
         </Layout>
     )

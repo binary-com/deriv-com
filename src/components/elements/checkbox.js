@@ -48,8 +48,8 @@ const StyledCheckbox = styled.div`
     }
 `
 
-const Checkbox = ({ checked, secondary, ...props }) => (
-    <CheckboxContainer>
+const Checkbox = ({ checked, secondary, id, ...props }) => (
+    <CheckboxContainer id={id}>
         <HiddenCheckbox checked={checked} {...props} />
         <StyledCheckbox checked={checked} secondary={secondary}>
             <Icon viewBox="0 0 24 24" secondary={secondary}>
@@ -61,6 +61,7 @@ const Checkbox = ({ checked, secondary, ...props }) => (
 
 Checkbox.propTypes = {
     checked: PropTypes.bool,
+    id: PropTypes.string,
     secondary: PropTypes.bool,
 }
 

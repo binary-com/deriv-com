@@ -7,7 +7,7 @@ import { LocalizedLink } from 'components/localization'
 import device from 'themes/device'
 // SVG
 import Arrow from 'images/svg/card-arrow.svg'
-import { ReactComponent as Diagonal } from 'images/svg/pink-right-diagonal.svg'
+import Diagonal from 'images/svg/pink-right-diagonal.svg'
 
 export const CardStyle = css`
     box-sizing: border-box;
@@ -44,13 +44,6 @@ const CardCover = styled.div`
         width: 100%;
         padding: 0 1.6rem;
         align-items: center;
-
-        h4 {
-            color: var(--color-white);
-            font-size: 2.8rem;
-            font-weight: bold;
-            line-height: 1.25;
-        }
     }
 `
 
@@ -154,6 +147,12 @@ const IconWrapper = styled.div`
     }
 `
 
+const CoverContent = styled(Text)`
+    color: white;
+    font-weight: bold;
+    font-size: var(--text-size-m);
+`
+
 Content.propTypes = {
     content: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
 }
@@ -186,13 +185,17 @@ export const Card = ({
                                 <div>
                                     {word_break_cover ? (
                                         <Flex direction="column" jc="flex-start" ai="flex-start">
-                                            <h4>{cover_content.split(' ')[0]}</h4>
-                                            <h4>{cover_content.split(' ').slice(1).join(' ')}</h4>
+                                            <CoverContent>
+                                                {cover_content.split(' ')[0]}
+                                            </CoverContent>
+                                            <CoverContent>
+                                                {cover_content.split(' ').slice(1).join(' ')}
+                                            </CoverContent>
                                         </Flex>
                                     ) : (
-                                        <h4>{cover_content}</h4>
+                                        <CoverContent>{cover_content}</CoverContent>
                                     )}
-                                    <img src={Arrow} alt="arrow" />
+                                    <img src={Arrow} alt="arrow" width="16" height="16" />
                                 </div>
                             </CardCover>
                             <IconContainer>
@@ -200,9 +203,9 @@ export const Card = ({
                                     <Icon />
                                 </IconWrapper>
                                 <CardContentContainer>
-                                    <Header as="h4" weight="bold">
+                                    <Text size="var(--text-size-m)" weight="bold">
                                         {title}
-                                    </Header>
+                                    </Text>
                                     <Content content={content} />
                                 </CardContentContainer>
                             </IconContainer>
@@ -211,9 +214,9 @@ export const Card = ({
                         <>
                             <Icon />
                             <ContentWrapper>
-                                <Header as="h4" weight="bold">
+                                <Text size="var(--text-size-m)" weight="bold">
                                     {title}
-                                </Header>
+                                </Text>
                                 <Content content={content} />
                             </ContentWrapper>
                         </>
@@ -265,7 +268,7 @@ const NavContent = styled.div`
     display: flex;
     flex-direction: column;
 `
-const RightDiagonal = styled(Diagonal)`
+const RightDiagonal = styled.img`
     opacity: 0;
     transition: opacity 0.2s;
     position: absolute;
@@ -377,7 +380,7 @@ export const NavCard = ({
                 </NavContent>
                 {external && (
                     <div>
-                        <RightDiagonal />
+                        <RightDiagonal src={Diagonal} alt="Diagonal" widht="16" height="16" />
                     </div>
                 )}
             </FlexHover>
@@ -466,7 +469,7 @@ export const CardLink = ({ icon: Icon, title, to, style, external, target, onCli
                     </ResponsiveHeader>
                     {external && (
                         <LinkRightDiagonal>
-                            <Diagonal />
+                            <img src={Diagonal} alt="Diagonal" width="16" height="16" />
                         </LinkRightDiagonal>
                     )}
                 </RelativeFlex>

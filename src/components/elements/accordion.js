@@ -3,20 +3,20 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { Text } from './typography'
 import { useStateWithCallback } from 'components/hooks/use-state-with-callback'
-import { ReactComponent as Chevron } from 'images/svg/chevron-bottom.svg'
-import { ReactComponent as ChevronThick } from 'images/svg/chevron-thick.svg'
-import { ReactComponent as Minus } from 'images/svg/minus.svg'
-import { ReactComponent as Plus } from 'images/svg/plus.svg'
+import Chevron from 'images/svg/chevron-bottom.svg'
+import ChevronThick from 'images/svg/chevron-thick.svg'
+import Minus from 'images/svg/minus.svg'
+import Plus from 'images/svg/plus.svg'
 import device from 'themes/device'
 
-const ThickArrow = styled(ChevronThick)`
+const ThickArrow = styled.img`
     width: 24px;
     transform: rotate(-180deg);
     transition: transform 0.25s linear;
     ${(props) => (props.expanded === 'true' ? 'transform: inherit;' : '')}
 `
 
-const Arrow = styled(Chevron)`
+const Arrow = styled.img`
     transition: transform 0.25s linear;
     ${(props) => (props.expanded === 'true' ? 'transform: rotate(-180deg);' : '')}
 `
@@ -65,11 +65,11 @@ const AccordionWrapper = styled.div`
 const TRANSITION_DURATION = 250
 
 // TODO: keyboard events and find a way to add proper focus handling
-const Accordion = ({ children, has_single_state, is_default_open }) => {
+const Accordion = ({ children, has_single_state, id, is_default_open }) => {
     const nodes = []
 
     return has_single_state ? (
-        <SingleAccordionContent is_default_open={is_default_open} nodes={nodes}>
+        <SingleAccordionContent id={id} is_default_open={is_default_open} nodes={nodes}>
             {children}
         </SingleAccordionContent>
     ) : (
@@ -79,11 +79,12 @@ const Accordion = ({ children, has_single_state, is_default_open }) => {
 Accordion.propTypes = {
     children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
     has_single_state: PropTypes.bool,
+    id: PropTypes.string,
     is_default_open: PropTypes.bool,
     nodes: PropTypes.array,
 }
 
-const ItemExpanded = ({ is_default_open, child, child_idx, nodes }) => {
+const ItemExpanded = ({ is_default_open, child, child_idx, nodes, id }) => {
     const getHeight = (active_idx) => {
         return (
             nodes[active_idx] &&
@@ -95,7 +96,7 @@ const ItemExpanded = ({ is_default_open, child, child_idx, nodes }) => {
         // set height to auto to allow content that can resize inside the accordion
         // reset height to content height before collapse for transition (height: auto does not support transitions)
         if (is_expanded) setTimeout(() => setHeight('auto'), 200)
-        else setTimeout(() => setHeight(0), 50)
+        else setHeight(0)
     })
 
     React.useEffect(() => {
@@ -110,6 +111,7 @@ const ItemExpanded = ({ is_default_open, child, child_idx, nodes }) => {
                 <ResponsiveWrapper
                     key={child_idx}
                     style={child.props.parent_style}
+                    id={id}
                     ref={(div) => {
                         nodes[child_idx] = { ref: div }
                     }}
@@ -125,14 +127,26 @@ const ItemExpanded = ({ is_default_open, child, child_idx, nodes }) => {
                             <div>
                                 {child.props.plus ? (
                                     is_expanded ? (
-                                        <Minus />
+                                        <img src={Minus} alt="Minus" height="16" width="16" />
                                     ) : (
-                                        <Plus />
+                                        <img src={Plus} alt="Plus" height="16" width="16" />
                                     )
                                 ) : child.props.arrow_thin ? (
-                                    <Arrow expanded={is_expanded ? 'true' : 'false'} />
+                                    <Arrow
+                                        src={Chevron}
+                                        alt="Chevron"
+                                        width="32"
+                                        height="32"
+                                        expanded={is_expanded ? 'true' : 'false'}
+                                    />
                                 ) : (
-                                    <ThickArrow expanded={is_expanded ? 'true' : 'false'} />
+                                    <ThickArrow
+                                        src={ChevronThick}
+                                        alt="Chevron thick"
+                                        width="32"
+                                        height="32"
+                                        expanded={is_expanded ? 'true' : 'false'}
+                                    />
                                 )}
                             </div>
                         </AccordionHeader>
@@ -156,11 +170,12 @@ const ItemExpanded = ({ is_default_open, child, child_idx, nodes }) => {
 ItemExpanded.propTypes = {
     child: PropTypes.any,
     child_idx: PropTypes.any,
+    id: PropTypes.string,
     is_default_open: PropTypes.bool,
     nodes: PropTypes.any,
 }
 
-const SingleAccordionContent = ({ is_default_open = false, nodes, children }) => {
+const SingleAccordionContent = ({ is_default_open = false, nodes, children, id }) => {
     const render_nodes = React.Children.map(children, (child, child_idx) => {
         return (
             <ItemExpanded
@@ -169,6 +184,7 @@ const SingleAccordionContent = ({ is_default_open = false, nodes, children }) =>
                 child={child}
                 child_idx={child_idx}
                 nodes={nodes}
+                id={id}
             />
         )
     })
@@ -178,6 +194,7 @@ const SingleAccordionContent = ({ is_default_open = false, nodes, children }) =>
 
 SingleAccordionContent.propTypes = {
     children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
+    id: PropTypes.string,
     is_default_open: PropTypes.bool,
     nodes: PropTypes.array,
 }
@@ -224,14 +241,26 @@ const AccordionContent = ({ children, nodes }) => {
                         <Text weight="bold">{child.props.header}</Text>
                         {child.props.plus ? (
                             is_expanded ? (
-                                <Minus />
+                                <img src={Minus} alt="Minus" height="16" width="16" />
                             ) : (
-                                <Plus />
+                                <img src={Plus} alt="Plus" height="16" width="16" />
                             )
                         ) : child.props.arrow_thin ? (
-                            <Arrow expanded={is_expanded ? 'true' : 'false'} />
+                            <Arrow
+                                src={Chevron}
+                                alt="Chevron"
+                                height="32"
+                                width="32"
+                                expanded={is_expanded ? 'true' : 'false'}
+                            />
                         ) : (
-                            <ThickArrow expanded={is_expanded ? 'true' : 'false'} />
+                            <ThickArrow
+                                src={ChevronThick}
+                                alt="ChevronThick"
+                                height="32"
+                                width="32"
+                                expanded={is_expanded ? 'true' : 'false'}
+                            />
                         )}
                     </AccordionHeader>
                     <div
@@ -256,12 +285,13 @@ const AccordionContent = ({ children, nodes }) => {
 AccordionContent.propTypes = {
     children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
     has_single_state: PropTypes.bool,
+    id: PropTypes.string,
     nodes: PropTypes.array,
 }
 
-const AccordionItem = ({ text, children, style }) => {
+const AccordionItem = ({ id, text, children, style }) => {
     return (
-        <div style={style} header={text}>
+        <div style={style} header={text} id={id}>
             {children}
         </div>
     )
@@ -269,6 +299,7 @@ const AccordionItem = ({ text, children, style }) => {
 
 AccordionItem.propTypes = {
     children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
+    id: PropTypes.string,
     is_showed: PropTypes.bool,
     style: PropTypes.object,
     text: PropTypes.string,

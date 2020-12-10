@@ -7,7 +7,7 @@ import DotLoader from './dot-loader'
 import Dropdown from './dropdown'
 import Checkbox from './checkbox'
 import Image from './image'
-import QueryImage from './query-image'
+import QueryImage, { ImageWrapper } from './query-image'
 import { StyledLink } from './link'
 import {
     OffCanvasMenuWrapper as OffCanvasMenu,
@@ -16,7 +16,7 @@ import {
 } from './off-canvas-menu'
 import SideTab from './side-tab'
 import Tabs from './default-tab'
-import { Text, LinkText, LocalizedLinkText, Header, BaseElement } from './typography'
+import { Text, LinkText, LocalizedLinkText, Header, BaseElement, SpanLinkText } from './typography'
 import Timeline from './timeline'
 import { Ul, Li } from './lists'
 import { Carousel } from './carousel'
@@ -37,6 +37,7 @@ export {
     Dropdown,
     Checkbox,
     Image,
+    ImageWrapper,
     QueryImage,
     StyledLink,
     NavCard,
@@ -49,6 +50,7 @@ export {
     LinkText,
     LocalizedLinkText,
     Header,
+    SpanLinkText,
     Timeline,
     Ul,
     Li,

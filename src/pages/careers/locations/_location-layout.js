@@ -7,7 +7,7 @@ import { SectionContainer, Flex } from 'components/containers'
 import { Text, LinkText, Header, BackgroundImage, QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
 import { map_api_key, zoho_url } from 'common/utility'
-import { localize } from 'components/localization'
+import { LocalizedLink } from 'components/localization'
 import MapPin from 'images/svg/map.svg'
 
 const Pin = styled.img`
@@ -181,14 +181,14 @@ export const LocationLayout = ({ location, images }) => {
                             <First>
                                 <QueryImage
                                     data={images[location.grid_images[0]]}
-                                    alt={location.display_name + localize(' Worklife')}
+                                    alt={location.display_name + ' Worklife'}
                                     width="100%"
                                 />
                             </First>
                             <Second>
                                 <QueryImage
                                     data={images[location.grid_images[1]]}
-                                    alt={location.display_name + localize(' Worklife 2')}
+                                    alt={location.display_name + ' Worklife 2'}
                                     width="100%"
                                 />
                             </Second>
@@ -196,7 +196,7 @@ export const LocationLayout = ({ location, images }) => {
                         <Third>
                             <QueryImage
                                 data={images[location.grid_images[2]]}
-                                alt={location.display_name + localize(' Worklife 3')}
+                                alt={location.display_name + ' Worklife 3'}
                                 width="100%"
                             />
                         </Third>
@@ -205,52 +205,68 @@ export const LocationLayout = ({ location, images }) => {
                         <Fourth>
                             <QueryImage
                                 data={images[location.grid_images[3]]}
-                                alt={location.display_name + localize(' Worklife 4')}
+                                alt={location.display_name + ' Worklife 4'}
                                 width="100%"
                             />
                         </Fourth>
                     </Flex>
                 </Flex>
             </SectionContainer>
-            {location.has_iframe && (
-                <SectionContainer padding="12rem 0">
-                    <LocationCard>
-                        <Flex min_height="42.2rem" jc="unset" tablet_direction="column">
-                            <ImageWrapper>
+            <SectionContainer padding="12rem 0">
+                <LocationCard>
+                    <Flex min_height="42.2rem" jc="unset" tablet_direction="column">
+                        <ImageWrapper>
+                            {location.has_iframe ? (
                                 <Iframe
                                     src={`https://www.google.com/maps/embed/v1/place?q=place_id:${location.map}&key=${map_api_key}`}
                                 />
-                            </ImageWrapper>
-                            <Flex p="3.2rem 6rem" direction="column" max_width="44.4rem">
-                                <div style={{ maxWidth: '32.4rem' }}>
-                                    <Header as="h3">Location</Header>
-                                    <CardText>{location.map_text}</CardText>
-                                    <Flex jc="unset">
-                                        <Pin src={MapPin} alt="map pin" />
-                                        {location.google_map_link ? (
-                                            <LinkText
-                                                rel="noopener noreferrer"
-                                                target="_blank"
-                                                href={location.google_map_link}
-                                            >
-                                                {location.address.map((address, index) => (
-                                                    <Text key={index}>{address}</Text>
-                                                ))}
-                                            </LinkText>
-                                        ) : (
-                                            <Text>
-                                                {location.address.map((address, index) => (
-                                                    <Text key={index}>{address}</Text>
-                                                ))}
-                                            </Text>
-                                        )}
-                                    </Flex>
-                                </div>
-                            </Flex>
+                            ) : (
+                                <LocalizedLink
+                                    to={location.google_map_link}
+                                    external
+                                    rel="noopener noreferrer"
+                                    target="_blank"
+                                >
+                                    <QueryImage
+                                        data={images[location.map_img]}
+                                        alt={location.display_name + 'map'}
+                                        width="100%"
+                                        height="100%"
+                                    />
+                                </LocalizedLink>
+                            )}
+                        </ImageWrapper>
+                        <Flex p="3.2rem 6rem" direction="column" max_width="44.4rem">
+                            <div style={{ maxWidth: '32.4rem' }}>
+                                <Header as="h3" size={'24px'}>
+                                    Location
+                                </Header>
+                                <CardText>{location.map_text}</CardText>
+                                <Flex jc="unset">
+                                    <Pin src={MapPin} alt="map pin" />
+                                    {location.google_map_link ? (
+                                        <LinkText
+                                            rel="noopener noreferrer"
+                                            target="_blank"
+                                            href={location.google_map_link}
+                                        >
+                                            {location.address.map((address, index) => (
+                                                <Text key={index}>{address}</Text>
+                                            ))}
+                                        </LinkText>
+                                    ) : (
+                                        <Text>
+                                            {location.address.map((address, index) => (
+                                                <Text key={index}>{address}</Text>
+                                            ))}
+                                        </Text>
+                                    )}
+                                </Flex>
+                            </div>
                         </Flex>
-                    </LocationCard>
-                </SectionContainer>
-            )}
+                    </Flex>
+                </LocationCard>
+            </SectionContainer>
         </>
     )
 }

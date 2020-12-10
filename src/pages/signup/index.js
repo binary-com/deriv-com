@@ -66,7 +66,7 @@ const NewSignup = () => {
         setSubmitState(submitStatus)
     }
     return (
-        <Layout type="static" padding_top="0">
+        <Layout type="static" margin_top="0">
             <SEO
                 title={localize('Easy And Free Sign Up | Online Trading | Deriv.com')}
                 description={localize(
@@ -74,7 +74,7 @@ const NewSignup = () => {
                 )}
             />
             <Wrapper>
-                {!(submitState === 'success' || submitState === 'error') && (
+                {!(submitState === 'success') && (
                     <Content>
                         <StyledGraph src={Graph} alt="graph" />
                         <Header mt="2.4rem" size="3.2rem">

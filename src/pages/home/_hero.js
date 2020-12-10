@@ -10,7 +10,10 @@ import { Localize, localize } from 'components/localization'
 
 const query = graphql`
     query {
-        background: file(relativePath: { eq: "platform_devices.png" }) {
+        background: file(relativePath: { eq: "home/platform_devices.png" }) {
+            ...fadeIn
+        }
+        background_mobile: file(relativePath: { eq: "home/platform_devices_mobile.png" }) {
             ...fadeIn
         }
     }
@@ -60,12 +63,16 @@ const StyledHeader = styled(Header)`
         font-size: 4rem;
     }
 `
+
+const MobileHeader = styled(Header)`
+    font-size: 4rem;
+`
 const contents = [
-    <Localize key={0} translate_text="Tight spreads" />,
-    <Localize key={1} translate_text="Sharp prices" />,
+    <Localize key={0} translate_text="20+ years of experience" />,
+    <Localize key={1} translate_text="100+ tradeable assets" />,
     <Localize key={2} translate_text="24x7 trading" />,
-    <Localize key={3} translate_text="100+ tradeable assets" />,
-    <Localize key={4} translate_text="20+ years of experience" />,
+    <Localize key={3} translate_text="Sharp prices" />,
+    <Localize key={4} translate_text="Tight spreads" />,
 ]
 const TypeWriter = styled(Header)`
     min-height: 7.2rem;
@@ -89,6 +96,7 @@ const HeroContainer = styled(CssGrid)`
 
 const Details = styled(Box)`
     grid-area: details;
+    max-height: 58.7rem;
 `
 const ButtonWrapper = styled(Box)`
     grid-area: button;
@@ -102,7 +110,6 @@ const ImageWrapper = styled(Box)`
     margin-top: 4rem;
 
     @media ${device.tabletL} {
-        min-height: 25rem;
         margin-top: 0;
     }
 `
@@ -110,6 +117,7 @@ export const Hero = () => {
     const data = useStaticQuery(query)
     const typewriter_text = localize('Trade forex, commodities, synthetic and stock indices')
     const [type_writer, setTypeWriter] = React.useState('')
+    const [check_first_load, setFirstLoad] = React.useState(false)
     let type_writer_timeout
 
     const typeWriterAnimation = (i = 0) => {
@@ -123,6 +131,7 @@ export const Hero = () => {
         let start_animations_timeout = setTimeout(() => {
             typeWriterAnimation()
         }, 1200)
+        setFirstLoad(true)
         return () => {
             clearTimeout(start_animations_timeout)
             clearTimeout(type_writer_timeout)
@@ -147,20 +156,46 @@ export const Hero = () => {
                                 </StyledHeader>
                             </Flex>
                         </Show.Desktop>
-                        <Show.Mobile>
-                            <Flex>
-                                <StyledHeader color="white" ad="0.5s" mb="2rem">
-                                    <Localize translate_text="Simple. Flexible. Reliable." />
-                                </StyledHeader>
-                            </Flex>
-                        </Show.Mobile>
-                        <TypeWriter as="h4" color="white" max_width="430px" weight="normal">
+                        {check_first_load && (
+                            <Show.Mobile>
+                                <Flex>
+                                    <MobileHeader color="white" mb="2rem">
+                                        <Localize translate_text="Simple. Flexible. Reliable." />
+                                    </MobileHeader>
+                                </Flex>
+                            </Show.Mobile>
+                        )}
+
+                        <TypeWriter
+                            as="h2"
+                            size="var(--text-size-m)"
+                            color="white"
+                            max_width="430px"
+                            weight="normal"
+                        >
                             {localize(type_writer)}
                         </TypeWriter>
                         <VerticalCarousel contents={contents} />
                     </Details>
                     <ImageWrapper>
-                        <QueryImage data={data.background} alt="platform devices" width="100%" />
+                        {check_first_load && (
+                            <Show.Mobile>
+                                <QueryImage
+                                    data={data.background_mobile}
+                                    alt="platform devices mobile"
+                                    width="100%"
+                                    height="233"
+                                />
+                            </Show.Mobile>
+                        )}
+                        <Show.Desktop>
+                            <QueryImage
+                                data={data.background}
+                                alt="platform devices"
+                                width="100%"
+                                height="346"
+                            />
+                        </Show.Desktop>
                     </ImageWrapper>
                     <ButtonWrapper>
                         <HeroButton secondary="true" to="/signup/">

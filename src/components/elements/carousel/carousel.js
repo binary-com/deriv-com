@@ -21,9 +21,9 @@ export const PrevButton = ({ enabled, onClick, color, style, is_reviews }) => (
         is_reviews={is_reviews}
     >
         {color === 'black' ? (
-            <ChevronLeft black />
+            <ChevronLeft black="true" />
         ) : color === 'red' ? (
-            <ChevronLeft red />
+            <ChevronLeft red="true" />
         ) : (
             <ChevronLeft />
         )}
@@ -44,9 +44,9 @@ export const NextButton = ({ enabled, onClick, color, style, is_reviews }) => (
         is_reviews={is_reviews}
     >
         {color === 'black' ? (
-            <ChevronRight black />
+            <ChevronRight black="true" />
         ) : color === 'red' ? (
-            <ChevronRight red />
+            <ChevronRight red="true" />
         ) : (
             <ChevronRight />
         )}
@@ -64,6 +64,7 @@ export const Carousel = ({
     chevron_style,
     has_autoplay,
     autoplay_interval,
+    vertical_container,
 }) => {
     const [emblaRef, embla] = useEmblaCarousel(options)
     const [prevBtnEnabled, setPrevBtnEnabled] = useState(false)
@@ -120,7 +121,7 @@ export const Carousel = ({
         <div style={container_style}>
             <Embla>
                 <ViewPort style={view_port} ref={emblaRef}>
-                    <EmblaContainer>
+                    <EmblaContainer style={vertical_container ? vertical_container : null}>
                         {children.map((child, idx) => (
                             <div key={idx} style={slide_style}>
                                 <EmblaSlideInner>{child}</EmblaSlideInner>
@@ -159,5 +160,6 @@ Carousel.propTypes = {
     has_autoplay: PropTypes.bool,
     options: PropTypes.object,
     slide_style: PropTypes.object,
+    vertical_container: PropTypes.object,
     view_port: PropTypes.object,
 }

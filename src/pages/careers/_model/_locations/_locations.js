@@ -177,8 +177,9 @@ export const rwanda = {
     map: 'ChIJwc77Waml3BkRKuYdzjsIu7c',
     map_text: `We are located in Kigali, the capital and largest city of Rwanda. Its modern infrastructure consists of advanced security systems, fiber optic internet, and cashless payment systems. Experience Kigali's vibrant nightlife and its intriguing mix of cultures. During your leisure time, enjoy freshly brewed coffee, sample tasty dishes, and visit a variety of museums and art galleries.`,
     address: address_rwanda,
-    google_map_link: 'https://goo.gl/maps/hp1dv3TpYNMxa5fM9',
-    has_iframe: true,
+    map_img: 'rwanda_map',
+    google_map_link: 'https://goo.gl/maps/dy3BPr2y29usir648',
+    has_iframe: false,
 }
 
 export const locations = {

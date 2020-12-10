@@ -540,7 +540,9 @@ export const Offices = ({ enableBelarus }) => {
                                         rel="noopener noreferrer"
                                         mt="0.8rem"
                                         ml="1.6rem"
-                                    ></LocalizedLinkText>
+                                    >
+                                        Mink, Belarus
+                                    </LocalizedLinkText>
                                 </BorderBox>
                             </Flex>
                         )}

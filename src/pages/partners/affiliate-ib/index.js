@@ -1,21 +1,22 @@
 import React from 'react'
 import styled from 'styled-components'
+import Loadable from '@loadable/component'
 import Hero from './_hero.js'
-import WhyUs from './_why-us.js'
-import WhoCanAplly from './_who-can-apply.js'
-import DerivAffiliateProgramme from './_deriv-affiliate-programme'
-import DerivIBProgramme from './_deriv-ib-programme.js'
-import MoreReason from './_more-reason.js'
-import Faq from './_faq'
-import CTA from './_partner-cta'
 import { Header } from 'components/elements'
 import { LinkButton } from 'components/form'
 import Layout from 'components/layout/layout'
 import { SectionContainer, Container, SEO } from 'components/containers'
-import DNumber from 'components/custom/_dnumbers.js'
 import { localize, Localize, WithIntl } from 'components/localization'
 import device from 'themes/device'
 import { affiliate_signup_url } from 'common/utility'
+const DNumber = Loadable(() => import('components/custom/_dnumbers.js'))
+const WhyUs = Loadable(() => import('./_why-us.js'))
+const WhoCanAplly = Loadable(() => import('./_who-can-apply.js'))
+const DerivAffiliateProgramme = Loadable(() => import('./_deriv-affiliate-programme'))
+const DerivIBProgramme = Loadable(() => import('./_deriv-ib-programme.js'))
+const MoreReason = Loadable(() => import('./_more-reason.js'))
+const Faq = Loadable(() => import('./_faq'))
+const CTA = Loadable(() => import('./_partner-cta'))
 
 const StyledHeader = styled(Header)`
     width: 100%;

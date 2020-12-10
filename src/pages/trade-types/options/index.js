@@ -1,14 +1,15 @@
 import React from 'react'
+import Loadable from '@loadable/component'
 import { SmallContainer, Hero } from '../components/_style'
 import WhatAreTheOptions from './_what-are-options'
-import HowOptionsWorks from './_how-options-works'
-import OptionsToTrade from './_options-to-trade'
-import StartTrading from './_start-trading'
-import MarketsAvailable from './_markets-available'
 import { SEO } from 'components/containers'
 import { Header } from 'components/elements'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
+const HowOptionsWorks = Loadable(() => import('./_how-options-works'))
+const OptionsToTrade = Loadable(() => import('./_options-to-trade'))
+const StartTrading = Loadable(() => import('./_start-trading'))
+const MarketsAvailable = Loadable(() => import('./_markets-available'))
 
 const Options = () => {
     return (

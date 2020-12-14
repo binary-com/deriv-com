@@ -10,7 +10,8 @@ import device from 'themes/device.js'
 const Wrapper = styled(Flex)`
     padding-left: 12rem;
     position: relative;
-    height: 40rem;
+    min-height: 40rem;
+    height: auto;
     justify-content: flex-start;
     border-top: 1px solid rgba(151, 151, 151, 0.2);
     background-color: var(--color-black);
@@ -79,10 +80,12 @@ const TextWrapper = styled.div`
     }
 `
 const StyledLinkButton = styled(LinkButton)`
-    width: 20.2rem;
+    min-width: 20.2rem;
+    width: auto;
     border: unset;
     line-height: 1.5;
     display: inline-block;
+    margin-bottom: 40px;
 
     @media ${device.tabletS} {
         margin: 0 auto;
@@ -124,7 +127,7 @@ const DBanner = ({ title, data, background_pattern }) => {
         }
     `
     return (
-        <Flex position="relative">
+        <Flex position="relative" height="unset">
             <ImageWrapper ai="center">
                 <QueryImage data={data['deriv_platform']} alt="deriv platform" width="100%" />
             </ImageWrapper>

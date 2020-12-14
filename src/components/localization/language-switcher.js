@@ -4,6 +4,7 @@ import { withTranslation } from 'react-i18next'
 import { navigate } from 'gatsby'
 import language_config from '../../../i18n-config'
 import Dropdown from './language-dropdown'
+import i18n from './config'
 import { isProduction } from 'common/websocket/config'
 
 const languages = Object.keys(language_config)
@@ -42,10 +43,10 @@ class LanguageSwitch extends Component {
 
     handleSelect = (e) => {
         const { id } = e.target
-        const current_lang = localStorage.getItem('i18n') || navigator.language
+        const current_lang = i18n.language || 'en'
         const path = id === '/en/' ? '/' : id
 
-        if (!(`/${current_lang}` === id)) {
+        if (`/${current_lang}/` !== id) {
             const current_path = window.location.pathname
             const current_hash = window.location.hash
             const destination_path = `${path}${

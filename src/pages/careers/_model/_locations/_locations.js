@@ -192,7 +192,7 @@ export const minsk = {
     header_p:
         'Minsk, the capital of Belarus, is a modern European city located in the centre of the country by the Svislach river. The country has two official languages: Belarussian and Russian, but the younger population is fluent in English too. Today, Minsk is known for its rich historical Soviet architecture, theatres, museums, and art galleries.',
     first_p:
-        'Minsk is one of the cleanest cities in Belarus with its gleaming streets and well-maintained public facilities. From cafés to film screenings, to underground music shows, there’s a lot going on in Minsk to keep you entertained. Enjoy The nightlife in Minsk is vibrant with trendy bars and restaurants, with the downtown buildings illuminated by coloured lights that completely transform the city’s architecture.',
+        'Minsk is one of the cleanest cities in Belarus with its gleaming streets and well-maintained public facilities. From cafés to film screenings, to underground music shows, there’s a lot going on in Minsk to keep you entertained. The nightlife in Minsk is vibrant with trendy bars and restaurants, with the downtown buildings illuminated by coloured lights that completely transform the city’s architecture.',
     first_img: 'living_in_minsk',
     grid_images: ['minsk_grid_1', 'minsk_grid_2', 'minsk_grid_3', 'minsk_grid_4'],
     map: 'ChIJwc77Waml3BkRKuYdzjsIu7c',

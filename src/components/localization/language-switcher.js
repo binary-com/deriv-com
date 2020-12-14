@@ -1,30 +1,26 @@
-import React, { Component } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import { withTranslation } from 'react-i18next'
 import { navigate } from 'gatsby'
 import language_config from '../../../i18n-config'
 import Dropdown from './language-dropdown'
-import i18n from './config'
 import { isProduction } from 'common/websocket/config'
 
 const languages = Object.keys(language_config)
 
 const disabled_lang = ['ach']
 
-class LanguageSwitch extends Component {
-    constructor(props) {
-        super(props)
-        const { i18n } = this.props
-        this.state = { language: i18n.language }
-    }
-
-    UNSAFE_componentWillReceiveProps(nextProps) {
-        this.setState({ language: nextProps.i18n.language })
-    }
-    renderLanguageChoice = (lang) => {
+const LanguageSwitch = ({ i18n, is_high_nav, short_name}) => {
+    const [language, setLanguage] = React.useState(i18n.language)
+    
+    React.useEffect(() => {
+        setLanguage(i18n.language)
+    }, [i18n.language])
+    
+    const renderLanguageChoice = (lang) => {
         if (disabled_lang.includes(lang) && isProduction()) return
         const { display_name, path, short_name } = language_config[lang]
-        const current_short_name = language_config[this.state.language].short_name
+        const current_short_name = language_config[language].short_name
         const is_selected = current_short_name === short_name
         const to = `/${path}/`
         let text = display_name
@@ -36,14 +32,14 @@ class LanguageSwitch extends Component {
             path,
         }
     }
-    getCurrentLanguage() {
-        const { short_name, path } = language_config[this.state.language]
+    const getCurrentLanguage = () => {
+        const { short_name, path } = language_config[language]
         return { short_name, path }
     }
 
-    handleSelect = (e) => {
+    const handleSelect = (e) => {
         const { id } = e.target
-        const current_lang = i18n.language || 'en'
+        const current_lang = language || 'en'
         const path = id === '/en/' ? '/' : id
 
         if (`/${current_lang}/` !== id) {
@@ -69,20 +65,16 @@ class LanguageSwitch extends Component {
         }
     }
 
-    render() {
-        return (
-            <Dropdown
-                onChange={this.handleSelect}
-                option_list={languages.map(this.renderLanguageChoice)}
-                default_option={this.getCurrentLanguage()}
-                has_short_name={!!this.props.short_name}
-                is_high_nav={!!this.props.is_high_nav}
-            />
-        )
-    }
+    return (
+        <Dropdown
+            onChange={handleSelect}
+            option_list={languages.map(renderLanguageChoice)}
+            default_option={getCurrentLanguage()}
+            has_short_name={!!short_name}
+            is_high_nav={!!is_high_nav}
+        />
+    )
 }
-
-export const LanguageSwitcher = withTranslation()(LanguageSwitch)
 
 LanguageSwitch.propTypes = {
     i18n: PropTypes.shape({
@@ -91,3 +83,5 @@ LanguageSwitch.propTypes = {
     is_high_nav: PropTypes.bool,
     short_name: PropTypes.string,
 }
+
+export const LanguageSwitcher = withTranslation()(LanguageSwitch)

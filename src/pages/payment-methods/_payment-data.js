@@ -39,6 +39,7 @@ import Changelly from 'images/svg/payment-methods/payment-changelly.svg'
 // import Wyre from 'images/svg/payment-methods/payment-wyre.svg'
 // import Xanpool from 'images/svg/payment-methods/payment-xanpool.svg'
 import Banxa from 'images/svg/payment-methods/payment-banxa.svg'
+import Paylivre from 'images/svg/payment-methods/payment-paylivre.svg'
 
 const icon_css = css`
     width: 72px;
@@ -156,6 +157,9 @@ const ChangellyIc = styled.img`
 //     ${icon_css}
 // `
 const BanxaIc = styled.img`
+    ${icon_css}
+`
+const PaylivreIc = styled.img`
     ${icon_css}
 `
 
@@ -455,6 +459,19 @@ const payment_data = [
                 url: 'https://www.airtm.io/#/',
                 name: 'airtm',
                 reference: 'airtm-payment-method.pdf',
+            },
+            {
+                method: <PaylivreIc src={Paylivre} alt="Paylivre" />,
+                currencies: 'USD',
+                min_max_deposit: '5-10,000',
+                min_max_withdrawal: '5-10,000',
+                deposit_time: <Localize translate_text="Instant" />,
+                withdrawal_time: <Localize translate_text="1 working day" />,
+                description: (
+                    <Localize translate_text="Use PayLivre to make deposits and withdrawals with your Brazilian bank account." />
+                ),
+                url: 'https://paylivre.com/',
+                name: 'paylivre',
             },
         ],
     },

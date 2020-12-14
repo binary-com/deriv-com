@@ -1,16 +1,17 @@
 import React from 'react'
 import styled from 'styled-components'
+import Loadable from '@loadable/component'
 import { SmallContainer, Hero } from '../components/_style'
 import WhatAreMultiplier from './_what-are-multipliers'
-import HowMultiplierWorks from './_how-multiplier-works'
-import ThingsInMind from './_things-in-mind'
-import StartTrading from './_start-trading'
-import MarketsAvailable from './_markets-available'
 import { SEO } from 'components/containers'
 import { Header } from 'components/elements'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
 import device from 'themes/device'
+const HowMultiplierWorks = Loadable(() => import('./_how-multiplier-works'))
+const ThingsInMind = Loadable(() => import('./_things-in-mind'))
+const StartTrading = Loadable(() => import('./_start-trading'))
+const MarketsAvailable = Loadable(() => import('./_markets-available'))
 
 const StyledHeader = styled(Header)`
     @media ${device.tablet} {

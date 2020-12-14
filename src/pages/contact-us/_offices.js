@@ -510,3 +510,5 @@ export const Offices = () => {
         </SectionContainer>
     )
 }
+
+export default Offices

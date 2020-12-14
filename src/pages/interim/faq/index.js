@@ -1,12 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import FAQ from './_faq'
+import Loadable from '@loadable/component'
 import Hero from './_hero'
-import LoveTrading from './_love-trading'
-import WhatTodoNext from './_what-todo-next'
 import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
+const FAQ = Loadable(() => import('./_faq'))
+const WhatTodoNext = Loadable(() => import('./_what-todo-next'))
+const LoveTrading = Loadable(() => import('./_love-trading'))
 
 const Interim = () => {
     return (

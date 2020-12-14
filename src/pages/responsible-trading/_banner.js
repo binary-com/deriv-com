@@ -42,3 +42,5 @@ Banner.propTypes = {
     header: PropTypes.object,
     p1: PropTypes.object,
 }
+
+export default RoleBanner

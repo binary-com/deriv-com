@@ -3,11 +3,10 @@ import { matchSorter } from 'match-sorter'
 import styled from 'styled-components'
 import { Helmet } from 'react-helmet'
 import { navigate } from '@reach/router'
+import Loadable from '@loadable/component'
 import { articles } from './_help-articles'
 import { SearchSuccess, SearchError } from './_search-results'
 // TODO: active this line after having mail service
-import { DidntFindYourAnswerBanner } from './_didnt-find-answer'
-import { Community } from './_community'
 import { convertToHash } from './_utility'
 import { faq_schema } from './_faq-schema'
 import { SEO, Container } from 'components/containers'
@@ -19,6 +18,9 @@ import device from 'themes/device'
 // Icons
 import SearchIcon from 'images/svg/search.svg'
 import CrossIcon from 'images/svg/cross.svg'
+//Lazy-load
+const DidntFindYourAnswerBanner = Loadable(() => import('./_didnt-find-answer'))
+const Community = Loadable(() => import('./_community'))
 
 const getAllArticles = (articles) =>
     articles

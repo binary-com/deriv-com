@@ -74,3 +74,5 @@ export const Community = () => {
         </SectionContainer>
     )
 }
+
+export default Community

@@ -12,18 +12,17 @@ const Wrapper = styled(Flex)`
     position: relative;
     justify-content: flex-start;
     background-color: var(--color-black);
-    height: 60.2rem;
-    padding: 12rem 12rem 9rem 12rem;
+    height: unset;
+    min-height: 60.2rem;
+    padding: 2rem 12rem 2rem 12rem;
 
-    @media (max-width: 1254px) {
-        padding: 8rem 12rem 9rem 4rem;
-    }
     @media ${device.laptopM} {
         height: 52.7rem;
-        padding: 8rem 12rem 9rem 8rem;
+        min-height: unset;
     }
     @media ${device.laptop} {
         height: 56.8rem;
+        padding: 2rem 8rem 2rem 8rem;
     }
     @media ${device.tabletL} {
         height: 53rem;
@@ -40,7 +39,7 @@ const Wrapper = styled(Flex)`
         height: 81rem;
     }
     @media ${device.mobileM} {
-        height: 75.4rem;
+        height: 78rem;
     }
 `
 const HeroContent = styled(Flex)`
@@ -71,6 +70,15 @@ const StyledHeader = styled(Header)`
     }
     @media ${device.tablet} {
         font-size: 20px;
+    }
+`
+
+const HeroHeader = styled(Header)`
+    @media (max-width: 1315px) {
+        font-size: 4.8rem;
+    }
+    @media ${device.tablet} {
+        font-size: 36px;
     }
 `
 
@@ -140,15 +148,24 @@ const InformationWrapper = styled(Flex)`
     z-index: 1;
 
     @media (max-width: 1376px) {
-        max-width: 44rem;
+        max-width: 52rem;
     }
-    @media ${device.tabletL} {
+    @media (max-width: 1270px) {
+        max-width: 46rem;
+    }
+    @media ${device.laptopM} {
         max-width: 40rem;
+    }
+    @media ${device.laptop} {
+        max-width: 38rem;
     }
     @media ${device.tablet} {
         top: 280px;
-        max-width: 328px;
+        max-width: 450px;
         padding: 0 16px;
+    }
+    @media ${device.mobileS} {
+        padding: 0 12px;
     }
 `
 
@@ -258,7 +275,7 @@ const DHero = ({
                     {title}
                 </StyledHeader>
                 <HeroContent>
-                    <Header as="h1">{content}</Header>
+                    <HeroHeader as="h1">{content}</HeroHeader>
                 </HeroContent>
                 <LinkWrapper>
                     {join_us_for_free && (

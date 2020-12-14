@@ -1,15 +1,31 @@
 import { useState, useEffect } from 'react'
-import { checkElemInArray, getLocationHash, isBrowser, routeBack, scrollTop, setLocationHash } from 'common/utility'
+import {
+    checkElemInArray,
+    getLocationHash,
+    isBrowser,
+    routeBack,
+    scrollTop,
+    setLocationHash,
+} from 'common/utility'
 
 export const useTabState = (tab_list) => {
-    const [active_tab, setActiveTab] = useState(getLocationHash() && checkElemInArray(tab_list, getLocationHash()) ? getLocationHash() : tab_list[0])
+    const [active_tab, setActiveTab] = useState('')
+    const handleHashChange = () => {
+        document.preventDefault()
+    }
 
     useEffect(() => {
-        if (!getLocationHash() || !checkElemInArray(tab_list, getLocationHash())) {
-            setLocationHash(active_tab)
-        } else {
+        if (checkElemInArray(tab_list, getLocationHash())) {
             setActiveTab(getLocationHash())
             scrollTop()
+        } else {
+            setActiveTab(tab_list[0])
+        }
+
+        document.addEventListener('hashchange', handleHashChange)
+
+        return () => {
+            document.removeEventListener('hashchange', handleHashChange)
         }
     }, [])
 
@@ -20,10 +36,10 @@ export const useTabState = (tab_list) => {
     }, [active_tab])
 
     useEffect(() => {
-        if (getLocationHash() !== active_tab && checkElemInArray(tab_list, getLocationHash())) {
+        if (getLocationHash() === active_tab) return
+        if (checkElemInArray(tab_list, getLocationHash())) {
             setActiveTab(getLocationHash())
-            scrollTop()
-        } else if (!checkElemInArray(tab_list, getLocationHash())) {
+        } else {
             routeBack()
         }
     }, [getLocationHash()])

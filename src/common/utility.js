@@ -27,10 +27,9 @@ const isEmptyObject = (obj) => {
 }
 
 const scrollTop = () => {
-    if (isBrowser()) {
-        document.body.scrollTop = 0
-        document.documentElement.scrollTop = 0
-    }
+    if (!isBrowser) return
+    document.body.scrollTop = 0
+    document.documentElement.scrollTop = 0
 }
 
 const cloneObject = (obj) =>
@@ -49,10 +48,14 @@ const getLocationHash = () =>
     isBrowser() && location.hash ? location.hash.slice(1).replace(/(\/)$/g, '') : ''
 
 const setLocationHash = (tab) => {
-    if (isBrowser()) {
+    if (!isBrowser) return
+    if (history.pushState) {
+        history.pushState(null, null, `#${tab}`)
+    } else {
         location.hash = `#${tab}`
     }
 }
+
 const routeBack = () => {
     if (isBrowser) {
         window.history.back()

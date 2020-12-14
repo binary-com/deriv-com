@@ -14,7 +14,7 @@ const Wrapper = styled(Flex)`
     background-color: var(--color-black);
     height: unset;
     min-height: 60.2rem;
-    padding: 2rem 12rem 2rem 12rem;
+    padding: 2rem 12rem;
 
     @media ${device.laptopM} {
         height: 52.7rem;
@@ -22,7 +22,7 @@ const Wrapper = styled(Flex)`
     }
     @media ${device.laptop} {
         height: 56.8rem;
-        padding: 2rem 8rem 2rem 8rem;
+        padding: 2rem 8rem;
     }
     @media ${device.tabletL} {
         height: 53rem;

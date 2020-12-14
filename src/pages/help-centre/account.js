@@ -6,9 +6,12 @@ import { deriv_app_url } from 'common/utility'
 import { Text } from 'components/elements'
 import { localize, Localize, WithIntl } from 'components/localization'
 
+const StyledList = styled.ul`
+    list-style: unset;
+    padding-left: 2rem;
+`
 const StyledListItem = styled.li`
-    text-indent: -1.4em;
-    padding-left: 1.4em;
+    margin-top: 1.7rem;
 `
 
 const WhoCanOpenAnAccount = () => (
@@ -19,7 +22,7 @@ const WhoCanOpenAnAccount = () => (
                 'In line with our Group practice, we set the following criteria for client signups:',
             )}
         </Text>
-        <div>
+        <StyledList>
             <StyledListItem>
                 {localize('Clients have to be at least 18 years of age.')}
             </StyledListItem>
@@ -28,7 +31,7 @@ const WhoCanOpenAnAccount = () => (
                     'Clients cannot be a resident in Canada, Hong Kong, Israel, Jersey, Malaysia, Malta, Paraguay, UAE, USA, or a restricted country which has been identified by the Financial Action Task Force (FATF) as having strategic deficiencies.',
                 )}
             </StyledListItem>
-        </div>
+        </StyledList>
     </ArticleWrapper>
 )
 const ChangingPersonalDetails = () => (

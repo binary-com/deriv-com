@@ -37,6 +37,14 @@ const Td = styled.td`
     padding: 0.8rem 2rem;
     position: relative;
 
+    :first-child {
+        position: sticky;
+        /* stylelint-disable-next-line value-no-vendor-prefix */
+        position: -webkit-sticky;
+        left: -5px;
+        background-color: white;
+        z-index: 2;
+    }
     & .tooltip {
         padding: 0.8rem;
         border-radius: 4px;

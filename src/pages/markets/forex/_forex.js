@@ -1,12 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import Loadable from '@loadable/component'
 import { WhyTrade } from '../_why-trade'
-import OtherMarkets from '../_other-markets.js'
 import AvailableTrades from '../_available-trades.js'
 import Margin from './_margin.js'
 import DigitalOptions from './_digital-options.js'
 import Multipliers from './_multipliers.js'
-import SimpleSteps from 'components/custom/_simple-steps'
 import { Localize } from 'components/localization'
 //SVG
 import FriendlySupport from 'images/svg/friendly-support.svg'
@@ -14,6 +13,9 @@ import Deposit from 'images/svg/deposit-and-withdrawal.svg'
 import AdvancedCharting from 'images/svg/advanced-charting-widgets.svg'
 import ResponsiveWebsite from 'images/svg/responsive-website.svg'
 import Leverage from 'images/svg/leverage.svg'
+//Lazy-load
+const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
+const OtherMarkets = Loadable(() => import('../_other-markets.js'))
 
 const Forex = ({ simple_step_content }) => {
     return (

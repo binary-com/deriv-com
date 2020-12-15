@@ -57,7 +57,7 @@ const setLocationHash = (tab) => {
 }
 
 const routeBack = () => {
-    if (isBrowser) {
+    if (isBrowser()) {
         window.history.back()
     }
 }

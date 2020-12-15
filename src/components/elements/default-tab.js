@@ -88,13 +88,27 @@ const TabPanel = ({ children }) => (
     </TabContent>
 )
 
+const MarketsWrapper = styled(TextWrapper)`
+    font-size: var(--text-size-l);
+`
+
 TabPanel.propTypes = {
     children: PropTypes.node,
 }
 
-const Tabs = ({ children, tab_list }) => {
+const Tabs = ({ children, route_from, tab_list }) => {
     const [selected_tab, setSelectedTab] = useState(0)
     const [active_tab, setActiveTab] = useTabState(tab_list)
+    
+    let LabelWrapper = null
+    switch(route_from) {
+        case 'terms-and-conditions':
+            LabelWrapper = TextWrapper
+            break
+        case 'markets':
+            LabelWrapper = MarketsWrapper
+            break
+    }
 
     useEffect(() => {
         setSelectedTab(tab_list.indexOf(active_tab))
@@ -110,7 +124,7 @@ const Tabs = ({ children, tab_list }) => {
                         aria-selected={selected_tab === index ? 'true' : 'false'}
                         onClick={() => setActiveTab(tab_list[index])}
                     >
-                        <TextWrapper>{label}</TextWrapper>
+                        <LabelWrapper>{label}</LabelWrapper>
                     </TabButton>
                 ))}
                 <LineDivider />
@@ -129,6 +143,7 @@ Tabs.Panel = TabPanel
 
 Tabs.propTypes = {
     children: PropTypes.node,
+    route_from: PropTypes.string,
     tab_list: PropTypes.array,
 }
 

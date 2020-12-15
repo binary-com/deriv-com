@@ -42,7 +42,7 @@ const TermsAndConditions = () => {
                     </Flex>
                 </Container>
                 <div>
-                    <Tabs tab_list={['clients', 'business-partners']}>
+                    <Tabs tab_list={['clients', 'business-partners']} route_from="terms-and-conditions">
                         <Tabs.Panel label={localize('FOR CLIENTS')}>
                             <ClientGrid />
                         </Tabs.Panel>

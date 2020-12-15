@@ -110,6 +110,7 @@ const deriv_bot_app_url = 'https://app.deriv.com/bot'
 const deriv_dp2p_app_url = 'https://app.deriv.com/cashier/p2p'
 const smarttrader_url = 'https://smarttrader.deriv.com'
 const binary_url = 'https://binary.com'
+const blog_url = 'https://blog.deriv.com/'
 const deriv_cookie_domain = 'deriv.com'
 const affiliate_signup_url = 'https://login.deriv.com/signup.php'
 const affiliate_signin_url = 'https://login.deriv.com/signin.php'
@@ -134,6 +135,7 @@ export {
     affiliate_signin_url,
     affiliate_signup_url,
     binary_url,
+    blog_url,
     deriv_cookie_domain,
     dmt5_windows_url,
     dmt5_linux_url,

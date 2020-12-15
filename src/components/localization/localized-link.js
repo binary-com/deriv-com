@@ -8,6 +8,8 @@ import language_config from '../../../i18n-config'
 import { LocaleContext } from './locale-context'
 import {
     binary_url,
+    blog_url,
+    community_url,
     affiliate_signin_url,
     affiliate_signup_url,
     smarttrader_url,
@@ -66,6 +68,8 @@ export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
         className,
         style,
         is_binary_link,
+        is_blog_link,
+        is_community_link,
         is_affiliate_link,
         is_mail_link,
         is_affiliate_sign_in_link,
@@ -97,6 +101,10 @@ export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
             lang_to = `${smarttrader_url}/${thai_excluded_locale}/${to}.html`
         } else if (is_deriv_app_link) {
             lang_to = `${deriv_app_url}${to}`
+        } else if (is_blog_link) {
+            lang_to = `${blog_url}${to}`
+        } else if (is_community_link) {
+            lang_to = `${community_url}${to}`
         } else {
             lang_to = to
         }
@@ -106,7 +114,9 @@ export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
             !is_smarttrader_link &&
             !is_deriv_app_link &&
             !is_affiliate_link &&
-            !is_affiliate_sign_in_link
+            !is_affiliate_sign_in_link &&
+            !is_blog_link &&
+            !is_community_link
         ) {
             return (
                 <a
@@ -196,6 +206,8 @@ LocalizedLink.propTypes = {
     is_affiliate_link: PropTypes.bool,
     is_affiliate_sign_in_link: PropTypes.bool,
     is_binary_link: PropTypes.bool,
+    is_blog_link: PropTypes.bool,
+    is_community_link: PropTypes.bool,
     is_deriv_app_link: PropTypes.bool,
     is_mail_link: PropTypes.bool,
     is_smarttrader_link: PropTypes.bool,

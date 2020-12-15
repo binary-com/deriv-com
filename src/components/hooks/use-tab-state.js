@@ -10,19 +10,17 @@ import {
 
 export const useTabState = (tab_list) => {
     const [active_tab, setActiveTab] = useState('')
-    const handleHashChange = () => {
-        document.preventDefault()
-    }
+    const handleHashChange = () => document.preventDefault()
 
     useEffect(() => {
+        document.addEventListener('hashchange', handleHashChange)
+
         if (checkElemInArray(tab_list, getLocationHash())) {
             setActiveTab(getLocationHash())
             scrollTop()
         } else {
             setActiveTab(tab_list[0])
         }
-
-        document.addEventListener('hashchange', handleHashChange)
 
         return () => {
             document.removeEventListener('hashchange', handleHashChange)

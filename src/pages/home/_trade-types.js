@@ -58,7 +58,7 @@ const TradeTypes = () => {
 
 const margin = {
     icon: <img src={MarginLogo} alt="margin" width="48" height="49" />,
-    title: <Localize translate_text="Margin Trading" />,
+    title: <Localize translate_text="Margin trading" />,
     description: (
         <Localize translate_text="Trade with leverage and low spreads for better returns on successful trades." />
     ),

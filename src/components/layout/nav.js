@@ -110,7 +110,7 @@ export const Wrapper = styled(Container)`
     justify-content: space-between;
     height: 7.2rem;
     @media ${device.laptopL} {
-        width: 90%;
+        width: ${({ width }) => width ?? "90%"};
     }
     @media ${device.laptop} {
         font-size: var(--text-size-xxs);
@@ -275,7 +275,7 @@ const LoginButton = styled(Button)`
 const MobileLogin = styled(Button)`
     display: none;
     font-size: 14px;
-    margin-left: 1.6rem;
+    margin-left: ${({ margin_left }) => margin_left ?? "1.6rem" };
     @media ${device.tabletL} {
         display: block;
     }
@@ -323,7 +323,7 @@ const NavMobile = () => {
     const [is_canvas_menu_open, openOffCanvasMenu, closeOffCanvasMenu] = moveOffCanvasMenu()
 
     return (
-        <Wrapper>
+        <Wrapper width="95%">
             {is_canvas_menu_open ? (
                 <CloseMenu
                     src={Close}
@@ -351,7 +351,7 @@ const NavMobile = () => {
             </LogoLinkMobile>
             <MobileRight>
                 <LanguageSwitcher short_name="true" is_high_nav />
-                <MobileLogin onClick={handleLogin} primary>
+                <MobileLogin margin_left="0.8rem" onClick={handleLogin} primary>
                     <span>{localize('Log in')}</span>
                 </MobileLogin>
             </MobileRight>

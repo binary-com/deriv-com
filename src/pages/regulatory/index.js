@@ -385,7 +385,7 @@ const Regulatory = () => {
                             </Desktop>
                             <Text mt="0.8rem" mb="1.6rem" max_width="58.8rem">
                                 <Localize
-                                    translate_text="Deriv (V) Ltd (<0>view licence</0>) and Champion Group Ltd (<1>view licence</1>), 1276, Kumul Highway, Port Vila, Vanuatu are licensed by Vanuatu Financial Services Commission, and are members of the <2>Financial Markets Association<2/>."
+                                    translate_text="Deriv (V) Ltd (<0>view licence</0>) and Champion Group Ltd (<1>view licence</1>), 1276, Kumul Highway, Port Vila, Vanuatu are licensed by Vanuatu Financial Services Commission, and are members of the <2>Financial Markets Association</2>."
                                     components={[
                                         <LinkText
                                             key={0}
@@ -405,7 +405,7 @@ const Regulatory = () => {
                                             key={2}
                                             weight="bold"
                                             target="_blank"
-                                            href="/regulatory/Financial_Markets_Association_Cert.pdf"
+                                            href="https://fma.vu/fma-vanuatu-membership/"
                                             rel="noopener noreferrer"
                                         />,
                                     ]}

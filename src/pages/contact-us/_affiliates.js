@@ -125,3 +125,5 @@ export const Affiliates = () => {
         </Wrapper>
     )
 }
+
+export default Affiliates

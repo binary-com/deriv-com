@@ -101,6 +101,8 @@ function debounce(func, wait, immediate) {
     }
 }
 
+const livechat_client_id = '66aa088aad5a414484c1fd1fa8a5ace7'
+const livechat_license_id = 12049137
 const trimSpaces = (value) => value.trim()
 
 const deriv_app_url = 'https://app.deriv.com'
@@ -158,6 +160,8 @@ export {
     checkElemInArray,
     getWindowWidth,
     gtm_test_domain,
+    livechat_client_id,
+    livechat_license_id,
     map_api_key,
     PromiseClass,
     sanitize,

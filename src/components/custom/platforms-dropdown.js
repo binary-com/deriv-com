@@ -66,13 +66,21 @@ const StyledContainer = styled(Container)`
 const PlatformsDropdown = ({ is_open, has_animation, Content, forward_ref, link_ref }) => {
     const [left, setLeft] = React.useState(0)
     const [left_arrow, setLeftArrow] = React.useState(0)
-
-    React.useEffect(() => {
+    const updateOffsets = () => {
         if (link_ref.current) {
             const left_offsets = link_ref.current.offsetLeft
             const left_arrow_offsets = link_ref.current.offsetWidth / 2 - 15
             setLeftArrow(left_arrow_offsets)
             setLeft(left_offsets)
+        }
+    }
+
+    React.useEffect(() => {
+        updateOffsets();
+        window.addEventListener('resize', updateOffsets)
+
+        return () => {
+            window.removeEventListener('resize', updateOffsets)
         }
     }, [forward_ref])
 

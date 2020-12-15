@@ -292,3 +292,5 @@ export const OurOffices = () => {
         </SectionContainer>
     )
 }
+
+export default OurOffices

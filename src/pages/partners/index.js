@@ -1,12 +1,13 @@
 import React from 'react'
+import Loadable from '@loadable/component'
 import Hero from './_hero'
 import AboutDeriv from './_about-deriv'
-import DerivNumber from './_deriv-numbers'
-import WhyChooseUs from './_why-choose-us'
-import PartnershipOpportunities from './_partnership-opportunities'
 import Layout from 'components/layout/layout'
 import { SEO } from 'components/containers'
 import { localize, WithIntl } from 'components/localization'
+const DerivNumber = Loadable(() => import('./_deriv-numbers'))
+const WhyChooseUs = Loadable(() => import('./_why-choose-us'))
+const PartnershipOpportunities = Loadable(() => import('./_partnership-opportunities'))
 
 const Partner = () => {
     return (

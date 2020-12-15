@@ -556,3 +556,5 @@ export const Offices = ({ is_belarus_enabled }) => {
 Offices.propTypes = {
     is_belarus_enabled: PropTypes.bool,
 }
+
+export default Offices

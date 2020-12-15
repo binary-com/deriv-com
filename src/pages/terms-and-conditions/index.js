@@ -11,8 +11,6 @@ const Section = styled(SectionContainer)`
     background-color: ${(props) => props.bgcolor || 'transparent'};
 `
 
-const TabWrapper = styled.div``
-
 const TermsAndConditions = () => {
     return (
         <Layout>
@@ -43,7 +41,7 @@ const TermsAndConditions = () => {
                         </Header>
                     </Flex>
                 </Container>
-                <TabWrapper>
+                <div>
                     <Tabs tab_list={['clients', 'business-partners']}>
                         <Tabs.Panel label={localize('FOR CLIENTS')}>
                             <ClientGrid />
@@ -52,7 +50,7 @@ const TermsAndConditions = () => {
                             <BusinessGrid />
                         </Tabs.Panel>
                     </Tabs>
-                </TabWrapper>
+                </div>
             </Section>
         </Layout>
     )

@@ -24,6 +24,7 @@ const TabButton = styled.button`
     transition: border-color 0.2s ease-in;
     border: none;
     border-bottom: 2px solid var(--color-grey-2);
+    white-space: nowrap;
     ${(props) =>
         props.selected &&
         css`
@@ -46,6 +47,7 @@ const TabList = styled.div`
     width: 100%;
     justify-content: center;
     position: relative;
+    overflow: auto;
 
     @media ${device.mobileL} {
         justify-content: space-between;
@@ -64,7 +66,6 @@ const LineDivider = styled.div`
 const Content = styled.div`
     flex: 1;
     width: 100%;
-    padding-top: 16px;
 `
 
 const TextWrapper = styled(Text)`
@@ -93,8 +94,8 @@ TabPanel.propTypes = {
 
 const Tabs = ({ children, tab_list }) => {
     const [selected_tab, setSelectedTab] = useState(0)
-    const [active_tab, setActiveTab] = useTabState(['clients', 'business-partners'])
-    
+    const [active_tab, setActiveTab] = useTabState(tab_list)
+
     useEffect(() => {
         setSelectedTab(tab_list.indexOf(active_tab))
     }, [active_tab])
@@ -109,9 +110,7 @@ const Tabs = ({ children, tab_list }) => {
                         aria-selected={selected_tab === index ? 'true' : 'false'}
                         onClick={() => setActiveTab(tab_list[index])}
                     >
-                    <TextWrapper>
-                        {label}
-                    </TextWrapper>
+                        <TextWrapper>{label}</TextWrapper>
                     </TabButton>
                 ))}
                 <LineDivider />

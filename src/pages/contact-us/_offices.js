@@ -291,7 +291,7 @@ export const Offices = ({ is_belarus_enabled }) => {
                                         >
                                             C-13, iTech Tower, Jalan Impact,
                                             <br></br>
-                                            Cyber 6, 63000,Cyberjaya,
+                                            Cyber 6, 63000, Cyberjaya,
                                             <br></br>
                                             Selangor
                                         </LocalizedLinkText>

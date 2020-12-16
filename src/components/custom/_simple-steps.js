@@ -63,7 +63,7 @@ const ClientCard = styled.article`
     }
     @media ${device.tabletL} {
         width: 100%;
-        max-width: 39.5rem;
+        max-width: 328px;
         margin-top: 0;
         padding: 3rem;
 

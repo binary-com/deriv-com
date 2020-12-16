@@ -56,7 +56,7 @@ const ClientCard = styled.article`
     box-shadow: 0 4px 8px 0 rgba(14, 14, 14, 0.1);
     width: 31.6rem;
     padding: 3.2rem 2.4rem;
-    height: 100%;
+    height: auto;
     position: relative;
 
     ${Flex} {
@@ -130,7 +130,7 @@ const SimpleSteps = ({ header, content, sign_up }) => (
             {content.map((item, idx) => {
                 return (
                     <ClientCard key={idx}>
-                        <Flex ai="center">
+                        <Flex ai="center" height="fit-content">
                             <StyledHeader as="h4" type="sub-section-title">
                                 {item.header}
                             </StyledHeader>

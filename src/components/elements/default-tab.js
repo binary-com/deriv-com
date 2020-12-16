@@ -78,7 +78,7 @@ const TextWrapper = styled(Text)`
         font-size: ${({ font_size }) => font_size ?? 'var(--text-size-sm)'};
     }
     @media ${device.mobileM} {
-        font-size: ${({ font_size }) => font_size ?? 'var(--text-size-sm)'};
+        font-size: ${({ font_size }) => font_size ?? 'var(--text-size-s)'};
     }
 `
 

@@ -88,6 +88,7 @@ const Card = styled.div`
 const CardText = styled(Text)`
     font-size: 1.6rem;
     line-height: 1.5;
+    width: 90%;
 
     @media ${device.tabletL} {
         width: 86%;

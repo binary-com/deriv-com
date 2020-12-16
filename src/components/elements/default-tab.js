@@ -94,7 +94,7 @@ TabPanel.propTypes = {
 const Tabs = ({ children, tab_list }) => {
     const [selected_tab, setSelectedTab] = useState(0)
     const [active_tab, setActiveTab] = useTabState(['clients', 'business-partners'])
-    
+
     useEffect(() => {
         setSelectedTab(tab_list.indexOf(active_tab))
     }, [active_tab])
@@ -109,9 +109,7 @@ const Tabs = ({ children, tab_list }) => {
                         aria-selected={selected_tab === index ? 'true' : 'false'}
                         onClick={() => setActiveTab(tab_list[index])}
                     >
-                    <TextWrapper>
-                        {label}
-                    </TextWrapper>
+                        <TextWrapper>{label}</TextWrapper>
                     </TabButton>
                 ))}
                 <LineDivider />

@@ -49,10 +49,10 @@ const Faq = () => {
     }
     return (
         <RelativeContainer>
-            <Header size="3.6rem" align="center">
+            <Header as="h3" type="section-title" align="center">
                 {localize('Browse our FAQ')}
             </Header>
-            <Header as="h4" align="center" m="4rem 0" weight="500">
+            <Header as="h4" type="sub-section-title" align="center" m="4rem 0" weight="500">
                 {localize('Deriv Affiliate Programme')}
             </Header>
             <AccordionWrapper>
@@ -86,7 +86,7 @@ const Faq = () => {
                     </AccordionItem>
                 </Accordion>
             </AccordionWrapper>
-            <Header as="h4" align="center" m="8rem 0 4rem 0 " weight="500">
+            <Header as="h4" type="sub-section-title" align="center" m="8rem 0 4rem 0 " weight="500">
                 {localize('Deriv IB Programme')}
             </Header>
             <AccordionWrapper>

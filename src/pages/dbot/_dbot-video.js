@@ -112,6 +112,7 @@ const DtraderTabs = () => {
                 <Tab>
                     <Step
                         as="h4"
+                        type="sub-section-title"
                         lh="1.5"
                         align="left"
                         no_margin
@@ -125,6 +126,7 @@ const DtraderTabs = () => {
                 <Tab>
                     <Step
                         as="h4"
+                        type="sub-section-title"
                         lh="1.5"
                         align="left"
                         image_name="step_2"
@@ -137,6 +139,7 @@ const DtraderTabs = () => {
                 <Tab>
                     <Step
                         as="h4"
+                        type="sub-section-title"
                         lh="1.5"
                         align="left"
                         image_name="step_3"
@@ -149,6 +152,7 @@ const DtraderTabs = () => {
                 <Tab>
                     <Step
                         as="h4"
+                        type="sub-section-title"
                         lh="1.5"
                         align="left"
                         image_name="step_4"
@@ -161,6 +165,7 @@ const DtraderTabs = () => {
                 <Tab>
                     <Step
                         as="h4"
+                        type="sub-section-title"
                         lh="1.5"
                         align="left"
                         image_name="step_5"

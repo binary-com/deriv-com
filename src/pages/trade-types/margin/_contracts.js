@@ -48,7 +48,7 @@ const Contracts = () => {
         <>
             <SectionContainer background="white" padding="10.4rem 0 4rem">
                 <SmallContainer direction="column" ai="flex-start">
-                    <Header as="h2" mb="1.2rem">
+                    <Header as="h2" type="page-title" mb="1.2rem">
                         {localize('How margin contracts work')}
                     </Header>
                     <Text mb="4rem">
@@ -57,7 +57,7 @@ const Contracts = () => {
                             components={[<strong key={0} />]}
                         />
                     </Text>
-                    <Header as="h3" mb="0.8rem">
+                    <Header as="h3" type="section-title" mb="0.8rem">
                         {localize('How to calculate margin for products on Deriv')}
                     </Header>
                     <Text mb="0.8rem">

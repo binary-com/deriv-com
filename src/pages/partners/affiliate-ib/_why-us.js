@@ -67,7 +67,7 @@ const WhyUs = ({ items }) => {
     return (
         <StyledContainer>
             <Container direction="column">
-                <Header size="3.6rem" align="center">
+                <Header as="h3" type="section-title" align="center">
                     {localize('Why partner with us')}
                 </Header>
                 {items.map((item, index) => {
@@ -75,7 +75,9 @@ const WhyUs = ({ items }) => {
                     return (
                         <Row flex_direction={is_even ? 'row-reverse' : 'row'} key={index}>
                             <Content>
-                                <Header size="2.8rem">{item.title}</Header>
+                                <Header as="h3" type="section-title">
+                                    {item.title}
+                                </Header>
                                 <Text mt="0.8rem">{item.subtitle}</Text>
                             </Content>
                             <QueryImage

@@ -62,7 +62,9 @@ const Col = ({ Icon, content, title }) => (
     <GridCol>
         <img src={Icon} />
         <Container>
-            <StyledHeader as="h4">{title}</StyledHeader>
+            <StyledHeader as="h4" type="sub-section-title">
+                {title}
+            </StyledHeader>
             <Text lh="1.55" mt="1.8rem">
                 {content}
             </Text>

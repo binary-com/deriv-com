@@ -77,7 +77,7 @@ const NewSignup = () => {
                 {!(submitState === 'success') && (
                     <Content>
                         <StyledGraph src={Graph} alt="graph" />
-                        <Header mt="2.4rem" size="3.2rem">
+                        <Header mt="2.4rem" as="h3" type="section-title">
                             {localize('Start trading with Deriv')}
                         </Header>
                         <br />

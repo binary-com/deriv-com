@@ -70,7 +70,7 @@ const Home = () => {
             <Markets />
             <SimpleSteps
                 content={simple_step_content}
-                header={<Localize translate_text="3 simple steps"/>}
+                header={<Localize translate_text="3 simple steps" />}
                 sign_up={true}
             />
             <WhatOurClientsSay />

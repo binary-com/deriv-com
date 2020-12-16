@@ -119,7 +119,12 @@ const SignupFlat = ({
         <Wrapper dark={dark}>
             <FormWrapper>
                 <Container>
-                    <StyledHeader as="h3" weight="bold" color={dark ? 'white' : 'black'}>
+                    <StyledHeader
+                        as="h3"
+                        type="section-title"
+                        weight="bold"
+                        color={dark ? 'white' : 'black'}
+                    >
                         {localize('Join over 1 million traders worldwide')}
                     </StyledHeader>
                     <br />

@@ -67,7 +67,7 @@ const FAQ = () => {
             <Container direction="column">
                 <FAQWrapper jc="space-between">
                     <Question>
-                        <Header as="h3" mb="0.8rem" lh="1.25">
+                        <Header as="h3" type="section-title" mb="0.8rem" lh="1.25">
                             {localize('What is the rebranding about?')}
                         </Header>
                         <Text>
@@ -183,7 +183,7 @@ const FAQ = () => {
             <Container direction="column">
                 <FAQWrapper jc="space-between">
                     <Question>
-                        <Header as="h3" mb="0.8rem" lh="1.25">
+                        <Header as="h3" type="section-title" mb="0.8rem" lh="1.25">
                             {localize('How does it transform our partnership?')}
                         </Header>
                         <Text>
@@ -254,7 +254,7 @@ const FAQ = () => {
             <Container direction="column">
                 <FAQWrapper jc="space-between">
                     <Question>
-                        <Header as="h3" mb="0.8rem" lh="1.25">
+                        <Header as="h3" type="section-title" mb="0.8rem" lh="1.25">
                             <Localize translate_text="How do I get started promoting Deriv.com?" />
                         </Header>
                         <Text>

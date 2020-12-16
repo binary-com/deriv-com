@@ -218,7 +218,7 @@ const PaymentMethods = () => {
             />
             <SectionContainer>
                 <Container direction="column">
-                    <Header as="h1" align="center" mb="1.6rem">
+                    <Header as="h1" type="display-title" align="center" mb="1.6rem">
                         {localize('Payment methods')}
                     </Header>
                     <Text align="center" size="var(--text-size-m)">

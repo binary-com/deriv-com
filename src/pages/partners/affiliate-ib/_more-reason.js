@@ -40,13 +40,13 @@ const MoreReason = () => {
     return (
         <StyledSection>
             <Container direction="column">
-                <Header as="h3" size="3.6rem" align="center" mb="2rem">
+                <Header as="h3" type="section-title" align="center" mb="2rem">
                     {localize('More reasons to join')}
                 </Header>
                 <StyledFlex wrap="wrap" jc="center">
                     <Reason>
                         <img src={HighValue} alt="high value partnership" />
-                        <Header as="h4" lh="1.5">
+                        <Header as="h4" type="sub-section-title" lh="1.5">
                             {localize('High-value partnership')}
                         </Header>
                         <Text>
@@ -57,7 +57,7 @@ const MoreReason = () => {
                     </Reason>
                     <Reason>
                         <img src={ProvenReferral} alt="proven referral tools" />
-                        <Header as="h4" lh="1.5">
+                        <Header as="h4" type="sub-section-title" lh="1.5">
                             {localize('Proven creative materials')}
                         </Header>
                         <Text>
@@ -68,7 +68,7 @@ const MoreReason = () => {
                     </Reason>
                     <Reason>
                         <img src={GlobalAffiliate} alt="global affiliate support" />
-                        <Header as="h4" lh="1.5">
+                        <Header as="h4" type="sub-section-title" lh="1.5">
                             {localize('Global affiliate support')}
                         </Header>
                         <Text>

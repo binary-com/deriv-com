@@ -19,12 +19,7 @@ const StyledSection = styled(SectionContainer)`
     }
 `
 const StyledHeader = styled(Header)`
-    font-size: var(--text-size-header-1);
     padding-bottom: 6.4rem;
-
-    @media ${device.tabletL} {
-        font-size: 4.5rem;
-    }
 `
 
 const ImageWrapper = styled.div`
@@ -114,7 +109,7 @@ const LifeAtDerivCarousel = () => {
         <>
             <StyledSection>
                 <Container direction="column">
-                    <StyledHeader align="center" as="h2">
+                    <StyledHeader align="center" as="h3" type="section-title">
                         Life at Deriv
                     </StyledHeader>
                 </Container>

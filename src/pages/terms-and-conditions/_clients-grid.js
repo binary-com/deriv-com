@@ -30,7 +30,9 @@ const Col = ({
         <IconWrapper>
             <img src={Icon} />
         </IconWrapper>
-        <Header as="h4">{title}</Header>
+        <Header as="h4" type="sub-section-title">
+            {title}
+        </Header>
         <Text lh="1.55">{content}</Text>
         <Cta>
             <img src={PDF} alt="pdf icon black" />

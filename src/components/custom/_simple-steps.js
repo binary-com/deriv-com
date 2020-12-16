@@ -18,7 +18,7 @@ const StyledSection = styled(SectionContainer)`
         }
     }
     @media ${device.tabletL} {
-        padding: 0;
+        padding: 40px 0;
     }
 `
 const StyledFlex = styled(Flex)`
@@ -43,6 +43,12 @@ const StyledFlex = styled(Flex)`
         }
     }
 `
+const StyledHeader = styled(Header)`
+    @media ${device.tabletL} {
+        font-size: 16px;
+    }
+`
+
 const ClientCard = styled.article`
     margin: 0 0 0 2rem;
     background-color: var(--color-white);
@@ -50,7 +56,7 @@ const ClientCard = styled.article`
     box-shadow: 0 4px 8px 0 rgba(14, 14, 14, 0.1);
     width: 31.6rem;
     padding: 3.2rem 2.4rem;
-    height: 100%;
+    height: auto;
     position: relative;
 
     ${Flex} {
@@ -63,18 +69,15 @@ const ClientCard = styled.article`
     }
     @media ${device.tabletL} {
         width: 100%;
-        max-width: 39.5rem;
+        max-width: 328px;
         margin-top: 0;
-        padding: 3rem;
+        padding: 24px;
 
         ${Text} {
             font-size: 2rem;
         }
-        ${Header} {
-            font-size: 3rem;
-        }
         ${Flex} {
-            padding-bottom: 2rem;
+            padding-bottom: 8px;
         }
     }
 `
@@ -104,16 +107,10 @@ const LinkButtonWrapper = styled.div`
 
     ${LinkButton} {
         position: relative;
-        font-size: 1.4rem;
     }
 
     @media ${device.tabletL} {
         margin-top: 1rem;
-    }
-`
-const StyledHeader = styled(Header)`
-    @media ${device.tabletL} {
-        font-size: 4rem;
     }
 `
 const SimpleSteps = ({ header, content, sign_up }) => (
@@ -125,18 +122,18 @@ const SimpleSteps = ({ header, content, sign_up }) => (
             <MobileBackgroundPattern src={PatternMobile} alt="pattern mobile" />
         </Show.Mobile>
         <Container direction="column">
-            <StyledHeader align="center" as="h2">
+            <Header align="center" as="h3" type="section-title">
                 {header}
-            </StyledHeader>
+            </Header>
         </Container>
         <StyledFlex wrap="wrap">
             {content.map((item, idx) => {
                 return (
                     <ClientCard key={idx}>
-                        <Flex ai="center">
-                            <Header as="h3" size="var(--text-size-m)">
+                        <Flex ai="center" height="fit-content">
+                            <StyledHeader as="h4" type="sub-section-title">
                                 {item.header}
-                            </Header>
+                            </StyledHeader>
                             {item.icon}
                         </Flex>
                         <Text>{item.text}</Text>

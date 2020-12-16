@@ -50,14 +50,20 @@ const TradeTypeSlide = ({ icon, title, description, link, linkTitle }) => {
                 <TradeTypeCard>
                     <Flex ai="center" fd="column">
                         {icon}
-                        <Header mt="1.6rem" mb="0.8rem" align="center" size="var(--text-size-m)">
+                        <Header
+                            mt="1.6rem"
+                            mb="0.8rem"
+                            align="center"
+                            as="h6"
+                            type="main-paragraph"
+                        >
                             {title}
                         </Header>
-                        <Text size="var(--text-size-sm)" align="center">
+                        <Text size="14px" align="center">
                             {description}
                         </Text>
                         <CustomLinkWrap>
-                            <Text weight="bold" mr="0.8rem" color="red" size="16px">
+                            <Text weight="bold" mr="0.8rem" color="red">
                                 {localize('Learn more')}{' '}
                             </Text>
                             <img src={Arrow} alt="arrow" width="16" height="16" />
@@ -131,10 +137,10 @@ const TradeTypesMobile = () => {
     return (
         <>
             <StyledSection padding="4rem 0">
-                <Header align="center" as="h2" mb="0.8rem">
+                <Header align="center" as="h3" type="section-title" mb="0.8rem">
                     {localize('Trade types')}
                 </Header>
-                <Text padding="0 2rem" size="var(--text-size-sm)" align="center" mb="2rem">
+                <Text padding="0 2rem" align="center" mb="2rem">
                     {localize(
                         'Trade what you like, the way you like it, and on your preferred market.',
                     )}

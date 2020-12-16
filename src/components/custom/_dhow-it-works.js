@@ -18,10 +18,10 @@ const DHowItWorks = ({ Video, title }) => {
     return (
         <SectionContainer>
             <Container justify="center" direction="column">
-                <StyledHeader as="h4" align="center" weight="500">
+                <StyledHeader as="h4" type="sub-section-title" align="center" weight="500">
                     {localize('How it works')}
                 </StyledHeader>
-                <StyledHeader as="h2" align="center" size="var(--text-size-l)" mt="0.9rem">
+                <StyledHeader as="h2" type="page-title" align="center" mt="0.9rem">
                     {title}
                 </StyledHeader>
                 <Video />

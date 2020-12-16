@@ -24,10 +24,10 @@ const StyledLiveChat = styled.div`
     }
 `
 const url_params = new URLSearchParams(window.location.search)
-                        const is_livechat_query = url_params.get('is_livechat_open')
-                        if (is_livechat_query?.toLowerCase() === 'true') {
-                            window.LC_API.open_chat_window()
-                        }
+const is_livechat_query = url_params.get('is_livechat_open')
+if (is_livechat_query?.toLowerCase() === 'true') {
+    window.LC_API.open_chat_window()
+}
 
 const LiveChat = ({ LC_API, is_livechat_interactive, setLiveChatInteractive }) => {
     const [is_livechat_hover, setLivechatHover] = React.useState(false)
@@ -46,37 +46,34 @@ const LiveChat = ({ LC_API, is_livechat_interactive, setLiveChatInteractive }) =
     }
 
     React.useEffect(() => {
-        let cookie_interval = null;
+        let cookie_interval = null
         let script_timeout = null
         if (isBrowser()) {
-            const domain = (window.location.hostname.includes('deriv.com')
+            const domain = window.location.hostname.includes('deriv.com')
                 ? 'deriv.com'
                 : 'binary.sx'
-            )
-            import('@livechat/customer-sdk').then(CSDK => {
+            import('@livechat/customer-sdk').then((CSDK) => {
                 CustomerSdk.current = CSDK
             })
             const checkCookie = (() => {
-                let lastCookie = document.cookie; // 'static' memory between function calls
+                let lastCookie = document.cookie // 'static' memory between function calls
                 return function () {
-                    const currentCookie = document.cookie;
+                    const currentCookie = document.cookie
                     if (currentCookie != lastCookie) {
                         const client_information = Cookies.get('client_information', {
                             domain,
                         })
                         if (client_information) {
                             setLoggedIn(true)
-                        }
-                        else {
+                        } else {
                             setLoggedIn(false)
                         }
-                        lastCookie = currentCookie; // store latest cookie
-
+                        lastCookie = currentCookie // store latest cookie
                     }
-                };
-            })();
+                }
+            })()
 
-            cookie_interval = setInterval(checkCookie, 500);
+            cookie_interval = setInterval(checkCookie, 500)
 
             // The purpose is to load the script after everything is load but not async or defer. Therefore, it will be ignored in the rendering timeline
             script_timeout = setTimeout(() => {
@@ -97,14 +94,13 @@ const LiveChat = ({ LC_API, is_livechat_interactive, setLiveChatInteractive }) =
     React.useEffect(() => {
         if (isBrowser()) {
             let customerSDK = null
-            const domain = (window.location.hostname.includes('deriv.com')
+            const domain = window.location.hostname.includes('deriv.com')
                 ? 'deriv.com'
                 : 'binary.sx'
-            )
             if (CustomerSdk.current) {
                 customerSDK = CustomerSdk.current.init({
                     licenseId: livechat_license_id,
-                    clientId: livechat_client_id
+                    clientId: livechat_client_id,
                 })
             }
 
@@ -142,10 +138,7 @@ const LiveChat = ({ LC_API, is_livechat_interactive, setLiveChatInteractive }) =
                                 ...(email && { email }),
                             }
 
-                            window.LiveChatWidget.call(
-                                'set_session_variables',
-                                session_variables,
-                            )
+                            window.LiveChatWidget.call('set_session_variables', session_variables)
                             if (email) {
                                 window.LiveChatWidget.call('set_customer_email', email)
                             }
@@ -157,13 +150,13 @@ const LiveChat = ({ LC_API, is_livechat_interactive, setLiveChatInteractive }) =
                             }
                         } else {
                             if (window.LiveChatWidget.get('chat_data')) {
-                                const chatID = window.LiveChatWidget.get('chat_data').chatId;
+                                const chatID = window.LiveChatWidget.get('chat_data').chatId
                                 customerSDK?.deactivateChat({ chatId: chatID })
                             }
                             window.LiveChatWidget.call('set_customer_email', ' ')
                             window.LiveChatWidget.call('set_customer_name', ' ')
                         }
-                        
+
                         const url_params = new URLSearchParams(window.location.search)
                         const is_livechat_query = url_params.get('is_livechat_open')
                         if (is_livechat_query?.toLowerCase() === 'true') {
@@ -173,7 +166,6 @@ const LiveChat = ({ LC_API, is_livechat_interactive, setLiveChatInteractive }) =
                 })
             }, 4000)
         }
-
     }, [is_logged_in, CustomerSdk])
 
     return (

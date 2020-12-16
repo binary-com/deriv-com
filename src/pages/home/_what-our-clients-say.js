@@ -21,11 +21,6 @@ const StyledSection = styled(SectionContainer)`
         padding: 5rem 0;
     }
 `
-const StyledHeader = styled(Header)`
-    @media ${device.tabletL} {
-        font-size: 4.5rem;
-    }
-`
 
 const ClientCard = styled.article`
     width: 58.2rem;
@@ -238,9 +233,9 @@ const WhatOurClientsSay = () => {
         <>
             <StyledSection>
                 <Container direction="column">
-                    <StyledHeader align="center" as="h2">
+                    <Header align="center" as="h3" type="section-title">
                         {localize('What our clients say about Deriv')}
-                    </StyledHeader>
+                    </Header>
                 </Container>
                 <Carousel has_autoplay autoplay_interval={4000} {...settings}>
                     {our_client_slides.map((trader, idx) => (

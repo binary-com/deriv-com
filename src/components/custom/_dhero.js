@@ -158,7 +158,7 @@ const DemoButton = styled(LinkButton)`
     }
 `
 const StyledContent = styled(Header)`
-    font-size: 5.6rem;
+    font-size: 6.4rem;
 
     @media (max-width: 1322px) {
         font-size: 4.2rem;
@@ -277,12 +277,12 @@ const DHero = ({
         <Wrapper>
             <BackgroundSVG src={background_svg} alt="background svg" />
             <InformationWrapper height="unset" direction="column">
-                <StyledHeader as="h1" weight={500}>
+                <StyledHeader as="h4" weight="normal">
                     <DLogo src={Logo} alt="logo" width="32" height="32" />
                     {title}
                 </StyledHeader>
                 <HeroContent>
-                    <StyledContent as="h2">{content}</StyledContent>
+                    <StyledContent as="h1">{content}</StyledContent>
                 </HeroContent>
                 <LinkWrapper>
                     {join_us_for_free && (

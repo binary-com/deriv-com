@@ -115,7 +115,6 @@ const TabsContainer = styled(Flex)`
     @media ${device.tabletL} {
         justify-content: flex-start;
         overflow: scroll;
-        padding-top: 2rem;
     }
 `
 

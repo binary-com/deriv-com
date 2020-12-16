@@ -19,15 +19,18 @@ const signal_content_subscriber = {
             components={[<br key={0} />]}
         />
     ),
-    text: localize(
-        'The MT5 trading signals service allows you to copy the trades of more experienced traders to your MT5 account. Once you’ve subscribed to a signal, the provider’s deals will be automatically replicated on your Deriv MT5 trading account each time they place a trade.',
+    text: (
+        <Localize translate_text="The MT5 trading signals service allows you to copy the trades of more experienced traders to your MT5 account. Once you’ve subscribed to a signal, the provider’s deals will be automatically replicated on your Deriv MT5 trading account each time they place a trade." />
     ),
     list: [
-        localize('Minimise trading risk by copying from expert traders.'),
-        localize('Save time – no need to open, monitor, and close trades.'),
-        localize('Easy to set up – no installation required.'),
-        localize('Full disclosure of each providers’ performances.'),
-        localize('No hidden fees or commissions.'),
+        <Localize translate_text="Minimise trading risk by copying from expert traders." key={0} />,
+        <Localize
+            translate_text="Save time – no need to open, monitor, and close trades."
+            key={1}
+        />,
+        <Localize translate_text="Easy to set up – no installation required." key={2} />,
+        <Localize translate_text="Full disclosure of each providers’ performances." key={3} />,
+        <Localize translate_text="No hidden fees or commissions." key={4} />,
     ],
 }
 
@@ -38,17 +41,19 @@ const signal_content_provider = {
             components={[<br key={0} />]}
         />
     ),
-    text:
-        'If you are a professional trader, the MT5 trading signals service allows you to share your strategies with other traders for free or a subscription fee that you determine. When traders subscribe to your signal, your deals are automatically replicated on their accounts each time you place a trade.',
+    text: (
+        <Localize translate_text="If you are a professional trader, the MT5 trading signals service allows you to share your strategies with other traders for free or a subscription fee that you determine. When traders subscribe to your signal, your deals are automatically replicated on their accounts each time you place a trade." />
+    ),
     list: [
-        'Easy to set up – no installation required',
-        'Additional income stream from monthly subscriptions',
-        'Automated copying – no extra work from you',
+        <Localize translate_text="Easy to set up – no installation required" key={0} />,
+        <Localize translate_text="Additional income stream from monthly subscriptions." key={1} />,
+        <Localize translate_text="Automated copying – no extra work from you." key={2} />,
     ],
 }
 
 const TabsContainer = styled(Flex)`
     display: flex;
+    overflow: scroll;
 `
 
 const Item = styled.div`

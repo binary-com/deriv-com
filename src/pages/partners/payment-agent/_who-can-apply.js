@@ -81,7 +81,9 @@ const WhoCanApply = () => {
                         <Wrapper>
                             <ImageWrapper src={TradingExperts} alt="trading experts" />
                             <Content max_width="36.4rem">
-                                <Header as="h4">{localize('Currency exchangers')}</Header>
+                                <Header as="h4" type="sub-section-title">
+                                    {localize('Currency exchangers')}
+                                </Header>
                                 <Text>
                                     {localize(
                                         'Reputable online currency exchangers who want to gain more exposure and clients.',
@@ -92,7 +94,9 @@ const WhoCanApply = () => {
                         <Wrapper>
                             <ImageWrapper src={Affiliates} alt="affiliates" />
                             <Content max_width="36.4rem">
-                                <Header as="h4">{localize('Affiliates')}</Header>
+                                <Header as="h4" type="sub-section-title">
+                                    {localize('Affiliates')}
+                                </Header>
                                 <Text>
                                     {localize(
                                         'Deriv affiliates who want to support their clients.',
@@ -103,7 +107,9 @@ const WhoCanApply = () => {
                         <Wrapper>
                             <ImageWrapper src={CommunityManagers} alt="community managers" />
                             <Content max_width="36.4rem">
-                                <Header as="h4">{localize('Community managers')}</Header>
+                                <Header as="h4" type="sub-section-title">
+                                    {localize('Community managers')}
+                                </Header>
                                 <Text>
                                     {localize(
                                         'Trusted influencers or community managers who want to earn extra revenue.',
@@ -124,7 +130,9 @@ const WhoCanApply = () => {
                                 <HowToApplyContent>
                                     <ImageWrapper src={Email} alt="email" />
                                     <Content margin-top="0 px" max_width="36.4rem">
-                                        <Header as="h4">{localize('Drop us an email')}</Header>
+                                        <Header as="h4" type="sub-section-title">
+                                            {localize('Drop us an email')}
+                                        </Header>
                                         <Text>
                                             {localize('Send us an email with the following:')}
                                         </Text>
@@ -165,7 +173,9 @@ const WhoCanApply = () => {
                                 <HowToApplyContent>
                                     <ImageWrapper src={Reply} alt="reply" />
                                     <Content max_width="36.4rem">
-                                        <Header as="h4">{localize('Wait for our reply')}</Header>
+                                        <Header as="h4" type="sub-section-title">
+                                            {localize('Wait for our reply')}
+                                        </Header>
                                         <SecondaryText>
                                             {localize(
                                                 'We’ll review your application and get in touch for further information and next steps.',
@@ -178,7 +188,9 @@ const WhoCanApply = () => {
                                 <HowToApplyContent>
                                     <ImageWrapper src={Listed} alt="listed" />
                                     <Content max_width="36.4rem">
-                                        <Header as="h4">{localize('Get listed')}</Header>
+                                        <Header as="h4" type="sub-section-title">
+                                            {localize('Get listed')}
+                                        </Header>
                                         <SecondaryText>
                                             {localize(
                                                 'After final approval from our compliance team, we’ll publish your details on our payment agent list.',

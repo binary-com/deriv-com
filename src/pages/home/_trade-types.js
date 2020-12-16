@@ -29,7 +29,9 @@ const TradeTypes = () => {
         <div>
             <StyledContainer>
                 <Flex direction="column" max_width="28.2rem">
-                    <Header size="3.2rem">{localize('Trade types')}</Header>
+                    <Header as="h3" type="section-title">
+                        {localize('Trade types')}
+                    </Header>
                     <Text size="2.4rem" mt="1.6rem" mb="5rem">
                         {localize(
                             'Trade what you like, the way you like it, and on your preferred market.',

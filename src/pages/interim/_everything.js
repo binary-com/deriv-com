@@ -43,7 +43,7 @@ const Everything = () => {
     return (
         <Box p="8rem 0" bg="var(--color-grey-8)" id="markets">
             <Container fd="column" ai="center">
-                <Header as="h3" align="center" mb="2rem">
+                <Header as="h3" type="section-title" align="center" mb="2rem">
                     {localize('Deriv.com is everything you love about Binary.com, and more')}
                 </Header>
                 <Ul jc="center" ai="center">
@@ -52,7 +52,9 @@ const Everything = () => {
                             <img src={EasySignup} alt="easy sign up" width="64" height="64" />
                         </div>
                         <ResponsiveBox ml="1.6rem">
-                            <Header as="h4">{localize('No sign up required')}</Header>
+                            <Header as="h4" type="sub-section-title">
+                                {localize('No sign up required')}
+                            </Header>
                             <Text>
                                 <Localize
                                     translate_text="Just log in with your <0>Binary.com</0> credentials and start trading right away."
@@ -81,7 +83,9 @@ const Everything = () => {
                             />
                         </div>
                         <ResponsiveBox ml="1.6rem">
-                            <Header as="h4">{localize('Over 100+ financial instruments')}</Header>
+                            <Header as="h4" type="sub-section-title">
+                                {localize('Over 100+ financial instruments')}
+                            </Header>
                             <Text>
                                 {localize(
                                     'Trade what you like - forex, commodities, stock and synthetic indices.',
@@ -94,7 +98,9 @@ const Everything = () => {
                             <img src={Enhanced} alt="enhanced" width="64" height="64" />
                         </div>
                         <ResponsiveBox ml="1.6rem">
-                            <Header as="h4">{localize('An enhanced experience')}</Header>
+                            <Header as="h4" type="sub-section-title">
+                                {localize('An enhanced experience')}
+                            </Header>
                             <Text>
                                 {localize(
                                     'Trade confidently on a service created by the trusted online trading brand with over 20 years of experience.',
@@ -112,7 +118,9 @@ const Everything = () => {
                             />
                         </div>
                         <ResponsiveBox ml="1.6rem">
-                            <Header as="h4">{localize('4 trading platforms in one place')}</Header>
+                            <Header as="h4" type="sub-section-title">
+                                {localize('4 trading platforms in one place')}
+                            </Header>
                             <Text>
                                 {localize(
                                     'Trade the way you like on the Deriv MetaTrader 5 (DMT5), DTrader, DBot — and the classic SmartTrader.',
@@ -125,7 +133,9 @@ const Everything = () => {
                             <img src={UserFriendly} alt="user friendly" width="64" height="64" />
                         </div>
                         <ResponsiveBox ml="1.6rem">
-                            <Header as="h4">{localize('User-friendly, modern design')}</Header>
+                            <Header as="h4" type="sub-section-title">
+                                {localize('User-friendly, modern design')}
+                            </Header>
                             <Text>
                                 {localize(
                                     'Enjoy an intuitive, easy-to-use interface, even for new traders.',
@@ -138,7 +148,9 @@ const Everything = () => {
                             <img src={Support} alt="support" width="64" height="64" />
                         </div>
                         <ResponsiveBox ml="1.6rem">
-                            <Header as="h4">{localize('Support when you need it')}</Header>
+                            <Header as="h4" type="sub-section-title">
+                                {localize('Support when you need it')}
+                            </Header>
                             <Text>
                                 {localize(
                                     'Get access to friendly customer support 7 days a week, an enriched Help centre, plus other helpful content.',

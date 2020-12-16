@@ -1,13 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
+import Loadable from '@loadable/component'
 import ContactWays from './_contact-ways'
-import { Offices } from './_offices'
-import { Affiliates } from './_affiliates'
 import device from 'themes/device'
 import { Header, Text } from 'components/elements'
 import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { SEO, SectionContainer, Container } from 'components/containers'
+const Offices = Loadable(() => import('./_offices'))
+const Affiliates = Loadable(() => import('./_affiliates'))
 
 const HeroWrapper = styled(Container)`
     @media ${device.tablet} {
@@ -41,7 +42,7 @@ const ContactUs = () => {
             />
             <SectionContainer tablet={{ p: '40px 0' }}>
                 <HeroWrapper fd="column">
-                    <Header align="center" as="h1">
+                    <Header align="center" as="h1" type="display-title">
                         {localize('Contact us')}
                     </Header>
                     <StyledText align="center" size="var(--text-size-sm)">

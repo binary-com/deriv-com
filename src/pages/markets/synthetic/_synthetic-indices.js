@@ -1,18 +1,19 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import OtherMarkets from '../_other-markets.js'
+import Loadable from '@loadable/component'
 import { WhyTrade } from '../_why-trade'
-import AvailableTrades from '../_available-trades.js'
 import Margin from './_margin.js'
 import DigitalOptions from './_digital-options.js'
 import Multipliers from './_multipliers.js'
-import SimpleSteps from 'components/custom/_simple-steps'
 import { Localize } from 'components/localization'
 import FriendlySupport from 'images/svg/friendly-support.svg'
 import ResponsiveWebsite from 'images/svg/responsive-website.svg'
 import ExclusiveTradeType from 'images/svg/exclusive-trade-types.svg'
 import MarketandRisk from 'images/svg/market-and-risk.svg'
 import SevenTrading from 'images/svg/seven-trading.svg'
+const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
+const AvailableTrades = Loadable(() => import('../_available-trades.js'))
+const OtherMarkets = Loadable(() => import('../_other-markets.js'))
 
 const StockIndices = ({ simple_step_content }) => {
     return (

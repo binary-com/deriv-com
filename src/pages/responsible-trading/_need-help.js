@@ -112,30 +112,18 @@ const ClientCard = styled.article`
         margin-top: 0;
         padding: 3rem;
 
-        ${Text} {
-            font-size: 1.6rem;
-        }
-        ${Header} {
-            font-size: 3rem;
-        }
         ${Flex} {
             padding-bottom: 2rem;
             align-items: center;
         }
     }
-
     @media ${device.mobileL} {
         ${Header} {
-            font-size: 1.9rem;
+            font-size: 16px;
         }
     }
 `
 
-const StyledHeader = styled(Header)`
-    @media ${device.tabletL} {
-        font-size: var(--text-size-m);
-    }
-`
 const LinkText = styled(Text)`
     @media ${device.tabletL} {
         display: flex;
@@ -147,9 +135,9 @@ const NeedHelp = () => {
     return (
         <SectionContainer>
             <Container direction="column">
-                <StyledHeader mb="2rem" align="center" size="var(--text-size-l)" as="h2">
+                <Header mb="2rem" align="center" as="h2" type="page-title">
                     {localize('Need more help?')}
-                </StyledHeader>
+                </Header>
             </Container>
             <StyledFlex wrap="wrap">
                 {help_content.map((item, idx) => {
@@ -160,7 +148,9 @@ const NeedHelp = () => {
                                 mt={idx == 1 ? '2.5rem' : ''}
                                 ai={idx == 1 ? 'flex-start' : 'flex-end'}
                             >
-                                <Header size="2.4rem">{item.header}</Header>
+                                <Header as="h4" type="sub-section-title">
+                                    {item.header}
+                                </Header>
                                 {item.icon}
                             </Flex>
                             {item.text}

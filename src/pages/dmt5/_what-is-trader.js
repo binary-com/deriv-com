@@ -32,7 +32,7 @@ const StyledText = styled(Text)`
 const WhatIsTrader = () => {
     return (
         <Section>
-            <StyledHeader align="center" mb="1.2rem" as="h2">
+            <StyledHeader align="center" mb="1.2rem" as="h2" type="page-title">
                 {localize('What is Deriv MetaTrader 5 (DMT5)')}
             </StyledHeader>
             <StyledText max_width="79.2rem" align="center">

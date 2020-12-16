@@ -1,12 +1,13 @@
 import React from 'react'
+import Loadable from '@loadable/component'
 import Hero from './_hero'
 import TapInto from './_tap-into'
-import YourControl from './_your-control'
-import WhoCanApply from './_who-can-apply'
-import Faq from './_faq'
 import Layout from 'components/layout/layout'
 import { SEO } from 'components/containers'
 import { localize, WithIntl } from 'components/localization'
+const YourControl = Loadable(() => import('./_your-control'))
+const WhoCanApply = Loadable(() => import('./_who-can-apply'))
+const Faq = Loadable(() => import('./_faq'))
 
 const PaymentAgent = () => {
     return (

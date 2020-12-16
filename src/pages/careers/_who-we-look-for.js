@@ -114,7 +114,7 @@ const WhoWeLookFor = () => {
                 </ParimaryText>
             </StyledContainer>
             <Container direction="column">
-                <DiffHeader as="h3" align="center">
+                <DiffHeader as="h3" type="section-title" align="center">
                     What’s different about working at Deriv?
                 </DiffHeader>
                 <DescContainer direction="row" mb="14.4rem" jc="flex-start">

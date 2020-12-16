@@ -53,7 +53,7 @@ export const Community = () => {
                 <Flex tablet_direction="column" tablet_ai="center" max_width="92rem">
                     <StyledQueryImage data={data['community']} width="41rem" />
                     <StyledFlex tablet_ai="center" ml="5rem" direction="column">
-                        <StyledHeader mt="1rem" as="h3">
+                        <StyledHeader mt="1rem" as="h3" type="section-title">
                             {localize('Have a question?')}
                         </StyledHeader>
                         <Text size="var(--text-size-m)" pt="0.8rem" pb="3.4rem">
@@ -74,3 +74,5 @@ export const Community = () => {
         </SectionContainer>
     )
 }
+
+export default Community

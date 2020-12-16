@@ -23,12 +23,13 @@ const TermsAndConditions = () => {
             <Section>
                 <Container>
                     <Flex direction="column" ai="center" mb="8rem">
-                        <Header as="h1" align="center" lh="7.2rem">
+                        <Header as="h1" type="display-title" align="center" lh="7.2rem">
                             {localize('Terms and conditions')}
                         </Header>
 
                         <Header
                             as="h4"
+                            type="sub-section-title"
                             align="center"
                             weight="normal"
                             lh="3rem"
@@ -42,7 +43,10 @@ const TermsAndConditions = () => {
                     </Flex>
                 </Container>
                 <div>
-                    <Tabs tab_list={['clients', 'business-partners']} route_from="terms-and-conditions">
+                    <Tabs
+                        tab_list={['clients', 'business-partners']}
+                        route_from="terms-and-conditions"
+                    >
                         <Tabs.Panel label={localize('FOR CLIENTS')}>
                             <ClientGrid />
                         </Tabs.Panel>

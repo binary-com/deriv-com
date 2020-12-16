@@ -60,12 +60,8 @@ const StyledHeader = styled(Header)`
     line-height: 1.25;
 
     @media ${device.tabletL} {
-        font-size: 4rem;
+        font-size: 40px;
     }
-`
-
-const MobileHeader = styled(Header)`
-    font-size: 4rem;
 `
 const contents = [
     <Localize key={0} translate_text="20+ years of experience" />,
@@ -159,16 +155,16 @@ export const Hero = () => {
                         {check_first_load && (
                             <Show.Mobile>
                                 <Flex>
-                                    <MobileHeader color="white" mb="2rem">
+                                    <StyledHeader color="white" mb="2rem" as="h1">
                                         <Localize translate_text="Simple. Flexible. Reliable." />
-                                    </MobileHeader>
+                                    </StyledHeader>
                                 </Flex>
                             </Show.Mobile>
                         )}
 
                         <TypeWriter
-                            as="h2"
-                            size="var(--text-size-m)"
+                            as="h4"
+                            type="sub-section-title"
                             color="white"
                             max_width="430px"
                             weight="normal"

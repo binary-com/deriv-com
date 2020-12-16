@@ -13,7 +13,7 @@ export const Li = styled(Text).attrs({
 export const Ul = styled.ul`
     list-style: unset;
     color: var(--color-white);
-    font-size: var(--text-size-s);
+    font-size: 16px;
     margin-top: 0.8rem;
     margin-left: 2rem;
 
@@ -22,7 +22,7 @@ export const Ul = styled.ul`
     }
     ${Li} {
         @media ${device.tabletL} {
-            font-size: var(--text-size-sm);
+            font-size: 16px;
             font-weight: 300;
         }
     }
@@ -66,7 +66,7 @@ const ListNoBullets = styled.ul`
 const StyledLink = styled(LocalizedLinkText)`
     text-decoration: none;
     color: black;
-    font-size: var(--text-size-s);
+    font-size: 16px;
 
     :hover {
         color: var(--color-red);
@@ -75,7 +75,7 @@ const StyledLink = styled(LocalizedLinkText)`
 `
 export const SearchSuccess = ({ suggested_topics, max_length }) => (
     <>
-        <Header as="h3" color="black">
+        <Header as="h3" type="section-title" color="black">
             {localize('Topic suggestions')}
         </Header>
 
@@ -98,7 +98,13 @@ SearchSuccess.propTypes = {
 
 export const SearchError = ({ search }) => (
     <>
-        <ErrorHeader as="h5" color="black" size="var(--text-size-sm)" mb="0.8rem">
+        <ErrorHeader
+            as="h5"
+            type="main-paragraph"
+            color="black"
+            size="var(--text-size-sm)"
+            mb="0.8rem"
+        >
             {localize("Sorry, we couldn’t find any results matching '{{search}}'.", { search })}
         </ErrorHeader>
         <SearchText color="green">{localize('Search tips:')}</SearchText>

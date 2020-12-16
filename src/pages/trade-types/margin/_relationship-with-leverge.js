@@ -30,7 +30,7 @@ const RelationshipWithLeverge = () => {
         <>
             <SectionContainer background="white" padding="0 0 4rem">
                 <SmallContainer direction="column" ai="flex-start">
-                    <Header as="h3" mb="0.8rem">
+                    <Header as="h3" type="section-title" mb="0.8rem">
                         {localize('The relationship between margin and leverage')}
                     </Header>
                     <Text mb="0.8rem">

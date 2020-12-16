@@ -70,3 +70,5 @@ export const DidntFindYourAnswerBanner = () => {
         </DFYAWrapper>
     )
 }
+
+export default DidntFindYourAnswerBanner

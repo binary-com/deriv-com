@@ -114,7 +114,7 @@ const TradingResponsibly = () => {
         <SectionContainer>
             <Flex jc="center" wrap="true">
                 <Card>
-                    <StyledHeader align="center" size="var(--text-size-xl)">
+                    <StyledHeader align="center" as="h2" type="page-title">
                         {localize('Trading responsibly')}
                     </StyledHeader>
                     <ContentWrapper jc="center" ai="center" mt="2.4rem">

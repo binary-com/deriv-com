@@ -532,7 +532,10 @@ const SwapCalculator = () => {
                                 </StyledLinkButton>
                             }
                             {
-                                <StyledLinkButton secondary="true" to="/trade-types/margin">
+                                <StyledLinkButton
+                                    secondary="true"
+                                    to="/trade-types/margin#swap-policy"
+                                >
                                     {localize('Learn more about swaps')}
                                 </StyledLinkButton>
                             }
@@ -844,7 +847,7 @@ const SwapCalculator = () => {
                             >
                                 {localize('Go to DMT5 dashboard')}
                             </StyledLinkButton>
-                            <StyledLinkButton secondary="true" to="/trade-types/margin">
+                            <StyledLinkButton secondary="true" to="/trade-types/margin#swap-policy">
                                 {localize('Learn more about swaps')}
                             </StyledLinkButton>
                         </LinkWrapper>

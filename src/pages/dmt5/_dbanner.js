@@ -63,14 +63,13 @@ const ImageWrapper = styled(Flex)`
 `
 
 const TextWrapper = styled.div`
-    margin-top: 8rem;
+    margin: auto 0;
 
     @media ${device.laptopM} {
         max-width: 37rem;
     }
     @media ${device.tablet} {
         max-width: 256px;
-        margin-top: 10px;
     }
     @media ${device.tabletS} {
         margin: 234px auto 0;
@@ -79,7 +78,8 @@ const TextWrapper = styled.div`
     }
 `
 const StyledLinkButton = styled(LinkButton)`
-    width: 20.2rem;
+    min-width: 20.2rem;
+    width: auto;
     border: unset;
     line-height: 1.5;
     display: inline-block;

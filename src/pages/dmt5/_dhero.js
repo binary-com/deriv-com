@@ -29,17 +29,8 @@ const Wrapper = styled(Flex)`
     }
     @media ${device.tablet} {
         padding: 0 0 40px;
-        height: 95.4rem;
+        height: unset;
         flex-direction: column-reverse;
-    }
-    @media ${device.tabletS} {
-        height: 89.4rem;
-    }
-    @media ${device.mobileL} {
-        height: 81rem;
-    }
-    @media ${device.mobileM} {
-        height: 78rem;
     }
 `
 const HeroContent = styled(Flex)`
@@ -95,6 +86,9 @@ const LottieWrapper = styled.div`
     @media ${device.tabletL} {
         max-width: 54rem;
         right: 3rem;
+    }
+    @media ${device.tablet} {
+        position: relative;
     }
     @media ${device.mobileL} {
         max-width: 425px;
@@ -163,6 +157,10 @@ const InformationWrapper = styled(Flex)`
         top: 280px;
         max-width: 450px;
         padding: 0 16px;
+        margin-top: 20px;
+    }
+    @media ${device.mobileL} {
+        margin-top: 0;
     }
     @media ${device.mobileS} {
         padding: 0 12px;

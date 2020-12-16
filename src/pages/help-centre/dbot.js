@@ -736,12 +736,6 @@ const DBotArticle = () => {
                 text={localize('How do I reset the workspace?')}
                 label="reset-workspace"
             />
-            <ViewChart text={localize('How do I view the chart in DBot?')} label="view-chart" />
-
-            <TradeStatus
-                text={localize('Where can I see the status of my trades in DBot?')}
-                label="status-of-trades"
-            />
             <TransactionLog
                 text={localize('How do I clear my transaction log?')}
                 label="clear-transaction-log"
@@ -750,6 +744,11 @@ const DBotArticle = () => {
                 text={localize('How do I control my losses with DBot?')}
                 label="control-loss"
             />
+            <TradeStatus
+                text={localize('Where can I see the status of my trades in DBot?')}
+                label="status-of-trades"
+            />
+            <ViewChart text={localize('How do I view the chart in DBot?')} label="view-chart" />
         </Article>
     )
 }

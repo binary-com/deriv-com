@@ -36,7 +36,7 @@ const DifferentAccounts = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">
             {localize(
-                'What are the differences between the DMT5 Financial, Financial STP, and Synthetic accounts?',
+                'What are the differences between the DMT5 Synthetic Indices, Financial and Financial STP accounts?',
             )}
         </StyledHeader>
         <Text>
@@ -150,13 +150,9 @@ const DMT5Article = () => {
             />
             <DifferentAccounts
                 text={localize(
-                    'What are the differences between the DMT5 Financial, Financial STP, and Synthetic accounts?',
+                    'What are the differences between the DMT5 Synthetic Indices, Financial and Financial STP accounts?',
                 )}
                 label="differences-of-dmt5-accounts"
-            />
-            <DepositDMT5
-                text={localize('How can I deposit funds into my DMT5 real money account?')}
-                label="deposit-to-dmt5"
             />
             <WithdrawDMT5
                 text={localize('How can I withdraw funds from my DMT5 real money account?')}
@@ -171,6 +167,10 @@ const DMT5Article = () => {
             <ResetDMT5Password
                 text={localize('How can I reset my DMT5 account password?')}
                 label="reset-dmt5-password"
+            />
+            <DepositDMT5
+                text={localize('How can I deposit funds into my DMT5 real money account?')}
+                label="deposit-to-dmt5"
             />
         </Article>
     )

@@ -19,7 +19,7 @@ const WhoCanOpenAnAccount = () => (
         <StyledHeader as="h4">{localize("Why can't I create an account?")}</StyledHeader>
         <Text>
             {localize(
-                'In line with our Group practice, we set the following criteria for client signups:',
+                'In line with our Group practice, we set the following criteria for client sign ups:',
             )}
         </Text>
         <StyledList>

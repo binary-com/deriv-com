@@ -156,7 +156,7 @@ const StyledHeader = styled(Header)`
 
 const StyledLink = styled(LocalizedLink)`
     text-decoration: none;
-    color: black;
+    color: var(--color-black-3);
     font-size: 16px;
 
     :hover {
@@ -169,7 +169,8 @@ const StyledView = styled.div`
     text-decoration: none;
     color: red;
     font-size: 16px;
-
+    font-weight: normal;
+    
     :hover {
         cursor: pointer;
     }
@@ -325,7 +326,7 @@ class HelpCentre extends Component {
                                         name="search"
                                         value={search}
                                         onChange={this.handleInputChange}
-                                        placeholder={localize("Try 'Trade'")}
+                                        placeholder={localize("Try “Trade”")}
                                         data-lpignore="true"
                                         autoComplete="off"
                                     />
@@ -412,7 +413,7 @@ class HelpCentre extends Component {
                                                                                     <Localize
                                                                                         translate_text="<0>View all questions</0>"
                                                                                         components={[
-                                                                                            <strong
+                                                                                            <p
                                                                                                 key={
                                                                                                     0
                                                                                                 }
@@ -421,9 +422,9 @@ class HelpCentre extends Component {
                                                                                     />
                                                                                 ) : (
                                                                                     <Localize
-                                                                                        translate_text="<0>View less questions</0>"
+                                                                                        translate_text="<0>View fewer questions</0>"
                                                                                         components={[
-                                                                                            <strong
+                                                                                            <p
                                                                                                 key={
                                                                                                     0
                                                                                                 }

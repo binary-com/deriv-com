@@ -16,7 +16,7 @@ const WhatAreOptions = () => {
         <>
             <SectionContainer background="white" padding="8rem 0 4rem">
                 <SmallContainer direction="column" ai="flex-start">
-                    <Header as="h2" mb="1.2rem">
+                    <Header as="h2" type="page-title" mb="1.2rem">
                         {localize('What are options?')}
                     </Header>
                     <Text mb="4rem">
@@ -24,7 +24,7 @@ const WhatAreOptions = () => {
                             'Options are products that allow for payouts from predicting market movements, without needing to buy the underlying asset. You only need to open a position that predicts how the asset will move over a period of time. This makes it possible for people to participate in the financial markets with minimal capital investment.',
                         )}
                     </Text>
-                    <Header as="h3" mb="0.8rem">
+                    <Header as="h3" type="section-title" mb="0.8rem">
                         {localize('Options available on Deriv')}
                     </Header>
                     <Text align="left" mb="0.8rem">
@@ -60,7 +60,7 @@ const WhatAreOptions = () => {
             </SectionContainer>
             <SectionContainer background="grey-23" padding="4rem 0">
                 <SmallContainer direction="column" jc="flex-start" ai="flex-start">
-                    <Header as="h3" mb="4rem">
+                    <Header as="h3" type="section-title" mb="4rem">
                         {localize('Why trade options on Deriv')}
                     </Header>
                     <Grid>

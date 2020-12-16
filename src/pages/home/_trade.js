@@ -67,10 +67,16 @@ const Trade = () => {
     return (
         <StyledSection>
             <Container direction="column">
-                <Header as="h2" align="center">
+                <Header as="h3" type="section-title" align="center">
                     {localize('Trade the way you like')}
                 </Header>
-                <Header weight="normal" as="h4" align="center" m="1.6rem 0 6rem">
+                <Header
+                    weight="normal"
+                    as="h4"
+                    type="sub-section-title"
+                    align="center"
+                    m="1.6rem 0 6rem"
+                >
                     {localize('Choose from three powerful platforms — designed with you in mind')}
                 </Header>
                 <Flex width="100%" direction="flex-start">

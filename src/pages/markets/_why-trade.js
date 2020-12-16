@@ -38,11 +38,9 @@ const ItemContainer = styled(Box)`
     }
 `
 const StyledHeader = styled(Header)`
-    font-size: var(--text-size-header-1);
     @media ${device.tablet} {
         text-align: center;
         max-width: unset;
-        font-size: var(--text-size-header-4);
     }
 `
 const StyledText = styled(Text)`
@@ -68,7 +66,7 @@ export const WhyTrade = ({ children, header, text }) => {
         <StyledSection background="var(--color-grey-23)">
             <Flex direction="column" max_width="99.6rem" m="0 auto" jc="space-between" ai="center">
                 <div>
-                    <StyledHeader align="center" mb="1.6rem" lh="1.25">
+                    <StyledHeader as="h3" type="section-title" align="center" mb="1.6rem" lh="1.25">
                         {header}
                     </StyledHeader>
                     <StyledText align="center">{text}</StyledText>

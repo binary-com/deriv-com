@@ -24,7 +24,7 @@ const TradeTheWayYouLike = () => {
     const data = useStaticQuery(query)
     return (
         <StyledSection padding="5rem 2rem">
-            <Header as="h2" align="center">
+            <Header as="h3" type="section-title" align="center">
                 {localize('Trade the way you like')}
             </Header>
             <Text size="var(--text-size-sm)" mt="2rem" align="center">

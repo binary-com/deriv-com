@@ -22,7 +22,7 @@ const StartTrading = () => {
     return (
         <PatternContainer background="white" padding="4rem 0">
             <SmallContainer direction="column" ai="flex-start">
-                <Header as="h3" mb="4rem">
+                <Header as="h3" size="3.2rem" mb="4rem">
                     {localize('Start trading multipliers on Deriv')}
                 </Header>
                 <FixTimeline>

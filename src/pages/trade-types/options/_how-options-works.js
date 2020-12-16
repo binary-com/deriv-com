@@ -51,8 +51,8 @@ const OptionItems = styled(Flex)`
         align-items: center;
 
         & > div > img {
-            width: 20px;
-            height: 20px;
+            width: 24px;
+            height: 24px;
         }
     }
 `
@@ -64,13 +64,22 @@ const StyledContainer = styled(Container)`
     }
 `
 
+const StyledText = styled(Text)`
+    margin-top: 1.6rem;
+
+    @media ${device.mobileL} {
+        font-size: 18px;
+        margin-top: 0;
+    }
+`
+
 const HowOptionsWorks = () => {
     const data = useStaticQuery(query)
     return (
         <SectionContainer>
             <SmallContainer direction="column" ai="flex-start">
                 <StyledContainer direction="column">
-                    <Header as="h2" mb="3.2rem">
+                    <Header as="h2" type="page-title" mb="3.2rem">
                         {localize('How options contracts work')}
                     </Header>
                     <OptionGrid>
@@ -79,9 +88,9 @@ const HowOptionsWorks = () => {
                                 <div>
                                     <img src={DefinePosition} alt="define your position" />
                                 </div>
-                                <Text weight="bold" mt="1.6rem">
+                                <StyledText weight="bold">
                                     {localize('Define your position')}
-                                </Text>
+                                </StyledText>
                             </OptionItems>
                             <Text>
                                 {localize(
@@ -94,9 +103,7 @@ const HowOptionsWorks = () => {
                                 <div>
                                     <img src={GetQuote} alt="get quote" />
                                 </div>
-                                <Text weight="bold" mt="1.6rem">
-                                    {localize('Get quote')}
-                                </Text>
+                                <StyledText weight="bold">{localize('Get quote')}</StyledText>
                             </OptionItems>
                             <Text>
                                 {localize(
@@ -109,9 +116,9 @@ const HowOptionsWorks = () => {
                                 <div>
                                     <img src={PurchaseContract} alt="purchase your contract" />
                                 </div>
-                                <Text weight="bold" mt="1.6rem">
+                                <StyledText weight="bold">
                                     {localize('Purchase your contract')}
-                                </Text>
+                                </StyledText>
                             </OptionItems>
                             <Text>
                                 {localize(
@@ -121,10 +128,10 @@ const HowOptionsWorks = () => {
                         </HowItWorksItem>
                     </OptionGrid>
                 </StyledContainer>
-                <Header as="h3" mt="4rem">
+                <Header as="h3" type="section-title" mt="4rem">
                     {localize('How to buy your first options contract on DTrader')}
                 </Header>
-                <Header as="h4" mb="2.4rem" mt="3.2rem">
+                <Header as="h4" type="sub-section-title" mb="2.4rem" mt="3.2rem">
                     {localize('Define your position')}
                 </Header>
                 <SideTab>
@@ -167,7 +174,7 @@ const HowOptionsWorks = () => {
                         <QueryImage data={data['option_stake']} alt="Trade types option stake" />
                     </SideTab.Panel>
                 </SideTab>
-                <Header as="h4" mb="2.4rem" mt="3.2rem">
+                <Header as="h4" type="sub-section-title" mb="2.4rem" mt="3.2rem">
                     {localize('Get quote')}
                 </Header>
                 <SideTab is_reverse>
@@ -180,7 +187,7 @@ const HowOptionsWorks = () => {
                         <QueryImage data={data['option_quote']} alt="Trade types option quote" />
                     </SideTab.Panel>
                 </SideTab>
-                <Header as="h4" mb="2.4rem" mt="3.2rem">
+                <Header as="h4" type="sub-section-title" mb="2.4rem" mt="3.2rem">
                     {localize('Purchase your contract')}
                 </Header>
                 <SideTab>

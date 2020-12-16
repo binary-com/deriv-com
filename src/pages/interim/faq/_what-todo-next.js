@@ -7,7 +7,7 @@ const WhatTodoNext = () => {
     return (
         <SectionContainer>
             <Container direction="column" ai="center">
-                <Header as="h3" mb="0.8rem" align="center">
+                <Header as="h3" type="section-title" mb="0.8rem" align="center">
                     {localize('What do I do next?')}
                 </Header>
                 <Text mb="2rem" align="center">

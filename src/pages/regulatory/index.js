@@ -112,15 +112,21 @@ const Regulatory = () => {
             />
             <SectionContainer>
                 <GridContainer>
-                    <ResponsiveHeader as="h1" align="center" lh="8rem">
+                    <ResponsiveHeader as="h1" type="display-title" align="center">
                         {localize('Regulatory information')}
                     </ResponsiveHeader>
-                    <StyledHeader as="h5" align="center" weight="normal" padding="1.6rem 0 2rem">
+                    <StyledHeader
+                        as="h5"
+                        type="main-paragraph"
+                        align="center"
+                        weight="normal"
+                        padding="1.6rem 0 2rem"
+                    >
                         {localize(
                             'The services offered on Deriv.com and Binary.com are provided by the Deriv Group. The group has several subsidiary companies that are licensed to operate Deriv.com and Binary.com in their registered jurisdictions.',
                         )}
                     </StyledHeader>
-                    <StyledHeader as="h5" align="center" weight="normal">
+                    <StyledHeader as="h5" type="main-paragraph" align="center" weight="normal">
                         {localize(
                             'Since 1999, the group has served traders around the world with integrity and reliability. We always hold ourselves to the highest ethical standards and regulatory requirements.',
                         )}
@@ -130,7 +136,7 @@ const Regulatory = () => {
             <Divider />
             <SectionContainer padding="8rem 0 0">
                 <SmallContainer fd="column">
-                    <StyledHeader as="h3" align="center" mb="4rem" lh="4rem">
+                    <StyledHeader as="h3" type="section-title" align="center" mb="4rem" lh="4rem">
                         {localize('Deriv Investments (Europe) Limited')}
                     </StyledHeader>
                     <Box>
@@ -207,7 +213,7 @@ const Regulatory = () => {
                             <Eu>
                                 <ResponsiveGrid align="flex-start">
                                     <Mobile>
-                                        <StyledHeader lh="4rem" as="h4" mb="1.6rem">
+                                        <StyledHeader as="h4" type="sub-section-title" mb="1.6rem">
                                             {localize('Deriv (Europe) Limited')}
                                         </StyledHeader>
                                     </Mobile>
@@ -215,7 +221,7 @@ const Regulatory = () => {
                                 </ResponsiveGrid>
                                 <CssGridColumn>
                                     <Desktop>
-                                        <StyledHeader lh="4rem" as="h4">
+                                        <StyledHeader as="h4" type="sub-section-title">
                                             {localize('Deriv (Europe) Limited')}
                                         </StyledHeader>
                                     </Desktop>
@@ -249,7 +255,7 @@ const Regulatory = () => {
                                 </CssGridColumn>
                                 <ResponsiveGrid align="flex-start">
                                     <Mobile>
-                                        <StyledHeader lh="4rem" as="h4" mb="1.6rem">
+                                        <StyledHeader as="h4" type="sub-section-title" mb="1.6rem">
                                             {localize('Deriv (MX) Ltd')}
                                         </StyledHeader>
                                     </Mobile>
@@ -257,7 +263,7 @@ const Regulatory = () => {
                                 </ResponsiveGrid>
                                 <CssGridColumn>
                                     <Desktop>
-                                        <StyledHeader lh="4rem" as="h4">
+                                        <StyledHeader as="h4" type="sub-section-title">
                                             {localize('Deriv (MX) Ltd')}
                                         </StyledHeader>
                                     </Desktop>
@@ -294,7 +300,7 @@ const Regulatory = () => {
 
                         <ResponsiveGrid align="flex-start">
                             <Mobile>
-                                <StyledHeader lh="4rem" as="h4" mb="1.6rem">
+                                <StyledHeader as="h4" type="sub-section-title" mb="1.6rem">
                                     {localize('Deriv (FX) Ltd')}
                                 </StyledHeader>
                             </Mobile>
@@ -302,7 +308,7 @@ const Regulatory = () => {
                         </ResponsiveGrid>
                         <CssGridColumn>
                             <Desktop>
-                                <StyledHeader lh="4rem" as="h4">
+                                <StyledHeader as="h4" type="sub-section-title">
                                     {localize('Deriv (FX) Ltd')}
                                 </StyledHeader>
                             </Desktop>
@@ -329,7 +335,7 @@ const Regulatory = () => {
 
                         <ResponsiveGrid align="flex-start">
                             <Mobile>
-                                <StyledHeader lh="4rem" as="h4" mb="1.6rem">
+                                <StyledHeader as="h4" type="sub-section-title" mb="1.6rem">
                                     {localize('Deriv (BVI) Ltd')}
                                 </StyledHeader>
                             </Mobile>
@@ -337,7 +343,7 @@ const Regulatory = () => {
                         </ResponsiveGrid>
                         <CssGridColumn>
                             <Desktop>
-                                <StyledHeader lh="4rem" as="h4">
+                                <StyledHeader as="h4" type="sub-section-title">
                                     {localize('Deriv (BVI) Ltd')}
                                 </StyledHeader>
                             </Desktop>
@@ -364,7 +370,7 @@ const Regulatory = () => {
 
                         <ResponsiveGrid align="flex-start">
                             <Mobile>
-                                <StyledHeader lh="4rem" as="h4" mb="1.6rem">
+                                <StyledHeader as="h4" type="sub-section-title" mb="1.6rem">
                                     {localize('Deriv (V) Ltd and Champion Group Ltd')}
                                 </StyledHeader>
                             </Mobile>
@@ -372,7 +378,7 @@ const Regulatory = () => {
                         </ResponsiveGrid>
                         <CssGridColumn>
                             <Desktop>
-                                <StyledHeader lh="4rem" as="h4">
+                                <StyledHeader as="h4" type="sub-section-title">
                                     {localize('Deriv (V) Ltd and Champion Group Ltd')}
                                 </StyledHeader>
                             </Desktop>
@@ -406,7 +412,7 @@ const Regulatory = () => {
 
                         <ResponsiveGrid align="flex-start">
                             <Mobile>
-                                <StyledHeader lh="4rem" as="h4" mb="1.6rem">
+                                <StyledHeader as="h4" type="sub-section-title" mb="1.6rem">
                                     {localize('Deriv (SVG) LLC')}
                                 </StyledHeader>
                             </Mobile>
@@ -414,7 +420,7 @@ const Regulatory = () => {
                         </ResponsiveGrid>
                         <CssGridColumn>
                             <Desktop>
-                                <StyledHeader lh="4rem" as="h4">
+                                <StyledHeader as="h4" type="sub-section-title">
                                     {localize('Deriv (SVG) LLC')}
                                 </StyledHeader>
                             </Desktop>
@@ -432,7 +438,7 @@ const Regulatory = () => {
 
                         <ResponsiveGrid align="flex-start">
                             <Mobile>
-                                <StyledHeader lh="4rem" as="h4" mb="1.6rem">
+                                <StyledHeader as="h4" type="sub-section-title" mb="1.6rem">
                                     {localize('Deriv Limited')}
                                 </StyledHeader>
                             </Mobile>
@@ -440,7 +446,7 @@ const Regulatory = () => {
                         </ResponsiveGrid>
                         <CssGridColumn>
                             <Desktop>
-                                <StyledHeader lh="4rem" as="h4">
+                                <StyledHeader as="h4" type="sub-section-title">
                                     {localize('Deriv Limited')}
                                 </StyledHeader>
                             </Desktop>
@@ -466,7 +472,7 @@ const Regulatory = () => {
                     >
                         <ResponsiveGrid align="flex-start">
                             <Mobile>
-                                <StyledHeader lh="4rem" as="h4" mb="1.6rem">
+                                <StyledHeader as="h4" type="sub-section-title" mb="1.6rem">
                                     {localize('The Financial Commission')}
                                 </StyledHeader>
                             </Mobile>
@@ -474,7 +480,7 @@ const Regulatory = () => {
                         </ResponsiveGrid>
                         <CssGridColumn>
                             <Desktop>
-                                <StyledHeader lh="4rem" as="h4">
+                                <StyledHeader as="h4" type="sub-section-title">
                                     {localize('The Financial Commission')}
                                 </StyledHeader>
                             </Desktop>

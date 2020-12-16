@@ -8,10 +8,10 @@ const ThingsInMind = () => {
     return (
         <SectionContainer padding="4rem 0 4rem">
             <SmallContainer fd="column" jc="flex-start">
-                <Header as="h3" mb="3.2rem">
+                <Header as="h3" size="3.2rem" mb="3.2rem">
                     {localize('Things to keep in mind when trading multipliers')}
                 </Header>
-                <Header as="h4" mb="0.8rem">
+                <Header as="h4" size="2.4rem" mb="0.8rem">
                     {localize('Stop out')}
                 </Header>
                 <Text mb="3.2rem">
@@ -19,7 +19,7 @@ const ThingsInMind = () => {
                         'With or without a stop loss in place, we will close your position if the market moves against your prediction and your loss reaches the stop-out price. The stop-out price is the price at which your net loss is equal to your stake.',
                     )}
                 </Text>
-                <Header as="h4" mb="0.8rem">
+                <Header as="h4" size="2.4rem" mb="0.8rem">
                     {localize(
                         'You can’t use stop loss and deal cancellation features at the same time.',
                     )}
@@ -29,7 +29,7 @@ const ThingsInMind = () => {
                         'This is to protect you from losing your money when using deal cancellation. With deal cancellation, you are allowed to reclaim your full stake amount if you cancel your contract within an hour of opening the position. Stop loss, on the other hand, will close your contract at a loss if the market moves against your position. However, once the deal cancellation expires, you can set a stop loss level on the open contract.',
                     )}
                 </Text>
-                <Header as="h4" mb="0.8rem">
+                <Header as="h4" size="2.4rem" mb="0.8rem">
                     {localize(
                         'You can’t use take-profit and deal cancellation features at the same time.',
                     )}
@@ -39,7 +39,7 @@ const ThingsInMind = () => {
                         'You can’t set a take-profit level when you purchase a multipliers contract with deal cancellation. However, once the deal cancellation expires, you can set a take profit level on the open contract.',
                     )}
                 </Text>
-                <Header as="h4" mb="0.8rem">
+                <Header as="h4" size="2.4rem" mb="0.8rem">
                     {localize('Cancel and close features are not allowed simultaneously.')}
                 </Header>
                 <Text>

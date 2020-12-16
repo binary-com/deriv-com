@@ -36,7 +36,7 @@ const Policies = () => {
         <>
             <SectionContainer background="white" padding="4rem 0 0">
                 <SmallContainer direction="column" ai="flex-start">
-                    <Header as="h2" mb="1.2rem">
+                    <Header as="h2" type="page-title" mb="1.2rem">
                         {localize('Margin policies on Deriv')}
                     </Header>
                     <Text mb="1.2rem">
@@ -77,7 +77,7 @@ const Policies = () => {
                             'We will continue with this process until your margin level becomes higher than the stop-out level.',
                         )}
                     </Text>
-                    <Header as="h3" mb="0.8rem">
+                    <Header as="h3" type="section-title" mb="0.8rem">
                         {localize('Things you should know when trading on margin')}
                     </Header>
                     <Text weight="bold" mb="0.8rem">
@@ -117,7 +117,7 @@ const Policies = () => {
                             <InfoWrapper>
                                 <img src={Info} alt="info" />
                             </InfoWrapper>
-                            <Header as="h4" id="swap-policy">
+                            <Header as="h4" type="sub-section-title" id="swap-policy">
                                 {localize('Important notes on our swap rates (overnight funding)')}
                             </Header>
                         </CardHeading>
@@ -127,7 +127,7 @@ const Policies = () => {
                                     'If you keep any position open overnight, an interest adjustment (or swap rate) will be made to your trading account to compensate for the cost of keeping your position open. Instruments traded on our platforms are subjected to different swap rates and other conditions:',
                                 )}
                             </Text>
-                            <Header as="h5" mb="0.8rem">
+                            <Header as="h5" type="main-paragraph" mb="0.8rem">
                                 {localize('Forex and commodities')}
                             </Header>
                             <Text mb="0.8rem">
@@ -158,7 +158,7 @@ const Policies = () => {
                                     </Text>
                                 </li>
                             </Ul>
-                            <Header as="h5" mt="1.6rem" mb="0.8rem">
+                            <Header as="h5" type="main-paragraph" mt="1.6rem" mb="0.8rem">
                                 {localize('Synthetic indices')}
                             </Header>
                             <Text mb="0.8rem">
@@ -173,7 +173,7 @@ const Policies = () => {
                                 />
                             </Text>
                             <Note>
-                                <Text size="var(--text-size-xs)">
+                                <Text size="14px">
                                     {localize(
                                         'Please note that our swap rate also depends on the time and days you hold your positions open.',
                                     )}

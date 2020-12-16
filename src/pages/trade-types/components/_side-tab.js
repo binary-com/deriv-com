@@ -54,6 +54,12 @@ const TabList = styled.div`
     }
 `
 
+const StyledText = styled(Text)`
+    @media ${device.tabletS} {
+        font-size: 18px;
+    }
+`
+
 const Content = styled.div`
     flex: 1;
     width: 100%;
@@ -110,7 +116,7 @@ const Tabs = ({ children, is_reverse }) => {
                                 aria-selected={selected_tab === index ? 'true' : 'false'}
                                 onClick={() => selectTab(index)}
                             >
-                                <Text weight="bold">{label}</Text>
+                                <StyledText weight="bold">{label}</StyledText>
                                 <Text mt="0.8rem">{description}</Text>
                             </TabButton>
                             <Mobile min_width={'tabletS'}>

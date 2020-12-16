@@ -100,6 +100,8 @@ const StyledHeader = styled(Header)`
     }
 `
 const StyledText = styled(Text)`
+    margin-top: 8px;
+
     @media ${device.mobileL} {
         font-size: 16px;
         line-height: 24px;
@@ -114,6 +116,7 @@ const Flexibility = () => {
                 mobile_margin="0 0 24px"
                 align="center"
                 as="h2"
+                type="page-title"
                 mb="4rem"
             >
                 {localize('Flexibility with multiple account types')}
@@ -126,8 +129,8 @@ const Flexibility = () => {
                                 <StyledHeader
                                     mobile_margin="unset"
                                     mobile_font_size="20px"
-                                    mb="0.8rem"
                                     as="h4"
+                                    type="sub-section-title"
                                 >
                                     {item.header}
                                 </StyledHeader>

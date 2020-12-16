@@ -34,7 +34,7 @@ const AboutDeriv = () => {
     const data = useStaticQuery(query)
     return (
         <Container direction="column">
-            <Header mt="4rem" align="center" mb="4rem" as="h2">
+            <Header mt="4rem" align="center" mb="4rem" as="h2" type="page-title">
                 {localize('About Deriv')}
             </Header>
             <WrapContainer mb="8rem">

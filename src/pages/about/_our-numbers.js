@@ -59,7 +59,13 @@ const OurNumbers = () => (
                 <Header size="3.6rem" as="h2" color="black-2" align="center">
                     {localize('Our numbers')}
                 </Header>
-                <StyledHeader as="h4" align="center" weight="500" lh="3.6rem">
+                <StyledHeader
+                    as="h3"
+                    type="sub-section-title"
+                    align="center"
+                    weight="500"
+                    lh="3.6rem"
+                >
                     {localize(
                         'Deriv is the next step in the evolution of Binary.com. With Binary.com, we have a proven record of delivering market-leading products that are trusted around the world.',
                     )}

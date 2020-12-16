@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import device from 'themes/device'
-import { CssGrid, GridContainer, CssGridColumn} from 'components/containers'
+import { CssGrid, GridContainer, CssGridColumn } from 'components/containers'
 import { Text } from 'components/elements'
 
 export const StyledGrid = styled(CssGrid)`

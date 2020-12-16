@@ -194,6 +194,7 @@ class DtraderTabs extends React.Component {
                     <Tab>
                         <Step
                             as="h4"
+                            type="sub-section-title"
                             lh="1.5"
                             align="left"
                             no_margin
@@ -211,6 +212,7 @@ class DtraderTabs extends React.Component {
                     <Tab>
                         <Step
                             as="h4"
+                            type="sub-section-title"
                             lh="1.5"
                             align="left"
                             start_time={7}
@@ -227,6 +229,7 @@ class DtraderTabs extends React.Component {
                     <Tab>
                         <Step
                             as="h4"
+                            type="sub-section-title"
                             lh="1.5"
                             align="left"
                             start_time={13}

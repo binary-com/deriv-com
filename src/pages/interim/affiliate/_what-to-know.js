@@ -12,7 +12,7 @@ const WhatToKnow = () => {
     return (
         <SectionContainer>
             <Container direction="column" ai="center">
-                <Header as="h3" mb="0.8rem" align="center">
+                <Header as="h3" type="section-title" mb="0.8rem" align="center">
                     {localize('What you need to know')}
                 </Header>
                 <Text size="var(--text-size-m)" align="center">

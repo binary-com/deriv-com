@@ -15,7 +15,7 @@ const WhyTradeMargin = () => {
         <>
             <SectionContainer background="rgba(242, 243, 244, 0.3)" padding="4rem 0 4rem">
                 <SmallContainer direction="column" ai="flex-start">
-                    <Header as="h3" mb="4rem">
+                    <Header as="h3" type="section-title" mb="4rem">
                         {localize('Why trade on margin with Deriv')}
                     </Header>
                     <Grid>

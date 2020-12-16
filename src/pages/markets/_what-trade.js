@@ -36,7 +36,7 @@ export const WhatTrade = ({ header, sub_header }) => {
     return (
         <ContentWrapper>
             <Container direction="column">
-                <Header mb="1.6rem" align="center" size="3.6rem">
+                <Header mb="1.6rem" align="center" as="h3" type="section-title">
                     {header}
                 </Header>
                 {sub_header.map((prop, idx) => {

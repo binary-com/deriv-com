@@ -74,17 +74,23 @@ const Numbers = () => {
         <NumberSection>
             <Flex tablet_direction="column" max_width="1200px" jc="space-between">
                 <Number>
-                    <StyledHeader as="h2">{localize('330K+')}</StyledHeader>
+                    <StyledHeader as="h2" type="page-title">
+                        {localize('330K+')}
+                    </StyledHeader>
                     <Splitter />
                     <StyledText>{localize('clients on DMT5')}</StyledText>
                 </Number>
                 <Number>
-                    <StyledHeader as="h2">{localize('100+')}</StyledHeader>
+                    <StyledHeader as="h2" type="page-title">
+                        {localize('100+')}
+                    </StyledHeader>
                     <Splitter />
                     <StyledText>{localize('tradable assets')}</StyledText>
                 </Number>
                 <Number>
-                    <StyledHeader as="h2">{localize('24/7')}</StyledHeader>
+                    <StyledHeader as="h2" type="page-title">
+                        {localize('24/7')}
+                    </StyledHeader>
                     <Splitter />
                     <StyledText>{localize('trading')}</StyledText>
                 </Number>

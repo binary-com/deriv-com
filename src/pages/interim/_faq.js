@@ -44,7 +44,7 @@ const Faq = () => {
     return (
         <RelativeContainer>
             <Container>
-                <Header size="3.6rem" mb="4rem" align="center">
+                <Header as="h3" type="section-title" size="3.6rem" mb="4rem" align="center">
                     {localize('Frequently asked questions')}
                 </Header>
             </Container>

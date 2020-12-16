@@ -192,7 +192,7 @@ const Card = ({ display_name, active_tab, onTabChange, name }) => {
                         active_tab={active_tab}
                     />
                 )}
-                <CardHeader as="h4" width="auto">
+                <CardHeader as="h4" type="sub-section-title" width="auto">
                     {display_name}
                 </CardHeader>
             </Flex>

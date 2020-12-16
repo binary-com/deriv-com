@@ -262,6 +262,7 @@ export const OurHistory = (props) => {
                         <StyledHeader
                             left={story.left.toString()}
                             as="h2"
+                            type="page-title"
                             color={story.color || 'red-4'}
                             align="center"
                         >
@@ -314,7 +315,8 @@ export const OurHistory = (props) => {
                                             <Show.Desktop>
                                                 <Header
                                                     pl="1.1rem"
-                                                    as="h4"
+                                                    as="h3"
+                                                    type="section-title"
                                                     color={story.color}
                                                     mt={header.margin_top}
                                                 >
@@ -341,7 +343,8 @@ export const OurHistory = (props) => {
                                         {content.headers.map((header, id) => (
                                             <div key={id}>
                                                 <Header
-                                                    as="h4"
+                                                    as="h3"
+                                                    type="section-title"
                                                     color={story.color}
                                                     mt={header.margin_top}
                                                 >

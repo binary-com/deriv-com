@@ -29,7 +29,7 @@ const WhatIsMargin = () => {
         <>
             <SectionContainer background="white" padding="8rem 0 4rem">
                 <SmallContainer direction="column" ai="flex-start">
-                    <Header as="h2" mb="1.2rem">
+                    <Header as="h2" type="page-title" mb="1.2rem">
                         {localize('What is margin trading?')}
                     </Header>
                     <Text mb="3.2rem">

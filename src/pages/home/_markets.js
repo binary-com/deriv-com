@@ -12,7 +12,7 @@ import SyntheticIndicesIcon from 'images/svg/markets/synthetic.svg'
 // Images
 const StyledSection = styled(SectionContainer)`
     box-shadow: inset 0 1px 0 0 var(--color-grey-8);
-    padding: 0 0 6rem;
+    padding: 8rem 0 6rem;
 
     @media ${device.tabletL} {
         padding: 5rem 0;
@@ -69,14 +69,14 @@ const MarketCard = styled.article`
 const Markets = () => (
     <StyledSection>
         <Container direction="column">
-            <Header align="center" as="h2">
+            <Header align="center" as="h3" type="section-title">
                 {localize('Markets')}
             </Header>
             <MarketWrapper wrap="wrap">
                 <MarketCard mr="2.4rem" mb="4rem">
                     <img src={ForexIcon} alt="forex" width="64" height="64" />
                     <div>
-                        <Header as="h3" size="var(--text-size-m)">
+                        <Header as="h4" type="sub-section-title">
                             {localize('Forex')}
                         </Header>
                         <Text>
@@ -89,7 +89,7 @@ const Markets = () => (
                 <MarketCard mb="4rem">
                     <img src={StockIcon} alt="stock" width="64" height="64" />
                     <div>
-                        <Header as="h3" size="var(--text-size-m)">
+                        <Header as="h4" type="sub-section-title">
                             {localize('Stock indices')}
                         </Header>
                         <Text>
@@ -102,7 +102,7 @@ const Markets = () => (
                 <MarketCard mr="2.4rem">
                     <img src={CommoditiesIcon} alt="commodities" width="64" height="64" />
                     <div>
-                        <Header as="h3" size="var(--text-size-m)">
+                        <Header as="h4" type="sub-section-title">
                             {localize('Commodities')}
                         </Header>
                         <Text>
@@ -115,7 +115,7 @@ const Markets = () => (
                 <MarketCard>
                     <img src={SyntheticIndicesIcon} alt="synthetic" width="64" height="64" />
                     <div>
-                        <Header as="h3" size="var(--text-size-m)">
+                        <Header as="h4" type="sub-section-title">
                             {localize('Synthetic indices')}
                         </Header>
                         <Text>

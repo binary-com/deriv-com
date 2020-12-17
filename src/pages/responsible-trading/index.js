@@ -1,10 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import TradingLimits from './_trading-limits'
+import Loadable from '@loadable/component'
 import SecureAccount from './_securing-account'
-import TradingResponsibly from './_trading-responsibly'
-import NeedHelp from './_need-help'
-import { RoleBanner } from './_banner'
 import { SEO, SectionContainer, Container, Flex, Show } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { Header, Text } from 'components/elements'
@@ -13,6 +10,10 @@ import NoneEuBackground from 'images/common/responsible-trading-bg.png'
 import EuBackground from 'images/common/responsible-trading-eu-bg.png'
 import { isEuCountry } from 'common/country-base'
 import device from 'themes/device'
+const TradingResponsibly = Loadable(() => import('./_trading-responsibly'))
+const TradingLimits = Loadable(() => import('./_trading-limits'))
+const NeedHelp = Loadable(() => import('./_need-help'))
+const RoleBanner = Loadable(() => import('./_banner'))
 
 const Hero = styled(Flex)`
     padding: 12rem 0 8rem;
@@ -26,7 +27,6 @@ const Section = styled(SectionContainer)`
 
 const StyledHeader = styled(Header)`
     @media ${device.tablet} {
-        font-size: var(--text-size-l);
         max-width: 90%;
         margin: auto;
         margin-bottom: 1.6rem;
@@ -48,7 +48,8 @@ const ResponsibleTrading = () => {
                     <Container>
                         <Flex direction="column">
                             <StyledHeader
-                                size="var(--text-size-xxl)"
+                                as="h1"
+                                type="display-title"
                                 color="white"
                                 align="center"
                                 lh="1.25"

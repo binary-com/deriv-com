@@ -253,12 +253,14 @@ const DHero = ({
             )}
 
             <InformationWrapper height="unset" direction="column">
-                <StyledHeader as="h1" weight={500}>
+                <StyledHeader as="h4" type="sub-section-title" weight={500}>
                     <DLogo src={Logo} alt="logo" width="32" height="32" />
                     {title}
                 </StyledHeader>
                 <HeroContent>
-                    <Header as="h1">{content}</Header>
+                    <Header as="h1" type="display-title">
+                        {content}
+                    </Header>
                 </HeroContent>
                 <LinkWrapper>
                     {join_us_for_free && (

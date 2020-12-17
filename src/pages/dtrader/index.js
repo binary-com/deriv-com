@@ -1,12 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
-import DtraderVideo from './_dtrader-video.js'
-import DTrading from 'components/custom/_dtrading.js'
-import DHero from 'components/custom/_dhero.js'
-import DBanner from 'components/custom/_dbanner.js'
-import DHowItWorks from 'components/custom/_dhow-it-works.js'
-import DNumber from 'components/custom/_dnumbers.js'
+import Loadable from '@loadable/component'
 import { OtherPlatform } from 'components/custom/other-platforms.js'
 import { Show, SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
@@ -17,6 +12,12 @@ import { localize, WithIntl, Localize } from 'components/localization'
 import DTraderBGMobile from 'images/svg/dtrader-bg-mobile.svg'
 import DTraderBG from 'images/svg/dtrader-bg.svg'
 import BackgroundPatternTrader from 'images/common/bg_banner_trader.png'
+import DHero from 'components/custom/_dhero.js'
+import DNumber from 'components/custom/_dnumbers.js'
+const DtraderVideo = Loadable(() => import('./_dtrader-video.js'))
+const DTrading = Loadable(() => import('components/custom/_dtrading.js'))
+const DBanner = Loadable(() => import('components/custom/_dbanner.js'))
+const DHowItWorks = Loadable(() => import('components/custom/_dhow-it-works.js'))
 
 const query = graphql`
     query {

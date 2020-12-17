@@ -57,7 +57,9 @@ const PageNotFound = () => {
                     </ImageWrapper>
 
                     <PageNotFoundContainerInfo>
-                        <Header as="h3">{localize("This channel doesn't work")}</Header>
+                        <Header as="h3" type="sub-section-title">
+                            {localize("This channel doesn't work")}
+                        </Header>
                         <Text>
                             {localize(
                                 'You may have followed a broken link, or the page has moved to a new address.',

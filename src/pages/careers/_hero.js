@@ -9,7 +9,6 @@ import { LocationContext } from 'components/layout/location-context.js'
 import device from 'themes/device'
 
 const StyledHeader = styled(Header)`
-    font-size: var(--text-size-xxl);
     margin-bottom: 2.4rem;
     color: var(--color-white);
 `
@@ -20,7 +19,6 @@ const Subheadline = styled(Header)`
 `
 
 const JoinHeader = styled(Header)`
-    font-size: var(--text-size-header-1);
     margin-bottom: 4.8rem;
     margin-top: 3.2rem;
     color: var(--color-white);
@@ -33,16 +31,6 @@ const StyledContainer = styled(Container)`
 
     @media ${device.tablet} {
         padding: 0 2rem;
-
-        ${StyledHeader} {
-            font-size: 3.6rem;
-        }
-        ${Subheadline} {
-            font-size: 2.4rem;
-        }
-        ${JoinHeader} {
-            font-size: 2.4rem;
-        }
     }
 `
 
@@ -81,14 +69,16 @@ const Hero = () => {
             dark="0.3"
         >
             <StyledContainer>
-                <StyledHeader as="h2">
+                <StyledHeader as="h1" type="display-title">
                     Be part of something <RedBanner>big</RedBanner>.
                 </StyledHeader>
-                <Subheadline as="h3">
+                <Subheadline as="h3" type="section-title">
                     We have a huge mission, an incredible team, and rapid growth. But it’s not just
                     about our success — it’s about yours.
                 </Subheadline>
-                <JoinHeader as="h3">Join and grow with us.</JoinHeader>
+                <JoinHeader as="h3" type="section-title" size="3.6rem">
+                    Join and grow with us.
+                </JoinHeader>
                 {has_mounted && (
                     <LinkButton
                         secondary="true"

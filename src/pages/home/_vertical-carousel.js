@@ -4,8 +4,6 @@ import styled from 'styled-components'
 import { Carousel, Header } from 'components/elements'
 
 const StyledHeader = styled(Header)`
-    font-size: var(--text-size-m);
-    line-height: 1.5;
     height: 36px;
     margin: 10px 0;
 `
@@ -33,7 +31,13 @@ const VerticalCarousel = ({ contents }) => {
     return (
         <Carousel has_autoplay autoplay_interval={2500} {...settings}>
             {contents.map((content, index) => (
-                <StyledHeader color="white" index={index} key={index}>
+                <StyledHeader
+                    as="h4"
+                    type="sub-section-title"
+                    color="white"
+                    index={index}
+                    key={index}
+                >
                     {content}
                 </StyledHeader>
             ))}

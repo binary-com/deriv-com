@@ -165,7 +165,7 @@ const StartTrader = () => {
     }
     return (
         <Section>
-            <StyledHeader align="center" mb="4rem" as="h2">
+            <StyledHeader align="center" mb="4rem" as="h2" type="page-title">
                 {localize('How to get started with a DMT5 account')}
             </StyledHeader>
             <Flex mb="8rem" p="0 16px" tablet={{ mb: '32px', height: 'unset' }}>

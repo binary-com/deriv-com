@@ -154,7 +154,7 @@ export const LocationLayout = ({ location, images }) => {
             />
             <Container direction="column">
                 <FirstSection padding="8rem 0">
-                    <Header align="center" as="h2" size={'var(--text-size-header-5)'}>
+                    <Header align="center" as="h2" size="var(--text-size-header-5)">
                         {`Living in ${display_name}`}
                     </Header>
                     <Flex tablet_direction="column">

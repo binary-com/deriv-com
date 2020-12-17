@@ -169,7 +169,7 @@ export const LocationLayout = ({ location, images }) => {
                     </Flex>
                 </FirstSection>
             </Container>
-            <SectionContainer padding={location.has_iframe ? '0rem' : '0 0 12rem'}>
+            <SectionContainer padding="0">
                 <Header
                     align="center"
                     as="h2"

@@ -101,7 +101,7 @@ const Fourth = styled.div`
 
 const FirstSection = styled(SectionContainer)`
     ${Header} {
-        margin-bottom: 8rem;
+        margin-bottom: 4rem;
     }
     ${Text} {
         max-width: 41.5rem;
@@ -154,7 +154,7 @@ export const LocationLayout = ({ location, images }) => {
             />
             <Container direction="column">
                 <FirstSection padding="8rem 0">
-                    <Header align="center" as="h2" size={'var(--text-size-header-4)'}>
+                    <Header align="center" as="h2" size={'var(--text-size-header-5)'}>
                         {`Living in ${display_name}`}
                     </Header>
                     <Flex tablet_direction="column">
@@ -173,7 +173,7 @@ export const LocationLayout = ({ location, images }) => {
                 <Header
                     align="center"
                     as="h2"
-                    size={'var(--text-size-header-4)'}
+                    size={'var(--text-size-header-5)'}
                     style={{ marginBottom: '4rem' }}
                 >
                     Our office

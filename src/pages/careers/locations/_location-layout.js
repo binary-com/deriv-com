@@ -15,6 +15,7 @@ const Pin = styled.img`
     height: 24px;
     margin-right: 13px;
 `
+
 const StyledContainer = styled(Container)`
     flex-direction: column;
     align-items: flex-start;
@@ -26,16 +27,16 @@ const StyledContainer = styled(Container)`
 `
 
 const StyledHeader = styled(Header)`
-    font-size: var(--text-size-xl);
-    margin-bottom: 2.4rem;
+    font-size: var(--text-size-xxl);
+    margin-bottom: 1.6rem;
     color: var(--color-white);
 `
 
 const Subheadline = styled(Text)`
-    font-size: var(--text-size-sm);
+    font-size: var(--text-size-m);
     color: var(--color-white);
-    max-width: 58.8rem;
-    margin-bottom: 8rem;
+    max-width: 69rem;
+    margin-bottom: 3.2rem;
 `
 
 const Hero = ({ display_name, img_data, description }) => {
@@ -44,7 +45,7 @@ const Hero = ({ display_name, img_data, description }) => {
             data={img_data}
             style={{
                 height: '80rem',
-                width: '100%',
+                minWidth: '100%',
             }}
             alt={display_name}
         >
@@ -150,8 +151,8 @@ export const LocationLayout = ({ location, images }) => {
                 img_data={images[location.name]}
             />
             <Container direction="column">
-                <FirstSection padding="12rem 0">
-                    <Header align="center" as="h2" size={'var(--text-size-header-1)'}>
+                <FirstSection padding="8rem 0">
+                    <Header align="center" as="h2" size={'var(--text-size-header-4)'}>
                         {`Living in ${display_name}`}
                     </Header>
                     <Flex tablet_direction="column">
@@ -170,8 +171,8 @@ export const LocationLayout = ({ location, images }) => {
                 <Header
                     align="center"
                     as="h2"
-                    size={'var(--text-size-header-1)'}
-                    style={{ marginBottom: '6.4rem' }}
+                    size={'var(--text-size-header-4)'}
+                    style={{ marginBottom: '4rem' }}
                 >
                     Our office
                 </Header>
@@ -212,7 +213,7 @@ export const LocationLayout = ({ location, images }) => {
                     </Flex>
                 </Flex>
             </SectionContainer>
-            <SectionContainer padding="12rem 0">
+            <SectionContainer padding="8rem 0">
                 <LocationCard>
                     <Flex min_height="42.2rem" jc="unset" tablet_direction="column">
                         <ImageWrapper>

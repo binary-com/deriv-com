@@ -173,7 +173,7 @@ export const LocationLayout = ({ location, images }) => {
                 <Header
                     align="center"
                     as="h2"
-                    size={'var(--text-size-header-5)'}
+                    size="var(--text-size-header-5)"
                     style={{ marginBottom: '4rem' }}
                 >
                     Our office

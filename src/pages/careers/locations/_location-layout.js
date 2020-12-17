@@ -16,6 +16,15 @@ const Pin = styled.img`
     margin-right: 13px;
 `
 
+const StyledBackground = styled(BackgroundImage)`
+    min-width: 100%;
+    height: 80rem;
+    object-fit: contain;
+    @media ${device.tabletL} {
+        height: 65.3rem;
+    }
+`
+
 const StyledContainer = styled(Container)`
     flex-direction: column;
     align-items: flex-start;
@@ -41,14 +50,7 @@ const Subheadline = styled(Text)`
 
 const Hero = ({ display_name, img_data, description }) => {
     return (
-        <BackgroundImage
-            data={img_data}
-            style={{
-                height: '80rem',
-                minWidth: '100%',
-            }}
-            alt={display_name}
-        >
+        <StyledBackground data={img_data} alt={display_name}>
             <StyledContainer>
                 <StyledHeader as="h1">{display_name}</StyledHeader>
                 <Subheadline>{description}</Subheadline>
@@ -63,7 +65,7 @@ const Hero = ({ display_name, img_data, description }) => {
                     {`View open positions in ${display_name}`}
                 </LinkButton>
             </StyledContainer>
-        </BackgroundImage>
+        </StyledBackground>
     )
 }
 

@@ -155,7 +155,7 @@ export const LocationLayout = ({ location, images }) => {
             />
             <CareerContainer>
                 <FirstSection>
-                    <Header align="center" as="h2" size={'var(--text-size-header-5)'}>
+                    <Header align="center" as="h2" size="var(--text-size-header-5)">
                         <Localize translate_text="Living in " />
                         {display_name}
                     </Header>
@@ -238,8 +238,8 @@ export const LocationLayout = ({ location, images }) => {
                         </ImageWrapper>
                         <Flex p="3.2rem 6rem" direction="column" max_width="44.4rem">
                             <div style={{ maxWidth: '32.4rem' }}>
-                                <Header as="h3" size={'24px'}>
-                                    Location
+                                <Header as="h3" size="24px">
+                                    <Localize translate_text="Location" />
                                 </Header>
                                 <CardText>{location.map_text}</CardText>
                                 <Flex jc="unset">

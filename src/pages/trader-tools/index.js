@@ -77,7 +77,7 @@ const TraderTools = () => {
             />
             <Hero jc="center" ai="center">
                 <Container>
-                    <Header as="h1" color="white" align="center">
+                    <Header as="h1" type="display-title" color="white" align="center">
                         {localize('Traders’ tools')}
                     </Header>
                 </Container>
@@ -88,14 +88,18 @@ const TraderTools = () => {
                     active_tab={active_tab}
                     name="marginCalculator"
                 >
-                    <Header as="h4">{localize('Margin calculator')}</Header>
+                    <Header as="h4" type="sub-section-title">
+                        {localize('Margin calculator')}
+                    </Header>
                 </Item>
                 <Item
                     onClick={() => handleTabChange('swapCalculator')}
                     active_tab={active_tab}
                     name="swapCalculator"
                 >
-                    <Header as="h4">{localize('Swap calculator')}</Header>
+                    <Header as="h4" type="sub-section-title">
+                        {localize('Swap calculator')}
+                    </Header>
                 </Item>
             </Flex>
             <Box position="relative">

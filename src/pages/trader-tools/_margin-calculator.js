@@ -168,7 +168,7 @@ const MarginCalculator = () => {
 
     return (
         <StyledSection direction="column">
-            <SectionHeader as="h2" align="center" mt="6rem" mb="1.2rem">
+            <SectionHeader as="h2" type="page-title" align="center" mt="6rem" mb="1.2rem">
                 {localize('Margin calculator')}
             </SectionHeader>
 
@@ -372,7 +372,7 @@ const MarginCalculator = () => {
 
                 <RightContent>
                     <TextWrapper>
-                        <RightContentHeader as="h3" mb="0.8rem">
+                        <RightContentHeader as="h3" type="section-title" mb="0.8rem">
                             {localize('How margin is calculated')}
                         </RightContentHeader>
 
@@ -392,7 +392,7 @@ const MarginCalculator = () => {
                             )}
                         </StyledText>
 
-                        <RightContentHeader as="h3" mb="0.8rem">
+                        <RightContentHeader as="h3" type="section-title" mb="0.8rem">
                             {localize('Example calculation')}
                         </RightContentHeader>
 

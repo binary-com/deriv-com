@@ -211,14 +211,6 @@ const query = graphql`
                 }
             }
         }
-        dtrader_mobile: file(relativePath: { eq: "dtrader_trade.png" }) {
-            childImageSharp {
-                fluid(maxWidth: 1024, srcSetBreakpoints: [600, 1440]) {
-                    ...GatsbyImageSharpFluid_withWebp_noBase64
-                    originalName
-                }
-            }
-        }
         dbot_mobile: file(relativePath: { eq: "dbot_trade_mobile.png" }) {
             ...fadeIn
         }
@@ -316,10 +308,14 @@ const DHero = ({
             </InformationWrapper>
 
             <LottieWrapper>
-                <QueryImage
-                    data={data[is_mobile ? image_name + '_mobile' : image_name]}
-                    alt={background_alt}
-                />
+                {image_name === 'dtrader' ? (
+                    <QueryImage data={data['dtrader']} alt={background_alt} />
+                ) : (
+                    <QueryImage
+                        data={data[is_mobile ? image_name + '_mobile' : image_name]}
+                        alt={background_alt}
+                    />
+                )}
             </LottieWrapper>
         </Wrapper>
     )

@@ -17,7 +17,7 @@ const Pin = styled.img`
 `
 
 const StyledBackground = styled(BackgroundImage)`
-    min-width: 100%;
+    width: 100%;
     height: 80rem;
     object-fit: contain;
     @media ${device.tabletL} {

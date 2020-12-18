@@ -204,10 +204,20 @@ const query = graphql`
             ...fadeIn
         }
         dtrader: file(relativePath: { eq: "dtrader_trade.png" }) {
-            ...fadeIn
+            childImageSharp {
+                fluid(maxWidth: 1024, srcSetBreakpoints: [600, 1440]) {
+                    ...GatsbyImageSharpFluid_withWebp_noBase64
+                    originalName
+                }
+            }
         }
-        dtrader_mobile: file(relativePath: { eq: "dtrader_trade_mobile.png" }) {
-            ...fadeIn
+        dtrader_mobile: file(relativePath: { eq: "dtrader_trade.png" }) {
+            childImageSharp {
+                fluid(maxWidth: 1024, srcSetBreakpoints: [600, 1440]) {
+                    ...GatsbyImageSharpFluid_withWebp_noBase64
+                    originalName
+                }
+            }
         }
         dbot_mobile: file(relativePath: { eq: "dbot_trade_mobile.png" }) {
             ...fadeIn

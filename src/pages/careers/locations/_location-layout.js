@@ -7,7 +7,7 @@ import { SectionContainer, Flex } from 'components/containers'
 import { Text, LinkText, Header, BackgroundImage, QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
 import { map_api_key, zoho_url } from 'common/utility'
-import { localize, Localize, LocalizedLink } from 'components/localization'
+import { LocalizedLink } from 'components/localization'
 import MapPin from 'images/svg/map.svg'
 
 const Pin = styled.img`
@@ -62,10 +62,7 @@ const Hero = ({ display_name, img_data, description }) => {
                     rel="noopener noreferrer"
                     external
                 >
-                    <Localize
-                        translate_text="View open positions in {{country}}"
-                        values={{ country: display_name }}
-                    />
+                    View open positions in {display_name}
                 </LinkButton>
             </StyledContainer>
         </StyledBackground>
@@ -158,17 +155,14 @@ export const LocationLayout = ({ location, images }) => {
             <CareerContainer>
                 <FirstSection>
                     <Header align="center" as="h2" size="var(--text-size-header-5)">
-                        <Localize
-                            translate_text="Living in {{country}}"
-                            values={{ country: display_name }}
-                        />
+                        Living in {display_name}
                     </Header>
                     <Flex tablet_direction="column">
                         <Text size="var(--text-size-sm)">{location.first_p}</Text>
                         <ImageWrapper>
                             <QueryImage
                                 data={images[location.first_img]}
-                                alt={localize('Living in ') + display_name}
+                                alt={display_name}
                                 width="100%"
                             />
                         </ImageWrapper>
@@ -177,7 +171,7 @@ export const LocationLayout = ({ location, images }) => {
             </CareerContainer>
             <SectionContainer padding="0">
                 <Header align="center" as="h2" size="var(--text-size-header-5)" mb="4rem">
-                    <Localize translate_text="Our office" />
+                    Our office
                 </Header>
                 <Flex jc="unset">
                     <Flex direction="column" mr="0.8rem" ai="flex-end">
@@ -243,7 +237,7 @@ export const LocationLayout = ({ location, images }) => {
                         <Flex p="3.2rem 6rem" direction="column" max_width="44.4rem">
                             <div style={{ maxWidth: '32.4rem' }}>
                                 <Header as="h3" size="24px">
-                                    <Localize translate_text="Location" />
+                                    Location
                                 </Header>
                                 <CardText>{location.map_text}</CardText>
                                 <Flex jc="unset">

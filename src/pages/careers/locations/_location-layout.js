@@ -62,8 +62,10 @@ const Hero = ({ display_name, img_data, description }) => {
                     rel="noopener noreferrer"
                     external
                 >
-                    <Localize translate_text="View open positions in " />
-                    {display_name}
+                    <Localize
+                        translate_text="View open positions in {{country}}"
+                        values={{ country: display_name }}
+                    />
                 </LinkButton>
             </StyledContainer>
         </StyledBackground>
@@ -156,8 +158,10 @@ export const LocationLayout = ({ location, images }) => {
             <CareerContainer>
                 <FirstSection>
                     <Header align="center" as="h2" size="var(--text-size-header-5)">
-                        <Localize translate_text="Living in " />
-                        {display_name}
+                        <Localize
+                            translate_text="Living in {{country}}"
+                            values={{ country: display_name }}
+                        />
                     </Header>
                     <Flex tablet_direction="column">
                         <Text size="var(--text-size-sm)">{location.first_p}</Text>

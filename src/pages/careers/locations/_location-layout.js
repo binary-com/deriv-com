@@ -7,7 +7,7 @@ import { SectionContainer, Flex } from 'components/containers'
 import { Text, LinkText, Header, BackgroundImage, QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
 import { map_api_key, zoho_url } from 'common/utility'
-import { Localize, LocalizedLink } from 'components/localization'
+import { localize, Localize, LocalizedLink } from 'components/localization'
 import MapPin from 'images/svg/map.svg'
 
 const Pin = styled.img`
@@ -164,7 +164,7 @@ export const LocationLayout = ({ location, images }) => {
                         <ImageWrapper>
                             <QueryImage
                                 data={images[location.first_img]}
-                                alt={Localize('Living in ') + display_name}
+                                alt={localize('Living in ') + display_name}
                                 width="100%"
                             />
                         </ImageWrapper>

@@ -94,19 +94,36 @@ const Third = styled.div`
 const Fourth = styled.div`
     width: 100%;
     max-width: 51.4rem;
+
+    @media ${device.tabletS} {
+        max-width: 407px;
+        object-fit: contain;
+    }
 `
 
 const FirstSection = styled(SectionContainer)`
     ${Header} {
         margin-bottom: 8rem;
     }
+    ${Flex} {
+        @media ${device.tablet} {
+            align-items: center;
+        }
+    }
     ${Text} {
         max-width: 41.5rem;
         margin-right: 6.4rem;
+        font-size: 20px;
 
         @media ${device.tablet} {
             margin-right: 0;
             margin-bottom: 2rem;
+            max-width: 100%;
+            text-align: center;
+            font-size: 16px;
+        }
+        @media ${device.mobileL} {
+            text-align: left;
         }
     }
     @media ${device.tablet} {
@@ -116,6 +133,15 @@ const FirstSection = styled(SectionContainer)`
 const ImageWrapper = styled.div`
     max-width: 53.9rem;
     width: 100%;
+`
+
+const StyledImageWrapper = styled.div`
+    max-width: 53.9rem;
+    width: 100%;
+
+    @media ${device.tabletS} {
+        max-width: 100%;
+    }
 `
 
 const LocationCard = styled.article`
@@ -137,6 +163,48 @@ const Iframe = styled.iframe`
     border: 0;
 `
 
+const StyledFlex = styled(Flex)`
+    width: 100%;
+
+    @media ${device.tabletS} {
+        flex-direction: column;
+        justify-content: center;
+    }
+`
+
+const LeftFlex = styled(Flex)`
+    @media ${device.tabletS} {
+        margin: 0 16px 16px 16px;
+        width: auto;
+        align-items: center;
+    }
+`
+
+const RightFlex = styled(Flex)`
+    margin-left: 0.8rem;
+    justify-content: unset;
+
+    @media ${device.tabletS} {
+        width: auto;
+        margin: 0 16px;
+        justify-content: center;
+    }
+`
+
+const InnerLeftFlex = styled(Flex)`
+    justify-content: flex-end;
+
+    @media ${device.tabletS} {
+        justify-content: center;
+    }
+`
+
+const LocationFlex = styled(Flex)`
+    @media ${device.tablet} {
+        align-items: center;
+    }
+`
+
 export const LocationLayout = ({ location, images }) => {
     const { display_name } = location
     if (!display_name) return null
@@ -155,14 +223,14 @@ export const LocationLayout = ({ location, images }) => {
                         {`Living in ${display_name}`}
                     </Header>
                     <Flex tablet_direction="column">
-                        <Text size="var(--text-size-sm)">{location.first_p}</Text>
-                        <ImageWrapper>
+                        <Text>{location.first_p}</Text>
+                        <StyledImageWrapper>
                             <QueryImage
                                 data={images[location.first_img]}
                                 alt={`Living in ${display_name}`}
                                 width="100%"
                             />
-                        </ImageWrapper>
+                        </StyledImageWrapper>
                     </Flex>
                 </FirstSection>
             </Container>
@@ -175,9 +243,9 @@ export const LocationLayout = ({ location, images }) => {
                 >
                     Our office
                 </Header>
-                <Flex jc="unset">
-                    <Flex direction="column" mr="0.8rem" ai="flex-end">
-                        <Flex mb="0.8rem" jc="flex-end">
+                <StyledFlex>
+                    <LeftFlex direction="column" mr="0.8rem" ai="flex-end">
+                        <InnerLeftFlex mb="0.8rem">
                             <First>
                                 <QueryImage
                                     data={images[location.grid_images[0]]}
@@ -192,7 +260,7 @@ export const LocationLayout = ({ location, images }) => {
                                     width="100%"
                                 />
                             </Second>
-                        </Flex>
+                        </InnerLeftFlex>
                         <Third>
                             <QueryImage
                                 data={images[location.grid_images[2]]}
@@ -200,8 +268,8 @@ export const LocationLayout = ({ location, images }) => {
                                 width="100%"
                             />
                         </Third>
-                    </Flex>
-                    <Flex ml="0.8rem" jc="unset">
+                    </LeftFlex>
+                    <RightFlex>
                         <Fourth>
                             <QueryImage
                                 data={images[location.grid_images[3]]}
@@ -209,12 +277,12 @@ export const LocationLayout = ({ location, images }) => {
                                 width="100%"
                             />
                         </Fourth>
-                    </Flex>
-                </Flex>
+                    </RightFlex>
+                </StyledFlex>
             </SectionContainer>
             <SectionContainer padding="12rem 0">
                 <LocationCard>
-                    <Flex min_height="42.2rem" jc="unset" tablet_direction="column">
+                    <LocationFlex min_height="42.2rem" jc="unset" tablet_direction="column">
                         <ImageWrapper>
                             {location.has_iframe ? (
                                 <Iframe
@@ -264,7 +332,7 @@ export const LocationLayout = ({ location, images }) => {
                                 </Flex>
                             </div>
                         </Flex>
-                    </Flex>
+                    </LocationFlex>
                 </LocationCard>
             </SectionContainer>
         </>

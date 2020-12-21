@@ -78,6 +78,7 @@ const Variables = css`
         --text-size-header-2: 2.8rem;
         --text-size-header-3: 7.2rem;
         --text-size-header-4: 4rem;
+        --text-size-header-5: 4.8rem;
     }
 `
 

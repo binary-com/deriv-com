@@ -53,7 +53,8 @@ const ImageWrapper = styled.div`
 `
 
 const ImageWrapperRemove = styled.div`
-    margin-left: auto;
+    margin-top: 2.4rem;
+    margin-left: 7rem;
 
     @media ${device.mobileL} {
         & > img {

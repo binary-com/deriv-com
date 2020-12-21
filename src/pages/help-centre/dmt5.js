@@ -41,17 +41,17 @@ const DifferentAccounts = () => (
         </StyledHeader>
         <Text>
             {localize(
-                'The DMT5 Financial account offers new and experienced traders high leverage and variable spreads for maximum flexibility.',
+                'The DMT5 Standard account offers new and experienced traders high leverage and variable spreads for maximum flexibility.',
             )}
         </Text>
         <StyledText>
             {localize(
-                'The DMT5 Financial STP account is a 100% A Book account where your trades are passed straight through to the market, giving you direct access to forex liquidity providers.',
+                'The DMT5 Advanced account is a 100% A Book account where your trades are passed straight through to the market, giving you direct access to forex liquidity providers.',
             )}
         </StyledText>
         <StyledText>
             {localize(
-                'The DMT5 Synthetic account allows you to trade contracts for difference (CFDs) on synthetic indices that mimic real-world movements. It is available for trading 24/7 and audited for fairness by an independent third party.',
+                'The DMT5 Synthetic Indices account allows you to trade contracts for difference (CFDs) on synthetic indices that mimic real-world movements. It is available for trading 24/7 and audited for fairness by an independent third party.',
             )}
         </StyledText>
     </ArticleWrapper>
@@ -154,6 +154,10 @@ const DMT5Article = () => {
                 )}
                 label="differences-of-dmt5-accounts"
             />
+            <DepositDMT5
+                text={localize('How can I deposit funds into my DMT5 real money account?')}
+                label="deposit-to-dmt5"
+            />
             <WithdrawDMT5
                 text={localize('How can I withdraw funds from my DMT5 real money account?')}
                 label="withdraw-funds-from-DMT5"
@@ -167,10 +171,6 @@ const DMT5Article = () => {
             <ResetDMT5Password
                 text={localize('How can I reset my DMT5 account password?')}
                 label="reset-dmt5-password"
-            />
-            <DepositDMT5
-                text={localize('How can I deposit funds into my DMT5 real money account?')}
-                label="deposit-to-dmt5"
             />
         </Article>
     )

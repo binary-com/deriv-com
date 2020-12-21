@@ -1,3 +1,4 @@
+import React from 'react'
 import { localize, Localize } from 'components/localization'
 
 const validation_regex = {
@@ -25,7 +26,6 @@ const validation_is_not_zero = (input) => {
 
 const numberValidation = (input, fieldName, maxDigit) => {
     if (!input) {
-        // eslint-disable-next-line react/react-in-jsx-scope
         return <Localize translate_text="{{fieldName}} is required" values={{ fieldName }} />
     } else if (!validation_regex.number.test(input)) {
         return localize('Should be a valid number')
@@ -40,7 +40,6 @@ const numberValidation = (input, fieldName, maxDigit) => {
 
 const numberWithNegativeValidation = (input, fieldName, maxDigit) => {
     if (!input) {
-        // eslint-disable-next-line react/react-in-jsx-scope
         return <Localize translate_text="{{fieldName}} is required" values={{ fieldName }} />
     } else if (!validation_regex.numberWithNegative.test(input)) {
         return localize('Should be a valid number')

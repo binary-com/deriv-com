@@ -84,7 +84,7 @@ const ResetPassword = () => {
     if (!has_prompt) {
         body = (
             <StyledContainer mt="7rem" justify="flex-start" align="center" direction="column">
-                <Header as="h3" align="center">
+                <Header as="h2" type="section-title" align="center">
                     {localize('Reset password')}
                 </Header>
                 <Text align="center" mb="2rem">
@@ -154,7 +154,7 @@ const ResetPassword = () => {
     } else {
         body = (
             <StyledContainer mt="7rem" justify="flex-start" align="center" direction="column">
-                <Header as="h3" align="center" mb="2rem">
+                <Header as="h2" type="section-title" align="center" mb="2rem">
                     {localize('All you’ll need from now is one password')}
                 </Header>
                 <Text align="center" mb="2rem">

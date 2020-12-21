@@ -68,11 +68,12 @@ export const Hero = () => {
                 <source data-src={Globe2} type="video/webm" />
             </Video>
             <StyledContainer direction="column">
-                <Header as="h1" color="white" lh="1.15" align="center">
+                <Header as="h1" type="display-title" color="white" lh="1.15" align="center">
                     {localize('Markets to trade on Deriv')}
                 </Header>
                 <Header
                     as="h4"
+                    type="sub-section-title"
                     color="white"
                     lh="1.5"
                     font_size="var(--text-size-m)"

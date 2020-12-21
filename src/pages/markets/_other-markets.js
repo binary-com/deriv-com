@@ -119,7 +119,7 @@ const Section = styled(SectionContainer)`
     }
 `
 const StyledFlex = styled(Flex)`
-    height: fit-content;
+    height: auto;
     border-radius: 1.6rem;
     box-shadow: 0 4px 8px 0 rgba(14, 14, 14, 0.1);
     background-color: var(--color-white);
@@ -141,7 +141,6 @@ const Card = ({ name }) => {
     return (
         <StyledFlex
             direction="column"
-            height="auto"
             max_width="28.2rem"
             width="100%"
             p="2.4rem 2.4rem 4rem"
@@ -227,7 +226,7 @@ const OtherMarkets = ({ except }) => {
         <Section>
             <Show.Desktop>
                 <MarketsWrapper tablet_jc="center">
-                    <StyledHeader as="h3" align="left">
+                    <StyledHeader as="h3" type="section-title" align="left">
                         {localize('Other markets you might be interested in')}
                     </StyledHeader>
                     <Box position="relative" width="100%" max_width="103rem" height="32rem">
@@ -236,7 +235,7 @@ const OtherMarkets = ({ except }) => {
                                 max_width="93rem"
                                 jc="space-around"
                                 position="absolute"
-                                height="100%"
+                                height="fit-content"
                             >
                                 {markets.map((market) =>
                                     market !== except ? <Card name={market} key={market} /> : null,
@@ -247,7 +246,7 @@ const OtherMarkets = ({ except }) => {
                 </MarketsWrapper>
             </Show.Desktop>
             <Show.Mobile>
-                <StyledHeader as="h3" align="left">
+                <StyledHeader as="h3" type="section-title" align="left">
                     {localize('Other markets you might be interested in')}
                 </StyledHeader>
                 <MobileCardContainer direction="column">

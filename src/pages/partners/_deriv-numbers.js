@@ -26,7 +26,7 @@ const Card = styled(Flex)`
 const DerivNumbers = () => {
     return (
         <Container direction="column">
-            <Header as="h2" align="center" mb="2rem">
+            <Header as="h2" type="page-title" align="center" mb="2rem">
                 {localize('Deriv in numbers')}
             </Header>
             <Wrapper mb="8rem">

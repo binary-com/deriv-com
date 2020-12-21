@@ -25,9 +25,14 @@ const MobileCardHeader = styled(Flex)`
             width: 48px;
             height: 48px;
         }
-        ${Text} {
-            font-size: 16px;
-        }
+    }
+`
+const StyledText = styled(Text)`
+    margin-top: 1.6rem;
+
+    @media (max-width: 680px) {
+        font-size: 18px;
+        margin-top: 0;
     }
 `
 
@@ -36,7 +41,7 @@ const AvailableMarkets = () => {
         <>
             <SectionContainer background="white" padding="8rem 0" position="relative">
                 <SmallContainer direction="column" ai="flex-start">
-                    <Header as="h3" mb="2.4rem">
+                    <Header as="h3" type="section-title" mb="2.4rem">
                         {localize('Markets available for margin trading')}
                     </Header>
                 </SmallContainer>
@@ -47,9 +52,7 @@ const AvailableMarkets = () => {
                                 <MobileCardHeader>
                                     <img src={Forex} alt="forex" width="64" height="64" />
 
-                                    <Text weight="bold" mt="1.6rem">
-                                        {localize('Forex')}
-                                    </Text>
+                                    <StyledText weight="bold">{localize('Forex')}</StyledText>
                                 </MobileCardHeader>
                                 <Text>
                                     {localize(
@@ -74,9 +77,9 @@ const AvailableMarkets = () => {
                                         height="64"
                                     />
 
-                                    <Text weight="bold" mt="1.6rem">
+                                    <StyledText weight="bold">
                                         {localize('Synthetic indices')}
-                                    </Text>
+                                    </StyledText>
                                 </MobileCardHeader>
                                 <Text>
                                     {localize(
@@ -101,9 +104,7 @@ const AvailableMarkets = () => {
                                         height="64"
                                     />
 
-                                    <Text weight="bold" mt="1.6rem">
-                                        {localize('Commodities')}
-                                    </Text>
+                                    <StyledText weight="bold">{localize('Commodities')}</StyledText>
                                 </MobileCardHeader>
                                 <Text>
                                     {localize(
@@ -128,9 +129,9 @@ const AvailableMarkets = () => {
                                         height="64"
                                     />
 
-                                    <Text weight="bold" mt="1.6rem">
+                                    <StyledText weight="bold">
                                         {localize('Stock indices')}
-                                    </Text>
+                                    </StyledText>
                                 </MobileCardHeader>
                                 <Text>
                                     {localize(

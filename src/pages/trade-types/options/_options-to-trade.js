@@ -37,21 +37,21 @@ const WhatAreOptions = () => {
     return (
         <SectionContainer background="white" padding="0 0 4rem">
             <SmallContainer direction="column" ai="flex-start">
-                <Header as="h2" mb="4rem">
+                <Header as="h2" type="page-title" mb="4rem">
                     {localize('Options to trade on Deriv')}
                 </Header>
-                <Header as="h3" mb="2.4rem">
+                <Header as="h3" type="section-title" mb="2.4rem">
                     {localize('Digital options')}
                 </Header>
-                <Header as="h4" mb="1.6rem">
+                <Header as="h4" type="sub-section-title" mb="1.6rem">
                     {localize('Up/Down')}
                 </Header>
                 <UpDownGrid />
-                <Header as="h4" mb="1.6rem">
+                <Header as="h4" type="sub-section-title" mb="1.6rem">
                     {localize('In/Out')}
                 </Header>
                 <InOutGrid />
-                <Header as="h4" mb="1.6rem">
+                <Header as="h4" type="sub-section-title" mb="1.6rem">
                     {localize('Digits')}
                 </Header>
                 <DigitsGrid />
@@ -61,7 +61,7 @@ const WhatAreOptions = () => {
                         <Localize translate_text="High Ticks/Low Ticks, Asians, Reset Call/Reset Put, Digits, and Only Ups/Only Downs are available exclusively on synthetic indices." />
                     }
                 />
-                <Header as="h4" mt="4rem" mb="1.6rem">
+                <Header as="h4" type="sub-section-title" mt="4rem" mb="1.6rem">
                     {localize('Lookbacks')}
                 </Header>
                 <LookbacksGrid />
@@ -77,7 +77,7 @@ const WhatAreOptions = () => {
                         )}
                     </Text>
                 </Show.Eu>
-                <Header as="h4" mt="4rem" mb="1.6rem">
+                <Header as="h4" type="sub-section-title" mt="4rem" mb="1.6rem">
                     {localize('Call/Put Spreads')}
                 </Header>
                 <SpreadGrid />
@@ -293,7 +293,7 @@ const SingleOptionsGrid = () => {
     return (
         <OptionGridSecondary>
             <Flex fd="column" jc="flex-start" height="auto">
-                <Header as="h4" mb="1.6rem">
+                <Header as="h4" type="sub-section-title" mb="1.6rem">
                     {localize('Reset Call/Reset Put')}
                 </Header>
                 <div>
@@ -321,7 +321,7 @@ const SingleOptionsGrid = () => {
                 </Text>
             </Flex>
             <Flex fd="column" jc="flex-start" height="auto">
-                <Header as="h4" mb="1.6rem">
+                <Header as="h4" type="sub-section-title" mb="1.6rem">
                     {localize('High/Low Ticks')}
                 </Header>
                 <div>
@@ -344,7 +344,7 @@ const SingleOptionsGrid = () => {
                 </Text>
             </Flex>
             <Flex fd="column" jc="flex-start" height="auto">
-                <Header as="h4" mb="1.6rem">
+                <Header as="h4" type="sub-section-title" mb="1.6rem">
                     {localize('Touch/No Touch')}
                 </Header>
                 <div>
@@ -367,7 +367,7 @@ const SingleOptionsGrid = () => {
                 </Text>
             </Flex>
             <Flex fd="column" jc="flex-start" height="auto">
-                <Header as="h4" mb="1.6rem">
+                <Header as="h4" type="sub-section-title" mb="1.6rem">
                     {localize('Asians')}
                 </Header>
                 <div>
@@ -395,7 +395,7 @@ const SingleOptionsGrid = () => {
                 </Text>
             </Flex>
             <Flex fd="column" jc="flex-start" height="auto">
-                <Header as="h4" mb="1.6rem">
+                <Header as="h4" type="sub-section-title" mb="1.6rem">
                     {localize('Only Ups/Only Downs')}
                 </Header>
                 <div>

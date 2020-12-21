@@ -76,7 +76,7 @@ const PlatformsDropdown = ({ is_open, has_animation, Content, forward_ref, link_
     }
 
     React.useEffect(() => {
-        updateOffsets();
+        updateOffsets()
         window.addEventListener('resize', updateOffsets)
 
         return () => {

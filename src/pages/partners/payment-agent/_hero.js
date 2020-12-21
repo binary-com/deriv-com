@@ -23,10 +23,16 @@ const MiddleHeader = styled(Header)`
 const PAHero = () => {
     return (
         <Hero>
-            <MainHeader as="h1" color="white" align="center" lh="1.25">
+            <MainHeader as="h1" type="display-title" color="white" align="center" lh="1.25">
                 {localize('Become a payment agent on Deriv')}
             </MainHeader>
-            <MiddleHeader as="h4" color="white" align="center" weight="normal">
+            <MiddleHeader
+                as="h4"
+                type="sub-section-title"
+                color="white"
+                align="center"
+                weight="normal"
+            >
                 {localize(
                     'Expand your client base, gain additional business exposure, and earn more revenue when you sign up as a payment agent on Deriv.',
                 )}

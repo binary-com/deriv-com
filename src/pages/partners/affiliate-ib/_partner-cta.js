@@ -36,7 +36,7 @@ const CTA = () => {
         <StyledSection padding="4rem 0">
             <Container>
                 <Flex direction="column" ai="center" jc="space-between">
-                    <Header as="h4" align="center" color="white">
+                    <Header as="h4" type="sub-section-title" align="center" color="white">
                         {localize('Got more questions?')}
                     </Header>
                     <Text align="center" color="white" mt="0.8rem">
@@ -52,7 +52,7 @@ const CTA = () => {
                     </LightButton>
                 </Flex>
                 <Flex direction="column" ai="center">
-                    <Header as="h4" align="center" color="white">
+                    <Header as="h4" type="sub-section-title" align="center" color="white">
                         {localize(
                             'Enjoy generous commissions and all the other benefits of being a Deriv partner',
                         )}

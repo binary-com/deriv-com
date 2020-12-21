@@ -46,10 +46,11 @@ const ImageWrapper = styled.div`
     }
 `
 const StyledHeader = styled(Header)`
-    font-size: var(--text-size-l);
     line-height: 1.25;
 
     @media ${device.tabletL} {
+        font-size: 24px;
+        line-height: 40px;
         margin-top: 2rem;
     }
 `
@@ -114,11 +115,13 @@ const DTrading = ({ trading, reverse, two_title }) => {
                     return (
                         <Row flex_direction={!is_even ? 'row' : 'row-reverse'} key={index}>
                             <Content margin_right={!is_even ? '2.4rem' : '0'}>
-                                <StyledHeader>{item.title}</StyledHeader>
+                                <StyledHeader type="page-title">{item.title}</StyledHeader>
                                 <Text>{item.subtitle}</Text>
                                 {two_title && (
                                     <>
-                                        <StyledHeader mt="2.4rem">{item.second_title}</StyledHeader>
+                                        <StyledHeader type="page-title" mt="2.4rem">
+                                            {item.second_title}
+                                        </StyledHeader>
                                         <Text>{item.second_subtitle}</Text>
                                     </>
                                 )}

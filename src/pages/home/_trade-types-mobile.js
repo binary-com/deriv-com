@@ -21,6 +21,7 @@ const TradingButton = styled(LinkButton)`
     align-items: center;
     width: 21.6rem;
     justify-content: center;
+    margin-top: 4.8rem;
 `
 
 const TradeTypeCard = styled.article`
@@ -29,11 +30,13 @@ const TradeTypeCard = styled.article`
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.05);
     border-radius: 8px;
     padding: 2rem;
+    height: 100%;
 `
 
 const StyledLink = styled(LocalizedLink)`
     text-decoration: none;
     margin: 1rem 0;
+    height: 100%;
 `
 
 const CustomLinkWrap = styled.div`
@@ -45,19 +48,25 @@ const CustomLinkWrap = styled.div`
 
 const TradeTypeSlide = ({ icon, title, description, link, linkTitle }) => {
     return (
-        <Flex ai="center" height="unset">
+        <Flex ai="center">
             <StyledLink ariaLabel={linkTitle} to={link}>
                 <TradeTypeCard>
                     <Flex ai="center" fd="column">
                         {icon}
-                        <Header mt="1.6rem" mb="0.8rem" align="center" size="var(--text-size-m)">
+                        <Header
+                            mt="1.6rem"
+                            mb="0.8rem"
+                            align="center"
+                            as="h6"
+                            type="main-paragraph"
+                        >
                             {title}
                         </Header>
-                        <Text size="var(--text-size-sm)" align="center">
+                        <Text size="14px" align="center">
                             {description}
                         </Text>
                         <CustomLinkWrap>
-                            <Text weight="bold" mr="0.8rem" color="red" size="16px">
+                            <Text weight="bold" mr="0.8rem" color="red">
                                 {localize('Learn more')}{' '}
                             </Text>
                             <img src={Arrow} alt="arrow" width="16" height="16" />
@@ -124,24 +133,24 @@ const TradeTypesMobile = () => {
             position: 'relative',
         },
         view_port: {
-            height: '350px',
+            height: 'auto',
         },
     }
 
     return (
         <>
             <StyledSection padding="4rem 0">
-                <Header align="center" as="h2" mb="0.8rem">
+                <Header align="center" as="h3" type="section-title" mb="0.8rem">
                     {localize('Trade types')}
                 </Header>
-                <Text padding="0 2rem" size="var(--text-size-sm)" align="center" mb="2rem">
+                <Text padding="0 2rem" align="center" mb="2rem">
                     {localize(
                         'Trade what you like, the way you like it, and on your preferred market.',
                     )}
                 </Text>
                 <Carousel {...settings}>
                     {trade_types.map((trade_slide, idx) => (
-                        <div key={idx}>
+                        <div key={idx} style={{ height: '100%' }}>
                             <TradeTypeSlide
                                 icon={trade_slide.icon}
                                 title={trade_slide.title}

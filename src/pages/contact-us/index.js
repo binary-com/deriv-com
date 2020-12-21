@@ -42,7 +42,7 @@ const ContactUs = () => {
             />
             <SectionContainer tablet={{ p: '40px 0' }}>
                 <HeroWrapper fd="column">
-                    <Header align="center" as="h1">
+                    <Header align="center" as="h1" type="display-title">
                         {localize('Contact us')}
                     </Header>
                     <StyledText align="center" size="var(--text-size-sm)">
@@ -51,7 +51,7 @@ const ContactUs = () => {
                 </HeroWrapper>
             </SectionContainer>
             <ContactWays />
-            <Offices />
+            <Offices is_belarus_enabled={false} />
             <Affiliates />
         </Layout>
     )

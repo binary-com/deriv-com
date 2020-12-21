@@ -32,7 +32,7 @@ const LoveTrading = () => {
                 </AbsoluteWrapper>
                 <Responsive jc="space-between" position="relative">
                     <Flex fd="column" ai="center" max_width="28.2rem">
-                        <Header as="h3" mb="4rem" align="center">
+                        <Header as="h3" type="section-title" mb="4rem" align="center">
                             {localize('Be among the first to try Deriv.com')}
                         </Header>
                         <FitButton secondary to="/">
@@ -46,7 +46,7 @@ const LoveTrading = () => {
                     </MobileWrapper>
 
                     <MarLeft width="auto" fd="column" ai="center">
-                        <White as="h3" mb="3rem" align="center">
+                        <White as="h3" type="section-title" mb="3rem" align="center">
                             {localize('Love trading on Binary.com’s signature platform?')}
                         </White>
                         <FitButton

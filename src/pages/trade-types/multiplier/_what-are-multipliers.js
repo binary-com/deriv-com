@@ -142,7 +142,7 @@ const WhatAreOptions = () => {
         <>
             <StyledSectionContainerHead padding="8rem 0 4rem">
                 <SmallContainer direction="column" ai="flex-start">
-                    <StyledHeader as="h2" mb="1.2rem">
+                    <StyledHeader as="h2" size="4.8rem" mb="1.2rem">
                         {localize('What are multipliers?')}
                     </StyledHeader>
                     <Text>
@@ -155,7 +155,7 @@ const WhatAreOptions = () => {
                     <Flex fd="column">
                         <Row mb="2rem">
                             <RowColumn isHeader>
-                                <StyledHeaderContent as="h3">
+                                <StyledHeaderContent as="h3" size="3.2rem">
                                     <Localize translate_text="Let’s say you predict that the market will go up." />
                                 </StyledHeaderContent>
                             </RowColumn>
@@ -243,7 +243,7 @@ const WhatAreOptions = () => {
             </StyledSectionContainer>
             <SectionContainer background="grey-23" padding="4rem 0">
                 <SmallContainer direction="column" jc="flex-start" ai="flex-start">
-                    <Header as="h3" mb="4rem">
+                    <Header as="h3" size="3.2rem" mb="4rem">
                         {localize('Why trade multipliers on Deriv')}
                     </Header>
                     <Grid>

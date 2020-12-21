@@ -245,7 +245,7 @@ const SignupPublic = ({
                     </div>
                     <SignupFormWrapper>
                         <div>
-                            <StyledHeader size="3.2rem">
+                            <StyledHeader type="section-title">
                                 {localize('Join over 1 million traders worldwide')}
                             </StyledHeader>
                             <br />
@@ -336,7 +336,7 @@ const SignupPublic = ({
                 <MobileWrapper>
                     <MobileSignupFormWrapper>
                         <div>
-                            <StyledHeader size="3.2rem">
+                            <StyledHeader type="section-title">
                                 {localize('Join over 1 million traders worldwide')}
                             </StyledHeader>
                             <br />

@@ -21,6 +21,7 @@ const TradingButton = styled(LinkButton)`
     align-items: center;
     width: 21.6rem;
     justify-content: center;
+    margin-top: 4.8rem;
 `
 
 const TradeTypeCard = styled.article`
@@ -29,11 +30,13 @@ const TradeTypeCard = styled.article`
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.05);
     border-radius: 8px;
     padding: 2rem;
+    height: 100%;
 `
 
 const StyledLink = styled(LocalizedLink)`
     text-decoration: none;
     margin: 1rem 0;
+    height: 100%;
 `
 
 const CustomLinkWrap = styled.div`
@@ -45,7 +48,7 @@ const CustomLinkWrap = styled.div`
 
 const TradeTypeSlide = ({ icon, title, description, link, linkTitle }) => {
     return (
-        <Flex ai="center" height="unset">
+        <Flex ai="center">
             <StyledLink ariaLabel={linkTitle} to={link}>
                 <TradeTypeCard>
                     <Flex ai="center" fd="column">
@@ -130,7 +133,7 @@ const TradeTypesMobile = () => {
             position: 'relative',
         },
         view_port: {
-            height: '350px',
+            height: 'auto',
         },
     }
 
@@ -145,7 +148,7 @@ const TradeTypesMobile = () => {
                 </Text>
                 <Carousel {...settings}>
                     {trade_types.map((trade_slide, idx) => (
-                        <div key={idx}>
+                        <div key={idx} style={{ height: '100%' }}>
                             <TradeTypeSlide
                                 icon={trade_slide.icon}
                                 title={trade_slide.title}

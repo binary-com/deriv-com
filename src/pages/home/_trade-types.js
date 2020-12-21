@@ -33,9 +33,7 @@ const TradeTypes = () => {
                         {localize('Trade types')}
                     </Header>
                     <Text size="2.4rem" mt="1.6rem" mb="5rem">
-                        {localize(
-                            'Explore different trade types to trade on your preferred market.',
-                        )}
+                        {localize('Explore different trade types to trade on your preferred market.')}
                     </Text>
                     <TradingButton type="submit" secondary="true" to="/signup/">
                         {localize('Start trading')}

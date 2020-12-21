@@ -183,7 +183,7 @@ const StyledFlex = styled(Flex)`
 
 const LeftFlex = styled(Flex)`
     @media ${device.tabletS} {
-        margin: 0 16px 16px 16px;
+        margin: 0 16px 16px;
         width: auto;
         align-items: center;
     }
@@ -191,7 +191,6 @@ const LeftFlex = styled(Flex)`
 
 const RightFlex = styled(Flex)`
     margin-left: 0.8rem;
-    justify-content: unset;
 
     @media ${device.tabletS} {
         width: auto;

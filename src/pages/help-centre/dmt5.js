@@ -154,10 +154,6 @@ const DMT5Article = () => {
                 )}
                 label="differences-of-dmt5-accounts"
             />
-            <DepositDMT5
-                text={localize('How can I deposit funds into my DMT5 real money account?')}
-                label="deposit-to-dmt5"
-            />
             <WithdrawDMT5
                 text={localize('How can I withdraw funds from my DMT5 real money account?')}
                 label="withdraw-funds-from-DMT5"
@@ -171,6 +167,10 @@ const DMT5Article = () => {
             <ResetDMT5Password
                 text={localize('How can I reset my DMT5 account password?')}
                 label="reset-dmt5-password"
+            />
+            <DepositDMT5
+                text={localize('How can I deposit funds into my DMT5 real money account?')}
+                label="deposit-to-dmt5"
             />
         </Article>
     )

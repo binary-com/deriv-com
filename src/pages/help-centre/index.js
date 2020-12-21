@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { matchSorter } from 'match-sorter'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { Helmet } from 'react-helmet'
 import { navigate } from '@reach/router'
 import Loadable from '@loadable/component'
@@ -12,7 +12,7 @@ import { Community } from './_community'
 import { convertToHash, getAllArticles, splitArticles } from './_utility'
 import { faq_schema } from './_faq-schema'
 import { SEO, Show, Container } from 'components/containers'
-import { Header } from 'components/elements'
+import { Header, Text } from 'components/elements'
 import Layout from 'components/layout/layout'
 import { localize, LocalizedLink, WithIntl, Localize } from 'components/localization'
 import { getLocationHash, sanitize } from 'common/utility'
@@ -147,10 +147,22 @@ const ListNoBullets = styled.ul`
 const StyledHeader = styled(Header)`
     font-size: 2.4rem;
     margin-bottom: 1.6rem;
-    margin-top: ${({ is_first_row }) => (is_first_row ? '4rem' : '8rem')};
+    ${({ row, col }) => {
+        let margin_top = '8rem'
+        if (row) {
+            if (col) {
+                margin_top = '7rem'
+            } else {
+                margin_top = '4rem'
+            }
+        }
+        return css`
+            margin-top: ${margin_top};
+        `
+    }};
 
     @media ${device.mobileL} {
-        margin-top: 4rem;
+        margin-top: 40px;
     }
 `
 
@@ -170,7 +182,7 @@ const StyledView = styled.div`
     color: var(--color-red);
     font-size: 16px;
     font-weight: normal;
-    
+
     :hover {
         cursor: pointer;
     }
@@ -198,6 +210,19 @@ const ResponsiveHeader = styled(Header)`
     }
     @media ${device.mobileL} {
         font-size: 4rem;
+    }
+`
+
+const Platforms = styled(Text)`
+    font-size: var(--text-size-s);
+    color: var(--color-grey-5);
+    margin: 4rem 0 -3.2rem;
+
+    @media ${device.tablet} {
+        color: var(--color-black-3);
+        font-size: 24px;
+        font-weight: bold;
+        margin: 32px auto -32px;
     }
 `
 
@@ -362,6 +387,9 @@ class HelpCentre extends Component {
                                         {
                                             return (
                                                 <ArticleDiv key={idx}>
+                                                    {id === 1 && idx == 0 && (
+                                                        <Platforms>Platforms</Platforms>
+                                                    )}
                                                     <ListWrapper>
                                                         <StyledHeader is_first_row={!!id} type="section-title">
                                                             {item.category}

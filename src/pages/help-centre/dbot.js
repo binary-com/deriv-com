@@ -20,6 +20,7 @@ import RunBotImage from 'images/common/help-centre/dbot-run-bot.png'
 import BotNameImage from 'images/common/help-centre/dbot-botname.png'
 import SaveBotImage from 'images/common/help-centre/dbot-save.png'
 import GoogleDriveImage from 'images/common/help-centre/dbot-google-drive.png'
+import SaveBotOptionImage from 'images/common/help-centre/dbot-save-bot.png'
 import SaveBotDriveImage from 'images/common/help-centre/dbot-savebot-drive.png'
 import ImportantStrategyImage from 'images/common/help-centre/dbot-import-strategy.png'
 import LoadBotImage from 'images/common/help-centre/dbot-load-bot.png'
@@ -39,9 +40,9 @@ const ImageWrapper = styled.div`
     padding: 2.4rem 10.2rem;
     max-width: 60rem;
     width: 100%;
+    margin: 0 10rem;
 
     @media ${device.laptopL} {
-        margin-left: 0;
         padding: 2.4rem 0;
         width: auto;
     }
@@ -377,11 +378,11 @@ const SaveStrategy = () => (
         <Text mt="2.4rem">{localize("1. Select 'Local' and click 'Continue'.")}</Text>
         <ImageWrapper>
             <img
-                src={SaveBotImage}
+                src={SaveBotOptionImage}
                 alt={localize('Save bot')}
-                width="40.7rem"
+                width="40rem"
                 loading="lazy"
-                style={{ width: '40.7rem' }}
+                style={{ width: '40rem' }}
             />
         </ImageWrapper>
         <Text mt="2.4rem">

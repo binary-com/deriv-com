@@ -11,7 +11,8 @@ const StyledList = styled.ul`
     padding-left: 2rem;
 `
 const StyledListItem = styled.li`
-    margin-top: 1.7rem;
+    color: var(--color-black-3);
+    margin-top: 1.6rem;
 `
 
 const WhoCanOpenAnAccount = () => (
@@ -150,7 +151,7 @@ const AccountArticle = () => {
                 label="who-can-open-an-account"
             />
             <ChangingPersonalDetails
-                text={localize('Changing your personal details')}
+                text={localize('How can I change my personal details?')}
                 label="changing-your-personal-details"
             />
             <ChangeAccountCurrency

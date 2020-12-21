@@ -81,7 +81,7 @@ const SearchIconBig = styled.img`
     height: 2.3rem;
     position: absolute;
     left: 2.4rem;
-    top: 1.3rem;
+    top: 2rem;
 `
 const Search = styled.input`
     width: 95%;
@@ -147,7 +147,7 @@ const ListNoBullets = styled.ul`
 const StyledHeader = styled(Header)`
     font-size: 2.4rem;
     margin-bottom: 1.6rem;
-    margin-top: ${({ is_first_row }) => is_first_row ? "4rem" : "8rem"};
+    margin-top: ${({ is_first_row }) => (is_first_row ? '4rem' : '8rem')};
 
     @media ${device.mobileL} {
         margin-top: 4rem;
@@ -167,7 +167,7 @@ const StyledLink = styled(LocalizedLink)`
 
 const StyledView = styled.div`
     text-decoration: none;
-    color: red;
+    color: var(--color-red);
     font-size: 16px;
     font-weight: normal;
     
@@ -326,7 +326,7 @@ class HelpCentre extends Component {
                                         name="search"
                                         value={search}
                                         onChange={this.handleInputChange}
-                                        placeholder={localize("Try “Trade”")}
+                                        placeholder={localize('Try “Trade”')}
                                         data-lpignore="true"
                                         autoComplete="off"
                                     />
@@ -448,7 +448,7 @@ class HelpCentre extends Component {
                         })}
                     </ArticleSection>
                 </Container>
-                <Show.Desktop max_width={"tabletS"}>
+                <Show.Desktop max_width={'tabletS'}>
                     <Community />
                 </Show.Desktop>
                 <DidntFindYourAnswerBanner />

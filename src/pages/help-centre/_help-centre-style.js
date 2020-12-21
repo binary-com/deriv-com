@@ -15,7 +15,7 @@ export const ArticleWrapper = styled.div`
     margin-top: 1.6rem;
 
     @media ${device.laptopL} {
-        margin-left: ${({ margin_left }) => margin_left ? margin_left : '12.6rem'};
+        margin-left: ${({ margin_left }) => margin_left ?? '12.6rem'};
     }
 
     @media ${device.tabletL} {
@@ -35,6 +35,7 @@ export const ExternalLink = styled(LocalizedLink)`
 `
 
 export const StyledHeader = styled(Header)`
+    font-size: 2.4rem;
     margin-bottom: 2.4rem;
 `
 

@@ -1864,7 +1864,7 @@
     "-1402324349": "CAD/CHF",
     "-1398238048": "CAD/JPY",
     "-1688177794": "NZD/CAD",
-    "-2024884579": "{{fieldName}} is required",
+    "-2024884579": "Se requiere {{fieldName}}",
     "-1373954791": "Debe ser un número válido",
     "-437139044": "La entrada debe ser mayor que 0",
     "-806026001": "La entrada no debe ser 0",

@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { localize } from 'components/localization'
+import { localize, Localize } from 'components/localization'
 import { SectionContainer, Container } from 'components/containers'
 import { Header } from 'components/elements'
 import { LinkButton } from 'components/form'
@@ -9,10 +9,10 @@ import device from 'themes/device.js'
 
 const content = {
     subscriber: {
-        header: localize('How to subscribe to an MT5 signal'),
+        header: <Localize translate_text="How to subscribe to an MT5 signal" />,
     },
     provider: {
-        header: localize('How to register as a signals provider'),
+        header: <Localize translate_text="How to register as a signals provider" />,
     },
 }
 

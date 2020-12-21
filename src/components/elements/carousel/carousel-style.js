@@ -119,6 +119,41 @@ export const StyledChevron = styled(Chevron)`
     }
 `
 
+export const NavigationContainer = styled.div`
+    position: absolute;
+    bottom: 40px;
+    width: 100%;
+    height: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`
+
+export const StyledDot = styled.button`
+    cursor: pointer;
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+    padding: 0;
+    outline: 0;
+    border: 0;
+    margin-right: 8px;
+    ${(props) => {
+        let color = '--color-grey-21'
+        switch (props.color) {
+            case 'red':
+                color = '--color-red'
+                break
+            case 'black':
+                color = '--color-black'
+                break
+        }
+        return css`
+            background-color: var(${color});
+        `
+    }}
+`
+
 export const ChevronRight = styled(StyledChevron)`
     transform: rotate(180deg);
     right: 0;

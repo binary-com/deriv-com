@@ -133,6 +133,11 @@ const FirstSection = styled(SectionContainer)`
 const ImageWrapper = styled.div`
     max-width: 53.9rem;
     width: 100%;
+
+    @media ${device.tablet} {
+        height: 260px;
+        max-width: 100%;
+    }
 `
 
 const StyledImageWrapper = styled.div`
@@ -150,6 +155,10 @@ const LocationCard = styled.article`
     margin: 0 auto;
     border-radius: 4px;
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.05);
+
+    @media ${device.tablet} {
+        margin: 0 16px;
+    }
 `
 
 const CardText = styled(Text)`
@@ -202,6 +211,13 @@ const InnerLeftFlex = styled(Flex)`
 const LocationFlex = styled(Flex)`
     @media ${device.tablet} {
         align-items: center;
+        flex-direction: column-reverse;
+    }
+`
+
+const LocationInformationFlex = styled(Flex)`
+    @media ${device.tablet} {
+        padding: 24px 16px;
     }
 `
 
@@ -304,7 +320,11 @@ export const LocationLayout = ({ location, images }) => {
                                 </LocalizedLink>
                             )}
                         </ImageWrapper>
-                        <Flex p="3.2rem 6rem" direction="column" max_width="44.4rem">
+                        <LocationInformationFlex
+                            p="3.2rem 6rem"
+                            direction="column"
+                            max_width="44.4rem"
+                        >
                             <div style={{ maxWidth: '32.4rem' }}>
                                 <Header as="h3" size={'24px'}>
                                     Location
@@ -331,7 +351,7 @@ export const LocationLayout = ({ location, images }) => {
                                     )}
                                 </Flex>
                             </div>
-                        </Flex>
+                        </LocationInformationFlex>
                     </LocationFlex>
                 </LocationCard>
             </SectionContainer>

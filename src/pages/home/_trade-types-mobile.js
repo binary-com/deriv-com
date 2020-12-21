@@ -144,7 +144,9 @@ const TradeTypesMobile = () => {
                     {localize('Trade types')}
                 </Header>
                 <Text padding="0 2rem" align="center" mb="2rem">
-                    {localize('Explore different trade types to trade on your preferred market.')}
+                    {localize(
+                        'Trade what you like, the way you like it, and on your preferred market.',
+                    )}
                 </Text>
                 <Carousel {...settings}>
                     {trade_types.map((trade_slide, idx) => (

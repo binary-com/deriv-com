@@ -74,7 +74,7 @@ const StyledBox = styled(Box)`
     margin: 11.9rem 4rem 0 16rem;
     @media ${device.mobileL} {
         max-width: 100%;
-        margin: 4rem 1.6rem 2.4rem 1.6rem;
+        margin: 4rem 1.6rem 2.4rem;
     }
 `
 
@@ -87,9 +87,9 @@ const StyledText = styled(Text)`
 `
 
 const CardText = styled(StyledText)`
-    margin: 0.8rem 4rem 2.4rem 4rem;
+    margin: 0.8rem 4rem 2.4rem;
     @media ${device.mobileL} {
-        margin: 0 0 24px 0;
+        margin: 0 0 24px;
     }
 `
 

@@ -39,7 +39,7 @@ PrevButton.propTypes = {
 }
 
 export const NavigationButton = ({ color, is_enabled, onClick }) => (
-    <StyledDot onClick={onClick} color={is_enabled ? color : 'grey'} />
+    <StyledDot onClick={onClick} color={is_enabled ? color : null} />
 )
 
 NavigationButton.propTypes = {

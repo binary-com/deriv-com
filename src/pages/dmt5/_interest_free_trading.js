@@ -14,7 +14,7 @@ const ImageWrapper = styled.div`
     width: 100%;
     object-fit: contain;
     padding: 0;
-    margin: 4rem 0 0 0;
+    margin-top: 4rem;
 `
 
 const InterestCardFlex = styled(Flex)`
@@ -66,12 +66,12 @@ const StyledRightText = styled(Text)`
 const Separator = styled.div`
     width: 100%;
     height: 1px;
-    margin: 0.4rem 0 1.6rem 0;
+    margin: 0.4rem 0 1.6rem;
     background-color: var(--color-grey-21);
 `
 
 const TextWrapperFlex = styled(Flex)`
-    margin: 2.4rem 4rem 4rem 4rem;
+    margin: 2.4rem 4rem 4rem;
 `
 
 const CheckedText = ({ children }) => (

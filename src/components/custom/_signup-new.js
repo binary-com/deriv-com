@@ -203,7 +203,7 @@ const SignupNew = ({
     return (
         <SignupContent>
             <Show.Desktop>
-                <Header as="h4" mb="0.8rem">
+                <Header as="h4" type="sub-section-title" mb="0.8rem">
                     {localize('Sign up')}
                 </Header>
                 <Text>{localize('Enter your email address to begin')}</Text>

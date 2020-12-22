@@ -191,6 +191,7 @@ const LeftFlex = styled(Flex)`
 
 const RightFlex = styled(Flex)`
     margin-left: 0.8rem;
+    justify-content: flex-start;
 
     @media ${device.tabletS} {
         width: auto;
@@ -217,6 +218,14 @@ const LocationFlex = styled(Flex)`
 const LocationInformationFlex = styled(Flex)`
     @media ${device.tablet} {
         padding: 24px 16px;
+    }
+`
+
+const StyledDiv = styled.div`
+    max-width: 32.4rem;
+
+    @media ${device.tablet} {
+        max-width: 100%;
     }
 `
 
@@ -324,7 +333,7 @@ export const LocationLayout = ({ location, images }) => {
                             direction="column"
                             max_width="44.4rem"
                         >
-                            <div style={{ maxWidth: '32.4rem' }}>
+                            <StyledDiv>
                                 <Header as="h3" size={'24px'}>
                                     Location
                                 </Header>
@@ -349,7 +358,7 @@ export const LocationLayout = ({ location, images }) => {
                                         </Text>
                                     )}
                                 </Flex>
-                            </div>
+                            </StyledDiv>
                         </LocationInformationFlex>
                     </LocationFlex>
                 </LocationCard>

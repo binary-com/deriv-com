@@ -14,7 +14,7 @@ import {
 } from './carousel-style'
 import { useRecursiveTimeout } from 'components/hooks/use-recursive-timeout'
 
-export const PrevButton = ({ enabled, onClick, color, style, is_reviews }) => (
+export const PrevButton = ({ color, enabled, is_reviews, onClick, style }) => (
     <StyledButtonWrapper
         onClick={onClick}
         disabled={!enabled}
@@ -48,7 +48,7 @@ NavigationButton.propTypes = {
     onClick: PropTypes.func,
 }
 
-export const NextButton = ({ enabled, onClick, color, style, is_reviews }) => (
+export const NextButton = ({ color, enabled, is_reviews, onClick, style }) => (
     <StyledButtonWrapper
         onClick={onClick}
         disabled={!enabled}
@@ -68,16 +68,16 @@ export const NextButton = ({ enabled, onClick, color, style, is_reviews }) => (
 NextButton.propTypes = PrevButton.propTypes
 
 export const Carousel = ({
-    children,
-    options,
-    container_style,
-    slide_style,
-    view_port,
-    chevron_style,
-    has_autoplay,
     autoplay_interval,
-    vertical_container,
+    chevron_style,
+    children,
+    container_style,
+    has_autoplay,
     navigation_style,
+    options,
+    slide_style,
+    vertical_container,
+    view_port,
 }) => {
     const [emblaRef, embla] = useEmblaCarousel(options)
     const [prevBtnEnabled, setPrevBtnEnabled] = useState(false)

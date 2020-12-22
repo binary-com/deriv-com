@@ -3,17 +3,16 @@ import Proptypes from 'prop-types'
 import styled from 'styled-components'
 import { Flex, Show } from 'components/containers'
 import { CardStyle, Header, Text } from 'components/elements'
+import { LinkButton } from 'components/form'
+import { Localize } from 'components/localization'
 import Checkmark from 'images/svg/checkmark.svg'
 import ZeroPercent from 'images/svg/zero_percent.svg'
 import device from 'themes/device'
-import { LinkButton } from 'components/form'
-import { Localize } from 'components/localization'
 
 const ImageWrapper = styled.div`
     max-width: 124px;
     width: 100%;
     object-fit: contain;
-    padding: 0;
     margin-top: 4rem;
 `
 
@@ -27,16 +26,21 @@ const InterestCardFlex = styled(Flex)`
 `
 
 const StyledContainer = styled(Flex)`
+    width: 100%;
+    height: 552px;
     background-color: var(--color-grey-25);
     margin-bottom: 5.2rem;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 `
 
 const StyledHeader = styled(Header)`
-    font-size: 48px;
+    margin: 15.4rem 0 1.2rem;
     margin-top: 15.4rem;
-    @media ${device.mobileL} {
-        font-size: ${(props) => props.mobile_font_size};
-        margin: ${(props) => props.mobile_margin};
+    @media ${device.tabletL} {
+        font-size: 32px;
+        margin: 0 0 24px;
     }
 `
 
@@ -77,7 +81,8 @@ const TextWrapperFlex = styled(Flex)`
 const CheckedText = ({ children }) => (
     <>
         <StyledText size="16px" weight="bold">
-            <img src={Checkmark} alt="Check mark" width="24" height="24" /> {children}
+            <img src={Checkmark} alt="Check mark" width="24" height="24" />
+            <Localize translate_text={children} />
         </StyledText>
         <Separator />
     </>
@@ -90,7 +95,7 @@ CheckedText.propTypes = {
 const InterestFreeTrading = () => {
     return (
         <Show.Desktop>
-            <StyledContainer fd="row" width="100%" height="552px" ai="center" jc="center">
+            <StyledContainer>
                 <InterestCardFlex fd="column" ai="center" jc="center">
                     <ImageWrapper>
                         <img
@@ -104,27 +109,14 @@ const InterestFreeTrading = () => {
                         <Localize translate_text="interest" />
                     </Text>
                     <TextWrapperFlex fd="column" jc="flex-start" ai="flex-start">
-                        <CheckedText>
-                            <Localize translate_text="Forex" />
-                        </CheckedText>
-                        <CheckedText>
-                            <Localize translate_text="Commodities" />
-                        </CheckedText>
-                        <CheckedText>
-                            <Localize translate_text="Cryptocurrencies" />
-                        </CheckedText>
-                        <CheckedText>
-                            <Localize translate_text="Synthetic indices" />
-                        </CheckedText>
+                        <CheckedText>Forex</CheckedText>
+                        <CheckedText>Commodities</CheckedText>
+                        <CheckedText>Cryptocurrencies</CheckedText>
+                        <CheckedText>Synthetic indices</CheckedText>
                     </TextWrapperFlex>
                 </InterestCardFlex>
                 <Flex fd="column" jc="flex-start" ac="center" width="51.4rem" height="100%">
-                    <StyledHeader
-                        mobile_font_size="32px"
-                        mobile_margin="0 0 24px"
-                        type="page-title"
-                        mb="1.2rem"
-                    >
+                    <StyledHeader as="h2" lh="1.25">
                         <Localize translate_text="Access markets with swap-free trading" />
                     </StyledHeader>
                     <StyledRightText>

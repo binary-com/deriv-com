@@ -8,14 +8,12 @@ import Arrow from 'images/svg/arrow-right.svg'
 const CustomLinkWrap = styled.div`
     display: flex;
     opacity: 0;
-    transition: visibility 0s, opacity 0.5s ease-in;
     margin-top: 5px;
     align-items: center;
 `
 
 const CustomWrap = styled.div`
     display: block;
-    transition: transform 0.2s ease-in;
 `
 
 const LogoDiv = styled.div`

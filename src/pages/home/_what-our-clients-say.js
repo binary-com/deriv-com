@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { Carousel, Header, Text, Divider } from 'components/elements'
+import { Header, Text, Divider } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
 import { Container, SectionContainer, Flex } from 'components/containers'
@@ -211,24 +211,6 @@ const our_client_slides = [
 ]
 
 const WhatOurClientsSay = () => {
-    const settings = {
-        options: {
-            loop: true,
-        },
-        container_style: {
-            maxWidth: '800px',
-            margin: '0 auto',
-        },
-        slide_style: {
-            minWidth: '100%',
-            paddingLeft: '1rem',
-            position: 'relative',
-        },
-        chevron_style: {
-            chevron_color: 'black',
-        },
-    }
-
     return (
         <>
             <StyledSection>
@@ -237,20 +219,20 @@ const WhatOurClientsSay = () => {
                         {localize('What our clients say about Deriv')}
                     </Header>
                 </Container>
-                <Carousel has_autoplay autoplay_interval={4000} {...settings}>
-                    {our_client_slides.map((trader, idx) => (
-                        <div key={idx}>
-                            <ClientSlide
-                                key={trader.name}
-                                quote={trader.quote}
-                                name={trader.name}
-                                location={trader.location}
-                                img_path={trader.img_path}
-                                img_alt={trader.name + localize(" - Deriv's Client")}
-                            />
-                        </div>
-                    ))}
-                </Carousel>
+                {/* <Carousel has_autoplay autoplay_interval={4000} {...settings}> */}
+                {/* {our_client_slides.map((trader, idx) => ( */}
+                <div>
+                    <ClientSlide
+                        key={our_client_slides[0].name}
+                        quote={our_client_slides[0].quote}
+                        name={our_client_slides[0].name}
+                        location={our_client_slides[0].location}
+                        img_path={our_client_slides[0].img_path}
+                        img_alt={our_client_slides[0].name + localize(" - Deriv's Client")}
+                    />
+                </div>
+                {/* ))} */}
+                {/* </Carousel> */}
             </StyledSection>
         </>
     )

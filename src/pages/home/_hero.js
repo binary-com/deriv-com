@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
-import styled, { keyframes } from 'styled-components'
+import styled from 'styled-components'
 import VerticalCarousel from './_vertical-carousel.js'
 import device from 'themes/device'
 import { LinkButton } from 'components/form'
@@ -41,21 +41,8 @@ const HeroButton = styled(LinkButton)`
         height: 5rem;
     }
 `
-const FadeIn = keyframes`
-    0% {
-        opacity: 0;
-        margin-left: -75px;
-    }
-    100% {
-        opacity: 1;
-        margin-left: 0;
-    }
-`
+
 const StyledHeader = styled(Header)`
-    animation-name: ${FadeIn};
-    animation-duration: 0.5s;
-    animation-fill-mode: both;
-    animation-delay: ${(props) => props.ad};
     font-size: 8rem;
     line-height: 1.25;
 
@@ -112,27 +99,7 @@ const ImageWrapper = styled(Box)`
 export const Hero = () => {
     const data = useStaticQuery(query)
     const typewriter_text = localize('Trade forex, commodities, synthetic and stock indices')
-    const [type_writer, setTypeWriter] = React.useState('')
-    const [check_first_load, setFirstLoad] = React.useState(false)
-    let type_writer_timeout
-
-    const typeWriterAnimation = (i = 0) => {
-        if (i < typewriter_text.length) {
-            setTypeWriter(typewriter_text.substring(0, i + 1))
-            type_writer_timeout = setTimeout(() => typeWriterAnimation(i + 1), 13)
-        }
-    }
-
-    React.useEffect(() => {
-        let start_animations_timeout = setTimeout(() => {
-            typeWriterAnimation()
-        }, 1200)
-        setFirstLoad(true)
-        return () => {
-            clearTimeout(start_animations_timeout)
-            clearTimeout(type_writer_timeout)
-        }
-    }, [])
+    const check_first_load = false
 
     return (
         <HeroWrapper>
@@ -169,7 +136,7 @@ export const Hero = () => {
                             max_width="430px"
                             weight="normal"
                         >
-                            {localize(type_writer)}
+                            {localize(typewriter_text)}
                         </TypeWriter>
                         <VerticalCarousel contents={contents} />
                     </Details>

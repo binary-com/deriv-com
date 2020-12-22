@@ -31,7 +31,6 @@ const CardCover = styled.div`
     background-color: ${(props) => props.background_color};
     border-radius: 6px;
     top: 0;
-    transition: 0.18s cubic-bezier(0.1, 0.25, 0.25, 1);
     display: flex;
     align-items: center;
     flex-direction: row;
@@ -270,7 +269,6 @@ const NavContent = styled.div`
 `
 const RightDiagonal = styled.img`
     opacity: 0;
-    transition: opacity 0.2s;
     position: absolute;
     width: 16px;
     height: 16px;
@@ -288,13 +286,11 @@ const RightDiagonal = styled.img`
 `
 
 const ResponsiveHeader = styled(Header)`
-    transition: color 0.2s;
     @media ${device.tabletL} {
         font-size: 16px;
     }
 `
 const ResponsiveText = styled(Text)`
-    transition: color 0.2s;
     font-size: var(--text-size-xs);
 
     @media ${device.tabletL} {

@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import Container from '../_layout-components/_container'
+import CareerContainer from '../_layout-components/_container'
 import device from 'themes/device'
 import { SectionContainer, Flex } from 'components/containers'
 import { Text, LinkText, Header, BackgroundImage, QueryImage } from 'components/elements'
@@ -15,7 +15,17 @@ const Pin = styled.img`
     height: 24px;
     margin-right: 13px;
 `
-const StyledContainer = styled(Container)`
+
+const StyledBackground = styled(BackgroundImage)`
+    width: 100%;
+    height: 80rem;
+    object-fit: contain;
+    @media ${device.tabletL} {
+        height: 65.3rem;
+    }
+`
+
+const StyledContainer = styled(CareerContainer)`
     flex-direction: column;
     align-items: flex-start;
     height: 100%;
@@ -26,28 +36,21 @@ const StyledContainer = styled(Container)`
 `
 
 const StyledHeader = styled(Header)`
-    font-size: var(--text-size-xl);
-    margin-bottom: 2.4rem;
+    font-size: var(--text-size-xxl);
+    margin-bottom: 1.6rem;
     color: var(--color-white);
 `
 
 const Subheadline = styled(Text)`
-    font-size: var(--text-size-sm);
+    font-size: var(--text-size-m);
     color: var(--color-white);
-    max-width: 58.8rem;
-    margin-bottom: 8rem;
+    max-width: 69rem;
+    margin-bottom: 3.2rem;
 `
 
 const Hero = ({ display_name, img_data, description }) => {
     return (
-        <BackgroundImage
-            data={img_data}
-            style={{
-                height: '80rem',
-                width: '100%',
-            }}
-            alt={display_name}
-        >
+        <StyledBackground data={img_data} alt={display_name}>
             <StyledContainer>
                 <StyledHeader as="h1">{display_name}</StyledHeader>
                 <Subheadline>{description}</Subheadline>
@@ -59,10 +62,10 @@ const Hero = ({ display_name, img_data, description }) => {
                     rel="noopener noreferrer"
                     external
                 >
-                    {`View open positions in ${display_name}`}
+                    View open positions in {display_name}
                 </LinkButton>
             </StyledContainer>
-        </BackgroundImage>
+        </StyledBackground>
     )
 }
 
@@ -103,7 +106,7 @@ const Fourth = styled.div`
 
 const FirstSection = styled(SectionContainer)`
     ${Header} {
-        margin-bottom: 8rem;
+        margin-bottom: 4rem;
     }
     ${Flex} {
         @media ${device.tablet} {
@@ -241,30 +244,25 @@ export const LocationLayout = ({ location, images }) => {
                 description={location.header_p}
                 img_data={images[location.name]}
             />
-            <Container direction="column">
-                <FirstSection padding="12rem 0">
-                    <Header align="center" as="h2" size={'var(--text-size-header-1)'}>
-                        {`Living in ${display_name}`}
+            <CareerContainer>
+                <FirstSection>
+                    <Header align="center" as="h2" size="var(--text-size-header-5)">
+                        Living in {display_name}
                     </Header>
                     <Flex tablet_direction="column">
                         <Text>{location.first_p}</Text>
                         <StyledImageWrapper>
                             <QueryImage
                                 data={images[location.first_img]}
-                                alt={`Living in ${display_name}`}
+                                alt={display_name}
                                 width="100%"
                             />
                         </StyledImageWrapper>
                     </Flex>
                 </FirstSection>
-            </Container>
-            <SectionContainer padding={location.has_iframe ? '0rem' : '0 0 12rem'}>
-                <Header
-                    align="center"
-                    as="h2"
-                    size={'var(--text-size-header-1)'}
-                    style={{ marginBottom: '6.4rem' }}
-                >
+            </CareerContainer>
+            <SectionContainer padding="0">
+                <Header align="center" as="h2" size="var(--text-size-header-5)" mb="4rem">
                     Our office
                 </Header>
                 <StyledFlex>
@@ -304,7 +302,7 @@ export const LocationLayout = ({ location, images }) => {
                     </RightFlex>
                 </StyledFlex>
             </SectionContainer>
-            <SectionContainer padding="12rem 0">
+            <SectionContainer>
                 <LocationCard>
                     <LocationFlex min_height="42.2rem" jc="unset" tablet_direction="column">
                         <ImageWrapper>
@@ -334,7 +332,7 @@ export const LocationLayout = ({ location, images }) => {
                             max_width="44.4rem"
                         >
                             <StyledDiv>
-                                <Header as="h3" size={'24px'}>
+                                <Header as="h3" size="24px">
                                     Location
                                 </Header>
                                 <CardText>{location.map_text}</CardText>

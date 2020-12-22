@@ -124,12 +124,16 @@ const ResetPassword = () => {
                                     required
                                 />
                             </InputGroup>
-                            <Text align="center" color="red">
-                                {status.error && status.error}
-                            </Text>
-                            <Text align="center" color="green">
-                                {status.success && status.success}
-                            </Text>
+                            {status.error && (
+                                <Text align="center" color="red">
+                                    {status.error}
+                                </Text>
+                            )}
+                            {status.success && (
+                                <Text align="center" color="green">
+                                    {status.success}
+                                </Text>
+                            )}
                             <ButtonContainer>
                                 <StyledButton
                                     tertiary

@@ -37,7 +37,7 @@ import UsdCoin from 'images/svg/payment-methods/payment-usd-coin.svg'
 // import Usdk from 'images/svg/payment-methods/payment-usdk.svg'
 import Changelly from 'images/svg/payment-methods/payment-changelly.svg'
 import Wyre from 'images/svg/payment-methods/payment-wyre.svg'
-// import Xanpool from 'images/svg/payment-methods/payment-xanpool.svg'
+import Xanpool from 'images/svg/payment-methods/payment-xanpool.svg'
 import Banxa from 'images/svg/payment-methods/payment-banxa.svg'
 import Paylivre from 'images/svg/payment-methods/payment-paylivre.svg'
 
@@ -153,9 +153,9 @@ const ChangellyIc = styled.img`
 const WyreIc = styled.img`
     ${icon_css}
 `
-// const XanpoolIc = styled(Xanpool)`
-//     ${icon_css}
-// `
+const XanpoolIc = styled.img`
+    ${icon_css}
+`
 const BanxaIc = styled.img`
     ${icon_css}
 `
@@ -668,16 +668,16 @@ const payment_data = [
                 ),
                 name: 'Wyre',
             },
-            // {
-            //     method: <XanpoolIc />,
-            //     currencies: 'HKD SGD MYR PHP THB INR VND IDR BTC ETH LTC USDT',
-            //     min_max_deposit: <Localize translate_text="No minimum" />,
-            //     deposit_time: <Localize translate_text="Funds available as soon as confirmed" />,
-            //     description: (
-            //         <Localize translate_text="Buy cryptocurrencies in an instant. Enjoy easy, quick, and secure exchanges using your local payment methods." />
-            //     ),
-            //     name: 'Xanpool',
-            // },
+            {
+                method: <XanpoolIc src={Xanpool} alt="Xanpool" />,
+                currencies: 'HKD SGD MYR PHP THB INR VND IDR BTC ETH LTC USDT',
+                min_max_deposit: <Localize translate_text="No minimum" />,
+                deposit_time: <Localize translate_text="Funds available as soon as confirmed" />,
+                description: (
+                    <Localize translate_text="Buy cryptocurrencies in an instant. Enjoy easy, quick, and secure exchanges using your local payment methods." />
+                ),
+                name: 'Xanpool',
+            },
             {
                 method: <BanxaIc src={Banxa} alt="Banxa" />,
                 currencies: 'USD EUR GBP AUD CAD BTC LTC USDT USDC',

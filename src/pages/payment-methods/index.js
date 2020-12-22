@@ -123,7 +123,7 @@ const DisplayAccordianItem = ({ pd, crypto_config }) => {
                                 <Th>
                                     <BoldText>{localize('Method')}</BoldText>
                                 </Th>
-                                <Th>
+                                <Th colSpan={pd.is_fiat_onramp && '3'}>
                                     <BoldText>{localize('Currencies')}</BoldText>
                                 </Th>
                                 <Th>
@@ -151,7 +151,7 @@ const DisplayAccordianItem = ({ pd, crypto_config }) => {
                                     </Th>
                                 )}
                                 {pd.is_fiat_onramp ? (
-                                    <Th>
+                                    <Th colSpan="2">
                                         <BoldText>{localize('Deposit processing time')}</BoldText>
                                     </Th>
                                 ) : (

@@ -100,10 +100,6 @@ const Withdrawal = styled(Td)`
     }
 `
 
-const Currencies = styled(Td)`
-    width: 289px;
-`
-
 const ExpandList = ({ data, config, is_crypto, is_fiat_onramp }) => {
     const [is_expanded, setIsExpanded] = React.useState(false)
 
@@ -117,16 +113,9 @@ const ExpandList = ({ data, config, is_crypto, is_fiat_onramp }) => {
         <>
             <Tr is_expanded={is_expanded}>
                 <Td>{data.method}</Td>
-                {is_fiat_onramp ? (
-                    <Currencies>
-                        <Text>{data.currencies}</Text>
-                    </Currencies>
-                ) : (
-                    <Td>
-                        <Text>{data.currencies}</Text>
-                    </Td>
-                )}
-
+                <Td colSpan={is_fiat_onramp && '3'}>
+                    <Text>{data.currencies}</Text>
+                </Td>
                 <Td>
                     {Array.isArray(data.min_max_deposit) ? (
                         data.min_max_deposit.map((md, idx) => <Text key={idx}>{md}</Text>)
@@ -149,7 +138,7 @@ const ExpandList = ({ data, config, is_crypto, is_fiat_onramp }) => {
                         </>
                     </Td>
                 )}
-                <Deposit is_fiat_onramp={is_fiat_onramp}>
+                <Deposit colSpan={is_fiat_onramp && '2'} is_fiat_onramp={is_fiat_onramp}>
                     <Text>{data.deposit_time}</Text>
                 </Deposit>
 

@@ -148,14 +148,17 @@ const StyledHeader = styled(Header)`
     font-size: 2.4rem;
     margin-bottom: 1.6rem;
     ${({ row, col }) => {
-        let margin_top = '8rem'
-        if (row) {
-            if (col) {
-                margin_top = '7rem'
-            } else {
-                margin_top = '4rem'
-            }
+        let margin_top = '4rem'
+
+        switch (row) {
+            case 0:
+                margin_top = '8rem'
+                break
+            case 1:
+                margin_top = col ? '7.2rem' : margin_top
+                break
         }
+
         return css`
             margin-top: ${margin_top};
         `

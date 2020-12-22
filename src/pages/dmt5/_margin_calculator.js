@@ -77,9 +77,6 @@ const StyledBox = styled(Box)`
 const StyledText = styled(Text)`
     text-align: ${(props) => (props.align ? 'center' : 'left')};
     margin-bottom: 24px;
-    @media ${device.tabletL} {
-        font-size: 16px;
-    }
 `
 
 const CardText = styled(StyledText)`

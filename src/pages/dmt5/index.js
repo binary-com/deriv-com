@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
-import { WhyTrader, StartTrader, DownloadApp, Flexibility, DBanner, MarginCalculator, SwapFreeTrading } from './_lazy-load'
+import { WhyTrader, StartTrader, DownloadApp, Flexibility, DBanner, MarginCalculator /*SwapFreeTrading*/ } from './_lazy-load'
 // import TradeControl from './_trade-control.js'
 import DHero from './_dhero'
 import Numbers from './_numbers'
@@ -64,7 +64,8 @@ const DMT5 = () => {
             {/* <TradeControl /> */}
             <MarginCalculator />
             <Flexibility />
-            <SwapFreeTrading />
+            {/* TODO: add/revise this section when swap free trading design is ready */}
+            {/* <SwapFreeTrading /> */}
             <DBanner
                 background_pattern={
                     is_mobile ? BackgroundPatternDMT5_mobile : BackgroundPatternDMT5

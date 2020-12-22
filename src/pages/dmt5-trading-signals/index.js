@@ -54,6 +54,10 @@ const signal_content_provider = {
 const TabsContainer = styled(Flex)`
     display: flex;
     overflow: scroll;
+
+    @media ${device.mobileL} {
+        justify-content: flex-start;
+    }
 `
 
 const Item = styled.div`
@@ -63,10 +67,12 @@ const Item = styled.div`
         props.name === props.active_tab ? '2px solid var(--color-red)' : ''};
     cursor: pointer;
     z-index: 10;
+    white-space: nowrap;
 
     ${Header} {
         font-size: 2.4rem;
         width: max-content;
+        text-align: center;
     }
     h4 {
         color: var(--color-black-3);
@@ -78,7 +84,12 @@ const Item = styled.div`
 
         ${Header} {
             font-size: 20px;
+            width: 100%;
         }
+    }
+    @media ${device.mobileL} {
+        width: 100%;
+        text-align: center;
     }
 `
 const Separator = styled.div`

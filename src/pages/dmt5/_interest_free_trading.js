@@ -47,8 +47,10 @@ const StyledHeader = styled(Header)`
 const StyledLinkButton = styled(LinkButton)`
     padding: 1rem 1.6rem;
     font-size: 14px;
-    height: 4rem;
-    width: 24.1rem;
+    height: auto;
+    min-height: 4rem;
+    width: auto;
+    min-width: 24.1rem;
 
     :active {
         outline: none;
@@ -59,10 +61,6 @@ const StyledLinkButton = styled(LinkButton)`
     }
 `
 
-const StyledText = styled(Text)`
-    display: flex;
-    align-items: center;
-`
 const StyledRightText = styled(Text)`
     margin-bottom: 3.2rem;
 `
@@ -80,10 +78,12 @@ const TextWrapperFlex = styled(Flex)`
 
 const CheckedText = ({ children }) => (
     <>
-        <StyledText size="16px" weight="bold">
+        <Flex jc="flex-start" ai="center">
             <img src={Checkmark} alt="Check mark" width="24" height="24" />
-            <Localize translate_text={children} />
-        </StyledText>
+            <Text size="16px" weight="bold">
+                <Localize translate_text={children} />
+            </Text>
+        </Flex>
         <Separator />
     </>
 )

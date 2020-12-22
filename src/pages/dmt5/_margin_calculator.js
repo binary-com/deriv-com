@@ -3,6 +3,7 @@ import Proptypes from 'prop-types'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import { isMobile } from 'common/os-detect'
+import { isBrowser } from 'common/utility'
 import device from 'themes/device'
 import { Box, Flex, SectionContainer } from 'components/containers'
 import { Carousel, Header, LinkText, QueryImage, Text } from 'components/elements'
@@ -147,7 +148,7 @@ const CalculatorCard = ({ button_text, image_alt_name, image_name, link, name, t
             <CardText align="center">{text}</CardText>
             <ImageWrapper>
                 <QueryImage
-                    data={data[image_name + (isMobile() ? '_mobile' : '')]}
+                    data={data[image_name + (isBrowser() && isMobile() ? '_mobile' : '')]}
                     alt={image_alt_name}
                 />
             </ImageWrapper>
@@ -194,7 +195,7 @@ const calculators = [
 const MarginCalculator = () => {
     const settings = {
         container_style: {
-            maxWidth: isMobile() ? '100%' : '588px',
+            maxWidth: isBrowser() && isMobile() ? '100%' : '588px',
             margin: '0',
         },
         slide_style: {
@@ -249,7 +250,7 @@ const MarginCalculator = () => {
                     jc="flex-start"
                     tablet_jc="center"
                     wrap="wrap"
-                    ml={isMobile() ? '0px' : '2.4rem'}
+                    ml={isBrowser() && isMobile() ? '0px' : '2.4rem'}
                     tabletL={{ mt: '0', pt: '24px', pl: '16px', pr: '16px' }}
                 >
                     <Carousel {...settings}>

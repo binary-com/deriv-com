@@ -8,10 +8,17 @@ import AppStore from 'images/svg/app-store.svg'
 import GooglePlay from 'images/svg/google-play.svg'
 import GooglePlayMobile from 'images/svg/google-play-mobile.svg'
 import Linux from 'images/svg/linux.svg'
+import MacOS from 'images/svg/mac-os.svg'
 import MoreInfo from 'images/svg/more-info.svg'
 import Windows from 'images/svg/windows.svg'
 import device from 'themes/device'
-import { dmt5_windows_url, dmt5_linux_url, dmt5_android_url, dmt5_ios_url } from 'common/utility'
+import {
+    dmt5_android_url,
+    dmt5_ios_url,
+    dmt5_linux_url,
+    dmt5_mac_os_url,
+    dmt5_windows_url,
+} from 'common/utility'
 
 const query = graphql`
     query {
@@ -92,17 +99,29 @@ const DownloadApp = () => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                <img src={Windows} alt="windows" />
+                                <img src={Windows} alt="windows icon link" />
                             </LocalizedLink>
                         </Box>
                         <LocalizedLink
                             external="true"
-                            to={dmt5_linux_url}
+                            to={dmt5_mac_os_url}
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            <img src={Linux} alt="linux" />
+                            <img src={MacOS} alt="mac os icon link" />
                         </LocalizedLink>
+                    </Flex>
+                    <Flex mt="0.8rem" jc="flex-start" height="auto">
+                        <Box mr="0.8rem">
+                            <LocalizedLink
+                                external="true"
+                                to={dmt5_linux_url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <img src={Linux} alt="linux icon link" />
+                            </LocalizedLink>
+                        </Box>
                     </Flex>
 
                     <StyledHeader mt="2.4rem" as="h4">
@@ -173,12 +192,24 @@ const DownloadApp = () => {
                         </Box>
                         <LocalizedLink
                             external="true"
-                            to={dmt5_linux_url}
+                            to={dmt5_mac_os_url}
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            <img src={Linux} alt="linux mobile" />
+                            <img src={MacOS} alt="mac os icon link" />
                         </LocalizedLink>
+                    </Flex>
+                    <Flex mt="0.8rem" jc="flex-start" height="auto">
+                        <Box mr="0.8rem">
+                            <LocalizedLink
+                                external="true"
+                                to={dmt5_linux_url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <img src={Linux} alt="linux mobile" />
+                            </LocalizedLink>
+                        </Box>
                     </Flex>
                 </Show.Mobile>
             </Flex>

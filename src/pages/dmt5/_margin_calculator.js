@@ -37,7 +37,7 @@ const ImageWrapper = styled.div`
     @media ${device.mobileL} {
         max-width: 232px;
         width: 100%;
-        margin: 0 0 24px;
+        margin-bottom: 24px;
         height: unset;
 
         div {

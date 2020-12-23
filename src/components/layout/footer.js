@@ -1,6 +1,7 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
+import PropTypes from 'prop-types'
 import { Container, CssGrid, Flex, Show } from '../containers'
 import { StyledLink, Text, QueryImage } from '../elements'
 import { LocationContext } from './location-context'
@@ -242,44 +243,83 @@ const mobile_accordion_header = {
     backgroundColor: 'var(--color-grey-25)',
     boxShadow: 'none',
 }
+
 const mobile_accordion_header_about = Object.assign({}, mobile_accordion_header)
+
 const SocialWrapperComponent = () => {
-    return (
-        <SocialWrapper>
+    const accounts = [
+        {
+            index: 1,
+            link: 'https://www.facebook.com/derivdotcom/',
+            image: Facebook,
+            image_alt: 'facebook icon link',
+        },
+        {
+            index: 2,
+            link: 'https://twitter.com/derivdotcom',
+            image: Twitter,
+            image_alt: 'twitter icon link',
+        },
+        {
+            index: 3,
+            link: 'https://www.instagram.com/deriv_official/',
+            image: Instagram,
+            image_alt: 'instagram icon link',
+        },
+        {
+            index: 4,
+            link: 'https://www.linkedin.com/company/derivdotcom/',
+            image: Linkedin,
+            image_alt: 'linkedin icon link',
+        },
+    ]
+
+    return <SocialMediaComponent social_accounts={accounts} />
+}
+
+const CareerSocialWrapperComponent = () => {
+    const accounts = [
+        {
+            index: 1,
+            link: 'https://www.facebook.com/derivcareers',
+            image: Facebook,
+            image_alt: 'facebook icon career link',
+        },
+        {
+            index: 2,
+            link: 'https://www.instagram.com/derivcareers/',
+            image: Instagram,
+            image_alt: 'instagram icon career link',
+        },
+        {
+            index: 3,
+            link: 'https://www.linkedin.com/company/derivdotcom/',
+            image: Linkedin,
+            image_alt: 'linkedin icon career link',
+        },
+    ]
+
+    return <SocialMediaComponent social_accounts={accounts} />
+}
+
+const SocialMediaComponent = ({ social_accounts }) => (
+    <SocialWrapper>
+        {social_accounts.map((account, index) => (
             <LocalizedLink
+                key={index}
                 external="true"
-                to="https://www.facebook.com/derivdotcom/"
+                to={account.link}
                 target="_blank"
                 rel="noopener noreferrer"
             >
-                <img src={Facebook} alt="facebook" width="41" height="41" />
+                <img src={account.image} alt={account.image_alt} width="41" height="41" />
             </LocalizedLink>
-            <LocalizedLink
-                external="true"
-                to="https://twitter.com/derivdotcom"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                <img src={Twitter} alt="twitter" width="41" height="41" />
-            </LocalizedLink>
-            <LocalizedLink
-                external="true"
-                to="https://www.instagram.com/deriv_official/"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                <img src={Instagram} alt="instagram" width="41" height="41" />
-            </LocalizedLink>
-            <LocalizedLink
-                external="true"
-                to="https://www.linkedin.com/company/derivdotcom/"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                <img src={Linkedin} alt="linkedin" width="41" height="41" />
-            </LocalizedLink>
-        </SocialWrapper>
-    )
+        ))}
+    </SocialWrapper>
+)
+
+SocialMediaComponent.propTypes = {
+    social_accounts: PropTypes.array,
 }
 
 const query = graphql`
@@ -290,7 +330,7 @@ const query = graphql`
     }
 `
 
-const Footer = () => {
+const Footer = ({ type }) => {
     const image_query = useStaticQuery(query)
     const { show_cookie_banner } = React.useContext(LocationContext)
 
@@ -657,11 +697,19 @@ const Footer = () => {
                         <Text ml="0.4rem">{localize('2020 Deriv | All rights reserved')}</Text>
                     </Copyright>
                     <Show.NonEU>
-                        <SocialWrapperComponent />
+                        {type && type === 'careers' ? (
+                            <CareerSocialWrapperComponent />
+                        ) : (
+                            <SocialWrapperComponent />
+                        )}
                     </Show.NonEU>
                     <Show.Eu>
                         <Show.Mobile>
-                            <SocialWrapperComponent />
+                            {type && type === 'careers' ? (
+                                <CareerSocialWrapperComponent />
+                            ) : (
+                                <SocialWrapperComponent />
+                            )}
                         </Show.Mobile>
                     </Show.Eu>
                     <Show.Eu>
@@ -745,6 +793,10 @@ const Footer = () => {
             </Container>
         </StyledFooter>
     )
+}
+
+Footer.propTypes = {
+    type: PropTypes.string,
 }
 
 export default Footer

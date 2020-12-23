@@ -88,7 +88,7 @@ const MarginCalculator = () => {
     }
 
     const toFixed = (val) => {
-        return parseFloat(val.toFixed(2)).toLocaleString()
+        return parseFloat(val.toFixed(3)).toLocaleString()
     }
 
     const resetValidation = (values) => {
@@ -376,10 +376,13 @@ const MarginCalculator = () => {
                             {localize('How margin is calculated')}
                         </RightContentHeader>
 
+                        <StyledText>
+                            <Localize translate_text="The margin required for a contract on DMT5 is calculated based on the formula:" />
+                        </StyledText>
                         <StyledText mb="1.6rem">
                             <Localize
-                                translate_text="The margin required for a contract on DMT5 is calculated based on the formula:<1></1><0> Margin = volume in lots × contract size × asset price/leverage </0>"
-                                components={[<strong key={0} />, <br key={1} />]}
+                                translate_text="<0> Margin = volume in lots × contract size × asset price/leverage </0>"
+                                components={[<strong key={0} />]}
                             />
                         </StyledText>
 

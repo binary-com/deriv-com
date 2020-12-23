@@ -324,13 +324,13 @@ const Footer = () => {
                                         </Link>
                                     </LinkWrapper>
                                     <LinkWrapper>
-                                        <Link to="/partners">
-                                            {localize('Partnership programmes')}
+                                        <Link to="/why-choose-us">
+                                            {localize('Why choose us?')}
                                         </Link>
                                     </LinkWrapper>
                                     <LinkWrapper>
-                                        <Link to="/why-choose-us">
-                                            {localize('Why choose us?')}
+                                        <Link to="/partners">
+                                            {localize('Partnership programmes')}
                                         </Link>
                                     </LinkWrapper>
                                     <LinkWrapper>
@@ -518,7 +518,7 @@ const Footer = () => {
                             </DisclaimerParagraph>
                             <DisclaimerParagraph>
                                 <Localize
-                                    translate_text="Deriv (MX) Ltd, Millennium House, Level 1, Victoria Road, Douglas IM2 4RW, Isle of Man, is licensed by the Gambling Supervision Commission in the Isle of Man (<0>view licence</0>) and by the UK Gambling Commission for clients in the UK (<1>account no. 39172</1>)."
+                                    translate_text="Deriv (MX) Ltd, Millennium House, Level 1, Victoria Road, Douglas IM2 4RW, Isle of Man, is licensed and regulated in Great Britain by the Gambling Commission under <1>account no. 39172</1> and by the Gambling Supervision Commission in the Isle of Man (<0>view licence</0>)."
                                     components={[
                                         <StaticAsset
                                             key={0}
@@ -538,7 +538,7 @@ const Footer = () => {
                             </DisclaimerParagraph>
                             <DisclaimerParagraph>
                                 <Localize
-                                    translate_text="Deriv (Europe) Limited, W Business Centre, Level 3, Triq Dun Karm, Birkirkara BKR 9033, Malta, is licensed for synthetic indices by the Malta Gaming Authority (<0>licence no. MGA/B2C/102/2000</0>), by the UK Gambling Commission for clients in the UK (<1>account no. 39495</1>), and by the Revenue Commissioners for clients in Ireland (licence no. 1010285)."
+                                    translate_text="Deriv (Europe) Limited, W Business Centre, Level 3, Triq Dun Karm, Birkirkara BKR 9033, Malta, is licensed and regulated for synthetic indices by the Malta Gaming Authority (<0>licence no. MGA/B2C/102/2000</0>), by the Gambling Commission for clients in Great Britain under <1>account no. 39495</1>, and by the Revenue Commissioners for clients in Ireland (licence no. 1010285)."
                                     components={[
                                         <StaticAsset
                                             key={0}
@@ -631,10 +631,7 @@ const Footer = () => {
                                 </Show.Eu>
                                 <Show.NonEU>
                                     <DisclaimerParagraph no_margin>
-                                        <Localize
-                                            translate_text="The financial products offered on this website include options and contracts for difference (CFDs) which are considered complex derivatives and may not be suitable for everyone. CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money. The products mentioned here may be affected by changes in currency exchange rates. If you invest in these products, you may lose some or all of your investment, and the value of your investment may fluctuate. You should never invest money that you cannot afford to lose and never trade with borrowed money."
-                                            components={[<strong key={0} />]}
-                                        />
+                                        <Localize translate_text="The financial products offered on this website include options and contracts for difference (CFDs) which are considered complex derivatives and may not be suitable for everyone. CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money. The products mentioned here may be affected by changes in currency exchange rates. If you invest in these products, you may lose some or all of your investment, and the value of your investment may fluctuate. You should never invest money that you cannot afford to lose and never trade with borrowed money." />
                                     </DisclaimerParagraph>
                                     <DisclaimerParagraph>
                                         <Localize

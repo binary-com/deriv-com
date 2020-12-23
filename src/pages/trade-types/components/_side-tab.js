@@ -4,6 +4,8 @@ import styled, { css } from 'styled-components'
 import { Flex, Show } from 'components/containers'
 import { Text } from 'components/elements'
 import device from 'themes/device'
+import { ReactComponent as Info } from 'images/svg/info2.svg'
+
 const TabContent = styled.div`
     flex: 1;
     width: 100%;
@@ -37,9 +39,7 @@ const TabButton = styled.div`
 `
 
 const TabList = styled.div`
-    max-width: 28.2rem;
-    display: flex;
-    flex-direction: column;
+    width: 100%;
     ${(props) =>
         props.is_reverse
             ? css`
@@ -48,15 +48,16 @@ const TabList = styled.div`
             : css`
                   margin-right: 2.4rem;
               `}
+`
+
+const TabListWrapper = styled.div`
+    max-width: 28.2rem;
+    display: flex;
+    flex-direction: column;
+
     @media ${device.tabletS} {
         max-width: 100%;
         margin: 0;
-    }
-`
-
-const StyledText = styled(Text)`
-    @media ${device.tabletS} {
-        font-size: 18px;
     }
 `
 
@@ -85,48 +86,101 @@ const Mobile = styled(Show.Mobile)`
     }
 `
 
-const TabPanel = ({ children }) => (
-    <TabContent role="tabpanel" tabindex="0">
+const NoticeWrapper = styled(Flex)`
+    width: 100%;
+    margin: 3.2rem 0 0 2.2rem;
+    align-self: flex-start;
+
+    @media ${device.tabletL} {
+        margin: 32px 0 0 0;
+        justify-content: flex-start;
+    }
+`
+
+const StyledInfo = styled(Info)`
+    margin-right: 8px;
+    margin-top: 4px;
+
+    @media ${device.tabletL} {
+        margin-right: 8px;
+        margin-left: -10px;
+    }
+`
+const StyledText = styled(Text)`
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+    max-width: 36rem;
+    width: 94%;
+
+    @media ${device.tabletL} {
+        font-size: 16px;
+        line-height: 24px;
+        max-width: 100%;
+    }
+    @media ${device.tabletS} {
+        font-size: 18px;
+    }
+`
+
+const TabPanel = ({ children, className }) => (
+    <TabContent className={className} role="tabpanel" tabindex="0">
         {children}
     </TabContent>
 )
 
 TabPanel.propTypes = {
     children: PropTypes.node,
+    className: PropTypes.string,
 }
 
-const Tabs = ({ children, is_reverse }) => {
+const Tabs = ({ children, is_reverse, className, max_width, has_notice, notice_content }) => {
     const [selected_tab, setSelectedTab] = React.useState(0)
     const selectTab = (tabIndex) => {
         setSelectedTab(tabIndex)
     }
 
     return (
-        <Flex ai="flex-start" direction={is_reverse ? 'row-reverse' : 'row'}>
-            <TabList role="tablist" is_reverse={is_reverse}>
-                {React.Children.map(children, (child, index) => {
-                    const {
-                        props: { label, description },
-                    } = child
-                    return (
-                        <>
-                            <TabButton
-                                role="tab"
-                                selected={selected_tab === index}
-                                aria-selected={selected_tab === index ? 'true' : 'false'}
-                                onClick={() => selectTab(index)}
-                            >
-                                <StyledText weight="bold">{label}</StyledText>
-                                <Text mt="0.8rem">{description}</Text>
-                            </TabButton>
-                            <Mobile min_width={'tabletS'}>
-                                <Content>{selected_tab === index ? child : undefined}</Content>
-                            </Mobile>
-                        </>
-                    )
-                })}
-            </TabList>
-            <Desktop max_width={'tabletS'}>
+        <Flex className={className} ai="flex-start" direction={is_reverse ? 'row-reverse' : 'row'}>
+            <TabListWrapper className="side-tab__wrapper">
+                <TabList className="side-tab__list" role="tablist" is_reverse={is_reverse}>
+                    {React.Children.map(children, (child, index) => {
+                        const {
+                            props: { label, description },
+                        } = child
+                        return (
+                            <>
+                                <TabButton
+                                    className="side-tab__button"
+                                    role="tab"
+                                    selected={selected_tab === index}
+                                    aria-selected={selected_tab === index ? 'true' : 'false'}
+                                    onClick={() => selectTab(index)}
+                                >
+                                    <Text className="side-tab__label" weight="bold">
+                                        {label}
+                                    </Text>
+                                    <Text className="side-tab__description" mt="0.8rem">
+                                        {description}
+                                    </Text>
+                                </TabButton>
+                                <Mobile
+                                    className="side-tab__mobile"
+                                    min_width={max_width || 'tabletS'}
+                                >
+                                    <Content>{selected_tab === index ? child : undefined}</Content>
+                                </Mobile>
+                            </>
+                        )
+                    })}
+                </TabList>
+                {has_notice && (
+                    <NoticeWrapper>
+                        <StyledInfo />
+                        <StyledText>{notice_content}</StyledText>
+                    </NoticeWrapper>
+                )}
+            </TabListWrapper>
+            <Desktop className="side-tab__desktop" max_width={max_width || 'tabletS'}>
                 <Content>
                     {React.Children.map(children, (el, index) => {
                         return selected_tab === index ? el : undefined
@@ -141,7 +195,11 @@ Tabs.Panel = TabPanel
 
 Tabs.propTypes = {
     children: PropTypes.node,
+    className: PropTypes.string,
+    has_notice: PropTypes.bool,
     is_reverse: PropTypes.bool,
+    max_width: PropTypes.string,
+    notice_content: PropTypes.object,
     tab_break: PropTypes.string,
 }
 

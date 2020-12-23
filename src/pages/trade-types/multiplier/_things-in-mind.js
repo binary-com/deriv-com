@@ -19,7 +19,15 @@ const ThingsInMind = () => {
                         'With or without a stop loss in place, we will close your position if the market moves against your prediction and your loss reaches the stop-out price. The stop-out price is the price at which your net loss is equal to your stake.',
                     )}
                 </Text>
-                <Header as="h4" size="2.4rem" mb="0.8rem">
+                <Header as="h4" mb="0.8rem" type="sub-section-title">
+                    {localize('Multipliers on Crash and Boom')}
+                </Header>
+                <Text mb="3.2rem">
+                    {localize(
+                        'Deal cancellation isn’t available for Crash and Boom indices. The stop-out feature will close your contract automatically when your loss reaches or exceeds a percentage of your stake. The stop-out percentage is shown below your stake on DTrader and varies according to your chosen multiplier.',
+                    )}
+                </Text>
+                <Header as="h4" mb="0.8rem">
                     {localize(
                         'You can’t use stop loss and deal cancellation features at the same time.',
                     )}

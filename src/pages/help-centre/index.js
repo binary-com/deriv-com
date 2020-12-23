@@ -7,8 +7,6 @@ import Loadable from '@loadable/component'
 import { articles } from './_help-articles'
 import { SearchSuccess, SearchError } from './_search-results'
 // TODO: active this line after having mail service
-import { DidntFindYourAnswerBanner } from './_didnt-find-answer'
-import { Community } from './_community'
 import { convertToHash, getAllArticles, splitArticles } from './_utility'
 import { faq_schema } from './_faq-schema'
 import { SEO, Show, Container } from 'components/containers'
@@ -394,7 +392,10 @@ class HelpCentre extends Component {
                                                         <Platforms>Platforms</Platforms>
                                                     )}
                                                     <ListWrapper>
-                                                        <StyledHeader is_first_row={!!id} type="section-title">
+                                                        <StyledHeader
+                                                            is_first_row={!!id}
+                                                            type="section-title"
+                                                        >
                                                             {item.category}
                                                         </StyledHeader>
                                                         {item.articles.map((ar, idxb) => {

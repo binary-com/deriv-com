@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components'
+import { Flex } from 'components/containers'
 import device from 'themes/device'
 import { ReactComponent as Chevron } from 'images/svg/carousel-chevron.svg'
 
@@ -119,14 +120,11 @@ export const StyledChevron = styled(Chevron)`
     }
 `
 
-export const NavigationContainer = styled.div`
+export const NavigationContainer = styled(Flex)`
     position: absolute;
     bottom: 20px;
     width: 100%;
     height: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 `
 
 export const StyledDot = styled.button`

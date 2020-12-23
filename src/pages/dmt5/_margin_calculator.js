@@ -4,11 +4,11 @@ import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import { isMobile } from 'common/os-detect'
 import { isBrowser } from 'common/utility'
-import device from 'themes/device'
 import { Box, Flex, SectionContainer } from 'components/containers'
 import { Carousel, Header, LinkText, QueryImage, Text } from 'components/elements'
 import { LinkButton } from 'components/form'
 import { Localize } from 'components/localization'
+import device from 'themes/device'
 
 const query = graphql`
     query {
@@ -76,7 +76,6 @@ const StyledBox = styled(Box)`
 `
 
 const StyledText = styled(Text)`
-    text-align: ${(props) => (props.align ? 'center' : 'left')};
     margin-bottom: 24px;
 `
 
@@ -133,7 +132,7 @@ const StyledFlex = styled(Flex)`
     width: 50%;
     min-height: 694px;
     margin-right: 2.4rem;
-    background-color: ${(props) => (props.colored ? 'var(--color-grey-25)' : 'inherit')};
+    background-color: ${(props) => (props.has_color ? 'var(--color-grey-25)' : 'inherit')};
     @media ${device.tabletL} {
         width: 100%;
         min-height: 558px;
@@ -220,7 +219,7 @@ const MarginCalculator = () => {
                     fd="column"
                     wrap="wrap"
                     tabletL={{ mt: '0', ml: '16px', mr: '16px' }}
-                    colored={true}
+                    has_color={true}
                 >
                     <StyledBox max_width="100%">
                         <MainHeader as="h2" lh="1.25" align="left">

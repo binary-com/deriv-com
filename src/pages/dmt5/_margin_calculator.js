@@ -122,7 +122,7 @@ const StyledLinkButton = styled(LinkButton)`
 const StyledFlexContainer = styled(Flex)`
     width: 100%;
     flex-wrap: nowrap;
-    border: 1px solid var(--color-grey-33);
+    border: 1px solid var(--color-grey-34);
     @media ${device.tabletL} {
         flex-wrap: wrap;
     }
@@ -222,7 +222,7 @@ const MarginCalculator = () => {
                     has_color={true}
                 >
                     <StyledBox max_width="100%">
-                        <MainHeader as="h2" lh="1.25" align="left">
+                        <MainHeader type="page-title" lh="1.25" align="left">
                             <Localize translate_text="Take control of your trades on DMT5" />
                         </MainHeader>
                         <StyledText>

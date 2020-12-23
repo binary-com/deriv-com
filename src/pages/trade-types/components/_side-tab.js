@@ -61,12 +61,6 @@ const TabListWrapper = styled.div`
     }
 `
 
-const StyledText = styled(Text)`
-    @media ${device.tabletS} {
-        font-size: 18px;
-    }
-`
-
 const Content = styled.div`
     flex: 1;
     width: 100%;
@@ -110,6 +104,21 @@ const StyledInfo = styled(Info)`
     @media ${device.tabletL} {
         margin-right: 8px;
         margin-left: -10px;
+    }
+`
+const StyledText = styled(Text)`
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+    max-width: 36rem;
+    width: 94%;
+
+    @media ${device.tabletL} {
+        font-size: 16px;
+        line-height: 24px;
+        max-width: 100%;
+    }
+    @media ${device.tabletS} {
+        font-size: 18px;
     }
 `
 

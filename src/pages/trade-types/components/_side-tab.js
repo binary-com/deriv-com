@@ -112,18 +112,6 @@ const StyledInfo = styled(Info)`
         margin-left: -10px;
     }
 `
-const StyledText = styled(Text)`
-    font-size: 1.6rem;
-    line-height: 2.4rem;
-    max-width: 36rem;
-    width: 94%;
-
-    @media ${device.tabletL} {
-        font-size: 16px;
-        line-height: 24px;
-        max-width: 100%;
-    }
-`
 
 const TabPanel = ({ children, className }) => (
     <TabContent className={className} role="tabpanel" tabindex="0">

@@ -37,7 +37,6 @@ const StyledContainer = styled(Flex)`
 
 const StyledHeader = styled(Header)`
     margin: 15.4rem 0 1.2rem;
-    margin-top: 15.4rem;
     @media ${device.tabletL} {
         font-size: 32px;
         margin: 0 0 24px;

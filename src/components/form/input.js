@@ -14,7 +14,6 @@ const InputWrapper = styled.div`
     width: 100%;
     border: ${(props) => props.border || '1px solid var(--color-grey-2)'};
     border-radius: 4px;
-
     @media ${device.tabletL} {
         height: 5rem;
     }
@@ -39,7 +38,6 @@ const InputWrapper = styled.div`
         props.error &&
         css`
             border-color: var(--color-red-1) !important;
-
             & > label {
                 color: var(--color-red-1) !important;
             }
@@ -53,7 +51,6 @@ const StyledError = styled.img`
     height: 1.6rem;
     width: 1.6rem;
     cursor: pointer;
-
     @media ${device.tablet} {
         right: 2rem;
         top: 1.6rem;
@@ -66,11 +63,11 @@ const StyledInput = styled.input`
     color: var(--color-${(props) => props.inputColor || 'black'});
     font-size: var(--text-size-xs);
     padding: 1rem 1rem 1rem 0.8rem;
+    height: ${(props) => props.height || '40px'};
     width: 100%;
     display: block;
     border: none;
     border-radius: 4px;
-
     @media ${device.tabletL} {
         height: 100%;
 
@@ -79,7 +76,6 @@ const StyledInput = styled.input`
             top: 1.5rem;
         }
     }
-
     @media ${device.mobileL} {
         font-size: 14px;
 
@@ -105,7 +101,6 @@ const StyledInput = styled.input`
 
             /* prettier-ignore */
             background-color: var(--color-${(props) => props.background || 'grey-1'});
-
             @media ${device.mobileL} {
                 transform: translate(-0.6rem, -20px) scale(0.7);
             }
@@ -123,11 +118,9 @@ const StyledInput = styled.input`
                 & ~ label {
                     transform: translate(-0.6rem, -2rem) scale(0.7);
                     color: var(--color-black-3);
-
                     @media ${device.tabletL} {
                         top: 9px;
                     }
-
                     /* prettier-ignore */
                     background-color: var(--color-${(props) => props.background || 'grey-1'});
                 }
@@ -157,6 +150,7 @@ const StyledLabel = styled.label`
 
 const Input = ({
     label,
+    height,
     border,
     focusBorder,
     labelHoverColor,
@@ -185,6 +179,7 @@ const Input = ({
                     background={background}
                     maxLength={maxLength}
                     error={error}
+                    height={height}
                     {...props}
                     ref={(ip) => (current_input = ip)}
                 />
@@ -220,6 +215,7 @@ Input.propTypes = {
     error: PropTypes.string,
     focusBorder: PropTypes.string,
     handleError: PropTypes.func,
+    height: PropTypes.any,
     id: PropTypes.string,
     label: PropTypes.string,
     labelColor: PropTypes.string,

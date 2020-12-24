@@ -165,11 +165,7 @@ const CheckboxSpan = styled.span`
     }
 `
 const StyledLinkText = styled(LinkText)`
-    font-size: var(--text-size-xs);
-
-    @media ${device.tabletL} {
-        font-size: ${(props) => props.size};
-    }
+    font-size: ${(props) => props.size || '14px'};
 `
 const StyledBinaryLogo = styled.img`
     margin-right: 0.8rem;
@@ -281,13 +277,11 @@ const SignupNew = ({
                         translate_text="I agree to the <0>terms and conditions</0>"
                         components={[
                             <StyledLinkText
-                                size="1.75rem"
                                 href={url}
                                 target="_blank"
                                 color="red"
                                 rel="noopener noreferrer"
                                 key={0}
-                                weight="bold"
                             />,
                         ]}
                     />
@@ -340,13 +334,7 @@ const SignupNew = ({
             </SocialWrapper>
             <LoginText>
                 {localize('Already have an account?')}
-                <StyledLinkText
-                    ml="0.4rem"
-                    size="2rem"
-                    color="red"
-                    weight="bold"
-                    onClick={handleLogin}
-                >
+                <StyledLinkText ml="0.4rem" size="16px" color="red" onClick={handleLogin}>
                     {localize('Log in')}
                 </StyledLinkText>
             </LoginText>

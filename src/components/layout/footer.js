@@ -246,60 +246,50 @@ const mobile_accordion_header = {
 
 const mobile_accordion_header_about = Object.assign({}, mobile_accordion_header)
 
-const SocialWrapperComponent = () => {
+const SocialWrapperComponent = ({ is_career_page }) => {
+    const altString = (is_career_page ? 'career' : '') + ' icon link'
     const accounts = [
         {
             index: 1,
-            link: 'https://www.facebook.com/derivdotcom/',
+            link: is_career_page
+                ? 'https://www.facebook.com/derivcareers'
+                : 'https://www.facebook.com/derivdotcom/',
             image: Facebook,
-            image_alt: 'facebook icon link',
+            image_alt: `facebook ${altString}`,
         },
         {
             index: 2,
-            link: 'https://twitter.com/derivdotcom',
+            link: 'https://twitter.com/derivdotcom/',
             image: Twitter,
-            image_alt: 'twitter icon link',
+            image_alt: `twitter ${altString}`,
         },
         {
             index: 3,
-            link: 'https://www.instagram.com/deriv_official/',
+            link: is_career_page
+                ? 'https://www.instagram.com/derivcareers/'
+                : 'https://www.instagram.com/deriv_official/',
             image: Instagram,
-            image_alt: 'instagram icon link',
+            image_alt: `instagram ${altString}`,
         },
         {
             index: 4,
             link: 'https://www.linkedin.com/company/derivdotcom/',
             image: Linkedin,
-            image_alt: 'linkedin icon link',
+            image_alt: `linkedin ${altString}`,
         },
     ]
 
-    return <SocialMediaComponent social_accounts={accounts} />
+    return (
+        <SocialMediaComponent
+            social_accounts={
+                is_career_page ? accounts.filter((account) => account.index != 2) : accounts
+            }
+        />
+    )
 }
 
-const CareerSocialWrapperComponent = () => {
-    const accounts = [
-        {
-            index: 1,
-            link: 'https://www.facebook.com/derivcareers',
-            image: Facebook,
-            image_alt: 'facebook icon career link',
-        },
-        {
-            index: 2,
-            link: 'https://www.instagram.com/derivcareers/',
-            image: Instagram,
-            image_alt: 'instagram icon career link',
-        },
-        {
-            index: 3,
-            link: 'https://www.linkedin.com/company/derivdotcom/',
-            image: Linkedin,
-            image_alt: 'linkedin icon career link',
-        },
-    ]
-
-    return <SocialMediaComponent social_accounts={accounts} />
+SocialWrapperComponent.propTypes = {
+    is_career_page: PropTypes.bool,
 }
 
 const SocialMediaComponent = ({ social_accounts }) => (
@@ -697,19 +687,11 @@ const Footer = ({ type }) => {
                         <Text ml="0.4rem">{localize('2020 Deriv | All rights reserved')}</Text>
                     </Copyright>
                     <Show.NonEU>
-                        {type && type === 'careers' ? (
-                            <CareerSocialWrapperComponent />
-                        ) : (
-                            <SocialWrapperComponent />
-                        )}
+                        <SocialWrapperComponent is_career_page={type && type === 'careers'} />
                     </Show.NonEU>
                     <Show.Eu>
                         <Show.Mobile>
-                            {type && type === 'careers' ? (
-                                <CareerSocialWrapperComponent />
-                            ) : (
-                                <SocialWrapperComponent />
-                            )}
+                            <SocialWrapperComponent is_career_page={type && type === 'careers'} />
                         </Show.Mobile>
                     </Show.Eu>
                     <Show.Eu>

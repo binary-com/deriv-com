@@ -16,12 +16,11 @@ const StyledSection = styled(SectionContainer)`
     align-items: center;
 `
 const TradingButton = styled(LinkButton)`
-    height: 4.8rem;
+    height: 40px;
     display: flex;
     align-items: center;
-    width: 21.6rem;
+    width: 216px;
     justify-content: center;
-    margin-top: 4.8rem;
 `
 
 const TradeTypeCard = styled.article`
@@ -29,7 +28,7 @@ const TradeTypeCard = styled.article`
     position: relative;
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.05);
     border-radius: 8px;
-    padding: 2rem;
+    padding: 24px;
     height: 100%;
 `
 
@@ -46,7 +45,7 @@ const CustomLinkWrap = styled.div`
     align-items: center;
 `
 
-const TradeTypeSlide = ({ icon, title, description, link, linkTitle }) => {
+const TradeTypeSlide = ({ description, icon, link, linkTitle, title }) => {
     return (
         <Flex ai="center">
             <StyledLink ariaLabel={linkTitle} to={link}>
@@ -128,7 +127,7 @@ const TradeTypesMobile = () => {
         slide_style: {
             minWidth: '24rem',
             borderRadius: '8px',
-            margin: '10px',
+            margin: '10px 10px 48px 10px',
             height: 'auto',
             position: 'relative',
         },

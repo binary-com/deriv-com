@@ -688,7 +688,7 @@ const Footer = ({ type }) => {
                     </Show.NonEU>
                     <Show.Eu>
                         <Show.Mobile>
-                            <SocialWrapperComponent is_career_page={type && type === 'careers'} />
+                            <SocialWrapperComponent is_career_page={type === 'careers'} />
                         </Show.Mobile>
                     </Show.Eu>
                     <Show.Eu>

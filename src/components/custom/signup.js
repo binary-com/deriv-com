@@ -244,7 +244,7 @@ class Signup extends Component {
                 )}
                 {this.state.submit_status === 'success' && (
                     <ResponseWrapper>
-                        <Header as="h3" align="center" weight="normal">
+                        <Header as="h3" type="section-title" align="center" weight="normal">
                             {localize('Check your email')}
                         </Header>
                         <StaticQuery

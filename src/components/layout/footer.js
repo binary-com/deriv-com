@@ -684,7 +684,7 @@ const Footer = ({ type }) => {
                         <Text ml="0.4rem">{localize('2020 Deriv | All rights reserved')}</Text>
                     </Copyright>
                     <Show.NonEU>
-                        <SocialWrapperComponent is_career_page={type && type === 'careers'} />
+                        <SocialWrapperComponent is_career_page={type === 'careers'} />
                     </Show.NonEU>
                     <Show.Eu>
                         <Show.Mobile>

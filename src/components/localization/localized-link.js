@@ -160,7 +160,8 @@ export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
     // internal links should end with / e.g. /about/
     let internal_to = path_to.charAt(to.length - 1) === '/' ? path_to : path_to
 
-    if (props.has_no_end_slash) {
+    // remove trailing character only if it is a forward slash
+    if (props.has_no_end_slash && internal_to.charAt(internal_to.length - 1) == '/') {
         internal_to = internal_to.substring(0, internal_to.length - 1)
     }
 

@@ -1,60 +1,59 @@
 import React, { useState, useEffect } from 'react'
 import styled, { css } from 'styled-components'
-import { graphql, useStaticQuery } from 'gatsby'
 import SideTab from './components/_side-tab'
 import { Flex, SectionContainer } from 'components/containers'
-import { Header, QueryImage, Text } from 'components/elements'
+import { Header, Text } from 'components/elements'
 import { localize, Localize, LocalizedLink } from 'components/localization'
 import Login from 'common/login'
-import device, { size } from 'themes/device'
-import { isBrowser } from 'common/utility'
+import device from 'themes/device'
+// import { isBrowser } from 'common/utility'
 
-const query = graphql`
-    query {
-        demo_step1: file(relativePath: { eq: "dmt5-demo-step1.png" }) {
-            ...fadeIn
-        }
-        demo_step1_mobile: file(relativePath: { eq: "dmt5-demo-step1-mobile.png" }) {
-            ...fadeIn
-        }
-        demo_step2: file(relativePath: { eq: "dmt5-demo-step2.png" }) {
-            ...fadeIn
-        }
-        demo_step2_mobile: file(relativePath: { eq: "dmt5-demo-step2-mobile.png" }) {
-            ...fadeIn
-        }
-        demo_step3: file(relativePath: { eq: "dmt5-demo-step3.png" }) {
-            ...fadeIn
-        }
-        demo_step3_mobile: file(relativePath: { eq: "dmt5-demo-step3-mobile.png" }) {
-            ...fadeIn
-        }
-        real_step1: file(relativePath: { eq: "dmt5-real-step1.png" }) {
-            ...fadeIn
-        }
-        real_step1_mobile: file(relativePath: { eq: "dmt5-real-step1-mobile.png" }) {
-            ...fadeIn
-        }
-        real_step2: file(relativePath: { eq: "dmt5-real-step2.png" }) {
-            ...fadeIn
-        }
-        real_step2_mobile: file(relativePath: { eq: "dmt5-real-step2-mobile.png" }) {
-            ...fadeIn
-        }
-        real_step3: file(relativePath: { eq: "dmt5-real-step3.png" }) {
-            ...fadeIn
-        }
-        real_step3_mobile: file(relativePath: { eq: "dmt5-real-step3-mobile.png" }) {
-            ...fadeIn
-        }
-        real_step4: file(relativePath: { eq: "dmt5-real-step4.png" }) {
-            ...fadeIn
-        }
-        real_step4_mobile: file(relativePath: { eq: "dmt5-real-step4-mobile.png" }) {
-            ...fadeIn
-        }
-    }
-`
+// const query = graphql`
+//     query {
+//         demo_step1: file(relativePath: { eq: "dmt5-demo-step1.png" }) {
+//             ...fadeIn
+//         }
+//         demo_step1_mobile: file(relativePath: { eq: "dmt5-demo-step1-mobile.png" }) {
+//             ...fadeIn
+//         }
+//         demo_step2: file(relativePath: { eq: "dmt5-demo-step2.png" }) {
+//             ...fadeIn
+//         }
+//         demo_step2_mobile: file(relativePath: { eq: "dmt5-demo-step2-mobile.png" }) {
+//             ...fadeIn
+//         }
+//         demo_step3: file(relativePath: { eq: "dmt5-demo-step3.png" }) {
+//             ...fadeIn
+//         }
+//         demo_step3_mobile: file(relativePath: { eq: "dmt5-demo-step3-mobile.png" }) {
+//             ...fadeIn
+//         }
+//         real_step1: file(relativePath: { eq: "dmt5-real-step1.png" }) {
+//             ...fadeIn
+//         }
+//         real_step1_mobile: file(relativePath: { eq: "dmt5-real-step1-mobile.png" }) {
+//             ...fadeIn
+//         }
+//         real_step2: file(relativePath: { eq: "dmt5-real-step2.png" }) {
+//             ...fadeIn
+//         }
+//         real_step2_mobile: file(relativePath: { eq: "dmt5-real-step2-mobile.png" }) {
+//             ...fadeIn
+//         }
+//         real_step3: file(relativePath: { eq: "dmt5-real-step3.png" }) {
+//             ...fadeIn
+//         }
+//         real_step3_mobile: file(relativePath: { eq: "dmt5-real-step3-mobile.png" }) {
+//             ...fadeIn
+//         }
+//         real_step4: file(relativePath: { eq: "dmt5-real-step4.png" }) {
+//             ...fadeIn
+//         }
+//         real_step4_mobile: file(relativePath: { eq: "dmt5-real-step4-mobile.png" }) {
+//             ...fadeIn
+//         }
+//     }
+// `
 const Section = styled(SectionContainer)`
     display: flex;
     flex-direction: column;
@@ -70,28 +69,28 @@ const Section = styled(SectionContainer)`
         height: auto;
     }
 `
-const ImageWrapper = styled.div`
-    max-width: 79.2rem;
-    width: 100%;
-    height: 43.4rem;
-    position: relative;
-    margin: -3.2rem auto;
+// const ImageWrapper = styled.div`
+//     max-width: 79.2rem;
+//     width: 100%;
+//     height: 43.4rem;
+//     position: relative;
+//     margin: -3.2rem auto;
 
-    div {
-        width: 100%;
-    }
-    @media ${device.tabletS} {
-        max-width: 576px;
-        width: 100%;
-        margin: 0 0 24px;
-        height: unset;
+//     div {
+//         width: 100%;
+//     }
+//     @media ${device.tabletS} {
+//         max-width: 576px;
+//         width: 100%;
+//         margin: 0 0 24px;
+//         height: unset;
 
-        div {
-            max-width: 576px;
-            width: 100%;
-        }
-    }
-`
+//         div {
+//             max-width: 576px;
+//             width: 100%;
+//         }
+//     }
+// `
 const TabItem = styled.div`
     padding: 2.4rem 4rem;
     width: fit-content;
@@ -145,16 +144,16 @@ const StyledLocalizedLink = styled(LocalizedLink)`
     }
 `
 const StartTrader = () => {
-    const [is_mobile, setMobile] = useState(false)
+    // const [is_mobile, setMobile] = useState(false)
     const handleResizeWindow = () => {
-        setMobile(isBrowser() ? window.screen.width <= size.tabletS : false)
+        // setMobile(isBrowser() ? window.screen.width <= size.tabletS : false)
     }
     useEffect(() => {
-        setMobile(isBrowser() ? window.screen.width <= size.tabletS : false)
+        // setMobile(isBrowser() ? window.screen.width <= size.tabletS : false)
         window.addEventListener('resize', handleResizeWindow)
     })
 
-    const data = useStaticQuery(query)
+    // const data = useStaticQuery(query)
     const [tab, setTab] = useState('Demo')
 
     const onTabClick = (tab) => {
@@ -203,12 +202,12 @@ const StartTrader = () => {
                             item_width="24rem"
                             mobile_item_width="36rem"
                         >
-                            <ImageWrapper>
+                            {/* <ImageWrapper>
                                 <QueryImage
                                     data={data[is_mobile ? 'demo_step1_mobile' : 'demo_step1']}
                                     alt="demo_step1"
                                 />
-                            </ImageWrapper>
+                            </ImageWrapper> */}
                         </SideTab.Panel>
                         <SideTab.Panel
                             label=""
@@ -216,12 +215,12 @@ const StartTrader = () => {
                                 <Localize translate_text="Add a DMT5 demo account and choose what you want to trade" />
                             }
                         >
-                            <ImageWrapper>
+                            {/* <ImageWrapper>
                                 <QueryImage
                                     data={data[is_mobile ? 'demo_step2_mobile' : 'demo_step2']}
                                     alt="demo_step2"
                                 />
-                            </ImageWrapper>
+                            </ImageWrapper> */}
                         </SideTab.Panel>
                         <SideTab.Panel
                             label=""
@@ -230,12 +229,12 @@ const StartTrader = () => {
                             }
                             item_width="36rem"
                         >
-                            <ImageWrapper>
+                            {/* <ImageWrapper>
                                 <QueryImage
                                     data={data[is_mobile ? 'demo_step3_mobile' : 'demo_step3']}
                                     alt="demo_step3"
                                 />
-                            </ImageWrapper>
+                            </ImageWrapper> */}
                         </SideTab.Panel>
                     </SideTab>
                 ) : (
@@ -256,12 +255,12 @@ const StartTrader = () => {
                             }
                             item_width="27rem"
                         >
-                            <ImageWrapper>
+                            {/* <ImageWrapper>
                                 <QueryImage
                                     data={data[is_mobile ? 'real_step1_mobile' : 'real_step1']}
                                     alt="real_step1"
                                 />
-                            </ImageWrapper>
+                            </ImageWrapper> */}
                         </SideTab.Panel>
                         <SideTab.Panel
                             label=""
@@ -269,12 +268,12 @@ const StartTrader = () => {
                                 <Localize translate_text="Create a Deriv real money account" />
                             }
                         >
-                            <ImageWrapper>
+                            {/* <ImageWrapper>
                                 <QueryImage
                                     data={data[is_mobile ? 'real_step2_mobile' : 'real_step2']}
                                     alt="real_step2"
                                 />
-                            </ImageWrapper>
+                            </ImageWrapper> */}
                         </SideTab.Panel>
                         <SideTab.Panel
                             label=""
@@ -282,12 +281,12 @@ const StartTrader = () => {
                                 <Localize translate_text="Create a DMT5 real money account based on your trade preference" />
                             }
                         >
-                            <ImageWrapper>
+                            {/* <ImageWrapper>
                                 <QueryImage
                                     data={data[is_mobile ? 'real_step3_mobile' : 'real_step3']}
                                     alt="real_step3"
                                 />
-                            </ImageWrapper>
+                            </ImageWrapper> */}
                         </SideTab.Panel>
                         <SideTab.Panel
                             label=""
@@ -295,12 +294,12 @@ const StartTrader = () => {
                                 <Localize translate_text="Fund your account. Start trading on the mobile app, desktop app, or web browser" />
                             }
                         >
-                            <ImageWrapper>
-                                <QueryImage
-                                    data={data[is_mobile ? 'real_step4_mobile' : 'real_step4']}
-                                    alt="real_step4"
-                                />
-                            </ImageWrapper>
+                            {/* <ImageWrapper>
+                                    <QueryImage
+                                        data={data[is_mobile ? 'real_step4_mobile' : 'real_step4']}
+                                        alt="real_step4"
+                                    />
+                                </ImageWrapper> */}
                         </SideTab.Panel>
                     </SideTab>
                 )}

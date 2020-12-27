@@ -1,23 +1,23 @@
 import React from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
+// import { graphql } from 'gatsby'
 import styled, { keyframes } from 'styled-components'
 import VerticalCarousel from './_vertical-carousel.js'
 import device from 'themes/device'
 import { LinkButton } from 'components/form'
 import { Container, CssGrid, Box, Flex, Show } from 'components/containers'
-import { Header, QueryImage } from 'components/elements'
+import { Header } from 'components/elements'
 import { Localize, localize } from 'components/localization'
 
-const query = graphql`
-    query {
-        background: file(relativePath: { eq: "home/platform_devices.png" }) {
-            ...fadeIn
-        }
-        background_mobile: file(relativePath: { eq: "home/platform_devices_mobile.png" }) {
-            ...fadeIn
-        }
-    }
-`
+// const query = graphql`
+//     query {
+//         background: file(relativePath: { eq: "home/platform_devices.png" }) {
+//             ...fadeIn
+//         }
+//         background_mobile: file(relativePath: { eq: "home/platform_devices_mobile.png" }) {
+//             ...fadeIn
+//         }
+//     }
+// `
 
 const HeroWrapper = styled.section`
     width: 100%;
@@ -101,16 +101,16 @@ const ButtonWrapper = styled(Box)`
         margin-top: 3rem;
     }
 `
-const ImageWrapper = styled(Box)`
-    grid-area: video;
-    margin-top: 4rem;
+// const ImageWrapper = styled(Box)`
+//     grid-area: video;
+//     margin-top: 4rem;
 
-    @media ${device.tabletL} {
-        margin-top: 0;
-    }
-`
+//     @media ${device.tabletL} {
+//         margin-top: 0;
+//     }
+// `
 export const Hero = () => {
-    const data = useStaticQuery(query)
+    // const data = useStaticQuery(query)
     const typewriter_text = localize('Trade forex, commodities, synthetic and stock indices')
     const [type_writer, setTypeWriter] = React.useState('')
     const [check_first_load, setFirstLoad] = React.useState(false)
@@ -173,7 +173,7 @@ export const Hero = () => {
                         </TypeWriter>
                         <VerticalCarousel contents={contents} />
                     </Details>
-                    <ImageWrapper>
+                    {/* <ImageWrapper>
                         {check_first_load && (
                             <Show.Mobile>
                                 <QueryImage
@@ -192,7 +192,7 @@ export const Hero = () => {
                                 height="346"
                             />
                         </Show.Desktop>
-                    </ImageWrapper>
+                    </ImageWrapper> */}
                     <ButtonWrapper>
                         <HeroButton secondary="true" to="/signup/">
                             <Localize translate_text="Create free demo account" />

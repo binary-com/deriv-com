@@ -12,8 +12,8 @@ import device from 'themes/device.js'
 import Facebook from 'images/svg/facebook-blue.svg'
 import Google from 'images/svg/google.svg'
 import Arrow from 'images/svg/chevron-right.svg'
-import BackgroundPattern from 'images/common/bg_banner_signup.png'
-import RedBanner from 'images/svg/bg_banner_signup_mobile.svg'
+// import BackgroundPattern from 'images/common/bg_banner_signup.png'
+// import RedBanner from 'images/svg/bg_banner_signup_mobile.svg'
 
 const query = graphql`
     query {
@@ -81,7 +81,6 @@ const BackgroundWrapper = styled(Flex)`
     min-height: 35.3rem;
     height: 100%;
     width: 50%;
-    background-image: url(${BackgroundPattern});
     clip-path: polygon(14rem 0, 100% 0%, 100% 100%, 0% 100%);
 `
 
@@ -174,20 +173,20 @@ const StyledSpan = styled.span`
     color: var(--color-grey-32);
     margin-left: 4px;
 `
-const ImageWrapper = styled(Flex)`
-    position: relative;
-    width: 41.1rem;
-    left: -28%;
-    z-index: 2;
-    height: 100%;
+// const ImageWrapper = styled(Flex)`
+//     position: relative;
+//     width: 41.1rem;
+//     left: -28%;
+//     z-index: 2;
+//     height: 100%;
 
-    div {
-        width: 100%;
-    }
-    @media (max-width: 1350px) {
-        width: 25rem;
-    }
-`
+//     div {
+//         width: 100%;
+//     }
+//     @media (max-width: 1350px) {
+//         width: 25rem;
+//     }
+// `
 const redirectToDerivApp = (e) => {
     e.preventDefault()
     window.open(deriv_app_url, '_blank')
@@ -250,13 +249,13 @@ const SignupPublic = ({
             <Show.Desktop>
                 <Wrapper>
                     <div style={{ position: 'absolute', left: '50%', height: '100%' }}>
-                        <ImageWrapper ai="center">
+                        {/* <ImageWrapper ai="center">
                             <QueryImage
                                 data={data['deriv_platform']}
                                 alt="deriv platform"
                                 width="100%"
                             />
-                        </ImageWrapper>
+                        </ImageWrapper> */}
                     </div>
                     <SignupFormWrapper>
                         <div>
@@ -436,7 +435,7 @@ const SignupPublic = ({
                             />
                         </MobilePlatform>
                         <MobileRedBanner>
-                            <img src={RedBanner} alt="redbanner" width="100%" height="248" />
+                            {/* <img src={RedBanner} alt="redbanner" width="100%" height="248" /> */}
                         </MobileRedBanner>
                         <DerivExperience onClick={redirectToDerivApp}>
                             <Header size="3rem">

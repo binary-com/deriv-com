@@ -1,10 +1,10 @@
 import React from 'react'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { graphql, useStaticQuery } from 'gatsby'
+// import { graphql, useStaticQuery } from 'gatsby'
 import { localize } from 'components/localization'
 import { Flex } from 'components/containers'
-import { Header, QueryImage } from 'components/elements'
+import { Header } from 'components/elements'
 import { LinkButton } from 'components/form'
 import device from 'themes/device.js'
 
@@ -73,30 +73,30 @@ const HeroHeader = styled(Header)`
     }
 `
 
-const LottieWrapper = styled.div`
-    width: 100%;
-    max-width: 58rem;
-    position: absolute;
-    top: 2.3rem;
-    right: 12rem;
+// const LottieWrapper = styled.div`
+//     width: 100%;
+//     max-width: 58rem;
+//     position: absolute;
+//     top: 2.3rem;
+//     right: 12rem;
 
-    @media ${device.laptopM} {
-        max-width: 51rem;
-    }
-    @media ${device.tabletL} {
-        max-width: 54rem;
-        right: 3rem;
-    }
-    @media ${device.tablet} {
-        position: relative;
-    }
-    @media ${device.mobileL} {
-        max-width: 425px;
-        top: 0;
-        right: 0;
-        margin-bottom: 25px;
-    }
-`
+//     @media ${device.laptopM} {
+//         max-width: 51rem;
+//     }
+//     @media ${device.tabletL} {
+//         max-width: 54rem;
+//         right: 3rem;
+//     }
+//     @media ${device.tablet} {
+//         position: relative;
+//     }
+//     @media ${device.mobileL} {
+//         max-width: 425px;
+//         top: 0;
+//         right: 0;
+//         margin-bottom: 25px;
+//     }
+// `
 
 const LinkWrapper = styled.div`
     display: flex;
@@ -167,34 +167,31 @@ const InformationWrapper = styled(Flex)`
     }
 `
 
-const query = graphql`
-    query {
-        dbot: file(relativePath: { eq: "dbot_trade.png" }) {
-            ...fadeIn
-        }
-        dmt5: file(relativePath: { eq: "dmt5_trade.png" }) {
-            ...fadeIn
-        }
-        dtrader: file(relativePath: { eq: "dtrader_trade.png" }) {
-            ...fadeIn
-        }
-        dtrader_mobile: file(relativePath: { eq: "dtrader_trade_mobile.png" }) {
-            ...fadeIn
-        }
-        dbot_mobile: file(relativePath: { eq: "dbot_trade_mobile.png" }) {
-            ...fadeIn
-        }
-        dmt5_mobile: file(relativePath: { eq: "dmt5_trade_mobile.png" }) {
-            ...fadeIn
-        }
-    }
-`
+// const query = graphql`
+//     query {
+//         dbot: file(relativePath: { eq: "dbot_trade.png" }) {
+//             ...fadeIn
+//         }
+//         dmt5: file(relativePath: { eq: "dmt5_trade.png" }) {
+//             ...fadeIn
+//         }
+//         dtrader: file(relativePath: { eq: "dtrader_trade.png" }) {
+//             ...fadeIn
+//         }
+//         dtrader_mobile: file(relativePath: { eq: "dtrader_trade_mobile.png" }) {
+//             ...fadeIn
+//         }
+//         dbot_mobile: file(relativePath: { eq: "dbot_trade_mobile.png" }) {
+//             ...fadeIn
+//         }
+//         dmt5_mobile: file(relativePath: { eq: "dmt5_trade_mobile.png" }) {
+//             ...fadeIn
+//         }
+//     }
+// `
 
 const DHero = ({
     title,
-    background_alt,
-    background_svg,
-    background_svg2,
     content,
     image_name,
     is_mobile,
@@ -202,7 +199,7 @@ const DHero = ({
     go_to_live_demo,
     Logo,
 }) => {
-    const data = useStaticQuery(query)
+    // const data = useStaticQuery(query)
     const redirectUrl = () => {
         const path = image_name === 'dbot' ? '/bot' : '/'
         return path
@@ -212,58 +209,58 @@ const DHero = ({
         height: 32px !important;
         margin-right: 1.6rem;
     `
-    const HeroBackground = css`
-        @media ${device.laptopM} {
-            width: 48%;
-            max-width: 492px;
-            height: initial;
-        }
-        @media ${device.laptop} {
-            width: 50%;
-        }
-        @media ${device.tabletL} {
-            width: 45%;
-            max-width: 350px;
-        }
-        @media ${device.tablet} {
-            width: 70%;
-        }
-        @media ${device.tabletS} {
-            width: 80%;
-            max-width: 337px;
-        }
-        @media ${device.mobileL} {
-            max-width: 250px;
-            min-height: 244px;
-        }
-        @media ${device.mobileM} {
-            max-width: 205px;
-            min-height: 0;
-        }
-    `
-    const BackgroundSVG = styled.img`
-        ${HeroBackground}
-        position: absolute;
-        top: 170px;
-        right: 0;
-    `
-    const BackgroundSVG2 = styled.img`
-        ${HeroBackground}
-        position: absolute;
-        top: 0;
-        right: 214px;
+    // const HeroBackground = css`
+    //     @media ${device.laptopM} {
+    //         width: 48%;
+    //         max-width: 492px;
+    //         height: initial;
+    //     }
+    //     @media ${device.laptop} {
+    //         width: 50%;
+    //     }
+    //     @media ${device.tabletL} {
+    //         width: 45%;
+    //         max-width: 350px;
+    //     }
+    //     @media ${device.tablet} {
+    //         width: 70%;
+    //     }
+    //     @media ${device.tabletS} {
+    //         width: 80%;
+    //         max-width: 337px;
+    //     }
+    //     @media ${device.mobileL} {
+    //         max-width: 250px;
+    //         min-height: 244px;
+    //     }
+    //     @media ${device.mobileM} {
+    //         max-width: 205px;
+    //         min-height: 0;
+    //     }
+    // `
+    // const BackgroundSVG = styled.img`
+    //     ${HeroBackground}
+    //     position: absolute;
+    //     top: 170px;
+    //     right: 0;
+    // `
+    // const BackgroundSVG2 = styled.img`
+    //     ${HeroBackground}
+    //     position: absolute;
+    //     top: 0;
+    //     right: 214px;
 
-        @media ${device.tabletL} {
-            right: 120px;
-        }
-    `
+    //     @media ${device.tabletL} {
+    //         right: 120px;
+    //     }
+    // `
 
     return (
         <Wrapper>
             {!is_mobile && (
                 <>
-                    <BackgroundSVG src={background_svg} alt="background svg" />
-                    <BackgroundSVG2 src={background_svg2} alt="background svg 2" />
+                    {/* <BackgroundSVG src={background_svg} alt="background svg" />
+                    <BackgroundSVG2 src={background_svg2} alt="background svg 2" /> */}
                 </>
             )}
 
@@ -298,12 +295,12 @@ const DHero = ({
                 </LinkWrapper>
             </InformationWrapper>
 
-            <LottieWrapper>
+            {/* <LottieWrapper>
                 <QueryImage
                     data={data[is_mobile ? image_name + '_mobile' : image_name]}
                     alt={background_alt}
                 />
-            </LottieWrapper>
+            </LottieWrapper> */}
         </Wrapper>
     )
 }

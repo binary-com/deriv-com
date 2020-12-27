@@ -1,8 +1,8 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
-import { graphql, useStaticQuery } from 'gatsby'
+// import { graphql, useStaticQuery } from 'gatsby'
 import { Container, CssGrid, Flex, Show } from '../containers'
-import { StyledLink, Text, QueryImage } from '../elements'
+import { StyledLink, Text } from '../elements'
 import { LocationContext } from './location-context'
 import { mga_link_url } from 'common/utility'
 // TODO: (discussion) make footer pure component, and move usage of footer to custom
@@ -10,15 +10,15 @@ import device from 'themes/device'
 import { localize, Localize, LocalizedLink } from 'components/localization'
 // Icons
 import CopyrightIc from 'images/svg/copyright.svg'
-import Logo from 'images/svg/deriv-footer.svg'
+// import Logo from 'images/svg/deriv-footer.svg'
 import Twitter from 'images/svg/footer-twitter.svg'
 import Instagram from 'images/svg/footer-instagram.svg'
 import Facebook from 'images/svg/footer-facebook.svg'
 import Linkedin from 'images/svg/footer-linkedin.svg'
-//EU icons
-import Gamstop from 'images/svg/gamstop.svg'
-import MgaLogo from 'images/svg/mga-logo.svg'
-import Over18 from 'images/svg/over-18.svg'
+// //EU icons
+// import Gamstop from 'images/svg/gamstop.svg'
+// import MgaLogo from 'images/svg/mga-logo.svg'
+// import Over18 from 'images/svg/over-18.svg'
 
 const StyledFooter = styled.footer`
     background-color: var(--color-grey-25);
@@ -221,18 +221,18 @@ const SocialWrapper = styled.div`
     }
 `
 
-const StyledGamstop = styled.img`
-    margin-right: 2.4rem;
-`
-const StyledCoatArms = styled.div`
-    margin-right: 2.4rem;
-`
-const StyledMgaLogo = styled.img`
-    margin-right: 2.4rem;
-`
-const StyledLogo = styled.img`
-    width: 18.2rem;
-`
+// const StyledGamstop = styled.img`
+//     margin-right: 2.4rem;
+// `
+// const StyledCoatArms = styled.div`
+//     margin-right: 2.4rem;
+// `
+// const StyledMgaLogo = styled.img`
+//     margin-right: 2.4rem;
+// `
+// const StyledLogo = styled.img`
+//     width: 18.2rem;
+// `
 
 const mobile_accordion_header = {
     borderTop: '1px solid var(--color-grey-26)',
@@ -282,16 +282,16 @@ const SocialWrapperComponent = () => {
     )
 }
 
-const query = graphql`
-    query {
-        iom: file(relativePath: { eq: "isle-of-man-coat-of-arms.png" }) {
-            ...fadeIn
-        }
-    }
-`
+// const query = graphql`
+// query {
+//     iom: file(relativePath: { eq: "isle-of-man-coat-of-arms.png" }) {
+//             ...fadeIn
+//     }
+// }
+// `
 
 const Footer = () => {
-    const image_query = useStaticQuery(query)
+    // const image_query = useStaticQuery(query)
     const { show_cookie_banner } = React.useContext(LocationContext)
 
     mobile_accordion_header_about.borderTop = 'none'
@@ -301,7 +301,7 @@ const Footer = () => {
             <Container>
                 <StyledGrid>
                     <DerivLogoWrapper>
-                        <StyledLogo src={Logo} alt="logo" width="147" height="25" />
+                        {/* <StyledLogo src={Logo} alt="logo" width="147" height="25" /> */}
                         <Show.Eu>
                             <Show.Desktop>
                                 <SocialWrapperComponent />
@@ -670,7 +670,7 @@ const Footer = () => {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
-                                    <StyledGamstop src={Gamstop} alt="gamstop desktop" />
+                                    {/* <StyledGamstop src={Gamstop} alt="gamstop desktop" /> */}
                                 </LocalizedLink>
 
                                 <LocalizedLink
@@ -679,14 +679,14 @@ const Footer = () => {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
-                                    <StyledCoatArms>
-                                        <QueryImage
+                                    {/* <StyledCoatArms> */}
+                                    {/* <QueryImage
                                             data={image_query.iom}
                                             alt={'IOM'}
                                             width="6.4rem"
                                             height="auto"
-                                        />
-                                    </StyledCoatArms>
+                                        /> */}
+                                    {/* </StyledCoatArms> */}
                                 </LocalizedLink>
                                 <LocalizedLink
                                     external="true"
@@ -694,9 +694,9 @@ const Footer = () => {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
-                                    <StyledMgaLogo src={MgaLogo} alt="mga logo desktop" />
+                                    {/* <StyledMgaLogo src={MgaLogo} alt="mga logo desktop" /> */}
                                 </LocalizedLink>
-                                <img src={Over18} alt="over18 desktop" />
+                                {/* <img src={Over18} alt="over18 desktop" /> */}
                             </EuLogoWrapper>
                         </Show.Desktop>
                         <Show.Mobile>
@@ -707,14 +707,14 @@ const Footer = () => {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
-                                    <StyledCoatArms>
-                                        <QueryImage
+                                    {/* <StyledCoatArms> */}
+                                    {/* <QueryImage
                                             data={image_query.iom}
                                             alt={'IOM'}
                                             width="6.4rem"
                                             height="auto"
-                                        />
-                                    </StyledCoatArms>
+                                        /> */}
+                                    {/* </StyledCoatArms> */}
                                 </LocalizedLink>
                                 <Flex fd="column" width="auto">
                                     <LocalizedLink
@@ -723,7 +723,7 @@ const Footer = () => {
                                         target="_blank"
                                         rel="noopener noreferrer"
                                     >
-                                        <StyledMgaLogo src={MgaLogo} alt="mga logo" />
+                                        {/* <StyledMgaLogo src={MgaLogo} alt="mga logo" /> */}
                                     </LocalizedLink>
                                     <LocalizedLink
                                         external="true"
@@ -731,10 +731,10 @@ const Footer = () => {
                                         target="_blank"
                                         rel="noopener noreferrer"
                                     >
-                                        <StyledGamstop src={Gamstop} alt="gamstop mobile" />
+                                        {/* <StyledGamstop src={Gamstop} alt="gamstop mobile" /> */}
                                     </LocalizedLink>
                                 </Flex>
-                                <img src={Over18} alt="over18 mobile" />
+                                {/* <img src={Over18} alt="over18 mobile" /> */}
                             </EuLogoWrapper>
                         </Show.Mobile>
                     </Show.Eu>

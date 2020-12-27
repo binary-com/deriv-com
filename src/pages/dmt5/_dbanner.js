@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { Flex } from 'components/containers'
-import { Header, QueryImage } from 'components/elements'
+import { Header } from 'components/elements'
 import { LinkButton } from 'components/form'
 import { localize } from 'components/localization'
 import device from 'themes/device.js'
@@ -32,35 +32,35 @@ const Wrapper = styled(Flex)`
     }
 `
 
-const ImageWrapper = styled(Flex)`
-    position: absolute;
-    width: 50rem;
-    top: -2rem;
-    right: 12rem;
-    z-index: 1;
-    height: 100%;
+// const ImageWrapper = styled(Flex)`
+//     position: absolute;
+//     width: 50rem;
+//     top: -2rem;
+//     right: 12rem;
+//     z-index: 1;
+//     height: 100%;
 
-    div {
-        width: 100%;
-    }
+//     div {
+//         width: 100%;
+//     }
 
-    @media ${device.laptopM} {
-        max-width: 430px;
-    }
-    @media ${device.tabletL} {
-        max-width: 300px;
-    }
-    @media ${device.tablet} {
-        max-width: 260px;
-    }
-    @media ${device.tabletS} {
-        max-width: 250px;
-        right: 0;
-        height: unset;
-        left: 50%;
-        transform: translate(-50%, 0);
-    }
-`
+//     @media ${device.laptopM} {
+//         max-width: 430px;
+//     }
+//     @media ${device.tabletL} {
+//         max-width: 300px;
+//     }
+//     @media ${device.tablet} {
+//         max-width: 260px;
+//     }
+//     @media ${device.tabletS} {
+//         max-width: 250px;
+//         right: 0;
+//         height: unset;
+//         left: 50%;
+//         transform: translate(-50%, 0);
+//     }
+// `
 
 const TextWrapper = styled.div`
     margin: auto 0;
@@ -99,35 +99,35 @@ const StyledHeader = styled(Header)`
     }
 `
 
-const DBanner = ({ title, data, background_pattern }) => {
-    const BackgroundPattern = styled.img`
-        position: absolute;
-        top: 0;
-        right: 0;
+const DBanner = ({ title }) => {
+    // const BackgroundPattern = styled.img`
+    //     position: absolute;
+    //     top: 0;
+    //     right: 0;
 
-        @media ${device.laptopM} {
-            width: 60rem;
-            height: initial;
-        }
-        @media ${device.tabletL} {
-            width: 54rem;
-        }
-        @media ${device.tablet} {
-            width: 44rem;
-        }
-        @media ${device.tabletS} {
-            width: 400px;
-        }
-        @media ${device.mobileL} {
-            width: unset;
-            max-width: unset;
-        }
-    `
+    //     @media ${device.laptopM} {
+    //         width: 60rem;
+    //         height: initial;
+    //     }
+    //     @media ${device.tabletL} {
+    //         width: 54rem;
+    //     }
+    //     @media ${device.tablet} {
+    //         width: 44rem;
+    //     }
+    //     @media ${device.tabletS} {
+    //         width: 400px;
+    //     }
+    //     @media ${device.mobileL} {
+    //         width: unset;
+    //         max-width: unset;
+    //     }
+    // `
     return (
         <Flex position="relative">
-            <ImageWrapper ai="center">
+            {/* <ImageWrapper ai="center">
                 <QueryImage data={data['deriv_platform']} alt="deriv platform" width="100%" />
-            </ImageWrapper>
+            </ImageWrapper> */}
             <Wrapper>
                 <TextWrapper>
                     <StyledHeader color="white" size="5.6rem" mb="4rem" max_width="52rem">
@@ -137,7 +137,7 @@ const DBanner = ({ title, data, background_pattern }) => {
                         {localize('Create free demo account')}
                     </StyledLinkButton>
                 </TextWrapper>
-                <BackgroundPattern src={background_pattern} alt="background pattern" />
+                {/* <BackgroundPattern src={background_pattern} alt="background pattern" /> */}
             </Wrapper>
         </Flex>
     )

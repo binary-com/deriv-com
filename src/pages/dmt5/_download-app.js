@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import { graphql, useStaticQuery } from 'gatsby'
+// import { graphql, useStaticQuery } from 'gatsby'
 import { Flex, SectionContainer, Box, Show } from 'components/containers'
-import { Header, QueryImage, Text } from 'components/elements'
+import { Header, Text } from 'components/elements'
 import { localize, Localize, LocalizedLink } from 'components/localization'
 import AppStore from 'images/svg/app-store.svg'
 import GooglePlay from 'images/svg/google-play.svg'
@@ -13,13 +13,13 @@ import Windows from 'images/svg/windows.svg'
 import device from 'themes/device'
 import { dmt5_windows_url, dmt5_linux_url, dmt5_android_url, dmt5_ios_url } from 'common/utility'
 
-const query = graphql`
-    query {
-        mobile_phone: file(relativePath: { eq: "mobile-phone.png" }) {
-            ...fadeIn
-        }
-    }
-`
+// const query = graphql`
+//     query {
+//         mobile_phone: file(relativePath: { eq: "mobile-phone.png" }) {
+//             ...fadeIn
+//         }
+//     }
+// `
 const Section = styled(SectionContainer)`
     display: flex;
     height: 30rem;
@@ -49,15 +49,15 @@ const Separator = styled.div`
         margin-top: 40px;
     }
 `
-const ImageWrapper = styled.div`
-    margin-top: 4rem;
-    width: 38.4rem;
-    position: relative;
+// const ImageWrapper = styled.div`
+//     margin-top: 4rem;
+//     width: 38.4rem;
+//     position: relative;
 
-    @media ${device.tabletL} {
-        margin-top: 24px;
-    }
-`
+//     @media ${device.tabletL} {
+//         margin-top: 24px;
+//     }
+// `
 const StyledInfo = styled.img`
     margin-top: 0.5rem;
 `
@@ -68,7 +68,7 @@ const StyledHeader = styled(Header)`
 `
 
 const DownloadApp = () => {
-    const data = useStaticQuery(query)
+    // const data = useStaticQuery(query)
 
     return (
         <Section>
@@ -203,9 +203,9 @@ const DownloadApp = () => {
                     />
                 </Text>
             </Flex>
-            <ImageWrapper mt="4rem">
+            {/* <ImageWrapper mt="4rem">
                 <QueryImage data={data['mobile_phone']} alt="mobile phone" />
-            </ImageWrapper>
+            </ImageWrapper> */}
         </Section>
     )
 }

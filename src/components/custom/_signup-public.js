@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { graphql, useStaticQuery } from 'gatsby'
+// import { graphql, useStaticQuery } from 'gatsby'
 import { Input, Button } from 'components/form'
-import { Header, Text, QueryImage, LinkText } from 'components/elements'
+import { Header, Text, LinkText } from 'components/elements'
 import { localize } from 'components/localization'
 import { Flex, Show } from 'components/containers'
 import { deriv_app_url } from 'common/utility'
@@ -15,13 +15,13 @@ import Arrow from 'images/svg/chevron-right.svg'
 // import BackgroundPattern from 'images/common/bg_banner_signup.png'
 // import RedBanner from 'images/svg/bg_banner_signup_mobile.svg'
 
-const query = graphql`
-    query {
-        deriv_platform: file(relativePath: { eq: "deriv-platform-banner.png" }) {
-            ...fadeIn
-        }
-    }
-`
+// const query = graphql`
+//     query {
+//         deriv_platform: file(relativePath: { eq: "deriv-platform-banner.png" }) {
+//             ...fadeIn
+//         }
+//     }
+// `
 
 const Wrapper = styled.div`
     position: relative;
@@ -228,11 +228,11 @@ const MobileRedBanner = styled.div`
     max-height: 100%;
     overflow: hidden;
 `
-const MobilePlatform = styled.div`
-    width: 100%;
-    max-width: 35.7rem;
-    z-index: 10;
-`
+// const MobilePlatform = styled.div`
+//     width: 100%;
+//     max-width: 35.7rem;
+//     z-index: 10;
+// `
 const SignupPublic = ({
     email_error_msg,
     email,
@@ -243,7 +243,7 @@ const SignupPublic = ({
     handleSocialSignup,
     is_submitting,
 }) => {
-    const data = useStaticQuery(query)
+    // const data = useStaticQuery(query)
     return (
         <>
             <Show.Desktop>
@@ -427,13 +427,13 @@ const SignupPublic = ({
                         </div>
                     </MobileSignupFormWrapper>
                     <MobileBackground>
-                        <MobilePlatform>
+                        {/* <MobilePlatform>
                             <QueryImage
                                 data={data['deriv_platform']}
                                 alt="deriv platform"
                                 width="100%"
                             />
-                        </MobilePlatform>
+                        </MobilePlatform> */}
                         <MobileRedBanner>
                             {/* <img src={RedBanner} alt="redbanner" width="100%" height="248" /> */}
                         </MobileRedBanner>
@@ -441,7 +441,7 @@ const SignupPublic = ({
                             <Header size="3rem">
                                 {localize('Get a taste of the Deriv experience')}
                             </Header>
-                            <img src={Arrow} alt="arrow mobile" width="32" height="33" />
+                            {/* <img src={Arrow} alt="arrow mobile" width="32" height="33" /> */}
                         </DerivExperience>
                     </MobileBackground>
                 </MobileWrapper>

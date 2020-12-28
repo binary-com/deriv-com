@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Hero, SmallContainer, StyledHeader } from './_style'
+import { Hero, SmallContainer } from './_style'
 import HowTo from './_how-to'
 import { Signal } from './_signal'
 import SignalSteps from './_signal-steps'
@@ -108,9 +108,9 @@ const DMT5TradingSignals = () => {
             <SEO description={localize('Deriv MT5 signals')} title={localize('DMT5 Signals')} />
             <Hero jc="cneter" ai="center">
                 <SmallContainer>
-                    <StyledHeader as="h1" color="white" align="center">
+                    <Header as="h1" type="display-title" color="white" align="center">
                         {localize('Deriv MT5 signals')}
-                    </StyledHeader>
+                    </Header>
                 </SmallContainer>
             </Hero>
             <TabsContainer>

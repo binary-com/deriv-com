@@ -392,7 +392,7 @@ export const NavCompany = ({ onClick, setCurrentPage }) => {
         story: '/about/#story',
         leadership: '/about/#leadership',
         regulatory: '/regulatory/',
-        choose: '/markets#commodities',
+        choose: '/why-choose-us/',
         partners: '/partners/',
         contact: '/contact-us/',
         career: '/careers/',

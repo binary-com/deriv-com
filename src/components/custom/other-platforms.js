@@ -13,7 +13,7 @@ import {
 } from 'components/elements'
 import { localize, LocalizedLink, Localize } from 'components/localization'
 import device from 'themes/device'
-import { community_url } from 'common/utility'
+import { community_url, isBrowser } from 'common/utility'
 // icons
 import DTrader from 'images/svg/dtrader-icon.svg'
 import DMT5 from 'images/svg/dmt5-icon.svg'
@@ -336,7 +336,7 @@ export const NavMarket = ({ onClick, setCurrentPage }) => {
     useEffect(() => {
         if (Object.values(links).includes(window.location.pathname + window.location.hash))
             setCurrentPage('markets')
-    }, [window?.location.hash])
+    }, [isBrowser() ? window.location.hash : null])
 
     return (
         <Flex direction="column" wrap="wrap" jc="flex-start">
@@ -389,8 +389,8 @@ NavMarket.propTypes = {
 
 export const NavCompany = ({ onClick, setCurrentPage }) => {
     const links = {
-        story: '/about/#story',
-        leadership: '/about/#leadership',
+        story: '/about#story',
+        leadership: '/about#leadership',
         regulatory: '/regulatory/',
         choose: '/why-choose-us/',
         partners: '/partners/',
@@ -401,7 +401,7 @@ export const NavCompany = ({ onClick, setCurrentPage }) => {
     useEffect(() => {
         if (Object.values(links).includes(window.location.pathname + window.location.hash))
             setCurrentPage('company')
-    }, [window?.location.hash])
+    }, [isBrowser() ? window.location.hash : null])
 
     return (
         <Flex direction="column" wrap="wrap" jc="flex-start" max_width="42rem">

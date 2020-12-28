@@ -52,7 +52,7 @@ const Item = styled.div`
 const TabContainer = styled(Flex)`
     padding-top: 4rem;
     background-color: var(--color-grey-23);
-    overflow: scroll;
+    overflow: auto;
 
     @media ${device.mobileL} {
         justify-content: flex-start;

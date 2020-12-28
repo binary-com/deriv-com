@@ -56,7 +56,7 @@ const TabsContainer = styled(Flex)`
     overflow: auto;
 
     @media ${device.mobileL} {
-        justify-content: flex-start;
+        justify-content: space-between;
     }
 `
 

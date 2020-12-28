@@ -53,7 +53,7 @@ const signal_content_provider = {
 
 const TabsContainer = styled(Flex)`
     display: flex;
-    overflow: scroll;
+    overflow: auto;
 
     @media ${device.mobileL} {
         justify-content: flex-start;

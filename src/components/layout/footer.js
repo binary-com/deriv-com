@@ -247,7 +247,7 @@ const mobile_accordion_header = {
 const mobile_accordion_header_about = Object.assign({}, mobile_accordion_header)
 
 const SocialWrapperComponent = ({ is_career_page }) => {
-    const altString = (is_career_page ? 'career' : '') + ' icon link'
+    const alt_string = (is_career_page ? 'career' : '') + ' icon link'
     const accounts = [
         {
             index: 1,
@@ -255,13 +255,13 @@ const SocialWrapperComponent = ({ is_career_page }) => {
                 ? 'https://www.facebook.com/derivcareers'
                 : 'https://www.facebook.com/derivdotcom/',
             image: Facebook,
-            image_alt: `facebook ${altString}`,
+            image_alt: `facebook ${alt_string}`,
         },
         {
             index: 2,
             link: 'https://twitter.com/derivdotcom/',
             image: Twitter,
-            image_alt: `twitter ${altString}`,
+            image_alt: `twitter ${alt_string}`,
         },
         {
             index: 3,
@@ -269,13 +269,13 @@ const SocialWrapperComponent = ({ is_career_page }) => {
                 ? 'https://www.instagram.com/derivcareers/'
                 : 'https://www.instagram.com/deriv_official/',
             image: Instagram,
-            image_alt: `instagram ${altString}`,
+            image_alt: `instagram ${alt_string}`,
         },
         {
             index: 4,
             link: 'https://www.linkedin.com/company/derivdotcom/',
             image: Linkedin,
-            image_alt: `linkedin ${altString}`,
+            image_alt: `linkedin ${alt_string}`,
         },
     ]
 

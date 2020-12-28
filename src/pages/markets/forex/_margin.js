@@ -29,7 +29,7 @@ const Row = styled(Flex)`
         if (!is_accordion_row) {
             return css`
                 border: 1px solid var(--color-grey-22);
-                margin-top: 2.4rem;
+                margin-top: 24px;
                 border-radius: 8px;
             `
         }

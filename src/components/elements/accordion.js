@@ -3,23 +3,23 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { Text } from './typography'
 import { useStateWithCallback } from 'components/hooks/use-state-with-callback'
-import Chevron from 'images/svg/chevron-bottom.svg'
-import ChevronThick from 'images/svg/chevron-thick.svg'
-import Minus from 'images/svg/minus.svg'
-import Plus from 'images/svg/plus.svg'
+// import Chevron from 'images/svg/chevron-bottom.svg'
+// import ChevronThick from 'images/svg/chevron-thick.svg'
+// import Minus from 'images/svg/minus.svg'
+// import Plus from 'images/svg/plus.svg'
 import device from 'themes/device'
 
-const ThickArrow = styled.img`
-    width: 24px;
-    transform: rotate(-180deg);
-    transition: transform 0.25s linear;
-    ${(props) => (props.expanded === 'true' ? 'transform: inherit;' : '')}
-`
+// const ThickArrow = styled.img`
+//     width: 24px;
+//     transform: rotate(-180deg);
+//     transition: transform 0.25s linear;
+//     ${(props) => (props.expanded === 'true' ? 'transform: inherit;' : '')}
+// `
 
-const Arrow = styled.img`
-    transition: transform 0.25s linear;
-    ${(props) => (props.expanded === 'true' ? 'transform: rotate(-180deg);' : '')}
-`
+// const Arrow = styled.img`
+//     transition: transform 0.25s linear;
+//     ${(props) => (props.expanded === 'true' ? 'transform: rotate(-180deg);' : '')}
+// `
 
 const AccordionHeader = styled.div`
     height: 56px;
@@ -125,7 +125,7 @@ const ItemExpanded = ({ is_default_open, child, child_idx, nodes, id }) => {
                         >
                             <Text weight="bold">{child.props.header}</Text>
                             <div>
-                                {child.props.plus ? (
+                                {/* {child.props.plus ? (
                                     is_expanded ? (
                                         <img src={Minus} alt="Minus" height="16" width="16" />
                                     ) : (
@@ -147,7 +147,7 @@ const ItemExpanded = ({ is_default_open, child, child_idx, nodes, id }) => {
                                         height="32"
                                         expanded={is_expanded ? 'true' : 'false'}
                                     />
-                                )}
+                                )} */}
                             </div>
                         </AccordionHeader>
                         <div
@@ -239,7 +239,7 @@ const AccordionContent = ({ children, nodes }) => {
                         style={child.props.header_style}
                     >
                         <Text weight="bold">{child.props.header}</Text>
-                        {child.props.plus ? (
+                        {/* {child.props.plus ? (
                             is_expanded ? (
                                 <img src={Minus} alt="Minus" height="16" width="16" />
                             ) : (
@@ -261,7 +261,7 @@ const AccordionContent = ({ children, nodes }) => {
                                 width="32"
                                 expanded={is_expanded ? 'true' : 'false'}
                             />
-                        )}
+                        )} */}
                     </AccordionHeader>
                     <div
                         style={{

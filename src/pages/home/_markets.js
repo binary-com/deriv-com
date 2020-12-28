@@ -5,10 +5,10 @@ import { localize } from 'components/localization'
 import { Container, SectionContainer, Flex } from 'components/containers'
 import device from 'themes/device'
 // Icons
-import CommoditiesIcon from 'images/svg/markets/commodities.svg'
-import ForexIcon from 'images/svg/markets/forex.svg'
-import StockIcon from 'images/svg/markets/stock.svg'
-import SyntheticIndicesIcon from 'images/svg/markets/synthetic.svg'
+// import CommoditiesIcon from 'images/svg/markets/commodities.svg'
+// import ForexIcon from 'images/svg/markets/forex.svg'
+// import StockIcon from 'images/svg/markets/stock.svg'
+// import SyntheticIndicesIcon from 'images/svg/markets/synthetic.svg'
 // Images
 const StyledSection = styled(SectionContainer)`
     box-shadow: inset 0 1px 0 0 var(--color-grey-8);
@@ -74,7 +74,7 @@ const Markets = () => (
             </Header>
             <MarketWrapper wrap="wrap">
                 <MarketCard mr="2.4rem" mb="4rem">
-                    <img src={ForexIcon} alt="forex" width="64" height="64" />
+                    {/* <img src={ForexIcon} alt="forex" width="64" height="64" /> */}
                     <div>
                         <Header as="h4" type="sub-section-title">
                             {localize('Forex')}
@@ -87,7 +87,7 @@ const Markets = () => (
                     </div>
                 </MarketCard>
                 <MarketCard mb="4rem">
-                    <img src={StockIcon} alt="stock" width="64" height="64" />
+                    {/* <img src={StockIcon} alt="stock" width="64" height="64" /> */}
                     <div>
                         <Header as="h4" type="sub-section-title">
                             {localize('Stock indices')}
@@ -100,7 +100,7 @@ const Markets = () => (
                     </div>
                 </MarketCard>
                 <MarketCard mr="2.4rem">
-                    <img src={CommoditiesIcon} alt="commodities" width="64" height="64" />
+                    {/* <img src={CommoditiesIcon} alt="commodities" width="64" height="64" /> */}
                     <div>
                         <Header as="h4" type="sub-section-title">
                             {localize('Commodities')}
@@ -113,7 +113,7 @@ const Markets = () => (
                     </div>
                 </MarketCard>
                 <MarketCard>
-                    <img src={SyntheticIndicesIcon} alt="synthetic" width="64" height="64" />
+                    {/* <img src={SyntheticIndicesIcon} alt="synthetic" width="64" height="64" /> */}
                     <div>
                         <Header as="h4" type="sub-section-title">
                             {localize('Synthetic indices')}

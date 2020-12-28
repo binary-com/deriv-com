@@ -6,8 +6,8 @@ import { LinkButton } from 'components/form'
 import { Header, Text } from 'components/elements'
 import { Container, SectionContainer, Flex, Show } from 'components/containers'
 import device from 'themes/device'
-import Pattern from 'images/svg/pattern.svg'
-import PatternMobile from 'images/svg/pattern-mobile.svg'
+// import Pattern from 'images/svg/pattern.svg'
+// import PatternMobile from 'images/svg/pattern-mobile.svg'
 
 const StyledSection = styled(SectionContainer)`
     position: relative;
@@ -81,25 +81,25 @@ const ClientCard = styled.article`
         }
     }
 `
-const BackgroundPattern = styled.img`
-    z-index: 0;
-    position: absolute;
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    right: 0;
-    bottom: 0;
-`
-const MobileBackgroundPattern = styled.img`
-    z-index: 0;
-    position: absolute;
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    top: 0;
-`
+// const BackgroundPattern = styled.img`
+//     z-index: 0;
+//     position: absolute;
+//     object-fit: cover;
+//     width: 100%;
+//     height: 100%;
+//     left: 0;
+//     right: 0;
+//     bottom: 0;
+// `
+// const MobileBackgroundPattern = styled.img`
+//     z-index: 0;
+//     position: absolute;
+//     object-fit: cover;
+//     width: 100%;
+//     height: 100%;
+//     left: 0;
+//     top: 0;
+// `
 
 const LinkButtonWrapper = styled.div`
     margin-top: 4.2rem;
@@ -119,11 +119,9 @@ const LinkButtonWrapper = styled.div`
 `
 const SimpleSteps = ({ header, content, sign_up }) => (
     <StyledSection>
-        <Show.Desktop>
-            <BackgroundPattern src={Pattern} alt="pattern" />
-        </Show.Desktop>
+        <Show.Desktop>{/* <BackgroundPattern src={Pattern} alt="pattern" /> */}</Show.Desktop>
         <Show.Mobile>
-            <MobileBackgroundPattern src={PatternMobile} alt="pattern mobile" />
+            {/* <MobileBackgroundPattern src={PatternMobile} alt="pattern mobile" /> */}
         </Show.Mobile>
         <Container direction="column">
             <Header align="center" as="h3" type="section-title">
@@ -138,7 +136,7 @@ const SimpleSteps = ({ header, content, sign_up }) => (
                             <StyledHeader as="h4" type="sub-section-title">
                                 {item.header}
                             </StyledHeader>
-                            {item.icon}
+                            {/* {item.icon} */}
                         </Flex>
                         <Text>{item.text}</Text>
                     </ClientCard>

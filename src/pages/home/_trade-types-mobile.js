@@ -5,10 +5,10 @@ import { Carousel, Header, Text } from 'components/elements'
 import { SectionContainer, Flex } from 'components/containers'
 import { localize, Localize, LocalizedLink } from 'components/localization'
 import { LinkButton } from 'components/form'
-import MarginLogo from 'images/svg/trade-types/margin.svg'
-import OptionsLogo from 'images/svg/trade-types/options.svg'
-import MultipliersLogo from 'images/svg/trade-types/multipliers.svg'
-import Arrow from 'images/svg/arrow-right.svg'
+// import MarginLogo from 'images/svg/trade-types/margin.svg'
+// import OptionsLogo from 'images/svg/trade-types/options.svg'
+// import MultipliersLogo from 'images/svg/trade-types/multipliers.svg'
+// import Arrow from 'images/svg/arrow-right.svg'
 
 const StyledSection = styled(SectionContainer)`
     display: flex;
@@ -46,13 +46,13 @@ const CustomLinkWrap = styled.div`
     align-items: center;
 `
 
-const TradeTypeSlide = ({ icon, title, description, link, linkTitle }) => {
+const TradeTypeSlide = ({ title, description, link, linkTitle }) => {
     return (
         <Flex ai="center">
             <StyledLink ariaLabel={linkTitle} to={link}>
                 <TradeTypeCard>
                     <Flex ai="center" fd="column">
-                        {icon}
+                        {/* {icon} */}
                         <Header
                             mt="1.6rem"
                             mb="0.8rem"
@@ -69,7 +69,7 @@ const TradeTypeSlide = ({ icon, title, description, link, linkTitle }) => {
                             <Text weight="bold" mr="0.8rem" color="red">
                                 {localize('Learn more')}{' '}
                             </Text>
-                            <img src={Arrow} alt="arrow" width="16" height="16" />
+                            {/* <img src={Arrow} alt="arrow" width="16" height="16" /> */}
                         </CustomLinkWrap>
                     </Flex>
                 </TradeTypeCard>
@@ -80,14 +80,14 @@ const TradeTypeSlide = ({ icon, title, description, link, linkTitle }) => {
 
 TradeTypeSlide.propTypes = {
     description: PropTypes.any,
-    icon: PropTypes.any,
+    // icon: PropTypes.any,
     link: PropTypes.any,
     linkTitle: PropTypes.any,
     title: PropTypes.any,
 }
 
 const margin = {
-    icon: <img src={MarginLogo} alt="margin" width="48" height="49" />,
+    // icon: <img src={MarginLogo} alt="margin" width="48" height="49" />,
     title: <Localize translate_text="Margin Trading" />,
     description: (
         <Localize translate_text="Trade with leverage and low spreads for better returns on successful trades." />
@@ -96,7 +96,7 @@ const margin = {
     linkTitle: localize('Margin'),
 }
 const options = {
-    icon: <img src={OptionsLogo} alt="options" width="48" height="49" />,
+    // icon: <img src={OptionsLogo} alt="options" width="48" height="49" />,
     title: <Localize translate_text="Options" />,
     description: (
         <Localize translate_text="Earn fixed payouts by predicting an asset's price movement within a fixed time." />
@@ -105,7 +105,7 @@ const options = {
     linkTitle: localize('Options'),
 }
 const multipliers = {
-    icon: <img src={MultipliersLogo} alt="multipliers" width="48" height="49" />,
+    // icon: <img src={MultipliersLogo} alt="multipliers" width="48" height="49" />,
     title: <Localize translate_text="Multipliers" />,
     description: (
         <Localize translate_text="Get the best of both - the upside of margin trading with the simplicity of options." />
@@ -152,7 +152,7 @@ const TradeTypesMobile = () => {
                     {trade_types.map((trade_slide, idx) => (
                         <div key={idx} style={{ height: '100%' }}>
                             <TradeTypeSlide
-                                icon={trade_slide.icon}
+                                // icon={trade_slide.icon}
                                 title={trade_slide.title}
                                 description={trade_slide.description}
                                 link={trade_slide.link}

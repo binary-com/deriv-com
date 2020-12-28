@@ -15,9 +15,9 @@ import { SEO, Show } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl, Localize } from 'components/localization'
 import { Appearances } from 'components/custom/signup'
-import PractiseIcon from 'images/svg/aim.svg'
-import TradeIcon from 'images/svg/trade.svg'
-import WithdrawIcon from 'images/svg/withdraw.svg'
+// import PractiseIcon from 'images/svg/aim.svg'
+// import TradeIcon from 'images/svg/trade.svg'
+// import WithdrawIcon from 'images/svg/withdraw.svg'
 
 const simple_step_content = [
     {
@@ -25,21 +25,21 @@ const simple_step_content = [
         text: (
             <Localize translate_text="Open a demo account and start trading for free. Practise with an unlimited amount of virtual funds." />
         ),
-        icon: <img src={PractiseIcon} alt="aim" width="32" height="32" />,
+        // icon: <img src={PractiseIcon} alt="aim" width="32" height="32" />,
     },
     {
         header: <Localize translate_text="Trade" />,
         text: (
             <Localize translate_text="Open a real account, make a deposit, and start trading for real. Trade forex, indices, commodities, and more." />
         ),
-        icon: <img src={TradeIcon} alt="trade" width="32" height="28" />,
+        // icon: <img src={TradeIcon} alt="trade" width="32" height="28" />,
     },
     {
         header: <Localize translate_text="Withdraw" />,
         text: (
             <Localize translate_text="Get your funds quickly and easily. We support a variety of withdrawal options." />
         ),
-        icon: <img src={WithdrawIcon} alt="withdraw" width="32" height="32" />,
+        // icon: <img src={WithdrawIcon} alt="withdraw" width="32" height="32" />,
     },
 ]
 const Home = () => {

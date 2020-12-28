@@ -9,12 +9,12 @@ import { mga_link_url } from 'common/utility'
 import device from 'themes/device'
 import { localize, Localize, LocalizedLink } from 'components/localization'
 // Icons
-import CopyrightIc from 'images/svg/copyright.svg'
+// import CopyrightIc from 'images/svg/copyright.svg'
 // import Logo from 'images/svg/deriv-footer.svg'
-import Twitter from 'images/svg/footer-twitter.svg'
-import Instagram from 'images/svg/footer-instagram.svg'
-import Facebook from 'images/svg/footer-facebook.svg'
-import Linkedin from 'images/svg/footer-linkedin.svg'
+// import Twitter from 'images/svg/footer-twitter.svg'
+// import Instagram from 'images/svg/footer-instagram.svg'
+// import Facebook from 'images/svg/footer-facebook.svg'
+// import Linkedin from 'images/svg/footer-linkedin.svg'
 // //EU icons
 // import Gamstop from 'images/svg/gamstop.svg'
 // import MgaLogo from 'images/svg/mga-logo.svg'
@@ -199,27 +199,27 @@ const Copyright = styled(Flex)`
 const EuLogoWrapper = styled(Flex)`
     grid-area: eulogowrapper;
 `
-const SocialWrapper = styled.div`
-    grid-area: social;
-    background: var(--color-grey-25);
-    margin: 1.6rem 0;
+// const SocialWrapper = styled.div`
+//     grid-area: social;
+//     background: var(--color-grey-25);
+//     margin: 1.6rem 0;
 
-    img {
-        margin-left: 1.6rem;
-    }
+//     img {
+//         margin-left: 1.6rem;
+//     }
 
-    @media ${device.tabletL} {
-        display: flex;
-        justify-content: center;
-        margin: 3rem 0 1rem;
+//     @media ${device.tabletL} {
+//         display: flex;
+//         justify-content: center;
+//         margin: 3rem 0 1rem;
 
-        a:first-child {
-            img {
-                margin-left: 0;
-            }
-        }
-    }
-`
+//         a:first-child {
+//             img {
+//                 margin-left: 0;
+//             }
+//         }
+//     }
+// `
 
 // const StyledGamstop = styled.img`
 //     margin-right: 2.4rem;
@@ -243,44 +243,44 @@ const mobile_accordion_header = {
     boxShadow: 'none',
 }
 const mobile_accordion_header_about = Object.assign({}, mobile_accordion_header)
-const SocialWrapperComponent = () => {
-    return (
-        <SocialWrapper>
-            <LocalizedLink
-                external="true"
-                to="https://www.facebook.com/derivdotcom/"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                <img src={Facebook} alt="facebook" width="41" height="41" />
-            </LocalizedLink>
-            <LocalizedLink
-                external="true"
-                to="https://twitter.com/derivdotcom"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                <img src={Twitter} alt="twitter" width="41" height="41" />
-            </LocalizedLink>
-            <LocalizedLink
-                external="true"
-                to="https://www.instagram.com/deriv_official/"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                <img src={Instagram} alt="instagram" width="41" height="41" />
-            </LocalizedLink>
-            <LocalizedLink
-                external="true"
-                to="https://www.linkedin.com/company/derivdotcom/"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                <img src={Linkedin} alt="linkedin" width="41" height="41" />
-            </LocalizedLink>
-        </SocialWrapper>
-    )
-}
+// const SocialWrapperComponent = () => {
+//     return (
+//         <SocialWrapper>
+//             <LocalizedLink
+//                 external="true"
+//                 to="https://www.facebook.com/derivdotcom/"
+//                 target="_blank"
+//                 rel="noopener noreferrer"
+//             >
+//                 <img src={Facebook} alt="facebook" width="41" height="41" />
+//             </LocalizedLink>
+//             <LocalizedLink
+//                 external="true"
+//                 to="https://twitter.com/derivdotcom"
+//                 target="_blank"
+//                 rel="noopener noreferrer"
+//             >
+//                 <img src={Twitter} alt="twitter" width="41" height="41" />
+//             </LocalizedLink>
+//             <LocalizedLink
+//                 external="true"
+//                 to="https://www.instagram.com/deriv_official/"
+//                 target="_blank"
+//                 rel="noopener noreferrer"
+//             >
+//                 <img src={Instagram} alt="instagram" width="41" height="41" />
+//             </LocalizedLink>
+//             <LocalizedLink
+//                 external="true"
+//                 to="https://www.linkedin.com/company/derivdotcom/"
+//                 target="_blank"
+//                 rel="noopener noreferrer"
+//             >
+//                 <img src={Linkedin} alt="linkedin" width="41" height="41" />
+//             </LocalizedLink>
+//         </SocialWrapper>
+//     )
+// }
 
 // const query = graphql`
 // query {
@@ -303,9 +303,7 @@ const Footer = () => {
                     <DerivLogoWrapper>
                         {/* <StyledLogo src={Logo} alt="logo" width="147" height="25" /> */}
                         <Show.Eu>
-                            <Show.Desktop>
-                                <SocialWrapperComponent />
-                            </Show.Desktop>
+                            <Show.Desktop>{/* <SocialWrapperComponent /> */}</Show.Desktop>
                         </Show.Eu>
                     </DerivLogoWrapper>
                     <LinksWrapper>
@@ -650,16 +648,12 @@ const Footer = () => {
                         </RiskWarning>
                     </Disclaimer>
                     <Copyright>
-                        <img src={CopyrightIc} alt="copyright ic" width="16" height="16" />
+                        {/* <img src={CopyrightIc} alt="copyright ic" width="16" height="16" /> */}
                         <Text ml="0.4rem">{localize('2020 Deriv | All rights reserved')}</Text>
                     </Copyright>
-                    <Show.NonEU>
-                        <SocialWrapperComponent />
-                    </Show.NonEU>
+                    <Show.NonEU>{/* <SocialWrapperComponent /> */}</Show.NonEU>
                     <Show.Eu>
-                        <Show.Mobile>
-                            <SocialWrapperComponent />
-                        </Show.Mobile>
+                        <Show.Mobile>{/* <SocialWrapperComponent /> */}</Show.Mobile>
                     </Show.Eu>
                     <Show.Eu>
                         <Show.Desktop>

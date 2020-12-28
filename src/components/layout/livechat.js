@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import Cookies from 'js-cookie'
 import styled from 'styled-components'
 import { isBrowser, livechat_client_id, livechat_license_id } from 'common/utility'
-import LiveChatIC from 'images/svg/livechat.svg'
-import LiveChatHover from 'images/svg/livechat-hover.svg'
+// import LiveChatIC from 'images/svg/livechat.svg'
+// import LiveChatHover from 'images/svg/livechat-hover.svg'
 import device from 'themes/device'
 
 const StyledLiveChat = styled.div`
@@ -30,7 +30,7 @@ if (is_livechat_query?.toLowerCase() === 'true') {
 }
 
 const LiveChat = ({ LC_API, is_livechat_interactive, setLiveChatInteractive }) => {
-    const [is_livechat_hover, setLivechatHover] = React.useState(false)
+    // const [is_livechat_hover, setLivechatHover] = React.useState(false)
     const [is_logged_in, setLoggedIn] = React.useState(false)
     const CustomerSdk = React.useRef(null)
 
@@ -176,14 +176,14 @@ const LiveChat = ({ LC_API, is_livechat_interactive, setLiveChatInteractive }) =
                     onClick={() => {
                         LC_API.open_chat_window()
                     }}
-                    onMouseEnter={() => setLivechatHover(true)}
-                    onMouseLeave={() => setLivechatHover(false)}
+                    // onMouseEnter={() => setLivechatHover(true)}
+                    // onMouseLeave={() => setLivechatHover(false)}
                 >
-                    {is_livechat_hover ? (
+                    {/* {is_livechat_hover ? (
                         <img src={LiveChatHover} alt="livechat hover" />
                     ) : (
                         <img src={LiveChatIC} alt="livechat ic" />
-                    )}
+                    )} */}
                 </StyledLiveChat>
             )}
         </>

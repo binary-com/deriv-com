@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { Header, Text } from 'components/elements'
 import { localize, LocalizedLink } from 'components/localization'
-import Arrow from 'images/svg/arrow-right.svg'
+// import Arrow from 'images/svg/arrow-right.svg'
 
 const CustomLinkWrap = styled.div`
     display: flex;
@@ -18,9 +18,9 @@ const CustomWrap = styled.div`
     transition: transform 0.2s ease-in;
 `
 
-const LogoDiv = styled.div`
-    text-align: center;
-`
+// const LogoDiv = styled.div`
+//     text-align: center;
+// `
 
 const StyledText = styled(Text)`
     text-align: center;
@@ -67,11 +67,11 @@ const StyledCard = styled(LocalizedLink)`
     }
 `
 
-const TradeTypesCard = ({ icon, title, description, link, linkTitle }) => {
+const TradeTypesCard = ({ title, description, link, linkTitle }) => {
     return (
         <StyledCard ariaLabel={linkTitle} to={link}>
             <CustomWrap>
-                <LogoDiv>{icon}</LogoDiv>
+                {/* <LogoDiv>{icon}</LogoDiv> */}
                 <Header>{title}</Header>
                 <StyledText>{description}</StyledText>
             </CustomWrap>
@@ -79,7 +79,7 @@ const TradeTypesCard = ({ icon, title, description, link, linkTitle }) => {
                 <Text weight="bold" mr="0.8rem" color="red">
                     {localize('Learn more')}
                 </Text>{' '}
-                <img src={Arrow} alt="arrow" width="16" height="16" />
+                {/* <img src={Arrow} alt="arrow" width="16" height="16" /> */}
             </CustomLinkWrap>
         </StyledCard>
     )
@@ -87,7 +87,7 @@ const TradeTypesCard = ({ icon, title, description, link, linkTitle }) => {
 
 TradeTypesCard.propTypes = {
     description: PropTypes.any,
-    icon: PropTypes.any,
+    // icon: PropTypes.any,
     link: PropTypes.any,
     linkTitle: PropTypes.any,
     title: PropTypes.any,

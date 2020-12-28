@@ -1,10 +1,10 @@
 import React from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
+// import { graphql, useStaticQuery } from 'gatsby'
 import PropTypes from 'prop-types'
 import styled, { keyframes } from 'styled-components'
 import { useOutsideClick } from 'components/hooks/outside-click'
-import { QueryImage, Text } from 'components/elements'
-import { ReactComponent as Chevron } from 'images/svg/chevron-bottom.svg'
+import { Text } from 'components/elements'
+// import { ReactComponent as Chevron } from 'images/svg/chevron-bottom.svg'
 import device from 'themes/device'
 
 const Container = styled.div`
@@ -29,17 +29,17 @@ const Display = styled.div`
     }
 `
 
-const Arrow = styled(Chevron)`
-    ${(props) => (props.expanded === 'true' ? 'transform: rotate(-180deg);' : '')}
-    transition: transform 0.25s;
+// const Arrow = styled(Chevron)`
+//     ${(props) => (props.expanded === 'true' ? 'transform: rotate(-180deg);' : '')}
+//     transition: transform 0.25s;
 
-    & path {
-        fill: var(--color-white);
-    }
-    @media ${device.mobileL} {
-        display: none;
-    }
-`
+//     & path {
+//         fill: var(--color-white);
+//     }
+//     @media ${device.mobileL} {
+//         display: none;
+//     }
+// `
 
 const Absolute = styled.div`
     position: absolute;
@@ -126,52 +126,52 @@ const ResponsiveText = styled(Text)`
     }
 `
 
-const query = graphql`
-    query {
-        en: file(relativePath: { eq: "flags/en.png" }) {
-            ...fadeIn
-        }
-        es: file(relativePath: { eq: "flags/es.png" }) {
-            ...fadeIn
-        }
-        fr: file(relativePath: { eq: "flags/fr.png" }) {
-            ...fadeIn
-        }
-        id: file(relativePath: { eq: "flags/id.png" }) {
-            ...fadeIn
-        }
-        it: file(relativePath: { eq: "flags/it.png" }) {
-            ...fadeIn
-        }
-        pl: file(relativePath: { eq: "flags/pl.png" }) {
-            ...fadeIn
-        }
-        pt: file(relativePath: { eq: "flags/pt.png" }) {
-            ...fadeIn
-        }
-        ru: file(relativePath: { eq: "flags/ru.png" }) {
-            ...fadeIn
-        }
-        vi: file(relativePath: { eq: "flags/vi.png" }) {
-            ...fadeIn
-        }
-        th: file(relativePath: { eq: "flags/th.png" }) {
-            ...fadeIn
-        }
-        zh: file(relativePath: { eq: "flags/zh.png" }) {
-            ...fadeIn
-        }
-        ac: file(relativePath: { eq: "flags/en.png" }) {
-            ...fadeIn
-        }
-    }
-`
+// const query = graphql`
+//     query {
+//         en: file(relativePath: { eq: "flags/en.png" }) {
+//             ...fadeIn
+//         }
+//         es: file(relativePath: { eq: "flags/es.png" }) {
+//             ...fadeIn
+//         }
+//         fr: file(relativePath: { eq: "flags/fr.png" }) {
+//             ...fadeIn
+//         }
+//         id: file(relativePath: { eq: "flags/id.png" }) {
+//             ...fadeIn
+//         }
+//         it: file(relativePath: { eq: "flags/it.png" }) {
+//             ...fadeIn
+//         }
+//         pl: file(relativePath: { eq: "flags/pl.png" }) {
+//             ...fadeIn
+//         }
+//         pt: file(relativePath: { eq: "flags/pt.png" }) {
+//             ...fadeIn
+//         }
+//         ru: file(relativePath: { eq: "flags/ru.png" }) {
+//             ...fadeIn
+//         }
+//         vi: file(relativePath: { eq: "flags/vi.png" }) {
+//             ...fadeIn
+//         }
+//         th: file(relativePath: { eq: "flags/th.png" }) {
+//             ...fadeIn
+//         }
+//         zh: file(relativePath: { eq: "flags/zh.png" }) {
+//             ...fadeIn
+//         }
+//         ac: file(relativePath: { eq: "flags/en.png" }) {
+//             ...fadeIn
+//         }
+//     }
+// `
 
 const Dropdown = ({ default_option, onChange, option_list, is_high_nav }) => {
     const [is_open, setOpen] = React.useState(false)
     const dropdown_ref = React.useRef(null)
 
-    const data = useStaticQuery(query)
+    // const data = useStaticQuery(query)
     useOutsideClick(dropdown_ref, () => setOpen(false))
 
     const toggleVisibility = () => setOpen(!is_open)
@@ -185,29 +185,29 @@ const Dropdown = ({ default_option, onChange, option_list, is_high_nav }) => {
         closeList()
     }
 
-    const default_abbreviation = default_option.path.substring(0, 2)
+    // const default_abbreviation = default_option.path.substring(0, 2)
 
     return (
         <>
             <Container ref={dropdown_ref}>
                 <Display onClick={toggleVisibility}>
-                    <QueryImage
+                    {/* <QueryImage
                         width="24px"
                         height="24px"
                         data={data[default_abbreviation]}
                         alt={default_option.short_name}
-                    />
+                    /> */}
                     <ResponsiveText color="white" ml="0.8rem" weight="bold" mr="0.4rem">
                         {default_option.short_name}
                     </ResponsiveText>
-                    <Arrow expanded={`${is_open ? 'true' : 'false'}`} />
+                    {/* <Arrow expanded={`${is_open ? 'true' : 'false'}`} /> */}
                 </Display>
 
                 <Absolute is_high_nav={is_high_nav}>
                     <ItemContainer is_open={is_open}>
                         {option_list.map((option, idx) => {
                             if (!option) return null
-                            const abbreviation = option.path.substring(0, 2)
+                            // const abbreviation = option.path.substring(0, 2)
                             const current_option = default_option.path === option.path
                             return (
                                 <Item
@@ -216,12 +216,12 @@ const Dropdown = ({ default_option, onChange, option_list, is_high_nav }) => {
                                     onClick={() => handleSelect(option.value)}
                                     key={idx}
                                 >
-                                    <QueryImage
+                                    {/* <QueryImage
                                         width="24px"
                                         height="24px"
                                         data={data[abbreviation]}
                                         alt={option.text}
-                                    />
+                                    /> */}
                                     <Text ml="0.8rem" color={current_option ? 'red' : 'black'}>
                                         {option.text}
                                     </Text>

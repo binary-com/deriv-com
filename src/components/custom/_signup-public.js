@@ -9,9 +9,9 @@ import { Flex, Show } from 'components/containers'
 import { deriv_app_url } from 'common/utility'
 import device from 'themes/device.js'
 // SVG
-import Facebook from 'images/svg/facebook-blue.svg'
-import Google from 'images/svg/google.svg'
-import Arrow from 'images/svg/chevron-right.svg'
+// import Facebook from 'images/svg/facebook-blue.svg'
+// import Google from 'images/svg/google.svg'
+// import Arrow from 'images/svg/chevron-right.svg'
 // import BackgroundPattern from 'images/common/bg_banner_signup.png'
 // import RedBanner from 'images/svg/bg_banner_signup_mobile.svg'
 
@@ -315,7 +315,7 @@ const SignupPublic = ({
                                     social
                                 >
                                     <span>
-                                        <img src={Facebook} alt="facebook" width="12" height="22" />
+                                        {/* <img src={Facebook} alt="facebook" width="12" height="22" /> */}
                                     </span>
                                 </SocialButton>
                                 <SocialButton
@@ -327,7 +327,7 @@ const SignupPublic = ({
                                     social
                                 >
                                     <span>
-                                        <img src={Google} alt="google" width="22" height="23" />
+                                        {/* <img src={Google} alt="google" width="22" height="23" /> */}
                                     </span>
                                 </SocialButton>
                             </SocialWrapper>
@@ -344,7 +344,7 @@ const SignupPublic = ({
                             >
                                 {localize('Get a taste of the Deriv experience')}
                             </StyledHeader>
-                            <img src={Arrow} alt="arrow desktop" />
+                            {/* <img src={Arrow} alt="arrow desktop" /> */}
                         </LinkFlex>
                     </BackgroundWrapper>
                 </Wrapper>
@@ -406,7 +406,7 @@ const SignupPublic = ({
                                     social
                                 >
                                     <span>
-                                        <img src={Facebook} alt="facebook" width="12" height="22" />
+                                        {/* <img src={Facebook} alt="facebook" width="12" height="22" /> */}
                                     </span>
                                     <StyledSpan>Google</StyledSpan>
                                 </SocialButton>
@@ -419,7 +419,7 @@ const SignupPublic = ({
                                     social
                                 >
                                     <span>
-                                        <img src={Google} alt="google" width="22" height="23" />
+                                        {/* <img src={Google} alt="google" width="22" height="23" /> */}
                                     </span>
                                     <StyledSpan>Facebook</StyledSpan>
                                 </SocialButton>

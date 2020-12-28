@@ -5,9 +5,9 @@ import { Text, Header } from './typography.js'
 import { Flex } from 'components/containers'
 import { LocalizedLink } from 'components/localization'
 import device from 'themes/device'
-// SVG
-import Arrow from 'images/svg/card-arrow.svg'
-import Diagonal from 'images/svg/pink-right-diagonal.svg'
+// // SVG
+// import Arrow from 'images/svg/card-arrow.svg'
+// import Diagonal from 'images/svg/pink-right-diagonal.svg'
 
 export const CardStyle = css`
     box-sizing: border-box;
@@ -140,12 +140,12 @@ const Content = ({ content }) => (
     </>
 )
 
-const IconWrapper = styled.div`
-    & > svg {
-        width: 7.9rem;
-        height: 7.9rem;
-    }
-`
+// const IconWrapper = styled.div`
+//     & > svg {
+//         width: 7.9rem;
+//         height: 7.9rem;
+//     }
+// `
 
 const CoverContent = styled(Text)`
     color: white;
@@ -160,7 +160,7 @@ Content.propTypes = {
 export const Card = ({
     children,
     className,
-    Icon,
+    // Icon,
     title,
     content,
     width,
@@ -195,13 +195,13 @@ export const Card = ({
                                     ) : (
                                         <CoverContent>{cover_content}</CoverContent>
                                     )}
-                                    <img src={Arrow} alt="arrow" width="16" height="16" />
+                                    {/* <img src={Arrow} alt="arrow" width="16" height="16" /> */}
                                 </div>
                             </CardCover>
                             <IconContainer>
-                                <IconWrapper>
+                                {/* <IconWrapper>
                                     <Icon />
-                                </IconWrapper>
+                                </IconWrapper> */}
                                 <CardContentContainer>
                                     <Header as="h4" type="sub-section-title" weight="bold">
                                         {title}
@@ -212,7 +212,7 @@ export const Card = ({
                         </>
                     ) : (
                         <>
-                            <Icon />
+                            {/* <Icon /> */}
                             <ContentWrapper>
                                 <Text size="var(--text-size-m)" weight="bold">
                                     {title}
@@ -244,21 +244,21 @@ Card.propTypes = {
     word_break_cover: PropTypes.bool,
 }
 
-export const CardChildren = ({ Icon, title, width, children, icon_width, icon_height }) => (
+export const CardChildren = ({ title, width, children }) => (
     <CardChildrenWrapper width={width}>
         <Header as="h4" weight="500">
             {title}
         </Header>
-        <Icon width={icon_width} height={icon_height} />
+        {/* <Icon width={icon_width} height={icon_height} /> */}
         {children}
     </CardChildrenWrapper>
 )
 
 CardChildren.propTypes = {
     children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
-    Icon: PropTypes.func,
+    // Icon: PropTypes.func,
     icon_height: PropTypes.string,
-    icon_width: PropTypes.string,
+    // icon_width: PropTypes.string,
     title: PropTypes.string,
     width: PropTypes.string,
 }
@@ -321,22 +321,22 @@ const FlexHover = styled(Flex)`
     }
 `
 
-const SvgWrapper = styled.div`
-    & > svg,
-    img {
-        width: 33px;
-        height: 33px;
-        margin-right: 1.6rem;
+// const SvgWrapper = styled.div`
+//     & > svg,
+//     img {
+//         width: 33px;
+//         height: 33px;
+//         margin-right: 1.6rem;
 
-        @media ${device.mobileL} {
-            width: 24px;
-            height: 24px;
-        }
-    }
-`
+//         @media ${device.mobileL} {
+//             width: 24px;
+//             height: 24px;
+//         }
+//     }
+// `
 
 export const NavCard = ({
-    icon: Icon,
+    // icon: Icon,
     title,
     content,
     onClick,
@@ -368,9 +368,9 @@ export const NavCard = ({
             {...otherLinkProps}
         >
             <FlexHover jc="flex-start" direction="row" tablet_direction="row">
-                <SvgWrapper>
+                {/* <SvgWrapper>
                     <Icon />
-                </SvgWrapper>
+                </SvgWrapper> */}
 
                 <NavContent>
                     <ResponsiveHeader size="var(--text-size-s)" lh="1.14" mb="0.8rem">
@@ -380,7 +380,7 @@ export const NavCard = ({
                 </NavContent>
                 {external && (
                     <div>
-                        <RightDiagonal src={Diagonal} alt="Diagonal" widht="16" height="16" />
+                        {/* <RightDiagonal src={Diagonal} alt="Diagonal" widht="16" height="16" /> */}
                     </div>
                 )}
             </FlexHover>
@@ -392,7 +392,7 @@ NavCard.propTypes = {
     className: PropTypes.string,
     content: PropTypes.oneOfType([PropTypes.string, PropTypes.array, PropTypes.object]),
     external: PropTypes.string,
-    icon: PropTypes.func,
+    // icon: PropTypes.func,
     is_binary_link: PropTypes.bool,
     is_smarttrader_link: PropTypes.bool,
     onClick: PropTypes.func,
@@ -425,20 +425,20 @@ const HoverFlex = styled(Flex)`
     }
 `
 
-const IconRightWrapper = styled.div`
-    & > svg,
-    img {
-        height: 24px;
-        width: 24px;
-        margin-right: 1.6rem;
-    }
-`
+// const IconRightWrapper = styled.div`
+//     & > svg,
+//     img {
+//         height: 24px;
+//         width: 24px;
+//         margin-right: 1.6rem;
+//     }
+// `
 
 const RelativeFlex = styled(Flex)`
     position: relative;
 `
 
-export const CardLink = ({ icon: Icon, title, to, style, external, target, onClick }) => {
+export const CardLink = ({ title, to, style, external, target, onClick }) => {
     return (
         <LocalizedLink
             target={target}
@@ -454,11 +454,11 @@ export const CardLink = ({ icon: Icon, title, to, style, external, target, onCli
         >
             <HoverFlex p="1rem 1.6rem" jc="flex-start" direction="row" tablet_direction="row">
                 <RelativeFlex ai="center" jc="flex-start">
-                    {Icon && (
+                    {/* {Icon && (
                         <IconRightWrapper>
                             <Icon />
                         </IconRightWrapper>
-                    )}
+                    )} */}
                     <ResponsiveHeader
                         color="black-3"
                         size="var(--text-size-xs)"
@@ -469,7 +469,7 @@ export const CardLink = ({ icon: Icon, title, to, style, external, target, onCli
                     </ResponsiveHeader>
                     {external && (
                         <LinkRightDiagonal>
-                            <img src={Diagonal} alt="Diagonal" width="16" height="16" />
+                            {/* <img src={Diagonal} alt="Diagonal" width="16" height="16" /> */}
                         </LinkRightDiagonal>
                     )}
                 </RelativeFlex>

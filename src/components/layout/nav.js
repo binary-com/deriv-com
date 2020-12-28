@@ -1,6 +1,6 @@
 // TODO: (discussion) make nav pure component, and move usage of nav to custom
 import React, { useState, useEffect, useRef } from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
+// import { graphql, useStaticQuery } from 'gatsby'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import PlatformsDropdown from '../custom/platforms-dropdown'
@@ -14,32 +14,26 @@ import { useOutsideClick } from 'components/hooks/outside-click'
 import { LocalizedLink, localize, LanguageSwitcher } from 'components/localization'
 import { Button, LinkButton } from 'components/form'
 import { Container, Show, Flex } from 'components/containers'
-import {
-    OffCanvasMenu,
-    OffCanvasMenuPartner,
-    moveOffCanvasMenu,
-    Text,
-    QueryImage,
-} from 'components/elements'
+import { OffCanvasMenu, OffCanvasMenuPartner, moveOffCanvasMenu, Text } from 'components/elements'
 import { SharedLinkStyle } from 'components/localization/localized-link'
 import Login from 'common/login'
 import device from 'themes/device'
 import { affiliate_signin_url, affiliate_signup_url } from 'common/utility'
 // Icons
-import Logo from 'images/svg/logo-deriv.svg'
-import LogoPartner from 'images/svg/logo-partners.svg'
-import Hamburger from 'images/svg/hamburger_menu.svg'
-import Close from 'images/svg/close-long.svg'
-import LogoOnly from 'images/svg/logo-deriv-only.svg'
-import LogoCombinedShape from 'images/svg/logo-combined-shape.svg'
+// import Logo from 'images/svg/logo-deriv.svg'
+// import LogoPartner from 'images/svg/logo-partners.svg'
+// import Hamburger from 'images/svg/hamburger_menu.svg'
+// import Close from 'images/svg/close-long.svg'
+// import LogoOnly from 'images/svg/logo-deriv-only.svg'
+// import LogoCombinedShape from 'images/svg/logo-combined-shape.svg'
 
-const query = graphql`
-    query {
-        deriv: file(relativePath: { eq: "logo.png" }) {
-            ...fadeIn
-        }
-    }
-`
+// const query = graphql`
+//     query {
+//         deriv: file(relativePath: { eq: "logo.png" }) {
+//             ...fadeIn
+//         }
+//     }
+// `
 
 export const NavWrapper = styled.div`
     width: 100%;
@@ -110,7 +104,7 @@ export const Wrapper = styled(Container)`
     justify-content: space-between;
     height: 7.2rem;
     @media ${device.laptopL} {
-        width: ${({ width }) => width ?? "90%"};
+        width: ${({ width }) => width ?? '90%'};
     }
     @media ${device.laptop} {
         font-size: var(--text-size-xxs);
@@ -239,23 +233,23 @@ const LinkSignupButton = styled(LinkButton)`
     margin-left: 1.6rem;
 `
 
-const HamburgerMenu = styled.img`
-    cursor: pointer;
-    display: none;
-    @media ${device.tabletL} {
-        display: block;
-        cursor: pointer;
-    }
-`
+// const HamburgerMenu = styled.img`
+//     cursor: pointer;
+//     display: none;
+//     @media ${device.tabletL} {
+//         display: block;
+//         cursor: pointer;
+//     }
+// `
 
-const CloseMenu = styled.img`
-    cursor: pointer;
-    display: none;
-    @media ${device.tabletL} {
-        display: block;
-        cursor: pointer;
-    }
-`
+// const CloseMenu = styled.img`
+//     cursor: pointer;
+//     display: none;
+//     @media ${device.tabletL} {
+//         display: block;
+//         cursor: pointer;
+//     }
+// `
 
 const LogoLinkMobile = styled(LocalizedLink)`
     cursor: pointer;
@@ -275,7 +269,7 @@ const LoginButton = styled(Button)`
 const MobileLogin = styled(Button)`
     display: none;
     font-size: 14px;
-    margin-left: ${({ margin_left }) => margin_left ?? "1.6rem" };
+    margin-left: ${({ margin_left }) => margin_left ?? '1.6rem'};
     @media ${device.tabletL} {
         display: block;
     }
@@ -319,11 +313,13 @@ const handleLogin = () => {
 }
 
 const NavMobile = () => {
-    const [is_canvas_menu_open, openOffCanvasMenu, closeOffCanvasMenu] = moveOffCanvasMenu()
+    const result = moveOffCanvasMenu()
+    let is_canvas_menu_open = result[0]
+    let closeOffCanvasMenu = result[2]
 
     return (
         <Wrapper width="95%">
-            {is_canvas_menu_open ? (
+            {/* {is_canvas_menu_open ? (
                 <CloseMenu src={Close} alt="close menu" onClick={closeOffCanvasMenu} width="16px" />
             ) : (
                 <HamburgerMenu
@@ -332,14 +328,14 @@ const NavMobile = () => {
                     onClick={openOffCanvasMenu}
                     width="16px"
                 />
-            )}
+            )} */}
 
             <LogoLinkMobile to="/" aria-label={localize('Home')}>
                 <Flex>
-                    <img src={LogoOnly} alt="logo only" width="115px" />
+                    {/* <img src={LogoOnly} alt="logo only" width="115px" /> */}
                     <LogoDescription ai="center">
                         <Line />
-                        <img src={LogoCombinedShape} alt="logo combined shape 2" />
+                        {/* <img src={LogoCombinedShape} alt="logo combined shape 2" /> */}
                     </LogoDescription>
                 </Flex>
             </LogoLinkMobile>
@@ -358,7 +354,7 @@ const NavMobile = () => {
 }
 
 const NavDesktop = ({ base }) => {
-    const data = useStaticQuery(query)
+    // const data = useStaticQuery(query)
     const button_ref = useRef(null)
     const [show_button, showButton, hideButton] = moveButton()
     const [mounted, setMounted] = useState(false)
@@ -477,16 +473,16 @@ const NavDesktop = ({ base }) => {
             <Wrapper>
                 <NavLeft>
                     <LogoLink to={base || '/'} aria-label={localize('Home')}>
-                        <QueryImage
+                        {/* <QueryImage
                             data={data['deriv']}
                             alt={localize('Deriv')}
                             max_width="16.4rem"
                             width="100%"
                             height="auto"
-                        />
+                        /> */}
                     </LogoLink>
                     <Line />
-                    <img src={LogoCombinedShape} alt="logo combined shape" />
+                    {/* <img src={LogoCombinedShape} alt="logo combined shape" /> */}
                 </NavLeft>
                 <NavCenter>
                     <NavLink onClick={handleTradeClick}>
@@ -603,28 +599,28 @@ export const NavInterim = ({ interim_type }) => (
                 <Show.Desktop>
                     <StyledLogo to={`/interim/${interim_type}`} aria-label={localize('Home')}>
                         <Flex ai="center">
-                            <img src={Logo} alt="logo" width="190px" height="27px" />
-                            <img
+                            {/* <img src={Logo} alt="logo" width="190px" height="27px" /> */}
+                            {/* <img
                                 src={LogoCombinedShape}
                                 alt="logo combined shape desktop"
                                 width="120"
                                 height="17"
-                            />
+                            /> */}
                         </Flex>
                     </StyledLogo>
                 </Show.Desktop>
                 <Show.Mobile>
                     <LogoLinkMobile to={`/interim/${interim_type}`} aria-label={localize('Home')}>
                         <Flex>
-                            <img src={LogoOnly} alt="logo only 2" width="115px" height="27px" />
+                            {/* <img src={LogoOnly} alt="logo only 2" width="115px" height="27px" /> */}
                             <LogoDescription ai="center">
                                 <Line />
-                                <img
+                                {/* <img
                                     src={LogoCombinedShape}
                                     alt="logo combined shape mobile"
                                     width="120"
                                     height="17"
-                                />
+                                /> */}
                             </LogoDescription>
                         </Flex>
                     </LogoLinkMobile>
@@ -644,14 +640,14 @@ export const NavStatic = () => (
     <StaticWrapper>
         <LogoLink mw="31rem" to="/" aria-label={localize('Home')}>
             <Flex ai="center">
-                <img src={LogoOnly} alt="logo only nav static" width="160px" height="27px" />
+                {/* <img src={LogoOnly} alt="logo only nav static" width="160px" height="27px" /> */}
                 <Line />
-                <img
+                {/* <img
                     src={LogoCombinedShape}
                     alt="logo combined shape nav static"
                     width="120"
                     height="17"
-                />
+                /> */}
             </Flex>
         </LogoLink>
     </StaticWrapper>
@@ -732,15 +728,15 @@ const Mobile = styled(Show.Mobile)`
     width: 100%;
 `
 
-const ResLogo = styled.img`
-    width: 115px;
-    @media ${device.mobileM} {
-        width: 98px;
-    }
-    @media (max-width: 336px) {
-        width: 82px;
-    }
-`
+// const ResLogo = styled.img`
+//     width: 115px;
+//     @media ${device.mobileM} {
+//         width: 98px;
+//     }
+//     @media (max-width: 336px) {
+//         width: 82px;
+//     }
+// `
 
 const NavLogoLink = styled(LogoLink)`
     @media (max-width: 1300px) {
@@ -787,7 +783,9 @@ export const NavPartners = ({ no_login_signup }) => {
         }
     }, [])
 
-    const [is_canvas_menu_open, openOffCanvasMenu, closeOffCanvasMenu] = moveOffCanvasMenu()
+    const result = moveOffCanvasMenu()
+    let is_canvas_menu_open = result[0]
+    let closeOffCanvasMenu = result[2]
     return (
         <>
             <NavWrapper ref={nav_ref}>
@@ -814,7 +812,7 @@ export const NavPartners = ({ no_login_signup }) => {
                     <StyledNavWrapper no_login_signup>
                         <NavLeft>
                             <NavLogoLink to="/partners/" aria-label={localize('Partners')}>
-                                <img src={LogoPartner} alt="logo partner" />
+                                {/* <img src={LogoPartner} alt="logo partner" /> */}
                             </NavLogoLink>
                         </NavLeft>
                         <StyledNavCenter>
@@ -878,7 +876,7 @@ export const NavPartners = ({ no_login_signup }) => {
                             </NavRight>
                         )}
 
-                        {is_canvas_menu_open ? (
+                        {/* {is_canvas_menu_open ? (
                             <CloseMenu
                                 src={Close}
                                 alt="close menu 2"
@@ -892,12 +890,12 @@ export const NavPartners = ({ no_login_signup }) => {
                                 onClick={openOffCanvasMenu}
                                 width="16px"
                             />
-                        )}
+                        )} */}
 
                         <Mobile>
                             <Flex ai="center">
                                 <LogoLinkMobile to="/" aria-label={localize('Home')}>
-                                    <ResLogo src={LogoOnly} alt="reslogo" />
+                                    {/* <ResLogo src={LogoOnly} alt="reslogo" /> */}
                                 </LogoLinkMobile>
                                 <Flex ml="auto" ai="center" width="auto">
                                     <LanguageSwitcher short_name="true" is_high_nav />

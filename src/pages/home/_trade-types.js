@@ -4,9 +4,9 @@ import TradeTypesCard from './_trade-types-card'
 import { Header, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import { Container, Flex } from 'components/containers'
-import MarginLogo from 'images/svg/trade-types/margin.svg'
-import OptionsLogo from 'images/svg/trade-types/options.svg'
-import MultipliersLogo from 'images/svg/trade-types/multipliers.svg'
+// import MarginLogo from 'images/svg/trade-types/margin.svg'
+// import OptionsLogo from 'images/svg/trade-types/options.svg'
+// import MultipliersLogo from 'images/svg/trade-types/multipliers.svg'
 import { LinkButton } from 'components/form'
 
 const TradingButton = styled(LinkButton)`
@@ -45,7 +45,7 @@ const TradeTypes = () => {
                     {trade_types.map((trade_type, idx) => (
                         <TradeTypesCard
                             key={idx}
-                            icon={trade_type.icon}
+                            // icon={trade_type.icon}
                             title={trade_type.title}
                             description={trade_type.description}
                             link={trade_type.link}
@@ -59,7 +59,7 @@ const TradeTypes = () => {
 }
 
 const margin = {
-    icon: <img src={MarginLogo} alt="margin" width="48" height="49" />,
+    // icon: <img src={MarginLogo} alt="margin" width="48" height="49" />,
     title: <Localize translate_text="Margin Trading" />,
     description: (
         <Localize translate_text="Trade with leverage and low spreads for better returns on successful trades." />
@@ -68,7 +68,7 @@ const margin = {
     linkTitle: localize('Margin'),
 }
 const options = {
-    icon: <img src={OptionsLogo} alt="options" width="48" height="49" />,
+    // icon: <img src={OptionsLogo} alt="options" width="48" height="49" />,
     title: <Localize translate_text="Options" />,
     description: (
         <Localize translate_text="Earn fixed payouts by predicting an asset's price movement within a fixed time." />
@@ -77,7 +77,7 @@ const options = {
     linkTitle: localize('Options'),
 }
 const multipliers = {
-    icon: <img src={MultipliersLogo} alt="multipliers" width="48" height="49" />,
+    // icon: <img src={MultipliersLogo} alt="multipliers" width="48" height="49" />,
     title: <Localize translate_text="Multipliers" />,
     description: (
         <Localize translate_text="Get the best of both - the upside of margin trading with the simplicity of options." />

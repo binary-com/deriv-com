@@ -250,7 +250,7 @@ export const NavPlatform = ({ onClick, setCurrentPage }) => {
                     }
                     title={<Localize translate_text="DTrader" />}
                     onClick={onClick}
-                    to={links.dbot}
+                    to={links.dtrader}
                 />
                 <NavCard
                     icon={() => <img src={DBot} alt="DBot" width="32" height="32" />}

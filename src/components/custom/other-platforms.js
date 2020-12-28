@@ -336,7 +336,7 @@ export const NavMarket = ({ onClick, setCurrentPage }) => {
     useEffect(() => {
         if (Object.values(links).includes(window.location.pathname + window.location.hash))
             setCurrentPage('markets')
-    }, [])
+    }, [window.location.hash])
 
     return (
         <Flex direction="column" wrap="wrap" jc="flex-start">
@@ -401,7 +401,7 @@ export const NavCompany = ({ onClick, setCurrentPage }) => {
     useEffect(() => {
         if (Object.values(links).includes(window.location.pathname + window.location.hash))
             setCurrentPage('company')
-    }, [])
+    }, [window.location.hash])
 
     return (
         <Flex direction="column" wrap="wrap" jc="flex-start" max_width="42rem">

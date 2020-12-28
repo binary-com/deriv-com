@@ -2,24 +2,24 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import PlatformsDropdown from '../custom/platforms-dropdown'
 import {
-    NavPlatform,
     NavCompany,
-    NavResources,
     NavMarket,
+    NavPlatform,
+    NavResources,
 } from 'components/custom/other-platforms.js'
 import { useOutsideClick } from 'components/hooks/outside-click'
 import { LocalizedLink, localize, LanguageSwitcher } from 'components/localization'
 import { Button, LinkButton } from 'components/form'
 import { Container, Show, Flex } from 'components/containers'
 import {
+    moveOffCanvasMenu,
     OffCanvasMenu,
     OffCanvasMenuPartner,
-    moveOffCanvasMenu,
-    Text,
     QueryImage,
+    Text,
 } from 'components/elements'
 import { SharedLinkStyle } from 'components/localization/localized-link'
 import Login from 'common/login'
@@ -110,7 +110,7 @@ export const Wrapper = styled(Container)`
     justify-content: space-between;
     height: 7.2rem;
     @media ${device.laptopL} {
-        width: ${({ width }) => width ?? "90%"};
+        width: ${({ width }) => width ?? '90%'};
     }
     @media ${device.laptop} {
         font-size: var(--text-size-xxs);
@@ -227,6 +227,13 @@ const StyledButton = styled.span`
     cursor: pointer;
     user-select: none;
     white-space: nowrap;
+    ${(props) =>
+        props.is_current_page &&
+        css`
+            &::before {
+                width: 1.6rem;
+            }
+        `}
 `
 
 const SignupButton = styled(Button)`
@@ -275,7 +282,7 @@ const LoginButton = styled(Button)`
 const MobileLogin = styled(Button)`
     display: none;
     font-size: 14px;
-    margin-left: ${({ margin_left }) => margin_left ?? "1.6rem" };
+    margin-left: ${({ margin_left }) => margin_left ?? '1.6rem'};
     @media ${device.tabletL} {
         display: block;
     }
@@ -363,6 +370,8 @@ const NavDesktop = ({ base }) => {
     const [show_button, showButton, hideButton] = moveButton()
     const [mounted, setMounted] = useState(false)
     const [has_scrolled, setHasScrolled] = useState(false)
+    const [current_page, set_current_page] = useState('')
+
     // trade
     const trade_ref = useRef(null)
     const link_trade_ref = useRef(null)
@@ -434,7 +443,9 @@ const NavDesktop = ({ base }) => {
                 link_ref={link_trade_ref}
                 is_open={is_trade_open}
                 has_animation={has_trade_animation}
-                Content={() => <NavPlatform onClick={handleTradeClick} />}
+                Content={() => (
+                    <NavPlatform onClick={handleTradeClick} setCurrentPage={set_current_page} />
+                )}
                 title={localize('Trading platforms')}
                 description={localize(
                     'Be in full control of your trading with our new and improved platforms.',
@@ -445,7 +456,9 @@ const NavDesktop = ({ base }) => {
                 link_ref={link_market_ref}
                 is_open={is_market_open}
                 has_animation={has_market_animation}
-                Content={() => <NavMarket onClick={handleMarketClick} />}
+                Content={() => (
+                    <NavMarket onClick={handleMarketClick} setCurrentPage={set_current_page} />
+                )}
                 title={localize('Markets')}
                 description={localize(
                     'Enjoy our wide range of assets on financial and synthetic markets.',
@@ -456,7 +469,9 @@ const NavDesktop = ({ base }) => {
                 link_ref={link_company_ref}
                 is_open={is_company_open}
                 has_animation={has_company_animation}
-                Content={() => <NavCompany onClick={handleCompanyClick} />}
+                Content={() => (
+                    <NavCompany onClick={handleCompanyClick} setCurrentPage={set_current_page} />
+                )}
                 title={localize('About us')}
                 description={localize(
                     "Get to know our leadership team, learn about our history, and see why we're different.",
@@ -467,7 +482,12 @@ const NavDesktop = ({ base }) => {
                 link_ref={link_resources_ref}
                 is_open={is_resources_open}
                 has_animation={has_resources_animation}
-                Content={() => <NavResources onClick={handleResourcesClick} />}
+                Content={() => (
+                    <NavResources
+                        onClick={handleResourcesClick}
+                        setCurrentPage={set_current_page}
+                    />
+                )}
                 title={localize('Resources')}
                 description={localize(
                     'Help yourself to various resources that can help you get the best out of your trading experience.',
@@ -493,6 +513,7 @@ const NavDesktop = ({ base }) => {
                         <StyledButton
                             aria-label={localize('Trade')}
                             active={is_trade_open}
+                            is_current_page={current_page === 'trade'}
                             ref={link_trade_ref}
                         >
                             {localize('Trade')}
@@ -502,6 +523,7 @@ const NavDesktop = ({ base }) => {
                         <StyledButton
                             aria-label={localize('Markets')}
                             active={is_market_open}
+                            is_current_page={current_page === 'markets'}
                             ref={link_market_ref}
                         >
                             {localize('Markets')}
@@ -511,6 +533,7 @@ const NavDesktop = ({ base }) => {
                         <StyledButton
                             aria-label={localize('About us')}
                             active={is_company_open}
+                            is_current_page={current_page === 'company'}
                             ref={link_company_ref}
                         >
                             {localize('About us')}
@@ -520,6 +543,7 @@ const NavDesktop = ({ base }) => {
                         <StyledButton
                             aria-label={localize('Resources')}
                             active={is_resources_open}
+                            is_current_page={current_page === 'resources'}
                             ref={link_resources_ref}
                         >
                             {localize('Resources')}

@@ -63,7 +63,7 @@ const StyledContainer = styled(Container)`
     }
 `
 
-const PlatformsDropdown = ({ is_open, has_animation, Content, forward_ref, link_ref }) => {
+const PlatformsDropdown = ({ Content, forward_ref, has_animation, is_open, link_ref }) => {
     const [left, setLeft] = React.useState(0)
     const [left_arrow, setLeftArrow] = React.useState(0)
     const updateOffsets = () => {

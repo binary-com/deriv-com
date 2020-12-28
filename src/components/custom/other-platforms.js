@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { SectionContainer, Flex, FlexGridContainer } from 'components/containers'
@@ -224,226 +224,289 @@ OtherPlatform.propTypes = {
     subHeader: PropTypes.string,
 }
 
-export const NavPlatform = ({ onClick }) => (
-    <Flex>
-        <Flex direction="column" wrap="wrap" jc="flex-start">
-            <StyledText>{localize('Trading platforms')}</StyledText>
-            <NavCard
-                icon={() => <img src={DTrader} alt="Dtrader" width="32" height="32" />}
-                content={
-                    <Localize translate_text="A whole new trading experience on a powerful yet easy to use platform." />
-                }
-                title={<Localize translate_text="DTrader" />}
-                onClick={onClick}
-                to="/dtrader"
-            />
-            <NavCard
-                icon={() => <img src={DBot} alt="DBot" width="32" height="32" />}
-                content={
-                    <Localize translate_text="Automated trading at your fingertips. No coding needed." />
-                }
-                title={<Localize translate_text="DBot" />}
-                onClick={onClick}
-                to="/dbot"
-            />
-            <NavCard
-                icon={() => <img src={DMT5} alt="DMT5" width="32" height="32" />}
-                content={
-                    <Localize translate_text="Trade on Deriv MetaTrader 5 (DMT5), the all-in-one FX and CFD trading platform." />
-                }
-                title={<Localize translate_text="DMT5" />}
-                onClick={onClick}
-                to="/dmt5"
-            />
-            <NavCard
-                icon={() => <img src={Smarttrader} alt="Smarttrader" width="32" height="32" />}
-                content={
-                    <Localize translate_text="Trade the world’s markets with our popular user-friendly platform." />
-                }
-                title={<Localize translate_text="SmartTrader" />}
-                to="trading"
-                is_smarttrader_link
-                external="true"
-                target="_blank"
-                onClick={onClick}
-                otherLinkProps={{ rel: 'noopener noreferrer' }}
-            />
-        </Flex>
-        <MarginDivider width="2px" height="100%" color="grey-8" />
-        <Flex direction="column" wrap="wrap" jc="flex-start">
-            <StyledText>{localize('Trade types')}</StyledText>
-            <NavCard
-                icon={() => <img src={Margin} alt="Margin" width="32" height="32" />}
-                content={
-                    <Localize translate_text="Trade with leverage and low spreads for better returns on successful trades." />
-                }
-                title={<Localize translate_text="Margin trading" />}
-                onClick={onClick}
-                to="/trade-types/margin"
-            />
+export const NavPlatform = ({ onClick, setCurrentPage }) => {
+    const links = {
+        dtrader: '/dtrader',
+        dbot: '/dbot',
+        dmt5: '/dmt5',
+        smarttrader: 'trading',
+        margin: '/trade-types/margin',
+        options: '/trade-types/options',
+        multipliers: '/trade-types/multiplier',
+    }
 
-            <NavCard
-                icon={() => <img src={Options} alt="Options" width="32" height="32" />}
-                content={
-                    <Localize translate_text="Earn fixed payouts by predicting an asset's price movement." />
-                }
-                title={<Localize translate_text="Options" />}
-                onClick={onClick}
-                to="/trade-types/options"
-            />
-            <NavCard
-                icon={() => <img src={Multipliers} alt="Multipliers" width="32" height="32" />}
-                content={
-                    <Localize translate_text="Combine the upside of margin trading with the simplicity of options." />
-                }
-                title={<Localize translate_text="Multipliers" />}
-                onClick={onClick}
-                to="/trade-types/multiplier"
-            />
+    useEffect(() => {
+        if (Object.values(links).includes(window.location.pathname)) setCurrentPage('trade')
+    }, [])
+
+    return (
+        <Flex>
+            <Flex direction="column" wrap="wrap" jc="flex-start">
+                <StyledText>{localize('Trading platforms')}</StyledText>
+                <NavCard
+                    icon={() => <img src={DTrader} alt="Dtrader" width="32" height="32" />}
+                    content={
+                        <Localize translate_text="A whole new trading experience on a powerful yet easy to use platform." />
+                    }
+                    title={<Localize translate_text="DTrader" />}
+                    onClick={onClick}
+                    to={links.dbot}
+                />
+                <NavCard
+                    icon={() => <img src={DBot} alt="DBot" width="32" height="32" />}
+                    content={
+                        <Localize translate_text="Automated trading at your fingertips. No coding needed." />
+                    }
+                    title={<Localize translate_text="DBot" />}
+                    onClick={onClick}
+                    to={links.dbot}
+                />
+                <NavCard
+                    icon={() => <img src={DMT5} alt="DMT5" width="32" height="32" />}
+                    content={
+                        <Localize translate_text="Trade on Deriv MetaTrader 5 (DMT5), the all-in-one FX and CFD trading platform." />
+                    }
+                    title={<Localize translate_text="DMT5" />}
+                    onClick={onClick}
+                    to={links.dmt5}
+                />
+                <NavCard
+                    icon={() => <img src={Smarttrader} alt="Smarttrader" width="32" height="32" />}
+                    content={
+                        <Localize translate_text="Trade the world’s markets with our popular user-friendly platform." />
+                    }
+                    title={<Localize translate_text="SmartTrader" />}
+                    to={links.smarttrader}
+                    is_smarttrader_link
+                    external="true"
+                    target="_blank"
+                    onClick={onClick}
+                    otherLinkProps={{ rel: 'noopener noreferrer' }}
+                />
+            </Flex>
+            <MarginDivider width="2px" height="100%" color="grey-8" />
+            <Flex direction="column" wrap="wrap" jc="flex-start">
+                <StyledText>{localize('Trade types')}</StyledText>
+                <NavCard
+                    icon={() => <img src={Margin} alt="Margin" width="32" height="32" />}
+                    content={
+                        <Localize translate_text="Trade with leverage and low spreads for better returns on successful trades." />
+                    }
+                    title={<Localize translate_text="Margin trading" />}
+                    onClick={onClick}
+                    to={links.margin}
+                />
+
+                <NavCard
+                    icon={() => <img src={Options} alt="Options" width="32" height="32" />}
+                    content={
+                        <Localize translate_text="Earn fixed payouts by predicting an asset's price movement." />
+                    }
+                    title={<Localize translate_text="Options" />}
+                    onClick={onClick}
+                    to={links.options}
+                />
+                <NavCard
+                    icon={() => <img src={Multipliers} alt="Multipliers" width="32" height="32" />}
+                    content={
+                        <Localize translate_text="Combine the upside of margin trading with the simplicity of options." />
+                    }
+                    title={<Localize translate_text="Multipliers" />}
+                    onClick={onClick}
+                    to={links.multipliers}
+                />
+            </Flex>
         </Flex>
-    </Flex>
-)
+    )
+}
 
 NavPlatform.propTypes = {
     onClick: PropTypes.func,
+    setCurrentPage: PropTypes.func,
 }
 
-export const NavMarket = ({ onClick }) => (
-    <Flex direction="column" wrap="wrap" jc="flex-start">
-        <NavCard
-            icon={() => <img src={Forex} alt="Forex" width="32" height="32" />}
-            content={
-                <Localize translate_text="Trade the world’s largest financial market with popular forex pairs." />
-            }
-            title={<Localize translate_text="Forex" />}
-            onClick={onClick}
-            to="/markets#forex"
-        />
-        <NavCard
-            icon={() => (
-                <img src={SyntheticIndices} alt="SyntheticIndices" width="32" height="32" />
-            )}
-            content={
-                <Localize translate_text="Enjoy synthetic markets that emulate real-world market movements." />
-            }
-            title={<Localize translate_text="Synthetic indices" />}
-            onClick={onClick}
-            to="/markets#synthetic"
-        />
-        <NavCard
-            icon={() => <img src={StockIndices} alt="StockIndices" width="32" height="32" />}
-            content={
-                <Localize translate_text="Predict broader market trends and diversify your risk with stock indices." />
-            }
-            title={<Localize translate_text="Stock indices" />}
-            onClick={onClick}
-            to="/markets#stock"
-        />
-        <NavCard
-            icon={() => <img src={Commodities} alt="Commodities" width="32" height="32" />}
-            content={
-                <Localize translate_text="Trade natural resources that are central to the world's economy." />
-            }
-            title={<Localize translate_text="Commodities" />}
-            onClick={onClick}
-            to="/markets#commodities"
-        />
-    </Flex>
-)
+export const NavMarket = ({ onClick, setCurrentPage }) => {
+    const links = {
+        forex: '/markets#forex',
+        synthetic: '/markets#synthetic',
+        stock: '/markets#stock',
+        commodities: '/markets#commodities',
+    }
+
+    useEffect(() => {
+        if (Object.values(links).includes(window.location.pathname + window.location.hash))
+            setCurrentPage('markets')
+    }, [])
+
+    return (
+        <Flex direction="column" wrap="wrap" jc="flex-start">
+            <NavCard
+                icon={() => <img src={Forex} alt="Forex" width="32" height="32" />}
+                content={
+                    <Localize translate_text="Trade the world’s largest financial market with popular forex pairs." />
+                }
+                title={<Localize translate_text="Forex" />}
+                onClick={onClick}
+                to={links.forex}
+            />
+            <NavCard
+                icon={() => (
+                    <img src={SyntheticIndices} alt="SyntheticIndices" width="32" height="32" />
+                )}
+                content={
+                    <Localize translate_text="Enjoy synthetic markets that emulate real-world market movements." />
+                }
+                title={<Localize translate_text="Synthetic indices" />}
+                onClick={onClick}
+                to={links.synthetic}
+            />
+            <NavCard
+                icon={() => <img src={StockIndices} alt="StockIndices" width="32" height="32" />}
+                content={
+                    <Localize translate_text="Predict broader market trends and diversify your risk with stock indices." />
+                }
+                title={<Localize translate_text="Stock indices" />}
+                onClick={onClick}
+                to={links.stock}
+            />
+            <NavCard
+                icon={() => <img src={Commodities} alt="Commodities" width="32" height="32" />}
+                content={
+                    <Localize translate_text="Trade natural resources that are central to the world's economy." />
+                }
+                title={<Localize translate_text="Commodities" />}
+                onClick={onClick}
+                to={links.commodities}
+            />
+        </Flex>
+    )
+}
 
 NavMarket.propTypes = {
     onClick: PropTypes.func,
+    setCurrentPage: PropTypes.func,
 }
 
-export const NavCompany = ({ onClick }) => (
-    <Flex direction="column" wrap="wrap" jc="flex-start" max_width="42rem">
-        <CardLink
-            icon={() => <img src={Story} alt="story" width="24" height="24" />}
-            title={localize('Our story')}
-            onClick={onClick}
-            to="/about/#story"
-        />
-        <CardLink
-            icon={() => <img src={Leadership} alt="leadership" width="24" height="24" />}
-            title={localize('Our leadership')}
-            onClick={onClick}
-            to="/about/#leadership"
-        />
-        <CardLink
-            icon={() => <img src={RegulatoryInfo} alt="regulatory" width="24" height="24" />}
-            title={localize('Regulatory information')}
-            onClick={onClick}
-            to="/regulatory/"
-        />
-        <CardLink
-            icon={() => <img src={Choose} alt="choose" width="24" height="24" />}
-            title={localize('Why choose us?')}
-            onClick={onClick}
-            to="/why-choose-us/"
-        />
-        <CardLink
-            icon={() => <img src={Partner} alt="partner" width="24" height="24" />}
-            title={localize('Partnership programmes')}
-            onClick={onClick}
-            to="/partners/"
-        />
+export const NavCompany = ({ onClick, setCurrentPage }) => {
+    const links = {
+        story: '/about/#story',
+        leadership: '/about/#leadership',
+        regulatory: '/regulatory/',
+        choose: '/markets#commodities',
+        partners: '/partners/',
+        contact: '/contact-us/',
+        career: '/careers/',
+    }
 
-        <CardLink
-            icon={() => <img src={Contact} alt="contact" width="24" height="24" />}
-            title={localize('Contact us')}
-            onClick={onClick}
-            to="/contact-us/"
-        />
-        <CardLink
-            icon={() => <img src={Career} alt="career" width="24" height="24" />}
-            title={localize('Careers')}
-            onClick={onClick}
-            to="/careers/"
-            external="true"
-        />
-    </Flex>
-)
+    useEffect(() => {
+        if (Object.values(links).includes(window.location.pathname + window.location.hash))
+            setCurrentPage('company')
+    }, [])
+
+    return (
+        <Flex direction="column" wrap="wrap" jc="flex-start" max_width="42rem">
+            <CardLink
+                icon={() => <img src={Story} alt="story" width="24" height="24" />}
+                title={localize('Our story')}
+                onClick={onClick}
+                to={links.story}
+            />
+            <CardLink
+                icon={() => <img src={Leadership} alt="leadership" width="24" height="24" />}
+                title={localize('Our leadership')}
+                onClick={onClick}
+                to={links.leadership}
+            />
+            <CardLink
+                icon={() => <img src={RegulatoryInfo} alt="regulatory" width="24" height="24" />}
+                title={localize('Regulatory information')}
+                onClick={onClick}
+                to={links.regulatory}
+            />
+            <CardLink
+                icon={() => <img src={Choose} alt="choose" width="24" height="24" />}
+                title={localize('Why choose us?')}
+                onClick={onClick}
+                to={links.choose}
+            />
+            <CardLink
+                icon={() => <img src={Partner} alt="partner" width="24" height="24" />}
+                title={localize('Partnership programmes')}
+                onClick={onClick}
+                to={links.partners}
+            />
+            <CardLink
+                icon={() => <img src={Contact} alt="contact" width="24" height="24" />}
+                title={localize('Contact us')}
+                onClick={onClick}
+                to={links.contact}
+            />
+            <CardLink
+                icon={() => <img src={Career} alt="career" width="24" height="24" />}
+                title={localize('Careers')}
+                onClick={onClick}
+                to={links.career}
+                external="true"
+            />
+        </Flex>
+    )
+}
 
 NavCompany.propTypes = {
     onClick: PropTypes.func,
+    setCurrentPage: PropTypes.func,
 }
 
-export const NavResources = ({ onClick }) => (
-    <Flex direction="column" wrap="wrap" jc="flex-start" max_width="42rem">
-        <CardLink
-            icon={() => <img src={Help} alt="help" width="24" height="24" />}
-            title={localize('Help centre')}
-            onClick={onClick}
-            to="/help-centre/"
-        />
-        <CardLink
-            icon={() => <img src={Community} alt="community" width="24" height="24" />}
-            title={localize('Community')}
-            onClick={onClick}
-            to={community_url}
-            target="_blank"
-            external="true"
-            rel="noopener noreferrer"
-        />
-        <CardLink
-            icon={() => <img src={Payment} alt="payment" width="24" height="24" />}
-            title={localize('Payment methods')}
-            onClick={onClick}
-            to="/payment-methods/"
-        />
-        <CardLink
-            icon={() => <Signals dynamic_id="dmt5-signals" />}
-            title={localize('DMT5 Signals')}
-            onClick={onClick}
-            to="/dmt5-trading-signals/#signal-subscriber/"
-        />
-        {/* TODO: add this when blog is ready */}
-        {/* <CardLink title={localize('Blog')} to="/blog/" /> */}
-    </Flex>
-)
+export const NavResources = ({ onClick, setCurrentPage }) => {
+    const links = {
+        help: '/help-centre/',
+        payment: '/payment-methods/',
+        signals: '/dmt5-trading-signals/#signal-subscriber/',
+    }
+
+    useEffect(() => {
+        if (Object.values(links).includes(window.location.pathname + window.location.hash))
+            setCurrentPage('resources')
+    }, [])
+
+    return (
+        <Flex direction="column" wrap="wrap" jc="flex-start" max_width="42rem">
+            <CardLink
+                icon={() => <img src={Help} alt="help" width="24" height="24" />}
+                title={localize('Help centre')}
+                onClick={onClick}
+                to={links.help}
+            />
+            <CardLink
+                icon={() => <img src={Community} alt="community" width="24" height="24" />}
+                title={localize('Community')}
+                onClick={onClick}
+                to={community_url}
+                target="_blank"
+                external="true"
+                rel="noopener noreferrer"
+            />
+            <CardLink
+                icon={() => <img src={Payment} alt="payment" width="24" height="24" />}
+                title={localize('Payment methods')}
+                onClick={onClick}
+                to={links.payment}
+            />
+            <CardLink
+                icon={() => <Signals dynamic_id="dmt5-signals" />}
+                title={localize('DMT5 Signals')}
+                onClick={onClick}
+                to={links.signals}
+            />
+            {/* TODO: add this when blog is ready */}
+            {/* <CardLink title={localize('Blog')} to="/blog/" /> */}
+        </Flex>
+    )
+}
 
 NavResources.propTypes = {
     onClick: PropTypes.func,
+    setCurrentPage: PropTypes.func,
 }
 
 export default OtherPlatform

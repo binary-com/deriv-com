@@ -150,11 +150,11 @@ const ExpandList = ({ data, config, is_crypto, is_fiat_onramp, locale }) => {
                         <Text>{data.withdrawal_time}</Text>
                     </Withdrawal>
                 )}
-
+            
                 <Td>
                     {data.reference ? (
                         <CenterIcon
-                            href={`/payment-methods/${(data.reference == "nganluong-payment-method.pdf" && locale.language == 'vi') ? 'vi/' : ''}${data.reference}`}
+                            href={`/payment-methods/${(data.locales?.includes(locale.language) ? locale.language + '/' + data.reference : data.reference)}`}
                             target="_blank"
                             rel="noopener noreferrer"
                         >

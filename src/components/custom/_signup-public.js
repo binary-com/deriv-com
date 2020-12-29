@@ -123,6 +123,7 @@ const SocialWrapper = styled(Flex)`
 `
 const SocialButton = styled(Button)`
     width: 70px;
+    padding: 9px 24px;
     border-radius: 4px;
     justify-content: center;
     display: flex;
@@ -133,6 +134,7 @@ const SocialButton = styled(Button)`
     @media ${device.tabletL} {
         width: 114px;
         height: 48px;
+        padding: 8px 12px;
         justify-content: center;
         align-items: center;
     }

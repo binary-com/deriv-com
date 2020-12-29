@@ -122,7 +122,7 @@ export const StyledChevron = styled(Chevron)`
 
 export const NavigationContainer = styled(Flex)`
     position: absolute;
-    bottom: 20px;
+    bottom: 40px;
     width: 100%;
     height: 10px;
 `

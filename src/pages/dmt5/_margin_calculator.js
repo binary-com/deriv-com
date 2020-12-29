@@ -95,7 +95,8 @@ const StyledCardContainer = styled(Flex)`
     align-items: center;
     @media ${device.tabletL} {
         height: auto;
-        min-height: 558px;
+        min-height: 488px;
+        justify-content: flex-start;
     }
 `
 
@@ -125,6 +126,7 @@ const StyledFlexContainer = styled(Flex)`
     border: 1px solid var(--color-grey-34);
     @media ${device.tabletL} {
         flex-wrap: wrap;
+        border: none;
     }
 `
 
@@ -135,7 +137,8 @@ const StyledFlex = styled(Flex)`
     background-color: ${(props) => (props.has_color ? 'var(--color-grey-25)' : 'inherit')};
     @media ${device.tabletL} {
         width: 100%;
-        min-height: 558px;
+        min-height: 340px;
+        margin-right: 0;
     }
 `
 
@@ -218,7 +221,6 @@ const MarginCalculator = () => {
                     tablet_jc="center"
                     fd="column"
                     wrap="wrap"
-                    tabletL={{ mt: '0', ml: '16px', mr: '16px' }}
                     has_color={true}
                 >
                     <StyledBox max_width="100%">
@@ -250,7 +252,7 @@ const MarginCalculator = () => {
                     tablet_jc="center"
                     wrap="wrap"
                     ml={isBrowser() && isMobile() ? '0px' : '2.4rem'}
-                    tabletL={{ mt: '0', pt: '24px', pl: '16px', pr: '16px' }}
+                    tabletL={{ pt: '24px', pl: '16px', pr: '16px' }}
                 >
                     <Carousel {...settings}>
                         {calculators.map((calculator, idx) => (

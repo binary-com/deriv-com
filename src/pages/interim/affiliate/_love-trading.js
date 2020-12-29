@@ -41,7 +41,7 @@ const LoveTrading = () => {
                 </AbsoluteWrapper>
                 <Responsive jc="space-between" position="relative" height="100%">
                     <Flex fd="column" ai="center" max_width="28.2rem">
-                        <Header as="h3" mb="2.4rem" align="center">
+                        <Header as="h3" type="section-title" mb="2.4rem" align="center">
                             {localize('Got more questions?')}
                         </Header>
                         <Text>{localize('Email us at')}</Text>
@@ -61,7 +61,7 @@ const LoveTrading = () => {
                     </MobileWrapper>
 
                     <MarLeft width="auto" fd="column" ai="flex-start">
-                        <White as="h3" mb="0.8rem" align="left">
+                        <White as="h3" type="section-title" mb="0.8rem" align="left">
                             {localize('New affiliate login URL')}
                         </White>
                         <Text color="white" size="var(--text-size-m)">

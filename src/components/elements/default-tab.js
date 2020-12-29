@@ -24,6 +24,7 @@ const TabButton = styled.button`
     transition: border-color 0.2s ease-in;
     border: none;
     border-bottom: 2px solid var(--color-grey-2);
+    white-space: nowrap;
     ${(props) =>
         props.selected &&
         css`
@@ -46,6 +47,7 @@ const TabList = styled.div`
     width: 100%;
     justify-content: center;
     position: relative;
+    overflow: auto;
 
     @media ${device.mobileL} {
         justify-content: space-between;
@@ -64,7 +66,6 @@ const LineDivider = styled.div`
 const Content = styled.div`
     flex: 1;
     width: 100%;
-    padding-top: 16px;
 `
 
 const TextWrapper = styled(Text)`
@@ -74,10 +75,10 @@ const TextWrapper = styled(Text)`
     font-weight: bold;
 
     @media ${device.tabletS} {
-        font-size: var(--text-size-sm);
+        font-size: ${({ font_size }) => font_size ?? 'var(--text-size-sm)'};
     }
     @media ${device.mobileM} {
-        font-size: var(--text-size-s);
+        font-size: ${({ font_size }) => font_size ?? 'var(--text-size-s)'};
     }
 `
 
@@ -91,10 +92,10 @@ TabPanel.propTypes = {
     children: PropTypes.node,
 }
 
-const Tabs = ({ children, tab_list }) => {
+const Tabs = ({ children, route_from, tab_list }) => {
     const [selected_tab, setSelectedTab] = useState(0)
-    const [active_tab, setActiveTab] = useTabState(['clients', 'business-partners'])
-    
+    const [active_tab, setActiveTab] = useTabState(tab_list)
+
     useEffect(() => {
         setSelectedTab(tab_list.indexOf(active_tab))
     }, [active_tab])
@@ -109,9 +110,9 @@ const Tabs = ({ children, tab_list }) => {
                         aria-selected={selected_tab === index ? 'true' : 'false'}
                         onClick={() => setActiveTab(tab_list[index])}
                     >
-                    <TextWrapper>
-                        {label}
-                    </TextWrapper>
+                        <TextWrapper font_size={route_from === 'markets' ? '24px' : undefined}>
+                            {label}
+                        </TextWrapper>
                     </TabButton>
                 ))}
                 <LineDivider />
@@ -130,6 +131,7 @@ Tabs.Panel = TabPanel
 
 Tabs.propTypes = {
     children: PropTypes.node,
+    route_from: PropTypes.string,
     tab_list: PropTypes.array,
 }
 

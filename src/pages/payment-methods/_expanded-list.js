@@ -37,6 +37,14 @@ const Td = styled.td`
     padding: 0.8rem 2rem;
     position: relative;
 
+    :first-child {
+        position: sticky;
+        /* stylelint-disable-next-line value-no-vendor-prefix */
+        position: -webkit-sticky;
+        left: -5px;
+        background-color: white;
+        z-index: 2;
+    }
     & .tooltip {
         padding: 0.8rem;
         border-radius: 4px;
@@ -98,7 +106,6 @@ const Currencies = styled(Td)`
 
 const ExpandList = ({ data, config, is_crypto, is_fiat_onramp, locale }) => {
     const [is_expanded, setIsExpanded] = React.useState(false)
-
     const toggleExpand = () => {
         setIsExpanded(!is_expanded)
     }
@@ -154,7 +161,7 @@ const ExpandList = ({ data, config, is_crypto, is_fiat_onramp, locale }) => {
                 <Td>
                     {data.reference ? (
                         <CenterIcon
-                            href={`/payment-methods/${(data.locales?.includes(locale.language) ? locale.language + '/' + data.reference : data.reference)}`}
+                            href={`/payment-methods/${(data.locales?.includes(locale.locale.language) ? locale.locale.language + '/' + data.reference : data.reference)}`}
                             target="_blank"
                             rel="noopener noreferrer"
                         >

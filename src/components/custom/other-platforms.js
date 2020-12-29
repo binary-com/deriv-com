@@ -36,6 +36,7 @@ import Help from 'images/svg/menu/help-center.svg'
 import Community from 'images/svg/menu/community.svg'
 import Payment from 'images/svg/menu/payment-methods.svg'
 import RegulatoryInfo from 'images/svg/menu/regulatory.svg'
+import Signals from 'components/svgs/signals'
 
 const MarginDivider = styled(Divider)`
     margin: 0 0.8rem;
@@ -70,11 +71,6 @@ const StyledSmarttrader = styled.img`
     height: 72px;
 `
 
-const StyledHeader = styled(Header)`
-    @media ${device.tabletS} {
-        font-size: var(--text-size-header-1);
-    }
-`
 const StyledLink = styled(LocalizedLink)`
     text-decoration: none;
 
@@ -185,11 +181,18 @@ export const OtherPlatform = ({ header, subHeader, exclude, is_nav }) => (
     <SectionContainer padding="0">
         {is_nav ? null : (
             <HeaderWrapper>
-                <StyledHeader size="var(--text-size-l)" align="center" lh="5rem">
+                <Header type="section-title" align="center">
                     {header ? header : localize('Check out our other platforms')}
-                </StyledHeader>
+                </Header>
                 {subHeader && (
-                    <Header as="h4" align="center" weight="500" max_width="67.6rem" m="0.8rem auto">
+                    <Header
+                        as="h4"
+                        type="sub-section-title"
+                        align="center"
+                        weight="500"
+                        max_width="67.6rem"
+                        m="0.8rem auto"
+                    >
                         {localize(
                             'Whether you’re a beginner or a seasoned trader, our trading experience is something you’ll love.',
                         )}
@@ -428,6 +431,12 @@ export const NavResources = ({ onClick }) => (
             onClick={onClick}
             to="/payment-methods/"
         />
+        <CardLink
+            icon={() => <Signals dynamic_id="dmt5-signals" />}
+            title={localize('DMT5 Signals')}
+            onClick={onClick}
+            to="/dmt5-trading-signals/#signal-subscriber/"
+        />
         {/* TODO: add this when blog is ready */}
         {/* <CardLink title={localize('Blog')} to="/blog/" /> */}
     </Flex>
@@ -436,3 +445,5 @@ export const NavResources = ({ onClick }) => (
 NavResources.propTypes = {
     onClick: PropTypes.func,
 }
+
+export default OtherPlatform

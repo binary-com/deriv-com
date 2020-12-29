@@ -11,7 +11,7 @@ const StartTrading = () => {
         <>
             <SectionContainer background="white" padding="8rem 0 4rem">
                 <SmallContainer direction="column" ai="flex-start">
-                    <Header as="h3" mb="4rem">
+                    <Header as="h3" type="section-title" mb="4rem">
                         {localize('Start trading on margin with Deriv')}
                     </Header>
 

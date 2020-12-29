@@ -80,10 +80,17 @@ const ResetPassword = () => (
             no_index
         />
         <StyledContainer justify="center" align="center" direction="column">
-            <Header as="h2" align="center">
+            <Header as="h2" type="page-title" align="center">
                 {localize('Reset password')}
             </Header>
-            <Header as="h4" align="center" weight="500" mt="0.5rem" mb="3.8rem">
+            <Header
+                as="h4"
+                type="sub-section-title"
+                align="center"
+                weight="500"
+                mt="0.5rem"
+                mb="3.8rem"
+            >
                 {localize("We'll email you instructions to reset your password.")}
             </Header>
             <Formik

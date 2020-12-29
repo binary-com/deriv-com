@@ -12,35 +12,25 @@ const Wrapper = styled(Flex)`
     position: relative;
     justify-content: flex-start;
     background-color: var(--color-black);
-    height: 60.2rem;
-    padding: 12rem 12rem 9rem 12rem;
+    height: unset;
+    min-height: 60.2rem;
+    padding: 2rem 12rem;
 
-    @media (max-width: 1254px) {
-        padding: 8rem 12rem 9rem 4rem;
-    }
     @media ${device.laptopM} {
         height: 52.7rem;
-        padding: 8rem 12rem 9rem 8rem;
+        min-height: unset;
     }
     @media ${device.laptop} {
         height: 56.8rem;
+        padding: 2rem 8rem;
     }
     @media ${device.tabletL} {
         height: 53rem;
     }
     @media ${device.tablet} {
         padding: 0 0 40px;
-        height: 95.4rem;
+        height: unset;
         flex-direction: column-reverse;
-    }
-    @media ${device.tabletS} {
-        height: 89.4rem;
-    }
-    @media ${device.mobileL} {
-        height: 81rem;
-    }
-    @media ${device.mobileM} {
-        height: 75.4rem;
     }
 `
 const HeroContent = styled(Flex)`
@@ -74,6 +64,15 @@ const StyledHeader = styled(Header)`
     }
 `
 
+const HeroHeader = styled(Header)`
+    @media (max-width: 1315px) {
+        font-size: 4.8rem;
+    }
+    @media ${device.tablet} {
+        font-size: 36px;
+    }
+`
+
 const LottieWrapper = styled.div`
     width: 100%;
     max-width: 58rem;
@@ -87,6 +86,9 @@ const LottieWrapper = styled.div`
     @media ${device.tabletL} {
         max-width: 54rem;
         right: 3rem;
+    }
+    @media ${device.tablet} {
+        position: relative;
     }
     @media ${device.mobileL} {
         max-width: 425px;
@@ -140,15 +142,28 @@ const InformationWrapper = styled(Flex)`
     z-index: 1;
 
     @media (max-width: 1376px) {
-        max-width: 44rem;
+        max-width: 52rem;
     }
-    @media ${device.tabletL} {
+    @media (max-width: 1270px) {
+        max-width: 46rem;
+    }
+    @media ${device.laptopM} {
         max-width: 40rem;
+    }
+    @media ${device.laptop} {
+        max-width: 38rem;
     }
     @media ${device.tablet} {
         top: 280px;
-        max-width: 328px;
+        max-width: 450px;
         padding: 0 16px;
+        margin-top: 20px;
+    }
+    @media ${device.mobileL} {
+        margin-top: 0;
+    }
+    @media ${device.mobileS} {
+        padding: 0 12px;
     }
 `
 
@@ -253,12 +268,14 @@ const DHero = ({
             )}
 
             <InformationWrapper height="unset" direction="column">
-                <StyledHeader as="h1" weight={500}>
+                <StyledHeader as="h4" type="sub-section-title" weight={500}>
                     <DLogo src={Logo} alt="logo" width="32" height="32" />
                     {title}
                 </StyledHeader>
                 <HeroContent>
-                    <Header as="h1">{content}</Header>
+                    <HeroHeader as="h1" type="display-title">
+                        {content}
+                    </HeroHeader>
                 </HeroContent>
                 <LinkWrapper>
                     {join_us_for_free && (

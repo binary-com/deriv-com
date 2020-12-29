@@ -269,7 +269,12 @@ const SignupNew = ({
                 />
             </InputGroup>
             <label>
-                <Checkbox secondary onChange={handleChange} checked={checkBoxState} />
+                <Checkbox
+                    id="signup_agree_tnc"
+                    secondary
+                    onChange={handleChange}
+                    checked={checkBoxState}
+                />
                 <CheckboxSpan>
                     <Localize
                         fontSize="var(--text-size-xs)"

@@ -1,4 +1,5 @@
-import { localize } from 'components/localization'
+import React from 'react'
+import { localize, Localize } from 'components/localization'
 
 const validation_regex = {
     number: /^\d*\.?\d+$/,
@@ -25,7 +26,7 @@ const validation_is_not_zero = (input) => {
 
 const numberValidation = (input, fieldName, maxDigit) => {
     if (!input) {
-        return localize(`${fieldName} is required`)
+        return <Localize translate_text="{{fieldName}} is required" values={{ fieldName }} />
     } else if (!validation_regex.number.test(input)) {
         return localize('Should be a valid number')
     } else if (!validation_is_exceed_number(input, maxDigit)) {
@@ -39,7 +40,7 @@ const numberValidation = (input, fieldName, maxDigit) => {
 
 const numberWithNegativeValidation = (input, fieldName, maxDigit) => {
     if (!input) {
-        return localize(`${fieldName} is required`)
+        return <Localize translate_text="{{fieldName}} is required" values={{ fieldName }} />
     } else if (!validation_regex.numberWithNegative.test(input)) {
         return localize('Should be a valid number')
     } else if (!validation_is_exceed_number(input, maxDigit)) {

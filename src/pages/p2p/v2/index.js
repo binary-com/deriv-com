@@ -1,13 +1,14 @@
 import React from 'react'
+import Loadable from '@loadable/component'
 import Hero from '../components/_hero'
 import DP2P from '../components/_dp2p'
-import ExchangeSteps from '../components/_exchange-steps'
-import P2PBanner from '../components/_p2pbanner'
-import Numbers from '../components/_numbers'
-import Availability from '../components/_availability'
 import { localize, Localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { SEO, Show } from 'components/containers'
+const ExchangeSteps = Loadable(() => import('../components/_exchange-steps'))
+const P2PBanner = Loadable(() => import('../components/_p2pbanner'))
+const Numbers = Loadable(() => import('../components/_numbers'))
+const Availability = Loadable(() => import('../components/_availability'))
 
 const DP2P_CONTENT = [
     {

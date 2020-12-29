@@ -14,7 +14,7 @@ const Section = styled.section`
 const Banner = ({ header, p1, button_text }) => (
     <Section>
         <Flex direction="column" ai="center">
-            <Header pb="0.8rem" align="center" as="h3" color="white">
+            <Header pb="0.8rem" align="center" as="h3" type="section-title" color="white">
                 {header}
             </Header>
             <Text max_width="62rem" align="center" color="white" pb="3rem" pr="3rem" pl="3rem">
@@ -42,3 +42,5 @@ Banner.propTypes = {
     header: PropTypes.object,
     p1: PropTypes.object,
 }
+
+export default RoleBanner

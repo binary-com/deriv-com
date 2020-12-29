@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { Text, Header } from './typography'
-import device, {size} from 'themes/device'
+import device, { size } from 'themes/device'
 import { getWindowWidth } from 'common/utility'
 import { Box } from 'components/containers'
 import { Desktop, Mobile } from 'components/containers/show'
@@ -113,8 +113,9 @@ const Tab = ({ active_tab, label, onClick, text, mobile, font_size }) => {
     )
 }
 
-const getTabs = (children) => children.map(child => child.props.label)
-const findCurrentTab = (children, active_tab) => children.find(child => child.props.label === active_tab)
+const getTabs = (children) => children.map((child) => child.props.label)
+const findCurrentTab = (children, active_tab) =>
+    children.find((child) => child.props.label === active_tab)
 
 const SideTab = ({ children, is_sticky, tab_header, font_size }) => {
     const [active_tab, setActiveTab] = useTabState(getTabs(children))
@@ -174,7 +175,8 @@ const SideTab = ({ children, is_sticky, tab_header, font_size }) => {
                 </Mobile>
             </TabList>
             <TabContent>
-                {(!is_menu || getWindowWidth() >= size.tabletL) && children.map((child) => (child.props.label === active_tab ? child : undefined))}
+                {(!is_menu || getWindowWidth() >= size.tabletL) &&
+                    children.map((child) => (child.props.label === active_tab ? child : undefined))}
             </TabContent>
         </StyledSideTab>
     )

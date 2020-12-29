@@ -1,8 +1,9 @@
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
-import OurNumbers from './_our-numbers'
-import { OurOffices } from './_our-offices'
+import Loadable from '@loadable/component'
 import { OurHistory } from './_our-history'
+const OurOffices = Loadable(() => import('./_our-offices'))
+const OurNumbers = Loadable(() => import('./_our-numbers'))
 
 export const OurStory = (props) => (
     <Fragment>

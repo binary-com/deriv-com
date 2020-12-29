@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components'
 import PropTypes from 'prop-types'
 import { Paddings, Margins } from 'themes/function'
 import { LocalizedLink } from 'components/localization'
+import device from 'themes/device'
 
 const SharedButtonStyle = css`
     border-radius: 6px;
@@ -98,6 +99,10 @@ export const LinkButton = styled(LocalizedLink)`
     ${SharedButtonStyle}
     text-align: center;
     text-decoration: none;
+
+    @media ${device.tabletL} {
+        font-size: 14px;
+    }
 `
 
 const Button = styled.button`

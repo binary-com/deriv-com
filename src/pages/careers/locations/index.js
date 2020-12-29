@@ -13,6 +13,7 @@ import {
     melaka,
     cyprus,
     rwanda,
+    minsk,
 } from '../_model/_locations/_locations'
 import { SEO, SectionContainer, Container, Flex, CssGrid } from 'components/containers'
 import Layout from 'components/layout/layout'
@@ -24,6 +25,7 @@ import UAEFlagIcon from 'images/svg/flag_uae.svg'
 import MaltaFlagIcon from 'images/svg/flag_malta.svg'
 import CyprusFlagIcon from 'images/svg/flag_cyprus.svg'
 import RwandaFlagIcon from 'images/svg/flag_rwanda.svg'
+import BelarusFlagIcon from 'images/svg/flag_belarus.svg'
 import { ReactComponent as Chevron } from 'images/svg/carousel-chevron.svg'
 
 const ChevronRight = styled(Chevron)`
@@ -140,6 +142,9 @@ const query = graphql`
         thumbnail_rwanda: file(relativePath: { eq: "careers/thumbnail_rwanda.jpg" }) {
             ...fadeIn
         }
+        thumbnail_minsk: file(relativePath: { eq: "careers/thumbnail_minsk.jpg" }) {
+            ...fadeIn
+        }
     }
 `
 
@@ -231,6 +236,13 @@ const Locations = () => {
                             country_name={rwanda.country}
                             city_name={'Kigali'}
                             link={rwanda.link}
+                        />
+                        <CountryCard
+                            Icon={BelarusFlagIcon}
+                            img_data={images[minsk.thumbnail]}
+                            country_name={minsk.country}
+                            city_name={'Minsk'}
+                            link={minsk.link}
                         />
                     </CssGrid>
                 </SectionContainer>

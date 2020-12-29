@@ -1,16 +1,17 @@
 import React from 'react'
+import Loadable from '@loadable/component'
 import { SmallContainer, Hero } from '../components/_style'
-import WhyTradeMargin from './_why-trade-margin'
-import Contracts from './_contracts'
-import Policies from './_policies'
-import StartTrading from './_start-trading'
-import RelationshipWithLeverge from './_relationship-with-leverge'
-import AvailableMarkets from './_available-markets'
 import WhatIsMargin from './_what_is_margin'
 import { SEO } from 'components/containers'
 import { Header } from 'components/elements'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
+const WhyTradeMargin = Loadable(() => import('./_why-trade-margin'))
+const Contracts = Loadable(() => import('./_contracts'))
+const Policies = Loadable(() => import('./_policies'))
+const StartTrading = Loadable(() => import('./_start-trading'))
+const RelationshipWithLeverge = Loadable(() => import('./_relationship-with-leverge'))
+const AvailableMarkets = Loadable(() => import('./_available-markets'))
 
 const Margin = () => {
     return (
@@ -23,7 +24,7 @@ const Margin = () => {
             />
             <Hero jc="cneter" ai="center">
                 <SmallContainer>
-                    <Header as="h1" color="white" align="center">
+                    <Header as="h1" type="display-title" color="white" align="center">
                         {localize('Margin trading')}
                     </Header>
                 </SmallContainer>

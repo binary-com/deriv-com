@@ -82,9 +82,10 @@ export const FormWrapper = styled(Flex)`
     }
 `
 export const SwapFormWrapper = styled(FormWrapper)`
-    max-height: 580px;
-    margin-top: 40px;
+    height: 569px;
+    margin-top: 45px;
     @media ${device.tabletL} {
+        height: unset;
         margin-top: 0;
     }
 `
@@ -184,6 +185,23 @@ export const CalculatorOutputSymbol = styled.label`
 
 export const CalculatorBody = styled.div`
     padding: 2.4rem;
+    /* stylelint-disable property-no-vendor-prefix */
+    ul::-webkit-scrollbar {
+        width: 12px;
+    }
+    ul::-webkit-scrollbar-thumb {
+        border: 4px solid rgba(0, 0, 0, 0);
+        background-clip: padding-box;
+        -webkit-border-radius: 7px;
+        border-radius: 7px;
+        background-color: var(--color-grey-32);
+        -webkit-box-shadow: inset -1px -1px 0 rgba(0, 0, 0, 0.05),
+            inset 1px 1px 0 rgba(0, 0, 0, 0.05);
+        box-shadow: inset -1px -1px 0 rgba(0, 0, 0, 0.05), inset 1px 1px 0 rgba(0, 0, 0, 0.05);
+    }
+    ul::-webkit-scrollbar-corner {
+        background-color: transparent;
+    }
 `
 
 export const CalculatorTabItem = styled.div`

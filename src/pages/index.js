@@ -1,22 +1,23 @@
 import React from 'react'
-import Loadable from '@loadable/component'
 // import Ticker from './home/_ticker'
-import Markets from './home/_markets'
-import WhatOurClientsSay from './home/_what-our-clients-say'
-import TradeTypes from './home/_trade-types'
-import TradeTypesMobile from './home/_trade-types-mobile'
+import {
+    TradeTypesMobile,
+    TradeTypes,
+    Markets,
+    Trade,
+    TradeTheWayYouLike,
+    WhatOurClientsSay,
+    SimpleSteps,
+    Signup,
+} from './home/_lazy-load'
 import { Hero } from './home/_hero'
 import { SEO, Show } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl, Localize } from 'components/localization'
-import Signup, { Appearances } from 'components/custom/signup'
-import SimpleSteps from 'components/custom/_simple-steps'
+import { Appearances } from 'components/custom/signup'
 import PractiseIcon from 'images/svg/aim.svg'
 import TradeIcon from 'images/svg/trade.svg'
 import WithdrawIcon from 'images/svg/withdraw.svg'
-
-const Trade = Loadable(() => import('./home/_trade'))
-const TradeTheWayYouLike = Loadable(() => import('./home/_trade-the-way-you-like'))
 
 const simple_step_content = [
     {
@@ -70,6 +71,7 @@ const Home = () => {
             <SimpleSteps
                 content={simple_step_content}
                 header={<Localize translate_text="3 simple steps" />}
+                sign_up={true}
             />
             <WhatOurClientsSay />
             <Signup appearance={Appearances.public} />

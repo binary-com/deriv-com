@@ -37,11 +37,9 @@ const StyledContainer = styled(Container)`
         padding: 12.5rem 0;
 
         h1 {
-            font-size: var(--text-size-xl);
             text-align: left;
         }
         h4 {
-            font-size: 3rem;
             text-align: left;
         }
     }
@@ -58,6 +56,13 @@ const Video = styled.video`
         transform: translate(-50%, -50%) scale(1.5);
     }
 `
+
+const MarketSubHeader = styled(Header)`
+    font-size: 24px;
+    @media ${device.tabletL} {
+        font-size: 18px;
+    }
+`
 export const Hero = () => {
     useLazyVideo()
 
@@ -68,11 +73,12 @@ export const Hero = () => {
                 <source data-src={Globe2} type="video/webm" />
             </Video>
             <StyledContainer direction="column">
-                <Header as="h1" color="white" lh="1.15" align="center">
+                <Header as="h1" type="display-title" color="white" lh="1.15" align="center">
                     {localize('Markets to trade on Deriv')}
                 </Header>
-                <Header
+                <MarketSubHeader
                     as="h4"
+                    type="sub-section-title"
                     color="white"
                     lh="1.5"
                     font_size="var(--text-size-m)"
@@ -83,7 +89,7 @@ export const Hero = () => {
                     {localize(
                         'Get the guidance you need to start trading on our platform. Browse through all the markets that we offer, learn about our trade types, and gain insight on how to make smarter trading decisions.',
                     )}
-                </Header>
+                </MarketSubHeader>
             </StyledContainer>
         </BackgroundWrapper>
     )

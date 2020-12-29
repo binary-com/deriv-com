@@ -3,11 +3,10 @@ import { matchSorter } from 'match-sorter'
 import styled from 'styled-components'
 import { Helmet } from 'react-helmet'
 import { navigate } from '@reach/router'
+import Loadable from '@loadable/component'
 import { articles } from './_help-articles'
 import { SearchSuccess, SearchError } from './_search-results'
 // TODO: active this line after having mail service
-import { DidntFindYourAnswerBanner } from './_didnt-find-answer'
-import { Community } from './_community'
 import { convertToHash } from './_utility'
 import { faq_schema } from './_faq-schema'
 import { SEO, Container } from 'components/containers'
@@ -19,6 +18,9 @@ import device from 'themes/device'
 // Icons
 import SearchIcon from 'images/svg/search.svg'
 import CrossIcon from 'images/svg/cross.svg'
+//Lazy-load
+const DidntFindYourAnswerBanner = Loadable(() => import('./_didnt-find-answer'))
+const Community = Loadable(() => import('./_community'))
 
 const getAllArticles = (articles) =>
     articles
@@ -150,7 +152,7 @@ const ListNoBullets = styled.ul`
 const StyledLink = styled(LocalizedLink)`
     text-decoration: none;
     color: black;
-    font-size: var(--text-size-s);
+    font-size: 16px;
 
     :hover {
         color: red;
@@ -161,7 +163,7 @@ const StyledLink = styled(LocalizedLink)`
 const StyledView = styled.div`
     text-decoration: none;
     color: red;
-    font-size: var(--text-size-s);
+    font-size: 16px;
 
     :hover {
         cursor: pointer;
@@ -306,7 +308,7 @@ class HelpCentre extends Component {
                     <Backdrop>
                         <Container align="left" justify="flex-start" direction="column">
                             <StyledContainer align="normal" direction="column">
-                                <ResponsiveHeader mb="4rem" as="h1">
+                                <ResponsiveHeader as="h1" type="display-title" mb="4rem">
                                     {localize('How can we help?')}
                                 </ResponsiveHeader>
                                 <SearchForm onSubmit={this.handleSubmit}>
@@ -353,7 +355,12 @@ class HelpCentre extends Component {
                                             return (
                                                 <ArticleDiv key={idx}>
                                                     <ListWrapper>
-                                                        <Header size="3.6rem" mb="1.6rem">
+                                                        <Header
+                                                            as="h3"
+                                                            type="section-title"
+                                                            size="3.6rem"
+                                                            mb="1.6rem"
+                                                        >
                                                             {item.category}
                                                         </Header>
                                                         {item.articles.map((ar, idxb) => {

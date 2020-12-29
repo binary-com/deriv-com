@@ -1,6 +1,7 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 import { Text, LocalizedLinkText } from 'components/elements/typography'
 import { Header, QueryImage } from 'components/elements'
 import { SectionContainer, Container, Flex, Box } from 'components/containers'
@@ -14,6 +15,7 @@ import Paraguay from 'images/svg/contact/paraguay.svg'
 import Malaysia from 'images/svg/contact/malaysia.svg'
 import Cyprus from 'images/svg/contact/cyprus.svg'
 import Rwanda from 'images/svg/contact/rwanda.svg'
+import Belarus from 'images/svg/contact/belarus.svg'
 
 const query = graphql`
     query {
@@ -42,6 +44,9 @@ const query = graphql`
             ...fadeIn
         }
         map_rwanda: file(relativePath: { eq: "maps/map-rwanda.png" }) {
+            ...fadeIn
+        }
+        map_belarus: file(relativePath: { eq: "maps/map-belarus.png" }) {
             ...fadeIn
         }
     }
@@ -160,21 +165,24 @@ const FullBox = styled(Flex)`
     }
 `
 
-export const Offices = () => {
+// TODO: remove is_belarus_enabled boolean once address is confirmed.
+export const Offices = ({ is_belarus_enabled }) => {
     const data = useStaticQuery(query)
 
     return (
         <SectionContainer>
             <Container>
                 <Content>
-                    <ResHeader as="h2">{localize('Our offices')}</ResHeader>
+                    <ResHeader as="h2" type="page-title">
+                        {localize('Our offices')}
+                    </ResHeader>
                     <GridLayout>
                         <Flex fd="column" max_width="48.6rem" id="malta">
                             <OfficeHeader>
                                 <div>
                                     <img src={Malta} alt="malta" />
                                 </div>
-                                <Header as="h4" mt="0.8rem" mb="1.6rem">
+                                <Header as="h4" type="sub-section-title" mt="0.8rem" mb="1.6rem">
                                     {localize('Malta')}
                                 </Header>
                             </OfficeHeader>
@@ -215,7 +223,7 @@ export const Offices = () => {
                                 <div>
                                     <img src={Dubai} alt="dubai" />
                                 </div>
-                                <Header as="h4" mt="0.8rem" mb="1.6rem">
+                                <Header as="h4" type="sub-section-title" mt="0.8rem" mb="1.6rem">
                                     {localize('Dubai')}
                                 </Header>
                             </OfficeHeader>
@@ -254,7 +262,7 @@ export const Offices = () => {
                             <div>
                                 <img src={Malaysia} alt="malaysia" />
                             </div>
-                            <Header as="h4" mt="0.8rem" mb="1.6rem">
+                            <Header as="h4" type="sub-section-title" mt="0.8rem" mb="1.6rem">
                                 {localize('Malaysia')}
                             </Header>
                         </OfficeHeader>
@@ -285,7 +293,7 @@ export const Offices = () => {
                                         >
                                             C-13, iTech Tower, Jalan Impact,
                                             <br></br>
-                                            Cyber 6, 63000,Cyberjaya,
+                                            Cyber 6, 63000, Cyberjaya,
                                             <br></br>
                                             Selangor
                                         </LocalizedLinkText>
@@ -391,7 +399,7 @@ export const Offices = () => {
                                 <div>
                                     <img src={Paraguay} alt="paraguay" />
                                 </div>
-                                <Header as="h4" mt="0.8rem" mb="1.6rem">
+                                <Header as="h4" type="sub-section-title" mt="0.8rem" mb="1.6rem">
                                     {localize('Paraguay')}
                                 </Header>
                             </OfficeHeader>
@@ -431,7 +439,7 @@ export const Offices = () => {
                                 <div>
                                     <img src={Cyprus} alt="cyprus" />
                                 </div>
-                                <Header as="h4" mt="0.8rem" mb="1.6rem">
+                                <Header as="h4" type="sub-section-title" mt="0.8rem" mb="1.6rem">
                                     {localize('Cyprus')}
                                 </Header>
                             </OfficeHeader>
@@ -469,7 +477,7 @@ export const Offices = () => {
                                 <div>
                                     <img src={Rwanda} alt="rwanda" />
                                 </div>
-                                <Header as="h4" mt="0.8rem" mb="1.6rem">
+                                <Header as="h4" type="sub-section-title" mt="0.8rem" mb="1.6rem">
                                     {localize('Rwanda')}
                                 </Header>
                             </OfficeHeader>
@@ -502,9 +510,53 @@ export const Offices = () => {
                                 </LocalizedLinkText>
                             </BorderBox>
                         </Flex>
+                        {is_belarus_enabled && (
+                            <Flex fd="column" max_width="48.6rem" id="belarus">
+                                <OfficeHeader>
+                                    <div>
+                                        <img src={Belarus} alt="belarus" />
+                                    </div>
+                                    <Header as="h4" mt="0.8rem" mb="1.6rem">
+                                        {localize('Belarus')}
+                                    </Header>
+                                </OfficeHeader>
+                                <BorderBox>
+                                    <MapContainer>
+                                        <LocalizedLink
+                                            to="https://goo.gl/maps/NGhs3vVwtTYp8GT48"
+                                            external
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                        >
+                                            <QueryImage
+                                                alt="Map Belarus"
+                                                data={data['map_belarus']}
+                                                height="100%"
+                                            />
+                                        </LocalizedLink>
+                                    </MapContainer>
+                                    <LocalizedLinkText
+                                        to="https://goo.gl/maps/NGhs3vVwtTYp8GT48"
+                                        external
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        mt="0.8rem"
+                                        ml="1.6rem"
+                                    >
+                                        Minsk, Belarus
+                                    </LocalizedLinkText>
+                                </BorderBox>
+                            </Flex>
+                        )}
                     </GridLayout>
                 </Content>
             </Container>
         </SectionContainer>
     )
 }
+
+Offices.propTypes = {
+    is_belarus_enabled: PropTypes.bool,
+}
+
+export default Offices

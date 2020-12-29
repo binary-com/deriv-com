@@ -32,6 +32,7 @@ const Wrapper = styled.div`
     width: 100%;
     overflow: hidden;
     border-top: 1px solid rgba(151, 151, 151, 0.2);
+    border-bottom: 1px solid rgba(151, 151, 151, 0.2);
     @media (max-width: 991px) {
         flex-direction: column;
         height: auto;
@@ -97,14 +98,18 @@ const InputGroup = styled.div`
     margin-top: 3.5rem;
 `
 const EmailButton = styled(Button)`
-    margin-left: 2rem;
-    height: 4rem;
+    margin-left: 1rem;
+    min-width: 105px;
+    height: 40px;
+    padding: 10px 28px;
+    border-radius: 4px;
     @media ${device.tabletL} {
-        width: auto;
+        padding: 10px;
+        min-width: unset;
         font-size: 1.4rem;
         margin-left: 0;
-        height: 5rem;
-        min-width: 15rem;
+        height: 40px;
+        width: 81px;
     }
 `
 const SocialWrapper = styled(Flex)`
@@ -117,7 +122,8 @@ const SocialWrapper = styled(Flex)`
     }
 `
 const SocialButton = styled(Button)`
-    width: 56px;
+    width: 70px;
+    border-radius: 4px;
     justify-content: center;
     display: flex;
     background-color: var(--color-white);
@@ -125,6 +131,8 @@ const SocialButton = styled(Button)`
     height: 4rem;
     margin: 0 0.8rem;
     @media ${device.tabletL} {
+        width: 114px;
+        height: 48px;
         justify-content: center;
         align-items: center;
     }
@@ -155,9 +163,16 @@ const StyledText = styled(Text)`
     width: auto;
     margin-right: 2rem;
     @media ${device.tabletL} {
-        width: max-content-fit;
-        margin-right: 1rem;
+        width: 90px;
+        margin-right: 0;
     }
+`
+
+const StyledSpan = styled.span`
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--color-grey-32);
+    margin-left: 4px;
 `
 const ImageWrapper = styled(Flex)`
     position: relative;
@@ -245,7 +260,7 @@ const SignupPublic = ({
                     </div>
                     <SignupFormWrapper>
                         <div>
-                            <StyledHeader size="3.2rem">
+                            <StyledHeader type="section-title">
                                 {localize('Join over 1 million traders worldwide')}
                             </StyledHeader>
                             <br />
@@ -262,10 +277,12 @@ const SignupPublic = ({
                                         value={email}
                                         background="white"
                                         tabletBackground="green-1"
-                                        inputColor="var(grey-5)"
+                                        inputColor="grey-5"
                                         inputBackground="grey-8"
                                         labelFocusColor="grey-7"
                                         labelColor="black-3"
+                                        labelSize="16px"
+                                        labelTop="1.2rem"
                                         label={localize('Email')}
                                         placeholder={'example@mail.com'}
                                         handleError={clearEmail}
@@ -275,6 +292,7 @@ const SignupPublic = ({
                                         autoComplete="off"
                                         required
                                         border="unset"
+                                        height="40px"
                                         focusBorder="var(--color-grey-7)"
                                     />
                                 </InputWrapper>
@@ -288,7 +306,7 @@ const SignupPublic = ({
                                 </EmailButton>
                             </InputGroup>
                             <SocialWrapper jc="unset" ai="center">
-                                <StyledText>{localize('or sign up with')}</StyledText>
+                                <StyledText>{localize('Or sign in with')}</StyledText>
                                 <SocialButton
                                     onClick={handleSocialSignup}
                                     provider="facebook"
@@ -336,7 +354,7 @@ const SignupPublic = ({
                 <MobileWrapper>
                     <MobileSignupFormWrapper>
                         <div>
-                            <StyledHeader size="3.2rem">
+                            <StyledHeader type="section-title">
                                 {localize('Join over 1 million traders worldwide')}
                             </StyledHeader>
                             <br />
@@ -353,7 +371,7 @@ const SignupPublic = ({
                                         value={email}
                                         background="white"
                                         tabletBackground="green-1"
-                                        inputColor="var(grey-5)"
+                                        inputColor="grey-5"
                                         inputBackground="grey-8"
                                         labelFocusColor="grey-7"
                                         labelColor="black-3"
@@ -379,19 +397,7 @@ const SignupPublic = ({
                                 </EmailButton>
                             </InputGroup>
                             <SocialWrapper jc="unset" ai="center">
-                                <StyledText>{localize('or sign up with')}</StyledText>
-                                <SocialButton
-                                    onClick={handleSocialSignup}
-                                    provider="facebook"
-                                    data-provider="facebook"
-                                    id="gtm-signup-facebook"
-                                    type="button"
-                                    social
-                                >
-                                    <span>
-                                        <img src={Facebook} alt="facebook" width="12" height="22" />
-                                    </span>
-                                </SocialButton>
+                                <StyledText>{localize('Or sign in with')}</StyledText>
                                 <SocialButton
                                     onClick={handleSocialSignup}
                                     provider="google"
@@ -401,8 +407,22 @@ const SignupPublic = ({
                                     social
                                 >
                                     <span>
+                                        <img src={Facebook} alt="facebook" width="12" height="22" />
+                                    </span>
+                                    <StyledSpan>Google</StyledSpan>
+                                </SocialButton>
+                                <SocialButton
+                                    onClick={handleSocialSignup}
+                                    provider="facebook"
+                                    data-provider="facebook"
+                                    id="gtm-signup-facebook"
+                                    type="button"
+                                    social
+                                >
+                                    <span>
                                         <img src={Google} alt="google" width="22" height="23" />
                                     </span>
+                                    <StyledSpan>Facebook</StyledSpan>
                                 </SocialButton>
                             </SocialWrapper>
                         </div>

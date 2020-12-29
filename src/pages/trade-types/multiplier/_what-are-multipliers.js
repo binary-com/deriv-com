@@ -13,6 +13,7 @@ import FullControl from 'images/svg/trade-types/full-control.svg'
 import ResponsivePlatform from 'images/svg/trade-types/responsive-platform.svg'
 import FriendlySupport from 'images/svg/trade-types/friendly-support.svg'
 import Seven from 'images/svg/trade-types/seven.svg'
+import CrashBoom from 'images/svg/trade-types/crash-boom.svg'
 
 const StyledHeader = styled(Header)`
     @media ${device.tablet} {
@@ -142,7 +143,7 @@ const WhatAreOptions = () => {
         <>
             <StyledSectionContainerHead padding="8rem 0 4rem">
                 <SmallContainer direction="column" ai="flex-start">
-                    <StyledHeader as="h2" mb="1.2rem">
+                    <StyledHeader as="h2" size="4.8rem" mb="1.2rem">
                         {localize('What are multipliers?')}
                     </StyledHeader>
                     <Text>
@@ -155,7 +156,7 @@ const WhatAreOptions = () => {
                     <Flex fd="column">
                         <Row mb="2rem">
                             <RowColumn isHeader>
-                                <StyledHeaderContent as="h3">
+                                <StyledHeaderContent as="h3" size="3.2rem">
                                     <Localize translate_text="Let’s say you predict that the market will go up." />
                                 </StyledHeaderContent>
                             </RowColumn>
@@ -243,7 +244,7 @@ const WhatAreOptions = () => {
             </StyledSectionContainer>
             <SectionContainer background="grey-23" padding="4rem 0">
                 <SmallContainer direction="column" jc="flex-start" ai="flex-start">
-                    <Header as="h3" mb="4rem">
+                    <Header as="h3" size="3.2rem" mb="4rem">
                         {localize('Why trade multipliers on Deriv')}
                     </Header>
                     <Grid>
@@ -307,6 +308,19 @@ const WhatAreOptions = () => {
                             <Text>
                                 {localize(
                                     'Offered on forex and synthetic indices, you can trade multipliers 24/7, all-year-round.',
+                                )}
+                            </Text>
+                        </WhyTradeItem>
+                        <WhyTradeItem>
+                            <div>
+                                <img src={CrashBoom} alt="crash boom" />
+                            </div>
+                            <Text mt="1.6rem" mb="0.8rem" weight="bold">
+                                {localize('Crash/Boom indices')}
+                            </Text>
+                            <Text>
+                                {localize(
+                                    'Predict and gain from exciting spikes and dips with our Crash/Boom indices.',
                                 )}
                             </Text>
                         </WhyTradeItem>

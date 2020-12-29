@@ -78,7 +78,7 @@ const StyledText = styled(Text)`
 const WhyTrader = () => {
     return (
         <Section>
-            <StyledHeader align="center" mb="4rem" as="h2">
+            <StyledHeader align="center" mb="4rem" as="h2" type="page-title">
                 {localize('Why trade with DMT5')}
             </StyledHeader>
             <CardContainer>
@@ -86,7 +86,7 @@ const WhyTrader = () => {
                     <div>
                         <img src={InstantAccess} alt="instant access" />
                     </div>
-                    <StyledCardHeader mt="0.8rem" mb="0.8rem" as="h4">
+                    <StyledCardHeader mt="0.8rem" mb="0.8rem" as="h4" type="sub-section-title">
                         {localize('Quick demo account sign-up')}
                     </StyledCardHeader>
                     <StyledText>
@@ -99,7 +99,7 @@ const WhyTrader = () => {
                     <div>
                         <img src={SyntheticIndices} alt="syntethic indices" />
                     </div>
-                    <StyledCardHeader mt="0.8rem" mb="0.8rem" as="h4">
+                    <StyledCardHeader mt="0.8rem" mb="0.8rem" as="h4" type="sub-section-title">
                         {localize('Multiple assets on a single platform')}
                     </StyledCardHeader>
                     <StyledText>
@@ -112,7 +112,7 @@ const WhyTrader = () => {
                     <div>
                         <img src={Seven} alt="seven" />
                     </div>
-                    <StyledCardHeader mt="0.8rem" mb="0.8rem" as="h4">
+                    <StyledCardHeader mt="0.8rem" mb="0.8rem" as="h4" type="sub-section-title">
                         {localize('24/7 trading')}
                     </StyledCardHeader>
                     <StyledText>
@@ -125,7 +125,7 @@ const WhyTrader = () => {
                     <div>
                         <img src={MinimalRisk} alt="minimal risk" />
                     </div>
-                    <StyledCardHeader mt="0.8rem" mb="0.8rem" as="h4">
+                    <StyledCardHeader mt="0.8rem" mb="0.8rem" as="h4" type="sub-section-title">
                         {localize('Licensed and regulated')}
                     </StyledCardHeader>
                     <StyledText>

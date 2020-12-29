@@ -24,7 +24,7 @@ const TradingButton = styled(LinkButton)`
 `
 
 const TradeTypeCard = styled.article`
-    width: 25rem;
+    width: 216px;
     position: relative;
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.05);
     border-radius: 8px;
@@ -125,9 +125,9 @@ const TradeTypesMobile = () => {
             overflow: 'hidden',
         },
         slide_style: {
-            minWidth: '24rem',
+            minWidth: '216px',
             borderRadius: '8px',
-            margin: '10px 10px 48px',
+            margin: '10px 16px 48px 0px',
             height: 'auto',
             position: 'relative',
         },
@@ -149,15 +149,14 @@ const TradeTypesMobile = () => {
                 </Text>
                 <Carousel {...settings}>
                     {trade_types.map((trade_slide, idx) => (
-                        <div key={idx} style={{ height: '100%' }}>
-                            <TradeTypeSlide
-                                icon={trade_slide.icon}
-                                title={trade_slide.title}
-                                description={trade_slide.description}
-                                link={trade_slide.link}
-                                linkTitle={trade_slide.linkTitle}
-                            />
-                        </div>
+                        <TradeTypeSlide
+                            key={idx}
+                            icon={trade_slide.icon}
+                            title={trade_slide.title}
+                            description={trade_slide.description}
+                            link={trade_slide.link}
+                            linkTitle={trade_slide.linkTitle}
+                        />
                     ))}
                 </Carousel>
                 <TradingButton type="submit" secondary="true" to="/signup/">

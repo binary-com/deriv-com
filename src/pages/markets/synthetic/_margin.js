@@ -3,6 +3,7 @@ import AvailablePlatforms from '../_available-platforms'
 import MarketsAccordion from '../_markets_accordion'
 import {
     Col,
+    ContentWrapper,
     Descriptions,
     MarketsList,
     MarketsWrapper,
@@ -11,13 +12,19 @@ import {
     Title,
 } from '../_markets-style'
 import { VolatilityIndices, CrashBoom, StepIndices, RangeBreak } from '../sub-markets/_submarkets'
-import { SectionContainer, Flex, Show } from 'components/containers'
+import {
+    CrashBoomDetails,
+    RangeBreakIndicesDetails,
+    StepIndicesDetails,
+    VolatilityIndicesDetails,
+} from './_details'
+import { SectionContainer, Show } from 'components/containers'
 import { localize } from 'components/localization'
 
 const Margin = () => {
     return (
         <SectionContainer padding="4rem 0 8rem">
-            <Flex max_width="79.2rem" m="0 auto" direction="column">
+            <ContentWrapper>
                 <Descriptions>
                     <StyledText align="center">
                         {localize(
@@ -34,14 +41,13 @@ const Margin = () => {
                         renderTitle={() => (
                             <Row is_accordion_row={true}>
                                 <Col>
-                                    <Title weight="bold" max_width="9.7rem" align="center">
-                                        {localize('Volatility indices')}
-                                    </Title>
+                                    <Title>{localize('Volatility indices')}</Title>
                                 </Col>
                                 <MarketsList
                                     col={3}
                                     has_right_border={true}
-                                    mobile_col_template={1}
+                                    tablet_col={1}
+                                    mobile_col={1}
                                 >
                                     <VolatilityIndices />
                                 </MarketsList>
@@ -54,20 +60,17 @@ const Margin = () => {
                             <Row is_accordion_row={true}>
                                 <Col>
                                     <Show.Desktop>
-                                        <Title weight="bold" max_width="9.7rem" align="center">
-                                            {localize('Crash/Boom')}
-                                        </Title>
+                                        <Title>{localize('Crash/Boom')}</Title>
                                     </Show.Desktop>
                                     <Show.Mobile>
-                                        <Title weight="bold" max_width="9.7rem" align="center">
-                                            {localize('Crash/ Boom')}
-                                        </Title>
+                                        <Title>{localize('Crash/ Boom')}</Title>
                                     </Show.Mobile>
                                 </Col>
                                 <MarketsList
                                     col={3}
                                     has_right_border={true}
-                                    mobile_col_template={1}
+                                    tablet_col={1}
+                                    mobile_col={1}
                                 >
                                     <CrashBoom />
                                 </MarketsList>
@@ -79,14 +82,13 @@ const Margin = () => {
                         renderTitle={() => (
                             <Row is_accordion_row={true}>
                                 <Col>
-                                    <Title weight="bold" max_width="9.7rem" align="center">
-                                        {localize('Step indices')}
-                                    </Title>
+                                    <Title>{localize('Step indices')}</Title>
                                 </Col>
                                 <MarketsList
                                     col={3}
                                     has_right_border={true}
-                                    mobile_col_template={1}
+                                    tablet_col={1}
+                                    mobile_col={1}
                                 >
                                     <StepIndices />
                                 </MarketsList>
@@ -98,14 +100,13 @@ const Margin = () => {
                         renderTitle={() => (
                             <Row is_accordion_row={true}>
                                 <Col>
-                                    <Title weight="bold" max_width="9.7rem" align="center">
-                                        {localize('Range break indices')}
-                                    </Title>
+                                    <Title>{localize('Range break indices')}</Title>
                                 </Col>
                                 <MarketsList
                                     col={3}
                                     has_right_border={true}
-                                    mobile_col_template={1}
+                                    tablet_col={1}
+                                    mobile_col={1}
                                 >
                                     <RangeBreak />
                                 </MarketsList>
@@ -114,7 +115,7 @@ const Margin = () => {
                         renderDetails={RangeBreakIndicesDetails}
                     />
                 </MarketsWrapper>
-            </Flex>
+            </ContentWrapper>
         </SectionContainer>
     )
 }

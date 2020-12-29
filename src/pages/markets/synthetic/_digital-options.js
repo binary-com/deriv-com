@@ -5,6 +5,7 @@ import AvailableOptions from '../_available-options'
 import AvailablePlatforms from '../_available-platforms'
 import {
     Col,
+    ContentWrapper,
     Descriptions,
     MarketsList,
     MarketsWrapper,
@@ -13,8 +14,9 @@ import {
     StyledText,
     Title,
 } from '../_markets-style'
+import { ContinuousIndicesDetails, DailyResetIndicesDetails } from './_details'
 import { Text } from 'components/elements'
-import { SectionContainer, Flex, Show } from 'components/containers'
+import { SectionContainer, Show } from 'components/containers'
 import { localize, Localize } from 'components/localization'
 //SVG
 import RiseFall from 'images/svg/options/rise-fall.svg'
@@ -34,8 +36,8 @@ import CloseLow from 'images/svg/options/close-low.svg'
 
 const DigitalOptions = () => {
     return (
-        <SectionContainer padding="4rem 0 8rem 0">
-            <Flex max_width="79.2rem" m="0 auto" direction="column">
+        <SectionContainer padding="4rem 0 8rem">
+            <ContentWrapper>
                 <Descriptions>
                     <StyledText align="center">
                         {localize(
@@ -248,7 +250,8 @@ const DigitalOptions = () => {
                                 <MarketsList
                                     has_right_border={true}
                                     col={3}
-                                    mobile_col_template={1}
+                                    tablet_col={1}
+                                    mobile_col={1}
                                 >
                                     <ContinuousIndices />
                                 </MarketsList>
@@ -265,7 +268,8 @@ const DigitalOptions = () => {
                                 <MarketsList
                                     has_right_border={true}
                                     col={3}
-                                    mobile_col_template={1}
+                                    tablet_col={1}
+                                    mobile_col={1}
                                 >
                                     <DailyResetIndices />
                                 </MarketsList>
@@ -274,7 +278,7 @@ const DigitalOptions = () => {
                         renderDetails={DailyResetIndicesDetails}
                     />
                 </MarketsWrapper>
-            </Flex>
+            </ContentWrapper>
         </SectionContainer>
     )
 }

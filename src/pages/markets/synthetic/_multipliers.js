@@ -3,6 +3,7 @@ import MarketsAccordion from '../_markets_accordion'
 import AvailablePlatforms from '../_available-platforms'
 import {
     Col,
+    ContentWrapper,
     Descriptions,
     MarketsList,
     MarketsWrapper,
@@ -11,14 +12,15 @@ import {
     Title,
 } from '../_markets-style'
 import { ContinuousIndices, CrashBoom, StepIndices } from '../sub-markets/_submarkets'
+import { ContinuousIndicesDetails, CrashBoomDetails, StepIndicesDetails } from './_details'
 import { Text } from 'components/elements'
-import { SectionContainer, Flex, Show } from 'components/containers'
+import { SectionContainer, Show } from 'components/containers'
 import { localize } from 'components/localization'
 
 const Multipliers = () => {
     return (
         <SectionContainer padding="4rem 0 8rem">
-            <Flex max_width="79.2rem" m="0 auto" direction="column">
+            <ContentWrapper>
                 <Descriptions>
                     <StyledText align="center">
                         {localize(
@@ -47,12 +49,12 @@ const Multipliers = () => {
                     <MarketsAccordion
                         renderTitle={() => (
                             <Row is_accordion_row={true}>
-                                <Col max_width="13.2rem">
+                                <Col>
                                     <Show.Desktop>
-                                        <Title max_width="9.7rem">{localize('Crash/Boom')}</Title>
+                                        <Title>{localize('Crash/Boom')}</Title>
                                     </Show.Desktop>
                                     <Show.Mobile>
-                                        <Title max_width="9.7rem">{localize('Crash/ Boom')}</Title>
+                                        <Title>{localize('Crash/ Boom')}</Title>
                                     </Show.Mobile>
                                 </Col>
                                 <MarketsList col={3} has_right_border={true}>
@@ -66,7 +68,7 @@ const Multipliers = () => {
                         renderTitle={() => (
                             <Row is_accordion_row={true}>
                                 <Col>
-                                    <Title max_width="9.7rem">{localize('Step indices')}</Title>
+                                    <Title>{localize('Step indices')}</Title>
                                 </Col>
                                 <MarketsList col={3} has_right_border={true}>
                                     <StepIndices />
@@ -83,7 +85,7 @@ const Multipliers = () => {
                         )}
                     </Text>
                 </Show.Eu>
-            </Flex>
+            </ContentWrapper>
         </SectionContainer>
     )
 }

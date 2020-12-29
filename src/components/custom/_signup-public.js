@@ -104,12 +104,12 @@ const EmailButton = styled(Button)`
     padding: 10px 28px;
     border-radius: 4px;
     @media ${device.tabletL} {
-        padding: 10px;
+        padding: 10px 14px;
+        white-space: nowrap;
         min-width: unset;
-        font-size: 1.4rem;
         margin-left: 0;
         height: 40px;
-        width: 81px;
+        width: auto;
     }
 `
 const SocialWrapper = styled(Flex)`

@@ -37,7 +37,7 @@ const HeroButton = styled(LinkButton)`
         display: flex;
         font-size: 1.75rem;
         justify-content: center;
-        max-width: 25.5rem;
+        max-width: 205px;
         height: 5rem;
     }
 `

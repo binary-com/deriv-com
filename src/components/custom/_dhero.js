@@ -127,12 +127,9 @@ const LinkWrapper = styled.div`
 const GoToLiveDemo = styled(LinkButton)`
     color: var(--color-white);
     border-color: var(--color-black-5);
-    padding: 1.2rem 1.6rem;
+    padding: 12px 16px;
     width: auto;
 
-    @media ${device.laptopM} {
-        font-size: 14px;
-    }
     @media ${device.mobileL} {
         max-width: 100%;
         white-space: nowrap;
@@ -144,7 +141,7 @@ const GoToLiveDemo = styled(LinkButton)`
     }
 `
 const DemoButton = styled(LinkButton)`
-    padding: 1.4rem 1.6rem;
+    padding: 14px 16px;
     width: auto;
     font-size: 14px;
     margin-right: 1.6rem;

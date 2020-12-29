@@ -10,7 +10,7 @@ import MultipliersLogo from 'images/svg/trade-types/multipliers.svg'
 import { LinkButton } from 'components/form'
 
 const TradingButton = styled(LinkButton)`
-    height: 4.8rem;
+    height: 40px;
     display: flex;
     align-items: center;
     max-width: 18rem;

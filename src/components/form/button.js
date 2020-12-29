@@ -6,8 +6,8 @@ import device from 'themes/device'
 
 const SharedButtonStyle = css`
     border-radius: 6px;
-    padding: 1rem 1.6rem;
-    font-size: 1.4rem;
+    padding: 10px 16px;
+    font-size: 14px;
     transition: all 0.25s;
     font-weight: bold;
     height: fit-content;

@@ -17,6 +17,11 @@ const StyledContainer = styled(Container)`
     padding: 7rem 0 0;
 `
 
+const FullwidthStyledContainer = styled(StyledContainer)`
+    max-width: 100%;
+    width: 100%;
+`
+
 const ButtonContainer = styled.div`
     margin-top: 0;
     display: grid;
@@ -157,32 +162,34 @@ const ResetPassword = () => {
         )
     } else {
         body = (
-            <StyledContainer mt="7rem" justify="flex-start" align="center" direction="column">
-                <Header as="h2" type="section-title" align="center" mb="2rem">
-                    {localize('All you’ll need from now is one password')}
-                </Header>
-                <Text align="center" mb="2rem">
-                    {localize(
-                        'We’ve upgraded our system to support a single, more secure password across all of Deriv/Binary.com. Once you’ve set a new password, you can use it to log into all your Deriv/Binary.com, and DMT5/MT5 accounts.',
-                    )}
-                </Text>
-                <ButtonContainer>
-                    <StyledButton tertiary onClick={Login.redirectToLogin} type="button">
-                        {localize('Return to log in')}
-                    </StyledButton>
-                    <StyledButton
-                        secondary="true"
-                        type="button"
-                        onClick={() => setOnePasswordPrompt(false)}
-                    >
-                        {localize('Reset my password')}
-                    </StyledButton>
-                </ButtonContainer>
-            </StyledContainer>
+            <FullwidthStyledContainer background="var(--color-pale-gray-64);" mt="7rem">
+                <StyledContainer justify="flex-start" align="center" direction="column">
+                    <Header as="h2" type="section-title" align="center" mb="2rem">
+                        {localize('All you’ll need from now is one password')}
+                    </Header>
+                    <Text align="center" mb="2rem">
+                        {localize(
+                            'We’ve upgraded our system to support a single, more secure password across all of Deriv/Binary.com. Once you’ve set a new password, you can use it to log into all your Deriv/Binary.com, and DMT5/MT5 accounts.',
+                        )}
+                    </Text>
+                    <ButtonContainer>
+                        <StyledButton tertiary onClick={Login.redirectToLogin} type="button">
+                            {localize('Return to log in')}
+                        </StyledButton>
+                        <StyledButton
+                            secondary="true"
+                            type="button"
+                            onClick={() => setOnePasswordPrompt(false)}
+                        >
+                            {localize('Reset my password')}
+                        </StyledButton>
+                    </ButtonContainer>
+                </StyledContainer>
+            </FullwidthStyledContainer>
         )
     }
     return (
-        <Layout type="static" margin_top="0">
+        <Layout type="static" is_fullpage margin_top="0">
             <SEO
                 title={localize('Reset password | Deriv')}
                 description={localize(

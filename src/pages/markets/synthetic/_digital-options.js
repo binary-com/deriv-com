@@ -1,13 +1,21 @@
 import React from 'react'
-import styled from 'styled-components'
-import MarketsAccordion from '../_markets_accordion.js'
-import { ContinuousIndices, DailyResetIndices } from '../sub-markets/_submarkets.js'
-import AvailableOptions from '../_available-options.js'
-import AvailablePlatforms from '../_available-platforms.js'
+import MarketsAccordion from '../_markets_accordion'
+import { ContinuousIndices, DailyResetIndices } from '../sub-markets/_submarkets'
+import AvailableOptions from '../_available-options'
+import AvailablePlatforms from '../_available-platforms'
+import {
+    Col,
+    Descriptions,
+    MarketsList,
+    MarketsWrapper,
+    Row,
+    Options,
+    StyledText,
+    Title,
+} from '../_markets-style'
 import { Text } from 'components/elements'
-import { SectionContainer, Flex, CssGrid, Show } from 'components/containers'
+import { SectionContainer, Flex, Show } from 'components/containers'
 import { localize, Localize } from 'components/localization'
-import device from 'themes/device'
 //SVG
 import RiseFall from 'images/svg/options/rise-fall.svg'
 import HigherLower from 'images/svg/options/higher-lower.svg'
@@ -24,123 +32,6 @@ import HighClose from 'images/svg/options/high-close.svg'
 import HighLow from 'images/svg/options/high-low.svg'
 import CloseLow from 'images/svg/options/close-low.svg'
 
-const Descriptions = styled.div`
-    padding-bottom: 4rem;
-    border-bottom: 1px solid var(--color-grey-21);
-`
-const Col = styled(Flex)`
-    max-width: 13.2rem;
-
-    @media ${device.tabletL} {
-        max-width: 12rem;
-    }
-`
-const MarketsWrapper = styled(Flex)`
-    flex-direction: column;
-
-    > div {
-        margin-top: 2.4rem;
-    }
-`
-const Row = styled(Flex)``
-const Options = styled(Descriptions)`
-    margin-top: 2.4rem;
-
-    ${Row} {
-        margin-top: 4rem;
-        border: unset;
-        justify-content: space-between;
-
-        @media ${device.tabletL} {
-            flex-direction: column;
-        }
-
-        ${Col} {
-            max-width: 38.4rem;
-        }
-    }
-    div:first-child {
-        margin-top: 0;
-    }
-`
-const StyledText = styled(Text)`
-    @media ${device.tabletL} {
-        font-size: 2rem;
-        text-align: left;
-    }
-`
-const MarketsList = styled(CssGrid)`
-    border-left: 1px solid var(--color-grey-22);
-    border-right: 1px solid var(--color-grey-22);
-    grid-template-columns: repeat(3, 1fr);
-    width: 100%;
-    padding: 2.4rem 0.7rem;
-    grid-row-gap: 1.6rem;
-
-    @media ${device.tabletL} {
-        grid-template-columns: repeat(1, 1fr);
-
-        img {
-            width: 16px;
-            height: 16px;
-            margin-right: 4px;
-        }
-        ${Text} {
-            font-size: 1.5rem;
-            line-height: 1.5;
-        }
-    }
-`
-const Title = styled(Text)`
-    @media ${device.tabletL} {
-        text-align: center;
-        font-weight: 600;
-        font-size: 14px;
-    }
-`
-const DetailsContainer = styled(Flex)`
-    flex-direction: column;
-
-    ${Text} {
-        font-size: 1.4rem;
-        margin-top: 1.6rem;
-
-        @media ${device.tabletL} {
-            margin-top: 1rem;
-        }
-    }
-`
-const ContinuousIndicesDetails = () => (
-    <DetailsContainer>
-        <Text>
-            {localize(
-                'These indices correspond to simulated markets with constant volatilities of 10%, 25%, 50%, 75%, and 100%.',
-            )}
-        </Text>
-        <Text>
-            <Localize
-                translate_text="<0>One tick</0> is generated <0>every two seconds</0> for volatility indices <0>10, 25, 50, 75, and 100</0>."
-                components={[<strong key={0} />]}
-            />
-        </Text>
-        <Text>
-            <Localize
-                translate_text="<0>One tick</0> is generated <0>every second</0> for volatility indices <0>10 (1s), 25 (1s), 50 (1s), 75 (1s), and 100 (1s)</0>."
-                components={[<strong key={0} />]}
-            />
-        </Text>
-    </DetailsContainer>
-)
-const DailyResetIndicesDetails = () => (
-    <DetailsContainer>
-        <Text>
-            <Localize
-                translate_text="These indices replicate markets with <0>bullish and bearish trends</0> with constant volatility. The Bull Market and Bear Market indices start at 00:00 GMT each day, replicating bullish and bearish markets respectively."
-                components={[<strong key={0} />]}
-            />
-        </Text>
-    </DetailsContainer>
-)
 const DigitalOptions = () => {
     return (
         <SectionContainer padding="4rem 0 8rem 0">
@@ -350,13 +241,15 @@ const DigitalOptions = () => {
                 <MarketsWrapper>
                     <MarketsAccordion
                         renderTitle={() => (
-                            <Row jc="flex-start" ai="center">
+                            <Row is_accordion_row={true}>
                                 <Col>
-                                    <Title weight="bold" align="center" p="0 0.4rem">
-                                        {localize('Continuous indices')}
-                                    </Title>
+                                    <Title p="0 0.4rem">{localize('Continuous indices')}</Title>
                                 </Col>
-                                <MarketsList>
+                                <MarketsList
+                                    has_right_border={true}
+                                    col={3}
+                                    mobile_col_template={1}
+                                >
                                     <ContinuousIndices />
                                 </MarketsList>
                             </Row>
@@ -365,13 +258,15 @@ const DigitalOptions = () => {
                     />
                     <MarketsAccordion
                         renderTitle={() => (
-                            <Row jc="flex-start" ai="center">
+                            <Row is_accordion_row={true}>
                                 <Col>
-                                    <Title weight="bold" align="center">
-                                        {localize('Daily reset indices')}
-                                    </Title>
+                                    <Title>{localize('Daily reset indices')}</Title>
                                 </Col>
-                                <MarketsList>
+                                <MarketsList
+                                    has_right_border={true}
+                                    col={3}
+                                    mobile_col_template={1}
+                                >
                                     <DailyResetIndices />
                                 </MarketsList>
                             </Row>

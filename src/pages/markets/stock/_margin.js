@@ -1,31 +1,23 @@
 import React from 'react'
 import styled from 'styled-components'
-import AvailablePlatforms from '../_available-platforms.js'
-import MarketsAccordion from '../_markets_accordion.js'
+import AvailablePlatforms from '../_available-platforms'
+import MarketsAccordion from '../_markets_accordion'
+import {
+    Col,
+    ContentWrapper,
+    Descriptions,
+    MarketsList,
+    MarketsWrapper,
+    Row,
+    StyledText,
+    Title,
+} from '../_markets-style'
+import { EuropeDetails } from './_details'
 import { Text } from 'components/elements'
-import { SectionContainer, Flex, CssGrid } from 'components/containers'
+import { SectionContainer, Flex } from 'components/containers'
 import { localize } from 'components/localization'
-import { OTCGERMAN } from 'components/elements/symbols.js'
-import device from 'themes/device'
+import { OTCGERMAN } from 'components/elements/symbols'
 
-const Descriptions = styled.div`
-    padding-bottom: 4rem;
-    border-bottom: 1px solid var(--color-grey-22);
-`
-const Col = styled(Flex)`
-    max-width: 12.9rem;
-
-    @media ${device.tabletL} {
-        max-width: 10rem;
-    }
-`
-const Row = styled(Flex)``
-const StyledText = styled(Text)`
-    @media ${device.tabletL} {
-        font-size: 2rem;
-        text-align: left;
-    }
-`
 const Symbol = styled(Flex)`
     width: fit-content;
 
@@ -40,69 +32,11 @@ const Symbol = styled(Flex)`
         line-height: 1.14;
     }
 `
-const MarketsList = styled(CssGrid)`
-    border-left: 1px solid var(--color-grey-22);
-    border-right: 1px solid var(--color-grey-22);
-    grid-template-columns: repeat(1, 1fr);
-    width: 100%;
-    padding: 2.4rem;
-    grid-row-gap: 1.6rem;
 
-    @media ${device.tabletL} {
-        grid-template-columns: repeat(1, 1fr);
-
-        img {
-            width: 16px;
-            height: 16px;
-            margin-right: 4px;
-        }
-        ${Text} {
-            font-size: 1.5rem;
-            line-height: 1.5;
-        }
-    }
-`
-
-const Title = styled(Text)`
-    text-align: center;
-
-    @media ${device.tabletL} {
-        max-width: 8rem;
-        font-weight: 600;
-    }
-`
-const MarketsWrapper = styled(Flex)`
-    flex-direction: column;
-
-    > div {
-        margin-top: 2.4rem;
-    }
-`
-const DetailsContainer = styled(Flex)`
-    flex-direction: column;
-
-    ${Text} {
-        font-size: 1.4rem;
-        margin-top: 1.6rem;
-
-        @media ${device.tabletL} {
-            margin-top: 1rem;
-        }
-    }
-`
-const EuropeDetails = () => (
-    <DetailsContainer>
-        <Text>
-            {localize(
-                'The German Index follows the stock performance of the 30 major listed companies in Germany.',
-            )}
-        </Text>
-    </DetailsContainer>
-)
 const Margin = () => {
     return (
-        <SectionContainer padding="4rem 0 8rem 0">
-            <Flex max_width="79.2rem" m="0 auto" direction="column">
+        <SectionContainer padding="4rem 0 8rem">
+            <ContentWrapper>
                 <Descriptions>
                     <StyledText align="center">
                         {localize(
@@ -114,14 +48,19 @@ const Margin = () => {
                 <StyledText weight="bold" mt="2.4rem">
                     {localize('Instruments available for margin trading')}
                 </StyledText>
-                <MarketsWrapper direction="column">
+                <MarketsWrapper>
                     <MarketsAccordion
                         renderTitle={() => (
-                            <Row jc="flex-start" ai="center">
+                            <Row is_accordion_row={true}>
                                 <Col>
-                                    <Title weight="bold">{localize('Europe')}</Title>
+                                    <Title>{localize('Europe')}</Title>
                                 </Col>
-                                <MarketsList>
+                                <MarketsList
+                                    has_right_border={true}
+                                    col={1}
+                                    tablet_col={1}
+                                    mobile_col={1}
+                                >
                                     <Symbol ai="center">
                                         <img src={OTCGERMAN} />
                                         <Text>{localize('German Index')}</Text>
@@ -130,9 +69,10 @@ const Margin = () => {
                             </Row>
                         )}
                         renderDetails={EuropeDetails}
+                        args={[4]}
                     />
                 </MarketsWrapper>
-            </Flex>
+            </ContentWrapper>
         </SectionContainer>
     )
 }

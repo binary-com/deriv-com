@@ -41,7 +41,7 @@ const Details = styled(Box)`
         padding: 1rem 1rem 2rem 1rem;
     }
 `
-const MarketsAccordion = ({ renderTitle, renderDetails }) => {
+const MarketsAccordion = ({ renderTitle, renderDetails, args }) => {
     const [is_show_detail, setShow] = React.useState(false)
     return (
         <Wrapper>
@@ -58,13 +58,16 @@ const MarketsAccordion = ({ renderTitle, renderDetails }) => {
                 </Button>
             </Title>
             {is_show_detail && (
-                <Details background="var(--color-grey-23)">{renderDetails()}</Details>
+                <Details background="var(--color-grey-23)">
+                    {args ? renderDetails(...args) : renderDetails()}
+                </Details>
             )}
         </Wrapper>
     )
 }
 
 MarketsAccordion.propTypes = {
+    args: PropTypes.any,
     renderDetails: PropTypes.func,
     renderTitle: PropTypes.func,
 }

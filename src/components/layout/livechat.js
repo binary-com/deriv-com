@@ -25,9 +25,6 @@ const StyledLiveChat = styled.div`
 `
 const url_params = new URLSearchParams(window.location.search)
 const is_livechat_query = url_params.get('is_livechat_open')
-if (is_livechat_query?.toLowerCase() === 'true') {
-    window.LC_API.open_chat_window()
-}
 
 const LiveChat = ({ LC_API, is_livechat_interactive, setLiveChatInteractive }) => {
     const [is_livechat_hover, setLivechatHover] = React.useState(false)
@@ -80,6 +77,9 @@ const LiveChat = ({ LC_API, is_livechat_interactive, setLiveChatInteractive }) =
                 loadLiveChatScript(() => {
                     window.LiveChatWidget.on('ready', () => {
                         setLiveChatInteractive(true)
+                        if (is_livechat_query?.toLowerCase() === 'true') {
+                            window.LC_API.open_chat_window()
+                        }
                     })
                 })
             }, 2000)

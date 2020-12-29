@@ -205,7 +205,7 @@ const query = graphql`
         }
         dtrader: file(relativePath: { eq: "dtrader_trade.png" }) {
             childImageSharp {
-                fluid(maxWidth: 1024, srcSetBreakpoints: [600, 1440]) {
+                fluid(maxWidth: 1024, srcSetBreakpoints: [1440]) {
                     ...GatsbyImageSharpFluid_withWebp_noBase64
                     originalName
                 }

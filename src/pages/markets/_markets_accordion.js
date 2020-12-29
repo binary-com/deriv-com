@@ -59,7 +59,7 @@ const MarketsAccordion = ({ renderTitle, renderDetails, args }) => {
             </Title>
             {is_show_detail && (
                 <Details background="var(--color-grey-23)">
-                    {args ? renderDetails(...args) : renderDetails()}
+                    {args ? renderDetails(args) : renderDetails()}
                 </Details>
             )}
         </Wrapper>

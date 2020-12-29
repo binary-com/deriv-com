@@ -1,8 +1,7 @@
 import React from 'react'
-import styled from 'styled-components'
+import { Symbol } from '../_markets-style'
 import { Text } from 'components/elements'
 import { localize } from 'components/localization'
-import { Flex } from 'components/containers'
 import {
     AUDSGD,
     CHFJPY,
@@ -24,103 +23,88 @@ import {
     USDSGD,
     USDTHB,
     USDTRY,
-} from 'components/elements/symbols.js'
-
-const Symbol = styled(Flex)`
-    width: fit-content;
-
-    img {
-        width: 32px;
-        height: 32px;
-        margin-right: 0.8rem;
-    }
-    ${Text} {
-        font-weight: normal;
-        font-size: var(--text-size-xs);
-        line-height: 1.14;
-    }
-`
+} from 'components/elements/symbols'
 
 const ExoticPairs = () => {
     return (
         <>
-            <Symbol ai="center">
+            <Symbol>
                 <img src={AUDSGD} />
                 <Text>{localize('AUD/SGD')}</Text>
             </Symbol>
-            <Symbol ai="center">
+            <Symbol>
                 <img src={CHFJPY} />
                 <Text>{localize('CHF/JPY')}</Text>
             </Symbol>
-            <Symbol ai="center">
+            <Symbol>
                 <img src={EURHKD} />
                 <Text>{localize('EUR/HKD')}</Text>
             </Symbol>
-            <Symbol ai="center">
+            <Symbol>
                 <img src={EURILS} />
                 <Text>{localize('EUR/ILS')}</Text>
             </Symbol>
-            <Symbol ai="center">
+            <Symbol>
                 <img src={EURMXN} />
                 <Text>{localize('EUR/MXN')}</Text>
             </Symbol>
-            <Symbol ai="center">
+            <Symbol>
                 <img src={EURSGD} />
                 <Text>{localize('EUR/SGD')}</Text>
             </Symbol>
-            <Symbol ai="center">
+            <Symbol>
                 <img src={EURTRY} />
                 <Text>{localize('EUR/TRY')}</Text>
             </Symbol>
-            <Symbol ai="center">
+            <Symbol>
                 <img src={EURZAR} />
                 <Text>{localize('EUR/ZAR')}</Text>
             </Symbol>
-            <Symbol ai="center">
+            <Symbol>
                 <img src={GBPSGD} />
                 <Text>{localize('GBP/SGD')}</Text>
             </Symbol>
-            <Symbol ai="center">
+            <Symbol>
                 <img src={GBPTRY} />
                 <Text>{localize('GBP/TRY')}</Text>
             </Symbol>
-            <Symbol ai="center">
+            <Symbol>
                 <img src={HKDJPY} />
                 <Text>{localize('HKD/JPY')}</Text>
             </Symbol>
-            <Symbol ai="center">
+            <Symbol>
                 <img src={NZDCHF} />
                 <Text>{localize('NZD/CHF')}</Text>
             </Symbol>
-            <Symbol ai="center">
+            <Symbol>
                 <img src={NZDSGD} />
                 <Text>{localize('NZD/SGD')}</Text>
             </Symbol>
-            <Symbol ai="center">
+            <Symbol>
                 <img src={SGDJPY} />
                 <Text>{localize('SGD/JPY')}</Text>
             </Symbol>
-            <Symbol ai="center">
+            <Symbol>
                 <img src={USDHKD} />
                 <Text>{localize('USD/HKD')}</Text>
             </Symbol>
-            <Symbol ai="center">
+            <Symbol>
                 <img src={USDILS} />
                 <Text>{localize('USD/ILS')}</Text>
             </Symbol>
-            <Symbol ai="center">
+            <Symbol>
                 <img src={USDRUB} />
                 <Text>{localize('USD/RUB')}</Text>
             </Symbol>
-            <Symbol ai="center">
+            <Symbol>
                 <img src={USDSGD} />
                 <Text>{localize('USD/SGD')}</Text>
             </Symbol>
-            <Symbol ai="center">
+            <Symbol>
                 <img src={USDTHB} />
                 <Text>{localize('USD/THB')}</Text>
             </Symbol>
-            <Symbol ai="center">
+            <Symbol>
                 <img src={USDTRY} />
                 <Text>{localize('USD/TRY')}</Text>
             </Symbol>

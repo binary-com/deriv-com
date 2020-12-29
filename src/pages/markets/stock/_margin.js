@@ -1,5 +1,4 @@
 import React from 'react'
-import styled from 'styled-components'
 import AvailablePlatforms from '../_available-platforms'
 import MarketsAccordion from '../_markets_accordion'
 import {
@@ -10,28 +9,14 @@ import {
     MarketsWrapper,
     Row,
     StyledText,
+    Symbol,
     Title,
 } from '../_markets-style'
 import { EuropeDetails } from './_details'
 import { Text } from 'components/elements'
-import { SectionContainer, Flex } from 'components/containers'
+import { SectionContainer } from 'components/containers'
 import { localize } from 'components/localization'
 import { OTCGERMAN } from 'components/elements/symbols'
-
-const Symbol = styled(Flex)`
-    width: fit-content;
-
-    img {
-        width: 32px;
-        height: 32px;
-        margin-right: 0.8rem;
-    }
-    ${Text} {
-        font-weight: normal;
-        font-size: var(--text-size-xs);
-        line-height: 1.14;
-    }
-`
 
 const Margin = () => {
     return (
@@ -61,7 +46,7 @@ const Margin = () => {
                                     tablet_col={1}
                                     mobile_col={1}
                                 >
-                                    <Symbol ai="center">
+                                    <Symbol>
                                         <img src={OTCGERMAN} />
                                         <Text>{localize('German Index')}</Text>
                                     </Symbol>
@@ -69,7 +54,7 @@ const Margin = () => {
                             </Row>
                         )}
                         renderDetails={EuropeDetails}
-                        args={[4]}
+                        args={4}
                     />
                 </MarketsWrapper>
             </ContentWrapper>

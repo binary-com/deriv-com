@@ -117,6 +117,22 @@ export const StyledText = styled(Text)`
     }
 `
 
+export const Symbol = styled(Flex)`
+    width: fit-content;
+    align-items: center;
+
+    img {
+        width: 32px;
+        height: 32px;
+        margin-right: 0.8rem;
+    }
+    ${Text} {
+        font-weight: normal;
+        font-size: var(--text-size-xs);
+        line-height: 1.14;
+    }
+`
+
 export const Title = styled(Text)`
     text-align: center;
     font-weight: bold;

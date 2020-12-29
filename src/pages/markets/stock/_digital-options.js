@@ -150,7 +150,7 @@ const DigitalOptions = () => {
                             </Row>
                         )}
                         renderDetails={EuropeDetails}
-                        args={[-1]}
+                        args={-1}
                     />
                 </MarketsWrapper>
             </ContentWrapper>

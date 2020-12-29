@@ -1,15 +1,15 @@
+import { Form, Formik } from 'formik'
 import React from 'react'
 import styled from 'styled-components'
-import { Formik, Form } from 'formik'
-import Layout from 'components/layout/layout'
-import { localize, WithIntl } from 'components/localization'
+import Login from 'common/login'
+import { trimSpaces } from 'common/utility'
+import validation from 'common/validation'
+import { BinarySocketBase } from 'common/websocket/socket_base'
 import { Container, SEO } from 'components/containers'
 import { Header, Text } from 'components/elements'
-import { Input, Button } from 'components/form'
-import validation from 'common/validation'
-import { trimSpaces } from 'common/utility'
-import { BinarySocketBase } from 'common/websocket/socket_base'
-import Login from 'common/login'
+import { Button, Input } from 'components/form'
+import Layout from 'components/layout/layout'
+import { Localize, localize, WithIntl } from 'components/localization'
 
 const StyledContainer = styled(Container)`
     text-align: center;
@@ -168,9 +168,10 @@ const ResetPassword = () => {
                         {localize('All you’ll need from now is one password')}
                     </Header>
                     <Text align="center" mb="2rem">
-                        {localize(
-                            'We’ve upgraded our system to support a single, more secure password across all of Deriv/Binary.com. Once you’ve set a new password, you can use it to log into all your Deriv/Binary.com, and DMT5/MT5 accounts.',
-                        )}
+                        <Localize
+                            translate_text="We’ve upgraded our system to support a single, more secure password across all of Deriv/Binary.com. <0 /> Once you’ve set a new password, you can use it to log into all your Deriv/Binary.com, and DMT5/MT5 accounts."
+                            components={[<br key={0} />]}
+                        />
                     </Text>
                     <ButtonContainer>
                         <StyledButton tertiary onClick={Login.redirectToLogin} type="button">

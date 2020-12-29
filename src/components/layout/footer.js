@@ -497,6 +497,7 @@ const Footer = ({ type }) => {
                                         >
                                             {localize('Blog')}
                                         </Link>
+                                        <Link to="/trader-tools">{localize('Traders’ tools')}</Link>
                                     </LinkWrapper>
                                     <LinkWrapper>
                                         <Link to="/payment-methods">

@@ -7,32 +7,33 @@ import { Accordion, AccordionItem, NavCard, Text, Divider } from 'components/ele
 import { useOutsideClick } from 'components/hooks/outside-click'
 import { cfd_warning_height_desktop, cfd_warning_height_tablet } from 'common/utility'
 // SVG
-import DTrader from 'images/svg/dtrader-icon.svg'
-import DMT5 from 'images/svg/dmt5-icon.svg'
-import DBot from 'images/svg/dbot-icon.svg'
-import Smarttrader from 'images/svg/smarttrader.svg'
-import Forex from 'images/svg/forex-nav.svg'
-import Commodities from 'images/svg/commodities-nav.svg'
-import StockIndices from 'images/svg/stock-indices-nav.svg'
-import SyntheticIndices from 'images/svg/synthetic-indices-nav.svg'
-import MarginTrading from 'images/svg/margin-trading-nav.svg'
-import Options from 'images/svg/options-nav.svg'
-import Multipliers from 'images/svg/multipliers-nav.svg'
-import Story from 'images/svg/menu/story.svg'
-import Leadership from 'images/svg/menu/leadership.svg'
-import Partner from 'images/svg/menu/partner.svg'
-import Choose from 'images/svg/menu/choose.svg'
-import Contact from 'images/svg/menu/contact.svg'
-import Career from 'images/svg/menu/careers.svg'
-import Help from 'images/svg/menu/help-center.svg'
-import Payment from 'images/svg/menu/payment-methods.svg'
-import Regulatory from 'images/svg/menu/regulatory.svg'
-import Terms from 'images/svg/menu/terms.svg'
-import SecureTrading from 'images/svg/menu/secure-trading.svg'
-import Community from 'images/svg/menu/community.svg'
-import Diagonal from 'images/svg/pink-right-diagonal.svg'
 import AffiliateIb from 'images/svg/menu/affiliate-ib.svg'
+import Career from 'images/svg/menu/careers.svg'
+import Choose from 'images/svg/menu/choose.svg'
+import Commodities from 'images/svg/commodities-nav.svg'
+import Community from 'images/svg/menu/community.svg'
+import Contact from 'images/svg/menu/contact.svg'
+import DBot from 'images/svg/dbot-icon.svg'
+import Diagonal from 'images/svg/pink-right-diagonal.svg'
+import DMT5 from 'images/svg/dmt5-icon.svg'
+import DTrader from 'images/svg/dtrader-icon.svg'
+import Forex from 'images/svg/forex-nav.svg'
+import Help from 'images/svg/menu/help-center.svg'
+import Leadership from 'images/svg/menu/leadership.svg'
+import MarginTrading from 'images/svg/margin-trading-nav.svg'
+import Multipliers from 'images/svg/multipliers-nav.svg'
+import Options from 'images/svg/options-nav.svg'
+import Partner from 'images/svg/menu/partner.svg'
+import Payment from 'images/svg/menu/payment-methods.svg'
 import PaymentAgent from 'images/svg/menu/payment-agent.svg'
+import Regulatory from 'images/svg/menu/regulatory.svg'
+import SecureTrading from 'images/svg/menu/secure-trading.svg'
+import Smarttrader from 'images/svg/smarttrader.svg'
+import StockIndices from 'images/svg/stock-indices-nav.svg'
+import Story from 'images/svg/menu/story.svg'
+import SyntheticIndices from 'images/svg/synthetic-indices-nav.svg'
+import Terms from 'images/svg/menu/terms.svg'
+import TraderTool from 'images/svg/trader-tool-nav.svg'
 import { DerivStore } from 'store'
 import device from 'themes/device'
 import Blog from 'images/svg/menu/blog.svg'
@@ -416,12 +417,22 @@ export const OffCanvasMenuWrapper = (props) => {
                                 <img src={Diagonal} alt="diagonal" width="16" height="16" />
                             </SpanSvg>
                         </StyledLink>
+                        <StyledLink to="/trader-tools/" onClick={handleArrowClick}>
+                            <div>
+                                <img src={TraderTool} alt="traders tools" width="24" height="24" />
+                            </div>
+                            <span>{localize('Traders’ tools')}</span>
+                        </StyledLink>
                         <StyledLink to="/payment-methods/" onClick={handleArrowClick}>
                             <div>
                                 <img src={Payment} alt="payment" width="24" height="24" />
                             </div>
                             <span>{localize('Payment methods')}</span>
                         </StyledLink>
+                        {/* TODO: add this when blog is ready */}
+                        {/* <StyledLink to="/blog/" onClick={handleArrowClick}>
+                            {localize('Blog')}
+                        </StyledLink> */}
                     </AccordionItem>
                     <AccordionItem
                         header={localize('Legal')}

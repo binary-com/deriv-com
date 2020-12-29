@@ -16,27 +16,28 @@ import device from 'themes/device'
 import { community_url } from 'common/utility'
 import { DerivStore } from 'store'
 // icons
-import DTrader from 'images/svg/dtrader-icon.svg'
-import DMT5 from 'images/svg/dmt5-icon.svg'
-import DBot from 'images/svg/dbot-icon.svg'
-import Smarttrader from 'images/svg/smarttrader.svg'
-import Margin from 'images/svg/margin-trading-nav.svg'
-import Options from 'images/svg/options-nav.svg'
-import Multipliers from 'images/svg/multipliers-nav.svg'
-import Forex from 'images/svg/forex-nav.svg'
-import Commodities from 'images/svg/commodities-nav.svg'
-import StockIndices from 'images/svg/stock-indices-nav.svg'
-import SyntheticIndices from 'images/svg/synthetic-indices-nav.svg'
-import Story from 'images/svg/menu/story.svg'
-import Leadership from 'images/svg/menu/leadership.svg'
-import Partner from 'images/svg/menu/partner.svg'
-import Choose from 'images/svg/menu/choose.svg'
-import Contact from 'images/svg/menu/contact.svg'
 import Career from 'images/svg/menu/careers.svg'
-import Help from 'images/svg/menu/help-center.svg'
+import Choose from 'images/svg/menu/choose.svg'
+import Commodities from 'images/svg/commodities-nav.svg'
 import Community from 'images/svg/menu/community.svg'
+import Contact from 'images/svg/menu/contact.svg'
+import DBot from 'images/svg/dbot-icon.svg'
+import DMT5 from 'images/svg/dmt5-icon.svg'
+import DTrader from 'images/svg/dtrader-icon.svg'
+import Forex from 'images/svg/forex-nav.svg'
+import Help from 'images/svg/menu/help-center.svg'
+import Leadership from 'images/svg/menu/leadership.svg'
+import Margin from 'images/svg/margin-trading-nav.svg'
+import Multipliers from 'images/svg/multipliers-nav.svg'
+import Options from 'images/svg/options-nav.svg'
+import Partner from 'images/svg/menu/partner.svg'
 import Payment from 'images/svg/menu/payment-methods.svg'
 import RegulatoryInfo from 'images/svg/menu/regulatory.svg'
+import Smarttrader from 'images/svg/smarttrader.svg'
+import StockIndices from 'images/svg/stock-indices-nav.svg'
+import Story from 'images/svg/menu/story.svg'
+import SyntheticIndices from 'images/svg/synthetic-indices-nav.svg'
+import TraderTool from 'images/svg/trader-tool-nav.svg'
 import Signals from 'components/svgs/signals'
 
 const MarginDivider = styled(Divider)`
@@ -430,6 +431,12 @@ export const NavResources = ({ onClick }) => (
             target="_blank"
             external="true"
             rel="noopener noreferrer"
+        />
+        <CardLink
+            icon={() => <img src={TraderTool} alt="traders tools" width="24" height="24" />}
+            title={localize('Traders’ tools')}
+            onClick={onClick}
+            to="/trader-tools/"
         />
         <CardLink
             icon={() => <img src={Payment} alt="payment" width="24" height="24" />}

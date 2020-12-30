@@ -22,7 +22,7 @@ export const CrashText = styled(Text)`
 `
 
 export const Descriptions = styled.div`
-    padding-bottom: 4rem;
+    padding-bottom: 40px;
     border-bottom: 1px solid var(--color-grey-21);
 `
 
@@ -30,11 +30,11 @@ export const DetailsContainer = styled(Flex)`
     flex-direction: column;
 
     ${Text} {
-        font-size: 1.4rem;
-        margin-top: 1.6rem;
+        font-size: 14px;
+        margin-top: 16px;
 
         @media ${device.tabletL} {
-            margin-top: 1rem;
+            margin-top: 10px;
         }
     }
 `
@@ -71,7 +71,7 @@ export const MarketsList = styled(CssGrid)`
             margin-right: 4px;
         }
         ${Text} {
-            font-size: 1.5rem;
+            font-size: 15px;
             line-height: 1.5;
         }
     }
@@ -90,10 +90,10 @@ export const MarketsWrapper = styled(Flex)`
 `
 
 export const Options = styled(Descriptions)`
-    margin-top: 2.4rem;
+    margin-top: 24px;
 
     ${Row} {
-        margin-top: 4rem;
+        margin-top: 40px;
         border: unset;
         justify-content: space-between;
 
@@ -102,7 +102,7 @@ export const Options = styled(Descriptions)`
         }
 
         ${Col} {
-            max-width: 38.4rem;
+            max-width: 384px;
         }
     }
     div:first-child {
@@ -125,7 +125,7 @@ export const Symbol = styled(Flex)`
     img {
         width: 32px;
         height: 32px;
-        margin-right: 0.8rem;
+        margin-right: 8px;
     }
     ${Text} {
         font-weight: normal;

@@ -6,6 +6,8 @@ import { Flex, Box } from 'components/containers'
 import device from 'themes/device'
 
 const StyledFlex = styled(Flex)`
+    flex-direction: column;
+
     @media ${device.tabletL} {
         padding-top: ${(props) => (props.mobile_pt ? props.mobile_pt : '')};
     }
@@ -28,11 +30,7 @@ const AvailableOptions = ({ title, content, remove_title, svg, mobile_pt }) => {
         }
     `
     return (
-        <StyledFlex
-            direction="column"
-            mt={remove_title ? '1.6rem !important' : ''}
-            mobile_pt={mobile_pt}
-        >
+        <StyledFlex mt={remove_title ? '1.6rem !important' : ''} mobile_pt={mobile_pt}>
             {!remove_title && (
                 <Box mb="0.8rem" height="2.4rem">
                     <StyledText weight="bold">{title ? title : null}</StyledText>

@@ -2,9 +2,7 @@ import React from 'react'
 import Proptypes from 'prop-types'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
-import { isMobile } from 'common/os-detect'
-import { isBrowser } from 'common/utility'
-import { Box, Flex, SectionContainer } from 'components/containers'
+import { Box, Flex, SectionContainer, Show } from 'components/containers'
 import { Carousel, Header, LinkText, QueryImage, Text } from 'components/elements'
 import { LinkButton } from 'components/form'
 import { Localize } from 'components/localization'
@@ -34,7 +32,7 @@ const ImageWrapper = styled.div`
     object-fit: contain;
     margin-bottom: 2.4rem;
 
-    @media ${device.mobileL} {
+    @media ${device.tabletL} {
         max-width: 232px;
         width: 100%;
         margin-bottom: 24px;
@@ -88,7 +86,7 @@ const CardText = styled(StyledText)`
 
 const StyledCardContainer = styled(Flex)`
     width: 100%;
-    height: 694px;
+    height: 684px;
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
@@ -149,10 +147,12 @@ const CalculatorCard = ({ button_text, image_alt_name, image_name, link, name, t
             <SubHeader align="center">{name}</SubHeader>
             <CardText align="center">{text}</CardText>
             <ImageWrapper>
-                <QueryImage
-                    data={data[image_name + (isBrowser() && isMobile() ? '_mobile' : '')]}
-                    alt={image_alt_name}
-                />
+                <Show.Desktop>
+                    <QueryImage data={data[image_name]} alt={image_alt_name} />
+                </Show.Desktop>
+                <Show.Mobile>
+                    <QueryImage data={data[image_name + '_mobile']} alt={image_alt_name} />
+                </Show.Mobile>
             </ImageWrapper>
             <StyledLinkButton tertiary="true" to={link} external="true" target="_blank">
                 <Localize translate_text={button_text} />
@@ -197,7 +197,7 @@ const calculators = [
 const MarginCalculator = () => {
     const settings = {
         container_style: {
-            maxWidth: isBrowser() && isMobile() ? '100%' : '588px',
+            maxWidth: '100%',
             margin: '0',
         },
         slide_style: {
@@ -251,8 +251,8 @@ const MarginCalculator = () => {
                     jc="flex-start"
                     tablet_jc="center"
                     wrap="wrap"
-                    ml={isBrowser() && isMobile() ? '0px' : '2.4rem'}
-                    tabletL={{ pt: '24px', pl: '16px', pr: '16px' }}
+                    ml="2.4rem"
+                    tabletL={{ ml: '0px', pt: '24px', pl: '16px', pr: '16px' }}
                 >
                     <Carousel {...settings}>
                         {calculators.map((calculator, idx) => (

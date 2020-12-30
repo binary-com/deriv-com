@@ -11,9 +11,10 @@ import { LinkButton } from 'components/form'
 
 const TradingButton = styled(LinkButton)`
     height: 40px;
+    padding: 10px 48px;
     display: flex;
     align-items: center;
-    max-width: 18rem;
+    width: fit-content;
     justify-content: center;
 `
 

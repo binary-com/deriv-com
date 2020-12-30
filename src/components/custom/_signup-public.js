@@ -104,7 +104,7 @@ const EmailButton = styled(Button)`
     padding: 10px 28px;
     border-radius: 4px;
     @media ${device.tabletL} {
-        padding: 10px 14px;
+        padding: 10px 16px;
         white-space: nowrap;
         min-width: unset;
         margin-left: 0;

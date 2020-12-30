@@ -222,7 +222,7 @@ const SwapCalculator = () => {
 
     return (
         <StyledSection direction="column">
-            <SectionHeader as="h2" align="center" mt="8rem" mb="1.2rem">
+            <SectionHeader as="h2" type="page-title" align="center" mt="8rem" mb="1.2rem">
                 {localize('Swap calculator')}
             </SectionHeader>
 
@@ -461,7 +461,7 @@ const SwapCalculator = () => {
 
                         <RightContent>
                             <TextWrapper>
-                                <RightContentHeader as="h3" mb="8px">
+                                <RightContentHeader as="h3" type="section-title" mb="8px">
                                     {localize('How swap charges are calculated')}
                                 </RightContentHeader>
 
@@ -479,7 +479,7 @@ const SwapCalculator = () => {
                                     <Localize translate_text="This gives you the swap charge in USD." />
                                 </StyledText>
 
-                                <RightContentHeader as="h3" mb="0.8rem">
+                                <RightContentHeader as="h3" type="section-title" mb="0.8rem">
                                     {localize('Example calculation')}
                                 </RightContentHeader>
 
@@ -764,7 +764,7 @@ const SwapCalculator = () => {
 
                         <RightContent direction="column" max_width="69rem">
                             <TextWrapper>
-                                <RightContentHeader as="h3" mb="8px">
+                                <RightContentHeader as="h3" type="section-title" mb="8px">
                                     {localize('How swap charges are calculated')}
                                 </RightContentHeader>
 
@@ -786,7 +786,7 @@ const SwapCalculator = () => {
                                     <Localize translate_text="For instance, if you are trading the USD/JPY forex pair, the swap charge will be computed in Japanese Yen (JPY) which is the quote currency. On the other hand, if you are trading oil,  then the swap charge will be computed in US Dollar (USD), which is the denomination of the underlying asset – oil." />
                                 </StyledText>
 
-                                <RightContentHeader as="h3" mb="0.8rem">
+                                <RightContentHeader as="h3" type="section-title" mb="0.8rem">
                                     {localize('Example calculation')}
                                 </RightContentHeader>
 

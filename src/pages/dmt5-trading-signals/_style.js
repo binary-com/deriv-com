@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import { Container, Flex } from 'components/containers'
-import { Header } from 'components/elements'
 import device from 'themes/device'
 import Patterns from 'images/common/dmt5-signals/dmt5-signals-patterns.png'
 
@@ -31,10 +30,4 @@ const Hero = styled(Flex)`
     background-size: cover;
 `
 
-const StyledHeader = styled(Header)`
-    @media ${device.tabletS} {
-        font-size: 40px;
-    }
-`
-
-export { SmallContainer, Hero, StyledHeader }
+export { SmallContainer, Hero }

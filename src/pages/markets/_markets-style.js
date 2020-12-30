@@ -60,7 +60,7 @@ export const MarketsList = styled(CssGrid)`
     grid-template-columns: ${({ col }) => `repeat(${col ?? 5}, 1fr)`};
     width: 100%;
     padding: 24px;
-    grid-row-gap: 16px;
+    gap: 16px;
 
     @media ${device.tabletL} {
         grid-template-columns: ${({ tablet_col }) => `repeat(${tablet_col ?? 3}, 1fr)`};
@@ -120,6 +120,7 @@ export const StyledText = styled(Text)`
 export const Symbol = styled(Flex)`
     width: fit-content;
     align-items: center;
+    justify-content: flex-start;
 
     img {
         width: 32px;

@@ -6,20 +6,13 @@ import { Localize } from 'components/localization'
 import { Header } from 'components/elements'
 import device from 'themes/device'
 //SVG
-import MarginIcon from 'images/svg/margin.svg'
-import OptionsIcon from 'images/svg/options.svg'
-import MultipliersIcon from 'images/svg/multipliers.svg'
+import ForexIcon from 'images/svg/market-forex.svg'
+import SyntheticIcon from 'images/svg/market-synthetic-indices.svg'
 
 const StyledSection = styled(SectionContainer)`
     padding: 5rem 0;
 `
-const StyledHeader = styled(Header)`
-    @media ${device.tabletL} {
-        max-width: 35.75rem;
-        font-size: 4rem;
-        margin: 0 auto;
-    }
-`
+
 const StyledContainer = styled(Container)`
     margin-top: 2.8rem;
 
@@ -55,7 +48,7 @@ const CardWrapper = styled(Flex)`
 const CardContainer = styled(Flex)`
     position: relative;
     width: fit-content;
-    min-width: 29rem;
+    min-width: 36rem;
     height: 7.72rem;
     padding: 0;
     margin: 0 -0.6rem;
@@ -74,7 +67,7 @@ const CardContainer = styled(Flex)`
         }
         h4 {
             color: ${(props) =>
-                props.active_tab === props.name ? 'var(--color-red)' : 'var(--color-black-3)'};
+        props.active_tab === props.name ? 'var(--color-red)' : 'var(--color-black-3)'};
             opacity: ${(props) => (props.active_tab === props.name ? '1' : '0.56')};
         }
         @media ${device.tabletL} {
@@ -106,12 +99,12 @@ const CardContainer = styled(Flex)`
         transform-origin: bottom left;
         box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.05);
         ${(props) => {
-            if (props.active_tab === props.name)
-                return css`
+        if (props.active_tab === props.name)
+            return css`
                     background-color: #ffffff;
                     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.05);
                 `
-        }}
+    }}
     }
     @media ${device.tabletL} {
         width: 100%;
@@ -138,15 +131,7 @@ const TabOptionIcon = styled.img`
             `
     }}
 `
-const TabMultiplierIcon = styled.img`
-    min-width: 16px;
-    ${(props) => {
-        if (props.active_tab === props.name)
-            return css`
-                margin-left: 16px;
-            `
-    }}
-`
+
 const ContentWrapper = styled.div`
     width: 100%;
     max-width: 99.6rem;
@@ -162,32 +147,25 @@ const ContentWrapper = styled.div`
 const CardHeader = styled(Header)`
     @media ${device.tabletL} {
         font-size: 1.75rem;
+        line-height: 16px;
     }
 `
 const Card = ({ display_name, active_tab, onTabChange, name }) => {
     return (
         <CardContainer name={name} active_tab={active_tab} onClick={() => onTabChange(name)}>
             <Flex height="fit-content" jc="flex-start" ai="center">
-                {active_tab === 'Margin' && (
+                {active_tab === 'Forex' && (
                     <TabMarginIcon
-                        src={MarginIcon}
+                        src={ForexIcon}
                         alt="margin icon"
                         name={name}
                         active_tab={active_tab}
                     />
                 )}
-                {active_tab === 'Options' && (
+                {active_tab === 'Synthetic Indices' && (
                     <TabOptionIcon
-                        src={OptionsIcon}
+                        src={SyntheticIcon}
                         alt="option icon"
-                        name={name}
-                        active_tab={active_tab}
-                    />
-                )}
-                {active_tab === 'Multipliers' && (
-                    <TabMultiplierIcon
-                        src={MultipliersIcon}
-                        alt="multiplier icon"
                         name={name}
                         active_tab={active_tab}
                     />
@@ -209,47 +187,38 @@ Card.propTypes = {
 
 class AvailableTrades extends React.Component {
     state = {
-        active_tab: 'Margin',
+        active_tab: 'Forex',
     }
     handleTabChange = (new_tab) => {
         if (new_tab === this.state.active_tab) return
         this.setState({ active_tab: new_tab })
     }
     render() {
-        const { Margin, DigitalOptions, Multipliers} = this.props
+        const { Forex, SyntheticIndices } = this.props
         return (
             <StyledSection>
                 <StyledContainer direction="column">
                     <CardWrapper position="relative">
-                        {Margin && (
+                        {Forex && (
                             <Card
-                                name="Margin"
-                                display_name={<Localize translate_text="Margin" />}
-                                onTabChange={() => this.handleTabChange('Margin')}
+                                name="Forex"
+                                display_name={<Localize translate_text="Forex" />}
+                                onTabChange={() => this.handleTabChange('Forex')}
                                 active_tab={this.state.active_tab}
                             />
                         )}
-                        {DigitalOptions && (
+                        {SyntheticIndices && (
                             <Card
-                                name="Options"
-                                display_name={<Localize translate_text="Options" />}
-                                onTabChange={() => this.handleTabChange('Options')}
-                                active_tab={this.state.active_tab}
-                            />
-                        )}
-                        {Multipliers && (
-                            <Card
-                                name="Multipliers"
-                                display_name={<Localize translate_text="Multipliers" />}
-                                onTabChange={() => this.handleTabChange('Multipliers')}
+                                name="Synthetic Indices"
+                                display_name={<Localize translate_text="Synthetic Indices" />}
+                                onTabChange={() => this.handleTabChange('Synthetic Indices')}
                                 active_tab={this.state.active_tab}
                             />
                         )}
                     </CardWrapper>
                     <ContentWrapper>
-                        {this.state.active_tab === 'Margin' && <Margin />}
-                        {this.state.active_tab === 'Options' && <DigitalOptions />}
-                        {this.state.active_tab === 'Multipliers' && <Multipliers />}
+                        {this.state.active_tab === 'Forex' && <Forex />}
+                        {this.state.active_tab === 'Synthetic Indices' && <SyntheticIndices />}
                     </ContentWrapper>
                 </StyledContainer>
             </StyledSection>
@@ -258,10 +227,9 @@ class AvailableTrades extends React.Component {
 }
 
 AvailableTrades.propTypes = {
-    DigitalOptions: PropTypes.func,
     display_title: PropTypes.object,
-    Margin: PropTypes.func,
-    Multipliers: PropTypes.func,
+    Forex: PropTypes.func,
+    SyntheticIndices: PropTypes.func,
 }
 
 export default AvailableTrades

@@ -76,8 +76,7 @@ const LiftWithdrawalLimits = () => (
                 components={[
                     <strong key={0} />,
                     <ExternalLink
-                        to=""
-                        href={`${deriv_app_url}/account/account-limits`}
+                        to={`${deriv_app_url}/account/account-limits`}
                         target="_blank"
                         rel="noopener noreferrer"
                         key={1}

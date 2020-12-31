@@ -547,9 +547,11 @@ const NavDesktop = ({ base }) => {
     )
 }
 
-export const Nav = ({ base }) => {
+export const Nav = ({ base, CompotentAbove }) => {
     return (
         <NavWrapper>
+            {CompotentAbove !== undefined ? <CompotentAbove /> : ''}
+
             <StyledNav>
                 <Show.Desktop>
                     <NavDesktop base={base} />
@@ -564,6 +566,7 @@ export const Nav = ({ base }) => {
 
 Nav.propTypes = {
     base: PropTypes.string,
+    CompotentAbove: PropTypes.elementType,
 }
 
 NavDesktop.propTypes = {

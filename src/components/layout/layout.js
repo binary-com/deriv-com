@@ -36,6 +36,7 @@ const Layout = ({
     no_login_signup,
     no_live_chat,
     nav_type,
+    CompotentAbove,
 }) => {
     const { is_eu_country } = React.useContext(DerivStore)
     const [has_mounted, setMounted] = React.useState(false)
@@ -102,7 +103,7 @@ const Layout = ({
             FooterNav = <Copyright />
             break
         default:
-            Navigation = <Nav />
+            Navigation = <Nav CompotentAbove={CompotentAbove} />
             FooterNav = <Footer />
             break
     }
@@ -151,6 +152,7 @@ const Layout = ({
 
 Layout.propTypes = {
     children: PropTypes.node.isRequired,
+    CompotentAbove: PropTypes.elementType,
     interim_type: PropTypes.string,
     margin_top: PropTypes.string,
     nav_type: PropTypes.string,

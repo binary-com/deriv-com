@@ -67,7 +67,7 @@ const ResponsibleTrading = () => {
     const HeroBackground = is_eu_country ? EuBackground : NoneEuBackground
 
     return (
-        <Layout CompotentAbove={CFDWarning}>
+        <Layout CompotentAbove={is_eu_country ? CFDWarning : undefined}>
             <SEO
                 title={localize('Secure and responsible online trading guidelines | Deriv')}
                 description={localize(

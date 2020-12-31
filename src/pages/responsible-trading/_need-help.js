@@ -1,13 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Header, Text, LocalizedLinkText } from 'components/elements'
-import { Container, SectionContainer, Flex } from 'components/containers'
+import { Container, SectionContainer, Flex, Show } from 'components/containers'
 import device from 'themes/device'
 import { Localize, localize } from 'components/localization'
 import GamStop from 'images/svg/gamstop.svg'
 import BeGambleAware from 'images/svg/begambleaware.svg'
 import Underage from 'images/svg/underage.svg'
+import UnderageMobile from 'images/svg/underage-mobile.svg'
 import Filtering from 'images/svg/filtering-controls.svg'
+import FilteringMobile from 'images/svg/filtering-controls-mobile.svg'
 
 const help_content = [
     {
@@ -21,6 +23,7 @@ const help_content = [
             <Localize translate_text="GAMSTOP is a free service that enables you to self-exclude from all online gambling companies licensed in Great Britain." />
         ),
         icon: <img src={GamStop} alt="gamstop" style={{ width: '91%', height: '100%' }} />,
+        icon_mobile: <img src={GamStop} alt="gamstop" style={{ width: '113px', height: '34px' }} />,
         link: (
             <LocalizedLinkText
                 mt="1rem"
@@ -42,6 +45,13 @@ const help_content = [
             </Text>
         ),
         icon: <img src={BeGambleAware} alt="begambleaware" style={{ width: '50%' }} />,
+        icon_mobile: (
+            <img
+                src={BeGambleAware}
+                alt="begambleaware"
+                style={{ width: '80px', height: '21px' }}
+            />
+        ),
         link: (
             <LocalizedLinkText
                 mt="1rem"
@@ -63,6 +73,9 @@ const help_content = [
             </Text>
         ),
         icon: <img src={Underage} alt="underage" style={{ width: '60%' }} />,
+        icon_mobile: (
+            <img src={UnderageMobile} alt="underage" style={{ width: '32px', height: '32px' }} />
+        ),
     },
 
     {
@@ -73,6 +86,13 @@ const help_content = [
             </Text>
         ),
         icon: <img src={Filtering} alt="filtering controls" style={{ width: '60%' }} />,
+        icon_mobile: (
+            <img
+                src={FilteringMobile}
+                alt="filtering controls"
+                style={{ width: '32px', height: '32px' }}
+            />
+        ),
     },
 ]
 
@@ -119,7 +139,7 @@ const ClientCard = styled.article`
     }
     @media ${device.mobileL} {
         ${Header} {
-            font-size: 16px;
+            font-size: 18px;
         }
     }
 `
@@ -151,7 +171,8 @@ const NeedHelp = () => {
                                 <Header as="h4" type="sub-section-title">
                                     {item.header}
                                 </Header>
-                                {item.icon}
+                                <Show.Desktop>{item.icon}</Show.Desktop>
+                                <Show.Mobile>{item.icon_mobile}</Show.Mobile>
                             </Flex>
                             {item.text}
                             <Text>{item.text2}</Text>

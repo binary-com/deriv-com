@@ -8,7 +8,6 @@ import { Header, Text } from 'components/elements'
 import { localize, WithIntl } from 'components/localization'
 import NoneEuBackground from 'images/common/responsible-trading-bg.png'
 import EuBackground from 'images/common/responsible-trading-eu-bg.png'
-import { isEuCountry } from 'common/country-base'
 import device from 'themes/device'
 import { DerivStore } from 'store'
 
@@ -72,7 +71,7 @@ const CFDWarning = () => {
 const ResponsibleTrading = () => {
     const { is_eu_country } = React.useContext(DerivStore)
     const Hero = is_eu_country ? HeroEu : HeroNonEu
-    const HeroBackground = isEuCountry ? EuBackground : NoneEuBackground
+    const HeroBackground = is_eu_country ? EuBackground : NoneEuBackground
 
     return (
         <Layout CompotentAbove={is_eu_country ? CFDWarning : undefined}>

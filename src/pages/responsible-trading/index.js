@@ -35,12 +35,39 @@ const StyledHeader = styled(Header)`
     }
 `
 
+const CFDWrapper = styled(Text)`
+    background-color: #f9fafc;
+    background-size: cover;
+    height: auto;
+    padding: 2rem 8rem;
+    max-height: 14rem;
+    overflow-y: auto;
+
+    @media ${device.tablet} {
+        padding: 1rem 4rem;
+    }
+
+    @media ${device.mobileL} {
+        padding: 1rem 2rem;
+    }
+`
+
+const CFDWarning = () => {
+    return (
+        <CFDWrapper>
+            {localize(
+                `CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. 74% of retail investor accounts lose money when trading CFDs with this provider. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money.`,
+            )}
+        </CFDWrapper>
+    )
+}
+
 const ResponsibleTrading = () => {
     const { is_eu_country } = React.useContext(DerivStore)
     const HeroBackground = is_eu_country ? EuBackground : NoneEuBackground
 
     return (
-        <Layout>
+        <Layout CompotentAbove={CFDWarning}>
             <SEO
                 title={localize('Secure and responsible online trading guidelines | Deriv')}
                 description={localize(

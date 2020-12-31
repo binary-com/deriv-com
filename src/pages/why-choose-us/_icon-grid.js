@@ -120,7 +120,7 @@ export const IconGrid = () => (
                 Icon={ClientProtection}
                 title={localize('Client money protection')}
                 content={localize(
-                    'Deriv does not use your money for its business interests and you are allowed to withdraw your money at any time. All your money is segregated and held in secure and licensed financial institutions. In this way, in the unlikely event of Deriv becoming insolvent, all your money will be returned to you because it is never merged with ours.',
+                    'Deriv does not use your money for its business interests and you are allowed to withdraw your money at any time. All your money is segregated and held in secure financial institutions. In this way, in the unlikely event of Deriv becoming insolvent, all your money will be returned to you because it is never merged with ours.',
                 )}
             />
             <Col

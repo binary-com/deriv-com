@@ -107,13 +107,11 @@ const StyledInfo = styled(Info)`
     }
 `
 const StyledText = styled(Text)`
-    font-size: 1.6rem;
     line-height: 2.4rem;
     max-width: 36rem;
     width: 94%;
 
     @media ${device.tabletL} {
-        font-size: 16px;
         line-height: 24px;
         max-width: 100%;
     }

@@ -18,6 +18,7 @@ import { localize, WithIntl, Localize, LocalizedLink } from 'components/localiza
 // Icons
 import EU from 'images/svg/europe-map.svg'
 import Vanuatu from 'images/common/regulatory/vanuatu.png'
+import VanuatuFMA from 'images/common/regulatory/vanuatu-fma.png'
 import FSC from 'images/common/regulatory/bvi.png'
 import Labuan from 'images/common/regulatory/labuan.png'
 import Deriv from 'images/common/regulatory/deriv.png'
@@ -222,7 +223,7 @@ const Regulatory = () => {
                                     </Desktop>
                                     <Text mt="0.8rem" mb="1.6rem" max_width="58.8rem">
                                         <Localize
-                                            translate_text="Deriv (Europe) Limited, W Business Centre, Level 3, Triq Dun Karm, Birkirkara BKR 9033, Malta, is licensed for synthetic indices by the Malta Gaming Authority (<0>licence no. MGA/B2C/102/2000</0>), by the UK Gambling Commission for clients in the UK (<1>account no. 39495</1>), and by the Revenue Commissioners for clients in Ireland (licence no. 1010285)."
+                                            translate_text="Deriv (Europe) Limited, W Business Centre, Level 3, Triq Dun Karm, Birkirkara BKR 9033, Malta, is licensed for synthetic indices by the Malta Gaming Authority (<0>licence no. MGA/B2C/102/2000</0>), by the Gambling Commission for clients in Great Britain under (<1>account no. 39495</1>), and by the Revenue Commissioners for clients in Ireland (licence no. 1010285)."
                                             components={[
                                                 <LinkText
                                                     key={0}
@@ -264,7 +265,7 @@ const Regulatory = () => {
                                     </Desktop>
                                     <Text mt="0.8rem" mb="1.6rem" max_width="58.8rem">
                                         <Localize
-                                            translate_text="Deriv (MX) Ltd, Millennium House, Level 1, Victoria Road, Douglas IM2 4RW, Isle of Man, is licensed by the Gambling Supervision Commission in the Isle of Man (<0>view licence</0>) and by the UK Gambling Commission for clients in the UK (<1>account no. 39172</1>)."
+                                            translate_text="Deriv (MX) Ltd, Millennium House, Level 1, Victoria Road, Douglas IM2 4RW, Isle of Man, is licensed and regulated in Great Britain by the Gambling Commission under <1>account no. 39172</1> and by the Gambling Supervision Commission in the Isle of Man (<0>view licence</0>)."
                                             components={[
                                                 <LinkText
                                                     key={0}
@@ -370,6 +371,11 @@ const Regulatory = () => {
                                 </StyledHeader>
                             </Mobile>
                             <Img src={Vanuatu} alt="Vanuatu" />
+                            <Img
+                                src={VanuatuFMA}
+                                alt="Vanuatu Financial Markets Association"
+                                style={{ marginTop: '8px' }}
+                            />
                         </ResponsiveGrid>
                         <CssGridColumn>
                             <Desktop>
@@ -379,7 +385,7 @@ const Regulatory = () => {
                             </Desktop>
                             <Text mt="0.8rem" mb="1.6rem" max_width="58.8rem">
                                 <Localize
-                                    translate_text="Deriv (V) Ltd (<0>view licence</0>) and Champion Group Ltd (<1>view licence</1>), 1276, Kumul Highway, Port Vila, Vanuatu are licensed by Vanuatu Financial Services Commission."
+                                    translate_text="Deriv (V) Ltd (<0>view licence</0>) and Champion Group Ltd (<1>view licence</1>), 1276, Kumul Highway, Port Vila, Vanuatu are licensed by Vanuatu Financial Services Commission, and are members of the <2>Financial Markets Association<2/>."
                                     components={[
                                         <LinkText
                                             key={0}
@@ -393,6 +399,13 @@ const Regulatory = () => {
                                             weight="bold"
                                             target="_blank"
                                             href="/regulatory/Champion_Group_Ltd.pdf"
+                                            rel="noopener noreferrer"
+                                        />,
+                                        <LinkText
+                                            key={2}
+                                            weight="bold"
+                                            target="_blank"
+                                            href="/regulatory/Financial_Markets_Association_Cert.pdf"
                                             rel="noopener noreferrer"
                                         />,
                                     ]}
@@ -426,7 +439,7 @@ const Regulatory = () => {
                             </Text>
                             <Text max_width="58.8rem">
                                 {localize(
-                                    'Clients from the rest of the world (except for certain countries such as the USA, Canada, and Hong Kong) will have their accounts opened under Deriv (SVG) LLC.',
+                                    'Clients in the rest of the world (except for restricted countries such as the USA, Canada, and Hong Kong) can have accounts under Deriv (SVG) LLC.',
                                 )}
                             </Text>
                         </CssGridColumn>

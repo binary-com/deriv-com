@@ -158,7 +158,7 @@ const Stories = [
         contents: [
             {
                 left: false,
-                headers: [{ header: <Localize translate_text="Licensed financial product" /> }],
+                headers: [{ header: <Localize translate_text="Licensed investment services" /> }],
                 texts: [
                     {
                         text: (

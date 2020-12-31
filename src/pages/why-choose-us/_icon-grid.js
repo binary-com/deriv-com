@@ -111,7 +111,7 @@ export const IconGrid = () => (
                 title={localize('Licensed and regulated')}
                 content={
                     <Localize
-                        translate_text="Deriv is <0>regulated</0> by several entities, including the Malta Financial Services Authority (MFSA), the Labuan Financial Services Authority (Labuan FSA), the Vanuatu Financial Services Commission (VFSC), and the British Virgin Islands Financial Services Commission."
+                        translate_text="Deriv is <0>regulated</0> by several entities including the Malta Financial Services Authority (MFSA), the Labuan Financial Services Authority (Labuan FSA), the Vanuatu Financial Services Commission (VFSC), and the British Virgin Islands Financial Services Commission."
                         components={[<LocalizedLink key={0} to="/regulatory/" />]}
                     />
                 }

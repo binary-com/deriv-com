@@ -548,7 +548,7 @@ const NavDesktop = ({ base }) => {
     )
 }
 
-export const Nav = ({ base }) => {
+export const Nav = ({ base, CompotentAbove }) => {
     return (
         <NavWrapper>
             <CFDWarning />
@@ -566,6 +566,7 @@ export const Nav = ({ base }) => {
 
 Nav.propTypes = {
     base: PropTypes.string,
+    CompotentAbove: PropTypes.elementType,
 }
 
 NavDesktop.propTypes = {

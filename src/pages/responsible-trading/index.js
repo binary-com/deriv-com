@@ -16,8 +16,7 @@ const TradingLimits = Loadable(() => import('./_trading-limits'))
 const NeedHelp = Loadable(() => import('./_need-help'))
 const RoleBanner = Loadable(() => import('./_banner'))
 
-const Hero = styled(Flex)`
-    padding: 20rem 0 8rem;
+const HeroBase = styled(Flex)`
     background-image: url(${(props) => props.background_image});
     background-position: center;
     background-size: cover;
@@ -68,7 +67,7 @@ const ResponsibleTrading = () => {
     const HeroBackground = is_eu_country ? EuBackground : NoneEuBackground
 
     return (
-        <Layout CompotentAbove={CFDWarning}>
+        <Layout CompotentAbove={is_eu_country ? CFDWarning : undefined}>
             <SEO
                 title={localize('Secure and responsible online trading guidelines | Deriv')}
                 description={localize(

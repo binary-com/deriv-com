@@ -122,9 +122,9 @@ export const StyledChevron = styled(Chevron)`
 
 export const NavigationContainer = styled(Flex)`
     position: relative;
-    bottom: 40px;
     width: 100%;
-    height: 10px;
+    height: 8px;
+    bottom: 40px;
 `
 
 export const StyledDot = styled.button`

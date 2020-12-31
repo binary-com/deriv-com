@@ -26,9 +26,8 @@ const query = graphql`
 `
 
 const ImageWrapper = styled.div`
-    max-width: 39.2rem;
-    width: 100%;
-    height: 38.6rem;
+    width: 392px;
+    height: 386px;
     object-fit: contain;
     margin-bottom: 2.4rem;
 

@@ -250,7 +250,6 @@ const SocialWrapperComponent = ({ is_career_page }) => {
     const alt_string = (is_career_page ? 'career' : '') + ' icon link'
     const accounts = [
         {
-            index: 1,
             link: is_career_page
                 ? 'https://www.facebook.com/derivcareers'
                 : 'https://www.facebook.com/derivdotcom/',
@@ -258,13 +257,6 @@ const SocialWrapperComponent = ({ is_career_page }) => {
             image_alt: `facebook ${alt_string}`,
         },
         {
-            index: 2,
-            link: 'https://twitter.com/derivdotcom/',
-            image: Twitter,
-            image_alt: `twitter ${alt_string}`,
-        },
-        {
-            index: 3,
             link: is_career_page
                 ? 'https://www.instagram.com/derivcareers/'
                 : 'https://www.instagram.com/deriv_official/',
@@ -272,20 +264,23 @@ const SocialWrapperComponent = ({ is_career_page }) => {
             image_alt: `instagram ${alt_string}`,
         },
         {
-            index: 4,
             link: 'https://www.linkedin.com/company/derivdotcom/',
             image: Linkedin,
             image_alt: `linkedin ${alt_string}`,
         },
     ]
 
-    return (
-        <SocialMediaComponent
-            social_accounts={
-                is_career_page ? accounts.filter((account) => account.index != 2) : accounts
-            }
-        />
-    )
+    const twitter = {
+        link: 'https://twitter.com/derivdotcom/',
+        image: Twitter,
+        image_alt: `twitter ${alt_string}`,
+    }
+
+    if (!is_career_page) {
+        accounts.splice(1, 0, twitter)
+    }
+
+    return <SocialMediaComponent social_accounts={accounts} />
 }
 
 SocialWrapperComponent.propTypes = {

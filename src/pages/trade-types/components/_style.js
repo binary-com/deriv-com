@@ -84,13 +84,14 @@ const Card = styled.article`
     border-radius: 16px;
     box-shadow: 0 4px 8px 0 rgba(14, 14, 14, 0.1);
     background-color: var(--color-white);
-    height: 34.6rem;
-    padding: 2.4rem;
+    height: 100%;
+    padding: 24px 24px;
     max-width: 28.2rem;
 
     @media (max-width: 680px) {
+        padding: 16px 16px 36px;
         max-width: 282px;
-        height: 26.4rem;
+        min-height: unset;
     }
 
     &:hover .learn-more {
@@ -128,7 +129,7 @@ const HowItWorksItem = styled(Flex)`
 
 const MarketsItem = styled(Flex)`
     align-items: center;
-    height: unset;
+    height: 100%;
     padding: 4px 0;
     margin-bottom: 2.8rem;
     position: relative;

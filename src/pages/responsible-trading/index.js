@@ -10,17 +10,26 @@ import NoneEuBackground from 'images/common/responsible-trading-bg.png'
 import EuBackground from 'images/common/responsible-trading-eu-bg.png'
 import { isEuCountry } from 'common/country-base'
 import device from 'themes/device'
+import { DerivStore } from 'store'
+
 const TradingResponsibly = Loadable(() => import('./_trading-responsibly'))
 const TradingLimits = Loadable(() => import('./_trading-limits'))
 const NeedHelp = Loadable(() => import('./_need-help'))
 const RoleBanner = Loadable(() => import('./_banner'))
 
-const Hero = styled(Flex)`
-    padding: 20rem 0 8rem;
+const HeroBase = styled(Flex)`
     background-image: url(${(props) => props.background_image});
     background-position: center;
     background-size: cover;
 `
+
+const HeroEu = styled(HeroBase)`
+    padding: 20rem 0 8rem;
+`
+const HeroNonEu = styled(HeroBase)`
+    padding: 12rem 0 8rem;
+`
+
 const Section = styled(SectionContainer)`
     padding: 0;
 `
@@ -61,9 +70,12 @@ const CFDWarning = () => {
 }
 
 const ResponsibleTrading = () => {
+    const { is_eu_country } = React.useContext(DerivStore)
+    const Hero = is_eu_country ? HeroEu : HeroNonEu
     const HeroBackground = isEuCountry ? EuBackground : NoneEuBackground
+
     return (
-        <Layout CompotentAbove={CFDWarning}>
+        <Layout CompotentAbove={is_eu_country ? CFDWarning : undefined}>
             <SEO
                 title={localize('Secure and responsible online trading guidelines | Deriv')}
                 description={localize(

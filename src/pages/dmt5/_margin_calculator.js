@@ -24,6 +24,12 @@ const query = graphql`
         }
     }
 `
+const CardContainer = styled(Flex)`
+    max-width: 588px;
+    @media ${device.tabletL} {
+        max-width: 95%;
+    }
+`
 
 const ImageWrapper = styled.div`
     width: 392px;
@@ -92,7 +98,7 @@ const StyledCardContainer = styled(Flex)`
     align-items: center;
     @media ${device.tabletL} {
         height: auto;
-        min-height: 488px;
+        min-height: 518px;
         justify-content: flex-start;
     }
 `
@@ -205,6 +211,7 @@ const MarginCalculator = () => {
         },
         chevron_style: {
             chevron_color: 'red',
+            display_mobile: true,
         },
         navigation_style: {
             nav_color: 'red',
@@ -253,19 +260,21 @@ const MarginCalculator = () => {
                     ml="2.4rem"
                     tabletL={{ ml: '0px', pt: '24px', pl: '16px', pr: '16px' }}
                 >
-                    <Carousel {...settings}>
-                        {calculators.map((calculator, idx) => (
-                            <CalculatorCard
-                                key={idx}
-                                name={calculator.name}
-                                image_name={calculator.image_name}
-                                image_alt_name={calculator.name}
-                                text={calculator.text}
-                                link={calculator.link}
-                                button_text={calculator.button_text}
-                            />
-                        ))}
-                    </Carousel>
+                    <CardContainer>
+                        <Carousel {...settings}>
+                            {calculators.map((calculator, idx) => (
+                                <CalculatorCard
+                                    key={idx}
+                                    name={calculator.name}
+                                    image_name={calculator.image_name}
+                                    image_alt_name={calculator.name}
+                                    text={calculator.text}
+                                    link={calculator.link}
+                                    button_text={calculator.button_text}
+                                />
+                            ))}
+                        </Carousel>
+                    </CardContainer>
                 </StyledFlex>
             </StyledFlexContainer>
         </SectionContainer>

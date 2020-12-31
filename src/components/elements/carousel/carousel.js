@@ -136,7 +136,7 @@ export const Carousel = ({
         play()
     }, [play])
 
-    const { chevron_left, chevron_right, chevron_color } = chevron_style || {}
+    const { chevron_left, chevron_right, chevron_color, display_mobile } = chevron_style || {}
     const is_arrow = prevBtnEnabled || nextBtnEnabled
     const { nav_color } = navigation_style || {}
 
@@ -158,7 +158,7 @@ export const Carousel = ({
                         onClick={scrollPrev}
                         enabled={prevBtnEnabled}
                         style={chevron_left}
-                        is_reviews={chevron_color === 'black'}
+                        is_reviews={chevron_color === 'black' || display_mobile}
                     />
                 )}
                 {chevron_color && is_arrow && (
@@ -167,7 +167,7 @@ export const Carousel = ({
                         onClick={scrollNext}
                         enabled={nextBtnEnabled}
                         style={chevron_right}
-                        is_reviews={chevron_color === 'black'}
+                        is_reviews={chevron_color === 'black' || display_mobile}
                     />
                 )}
                 {nav_color && (

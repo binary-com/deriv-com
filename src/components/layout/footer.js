@@ -527,7 +527,7 @@ const Footer = () => {
                                             rel="noopener noreferrer"
                                         />,
                                         <StaticAssetLink
-                                            external
+                                            external="true"
                                             key={1}
                                             target="_blank"
                                             to="https://secure.gamblingcommission.gov.uk/PublicRegister/Search/Detail/39172"
@@ -599,7 +599,7 @@ const Footer = () => {
                                                     to="/responsible-trading/"
                                                 />,
                                                 <BoldLink
-                                                    external
+                                                    external="true"
                                                     key={0}
                                                     target="_blank"
                                                     to="https://www.begambleaware.org/"
@@ -628,7 +628,7 @@ const Footer = () => {
                                                     to="/responsible-trading/"
                                                 />,
                                                 <BoldLink
-                                                    external
+                                                    external="true"
                                                     key={0}
                                                     target="_blank"
                                                     to="https://www.begambleaware.org/"

@@ -14,7 +14,7 @@ const TabContent = styled.div`
 const TabButton = styled.button`
     z-index: 2;
     height: auto;
-    padding: 8px 24px 10px 24px;
+    padding: 8px 24px 10px;
     display: flex;
     align-items: center;
     justify-content: center;

@@ -5,7 +5,7 @@ import SecureAccount from './_securing-account'
 import { SEO, SectionContainer, Container, Flex, Show } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { Header, Text } from 'components/elements'
-import { localize, WithIntl } from 'components/localization'
+import { localize, WithIntl, Localize } from 'components/localization'
 import NoneEuBackground from 'images/common/responsible-trading-bg.png'
 import EuBackground from 'images/common/responsible-trading-eu-bg.png'
 import device from 'themes/device'
@@ -55,9 +55,10 @@ const CFDWrapper = styled(Text)`
 const CFDWarning = () => {
     return (
         <CFDWrapper>
-            {localize(
-                `CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. 74% of retail investor accounts lose money when trading CFDs with this provider. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money.`,
-            )}
+            <Localize
+                translate_text="CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. <0>74% of retail investor accounts lose money when trading CFDs with this provider.</0> You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money."
+                components={[<strong key={0} />]}
+            />
         </CFDWrapper>
     )
 }

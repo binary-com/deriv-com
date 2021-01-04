@@ -152,7 +152,7 @@ const Locations = () => {
     const images = useStaticQuery(query)
 
     return (
-        <Layout type="careers" margin_top="7rem">
+        <Layout type="careers" margin_top={7}>
             <SEO
                 title={localize('Explore our office locations | Deriv')}
                 description={localize(

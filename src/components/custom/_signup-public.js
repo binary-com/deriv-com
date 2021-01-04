@@ -134,9 +134,10 @@ const SocialButton = styled(Button)`
     @media ${device.tabletL} {
         width: 114px;
         height: 48px;
-        padding: 8px 12px;
+        padding: 14px 15px 14px 13px;
         justify-content: center;
         align-items: center;
+        margin: ${(props) => (props.left ? '0 8px 0 16px' : '0')};
     }
 `
 
@@ -175,6 +176,10 @@ const StyledSpan = styled.span`
     font-weight: 500;
     color: var(--color-grey-13);
     margin-left: 4px;
+
+    @media ${device.tabletL} {
+        margin-left: 8px;
+    }
 `
 const ImageWrapper = styled(Flex)`
     position: relative;
@@ -407,6 +412,7 @@ const SignupPublic = ({
                                     id="gtm-signup-google"
                                     type="button"
                                     social
+                                    left
                                 >
                                     <span>
                                         <img src={Google} alt="google" width="22" height="23" />

@@ -22,7 +22,7 @@ const help_content = [
         text2: (
             <Localize translate_text="GAMSTOP is a free service that enables you to self-exclude from all online gambling companies licensed in Great Britain." />
         ),
-        icon: <img src={GamStop} alt="gamstop" style={{ width: '91%', height: '100%' }} />,
+        icon: <img src={GamStop} alt="gamstop" style={{ width: '160px', height: '64px' }} />,
         icon_mobile: <img src={GamStop} alt="gamstop" style={{ width: '113px', height: '34px' }} />,
         link: (
             <LocalizedLinkText
@@ -44,7 +44,13 @@ const help_content = [
                 <Localize translate_text="Deriv.com supports BeGambleAware, the leading charity in Britain committed to minimising gambling-related harm. BeGambleAware offers a helpline for those seeking advice about their gambling. It also has resources to help assess potential gambling problems, and an online gambling calculator to see how much you can really spend." />
             </Text>
         ),
-        icon: <img src={BeGambleAware} alt="begambleaware" style={{ width: '50%' }} />,
+        icon: (
+            <img
+                src={BeGambleAware}
+                alt="begambleaware"
+                style={{ width: '160px', height: '64px' }}
+            />
+        ),
         icon_mobile: (
             <img
                 src={BeGambleAware}
@@ -72,7 +78,7 @@ const help_content = [
                 <Localize translate_text="Clients must be aware that underage gambling is an offence. Deriv.com does not support gambling by those who are underaged. If a client, upon age verification, is proven to be underaged, they will be deprived of any winnings and only deposits made shall be refunded." />
             </Text>
         ),
-        icon: <img src={Underage} alt="underage" style={{ width: '60%' }} />,
+        icon: <img src={Underage} alt="underage" style={{ width: '160px', height: '64px' }} />,
         icon_mobile: (
             <img src={UnderageMobile} alt="underage" style={{ width: '32px', height: '32px' }} />
         ),
@@ -85,7 +91,13 @@ const help_content = [
                 <Localize translate_text="Our site can be filtered using a number of filtering systems available on the market which could be used to restrict one's access to our site." />
             </Text>
         ),
-        icon: <img src={Filtering} alt="filtering controls" style={{ width: '60%' }} />,
+        icon: (
+            <img
+                src={Filtering}
+                alt="filtering controls"
+                style={{ width: '160px', height: '64px' }}
+            />
+        ),
         icon_mobile: (
             <img
                 src={FilteringMobile}
@@ -151,6 +163,10 @@ const LinkText = styled(Text)`
     }
 `
 
+const LogoWrapper = styled.div`
+    width: auto;
+`
+
 const NeedHelp = () => {
     return (
         <SectionContainer>
@@ -163,16 +179,18 @@ const NeedHelp = () => {
                 {help_content.map((item, idx) => {
                     return (
                         <ClientCard key={idx}>
-                            <Flex
-                                pb="0.8rem"
-                                mt={idx == 1 ? '2.5rem' : ''}
-                                ai={idx == 1 ? 'flex-start' : 'flex-end'}
-                            >
-                                <Header as="h4" type="sub-section-title">
+                            <Flex pb="0.8rem" ai="flex-end">
+                                <Header
+                                    as="h4"
+                                    type="sub-section-title"
+                                    style={{ lineHeight: 1.5 }}
+                                >
                                     {item.header}
                                 </Header>
-                                <Show.Desktop>{item.icon}</Show.Desktop>
-                                <Show.Mobile>{item.icon_mobile}</Show.Mobile>
+                                <LogoWrapper>
+                                    <Show.Desktop>{item.icon}</Show.Desktop>
+                                    <Show.Mobile>{item.icon_mobile}</Show.Mobile>
+                                </LogoWrapper>
                             </Flex>
                             {item.text}
                             <Text>{item.text2}</Text>

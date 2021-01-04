@@ -38,9 +38,12 @@ const ItemContainer = styled(Box)`
     }
 `
 const StyledHeader = styled(Header)`
+    font-size: 36px;
     @media ${device.tablet} {
         text-align: center;
         max-width: unset;
+        font-size: 32px;
+        line-height: 1.5;
     }
 `
 const StyledText = styled(Text)`

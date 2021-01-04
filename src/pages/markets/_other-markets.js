@@ -168,8 +168,8 @@ const MobileCard = ({ name }) => {
     const Icon = markets_type[name].icon
     return (
         <MobileCardWrapper m="5.5rem auto 0 auto" jc="flex-start">
-            <Flex width="100%" jc="space-between" mb="3rem" ai="center">
-                <Text size="2rem" weight="bold">
+            <Flex width="100%" jc="space-between" mb="2.4rem" ai="center">
+                <Text size="18px" weight="bold">
                     {localize(markets_type[name].title)}
                 </Text>
                 <Icon dynamic_id={markets_type[name].id + '_mobile'} />

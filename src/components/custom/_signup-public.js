@@ -364,7 +364,7 @@ const SignupPublic = ({
                                 {localize('Join over 1 million traders worldwide')}
                             </StyledHeader>
                             <br />
-                            <StyledHeaderText weight="normal" size="1.6rem">
+                            <StyledHeaderText weight="bold" size="1.6rem">
                                 {localize('Sign up for your demo account now.')}
                             </StyledHeaderText>
                             <InputGroup>

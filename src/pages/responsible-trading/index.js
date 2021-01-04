@@ -5,7 +5,7 @@ import SecureAccount from './_securing-account'
 import { SEO, SectionContainer, Container, Flex, Show } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { Header, Text } from 'components/elements'
-import { localize, WithIntl, Localize } from 'components/localization'
+import { localize, WithIntl } from 'components/localization'
 import NoneEuBackground from 'images/common/responsible-trading-bg.png'
 import EuBackground from 'images/common/responsible-trading-eu-bg.png'
 import device from 'themes/device'
@@ -16,7 +16,7 @@ const TradingLimits = Loadable(() => import('./_trading-limits'))
 const NeedHelp = Loadable(() => import('./_need-help'))
 const RoleBanner = Loadable(() => import('./_banner'))
 
-const HeroBase = styled(Flex)`
+const Hero = styled(Flex)`
     background-image: url(${(props) => props.background_image});
     background-position: center;
     background-size: cover;
@@ -35,40 +35,12 @@ const StyledHeader = styled(Header)`
     }
 `
 
-const CFDWrapper = styled(Text)`
-    background-color: var(--color-grey-25);
-    background-size: cover;
-    height: auto;
-    padding: 2rem 8rem;
-    max-height: 14rem;
-    overflow-y: auto;
-
-    @media ${device.tablet} {
-        padding: 1rem 4rem;
-    }
-
-    @media ${device.mobileL} {
-        padding: 1rem 2rem;
-    }
-`
-
-const CFDWarning = () => {
-    return (
-        <CFDWrapper>
-            <Localize
-                translate_text="CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. <0>74% of retail investor accounts lose money when trading CFDs with this provider.</0> You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money."
-                components={[<strong key={0} />]}
-            />
-        </CFDWrapper>
-    )
-}
-
 const ResponsibleTrading = () => {
     const { is_eu_country } = React.useContext(DerivStore)
     const HeroBackground = is_eu_country ? EuBackground : NoneEuBackground
 
     return (
-        <Layout Notification={is_eu_country && CFDWarning}>
+        <Layout>
             <SEO
                 title={localize('Secure and responsible online trading guidelines | Deriv')}
                 description={localize(

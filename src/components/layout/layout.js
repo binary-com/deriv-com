@@ -69,7 +69,6 @@ const Layout = ({
     no_login_signup,
     no_live_chat,
     nav_type,
-    Notification,
 }) => {
     const { is_eu_country } = React.useContext(DerivStore)
     const [has_mounted, setMounted] = React.useState(false)
@@ -155,7 +154,7 @@ const Layout = ({
             FooterNav = <Copyright />
             break
         default:
-            Navigation = <Nav Notification={Notification} />
+            Navigation = <Nav />
             FooterNav = <Footer />
             break
     }
@@ -209,7 +208,6 @@ Layout.propTypes = {
     nav_type: PropTypes.string,
     no_live_chat: PropTypes.bool,
     no_login_signup: PropTypes.bool,
-    Notification: PropTypes.oneOfType([PropTypes.elementType, PropTypes.bool]),
     type: PropTypes.string,
 }
 

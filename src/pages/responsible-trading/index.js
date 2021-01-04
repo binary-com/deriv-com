@@ -42,7 +42,7 @@ const StyledHeader = styled(Header)`
 `
 
 const CFDWrapper = styled(Text)`
-    background-color: #f9fafc;
+    background-color: var(--color-grey-25);
     background-size: cover;
     height: auto;
     padding: 2rem 8rem;
@@ -75,7 +75,7 @@ const ResponsibleTrading = () => {
     const HeroBackground = is_eu_country ? EuBackground : NoneEuBackground
 
     return (
-        <Layout CompotentAbove={is_eu_country ? CFDWarning : undefined}>
+        <Layout Notification={is_eu_country && CFDWarning}>
             <SEO
                 title={localize('Secure and responsible online trading guidelines | Deriv')}
                 description={localize(

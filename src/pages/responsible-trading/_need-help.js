@@ -22,8 +22,8 @@ const help_content = [
         text2: (
             <Localize translate_text="GAMSTOP is a free service that enables you to self-exclude from all online gambling companies licensed in Great Britain." />
         ),
-        icon: <img src={GamStop} alt="gamstop" width="160px" height="64px" />,
-        icon_mobile: <img src={GamStop} alt="gamstop" width="113px" height="34px" />,
+        icon: <img src={GamStop} alt="gamstop" width="160" height="64" />,
+        icon_mobile: <img src={GamStop} alt="gamstop" width="113" height="34" />,
         link: (
             <LocalizedLinkText
                 mt="1rem"
@@ -44,8 +44,8 @@ const help_content = [
                 <Localize translate_text="Deriv.com supports BeGambleAware, the leading charity in Britain committed to minimising gambling-related harm. BeGambleAware offers a helpline for those seeking advice about their gambling. It also has resources to help assess potential gambling problems, and an online gambling calculator to see how much you can really spend." />
             </Text>
         ),
-        icon: <img src={BeGambleAware} alt="begambleaware" width="160px" height="64px" />,
-        icon_mobile: <img src={BeGambleAware} alt="begambleaware" width="80px" height="21px" />,
+        icon: <img src={BeGambleAware} alt="begambleaware" width="160" height="64" />,
+        icon_mobile: <img src={BeGambleAware} alt="begambleaware" width="80" height="21" />,
         link: (
             <LocalizedLinkText
                 mt="1rem"
@@ -66,8 +66,8 @@ const help_content = [
                 <Localize translate_text="Clients must be aware that underage gambling is an offence. Deriv.com does not support gambling by those who are underaged. If a client, upon age verification, is proven to be underaged, they will be deprived of any winnings and only deposits made shall be refunded." />
             </Text>
         ),
-        icon: <img src={Underage} alt="underage" width="160px" height="64px" />,
-        icon_mobile: <img src={UnderageMobile} alt="underage" width="32px" height="32px" />,
+        icon: <img src={Underage} alt="underage" width="160" height="64" />,
+        icon_mobile: <img src={UnderageMobile} alt="underage" width="32" height="32" />,
     },
 
     {
@@ -77,10 +77,8 @@ const help_content = [
                 <Localize translate_text="Our site can be filtered using a number of filtering systems available on the market which could be used to restrict one's access to our site." />
             </Text>
         ),
-        icon: <img src={Filtering} alt="filtering controls" width="160px" height="64px" />,
-        icon_mobile: (
-            <img src={FilteringMobile} alt="filtering controls" width="32px" height="32px" />
-        ),
+        icon: <img src={Filtering} alt="filtering controls" width="160" height="64" />,
+        icon_mobile: <img src={FilteringMobile} alt="filtering controls" width="32" height="32" />,
     },
 ]
 

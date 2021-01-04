@@ -111,7 +111,7 @@ export const IconGrid = () => (
                 title={localize('Licensed and regulated')}
                 content={
                     <Localize
-                        translate_text="Deriv is <0>licensed and regulated</0> by several entities who ensure that we have systems in place to protect our clients. Our regulators include the Malta Financial Services Authority (MFSA), the Labuan Financial Services Authority (Labuan FSA), the Vanuatu Financial Services Commission (VFSC), and the British Virgin Islands Financial Services Commission."
+                        translate_text="Deriv is <0>regulated</0> by several entities including the Malta Financial Services Authority (MFSA), the Labuan Financial Services Authority (Labuan FSA), the Vanuatu Financial Services Commission (VFSC), and the British Virgin Islands Financial Services Commission."
                         components={[<LocalizedLink key={0} to="/regulatory/" />]}
                     />
                 }
@@ -120,7 +120,7 @@ export const IconGrid = () => (
                 Icon={ClientProtection}
                 title={localize('Client money protection')}
                 content={localize(
-                    'Deriv does not use your money for its business interests and you are allowed to withdraw your money at any time. All your money is segregated and held in secure and licensed financial institutions. In this way, in the unlikely event of Deriv becoming insolvent, all your money will be returned to you because it is never merged with ours.',
+                    'Deriv does not use your money for its business interests and you are allowed to withdraw your money at any time. All your money is segregated and held in secure financial institutions. In this way, in the unlikely event of Deriv becoming insolvent, all your money will be returned to you because it is never merged with ours.',
                 )}
             />
             <Col

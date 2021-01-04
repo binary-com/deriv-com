@@ -40,12 +40,7 @@ const Margin = () => {
                                 <Col>
                                     <Title>{localize('Europe')}</Title>
                                 </Col>
-                                <MarketsList
-                                    has_right_border={true}
-                                    col={1}
-                                    tablet_col={1}
-                                    mobile_col={1}
-                                >
+                                <MarketsList has_right_border={true} col={1}>
                                     <Symbol>
                                         <img src={OTCGERMAN} />
                                         <Text>{localize('German Index')}</Text>

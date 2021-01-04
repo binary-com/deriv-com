@@ -57,27 +57,18 @@ export const MarketsList = styled(CssGrid)`
     border-left: 1px solid var(--color-grey-22);
     border-right: ${({ has_right_border }) =>
         has_right_border ? '1px solid var(--color-grey-22)' : 'unset'};
-    grid-template-columns: ${({ col }) => `repeat(${col ?? 5}, 1fr)`};
+    grid-template-columns: ${({ responsive_col, col }) =>
+        `repeat(${responsive_col + 2 || col || 3}, 1fr)`};
     width: 100%;
     padding: 24px;
-    gap: 16px;
+    gap: 10px;
 
     @media ${device.tabletL} {
-        grid-template-columns: ${({ tablet_col }) => `repeat(${tablet_col ?? 3}, 1fr)`};
-
-        img {
-            width: 16px;
-            height: 16px;
-            margin-right: 4px;
-        }
-        ${Text} {
-            font-size: 15px;
-            line-height: 1.5;
-        }
+        grid-template-columns: ${({ responsive_col }) => `repeat(${responsive_col + 1 || 2}, 1fr)`};
     }
 
     @media ${device.mobileL} {
-        grid-template-columns: ${({ mobile_col }) => `repeat(${mobile_col ?? 2}, 1fr)`};
+        grid-template-columns: ${({ responsive_col }) => `repeat(${responsive_col ?? 1}, 1fr)`};
     }
 `
 
@@ -129,8 +120,19 @@ export const Symbol = styled(Flex)`
     }
     ${Text} {
         font-weight: normal;
-        font-size: var(--text-size-xs);
+        font-size: 13.5px;
         line-height: 1.14;
+    }
+
+    @media ${device.mobileL} {
+        > img {
+            width: 16px;
+            height: 16px;
+            margin-right: 4px;
+        }
+        ${Text} {
+            font-size: 12px;
+        }
     }
 `
 

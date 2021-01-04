@@ -247,12 +247,7 @@ const DigitalOptions = () => {
                                 <Col>
                                     <Title p="0 0.4rem">{localize('Continuous indices')}</Title>
                                 </Col>
-                                <MarketsList
-                                    has_right_border={true}
-                                    col={3}
-                                    tablet_col={1}
-                                    mobile_col={1}
-                                >
+                                <MarketsList has_right_border={true}>
                                     <ContinuousIndices />
                                 </MarketsList>
                             </Row>
@@ -265,12 +260,7 @@ const DigitalOptions = () => {
                                 <Col>
                                     <Title>{localize('Daily reset indices')}</Title>
                                 </Col>
-                                <MarketsList
-                                    has_right_border={true}
-                                    col={3}
-                                    tablet_col={1}
-                                    mobile_col={1}
-                                >
+                                <MarketsList has_right_border={true}>
                                     <DailyResetIndices />
                                 </MarketsList>
                             </Row>

@@ -32,7 +32,7 @@ const Margin = () => {
                     <Col>
                         <Title>{localize('Metals')}</Title>
                     </Col>
-                    <MarketsList col={4} tablet_col={2} mobile_col={1}>
+                    <MarketsList col={4}>
                         <Metals />
                     </MarketsList>
                 </Row>

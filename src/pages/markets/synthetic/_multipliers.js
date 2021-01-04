@@ -39,7 +39,7 @@ const Multipliers = () => {
                                 <Col>
                                     <Title>{localize('Continuous indices')}</Title>
                                 </Col>
-                                <MarketsList col={3} has_right_border={true}>
+                                <MarketsList has_right_border={true}>
                                     <ContinuousIndices />
                                 </MarketsList>
                             </Row>
@@ -57,7 +57,7 @@ const Multipliers = () => {
                                         <Title>{localize('Crash/ Boom')}</Title>
                                     </Show.Mobile>
                                 </Col>
-                                <MarketsList col={3} has_right_border={true}>
+                                <MarketsList has_right_border={true}>
                                     <CrashBoom />
                                 </MarketsList>
                             </Row>
@@ -70,7 +70,7 @@ const Multipliers = () => {
                                 <Col>
                                     <Title>{localize('Step indices')}</Title>
                                 </Col>
-                                <MarketsList col={3} has_right_border={true}>
+                                <MarketsList has_right_border={true}>
                                     <StepIndices />
                                 </MarketsList>
                             </Row>

@@ -32,7 +32,7 @@ const Multipliers = () => {
                     <Col>
                         <Title>{localize('Major pairs')}</Title>
                     </Col>
-                    <MarketsList>
+                    <MarketsList responsive_col={2}>
                         <MajorPairs />
                     </MarketsList>
                 </Row>

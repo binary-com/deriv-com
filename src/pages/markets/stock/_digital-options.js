@@ -113,7 +113,7 @@ const DigitalOptions = () => {
                                 <Col>
                                     <Title>{localize('Americas')}</Title>
                                 </Col>
-                                <MarketsList col={3} tablet_col={2} has_right_border={true}>
+                                <MarketsList has_right_border={true}>
                                     <Americas />
                                 </MarketsList>
                             </Row>
@@ -126,12 +126,7 @@ const DigitalOptions = () => {
                                 <Col>
                                     <Title>{localize('Asia/ Oceania')}</Title>
                                 </Col>
-                                <MarketsList
-                                    col={3}
-                                    tablet_col={1}
-                                    mobile_col={1}
-                                    has_right_border={true}
-                                >
+                                <MarketsList has_right_border={true}>
                                     <AsiaOceania />
                                 </MarketsList>
                             </Row>
@@ -144,7 +139,7 @@ const DigitalOptions = () => {
                                 <Col>
                                     <Title>{localize('Europe')}</Title>
                                 </Col>
-                                <MarketsList col={4} tablet_col={2} has_right_border={true}>
+                                <MarketsList col={4} has_right_border={true}>
                                     <Europe />
                                 </MarketsList>
                             </Row>

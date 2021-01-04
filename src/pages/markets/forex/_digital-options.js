@@ -107,7 +107,7 @@ const DigitalOptions = () => {
                     <Col>
                         <Title>{localize('Major pairs')}</Title>
                     </Col>
-                    <MarketsList>
+                    <MarketsList responsive_col={2}>
                         <MajorPairs />
                     </MarketsList>
                 </Row>
@@ -115,7 +115,7 @@ const DigitalOptions = () => {
                     <Col>
                         <Title>{localize('Minor pairs')}</Title>
                     </Col>
-                    <MarketsList>
+                    <MarketsList responsive_col={2}>
                         <MinorPairs />
                     </MarketsList>
                 </Row>
@@ -128,7 +128,7 @@ const DigitalOptions = () => {
                             <Title>{localize('Smart FX')}</Title>
                         </Show.Mobile>
                     </Col>
-                    <MarketsList tablet_col={2}>
+                    <MarketsList responsive_col={2}>
                         <SmartFX />
                     </MarketsList>
                 </Row>

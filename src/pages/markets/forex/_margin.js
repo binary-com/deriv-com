@@ -34,7 +34,7 @@ const Margin = () => {
                         <Col>
                             <Title>{localize('Major pairs')}</Title>
                         </Col>
-                        <MarketsList>
+                        <MarketsList responsive_col={2}>
                             <MajorPairs />
                         </MarketsList>
                     </Row>
@@ -42,7 +42,7 @@ const Margin = () => {
                         <Col>
                             <Title>{localize('Minor pairs')}</Title>
                         </Col>
-                        <MarketsList>
+                        <MarketsList responsive_col={2}>
                             <MinorPairs />
                         </MarketsList>
                     </Row>
@@ -50,7 +50,7 @@ const Margin = () => {
                         <Col>
                             <Title>{localize('Exotic pairs')}</Title>
                         </Col>
-                        <MarketsList>
+                        <MarketsList responsive_col={2}>
                             <ExoticPairs />
                         </MarketsList>
                     </Row>

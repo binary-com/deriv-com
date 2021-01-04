@@ -43,12 +43,7 @@ const Margin = () => {
                                 <Col>
                                     <Title>{localize('Volatility indices')}</Title>
                                 </Col>
-                                <MarketsList
-                                    col={3}
-                                    has_right_border={true}
-                                    tablet_col={1}
-                                    mobile_col={1}
-                                >
+                                <MarketsList has_right_border={true}>
                                     <VolatilityIndices />
                                 </MarketsList>
                             </Row>
@@ -66,12 +61,7 @@ const Margin = () => {
                                         <Title>{localize('Crash/ Boom')}</Title>
                                     </Show.Mobile>
                                 </Col>
-                                <MarketsList
-                                    col={3}
-                                    has_right_border={true}
-                                    tablet_col={1}
-                                    mobile_col={1}
-                                >
+                                <MarketsList has_right_border={true}>
                                     <CrashBoom />
                                 </MarketsList>
                             </Row>
@@ -84,12 +74,7 @@ const Margin = () => {
                                 <Col>
                                     <Title>{localize('Step indices')}</Title>
                                 </Col>
-                                <MarketsList
-                                    col={3}
-                                    has_right_border={true}
-                                    tablet_col={1}
-                                    mobile_col={1}
-                                >
+                                <MarketsList has_right_border={true}>
                                     <StepIndices />
                                 </MarketsList>
                             </Row>
@@ -102,12 +87,7 @@ const Margin = () => {
                                 <Col>
                                     <Title>{localize('Range break indices')}</Title>
                                 </Col>
-                                <MarketsList
-                                    col={3}
-                                    has_right_border={true}
-                                    tablet_col={1}
-                                    mobile_col={1}
-                                >
+                                <MarketsList has_right_border={true}>
                                     <RangeBreak />
                                 </MarketsList>
                             </Row>

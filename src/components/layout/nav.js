@@ -32,6 +32,7 @@ import Hamburger from 'images/svg/hamburger_menu.svg'
 import Close from 'images/svg/close-long.svg'
 import LogoOnly from 'images/svg/logo-deriv-only.svg'
 import LogoCombinedShape from 'images/svg/logo-combined-shape.svg'
+import { CFDWarning } from 'components/layout'
 
 const query = graphql`
     query {
@@ -550,6 +551,8 @@ const NavDesktop = ({ base }) => {
 export const Nav = ({ base }) => {
     return (
         <NavWrapper>
+            <CFDWarning />
+
             <StyledNav>
                 <Show.Desktop>
                     <NavDesktop base={base} />

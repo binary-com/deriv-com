@@ -41,7 +41,7 @@ const Details = styled(Box)`
         padding: 1rem 1rem 2rem 1rem;
     }
 `
-const MarketsAccordion = ({ renderTitle, renderDetails, args }) => {
+const MarketsAccordion = ({ renderTitle, renderDetails, custom_index }) => {
     const [is_show_detail, setShow] = React.useState(false)
     return (
         <Wrapper>
@@ -59,7 +59,7 @@ const MarketsAccordion = ({ renderTitle, renderDetails, args }) => {
             </Title>
             {is_show_detail && (
                 <Details background="var(--color-grey-23)">
-                    {args ? renderDetails(args) : renderDetails()}
+                    {custom_index ? renderDetails(custom_index) : renderDetails()}
                 </Details>
             )}
         </Wrapper>
@@ -67,7 +67,7 @@ const MarketsAccordion = ({ renderTitle, renderDetails, args }) => {
 }
 
 MarketsAccordion.propTypes = {
-    args: PropTypes.any,
+    custom_index: PropTypes.number,
     renderDetails: PropTypes.func,
     renderTitle: PropTypes.func,
 }

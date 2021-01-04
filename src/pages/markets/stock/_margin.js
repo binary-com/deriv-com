@@ -49,7 +49,7 @@ const Margin = () => {
                             </Row>
                         )}
                         renderDetails={EuropeDetails}
-                        args={4}
+                        custom_index={4}
                     />
                 </MarketsWrapper>
             </ContentWrapper>

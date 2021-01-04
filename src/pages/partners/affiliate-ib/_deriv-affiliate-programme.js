@@ -69,24 +69,34 @@ const RevenueShare = [
     },
     {
         title: <Localize translate_text="Commission" />,
-        data: ['30%', '45%'],
+        data: [
+            <Localize key={0} translate_text="30%" />,
+            <Localize key={1} translate_text="45%" />,
+        ],
     },
 ]
 const Turnover = [
     {
         title: <Localize translate_text="Probability of return" />,
         data: [
-            '0-19.999%',
-            '20-39.999%',
-            '40-59.999%',
-            '60-79.999%',
-            '80-94.999%',
-            <Localize key={0} translate_text="95% and above" />,
+            <Localize key={0} translate_text="0-19.999%" />,
+            <Localize key={1} translate_text="20-39.999%" />,
+            <Localize key={2} translate_text="40-59.999%" />,
+            <Localize key={3} translate_text="60-79.999%" />,
+            <Localize key={4} translate_text="80-94.999%" />,
+            <Localize key={5} translate_text="95% and above" />,
         ],
     },
     {
         title: <Localize translate_text="Commission" />,
-        data: ['1.5%', '1%', '0.75%', '0.5%', '0.4%', '0%'],
+        data: [
+            <Localize key={0} translate_text="1.5%" />,
+            <Localize key={1} translate_text="1%" />,
+            <Localize key={2} translate_text="0.75%" />,
+            <Localize key={3} translate_text="0.5%" />,
+            <Localize key={4} translate_text="0.4%" />,
+            <Localize key={5} translate_text="0%" />,
+        ],
     },
 ]
 const DerivAffiliateProgramme = () => {

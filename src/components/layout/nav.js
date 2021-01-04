@@ -552,7 +552,6 @@ export const Nav = ({ base }) => {
     return (
         <NavWrapper>
             <CFDWarning />
-
             <StyledNav>
                 <Show.Desktop>
                     <NavDesktop base={base} />
@@ -601,6 +600,7 @@ const StyledLogo = styled(LogoLink)`
 `
 export const NavInterim = ({ interim_type }) => (
     <InterimNav>
+        <CFDWarning />
         <Container jc="space-between" p="2.4rem 0">
             <Flex ai="center" jc="flex-start">
                 <Show.Desktop>
@@ -794,6 +794,7 @@ export const NavPartners = ({ no_login_signup }) => {
     return (
         <>
             <NavWrapper ref={nav_ref}>
+                <CFDWarning />
                 <DerivHomeWrapper>
                     <HomeContainer justify="flex-start">
                         <HomeLink to="/">

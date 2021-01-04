@@ -8,6 +8,7 @@ import { QueryImage } from 'components/elements'
 import { Show } from 'components/containers'
 import device from 'themes/device'
 import LogoCombinedShape from 'images/svg/logo-combined-shape.svg'
+import { CFDWarning } from 'components/layout'
 
 const query = graphql`
     query {
@@ -59,6 +60,7 @@ export const NavP2P = ({ nav_type }) => {
     return (
         <>
             <NavWrapper>
+                <CFDWarning />
                 <StyledNav>
                     <StyledWrapper>
                         <P2PNavLeft>

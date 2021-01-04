@@ -96,9 +96,6 @@ export const Options = styled(Descriptions)`
             max-width: 384px;
         }
     }
-    div:first-child {
-        margin-top: 0;
-    }
 `
 
 export const StyledText = styled(Text)`

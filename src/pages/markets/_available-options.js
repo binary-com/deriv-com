@@ -30,7 +30,7 @@ const AvailableOptions = ({ title, content, remove_title, svg, mobile_pt }) => {
         }
     `
     return (
-        <StyledFlex mt={remove_title ? '1.6rem !important' : ''} mobile_pt={mobile_pt}>
+        <StyledFlex mt={remove_title ? '1.6rem' : 0} mobile_pt={mobile_pt}>
             {!remove_title && (
                 <Box mb="0.8rem" height="2.4rem">
                     <StyledText weight="bold">{title ? title : null}</StyledText>

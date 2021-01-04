@@ -72,7 +72,6 @@ const TextWrapper = styled(Text)`
     text-align: center;
     font-size: var(--text-size-m);
     color: var(--color-black);
-    font-weight: normal;
 
     @media ${device.tabletS} {
         font-size: ${({ font_size }) => font_size ?? 'var(--text-size-sm)'};

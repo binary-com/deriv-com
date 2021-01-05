@@ -99,7 +99,7 @@ const Layout = ({
 
     const Main = styled.main`
         margin-top: ${(props) =>
-            !is_static && is_eu_country
+            !type && is_eu_country
                 ? (props.margin_top && `${props.margin_top + cfd_warning_height_desktop}rem`) ||
                   7 + cfd_warning_height_desktop + `rem`
                 : (props.margin_top && `${props.margin_top}rem`) || `7rem`};
@@ -109,7 +109,7 @@ const Layout = ({
 
         @media ${device.tabletS} {
             margin-top: ${(props) =>
-                !is_static && is_eu_country
+                !type && is_eu_country
                     ? (props.margin_top && `${props.margin_top + cfd_warning_height_tablet}rem`) ||
                       7 + cfd_warning_height_tablet + `rem`
                     : (props.margin_top && `${props.margin_top}rem`) || `7rem`};

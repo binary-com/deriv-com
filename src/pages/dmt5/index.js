@@ -1,6 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
-import { WhyTrader, StartTrader, DownloadApp, Flexibility, DBanner, MarginCalculator /*SwapFreeTrading*/ } from './_lazy-load'
+import {
+    WhyTrader,
+    StartTrader,
+    DownloadApp,
+    Flexibility,
+    DBanner,
+    MarginCalculator,
+} from './_lazy-load'
 // import TradeControl from './_trade-control.js'
 import DHero from './_dhero'
 import Numbers from './_numbers'

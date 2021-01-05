@@ -159,7 +159,7 @@ export const Carousel = ({
                         onClick={scrollPrev}
                         enabled={prevBtnEnabled}
                         style={chevron_left}
-                        is_reviews={chevron_color === 'black' || is_displayed_on_mobile}
+                        is_reviews={is_displayed_on_mobile}
                     />
                 )}
                 {chevron_color && is_arrow && (
@@ -168,7 +168,7 @@ export const Carousel = ({
                         onClick={scrollNext}
                         enabled={nextBtnEnabled}
                         style={chevron_right}
-                        is_reviews={chevron_color === 'black' || is_displayed_on_mobile}
+                        is_reviews={is_displayed_on_mobile}
                     />
                 )}
                 {nav_color && (

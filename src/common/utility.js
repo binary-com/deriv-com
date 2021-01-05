@@ -108,6 +108,7 @@ const trimSpaces = (value) => value.trim()
 const deriv_app_url = 'https://app.deriv.com'
 const deriv_bot_app_url = 'https://app.deriv.com/bot'
 const deriv_dp2p_app_url = 'https://app.deriv.com/cashier/p2p'
+const deriv_status_page_url = 'https://deriv.statuspage.io/'
 const smarttrader_url = 'https://smarttrader.deriv.com'
 const binary_url = 'https://binary.com'
 const blog_url = 'https://blog.deriv.com'
@@ -139,17 +140,18 @@ export {
     affiliate_signup_url,
     binary_url,
     brand_name,
-    cfd_warning_height_desktop,
-    cfd_warning_height_tablet,
     checkElemInArray,
     cloneObject,
     blog_url,
+    cfd_warning_height_desktop,
+    cfd_warning_height_tablet,
     community_url,
     debounce,
     deriv_app_url,
     deriv_bot_app_url,
     deriv_cookie_domain,
     deriv_dp2p_app_url,
+    deriv_status_page_url,
     dmt5_android_url,
     dmt5_ios_url,
     dmt5_linux_url,

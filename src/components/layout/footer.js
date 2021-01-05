@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 import { Container, CssGrid, Flex, Show } from '../containers'
 import { StyledLink, Text, QueryImage } from '../elements'
 import { LocationContext } from './location-context'
-import { mga_link_url } from 'common/utility'
+import { deriv_status_page_url, mga_link_url } from 'common/utility'
 // TODO: (discussion) make footer pure component, and move usage of footer to custom
 import device from 'themes/device'
 import { localize, Localize, LocalizedLink } from 'components/localization'
@@ -502,6 +502,16 @@ const Footer = ({ type }) => {
                                     <LinkWrapper>
                                         <Link to="/payment-methods">
                                             {localize('Payment methods')}
+                                        </Link>
+                                    </LinkWrapper>
+                                    <LinkWrapper>
+                                        <Link
+                                            to={deriv_status_page_url}
+                                            target="_blank"
+                                            external="true"
+                                            rel="noopener noreferrer"
+                                        >
+                                            {localize('Status page')}
                                         </Link>
                                     </LinkWrapper>
                                 </LinksCol>

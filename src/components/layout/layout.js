@@ -25,17 +25,28 @@ const has_dataLayer = isBrowser() && window.dataLayer
 const TRACKING_STATUS_KEY = 'tracking_status'
 const tracking_status_cookie = new CookieStorage(TRACKING_STATUS_KEY)
 
-const cfdWarningHeight = 8
+const cfd_warning_height_desktop = 10
+const cfd_warning_height_tablet = 12
 
 const CFDWrapper = styled.section`
     background-color: var(--color-grey-25);
     background-size: cover;
-    padding: 1rem 8rem;
-    height: 8rem;
-    overflow: auto;
+    height: ${cfd_warning_height_desktop}rem;
+    display: flex;
+    align-items: center;
+
+    @media ${device.tabletS} {
+        height: ${cfd_warning_height_tablet}rem;
+    }
+`
+
+const CFDText = styled(Text)`
+    @media ${device.tabletL} {
+        font-size: 14px;
+    }
 
     @media ${device.tablet} {
-        padding: 1rem 4rem;
+        font-size: 12px;
     }
 
     @media ${device.mobileL} {
@@ -83,8 +94,8 @@ const Layout = ({
     const Main = styled.main`
         margin-top: ${(props) =>
             is_eu_country
-                ? (props.margin_top && `${props.margin_top + cfdWarningHeight}rem`) ||
-                  7 + cfdWarningHeight + `rem`
+                ? (props.margin_top && `${props.margin_top + cfd_warning_height_desktop}rem`) ||
+                  7 + cfd_warning_height_desktop + `rem`
                 : (props.margin_top && `${props.margin_top}rem`) || `7rem`};
         background: var(--color-white);
         height: 100%;

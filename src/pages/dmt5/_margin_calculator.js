@@ -106,8 +106,7 @@ const StyledCardContainer = styled(Flex)`
 const StyledLinkButton = styled(LinkButton)`
     padding: 1rem 1.6rem;
     font-size: 14px;
-    height: auto;
-    min-height: 4rem;
+    height: 40px;
     width: auto;
     min-width: 210px;
     @media ${device.tabletL} {

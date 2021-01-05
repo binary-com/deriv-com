@@ -211,7 +211,7 @@ const MarginCalculator = () => {
         },
         chevron_style: {
             chevron_color: 'red',
-            display_mobile: true,
+            is_displayed_on_mobile: true,
         },
         navigation_style: {
             nav_color: 'red',

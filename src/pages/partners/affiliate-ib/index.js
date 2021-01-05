@@ -59,7 +59,7 @@ const why_partner_with_us_items = [
 ]
 const AffiliateIb = () => {
     return (
-        <Layout type="partners" margin_top="10rem">
+        <Layout type="partners" margin_top={10}>
             <SEO
                 title={localize('Affiliate and IB programme | Deriv')}
                 description={localize(

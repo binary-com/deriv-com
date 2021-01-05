@@ -32,6 +32,7 @@ import Hamburger from 'images/svg/hamburger_menu.svg'
 import Close from 'images/svg/close-long.svg'
 import LogoOnly from 'images/svg/logo-deriv-only.svg'
 import LogoCombinedShape from 'images/svg/logo-combined-shape.svg'
+import { CFDWarning } from 'components/layout'
 
 const query = graphql`
     query {
@@ -110,7 +111,7 @@ export const Wrapper = styled(Container)`
     justify-content: space-between;
     height: 7.2rem;
     @media ${device.laptopL} {
-        width: ${({ width }) => width ?? "90%"};
+        width: ${({ width }) => width ?? '90%'};
     }
     @media ${device.laptop} {
         font-size: var(--text-size-xxs);
@@ -275,7 +276,7 @@ const LoginButton = styled(Button)`
 const MobileLogin = styled(Button)`
     display: none;
     font-size: 14px;
-    margin-left: ${({ margin_left }) => margin_left ?? "1.6rem" };
+    margin-left: ${({ margin_left }) => margin_left ?? '1.6rem'};
     @media ${device.tabletL} {
         display: block;
     }
@@ -550,6 +551,8 @@ const NavDesktop = ({ base }) => {
 export const Nav = ({ base }) => {
     return (
         <NavWrapper>
+            <CFDWarning />
+
             <StyledNav>
                 <Show.Desktop>
                     <NavDesktop base={base} />

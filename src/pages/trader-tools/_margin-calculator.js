@@ -88,7 +88,7 @@ const MarginCalculator = () => {
     }
 
     const toFixed = (val) => {
-        return parseFloat(val.toFixed(2)).toLocaleString()
+        return parseFloat(val.toFixed(3)).toLocaleString()
     }
 
     const resetValidation = (values) => {
@@ -168,7 +168,7 @@ const MarginCalculator = () => {
 
     return (
         <StyledSection direction="column">
-            <SectionHeader as="h2" align="center" mt="6rem" mb="1.2rem">
+            <SectionHeader as="h2" type="page-title" align="center" mt="6rem" mb="1.2rem">
                 {localize('Margin calculator')}
             </SectionHeader>
 
@@ -372,14 +372,17 @@ const MarginCalculator = () => {
 
                 <RightContent>
                     <TextWrapper>
-                        <RightContentHeader as="h3" mb="0.8rem">
+                        <RightContentHeader as="h3" type="section-title" mb="0.8rem">
                             {localize('How margin is calculated')}
                         </RightContentHeader>
 
+                        <StyledText>
+                            <Localize translate_text="The margin required for a contract on DMT5 is calculated based on the formula:" />
+                        </StyledText>
                         <StyledText mb="1.6rem">
                             <Localize
-                                translate_text="The margin required for a contract on DMT5 is calculated based on the formula:<1></1><0> Margin = volume in lots × contract size × asset price/leverage </0>"
-                                components={[<strong key={0} />, <br key={1} />]}
+                                translate_text="<0> Margin = volume in lots × contract size × asset price/leverage </0>"
+                                components={[<strong key={0} />]}
                             />
                         </StyledText>
 
@@ -392,7 +395,7 @@ const MarginCalculator = () => {
                             )}
                         </StyledText>
 
-                        <RightContentHeader as="h3" mb="0.8rem">
+                        <RightContentHeader as="h3" type="section-title" mb="0.8rem">
                             {localize('Example calculation')}
                         </RightContentHeader>
 

@@ -13,9 +13,6 @@ const query = graphql`
         background: file(relativePath: { eq: "home/platform_devices.png" }) {
             ...fadeIn
         }
-        background_mobile: file(relativePath: { eq: "home/platform_devices_mobile.png" }) {
-            ...fadeIn
-        }
     }
 `
 
@@ -177,7 +174,7 @@ export const Hero = () => {
                         {check_first_load && (
                             <Show.Mobile>
                                 <QueryImage
-                                    data={data.background_mobile}
+                                    data={data.background}
                                     alt="platform devices mobile"
                                     width="100%"
                                     height="233"

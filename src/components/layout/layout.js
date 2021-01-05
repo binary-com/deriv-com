@@ -12,21 +12,49 @@ import CookieBanner from 'components/custom/cookie-banner'
 import { CookieStorage } from 'common/storage'
 import { isBrowser } from 'common/utility'
 import { DerivStore } from 'store'
+import { Localize } from 'components/localization'
+import { Text } from 'components/elements'
+import device from 'themes/device'
 
 const Footer = Loadable(() => import('./footer'))
 const LiveChat = Loadable(() => import('./livechat'))
-
-const Main = styled.main`
-    margin-top: ${(props) => props.margin_top || '7rem'};
-    background: var(--color-white);
-    height: 100%;
-    position: relative;
-`
 
 const has_dataLayer = isBrowser() && window.dataLayer
 
 const TRACKING_STATUS_KEY = 'tracking_status'
 const tracking_status_cookie = new CookieStorage(TRACKING_STATUS_KEY)
+
+const cfdWarningHeight = 8
+
+const CFDWrapper = styled(Text)`
+    background-color: var(--color-grey-25);
+    background-size: cover;
+    padding: 1rem 8rem;
+    height: 8rem;
+    overflow: auto;
+
+    @media ${device.tablet} {
+        padding: 1rem 4rem;
+    }
+
+    @media ${device.mobileL} {
+        padding: 1rem 2rem;
+    }
+`
+
+export const CFDWarning = () => {
+    const { is_eu_country } = React.useContext(DerivStore)
+    return is_eu_country ? (
+        <CFDWrapper>
+            <Localize
+                translate_text="CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. <0>74% of retail investor accounts lose money when trading CFDs with this provider.</0> You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money."
+                components={[<strong key={0} />]}
+            />
+        </CFDWrapper>
+    ) : (
+        <></>
+    )
+}
 
 const Layout = ({
     children,
@@ -46,6 +74,17 @@ const Layout = ({
     const [is_livechat_interactive, setLiveChatInteractive] = React.useState(false)
 
     const is_static = type === 'static'
+
+    const Main = styled.main`
+        margin-top: ${(props) =>
+            is_eu_country
+                ? (props.margin_top && `${props.margin_top + cfdWarningHeight}rem`) ||
+                  7 + cfdWarningHeight + `rem`
+                : (props.margin_top && `${props.margin_top}rem`) || `7rem`};
+        background: var(--color-white);
+        height: 100%;
+        position: relative;
+    `
 
     // Every layout change will trigger scroll to top
     React.useEffect(() => {
@@ -152,7 +191,7 @@ const Layout = ({
 Layout.propTypes = {
     children: PropTypes.node.isRequired,
     interim_type: PropTypes.string,
-    margin_top: PropTypes.string,
+    margin_top: PropTypes.number,
     nav_type: PropTypes.string,
     no_live_chat: PropTypes.bool,
     no_login_signup: PropTypes.bool,

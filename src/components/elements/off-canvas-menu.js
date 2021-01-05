@@ -5,7 +5,7 @@ import { Flex } from 'components/containers'
 import { LocalizedLink, localize, Localize } from 'components/localization'
 import { Accordion, AccordionItem, NavCard, Text, Divider } from 'components/elements'
 import { useOutsideClick } from 'components/hooks/outside-click'
-import { cfd_warning_height_desktop, cfd_warning_height_tablet, deriv_status_page_url } from 'common/utility'
+import { cfd_warning_height_desktop, cfd_warning_height_tablet } from 'common/utility'
 // SVG
 import AffiliateIb from 'images/svg/menu/affiliate-ib.svg'
 import Career from 'images/svg/menu/careers.svg'
@@ -32,7 +32,6 @@ import Smarttrader from 'images/svg/smarttrader.svg'
 import StockIndices from 'images/svg/stock-indices-nav.svg'
 import Story from 'images/svg/menu/story.svg'
 import SyntheticIndices from 'images/svg/synthetic-indices-nav.svg'
-import SystemStatus from 'images/svg/system-status.svg'
 import Terms from 'images/svg/menu/terms.svg'
 import TraderTool from 'images/svg/trader-tool-nav.svg'
 import { DerivStore } from 'store'
@@ -429,21 +428,6 @@ export const OffCanvasMenuWrapper = (props) => {
                                 <img src={Payment} alt="payment" width="24" height="24" />
                             </div>
                             <span>{localize('Payment methods')}</span>
-                        </StyledLink>
-                        <StyledLink
-                            to={deriv_status_page_url}
-                            onClick={handleArrowClick}
-                            external="true"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <div>
-                                <img src={SystemStatus} alt="community" width="24" height="24" />
-                            </div>
-                            <Span>{localize('Status page')}</Span>
-                            <SpanSvg>
-                                <img src={Diagonal} alt="diagonal" width="16" height="16" />
-                            </SpanSvg>
                         </StyledLink>
                         {/* TODO: add this when blog is ready */}
                         {/* <StyledLink to="/blog/" onClick={handleArrowClick}>

@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { StyledNav, StyledLink, NavWrapper, LogoLink, Wrapper, NavLeft } from './nav'
-import { CFDWarning } from './layout'
 import { Flex } from 'components/containers'
 import { localize } from 'components/localization'
 import { QueryImage } from 'components/elements'
@@ -45,7 +44,6 @@ export const NavCareers = () => {
     return (
         <>
             <NavWrapper>
-                <CFDWarning />
                 <StyledNav>
                     <Wrapper>
                         <CareerNavLeft>

@@ -132,9 +132,10 @@ export const NavLeft = styled.div`
 const StaticWrapper = styled.nav`
     background: var(--color-black);
     display: flex;
+    height: 10.4rem;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 10.4rem;
 `
 
 const NavCenter = styled.ul`
@@ -644,20 +645,23 @@ export const NavInterim = ({ interim_type }) => (
 )
 
 export const NavStatic = () => (
-    <StaticWrapper>
-        <LogoLink mw="31rem" to="/" aria-label={localize('Home')}>
-            <Flex ai="center">
-                <img src={LogoOnly} alt="logo only nav static" width="160px" height="27px" />
-                <Line />
-                <img
-                    src={LogoCombinedShape}
-                    alt="logo combined shape nav static"
-                    width="120"
-                    height="17"
-                />
-            </Flex>
-        </LogoLink>
-    </StaticWrapper>
+    <>
+        <CFDWarning />
+        <StaticWrapper>
+            <LogoLink mw="31rem" to="/" aria-label={localize('Home')}>
+                <Flex ai="center">
+                    <img src={LogoOnly} alt="logo only nav static" width="160px" height="27px" />
+                    <Line />
+                    <img
+                        src={LogoCombinedShape}
+                        alt="logo combined shape nav static"
+                        width="120"
+                        height="17"
+                    />
+                </Flex>
+            </LogoLink>
+        </StaticWrapper>
+    </>
 )
 
 const DerivHomeWrapper = styled.div`

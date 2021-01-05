@@ -25,7 +25,7 @@ const has_dataLayer = isBrowser() && window.dataLayer
 const TRACKING_STATUS_KEY = 'tracking_status'
 const tracking_status_cookie = new CookieStorage(TRACKING_STATUS_KEY)
 
-const cfd_warning_height_desktop = 10
+const cfd_warning_height_desktop = 8
 const cfd_warning_height_tablet = 12
 
 const CFDWrapper = styled.section`
@@ -37,6 +37,12 @@ const CFDWrapper = styled.section`
 
     @media ${device.tabletS} {
         height: ${cfd_warning_height_tablet}rem;
+    }
+`
+
+const CFDContainer = styled(Container)`
+    @media ${device.tabletL} {
+        width: 95%;
     }
 `
 
@@ -58,14 +64,14 @@ export const CFDWarning = () => {
     const { is_eu_country } = React.useContext(DerivStore)
     return is_eu_country ? (
         <CFDWrapper>
-            <Container>
+            <CFDContainer>
                 <CFDText>
                     <Localize
                         translate_text="CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. <0>74% of retail investor accounts lose money when trading CFDs with this provider.</0> You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money."
                         components={[<strong key={0} />]}
                     />
                 </CFDText>
-            </Container>
+            </CFDContainer>
         </CFDWrapper>
     ) : (
         <></>
@@ -93,7 +99,7 @@ const Layout = ({
 
     const Main = styled.main`
         margin-top: ${(props) =>
-            is_eu_country
+            !is_static && is_eu_country
                 ? (props.margin_top && `${props.margin_top + cfd_warning_height_desktop}rem`) ||
                   7 + cfd_warning_height_desktop + `rem`
                 : (props.margin_top && `${props.margin_top}rem`) || `7rem`};
@@ -103,7 +109,7 @@ const Layout = ({
 
         @media ${device.tabletS} {
             margin-top: ${(props) =>
-                is_eu_country
+                !is_static && is_eu_country
                     ? (props.margin_top && `${props.margin_top + cfd_warning_height_tablet}rem`) ||
                       7 + cfd_warning_height_tablet + `rem`
                     : (props.margin_top && `${props.margin_top}rem`) || `7rem`};

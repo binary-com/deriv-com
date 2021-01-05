@@ -247,6 +247,7 @@ const WhatAreOptions = () => {
                 </SmallContainer>
             </StyledSectionContainer>
             <AvailableTrades
+                display_title={localize('Instruments available to trade on Multipliers')}
                 Forex={Margin}
                 SyntheticIndices={SyntheticIndices}
             />

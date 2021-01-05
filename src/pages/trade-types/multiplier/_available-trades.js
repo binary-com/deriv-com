@@ -9,6 +9,14 @@ import device from 'themes/device'
 import ForexIcon from 'images/svg/market-forex.svg'
 import SyntheticIcon from 'images/svg/market-synthetic-indices.svg'
 
+const StyledHeader = styled(Header)`
+    @media ${device.tabletL} {
+        max-width: 35.75rem;
+        font-size: 32px;
+        margin: 0 auto;
+    }
+`
+
 const StyledSection = styled(SectionContainer)`
     padding: 5rem 0;
 `
@@ -74,7 +82,7 @@ const CardContainer = styled(Flex)`
             width: 100%;
             height: 100%;
             justify-content: flex-start;
-            padding: 10px 44px 0 0;
+            padding: 10px 44px 0;
 
             img {
                 width: 16px;
@@ -94,14 +102,14 @@ const CardContainer = styled(Flex)`
         z-index: -1;
         border-bottom: none;
         border-radius: 10px 30px 0 0;
-        background: #f3f3f3;
+        background: var(--color-grey-36);
         transform: perspective(14px) rotateX(1.4deg);
         transform-origin: bottom left;
         box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.05);
         ${(props) => {
         if (props.active_tab === props.name)
             return css`
-                    background-color: #ffffff;
+                    background-color: var(--color-white);
                     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.05);
                 `
     }}
@@ -136,7 +144,7 @@ const ContentWrapper = styled.div`
     width: 100%;
     max-width: 99.6rem;
     display: block;
-    background: #ffffff;
+    background: var(--color-white);
     border-radius: 0.15em;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
 
@@ -194,9 +202,12 @@ class AvailableTrades extends React.Component {
         this.setState({ active_tab: new_tab })
     }
     render() {
-        const { Forex, SyntheticIndices } = this.props
+        const { display_title, Forex, SyntheticIndices } = this.props
         return (
             <StyledSection>
+                <StyledHeader size="var(--text-size-header-1)" align="center" as='h2'>
+                    {display_title}
+                </StyledHeader>
                 <StyledContainer direction="column">
                     <CardWrapper position="relative">
                         {Forex && (

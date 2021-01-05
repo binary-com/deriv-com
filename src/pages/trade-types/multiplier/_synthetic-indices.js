@@ -8,6 +8,12 @@ import { SectionContainer, Flex, CssGrid, Show } from 'components/containers'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
 
+const StyledText = styled(Text)`
+    @media ${device.tabletL} {
+        text-align: left;
+    }
+`
+
 const Col = styled(Flex)`
     max-width: 13.2rem;
 
@@ -15,7 +21,6 @@ const Col = styled(Flex)`
         max-width: 12rem;
     }
 `
-const Row = styled(Flex)``
 
 const MarketsWrapper = styled(Flex)`
     flex-direction: column;
@@ -41,7 +46,7 @@ const MarketsList = styled(CssGrid)`
             margin-right: 4px;
         }
         ${Text} {
-            font-size: 1.5rem;
+            font-size: 12px;
             line-height: 1.5;
         }
     }
@@ -50,23 +55,13 @@ const MarketsList = styled(CssGrid)`
         grid-template-columns: repeat(1, 1fr);
     }
 `
-const StyledText = styled(Text)`
-    @media ${device.tabletL} {
-        font-size: 2rem;
-        text-align: left;
-    }
-`
+
 const Title = styled(Text)`
     text-align: center;
 
     @media ${device.tabletL} {
         font-weight: 600;
     }
-`
-
-const StyledTitle = styled(Text)`
-    text-align: left;
-    font-weight: bold;
 `
 
 const DetailsContainer = styled(Flex)`
@@ -117,18 +112,18 @@ const ContinuousIndicesDetails = () => (
 
 const SyntheticIndices = () => {
     return (
-        <SectionContainer padding="4rem 0 8rem 0">
+        <SectionContainer padding="4rem 0 8rem">
             <Flex max_width="79.2rem" m="0 auto" direction="column">
-                <StyledTitle>
-                    {localize('Crash & Boom')}
-                </StyledTitle>
-                <StyledText align="left">
-                    {localize('The Crash and Boom Index allows you to amplify your trades up to 400x without risking more than your stake with multipliers. Exclusive to Deriv, Crash and Boom can be traded 24/7 on DTrader.')}
+                <StyledText mb='12px' align="center">
+                    {localize('Synthetic indices are engineered to mimic real-world market movement; minus real life risk. Trade multipliers on Synthetic Indices 24/7 and benefit from high leverage, tight spreads and fixed generation intervals.')}
                 </StyledText>
+                <Text weight="bold">
+                    {localize('Synthetics indices available for Multipliers trading')}
+                </Text>
                 <MarketsWrapper direction="column">
                     <MarketsAccordion
                         renderTitle={() => (
-                            <Row jc="flex-start" ai="center">
+                            <Flex jc="flex-start" ai="center">
                                 <Col max_width="13.2rem">
                                     <Show.Desktop>
                                         <Title weight="bold" max_width="9.7rem" align="center">
@@ -144,20 +139,17 @@ const SyntheticIndices = () => {
                                 <MarketsList>
                                     <CrashBoom />
                                 </MarketsList>
-                            </Row>
+                            </Flex>
                         )}
                         renderDetails={CrashBoomDetails}
                     />
                 </MarketsWrapper>
                 <AvailablePlatforms dtrader />
 
-                <StyledTitle mt='20px'>
-                    {localize('Continuous Indices')}
-                </StyledTitle>
                 <MarketsWrapper direction="column">
                     <MarketsAccordion
                         renderTitle={() => (
-                            <Row jc="flex-start" ai="center">
+                            <Flex jc="flex-start" ai="center">
                                 <Col>
                                     <Title weight="bold" align="center">
                                         {localize('Continuous indices')}
@@ -166,7 +158,7 @@ const SyntheticIndices = () => {
                                 <MarketsList>
                                     <ContinuousIndices />
                                 </MarketsList>
-                            </Row>
+                            </Flex>
                         )}
                         renderDetails={ContinuousIndicesDetails}
                     />

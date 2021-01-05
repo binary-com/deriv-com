@@ -7,6 +7,12 @@ import { SectionContainer, Flex, CssGrid } from 'components/containers'
 import { localize } from 'components/localization'
 import device from 'themes/device'
 
+const StyledText = styled(Text)`
+    @media ${device.tabletL} {
+        text-align: left;
+    }
+`
+
 const Col = styled(Flex)`
     max-width: 12.9rem;
     padding: 0 0.4rem;
@@ -41,12 +47,7 @@ const MarketsList = styled(CssGrid)`
         grid-template-columns: repeat(2, 1fr);
     }
 `
-const StyledText = styled(Text)`
-    @media ${device.tabletL} {
-        font-size: 2rem;
-        text-align: left;
-    }
-`
+
 const Title = styled(Text)`
     text-align: center;
 
@@ -62,14 +63,14 @@ const StyledTitle = styled(Text)`
 
 const Margin = () => {
     return (
-        <SectionContainer padding="4rem 0 8rem 0">
+        <SectionContainer padding="4rem 0 8rem">
             <Flex max_width="79.2rem" m="0 auto" direction="column">
-                <StyledTitle>
-                    {localize('Major Pairs')}
-                </StyledTitle>
-                <StyledText align="left">
-                    {localize('Buy one currency and sell another using all major currency pairs on Forex.')}
+                <StyledText mb='12px' align="center">
+                    {localize('Trade Forex with multipliers for high leverage, tight spreads and benefit from multiple opportunities to trade on world events.')}
                 </StyledText>
+                <StyledTitle>
+                    {localize('Forex pairs available for Multipliers trading')}
+                </StyledTitle>
                 <Row jc="flex-start" ai="center">
                     <Col>
                         <Title weight="bold">{localize('Major pairs')}</Title>

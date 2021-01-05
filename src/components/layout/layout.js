@@ -15,6 +15,7 @@ import { DerivStore } from 'store'
 import { Localize } from 'components/localization'
 import { Text } from 'components/elements'
 import device from 'themes/device'
+import { Container } from 'components/containers'
 
 const Footer = Loadable(() => import('./footer'))
 const LiveChat = Loadable(() => import('./livechat'))
@@ -26,7 +27,7 @@ const tracking_status_cookie = new CookieStorage(TRACKING_STATUS_KEY)
 
 const cfdWarningHeight = 8
 
-const CFDWrapper = styled(Text)`
+const CFDWrapper = styled.section`
     background-color: var(--color-grey-25);
     background-size: cover;
     padding: 1rem 8rem;
@@ -38,7 +39,7 @@ const CFDWrapper = styled(Text)`
     }
 
     @media ${device.mobileL} {
-        padding: 1rem 2rem;
+        font-size: 10px;
     }
 `
 
@@ -46,10 +47,14 @@ export const CFDWarning = () => {
     const { is_eu_country } = React.useContext(DerivStore)
     return is_eu_country ? (
         <CFDWrapper>
-            <Localize
-                translate_text="CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. <0>74% of retail investor accounts lose money when trading CFDs with this provider.</0> You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money."
-                components={[<strong key={0} />]}
-            />
+            <Container>
+                <CFDText>
+                    <Localize
+                        translate_text="CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. <0>74% of retail investor accounts lose money when trading CFDs with this provider.</0> You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money."
+                        components={[<strong key={0} />]}
+                    />
+                </CFDText>
+            </Container>
         </CFDWrapper>
     ) : (
         <></>
@@ -84,6 +89,14 @@ const Layout = ({
         background: var(--color-white);
         height: 100%;
         position: relative;
+
+        @media ${device.tabletS} {
+            margin-top: ${(props) =>
+                is_eu_country
+                    ? (props.margin_top && `${props.margin_top + cfd_warning_height_tablet}rem`) ||
+                      7 + cfd_warning_height_tablet + `rem`
+                    : (props.margin_top && `${props.margin_top}rem`) || `7rem`};
+        }
     `
 
     // Every layout change will trigger scroll to top

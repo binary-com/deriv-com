@@ -440,7 +440,7 @@ export const OffCanvasMenuWrapper = (props) => {
                             <div>
                                 <img src={SystemStatus} alt="community" width="24" height="24" />
                             </div>
-                            <Span>{localize('Community')}</Span>
+                            <Span>{localize('Status page')}</Span>
                             <SpanSvg>
                                 <img src={Diagonal} alt="diagonal" width="16" height="16" />
                             </SpanSvg>

@@ -107,8 +107,9 @@ const trimSpaces = (value) => value.trim()
 
 const deriv_app_url = 'https://app.deriv.com'
 const deriv_bot_app_url = 'https://app.deriv.com/bot'
+const deriv_blog_url = 'https://blog.deriv.com'
 const deriv_dp2p_app_url = 'https://app.deriv.com/cashier/p2p'
-const deriv_status_page_url = 'https://deriv.statuspage.io/'
+const deriv_status_page_url = 'https://deriv.statuspage.io'
 const smarttrader_url = 'https://smarttrader.deriv.com'
 const binary_url = 'https://binary.com'
 const blog_url = 'https://blog.deriv.com'
@@ -152,6 +153,7 @@ export {
     dmt5_ios_url,
     community_url,
     deriv_app_url,
+    deriv_blog_url,
     deriv_bot_app_url,
     deriv_dp2p_app_url,
     deriv_status_page_url,

@@ -5,9 +5,10 @@ import { Flex } from 'components/containers'
 import { LocalizedLink, localize, Localize } from 'components/localization'
 import { Accordion, AccordionItem, NavCard, Text, Divider } from 'components/elements'
 import { useOutsideClick } from 'components/hooks/outside-click'
-import { cfd_warning_height_desktop, cfd_warning_height_tablet } from 'common/utility'
+import { cfd_warning_height_desktop, cfd_warning_height_tablet, deriv_blog_url } from 'common/utility'
 // SVG
 import AffiliateIb from 'images/svg/menu/affiliate-ib.svg'
+import Blog from 'images/svg/blog-nav.svg'
 import Career from 'images/svg/menu/careers.svg'
 import Choose from 'images/svg/menu/choose.svg'
 import Commodities from 'images/svg/commodities-nav.svg'
@@ -36,7 +37,6 @@ import Terms from 'images/svg/menu/terms.svg'
 import TraderTool from 'images/svg/trader-tool-nav.svg'
 import { DerivStore } from 'store'
 import device from 'themes/device'
-import Blog from 'images/svg/menu/blog.svg'
 
 const OffCanvasMenu = styled.section`
     position: fixed;
@@ -429,10 +429,15 @@ export const OffCanvasMenuWrapper = (props) => {
                             </div>
                             <span>{localize('Payment methods')}</span>
                         </StyledLink>
-                        {/* TODO: add this when blog is ready */}
-                        {/* <StyledLink to="/blog/" onClick={handleArrowClick}>
-                            {localize('Blog')}
-                        </StyledLink> */}
+                        <StyledLink to={deriv_blog_url} onClick={handleArrowClick}>
+                            <div>
+                                <img src={Blog} alt="blog" width="24" height="24" />
+                            </div>
+                            <Span>{localize('Blog')}</Span>
+                            <SpanSvg>
+                                <img src={Diagonal} alt="diagonal" width="16" height="16" />
+                            </SpanSvg>
+                        </StyledLink>
                     </AccordionItem>
                     <AccordionItem
                         header={localize('Legal')}

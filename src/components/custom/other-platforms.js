@@ -13,9 +13,9 @@ import {
 } from 'components/elements'
 import { localize, LocalizedLink, Localize } from 'components/localization'
 import device from 'themes/device'
-import { community_url } from 'common/utility'
-import { DerivStore } from 'store'
+import { community_url, deriv_blog_url } from 'common/utility'
 // icons
+import Blog from 'images/svg/blog-nav.svg'
 import Career from 'images/svg/menu/careers.svg'
 import Choose from 'images/svg/menu/choose.svg'
 import Commodities from 'images/svg/commodities-nav.svg'
@@ -450,8 +450,15 @@ export const NavResources = ({ onClick }) => (
             onClick={onClick}
             to="/dmt5-trading-signals/#signal-subscriber/"
         />
-        {/* TODO: add this when blog is ready */}
-        {/* <CardLink title={localize('Blog')} to="/blog/" /> */}
+        <CardLink
+            icon={() => <img src={Blog} alt="blog" width="24" height="24" />}
+            title={localize('Blog')}
+            onClick={onClick}
+            to={deriv_blog_url}
+            target="_blank"
+            external="true"
+            rel="noopener noreferrer"
+        />
     </Flex>
 )
 

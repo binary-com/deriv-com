@@ -76,6 +76,25 @@ export const CFDWarning = ({ is_ppc }) => {
     )
 }
 
+const Main = styled.main`
+    margin-top: ${(props) =>
+        props.use_eu_margin
+            ? (props.margin_top && `${props.margin_top + CFDWarningHeight.desktop}rem`) ||
+              `${7 + CFDWarningHeight.desktop}rem`
+            : (props.margin_top && `${props.margin_top}rem`) || `7rem`};
+    background: var(--color-white);
+    height: 100%;
+    position: relative;
+
+    @media ${device.tabletS} {
+        margin-top: ${(props) =>
+            props.use_eu_margin
+                ? (props.margin_top && `${props.margin_top + CFDWarningHeight.tablet}rem`) ||
+                  `${7 + CFDWarningHeight.tablet}rem`
+                : (props.margin_top && `${props.margin_top}rem`) || `7rem`};
+    }
+`
+
 const Layout = ({
     children,
     interim_type,
@@ -95,25 +114,6 @@ const Layout = ({
     const [gtm_data, setGTMData] = useGTMData()
 
     const is_static = type === 'static'
-
-    const Main = styled.main`
-        margin-top: ${(props) =>
-            should_main_use_eu_margin
-                ? (props.margin_top && `${props.margin_top + CFDWarningHeight.desktop}rem`) ||
-                  7 + CFDWarningHeight.desktop + `rem`
-                : (props.margin_top && `${props.margin_top}rem`) || `7rem`};
-        background: var(--color-white);
-        height: 100%;
-        position: relative;
-
-        @media ${device.tabletS} {
-            margin-top: ${(props) =>
-                should_main_use_eu_margin
-                    ? (props.margin_top && `${props.margin_top + CFDWarningHeight.tablet}rem`) ||
-                      7 + CFDWarningHeight.tablet + `rem`
-                    : (props.margin_top && `${props.margin_top}rem`) || `7rem`};
-        }
-    `
 
     // Every layout change will trigger scroll to top
     React.useEffect(() => {
@@ -187,7 +187,11 @@ const Layout = ({
             setModalPayload={setModalPayload}
         >
             {Navigation}
-            <Main margin_top={margin_top} is_static={is_static}>
+            <Main
+                margin_top={margin_top}
+                is_static={is_static}
+                use_eu_margin={should_main_use_eu_margin}
+            >
                 {children}
             </Main>
             {show_cookie_banner && (
@@ -222,7 +226,7 @@ Layout.propTypes = {
     interim_type: PropTypes.string,
     is_ppc: PropTypes.bool,
     is_ppc_redirect: PropTypes.bool,
-    margin_top: PropTypes.number,
+    margin_top: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     nav_type: PropTypes.string,
     no_live_chat: PropTypes.bool,
     no_login_signup: PropTypes.bool,

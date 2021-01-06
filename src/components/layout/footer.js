@@ -505,7 +505,8 @@ const Footer = () => {
                         <Show.Eu>
                             <DisclaimerParagraph>
                                 <Localize
-                                    translate_text="Deriv Investments (Europe) Limited, W Business Centre, Level 3, Triq Dun Karm, Birkirkara BKR 9033, Malta, is licensed for financial products by the Malta Financial Services Authority for clients in the EU (<0>licence no. IS/70156</0>)."
+                                    translate_text="Deriv Investments (Europe) Limited, W Business Centre, Level 3, Triq Dun Karm, Birkirkara BKR 9033, Malta, is licensed in Malta and regulated by the Malta Financial Services Authority under the Investments Services Act to provide investment services in the European Union (<0>licence no. IS/70156</0>). It is also authorised and subject to limited regulation by the Financial Conduct Authority in the UK. Details about the extent of our authorisation and regulation by the Financial Conduct Authority are available from us on request."
+
                                     components={[
                                         <StaticAsset
                                             key={0}
@@ -527,7 +528,7 @@ const Footer = () => {
                                             rel="noopener noreferrer"
                                         />,
                                         <StaticAssetLink
-                                            external
+                                            external="true"
                                             key={1}
                                             target="_blank"
                                             to="https://secure.gamblingcommission.gov.uk/PublicRegister/Search/Detail/39172"
@@ -583,7 +584,12 @@ const Footer = () => {
                                 </Show.NonEU>
                                 <Show.Eu>
                                     <DisclaimerParagraph no_margin>
-                                        <Localize translate_text="The financial products offered on this website include options and contracts for difference (CFDs) which are considered complex derivatives and may not be suitable for everyone. CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. 74% of retail investor accounts lose money when trading CFDs with Deriv Investments (Europe) Limited. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money. The products mentioned here may be affected by changes in currency exchange rates. If you invest in these products, you may lose some or all of your investment and the value of your investment may fluctuate. You should never invest money that you cannot afford to lose and never trade with borrowed money." />
+                                        <Localize
+                                            translate_text="The financial products offered on this website include options and contracts for difference (CFDs) which are considered complex derivatives and may not be suitable for everyone.<0/><0/>
+                                            CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. 74% of retail investor accounts lose money when trading CFDs with this provider. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money.<0/><0/>
+                                            The products mentioned here may be affected by changes in currency exchange rates. If you invest in these products, you may lose some or all of your investment and the value of your investment may fluctuate. You should never invest money that you cannot afford to lose and never trade with borrowed money."
+                                            components={[<br key={0} />]}
+                                        />
                                     </DisclaimerParagraph>
                                     <DisclaimerParagraph>
                                         <Localize
@@ -595,7 +601,7 @@ const Footer = () => {
                                                     to="/responsible-trading/"
                                                 />,
                                                 <BoldLink
-                                                    external
+                                                    external="true"
                                                     key={0}
                                                     target="_blank"
                                                     to="https://www.begambleaware.org/"
@@ -608,7 +614,12 @@ const Footer = () => {
                             <Show.Mobile>
                                 <Show.Eu>
                                     <DisclaimerParagraph no_margin>
-                                        <Localize translate_text="The financial products offered on this website include options and contracts for difference (CFDs) which are considered complex derivatives and may not be suitable for everyone. CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. 74% of retail investor accounts lose money when trading CFDs with Deriv Investments (Europe) Limited. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money. The products mentioned here may be affected by changes in currency exchange rates. If you invest in these products, you may lose some or all of your investment and the value of your investment may fluctuate. You should never invest money that you cannot afford to lose and never trade with borrowed money." />
+                                        <Localize
+                                            translate_text="The financial products offered on this website include options and contracts for difference (CFDs) which are considered complex derivatives and may not be suitable for everyone.<0/><0/>
+                                            CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. 74% of retail investor accounts lose money when trading CFDs with this provider. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money.<0/><0/>
+                                            The products mentioned here may be affected by changes in currency exchange rates. If you invest in these products, you may lose some or all of your investment and the value of your investment may fluctuate. You should never invest money that you cannot afford to lose and never trade with borrowed money."
+                                            components={[<br key={0} />]}
+                                        />
                                     </DisclaimerParagraph>
                                     <DisclaimerParagraph>
                                         <Localize
@@ -620,7 +631,7 @@ const Footer = () => {
                                                     to="/responsible-trading/"
                                                 />,
                                                 <BoldLink
-                                                    external
+                                                    external="true"
                                                     key={0}
                                                     target="_blank"
                                                     to="https://www.begambleaware.org/"

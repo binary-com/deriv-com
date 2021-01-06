@@ -171,7 +171,7 @@ const StyledText = styled(Text)`
 const StyledSpan = styled.span`
     font-size: 13px;
     font-weight: 500;
-    color: var(--color-grey-32);
+    color: var(--color-grey-13);
     margin-left: 4px;
 `
 const ImageWrapper = styled(Flex)`
@@ -335,7 +335,13 @@ const SignupPublic = ({
                         </div>
                     </SignupFormWrapper>
                     <BackgroundWrapper direction="column" ai="center">
-                        <LinkFlex ai="center" external="true" href={deriv_app_url} target="_blank">
+                        <LinkFlex
+                            ai="center"
+                            external="true"
+                            href={deriv_app_url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
                             <StyledHeader
                                 size="2.8rem"
                                 max_width="28.2rem"
@@ -407,8 +413,9 @@ const SignupPublic = ({
                                     social
                                 >
                                     <span>
-                                        <img src={Facebook} alt="facebook" width="12" height="22" />
+                                        <img src={Google} alt="google" width="22" height="23" />
                                     </span>
+
                                     <StyledSpan>Google</StyledSpan>
                                 </SocialButton>
                                 <SocialButton
@@ -420,7 +427,7 @@ const SignupPublic = ({
                                     social
                                 >
                                     <span>
-                                        <img src={Google} alt="google" width="22" height="23" />
+                                        <img src={Facebook} alt="facebook" width="12" height="22" />
                                     </span>
                                     <StyledSpan>Facebook</StyledSpan>
                                 </SocialButton>

@@ -129,6 +129,8 @@ const dmt5_android_url =
 const dmt5_ios_url = 'https://download.mql5.com/cdn/mobile/mt5/ios?server=Deriv-Demo,Deriv-Server'
 const dp2p_google_play_url =
     'https://play.google.com/store/apps/details?id=com.deriv.dp2p&hl=en&gl=US'
+const cfd_warning_height_desktop = 8
+const cfd_warning_height_tablet = 12
 
 export {
     affiliate_signin_url,
@@ -173,4 +175,6 @@ export {
     zoho_url,
     trimSpaces,
     p2p_playstore_url,
+    cfd_warning_height_desktop,
+    cfd_warning_height_tablet,
 }

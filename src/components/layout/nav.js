@@ -32,6 +32,7 @@ import Hamburger from 'images/svg/hamburger_menu.svg'
 import Close from 'images/svg/close-long.svg'
 import LogoOnly from 'images/svg/logo-deriv-only.svg'
 import LogoCombinedShape from 'images/svg/logo-combined-shape.svg'
+import { CFDWarning } from 'components/layout'
 
 const query = graphql`
     query {
@@ -110,7 +111,7 @@ export const Wrapper = styled(Container)`
     justify-content: space-between;
     height: 7.2rem;
     @media ${device.laptopL} {
-        width: ${({ width }) => width ?? "90%"};
+        width: ${({ width }) => width ?? '90%'};
     }
     @media ${device.laptop} {
         font-size: var(--text-size-xxs);
@@ -131,9 +132,10 @@ export const NavLeft = styled.div`
 const StaticWrapper = styled.nav`
     background: var(--color-black);
     display: flex;
+    height: 10.4rem;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 10.4rem;
 `
 
 const NavCenter = styled.ul`
@@ -275,7 +277,7 @@ const LoginButton = styled(Button)`
 const MobileLogin = styled(Button)`
     display: none;
     font-size: 14px;
-    margin-left: ${({ margin_left }) => margin_left ?? "1.6rem" };
+    margin-left: ${({ margin_left }) => margin_left ?? '1.6rem'};
     @media ${device.tabletL} {
         display: block;
     }
@@ -550,6 +552,7 @@ const NavDesktop = ({ base }) => {
 export const Nav = ({ base }) => {
     return (
         <NavWrapper>
+            <CFDWarning />
             <StyledNav>
                 <Show.Desktop>
                     <NavDesktop base={base} />
@@ -598,6 +601,7 @@ const StyledLogo = styled(LogoLink)`
 `
 export const NavInterim = ({ interim_type }) => (
     <InterimNav>
+        <CFDWarning />
         <Container jc="space-between" p="2.4rem 0">
             <Flex ai="center" jc="flex-start">
                 <Show.Desktop>
@@ -641,20 +645,23 @@ export const NavInterim = ({ interim_type }) => (
 )
 
 export const NavStatic = () => (
-    <StaticWrapper>
-        <LogoLink mw="31rem" to="/" aria-label={localize('Home')}>
-            <Flex ai="center">
-                <img src={LogoOnly} alt="logo only nav static" width="160px" height="27px" />
-                <Line />
-                <img
-                    src={LogoCombinedShape}
-                    alt="logo combined shape nav static"
-                    width="120"
-                    height="17"
-                />
-            </Flex>
-        </LogoLink>
-    </StaticWrapper>
+    <>
+        <CFDWarning />
+        <StaticWrapper>
+            <LogoLink mw="31rem" to="/" aria-label={localize('Home')}>
+                <Flex ai="center">
+                    <img src={LogoOnly} alt="logo only nav static" width="160px" height="27px" />
+                    <Line />
+                    <img
+                        src={LogoCombinedShape}
+                        alt="logo combined shape nav static"
+                        width="120"
+                        height="17"
+                    />
+                </Flex>
+            </LogoLink>
+        </StaticWrapper>
+    </>
 )
 
 const DerivHomeWrapper = styled.div`
@@ -791,6 +798,7 @@ export const NavPartners = ({ no_login_signup }) => {
     return (
         <>
             <NavWrapper ref={nav_ref}>
+                <CFDWarning />
                 <DerivHomeWrapper>
                     <HomeContainer justify="flex-start">
                         <HomeLink to="/">

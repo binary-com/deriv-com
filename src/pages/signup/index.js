@@ -12,7 +12,7 @@ import Graph from 'images/svg/graph.svg'
 const Wrapper = styled.section`
     padding: 8rem 0;
     width: 100%;
-    height: calc(100vh - 10.4rem);
+    height: 100%;
     justify-content: center;
     display: flex;
     flex-direction: row;
@@ -66,7 +66,7 @@ const NewSignup = () => {
         setSubmitState(submitStatus)
     }
     return (
-        <Layout type="static" margin_top="0">
+        <Layout type="static" margin_top={'0'}>
             <SEO
                 title={localize('Easy And Free Sign Up | Online Trading | Deriv.com')}
                 description={localize(

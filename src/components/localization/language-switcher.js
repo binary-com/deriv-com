@@ -10,13 +10,13 @@ const languages = Object.keys(language_config)
 
 const disabled_lang = ['ach']
 
-const LanguageSwitch = ({ i18n, is_high_nav, short_name}) => {
+const LanguageSwitch = ({ i18n, is_high_nav, short_name }) => {
     const [language, setLanguage] = React.useState(i18n.language)
-    
+
     React.useEffect(() => {
         setLanguage(i18n.language)
     }, [i18n.language])
-    
+
     const renderLanguageChoice = (lang) => {
         if (disabled_lang.includes(lang) && isProduction()) return
         const { display_name, path, short_name } = language_config[lang]

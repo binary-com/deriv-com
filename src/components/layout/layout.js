@@ -15,6 +15,7 @@ import { DerivStore } from 'store'
 import { Localize } from 'components/localization'
 import { Text } from 'components/elements'
 import device from 'themes/device'
+import { Container } from 'components/containers'
 
 const Footer = Loadable(() => import('./footer'))
 const LiveChat = Loadable(() => import('./livechat'))
@@ -24,21 +25,38 @@ const has_dataLayer = isBrowser() && window.dataLayer
 const TRACKING_STATUS_KEY = 'tracking_status'
 const tracking_status_cookie = new CookieStorage(TRACKING_STATUS_KEY)
 
-const cfdWarningHeight = 8
+const cfd_warning_height_desktop = 8
+const cfd_warning_height_tablet = 12
 
-const CFDWrapper = styled(Text)`
+const CFDWrapper = styled.section`
     background-color: var(--color-grey-25);
     background-size: cover;
-    padding: 1rem 8rem;
-    height: 8rem;
-    overflow: auto;
+    height: ${cfd_warning_height_desktop}rem;
+    display: flex;
+    align-items: center;
+
+    @media ${device.tabletS} {
+        height: ${cfd_warning_height_tablet}rem;
+    }
+`
+
+const CFDContainer = styled(Container)`
+    @media ${device.tabletL} {
+        width: 95%;
+    }
+`
+
+const CFDText = styled(Text)`
+    @media ${device.tabletL} {
+        font-size: 14px;
+    }
 
     @media ${device.tablet} {
-        padding: 1rem 4rem;
+        font-size: 12px;
     }
 
     @media ${device.mobileL} {
-        padding: 1rem 2rem;
+        font-size: 10px;
     }
 `
 
@@ -46,10 +64,14 @@ export const CFDWarning = () => {
     const { is_eu_country } = React.useContext(DerivStore)
     return is_eu_country ? (
         <CFDWrapper>
-            <Localize
-                translate_text="CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. <0>74% of retail investor accounts lose money when trading CFDs with this provider.</0> You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money."
-                components={[<strong key={0} />]}
-            />
+            <CFDContainer>
+                <CFDText>
+                    <Localize
+                        translate_text="CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. <0>74% of retail investor accounts lose money when trading CFDs with this provider.</0> You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money."
+                        components={[<strong key={0} />]}
+                    />
+                </CFDText>
+            </CFDContainer>
         </CFDWrapper>
     ) : (
         <></>
@@ -77,13 +99,21 @@ const Layout = ({
 
     const Main = styled.main`
         margin-top: ${(props) =>
-            is_eu_country
-                ? (props.margin_top && `${props.margin_top + cfdWarningHeight}rem`) ||
-                  7 + cfdWarningHeight + `rem`
+            !type && is_eu_country
+                ? (props.margin_top && `${props.margin_top + cfd_warning_height_desktop}rem`) ||
+                  7 + cfd_warning_height_desktop + `rem`
                 : (props.margin_top && `${props.margin_top}rem`) || `7rem`};
         background: var(--color-white);
         height: 100%;
         position: relative;
+
+        @media ${device.tabletS} {
+            margin-top: ${(props) =>
+                !type && is_eu_country
+                    ? (props.margin_top && `${props.margin_top + cfd_warning_height_tablet}rem`) ||
+                      7 + cfd_warning_height_tablet + `rem`
+                    : (props.margin_top && `${props.margin_top}rem`) || `7rem`};
+        }
     `
 
     // Every layout change will trigger scroll to top

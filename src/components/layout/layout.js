@@ -11,7 +11,7 @@ import { LocationProvider } from './location-context'
 import EURedirect, { useModal } from 'components/custom/_eu-redirect-modal.js'
 import CookieBanner from 'components/custom/cookie-banner'
 import { CookieStorage } from 'common/storage'
-import { isBrowser } from 'common/utility'
+import { isBrowser, CFDWarningHeight } from 'common/utility'
 import { DerivStore } from 'store'
 import { Localize } from 'components/localization'
 import { Text } from 'components/elements'
@@ -26,18 +26,15 @@ const has_dataLayer = isBrowser() && window.dataLayer
 const TRACKING_STATUS_KEY = 'tracking_status'
 const tracking_status_cookie = new CookieStorage(TRACKING_STATUS_KEY)
 
-const cfd_warning_height_desktop = 8
-const cfd_warning_height_tablet = 12
-
 const CFDWrapper = styled.section`
     background-color: var(--color-grey-25);
     background-size: cover;
-    height: ${cfd_warning_height_desktop}rem;
+    height: ${CFDWarningHeight.desktop}rem;
     display: flex;
     align-items: center;
 
     @media ${device.tabletS} {
-        height: ${cfd_warning_height_tablet}rem;
+        height: ${CFDWarningHeight.tablet}rem;
     }
 `
 
@@ -101,9 +98,9 @@ const Layout = ({
 
     const Main = styled.main`
         margin-top: ${(props) =>
-            (!type && is_ppc) || is_eu_country
-                ? (props.margin_top && `${props.margin_top + cfd_warning_height_desktop}rem`) ||
-                  7 + cfd_warning_height_desktop + `rem`
+            should_main_use_eu_margin
+                ? (props.margin_top && `${props.margin_top + CFDWarningHeight.desktop}rem`) ||
+                  7 + CFDWarningHeight.desktop + `rem`
                 : (props.margin_top && `${props.margin_top}rem`) || `7rem`};
         background: var(--color-white);
         height: 100%;
@@ -111,9 +108,9 @@ const Layout = ({
 
         @media ${device.tabletS} {
             margin-top: ${(props) =>
-                (!type && is_ppc) || is_eu_country
-                    ? (props.margin_top && `${props.margin_top + cfd_warning_height_tablet}rem`) ||
-                      7 + cfd_warning_height_tablet + `rem`
+                should_main_use_eu_margin
+                    ? (props.margin_top && `${props.margin_top + CFDWarningHeight.tablet}rem`) ||
+                      7 + CFDWarningHeight.tablet + `rem`
                     : (props.margin_top && `${props.margin_top}rem`) || `7rem`};
         }
     `

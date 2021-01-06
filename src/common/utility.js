@@ -143,8 +143,10 @@ const dmt5_android_url =
 const dmt5_ios_url = 'https://download.mql5.com/cdn/mobile/mt5/ios?server=Deriv-Demo,Deriv-Server'
 const dp2p_google_play_url =
     'https://play.google.com/store/apps/details?id=com.deriv.dp2p&hl=en&gl=US'
-const cfd_warning_height_desktop = 8
-const cfd_warning_height_tablet = 12
+const CFDWarningHeight = {
+    desktop: 8,
+    tablet: 12,
+}
 
 const getDomain = () =>
     isBrowser() && window.location.hostname.includes(deriv_cookie_domain)
@@ -207,4 +209,5 @@ export {
     trimSpaces,
     p2p_playstore_url,
     sample_rate,
+    CFDWarningHeight,
 }

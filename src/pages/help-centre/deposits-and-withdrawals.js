@@ -1,42 +1,9 @@
 import React from 'react'
-import styled from 'styled-components'
 import { Article } from './_article'
+import { ArticleWrapper, ExternalLink, StyledHeader, StyledText } from './_help-centre-style'
 import { deriv_app_url } from 'common/utility'
-import { Text, Header, LocalizedLinkText } from 'components/elements/typography'
+import { Text } from 'components/elements'
 import { Localize, localize, WithIntl } from 'components/localization'
-import device from 'themes/device'
-
-const ArticleWrapper = styled.div`
-    max-width: 71.2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    height: 100%;
-    font-size: var(--text-size-s);
-    line-height: 1.5;
-    margin-left: 12.6rem;
-    margin-top: 1.6rem;
-
-    @media ${device.tabletL} {
-        margin-left: 0;
-    }
-`
-const ExternalLink = styled.a`
-    text-decoration: none;
-    font-size: var(--text-size-s);
-    font-weight: bold;
-    color: var(--color-red);
-
-    :hover {
-        text-decoration: underline !important;
-    }
-`
-const StyledText = styled(Text)`
-    margin-top: 1.7rem;
-`
-const StyledHeader = styled(Header)`
-    margin-bottom: 2.4rem;
-`
 
 const PaymentMethods = () => (
     <ArticleWrapper>
@@ -45,7 +12,7 @@ const PaymentMethods = () => (
             <Localize
                 translate_text="Our list of <0>supported payment methods</0> includes bank wire, credit and debit cards, e-wallets, and cryptocurrencies."
                 components={[
-                    <LocalizedLinkText
+                    <ExternalLink
                         to="/payment-methods/"
                         target="_blank"
                         rel="noopener noreferrer"
@@ -109,7 +76,7 @@ const LiftWithdrawalLimits = () => (
                 components={[
                     <strong key={0} />,
                     <ExternalLink
-                        href={`${deriv_app_url}/account/account-limits`}
+                        to={`${deriv_app_url}/account/account-limits`}
                         target="_blank"
                         rel="noopener noreferrer"
                         key={1}

@@ -1,16 +1,16 @@
 import React, { Component } from 'react'
 import { matchSorter } from 'match-sorter'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { Helmet } from 'react-helmet'
 import { navigate } from '@reach/router'
 import Loadable from '@loadable/component'
 import { articles } from './_help-articles'
 import { SearchSuccess, SearchError } from './_search-results'
 // TODO: active this line after having mail service
-import { convertToHash } from './_utility'
+import { convertToHash, getAllArticles, splitArticles } from './_utility'
 import { faq_schema } from './_faq-schema'
-import { SEO, Container } from 'components/containers'
-import { Header } from 'components/elements'
+import { SEO, Show, Container } from 'components/containers'
+import { Header, Text } from 'components/elements'
 import Layout from 'components/layout/layout'
 import { localize, LocalizedLink, WithIntl, Localize } from 'components/localization'
 import { getLocationHash, sanitize } from 'common/utility'
@@ -22,23 +22,14 @@ import CrossIcon from 'images/svg/cross.svg'
 const DidntFindYourAnswerBanner = Loadable(() => import('./_didnt-find-answer'))
 const Community = Loadable(() => import('./_community'))
 
-const getAllArticles = (articles) =>
-    articles
-        .map((category) => category.articles)
-        // flatten the array, gatsby build does not support .flat() yet
-        .reduce((arr, article_arr) => arr.concat(article_arr), [])
-
-const splitArticles = (array, length) =>
-    array.reduce((result, item, index) => {
-        if (index % length === 0) result.push([])
-        result[Math.floor(index / length)].push(item)
-        return result
-    }, [])
-
 const Backdrop = styled.div`
     padding: 8rem 0;
     background-color: var(--color-white);
     border-bottom: 1px solid var(--color-grey-8);
+
+    @media ${device.tabletL} {
+        padding: 8rem 0 4rem;
+    }
 `
 const StyledContainer = styled.div`
     @media ${device.tabletL} {
@@ -88,7 +79,7 @@ const SearchIconBig = styled.img`
     height: 2.3rem;
     position: absolute;
     left: 2.4rem;
-    top: 1.3rem;
+    top: 2rem;
 `
 const Search = styled.input`
     width: 95%;
@@ -132,10 +123,11 @@ const ArticleSection = styled.section`
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    padding: 8rem 0;
+    padding: 0 0 8rem;
 
     @media ${device.tabletL} {
         flex-wrap: wrap;
+        padding: 0 0 8rem;
     }
 `
 const ListNoBullets = styled.ul`
@@ -149,9 +141,35 @@ const ListNoBullets = styled.ul`
         padding-bottom: 1.6rem;
     }
 `
+
+const StyledHeader = styled(Header)`
+    font-size: 2.4rem;
+    margin-bottom: 1.6rem;
+    ${({ row, col }) => {
+        let margin_top = '4rem'
+
+        switch (row) {
+            case 0:
+                margin_top = '8rem'
+                break
+            case 1:
+                margin_top = col ? '7.2rem' : margin_top
+                break
+        }
+
+        return css`
+            margin-top: ${margin_top};
+        `
+    }};
+
+    @media ${device.mobileL} {
+        margin-top: 40px;
+    }
+`
+
 const StyledLink = styled(LocalizedLink)`
     text-decoration: none;
-    color: black;
+    color: var(--color-black-3);
     font-size: 16px;
 
     :hover {
@@ -162,8 +180,9 @@ const StyledLink = styled(LocalizedLink)`
 
 const StyledView = styled.div`
     text-decoration: none;
-    color: red;
+    color: var(--color-red);
     font-size: 16px;
+    font-weight: normal;
 
     :hover {
         cursor: pointer;
@@ -184,12 +203,27 @@ const ArticleDiv = styled.div`
     width: 100%;
     display: flex;
     flex-direction: column;
-    margin-bottom: 8rem;
 `
 
 const ResponsiveHeader = styled(Header)`
-    @media ${device.mobileM} {
+    @media ${device.tabletL} {
+        text-align: center;
+    }
+    @media ${device.mobileL} {
         font-size: 4rem;
+    }
+`
+
+const Platforms = styled(Text)`
+    font-size: var(--text-size-s);
+    color: var(--color-grey-5);
+    margin: 4rem 0 -3.2rem;
+
+    @media ${device.tablet} {
+        color: var(--color-black-3);
+        font-size: 24px;
+        font-weight: bold;
+        margin: 32px auto -32px;
     }
 `
 
@@ -318,7 +352,7 @@ class HelpCentre extends Component {
                                         name="search"
                                         value={search}
                                         onChange={this.handleInputChange}
-                                        placeholder={localize("Try 'Trade'")}
+                                        placeholder={localize('Try “Trade”')}
                                         data-lpignore="true"
                                         autoComplete="off"
                                     />
@@ -354,15 +388,16 @@ class HelpCentre extends Component {
                                         {
                                             return (
                                                 <ArticleDiv key={idx}>
+                                                    {id === 1 && idx == 0 && (
+                                                        <Platforms>Platforms</Platforms>
+                                                    )}
                                                     <ListWrapper>
-                                                        <Header
-                                                            as="h3"
+                                                        <StyledHeader
+                                                            is_first_row={!!id}
                                                             type="section-title"
-                                                            size="3.6rem"
-                                                            mb="1.6rem"
                                                         >
                                                             {item.category}
-                                                        </Header>
+                                                        </StyledHeader>
                                                         {item.articles.map((ar, idxb) => {
                                                             const category_is_expanded =
                                                                 ar.category in all_categories &&
@@ -410,7 +445,7 @@ class HelpCentre extends Component {
                                                                                     <Localize
                                                                                         translate_text="<0>View all questions</0>"
                                                                                         components={[
-                                                                                            <strong
+                                                                                            <p
                                                                                                 key={
                                                                                                     0
                                                                                                 }
@@ -419,9 +454,9 @@ class HelpCentre extends Component {
                                                                                     />
                                                                                 ) : (
                                                                                     <Localize
-                                                                                        translate_text="<0>View less questions</0>"
+                                                                                        translate_text="<0>View fewer questions</0>"
                                                                                         components={[
-                                                                                            <strong
+                                                                                            <p
                                                                                                 key={
                                                                                                     0
                                                                                                 }
@@ -445,9 +480,9 @@ class HelpCentre extends Component {
                         })}
                     </ArticleSection>
                 </Container>
-
-                <Community />
-
+                <Show.Desktop max_width={'tabletS'}>
+                    <Community />
+                </Show.Desktop>
                 <DidntFindYourAnswerBanner />
             </Layout>
         )

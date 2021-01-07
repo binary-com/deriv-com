@@ -41,7 +41,7 @@ export const faq_schema = {
         {
             '@type': 'Question',
             name:
-                'What are the differences between the DMT5 Standard, Advanced, and Synthetic Indices accounts?',
+                'What are the differences between the DMT5 Synthetic Indices, Financial and Financial STP accounts?',
             acceptedAnswer: {
                 '@type': 'Answer',
                 text:

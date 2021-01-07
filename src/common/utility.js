@@ -121,7 +121,7 @@ const gtm_test_domain = 'deriv-com.binary.sx'
 const p2p_playstore_url = 'https://play.google.com/store/apps/details?id=com.deriv.dp2p'
 const mga_link_url =
     'https://authorisation.mga.org.mt/verification.aspx?lang=EN&company=a5fd1edc-d072-4c26-b0cd-ab3fa0f0cc40&details=1'
-
+const dmt5_macos_url = 'https://download.mql5.com/cdn/web/metaquotes.software.corp/mt5/MetaTrader5.dmg'
 const dmt5_windows_url = 'https://download.mql5.com/cdn/web/deriv.limited/mt5/deriv5setup.exe'
 const dmt5_linux_url = 'https://www.metatrader5.com/en/terminal/help/start_advanced/install_linux'
 const dmt5_android_url =
@@ -137,6 +137,7 @@ export {
     affiliate_signup_url,
     binary_url,
     deriv_cookie_domain,
+    dmt5_macos_url,
     dmt5_windows_url,
     dmt5_linux_url,
     dmt5_android_url,

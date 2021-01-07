@@ -1472,7 +1472,7 @@
     "-1834131208": "USD/PLN",
     "-1800672151": "Índice GBP",
     "-390528194": "Índice Step",
-    "-75787346": "<0>Un tick</0> es generado <0>cada dos segundos</0> en los índices de volatilidad<0>10, 25, 50, 75, y 100</0>.",
+    "-75787346": "<0>Un tick</0> es generado <0>cada dos segundos</0> en los índices de volatilidad <0>10, 25, 50, 75, y 100</0>.",
     "-257478628": "<0>Un tick</0> es generado <0>cada segundo</0> en los índices de volatilidad <0>10 (1s), 25 (1s), 50 (1s), 75 (1s), y 100 (1s)</0>.",
     "-690460725": "Estos índices replican los mercados con <0>tendencias alcistas y bajistas</0> con volatilidades constantes. Los índices \"Mercado al Alza\" y \"Mercado a la Baja\" comienzan a las 00:00 GMT cada día, replicando mercados alcistas y bajistas respectivamente. ",
     "-1423079982": "El trading con opciones permite pagos al predecir los movimientos del mercado, sin necesidad de comprar un activo subyacente. Opere con opciones digitales y retroactivos en índices sintéticos.",

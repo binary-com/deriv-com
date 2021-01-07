@@ -24,18 +24,15 @@ const HeroWrapper = styled.section`
 `
 
 const HeroButton = styled(LinkButton)`
-    height: 4rem;
+    height: 40px;
     display: flex;
     align-items: center;
-    max-width: 20.5rem;
+    justify-content: center;
+    min-width: 205px;
+    width: fit-content;
 
     @media ${device.tabletL} {
         margin: 0 auto;
-        display: flex;
-        font-size: 1.75rem;
-        justify-content: center;
-        max-width: 25.5rem;
-        height: 5rem;
     }
 `
 const FadeIn = keyframes`

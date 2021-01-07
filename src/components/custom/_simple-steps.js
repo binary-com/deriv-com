@@ -38,9 +38,6 @@ const StyledFlex = styled(Flex)`
         article:first-child {
             margin-left: auto;
         }
-        article:last-child {
-            margin-bottom: 32px;
-        }
     }
 `
 const StyledHeader = styled(Header)`
@@ -101,22 +98,20 @@ const MobileBackgroundPattern = styled.img`
     top: 0;
 `
 
-const LinkButtonWrapper = styled.div`
-    margin-top: 4.2rem;
+const LinkButtonWrapper = styled(Flex)`
+    margin-top: 32px;
     text-align: center;
-    height: 3rem;
-
-    ${LinkButton} {
-        width: 113px;
-        height: 40px;
-        border-radius: 4px;
-        position: relative;
-    }
-
-    @media ${device.tabletL} {
-        margin-top: 1rem;
-    }
+    justify-content: center;
 `
+
+const StyledLinkButton = styled(LinkButton)`
+    height: 40px;
+    width: auto;
+    border-radius: 4px;
+    position: relative;
+    white-space: nowrap;
+`
+
 const SimpleSteps = ({ header, content, sign_up }) => (
     <StyledSection>
         <Show.Desktop>
@@ -147,9 +142,9 @@ const SimpleSteps = ({ header, content, sign_up }) => (
         </StyledFlex>
         {sign_up && (
             <LinkButtonWrapper>
-                <LinkButton to="/signup/" secondary="true">
+                <StyledLinkButton to="/signup/" secondary="true">
                     {localize('Sign up now')}
-                </LinkButton>
+                </StyledLinkButton>
             </LinkButtonWrapper>
         )}
     </StyledSection>

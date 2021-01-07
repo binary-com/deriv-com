@@ -104,12 +104,12 @@ const EmailButton = styled(Button)`
     padding: 10px 28px;
     border-radius: 4px;
     @media ${device.tabletL} {
-        padding: 10px;
+        padding: 10px 16px;
+        white-space: nowrap;
         min-width: unset;
-        font-size: 1.4rem;
         margin-left: 0;
         height: 40px;
-        width: 81px;
+        width: auto;
     }
 `
 const SocialWrapper = styled(Flex)`
@@ -123,6 +123,7 @@ const SocialWrapper = styled(Flex)`
 `
 const SocialButton = styled(Button)`
     width: 70px;
+    padding: 9px 24px;
     border-radius: 4px;
     justify-content: center;
     display: flex;
@@ -133,8 +134,10 @@ const SocialButton = styled(Button)`
     @media ${device.tabletL} {
         width: 114px;
         height: 48px;
+        padding: 14px 15px 14px 13px;
         justify-content: center;
         align-items: center;
+        margin: ${(props) => (props.left ? '0 8px 0 16px' : '0')};
     }
 `
 
@@ -173,6 +176,10 @@ const StyledSpan = styled.span`
     font-weight: 500;
     color: var(--color-grey-13);
     margin-left: 4px;
+
+    @media ${device.tabletL} {
+        margin-left: 8px;
+    }
 `
 const ImageWrapper = styled(Flex)`
     position: relative;
@@ -411,6 +418,7 @@ const SignupPublic = ({
                                     id="gtm-signup-google"
                                     type="button"
                                     social
+                                    left
                                 >
                                     <span>
                                         <img src={Google} alt="google" width="22" height="23" />

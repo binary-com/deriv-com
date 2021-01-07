@@ -121,16 +121,14 @@ const LinkWrapper = styled.div`
 `
 
 const StyledLinkButton = styled(LinkButton)`
-    padding: 1.4rem 1.6rem;
+    padding: 14px 16px;
     width: fit-content;
-    font-size: 14px;
     height: 100%;
     margin-right: 2px;
     border: unset;
 
     @media ${device.tablet} {
-        padding: 1.5rem 1.6rem;
-        height: 42px;
+        height: 40px;
         white-space: nowrap;
         display: inline-block;
         max-height: 40px;

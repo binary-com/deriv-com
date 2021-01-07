@@ -9,10 +9,12 @@ import {
     StyledButtonWrapper,
     ChevronRight,
     ChevronLeft,
+    NavigationContainer,
+    StyledDot,
 } from './carousel-style'
 import { useRecursiveTimeout } from 'components/hooks/use-recursive-timeout'
 
-export const PrevButton = ({ enabled, onClick, color, style, is_reviews }) => (
+export const PrevButton = ({ color, enabled, is_reviews, onClick, style }) => (
     <StyledButtonWrapper
         onClick={onClick}
         disabled={!enabled}
@@ -36,7 +38,17 @@ PrevButton.propTypes = {
     onClick: PropTypes.func,
 }
 
-export const NextButton = ({ enabled, onClick, color, style, is_reviews }) => (
+export const NavigationButton = ({ color, is_enabled, onClick }) => (
+    <StyledDot onClick={onClick} color={is_enabled ? color : null} />
+)
+
+NavigationButton.propTypes = {
+    color: PropTypes.string,
+    is_enabled: PropTypes.bool,
+    onClick: PropTypes.func,
+}
+
+export const NextButton = ({ color, enabled, is_reviews, onClick, style }) => (
     <StyledButtonWrapper
         onClick={onClick}
         disabled={!enabled}
@@ -56,19 +68,21 @@ export const NextButton = ({ enabled, onClick, color, style, is_reviews }) => (
 NextButton.propTypes = PrevButton.propTypes
 
 export const Carousel = ({
-    children,
-    options,
-    container_style,
-    slide_style,
-    view_port,
-    chevron_style,
-    has_autoplay,
     autoplay_interval,
+    chevron_style,
+    children,
+    container_style,
+    has_autoplay,
+    navigation_style,
+    options,
+    slide_style,
     vertical_container,
+    view_port,
 }) => {
     const [emblaRef, embla] = useEmblaCarousel(options)
     const [prevBtnEnabled, setPrevBtnEnabled] = useState(false)
     const [nextBtnEnabled, setNextBtnEnabled] = useState(false)
+    const [selectedIndex, setSelectedIndex] = useState(0)
 
     const autoplay = useCallback(() => {
         if (has_autoplay) {
@@ -95,11 +109,21 @@ export const Carousel = ({
         stop()
     }, [embla, stop])
 
+    const scrollTo = useCallback(
+        (index) => {
+            if (!embla) return
+            embla.scrollTo(index)
+            stop()
+        },
+        [embla, stop],
+    )
+
     const onSelect = useCallback(() => {
         if (!embla) return
+        setSelectedIndex(embla.selectedScrollSnap())
         setPrevBtnEnabled(embla.canScrollPrev())
         setNextBtnEnabled(embla.canScrollNext())
-    }, [embla])
+    }, [embla, setSelectedIndex])
 
     useEffect(() => {
         if (!embla) return
@@ -112,10 +136,10 @@ export const Carousel = ({
         play()
     }, [play])
 
-    const chevron_left = chevron_style?.chevron_left
-    const chevron_right = chevron_style?.chevron_right
-    const chevron_color = chevron_style?.chevron_color
+    const { chevron_color, chevron_left, chevron_right, is_displayed_on_mobile } =
+        chevron_style || {}
     const is_arrow = prevBtnEnabled || nextBtnEnabled
+    const { nav_color } = navigation_style || {}
 
     return (
         <div style={container_style}>
@@ -135,7 +159,7 @@ export const Carousel = ({
                         onClick={scrollPrev}
                         enabled={prevBtnEnabled}
                         style={chevron_left}
-                        is_reviews={chevron_color === 'black'}
+                        is_reviews={is_displayed_on_mobile}
                     />
                 )}
                 {chevron_color && is_arrow && (
@@ -144,8 +168,20 @@ export const Carousel = ({
                         onClick={scrollNext}
                         enabled={nextBtnEnabled}
                         style={chevron_right}
-                        is_reviews={chevron_color === 'black'}
+                        is_reviews={is_displayed_on_mobile}
                     />
+                )}
+                {nav_color && (
+                    <NavigationContainer>
+                        {children.map((child, idx) => (
+                            <NavigationButton
+                                key={idx}
+                                color={nav_color}
+                                is_enabled={idx === selectedIndex}
+                                onClick={() => scrollTo(idx)}
+                            />
+                        ))}
+                    </NavigationContainer>
                 )}
             </Embla>
         </div>
@@ -158,6 +194,7 @@ Carousel.propTypes = {
     children: PropTypes.array,
     container_style: PropTypes.object,
     has_autoplay: PropTypes.bool,
+    navigation_style: PropTypes.object,
     options: PropTypes.object,
     slide_style: PropTypes.object,
     vertical_container: PropTypes.object,

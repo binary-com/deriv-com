@@ -5,10 +5,12 @@ import device from 'themes/device'
 
 export const ContentContainer = styled(Flex)`
     flex-direction: column;
-    padding: 80px 324px;
+    padding-top: 80px;
+    padding-bottom: 80px;
 
     @media ${device.tablet} {
-        padding: 40px 16px;
+        padding-top: 40px;
+        padding-bottom: 40px;
     }
 `
 
@@ -20,6 +22,7 @@ export const Title = styled(Header)`
     line-height: 40px;
     text-align: center;
     color: var(--color-black-3);
+    margin: 0 auto;
 
     @media ${device.tablet} {
         max-width: 328px;
@@ -29,17 +32,28 @@ export const Title = styled(Header)`
     }
 `
 
-export const CardsContainer = styled.div`
+export const CardContainer = styled.div`
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-column-gap: 24px;
     grid-row-gap: 48px;
-    margin-top: 48px;
+    margin: 48px auto 0;
 
     @media ${device.tablet} {
-        grid-template-columns: repeat(1, 1fr);
+        grid-template-columns: auto;
         gap: 24px;
-        margin-top: 20px;
+        margin: 20px auto 0;
+    }
+`
+
+export const CardWrapper = styled.div`
+    display: grid;
+    grid-template-columns: 64px 296px;
+    grid-column-gap: 24px;
+
+    @media ${device.tablet} {
+        grid-template-columns: 48px auto;
+        gap: 8px;
     }
 `
 
@@ -53,22 +67,18 @@ export const IconWrapper = styled.img`
     }
 `
 
-export const TextContainer = styled.div`
+export const TextWrapper = styled(Text)`
     max-width: 296;
     width: fit-content;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    color: var(--color-black-3);
+    margin: auto 0;
 
     @media ${device.tablet} {
         max-width: 272px;
-    }
-`
-
-export const TextWrapper = styled(Text)`
-    font-size: 16px;
-    font-weight: ${({ font_weight }) => font_weight ?? 'normal'};
-    line-height: 24px;
-    color: var(--color-black-3);
-
-    @media ${device.tablet} {
+        width: auto;
         font-size: 14px;
         line-height: 20px;
     }

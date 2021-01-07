@@ -1,33 +1,31 @@
 import React from 'react'
 import {
-    CardsContainer,
+    CardContainer,
+    CardWrapper,
     ContentContainer,
     IconWrapper,
-    TextContainer,
     TextWrapper,
     Title,
 } from '../style/_join-us'
-import { TechExperienceIcon } from '../helper/_image-extractor'
-import { Flex } from 'components/containers'
+import { join_us_card_content } from '../helper/_card-content'
 import { localize, Localize } from 'components/localization'
 
 const JoinUs = () => (
     <ContentContainer>
         <Title>{localize('Join us and get the tools you need for a successful IT career')}</Title>
-        <CardsContainer>
-            <Flex>
-                <IconWrapper src={TechExperienceIcon} alt="tech experience icon" />
-                <TextContainer>
-                    <Localize
-                        translate_text="<0>Hands-on tech experience</0><1>by learning directly from all our talented IT teams</1>"
-                        components={[
-                            <TextWrapper key={0} font_weight="700" />,
-                            <TextWrapper key={1} font_weight="400" />,
-                        ]}
-                    />
-                </TextContainer>
-            </Flex>
-        </CardsContainer>
+        <CardContainer>
+            {join_us_card_content.map((card, index) => (
+                <CardWrapper key={index}>
+                    <IconWrapper src={card.src} alt={card.alt} />
+                    <TextWrapper>
+                        <Localize
+                            translate_text={`<0>${card.bold_text}</0> ${card.normal_text}`}
+                            components={[<strong key={0} />]}
+                        />
+                    </TextWrapper>
+                </CardWrapper>
+            ))}
+        </CardContainer>
     </ContentContainer>
 )
 

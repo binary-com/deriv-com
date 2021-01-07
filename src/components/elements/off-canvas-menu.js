@@ -5,11 +5,7 @@ import { Flex } from 'components/containers'
 import { LocalizedLink, localize, Localize } from 'components/localization'
 import { Accordion, AccordionItem, NavCard, Text, Divider } from 'components/elements'
 import { useOutsideClick } from 'components/hooks/outside-click'
-import {
-    community_url,
-    cfd_warning_height_desktop,
-    cfd_warning_height_tablet,
-} from 'common/utility'
+import { cfd_warning_height_desktop, cfd_warning_height_tablet } from 'common/utility'
 // SVG
 import DTrader from 'images/svg/dtrader-icon.svg'
 import DMT5 from 'images/svg/dmt5-icon.svg'
@@ -39,6 +35,7 @@ import AffiliateIb from 'images/svg/menu/affiliate-ib.svg'
 import PaymentAgent from 'images/svg/menu/payment-agent.svg'
 import { DerivStore } from 'store'
 import device from 'themes/device'
+import Blog from 'images/svg/menu/blog.svg'
 
 const OffCanvasMenu = styled.section`
     position: fixed;
@@ -387,22 +384,13 @@ export const OffCanvasMenuWrapper = (props) => {
                             </div>
                             <span>{localize('Help centre')}</span>
                         </StyledLink>
-                        {/* TODO: add this when blog is ready */}
-                        {/* <StyledLink to="/blog/" onClick={handleArrowClick}>
-                            {localize('Blog')}
-                        </StyledLink> */}
-                        <StyledLink to="/payment-methods/" onClick={handleArrowClick}>
-                            <div>
-                                <img src={Payment} alt="payment" width="24" height="24" />
-                            </div>
-                            <span>{localize('Payment methods')}</span>
-                        </StyledLink>
                         <StyledLink
-                            to={community_url}
-                            onClick={handleArrowClick}
+                            to=""
+                            is_community_link
                             external="true"
                             target="_blank"
                             rel="noopener noreferrer"
+                            onClick={handleArrowClick}
                         >
                             <div>
                                 <img src={Community} alt="community" width="24" height="24" />
@@ -411,6 +399,28 @@ export const OffCanvasMenuWrapper = (props) => {
                             <SpanSvg>
                                 <img src={Diagonal} alt="diagonal" width="16" height="16" />
                             </SpanSvg>
+                        </StyledLink>
+                        <StyledLink
+                            to=""
+                            is_blog_link
+                            external="true"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={handleArrowClick}
+                        >
+                            <div>
+                                <img src={Blog} alt="blog" width="24" height="24" />
+                            </div>
+                            <Span>{localize('Blog')}</Span>
+                            <SpanSvg>
+                                <img src={Diagonal} alt="diagonal" width="16" height="16" />
+                            </SpanSvg>
+                        </StyledLink>
+                        <StyledLink to="/payment-methods/" onClick={handleArrowClick}>
+                            <div>
+                                <img src={Payment} alt="payment" width="24" height="24" />
+                            </div>
+                            <span>{localize('Payment methods')}</span>
                         </StyledLink>
                     </AccordionItem>
                     <AccordionItem

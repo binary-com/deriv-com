@@ -476,6 +476,28 @@ const Footer = ({ type }) => {
                                         <Link to="/help-centre">{localize('Help centre')}</Link>
                                     </LinkWrapper>
                                     <LinkWrapper>
+                                        <Link
+                                            to=""
+                                            is_community_link
+                                            external="true"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                        >
+                                            {localize('Community')}
+                                        </Link>
+                                    </LinkWrapper>
+                                    <LinkWrapper>
+                                        <Link
+                                            to=""
+                                            is_blog_link
+                                            external="true"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                        >
+                                            {localize('Blog')}
+                                        </Link>
+                                    </LinkWrapper>
+                                    <LinkWrapper>
                                         <Link to="/payment-methods">
                                             {localize('Payment methods')}
                                         </Link>

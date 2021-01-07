@@ -20,6 +20,10 @@ export const TextWrapper = styled(Text)`
     text-align: center;
     padding: 173px 17% 80px;
 
+    @media ${device.tablet} {
+        padding: 80px 17% 80px;
+    }
+
     @media ${device.mobileL} {
         max-width: 360px;
         padding: 80px 3% 40px;

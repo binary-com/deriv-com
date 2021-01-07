@@ -4,7 +4,6 @@ import { Text, Header } from 'components/elements'
 import device from 'themes/device'
 
 export const HeroContainer = styled(Flex)`
-    max-height: 480px;
     width: 100%;
     background-color: var(--color-black);
     justify-content: space-around;

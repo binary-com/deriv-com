@@ -3,6 +3,7 @@ import Hero from './static/components/_hero'
 import Description from './static/components/_description'
 import WhatIsBeSquare from './static/components/_what-is_besquare'
 import JoinUs from './static/components/_join-us'
+import WhyDeriv from './static/components/_why-deriv'
 import Layout from 'components/layout/layout'
 import { WithIntl } from 'components/localization'
 
@@ -12,6 +13,7 @@ const BeSquare = () => (
         <Description />
         <WhatIsBeSquare />
         <JoinUs />
+        <WhyDeriv />
     </Layout>
 )
 

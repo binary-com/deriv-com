@@ -73,7 +73,7 @@ const MoreReason = () => {
                 <StyledFlex wrap="wrap" jc="center">
                     <Reason>
                         <img src={HighValue} alt="high value partnership" />
-                        <Header as="h4" lh="1.5" mb="8px">
+                        <Header as="h4" type="sub-section-title" lh="1.5" mb="8px">
                             {localize('High-value partnership')}
                         </Header>
                         <Text>
@@ -84,7 +84,7 @@ const MoreReason = () => {
                     </Reason>
                     <Reason>
                         <img src={ProvenReferral} alt="proven referral tool" />
-                        <Header as="h4" lh="1.5" mb="8px">
+                        <Header as="h4" type="sub-section-title" lh="1.5" mb="8px">
                             {localize('Proven creative materials')}
                         </Header>
                         <Text>
@@ -95,7 +95,7 @@ const MoreReason = () => {
                     </Reason>
                     <Reason>
                         <img src={GlobalAffiliate} alt="global affiliate support" />
-                        <StyledHeader as="h4" lh="1.5" mb="8px">
+                        <StyledHeader as="h4" type="sub-section-title" lh="1.5" mb="8px">
                             {localize('Global affiliate support')}
                         </StyledHeader>
                         <Text>

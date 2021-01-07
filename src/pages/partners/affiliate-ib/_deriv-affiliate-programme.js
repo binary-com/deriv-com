@@ -196,7 +196,7 @@ const DerivAffiliateProgramme = () => {
                     <Header size="4.8rem" align="center" as="h3" mb="1.2rem">
                         {localize('Deriv Affiliate Programme')}
                     </Header>
-                    <SubtitleHeader as="h4" align="center" weight="normal">
+                    <SubtitleHeader as="h4" type="sub-section-title" align="center" weight="normal">
                         {localize(
                             'Partner with us as an affiliate. Earn commission from the total net revenue of your referred clients’ trades on DTrader and DBot.',
                         )}
@@ -209,7 +209,7 @@ const DerivAffiliateProgramme = () => {
                     <CardWrapper>
                         <StyledCard height="52.9rem" tabletHeight="348px">
                             <div>
-                                <CardHeader as="h4" mb="0.8rem">
+                                <CardHeader as="h4" type="sub-section-title" mb="0.8rem">
                                     {localize('Revenue share')}
                                 </CardHeader>
                                 <CardText>
@@ -248,7 +248,7 @@ const DerivAffiliateProgramme = () => {
                         </StyledCard>
                         <StyledCard height="52.9rem" tabletHeight="596px">
                             <div>
-                                <CardHeader as="h4" mb="0.8rem">
+                                <CardHeader as="h4" type="sub-section-title" mb="0.8rem">
                                     {localize('Turnover')}
                                 </CardHeader>
                                 <CardText>
@@ -294,7 +294,7 @@ const DerivAffiliateProgramme = () => {
                         </StyledCard>
                         <StyledCard height="52.9rem" tabletHeight="336px">
                             <div>
-                                <CardHeader as="h4" mb="0.8rem">
+                                <CardHeader as="h4" type="sub-section-title" mb="0.8rem">
                                     {localize('CPA (EU only)')}
                                 </CardHeader>
                                 <CardText>

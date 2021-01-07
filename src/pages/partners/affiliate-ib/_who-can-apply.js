@@ -154,7 +154,7 @@ const WhoCanApplyWrapper = styled(Col)`
 const ContentWrapper = styled(Wrapper)`
     @media (max-width: 749px) {
         flex-flow: wrap;
-        margin-top: 0;
+        margin-top: 16px;
     }
 `
 
@@ -190,7 +190,7 @@ const WhoCanApply = () => {
                                 alt="trading experts"
                             />
                             <Content max_width="36.4rem" mt_mobile="15px">
-                                <Header as="h4" mb="8px">
+                                <Header as="h4" type="sub-section-title" mb="8px">
                                     {localize('Trading experts')}
                                 </Header>
                                 <Text>
@@ -203,7 +203,7 @@ const WhoCanApply = () => {
                         <ContentWrapper>
                             <ImageWrapper src={SoftwareDeveloper} alt="software developer" />
                             <Content max_width="36.4rem" mt_mobile="15px">
-                                <Header as="h4" mb="8px">
+                                <Header as="h4" type="sub-section-title" mb="8px">
                                     {localize('Software developers')}
                                 </Header>
                                 <Text>
@@ -216,7 +216,7 @@ const WhoCanApply = () => {
                         <ContentWrapper>
                             <ImageWrapper src={CommunityManagers} alt="community managers" />
                             <Content max_width="36.4rem" mt_mobile="15px">
-                                <Header as="h4" mb="8px">
+                                <Header as="h4" type="sub-section-title" mb="8px">
                                     {localize('Community managers')}
                                 </Header>
                                 <Text>
@@ -241,7 +241,7 @@ const WhoCanApply = () => {
                                         <ApplyImageWrapper src={Apply} alt="apply" />
                                     </Show.Desktop>
                                     <GetStartedContent max_width="32.4rem">
-                                        <Header as="h4" mb="8px">
+                                        <Header as="h4" type="sub-section-title" mb="8px">
                                             {localize('Sign up')}
                                         </Header>
                                         <Text>
@@ -258,7 +258,7 @@ const WhoCanApply = () => {
                                         <ImageWrapper src={Advertise} alt="advertise" />
                                     </Show.Desktop>
                                     <GetStartedContent max_width="32.4rem">
-                                        <Header as="h4" mb="8px">
+                                        <Header as="h4" type="sub-section-title" mb="8px">
                                             {localize('Advertise')}
                                         </Header>
                                         <Text>
@@ -275,7 +275,7 @@ const WhoCanApply = () => {
                                         <ImageWrapper src={Earn} alt="earn" />
                                     </Show.Desktop>
                                     <GetStartedContent max_width="32.4rem">
-                                        <Header as="h4" mb="8px">
+                                        <Header as="h4" type="sub-section-title" mb="8px">
                                             {localize('Earn')}
                                         </Header>
                                         <Text>

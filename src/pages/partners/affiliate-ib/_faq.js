@@ -92,7 +92,7 @@ const Faq = () => {
     }
     const item_style = {
         padding: '4rem',
-        background: 'var(--color-grey-32)',
+        background: 'var(--color-grey-35)',
     }
     const header_style = {
         padding: '1.6rem 4rem',
@@ -106,7 +106,13 @@ const Faq = () => {
             <FaqHeader size="4.8rem" align="center">
                 {localize('Browse our FAQ')}
             </FaqHeader>
-            <FaqSubHeader as="h4" align="center" m="4rem 0" weight="normal">
+            <FaqSubHeader
+                as="h4"
+                type="sub-section-title"
+                align="center"
+                m="4rem 0"
+                weight="normal"
+            >
                 {localize('Deriv Affiliate Programme')}
             </FaqSubHeader>
             <StyledAccordionWrapper>
@@ -140,7 +146,13 @@ const Faq = () => {
                     </AccordionItem>
                 </Accordion>
             </StyledAccordionWrapper>
-            <FaqSubHeader as="h4" align="center" m="8rem 0 4rem 0 " weight="normal">
+            <FaqSubHeader
+                as="h4"
+                type="sub-section-title"
+                align="center"
+                m="8rem 0 4rem 0 "
+                weight="normal"
+            >
                 {localize('Deriv IB Programme')}
             </FaqSubHeader>
             <StyledAccordionWrapper>

@@ -56,7 +56,7 @@ const DNumbers = ({ items }) => {
             <DnumberContent>
                 {items.slice(0, 2).map((item, index) => (
                     <NumberWrapper key={index}>
-                        <Header as="h2" align="center">
+                        <Header as="h2" type="page-title" align="center">
                             {item.title}
                         </Header>
                         <Text align="center">{item.subtitle}</Text>

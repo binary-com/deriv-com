@@ -108,10 +108,10 @@ const AffiliateIb = () => {
                 )}
             />
             <Hero>
-                <StyledHeader as="h1" color="white" align="center" lh="1.25">
+                <StyledHeader as="h1" color="white" align="center" lh="1.25" type="display-title">
                     {localize('Partner with a trusted')}
                 </StyledHeader>
-                <StyledHeader as="h1" color="white" align="center" lh="1.25">
+                <StyledHeader as="h1" color="white" align="center" lh="1.25" type="display-title">
                     {localize('online trading provider')}
                 </StyledHeader>
                 <StyledLinkButton
@@ -126,7 +126,7 @@ const AffiliateIb = () => {
             </Hero>
             <StyledSectionContainer padding="8rem 0 4rem">
                 <Container direction="column">
-                    <SubtitleHeader as="h4" weight="normal" align="center">
+                    <SubtitleHeader as="h4" type="sub-section-title" weight="normal" align="center">
                         {localize(
                             'Earn up to 45% lifetime commission with an online trading provider that enables anyone to trade on popular financial markets with the utmost convenience. Deriv Group Ltd – the owner of Binary.com and Deriv.com – has a proven track record of running successful referral programmes with prompt payouts.',
                         )}

@@ -200,15 +200,20 @@ const DerivIBProgramme = () => {
         <StyledSection shadow id="deriv-ib">
             <Container direction="column">
                 <TitleWrapper>
-                    <StyledTitleHeader mb="1.2rem" size="4.8rem" align="center">
+                    <StyledTitleHeader
+                        mb="1.2rem"
+                        type="sub-section-title"
+                        size="4.8rem"
+                        align="center"
+                    >
                         {localize('Deriv IB Programme')}
                     </StyledTitleHeader>
-                    <SubtitleHeader as="h4" align="center" weight="normal">
+                    <SubtitleHeader as="h4" type="sub-section-title" align="center" weight="normal">
                         {localize(
                             'Our introducing broker programme is available to all Deriv affiliates.',
                         )}
                     </SubtitleHeader>
-                    <SubtitleHeader as="h4" align="center" weight="normal">
+                    <SubtitleHeader as="h4" type="sub-section-title" align="center" weight="normal">
                         {localize('Earn commission from your clients’ trades on DMT5.')}
                     </SubtitleHeader>
                 </TitleWrapper>
@@ -222,7 +227,13 @@ const DerivIBProgramme = () => {
                         <DMT5Advanced data={ib_dmt5_advanced} />
                     </StyledCardWrapper>
                     <DecideSection align="center">
-                        <StyledHeader as="h4" align="center" weight="medium" mb="3.2rem">
+                        <StyledHeader
+                            as="h4"
+                            type="sub-section-title"
+                            align="center"
+                            weight="medium"
+                            mb="3.2rem"
+                        >
                             {localize('Can’t decide which programme or commission plan suits you?')}
                         </StyledHeader>
                         <LinkButtonContactUs
@@ -287,7 +298,7 @@ const DMT5Synthetic = ({ data }) => {
             <div>
                 {!is_calculated ? (
                     <div>
-                        <CardHeader as="h4" mb="0.8rem">
+                        <CardHeader as="h4" type="sub-section-title" mb="0.8rem">
                             {data.name}
                         </CardHeader>
                         <CardText>{data.description}</CardText>
@@ -376,7 +387,7 @@ const DMT5Standard = ({ data }) => {
             <div>
                 {!is_calculated ? (
                     <div>
-                        <CardHeader as="h4" mb="0.8rem">
+                        <CardHeader type="sub-section-title" as="h4" mb="0.8rem">
                             {data.name}
                         </CardHeader>
                         <CardText>{data.description}</CardText>
@@ -463,7 +474,7 @@ const DMT5Advanced = ({ data }) => {
             <div>
                 {!is_calculated ? (
                     <div>
-                        <CardHeader as="h4" mb="0.8rem">
+                        <CardHeader as="h4" type="sub-section-title" mb="0.8rem">
                             {data.name}
                         </CardHeader>
                         <CardText>{data.description}</CardText>

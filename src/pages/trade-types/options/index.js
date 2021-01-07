@@ -1,18 +1,22 @@
 import React from 'react'
 import Loadable from '@loadable/component'
 import { SmallContainer, Hero } from '../components/_style'
+import PageNotFound from '../../404'
 import WhatAreTheOptions from './_what-are-options'
 import { SEO } from 'components/containers'
 import { Header } from 'components/elements'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
+import { DerivStore } from 'store'
 const HowOptionsWorks = Loadable(() => import('./_how-options-works'))
 const OptionsToTrade = Loadable(() => import('./_options-to-trade'))
 const StartTrading = Loadable(() => import('./_start-trading'))
 const MarketsAvailable = Loadable(() => import('./_markets-available'))
 
 const Options = () => {
-    return (
+    const { is_eu_country } = React.useContext(DerivStore)
+
+    return !is_eu_country ? (
         <Layout>
             <SEO
                 title={localize('Trade types | Options')}
@@ -33,6 +37,8 @@ const Options = () => {
             <StartTrading />
             <MarketsAvailable />
         </Layout>
+    ) : (
+        <PageNotFound />
     )
 }
 

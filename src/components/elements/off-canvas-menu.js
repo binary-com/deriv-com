@@ -226,19 +226,21 @@ export const OffCanvasMenuWrapper = (props) => {
                                 to="/trade-types/margin/"
                             />
                         </Flex>
-                        <Flex mb="2rem">
-                            <NavCard
-                                icon={() => (
-                                    <img src={Options} alt="Options" width="32" height="32" />
-                                )}
-                                content={
-                                    <Localize translate_text="Earn fixed payouts by predicting an asset's price movement." />
-                                }
-                                title={<Localize translate_text="Options" />}
-                                onClick={handleArrowClick}
-                                to="/trade-types/options"
-                            />
-                        </Flex>
+                        {!is_eu_country && (
+                            <Flex mb="2rem">
+                                <NavCard
+                                    icon={() => (
+                                        <img src={Options} alt="Options" width="32" height="32" />
+                                    )}
+                                    content={
+                                        <Localize translate_text="Earn fixed payouts by predicting an asset's price movement." />
+                                    }
+                                    title={<Localize translate_text="Options" />}
+                                    onClick={handleArrowClick}
+                                    to="/trade-types/options"
+                                />
+                            </Flex>
+                        )}
                         <Flex mb="2rem">
                             <NavCard
                                 icon={() => (

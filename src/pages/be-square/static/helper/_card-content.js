@@ -1,15 +1,17 @@
 import {
     ExtensiveNetworkIcon,
-    TechExperienceIcon,
     ProfessionalGuidanceIcon,
     ResumeIcon,
-    TopPerformersIcon,
-    WorldExposureIcon,
+    TechExperienceIcon,
+} from '../images/_join-us'
+import {
     CrossDomainTrainingIcon,
     NoExperienceIcon,
-    TrainIcon,
     PaidProgrammeIcon,
-} from './_image-extractor'
+    TrainIcon,
+    TopPerformersIcon,
+    WorldExposureIcon,
+} from '../images/_advantages'
 import { localize } from 'components/localization'
 
 export const card_content = [

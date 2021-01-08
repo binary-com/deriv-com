@@ -8,7 +8,7 @@ import {
     TextWrapper,
     Title,
 } from '../style/_what-is-besquare'
-import { MarkIcon } from '../helper/_image-extractor'
+import { MarkIcon } from '../images/_common'
 import { card_content } from '../helper/_card-content'
 import { localize } from 'components/localization'
 

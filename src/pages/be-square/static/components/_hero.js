@@ -1,6 +1,6 @@
 import React from 'react'
 import { HeroContainer, HeaderContainer, ImageWrapper, SubTitle, Title } from '../style/_hero'
-import { HeroImage } from '../helper/_image-extractor'
+import { HeroImage } from '../images/_hero'
 
 const Hero = () => (
     <HeroContainer>

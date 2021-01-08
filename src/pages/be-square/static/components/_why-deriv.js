@@ -1,6 +1,6 @@
 import React from 'react'
 import { Container, ContentContainer, ImageWrapper, TextWrapper, Title } from '../style/_why-deriv'
-import { WhyDerivImage, Quil5Image } from '../helper/_image-extractor'
+import { Quil5Image, WhyDerivImage } from '../images/_why-deriv'
 import { localize } from 'components/localization'
 
 const WhyDeriv = () => (

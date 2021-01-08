@@ -84,7 +84,7 @@ const Hero = () => {
                     <LinkButton
                         secondary="true"
                         to={zoho_url}
-                        external
+                        external="true"
                         target="_blank"
                         rel="noopener noreferrer"
                     >

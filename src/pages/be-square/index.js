@@ -5,6 +5,7 @@ import WhatIsBeSquare from './static/components/_what-is_besquare'
 import JoinUs from './static/components/_join-us'
 import WhyDeriv from './static/components/_why-deriv'
 import Advantages from './static/components/_advantages'
+import WhoCanApply from './static/components/_who-can-apply'
 import Layout from 'components/layout/layout'
 import { WithIntl } from 'components/localization'
 
@@ -16,6 +17,7 @@ const BeSquare = () => (
         <JoinUs />
         <WhyDeriv />
         <Advantages />
+        <WhoCanApply />
     </Layout>
 )
 

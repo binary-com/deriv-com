@@ -1,3 +1,4 @@
-import MarkIcon from 'images/svg/be-square/mark-icon.svg'
+import GreenMarkIcon from 'images/svg/be-square/green-mark-icon.svg'
+import RedMarkIcon from 'images/svg/be-square/red-mark-icon.svg'
 
-export { MarkIcon }
+export { GreenMarkIcon, RedMarkIcon }

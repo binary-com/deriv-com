@@ -8,7 +8,7 @@ import {
     TextWrapper,
     Title,
 } from '../style/_what-is-besquare'
-import { MarkIcon } from '../images/_common'
+import { GreenMarkIcon } from '../images/_common'
 import { card_content } from '../helper/_card-content'
 import { localize } from 'components/localization'
 
@@ -32,7 +32,12 @@ const WhatIsBeSquare = () => (
             <ContentWrapper>
                 {card_content.map((element, index) => (
                     <CardContainer key={index}>
-                        <IconWrapper src={MarkIcon} alt="mark icon" width="16" height="16" />
+                        <IconWrapper
+                            src={GreenMarkIcon}
+                            alt="Green mark icon"
+                            width="16"
+                            height="16"
+                        />
                         <TextWrapper
                             max_width="438px"
                             max_width_m="300px"

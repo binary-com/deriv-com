@@ -8,7 +8,7 @@ import {
     Title,
 } from '../style/_join-us'
 import { join_us_card_content } from '../helper/_card-content'
-import { localize, Localize } from 'components/localization'
+import { localize } from 'components/localization'
 
 const JoinUs = () => (
     <ContentContainer>
@@ -18,10 +18,7 @@ const JoinUs = () => (
                 <CardWrapper key={index}>
                     <IconWrapper src={card.src} alt={card.alt} />
                     <TextWrapper>
-                        <Localize
-                            translate_text={`<0>${card.bold_text}</0> ${card.normal_text}`}
-                            components={[<strong key={0} />]}
-                        />
+                        <strong>{card.bold_text}</strong>&nbsp;{card.normal_text}
                     </TextWrapper>
                 </CardWrapper>
             ))}

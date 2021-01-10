@@ -162,7 +162,7 @@ const ResetPassword = () => {
         )
     } else {
         body = (
-            <FullwidthStyledContainer background="var(--color-pale-gray-64);" mt="7rem">
+            <FullwidthStyledContainer background="var(--color-grey-31);" mt="7rem">
                 <StyledContainer justify="flex-start" align="center" direction="column">
                     <Header as="h2" type="section-title" align="center" mb="2rem">
                         {localize('All you’ll need from now is one password')}

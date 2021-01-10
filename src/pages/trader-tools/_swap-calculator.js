@@ -105,7 +105,7 @@ const SwapCalculator = () => {
     }
 
     const toFixed = (val) => {
-        return parseFloat(val.toFixed(2)).toLocaleString()
+        return parseFloat(val.toFixed(3)).toLocaleString()
     }
 
     const resetValidationSynthetic = (values) => {
@@ -209,12 +209,20 @@ const SwapCalculator = () => {
     }
 
     const numberSubmitFormatNegative = (input) => {
-        return input.replace(/^(-?)0+/, '$1')
+        let result = input.replace(/^(-?)0+/, '$1')
+
+        if (result.charAt(0) == '-' && result.charAt(1) == '.') {
+            result = result.slice(0, 1) + '0' + result.slice(1)
+        } else if (result.charAt(0) == '.') {
+            result = '0' + result
+        }
+
+        return result
     }
 
     return (
         <StyledSection direction="column">
-            <SectionHeader as="h2" align="center" mt="8rem" mb="1.2rem">
+            <SectionHeader as="h2" type="page-title" align="center" mt="8rem" mb="1.2rem">
                 {localize('Swap calculator')}
             </SectionHeader>
 
@@ -224,7 +232,7 @@ const SwapCalculator = () => {
                 )}
             </SectionSubtitle>
 
-            <Flex mb="8rem" p="0 1.6rem" tablet={{ mb: '32px', height: 'unset' }}>
+            <Flex mb="40px" p="0 1.6rem" tablet={{ mb: '32px', height: 'unset' }}>
                 <SwapTabSelector
                     active={tab === 'Synthetic'}
                     onClick={() => onTabClick('Synthetic')}
@@ -453,14 +461,17 @@ const SwapCalculator = () => {
 
                         <RightContent>
                             <TextWrapper>
-                                <RightContentHeader as="h3" mb="8px">
+                                <RightContentHeader as="h3" type="section-title" mb="8px">
                                     {localize('How swap charges are calculated')}
                                 </RightContentHeader>
 
+                                <StyledText size="1.6rem">
+                                    <Localize translate_text="For synthetic indices, the swap charge is calculated on an annual basis for long and short positions using the formula:" />
+                                </StyledText>
                                 <StyledText size="1.6rem" mb="2rem">
                                     <Localize
-                                        translate_text="For synthetic indices, the swap charge is calculated on an annual basis for long and short positions using the formula:<1></1><0>Swap charge = volume × contract size × asset price × (swap rate/100) /360</0>"
-                                        components={[<strong key={0} />, <br key={1} />]}
+                                        translate_text="<0>Swap charge = volume × contract size × asset price × (swap rate/100) /360</0>"
+                                        components={[<strong key={0} />]}
                                     />
                                 </StyledText>
 
@@ -468,7 +479,7 @@ const SwapCalculator = () => {
                                     <Localize translate_text="This gives you the swap charge in USD." />
                                 </StyledText>
 
-                                <RightContentHeader as="h3" mb="0.8rem">
+                                <RightContentHeader as="h3" type="section-title" mb="0.8rem">
                                     {localize('Example calculation')}
                                 </RightContentHeader>
 
@@ -502,7 +513,7 @@ const SwapCalculator = () => {
                                 </FormulaText>
                             </ImageWrapper>
                             <TextWrapper>
-                                <StyledText size="1.6rem" mb="2rem" mt="1.6rem">
+                                <StyledText size="1.6rem" mt="1.6rem">
                                     <Localize
                                         translate_text="So you will be required to pay a swap charge of <0>0.83 USD</0> to keep the position open for one night."
                                         components={[<strong key={0} />]}
@@ -753,14 +764,17 @@ const SwapCalculator = () => {
 
                         <RightContent direction="column" max_width="69rem">
                             <TextWrapper>
-                                <RightContentHeader as="h3" mb="8px">
+                                <RightContentHeader as="h3" type="section-title" mb="8px">
                                     {localize('How swap charges are calculated')}
                                 </RightContentHeader>
 
+                                <StyledText size="1.6rem">
+                                    <Localize translate_text="For forex and commodities, the swap charge is calculated using the formula is:" />
+                                </StyledText>
                                 <StyledText size="1.6rem" mb="2rem">
                                     <Localize
-                                        translate_text="For forex and commodities, the swap charge is calculated using the formula is:<1></1><0>Swap charge = volume × contract size × point value × swap rate</0>"
-                                        components={[<strong key={0} />, <br key={1} />]}
+                                        translate_text="<0>Swap charge = volume × contract size × point value × swap rate</0>"
+                                        components={[<strong key={0} />]}
                                     />
                                 </StyledText>
 
@@ -772,7 +786,7 @@ const SwapCalculator = () => {
                                     <Localize translate_text="For instance, if you are trading the USD/JPY forex pair, the swap charge will be computed in Japanese Yen (JPY) which is the quote currency. On the other hand, if you are trading oil,  then the swap charge will be computed in US Dollar (USD), which is the denomination of the underlying asset – oil." />
                                 </StyledText>
 
-                                <RightContentHeader as="h3" mb="0.8rem">
+                                <RightContentHeader as="h3" type="section-title" mb="0.8rem">
                                     {localize('Example calculation')}
                                 </RightContentHeader>
 

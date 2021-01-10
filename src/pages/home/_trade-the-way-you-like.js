@@ -8,8 +8,13 @@ import { OtherPlatform } from 'components/custom/other-platforms.js'
 
 const query = graphql`
     query {
-        dtrader_artboard: file(relativePath: { eq: "dtrader_trade_mobile.png" }) {
-            ...fadeIn
+        dtrader_artboard: file(relativePath: { eq: "dtrader_trade_home.png" }) {
+            childImageSharp {
+                fluid(maxWidth: 794) {
+                    ...GatsbyImageSharpFluid_withWebp_noBase64
+                    originalName
+                }
+            }
         }
     }
 `

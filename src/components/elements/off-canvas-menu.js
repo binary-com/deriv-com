@@ -5,7 +5,11 @@ import { Flex } from 'components/containers'
 import { LocalizedLink, localize, Localize } from 'components/localization'
 import { Accordion, AccordionItem, NavCard, Text, Divider } from 'components/elements'
 import { useOutsideClick } from 'components/hooks/outside-click'
-import { community_url } from 'common/utility'
+import {
+    community_url,
+    cfd_warning_height_desktop,
+    cfd_warning_height_tablet,
+} from 'common/utility'
 // SVG
 import DTrader from 'images/svg/dtrader-icon.svg'
 import DMT5 from 'images/svg/dmt5-icon.svg'
@@ -33,11 +37,13 @@ import Community from 'images/svg/menu/community.svg'
 import Diagonal from 'images/svg/pink-right-diagonal.svg'
 import AffiliateIb from 'images/svg/menu/affiliate-ib.svg'
 import PaymentAgent from 'images/svg/menu/payment-agent.svg'
+import { DerivStore } from 'store'
+import device from 'themes/device'
 
 const OffCanvasMenu = styled.section`
     position: fixed;
     background-color: var(--color-white);
-    top: 7.2rem;
+    top: ${(props) => (props.is_eu_country ? `${cfd_warning_height_desktop + 7.2}rem` : `7.2rem`)};
     height: 100vh;
     width: 253px;
     opacity: 1;
@@ -45,10 +51,19 @@ const OffCanvasMenu = styled.section`
     transition: left 0.4s;
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.1);
     left: ${(props) => (props.is_canvas_menu_open ? '0' : '-254px')};
+
+    @media ${device.tabletS} {
+        top: ${(props) =>
+            props.is_eu_country ? `${cfd_warning_height_tablet + 7.2}rem` : `7.2rem`};
+    }
 `
 
 const OffCanvasMenuSecondary = styled(OffCanvasMenu)`
-    top: 10rem;
+    top: ${(props) => (props.is_eu_country ? `${cfd_warning_height_desktop + 10}rem` : `10rem`)};
+
+    @media ${device.tabletS} {
+        top: ${(props) => (props.is_eu_country ? `${cfd_warning_height_tablet + 10}rem` : `10rem`)};
+    }
 `
 
 const Span = styled.span`
@@ -107,6 +122,7 @@ const content_style = {
 }
 
 export const OffCanvasMenuWrapper = (props) => {
+    const { is_eu_country } = React.useContext(DerivStore)
     const canvas = useRef()
 
     const handleArrowClick = () => {
@@ -116,7 +132,11 @@ export const OffCanvasMenuWrapper = (props) => {
     useOutsideClick(canvas, props.closeOffCanvasMenu, null, 'mousedown')
 
     return (
-        <OffCanvasMenu is_canvas_menu_open={props.is_canvas_menu_open} ref={canvas}>
+        <OffCanvasMenu
+            is_canvas_menu_open={props.is_canvas_menu_open}
+            ref={canvas}
+            is_eu_country={is_eu_country}
+        >
             <OffCanvasMenuContainer>
                 <Accordion>
                     <AccordionItem
@@ -455,6 +475,7 @@ OffCanvasMenuWrapper.propTypes = {
 }
 
 export const OffCanvasMenuPartner = (props) => {
+    const { is_eu_country } = React.useContext(DerivStore)
     const canvas = useRef()
 
     const handleArrowClick = () => {
@@ -475,7 +496,11 @@ export const OffCanvasMenuPartner = (props) => {
     }, [])
 
     return (
-        <OffCanvasMenuSecondary is_canvas_menu_open={props.is_canvas_menu_open} ref={canvas}>
+        <OffCanvasMenuSecondary
+            is_canvas_menu_open={props.is_canvas_menu_open}
+            ref={canvas}
+            is_eu_country={is_eu_country}
+        >
             <OffCanvasMenuContainer>
                 <StyledLink to="/partners/affiliate-ib/" onClick={handleArrowClick}>
                     <div>

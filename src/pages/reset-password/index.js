@@ -88,13 +88,20 @@ const ResetPassword = () => {
     let body = null
     if (!has_prompt) {
         body = (
-            <StyledContainer mt="7rem" justify="flex-start" align="center" direction="column">
-                <Header as="h2" type="section-title" align="center">
+            <StyledContainer justify="center" align="center" direction="column">
+                <Header as="h2" type="page-title" align="center">
                     {localize('Reset password')}
                 </Header>
-                <Text align="center" mb="2rem">
+                <Header
+                    as="h4"
+                    type="sub-section-title"
+                    align="center"
+                    weight="500"
+                    mt="0.5rem"
+                    mb="3.8rem"
+                >
                     {localize("We'll email you instructions to reset your password.")}
-                </Text>
+                </Header>
                 <Formik
                     initialValues={{ email: '' }}
                     initialStatus={{}}
@@ -129,16 +136,12 @@ const ResetPassword = () => {
                                     required
                                 />
                             </InputGroup>
-                            {status.error && (
-                                <Text align="center" color="red">
-                                    {status.error}
-                                </Text>
-                            )}
-                            {status.success && (
-                                <Text align="center" color="green">
-                                    {status.success}
-                                </Text>
-                            )}
+                            <Text align="center" color="red">
+                                {status.error && status.error}
+                            </Text>
+                            <Text align="center" color="green">
+                                {status.success && status.success}
+                            </Text>
                             <ButtonContainer>
                                 <StyledButton
                                     tertiary

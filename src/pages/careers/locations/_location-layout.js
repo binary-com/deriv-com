@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import Container from '../_layout-components/_container'
+import CareerContainer from '../_layout-components/_container'
 import device from 'themes/device'
 import { SectionContainer, Flex } from 'components/containers'
 import { Text, LinkText, Header, BackgroundImage, QueryImage } from 'components/elements'
@@ -15,7 +15,17 @@ const Pin = styled.img`
     height: 24px;
     margin-right: 13px;
 `
-const StyledContainer = styled(Container)`
+
+const StyledBackground = styled(BackgroundImage)`
+    width: 100%;
+    height: 80rem;
+    object-fit: contain;
+    @media ${device.tabletL} {
+        height: 65.3rem;
+    }
+`
+
+const StyledContainer = styled(CareerContainer)`
     flex-direction: column;
     align-items: flex-start;
     height: 100%;
@@ -26,28 +36,21 @@ const StyledContainer = styled(Container)`
 `
 
 const StyledHeader = styled(Header)`
-    font-size: var(--text-size-xl);
-    margin-bottom: 2.4rem;
+    font-size: var(--text-size-xxl);
+    margin-bottom: 1.6rem;
     color: var(--color-white);
 `
 
 const Subheadline = styled(Text)`
-    font-size: var(--text-size-sm);
+    font-size: var(--text-size-m);
     color: var(--color-white);
-    max-width: 58.8rem;
-    margin-bottom: 8rem;
+    max-width: 69rem;
+    margin-bottom: 3.2rem;
 `
 
 const Hero = ({ display_name, img_data, description }) => {
     return (
-        <BackgroundImage
-            data={img_data}
-            style={{
-                height: '80rem',
-                width: '100%',
-            }}
-            alt={display_name}
-        >
+        <StyledBackground data={img_data} alt={display_name}>
             <StyledContainer>
                 <StyledHeader as="h1">{display_name}</StyledHeader>
                 <Subheadline>{description}</Subheadline>
@@ -59,10 +62,10 @@ const Hero = ({ display_name, img_data, description }) => {
                     rel="noopener noreferrer"
                     external
                 >
-                    {`View open positions in ${display_name}`}
+                    View open positions in {display_name}
                 </LinkButton>
             </StyledContainer>
-        </BackgroundImage>
+        </StyledBackground>
     )
 }
 
@@ -94,19 +97,36 @@ const Third = styled.div`
 const Fourth = styled.div`
     width: 100%;
     max-width: 51.4rem;
+
+    @media ${device.tabletS} {
+        max-width: 407px;
+        object-fit: contain;
+    }
 `
 
 const FirstSection = styled(SectionContainer)`
     ${Header} {
-        margin-bottom: 8rem;
+        margin-bottom: 4rem;
+    }
+    ${Flex} {
+        @media ${device.tablet} {
+            align-items: center;
+        }
     }
     ${Text} {
         max-width: 41.5rem;
         margin-right: 6.4rem;
+        font-size: 20px;
 
         @media ${device.tablet} {
             margin-right: 0;
             margin-bottom: 2rem;
+            max-width: 100%;
+            text-align: center;
+            font-size: 16px;
+        }
+        @media ${device.mobileL} {
+            text-align: left;
         }
     }
     @media ${device.tablet} {
@@ -116,6 +136,20 @@ const FirstSection = styled(SectionContainer)`
 const ImageWrapper = styled.div`
     max-width: 53.9rem;
     width: 100%;
+
+    @media ${device.tablet} {
+        height: 260px;
+        max-width: 100%;
+    }
+`
+
+const StyledImageWrapper = styled.div`
+    max-width: 53.9rem;
+    width: 100%;
+
+    @media ${device.tabletS} {
+        max-width: 100%;
+    }
 `
 
 const LocationCard = styled.article`
@@ -124,6 +158,10 @@ const LocationCard = styled.article`
     margin: 0 auto;
     border-radius: 4px;
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.05);
+
+    @media ${device.tablet} {
+        margin: 0 16px;
+    }
 `
 
 const CardText = styled(Text)`
@@ -135,6 +173,63 @@ const Iframe = styled.iframe`
     width: 100%;
     height: 100%;
     border: 0;
+`
+
+const StyledFlex = styled(Flex)`
+    width: 100%;
+
+    @media ${device.tabletS} {
+        flex-direction: column;
+        justify-content: center;
+    }
+`
+
+const LeftFlex = styled(Flex)`
+    @media ${device.tabletS} {
+        margin: 0 16px 16px;
+        width: auto;
+        align-items: center;
+    }
+`
+
+const RightFlex = styled(Flex)`
+    margin-left: 0.8rem;
+    justify-content: flex-start;
+
+    @media ${device.tabletS} {
+        width: auto;
+        margin: 0 16px;
+        justify-content: center;
+    }
+`
+
+const InnerLeftFlex = styled(Flex)`
+    justify-content: flex-end;
+
+    @media ${device.tabletS} {
+        justify-content: center;
+    }
+`
+
+const LocationFlex = styled(Flex)`
+    @media ${device.tablet} {
+        align-items: center;
+        flex-direction: column-reverse;
+    }
+`
+
+const LocationInformationFlex = styled(Flex)`
+    @media ${device.tablet} {
+        padding: 24px 16px;
+    }
+`
+
+const StyledDiv = styled.div`
+    max-width: 32.4rem;
+
+    @media ${device.tablet} {
+        max-width: 100%;
+    }
 `
 
 export const LocationLayout = ({ location, images }) => {
@@ -149,35 +244,30 @@ export const LocationLayout = ({ location, images }) => {
                 description={location.header_p}
                 img_data={images[location.name]}
             />
-            <Container direction="column">
-                <FirstSection padding="12rem 0">
-                    <Header align="center" as="h2" size={'var(--text-size-header-1)'}>
-                        {`Living in ${display_name}`}
+            <CareerContainer>
+                <FirstSection>
+                    <Header align="center" as="h2" size="var(--text-size-header-5)">
+                        Living in {display_name}
                     </Header>
                     <Flex tablet_direction="column">
-                        <Text size="var(--text-size-sm)">{location.first_p}</Text>
-                        <ImageWrapper>
+                        <Text>{location.first_p}</Text>
+                        <StyledImageWrapper>
                             <QueryImage
                                 data={images[location.first_img]}
-                                alt={`Living in ${display_name}`}
+                                alt={display_name}
                                 width="100%"
                             />
-                        </ImageWrapper>
+                        </StyledImageWrapper>
                     </Flex>
                 </FirstSection>
-            </Container>
-            <SectionContainer padding={location.has_iframe ? '0rem' : '0 0 12rem'}>
-                <Header
-                    align="center"
-                    as="h2"
-                    size={'var(--text-size-header-1)'}
-                    style={{ marginBottom: '6.4rem' }}
-                >
+            </CareerContainer>
+            <SectionContainer padding="0">
+                <Header align="center" as="h2" size="var(--text-size-header-5)" mb="4rem">
                     Our office
                 </Header>
-                <Flex jc="unset">
-                    <Flex direction="column" mr="0.8rem" ai="flex-end">
-                        <Flex mb="0.8rem" jc="flex-end">
+                <StyledFlex>
+                    <LeftFlex direction="column" mr="0.8rem" ai="flex-end">
+                        <InnerLeftFlex mb="0.8rem">
                             <First>
                                 <QueryImage
                                     data={images[location.grid_images[0]]}
@@ -192,7 +282,7 @@ export const LocationLayout = ({ location, images }) => {
                                     width="100%"
                                 />
                             </Second>
-                        </Flex>
+                        </InnerLeftFlex>
                         <Third>
                             <QueryImage
                                 data={images[location.grid_images[2]]}
@@ -200,8 +290,8 @@ export const LocationLayout = ({ location, images }) => {
                                 width="100%"
                             />
                         </Third>
-                    </Flex>
-                    <Flex ml="0.8rem" jc="unset">
+                    </LeftFlex>
+                    <RightFlex>
                         <Fourth>
                             <QueryImage
                                 data={images[location.grid_images[3]]}
@@ -209,12 +299,12 @@ export const LocationLayout = ({ location, images }) => {
                                 width="100%"
                             />
                         </Fourth>
-                    </Flex>
-                </Flex>
+                    </RightFlex>
+                </StyledFlex>
             </SectionContainer>
-            <SectionContainer padding="12rem 0">
+            <SectionContainer>
                 <LocationCard>
-                    <Flex min_height="42.2rem" jc="unset" tablet_direction="column">
+                    <LocationFlex min_height="42.2rem" jc="unset" tablet_direction="column">
                         <ImageWrapper>
                             {location.has_iframe ? (
                                 <Iframe
@@ -236,9 +326,13 @@ export const LocationLayout = ({ location, images }) => {
                                 </LocalizedLink>
                             )}
                         </ImageWrapper>
-                        <Flex p="3.2rem 6rem" direction="column" max_width="44.4rem">
-                            <div style={{ maxWidth: '32.4rem' }}>
-                                <Header as="h3" size={'24px'}>
+                        <LocationInformationFlex
+                            p="3.2rem 6rem"
+                            direction="column"
+                            max_width="44.4rem"
+                        >
+                            <StyledDiv>
+                                <Header as="h3" size="24px">
                                     Location
                                 </Header>
                                 <CardText>{location.map_text}</CardText>
@@ -262,9 +356,9 @@ export const LocationLayout = ({ location, images }) => {
                                         </Text>
                                     )}
                                 </Flex>
-                            </div>
-                        </Flex>
-                    </Flex>
+                            </StyledDiv>
+                        </LocationInformationFlex>
+                    </LocationFlex>
                 </LocationCard>
             </SectionContainer>
         </>

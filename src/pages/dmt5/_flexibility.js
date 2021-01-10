@@ -86,8 +86,8 @@ const ClientCard = styled.article`
     }
 `
 const StyledLinkButton = styled(LinkButton)`
-    padding: 1.4rem 1.6rem;
-    font-size: 14px;
+    padding: 14px 16px;
+    height: 40px;
     border: unset;
     max-width: 182px;
     width: 100%;

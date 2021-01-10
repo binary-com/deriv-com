@@ -158,11 +158,11 @@ const Stories = [
         contents: [
             {
                 left: false,
-                headers: [{ header: <Localize translate_text="Licensed financial product" /> }],
+                headers: [{ header: <Localize translate_text="Licensed investment services" /> }],
                 texts: [
                     {
                         text: (
-                            <Localize translate_text="The Malta Financial Services Authority grants Binary.com a Category 3 Investment Services licence. The licence authorises Binary.com to offer our service to clients in the European Union as a financial product." />
+                            <Localize translate_text="The Malta Financial Services Authority (MFSA) grants Binary.com a Category 3 Investment Services licence. This licence authorises Binary.com to offer investment services to clients in the European Union." />
                         ),
                     },
                 ],

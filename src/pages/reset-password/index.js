@@ -85,7 +85,7 @@ const resetSubmission = (values, actions) => {
 
 const ResetPassword = () => {
     const [has_prompt, setOnePasswordPrompt] = React.useState(true)
-    let body = null
+    let body
     if (!has_prompt) {
         body = (
             <StyledContainer justify="center" align="center" direction="column">
@@ -190,7 +190,7 @@ const ResetPassword = () => {
         )
     }
     return (
-        <Layout type="static" is_fullpage margin_top="0">
+        <Layout type="static" is_fullpage margin_top="7">
             <SEO
                 title={localize('Reset password | Deriv')}
                 description={localize(

@@ -14,7 +14,7 @@ const TabContent = styled.div`
 const TabButton = styled.button`
     z-index: 2;
     height: auto;
-    padding: 0 24px;
+    padding: 8px 24px 10px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -30,7 +30,7 @@ const TabButton = styled.button`
         css`
             border-color: var(--color-red);
             ${Text} {
-                color: var(--color-red);
+                font-weight: bold;
             }
         `}
 
@@ -71,8 +71,7 @@ const Content = styled.div`
 const TextWrapper = styled(Text)`
     text-align: center;
     font-size: var(--text-size-m);
-    color: var(--color-red-2);
-    font-weight: bold;
+    color: var(--color-black);
 
     @media ${device.tabletS} {
         font-size: ${({ font_size }) => font_size ?? 'var(--text-size-sm)'};

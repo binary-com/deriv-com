@@ -58,6 +58,7 @@ const Title = styled(Text)`
     @media ${device.tabletL} {
         text-align: center;
         font-weight: 600;
+        font-size: 14px;
     }
 `
 const MarketsWrapper = styled(Flex)`

@@ -329,7 +329,7 @@ const Footer = ({ type }) => {
                         <StyledLogo src={Logo} alt="logo" width="147" height="25" />
                         <Show.Eu>
                             <Show.Desktop>
-                                <SocialWrapperComponent />
+                                <SocialWrapperComponent is_career_page={type === 'careers'} />
                             </Show.Desktop>
                         </Show.Eu>
                     </DerivLogoWrapper>
@@ -531,7 +531,6 @@ const Footer = ({ type }) => {
                             <DisclaimerParagraph>
                                 <Localize
                                     translate_text="Deriv Investments (Europe) Limited, W Business Centre, Level 3, Triq Dun Karm, Birkirkara BKR 9033, Malta, is licensed in Malta and regulated by the Malta Financial Services Authority under the Investments Services Act to provide investment services in the European Union (<0>licence no. IS/70156</0>). It is also authorised and subject to limited regulation by the Financial Conduct Authority in the UK. Details about the extent of our authorisation and regulation by the Financial Conduct Authority are available from us on request."
-
                                     components={[
                                         <StaticAsset
                                             key={0}

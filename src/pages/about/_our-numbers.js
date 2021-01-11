@@ -94,7 +94,7 @@ const OurNumbers = () => (
                 </article>
                 <article>
                     <Show.Desktop>
-                        <NumberHeader size="3.6rem">{localize('1.8M+')}</NumberHeader>
+                        <NumberHeader size="3.6rem">{localize('2.9M+')}</NumberHeader>
                         <Text align="center">{localize('Trading accounts opened')}</Text>
                     </Show.Desktop>
 
@@ -111,7 +111,7 @@ const OurNumbers = () => (
                         <Text align="center">{localize('Total trade turnover')}</Text>
                     </Show.Desktop>
                     <Show.Mobile>
-                        <NumberHeader size="4.5rem">{localize('1.8M+')}</NumberHeader>
+                        <NumberHeader size="4.5rem">{localize('2.9M+')}</NumberHeader>
                         <Text size="2rem" align="center">
                             {localize('Trading accounts opened')}
                         </Text>
@@ -119,12 +119,12 @@ const OurNumbers = () => (
                 </article>
                 <article>
                     <Show.Desktop>
-                        <NumberHeader size="3.6rem">{localize('62M+')}</NumberHeader>
+                        <NumberHeader size="3.6rem">{localize('65M+')}</NumberHeader>
                         <Text align="center">{localize('Trades last month')}</Text>
                     </Show.Desktop>
 
                     <Show.Mobile>
-                        <NumberHeader size="4.5rem">{localize('62M+')}</NumberHeader>
+                        <NumberHeader size="4.5rem">{localize('65M+')}</NumberHeader>
                         <Text size="2rem" align="center">
                             {localize('Trades last month')}
                         </Text>
@@ -132,12 +132,12 @@ const OurNumbers = () => (
                 </article>
                 <article>
                     <Show.Desktop>
-                        <NumberHeader size="3.6rem">{localize('USD 15M+')}</NumberHeader>
+                        <NumberHeader size="3.6rem">{localize('USD 19M+')}</NumberHeader>
                         <Text align="center">{localize('Withdrawal last month')}</Text>
                     </Show.Desktop>
 
                     <Show.Mobile>
-                        <NumberHeader size="4.5rem">{localize('USD 15M+')}</NumberHeader>
+                        <NumberHeader size="4.5rem">{localize('USD 19M+')}</NumberHeader>
                         <Text size="2rem" align="center">
                             {localize('Withdrawal last month')}
                         </Text>

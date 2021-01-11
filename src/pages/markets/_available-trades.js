@@ -49,7 +49,7 @@ const CardWrapper = styled(Flex)`
     }
 
     @media ${device.mobileL} {
-        overflow: scroll;
+        overflow-x: auto;
     }
 `
 const CardContainer = styled(Flex)`

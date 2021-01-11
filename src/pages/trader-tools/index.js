@@ -9,7 +9,6 @@ import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { getLocationHash, isBrowser, scrollTop } from 'common/utility'
 import Patterns from 'images/common/trade-tools/trade-tools-bg.png'
-import Signup, { Appearances } from 'components/custom/signup'
 
 const Hero = styled(Flex)`
     height: 40rem;
@@ -33,7 +32,6 @@ const Item = styled.div`
 
     h4 {
         color: var(--color-black);
-        opacity: ${(props) => (props.name === props.active_tab ? '1' : '0.32')};
         font-weight: ${(props) => (props.name === props.active_tab ? 'bold' : 'normal')};
     }
     @media ${device.tabletL} {
@@ -48,6 +46,16 @@ const Item = styled.div`
         ${Header} {
             font-size: 16px;
         }
+    }
+`
+
+const TabContainer = styled(Flex)`
+    padding-top: 4rem;
+    background-color: var(--color-grey-23);
+    overflow: auto;
+
+    @media ${device.mobileL} {
+        justify-content: space-between;
     }
 `
 
@@ -77,33 +85,36 @@ const TraderTools = () => {
             />
             <Hero jc="center" ai="center">
                 <Container>
-                    <Header as="h1" color="white" align="center">
+                    <Header as="h1" type="display-title" color="white" align="center">
                         {localize('Traders’ tools')}
                     </Header>
                 </Container>
             </Hero>
-            <Flex pt="4rem" background="var(--color-grey-23)">
+            <TabContainer>
                 <Item
                     onClick={() => handleTabChange('marginCalculator')}
                     active_tab={active_tab}
                     name="marginCalculator"
                 >
-                    <Header as="h4">{localize('Margin calculator')}</Header>
+                    <Header as="h4" type="sub-section-title">
+                        {localize('Margin calculator')}
+                    </Header>
                 </Item>
                 <Item
                     onClick={() => handleTabChange('swapCalculator')}
                     active_tab={active_tab}
                     name="swapCalculator"
                 >
-                    <Header as="h4">{localize('Swap calculator')}</Header>
+                    <Header as="h4" type="sub-section-title">
+                        {localize('Swap calculator')}
+                    </Header>
                 </Item>
-            </Flex>
+            </TabContainer>
             <Box position="relative">
                 <Separator />
                 {active_tab === 'marginCalculator' && <MarginCalculator />}
                 {active_tab === 'swapCalculator' && <SwapCalculator />}
             </Box>
-            <Signup appearance={Appearances.public} />
         </Layout>
     )
 }

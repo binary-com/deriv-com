@@ -42,8 +42,11 @@ const Wrapper = styled.div`
     animation-fill-mode: both;
     animation-duration: 0.3s;
 
+    @media ${device.tabletL} {
+        height: auto;
+    }
     @media ${device.tabletS} {
-        height: 26rem;
+        padding: 24px 0;
     }
 `
 

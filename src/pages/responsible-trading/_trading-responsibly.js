@@ -169,6 +169,7 @@ const TradingResponsibly = () => {
                                             to="/regulatory#kid"
                                             color="red"
                                             size={14}
+                                            has_no_end_slash={true}
                                         />,
                                     ]}
                                 />

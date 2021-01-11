@@ -10,12 +10,14 @@ const Background = styled.div`
     width: 100%;
     background: var(--color-green-2);
     border-radius: 16px;
-    max-height: 15.4rem;
-    margin-bottom: 23rem;
+    height: 15.4rem;
+    position: absolute;
+    top: 0;
 `
 
 const Wrapper = styled(SmallContainer)`
     width: 70%;
+    position: relative;
 
     @media (max-width: 770px) {
         width: 81%;
@@ -45,13 +47,17 @@ const GreenBG = styled.div`
     }
 `
 
-const Item = ({ children, ...props }) => <div {...props}>{children}</div>
+const Item = ({ children, ...props }) => (
+    <div {...props} style={{ height: '100%' }}>
+        {children}
+    </div>
+)
 
 Item.propTypes = {
     children: PropTypes.node,
 }
 
-const MarketsCarousel = ({ children, ...props }) => {
+const MarketsCarousel = ({ children }) => {
     const carousel_props = {
         options: {
             align: 'start',
@@ -65,7 +71,7 @@ const MarketsCarousel = ({ children, ...props }) => {
         slide_style: {
             flex: '0 0 50%',
             position: 'relative',
-            marginTop: '4rem',
+            margin: '4rem 0',
         },
         chevron_style: {
             chevron_color: 'red',
@@ -75,9 +81,8 @@ const MarketsCarousel = ({ children, ...props }) => {
     return (
         <>
             <Wrapper>
-                <Background {...props}>
-                    <Carousel {...carousel_props}>{children.map((child) => child)}</Carousel>
-                </Background>
+                <Background />
+                <Carousel {...carousel_props}>{children.map((child) => child)}</Carousel>
             </Wrapper>
             <Show.Mobile min_width={'bp680'}>
                 <MobileBackground>

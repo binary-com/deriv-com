@@ -11,7 +11,7 @@ const PartnershipOpportunities = Loadable(() => import('./_partnership-opportuni
 
 const Partner = () => {
     return (
-        <Layout type="partners" margin_top="10rem" no_login_signup>
+        <Layout type="partners" margin_top={10} no_login_signup>
             <SEO
                 title={localize('Partnership Programme | Deriv')}
                 description={localize(

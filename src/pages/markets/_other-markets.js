@@ -209,9 +209,9 @@ const StyledHeader = styled(Header)`
         max-width: unset;
     }
     @media ${device.tabletL} {
-        max-width: 28.2rem;
+        max-width: 32rem;
         margin: 0 auto;
-        font-size: 4rem;
+        font-size: 24px;
         margin-bottom: 2rem;
     }
 `

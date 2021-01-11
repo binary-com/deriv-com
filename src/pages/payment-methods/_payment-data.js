@@ -255,6 +255,7 @@ const payment_data = [
                 ),
                 name: 'NganLuong',
                 reference: 'nganluong-payment-method.pdf',
+                locales: ['vi'],
             },
         ],
     },

@@ -11,7 +11,7 @@ const Faq = Loadable(() => import('./_faq'))
 
 const PaymentAgent = () => {
     return (
-        <Layout type="partners" margin_top="10rem" no_login_signup>
+        <Layout type="partners" margin_top={10} no_login_signup>
             <SEO
                 title={localize('Payment agents | Partners | Deriv')}
                 description={localize(

@@ -21,6 +21,7 @@ export const ViewPort = styled.div`
 `
 
 export const EmblaContainer = styled.div`
+    height: 100%;
     display: flex;
     will-change: transform;
 `
@@ -29,6 +30,7 @@ export const EmblaSlideInner = styled.div`
     position: relative;
     padding-left: 0;
     margin: 0 auto;
+    height: 100%;
 `
 
 export const StyledButtonWrapper = styled.div`

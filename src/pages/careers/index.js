@@ -12,7 +12,7 @@ import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
 
 const Careers = () => (
-    <Layout type="careers" margin_top="7rem">
+    <Layout type="careers" margin_top={7}>
         <SEO
             title={localize('Careers | Join and grow with us | Deriv')}
             description={localize(

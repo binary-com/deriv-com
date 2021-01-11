@@ -36,6 +36,7 @@ import Help from 'images/svg/menu/help-center.svg'
 import Community from 'images/svg/menu/community.svg'
 import Payment from 'images/svg/menu/payment-methods.svg'
 import RegulatoryInfo from 'images/svg/menu/regulatory.svg'
+import Signals from 'components/svgs/signals'
 
 const MarginDivider = styled(Divider)`
     margin: 0 0.8rem;
@@ -429,6 +430,12 @@ export const NavResources = ({ onClick }) => (
             title={localize('Payment methods')}
             onClick={onClick}
             to="/payment-methods/"
+        />
+        <CardLink
+            icon={() => <Signals dynamic_id="dmt5-signals" />}
+            title={localize('DMT5 Signals')}
+            onClick={onClick}
+            to="/dmt5-trading-signals/#signal-subscriber/"
         />
         {/* TODO: add this when blog is ready */}
         {/* <CardLink title={localize('Blog')} to="/blog/" /> */}

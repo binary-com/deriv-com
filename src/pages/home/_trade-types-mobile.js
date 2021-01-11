@@ -16,10 +16,10 @@ const StyledSection = styled(SectionContainer)`
     align-items: center;
 `
 const TradingButton = styled(LinkButton)`
-    height: 4.8rem;
+    height: 40px;
     display: flex;
     align-items: center;
-    width: 21.6rem;
+    width: 216px;
     justify-content: center;
     margin-top: 4.8rem;
 `

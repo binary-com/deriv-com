@@ -223,7 +223,7 @@ const About = () => {
                     </NavigationWrapper>
 
                     {is_story && (
-                        <ContentWrapper margin_top="9.1rem">
+                        <ContentWrapper margin_top={9.1}>
                             <Show.Desktop>
                                 <Text mb="1.5rem" size="var(--text-size-s)" secondary color="white">
                                     {localize(

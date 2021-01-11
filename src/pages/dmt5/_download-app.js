@@ -8,10 +8,11 @@ import AppStore from 'images/svg/app-store.svg'
 import GooglePlay from 'images/svg/google-play.svg'
 import GooglePlayMobile from 'images/svg/google-play-mobile.svg'
 import Linux from 'images/svg/linux.svg'
+import MacOS from 'images/svg/macos.svg'
 import MoreInfo from 'images/svg/more-info.svg'
 import Windows from 'images/svg/windows.svg'
 import device from 'themes/device'
-import { dmt5_windows_url, dmt5_linux_url, dmt5_android_url, dmt5_ios_url } from 'common/utility'
+import { dmt5_macos_url, dmt5_windows_url, dmt5_linux_url, dmt5_android_url, dmt5_ios_url } from 'common/utility'
 
 const query = graphql`
     query {
@@ -19,6 +20,12 @@ const query = graphql`
             ...fadeIn
         }
     }
+`
+
+const DownloadLinkWrapper = styled.div`
+    display: grid;
+    grid-template-columns : repeat(2, 1fr);
+    grid-gap: 8px;
 `
 const Section = styled(SectionContainer)`
     display: flex;
@@ -85,7 +92,7 @@ const DownloadApp = () => {
                 <Show.Desktop>
                     <StyledHeader as="h4">{localize('Desktop')}</StyledHeader>
                     <Flex mt="0.8rem" jc="flex-start" height="auto">
-                        <Box mr="0.8rem">
+                        <DownloadLinkWrapper>
                             <LocalizedLink
                                 external="true"
                                 to={dmt5_windows_url}
@@ -94,15 +101,23 @@ const DownloadApp = () => {
                             >
                                 <img src={Windows} alt="windows" />
                             </LocalizedLink>
-                        </Box>
-                        <LocalizedLink
-                            external="true"
-                            to={dmt5_linux_url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <img src={Linux} alt="linux" />
-                        </LocalizedLink>
+                            <LocalizedLink
+                                external="true"
+                                to={dmt5_macos_url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <img src={MacOS} alt="macos" />
+                            </LocalizedLink>
+                            <LocalizedLink
+                                external="true"
+                                to={dmt5_linux_url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <img src={Linux} alt="linux" />
+                            </LocalizedLink>
+                        </DownloadLinkWrapper>
                     </Flex>
 
                     <StyledHeader mt="2.4rem" as="h4">
@@ -161,24 +176,32 @@ const DownloadApp = () => {
                         {localize('Desktop')}
                     </StyledHeader>
                     <Flex mt="0.8rem" jc="flex-start" height="auto">
-                        <Box mr="0.8rem">
+                        <DownloadLinkWrapper>
                             <LocalizedLink
                                 external="true"
                                 to={dmt5_windows_url}
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                <img src={Windows} alt="windows mobile" />
+                                <img src={Windows} alt="windows" />
                             </LocalizedLink>
-                        </Box>
-                        <LocalizedLink
-                            external="true"
-                            to={dmt5_linux_url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <img src={Linux} alt="linux mobile" />
-                        </LocalizedLink>
+                            <LocalizedLink
+                                external="true"
+                                to={dmt5_macos_url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <img src={MacOS} alt="macos" />
+                            </LocalizedLink>
+                            <LocalizedLink
+                                external="true"
+                                to={dmt5_linux_url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <img src={Linux} alt="linux" />
+                            </LocalizedLink>
+                        </DownloadLinkWrapper>
                     </Flex>
                 </Show.Mobile>
             </Flex>

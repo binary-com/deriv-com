@@ -104,7 +104,11 @@ const DisplayAccordion = (locale) => {
                             }}
                             header={pd.name}
                         >
-                            <DisplayAccordianItem pd={pd} crypto_config={crypto_config} locale = {locale}/>
+                            <DisplayAccordianItem
+                                pd={pd}
+                                crypto_config={crypto_config}
+                                locale={locale}
+                            />
                         </AccordionItem>
                     )
             })}
@@ -113,10 +117,10 @@ const DisplayAccordion = (locale) => {
 }
 
 DisplayAccordion.propTypes = {
-    locale:PropTypes.object,
+    locale: PropTypes.object,
 }
 
-const DisplayAccordianItem = ({ pd, crypto_config, locale}) => {
+const DisplayAccordianItem = ({ pd, crypto_config, locale }) => {
     return (
         <>
             <OuterDiv>
@@ -127,10 +131,10 @@ const DisplayAccordianItem = ({ pd, crypto_config, locale}) => {
                                 <Th>
                                     <BoldText>{localize('Method')}</BoldText>
                                 </Th>
-                                <Th>
+                                <Th colSpan={pd.is_fiat_onramp && '3'}>
                                     <BoldText>{localize('Currencies')}</BoldText>
                                 </Th>
-                                <Th>
+                                <Th style={pd.is_fiat_onramp && { width: '135px' }}>
                                     {pd.is_crypto || pd.is_fiat_onramp ? (
                                         <BoldText>{localize('Min deposit')}</BoldText>
                                     ) : (
@@ -155,7 +159,7 @@ const DisplayAccordianItem = ({ pd, crypto_config, locale}) => {
                                     </Th>
                                 )}
                                 {pd.is_fiat_onramp ? (
-                                    <Th>
+                                    <Th colSpan="2">
                                         <BoldText>{localize('Deposit processing time')}</BoldText>
                                     </Th>
                                 ) : (
@@ -187,7 +191,7 @@ const DisplayAccordianItem = ({ pd, crypto_config, locale}) => {
                                         is_crypto={pd.is_crypto}
                                         config={crypto_config}
                                         is_fiat_onramp={pd.is_fiat_onramp}
-                                        locale = {locale}
+                                        locale={locale}
                                     />
                                 )
                             })}
@@ -239,7 +243,7 @@ const PaymentMethods = (locale) => {
             <SectionContainer>
                 <Container direction="column">
                     <AccordionContainer>
-                        <DisplayAccordion locale = {locale}/>
+                        <DisplayAccordion locale={locale} />
                     </AccordionContainer>
                     <Text mt="1.6rem" size="var(--text-size-xs)" align="left">
                         <Localize
@@ -264,7 +268,7 @@ const PaymentMethods = (locale) => {
 }
 
 PaymentMethods.propTypes = {
-    locale:PropTypes.object,
+    locale: PropTypes.object,
 }
 
 export default WithIntl()(PaymentMethods)

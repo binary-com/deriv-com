@@ -100,10 +100,6 @@ const Withdrawal = styled(Td)`
     }
 `
 
-const Currencies = styled(Td)`
-    width: 289px;
-`
-
 const ExpandList = ({ data, config, is_crypto, is_fiat_onramp, locale }) => {
     const [is_expanded, setIsExpanded] = React.useState(false)
     const toggleExpand = () => {
@@ -116,16 +112,9 @@ const ExpandList = ({ data, config, is_crypto, is_fiat_onramp, locale }) => {
         <>
             <Tr is_expanded={is_expanded}>
                 <Td>{data.method}</Td>
-                {is_fiat_onramp ? (
-                    <Currencies>
-                        <Text>{data.currencies}</Text>
-                    </Currencies>
-                ) : (
-                    <Td>
-                        <Text>{data.currencies}</Text>
-                    </Td>
-                )}
-
+                <Td colSpan={is_fiat_onramp && '3'}>
+                    <Text>{data.currencies}</Text>
+                </Td>
                 <Td>
                     {Array.isArray(data.min_max_deposit) ? (
                         data.min_max_deposit.map((md, idx) => <Text key={idx}>{md}</Text>)
@@ -148,7 +137,7 @@ const ExpandList = ({ data, config, is_crypto, is_fiat_onramp, locale }) => {
                         </>
                     </Td>
                 )}
-                <Deposit is_fiat_onramp={is_fiat_onramp}>
+                <Deposit colSpan={is_fiat_onramp && '2'} is_fiat_onramp={is_fiat_onramp}>
                     <Text>{data.deposit_time}</Text>
                 </Deposit>
 
@@ -157,11 +146,15 @@ const ExpandList = ({ data, config, is_crypto, is_fiat_onramp, locale }) => {
                         <Text>{data.withdrawal_time}</Text>
                     </Withdrawal>
                 )}
-            
+
                 <Td>
                     {data.reference ? (
                         <CenterIcon
-                            href={`/payment-methods/${(data.locales?.includes(locale.locale.language) ? locale.locale.language + '/' + data.reference : data.reference)}`}
+                            href={`/payment-methods/${
+                                data.locales?.includes(locale.locale.language)
+                                    ? locale.locale.language + '/' + data.reference
+                                    : data.reference
+                            }`}
                             target="_blank"
                             rel="noopener noreferrer"
                         >
@@ -196,7 +189,7 @@ ExpandList.propTypes = {
     data: PropTypes.object,
     is_crypto: PropTypes.bool,
     is_fiat_onramp: PropTypes.bool,
-    locale:PropTypes.object,
+    locale: PropTypes.object,
 }
 
 export default ExpandList

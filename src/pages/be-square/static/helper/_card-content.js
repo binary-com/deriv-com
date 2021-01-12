@@ -12,6 +12,7 @@ import {
     TopPerformersIcon,
     WorldExposureIcon,
 } from '../images/_advantages'
+import { List01, List02, List03, List04 } from '../images/_application-process'
 import { localize } from 'components/localization'
 
 export const card_content = [
@@ -105,4 +106,27 @@ export const who_can_apply_content = [
     localize('Passionate and ambitious about developing skills in technology'),
     localize('An excellent problem-solver and a team player'),
     localize('Proficient in spoken and written English'),
+]
+
+export const application_process_content = [
+    {
+        src: List01,
+        alt: 'List item 1',
+        text: localize('Complete the online application form.'),
+    },
+    {
+        src: List02,
+        alt: 'List item 2',
+        text: localize('Complete our Self-Assessment Topgrading Interview (SATI).'),
+    },
+    {
+        src: List03,
+        alt: 'List item 3',
+        text: localize('If you’ve been shortlisted, we’ll invite you for an interview.'),
+    },
+    {
+        src: List04,
+        alt: 'List item 4',
+        text: localize('If you’re successful, we’ll send you a confirmation letter.'),
+    },
 ]

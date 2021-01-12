@@ -10,7 +10,7 @@ export const Container = styled.div`
 export const ContentContainer = styled.div`
     display: grid;
     grid-template-columns: auto auto;
-    grid-column-gap: 126px;
+    grid-column-gap: 10%;
     align-items: center;
     justify-content: center;
     padding: 80px 0;

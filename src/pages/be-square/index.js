@@ -8,6 +8,7 @@ import Advantages from './static/components/_advantages'
 import WhoCanApply from './static/components/_who-can-apply'
 import ApplicationProcess from './static/components/_application-process'
 import Footer from './static/components/_footer'
+import WhatLiesAhead from './static/components/_what-lies-ahead'
 import Layout from 'components/layout/layout'
 import { WithIntl } from 'components/localization'
 
@@ -18,6 +19,7 @@ const BeSquare = () => (
         <WhatIsBeSquare />
         <JoinUs />
         <WhyDeriv />
+        <WhatLiesAhead />
         <Advantages />
         <WhoCanApply />
         <ApplicationProcess />

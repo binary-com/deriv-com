@@ -5,7 +5,7 @@ import { Flex } from 'components/containers'
 import { LocalizedLink, localize, Localize } from 'components/localization'
 import { Accordion, AccordionItem, NavCard, Text, Divider } from 'components/elements'
 import { useOutsideClick } from 'components/hooks/outside-click'
-import { cfd_warning_height_desktop, cfd_warning_height_tablet, deriv_blog_url } from 'common/utility'
+import { cfd_warning_height_desktop, cfd_warning_height_tablet, deriv_status_page_url } from 'common/utility'
 // SVG
 import AffiliateIb from 'images/svg/menu/affiliate-ib.svg'
 import Blog from 'images/svg/blog-nav.svg'
@@ -30,13 +30,14 @@ import PaymentAgent from 'images/svg/menu/payment-agent.svg'
 import Regulatory from 'images/svg/menu/regulatory.svg'
 import SecureTrading from 'images/svg/menu/secure-trading.svg'
 import Smarttrader from 'images/svg/smarttrader.svg'
+import Status from 'images/svg/status.svg'
 import StockIndices from 'images/svg/stock-indices-nav.svg'
 import Story from 'images/svg/menu/story.svg'
 import SyntheticIndices from 'images/svg/synthetic-indices-nav.svg'
 import Terms from 'images/svg/menu/terms.svg'
-import TraderTool from 'images/svg/trader-tool-nav.svg'
 import { DerivStore } from 'store'
 import device from 'themes/device'
+import Trade from 'images/svg/trader-tool-nav.svg'
 
 const OffCanvasMenu = styled.section`
     position: fixed;
@@ -401,25 +402,9 @@ export const OffCanvasMenuWrapper = (props) => {
                                 <img src={Diagonal} alt="diagonal" width="16" height="16" />
                             </SpanSvg>
                         </StyledLink>
-                        <StyledLink
-                            to=""
-                            is_blog_link
-                            external="true"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            onClick={handleArrowClick}
-                        >
-                            <div>
-                                <img src={Blog} alt="blog" width="24" height="24" />
-                            </div>
-                            <Span>{localize('Blog')}</Span>
-                            <SpanSvg>
-                                <img src={Diagonal} alt="diagonal" width="16" height="16" />
-                            </SpanSvg>
-                        </StyledLink>
                         <StyledLink to="/trader-tools/" onClick={handleArrowClick}>
                             <div>
-                                <img src={TraderTool} alt="traders tools" width="24" height="24" />
+                                <img src={Trade} alt="trader tools" width="24" height="24" />
                             </div>
                             <span>{localize('Traders’ tools')}</span>
                         </StyledLink>
@@ -429,7 +414,29 @@ export const OffCanvasMenuWrapper = (props) => {
                             </div>
                             <span>{localize('Payment methods')}</span>
                         </StyledLink>
-                        <StyledLink to={deriv_blog_url} onClick={handleArrowClick}>
+                        <StyledLink
+                            to={deriv_status_page_url}
+                            external="true"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={handleArrowClick}
+                        >
+                            <div>
+                                <img src={Status} alt="status" width="24" height="24" />
+                            </div>
+                            <Span>{localize('Status page')}</Span>
+                            <SpanSvg>
+                                <img src={Diagonal} alt="diagonal" width="16" height="16" />
+                            </SpanSvg>
+                        </StyledLink>
+                        <StyledLink
+                            to=""
+                            is_blog_link
+                            external="true"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={handleArrowClick}
+                        >
                             <div>
                                 <img src={Blog} alt="blog" width="24" height="24" />
                             </div>

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 import { Container, CssGrid, Flex, Show } from '../containers'
 import { StyledLink, Text, QueryImage } from '../elements'
 import { LocationContext } from './location-context'
-import { deriv_blog_url, deriv_status_page_url, mga_link_url } from 'common/utility'
+import { deriv_status_page_url, mga_link_url } from 'common/utility'
 // TODO: (discussion) make footer pure component, and move usage of footer to custom
 import device from 'themes/device'
 import { localize, Localize, LocalizedLink } from 'components/localization'
@@ -488,15 +488,6 @@ const Footer = ({ type }) => {
                                         </Link>
                                     </LinkWrapper>
                                     <LinkWrapper>
-                                        <Link
-                                            to=""
-                                            is_blog_link
-                                            external="true"
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                        >
-                                            {localize('Blog')}
-                                        </Link>
                                         <Link to="/trader-tools">{localize('Traders’ tools')}</Link>
                                     </LinkWrapper>
                                     <LinkWrapper>
@@ -516,9 +507,10 @@ const Footer = ({ type }) => {
                                     </LinkWrapper>
                                     <LinkWrapper>
                                         <Link
-                                            to={deriv_blog_url}
-                                            target="_blank"
+                                            to=""
+                                            is_blog_link
                                             external="true"
+                                            target="_blank"
                                             rel="noopener noreferrer"
                                         >
                                             {localize('Blog')}

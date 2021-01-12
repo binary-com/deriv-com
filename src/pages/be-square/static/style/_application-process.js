@@ -5,12 +5,12 @@ import device from 'themes/device'
 
 export const ContentContainer = styled(Flex)`
     flex-direction: column;
-    padding-bottom: 80px;
+    padding-bottom: 130px;
     align-items: center;
     justify-content: center;
 
     @media ${device.tablet} {
-        padding-bottom: 40px;
+        padding-bottom: 88px;
     }
 `
 
@@ -85,10 +85,10 @@ export const IconWrapper = styled.img`
 export const LineWrapper = styled.img`
     width: inherit;
     position: absolute;
-    bottom: 5.9%;
+    bottom: 15.5%;
 
     @media ${device.laptop} {
-        bottom: 5.6%;
+        bottom: 16%;
     }
 
     @media ${device.tablet} {

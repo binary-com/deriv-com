@@ -17,9 +17,10 @@ export const ContentContainer = styled.div`
     @media ${device.tabletL} {
         grid-template-columns: auto;
         grid-template-areas: 'title' 'text-1' 'employee-image' 'text-2' 'quil5-image';
+        grid-row-gap: 20px;
     }
 
-    @media ${device.tabletL} {
+    @media ${device.tablet} {
         gap: 0;
         padding: 40px 0;
     }
@@ -33,6 +34,9 @@ export const Title = styled(Header)`
 
     @media ${device.tabletL} {
         grid-area: title;
+    }
+
+    @media ${device.tablet} {
         font-size: 28px;
         line-height: 34px;
     }
@@ -48,11 +52,14 @@ export const TextWrapper = styled(Text)`
     margin: ${({ margin }) => margin ?? 0};
 
     @media ${device.tabletL} {
+        grid-area: ${({ grid_area }) => grid_area};
+    }
+
+    @media ${device.tablet} {
         max-width: 328px;
         font-size: 14px;
         line-height: 20px;
         margin: ${({ margin_m }) => margin_m ?? 0};
-        grid-area: ${({ grid_area }) => grid_area};
     }
 `
 
@@ -61,8 +68,11 @@ export const ImageWrapper = styled.img`
     max-height: 384px;
 
     @media ${device.tabletL} {
+        grid-area: ${({ grid_area }) => grid_area};
+    }
+
+    @media ${device.tablet} {
         max-width: 320px;
         max-height: 259px;
-        grid-area: ${({ grid_area }) => grid_area};
     }
 `

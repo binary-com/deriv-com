@@ -3,18 +3,15 @@ import { Flex } from 'components/containers'
 import { Text, Header } from 'components/elements'
 import device from 'themes/device'
 
-export const HeroContainer = styled(Flex)`
-    width: 100%;
+export const HeroContainer = styled.div`
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-column-gap: 15%;
     background-color: var(--color-black);
-    justify-content: space-around;
-    align-items: center;
+    justify-content: center;
 
-    @media ${device.tablet} {
-        flex-direction: column;
-        justify-content: center;
-        padding-left: 17px;
-        padding-top: 50px;
-        max-height: 412px;
+    @media ${device.laptop} {
+        grid-template-columns: auto;
     }
 `
 
@@ -22,9 +19,9 @@ export const HeaderContainer = styled(Flex)`
     flex-direction: column;
     padding: 120px 0 80px 120px;
 
-    @media ${device.tablet} {
+    @media ${device.laptop} {
         align-items: center;
-        padding: 40px 16px 32px 0;
+        padding: 40px 0 0;
     }
 `
 
@@ -62,17 +59,14 @@ export const Title = styled(Header)`
 
 export const ImageWrapper = styled.img`
     max-width: 722px;
-    max-height: 481px;
     width: 100%;
     position: relative;
     top: 90px;
-    overflow: hidden;
 
     @media ${device.tablet} {
         max-width: 328px;
-        max-height: 228px;
         margin-right: 15px;
         overflow: unset;
-        top: 0;
+        top: 40px;
     }
 `

@@ -17,7 +17,7 @@ const WhyDeriv = () => (
             </div>
             <TextWrapper grid_area="text-2" margin_m="40px 0 24px" margin="auto 0">
                 {localize(
-                    'At Deriv, you can learn from our talented IT teams of dedicated innovators, receive international exposure by collaborating with the overseas offices on projects that will challenge and excite you, work with state-of-the-art electronic devices, and enjoy the facilities of Deriv’s prestigious new headquarters at Quill 5 in Cyberjaya, where BeSquare candidates will have a whole floor at their disposal.',
+                    'At Deriv, you can learn from our talented IT teams of dedicated innovators and receive international exposure by collaborating with the overseas offices on challenging and exciting projects. Work with state-of-the-art electronic devices and enjoy the facilities of Deriv’s prestigious new headquarters at Quill 5 in Cyberjaya, where a floor has been dedicated to our BeSquare programme.',
                 )}
             </TextWrapper>
             <ImageWrapper src={Quil5Image} alt="quil5 building" grid_area="quil5-image" />

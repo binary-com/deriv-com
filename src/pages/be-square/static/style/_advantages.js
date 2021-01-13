@@ -37,7 +37,11 @@ export const CardContainer = styled.div`
     align-items: center;
     margin: 0 auto 56px;
 
-    @media ${device.tablet} {
+    @media ${device.laptopM} {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media ${device.tabletL} {
         min-width: 320px;
         grid-template-columns: repeat(1, 1fr);
         gap: 16px;

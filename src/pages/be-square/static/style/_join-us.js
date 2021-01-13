@@ -39,7 +39,7 @@ export const CardContainer = styled.div`
     grid-row-gap: 48px;
     margin: 48px auto 0;
 
-    @media ${device.tablet} {
+    @media ${device.tabletL} {
         grid-template-columns: auto;
         gap: 24px;
         margin: 20px auto 0;

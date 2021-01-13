@@ -63,7 +63,7 @@ const YourComponent = () => {
 ### Css Grid
 
 - To be used when grid is required.
-- Css Grid is an extention to `Box` and also taking all all the grid properties such as `column`, `grid_gap`, `rows`, `column_gap`, `row_gap`, `align`, `justify` and `bgcolor`.
+- Css Grid is an extension to `Box` and also taking all all the grid properties such as `column`, `grid_gap`, `rows`, `column_gap`, `row_gap`, `align`, `justify` and `bgcolor`.
 - It has built-in media queries setup for the grid properties, just add the prefix of `laptop_`, `tablet_` or `mobile_` to the props, for e.g. `tablet_row_gap`
 
 ```jsx

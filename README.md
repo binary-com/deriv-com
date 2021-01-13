@@ -4,12 +4,17 @@
 
 ## In this document:
 
--   [Pre-installation](#requirements)
--   [Quick start](#quick-start)
--   [How to contribute](#how-to-contribute)
--   [Manage releases](#manage-releases)
--   [Test link deployment](#test-link-deployment)
--   [FAQ](#faq)
+- [In this document:](#in-this-document)
+- [Other Documents](#other-documents)
+- [Pre-installation](#pre-installation)
+- [Quick start](#quick-start)
+- [How to contribute](#how-to-contribute)
+  - [Base master](#base-master)
+  - [Base crowdin](#base-crowdin)
+- [Manage translations](#manage-translations)
+- [Manage releases](#manage-releases)
+- [Test link deployment](#test-link-deployment)
+- [FAQ](#faq)
 
 ## Other Documents
 
@@ -93,7 +98,7 @@ PR will be based on crowdin branch if the commits are having text changes
 -   if you dont have crowdin branch
 
     ```sh
-    git fetch upstream crowdin
+    git fetch upstream crowdin:crowdin
     git checkout crowdin
     git checkout -b [_your_branch_name]
     ```
@@ -155,7 +160,7 @@ Pre-requisite:
 
 -   To download/get latest crowdin translations
     ```sh
-    npm run translate:upload
+    npm run translate:download
     ```
 
 Note\*: Don't forget to create a pull request to update crowdin branch

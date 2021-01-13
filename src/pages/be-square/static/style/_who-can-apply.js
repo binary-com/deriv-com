@@ -15,7 +15,7 @@ export const ContentContainer = styled.div`
     justify-content: center;
     padding: 80px 0;
 
-    @media ${device.tablet} {
+    @media ${device.tabletL} {
         grid-row-gap: 24px;
         grid-template-columns: 320px;
         padding: 40px 0;

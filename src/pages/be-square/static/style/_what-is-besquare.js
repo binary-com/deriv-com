@@ -25,11 +25,15 @@ export const ContentContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 80px 10% 80px 222px;
+    padding: 80px 0;
+
+    @media ${device.tabletL} {
+        display: grid;
+        grid-row-gap: 30px;
+    }
 
     @media ${device.tablet} {
-        display: grid;
-        flex-direction: column;
+        grid-row-gap: 30px;
         padding: 40px 16px;
     }
 `

@@ -4,7 +4,6 @@ import { Text } from 'components/elements'
 import device from 'themes/device'
 
 export const Container = styled(Flex)`
-    max-height: 340;
     width: 100%;
     background-color: var(--color-white);
     align-items: center;
@@ -12,19 +11,19 @@ export const Container = styled(Flex)`
 `
 
 export const TextWrapper = styled(Text)`
-    max-width: 1440;
+    max-width: 996px;
     width: fit-content;
     font-size: 24px;
     font-weight: 400;
     line-height: 36px;
     text-align: center;
-    padding: 173px 17% 80px;
+    padding: 173px 0 80px;
 
-    @media ${device.tablet} {
-        padding: 80px 17% 80px;
+    @media ${device.tabletL} {
+        max-width: 700px;
     }
 
-    @media ${device.mobileL} {
+    @media ${device.tablet} {
         max-width: 360px;
         padding: 80px 3% 40px;
         width: 100%;

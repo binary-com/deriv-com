@@ -4,7 +4,7 @@ import { Text } from 'components/elements'
 import { Button } from 'components/form'
 import { localize } from 'components/localization'
 import { Container } from 'components/containers'
-import { LocationContext } from 'components/layout/location-context.js'
+import { useLivechat } from 'components/hooks/use-livechat'
 import device from 'themes/device'
 import ContactUsIcon from 'images/svg/livechat-red.svg'
 
@@ -46,7 +46,7 @@ const MiddleText = styled(Text)`
 `
 
 export const DidntFindYourAnswerBanner = () => {
-    const { is_livechat_interactive, LC_API } = React.useContext(LocationContext)
+    const [is_livechat_interactive, LC_API] = useLivechat()
     return (
         <DFYAWrapper>
             <DFYASection>

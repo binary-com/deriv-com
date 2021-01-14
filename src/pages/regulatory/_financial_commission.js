@@ -3,13 +3,13 @@ import styled from 'styled-components'
 import { Text, LinkText } from 'components/elements'
 import { deriv_app_url } from 'common/utility'
 import { Show } from 'components/containers'
-import { LocationContext } from 'components/layout/location-context.js'
+import { useLivechat } from 'components/hooks/use-livechat'
 import { Localize } from 'components/localization'
 
 const TextLink = styled(LinkText).attrs({ as: 'span' })``
 
 const FinancialCommission = () => {
-    const { is_livechat_interactive, LC_API } = React.useContext(LocationContext)
+    const [is_livechat_interactive, LC_API] = useLivechat()
 
     return (
         <>

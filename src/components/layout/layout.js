@@ -92,8 +92,6 @@ const Layout = ({
     const [show_cookie_banner, setShowCookieBanner] = React.useState(false)
     const [show_modal, toggleModal, closeModal] = useModal()
     const [modal_payload, setModalPayload] = React.useState({})
-    const LC_API = (isBrowser() && window.LC_API) || {}
-    const [is_livechat_interactive, setLiveChatInteractive] = React.useState(false)
 
     const is_static = type === 'static'
 
@@ -182,8 +180,6 @@ const Layout = ({
             show_cookie_banner={show_cookie_banner}
             toggleModal={toggleModal}
             setModalPayload={setModalPayload}
-            is_livechat_interactive={is_livechat_interactive}
-            LC_API={LC_API}
         >
             {Navigation}
             <Main margin_top={margin_top} is_static={is_static}>
@@ -196,13 +192,7 @@ const Layout = ({
                     is_open={show_cookie_banner}
                 />
             )}
-            {!no_live_chat && (
-                <LiveChat
-                    LC_API={LC_API}
-                    is_livechat_interactive={is_livechat_interactive}
-                    setLiveChatInteractive={setLiveChatInteractive}
-                />
-            )}
+            {!no_live_chat && <LiveChat />}
             {FooterNav}
             <EURedirect
                 toggle={toggleModal}

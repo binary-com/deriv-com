@@ -1,6 +1,7 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
+import PropTypes from 'prop-types'
 import { Container, CssGrid, Flex, Show } from '../containers'
 import { StyledLink, Text, QueryImage } from '../elements'
 import { LocationContext } from './location-context'
@@ -242,44 +243,68 @@ const mobile_accordion_header = {
     backgroundColor: 'var(--color-grey-25)',
     boxShadow: 'none',
 }
+
 const mobile_accordion_header_about = Object.assign({}, mobile_accordion_header)
-const SocialWrapperComponent = () => {
-    return (
-        <SocialWrapper>
+
+const SocialWrapperComponent = ({ is_career_page }) => {
+    const alt_string = (is_career_page ? 'career' : '') + ' icon link'
+    const accounts = [
+        {
+            link: is_career_page
+                ? 'https://www.facebook.com/derivcareers'
+                : 'https://www.facebook.com/derivdotcom/',
+            image: Facebook,
+            image_alt: `facebook ${alt_string}`,
+        },
+        {
+            link: is_career_page
+                ? 'https://www.instagram.com/derivcareers/'
+                : 'https://www.instagram.com/deriv_official/',
+            image: Instagram,
+            image_alt: `instagram ${alt_string}`,
+        },
+        {
+            link: 'https://www.linkedin.com/company/derivdotcom/',
+            image: Linkedin,
+            image_alt: `linkedin ${alt_string}`,
+        },
+    ]
+
+    const twitter = {
+        link: 'https://twitter.com/derivdotcom/',
+        image: Twitter,
+        image_alt: `twitter ${alt_string}`,
+    }
+
+    if (!is_career_page) {
+        accounts.splice(1, 0, twitter)
+    }
+
+    return <SocialMediaComponent social_accounts={accounts} />
+}
+
+SocialWrapperComponent.propTypes = {
+    is_career_page: PropTypes.bool,
+}
+
+const SocialMediaComponent = ({ social_accounts }) => (
+    <SocialWrapper>
+        {social_accounts.map((account, index) => (
             <LocalizedLink
+                key={index}
                 external="true"
-                to="https://www.facebook.com/derivdotcom/"
+                to={account.link}
                 target="_blank"
                 rel="noopener noreferrer"
             >
-                <img src={Facebook} alt="facebook" width="41" height="41" />
+                <img src={account.image} alt={account.image_alt} width="41" height="41" />
             </LocalizedLink>
-            <LocalizedLink
-                external="true"
-                to="https://twitter.com/derivdotcom"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                <img src={Twitter} alt="twitter" width="41" height="41" />
-            </LocalizedLink>
-            <LocalizedLink
-                external="true"
-                to="https://www.instagram.com/deriv_official/"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                <img src={Instagram} alt="instagram" width="41" height="41" />
-            </LocalizedLink>
-            <LocalizedLink
-                external="true"
-                to="https://www.linkedin.com/company/derivdotcom/"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                <img src={Linkedin} alt="linkedin" width="41" height="41" />
-            </LocalizedLink>
-        </SocialWrapper>
-    )
+        ))}
+    </SocialWrapper>
+)
+
+SocialMediaComponent.propTypes = {
+    social_accounts: PropTypes.array,
 }
 
 const query = graphql`
@@ -290,7 +315,7 @@ const query = graphql`
     }
 `
 
-const Footer = () => {
+const Footer = ({ type }) => {
     const image_query = useStaticQuery(query)
     const { show_cookie_banner } = React.useContext(LocationContext)
 
@@ -304,7 +329,7 @@ const Footer = () => {
                         <StyledLogo src={Logo} alt="logo" width="147" height="25" />
                         <Show.Eu>
                             <Show.Desktop>
-                                <SocialWrapperComponent />
+                                <SocialWrapperComponent is_career_page={type === 'careers'} />
                             </Show.Desktop>
                         </Show.Eu>
                     </DerivLogoWrapper>
@@ -668,11 +693,11 @@ const Footer = () => {
                         <Text ml="0.4rem">{localize('2020 Deriv | All rights reserved')}</Text>
                     </Copyright>
                     <Show.NonEU>
-                        <SocialWrapperComponent />
+                        <SocialWrapperComponent is_career_page={type === 'careers'} />
                     </Show.NonEU>
                     <Show.Eu>
                         <Show.Mobile>
-                            <SocialWrapperComponent />
+                            <SocialWrapperComponent is_career_page={type === 'careers'} />
                         </Show.Mobile>
                     </Show.Eu>
                     <Show.Eu>
@@ -756,6 +781,10 @@ const Footer = () => {
             </Container>
         </StyledFooter>
     )
+}
+
+Footer.propTypes = {
+    type: PropTypes.string,
 }
 
 export default Footer

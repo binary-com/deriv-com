@@ -80,12 +80,12 @@ export const CFDWarning = () => {
 
 const Layout = ({
     children,
-    type,
     interim_type,
     margin_top,
-    no_login_signup,
-    no_live_chat,
     nav_type,
+    no_live_chat,
+    no_login_signup,
+    type,
 }) => {
     const { is_eu_country } = React.useContext(DerivStore)
     const [has_mounted, setMounted] = React.useState(false)
@@ -164,7 +164,7 @@ const Layout = ({
             break
         case 'careers':
             Navigation = <NavCareers />
-            FooterNav = <Footer no_language={true} />
+            FooterNav = <Footer no_language={true} type={type} />
             break
         case 'p2p':
             Navigation = <NavP2P nav_type={nav_type} />

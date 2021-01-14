@@ -2,7 +2,7 @@
 
 The main function of this document is to introduce some of the main `containers` & `elements` and their usages that we have in this project.
 
-### Section Container
+### SectionContainer
 
 - To be used on the creation of new sections on a page as it adds the `section` element tag and also allows for `padding`, `background-color` and `position` to be passed as props.
 
@@ -23,8 +23,8 @@ const YourSection = () => {
 
 ### Box
 
-- To be used as a container for injecting most of the required styling attributes such a `max-width`, `width`, `min-height`, `height`, `margins`, `paddings`, `background`, `mediaqueries` as props.
-- `Margins` and `paddings` accept short syntaxes, please refer to `function.js` for further clarification.
+- To be used as a container for injecting most of the required styling attributes such a `max-width`, `width`, `min-height`, `height`, `margin`, `padding`, `background`, `mediaqueries` as props.
+- `margin` and `padding` accept short syntaxes, please refer to [function.js](https://github.com/binary-com/deriv-com/blob/master/src/themes/function.js) for further clarification.
 
 Usage example:
 
@@ -60,10 +60,10 @@ const YourComponent = () => {
 }
 ```
 
-### Css Grid
+### CssGrid
 
 - To be used when grid is required.
-- Css Grid is an extension to `Box` and also taking all all the grid properties such as `column`, `grid_gap`, `rows`, `column_gap`, `row_gap`, `align`, `justify` and `bgcolor`.
+- Css Grid is an extension to `Box` and also taking all the grid properties such as `columns`, `grid_gap`, `rows`, `column_gap`, `row_gap`, `align`, `justify` and `bgcolor`.
 - It has built-in media queries setup for the grid properties, just add the prefix of `laptop_`, `tablet_` or `mobile_` to the props, for e.g. `tablet_row_gap`
 
 ```jsx
@@ -91,11 +91,11 @@ const YourComponent = () => {
 ```
 
 
-### Flex Grid Container
+### FlexGridContainer
 
 - To be used when you need both a mixture of Flex and Grid
 - Flex Grid is an extension to `Container` hence it accepts all the props that `Box` and `Container` accepts, in addition to `content_width`, `gap`, `mobile_content_width`, `mobile_gap` and `grid`.
-- `grid` will handle no margin on every grid interval selected. For an example of six items, grid size = 3 will therefore set margin left: 0 for the 1st and 4th item while the 3rd and 6th will have margin-right: 0.
+- `grid` will handle no margin on every grid interval selected. For an example of six items, grid size = 3 will therefore set `margin-left: 0` for the 1st and 4th item while the 3rd and 6th will have `margin-right: 0`.
 
 Usage example:
 
@@ -156,7 +156,7 @@ const YourComponent = () => {
 
 
 
-### Query Image
+### QueryImage
 
 - An extension of [Gatsby image](https://www.gatsbyjs.org/packages/gatsby-image)
 - Usually called with [useStaticQuery](https://www.gatsbyjs.com/docs/how-to/querying-data/use-static-query/) to fetch our data
@@ -185,7 +185,7 @@ const YourComponent = () => {
 ```
 
 
-### Localized Link
+### LocalizedLink
 
 - Used for any redirect links. This is an extension of [Gatsby Link](https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-link/).
 - `to` prop is required for this component. You can get around this by having `to=""` if you don't require it.
@@ -212,12 +212,12 @@ const YourComponent = () => {
 ```
 
 
-### localize | Localized
+### localize | Localize
 - Main components for translating text strings
 - `localize` has always be wrapped with a component for e.g. `Text` or `Header` in order for the component with translations to rerender when another language is selected
 
 ```jsx
-import { localize, Localized } from 'components/localization'
+import { localize, Localize } from 'components/localization'
 import { Text, LocalizedLinkText } from 'components/elements'
 
 

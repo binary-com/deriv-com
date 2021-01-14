@@ -248,7 +248,7 @@ const Regulatory = () => {
                                         {localize('Deriv (MX) Ltd')}
                                     </StyledHeader>
                                 </Mobile>
-                                <Img src={IOM} alt="IOM" />
+                                <Img src={IOM} alt="Isle Of Man" />
                             </ResponsiveGrid>
                             <CssGridColumn>
                                 <Desktop>

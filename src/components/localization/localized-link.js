@@ -139,9 +139,7 @@ export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
                     target={target}
                     rel={rel}
                     className={className}
-                    style={
-                        style ? style : { color: `var(--color-black-3)`, textDecoration: `none` }
-                    }
+                    style={style ?? { color: `var(--color-black-3)`, textDecoration: `none` }}
                     href={lang_to}
                     ref={ref}
                     aria-label={ariaLabel}

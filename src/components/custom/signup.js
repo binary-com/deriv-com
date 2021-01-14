@@ -139,7 +139,8 @@ class Signup extends Component {
                     is_submitting: false,
                     submit_status: 'success',
                 })
-                if (this.props.onSubmit) this.props.onSubmit(this.state.submit_status)
+                if (this.props.onSubmit)
+                    this.props.onSubmit(this.state.submit_status, this.state.email)
             }
 
             binary_socket.close()
@@ -194,44 +195,39 @@ class Signup extends Component {
     }
 
     render() {
-        return (
-            <>
-                {!this.state.submit_status && (
-                    <Form onSubmit={this.handleEmailSignup} noValidate bgColor={this.props.bgColor}>
-                        {this.renderSwitch(this.props.appearance)}
-                    </Form>
-                )}
-                {this.state.submit_status === 'success' && (
-                    <ResponseWrapper>
-                        <Header as="h3" type="section-title" align="center" weight="normal">
-                            {localize('Check your email')}
-                        </Header>
-                        <StaticQuery
-                            query={graphql`
-                                query {
-                                    view_email: file(relativePath: { eq: "view-email.png" }) {
-                                        ...fadeIn
-                                    }
-                                }
-                            `}
-                            render={(data) => (
-                                <Box m="3.2rem 0">
-                                    <QueryImage data={data.view_email} alt="Email image" />
-                                </Box>
-                            )}
-                        />
-                        <Text align="center">
-                            <Localize
-                                translate_text="We've sent a message to {{email}} with a link to activate your account."
-                                values={{ email: this.state.email }}
-                            />
-                        </Text>
-                        <EmailLink to="/check-email/" align="center">
-                            {localize("Didn't receive your email?")}
-                        </EmailLink>
-                    </ResponseWrapper>
-                )}
-            </>
+        return this.props.submit_state === 'success' ? (
+            <ResponseWrapper>
+                <Header as="h3" type="section-title" align="center" weight="normal">
+                    {localize('Check your email')}
+                </Header>
+                <StaticQuery
+                    query={graphql`
+                        query {
+                            view_email: file(relativePath: { eq: "view-email.png" }) {
+                                ...fadeIn
+                            }
+                        }
+                    `}
+                    render={(data) => (
+                        <Box m="3.2rem 0">
+                            <QueryImage data={data.view_email} alt="Email image" />
+                        </Box>
+                    )}
+                />
+                <Text align="center">
+                    <Localize
+                        translate_text="We've sent a message to {{email}} with a link to activate your account."
+                        values={{ email: this.props.email }}
+                    />
+                </Text>
+                <EmailLink to="/check-email/" align="center">
+                    {localize("Didn't receive your email?")}
+                </EmailLink>
+            </ResponseWrapper>
+        ) : (
+            <Form onSubmit={this.handleEmailSignup} noValidate bgColor={this.props.bgColor}>
+                {this.renderSwitch(this.props.appearance)}
+            </Form>
         )
     }
 }
@@ -240,7 +236,9 @@ Signup.propTypes = {
     appearance: PropTypes.oneOf(Object.keys(Appearances)),
     autofocus: PropTypes.bool,
     bgColor: PropTypes.string,
+    email: PropTypes.string,
     onSubmit: PropTypes.func,
+    submit_state: PropTypes.string,
 }
 
 export default Signup

@@ -53,7 +53,7 @@ export const TextWrapper = styled(Text)`
     max-width: ${({ max_width }) => (max_width ? max_width[0] : 'unset')};
     width: fit-content;
     font-size: ${({ font_size }) => (font_size ? font_size[0] : 'unset')};
-    font-weight: 400;
+    font-weight: ${({ font_weight }) => font_weight ?? 400};
     line-height: ${({ line_height }) => (line_height ? line_height[0] : 'unset')};
     text-align: ${({ text_align }) => text_align ?? 'unset'};
     color: var(--color-black-3);
@@ -70,17 +70,59 @@ export const CardContainer = styled.div`
     display: grid;
     align-items: center;
     justify-content: center;
+    grid-row-gap: 22px;
+
+    @media ${device.tablet} {
+        grid-row-gap: 17px;
+    }
 `
 
 export const CardWrapper = styled.div`
     display: grid;
-    grid-template-columns: auto auto auto;
+    width: 800px;
+    grid-template-columns: 48px 84% 32px;
     grid-column-gap: 22px;
-    background-color: var(--color-grey-30);
     align-items: center;
-    box-shadow: inset 0 1px 0 #d6d7d8;
+    box-shadow: inset 0 -1px 0 var(--color-grey-34);
+    padding-bottom: 22px;
+
+    :last-child {
+        margin-bottom: 32px;
+    }
 
     @media ${device.tablet} {
-        grid-template-columns: 32px auto 24px;
+        width: 328px;
+        background-color: var(--color-grey-33);
+        grid-template-columns: 32px 77.9% 24px;
+        grid-column-gap: 8px;
+        padding-bottom: 17px;
+
+        :last-child {
+            margin-bottom: 17px;
+        }
+    }
+`
+
+export const DropdownWrapper = styled.img`
+    width: 32px;
+    height: 32px;
+
+    :hover {
+        cursor: pointer;
+    }
+
+    @media ${device.tablet} {
+        width: 24px;
+        height: 24px;
+    }
+`
+
+export const IconWrapper = styled.img`
+    width: 48px;
+    height: 48px;
+
+    @media ${device.tablet} {
+        width: 32px;
+        height: 32px;
     }
 `

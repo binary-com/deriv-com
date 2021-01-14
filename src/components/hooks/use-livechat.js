@@ -85,13 +85,6 @@ export const useLivechat = () => {
             }
             if (is_livechat_interactive) {
                 window.LiveChatWidget.on('ready', () => {
-                    let session_variables = {
-                        loginid: '',
-                        landing_company_shortcode: '',
-                        currency: '',
-                        residence: '',
-                        email: '',
-                    }
                     if (is_logged_in) {
                         const client_information = Cookies.get('client_information', {
                             domain,
@@ -106,14 +99,12 @@ export const useLivechat = () => {
                             last_name,
                         } = JSON.parse(client_information)
 
-                        session_variables = {
-                            ...(loginid && { loginid }),
-                            ...(landing_company_shortcode && {
-                                landing_company_shortcode,
-                            }),
-                            ...(currency && { currency }),
-                            ...(residence && { residence }),
-                            ...(email && { email }),
+                        let session_variables = {
+                            loginid: loginid ?? '',
+                            landing_company_shortcode: landing_company_shortcode ?? '',
+                            currency: currency ?? '',
+                            residence: residence ?? '',
+                            email: email ?? '',
                         }
 
                         window.LiveChatWidget.call('set_session_variables', session_variables)

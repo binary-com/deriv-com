@@ -12,6 +12,18 @@ import {
     TopPerformersIcon,
     WorldExposureIcon,
 } from '../images/_advantages'
+import {
+    FrontEnd,
+    ProductDesign,
+    MobileDev,
+    BackEnd,
+    PlatformArchitecture,
+    QualityAssurance,
+    DevAndOperations,
+    Cybersecurity,
+    BusinessIntelligence,
+    QuantAnalysis,
+} from '../images/_what-lies-ahead'
 import { List01, List02, List03, List04 } from '../images/_application-process'
 import { localize } from 'components/localization'
 
@@ -128,5 +140,58 @@ export const application_process_content = [
         src: List04,
         alt: 'List item 4',
         text: localize('If you’re successful, we’ll send you a confirmation letter.'),
+    },
+]
+
+export const what_lies_ahead_content = [
+    {
+        src: FrontEnd,
+        alt: 'Front-end development Icon',
+        title: localize('Front-end development'),
+    },
+    {
+        src: ProductDesign,
+        alt: 'Product design Icon',
+        title: localize('Product design'),
+    },
+    {
+        src: MobileDev,
+        alt: 'Mobile development Icon',
+        title: localize('Mobile development'),
+    },
+    {
+        src: BackEnd,
+        alt: 'Back-end development Icon',
+        title: localize('Back-end development'),
+    },
+    {
+        src: PlatformArchitecture,
+        alt: 'Platform architecture Icon',
+        title: localize('Platform architecture'),
+    },
+    {
+        src: QualityAssurance,
+        alt: 'Quality assurance Icon',
+        title: localize('Quality assurance'),
+    },
+    {
+        src: DevAndOperations,
+        alt: 'Development and operations Icon',
+        title: localize('Development and operations'),
+    },
+    {
+        src: Cybersecurity,
+        alt: 'Cybersecurity Icon',
+        title: localize('Cybersecurity'),
+    },
+    {
+        src: BusinessIntelligence,
+        alt: 'Business Intelligence Icon',
+        title: localize('Business intelligence'),
+    },
+    {
+        src: QuantAnalysis,
+        alt: 'Quantitative analysis  Icon',
+        title: localize('Quantitative analysis'),
     },
 ]

@@ -68,12 +68,17 @@ export const TextWrapper = styled(Text)`
 
 export const CardContainer = styled.div`
     display: grid;
+    align-items: center;
+    justify-content: center;
 `
 
 export const CardWrapper = styled.div`
     display: grid;
-    grid-template-columns: 48px auto 32px;
+    grid-template-columns: auto auto auto;
+    grid-column-gap: 22px;
     background-color: var(--color-grey-30);
+    align-items: center;
+    box-shadow: inset 0 1px 0 #d6d7d8;
 
     @media ${device.tablet} {
         grid-template-columns: 32px auto 24px;

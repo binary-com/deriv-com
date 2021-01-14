@@ -40,11 +40,7 @@ export const useLivechat = () => {
                         const client_information = Cookies.get('client_information', {
                             domain,
                         })
-                        if (client_information) {
-                            setLoggedIn(true)
-                        } else {
-                            setLoggedIn(false)
-                        }
+                        setLoggedIn(!!client_information)
                         lastCookie = currentCookie // store latest cookie
                     }
                 }

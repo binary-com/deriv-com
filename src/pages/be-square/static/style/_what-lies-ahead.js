@@ -65,3 +65,17 @@ export const TextWrapper = styled(Text)`
             line_height ? line_height[1] ?? line_height[0] : 'unset'};
     }
 `
+
+export const CardContainer = styled.div`
+    display: grid;
+`
+
+export const CardWrapper = styled.div`
+    display: grid;
+    grid-template-columns: 48px auto 32px;
+    background-color: var(--color-grey-30);
+
+    @media ${device.tablet} {
+        grid-template-columns: 32px auto 24px;
+    }
+`

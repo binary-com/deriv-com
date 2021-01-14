@@ -39,9 +39,14 @@ export const GridContainer = styled.div`
     justify-content: center;
     margin-top: 40px;
 
-    @media ${device.tabletL} {
-        grid-template-columns: 283px;
+    @media ${device.laptop} {
+        grid-template-columns: repeat(2, auto);
         grid-row-gap: 20px;
+        margin-bottom: 40px;
+    }
+
+    @media ${device.tablet} {
+        grid-template-columns: 283px;
         align-items: center;
         margin-top: 32px;
     }
@@ -92,7 +97,7 @@ export const LineWrapper = styled.img`
         bottom: 16%;
     }
 
-    @media ${device.tabletL} {
+    @media ${device.laptop} {
         display: none;
     }
 `

@@ -13,7 +13,7 @@ export const ContentContainer = styled(Flex)`
     align-items: center;
     justify-content: center;
 
-    @media ${device.tabletL} {
+    @media ${device.laptop} {
         flex-direction: column;
     }
 `
@@ -40,7 +40,7 @@ export const TextContainer = styled(Flex)`
     padding: 80px 0 72px 120px;
     grid-row-gap: 24px;
 
-    @media ${device.tabletL} {
+    @media ${device.laptop} {
         padding: 0 0 44px 0;
         justify-content: center;
     }

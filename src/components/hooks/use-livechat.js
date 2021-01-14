@@ -2,14 +2,14 @@ import React from 'react'
 import Cookies from 'js-cookie'
 import { isBrowser, livechat_client_id, livechat_license_id } from 'common/utility'
 
-const url_params = new URLSearchParams(window.location.search)
-const is_livechat_query = url_params.get('is_livechat_open')
-
 export const useLivechat = () => {
     const [is_livechat_interactive, setLiveChatInteractive] = React.useState(false)
     const LC_API = (isBrowser() && window.LC_API) || {}
     const [is_logged_in, setLoggedIn] = React.useState(false)
     const CustomerSdk = React.useRef(null)
+
+    const url_params = new URLSearchParams((isBrowser() && window.location.search) || '')
+    const is_livechat_query = url_params.get('is_livechat_open')
 
     const loadLiveChatScript = (callback) => {
         const livechat_script = document.createElement('script')

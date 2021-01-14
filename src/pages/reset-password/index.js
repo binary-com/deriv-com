@@ -13,8 +13,9 @@ import Login from 'common/login'
 
 const StyledContainer = styled(Container)`
     text-align: center;
-    height: 72rem;
+    height: 100vh;
     padding: auto 0;
+    justify-content: start;
 `
 
 const ButtonContainer = styled.div`
@@ -71,7 +72,7 @@ const resetSubmission = (values, actions) => {
 }
 
 const ResetPassword = () => (
-    <Layout type="static" margin_top={0}>
+    <Layout type="static" margin_top={'0'}>
         <SEO
             title={localize('Reset password | Deriv')}
             description={localize(
@@ -80,7 +81,7 @@ const ResetPassword = () => (
             no_index
         />
         <StyledContainer justify="center" align="center" direction="column">
-            <Header as="h2" type="page-title" align="center">
+            <Header as="h2" type="page-title" align="center" mt="80px">
                 {localize('Reset password')}
             </Header>
             <Header

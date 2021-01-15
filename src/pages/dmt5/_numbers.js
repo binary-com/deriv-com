@@ -88,7 +88,7 @@ const Numbers = ({ numbers_content }) => {
 }
 
 Numbers.propTypes = {
-    numbers_content: PropTypes.object,
+    numbers_content: PropTypes.array,
 }
 
 export default Numbers

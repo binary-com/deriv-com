@@ -57,6 +57,7 @@ export const TextWrapper = styled(Text)`
     line-height: ${({ line_height }) => (line_height ? line_height[0] : 'unset')};
     text-align: ${({ text_align }) => text_align ?? 'unset'};
     color: var(--color-black-3);
+    grid-area: ${({ grid_area }) => grid_area ?? 'unset'};
 
     @media ${device.tablet} {
         max-width: ${({ max_width }) => (max_width ? max_width[1] ?? max_width[0] : 'unset')};
@@ -81,6 +82,9 @@ export const CardWrapper = styled.div`
     display: grid;
     width: 800px;
     grid-template-columns: 48px 84% 32px;
+    grid-template-areas:
+        'dep-icon title min-max'
+        'content content content';
     grid-column-gap: 22px;
     align-items: center;
     box-shadow: inset 0 -1px 0 var(--color-grey-34);
@@ -106,6 +110,7 @@ export const CardWrapper = styled.div`
 export const DropdownWrapper = styled.img`
     width: 32px;
     height: 32px;
+    grid-area: min-max;
 
     :hover {
         cursor: pointer;
@@ -120,9 +125,35 @@ export const DropdownWrapper = styled.img`
 export const IconWrapper = styled.img`
     width: 48px;
     height: 48px;
+    grid-area: dep-icon;
 
     @media ${device.tablet} {
         width: 32px;
         height: 32px;
     }
+`
+
+export const ListContainer = styled.div`
+    width: 100%;
+    display: grid;
+    grid-template-columns: 6px auto;
+    grid-column-gap: 8px;
+    grid-area: content;
+    grid-row-gap: 8px;
+    margin: 22px auto;
+    align-items: baseline;
+`
+
+export const ListItem = styled.li`
+    list-style: none;
+    display: inline-flex;
+
+    ::before {
+        content: '•';
+        font-size: 16px;
+    }
+`
+
+export const Bullet = styled(Text)`
+    font-size: 20px;
 `

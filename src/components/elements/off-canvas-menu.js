@@ -410,7 +410,7 @@ export const OffCanvasMenuWrapper = (props) => {
                         </StyledLink>
                         <StyledLink to="/payment-methods/" onClick={handleArrowClick}>
                             <div>
-                                <img src={Payment} alt="payment" width="24" height="24" />
+                                <img src={Payment} alt="payment methods" width="24" height="24" />
                             </div>
                             <span>{localize('Payment methods')}</span>
                         </StyledLink>

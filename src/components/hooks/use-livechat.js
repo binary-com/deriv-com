@@ -29,9 +29,15 @@ export const useLivechat = () => {
             const domain = window.location.hostname.includes('deriv.com')
                 ? 'deriv.com'
                 : 'binary.sx'
-            import('@livechat/customer-sdk').then((CSDK) => {
-                CustomerSdk.current = CSDK
-            })
+            try {
+                import('@livechat/customer-sdk').then((CSDK) => {
+                    CustomerSdk.current = CSDK
+                })
+            } catch (e) {
+                // eslint-disable-nextline
+                console.error(e)
+            }
+
             const checkCookie = (() => {
                 let lastCookie = document.cookie // 'static' memory between function calls
                 return function () {
@@ -74,10 +80,15 @@ export const useLivechat = () => {
                 ? 'deriv.com'
                 : 'binary.sx'
             if (CustomerSdk.current) {
-                customerSDK = CustomerSdk.current.init({
-                    licenseId: livechat_license_id,
-                    clientId: livechat_client_id,
-                })
+                try {
+                    customerSDK = CustomerSdk.current.init({
+                        licenseId: livechat_license_id,
+                        clientId: livechat_client_id,
+                    })
+                } catch (e) {
+                    // eslint-disable-nextline
+                    console.error(e)
+                }
             }
             if (is_livechat_interactive) {
                 window.LiveChatWidget.on('ready', () => {
@@ -116,7 +127,12 @@ export const useLivechat = () => {
                     } else {
                         if (window.LiveChatWidget.get('chat_data')) {
                             const chatID = window.LiveChatWidget.get('chat_data').chatId
-                            customerSDK?.deactivateChat({ chatId: chatID })
+                            try {
+                                customerSDK?.deactivateChat({ chatId: chatID })
+                            } catch (e) {
+                                // eslint-disable-nextline
+                                console.error(e)
+                            }
                         }
                         window.LiveChatWidget.call('set_customer_email', ' ')
                         window.LiveChatWidget.call('set_customer_name', ' ')

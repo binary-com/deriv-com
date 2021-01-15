@@ -52,7 +52,7 @@ const YourControl = () => {
                         </CardText>
                     </Card>
                     <Card>
-                        <img src={LoudSpeaker} alt="open account" />
+                        <img src={LoudSpeaker} alt="promote services" />
                         <CardText>
                             {localize(
                                 'Choose which countries to service, and promote your services your way.',

@@ -9,7 +9,7 @@ import {
     MarketsWrapper,
     Row,
     StyledText,
-    Symbol,
+    SymbolContainer,
     Title,
 } from '../_markets-style'
 import { EuropeDetails } from './_details'
@@ -41,10 +41,10 @@ const Margin = () => {
                                     <Title>{localize('Europe')}</Title>
                                 </Col>
                                 <MarketsList has_right_border={true} col={1}>
-                                    <Symbol>
+                                    <SymbolContainer>
                                         <img src={OTCGERMAN} />
                                         <Text>{localize('German Index')}</Text>
-                                    </Symbol>
+                                    </SymbolContainer>
                                 </MarketsList>
                             </Row>
                         )}

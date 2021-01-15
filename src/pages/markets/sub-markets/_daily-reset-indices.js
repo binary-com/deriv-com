@@ -1,20 +1,13 @@
 import React from 'react'
-import { Symbol } from '../_markets-style'
-import { Text } from 'components/elements'
-import { localize } from 'components/localization'
-import { MARKETBULL, MARKETBEAR } from 'components/elements/symbols.js'
+import Symbol from '../_symbol'
+import { daily_reset_indices } from './_market-symbols'
 
 const DailyResetIndices = () => {
     return (
         <>
-            <Symbol>
-                <img src={MARKETBEAR} />
-                <Text>{localize('Bear Market Index')}</Text>
-            </Symbol>
-            <Symbol>
-                <img src={MARKETBULL} />
-                <Text>{localize('Bull Market Index')}</Text>
-            </Symbol>
+            {daily_reset_indices.map((symbol, index) => (
+                <Symbol key={index} src={symbol.src} text={symbol.text} />
+            ))}
         </>
     )
 }

@@ -1,16 +1,11 @@
 import React from 'react'
-import { Symbol } from '../_markets-style'
-import { Text } from 'components/elements'
-import { localize } from 'components/localization'
-import { OILUSD } from 'components/elements/symbols.js'
+import Symbol from '../_symbol'
+import { OILUSD } from 'components/elements/symbols'
 
 const Energy = () => {
     return (
         <>
-            <Symbol>
-                <img src={OILUSD} />
-                <Text>{localize('Oil/USD')}</Text>
-            </Symbol>
+            <Symbol src={OILUSD} text={'Oil/USD'} />
         </>
     )
 }

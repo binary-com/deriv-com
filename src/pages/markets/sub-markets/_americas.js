@@ -1,24 +1,13 @@
 import React from 'react'
-import { Symbol } from '../_markets-style'
-import { Text } from 'components/elements'
-import { localize } from 'components/localization'
-import { OTCUS, OTCUSTECH, OTCWALLSTREET } from 'components/elements/symbols'
+import Symbol from '../_symbol'
+import { americas } from './_market-symbols'
 
 const Americas = () => {
     return (
         <>
-            <Symbol>
-                <img src={OTCUS} />
-                <Text>{localize('US Index')}</Text>
-            </Symbol>
-            <Symbol>
-                <img src={OTCUSTECH} />
-                <Text>{localize('US Tech Index')}</Text>
-            </Symbol>
-            <Symbol>
-                <img src={OTCWALLSTREET} />
-                <Text>{localize('Wall Street Index')}</Text>
-            </Symbol>
+            {americas.map((symbol, index) => (
+                <Symbol key={index} src={symbol.src} text={symbol.text} />
+            ))}
         </>
     )
 }

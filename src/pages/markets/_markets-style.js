@@ -105,7 +105,7 @@ export const StyledText = styled(Text)`
     }
 `
 
-export const Symbol = styled(Flex)`
+export const SymbolContainer = styled(Flex)`
     width: fit-content;
     align-items: center;
     justify-content: flex-start;

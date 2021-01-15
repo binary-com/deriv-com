@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import { Flex } from 'components/containers'
 import { LocalizedLink, localize, Localize } from 'components/localization'
 import { Accordion, AccordionItem, NavCard, Text, Divider } from 'components/elements'
+import Signals from 'components/svgs/signals'
 import { useOutsideClick } from 'components/hooks/outside-click'
 import { cfd_warning_height_desktop, cfd_warning_height_tablet, deriv_status_page_url } from 'common/utility'
 // SVG
@@ -92,6 +93,12 @@ const StyledLink = styled((props) => <LocalizedLink {...props} />)`
     &:first-child {
         margin-top: 16px;
     }
+`
+
+const SvgWrapper = styled.div`
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
 `
 
 const OffCanvasMenuContainer = styled.div`
@@ -413,6 +420,17 @@ export const OffCanvasMenuWrapper = (props) => {
                                 <img src={Payment} alt="payment methods" width="24" height="24" />
                             </div>
                             <span>{localize('Payment methods')}</span>
+                        </StyledLink>
+                        <StyledLink
+                            to="/dmt5-trading-signals/#signal-subscriber/"
+                            onClick={handleArrowClick}
+                        >
+                            <div>
+                                <SvgWrapper>
+                                    <Signals dynamic_id="dmt5-signals" />
+                                </SvgWrapper>
+                            </div>
+                            <span>{localize('DMT5 Signals')}</span>
                         </StyledLink>
                         <StyledLink
                             to={deriv_status_page_url}

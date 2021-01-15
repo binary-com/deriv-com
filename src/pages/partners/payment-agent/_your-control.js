@@ -4,10 +4,10 @@ import { Container, SectionContainer, Flex, CssGrid } from 'components/container
 import { localize } from 'components/localization'
 import { Header, Text } from 'components/elements'
 // SVG
-import Comission from 'images/svg/pa-comission.svg'
-import WithdrawDeposit from 'images/svg/pa-withdraw-deposit.svg'
-import OpenAccount from 'images/svg/pa-open-account.svg'
 import CloseAccount from 'images/svg/pa-close-account.svg'
+import Comission from 'images/svg/pa-comission.svg'
+import LoudSpeaker from 'images/svg/icon-loudspeaker.svg'
+import WithdrawDeposit from 'images/svg/pa-withdraw-deposit.svg'
 
 const Card = styled(Flex)`
     padding: 3.2rem;
@@ -52,8 +52,12 @@ const YourControl = () => {
                         </CardText>
                     </Card>
                     <Card>
-                        <img src={OpenAccount} alt="open account" />
-                        <CardText>{localize('Open an agency account with just $200.')}</CardText>
+                        <img src={LoudSpeaker} alt="open account" />
+                        <CardText>
+                            {localize(
+                                'Choose which countries to service, and promote your services your way.',
+                            )}
+                        </CardText>
                     </Card>
                     <Card>
                         <img src={WithdrawDeposit} alt="withdraw deposit" />

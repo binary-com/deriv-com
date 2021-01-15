@@ -144,16 +144,6 @@ export const ListContainer = styled.div`
     align-items: baseline;
 `
 
-export const ListItem = styled.li`
-    list-style: none;
-    display: inline-flex;
-
-    ::before {
-        content: '•';
-        font-size: 16px;
-    }
-`
-
 export const Bullet = styled(Text)`
     font-size: 20px;
 `

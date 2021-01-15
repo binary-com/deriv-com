@@ -7,14 +7,14 @@ import {
     TextWrapper,
     Title,
 } from '../style/_advantages'
-import { advantages_content } from '../helper/_card-content'
+import content from '../content/_advantages'
 import { localize } from 'components/localization'
 
 const Advantages = () => (
     <Container>
         <Title>{localize('BeSquare advantages')}</Title>
         <CardContainer>
-            {advantages_content.map((card, index) => (
+            {content.map((card, index) => (
                 <CardWrapper key={index}>
                     <IconWrapper src={card.src} alt={card.alt} />
                     <Title

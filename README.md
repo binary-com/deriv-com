@@ -143,14 +143,16 @@ PR will be based on crowdin branch if the commits are having text changes
 
 ## Manage translations
 
-Pre-requisite:
+-   Pre-requisite:
 
--   Install crowdin-cli
+    -   Install crowdin-cli
 
-    ```sh
-    brew tap crowdin/crowdin
-    brew install crowdin
-    ```
+        ```sh
+        brew tap crowdin/crowdin
+        brew install crowdin
+        ```
+
+    -   Set up your crowdin API KEY in your .bash_profile or .zshrc
 
 -   To upload source text to crowdin (When task merge to crowdin branch)
 
@@ -159,6 +161,7 @@ Pre-requisite:
     ```
 
 -   To download/get latest crowdin translations
+
     ```sh
     npm run translate:download
     ```

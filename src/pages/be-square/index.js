@@ -9,11 +9,13 @@ import WhoCanApply from './static/components/_who-can-apply'
 import ApplicationProcess from './static/components/_application-process'
 import Footer from './static/components/_footer'
 import WhatLiesAhead from './static/components/_what-lies-ahead'
+import BeSquareNav from './static/components/_nav'
 import Layout from 'components/layout/layout'
 import { WithIntl } from 'components/localization'
 
 const BeSquare = () => (
-    <Layout type="be-square" margin_top={10}>
+    <Layout type="be-square">
+        <BeSquareNav />
         <Hero />
         <Description />
         <WhatIsBeSquare />

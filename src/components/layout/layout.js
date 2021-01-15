@@ -177,6 +177,8 @@ const Layout = ({
             Navigation = <NavP2P nav_type={nav_type} />
             FooterNav = <Copyright />
             break
+        case 'be-square':
+            break
         default:
             Navigation = <Nav is_ppc_redirect={is_ppc_redirect} is_ppc={is_ppc} />
             FooterNav = <Footer is_ppc={is_ppc} is_ppc_redirect={is_ppc_redirect} />

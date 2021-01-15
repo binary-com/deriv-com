@@ -4,6 +4,8 @@ import { Header, Text } from 'components/elements'
 import device from 'themes/device'
 
 export const ContentContainer = styled(Flex)`
+    margin: 0 auto;
+    max-width: 1440px;
     flex-direction: column;
     padding-bottom: 130px;
     align-items: center;
@@ -90,8 +92,8 @@ export const IconWrapper = styled.img`
 
 export const LineWrapper = styled.img`
     width: inherit;
-    position: absolute;
-    bottom: 15.5%;
+    position: relative;
+    top: 70px;
 
     @media ${device.laptop} {
         bottom: 16%;

@@ -9,6 +9,8 @@ export const Container = styled.div`
 `
 
 export const ContentContainer = styled(Flex)`
+    max-width: 1440px;
+    margin: 0 auto;
     flex-direction: row-reverse;
     align-items: center;
     justify-content: center;

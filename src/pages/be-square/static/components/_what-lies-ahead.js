@@ -7,7 +7,7 @@ import {
     Title,
     TitleWrapper,
 } from '../style/_what-lies-ahead'
-import { what_lies_ahead_content } from '../helper/_card-content'
+import content from '../content/_what-lies-ahead'
 import Card from './_card'
 import { localize } from 'components/localization'
 
@@ -29,7 +29,7 @@ const WhatLiesAhead = () => {
                     </TextWrapper>
                 </TitleWrapper>
                 <CardContainer>
-                    {what_lies_ahead_content.map((card, index) => (
+                    {content.map((card, index) => (
                         <Card key={index} card_content={card} />
                     ))}
                 </CardContainer>

@@ -8,7 +8,7 @@ import {
     TextWrapper,
     Title,
 } from '../style/_who-can-apply'
-import { who_can_apply_content } from '../helper/_card-content'
+import content from '../content/_who-can-apply'
 import { RedMarkIcon } from '../images/_common'
 import { localize } from 'components/localization'
 
@@ -29,7 +29,7 @@ const WhoCanApply = () => (
                 </TextWrapper>
             </HeaderWrapper>
             <CardContainer>
-                {who_can_apply_content.map((text, index) => (
+                {content.map((text, index) => (
                     <React.Fragment key={index}>
                         <IconWrapper src={RedMarkIcon} alt="red mark icon" width="24" height="24" />
                         <TextWrapper>{text}</TextWrapper>

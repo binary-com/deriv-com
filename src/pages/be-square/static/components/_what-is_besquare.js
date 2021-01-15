@@ -9,7 +9,7 @@ import {
     Title,
 } from '../style/_what-is-besquare'
 import { GreenMarkIcon } from '../images/_common'
-import { card_content } from '../helper/_card-content'
+import content from '../content/_what-is-besquare'
 import { localize } from 'components/localization'
 
 const WhatIsBeSquare = () => (
@@ -30,7 +30,7 @@ const WhatIsBeSquare = () => (
                 </TextWrapper>
             </ContentWrapper>
             <ContentWrapper>
-                {card_content.map((element, index) => (
+                {content.map((text, index) => (
                     <CardContainer key={index}>
                         <IconWrapper
                             src={GreenMarkIcon}
@@ -44,7 +44,7 @@ const WhatIsBeSquare = () => (
                             padding="8px 8px 12px"
                             padding_m="12px 12px 12px 8px"
                         >
-                            {element}
+                            {text}
                         </TextWrapper>
                     </CardContainer>
                 ))}

@@ -7,14 +7,14 @@ import {
     TextWrapper,
     Title,
 } from '../style/_join-us'
-import { join_us_card_content } from '../helper/_card-content'
+import content from '../content/_join-us'
 import { localize } from 'components/localization'
 
 const JoinUs = () => (
     <ContentContainer>
         <Title>{localize('Join us and get the tools you need for a successful IT career')}</Title>
         <CardContainer>
-            {join_us_card_content.map((card, index) => (
+            {content.map((card, index) => (
                 <CardWrapper key={index}>
                     <IconWrapper src={card.src} alt={card.alt} />
                     <TextWrapper>

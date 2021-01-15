@@ -94,6 +94,9 @@ export const CardWrapper = styled.div`
         margin-bottom: 32px;
     }
 
+    @media ${device.tabletL} {
+        width: 500px;
+    }
     @media ${device.tablet} {
         width: 328px;
         background-color: var(--color-grey-33);
@@ -142,6 +145,10 @@ export const ListContainer = styled.div`
     grid-row-gap: 8px;
     margin: 22px auto;
     align-items: baseline;
+
+    @media ${device.tabletL} {
+        margin: 9px auto 16px;
+    }
 `
 
 export const Bullet = styled(Text)`

@@ -1807,7 +1807,7 @@
     "-1980078854": "Que sont les multiplicateurs?",
     "-715015407": "Les multiplicateurs de Deriv combinent les avantages du trading avec effet de levier avec le risque limité des options. Cela signifie que lorsque le marché évolue en votre faveur, vous multipliez vos profits potentiels. Si le marché évolue à l'encontre de vos prévisions, vos pertes ne sont limitées qu'à votre mise.\n",
     "-957014574": "<0>Sans multiplicateur</0>, si le marché augmente de 2%, vous gagnerez 2% * 100 $ = <1>2 ​​$ de profit<1>.\n",
-    "-1244549672": "<0>Avec un multiplicateur x500</0>, si le marché augmente de 2%, vous gagnerez 2% * 100 USD * 500 = <1>1 000 USD de profit</1>.\n",
+    "-1244549672": "<0>Avec un multiplicateur x500</0>, si le marché augmente de 2%, vous gagnerez 2% * 100$ * 500 = <1>1 000 $ de profit</1>.\n",
     "-1303172083": "Pourquoi trader des multiplicateurs sur Deriv",
     "-1429891690": "Meilleure gestion des risques",
     "-1845399397": "Exposition accrue au marché",

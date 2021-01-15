@@ -1807,7 +1807,7 @@
     "-1980078854": "¿Qué son los multiplicadores?",
     "-715015407": "Los multiplicadores de Deriv combinan la ventaja del trading con apalancamiento con el riesgo limitado de las opciones. Esto significa que cuando el mercado se mueva a su favor, multiplicará sus ganancias potenciales. Si el mercado se mueve en contra de su predicción, sus pérdidas se limitan solo a su inversión.",
     "-957014574": "<0>Sin un multiplicador</0>, si el mercado sube un 2%, obtendrá un 2% *100$ = <1> 2$ de ganancia<1>.",
-    "-1244549672": "Si el mercado sube un 2% <0>con un multiplicador x500</0>, ganará 2% * $100 * 500 = <1>$1,000 de ganancia</1>.",
+    "-1244549672": "Si el mercado sube un 2% <0>con un multiplicador x500</0>, ganará 2% * 100$ * 500 = <1>1,000$ de ganancia</1>.",
     "-1303172083": "Por qué operar con multiplicadores en Deriv",
     "-1429891690": "Mejor gestión de riesgos",
     "-1845399397": "Mayor exposición al mercado",

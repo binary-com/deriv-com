@@ -224,7 +224,8 @@ import { Text, LocalizedLinkText } from 'components/elements'
 const YourComponent = () => {
     return (
         <Localize
-            translate_text="If you agree to our use of cookies, click on Accept. For more information, <0>see our policy</0>."
+            translate_text="If you agree to our use of {{cookie}}, click on Accept. For more information, <0>see our policy</0>."
+            values={{cookie: cookie_value}}
             components={[
                 <LocalizedLinkText
                     key={0}

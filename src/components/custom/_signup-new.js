@@ -186,7 +186,7 @@ const SignupNew = ({
     handleSocialSignup,
     handleValidation,
     is_submitting,
-    landing,
+    is_landing,
 }) => {
     const [checkBoxState, setCheckBoxState] = useState(false)
 
@@ -214,7 +214,7 @@ const SignupNew = ({
                 </Text>
             </Show.Mobile>
 
-            {!landing && (
+            {!is_landing && (
                 <NoteBox>
                     <StyledBinaryLogo src={BinaryLogo} alt="binarylogo" />
                     <div>
@@ -354,8 +354,8 @@ SignupNew.propTypes = {
     handleLogin: PropTypes.func,
     handleSocialSignup: PropTypes.func,
     handleValidation: PropTypes.func,
+    is_landing: PropTypes.bool,
     is_submitting: PropTypes.bool,
-    landing: PropTypes.bool,
 }
 
 export default SignupNew

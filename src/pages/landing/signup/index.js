@@ -77,7 +77,7 @@ const NewSignup = () => {
                 no_index
             />
             <Wrapper>
-                {!(submit_state === 'success') && (
+                {submit_state !== 'success' && (
                     <Content>
                         <StyledGraph src={Graph} alt="graph" />
                         <Header mt="2.4rem" as="h3" type="section-title">
@@ -100,7 +100,7 @@ const NewSignup = () => {
                     submit_state={submit_state}
                     email={email}
                     autofocus={true}
-                    landing={true}
+                    is_landing={true}
                 />
             </Wrapper>
             <StyledDiv />

@@ -24,14 +24,20 @@ const query = graphql`
     }
 `
 
-const numbers_content = {
-    title_1: <Localize translate_text="330K+" />,
-    subtitle_1: <Localize translate_text="clients on DMT5" />,
-    title_2: <Localize translate_text="100+" />,
-    subtitle_2: <Localize translate_text="tradable assets" />,
-    title_3: <Localize translate_text="24/7" />,
-    subtitle_3: <Localize translate_text="trading" />,
-}
+const numbers_content = [
+    {
+        title: <Localize translate_text="330K+" />,
+        subtitle: <Localize translate_text="clients on DMT5" />,
+    },
+    {
+        title: <Localize translate_text="100+" />,
+        subtitle: <Localize translate_text="tradable assets" />,
+    },
+    {
+        title: <Localize translate_text="24/7" />,
+        subtitle: <Localize translate_text="trading" />,
+    },
+]
 
 const DMT5 = () => {
     const [is_mobile, setMobile] = useState(false)

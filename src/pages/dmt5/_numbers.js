@@ -73,27 +73,15 @@ const Numbers = ({ numbers_content }) => {
     return (
         <NumberSection>
             <Flex tablet_direction="column" max_width="1200px" jc="space-between">
-                <Number>
-                    <StyledHeader as="h2" type="page-title">
-                        {numbers_content.title_1}
-                    </StyledHeader>
-                    <Splitter />
-                    <StyledText>{numbers_content.subtitle_1}</StyledText>
-                </Number>
-                <Number>
-                    <StyledHeader as="h2" type="page-title">
-                        {numbers_content.title_2}
-                    </StyledHeader>
-                    <Splitter />
-                    <StyledText>{numbers_content.subtitle_2}</StyledText>
-                </Number>
-                <Number>
-                    <StyledHeader as="h2" type="page-title">
-                        {numbers_content.title_3}
-                    </StyledHeader>
-                    <Splitter />
-                    <StyledText>{numbers_content.subtitle_3}</StyledText>
-                </Number>
+                {numbers_content.map((content, index) => (
+                    <Number key={index}>
+                        <StyledHeader as="h2" type="page-title">
+                            {content.title}
+                        </StyledHeader>
+                        <Splitter />
+                        <StyledText>{content.subtitle}</StyledText>
+                    </Number>
+                ))}
             </Flex>
         </NumberSection>
     )

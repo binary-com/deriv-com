@@ -48,6 +48,7 @@ module.exports = {
                     '/**/homepage/**',
                     '/offline-plugin-app-shell-fallback',
                     '/**/offline-plugin-app-shell-fallback',
+                    '/landing/**'
                 ],
                 serialize: ({ site, allSitePage }) =>
                     allSitePage.edges.map((edge) => {

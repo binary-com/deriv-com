@@ -1,36 +1,51 @@
+import React from 'react'
 import {
     ExtensiveNetworkIcon,
     ProfessionalGuidanceIcon,
     ResumeIcon,
     TechExperienceIcon,
 } from '../images/_join-us'
-import { localize } from 'components/localization'
+import { Localize } from 'components/localization'
 
 export default [
     {
         src: TechExperienceIcon,
         alt: 'tech experience icon',
-        bold_text: localize('Hands-on tech experience'),
-        normal_text: localize('by learning directly from all our talented IT teams'),
+        text: (
+            <Localize
+                translate_text="<0>Hands-on tech experience</0> by learning directly from all our talented IT teams"
+                components={[<strong key={0} />]}
+            />
+        ),
     },
     {
         src: ExtensiveNetworkIcon,
         alt: 'extensive network icon',
-        bold_text: localize('An extensive network'),
-        normal_text: localize('of professionals, guest speakers, and fellow participants'),
+        text: (
+            <Localize
+                translate_text="<0>An extensive network</0> of professionals, guest speakers, and fellow participants"
+                components={[<strong key={0} />]}
+            />
+        ),
     },
     {
         src: ProfessionalGuidanceIcon,
         alt: 'professional guidance icon',
-        bold_text: localize('Professional guidance'),
-        normal_text: localize('that helps you set clear career goals to realise your potential'),
+        text: (
+            <Localize
+                translate_text="<0>Professional guidance</0> that helps you set clear career goals to realise your potential"
+                components={[<strong key={0} />]}
+            />
+        ),
     },
     {
         src: ResumeIcon,
         alt: 'tech experience icon',
-        bold_text: localize('An enriched résumé'),
-        normal_text: localize(
-            'with tech and non-tech skills that set you apart from other fresh grads',
+        text: (
+            <Localize
+                translate_text="<0>An enriched résumé</0> with tech and non-tech skills that set you apart from other fresh grads"
+                components={[<strong key={0} />]}
+            />
         ),
     },
 ]

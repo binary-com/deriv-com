@@ -35,14 +35,10 @@ export const HeaderWrapper = styled(Flex)`
 
 export const CardContainer = styled.div`
     display: grid;
-    grid-template-columns: 24px auto;
     grid-row-gap: 32px;
-    grid-column-gap: 16px;
 
     @media ${device.tablet} {
-        grid-template-columns: 16px auto;
         grid-row-gap: 16px;
-        grid-column-gap: 8px;
     }
 `
 
@@ -80,7 +76,7 @@ export const TextWrapper = styled(Text)`
     color: var(--color-black-3);
 
     @media ${device.tablet} {
-        max-width: ${({ max_width_m }) => max_width_m ?? '304px'}304px;
+        max-width: ${({ max_width_m }) => max_width_m ?? '304px'};
         font-size: ${({ font_size_m }) => font_size_m ?? '14px'};
         line-height: ${({ line_height_m }) => line_height_m ?? '20px'};
     }

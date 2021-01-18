@@ -107,6 +107,18 @@ function debounce(func, wait, immediate) {
     }
 }
 
+const responsiveFallback = (prop, start_from, fallback) => {
+    let index = start_from ?? prop?.length ?? 0
+    while (prop && index) {
+        if (prop[index]) {
+            return prop[index]
+        }
+        --index
+    }
+
+    return prop ? prop[index] : fallback || 'unset'
+}
+
 const livechat_client_id = '66aa088aad5a414484c1fd1fa8a5ace7'
 const livechat_license_id = 12049137
 const trimSpaces = (value) => value.trim()
@@ -200,6 +212,7 @@ export {
     map_api_key,
     PromiseClass,
     pushwoosh_app_code,
+    responsiveFallback,
     sanitize,
     scrollTop,
     sentenceCase,

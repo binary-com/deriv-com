@@ -3,19 +3,6 @@ import { Flex } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import device from 'themes/device'
 
-export const CardContainer = styled(Flex)`
-    align-items: flex-start;
-    justify-content: center;
-    background-color: var(--color-white);
-    box-shadow: 0 4px 8px rgba(14, 14, 14, 0.1);
-    border-radius: 4px;
-    margin-bottom: 24px;
-
-    @media ${device.tablet} {
-        max-width: 328px;
-    }
-`
-
 export const Container = styled.div`
     width: 100%;
     background-color: var(--color-grey-30);
@@ -33,7 +20,6 @@ export const ContentContainer = styled.div`
     }
 
     @media ${device.tablet} {
-        grid-row-gap: 30px;
         padding: 40px 16px;
     }
 `
@@ -42,13 +28,6 @@ export const ContentWrapper = styled(Flex)`
     flex-direction: column;
     width: fit-content;
     margin-right: 24px;
-`
-
-export const IconWrapper = styled.img`
-    width: 16px;
-    height: 16px;
-    margin-left: 12px;
-    margin-top: 12px;
 `
 
 export const TextWrapper = styled(Text)`

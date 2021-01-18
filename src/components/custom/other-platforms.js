@@ -13,31 +13,33 @@ import {
 } from 'components/elements'
 import { localize, LocalizedLink, Localize } from 'components/localization'
 import device from 'themes/device'
-import { community_url } from 'common/utility'
+import { community_url, deriv_blog_url } from 'common/utility'
 import { DerivStore } from 'store'
 // icons
-import DTrader from 'images/svg/dtrader-icon.svg'
-import DMT5 from 'images/svg/dmt5-icon.svg'
-import DBot from 'images/svg/dbot-icon.svg'
-import Smarttrader from 'images/svg/smarttrader.svg'
-import Margin from 'images/svg/margin-trading-nav.svg'
-import Options from 'images/svg/options-nav.svg'
-import Multipliers from 'images/svg/multipliers-nav.svg'
-import Forex from 'images/svg/forex-nav.svg'
-import Commodities from 'images/svg/commodities-nav.svg'
-import StockIndices from 'images/svg/stock-indices-nav.svg'
-import SyntheticIndices from 'images/svg/synthetic-indices-nav.svg'
-import Story from 'images/svg/menu/story.svg'
-import Leadership from 'images/svg/menu/leadership.svg'
-import Partner from 'images/svg/menu/partner.svg'
-import Choose from 'images/svg/menu/choose.svg'
-import Contact from 'images/svg/menu/contact.svg'
+import Blog from 'images/svg/blog-nav.svg'
 import Career from 'images/svg/menu/careers.svg'
-import Help from 'images/svg/menu/help-center.svg'
+import Choose from 'images/svg/menu/choose.svg'
+import Commodities from 'images/svg/commodities-nav.svg'
 import Community from 'images/svg/menu/community.svg'
+import Contact from 'images/svg/menu/contact.svg'
+import DBot from 'images/svg/dbot-icon.svg'
+import DMT5 from 'images/svg/dmt5-icon.svg'
+import DTrader from 'images/svg/dtrader-icon.svg'
+import Forex from 'images/svg/forex-nav.svg'
+import Help from 'images/svg/menu/help-center.svg'
+import Leadership from 'images/svg/menu/leadership.svg'
+import Margin from 'images/svg/margin-trading-nav.svg'
+import Multipliers from 'images/svg/multipliers-nav.svg'
+import Options from 'images/svg/options-nav.svg'
+import Partner from 'images/svg/menu/partner.svg'
 import Payment from 'images/svg/menu/payment-methods.svg'
 import RegulatoryInfo from 'images/svg/menu/regulatory.svg'
 import Signals from 'components/svgs/signals'
+import Smarttrader from 'images/svg/smarttrader.svg'
+import StockIndices from 'images/svg/stock-indices-nav.svg'
+import Story from 'images/svg/menu/story.svg'
+import SyntheticIndices from 'images/svg/synthetic-indices-nav.svg'
+import TraderTool from 'images/svg/trader-tool-nav.svg'
 
 const MarginDivider = styled(Divider)`
     margin: 0 0.8rem;
@@ -432,6 +434,12 @@ export const NavResources = ({ onClick }) => (
             rel="noopener noreferrer"
         />
         <CardLink
+            icon={() => <img src={TraderTool} alt="traders tools" width="24" height="24" />}
+            title={localize('Traders’ tools')}
+            onClick={onClick}
+            to="/trader-tools/"
+        />
+        <CardLink
             icon={() => <img src={Payment} alt="payment" width="24" height="24" />}
             title={localize('Payment methods')}
             onClick={onClick}
@@ -443,8 +451,15 @@ export const NavResources = ({ onClick }) => (
             onClick={onClick}
             to="/dmt5-trading-signals/#signal-subscriber/"
         />
-        {/* TODO: add this when blog is ready */}
-        {/* <CardLink title={localize('Blog')} to="/blog/" /> */}
+        <CardLink
+            icon={() => <img src={Blog} alt="blog" width="24" height="24" />}
+            title={localize('Blog')}
+            onClick={onClick}
+            to={deriv_blog_url}
+            target="_blank"
+            external="true"
+            rel="noopener noreferrer"
+        />
     </Flex>
 )
 

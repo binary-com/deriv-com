@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { Flex } from 'components/containers'
 import { Header, Text } from 'components/elements'
+import { responsiveFallback } from 'common/utility'
 import device from 'themes/device'
 
 export const Container = styled.div`
@@ -50,20 +51,23 @@ export const Title = styled(Header)`
 `
 
 export const TextWrapper = styled(Text)`
-    max-width: ${({ max_width }) => (max_width ? max_width[0] : 'unset')};
+    max-width: ${({ max_width }) => responsiveFallback(max_width, 0)};
     width: fit-content;
-    font-size: ${({ font_size }) => (font_size ? font_size[0] : 'unset')};
+    font-size: ${({ font_size }) => responsiveFallback(font_size, 0, '16px')};
     font-weight: ${({ font_weight }) => font_weight ?? 400};
-    line-height: ${({ line_height }) => (line_height ? line_height[0] : 'unset')};
+    line-height: ${({ line_height }) => responsiveFallback(line_height, 0, '24px')};
     text-align: ${({ text_align }) => text_align ?? 'unset'};
     color: var(--color-black-3);
     grid-area: ${({ grid_area }) => grid_area ?? 'unset'};
+    margin: ${({ margin }) => margin ?? 0};
+    padding: ${({ padding }) => responsiveFallback(padding, 0, 0)};
 
     @media ${device.tablet} {
-        max-width: ${({ max_width }) => (max_width ? max_width[1] ?? max_width[0] : 'unset')};
-        font-size: ${({ font_size }) => (font_size ? font_size[1] ?? font_size[0] : 'unset')};
-        line-height: ${({ line_height }) =>
-            line_height ? line_height[1] ?? line_height[0] : 'unset'};
+        max-width: ${({ max_width }) => responsiveFallback(max_width)};
+        width: ${({ width }) => width ?? 'fit-content'};
+        font-size: ${({ font_size }) => responsiveFallback(font_size, 1, '14px')};
+        line-height: ${({ line_height }) => responsiveFallback(line_height, 1, '20px')};
+        padding: ${({ padding }) => responsiveFallback(padding, 1, 0)};
     }
 `
 
@@ -76,81 +80,4 @@ export const CardContainer = styled.div`
     @media ${device.tablet} {
         grid-row-gap: 17px;
     }
-`
-
-export const CardWrapper = styled.div`
-    display: grid;
-    width: 800px;
-    grid-template-columns: 48px 84% 32px;
-    grid-template-areas:
-        'dep-icon title min-max'
-        'content content content';
-    grid-column-gap: 22px;
-    align-items: center;
-    box-shadow: inset 0 -1px 0 var(--color-grey-34);
-    padding-bottom: 22px;
-
-    :last-child {
-        margin-bottom: 32px;
-    }
-
-    @media ${device.tabletL} {
-        width: 500px;
-    }
-    @media ${device.tablet} {
-        width: 328px;
-        background-color: var(--color-grey-33);
-        grid-template-columns: 32px 77.9% 24px;
-        grid-column-gap: 8px;
-        padding-bottom: 17px;
-
-        :last-child {
-            margin-bottom: 17px;
-        }
-    }
-`
-
-export const DropdownWrapper = styled.img`
-    width: 32px;
-    height: 32px;
-    grid-area: min-max;
-
-    :hover {
-        cursor: pointer;
-    }
-
-    @media ${device.tablet} {
-        width: 24px;
-        height: 24px;
-    }
-`
-
-export const IconWrapper = styled.img`
-    width: 48px;
-    height: 48px;
-    grid-area: dep-icon;
-
-    @media ${device.tablet} {
-        width: 32px;
-        height: 32px;
-    }
-`
-
-export const ListContainer = styled.div`
-    width: 100%;
-    display: grid;
-    grid-template-columns: 6px auto;
-    grid-column-gap: 8px;
-    grid-area: content;
-    grid-row-gap: 8px;
-    margin: 22px auto;
-    align-items: baseline;
-
-    @media ${device.tabletL} {
-        margin: 9px auto 16px;
-    }
-`
-
-export const Bullet = styled(Text)`
-    font-size: 20px;
 `

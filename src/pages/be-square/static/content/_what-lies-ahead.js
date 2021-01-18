@@ -16,7 +16,7 @@ export default [
     {
         src: FrontEnd,
         alt: 'Front-end development Icon',
-        title: localize('Front-end development'),
+        text: localize('Front-end development'),
         content: [
             localize('Develop a responsive website on GitHub that looks good on all devices.'),
             localize('Connect to the WebSocket API and display data.'),
@@ -26,7 +26,7 @@ export default [
     {
         src: ProductDesign,
         alt: 'Product design Icon',
-        title: localize('Product design'),
+        text: localize('Product design'),
         content: [
             localize(
                 'Grasp UX design and principles — why is design so essential and how to use it best?',
@@ -39,7 +39,7 @@ export default [
     {
         src: MobileDev,
         alt: 'Mobile development Icon',
-        title: localize('Mobile development'),
+        text: localize('Mobile development'),
         content: [
             localize('Build iOS and Android apps with a single codebase.'),
             localize(
@@ -52,7 +52,7 @@ export default [
     {
         src: BackEnd,
         alt: 'Back-end development Icon',
-        title: localize('Back-end development'),
+        text: localize('Back-end development'),
         content: [
             localize('Master the basics of the software development life cycle (SDLC).'),
             localize('See how the system interacts using APIs and stores data for future usage.'),
@@ -64,7 +64,7 @@ export default [
     {
         src: PlatformArchitecture,
         alt: 'Platform architecture Icon',
-        title: localize('Platform architecture'),
+        text: localize('Platform architecture'),
         content: [
             localize(
                 'Design and plan systems from high-level system concepts down to low-level details.',
@@ -81,7 +81,7 @@ export default [
     {
         src: QualityAssurance,
         alt: 'Quality assurance Icon',
-        title: localize('Quality assurance'),
+        text: localize('Quality assurance'),
         content: [
             localize('Learn how to break a developer’s code: what flaws should you look out for?'),
             localize('Build robust systems you can be proud of.'),
@@ -93,7 +93,7 @@ export default [
     {
         src: DevAndOperations,
         alt: 'Development and operations Icon',
-        title: localize('Development and operations'),
+        text: localize('Development and operations'),
         content: [
             localize(
                 'DevOps, GitOps, CodeOps... NoOps? Explore evolving styles of deployment, maintenance, and monitoring.',
@@ -107,7 +107,7 @@ export default [
     {
         src: Cybersecurity,
         alt: 'Cybersecurity Icon',
-        title: localize('Cybersecurity'),
+        text: localize('Cybersecurity'),
         content: [
             localize(
                 'Master the concepts of network security and web application security — can we stop the enemy at the gate?',
@@ -120,7 +120,7 @@ export default [
     {
         src: BusinessIntelligence,
         alt: 'Business Intelligence Icon',
-        title: localize('Business intelligence'),
+        text: localize('Business intelligence'),
         content: [
             localize('Understand business intelligence concepts and their vital importance.'),
             localize('Learn about data warehousing, data collection and modelling principles.'),
@@ -133,7 +133,7 @@ export default [
     {
         src: QuantAnalysis,
         alt: 'Quantitative analysis Icon',
-        title: localize('Quantitative analysis'),
+        text: localize('Quantitative analysis'),
         content: [
             localize(
                 'Explore the role of financial markets and its participants in the economic machine.',

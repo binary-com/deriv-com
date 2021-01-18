@@ -12,6 +12,32 @@ import Card from './_card'
 import { localize } from 'components/localization'
 
 const WhatLiesAhead = () => {
+    const style = {
+        card_wrapper: {
+            width: ['800px', '500px', '328px'],
+            grid_template_columns: ['48px 84% 32px', '32px 77.9% 24px'],
+            grid_template_areas: ["'dep-icon title min-max'", "'content content content'"],
+            grid_column_gap: ['22px', '8px'],
+            align_items: 'center',
+            box_shadow: 'inset 0 -1px 0 var(--color-grey-34)',
+            background_color: ['unset', 'var(--color-grey-33)'],
+            padding: ['0 0 22px', '0 0 17px'],
+            margin: ['0 0 32px', '0 0 17px'],
+            has_last_child_props: true,
+        },
+        icon_wrapper: {
+            width: ['48px', '32px'],
+            height: ['48px', '32px'],
+            grid_area: 'dep-icon',
+        },
+        text_wrapper: {
+            max_width: ['100%'],
+            font_size: ['24px', '18px'],
+            line_height: ['36px', '26px'],
+            font_weight: '700',
+            grid_area: 'title',
+        },
+    }
     return (
         <Container>
             <ContentContainer>
@@ -30,7 +56,7 @@ const WhatLiesAhead = () => {
                 </TitleWrapper>
                 <CardContainer>
                     {content.map((card, index) => (
-                        <Card key={index} card_content={card} />
+                        <Card style={style} key={index} card_content={card} has_list={true} />
                     ))}
                 </CardContainer>
                 <TextWrapper

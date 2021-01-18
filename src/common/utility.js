@@ -141,12 +141,6 @@ const populateStyle = (props, default_props_object, curr_index) => {
     return style
 }
 
-const removeKeysFromObject = (object, keys) => {
-    keys.forEach((key) => {
-        delete object[key]
-    })
-}
-
 const applyDefaultValues = (props, default_props_object) => {
     let style = ''
 

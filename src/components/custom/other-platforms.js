@@ -14,6 +14,7 @@ import {
 import { localize, LocalizedLink, Localize } from 'components/localization'
 import device from 'themes/device'
 import { community_url, deriv_blog_url } from 'common/utility'
+import { DerivStore } from 'store'
 // icons
 import Blog from 'images/svg/blog-nav.svg'
 import Career from 'images/svg/menu/careers.svg'
@@ -33,12 +34,12 @@ import Options from 'images/svg/options-nav.svg'
 import Partner from 'images/svg/menu/partner.svg'
 import Payment from 'images/svg/menu/payment-methods.svg'
 import RegulatoryInfo from 'images/svg/menu/regulatory.svg'
+import Signals from 'components/svgs/signals'
 import Smarttrader from 'images/svg/smarttrader.svg'
 import StockIndices from 'images/svg/stock-indices-nav.svg'
 import Story from 'images/svg/menu/story.svg'
 import SyntheticIndices from 'images/svg/synthetic-indices-nav.svg'
 import TraderTool from 'images/svg/trader-tool-nav.svg'
-import Signals from 'components/svgs/signals'
 
 const MarginDivider = styled(Divider)`
     margin: 0 0.8rem;

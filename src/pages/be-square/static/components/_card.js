@@ -4,7 +4,7 @@ import { Bullet, CardWrapper, DropdownWrapper, IconWrapper, ListContainer } from
 import { TextWrapper } from '../style/_what-lies-ahead'
 import { Minimize, Maximize } from '../images/_what-lies-ahead'
 
-const Card = ({ card_content, custom_icon, has_list, style }) => {
+const Card = ({ card_content, custom_icon, has_list, style, title_component }) => {
     const [is_list_open, setIsListOpen] = useState(false)
 
     const getCurrentDropdownComponent = () => {
@@ -59,6 +59,7 @@ const Card = ({ card_content, custom_icon, has_list, style }) => {
                 src={custom_icon?.src || card_content.src}
                 alt={custom_icon?.alt || card_content.alt}
             />
+            {title_component && title_component}
             <TextWrapper {...text_wrapper}>{card_content.text}</TextWrapper>
             {has_list && getCurrentDropdownComponent()}
         </CardWrapper>
@@ -70,6 +71,7 @@ Card.propTypes = {
     custom_icon: PropTypes.object,
     has_list: PropTypes.bool,
     style: PropTypes.object,
+    title_component: PropTypes.string,
 }
 
 export default Card

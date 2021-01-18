@@ -10,6 +10,7 @@ export const Bullet = styled(Text)`
 export const CardWrapper = styled.div`
     display: grid;
     width: ${({ width }) => responsiveFallback(width, 0)};
+    height: ${({ height }) => responsiveFallback(height, 0)};
     max-width: ${({ max_width }) => responsiveFallback(max_width, 0)};
     grid-template-columns: ${({ grid_template_columns }) =>
         responsiveFallback(grid_template_columns, 0)};
@@ -28,6 +29,7 @@ export const CardWrapper = styled.div`
     justify-content: ${({ justify_content }) => justify_content ?? 'unset'};
     box-shadow: ${({ box_shadow }) => box_shadow ?? 'unset'};
     border-radius: ${({ border_radius }) => border_radius ?? 'unset'};
+    border: ${({ border }) => border ?? 'unset'};
     background-color: ${({ background_color }) => responsiveFallback(background_color, 0)};
     padding: ${({ padding }) => responsiveFallback(padding, 0, 0)};
     margin: ${({ has_last_child_props, margin }) =>
@@ -50,6 +52,7 @@ export const CardWrapper = styled.div`
             }
             @media ${device.tablet} {
                 width: ${({ width }) => responsiveFallback(width)};
+                height: ${({ height }) => responsiveFallback(height)};
                 max-width: ${({ max_width }) => responsiveFallback(max_width)};
                 background-color: ${({ background_color }) => responsiveFallback(background_color)};
                 grid-template-columns: ${({ grid_template_columns }) =>

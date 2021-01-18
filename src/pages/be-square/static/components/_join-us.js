@@ -1,8 +1,7 @@
 import React from 'react'
 import { CardContainer, ContentContainer, Title } from '../style/_join-us'
-import content from '../content/_join-us'
+import join_us from '../content/_join-us'
 import Card from './_card'
-import { localize } from 'components/localization'
 
 const JoinUs = () => {
     const style = {
@@ -23,11 +22,9 @@ const JoinUs = () => {
     }
     return (
         <ContentContainer>
-            <Title>
-                {localize('Join us and get the tools you need for a successful IT career')}
-            </Title>
+            <Title>{join_us.title}</Title>
             <CardContainer>
-                {content.map((card, index) => (
+                {join_us.content.map((card, index) => (
                     <Card key={index} card_content={card} style={style} />
                 ))}
             </CardContainer>

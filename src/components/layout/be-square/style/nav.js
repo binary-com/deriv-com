@@ -3,6 +3,12 @@ import { Flex } from 'components/containers'
 import { LinkButton } from 'components/form'
 import device from 'themes/device'
 
+export const ButtonWrapper = styled(LinkButton)`
+    max-width: 102px;
+    height: auto;
+    white-space: nowrap;
+`
+
 export const Container = styled.div`
     background-color: var(--color-black);
     width: 100%;
@@ -29,10 +35,4 @@ export const LogoWrapper = styled.img`
         width: 168px;
         height: 16px;
     }
-`
-
-export const ButtonWrapper = styled(LinkButton)`
-    max-width: 102px;
-    height: auto;
-    white-space: nowrap;
 `

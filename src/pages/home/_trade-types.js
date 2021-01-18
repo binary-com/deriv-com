@@ -34,9 +34,7 @@ const TradeTypes = () => {
                         {localize('Trade types')}
                     </Header>
                     <Text size="2.4rem" mt="1.6rem" mb="5rem">
-                        {localize(
-                            'Trade what you like, the way you like it, and on your preferred market.',
-                        )}
+                        {localize('Explore different trade types to trade on your preferred market.')}
                     </Text>
                     <TradingButton type="submit" secondary="true" to="/signup/">
                         {localize('Start trading')}
@@ -61,7 +59,7 @@ const TradeTypes = () => {
 
 const margin = {
     icon: <img src={MarginLogo} alt="margin" width="48" height="49" />,
-    title: <Localize translate_text="Margin Trading" />,
+    title: <Localize translate_text="Margin trading" />,
     description: (
         <Localize translate_text="Trade with leverage and low spreads for better returns on successful trades." />
     ),

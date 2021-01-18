@@ -270,113 +270,116 @@ export const OurHistory = (props) => {
                         </StyledHeader>
                     </Show.Desktop>
 
-                    {story.contents.map((content, idxa) =>
-                        content.left || is_mobile ? (
-                            <YearWrapper
-                                key={idxa}
-                                color={story.color}
-                                width={story.width}
-                                width_laptop={story.width_laptop}
-                                left
-                                margin_left={content.margin_left}
-                                margin_bottom={content.margin_bottom}
-                            >
-                                <LogoContainer
-                                    image_position={content.image_position}
-                                    outer_image_width={content.outer_image_width}
-                                    margin_right={content.margin_right}
-                                    height={content.asset_height}
-                                >
-                                    <LogoDiv>
-                                        <QueryImage
-                                            data={data[content.image]}
-                                            alt={content.image_alt.props.translate_text}
-                                            width={content.image_width}
-                                        />
-                                    </LogoDiv>
-                                </LogoContainer>
-                                <ContentWrapper content_width={content.content_width} left>
-                                    {content.headers.map((header, id) => (
-                                        <div key={id}>
-                                            <Show.Mobile>
-                                                <Header
-                                                    pl="1.1rem"
-                                                    color={story.color}
-                                                    mt={header.margin_top}
-                                                    size="4rem"
-                                                >
-                                                    {header.header}
-                                                </Header>
-                                                <Splitter />
-                                                <Text size="2rem" pl="1.1rem">
-                                                    {content.texts[id].text}
-                                                </Text>
-                                            </Show.Mobile>
-                                            <Show.Desktop>
-                                                <Header
-                                                    pl="1.1rem"
-                                                    as="h3"
-                                                    type="section-title"
-                                                    color={story.color}
-                                                    mt={header.margin_top}
-                                                >
-                                                    {header.header}
-                                                </Header>
-                                                <Splitter />
-                                                <Text pl="1.1rem">{content.texts[id].text}</Text>
-                                            </Show.Desktop>
-                                        </div>
-                                    ))}
-                                </ContentWrapper>
-                            </YearWrapper>
-                        ) : (
-                            <>
+                    {story.contents.map((content, idxa) => (
+                        <React.Fragment key={idxa}>
+                            {content.left || is_mobile ? (
                                 <YearWrapper
-                                    key={idxa}
                                     color={story.color}
                                     width={story.width}
                                     width_laptop={story.width_laptop}
+                                    left
+                                    margin_left={content.margin_left}
                                     margin_bottom={content.margin_bottom}
-                                    left={content.left}
                                 >
-                                    <ContentWrapper content_width={content.content_width}>
-                                        {content.headers.map((header, id) => (
-                                            <div key={id}>
-                                                <Header
-                                                    as="h3"
-                                                    type="section-title"
-                                                    color={story.color}
-                                                    mt={header.margin_top}
-                                                >
-                                                    {header.header}
-                                                </Header>
-                                                <Splitter />
-                                                <Text>{content.texts[id].text}</Text>
-                                            </div>
-                                        ))}
-                                    </ContentWrapper>
                                     <LogoContainer
-                                        left
                                         image_position={content.image_position}
                                         outer_image_width={content.outer_image_width}
                                         margin_right={content.margin_right}
+                                        height={content.asset_height}
                                     >
-                                        <Flex jc="flex-start" ml="1rem">
+                                        <LogoDiv>
                                             <QueryImage
                                                 data={data[content.image]}
                                                 alt={content.image_alt.props.translate_text}
-                                                width={
-                                                    is_mobile
-                                                        ? content.image_mobile_width
-                                                        : content.image_width
-                                                }
+                                                width={content.image_width}
                                             />
-                                        </Flex>
+                                        </LogoDiv>
                                     </LogoContainer>
+                                    <ContentWrapper content_width={content.content_width} left>
+                                        {content.headers.map((header, id) => (
+                                            <div key={id}>
+                                                <Show.Mobile>
+                                                    <Header
+                                                        pl="1.1rem"
+                                                        color={story.color}
+                                                        mt={header.margin_top}
+                                                        size="4rem"
+                                                    >
+                                                        {header.header}
+                                                    </Header>
+                                                    <Splitter />
+                                                    <Text size="2rem" pl="1.1rem">
+                                                        {content.texts[id].text}
+                                                    </Text>
+                                                </Show.Mobile>
+                                                <Show.Desktop>
+                                                    <Header
+                                                        pl="1.1rem"
+                                                        as="h3"
+                                                        type="section-title"
+                                                        color={story.color}
+                                                        mt={header.margin_top}
+                                                    >
+                                                        {header.header}
+                                                    </Header>
+                                                    <Splitter />
+                                                    <Text pl="1.1rem">
+                                                        {content.texts[id].text}
+                                                    </Text>
+                                                </Show.Desktop>
+                                            </div>
+                                        ))}
+                                    </ContentWrapper>
                                 </YearWrapper>
-                            </>
-                        ),
-                    )}
+                            ) : (
+                                <>
+                                    <YearWrapper
+                                        key={idxa}
+                                        color={story.color}
+                                        width={story.width}
+                                        width_laptop={story.width_laptop}
+                                        margin_bottom={content.margin_bottom}
+                                        left={content.left}
+                                    >
+                                        <ContentWrapper content_width={content.content_width}>
+                                            {content.headers.map((header, id) => (
+                                                <div key={id}>
+                                                    <Header
+                                                        as="h3"
+                                                        type="section-title"
+                                                        color={story.color}
+                                                        mt={header.margin_top}
+                                                    >
+                                                        {header.header}
+                                                    </Header>
+                                                    <Splitter />
+                                                    <Text>{content.texts[id].text}</Text>
+                                                </div>
+                                            ))}
+                                        </ContentWrapper>
+                                        <LogoContainer
+                                            left
+                                            image_position={content.image_position}
+                                            outer_image_width={content.outer_image_width}
+                                            margin_right={content.margin_right}
+                                        >
+                                            <Flex jc="flex-start" ml="1rem">
+                                                <QueryImage
+                                                    data={data[content.image]}
+                                                    alt={content.image_alt.props.translate_text}
+                                                    width={
+                                                        is_mobile
+                                                            ? content.image_mobile_width
+                                                            : content.image_width
+                                                    }
+                                                />
+                                            </Flex>
+                                        </LogoContainer>
+                                    </YearWrapper>
+                                </>
+                            )}
+                        </React.Fragment>
+                    ))}
                 </Story>
             ))}
         </StorySection>

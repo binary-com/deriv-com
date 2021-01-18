@@ -88,7 +88,7 @@ TradeTypeSlide.propTypes = {
 
 const margin = {
     icon: <img src={MarginLogo} alt="margin" width="48" height="49" />,
-    title: <Localize translate_text="Margin Trading" />,
+    title: <Localize translate_text="Margin trading" />,
     description: (
         <Localize translate_text="Trade with leverage and low spreads for better returns on successful trades." />
     ),
@@ -144,9 +144,7 @@ const TradeTypesMobile = () => {
                     {localize('Trade types')}
                 </Header>
                 <Text padding="0 2rem" align="center" mb="2rem">
-                    {localize(
-                        'Trade what you like, the way you like it, and on your preferred market.',
-                    )}
+                    {localize('Explore different trade types to trade on your preferred market.')}
                 </Text>
                 <Carousel {...settings}>
                     {trade_types.map((trade_slide, idx) => (

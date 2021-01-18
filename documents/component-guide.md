@@ -116,7 +116,8 @@ const YourComponent = () => {
 ### Text
 
 - Text will be our go-to extension for paragraph tags
-- It accepts props such as `align`, `size`, `weight`, `color`, `max-width`, `min-width`, `margins`, `paddings`
+- It accepts props such as `align`, `size`, `weight`, `color`, `max-width`, `min-width`, `margin`, `padding`
+- `margin` and `padding` accept short syntaxes, please refer to [function.js](https://github.com/binary-com/deriv-com/blob/master/src/themes/function.js) for further clarification.
 
 Usage example:
 
@@ -137,7 +138,7 @@ const YourComponent = () => {
 - Headers will take a `type` prop for responsive sizes between mobile and desktop to avoid excessive use of media queries (in hopes to be more aligned with design team)
 - Type prop will take either `display-title` , `page-title` , `section-title` , `sub-section-title` , `main-paragraph` or `sub-paragraph`
 - Do add `as` prop for semantic tags to improve our SEO
-- Do refer to `typography.js` for the breakdown of different sizing across desktop and mobile
+- Do refer to [typography.js](https://github.com/binary-com/deriv-com/blob/master/src/components/elements/typography.js) for the breakdown of different sizing across desktop and mobile
 - For any required sizes for desktop/mobile outside the sizes of the design guideline, you can extend via styled components
 
 Usage example:
@@ -190,7 +191,7 @@ const YourComponent = () => {
 - Used for any redirect links. This is an extension of [Gatsby Link](https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-link/).
 - `to` prop is required for this component. You can get around this by having `to=""` if you don't require it.
 - EU countries should prompt a modal popup for any external links
-- Please refer to `localized-link.js` for all the attributes available. Feel free to add onto it for any new internal links.
+- Please refer to [localized-link.js](https://github.com/binary-com/deriv-com/blob/master/src/components/localization/localized-link.js) for all the attributes available. Feel free to add onto it for any new internal links.
 
 Usage example:
 

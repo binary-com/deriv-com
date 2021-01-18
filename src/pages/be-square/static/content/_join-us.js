@@ -5,10 +5,10 @@ import {
     ResumeIcon,
     TechExperienceIcon,
 } from '../images/_join-us'
-import { Localize } from 'components/localization'
+import { localize, Localize } from 'components/localization'
 
 export default {
-    title: Localize('Join us and get the tools you need for a successful IT career'),
+    title: localize('Join us and get the tools you need for a successful IT career'),
     content: [
         {
             src: TechExperienceIcon,

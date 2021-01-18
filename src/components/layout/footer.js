@@ -320,6 +320,7 @@ const Footer = ({ type }) => {
     const { show_cookie_banner } = React.useContext(LocationContext)
 
     mobile_accordion_header_about.borderTop = 'none'
+    const current_year = new Date().getFullYear()
 
     return (
         <StyledFooter has_banner_cookie={show_cookie_banner}>
@@ -712,7 +713,9 @@ const Footer = ({ type }) => {
                     </Disclaimer>
                     <Copyright>
                         <img src={CopyrightIc} alt="copyright ic" width="16" height="16" />
-                        <Text ml="0.4rem">{localize('2020 Deriv | All rights reserved')}</Text>
+                        <Text ml="0.4rem">
+                            {current_year} {localize(' Deriv | All rights reserved')}
+                        </Text>
                     </Copyright>
                     <Show.NonEU>
                         <SocialWrapperComponent is_career_page={type === 'careers'} />

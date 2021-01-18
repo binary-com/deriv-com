@@ -7,10 +7,9 @@ import {
     TextWrapper,
     Title,
 } from '../style/_who-can-apply'
-import content from '../content/_who-can-apply'
+import who_can_apply from '../content/_who-can-apply'
 import { RedMarkIcon } from '../images/_common'
 import Card from './_card'
-import { localize } from 'components/localization'
 
 const WhoCanApply = () => {
     const style = {
@@ -26,16 +25,16 @@ const WhoCanApply = () => {
             max_width: ['446px', '304px'],
         },
     }
-
     const custom_icon = {
         src: RedMarkIcon,
         alt: 'Red mark icon',
     }
+
     return (
         <Container>
             <ContentContainer>
                 <HeaderWrapper>
-                    <Title>{localize('Who can apply? ')}</Title>
+                    <Title>{who_can_apply.title}</Title>
                     <TextWrapper
                         font_size="24px"
                         line_height="36px"
@@ -44,11 +43,11 @@ const WhoCanApply = () => {
                         line_height_m="22px"
                         max_width_m="320px"
                     >
-                        {localize('To qualify for the programme, you must be:')}
+                        {who_can_apply.subtitle}
                     </TextWrapper>
                 </HeaderWrapper>
                 <CardContainer>
-                    {content.map((text, index) => (
+                    {who_can_apply.content.map((text, index) => (
                         <Card
                             key={index}
                             style={style}

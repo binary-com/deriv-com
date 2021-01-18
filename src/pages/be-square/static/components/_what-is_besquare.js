@@ -7,9 +7,8 @@ import {
     Title,
 } from '../style/_what-is-besquare'
 import { GreenMarkIcon } from '../images/_common'
-import content from '../content/_what-is-besquare'
+import what_is_be_square from '../content/_what-is-besquare'
 import Card from './_card'
-import { localize } from 'components/localization'
 
 const WhatIsBeSquare = () => {
     const style = {
@@ -44,7 +43,7 @@ const WhatIsBeSquare = () => {
         <Container>
             <ContentContainer>
                 <ContentWrapper>
-                    <Title>{localize('What’s BeSquare?')}</Title>
+                    <Title>{what_is_be_square.title}</Title>
                     <TextWrapper
                         max_width="384px"
                         max_width_m="292px"
@@ -52,13 +51,11 @@ const WhatIsBeSquare = () => {
                         margin_top="8px"
                         margin_top_m="16px"
                     >
-                        {localize(
-                            'BeSquare is built on the idea that successful professionals are generalists. Here’s an outline of your BeSquare journey that will carry on far beyond the 6 months of the programme:',
-                        )}
+                        {what_is_be_square.subtitle}
                     </TextWrapper>
                 </ContentWrapper>
                 <ContentWrapper>
-                    {content.map((text, index) => (
+                    {what_is_be_square.content.map((text, index) => (
                         <Card
                             key={index}
                             card_content={{ text }}

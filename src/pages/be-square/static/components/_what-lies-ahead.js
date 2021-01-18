@@ -7,9 +7,8 @@ import {
     Title,
     TitleWrapper,
 } from '../style/_what-lies-ahead'
-import content from '../content/_what-lies-ahead'
+import what_lies_ahead from '../content/_what-lies-ahead'
 import Card from './_card'
-import { localize } from 'components/localization'
 
 const WhatLiesAhead = () => {
     const style = {
@@ -42,20 +41,18 @@ const WhatLiesAhead = () => {
         <Container>
             <ContentContainer>
                 <TitleWrapper>
-                    <Title>{localize('What lies ahead')}</Title>
+                    <Title>{what_lies_ahead.title}</Title>
                     <TextWrapper
                         max_width={['792px', '328px']}
                         font_size={['24px', '18px']}
                         line_height={['36px', '26px']}
                         text_align={'center'}
                     >
-                        {localize(
-                            "Over the course of 6 months, you'll go through 10 modules and face exciting challenges",
-                        )}
+                        {what_lies_ahead.subtitle}
                     </TextWrapper>
                 </TitleWrapper>
                 <CardContainer>
-                    {content.map((card, index) => (
+                    {what_lies_ahead.content.map((card, index) => (
                         <Card style={style} key={index} card_content={card} has_list={true} />
                     ))}
                 </CardContainer>
@@ -65,9 +62,7 @@ const WhatLiesAhead = () => {
                     line_height={['24px', '20px']}
                     text_align={'center'}
                 >
-                    {localize(
-                        'Besides these hard skills, you’ll learn essential soft skills that are based on Harvard Business Review principles. You’ll also get the chance to extend your professional network and connect with veteran techies as they share their professional experience.',
-                    )}
+                    {what_lies_ahead.text}
                 </TextWrapper>
             </ContentContainer>
         </Container>

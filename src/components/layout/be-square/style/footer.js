@@ -4,6 +4,12 @@ import { Header, Text } from 'components/elements'
 import { LinkButton } from 'components/form'
 import device from 'themes/device'
 
+export const ButtonWrapper = styled(LinkButton)`
+    max-width: 102px;
+    height: auto;
+    white-space: nowrap;
+`
+
 export const Container = styled.div`
     background-color: ${({ color }) => `var(--color-${color})`};
 `
@@ -18,6 +24,12 @@ export const ContentContainer = styled(Flex)`
     @media ${device.laptop} {
         flex-direction: column;
     }
+`
+
+export const FollowUsContainer = styled.div`
+    display: grid;
+    grid-template-columns: 68px repeat(4, 26.67px);
+    grid-column-gap: 21px;
 `
 
 export const ImageWrapper = styled.img`
@@ -80,18 +92,6 @@ export const TextWrapper = styled(Text)`
     }
 `
 
-export const FollowUsContainer = styled.div`
-    display: grid;
-    grid-template-columns: 68px repeat(4, 26.67px);
-    grid-column-gap: 21px;
-`
-
 export const Link = styled(TextWrapper).attrs({ as: 'a' })`
     color: var(--color-red);
-`
-
-export const ButtonWrapper = styled(LinkButton)`
-    max-width: 102px;
-    height: auto;
-    white-space: nowrap;
 `

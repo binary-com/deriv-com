@@ -9,11 +9,15 @@ import {
     TextContainer,
     TextWrapper,
     Title,
-} from '../style/_footer'
-import { FooterImage, Linkedin, Twitter, Facebook, Instagram } from '../images/_footer'
+} from './style/footer'
 import { localize, Localize } from 'components/localization'
+import FooterImage from 'images/common/be-square/footer-image.png'
+import Linkedin from 'images/svg/be-square/linkedin.svg'
+import Twitter from 'images/svg/be-square/twitter.svg'
+import Facebook from 'images/svg/be-square/facebook.svg'
+import Instagram from 'images/svg/be-square/instagram.svg'
 
-const Footer = () => (
+const BeSquareFooter = () => (
     <React.Fragment>
         <Container color="black">
             <ContentContainer>
@@ -69,4 +73,4 @@ const Footer = () => (
     </React.Fragment>
 )
 
-export default Footer
+export default BeSquareFooter

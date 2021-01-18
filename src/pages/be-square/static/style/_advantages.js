@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { Flex } from 'components/containers'
-import { Header, Text } from 'components/elements'
+import { Header } from 'components/elements'
 import device from 'themes/device'
 
 export const Container = styled(Flex)`
@@ -46,39 +46,5 @@ export const CardContainer = styled.div`
         grid-template-columns: repeat(1, 1fr);
         gap: 16px;
         margin-bottom: 0 auto 40px;
-    }
-`
-
-export const CardWrapper = styled(Flex)`
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    padding: 32px;
-    border-radius: 16px;
-    border: 1px solid var(--color-grey-2);
-`
-
-export const TextWrapper = styled(Text)`
-    max-width: 320px;
-    width: fit-content;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 24px;
-    color: var(--color-black-3);
-
-    @media ${device.tablet} {
-        max-width: 280px;
-        font-size: 14px;
-        line-height: 20px;
-    }
-`
-
-export const IconWrapper = styled.img`
-    width: 64px;
-    height: 64px;
-
-    @media ${device.tablet} {
-        width: 48px;
-        height: 48px;
     }
 `

@@ -1,5 +1,5 @@
 import React from 'react'
-import { ButtonWrapper, Container, ContentContainer, LogoWrapper } from '../style/_nav'
+import { ButtonWrapper, Container, ContentContainer, LogoWrapper } from './style/nav'
 import { localize } from 'components/localization'
 import BeSquareLogo from 'images/svg/be-square/be-square-logo.svg'
 

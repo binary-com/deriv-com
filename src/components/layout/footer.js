@@ -714,7 +714,10 @@ const Footer = ({ type }) => {
                     <Copyright>
                         <img src={CopyrightIc} alt="copyright ic" width="16" height="16" />
                         <Text ml="0.4rem">
-                            {current_year} {localize(' Deriv | All rights reserved')}
+                            <Localize
+                                translate_text="{{current_year}} Deriv | All rights reserved"
+                                values={{ current_year }}
+                            />
                         </Text>
                     </Copyright>
                     <Show.NonEU>

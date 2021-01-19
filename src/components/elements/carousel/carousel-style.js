@@ -124,16 +124,7 @@ export const NavigationContainer = styled(Flex)`
     position: relative;
     width: 100%;
     height: 8px;
-    ${(props) => {
-        if (props.bottom_offset) {
-            return css`
-                bottom: ${props.bottom_offset};
-            `
-        }
-        return css`
-            bottom: 40px;
-        `
-    }}
+    bottom: ${(props) => props.bottom_offset ?? '40px'};
 `
 
 export const StyledDot = styled.button`

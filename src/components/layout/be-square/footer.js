@@ -1,11 +1,11 @@
 import React from 'react'
 import {
     ButtonWrapper,
-    Container,
     ContentContainer,
     FollowUsContainer,
     ImageWrapper,
     Link,
+    Section,
     TextContainer,
     TextWrapper,
     Title,
@@ -19,7 +19,7 @@ import Instagram from 'images/svg/be-square/instagram.svg'
 
 const BeSquareFooter = () => (
     <React.Fragment>
-        <Container color="black">
+        <Section color="black">
             <ContentContainer>
                 <ImageWrapper src={FooterImage} alt="Deriv employee" />
                 <TextContainer>
@@ -59,8 +59,8 @@ const BeSquareFooter = () => (
                     </FollowUsContainer>
                 </TextContainer>
             </ContentContainer>
-        </Container>
-        <Container color="black-3">
+        </Section>
+        <Section color="black-3">
             <TextWrapper
                 max_width={['100%']}
                 font_size={['14px']}
@@ -69,7 +69,7 @@ const BeSquareFooter = () => (
             >
                 &copy; {localize('2020 Deriv | All rights reserved')}
             </TextWrapper>
-        </Container>
+        </Section>
     </React.Fragment>
 )
 

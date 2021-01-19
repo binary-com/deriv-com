@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Flex } from 'components/containers'
+import { Container, Flex, SectionContainer } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { LinkButton } from 'components/form'
 import device from 'themes/device'
@@ -10,11 +10,12 @@ export const ButtonWrapper = styled(LinkButton)`
     white-space: nowrap;
 `
 
-export const Container = styled.div`
+export const Section = styled(SectionContainer)`
     background-color: ${({ color }) => `var(--color-${color})`};
+    padding: 0;
 `
 
-export const ContentContainer = styled(Flex)`
+export const ContentContainer = styled(Container)`
     max-width: 1440px;
     margin: 0 auto;
     flex-direction: row-reverse;
@@ -51,11 +52,12 @@ export const ImageWrapper = styled.img`
 export const TextContainer = styled(Flex)`
     display: grid;
     justify-content: flex-start;
-    padding: 80px 0 72px 120px;
+    padding: 80px 0 72px 0;
     grid-row-gap: 24px;
 
     @media ${device.laptop} {
         padding: 0 0 44px 0;
+        margin: 0;
         justify-content: center;
     }
 `

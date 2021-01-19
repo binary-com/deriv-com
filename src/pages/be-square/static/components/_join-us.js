@@ -1,5 +1,6 @@
 import React from 'react'
-import { CardContainer, ContentContainer, Title } from '../style/_join-us'
+import { CardContainer, ContentContainer } from '../style/_join-us'
+import { Title } from '../style/_common'
 import join_us from '../content/_join-us'
 import Card from './_card'
 
@@ -21,14 +22,22 @@ const JoinUs = () => {
         },
     }
     return (
-        <ContentContainer>
-            <Title>{join_us.title}</Title>
-            <CardContainer>
-                {join_us.content.map((card, index) => (
-                    <Card key={index} card_content={card} style={style} />
-                ))}
-            </CardContainer>
-        </ContentContainer>
+        <div>
+            <ContentContainer>
+                <Title
+                    max_width={['690px', '328px']}
+                    font_size={['32px', '24px']}
+                    line_height={['40px', '30px']}
+                >
+                    {join_us.title}
+                </Title>
+                <CardContainer>
+                    {join_us.content.map((card, index) => (
+                        <Card key={index} card_content={card} style={style} />
+                    ))}
+                </CardContainer>
+            </ContentContainer>
+        </div>
     )
 }
 

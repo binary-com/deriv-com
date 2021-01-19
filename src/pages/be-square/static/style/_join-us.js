@@ -1,9 +1,8 @@
 import styled from 'styled-components'
-import { Flex } from 'components/containers'
-import { Header } from 'components/elements'
+import { Container } from 'components/containers'
 import device from 'themes/device'
 
-export const ContentContainer = styled(Flex)`
+export const ContentContainer = styled(Container)`
     flex-direction: column;
     padding-top: 80px;
     padding-bottom: 80px;
@@ -11,24 +10,6 @@ export const ContentContainer = styled(Flex)`
     @media ${device.tablet} {
         padding-top: 40px;
         padding-bottom: 40px;
-    }
-`
-
-export const Title = styled(Header)`
-    max-width: 690px;
-    width: fit-content;
-    font-size: 32px;
-    font-weight: 700;
-    line-height: 40px;
-    text-align: center;
-    color: var(--color-black-3);
-    margin: 0 auto;
-
-    @media ${device.tablet} {
-        max-width: 328px;
-        width: fit-content;
-        font-size: 24px;
-        line-height: 30px;
     }
 `
 

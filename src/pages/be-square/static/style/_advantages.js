@@ -1,31 +1,5 @@
 import styled from 'styled-components'
-import { Flex } from 'components/containers'
-import { Header } from 'components/elements'
 import device from 'themes/device'
-
-export const Container = styled(Flex)`
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-`
-
-export const Title = styled(Header)`
-    max-width: 492px;
-    width: fit-content;
-    font-size: ${({ font_size }) => font_size ?? '48px'};
-    font-weight: 700;
-    line-height: ${({ line_height }) => line_height ?? '60px'};
-    color: var(--color-black-3);
-    text-align: center;
-    padding: ${({ padding }) => padding ?? '80px 0 40px'};
-
-    @media ${device.tablet} {
-        max-width: 287px;
-        font-size: ${({ font_size_m }) => font_size_m ?? '28px'};
-        line-height: ${({ line_height_m }) => line_height_m ?? '34px'};
-        padding: ${({ padding_m }) => padding_m ?? '40px 0 16px'};
-    }
-`
 
 export const CardContainer = styled.div`
     min-width: 384px;

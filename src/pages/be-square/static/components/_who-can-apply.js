@@ -1,12 +1,6 @@
 import React from 'react'
-import {
-    CardContainer,
-    Container,
-    ContentContainer,
-    HeaderWrapper,
-    TextWrapper,
-    Title,
-} from '../style/_who-can-apply'
+import { CardContainer, ContentContainer, HeaderWrapper, Section } from '../style/_who-can-apply'
+import { TextWrapper, Title } from '../style/_common'
 import who_can_apply from '../content/_who-can-apply'
 import { RedMarkIcon } from '../images/_common'
 import Card from './_card'
@@ -31,17 +25,14 @@ const WhoCanApply = () => {
     }
 
     return (
-        <Container>
+        <Section>
             <ContentContainer>
                 <HeaderWrapper>
                     <Title>{who_can_apply.title}</Title>
                     <TextWrapper
-                        font_size="24px"
-                        line_height="36px"
-                        max_width="384px"
-                        font_size_m="18px"
-                        line_height_m="22px"
-                        max_width_m="320px"
+                        font_size={['24px', '18px']}
+                        line_height={['36px', '22px']}
+                        max_width={['384px', '320px']}
                     >
                         {who_can_apply.subtitle}
                     </TextWrapper>
@@ -57,7 +48,7 @@ const WhoCanApply = () => {
                     ))}
                 </CardContainer>
             </ContentContainer>
-        </Container>
+        </Section>
     )
 }
 

@@ -1,11 +1,6 @@
 import React from 'react'
-import {
-    Container,
-    ContentContainer,
-    ContentWrapper,
-    TextWrapper,
-    Title,
-} from '../style/_what-is-besquare'
+import { ContentContainer, ContentWrapper, Section } from '../style/_what-is-besquare'
+import { TextWrapper, Title } from '../style/_common'
 import { GreenMarkIcon } from '../images/_common'
 import what_is_be_square from '../content/_what-is-besquare'
 import Card from './_card'
@@ -40,17 +35,13 @@ const WhatIsBeSquare = () => {
         alt: 'Green mark icon',
     }
     return (
-        <Container>
+        <Section>
             <ContentContainer>
                 <ContentWrapper>
-                    <Title>{what_is_be_square.title}</Title>
-                    <TextWrapper
-                        max_width="384px"
-                        max_width_m="292px"
-                        margin_bottom_m="16px"
-                        margin_top="8px"
-                        margin_top_m="16px"
-                    >
+                    <Title text_align={'left'} max_width={['282px']}>
+                        {what_is_be_square.title}
+                    </Title>
+                    <TextWrapper max_width={['384px', '292px']} margin={['8px 0 0', '16px 0']}>
                         {what_is_be_square.subtitle}
                     </TextWrapper>
                 </ContentWrapper>
@@ -65,7 +56,7 @@ const WhatIsBeSquare = () => {
                     ))}
                 </ContentWrapper>
             </ContentContainer>
-        </Container>
+        </Section>
     )
 }
 

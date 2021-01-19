@@ -114,7 +114,7 @@ export const onClientEntry = () => {
         async: true,
     })
 
-    if(window.location.hostname === 'deriv.com' && window.DD_RUM ) {
+    if (window.location.hostname === 'deriv.com' && window.DD_RUM ) {
         window.DD_RUM.init({
             clientToken: client_token,
             applicationId: application_id,

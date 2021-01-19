@@ -105,6 +105,8 @@ const livechat_client_id = '66aa088aad5a414484c1fd1fa8a5ace7'
 const livechat_license_id = 12049137
 const trimSpaces = (value) => value.trim()
 
+const application_id = 'f0aef779-d9ec-4517-807e-a84c683c4265'
+const client_token = 'pubc42fda54523c5fb23c564e3d8bceae88'
 const deriv_app_url = 'https://app.deriv.com'
 const deriv_bot_app_url = 'https://app.deriv.com/bot'
 const deriv_blog_url = 'https://blog.deriv.com'
@@ -141,6 +143,8 @@ export {
     affiliate_signup_url,
     binary_url,
     brand_name,
+    application_id,
+    client_token,
     checkElemInArray,
     cloneObject,
     blog_url,

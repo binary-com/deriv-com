@@ -162,8 +162,7 @@ const SEO = ({ description, meta, title, no_index, has_organization_schema }) =>
                     : []),
             ].concat(meta)}
         >
-            {/* TODO: uncomment this once datadog async support is ready */}
-            {/* <script
+            <script
                 src="https://www.datadoghq-browser-agent.com/datadog-rum-us.js"
                 type="text/javascript"
             ></script>
@@ -173,7 +172,7 @@ const SEO = ({ description, meta, title, no_index, has_organization_schema }) =>
                         clientToken: 'pubc42fda54523c5fb23c564e3d8bceae88',
                         applicationId: 'f0aef779-d9ec-4517-807e-a84c683c4265',
                     })`}
-            </script> */}
+            </script>
             {has_organization_schema && (
                 <script type="application/ld+json">{JSON.stringify(organization_schema)}</script>
             )}

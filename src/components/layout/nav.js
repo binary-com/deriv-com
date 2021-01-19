@@ -644,7 +644,7 @@ export const NavInterim = ({ interim_type }) => (
                     <Show.Desktop>
                         <StyledLogo to={`/interim/${interim_type}`} aria-label={localize('Home')}>
                             <Flex ai="center">
-                                <img src={Logo} alt="logo" width="190px" height="27px" />
+                                <img src={Logo} alt="logo" width="190" height="27" />
                                 <img
                                     src={LogoCombinedShape}
                                     alt="logo combined shape desktop"
@@ -660,7 +660,7 @@ export const NavInterim = ({ interim_type }) => (
                             aria-label={localize('Home')}
                         >
                             <Flex>
-                                <img src={LogoOnly} alt="logo only 2" width="115px" height="27px" />
+                                <img src={LogoOnly} alt="logo only 2" width="115" height="27" />
                                 <LogoDescription ai="center">
                                     <Line />
                                     <img

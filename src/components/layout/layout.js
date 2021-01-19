@@ -114,6 +114,10 @@ const Layout = ({
     const [gtm_data, setGTMData] = useGTMData()
 
     const is_static = type === 'static'
+    //this pages do not show a banner (cfd) on top of nav. so no need to adjust top margin of main for these pages
+    const no_warning_pages = ['static', 'careers']
+    //cfd warning should be shown for pay per click even if the client is not from eu
+    const should_use_eu_margin = !no_warning_pages.includes(type) && (is_eu_country || is_ppc)
 
     // Every layout change will trigger scroll to top
     React.useEffect(() => {
@@ -190,7 +194,7 @@ const Layout = ({
             <Main
                 margin_top={margin_top}
                 is_static={is_static}
-                use_eu_margin={should_main_use_eu_margin}
+                use_eu_margin={should_use_eu_margin}
             >
                 {children}
             </Main>

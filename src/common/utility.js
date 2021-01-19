@@ -164,8 +164,7 @@ export {
     checkElemInArray,
     cloneObject,
     blog_url,
-    cfd_warning_height_desktop,
-    cfd_warning_height_tablet,
+    cfd_warning_height,
     deriv_cookie_domain,
     dmt5_windows_url,
     dmt5_linux_url,
@@ -209,5 +208,4 @@ export {
     trimSpaces,
     p2p_playstore_url,
     sample_rate,
-    cfd_warning_height,
 }

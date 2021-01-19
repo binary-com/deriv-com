@@ -1,9 +1,18 @@
 import React from 'react'
-import styled from 'styled-components'
-import AvailablePlatforms from '../_available-platforms.js'
-import { MajorPairs, MinorPairs, ExoticPairs } from '../sub-markets/_submarkets.js'
+import styled, { css } from 'styled-components'
+import AvailablePlatforms from '../_available-platforms'
+import MarketsAccordion from '../_markets_accordion'
+import {
+    ExoticPairs,
+    MajorPairs,
+    MinorPairs,
+    SmartFX,
+    SmartGoldIndex,
+    StepFX,
+} from '../sub-markets/_submarkets'
+import { SmartFXDetails, SmartGoldIndexDetails, StepFXDetails } from './_details'
 import { Text } from 'components/elements'
-import { SectionContainer, Flex, CssGrid } from 'components/containers'
+import { CssGrid, Flex, SectionContainer } from 'components/containers'
 import { localize } from 'components/localization'
 import device from 'themes/device'
 
@@ -16,9 +25,17 @@ const Col = styled(Flex)`
     padding: 0 0.4rem;
 `
 const Row = styled(Flex)`
-    border: 1px solid var(--color-grey-22);
-    margin-top: 2.4rem;
-    border-radius: 8px;
+    ${({ is_accordion_row }) => {
+        if (!is_accordion_row) {
+            return css`
+                border: 1px solid var(--color-grey-22);
+                margin-top: 24px;
+                border-radius: 8px;
+            `
+        }
+    }}
+    justify-content: flex-start;
+    align-items: center;
 `
 const StyledText = styled(Text)`
     @media ${device.tabletL} {
@@ -28,7 +45,9 @@ const StyledText = styled(Text)`
 `
 const MarketsList = styled(CssGrid)`
     border-left: 1px solid var(--color-grey-22);
-    grid-template-columns: repeat(5, 1fr);
+    border-right: ${({ has_right_border }) =>
+        has_right_border ? '1px solid var(--color-grey-22)' : 'unset'};
+    grid-template-columns: ${({ col }) => `repeat(${col ?? 5}, 1fr)`};
     width: 100%;
     padding: 2.4rem;
     grid-row-gap: 1.6rem;
@@ -51,16 +70,25 @@ const MarketsList = styled(CssGrid)`
         grid-template-columns: repeat(2, 1fr);
     }
 `
+const MarketsWrapper = styled(Flex)`
+    flex-direction: column;
+
+    > div {
+        margin-top: 24px;
+    }
+`
 const Title = styled(Text)`
     text-align: center;
+    font-weight: bold;
 
     @media ${device.tabletL} {
         font-weight: 600;
     }
 `
+
 const Margin = () => {
     return (
-        <SectionContainer padding="4rem 0 8rem 0">
+        <SectionContainer padding="4rem 0 8rem">
             <Flex max_width="79.2rem" m="0 auto" direction="column">
                 <Descriptions>
                     <StyledText align="center">
@@ -73,30 +101,71 @@ const Margin = () => {
                 <StyledText weight="bold" mt="2.4rem">
                     {localize('Instruments available for margin trading')}
                 </StyledText>
-                <Row jc="flex-start" ai="center">
-                    <Col>
-                        <Title weight="bold">{localize('Major pairs')}</Title>
-                    </Col>
-                    <MarketsList>
-                        <MajorPairs />
-                    </MarketsList>
-                </Row>
-                <Row jc="flex-start" ai="center">
-                    <Col>
-                        <Title weight="bold">{localize('Minor pairs')}</Title>
-                    </Col>
-                    <MarketsList>
-                        <MinorPairs />
-                    </MarketsList>
-                </Row>
-                <Row jc="flex-start" ai="center">
-                    <Col>
-                        <Title weight="bold">{localize('Exotic pairs')}</Title>
-                    </Col>
-                    <MarketsList>
-                        <ExoticPairs />
-                    </MarketsList>
-                </Row>
+                <MarketsWrapper>
+                    <Row>
+                        <Col>
+                            <Title>{localize('Major pairs')}</Title>
+                        </Col>
+                        <MarketsList>
+                            <MajorPairs />
+                        </MarketsList>
+                    </Row>
+                    <Row>
+                        <Col>
+                            <Title>{localize('Minor pairs')}</Title>
+                        </Col>
+                        <MarketsList>
+                            <MinorPairs />
+                        </MarketsList>
+                    </Row>
+                    <Row>
+                        <Col>
+                            <Title>{localize('Exotic pairs')}</Title>
+                        </Col>
+                        <MarketsList>
+                            <ExoticPairs />
+                        </MarketsList>
+                    </Row>
+                    <MarketsAccordion
+                        renderTitle={() => (
+                            <Row is_accordion_row={true}>
+                                <Col>
+                                    <Title>{localize('Smart FX')}</Title>
+                                </Col>
+                                <MarketsList col={4} has_right_border={true}>
+                                    <SmartFX />
+                                </MarketsList>
+                            </Row>
+                        )}
+                        renderDetails={SmartFXDetails}
+                    />
+                    <MarketsAccordion
+                        renderTitle={() => (
+                            <Row is_accordion_row={true}>
+                                <Col>
+                                    <Title>{localize('Step FX')}</Title>
+                                </Col>
+                                <MarketsList col={3} has_right_border={true}>
+                                    <StepFX />
+                                </MarketsList>
+                            </Row>
+                        )}
+                        renderDetails={StepFXDetails}
+                    />
+                    <MarketsAccordion
+                        renderTitle={() => (
+                            <Row is_accordion_row={true}>
+                                <Col>
+                                    <Title>{localize('Smart Gold Index')}</Title>
+                                </Col>
+                                <MarketsList col={1} has_right_border={true}>
+                                    <SmartGoldIndex />
+                                </MarketsList>
+                            </Row>
+                        )}
+                        renderDetails={SmartGoldIndexDetails}
+                    />
+                </MarketsWrapper>
             </Flex>
         </SectionContainer>
     )

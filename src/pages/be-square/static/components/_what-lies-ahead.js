@@ -1,19 +1,13 @@
 import React from 'react'
-import {
-    CardContainer,
-    Container,
-    ContentContainer,
-    TextWrapper,
-    Title,
-    TitleWrapper,
-} from '../style/_what-lies-ahead'
+import { CardContainer, ContentContainer, Section, TitleWrapper } from '../style/_what-lies-ahead'
+import { TextWrapper, Title } from '../style/_common'
 import what_lies_ahead from '../content/_what-lies-ahead'
 import Card from './_card'
 
 const WhatLiesAhead = () => {
     const style = {
         card_wrapper: {
-            width: ['800px', '500px', '328px'],
+            width: ['800px', '500px', 'auto'],
             grid_template_columns: ['48px 84% 32px', '32px 77.9% 24px'],
             grid_template_areas: ["'dep-icon title min-max'", "'content content content'"],
             grid_column_gap: ['22px', '8px'],
@@ -27,18 +21,18 @@ const WhatLiesAhead = () => {
         icon_wrapper: {
             width: ['48px', '32px'],
             height: ['48px', '32px'],
-            grid_area: 'dep-icon',
+            grid_area: ['dep-icon'],
         },
         text_wrapper: {
             max_width: ['100%'],
             font_size: ['24px', '18px'],
             line_height: ['36px', '26px'],
             font_weight: '700',
-            grid_area: 'title',
+            grid_area: ['title'],
         },
     }
     return (
-        <Container>
+        <Section>
             <ContentContainer>
                 <TitleWrapper>
                     <Title>{what_lies_ahead.title}</Title>
@@ -46,7 +40,7 @@ const WhatLiesAhead = () => {
                         max_width={['792px', '328px']}
                         font_size={['24px', '18px']}
                         line_height={['36px', '26px']}
-                        text_align={'center'}
+                        text_align={['center', 'left']}
                     >
                         {what_lies_ahead.subtitle}
                     </TextWrapper>
@@ -60,12 +54,12 @@ const WhatLiesAhead = () => {
                     max_width={['791px', '328px']}
                     font_size={['16px', '14px']}
                     line_height={['24px', '20px']}
-                    text_align={'center'}
+                    text_align={['center', 'left']}
                 >
                     {what_lies_ahead.text}
                 </TextWrapper>
             </ContentContainer>
-        </Container>
+        </Section>
     )
 }
 

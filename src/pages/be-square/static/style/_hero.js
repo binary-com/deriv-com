@@ -1,6 +1,5 @@
 import styled from 'styled-components'
-import { Flex } from 'components/containers'
-import { Text, Header } from 'components/elements'
+import { Container } from 'components/containers'
 import device from 'themes/device'
 
 export const HeroContainer = styled.div`
@@ -15,45 +14,13 @@ export const HeroContainer = styled.div`
     }
 `
 
-export const HeaderContainer = styled(Flex)`
+export const HeaderContainer = styled(Container)`
     flex-direction: column;
     padding: 120px 0 80px 120px;
+    align-items: flex-start;
 
     @media ${device.laptop} {
-        align-items: center;
         padding: 40px 0 0;
-    }
-`
-
-export const SubTitle = styled(Text)`
-    color: var(--color-white);
-    font-size: 24px;
-    font-weight: 400;
-    line-height: 36px;
-    max-width: 384px;
-    max-height: 72px;
-
-    @media ${device.tablet} {
-        font-size: 18px;
-        line-height: 22px;
-        max-width: 328px;
-        max-height: 100px;
-    }
-`
-
-export const Title = styled(Header)`
-    color: var(--color-white);
-    font-size: 80px;
-    font-weight: 700;
-    line-height: 100px;
-    max-width: 384px;
-    max-height: 200px;
-
-    @media ${device.tablet} {
-        font-size: 40px;
-        line-height: 50px;
-        max-width: 328px;
-        max-height: 100px;
     }
 `
 

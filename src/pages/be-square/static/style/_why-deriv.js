@@ -1,18 +1,22 @@
 import styled from 'styled-components'
-import { Header, Text } from 'components/elements'
+import { Container, SectionContainer } from 'components/containers'
 import device from 'themes/device'
 
-export const Container = styled.div`
+export const Section = styled(SectionContainer)`
+    padding: 80px 0;
     box-shadow: inset 0 1px 0 rgba(51, 51, 51, 0.16);
+
+    @media ${device.tablet} {
+        padding: 40px 0;
+    }
 `
 
-export const ContentContainer = styled.div`
+export const ContentContainer = styled(Container)`
     display: grid;
     grid-template-columns: repeat(2, 486px);
     grid-row-gap: 40px;
     grid-column-gap: 24px;
     justify-content: center;
-    padding: 80px 0;
 
     @media ${device.tabletL} {
         grid-template-columns: auto;
@@ -22,50 +26,11 @@ export const ContentContainer = styled.div`
 
     @media ${device.tablet} {
         gap: 0;
-        padding: 40px 0;
-    }
-`
-
-export const Title = styled(Header)`
-    font-size: 48px;
-    font-weight: 700;
-    line-height: 60px;
-    color: var(--color-black-3);
-
-    @media ${device.tabletL} {
-        grid-area: title;
-    }
-
-    @media ${device.tablet} {
-        font-size: 28px;
-        line-height: 34px;
-    }
-`
-
-export const TextWrapper = styled(Text)`
-    max-width: 486px;
-    width: fit-content;
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 30px;
-    color: var(--color-black-3);
-    margin: ${({ margin }) => margin ?? 0};
-
-    @media ${device.tabletL} {
-        grid-area: ${({ grid_area }) => grid_area};
-    }
-
-    @media ${device.tablet} {
-        max-width: 328px;
-        font-size: 14px;
-        line-height: 20px;
-        margin: ${({ margin_m }) => margin_m ?? 0};
     }
 `
 
 export const ImageWrapper = styled.img`
     max-width: 486px;
-    max-height: 384px;
 
     @media ${device.tabletL} {
         grid-area: ${({ grid_area }) => grid_area};
@@ -73,6 +38,6 @@ export const ImageWrapper = styled.img`
 
     @media ${device.tablet} {
         max-width: 320px;
-        max-height: 259px;
+        width: inherit;
     }
 `

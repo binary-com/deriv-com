@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import { Flex } from 'components/containers'
-import { Header, Text } from 'components/elements'
 import device from 'themes/device'
 
 export const ContentContainer = styled(Flex)`
@@ -8,26 +7,12 @@ export const ContentContainer = styled(Flex)`
     max-width: 1440px;
     flex-direction: column;
     padding-bottom: 130px;
+    padding-left: 10px;
     align-items: center;
     justify-content: center;
 
     @media ${device.tabletL} {
         padding-bottom: 88px;
-    }
-`
-
-export const Title = styled(Header)`
-    max-width: 446px;
-    width: fit-content;
-    font-size: 48px;
-    font-weight: 700;
-    line-height: 60px;
-    color: var(--color-black-3);
-
-    @media ${device.tablet} {
-        max-width: 320px;
-        font-size: 28px;
-        line-height: 34px;
     }
 `
 
@@ -62,22 +47,6 @@ export const ItemContainer = styled.div`
     @media ${device.tablet} {
         grid-row-gap: 8px;
         justify-content: center;
-    }
-`
-
-export const TextWrapper = styled(Text)`
-    max-width: 240px;
-    width: fit-content;
-    font-size: 24px;
-    font-weight: 400;
-    line-height: 36px;
-    color: var(--color-black-3);
-
-    @media ${device.tablet} {
-        max-width: 216px;
-        font-size: 16px;
-        line-height: 24px;
-        text-align: center;
     }
 `
 

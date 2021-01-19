@@ -595,7 +595,7 @@ const Footer = ({ type }) => {
                                             external="true"
                                             key={1}
                                             target="_blank"
-                                            to="https://secure.gamblingcommission.gov.uk/PublicRegister/Search/Detail/39172"
+                                            to="https://beta.gamblingcommission.gov.uk/public-register/business/detail/39172"
                                             rel="noopener noreferrer"
                                         />,
                                     ]}
@@ -615,7 +615,7 @@ const Footer = ({ type }) => {
                                             external="true"
                                             key={1}
                                             target="_blank"
-                                            to="https://secure.gamblingcommission.gov.uk/PublicRegister/Search/Detail/39495"
+                                            to="https://beta.gamblingcommission.gov.uk/public-register/business/detail/39495"
                                             rel="noopener noreferrer"
                                         />,
                                     ]}

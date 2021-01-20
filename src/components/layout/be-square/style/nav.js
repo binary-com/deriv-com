@@ -20,6 +20,10 @@ export const Section = styled(SectionContainer)`
     @media ${device.tablet} {
         padding: 16px;
     }
+
+    @media ${device.mobileL} {
+        padding: 16px 0;
+    }
 `
 
 export const ContentContainer = styled(Container)`
@@ -28,6 +32,7 @@ export const ContentContainer = styled(Container)`
 `
 
 export const LogoWrapper = styled.img`
+    margin-left: 0;
     width: 286px;
     height: 27px;
 

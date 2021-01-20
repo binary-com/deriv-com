@@ -67,17 +67,8 @@ export const LineWrapper = styled.img`
     @media ${device.laptop} {
         bottom: 16%;
     }
-
-    @media ${device.laptop} {
-        display: none;
-    }
 `
 
-export const Line02Wrapper = styled.img`
-    display: none;
-
-    @media ${device.tablet} {
-        display: block;
-        margin: 12px auto;
-    }
+export const Line02Wrapper = styled.div`
+    margin: 12px auto;
 `

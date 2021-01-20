@@ -1,8 +1,8 @@
 import React from 'react'
 import { HeroContainer, HeaderContainer, ImageWrapper } from '../style/_hero'
 import { TextWrapper, Title } from '../style/_common'
-import { HeroImage } from '../images/_hero'
 import { localize } from 'components/localization'
+import HeroImage from 'images/common/be-square/hero.png'
 
 const Hero = () => (
     <HeroContainer>
@@ -12,7 +12,7 @@ const Hero = () => (
                 text_align={'left'}
                 font_size={['80px', '40px']}
                 line_height={['100px', '50px']}
-                max_width={['384px', '328px']}
+                max_width={['415px', '237px']}
             >
                 {localize('BeSquare by Deriv')}
             </Title>

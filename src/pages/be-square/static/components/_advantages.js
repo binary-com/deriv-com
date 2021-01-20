@@ -9,6 +9,7 @@ const Advantages = () => {
     const style = {
         card_wrapper: {
             width: ['auto'],
+            max_width: ['auto', '290px'],
             height: ['244px', '180px'],
             padding: ['32px 0 32px 32px'],
             border_radius: '16px',

@@ -130,12 +130,18 @@ State.set('response', {})
 
 const CookieStorage = function (cookie_name, cookie_domain) {
     const hostname = isBrowser() && window.location.hostname
+    const is_deriv_com = String(hostname).includes('deriv.com')
+    const is_binary_sx = String(hostname).includes('binary.sx')
 
     this.initialized = false
     this.cookie_name = cookie_name
-    this.domain =
-        cookie_domain ||
-        (String(hostname).includes('binary.sx') ? 'binary.sx' : deriv_cookie_domain)
+    if (is_deriv_com) {
+        this.domain = deriv_cookie_domain
+    } else if (is_binary_sx) {
+        this.domain = 'binary.sx'
+    } else {
+        this.domain = cookie_domain ?? String(hostname)
+    }
     this.path = '/'
     this.same_site = 'none'
     this.is_secure = true

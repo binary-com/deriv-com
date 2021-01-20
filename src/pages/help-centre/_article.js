@@ -37,13 +37,18 @@ export const Article = ({ children, header }) => {
                     size="var(--text-size-s)"
                     weight="bold"
                     arrow_margin="1rem"
-                    margin="4rem 0"
+                    margin="4rem 0 0"
                 >
                     {localize('Back')}
                 </StyledLink>
                 <Content>
                     <TabWrapper>
-                        <SideTab tab_header={header} size="var(--text-size-s)">
+                        <SideTab
+                            line_height="1.5"
+                            opacity="0.72"
+                            size="var(--text-size-s)"
+                            tab_header={header}
+                        >
                             {children}
                         </SideTab>
                     </TabWrapper>

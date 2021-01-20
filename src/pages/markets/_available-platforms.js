@@ -22,12 +22,6 @@ const PlatformsContainer = styled(Flex)`
         width: 24px;
         height: 24px;
         margin: 0 0.3rem;
-
-        @media ${device.tabletL} {
-            margin: 0;
-            width: 32px;
-            height: 32px;
-        }
     }
     a:last-child {
         margin-right: 0;
@@ -48,16 +42,15 @@ const StyledText = styled(Text)`
         margin-bottom: ${(props) => (props.tablet_direction === 'column' ? '1.6rem' : 'unset')};
     }
     @media ${device.mobileL} {
-        width: 121px;
+        width: unset;
     }
 `
 const StyledFlex = styled(Flex)`
     background: var(--color-grey-4);
     padding: 0.8rem;
 
-    @media ${device.tabletL} {
-        background: unset;
-        padding: 0;
+    ${Text} {
+        font-size: 14px;
     }
 `
 const AvailablePlatforms = ({

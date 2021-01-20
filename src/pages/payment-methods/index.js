@@ -131,10 +131,10 @@ const DisplayAccordianItem = ({ pd, crypto_config, locale }) => {
                                 <Th>
                                     <BoldText>{localize('Method')}</BoldText>
                                 </Th>
-                                <Th>
+                                <Th colSpan={pd.is_fiat_onramp && '3'}>
                                     <BoldText>{localize('Currencies')}</BoldText>
                                 </Th>
-                                <Th>
+                                <Th style={pd.is_fiat_onramp && { width: '135px' }}>
                                     {pd.is_crypto || pd.is_fiat_onramp ? (
                                         <BoldText>{localize('Min deposit')}</BoldText>
                                     ) : (
@@ -159,7 +159,7 @@ const DisplayAccordianItem = ({ pd, crypto_config, locale }) => {
                                     </Th>
                                 )}
                                 {pd.is_fiat_onramp ? (
-                                    <Th>
+                                    <Th colSpan="2">
                                         <BoldText>{localize('Deposit processing time')}</BoldText>
                                     </Th>
                                 ) : (
@@ -247,7 +247,7 @@ const PaymentMethods = (locale) => {
                     </AccordionContainer>
                     <Text mt="1.6rem" size="var(--text-size-xs)" align="left">
                         <Localize
-                            translate_text="<0>Disclaimer</0>: We process all your deposits and withdrawals within 1 working day. However, the processing times and limits in this page are indicative, depending on the queue or for reasons outside of our control."
+                            translate_text="<0>Disclaimer</0>: We process all your deposits and withdrawals within 1 day. However, the processing times and limits in this page are indicative, depending on the queue or for reasons outside of our control."
                             components={[<strong key={0} />]}
                         />
                     </Text>

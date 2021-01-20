@@ -27,7 +27,7 @@ Must be one of the following:
 
 ## Changing base branch
 
-There cases when you want to change the base branch because the PR that used to not having text changes and now having text changes, so, you need to convert base branch from `master` to `crowdin`. the command to do that is as follows:
+There are cases when you want to change the base branch because the PR that didn't used to have text changes is now having text changes, so, you need to convert base branch from `master` to `crowdin`. The command to do that is as follows:
 
 ```sh
 git rebase --onto crowdin master your_branch_name
@@ -53,7 +53,7 @@ or
 git pull upstream master|crowdin
 ```
 
-both of these will do the job. however, rebase won't add another commit to your PR where without rebase it will add commit history of merging the latest changes to your branch.
+both of these will do the job. However, rebase won't add another commit to your PR where without rebase it will add commit history of merging the latest changes to your branch.
 
 ## Resolve translation conflict on message.json
 

@@ -13,7 +13,7 @@ import { Localize, localize, WithIntl } from 'components/localization'
 
 const StyledContainer = styled(Container)`
     text-align: center;
-    height: 72rem;
+    height: 100vh;
     padding: 7rem 0 0;
 `
 
@@ -24,6 +24,7 @@ const FullwidthStyledContainer = styled(StyledContainer)`
 
 const TextContainer = styled(FullwidthStyledContainer)`
     max-width: 82rem;
+    justify-content: start;
 `
 
 const ButtonContainer = styled.div`
@@ -93,7 +94,7 @@ const ResetPassword = () => {
     if (!has_prompt) {
         body = (
             <StyledContainer justify="center" align="center" direction="column">
-                <Header as="h2" type="page-title" align="center">
+                <Header as="h2" type="page-title" align="center" mt="80px">
                     {localize('Reset password')}
                 </Header>
                 <Header

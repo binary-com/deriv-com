@@ -46,6 +46,13 @@ const StyledHeader = styled(Header)`
     }
 `
 
+const TitleHeader = styled(Header)`
+    @media ${device.tabletL} {
+        font-size: 32px;
+        line-height: 1.5;
+    }
+`
+
 const ClientCard = styled.article`
     margin: 0 0 0 2rem;
     background-color: var(--color-white);
@@ -121,9 +128,9 @@ const SimpleSteps = ({ header, content, sign_up }) => (
             <MobileBackgroundPattern src={PatternMobile} alt="pattern mobile" />
         </Show.Mobile>
         <Container direction="column">
-            <Header align="center" as="h3" type="section-title">
+            <TitleHeader align="center" as="h3" type="section-title">
                 {header}
-            </Header>
+            </TitleHeader>
         </Container>
         <StyledFlex wrap="wrap">
             {content.map((item, idx) => {

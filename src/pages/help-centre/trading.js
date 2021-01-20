@@ -1,39 +1,9 @@
 import React from 'react'
-import styled from 'styled-components'
 import { Article } from './_article'
+import { ArticleWrapper, ExternalLink, StyledHeader } from './_help-centre-style'
 import { deriv_app_url } from 'common/utility'
-import { Text, Header } from 'components/elements/typography'
-import { localize, Localize, WithIntl, LocalizedLink } from 'components/localization'
-import device from 'themes/device'
-
-const ArticleWrapper = styled.div`
-    max-width: 71.2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    height: 100%;
-    font-size: var(--text-size-s);
-    line-height: 1.5;
-    margin-left: 12.6rem;
-    margin-top: 1.6rem;
-
-    @media ${device.tabletL} {
-        margin-left: 0;
-    }
-`
-const ExternalLink = styled(LocalizedLink)`
-    text-decoration: none;
-    font-size: var(--text-size-s);
-    font-weight: bold;
-    color: var(--color-red);
-
-    :hover {
-        text-decoration: underline;
-    }
-`
-const StyledHeader = styled(Header)`
-    margin-bottom: 2.4rem;
-`
+import { Text } from 'components/elements'
+import { localize, Localize, WithIntl } from 'components/localization'
 
 const Forex = () => (
     <ArticleWrapper>

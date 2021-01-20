@@ -4,41 +4,45 @@ import PropTypes from 'prop-types'
 import { Flex } from 'components/containers'
 import { LocalizedLink, localize, Localize } from 'components/localization'
 import { Accordion, AccordionItem, NavCard, Text, Divider } from 'components/elements'
+import Signals from 'components/svgs/signals'
 import { useOutsideClick } from 'components/hooks/outside-click'
 import {
-    community_url,
     cfd_warning_height_desktop,
     cfd_warning_height_tablet,
+    deriv_status_page_url,
 } from 'common/utility'
 // SVG
-import DTrader from 'images/svg/dtrader-icon.svg'
-import DMT5 from 'images/svg/dmt5-icon.svg'
-import DBot from 'images/svg/dbot-icon.svg'
-import Smarttrader from 'images/svg/smarttrader.svg'
-import Forex from 'images/svg/forex-nav.svg'
-import Commodities from 'images/svg/commodities-nav.svg'
-import StockIndices from 'images/svg/stock-indices-nav.svg'
-import SyntheticIndices from 'images/svg/synthetic-indices-nav.svg'
-import MarginTrading from 'images/svg/margin-trading-nav.svg'
-import Options from 'images/svg/options-nav.svg'
-import Multipliers from 'images/svg/multipliers-nav.svg'
-import Story from 'images/svg/menu/story.svg'
-import Leadership from 'images/svg/menu/leadership.svg'
-import Partner from 'images/svg/menu/partner.svg'
-import Choose from 'images/svg/menu/choose.svg'
-import Contact from 'images/svg/menu/contact.svg'
-import Career from 'images/svg/menu/careers.svg'
-import Help from 'images/svg/menu/help-center.svg'
-import Payment from 'images/svg/menu/payment-methods.svg'
-import Regulatory from 'images/svg/menu/regulatory.svg'
-import Terms from 'images/svg/menu/terms.svg'
-import SecureTrading from 'images/svg/menu/secure-trading.svg'
-import Community from 'images/svg/menu/community.svg'
-import Diagonal from 'images/svg/pink-right-diagonal.svg'
 import AffiliateIb from 'images/svg/menu/affiliate-ib.svg'
+import Blog from 'images/svg/blog-nav.svg'
+import Career from 'images/svg/menu/careers.svg'
+import Choose from 'images/svg/menu/choose.svg'
+import Commodities from 'images/svg/commodities-nav.svg'
+import Community from 'images/svg/menu/community.svg'
+import Contact from 'images/svg/menu/contact.svg'
+import DBot from 'images/svg/dbot-icon.svg'
+import Diagonal from 'images/svg/pink-right-diagonal.svg'
+import DMT5 from 'images/svg/dmt5-icon.svg'
+import DTrader from 'images/svg/dtrader-icon.svg'
+import Forex from 'images/svg/forex-nav.svg'
+import Help from 'images/svg/menu/help-center.svg'
+import Leadership from 'images/svg/menu/leadership.svg'
+import MarginTrading from 'images/svg/margin-trading-nav.svg'
+import Multipliers from 'images/svg/multipliers-nav.svg'
+import Options from 'images/svg/options-nav.svg'
+import Partner from 'images/svg/menu/partner.svg'
+import Payment from 'images/svg/menu/payment-methods.svg'
 import PaymentAgent from 'images/svg/menu/payment-agent.svg'
+import Regulatory from 'images/svg/menu/regulatory.svg'
+import SecureTrading from 'images/svg/menu/secure-trading.svg'
+import Smarttrader from 'images/svg/smarttrader.svg'
+import Status from 'images/svg/status.svg'
+import StockIndices from 'images/svg/stock-indices-nav.svg'
+import Story from 'images/svg/menu/story.svg'
+import SyntheticIndices from 'images/svg/synthetic-indices-nav.svg'
+import Terms from 'images/svg/menu/terms.svg'
 import { DerivStore } from 'store'
 import device from 'themes/device'
+import Trade from 'images/svg/trader-tool-nav.svg'
 
 const OffCanvasMenu = styled.section`
     position: fixed;
@@ -93,6 +97,12 @@ const StyledLink = styled((props) => <LocalizedLink {...props} />)`
     &:first-child {
         margin-top: 16px;
     }
+`
+
+const SvgWrapper = styled.div`
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
 `
 
 const OffCanvasMenuContainer = styled.div`
@@ -226,19 +236,21 @@ export const OffCanvasMenuWrapper = (props) => {
                                 to="/trade-types/margin/"
                             />
                         </Flex>
-                        <Flex mb="2rem">
-                            <NavCard
-                                icon={() => (
-                                    <img src={Options} alt="Options" width="32" height="32" />
-                                )}
-                                content={
-                                    <Localize translate_text="Earn fixed payouts by predicting an asset's price movement." />
-                                }
-                                title={<Localize translate_text="Options" />}
-                                onClick={handleArrowClick}
-                                to="/trade-types/options"
-                            />
-                        </Flex>
+                        {!is_eu_country && (
+                            <Flex mb="2rem">
+                                <NavCard
+                                    icon={() => (
+                                        <img src={Options} alt="Options" width="32" height="32" />
+                                    )}
+                                    content={
+                                        <Localize translate_text="Earn fixed payouts by predicting an asset's price movement." />
+                                    }
+                                    title={<Localize translate_text="Options" />}
+                                    onClick={handleArrowClick}
+                                    to="/trade-types/options"
+                                />
+                            </Flex>
+                        )}
                         <Flex mb="2rem">
                             <NavCard
                                 icon={() => (
@@ -385,27 +397,72 @@ export const OffCanvasMenuWrapper = (props) => {
                             </div>
                             <span>{localize('Help centre')}</span>
                         </StyledLink>
-                        {/* TODO: add this when blog is ready */}
-                        {/* <StyledLink to="/blog/" onClick={handleArrowClick}>
-                            {localize('Blog')}
-                        </StyledLink> */}
-                        <StyledLink to="/payment-methods/" onClick={handleArrowClick}>
-                            <div>
-                                <img src={Payment} alt="payment" width="24" height="24" />
-                            </div>
-                            <span>{localize('Payment methods')}</span>
-                        </StyledLink>
                         <StyledLink
-                            to={community_url}
-                            onClick={handleArrowClick}
+                            to=""
+                            is_community_link
                             external="true"
                             target="_blank"
                             rel="noopener noreferrer"
+                            onClick={handleArrowClick}
                         >
                             <div>
                                 <img src={Community} alt="community" width="24" height="24" />
                             </div>
                             <Span>{localize('Community')}</Span>
+                            <SpanSvg>
+                                <img src={Diagonal} alt="diagonal" width="16" height="16" />
+                            </SpanSvg>
+                        </StyledLink>
+                        <StyledLink to="/trader-tools/" onClick={handleArrowClick}>
+                            <div>
+                                <img src={Trade} alt="trader tools" width="24" height="24" />
+                            </div>
+                            <span>{localize('Traders’ tools')}</span>
+                        </StyledLink>
+                        <StyledLink to="/payment-methods/" onClick={handleArrowClick}>
+                            <div>
+                                <img src={Payment} alt="payment methods" width="24" height="24" />
+                            </div>
+                            <span>{localize('Payment methods')}</span>
+                        </StyledLink>
+                        <StyledLink
+                            to="/dmt5-trading-signals/#signal-subscriber/"
+                            onClick={handleArrowClick}
+                        >
+                            <div>
+                                <SvgWrapper>
+                                    <Signals dynamic_id="dmt5-signals" />
+                                </SvgWrapper>
+                            </div>
+                            <span>{localize('DMT5 Signals')}</span>
+                        </StyledLink>
+                        <StyledLink
+                            to={deriv_status_page_url}
+                            external="true"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={handleArrowClick}
+                        >
+                            <div>
+                                <img src={Status} alt="status" width="24" height="24" />
+                            </div>
+                            <Span>{localize('Status page')}</Span>
+                            <SpanSvg>
+                                <img src={Diagonal} alt="diagonal" width="16" height="16" />
+                            </SpanSvg>
+                        </StyledLink>
+                        <StyledLink
+                            to=""
+                            is_blog_link
+                            external="true"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={handleArrowClick}
+                        >
+                            <div>
+                                <img src={Blog} alt="blog" width="24" height="24" />
+                            </div>
+                            <Span>{localize('Blog')}</Span>
                             <SpanSvg>
                                 <img src={Diagonal} alt="diagonal" width="16" height="16" />
                             </SpanSvg>

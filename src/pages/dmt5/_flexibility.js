@@ -86,11 +86,12 @@ const ClientCard = styled.article`
     }
 `
 const StyledLinkButton = styled(LinkButton)`
-    padding: 14px 16px;
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 16px;
     height: 40px;
     border: unset;
-    max-width: 182px;
-    width: 100%;
+    width: auto;
     margin: auto;
 `
 const StyledHeader = styled(Header)`

@@ -3,10 +3,9 @@ import PropTypes from 'prop-types'
 import { graphql, StaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import Cookies from 'js-cookie'
+import { getCookiesObject, getCookiesFields, getDataObjFromCookies } from 'common/cookies'
 import { Box } from 'components/containers'
 import Login from 'common/login'
-import { CookieStorage, LocalStore } from 'common/storage'
-import TrafficSource from 'common/traffic-source'
 import validation from 'common/validation'
 import { BinarySocketBase } from 'common/websocket/socket_base'
 import SignupDefault from 'components/custom/_signup-default'
@@ -91,58 +90,18 @@ class Signup extends Component {
     }
 
     getVerifyEmailRequest = (email) => {
-        const utm_data = TrafficSource.getData()
         const affiliate_token = Cookies.getJSON('affiliate_tracking')
-        const signup_device_cookie = new CookieStorage('signup_device')
-        const signup_device = signup_device_cookie.get('signup_device')
-        const date_first_contact_cookie = new CookieStorage('date_first_contact')
-        const date_first_contact = date_first_contact_cookie.get('date_first_contact')
-        const gclid = LocalStore.get('gclid')
+
+        const cookies = getCookiesFields()
+        const cookies_objects = getCookiesObject(cookies)
+        const cookies_value = getDataObjFromCookies(cookies_objects, cookies)
 
         return {
             verify_email: email,
             type: 'account_opening',
             url_parameters: {
-                utm_source: TrafficSource.getSource(utm_data),
-                ...(utm_data.utm_ad_id && {
-                    utm_ad_id: utm_data.utm_ad_id,
-                }),
-                ...(utm_data.utm_adgroup_id && {
-                    utm_adgroup_id: utm_data.utm_adgroup_id,
-                }),
-                ...(utm_data.utm_adrollclk_id && {
-                    utm_adrollclk_id: utm_data.utm_adrollclk_id,
-                }),
-                ...(utm_data.utm_campaign && {
-                    utm_campaign: utm_data.utm_campaign,
-                }),
-                ...(utm_data.utm_campaign_id && {
-                    utm_campaign_id: utm_data.utm_campaign_id,
-                }),
-                ...(utm_data.utm_content && {
-                    utm_content: utm_data.utm_content,
-                }),
-                ...(utm_data.utm_fbcl_id && {
-                    utm_fbcl_id: utm_data.utm_fbcl_id,
-                }),
-                ...(utm_data.utm_gl_client_id && {
-                    utm_gl_client_id: utm_data.utm_gl_client_id,
-                }),
-                ...(utm_data.utm_medium && {
-                    utm_medium: utm_data.utm_medium,
-                }),
-                ...(utm_data.utm_msclk_id && {
-                    utm_msclk_id: utm_data.utm_msclk_id,
-                }),
-                ...(utm_data.utm_term && {
-                    utm_term: utm_data.utm_term,
-                }),
                 ...(affiliate_token && { affiliate_token: affiliate_token }),
-                ...(gclid && { gclid_url: gclid }),
-                ...(signup_device && { signup_device: signup_device }),
-                ...(date_first_contact && {
-                    date_first_contact: date_first_contact,
-                }),
+                ...(cookies_value && { ...cookies_value }),
             },
         }
     }
@@ -180,7 +139,8 @@ class Signup extends Component {
                     is_submitting: false,
                     submit_status: 'success',
                 })
-                if (this.props.onSubmit) this.props.onSubmit(this.state.submit_status)
+                if (this.props.onSubmit)
+                    this.props.onSubmit(this.state.submit_status, this.state.email)
             }
 
             binary_socket.close()
@@ -235,44 +195,39 @@ class Signup extends Component {
     }
 
     render() {
-        return (
-            <>
-                {!this.state.submit_status && (
-                    <Form onSubmit={this.handleEmailSignup} noValidate bgColor={this.props.bgColor}>
-                        {this.renderSwitch(this.props.appearance)}
-                    </Form>
-                )}
-                {this.state.submit_status === 'success' && (
-                    <ResponseWrapper>
-                        <Header as="h3" type="section-title" align="center" weight="normal">
-                            {localize('Check your email')}
-                        </Header>
-                        <StaticQuery
-                            query={graphql`
-                                query {
-                                    view_email: file(relativePath: { eq: "view-email.png" }) {
-                                        ...fadeIn
-                                    }
-                                }
-                            `}
-                            render={(data) => (
-                                <Box m="3.2rem 0">
-                                    <QueryImage data={data.view_email} alt="Email image" />
-                                </Box>
-                            )}
-                        />
-                        <Text align="center">
-                            <Localize
-                                translate_text="We've sent a message to {{email}} with a link to activate your account."
-                                values={{ email: this.state.email }}
-                            />
-                        </Text>
-                        <EmailLink to="/check-email/" align="center">
-                            {localize("Didn't receive your email?")}
-                        </EmailLink>
-                    </ResponseWrapper>
-                )}
-            </>
+        return this.props.submit_state === 'success' ? (
+            <ResponseWrapper>
+                <Header as="h3" type="section-title" align="center" weight="normal">
+                    {localize('Check your email')}
+                </Header>
+                <StaticQuery
+                    query={graphql`
+                        query {
+                            view_email: file(relativePath: { eq: "view-email.png" }) {
+                                ...fadeIn
+                            }
+                        }
+                    `}
+                    render={(data) => (
+                        <Box m="3.2rem 0">
+                            <QueryImage data={data.view_email} alt="Email image" />
+                        </Box>
+                    )}
+                />
+                <Text align="center">
+                    <Localize
+                        translate_text="We've sent a message to {{email}} with a link to activate your account."
+                        values={{ email: this.props.email }}
+                    />
+                </Text>
+                <EmailLink to="/check-email/" align="center">
+                    {localize("Didn't receive your email?")}
+                </EmailLink>
+            </ResponseWrapper>
+        ) : (
+            <Form onSubmit={this.handleEmailSignup} noValidate bgColor={this.props.bgColor}>
+                {this.renderSwitch(this.props.appearance)}
+            </Form>
         )
     }
 }
@@ -281,7 +236,9 @@ Signup.propTypes = {
     appearance: PropTypes.oneOf(Object.keys(Appearances)),
     autofocus: PropTypes.bool,
     bgColor: PropTypes.string,
+    email: PropTypes.string,
     onSubmit: PropTypes.func,
+    submit_state: PropTypes.string,
 }
 
 export default Signup

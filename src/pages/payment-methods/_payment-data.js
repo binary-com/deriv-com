@@ -36,8 +36,8 @@ import Diners from 'images/svg/payment-methods/payment-diners.svg'
 import UsdCoin from 'images/svg/payment-methods/payment-usd-coin.svg'
 // import Usdk from 'images/svg/payment-methods/payment-usdk.svg'
 import Changelly from 'images/svg/payment-methods/payment-changelly.svg'
-// import Wyre from 'images/svg/payment-methods/payment-wyre.svg'
-// import Xanpool from 'images/svg/payment-methods/payment-xanpool.svg'
+import Wyre from 'images/svg/payment-methods/payment-wyre.svg'
+import Xanpool from 'images/svg/payment-methods/payment-xanpool.svg'
 import Banxa from 'images/svg/payment-methods/payment-banxa.svg'
 import Paylivre from 'images/svg/payment-methods/payment-paylivre.svg'
 
@@ -150,12 +150,12 @@ const UsdCoinIc = styled.img`
 const ChangellyIc = styled.img`
     ${icon_css}
 `
-// const WyreIc = styled(Wyre)`
-//     ${icon_css}
-// `
-// const XanpoolIc = styled(Xanpool)`
-//     ${icon_css}
-// `
+const WyreIc = styled.img`
+    ${icon_css}
+`
+const XanpoolIc = styled.img`
+    ${icon_css}
+`
 const BanxaIc = styled.img`
     ${icon_css}
 `
@@ -659,26 +659,26 @@ const payment_data = [
                 name: 'Changelly',
                 reference: 'changelly-payment-method.pdf',
             },
-            // {
-            //     method: <WyreIc />,
-            //     currencies: 'USD EUR GBP AUD MXN BTC ETH WETH DAI',
-            //     min_max_deposit: <Localize translate_text="No minimum" />,
-            //     deposit_time: <Localize translate_text="Funds available as soon as confirmed" />,
-            //     description: (
-            //         <Localize translate_text="Wyre gives you a secure bridge between fiat currencies and cryptocurrencies." />
-            //     ),
-            //     name: 'Wyre',
-            // },
-            // {
-            //     method: <XanpoolIc />,
-            //     currencies: 'HKD SGD MYR PHP THB INR VND IDR BTC ETH LTC USDT',
-            //     min_max_deposit: <Localize translate_text="No minimum" />,
-            //     deposit_time: <Localize translate_text="Funds available as soon as confirmed" />,
-            //     description: (
-            //         <Localize translate_text="Buy cryptocurrencies in an instant. Enjoy easy, quick, and secure exchanges using your local payment methods." />
-            //     ),
-            //     name: 'Xanpool',
-            // },
+            {
+                method: <WyreIc src={Wyre} alt="Wyre" />,
+                currencies: 'USD EUR GBP AUD MXN BTC ETH WETH DAI',
+                min_max_deposit: <Localize translate_text="No minimum" />,
+                deposit_time: <Localize translate_text="Funds available as soon as confirmed" />,
+                description: (
+                    <Localize translate_text="Wyre gives you a secure bridge between fiat currencies and cryptocurrencies." />
+                ),
+                name: 'Wyre',
+            },
+            {
+                method: <XanpoolIc src={Xanpool} alt="Xanpool" />,
+                currencies: 'HKD SGD MYR PHP THB INR VND IDR BTC ETH LTC USDT',
+                min_max_deposit: <Localize translate_text="No minimum" />,
+                deposit_time: <Localize translate_text="Funds available as soon as confirmed" />,
+                description: (
+                    <Localize translate_text="Buy cryptocurrencies in an instant. Enjoy easy, quick, and secure exchanges using your local payment methods." />
+                ),
+                name: 'Xanpool',
+            },
             {
                 method: <BanxaIc src={Banxa} alt="Banxa" />,
                 currencies: 'USD EUR GBP AUD CAD BTC LTC USDT USDC',

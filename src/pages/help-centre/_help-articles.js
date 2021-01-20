@@ -200,19 +200,11 @@ export const articles = [
             },
             {
                 title: (
-                    <Localize translate_text="What are the differences between the DMT5 Financial, Financial STP, and Synthetic accounts?" />
+                    <Localize translate_text="What are the differences between the DMT5 Synthetic Indices, Financial and Financial STP accounts?" />
                 ),
                 category: 'DMT5',
                 sub_category: <Localize translate_text="Accounts" />,
                 label: 'differences-of-dmt5-accounts',
-            },
-            {
-                title: (
-                    <Localize translate_text="How can I deposit funds into my DMT5 real money account?" />
-                ),
-                category: 'DMT5',
-                sub_category: <Localize translate_text="Deposits" />,
-                label: 'deposit-to-dmt5',
             },
             {
                 title: (
@@ -235,6 +227,14 @@ export const articles = [
                 category: 'DMT5',
                 sub_category: <Localize translate_text="Reset password" />,
                 label: 'reset-dmt5-password',
+            },
+            {
+                title: (
+                    <Localize translate_text="How can I deposit funds into my DMT5 real money account?" />
+                ),
+                category: 'DMT5',
+                sub_category: <Localize translate_text="Deposits" />,
+                label: 'deposit-to-dmt5',
             },
         ],
     },
@@ -331,20 +331,6 @@ export const articles = [
                 label: 'reset-workspace',
             },
             {
-                title: <Localize translate_text="How do I view the chart in DBot?" />,
-                category: 'DBot',
-                sub_category: <Localize translate_text="Chart" />,
-                label: 'view-chart',
-            },
-            {
-                title: (
-                    <Localize translate_text="Where can I see the status of my trades in DBot?" />
-                ),
-                category: 'DBot',
-                sub_category: <Localize translate_text="Logs" />,
-                label: 'status-of-trades',
-            },
-            {
                 title: <Localize translate_text="How do I clear my transaction log?" />,
                 category: 'DBot',
                 sub_category: <Localize translate_text="Logs" />,
@@ -355,6 +341,20 @@ export const articles = [
                 category: 'DBot',
                 sub_category: <Localize translate_text="How to trade" />,
                 label: 'control-loss',
+            },
+            {
+                title: (
+                    <Localize translate_text="Where can I see the status of my trades in DBot?" />
+                ),
+                category: 'DBot',
+                sub_category: <Localize translate_text="Logs" />,
+                label: 'status-of-trades',
+            },
+            {
+                title: <Localize translate_text="How do I view the chart in DBot?" />,
+                category: 'DBot',
+                sub_category: <Localize translate_text="Chart" />,
+                label: 'view-chart',
             },
         ],
     },

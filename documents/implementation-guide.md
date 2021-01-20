@@ -34,7 +34,7 @@ Then in your react component
 </_component_name_>
 ```
 
-you can extend style component like this
+you can extend styled component like this
 
 ```js
 const _want_extend_ = styled(_component_name_)`
@@ -157,7 +157,7 @@ const Example = () => (
 #### Create new page
 
 to create new page, please create a directory inside `src/pages`. directory name automatically become the new route,
-craete an index.js inside the directory (this is required). To separate into different sections, you can make another js file inside the directory with prefix `_` to avoid creation of new route.
+create an index.js inside the directory (this is required). To separate into different sections, you can make another js file inside the directory with prefix `_` to avoid creation of new route.
 
 Example directory:
 
@@ -168,7 +168,7 @@ Example directory:
    │   ├── ...
 ```
 
-Every page should wrap within <Layout /> component, and have a child <SEO title='' description='' />.
+Every page should be wrapped within `<Layout />` component, and have a child `<SEO title='' description='' />`.
 It is required to export default your page. and use Higher order component of `WithIntl` from localization to help usage of translation methods.
 
 Usage example:
@@ -187,12 +187,12 @@ const MyPageName = () => {
     )
 }
 
-export default WithIntl()(About)
+export default WithIntl()(MyPageName)
 ```
 
 ### CSS responsive function
 
-to create a responsive component for different breakpoints, please use <Box> component and inject the css styles for available breakpoints.
+to create a responsive component for different breakpoints, please use `<Box>` component and inject the css styles for available breakpoints.
 
 Usage example:
 

@@ -105,15 +105,20 @@ const livechat_client_id = '66aa088aad5a414484c1fd1fa8a5ace7'
 const livechat_license_id = 12049137
 const trimSpaces = (value) => value.trim()
 
+const application_id = 'f0aef779-d9ec-4517-807e-a84c683c4265'
+const client_token = 'pubc42fda54523c5fb23c564e3d8bceae88'
 const deriv_app_url = 'https://app.deriv.com'
 const deriv_bot_app_url = 'https://app.deriv.com/bot'
+const deriv_blog_url = 'https://blog.deriv.com'
 const deriv_dp2p_app_url = 'https://app.deriv.com/cashier/p2p'
+const deriv_status_page_url = 'https://deriv.statuspage.io'
 const smarttrader_url = 'https://smarttrader.deriv.com'
 const binary_url = 'https://binary.com'
+const blog_url = 'https://blog.deriv.com'
 const deriv_cookie_domain = 'deriv.com'
 const affiliate_signup_url = 'https://login.deriv.com/signup.php'
 const affiliate_signin_url = 'https://login.deriv.com/signin.php'
-const community_url = 'https://community.deriv.com/'
+const community_url = 'https://community.deriv.com'
 const zoho_url = 'https://deriv.zohorecruit.com/'
 const brand_name = 'Deriv'
 const map_api_key = 'AIzaSyAEha6-HeZuI95L9JWmX3m6o-AxQr_oFqU'
@@ -138,45 +143,50 @@ export {
     affiliate_signup_url,
     binary_url,
     brand_name,
-    cfd_warning_height_desktop,
-    cfd_warning_height_tablet,
+    application_id,
+    client_token,
     checkElemInArray,
     cloneObject,
-    community_url,
-    debounce,
-    deriv_app_url,
-    deriv_bot_app_url,
+    blog_url,
+    cfd_warning_height_desktop,
+    cfd_warning_height_tablet,
     deriv_cookie_domain,
-    deriv_dp2p_app_url,
+    dmt5_windows_url,
+    dmt5_linux_url,
     dmt5_android_url,
     dmt5_ios_url,
-    dmt5_linux_url,
+    community_url,
+    deriv_app_url,
+    deriv_blog_url,
+    deriv_bot_app_url,
+    deriv_dp2p_app_url,
+    deriv_status_page_url,
     dmt5_macos_url,
-    dmt5_windows_url,
     dp2p_google_play_url,
+    mga_link_url,
+    debounce,
+    isEmptyObject,
+    isBrowser,
     getCrowdin,
     getCryptoDecimals,
+    getPropertyValue,
     getLanguage,
     getLocationHash,
-    getPropertyValue,
+    setLocationHash,
+    routeBack,
     getWindowWidth,
     gtm_test_domain,
-    isBrowser,
-    isEmptyObject,
     livechat_client_id,
     livechat_license_id,
     map_api_key,
-    mga_link_url,
-    p2p_playstore_url,
     PromiseClass,
-    routeBack,
     sanitize,
     scrollTop,
     sentenceCase,
-    setLocationHash,
     smarttrader_url,
-    toHashFormat,
     toISOFormat,
-    trimSpaces,
+    toHashFormat,
     zoho_url,
+    trimSpaces,
+    p2p_playstore_url,
 }

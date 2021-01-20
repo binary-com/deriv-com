@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 import { Container, CssGrid, Flex, Show } from '../containers'
 import { StyledLink, Text, QueryImage } from '../elements'
 import { LocationContext } from './location-context'
-import { mga_link_url } from 'common/utility'
+import { deriv_status_page_url, mga_link_url } from 'common/utility'
 // TODO: (discussion) make footer pure component, and move usage of footer to custom
 import device from 'themes/device'
 import { localize, Localize, LocalizedLink } from 'components/localization'
@@ -320,6 +320,7 @@ const Footer = ({ type }) => {
     const { show_cookie_banner } = React.useContext(LocationContext)
 
     mobile_accordion_header_about.borderTop = 'none'
+    const current_year = new Date().getFullYear()
 
     return (
         <StyledFooter has_banner_cookie={show_cookie_banner}>
@@ -476,8 +477,43 @@ const Footer = ({ type }) => {
                                         <Link to="/help-centre">{localize('Help centre')}</Link>
                                     </LinkWrapper>
                                     <LinkWrapper>
+                                        <Link
+                                            to=""
+                                            is_community_link
+                                            external="true"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                        >
+                                            {localize('Community')}
+                                        </Link>
+                                    </LinkWrapper>
+                                    <LinkWrapper>
+                                        <Link to="/trader-tools">{localize('Traders’ tools')}</Link>
+                                    </LinkWrapper>
+                                    <LinkWrapper>
                                         <Link to="/payment-methods">
                                             {localize('Payment methods')}
+                                        </Link>
+                                    </LinkWrapper>
+                                    <LinkWrapper>
+                                        <Link
+                                            to={deriv_status_page_url}
+                                            target="_blank"
+                                            external="true"
+                                            rel="noopener noreferrer"
+                                        >
+                                            {localize('Status page')}
+                                        </Link>
+                                    </LinkWrapper>
+                                    <LinkWrapper>
+                                        <Link
+                                            to=""
+                                            is_blog_link
+                                            external="true"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                        >
+                                            {localize('Blog')}
                                         </Link>
                                     </LinkWrapper>
                                 </LinksCol>
@@ -559,7 +595,7 @@ const Footer = ({ type }) => {
                                             external="true"
                                             key={1}
                                             target="_blank"
-                                            to="https://secure.gamblingcommission.gov.uk/PublicRegister/Search/Detail/39172"
+                                            to="https://beta.gamblingcommission.gov.uk/public-register/business/detail/39172"
                                             rel="noopener noreferrer"
                                         />,
                                     ]}
@@ -579,7 +615,7 @@ const Footer = ({ type }) => {
                                             external="true"
                                             key={1}
                                             target="_blank"
-                                            to="https://secure.gamblingcommission.gov.uk/PublicRegister/Search/Detail/39495"
+                                            to="https://beta.gamblingcommission.gov.uk/public-register/business/detail/39495"
                                             rel="noopener noreferrer"
                                         />,
                                     ]}
@@ -690,7 +726,12 @@ const Footer = ({ type }) => {
                     </Disclaimer>
                     <Copyright>
                         <img src={CopyrightIc} alt="copyright ic" width="16" height="16" />
-                        <Text ml="0.4rem">{localize('2020 Deriv | All rights reserved')}</Text>
+                        <Text ml="0.4rem">
+                            <Localize
+                                translate_text="{{current_year}} Deriv | All rights reserved"
+                                values={{ current_year }}
+                            />
+                        </Text>
                     </Copyright>
                     <Show.NonEU>
                         <SocialWrapperComponent is_career_page={type === 'careers'} />

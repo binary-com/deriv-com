@@ -5,10 +5,10 @@ import { WrapPagesWithLocaleContext } from './src/components/localization'
 import { isProduction, isLocalHost } from './src/common/websocket/config'
 import { CookieStorage, LocalStore } from './src/common/storage'
 import { isMobile } from './src/common/os-detect'
-import { gtm_test_domain } from './src/common/utility'
+import { application_id, client_token, gtm_test_domain } from './src/common/utility'
 import { MediaContextProvider } from './src/themes/media'
 import { DerivProvider } from './src/store'
-import 'typeface-ibm-plex-sans'
+import './static/css/ibm-plex-sans-var.css';
 
 const is_browser = typeof window !== 'undefined'
 
@@ -108,6 +108,19 @@ export const onClientEntry = () => {
         src:'https://static.deriv.com/scripts/cookie.js',
         async: true,
     })
+
+    addScript({
+        src:'https://www.datadoghq-browser-agent.com/datadog-rum-us.js',
+        async: true,
+    })
+
+    if (window.location.hostname === 'deriv.com' && window.DD_RUM ) {
+        window.DD_RUM.init({
+            clientToken: client_token,
+            applicationId: application_id,
+        })
+    }
+
 }
 
 export const onPreRouteUpdate = () => {

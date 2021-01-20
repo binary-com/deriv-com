@@ -14,7 +14,6 @@ import { Localize, localize, WithIntl } from 'components/localization'
 const StyledContainer = styled(Container)`
     text-align: center;
     height: 100vh;
-    padding: 7rem 0 0;
 `
 
 const FullwidthStyledContainer = styled(StyledContainer)`
@@ -28,15 +27,14 @@ const TextContainer = styled(FullwidthStyledContainer)`
 `
 
 const ButtonContainer = styled.div`
-    margin-top: 0;
+    margin-top: 2rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-gap: 1rem;
 `
 
 const InputGroup = styled.div`
     width: 40rem;
-    margin: 0 auto 2rem;
+    margin: 0 auto 3.4rem;
 `
 
 const StyledButton = styled(Button)`
@@ -93,7 +91,7 @@ const ResetPassword = () => {
     let body
     if (!has_prompt) {
         body = (
-            <StyledContainer justify="center" align="center" direction="column">
+            <StyledContainer justify="start" align="center" direction="column">
                 <Header as="h2" type="page-title" align="center" mt="80px">
                     {localize('Reset password')}
                 </Header>
@@ -170,9 +168,9 @@ const ResetPassword = () => {
         )
     } else {
         body = (
-            <FullwidthStyledContainer background="var(--color-grey-31);" mt="7rem">
+            <FullwidthStyledContainer background="var(--color-grey-31);">
                 <TextContainer justify="flex-start" align="center" direction="column">
-                    <Header as="h2" type="section-title" align="center" mb="2rem">
+                    <Header as="h2" type="section-title" align="center" mb="2rem" mt="80px">
                         {localize('All you’ll need from now is one password')}
                     </Header>
                     <Text align="center" mb="2rem">
@@ -195,7 +193,7 @@ const ResetPassword = () => {
         )
     }
     return (
-        <Layout type="static" is_fullpage margin_top="7">
+        <Layout type="static" is_fullpage margin_top="0">
             <SEO
                 title={localize('Reset password | Deriv')}
                 description={localize(

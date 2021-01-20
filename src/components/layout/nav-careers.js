@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { StyledNav, StyledLink, NavWrapper, LogoLink, Wrapper, NavLeft } from './nav'
 import { Flex } from 'components/containers'
-import { localize } from 'components/localization'
 import { QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
 import { zoho_url } from 'common/utility'
@@ -47,10 +46,10 @@ export const NavCareers = () => {
                 <StyledNav>
                     <Wrapper>
                         <CareerNavLeft>
-                            <CareerLogo to={'/'} aria-label={localize('Home')}>
+                            <CareerLogo to={'/'} aria-label={'Home'}>
                                 <QueryImage
                                     data={data['deriv']}
-                                    alt={localize('Deriv')}
+                                    alt={'Deriv'}
                                     width="16.4rem"
                                     height="auto"
                                 />
@@ -58,7 +57,7 @@ export const NavCareers = () => {
                             <StyledLink
                                 activeClassName="active"
                                 to="/careers"
-                                aria-label={localize('Careers home')}
+                                aria-label={'Careers'}
                                 partiallyActive={true}
                             >
                                 HOME
@@ -66,10 +65,19 @@ export const NavCareers = () => {
                             <StyledLink
                                 activeClassName="active"
                                 to="/careers/locations/"
-                                aria-label={localize('Locations')}
+                                aria-label={'Locations'}
                                 partiallyActive={true}
                             >
                                 LOCATIONS
+                            </StyledLink>
+                            <StyledLink
+                                activeClassName="active"
+                                to="/"
+                                is_besquare_link
+                                external="true"
+                                aria-label={'BeSquare'}
+                            >
+                                BESQUARE
                             </StyledLink>
                         </CareerNavLeft>
                         <CareerRight jc="flex-end" ai="center">

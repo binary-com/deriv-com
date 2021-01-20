@@ -7,6 +7,7 @@ import { LocationContext } from '../layout/location-context.js'
 import language_config from '../../../i18n-config'
 import { LocaleContext } from './locale-context'
 import {
+    besquare_url,
     binary_url,
     blog_url,
     community_url,
@@ -69,6 +70,7 @@ export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
         style,
         is_binary_link,
         is_blog_link,
+        is_besquare_link,
         is_community_link,
         is_affiliate_link,
         is_mail_link,
@@ -105,6 +107,8 @@ export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
             lang_to = `${blog_url}${to}`
         } else if (is_community_link) {
             lang_to = `${community_url}${to}`
+        } else if (is_besquare_link) {
+            lang_to = `${besquare_url}${to}`
         } else {
             lang_to = to
         }
@@ -114,7 +118,9 @@ export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
             !is_smarttrader_link &&
             !is_deriv_app_link &&
             !is_affiliate_link &&
+            !is_community_link &&
             !is_affiliate_sign_in_link &&
+            !is_besquare_link &&
             !is_blog_link &&
             !is_community_link
         ) {
@@ -205,6 +211,7 @@ LocalizedLink.propTypes = {
     has_no_end_slash: PropTypes.bool,
     is_affiliate_link: PropTypes.bool,
     is_affiliate_sign_in_link: PropTypes.bool,
+    is_besquare_link: PropTypes.bool,
     is_binary_link: PropTypes.bool,
     is_blog_link: PropTypes.bool,
     is_community_link: PropTypes.bool,

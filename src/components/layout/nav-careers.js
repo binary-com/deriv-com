@@ -5,7 +5,6 @@ import { StyledNav, StyledLink, NavWrapper, LogoLink, Wrapper, NavLeft } from '.
 import { Flex } from 'components/containers'
 import { QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
-import { zoho_url } from 'common/utility'
 import { LocationContext } from 'components/layout/location-context.js'
 import device from 'themes/device'
 
@@ -22,12 +21,39 @@ const CareerRight = styled(Flex)`
     justify-self: flex-end;
 `
 
+const CareerButton = styled(LinkButton)`
+    @media ${device.tabletS} {
+        font-size: 12px;
+    }
+    @media ${device.mobileL} {
+        font-size: 9px;
+    }
+    @media ${device.mobileM} {
+        font-size: 9px;
+        margin-left: 4px;
+    }
+`
+
+const CareerLink = styled(StyledLink)`
+    @media ${device.mobileM} {
+        font-size: 9px;
+        padding: 4px;
+    }
+`
+
 const CareerLogo = styled(LogoLink)`
     margin-right: 3.2rem;
 
-    @media ${device.mobileL} {
+    @media ${device.tabletS} {
         margin-right: 0;
         max-width: 100px;
+    }
+    @media ${device.mobileL} {
+        max-width: 80px;
+
+        & .gatsby-image-wrapper {
+            width: 80px;
+        }
     }
 `
 
@@ -54,23 +80,23 @@ export const NavCareers = () => {
                                     height="auto"
                                 />
                             </CareerLogo>
-                            <StyledLink
+                            <CareerLink
                                 activeClassName="active"
                                 to="/careers"
                                 aria-label={'Careers'}
                                 partiallyActive={true}
                             >
                                 HOME
-                            </StyledLink>
-                            <StyledLink
+                            </CareerLink>
+                            <CareerLink
                                 activeClassName="active"
                                 to="/careers/locations/"
                                 aria-label={'Locations'}
                                 partiallyActive={true}
                             >
                                 LOCATIONS
-                            </StyledLink>
-                            <StyledLink
+                            </CareerLink>
+                            <CareerLink
                                 activeClassName="active"
                                 to="/"
                                 is_besquare_link
@@ -78,20 +104,21 @@ export const NavCareers = () => {
                                 aria-label={'BeSquare'}
                             >
                                 BESQUARE
-                            </StyledLink>
+                            </CareerLink>
                         </CareerNavLeft>
                         <CareerRight jc="flex-end" ai="center">
                             {has_mounted && (
-                                <LinkButton
+                                <CareerButton
                                     external
                                     secondary
-                                    to={zoho_url}
+                                    is_zoho_link
+                                    to="/"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     ml="2.4rem"
                                 >
                                     Explore jobs
-                                </LinkButton>
+                                </CareerButton>
                             )}
                         </CareerRight>
                     </Wrapper>

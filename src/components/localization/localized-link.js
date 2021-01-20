@@ -15,6 +15,7 @@ import {
     affiliate_signup_url,
     smarttrader_url,
     deriv_app_url,
+    zoho_url,
 } from 'common/utility'
 import { DerivStore } from 'store'
 
@@ -77,6 +78,7 @@ export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
         is_affiliate_sign_in_link,
         is_smarttrader_link,
         is_deriv_app_link,
+        is_zoho_link,
         ariaLabel,
         onClick,
         external,
@@ -109,6 +111,8 @@ export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
             lang_to = `${community_url}${to}`
         } else if (is_besquare_link) {
             lang_to = `${besquare_url}${to}`
+        } else if (is_zoho_link) {
+            lang_to = `${zoho_url}${to}`
         } else {
             lang_to = to
         }
@@ -122,7 +126,8 @@ export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
             !is_affiliate_sign_in_link &&
             !is_besquare_link &&
             !is_blog_link &&
-            !is_community_link
+            !is_community_link &&
+            !is_zoho_link
         ) {
             return (
                 <a
@@ -155,7 +160,7 @@ export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
                     target={target}
                     rel={rel}
                     className={className}
-                    style={style ?? { color: `var(--color-black-3)`, textDecoration: `none` }}
+                    style={style}
                     href={lang_to}
                     ref={ref}
                     aria-label={ariaLabel}
@@ -218,6 +223,7 @@ LocalizedLink.propTypes = {
     is_deriv_app_link: PropTypes.bool,
     is_mail_link: PropTypes.bool,
     is_smarttrader_link: PropTypes.bool,
+    is_zoho_link: PropTypes.bool,
     onClick: PropTypes.func,
     props: PropTypes.object,
     rel: PropTypes.string,

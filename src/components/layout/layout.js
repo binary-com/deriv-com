@@ -82,6 +82,7 @@ const Layout = ({
     children,
     interim_type,
     is_ppc,
+    is_ppc_redirect,
     margin_top,
     nav_type,
     no_live_chat,
@@ -170,7 +171,7 @@ const Layout = ({
             FooterNav = <Copyright />
             break
         default:
-            Navigation = <Nav is_ppc={is_ppc} />
+            Navigation = <Nav is_ppc_redirect={is_ppc_redirect} />
             FooterNav = <Footer />
             break
     }
@@ -217,6 +218,7 @@ Layout.propTypes = {
     children: PropTypes.node.isRequired,
     interim_type: PropTypes.string,
     is_ppc: PropTypes.bool,
+    is_ppc_redirect: PropTypes.bool,
     margin_top: PropTypes.number,
     nav_type: PropTypes.string,
     no_live_chat: PropTypes.bool,

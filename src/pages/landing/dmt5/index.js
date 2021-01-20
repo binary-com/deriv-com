@@ -51,7 +51,7 @@ const DMT5 = () => {
     const data = useStaticQuery(query)
 
     return (
-        <Layout is_ppc={true}>
+        <Layout is_ppc_redirect={true}>
             <SEO
                 title={localize('DMT5 | MetaTrader 5 | Deriv')}
                 description={localize(

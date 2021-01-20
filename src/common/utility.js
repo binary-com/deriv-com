@@ -107,6 +107,7 @@ const trimSpaces = (value) => value.trim()
 
 const application_id = 'f0aef779-d9ec-4517-807e-a84c683c4265'
 const client_token = 'pubc42fda54523c5fb23c564e3d8bceae88'
+const sample_rate = 25,
 const deriv_app_url = 'https://app.deriv.com'
 const deriv_bot_app_url = 'https://app.deriv.com/bot'
 const deriv_blog_url = 'https://blog.deriv.com'
@@ -189,4 +190,5 @@ export {
     zoho_url,
     trimSpaces,
     p2p_playstore_url,
+    sample_rate
 }

@@ -5,7 +5,7 @@ import { WrapPagesWithLocaleContext } from './src/components/localization'
 import { isProduction, isLocalHost } from './src/common/websocket/config'
 import { CookieStorage, LocalStore } from './src/common/storage'
 import { isMobile } from './src/common/os-detect'
-import { application_id, client_token, gtm_test_domain } from './src/common/utility'
+import { application_id, client_token, gtm_test_domain, sample_rate } from './src/common/utility'
 import { MediaContextProvider } from './src/themes/media'
 import { DerivProvider } from './src/store'
 import './static/css/ibm-plex-sans-var.css';
@@ -118,6 +118,7 @@ export const onClientEntry = () => {
         window.DD_RUM.init({
             clientToken: client_token,
             applicationId: application_id,
+            sampleRate: sample_rate
         })
     }
 

@@ -8,7 +8,7 @@ import Card from './_card'
 const WhoCanApply = () => {
     const style = {
         card_wrapper: {
-            grid_template_columns: ['24px auto', '16px auto'],
+            grid_template_columns: ['24px auto', '24px auto', '16px auto'],
             grid_column_gap: ['16px', '8px'],
         },
         icon_wrapper: {

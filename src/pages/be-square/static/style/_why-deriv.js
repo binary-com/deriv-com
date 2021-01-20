@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { Container, SectionContainer } from 'components/containers'
+import { QueryImage } from 'components/elements'
 import device from 'themes/device'
 
 export const Section = styled(SectionContainer)`
@@ -29,7 +30,7 @@ export const ContentContainer = styled(Container)`
     }
 `
 
-export const ImageWrapper = styled.img`
+export const ImageWrapper = styled(QueryImage)`
     max-width: 486px;
 
     @media ${device.tabletL} {

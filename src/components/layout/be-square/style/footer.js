@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { Container, Flex, SectionContainer } from 'components/containers'
-import { Header, Text } from 'components/elements'
+import { Header, Text, QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
 import device from 'themes/device'
 
@@ -33,7 +33,7 @@ export const FollowUsContainer = styled.div`
     grid-column-gap: 21px;
 `
 
-export const ImageWrapper = styled.img`
+export const ImageWrapper = styled(QueryImage)`
     max-height: 402px;
     max-width: 588px;
     width: 100%;
@@ -86,11 +86,16 @@ export const TextWrapper = styled(Text)`
     color: var(--color-white);
     padding: ${({ padding }) => (padding ? padding[0] : 0)};
 
-    @media ${device.tablet} {
+    @media ${device.laptopM} {
+        margin: 0 auto;
+    }
+
+    @media ${device.mobileL} {
         max-width: ${({ max_width }) => (max_width ? max_width[1] ?? max_width[0] : 'unset')};
         font-size: ${({ font_size }) => font_size[1] ?? font_size[0] ?? 'unset'};
         line-height: ${({ line_height }) => line_height[1] ?? line_height[0] ?? 'unset'};
         padding: ${({ padding }) => (padding ? padding[1] ?? padding[0] : 0)};
+        margin: 0;
     }
 `
 

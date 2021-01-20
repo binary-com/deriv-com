@@ -5,7 +5,7 @@ import device from 'themes/device'
 export const HeroContainer = styled.div`
     display: grid;
     grid-template-columns: auto auto;
-    grid-column-gap: 15%;
+    grid-column-gap: 13%;
     background-color: var(--color-black);
     justify-content: center;
 

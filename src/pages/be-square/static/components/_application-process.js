@@ -10,12 +10,15 @@ import {
 } from '../style/_application-process'
 import { TextWrapper, Title } from '../style/_common'
 import { Line01, Line02 } from '../images/_application-process'
+import { Show } from 'components/containers'
 
 const ApplicationProcess = () => (
     <div>
         <ContentContainer>
             <Title>{application_process.title}</Title>
-            <LineWrapper src={Line01} alt="Dotted line" />
+            <Show.Desktop max_width="laptop">
+                <LineWrapper src={Line01} alt="Dotted line" />
+            </Show.Desktop>
             <GridContainer>
                 {application_process.content.map((card, index) => (
                     <ItemContainer key={index}>
@@ -29,7 +32,11 @@ const ApplicationProcess = () => (
                             {card.text}
                         </TextWrapper>
                         {index + 1 !== application_process.content.length && (
-                            <Line02Wrapper src={Line02} alt="Dotted line" />
+                            <Line02Wrapper>
+                                <Show.Mobile min_width="tablet" style={{ margin: '16px auto' }}>
+                                    <img src={Line02} alt="Dotted line" />
+                                </Show.Mobile>
+                            </Line02Wrapper>
                         )}
                     </ItemContainer>
                 ))}

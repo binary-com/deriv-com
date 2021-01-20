@@ -2,7 +2,6 @@ import styled from 'styled-components'
 import device from 'themes/device'
 
 export const CardContainer = styled.div`
-    min-width: 384px;
     width: fit-content;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -16,7 +15,7 @@ export const CardContainer = styled.div`
     }
 
     @media ${device.tabletL} {
-        min-width: 320px;
+        max-width: 320px;
         grid-template-columns: repeat(1, 1fr);
         gap: 16px;
         margin-bottom: 0 auto 40px;

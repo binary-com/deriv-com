@@ -7,7 +7,7 @@ import Card from './_card'
 const JoinUs = () => {
     const style = {
         card_wrapper: {
-            grid_template_columns: ['64px 296px', '48px auto'],
+            grid_template_columns: ['64px 296px', '64px 296px', '48px auto'],
             grid_column_gap: ['24px', '8px'],
             grid_row_gap: ['0', '8px'],
         },

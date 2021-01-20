@@ -1,8 +1,19 @@
 import React from 'react'
+import { graphql, useStaticQuery } from 'gatsby'
 import { Section, ContentContainer, ImageWrapper } from '../style/_why-deriv'
 import { TextWrapper, Title } from '../style/_common'
-import { Quil5Image, WhyDerivImage } from '../images/_why-deriv'
 import { localize } from 'components/localization'
+
+const query = graphql`
+    query {
+        why_deriv: file(relativePath: { eq: "be-square/why-deriv.png" }) {
+            ...fadeIn
+        }
+        quil5: file(relativePath: { eq: "be-square/quil5.png" }) {
+            ...fadeIn
+        }
+    }
+`
 
 const WhyDeriv = () => {
     const text_wrapper = {
@@ -10,10 +21,15 @@ const WhyDeriv = () => {
         font_size: ['20px', '14px'],
         line_height: ['30px', '20px'],
     }
+    const data = useStaticQuery(query)
     return (
         <Section>
             <ContentContainer>
-                <ImageWrapper src={WhyDerivImage} alt="deriv employee" grid_area="employee-image" />
+                <ImageWrapper
+                    data={data['why_deriv']}
+                    alt="deriv employee"
+                    grid_area="employee-image"
+                />
                 <div>
                     <Title>{localize('Why Deriv?')}</Title>
                     <TextWrapper
@@ -35,7 +51,7 @@ const WhyDeriv = () => {
                         'At Deriv, you can learn from our talented IT teams of dedicated innovators and receive international exposure by collaborating with the overseas offices on challenging and exciting projects. Work with state-of-the-art electronic devices and enjoy the facilities of Deriv’s prestigious new headquarters at Quill 5 in Cyberjaya, where a floor has been dedicated to our BeSquare programme.',
                     )}
                 </TextWrapper>
-                <ImageWrapper src={Quil5Image} alt="quil5 building" grid_area="quil5-image" />
+                <ImageWrapper data={data['quil5']} alt="quil5 building" grid_area="quil5-image" />
             </ContentContainer>
         </Section>
     )

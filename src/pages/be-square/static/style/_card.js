@@ -48,7 +48,8 @@ export const CardWrapper = styled.div`
         return css`
             @media ${device.tabletL} {
                 width: ${({ width }) => responsiveFallback(width, 1)};
-                /* Add new grid_template_columns */
+                grid-template-columns: ${({ grid_template_columns }) =>
+                    responsiveFallback(grid_template_columns, 1)};
             }
             @media ${device.tablet} {
                 width: ${({ width }) => responsiveFallback(width)};
@@ -65,6 +66,10 @@ export const CardWrapper = styled.div`
                     margin: ${({ has_last_child_props, margin }) =>
                         has_last_child_props && responsiveFallback(margin, 1, 0)};
                 }
+            }
+
+            @media ${device.mobileS} {
+                max-width: ${({ max_width }) => responsiveFallback(max_width, 1, 'auto')};
             }
         `
     }}

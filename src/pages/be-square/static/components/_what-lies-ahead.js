@@ -8,7 +8,8 @@ const WhatLiesAhead = () => {
     const style = {
         card_wrapper: {
             width: ['800px', '500px', 'auto'],
-            grid_template_columns: ['48px 84% 32px', '32px 77.9% 24px'],
+            max_width: ['auto', '328px'],
+            grid_template_columns: ['48px 84% 32px', '48px 75% 32px', '32px 75% 24px'],
             grid_template_areas: ["'dep-icon title min-max'", "'content content content'"],
             grid_column_gap: ['22px', '8px'],
             align_items: 'center',
@@ -27,7 +28,7 @@ const WhatLiesAhead = () => {
             max_width: ['100%'],
             font_size: ['24px', '18px'],
             line_height: ['36px', '26px'],
-            font_weight: '700',
+            weight: 'bold',
             grid_area: ['title'],
         },
     }

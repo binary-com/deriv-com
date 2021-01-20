@@ -171,8 +171,8 @@ class Signup extends Component {
             handleLogin: this.handleLogin,
             handleSocialSignup: this.handleSocialSignup,
             handleValidation: this.handleValidation,
+            is_ppc: this.props.is_ppc,
             is_submitting: this.state.is_submitting,
-            is_landing: this.props.is_landing,
         }
 
         switch (param) {
@@ -238,7 +238,7 @@ Signup.propTypes = {
     autofocus: PropTypes.bool,
     bgColor: PropTypes.string,
     email: PropTypes.string,
-    is_landing: PropTypes.bool,
+    is_ppc: PropTypes.bool,
     onSubmit: PropTypes.func,
     submit_state: PropTypes.string,
 }

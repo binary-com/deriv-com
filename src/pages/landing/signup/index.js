@@ -100,7 +100,7 @@ const NewSignup = () => {
                     submit_state={submit_state}
                     email={email}
                     autofocus={true}
-                    is_landing={true}
+                    is_ppc={true}
                 />
             </Wrapper>
             <StyledDiv />

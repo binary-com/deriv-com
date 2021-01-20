@@ -473,6 +473,7 @@ const payment_data = [
                 ),
                 url: 'https://paylivre.com/',
                 name: 'paylivre',
+                reference: 'paylivre-payment-method.pdf',
             },
         ],
     },

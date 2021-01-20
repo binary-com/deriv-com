@@ -68,7 +68,7 @@ const NewSignup = () => {
         setEmail(email)
     }
     return (
-        <Layout type="static" margin_top={'0'}>
+        <Layout type="static" margin_top={'0'} is_ppc={true}>
             <SEO
                 title={localize('Easy And Free Sign Up | Online Trading | Deriv.com')}
                 description={localize(

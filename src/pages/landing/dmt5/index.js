@@ -51,7 +51,7 @@ const DMT5 = () => {
     const data = useStaticQuery(query)
 
     return (
-        <Layout>
+        <Layout is_ppc={true}>
             <SEO
                 title={localize('DMT5 | MetaTrader 5 | Deriv')}
                 description={localize(
@@ -71,6 +71,7 @@ const DMT5 = () => {
                 background_svg={DMT5BG}
                 background_svg2={DMT5BG2}
                 background_alt={localize('DMT5')}
+                is_ppc={true}
             />
             <Numbers numbers_content={numbers_content} />
             <WhatIsTrader />
@@ -86,6 +87,7 @@ const DMT5 = () => {
                 }
                 title={<Localize translate_text="Get into the DMT5 experience" />}
                 data={data}
+                is_ppc={true}
             />
         </Layout>
     )

@@ -8,25 +8,69 @@ import {
     IBAccountManagement,
     IBReferralTools,
 } from './_faq-data'
+import device from 'themes/device'
 import { SectionContainer } from 'components/containers'
 import { localize } from 'components/localization'
 import { Header, Accordion, AccordionItem } from 'components/elements'
 import DotPattern from 'images/svg/dot-pattern.svg'
 
+const FaqHeader = styled(Header)`
+    @media ${device.tabletL} {
+        font-size: 24px;
+    }
+`
+
+const FaqSubHeader = styled(Header)`
+    @media ${device.tabletL} {
+        margin-top: 24px;
+    }
+`
+
 const RelativeContainer = styled(SectionContainer)`
     position: relative;
     overflow: hidden;
+
+    @media ${device.tabletL} {
+        padding: 40px 0;
+    }
 `
 
 const TopLeftDot = styled.img`
+    width: 730px;
     position: absolute;
     top: 4px;
     left: 0;
+
+    @media ${device.laptopL} {
+        width: 630px;
+        left: -50px;
+    }
+
+    @media ${device.laptop} {
+        left: -250px;
+    }
+
+    @media ${device.tabletL} {
+        left: -500px;
+    }
 `
 const BottomRightDot = styled.img`
     position: absolute;
     bottom: 16px;
     right: 0;
+    height: 154px;
+
+    @media ${device.laptopL} {
+        right: 0;
+    }
+
+    @media ${device.laptop} {
+        right: -200px;
+    }
+
+    @media ${device.tabletL} {
+        right: -450px;
+    }
 `
 const AccordionWrapper = styled.div`
     max-width: 99.6rem;
@@ -35,27 +79,43 @@ const AccordionWrapper = styled.div`
     z-index: 2;
 `
 
+const StyledAccordionWrapper = styled(AccordionWrapper)`
+    p,
+    h1,
+    h5 {
+        font-size: 16px !important;
+    }
+`
 const Faq = () => {
     const parent_style = {
-        marginBottom: '4rem',
+        marginBottom: '2.4rem',
     }
     const item_style = {
         padding: '4rem',
-        background: 'var(--color-grey-4)',
+        background: 'var(--color-grey-35)',
     }
     const header_style = {
         padding: '1.6rem 4rem',
         border: 'none',
+        borderRadius: '8px',
+        position: 'relative',
+        boxShadow: '0 4px 8px 0 rgba(14, 14, 14, 0.1)',
     }
     return (
         <RelativeContainer>
-            <Header as="h3" type="section-title" align="center">
+            <FaqHeader size="4.8rem" align="center">
                 {localize('Browse our FAQ')}
-            </Header>
-            <Header as="h4" type="sub-section-title" align="center" m="4rem 0" weight="500">
+            </FaqHeader>
+            <FaqSubHeader
+                as="h4"
+                type="sub-section-title"
+                align="center"
+                m="4rem 0"
+                weight="normal"
+            >
                 {localize('Deriv Affiliate Programme')}
-            </Header>
-            <AccordionWrapper>
+            </FaqSubHeader>
+            <StyledAccordionWrapper>
                 <Accordion has_single_state>
                     <AccordionItem
                         header={localize('General')}
@@ -85,12 +145,18 @@ const Faq = () => {
                         {<AffiliateReferralTools />}
                     </AccordionItem>
                 </Accordion>
-            </AccordionWrapper>
-            <Header as="h4" type="sub-section-title" align="center" m="8rem 0 4rem 0 " weight="500">
+            </StyledAccordionWrapper>
+            <FaqSubHeader
+                as="h4"
+                type="sub-section-title"
+                align="center"
+                m="8rem 0 4rem 0 "
+                weight="normal"
+            >
                 {localize('Deriv IB Programme')}
-            </Header>
-            <AccordionWrapper>
-                <Accordion has_single_state>
+            </FaqSubHeader>
+            <StyledAccordionWrapper>
+                <Accordion has_single_state is_faq>
                     <AccordionItem
                         header={localize('General')}
                         parent_style={parent_style}
@@ -119,7 +185,7 @@ const Faq = () => {
                         {<IBReferralTools />}
                     </AccordionItem>
                 </Accordion>
-            </AccordionWrapper>
+            </StyledAccordionWrapper>
             <TopLeftDot src={DotPattern} />
             <BottomRightDot src={DotPattern} />
         </RelativeContainer>

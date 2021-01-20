@@ -686,11 +686,7 @@ const StyledNavCenter = styled(NavCenter)`
     white-space: nowrap;
 
     @media (max-width: 1300px) {
-        margin-left: 9.3rem;
         font-size: 12px !important;
-    }
-    @media (max-width: 1080px) {
-        margin-left: 7.3rem;
     }
 `
 
@@ -772,6 +768,19 @@ const NavLogoLink = styled(LogoLink)`
     }
 `
 
+const LSContainer = styled(Container)`
+    text-align: right;
+    margin-right: 60px;
+`
+
+const DesktopLS = styled(Show.Desktop)`
+    z-index: 2;
+`
+
+const StyledContainer = styled(Container)`
+    margin: 0;
+`
+
 // Note: When using layout component for partners page, please add type='partners' and padding_top='10rem'
 export const NavPartners = ({ no_login_signup }) => {
     const nav_ref = useRef(null)
@@ -796,31 +805,61 @@ export const NavPartners = ({ no_login_signup }) => {
         }
     }, [])
 
+    const resources_ref = useRef(null)
+    const link_resources_ref = useRef(null)
+    const [is_resources_open, setIsResourcesOpen] = useState(false)
+    const [has_resources_animation, setHasResourcesAnimation] = useState(false)
+    const closeResources = () => setIsResourcesOpen(false)
+    useOutsideClick(resources_ref, closeResources, link_resources_ref)
+
+    const handleResourcesClick = () => {
+        setHasResourcesAnimation(true)
+        setIsResourcesOpen(!is_resources_open)
+    }
+
     const [is_canvas_menu_open, openOffCanvasMenu, closeOffCanvasMenu] = moveOffCanvasMenu()
     return (
         <>
             <NavWrapper ref={nav_ref}>
                 <CFDWarning />
                 <DerivHomeWrapper>
-                    <HomeContainer justify="flex-start">
-                        <HomeLink to="/">
-                            <Text color="grey-19" size="var(--text-size-xxs)">
-                                {localize('Deriv website')}
-                            </Text>
-                        </HomeLink>
-                        <HomeLink to="/about">
-                            <Text color="grey-19" size="var(--text-size-xxs)">
-                                {localize('About us')}
-                            </Text>
-                        </HomeLink>
-                        <HomeLink to="/contact-us">
-                            <Text color="grey-19" size="var(--text-size-xxs)">
-                                {localize('Contact us')}
-                            </Text>
-                        </HomeLink>
+                    <HomeContainer justify="space-between">
+                        <StyledContainer justify="flex-start">
+                            <HomeLink to="/">
+                                <Text color="grey-19" size="var(--text-size-xxs)">
+                                    {localize('Deriv website')}
+                                </Text>
+                            </HomeLink>
+                            <HomeLink to="/about">
+                                <Text color="grey-19" size="var(--text-size-xxs)">
+                                    {localize('About us')}
+                                </Text>
+                            </HomeLink>
+                            <HomeLink to="/contact-us">
+                                <Text color="grey-19" size="var(--text-size-xxs)">
+                                    {localize('Contact us')}
+                                </Text>
+                            </HomeLink>
+                        </StyledContainer>
+                        <DesktopLS>
+                            <LSContainer>
+                                <LanguageSwitcher short_name="true" />
+                            </LSContainer>
+                        </DesktopLS>
                     </HomeContainer>
                 </DerivHomeWrapper>
                 <StyledNav>
+                    <PlatformsDropdown
+                        forward_ref={resources_ref}
+                        link_ref={link_resources_ref}
+                        is_open={is_resources_open}
+                        has_animation={has_resources_animation}
+                        Content={() => <NavResources onClick={handleResourcesClick} />}
+                        title={localize('Resources')}
+                        description={localize(
+                            'Help yourself to various resources that can help you get the best out of your trading experience.',
+                        )}
+                    />
                     <StyledNavWrapper no_login_signup>
                         <NavLeft>
                             <NavLogoLink to="/partners/" aria-label={localize('Partners')}>
@@ -846,6 +885,15 @@ export const NavPartners = ({ no_login_signup }) => {
                                     {localize('Payment agents')}
                                 </StyledLink>
                             </NavLink>
+                            <NavLink onClick={handleResourcesClick}>
+                                <StyledButton
+                                    aria-label={localize('Resources')}
+                                    active={is_resources_open}
+                                    ref={link_resources_ref}
+                                >
+                                    {localize('Resources')}
+                                </StyledButton>
+                            </NavLink>
                         </StyledNavCenter>
                         {!no_login_signup ? (
                             <StyledNavRight
@@ -854,14 +902,13 @@ export const NavPartners = ({ no_login_signup }) => {
                                 mounted={mounted}
                                 has_scrolled={has_scrolled}
                             >
-                                <LanguageSwitcher short_name="true" is_high_nav />
                                 <LinkButton
                                     to={affiliate_signin_url}
                                     external="true"
                                     is_affiliate_sign_in_link
                                     target="_blank"
                                     primary
-                                    style={{ width: '14rem' }}
+                                    style={{ width: '16rem' }}
                                 >
                                     <span>{localize('Affiliate & IB log in')}</span>
                                 </LinkButton>
@@ -872,7 +919,7 @@ export const NavPartners = ({ no_login_signup }) => {
                                     target="_blank"
                                     ref={button_ref}
                                     secondary="true"
-                                    style={{ width: '14rem' }}
+                                    style={{ width: '18rem' }}
                                 >
                                     <span>{localize('Affiliate & IB sign up')}</span>
                                 </LinkSignupButton>
@@ -920,7 +967,12 @@ export const NavPartners = ({ no_login_signup }) => {
                                         target="_blank"
                                         primary
                                     >
-                                        <span>{localize('Affiliate & IB Log in')}</span>
+                                        <Show.Desktop>
+                                            <span>{localize('Affiliate & IB log in')}</span>
+                                        </Show.Desktop>
+                                        <Show.Mobile>
+                                            <span>{localize('Log in')}</span>
+                                        </Show.Mobile>
                                     </LinkMobileLogin>
                                 )}
                             </Flex>

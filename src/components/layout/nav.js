@@ -116,6 +116,9 @@ export const Wrapper = styled(Container)`
     @media ${device.laptop} {
         font-size: var(--text-size-xxs);
     }
+    @media ${device.mobileM} {
+        width: 98%;
+    }
 `
 export const NavLeft = styled.div`
     text-align: left;

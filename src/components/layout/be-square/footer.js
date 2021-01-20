@@ -40,13 +40,14 @@ const BeSquareFooter = () => {
                             line_height={['30px', '24px']}
                         >
                             <Localize
-                                translate_text="If you have any questions, email us at <0>info@besquare.my</0>"
+                                translate_text="Submit your application before 30 May 2021<0/>If you have any questions, email us at <1>info@besquare.my</1>"
                                 components={[
+                                    <br key={0} />,
                                     <Link
                                         font_size={['20px', '16px']}
                                         line_height={['30px', '24px']}
                                         href="mailto:info@besquare.my"
-                                        key={0}
+                                        key={1}
                                     />,
                                 ]}
                             />

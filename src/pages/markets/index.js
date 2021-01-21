@@ -120,7 +120,7 @@ const TabsContainer = styled(Flex)`
 
 const Markets = () => (
     <Layout>
-        <SEO description={localize('Markets to trade')} title={localize('Markets')} />
+        <SEO description={localize('Learn about the markets that you can trade online with Deriv, including forex, commodities, synthetic indices, and stock indices.')} title={localize('Markets | Markets to trade | Deriv')} />
         <Hero />
         <TabsContainer>
             <Tabs tab_list={['forex', 'synthetic', 'stock', 'commodities']} route_from="markets">

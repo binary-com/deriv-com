@@ -60,9 +60,9 @@ const CFDText = styled(Text)`
     }
 `
 
-export const CFDWarning = () => {
+export const CFDWarning = ({ is_ppc }) => {
     const { is_eu_country } = React.useContext(DerivStore)
-    return is_eu_country ? (
+    return is_ppc || is_eu_country ? (
         <CFDWrapper>
             <CFDContainer>
                 <CFDText>
@@ -81,6 +81,8 @@ export const CFDWarning = () => {
 const Layout = ({
     children,
     interim_type,
+    is_ppc,
+    is_ppc_redirect,
     margin_top,
     nav_type,
     no_live_chat,
@@ -92,12 +94,13 @@ const Layout = ({
     const [show_cookie_banner, setShowCookieBanner] = React.useState(false)
     const [show_modal, toggleModal, closeModal] = useModal()
     const [modal_payload, setModalPayload] = React.useState({})
+    const [gtm_data, setGTMData] = React.useState(null)
 
     const is_static = type === 'static'
 
     const Main = styled.main`
         margin-top: ${(props) =>
-            !type && is_eu_country
+            (!type && is_ppc) || is_eu_country
                 ? (props.margin_top && `${props.margin_top + cfd_warning_height_desktop}rem`) ||
                   7 + cfd_warning_height_desktop + `rem`
                 : (props.margin_top && `${props.margin_top}rem`) || `7rem`};
@@ -107,7 +110,7 @@ const Layout = ({
 
         @media ${device.tabletS} {
             margin-top: ${(props) =>
-                !type && is_eu_country
+                (!type && is_ppc) || is_eu_country
                     ? (props.margin_top && `${props.margin_top + cfd_warning_height_tablet}rem`) ||
                       7 + cfd_warning_height_tablet + `rem`
                     : (props.margin_top && `${props.margin_top}rem`) || `7rem`};
@@ -123,19 +126,29 @@ const Layout = ({
 
     // Allow tracking cookie banner setup
     React.useEffect(() => {
-        const tracking_status = tracking_status_cookie.get(TRACKING_STATUS_KEY)
-        if (is_eu_country && !tracking_status) setShowCookieBanner(true)
+        if (typeof is_eu_country === 'boolean') {
+            const tracking_status = tracking_status_cookie.get(TRACKING_STATUS_KEY)
+            if (is_eu_country && !tracking_status) setShowCookieBanner(true)
+            const allow_tracking =
+                (!is_eu_country || tracking_status === 'accepted') && !gtm_data && has_dataLayer
 
-        const allow_tracking = (!is_eu_country || tracking_status === 'accepted') && has_dataLayer
-
-        if (allow_tracking) window.dataLayer.push({ event: 'allow_tracking' })
-        setMounted(true)
+            if (allow_tracking) {
+                setGTMData({ event: 'allow_tracking' })
+            }
+            setMounted(true)
+        }
     }, [is_eu_country])
+
+    React.useEffect(() => {
+        if (gtm_data) {
+            window.dataLayer.push(gtm_data)
+        }
+    }, [gtm_data])
 
     const onAccept = () => {
         tracking_status_cookie.set(TRACKING_STATUS_KEY, 'accepted')
 
-        if (has_dataLayer) window.dataLayer.push({ event: 'allow_tracking' })
+        if (!gtm_data && has_dataLayer) setGTMData({ event: 'allow_tracking' })
 
         setShowCookieBanner(false)
     }
@@ -150,7 +163,7 @@ const Layout = ({
     let FooterNav = <></>
     switch (type) {
         case 'static':
-            Navigation = <NavStatic />
+            Navigation = <NavStatic is_ppc={is_ppc} />
             break
         case 'interim':
             Navigation = <NavInterim interim_type={interim_type} />
@@ -169,7 +182,7 @@ const Layout = ({
             FooterNav = <Copyright />
             break
         default:
-            Navigation = <Nav />
+            Navigation = <Nav is_ppc_redirect={is_ppc_redirect} />
             FooterNav = <Footer />
             break
     }
@@ -208,9 +221,15 @@ const Layout = ({
     )
 }
 
+CFDWarning.propTypes = {
+    is_ppc: PropTypes.bool,
+}
+
 Layout.propTypes = {
     children: PropTypes.node.isRequired,
     interim_type: PropTypes.string,
+    is_ppc: PropTypes.bool,
+    is_ppc_redirect: PropTypes.bool,
     margin_top: PropTypes.number,
     nav_type: PropTypes.string,
     no_live_chat: PropTypes.bool,

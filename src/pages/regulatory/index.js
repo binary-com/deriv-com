@@ -93,6 +93,12 @@ const ResponsiveHeader = styled(StyledHeader)`
 const ExternalBoldLink = styled(LocalizedLink)`
     font-weight: bold;
     color: ${(props) => (props.color ? `var(--color-${props.color})` : '')};
+    text-decoration: none;
+
+    &:hover {
+        color: var(--color-red);
+        text-decoration: underline;
+    }
 `
 
 const Content = styled.div`
@@ -229,6 +235,7 @@ const Regulatory = () => {
                                                 external="true"
                                                 key={1}
                                                 weight="bold"
+                                                color="black-3"
                                                 target="_blank"
                                                 to="https://beta.gamblingcommission.gov.uk/public-register/business/detail/39495"
                                                 rel="noopener noreferrer"
@@ -271,6 +278,7 @@ const Regulatory = () => {
                                                 external="true"
                                                 key={1}
                                                 weight="bold"
+                                                color="black-3"
                                                 target="_blank"
                                                 to="https://beta.gamblingcommission.gov.uk/public-register/business/detail/39172"
                                                 rel="noopener noreferrer"

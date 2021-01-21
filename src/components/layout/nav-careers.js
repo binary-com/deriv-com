@@ -3,10 +3,8 @@ import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { StyledNav, StyledLink, NavWrapper, LogoLink, Wrapper, NavLeft } from './nav'
 import { Flex } from 'components/containers'
-import { localize } from 'components/localization'
 import { QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
-import { zoho_url } from 'common/utility'
 import { LocationContext } from 'components/layout/location-context.js'
 import device from 'themes/device'
 
@@ -23,12 +21,38 @@ const CareerRight = styled(Flex)`
     justify-self: flex-end;
 `
 
+const CareerButton = styled(LinkButton)`
+    @media ${device.tabletS} {
+        font-size: 12px;
+    }
+    @media ${device.mobileL} {
+        font-size: 9px;
+    }
+    @media ${device.mobileM} {
+        margin-left: 4px;
+    }
+`
+
+const CareerLink = styled(StyledLink)`
+    @media ${device.mobileM} {
+        font-size: 9px;
+        padding: 4px;
+    }
+`
+
 const CareerLogo = styled(LogoLink)`
     margin-right: 3.2rem;
 
-    @media ${device.mobileL} {
+    @media ${device.tabletS} {
         margin-right: 0;
         max-width: 100px;
+    }
+    @media ${device.mobileL} {
+        max-width: 80px;
+
+        & .gatsby-image-wrapper {
+            width: 80px;
+        }
     }
 `
 
@@ -47,43 +71,53 @@ export const NavCareers = () => {
                 <StyledNav>
                     <Wrapper>
                         <CareerNavLeft>
-                            <CareerLogo to={'/'} aria-label={localize('Home')}>
+                            <CareerLogo to={'/'} aria-label={'Home'}>
                                 <QueryImage
                                     data={data['deriv']}
-                                    alt={localize('Deriv')}
+                                    alt={'Deriv'}
                                     width="16.4rem"
                                     height="auto"
                                 />
                             </CareerLogo>
-                            <StyledLink
+                            <CareerLink
                                 activeClassName="active"
                                 to="/careers"
-                                aria-label={localize('Careers home')}
+                                aria-label={'Careers'}
                                 partiallyActive={true}
                             >
                                 HOME
-                            </StyledLink>
-                            <StyledLink
+                            </CareerLink>
+                            <CareerLink
                                 activeClassName="active"
                                 to="/careers/locations/"
-                                aria-label={localize('Locations')}
+                                aria-label={'Locations'}
                                 partiallyActive={true}
                             >
                                 LOCATIONS
-                            </StyledLink>
+                            </CareerLink>
+                            <CareerLink
+                                activeClassName="active"
+                                to="/"
+                                is_besquare_link
+                                external="true"
+                                aria-label={'BeSquare'}
+                            >
+                                BESQUARE
+                            </CareerLink>
                         </CareerNavLeft>
                         <CareerRight jc="flex-end" ai="center">
                             {has_mounted && (
-                                <LinkButton
+                                <CareerButton
                                     external
                                     secondary
-                                    to={zoho_url}
+                                    is_zoho_link
+                                    to="/"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     ml="2.4rem"
                                 >
                                     Explore jobs
-                                </LinkButton>
+                                </CareerButton>
                             )}
                         </CareerRight>
                     </Wrapper>

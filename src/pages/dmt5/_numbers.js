@@ -1,8 +1,8 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Header, Text } from 'components/elements'
 import { SectionContainer, Flex } from 'components/containers'
-import { localize } from 'components/localization'
 import device from 'themes/device.js'
 
 const NumberSection = styled(SectionContainer)`
@@ -69,33 +69,26 @@ const Number = styled(Flex)`
         margin-bottom: 16px;
     }
 `
-const Numbers = () => {
+const Numbers = ({ numbers_content }) => {
     return (
         <NumberSection>
             <Flex tablet_direction="column" max_width="1200px" jc="space-between">
-                <Number>
-                    <StyledHeader as="h2" type="page-title">
-                        {localize('330K+')}
-                    </StyledHeader>
-                    <Splitter />
-                    <StyledText>{localize('clients on DMT5')}</StyledText>
-                </Number>
-                <Number>
-                    <StyledHeader as="h2" type="page-title">
-                        {localize('100+')}
-                    </StyledHeader>
-                    <Splitter />
-                    <StyledText>{localize('tradable assets')}</StyledText>
-                </Number>
-                <Number>
-                    <StyledHeader as="h2" type="page-title">
-                        {localize('24/7')}
-                    </StyledHeader>
-                    <Splitter />
-                    <StyledText>{localize('trading')}</StyledText>
-                </Number>
+                {numbers_content.map((content, index) => (
+                    <Number key={index}>
+                        <StyledHeader as="h2" type="page-title">
+                            {content.title}
+                        </StyledHeader>
+                        <Splitter />
+                        <StyledText>{content.subtitle}</StyledText>
+                    </Number>
+                ))}
             </Flex>
         </NumberSection>
     )
 }
+
+Numbers.propTypes = {
+    numbers_content: PropTypes.array,
+}
+
 export default Numbers

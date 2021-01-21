@@ -99,7 +99,7 @@ const StyledHeader = styled(Header)`
     }
 `
 
-const DBanner = ({ title, data, background_pattern }) => {
+const DBanner = ({ background_pattern, data, is_ppc, title }) => {
     const BackgroundPattern = styled.img`
         position: absolute;
         top: 0;
@@ -133,7 +133,11 @@ const DBanner = ({ title, data, background_pattern }) => {
                     <StyledHeader color="white" size="5.6rem" mb="4rem" max_width="52rem">
                         {title}
                     </StyledHeader>
-                    <StyledLinkButton type="submit" secondary="true" to="/signup/">
+                    <StyledLinkButton
+                        type="submit"
+                        secondary="true"
+                        to={is_ppc ? '/landing/signup/' : '/signup/'}
+                    >
                         {localize('Create free demo account')}
                     </StyledLinkButton>
                 </TextWrapper>
@@ -146,6 +150,7 @@ const DBanner = ({ title, data, background_pattern }) => {
 DBanner.propTypes = {
     background_pattern: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
     data: PropTypes.object.isRequired,
+    is_ppc: PropTypes.bool,
     title: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
 }
 

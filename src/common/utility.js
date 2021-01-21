@@ -107,6 +107,7 @@ const trimSpaces = (value) => value.trim()
 
 const application_id = 'f0aef779-d9ec-4517-807e-a84c683c4265'
 const client_token = 'pubc42fda54523c5fb23c564e3d8bceae88'
+const sample_rate = 25
 const deriv_app_url = 'https://app.deriv.com'
 const deriv_bot_app_url = 'https://app.deriv.com/bot'
 const deriv_blog_url = 'https://blog.deriv.com'
@@ -115,6 +116,7 @@ const deriv_status_page_url = 'https://deriv.statuspage.io'
 const smarttrader_url = 'https://smarttrader.deriv.com'
 const binary_url = 'https://binary.com'
 const blog_url = 'https://blog.deriv.com'
+const besquare_url = 'https://besquare.deriv.com'
 const deriv_cookie_domain = 'deriv.com'
 const affiliate_signup_url = 'https://login.deriv.com/signup.php'
 const affiliate_signin_url = 'https://login.deriv.com/signin.php'
@@ -143,6 +145,7 @@ export {
     affiliate_signup_url,
     binary_url,
     brand_name,
+    besquare_url,
     application_id,
     client_token,
     checkElemInArray,
@@ -189,4 +192,5 @@ export {
     zoho_url,
     trimSpaces,
     p2p_playstore_url,
+    sample_rate,
 }

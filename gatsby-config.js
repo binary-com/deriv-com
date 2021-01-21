@@ -48,6 +48,10 @@ module.exports = {
                     '/**/homepage/**',
                     '/offline-plugin-app-shell-fallback',
                     '/**/offline-plugin-app-shell-fallback',
+                    '/landing',
+                    '/landing/**',
+                    '/**/landing',
+                    '/**/landing/**',
                 ],
                 serialize: ({ site, allSitePage }) =>
                     allSitePage.edges.map((edge) => {
@@ -178,6 +182,7 @@ module.exports = {
                             '/zh_tw/',
                             '/amp/',
                             '/homepage/',
+                            '/landing/',
                             '*derivtnc*',
                             '*deriv_tnc*',
                         ],

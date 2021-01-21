@@ -29,7 +29,6 @@ const CareerButton = styled(LinkButton)`
         font-size: 9px;
     }
     @media ${device.mobileM} {
-        font-size: 9px;
         margin-left: 4px;
     }
 `

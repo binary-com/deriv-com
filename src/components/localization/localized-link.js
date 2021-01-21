@@ -126,7 +126,6 @@ export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
             !is_affiliate_sign_in_link &&
             !is_besquare_link &&
             !is_blog_link &&
-            !is_community_link &&
             !is_zoho_link
         ) {
             return (

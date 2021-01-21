@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { I18nextProvider } from 'react-i18next'
 import i18next from './config'
-import { initializeWebsocket } from 'common/websocket/initial-render-socket'
 import { isBrowser } from 'common/utility'
 
 // HOC that pre renders a page with the translated language (during build)
@@ -22,9 +21,9 @@ export const WithIntl = () => (WrappedComponent) => {
             if (current_language && current_language !== i18next.language) {
                 addResources(pageContext, current_language)
                 i18next.changeLanguage(current_language)
-                if (isBrowser) {
+                if (isBrowser()) {
                     const normalize_lang = current_language && current_language.replace('_', '-')
-                    initializeWebsocket(normalize_lang)
+                    localStorage.setItem('i18n', normalize_lang)
                 }
             }
         }

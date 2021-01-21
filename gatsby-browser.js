@@ -3,12 +3,11 @@ import NProgress from 'nprogress'
 import Cookies from 'js-cookie'
 import { WrapPagesWithLocaleContext } from './src/components/localization'
 import { isProduction, isLocalHost } from './src/common/websocket/config'
-import { CookieStorage, LocalStore } from './src/common/storage'
-import { isMobile } from './src/common/os-detect'
+import { LocalStore } from './src/common/storage'
 import { application_id, client_token, gtm_test_domain, sample_rate } from './src/common/utility'
 import { MediaContextProvider } from './src/themes/media'
 import { DerivProvider } from './src/store'
-import './static/css/ibm-plex-sans-var.css';
+import './static/css/ibm-plex-sans-var.css'
 
 const is_browser = typeof window !== 'undefined'
 
@@ -21,14 +20,14 @@ const checkDomain = () => {
 }
 
 const addScript = (settings) => {
-    const script = document.createElement("script")
-    const { async, text, src, id } = settings;
+    const script = document.createElement('script')
+    const { async, text, src, id } = settings
 
     if (async) script.async = settings['async']
     if (text) script.text = settings['text']
     if (src) script.src = settings['src']
     if (id) script.id = settings['id']
-    
+
     document.body.appendChild(script)
 }
 
@@ -74,12 +73,7 @@ export const onInitialClientRender = () => {
             window.dataLayer.push({ logged_in: is_logged_in })
         }
     }
-    // Configure traffic source
-    const signup_device_cookie = new CookieStorage('signup_device')
 
-    if (!signup_device_cookie.get('signup_device')) {
-        signup_device_cookie.set('signup_device', isMobile() ? 'mobile' : 'desktop')
-    }
     NProgress.done()
 }
 
@@ -95,7 +89,7 @@ export const onClientEntry = () => {
             id: 'gtm-test-container',
         })
         addScript({
-            text:`
+            text: `
                 (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
                 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
                 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
@@ -105,23 +99,22 @@ export const onClientEntry = () => {
     }
 
     addScript({
-        src:'https://static.deriv.com/scripts/cookie.js',
+        src: 'https://static.deriv.com/scripts/cookie.js',
         async: true,
     })
 
     addScript({
-        src:'https://www.datadoghq-browser-agent.com/datadog-rum-us.js',
+        src: 'https://www.datadoghq-browser-agent.com/datadog-rum-us.js',
         async: true,
     })
 
-    if (window.location.hostname === 'deriv.com' && window.DD_RUM ) {
+    if (window.location.hostname === 'deriv.com' && window.DD_RUM) {
         window.DD_RUM.init({
             clientToken: client_token,
             applicationId: application_id,
-            sampleRate: sample_rate
+            sampleRate: sample_rate,
         })
     }
-
 }
 
 export const onPreRouteUpdate = () => {

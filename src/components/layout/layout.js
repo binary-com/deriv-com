@@ -94,6 +94,7 @@ const Layout = ({
     const [show_cookie_banner, setShowCookieBanner] = React.useState(false)
     const [show_modal, toggleModal, closeModal] = useModal()
     const [modal_payload, setModalPayload] = React.useState({})
+    const [gtm_data, setGTMData] = React.useState(null)
 
     const is_static = type === 'static'
 
@@ -125,19 +126,29 @@ const Layout = ({
 
     // Allow tracking cookie banner setup
     React.useEffect(() => {
-        const tracking_status = tracking_status_cookie.get(TRACKING_STATUS_KEY)
-        if (is_eu_country && !tracking_status) setShowCookieBanner(true)
+        if (typeof is_eu_country === 'boolean') {
+            const tracking_status = tracking_status_cookie.get(TRACKING_STATUS_KEY)
+            if (is_eu_country && !tracking_status) setShowCookieBanner(true)
+            const allow_tracking =
+                (!is_eu_country || tracking_status === 'accepted') && !gtm_data && has_dataLayer
 
-        const allow_tracking = (!is_eu_country || tracking_status === 'accepted') && has_dataLayer
-
-        if (allow_tracking) window.dataLayer.push({ event: 'allow_tracking' })
-        setMounted(true)
+            if (allow_tracking) {
+                setGTMData({ event: 'allow_tracking' })
+            }
+            setMounted(true)
+        }
     }, [is_eu_country])
+
+    React.useEffect(() => {
+        if (gtm_data) {
+            window.dataLayer.push(gtm_data)
+        }
+    }, [gtm_data])
 
     const onAccept = () => {
         tracking_status_cookie.set(TRACKING_STATUS_KEY, 'accepted')
 
-        if (has_dataLayer) window.dataLayer.push({ event: 'allow_tracking' })
+        if (!gtm_data && has_dataLayer) setGTMData({ event: 'allow_tracking' })
 
         setShowCookieBanner(false)
     }

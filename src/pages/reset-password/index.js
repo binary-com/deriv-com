@@ -10,6 +10,7 @@ import { Header, Text } from 'components/elements'
 import { Button, Input } from 'components/form'
 import Layout from 'components/layout/layout'
 import { Localize, localize, WithIntl } from 'components/localization'
+import device from 'themes/device'
 
 const StyledContainer = styled(Container)`
     text-align: center;
@@ -24,6 +25,11 @@ const FullwidthStyledContainer = styled(StyledContainer)`
 const TextContainer = styled(FullwidthStyledContainer)`
     max-width: 82rem;
     justify-content: start;
+`
+const MessageText = styled(Text)`
+    @media ${device.mobileL} {
+        margin: 0 3rem;
+    }
 `
 
 const ButtonContainer = styled.div`
@@ -173,9 +179,9 @@ const ResetPassword = () => {
                     <Header as="h2" type="section-title" align="center" mb="2rem" mt="80px">
                         {localize('All you’ll need from now is one password')}
                     </Header>
-                    <Text align="center" mb="2rem">
+                    <MessageText align="center" mb="2rem">
                         <Localize translate_text="We’ve upgraded our system to support a single, more secure password across all of Deriv/Binary.com. Once you’ve set a new password, you can use it to log into all your Deriv/Binary.com, and DMT5/MT5 accounts." />
-                    </Text>
+                    </MessageText>
                     <ButtonContainer>
                         <StyledButton tertiary onClick={Login.redirectToLogin} type="button">
                             {localize('Return to log in')}

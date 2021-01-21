@@ -144,9 +144,18 @@ const Regulatory = () => {
                     </StyledHeader>
                     <Box>
                         <Text>
-                            {localize(
-                                'Deriv Investments (Europe) Limited, W Business Centre, Level 3, Triq Dun Karm, Birkirkara BKR 9033, Malta, is licensed in Malta and authorised by the Malta Financial Services Authority under the Investments Services Act to provide investment services in the European Union.',
-                            )}
+                            <Localize
+                                translate_text="Deriv Investments (Europe) Limited, W Business Centre, Level 3, Triq Dun Karm, Birkirkara BKR 9033, Malta, is licensed in Malta (<0>licence no. IS/70156</0>) and authorised by the Malta Financial Services Authority under the Investments Services Act to provide investment services in the European Union."
+                                components={[
+                                    <LinkText
+                                        key={0}
+                                        weight="bold"
+                                        target="_blank"
+                                        href="/regulatory/Deriv_Investments_(Europe)_Limited.pdf"
+                                        rel="noopener noreferrer"
+                                    />,
+                                ]}
+                            />
                         </Text>
                         <Text mt="2rem">
                             {localize(

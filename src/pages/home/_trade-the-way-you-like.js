@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
+import PropTypes from 'prop-types'
 import { Header, Text, QueryImage } from 'components/elements'
 import { localize } from 'components/localization'
 import { SectionContainer } from 'components/containers'
@@ -25,7 +26,7 @@ const ImageWrapper = styled.div`
 const StyledSection = styled(SectionContainer)`
     background: linear-gradient(#efefef, #ffffff);
 `
-const TradeTheWayYouLike = () => {
+const TradeTheWayYouLike = ({ is_ppc_redirect }) => {
     const data = useStaticQuery(query)
     return (
         <StyledSection padding="5rem 2rem">
@@ -38,9 +39,13 @@ const TradeTheWayYouLike = () => {
             <ImageWrapper>
                 <QueryImage data={data['dtrader_artboard']} alt={localize('Dtrader artboard')} />
             </ImageWrapper>
-            <OtherPlatform exclude="" is_nav />
+            <OtherPlatform exclude="" is_nav is_ppc_redirect={is_ppc_redirect} />
         </StyledSection>
     )
+}
+
+TradeTheWayYouLike.propTypes = {
+    is_ppc_redirect: PropTypes.bool,
 }
 
 export default TradeTheWayYouLike

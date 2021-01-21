@@ -315,7 +315,7 @@ const query = graphql`
     }
 `
 
-const Footer = ({ type, is_ppc }) => {
+const Footer = ({ type, is_ppc, is_ppc_redirect }) => {
     const image_query = useStaticQuery(query)
     const { show_cookie_banner } = React.useContext(LocationContext)
 
@@ -377,7 +377,9 @@ const Footer = ({ type, is_ppc }) => {
                                         <Link to="/dbot">{localize('DBot')}</Link>
                                     </LinkWrapper>
                                     <LinkWrapper>
-                                        <Link to="/dmt5">{localize('DMT5')}</Link>
+                                        <Link to={!is_ppc_redirect ? '/dmt5' : '/landing/dmt5'}>
+                                            {localize('DMT5')}
+                                        </Link>
                                     </LinkWrapper>
                                     <LinkWrapper>
                                         <Link
@@ -830,6 +832,7 @@ const Footer = ({ type, is_ppc }) => {
 
 Footer.propTypes = {
     is_ppc: PropTypes.bool,
+    is_ppc_redirect: PropTypes.bool,
     type: PropTypes.string,
 }
 

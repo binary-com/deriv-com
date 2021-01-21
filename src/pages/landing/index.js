@@ -53,10 +53,10 @@ const Home = () => {
             />
             <Hero is_ppc={true} />
             <Show.Mobile>
-                <TradeTheWayYouLike />
+                <TradeTheWayYouLike is_ppc_redirect={true} />
             </Show.Mobile>
             <Show.Desktop>
-                <Trade />
+                <Trade is_ppc_redirect={true} />
             </Show.Desktop>
             <Markets is_ppc={true} />
             <SimpleSteps

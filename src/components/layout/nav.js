@@ -320,7 +320,7 @@ const handleLogin = () => {
     Login.redirectToLogin()
 }
 
-const NavMobile = ({ is_ppc }) => {
+const NavMobile = ({ is_ppc, is_ppc_redirect }) => {
     const [is_canvas_menu_open, openOffCanvasMenu, closeOffCanvasMenu] = moveOffCanvasMenu()
 
     return (
@@ -355,6 +355,7 @@ const NavMobile = ({ is_ppc }) => {
                 is_canvas_menu_open={is_canvas_menu_open}
                 closeOffCanvasMenu={closeOffCanvasMenu}
                 is_ppc={is_ppc}
+                is_ppc_redirect={is_ppc_redirect}
             />
         </Wrapper>
     )
@@ -437,7 +438,13 @@ const NavDesktop = ({ base, is_ppc, is_ppc_redirect }) => {
                 link_ref={link_trade_ref}
                 is_open={is_trade_open}
                 has_animation={has_trade_animation}
-                Content={() => <NavPlatform onClick={handleTradeClick} is_ppc={is_ppc} />}
+                Content={() => (
+                    <NavPlatform
+                        onClick={handleTradeClick}
+                        is_ppc={is_ppc}
+                        is_ppc_redirect={is_ppc_redirect}
+                    />
+                )}
                 title={localize('Trading platforms')}
                 description={localize(
                     'Be in full control of your trading with our new and improved platforms.',
@@ -583,6 +590,7 @@ NavDesktop.propTypes = {
 
 NavMobile.propTypes = {
     is_ppc: PropTypes.bool,
+    is_ppc_redirect: PropTypes.bool,
 }
 
 const Auto = styled(Flex)`

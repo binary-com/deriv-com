@@ -126,8 +126,8 @@ export const BotCard = ({ is_selected, word_break_cover }) => (
     </StyledLink>
 )
 
-export const DMT5Card = ({ is_selected, word_break_cover }) => (
-    <StyledLink ariaLabel={localize('DMT5')} to="/dmt5">
+export const DMT5Card = ({ is_selected, is_ppc_redirect, word_break_cover }) => (
+    <StyledLink ariaLabel={localize('DMT5')} to={!is_ppc_redirect ? '/dmt5' : '/landing/dmt5'}>
         <Card
             cover_background="var(--color-green)"
             cover_content={localize('Discover DMT5 now')}
@@ -180,7 +180,7 @@ export const SmarttraderCard = ({ is_selected, word_break_cover }) => (
     </StyledLink>
 )
 
-export const OtherPlatform = ({ header, subHeader, exclude, is_nav }) => (
+export const OtherPlatform = ({ header, subHeader, exclude, is_nav, is_ppc_redirect }) => (
     <SectionContainer padding="0">
         {is_nav ? null : (
             <HeaderWrapper>
@@ -206,7 +206,7 @@ export const OtherPlatform = ({ header, subHeader, exclude, is_nav }) => (
         <StyledFlexGridContainer content_width="38.4rem" gap="1rem" grid="3" justify="center">
             {exclude.toLowerCase() !== 'dtrader' && <TraderCard />}
             {exclude.toLowerCase() !== 'dbot' && <BotCard />}
-            {exclude.toLowerCase() !== 'dmt5' && <DMT5Card />}
+            {exclude.toLowerCase() !== 'dmt5' && <DMT5Card is_ppc_redirect={is_ppc_redirect} />}
         </StyledFlexGridContainer>
     </SectionContainer>
 )
@@ -224,10 +224,11 @@ OtherPlatform.propTypes = {
     exclude: PropTypes.string,
     header: PropTypes.string,
     is_nav: PropTypes.bool,
+    is_ppc_redirect: PropTypes.bool,
     subHeader: PropTypes.string,
 }
 
-export const NavPlatform = ({ onClick, is_ppc }) => {
+export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
     const { is_eu_country } = React.useContext(DerivStore)
 
     return (
@@ -259,7 +260,7 @@ export const NavPlatform = ({ onClick, is_ppc }) => {
                     }
                     title={<Localize translate_text="DMT5" />}
                     onClick={onClick}
-                    to="/dmt5"
+                    to={!is_ppc_redirect ? '/dmt5' : '/landing/dmt5'}
                 />
                 <NavCard
                     icon={() => <img src={Smarttrader} alt="Smarttrader" width="32" height="32" />}
@@ -322,6 +323,7 @@ export const NavPlatform = ({ onClick, is_ppc }) => {
 
 NavPlatform.propTypes = {
     is_ppc: PropTypes.bool,
+    is_ppc_redirect: PropTypes.bool,
     onClick: PropTypes.func,
 }
 

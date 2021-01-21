@@ -315,7 +315,7 @@ const query = graphql`
     }
 `
 
-const Footer = ({ type }) => {
+const Footer = ({ type, is_ppc }) => {
     const image_query = useStaticQuery(query)
     const { show_cookie_banner } = React.useContext(LocationContext)
 
@@ -391,28 +391,30 @@ const Footer = ({ type }) => {
                                         </Link>
                                     </LinkWrapper>
                                 </LinksCol>
-                                <LinksCol>
-                                    <LinkWrapper>
-                                        <Title>{localize('TRADE TYPES')}</Title>
-                                    </LinkWrapper>
-                                    <LinkWrapper first_child="true">
-                                        <Link to="/trade-types/margin">
-                                            {localize('Margin trading')}
-                                        </Link>
-                                    </LinkWrapper>
-                                    <Show.NonEU>
+                                {!is_ppc && (
+                                    <LinksCol>
                                         <LinkWrapper>
-                                            <Link to="/trade-types/options">
-                                                {localize('Options')}
+                                            <Title>{localize('TRADE TYPES')}</Title>
+                                        </LinkWrapper>
+                                        <LinkWrapper first_child="true">
+                                            <Link to="/trade-types/margin">
+                                                {localize('Margin trading')}
                                             </Link>
                                         </LinkWrapper>
-                                    </Show.NonEU>
-                                    <LinkWrapper>
-                                        <Link to="/trade-types/multiplier">
-                                            {localize('Multipliers')}
-                                        </Link>
-                                    </LinkWrapper>
-                                </LinksCol>
+                                        <Show.NonEU>
+                                            <LinkWrapper>
+                                                <Link to="/trade-types/options">
+                                                    {localize('Options')}
+                                                </Link>
+                                            </LinkWrapper>
+                                        </Show.NonEU>
+                                        <LinkWrapper>
+                                            <Link to="/trade-types/multiplier">
+                                                {localize('Multipliers')}
+                                            </Link>
+                                        </LinkWrapper>
+                                    </LinksCol>
+                                )}
                                 <LinksCol>
                                     <LinkWrapper>
                                         <Title>{localize('MARKETS')}</Title>
@@ -420,11 +422,13 @@ const Footer = ({ type }) => {
                                     <LinkWrapper first_child="true">
                                         <Link to="/markets#forex">{localize('Forex')}</Link>
                                     </LinkWrapper>
-                                    <LinkWrapper>
-                                        <Link to="/markets#synthetic">
-                                            {localize('Synthetic indices')}
-                                        </Link>
-                                    </LinkWrapper>
+                                    {!is_ppc && (
+                                        <LinkWrapper>
+                                            <Link to="/markets#synthetic">
+                                                {localize('Synthetic indices')}
+                                            </Link>
+                                        </LinkWrapper>
+                                    )}
                                     <LinkWrapper>
                                         <Link to="/markets#stock">{localize('Stock indices')}</Link>
                                     </LinkWrapper>
@@ -825,6 +829,7 @@ const Footer = ({ type }) => {
 }
 
 Footer.propTypes = {
+    is_ppc: PropTypes.bool,
     type: PropTypes.string,
 }
 

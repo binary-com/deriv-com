@@ -9,9 +9,9 @@ import {
     Signup,
 } from '../home/_lazy-load'
 import { Hero } from '../home/_hero'
-import { Show } from 'components/containers'
+import { SEO, Show } from 'components/containers'
 import Layout from 'components/layout/layout'
-import { WithIntl, Localize } from 'components/localization'
+import { WithIntl, Localize, localize } from 'components/localization'
 import { Appearances } from 'components/custom/signup'
 import PractiseIcon from 'images/svg/aim.svg'
 import TradeIcon from 'images/svg/trade.svg'
@@ -43,6 +43,14 @@ const simple_step_content = [
 const Home = () => {
     return (
         <Layout is_ppc_redirect={true} is_ppc={true}>
+            <SEO
+                title={localize('Online trading platform | Forex, commodities and indices | Deriv')}
+                description={localize(
+                    'Deriv - An online trading platform that offers a wide selection of derivatives to trade on',
+                )}
+                has_organization_schema
+                no_index
+            />
             <Hero is_ppc={true} />
             <Show.Mobile>
                 <TradeTheWayYouLike />

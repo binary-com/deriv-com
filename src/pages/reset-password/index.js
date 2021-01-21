@@ -34,8 +34,7 @@ const MessageText = styled(Text)`
 
 const ButtonContainer = styled.div`
     margin-top: 2rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
 `
 
 const InputGroup = styled.div`

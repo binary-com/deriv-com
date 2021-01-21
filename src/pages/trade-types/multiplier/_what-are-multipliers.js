@@ -1,7 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
+import Loadable from '@loadable/component'
 import { SmallContainer, Grid, WhyTradeItem } from '../components/_style'
+import Margin from './_margin.js'
+import SyntheticIndices from './_synthetic-indices.js'
 import device from 'themes/device'
 import { SectionContainer, Flex } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
@@ -14,6 +17,7 @@ import ResponsivePlatform from 'images/svg/trade-types/responsive-platform.svg'
 import FriendlySupport from 'images/svg/trade-types/friendly-support.svg'
 import Seven from 'images/svg/trade-types/seven.svg'
 import CrashBoom from 'images/svg/trade-types/crash-boom.svg'
+const AvailableTrades = Loadable(() => import('./_available-trades.js'))
 
 const StyledHeader = styled(Header)`
     @media ${device.tablet} {
@@ -242,6 +246,11 @@ const WhatAreOptions = () => {
                     </Flex>
                 </SmallContainer>
             </StyledSectionContainer>
+            <AvailableTrades
+                display_title={localize('Instruments available to trade on Multipliers')}
+                Forex={Margin}
+                SyntheticIndices={SyntheticIndices}
+            />
             <SectionContainer background="grey-23" padding="4rem 0">
                 <SmallContainer direction="column" jc="flex-start" ai="flex-start">
                     <Header as="h3" size="3.2rem" mb="4rem">

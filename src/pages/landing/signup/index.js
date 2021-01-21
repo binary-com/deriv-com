@@ -68,12 +68,13 @@ const NewSignup = () => {
         setEmail(email)
     }
     return (
-        <Layout type="static" margin_top={'0'}>
+        <Layout type="static" margin_top={'0'} is_ppc={true}>
             <SEO
                 title={localize('Easy And Free Sign Up | Online Trading | Deriv.com')}
                 description={localize(
                     'Signup to Deriv.com and trade online with as little as $1 USD on major currencies, stocks, indices, and commodities.',
                 )}
+                no_index
             />
             <Wrapper>
                 {submit_state !== 'success' && (
@@ -85,7 +86,7 @@ const NewSignup = () => {
                         <br />
                         <Text>
                             {localize(
-                                'Join over 1 million people who trade with Deriv.com and Binary.com — the award-winning platform that’s been trusted for over 20 years.',
+                                'Join over 1 million people who trade stocks, forex and other markets on Deriv.com — the award-winning broker that’s been trusted for over 20 years.',
                             )}
                         </Text>
                         <Line />
@@ -99,6 +100,7 @@ const NewSignup = () => {
                     submit_state={submit_state}
                     email={email}
                     autofocus={true}
+                    is_ppc={true}
                 />
             </Wrapper>
             <StyledDiv />

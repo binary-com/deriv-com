@@ -60,9 +60,9 @@ const CFDText = styled(Text)`
     }
 `
 
-export const CFDWarning = () => {
+export const CFDWarning = ({ is_ppc }) => {
     const { is_eu_country } = React.useContext(DerivStore)
-    return is_eu_country ? (
+    return is_ppc || is_eu_country ? (
         <CFDWrapper>
             <CFDContainer>
                 <CFDText>
@@ -81,6 +81,8 @@ export const CFDWarning = () => {
 const Layout = ({
     children,
     interim_type,
+    is_ppc,
+    is_ppc_redirect,
     margin_top,
     nav_type,
     no_live_chat,
@@ -97,7 +99,7 @@ const Layout = ({
 
     const Main = styled.main`
         margin-top: ${(props) =>
-            !type && is_eu_country
+            (!type && is_ppc) || is_eu_country
                 ? (props.margin_top && `${props.margin_top + cfd_warning_height_desktop}rem`) ||
                   7 + cfd_warning_height_desktop + `rem`
                 : (props.margin_top && `${props.margin_top}rem`) || `7rem`};
@@ -107,7 +109,7 @@ const Layout = ({
 
         @media ${device.tabletS} {
             margin-top: ${(props) =>
-                !type && is_eu_country
+                (!type && is_ppc) || is_eu_country
                     ? (props.margin_top && `${props.margin_top + cfd_warning_height_tablet}rem`) ||
                       7 + cfd_warning_height_tablet + `rem`
                     : (props.margin_top && `${props.margin_top}rem`) || `7rem`};
@@ -150,7 +152,7 @@ const Layout = ({
     let FooterNav = <></>
     switch (type) {
         case 'static':
-            Navigation = <NavStatic />
+            Navigation = <NavStatic is_ppc={is_ppc} />
             break
         case 'interim':
             Navigation = <NavInterim interim_type={interim_type} />
@@ -169,7 +171,7 @@ const Layout = ({
             FooterNav = <Copyright />
             break
         default:
-            Navigation = <Nav />
+            Navigation = <Nav is_ppc_redirect={is_ppc_redirect} />
             FooterNav = <Footer />
             break
     }
@@ -208,9 +210,15 @@ const Layout = ({
     )
 }
 
+CFDWarning.propTypes = {
+    is_ppc: PropTypes.bool,
+}
+
 Layout.propTypes = {
     children: PropTypes.node.isRequired,
     interim_type: PropTypes.string,
+    is_ppc: PropTypes.bool,
+    is_ppc_redirect: PropTypes.bool,
     margin_top: PropTypes.number,
     nav_type: PropTypes.string,
     no_live_chat: PropTypes.bool,

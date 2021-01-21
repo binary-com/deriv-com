@@ -359,7 +359,7 @@ const NavMobile = () => {
     )
 }
 
-const NavDesktop = ({ base }) => {
+const NavDesktop = ({ base, is_ppc_redirect }) => {
     const data = useStaticQuery(query)
     const button_ref = useRef(null)
     const [show_button, showButton, hideButton] = moveButton()
@@ -538,7 +538,7 @@ const NavDesktop = ({ base }) => {
                     <LoginButton onClick={handleLogin} primary>
                         <span>{localize('Log in')}</span>
                     </LoginButton>
-                    <LocalizedLink to="/signup/">
+                    <LocalizedLink to={is_ppc_redirect ? '/landing/signup/' : '/signup/'}>
                         <SignupButton ref={button_ref} secondary="true">
                             <span>{localize('Create free demo account')}</span>
                         </SignupButton>
@@ -549,13 +549,13 @@ const NavDesktop = ({ base }) => {
     )
 }
 
-export const Nav = ({ base }) => {
+export const Nav = ({ base, is_ppc_redirect }) => {
     return (
         <NavWrapper>
             <CFDWarning />
             <StyledNav>
                 <Show.Desktop>
-                    <NavDesktop base={base} />
+                    <NavDesktop base={base} is_ppc_redirect={is_ppc_redirect} />
                 </Show.Desktop>
                 <Show.Mobile>
                     <NavMobile />
@@ -567,10 +567,12 @@ export const Nav = ({ base }) => {
 
 Nav.propTypes = {
     base: PropTypes.string,
+    is_ppc_redirect: PropTypes.bool,
 }
 
 NavDesktop.propTypes = {
     base: PropTypes.string,
+    is_ppc_redirect: PropTypes.bool,
 }
 
 const Auto = styled(Flex)`
@@ -644,9 +646,9 @@ export const NavInterim = ({ interim_type }) => (
     </InterimNav>
 )
 
-export const NavStatic = () => (
+export const NavStatic = ({ is_ppc }) => (
     <>
-        <CFDWarning />
+        <CFDWarning is_ppc={is_ppc} />
         <StaticWrapper>
             <LogoLink mw="31rem" to="/" aria-label={localize('Home')}>
                 <Flex ai="center">
@@ -942,6 +944,7 @@ function moveButton(is_visible = false) {
 }
 
 NavStatic.propTypes = {
+    is_ppc: PropTypes.bool,
     is_static: PropTypes.bool,
 }
 

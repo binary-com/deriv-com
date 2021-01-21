@@ -177,14 +177,15 @@ const StyledBinaryLogo = styled.img`
     }
 `
 const SignupNew = ({
-    email_error_msg,
-    email,
-    clearEmail,
-    handleInputChange,
-    handleValidation,
     autofocus,
-    handleSocialSignup,
+    clearEmail,
+    email,
+    email_error_msg,
+    handleInputChange,
     handleLogin,
+    handleSocialSignup,
+    handleValidation,
+    is_ppc,
     is_submitting,
 }) => {
     const [checkBoxState, setCheckBoxState] = useState(false)
@@ -213,35 +214,37 @@ const SignupNew = ({
                 </Text>
             </Show.Mobile>
 
-            <NoteBox>
-                <StyledBinaryLogo src={BinaryLogo} alt="binarylogo" />
-                <div>
-                    <StyledText
-                        mb="0.4rem"
-                        notedBox
-                        color="grey-16"
-                        size="var(--text-size-xs)"
-                        tabletFontSize="12px"
-                    >
-                        <Localize
-                            translate_text="Got a <0>Binary.com</0> account?"
-                            components={[<strong key={0} />]}
-                        />
-                    </StyledText>
-                    <StyledText
-                        notedBox
-                        size="var(--text-size-xxs)"
-                        tabletFontSize="12px"
-                        color="grey-16"
-                        lh="18px"
-                    >
-                        <Localize
-                            translate_text="Log in to <0>Deriv.com</0> with your <0>Binary.com</0> username and password."
-                            components={[<strong key={0} />]}
-                        />
-                    </StyledText>
-                </div>
-            </NoteBox>
+            {!is_ppc && (
+                <NoteBox>
+                    <StyledBinaryLogo src={BinaryLogo} alt="binarylogo" />
+                    <div>
+                        <StyledText
+                            mb="0.4rem"
+                            notedBox
+                            color="grey-16"
+                            size="var(--text-size-xs)"
+                            tabletFontSize="12px"
+                        >
+                            <Localize
+                                translate_text="Got a <0>Binary.com</0> account?"
+                                components={[<strong key={0} />]}
+                            />
+                        </StyledText>
+                        <StyledText
+                            notedBox
+                            size="var(--text-size-xxs)"
+                            tabletFontSize="12px"
+                            color="grey-16"
+                            lh="18px"
+                        >
+                            <Localize
+                                translate_text="Log in to <0>Deriv.com</0> with your <0>Binary.com</0> username and password."
+                                components={[<strong key={0} />]}
+                            />
+                        </StyledText>
+                    </div>
+                </NoteBox>
+            )}
 
             <InputGroup>
                 <Input
@@ -351,6 +354,7 @@ SignupNew.propTypes = {
     handleLogin: PropTypes.func,
     handleSocialSignup: PropTypes.func,
     handleValidation: PropTypes.func,
+    is_ppc: PropTypes.bool,
     is_submitting: PropTypes.bool,
 }
 

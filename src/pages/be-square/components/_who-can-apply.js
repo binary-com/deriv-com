@@ -1,8 +1,13 @@
 import React from 'react'
-import { CardContainer, ContentContainer, HeaderWrapper, Section } from '../style/_who-can-apply'
-import { TextWrapper, Title } from '../style/_common'
-import who_can_apply from '../content/_who-can-apply'
-import { RedMarkIcon } from '../images/_common'
+import {
+    CardContainer,
+    ContentContainer,
+    HeaderWrapper,
+    Section,
+} from '../static/style/_who-can-apply'
+import { TextWrapper, Title } from '../static/style/_common'
+import who_can_apply from '../static/content/_who-can-apply'
+import { RedMarkIcon } from '../static/images/_common'
 import Card from './_card'
 
 const WhoCanApply = () => {

@@ -1,5 +1,5 @@
 import React from 'react'
-import { TextWrapper } from '../style/_common'
+import { TextWrapper } from '../static/style/_common'
 import { Container, SectionContainer } from 'components/containers'
 import { localize } from 'components/localization'
 

@@ -4,7 +4,8 @@ import { LinkButton } from 'components/form'
 import device from 'themes/device'
 
 export const ButtonWrapper = styled(LinkButton)`
-    max-width: 102px;
+    min-width: 102px;
+    width: auto;
     height: auto;
     white-space: nowrap;
 `

@@ -608,7 +608,7 @@ const Footer = ({ type, is_ppc, is_ppc_redirect }) => {
                             </DisclaimerParagraph>
                             <DisclaimerParagraph>
                                 <Localize
-                                    translate_text="Deriv (Europe) Limited, W Business Centre, Level 3, Triq Dun Karm, Birkirkara BKR 9033, Malta, is licensed and regulated for synthetic indices by the Malta Gaming Authority (<0>licence no. MGA/B2C/102/2000</0>), by the Gambling Commission for clients in Great Britain (<1>account no. 39495</1>), and by the Revenue Commissioners for clients in Ireland (licence no. 1010285)."
+                                    translate_text="Deriv (Europe) Limited, W Business Centre, Level 3, Triq Dun Karm, Birkirkara BKR 9033, Malta, is licensed and regulated for synthetic indices by the Malta Gaming Authority (<0>licence no. MGA/B2C/102/2000</0>), by the Gambling Commission for clients in Great Britain (<1>account no. 39495</1>), and by the Revenue Commissioners for clients in Ireland (<2>licence no. 1010285</2>)."
                                     components={[
                                         <StaticAsset
                                             key={0}
@@ -621,6 +621,12 @@ const Footer = ({ type, is_ppc, is_ppc_redirect }) => {
                                             key={1}
                                             target="_blank"
                                             to="https://beta.gamblingcommission.gov.uk/public-register/business/detail/39495"
+                                            rel="noopener noreferrer"
+                                        />,
+                                        <StaticAsset
+                                            key={2}
+                                            target="_blank"
+                                            href="/regulatory/DEL_Remote_Bookmarker_License.pdf"
                                             rel="noopener noreferrer"
                                         />,
                                     ]}
@@ -685,7 +691,7 @@ const Footer = ({ type, is_ppc, is_ppc_redirect }) => {
                                 <Show.Eu>
                                     <DisclaimerParagraph no_margin>
                                         <Localize
-                                            translate_text="The financial products offered via this website include digitals, contracts for difference (CFDs), and other complex derivatives and financial products. Trading financial products may not be suitable for everyone. CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage.  74% of retail investor accounts lose money when trading CFDs with Deriv Investments (Europe) Ltd. <0></0>
+                                            translate_text="The financial products offered via this website include digitals, contracts for difference (CFDs), and other complex derivatives and financial products. Trading financial products may not be suitable for everyone. CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage.  74% of retail investor accounts lose money when trading CFDs with Deriv Investments (Europe) Ltd. <0/>
                                                             You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money. You should never invest money that you cannot afford to lose and never trade with borrowed money. Before trading in the complex financial products offered, please be sure to understand the risks involved."
                                             components={[<br key={0} />]}
                                         />

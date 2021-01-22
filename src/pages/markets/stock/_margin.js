@@ -9,11 +9,10 @@ import {
     MarketsWrapper,
     Row,
     StyledText,
-    SymbolContainer,
     Title,
 } from '../_markets-style'
+import Symbol from '../_symbol'
 import { EuropeDetails } from './_details'
-import { Text } from 'components/elements'
 import { SectionContainer } from 'components/containers'
 import { localize } from 'components/localization'
 import { OTCGERMAN } from 'components/elements/symbols'
@@ -40,10 +39,7 @@ const Margin = () => (
                                 <Title>{localize('Europe')}</Title>
                             </Col>
                             <MarketsList has_right_border={true}>
-                                <SymbolContainer>
-                                    <img src={OTCGERMAN} />
-                                    <Text>{localize('German Index')}</Text>
-                                </SymbolContainer>
+                                <Symbol src={OTCGERMAN} text={localize('German Index')} />
                             </MarketsList>
                         </Row>
                     )}

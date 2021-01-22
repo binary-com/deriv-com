@@ -1,11 +1,12 @@
 import React from 'react'
 import Symbol from '../_symbol'
 import { STEPINDICES } from 'components/elements/symbols'
+import { localize } from 'components/localization'
 
 const StepIndices = () => {
     return (
         <>
-            <Symbol src={STEPINDICES} text={'Step Index'} />
+            <Symbol src={STEPINDICES} text={localize('Step Index')} />
         </>
     )
 }

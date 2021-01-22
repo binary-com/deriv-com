@@ -1,8 +1,8 @@
 import React from 'react'
-import { ContentContainer, ContentWrapper, Section } from '../style/_what-is-besquare'
-import { TextWrapper, Title } from '../style/_common'
-import { GreenMarkIcon } from '../images/_common'
-import what_is_be_square from '../content/_what-is-besquare'
+import { ContentContainer, ContentWrapper, Section } from '../static/style/_what-is-besquare'
+import { TextWrapper, Title } from '../static/style/_common'
+import { GreenMarkIcon } from '../static/images/_common'
+import what_is_be_square from '../static/content/_what-is-besquare'
 import Card from './_card'
 
 const WhatIsBeSquare = () => {

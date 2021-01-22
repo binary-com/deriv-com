@@ -60,7 +60,7 @@ export const IconWrapper = styled.img`
 `
 
 export const LineWrapper = styled.img`
-    width: inherit;
+    width: 100%;
     position: relative;
     top: 70px;
 

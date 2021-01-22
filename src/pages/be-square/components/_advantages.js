@@ -1,7 +1,7 @@
 import React from 'react'
-import { CardContainer } from '../style/_advantages'
-import { Title } from '../style/_common'
-import advantages from '../content/_advantages'
+import { CardContainer } from '../static/style/_advantages'
+import { Title } from '../static/style/_common'
+import advantages from '../static/content/_advantages'
 import Card from './_card'
 import { Container } from 'components/containers'
 
@@ -34,21 +34,19 @@ const Advantages = () => {
         </Title>
     )
     return (
-        <div>
-            <Container direction={'column'}>
-                <Title padding={['80px 0 40px', '40px 0 16px']}>{advantages.title}</Title>
-                <CardContainer>
-                    {advantages.content.map((card, index) => (
-                        <Card
-                            key={index}
-                            card_content={card}
-                            style={style}
-                            title_component={getTitle(card.title)}
-                        />
-                    ))}
-                </CardContainer>
-            </Container>
-        </div>
+        <Container direction={'column'}>
+            <Title padding={['80px 0 40px', '40px 0 16px']}>{advantages.title}</Title>
+            <CardContainer>
+                {advantages.content.map((card, index) => (
+                    <Card
+                        key={index}
+                        card_content={card}
+                        style={style}
+                        title_component={getTitle(card.title)}
+                    />
+                ))}
+            </CardContainer>
+        </Container>
     )
 }
 

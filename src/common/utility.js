@@ -107,6 +107,9 @@ function debounce(func, wait, immediate) {
     }
 }
 
+// This function accepts an array of a prop for different data sizes
+// It back propagates the array from end to start to find a value
+// It returns fallback if specified when prop is not provided or 'unset'
 const responsiveFallback = (prop, start_from, fallback) => {
     let index = start_from ?? prop?.length ?? 0
     while (prop && index) {

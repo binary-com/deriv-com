@@ -477,13 +477,7 @@ const Footer = ({ type }) => {
                                         <Link to="/help-centre">{localize('Help centre')}</Link>
                                     </LinkWrapper>
                                     <LinkWrapper>
-                                        <Link
-                                            to=""
-                                            is_community_link
-                                            external="true"
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                        >
+                                        <Link to="" is_community_link target="_blank">
                                             {localize('Community')}
                                         </Link>
                                     </LinkWrapper>
@@ -506,13 +500,7 @@ const Footer = ({ type }) => {
                                         </Link>
                                     </LinkWrapper>
                                     <LinkWrapper>
-                                        <Link
-                                            to=""
-                                            is_blog_link
-                                            external="true"
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                        >
+                                        <Link to="" is_blog_link target="_blank">
                                             {localize('Blog')}
                                         </Link>
                                     </LinkWrapper>

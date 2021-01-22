@@ -26,7 +26,11 @@ export const ContentContainer = styled(Container)`
 export const ContentWrapper = styled(Flex)`
     flex-direction: column;
     width: fit-content;
-    margin-right: 24px;
+    margin-left: 24px;
+
+    @media ${device.tablet} {
+        margin: 0;
+    }
 `
 
 export const TextWrapper = styled(Text)`

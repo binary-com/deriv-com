@@ -23,6 +23,11 @@ import SbGo from 'images/svg/options/sb-go.svg'
 import TNT from 'images/svg/options/tnt.svg'
 
 const DigitalOptions = () => {
+    const markets_list = {
+        col: 4,
+        tablet_col: 3,
+        mobile_col: 2,
+    }
     return (
         <SectionContainer padding="4rem 0 8rem">
             <ContentWrapper>
@@ -107,7 +112,7 @@ const DigitalOptions = () => {
                     <Col>
                         <Title>{localize('Major pairs')}</Title>
                     </Col>
-                    <MarketsList responsive_col={2}>
+                    <MarketsList {...markets_list}>
                         <MajorPairs />
                     </MarketsList>
                 </Row>
@@ -115,7 +120,7 @@ const DigitalOptions = () => {
                     <Col>
                         <Title>{localize('Minor pairs')}</Title>
                     </Col>
-                    <MarketsList responsive_col={2}>
+                    <MarketsList {...markets_list}>
                         <MinorPairs />
                     </MarketsList>
                 </Row>
@@ -128,7 +133,7 @@ const DigitalOptions = () => {
                             <Title>{localize('Smart FX')}</Title>
                         </Show.Mobile>
                     </Col>
-                    <MarketsList responsive_col={2}>
+                    <MarketsList {...markets_list}>
                         <SmartFX />
                     </MarketsList>
                 </Row>

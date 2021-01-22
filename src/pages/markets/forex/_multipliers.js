@@ -14,6 +14,11 @@ import { SectionContainer } from 'components/containers'
 import { localize } from 'components/localization'
 
 const Multipliers = () => {
+    const markets_list = {
+        col: 4,
+        tablet_col: 3,
+        mobile_col: 2,
+    }
     return (
         <SectionContainer padding="4rem 0 8rem">
             <ContentWrapper>
@@ -32,7 +37,7 @@ const Multipliers = () => {
                     <Col>
                         <Title>{localize('Major pairs')}</Title>
                     </Col>
-                    <MarketsList responsive_col={2}>
+                    <MarketsList {...markets_list}>
                         <MajorPairs />
                     </MarketsList>
                 </Row>

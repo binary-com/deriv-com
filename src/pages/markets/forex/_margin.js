@@ -15,6 +15,11 @@ import { SectionContainer } from 'components/containers'
 import { localize } from 'components/localization'
 
 const Margin = () => {
+    const markets_list = {
+        col: 4,
+        tablet_col: 3,
+        mobile_col: 2,
+    }
     return (
         <SectionContainer padding="4rem 0 8rem">
             <ContentWrapper>
@@ -34,7 +39,7 @@ const Margin = () => {
                         <Col>
                             <Title>{localize('Major pairs')}</Title>
                         </Col>
-                        <MarketsList responsive_col={2}>
+                        <MarketsList {...markets_list}>
                             <MajorPairs />
                         </MarketsList>
                     </Row>
@@ -42,7 +47,7 @@ const Margin = () => {
                         <Col>
                             <Title>{localize('Minor pairs')}</Title>
                         </Col>
-                        <MarketsList responsive_col={2}>
+                        <MarketsList {...markets_list}>
                             <MinorPairs />
                         </MarketsList>
                     </Row>
@@ -50,7 +55,7 @@ const Margin = () => {
                         <Col>
                             <Title>{localize('Exotic pairs')}</Title>
                         </Col>
-                        <MarketsList responsive_col={2}>
+                        <MarketsList {...markets_list}>
                             <ExoticPairs />
                         </MarketsList>
                     </Row>

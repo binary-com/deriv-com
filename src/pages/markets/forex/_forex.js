@@ -17,54 +17,51 @@ import Leverage from 'images/svg/leverage.svg'
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
 const OtherMarkets = Loadable(() => import('../_other-markets.js'))
 
-const Forex = ({ simple_step_content }) => {
-    return (
-        <>
-            <WhyTrade
-                header={<Localize translate_text="Why trade forex on Deriv" />}
-                text={
-                    <Localize translate_text="Benefit from round-the-clock trading hours (Monday to Friday), high liquidity, low barriers to entry, a wide range of offerings, and opportunities to trade on world events." />
-                }
-            >
-                <div
-                    text={<Localize translate_text="High leverage, tight spreads" />}
-                    icon={<img src={Leverage} alt="leverage" />}
-                ></div>
-                <div
-                    text={<Localize translate_text="Responsive, easy-to-use platforms" />}
-                    icon={<img src={ResponsiveWebsite} alt="responsive website" />}
-                ></div>
-                <div
-                    text={<Localize translate_text="Advanced charting widgets" />}
-                    icon={<img src={AdvancedCharting} alt="advanced charting widgets" />}
-                ></div>
-                <div
-                    text={<Localize translate_text="Convenient deposit and withdrawal methods" />}
-                    icon={<img src={Deposit} alt="deposit and withdrawal" />}
-                ></div>
-                <div
-                    text={<Localize translate_text="Smart and friendly support, 7 days a week" />}
-                    icon={<img src={FriendlySupport} alt="friendly support" />}
-                ></div>
-            </WhyTrade>
-            <AvailableTrades
-                Margin={Margin}
-                DigitalOptions={DigitalOptions}
-                Multipliers={Multipliers}
-                name="Forex"
-                display_title={<Localize translate_text="Forex trades available on Deriv" />}
-            />
-            <SimpleSteps
-                header={
-                    <Localize translate_text="Start trading forex on Deriv in 3 simple steps" />
-                }
-                content={simple_step_content}
-                sign_up
-            />
-            <OtherMarkets except="forex" />
-        </>
-    )
-}
+const Forex = ({ simple_step_content }) => (
+    <>
+        <WhyTrade
+            header={<Localize translate_text="Why trade forex on Deriv" />}
+            text={
+                <Localize translate_text="Benefit from round-the-clock trading hours (Monday to Friday), high liquidity, low barriers to entry, a wide range of offerings, and opportunities to trade on world events." />
+            }
+        >
+            <div
+                text={<Localize translate_text="High leverage, tight spreads" />}
+                icon={<img src={Leverage} alt="leverage" />}
+            ></div>
+            <div
+                text={<Localize translate_text="Responsive, easy-to-use platforms" />}
+                icon={<img src={ResponsiveWebsite} alt="responsive website" />}
+            ></div>
+            <div
+                text={<Localize translate_text="Advanced charting widgets" />}
+                icon={<img src={AdvancedCharting} alt="advanced charting widgets" />}
+            ></div>
+            <div
+                text={<Localize translate_text="Convenient deposit and withdrawal methods" />}
+                icon={<img src={Deposit} alt="deposit and withdrawal" />}
+            ></div>
+            <div
+                text={<Localize translate_text="Smart and friendly support, 7 days a week" />}
+                icon={<img src={FriendlySupport} alt="friendly support" />}
+            ></div>
+        </WhyTrade>
+        <AvailableTrades
+            Margin={Margin}
+            DigitalOptions={DigitalOptions}
+            Multipliers={Multipliers}
+            name="Forex"
+            display_title={<Localize translate_text="Forex trades available on Deriv" />}
+        />
+        <SimpleSteps
+            header={<Localize translate_text="Start trading forex on Deriv in 3 simple steps" />}
+            content={simple_step_content}
+            sign_up
+        />
+        <OtherMarkets except="forex" />
+    </>
+)
+
 Forex.propTypes = {
     simple_step_content: PropTypes.array,
 }

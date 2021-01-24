@@ -35,6 +35,8 @@ const MessageText = styled(Text)`
 const ButtonContainer = styled.div`
     margin-top: 2rem;
     display: flex;
+    justify-content: center;
+    align-items: center;
 `
 
 const InputGroup = styled.div`

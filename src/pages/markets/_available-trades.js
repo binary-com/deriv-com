@@ -250,7 +250,7 @@ class AvailableTrades extends React.Component {
                         )}
                     </CardWrapper>
                     <ContentWrapper>
-                        {this.state.active_tab === 'Margin' && <Margin />}
+                        {this.state.active_tab === 'Margin' && Margin}
                         {this.state.active_tab === 'Options' && <DigitalOptions />}
                         {this.state.active_tab === 'Multipliers' && <Multipliers />}
                     </ContentWrapper>
@@ -263,7 +263,7 @@ class AvailableTrades extends React.Component {
 AvailableTrades.propTypes = {
     DigitalOptions: PropTypes.func,
     display_title: PropTypes.object,
-    Margin: PropTypes.func,
+    Margin: PropTypes.object,
     Multipliers: PropTypes.func,
 }
 

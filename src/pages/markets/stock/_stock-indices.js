@@ -2,15 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Loadable from '@loadable/component'
 import { WhyTrade } from '../_why-trade'
-import Margin from './_margin.js'
+import AvailableTrades from '../_available-trades'
+import stock_content from '../static/content/_stock'
+import { stock_margin } from '../static/content/_margin'
+import Margin from '../components/_margin'
 import DigitalOptions from './_digital-options.js'
 import { localize, Localize } from 'components/localization'
-import FriendlySupport from 'images/svg/friendly-support.svg'
-import ResponsiveWebsite from 'images/svg/responsive-website.svg'
-import Deposit from 'images/svg/deposit-and-withdrawal.svg'
-import ExtendedTime from 'images/svg/extended-trading-times.svg'
-import MinimalCapital from 'images/svg/minimal-capital.svg'
-const AvailableTrades = Loadable(() => import('../_available-trades.js'))
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
 const OtherMarkets = Loadable(() => import('../_other-markets.js'))
 
@@ -26,31 +23,16 @@ const StockIndices = ({ simple_step_content }) => {
                     <Localize translate_text="Profit from the price movements in a broad market or sector without owning underlying assets. Sourced from over-the-counter (OTC) markets, our stock indices offer competitively priced asset baskets and allow you to trade outside the regular hours of major stock markets." />
                 }
             >
-                <div
-                    text={<Localize translate_text="Minimal capital requirements, limited risk" />}
-                    icon={<img src={MinimalCapital} alt="minimal capital" />}
-                ></div>
-                <div
-                    text={<Localize translate_text="Extended trading time, up to 18 hours a day" />}
-                    icon={<img src={ExtendedTime} alt="extended trading times" />}
-                ></div>
-                <div
-                    text={
-                        <Localize translate_text="Fast and secure deposit and withdrawal options" />
-                    }
-                    icon={<img src={Deposit} alt="deposit and withdrawal" />}
-                ></div>
-                <div
-                    text={<Localize translate_text="Responsive, easy-to-use platforms" />}
-                    icon={<img src={ResponsiveWebsite} alt="responsive website" />}
-                ></div>
-                <div
-                    text={<Localize translate_text="Smart and friendly support, 7 days a week" />}
-                    icon={<img src={FriendlySupport} alt="friendly support" />}
-                ></div>
+                {stock_content.map((content, index) => (
+                    <div
+                        key={index}
+                        text={content.text}
+                        icon={<img src={content.src} alt={content.alt} />}
+                    />
+                ))}
             </WhyTrade>
             <AvailableTrades
-                Margin={Margin}
+                Margin={<Margin market_content={stock_margin} />}
                 DigitalOptions={DigitalOptions}
                 name="Stock indices"
                 display_title={

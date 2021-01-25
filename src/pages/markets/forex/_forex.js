@@ -3,16 +3,12 @@ import PropTypes from 'prop-types'
 import Loadable from '@loadable/component'
 import { WhyTrade } from '../_why-trade'
 import AvailableTrades from '../_available-trades.js'
-import Margin from './_margin.js'
+import forex_content from '../static/content/_forex'
+import { forex_margin } from '../static/content/_margin'
+import Margin from '../components/_margin'
 import DigitalOptions from './_digital-options.js'
 import Multipliers from './_multipliers.js'
 import { Localize } from 'components/localization'
-//SVG
-import FriendlySupport from 'images/svg/friendly-support.svg'
-import Deposit from 'images/svg/deposit-and-withdrawal.svg'
-import AdvancedCharting from 'images/svg/advanced-charting-widgets.svg'
-import ResponsiveWebsite from 'images/svg/responsive-website.svg'
-import Leverage from 'images/svg/leverage.svg'
 //Lazy-load
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
 const OtherMarkets = Loadable(() => import('../_other-markets.js'))
@@ -25,29 +21,16 @@ const Forex = ({ simple_step_content }) => (
                 <Localize translate_text="Benefit from round-the-clock trading hours (Monday to Friday), high liquidity, low barriers to entry, a wide range of offerings, and opportunities to trade on world events." />
             }
         >
-            <div
-                text={<Localize translate_text="High leverage, tight spreads" />}
-                icon={<img src={Leverage} alt="leverage" />}
-            ></div>
-            <div
-                text={<Localize translate_text="Responsive, easy-to-use platforms" />}
-                icon={<img src={ResponsiveWebsite} alt="responsive website" />}
-            ></div>
-            <div
-                text={<Localize translate_text="Advanced charting widgets" />}
-                icon={<img src={AdvancedCharting} alt="advanced charting widgets" />}
-            ></div>
-            <div
-                text={<Localize translate_text="Convenient deposit and withdrawal methods" />}
-                icon={<img src={Deposit} alt="deposit and withdrawal" />}
-            ></div>
-            <div
-                text={<Localize translate_text="Smart and friendly support, 7 days a week" />}
-                icon={<img src={FriendlySupport} alt="friendly support" />}
-            ></div>
+            {forex_content.map((content, index) => (
+                <div
+                    key={index}
+                    text={content.text}
+                    icon={<img src={content.src} alt={content.alt} />}
+                />
+            ))}
         </WhyTrade>
         <AvailableTrades
-            Margin={Margin}
+            Margin={<Margin market_content={forex_margin} />}
             DigitalOptions={DigitalOptions}
             Multipliers={Multipliers}
             name="Forex"

@@ -1,5 +1,5 @@
 import React from 'react'
-import Symbol from '../_symbol'
+import Symbol from '../components/_symbol'
 import { STEPINDICES } from 'components/elements/symbols'
 import { localize } from 'components/localization'
 

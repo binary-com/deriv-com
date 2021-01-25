@@ -1,5 +1,5 @@
 import React from 'react'
-import Symbol from '../_symbol'
+import Symbol from '../components/_symbol'
 import { americas } from './_market-symbols'
 
 const Americas = () => {

@@ -1,5 +1,5 @@
 import React from 'react'
-import Symbol from '../_symbol'
+import Symbol from '../components/_symbol'
 import { OILUSD } from 'components/elements/symbols'
 
 const Energy = () => {

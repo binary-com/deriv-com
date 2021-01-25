@@ -1,5 +1,5 @@
 import React from 'react'
-import Symbol from '../_symbol'
+import Symbol from '../components/_symbol'
 import { smart_fx } from './_market-symbols'
 
 const SmartFX = () => {

@@ -1,17 +1,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Loadable from '@loadable/component'
+import AvailableTrades from '../_available-trades'
 import { WhyTrade } from '../_why-trade'
-import Margin from './_margin.js'
+import commodities from '../static/content/_commodities'
+import { commodities_margin } from '../static/content/_margin'
+import Margin from '../components/_margin'
+// import Margin from './_margin.js'
 import DigitalOptions from './_digital-options.js'
 import { Localize } from 'components/localization'
-import FriendlySupport from 'images/svg/friendly-support.svg'
-import ResponsiveWebsite from 'images/svg/responsive-website.svg'
-import NoCommission from 'images/svg/no-commission.svg'
-import MetalAndOil from 'images/svg/precious-metals-and-oils.svg'
-import VariableSpreads from 'images/svg/variable-spreads.svg'
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
-const AvailableTrades = Loadable(() => import('../_available-trades.js'))
+// const AvailableTrades = Loadable(() => import('../_available-trades.js'))
 const OtherMarkets = Loadable(() => import('../_other-markets.js'))
 
 const Commodities = ({ simple_step_content }) => {
@@ -26,33 +25,16 @@ const Commodities = ({ simple_step_content }) => {
                     <Localize translate_text="Speculate on the price movements of silver, gold, oil and more. Profit from the price difference when the market moves in the direction that you have predicted." />
                 }
             >
-                <div
-                    text={<Localize translate_text="Competitive fixed and variable spreads" />}
-                    icon={<img src={VariableSpreads} alt="variable spreads" />}
-                />
-                <div
-                    text={<Localize translate_text="No commission on any commodity contract" />}
-                    icon={<img src={NoCommission} alt="no commission" />}
-                />
-                <div
-                    text={
-                        <Localize translate_text="All four precious metals and crude oil available" />
-                    }
-                    icon={<img src={MetalAndOil} alt="precious metals and oils" />}
-                />
-                <div
-                    text={
-                        <Localize translate_text="Easy-to-use platforms, superior chart technology" />
-                    }
-                    icon={<img src={ResponsiveWebsite} alt="responsive website" />}
-                />
-                <div
-                    text={<Localize translate_text="Smart and friendly support, 7 days a week" />}
-                    icon={<img src={FriendlySupport} alt="friendly support" />}
-                />
+                {commodities.map((content, index) => (
+                    <div
+                        key={index}
+                        text={content.text}
+                        icon={<img src={content.src} alt={content.alt} />}
+                    />
+                ))}
             </WhyTrade>
             <AvailableTrades
-                Margin={Margin}
+                Margin={<Margin market_content={commodities_margin} has_market_accordion={false} />}
                 DigitalOptions={DigitalOptions}
                 name="Commodity"
                 display_title={<Localize translate_text="Commodity trades available on Deriv" />}

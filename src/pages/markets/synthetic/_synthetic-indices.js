@@ -2,17 +2,14 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Loadable from '@loadable/component'
 import { WhyTrade } from '../_why-trade'
-import Margin from './_margin.js'
+import AvailableTrades from '../_available-trades'
+import synthetic_content from '../static/content/_synthetic'
+import { synthetic_margin } from '../static/content/_margin'
+import Margin from '../components/_margin'
 import DigitalOptions from './_digital-options.js'
 import Multipliers from './_multipliers.js'
 import { Localize } from 'components/localization'
-import FriendlySupport from 'images/svg/friendly-support.svg'
-import ResponsiveWebsite from 'images/svg/responsive-website.svg'
-import ExclusiveTradeType from 'images/svg/exclusive-trade-types.svg'
-import MarketandRisk from 'images/svg/market-and-risk.svg'
-import SevenTrading from 'images/svg/seven-trading.svg'
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
-const AvailableTrades = Loadable(() => import('../_available-trades.js'))
 const OtherMarkets = Loadable(() => import('../_other-markets.js'))
 
 const StockIndices = ({ simple_step_content }) => (
@@ -23,29 +20,16 @@ const StockIndices = ({ simple_step_content }) => (
                 <Localize translate_text="Our synthetic indices are based on a cryptographically secure random number generator audited for fairness by an independent third party. These indices are engineered to simulate real-world market movement and are unaffected by natural events and disruptions. Synthetic indices are available 24/7, have constant volatility, fixed generation intervals, and are free of market and liquidity risks." />
             }
         >
-            <div
-                text={<Localize translate_text="High leverage, tight spreads, and 24/7 trading" />}
-                icon={<img src={SevenTrading} alt="seven trading" />}
-            ></div>
-            <div
-                text={<Localize translate_text="Free from real-world market and liquidity risks" />}
-                icon={<img src={MarketandRisk} alt="market and risk" />}
-            ></div>
-            <div
-                text={<Localize translate_text="Responsive, easy-to-use platforms" />}
-                icon={<img src={ResponsiveWebsite} alt="responsive website" />}
-            ></div>
-            <div
-                text={<Localize translate_text="Exclusive access to innovative trade types" />}
-                icon={<img src={ExclusiveTradeType} alt="exclusive trade types" />}
-            ></div>
-            <div
-                text={<Localize translate_text="Smart and friendly support, 7 days a week" />}
-                icon={<img src={FriendlySupport} alt="friendly support" />}
-            ></div>
+            {synthetic_content.map((content, index) => (
+                <div
+                    key={index}
+                    text={content.text}
+                    icon={<img src={content.src} alt={content.alt} />}
+                />
+            ))}
         </WhyTrade>
         <AvailableTrades
-            Margin={Margin}
+            Margin={<Margin market_content={synthetic_margin} />}
             DigitalOptions={DigitalOptions}
             Multipliers={Multipliers}
             name="Synthetic indices"

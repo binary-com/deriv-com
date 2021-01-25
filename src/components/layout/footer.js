@@ -449,7 +449,7 @@ const Footer = ({ type }) => {
                                         </Link>
                                     </LinkWrapper>
                                     <LinkWrapper>
-                                        <Link to="/responsible-trading">
+                                        <Link to="/responsible">
                                             {localize('Secure and responsible trading')}
                                         </Link>
                                     </LinkWrapper>
@@ -640,7 +640,7 @@ const Footer = ({ type }) => {
                                                 <BoldLink
                                                     key={0}
                                                     target="_blank"
-                                                    to="/responsible-trading/"
+                                                    to="/responsible/"
                                                 />,
                                             ]}
                                         />
@@ -662,7 +662,7 @@ const Footer = ({ type }) => {
                                                 <BoldLink
                                                     key={0}
                                                     target="_blank"
-                                                    to="/responsible-trading/"
+                                                    to="/responsible/"
                                                 />,
                                                 <BoldLink
                                                     external="true"
@@ -692,7 +692,7 @@ const Footer = ({ type }) => {
                                                 <BoldLink
                                                     key={0}
                                                     target="_blank"
-                                                    to="/responsible-trading/"
+                                                    to="/responsible/"
                                                 />,
                                                 <BoldLink
                                                     external="true"
@@ -715,7 +715,7 @@ const Footer = ({ type }) => {
                                                 <BoldLink
                                                     key={0}
                                                     target="_blank"
-                                                    to="/responsible-trading/"
+                                                    to="/responsible/"
                                                 />,
                                             ]}
                                         />

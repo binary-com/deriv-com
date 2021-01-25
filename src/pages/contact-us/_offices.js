@@ -164,11 +164,17 @@ const FullBox = styled(Flex)`
     }
 `
 
+const StyledSectionContainer = styled(SectionContainer)`
+    @media ${device.tabletL} {
+        padding: 40px 0;
+    }
+`
+
 export const Offices = () => {
     const data = useStaticQuery(query)
 
     return (
-        <SectionContainer tabletL={{ p: '40px 0' }}>
+        <StyledSectionContainer>
             <Container>
                 <Content>
                     <ResHeader as="h2" type="page-title">
@@ -547,7 +553,7 @@ export const Offices = () => {
                     </GridLayout>
                 </Content>
             </Container>
-        </SectionContainer>
+        </StyledSectionContainer>
     )
 }
 

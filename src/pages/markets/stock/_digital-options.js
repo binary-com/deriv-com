@@ -14,7 +14,7 @@ import {
     StyledText,
     Title,
 } from '../_markets-style'
-import { AmericasDetails, AsiaOceaniaDetails, EuropeDetails } from './_details'
+import { AmericasDetails, AsiaOceaniaDetails, EuropeDetails } from '../static/content/_details'
 import { Text } from 'components/elements'
 import { SectionContainer } from 'components/containers'
 import { localize, Localize } from 'components/localization'

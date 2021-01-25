@@ -14,7 +14,7 @@ import {
     StyledText,
     Title,
 } from '../_markets-style'
-import { ContinuousIndicesDetails, DailyResetIndicesDetails } from './_details'
+import { ContinuousIndicesDetails, DailyResetIndicesDetails } from '../static/content/_details'
 import { Text } from 'components/elements'
 import { SectionContainer, Show } from 'components/containers'
 import { localize, Localize } from 'components/localization'

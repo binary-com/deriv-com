@@ -5,9 +5,10 @@ import { WhyTrade } from '../_why-trade'
 import AvailableTrades from '../_available-trades.js'
 import forex_content from '../static/content/_forex'
 import { forex_margin } from '../static/content/_margin'
+import { forex_multiplier } from '../static/content/_multipliers'
 import Margin from '../components/_margin'
+import Multipliers from '../components/_multipliers'
 import DigitalOptions from './_digital-options.js'
-import Multipliers from './_multipliers.js'
 import { Localize } from 'components/localization'
 //Lazy-load
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
@@ -32,7 +33,7 @@ const Forex = ({ simple_step_content }) => (
         <AvailableTrades
             Margin={<Margin market_content={forex_margin} />}
             DigitalOptions={DigitalOptions}
-            Multipliers={Multipliers}
+            Multipliers={<Multipliers market_content={forex_multiplier} />}
             name="Forex"
             display_title={<Localize translate_text="Forex trades available on Deriv" />}
         />

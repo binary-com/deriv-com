@@ -1,7 +1,6 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import { Text, LocalizedLinkText } from 'components/elements/typography'
 import { Header, QueryImage } from 'components/elements'
 import { SectionContainer, Container, Flex, Box } from 'components/containers'
@@ -165,12 +164,17 @@ const FullBox = styled(Flex)`
     }
 `
 
-// TODO: remove is_belarus_enabled boolean once address is confirmed.
-export const Offices = ({ is_belarus_enabled }) => {
+const StyledSectionContainer = styled(SectionContainer)`
+    @media ${device.tabletL} {
+        padding: 40px 0;
+    }
+`
+
+export const Offices = () => {
     const data = useStaticQuery(query)
 
     return (
-        <SectionContainer>
+        <StyledSectionContainer>
             <Container>
                 <Content>
                     <ResHeader as="h2" type="page-title">
@@ -510,53 +514,47 @@ export const Offices = ({ is_belarus_enabled }) => {
                                 </LocalizedLinkText>
                             </BorderBox>
                         </Flex>
-                        {is_belarus_enabled && (
-                            <Flex fd="column" max_width="48.6rem" id="belarus">
-                                <OfficeHeader>
-                                    <div>
-                                        <img src={Belarus} alt="belarus" />
-                                    </div>
-                                    <Header as="h4" mt="0.8rem" mb="1.6rem">
-                                        {localize('Belarus')}
-                                    </Header>
-                                </OfficeHeader>
-                                <BorderBox>
-                                    <MapContainer>
-                                        <LocalizedLink
-                                            to="https://goo.gl/maps/NGhs3vVwtTYp8GT48"
-                                            external
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                        >
-                                            <QueryImage
-                                                alt="Map Belarus"
-                                                data={data['map_belarus']}
-                                                height="100%"
-                                            />
-                                        </LocalizedLink>
-                                    </MapContainer>
-                                    <LocalizedLinkText
-                                        to="https://goo.gl/maps/NGhs3vVwtTYp8GT48"
+                        <Flex fd="column" max_width="48.6rem" id="belarus">
+                            <OfficeHeader>
+                                <div>
+                                    <img src={Belarus} alt="belarus" />
+                                </div>
+                                <Header as="h4" type="sub-section-title" mt="0.8rem" mb="1.6rem">
+                                    {localize('Belarus')}
+                                </Header>
+                            </OfficeHeader>
+                            <BorderBox>
+                                <MapContainer>
+                                    <LocalizedLink
+                                        to="https://goo.gl/maps/RaHj5WPv47MEYfPLA"
                                         external
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        mt="0.8rem"
-                                        ml="1.6rem"
                                     >
-                                        Minsk, Belarus
-                                    </LocalizedLinkText>
-                                </BorderBox>
-                            </Flex>
-                        )}
+                                        <QueryImage
+                                            alt="Map Belarus"
+                                            data={data['map_belarus']}
+                                            height="100%"
+                                        />
+                                    </LocalizedLink>
+                                </MapContainer>
+                                <LocalizedLinkText
+                                    to="https://goo.gl/maps/RaHj5WPv47MEYfPLA"
+                                    external
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    mt="0.8rem"
+                                    ml="1.6rem"
+                                >
+                                    Level 2, 25/1-3 Vera Khoruzhey Street, Minsk 220123
+                                </LocalizedLinkText>
+                            </BorderBox>
+                        </Flex>
                     </GridLayout>
                 </Content>
             </Container>
-        </SectionContainer>
+        </StyledSectionContainer>
     )
-}
-
-Offices.propTypes = {
-    is_belarus_enabled: PropTypes.bool,
 }
 
 export default Offices

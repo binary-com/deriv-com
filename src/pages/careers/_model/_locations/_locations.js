@@ -120,7 +120,8 @@ export const melaka = {
     first_img: 'living_in_melaka',
     grid_images: ['melaka_grid_1', 'melaka_grid_2', 'melaka_grid_3', 'melaka_grid_4'],
     map: 'ChIJk1cT0pTx0TERIAdpj9tM6KM',
-    map_text: `In Melaka, we are at Taman Kota Laksamana, a classy township near the famous Jonker Street and Jalan Tengkera, where you can easily do your shopping. It's also close to the Melaka River and the historical site of A Famosa.`,
+    map_text:
+        "In Melaka, we are at Taman Kota Laksamana, a classy township near the famous Jonker Street and Jalan Tengkera, where you can easily do your shopping. It's also close to the Melaka River and the historical site of A Famosa.",
     address: address_melaka,
     google_map_link: 'https://goo.gl/maps/n2bm52JrWy9M2ARV9',
     has_iframe: true,
@@ -157,7 +158,8 @@ export const cyprus = {
     first_img: 'living_in_cyprus',
     grid_images: ['cyprus_grid_1', 'cyprus_grid_2', 'cyprus_grid_3', 'cyprus_grid_4'],
     map: 'ChIJa2t-XPkz5xQRSW5oufRJk-8',
-    map_text: `We’re in Limassol, a city on the southern coast of Cyprus and about 85 km from the capital Nicosia. Lovely beaches, delicious cuisine, and golden weather make this city irresistible. A large expat community, widely accessible healthcare, and solid urban infrastructure make living and working here all the more joyful.`,
+    map_text:
+        'We’re in Limassol, a city on the southern coast of Cyprus and about 85 km from the capital Nicosia. Lovely beaches, delicious cuisine, and golden weather make this city irresistible. A large expat community, widely accessible healthcare, and solid urban infrastructure make living and working here all the more joyful.',
     address: address_cyprus,
     google_map_link: 'https://goo.gl/maps/MP8aqZQ4xt8LJ9id9',
     has_iframe: true,
@@ -176,7 +178,8 @@ export const rwanda = {
     first_img: 'living_in_rwanda',
     grid_images: ['rwanda_grid_1', 'rwanda_grid_2', 'rwanda_grid_3', 'rwanda_grid_4'],
     map: 'ChIJwc77Waml3BkRKuYdzjsIu7c',
-    map_text: `We are located in Kigali, the capital and largest city of Rwanda. Its modern infrastructure consists of advanced security systems, fiber optic internet, and cashless payment systems. Experience Kigali's vibrant nightlife and its intriguing mix of cultures. During your leisure time, enjoy freshly brewed coffee, sample tasty dishes, and visit a variety of museums and art galleries.`,
+    map_text:
+        "We are located in Kigali, the capital and largest city of Rwanda. Its modern infrastructure consists of advanced security systems, fiber optic internet, and cashless payment systems. Experience Kigali's vibrant nightlife and its intriguing mix of cultures. During your leisure time, enjoy freshly brewed coffee, sample tasty dishes, and visit a variety of museums and art galleries.",
     address: address_rwanda,
     map_img: 'rwanda_map',
     google_map_link: 'https://goo.gl/maps/dy3BPr2y29usir648',
@@ -190,16 +193,17 @@ export const minsk = {
     country: 'Belarus',
     thumbnail: 'thumbnail_minsk',
     header_p:
-        'Minsk, the capital of Belarus, is a modern European city located in the centre of the country by the Svislach river. The country has two official languages: Belarussian and Russian, but the younger population is fluent in English too. Today, Minsk is known for its rich historical Soviet architecture, theatres, museums, and art galleries.',
+        'Minsk, the capital of Belarus, is a modern European city located in the centre of the country by the Svislach river. The country has two official languages: Belarusian and Russian, but the younger population is fluent in English too. Today, Minsk is known for its rich historical Soviet architecture, theatres, museums, and art galleries.',
     first_p:
         'Minsk is one of the cleanest cities in Belarus with its gleaming streets and well-maintained public facilities. From cafés to film screenings, to underground music shows, there’s a lot going on in Minsk to keep you entertained. The nightlife in Minsk is vibrant with trendy bars and restaurants, with the downtown buildings illuminated by coloured lights that completely transform the city’s architecture.',
     first_img: 'living_in_minsk',
     grid_images: ['minsk_grid_1', 'minsk_grid_2', 'minsk_grid_3', 'minsk_grid_4'],
     map: 'ChIJwc77Waml3BkRKuYdzjsIu7c',
-    map_text: `We’re located in Minsk, the largest city of Belarus. Minsk has an international airport and efficient public transportation that connects to other major cities in Belarus. The temperate continental climate with fascinating parks and gardens, delicious local cuisine, and intriguing cultures, make Minsk a great location to work.`,
+    map_text:
+        'We’re located in Minsk, the largest city of Belarus. Minsk has an international airport and efficient public transportation that connects to other major cities in Belarus. The temperate continental climate with fascinating parks and gardens, delicious local cuisine, and intriguing cultures make Minsk a great location to work.',
     address: address_belarus,
     map_img: 'minsk_map',
-    google_map_link: 'https://goo.gl/maps/T3Xm8VEUp4XaXybZ6',
+    google_map_link: 'https://goo.gl/maps/RaHj5WPv47MEYfPLA',
     has_iframe: false,
 }
 

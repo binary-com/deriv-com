@@ -181,7 +181,7 @@ const ResetPassword = () => {
                         {localize('All you’ll need from now is one password')}
                     </Header>
                     <MessageText align="center" mb="2rem">
-                        <Localize translate_text="We’ve upgraded our system to support a single, more secure password across all of Deriv/Binary.com. Once you’ve set a new password, you can use it to log into all your Deriv/Binary.com, and DMT5/MT5 accounts." />
+                        <Localize translate_text="We’ve upgraded our system to support a single, more secure password across all of Deriv. Once you’ve set a new password, you can use it to log into all your Deriv, and DMT5 accounts." />
                     </MessageText>
                     <ButtonContainer>
                         <StyledButton tertiary onClick={Login.redirectToLogin} type="button">

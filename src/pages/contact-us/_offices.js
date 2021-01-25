@@ -168,7 +168,7 @@ export const Offices = () => {
     const data = useStaticQuery(query)
 
     return (
-        <SectionContainer>
+        <SectionContainer tabletL={{ p: '40px 0' }}>
             <Container>
                 <Content>
                     <ResHeader as="h2" type="page-title">

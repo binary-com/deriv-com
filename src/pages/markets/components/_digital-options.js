@@ -8,7 +8,7 @@ import { SectionContainer } from 'components/containers'
 import { Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 
-const DigitalOptions = ({ market_name, options, market_content }) => (
+const DigitalOptions = ({ market_name, options_list }) => (
     <SectionContainer padding="4rem 0 8rem">
         <ContentWrapper>
             <Descriptions>
@@ -27,13 +27,13 @@ const DigitalOptions = ({ market_name, options, market_content }) => (
                 />
             </StyledText>
             <Options>
-                {options.map((option, index) => (
+                {options_list.options.map((option, index) => (
                     <Row key={index}>
-                        {option[index].map((content, index) => (
-                            <Col key={index}>
+                        {option.map((content, idx) => (
+                            <Col key={idx}>
                                 <AvailableOptions
                                     title={content.title}
-                                    svg={content.RiseFall}
+                                    svg={content.svg}
                                     content={content.text}
                                 />
                             </Col>
@@ -44,7 +44,7 @@ const DigitalOptions = ({ market_name, options, market_content }) => (
             <Text weight="bold" mt="2.4rem">
                 {localize('Instruments available for options trading')}
             </Text>
-            <MarketInstruments market_content={market_content} />
+            <MarketInstruments market_content={options_list.market_instruments} />
         </ContentWrapper>
     </SectionContainer>
 )
@@ -52,7 +52,7 @@ const DigitalOptions = ({ market_name, options, market_content }) => (
 DigitalOptions.propTypes = {
     market_content: PropTypes.object,
     market_name: PropTypes.string,
-    options: PropTypes.object,
+    options_list: PropTypes.object,
 }
 
 export default DigitalOptions

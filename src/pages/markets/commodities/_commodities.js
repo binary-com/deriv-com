@@ -5,12 +5,11 @@ import AvailableTrades from '../_available-trades'
 import { WhyTrade } from '../_why-trade'
 import commodities from '../static/content/_commodities'
 import { commodities_margin } from '../static/content/_margin'
+import { commodities_options } from '../static/content/_digital-options'
 import Margin from '../components/_margin'
-// import Margin from './_margin.js'
-import DigitalOptions from './_digital-options.js'
+import DigitalOptions from '../components/_digital-options'
 import { Localize } from 'components/localization'
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
-// const AvailableTrades = Loadable(() => import('../_available-trades.js'))
 const OtherMarkets = Loadable(() => import('../_other-markets.js'))
 
 const Commodities = ({ simple_step_content }) => {
@@ -34,8 +33,13 @@ const Commodities = ({ simple_step_content }) => {
                 ))}
             </WhyTrade>
             <AvailableTrades
-                Margin={<Margin market_content={commodities_margin} has_market_accordion={false} />}
-                DigitalOptions={DigitalOptions}
+                Margin={<Margin market_content={commodities_margin} />}
+                DigitalOptions={
+                    <DigitalOptions
+                        market_name={'commodities'}
+                        options_list={commodities_options}
+                    />
+                }
                 name="Commodity"
                 display_title={<Localize translate_text="Commodity trades available on Deriv" />}
             />

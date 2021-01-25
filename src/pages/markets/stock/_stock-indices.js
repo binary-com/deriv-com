@@ -5,8 +5,9 @@ import { WhyTrade } from '../_why-trade'
 import AvailableTrades from '../_available-trades'
 import stock_content from '../static/content/_stock'
 import { stock_margin } from '../static/content/_margin'
+import { stock_options } from '../static/content/_digital-options'
 import Margin from '../components/_margin'
-import DigitalOptions from './_digital-options.js'
+import DigitalOptions from '../components/_digital-options'
 import { localize, Localize } from 'components/localization'
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
 const OtherMarkets = Loadable(() => import('../_other-markets.js'))
@@ -33,7 +34,9 @@ const StockIndices = ({ simple_step_content }) => {
             </WhyTrade>
             <AvailableTrades
                 Margin={<Margin market_content={stock_margin} />}
-                DigitalOptions={DigitalOptions}
+                DigitalOptions={
+                    <DigitalOptions market_name={'stock indices'} options_list={stock_options} />
+                }
                 name="Stock indices"
                 display_title={
                     <Localize translate_text="Stock indices trades available on Deriv" />

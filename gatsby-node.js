@@ -60,6 +60,16 @@ exports.onCreatePage = ({ page, actions }) => {
 
         return current_page
     })
+
+    createPage({
+        path: '/.well-known/apple-app-site-association',
+        component: path.resolve('./static/.well-known/apple-app-site-association.json'),
+    })
+
+    createPage({
+        path: '/apple-app-site-association',
+        component: path.resolve('./static/.well-known/apple-app-site-association.json'),
+    })
 }
 
 exports.onCreateWebpackConfig = ({ actions, getConfig }) => {

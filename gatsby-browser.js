@@ -1,6 +1,7 @@
 import React from 'react'
 import NProgress from 'nprogress'
 import Cookies from 'js-cookie'
+import { datadogRum } from '@datadog/browser-rum'
 import { WrapPagesWithLocaleContext } from './src/components/localization'
 import { isProduction, isLocalHost } from './src/common/websocket/config'
 import { LocalStore } from './src/common/storage'
@@ -103,13 +104,8 @@ export const onClientEntry = () => {
         async: true,
     })
 
-    addScript({
-        src: 'https://www.datadoghq-browser-agent.com/datadog-rum-us.js',
-        async: true,
-    })
-
-    if (window.location.hostname === 'deriv.com' && window.DD_RUM) {
-        window.DD_RUM.init({
+    if (window.location.hostname === 'deriv.com') {
+        datadogRum.init({
             clientToken: client_token,
             applicationId: application_id,
             sampleRate: sample_rate,

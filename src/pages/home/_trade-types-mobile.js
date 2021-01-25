@@ -21,15 +21,14 @@ const TradingButton = styled(LinkButton)`
     align-items: center;
     width: 216px;
     justify-content: center;
-    margin-top: 4.8rem;
 `
 
 const TradeTypeCard = styled.article`
-    width: 25rem;
+    width: 216px;
     position: relative;
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.05);
     border-radius: 8px;
-    padding: 2rem;
+    padding: 24px;
     height: 100%;
 `
 
@@ -46,7 +45,7 @@ const CustomLinkWrap = styled.div`
     align-items: center;
 `
 
-const TradeTypeSlide = ({ icon, title, description, link, linkTitle }) => {
+const TradeTypeSlide = ({ description, icon, link, linkTitle, title }) => {
     return (
         <Flex ai="center">
             <StyledLink ariaLabel={linkTitle} to={link}>
@@ -126,11 +125,18 @@ const TradeTypesMobile = () => {
             overflow: 'hidden',
         },
         slide_style: {
-            minWidth: '24rem',
+            minWidth: '216px',
             borderRadius: '8px',
-            margin: '10px',
+            margin: '10px 16px 48px 0',
             height: 'auto',
             position: 'relative',
+        },
+        chevron_style: {
+            is_displayed_on_mobile: true,
+        },
+        navigation_style: {
+            nav_color: '--color-grey-33',
+            bottom_offset: '24px',
         },
         view_port: {
             height: 'auto',
@@ -139,7 +145,7 @@ const TradeTypesMobile = () => {
 
     return (
         <>
-            <StyledSection padding="4rem 0">
+            <StyledSection padding="0 0 40px">
                 <Header align="center" as="h3" type="section-title" mb="0.8rem">
                     {localize('Trade types')}
                 </Header>
@@ -148,15 +154,14 @@ const TradeTypesMobile = () => {
                 </Text>
                 <Carousel {...settings}>
                     {trade_types.map((trade_slide, idx) => (
-                        <div key={idx} style={{ height: '100%' }}>
-                            <TradeTypeSlide
-                                icon={trade_slide.icon}
-                                title={trade_slide.title}
-                                description={trade_slide.description}
-                                link={trade_slide.link}
-                                linkTitle={trade_slide.linkTitle}
-                            />
-                        </div>
+                        <TradeTypeSlide
+                            key={idx}
+                            icon={trade_slide.icon}
+                            title={trade_slide.title}
+                            description={trade_slide.description}
+                            link={trade_slide.link}
+                            linkTitle={trade_slide.linkTitle}
+                        />
                     ))}
                 </Carousel>
                 <TradingButton type="submit" secondary="true" to="/signup/">

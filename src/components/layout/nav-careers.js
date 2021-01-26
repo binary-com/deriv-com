@@ -69,7 +69,7 @@ export const NavCareers = () => {
         <>
             <NavWrapper>
                 <StyledNav>
-                    <Wrapper>
+                    <Wrapper offset_px_mobile={4}>
                         <CareerNavLeft>
                             <CareerLogo to={'/'} aria-label={'Home'}>
                                 <QueryImage

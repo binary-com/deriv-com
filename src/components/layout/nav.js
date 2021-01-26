@@ -117,7 +117,7 @@ export const Wrapper = styled(Container)`
         font-size: var(--text-size-xxs);
     }
     @media ${device.mobileM} {
-        width: 98%;
+        width: ${(props) => `calc(100% - ${props.offset_px_mobile}px)`};
     }
 `
 export const NavLeft = styled.div`

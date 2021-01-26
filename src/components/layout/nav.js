@@ -117,9 +117,15 @@ export const Wrapper = styled(Container)`
         font-size: var(--text-size-xxs);
     }
     @media ${device.mobileM} {
-        width: ${(props) => `calc(100% - ${props.offset_px_mobile}px)`};
+        ${({ offset_px_mobile }) =>
+            offset_px_mobile ? `width: calc(100% - ${offset_px_mobile}px)` : ``};
     }
 `
+
+Wrapper.propTypes = {
+    offset_px_mobile: PropTypes.number,
+}
+
 export const NavLeft = styled.div`
     text-align: left;
     display: flex;

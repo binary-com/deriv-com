@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { SymbolContainer } from '../_markets-style'
+import { SymbolContainer } from '../../static/style/_markets-style'
 import { Text } from 'components/elements'
 
 const Symbol = ({ src, text }) => (

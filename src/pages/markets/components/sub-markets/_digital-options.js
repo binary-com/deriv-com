@@ -1,9 +1,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import AvailablePlatforms from '../../_available-platforms'
-import AvailableOptions from '../../_available-options'
-import { Col, ContentWrapper, Descriptions, Row, Options, StyledText } from '../../_markets-style'
-import MarketInstruments from '../_market_instruments'
+import AvailablePlatforms from '../helper/_available-platforms'
+import AvailableOptions from '../helper/_available-options'
+import {
+    Col,
+    ContentWrapper,
+    Descriptions,
+    Row,
+    Options,
+    StyledText,
+} from '../../static/style/_markets-style'
+import MarketInstruments from '../sections/_market_instruments'
 import { SectionContainer, Show } from 'components/containers'
 import { Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'

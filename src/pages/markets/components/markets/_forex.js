@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Loadable from '@loadable/component'
-import { WhyTrade } from '../../_why-trade'
-import AvailableTrades from '../../_available-trades.js'
+import { WhyTrade } from '../sections/_why-trade'
+import AvailableTrades from '../helper/_available-trades.js'
 import forex_content from '../../static/content/_forex'
 import { forex_margin } from '../../static/content/_margin'
 import { forex_multiplier } from '../../static/content/_multipliers'
@@ -13,7 +13,7 @@ import DigitalOptions from '../sub-markets/_digital-options'
 import { Localize } from 'components/localization'
 //Lazy-load
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
-const OtherMarkets = Loadable(() => import('../../_other-markets.js'))
+const OtherMarkets = Loadable(() => import('../sections/_other-markets.js'))
 
 const Forex = ({ simple_step_content }) => {
     return (

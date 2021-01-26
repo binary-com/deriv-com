@@ -1,5 +1,5 @@
 import React from 'react'
-import { CrashText, DetailsContainer } from '../../_markets-style'
+import { CrashText, DetailsContainer } from '../style/_markets-style'
 import { Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 

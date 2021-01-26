@@ -1,5 +1,5 @@
 import React from 'react'
-import Symbol from '../components/_symbol'
+import Symbol from '../components/helper/_symbol'
 import { continuous_indices } from './_market-symbols'
 
 const ContinuousIndices = () => {

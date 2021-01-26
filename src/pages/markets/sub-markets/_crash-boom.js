@@ -1,5 +1,5 @@
 import React from 'react'
-import Symbol from '../components/_symbol'
+import Symbol from '../components/helper/_symbol'
 import { crash_boom } from './_market-symbols'
 
 const CrashBoom = () => {

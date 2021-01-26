@@ -1,5 +1,5 @@
 import React from 'react'
-import Symbol from '../components/_symbol'
+import Symbol from '../components/helper/_symbol'
 import { daily_reset_indices } from './_market-symbols'
 
 const DailyResetIndices = () => {

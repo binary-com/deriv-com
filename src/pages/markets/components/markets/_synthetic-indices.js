@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Loadable from '@loadable/component'
-import { WhyTrade } from '../../_why-trade'
-import AvailableTrades from '../../_available-trades'
+import { WhyTrade } from '../sections/_why-trade'
+import AvailableTrades from '../helper/_available-trades'
 import synthetic_content from '../../static/content/_synthetic'
 import { synthetic_margin } from '../../static/content/_margin'
 import { synthetic_multiplier } from '../../static/content/_multipliers'
@@ -12,7 +12,7 @@ import Multipliers from '../sub-markets/_multipliers'
 import DigitalOptions from '../sub-markets/_digital-options'
 import { Localize } from 'components/localization'
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
-const OtherMarkets = Loadable(() => import('../../_other-markets.js'))
+const OtherMarkets = Loadable(() => import('../sections/_other-markets.js'))
 
 const StockIndices = ({ simple_step_content }) => (
     <div>

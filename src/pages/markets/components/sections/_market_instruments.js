@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import MarketsAccordion from '../_markets_accordion'
-import { Col, MarketsWrapper, MarketsList, Row, Title } from '../_markets-style'
+import MarketsAccordion from '../helper/_markets_accordion'
+import { Col, MarketsWrapper, MarketsList, Row, Title } from '../../static/style/_markets-style'
 
 const MarketInstruments = ({ market_content }) => (
     <MarketsWrapper>

@@ -2,6 +2,7 @@ import React from 'react'
 import Advantages from './components/_advantages'
 import ApplicationProcess from './components/_application-process'
 import Description from './components/_description'
+import FAQ from './components/_faq'
 import Hero from './components/_hero'
 import JoinUs from './components/_join-us'
 import WhatIsBeSquare from './components/_what-is_besquare'
@@ -22,6 +23,7 @@ const BeSquare = () => (
         <Advantages />
         <WhoCanApply />
         <ApplicationProcess />
+        <FAQ />
     </Layout>
 )
 

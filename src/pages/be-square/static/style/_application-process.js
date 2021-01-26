@@ -6,7 +6,7 @@ export const ContentContainer = styled(Flex)`
     margin: 0 auto;
     max-width: 1440px;
     flex-direction: column;
-    padding-bottom: 130px;
+    padding-bottom: 80px;
     padding-left: 10px;
     align-items: center;
     justify-content: center;

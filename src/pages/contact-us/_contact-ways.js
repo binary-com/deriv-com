@@ -89,10 +89,6 @@ const ContactWrapper = styled.article`
     justify-content: space-between;
     align-items: center;
 
-    h4 {
-        height: 100px;
-    }
-
     @media ${device.tabletL} {
         width: 100%;
         max-width: 55rem;

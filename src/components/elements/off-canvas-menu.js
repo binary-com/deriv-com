@@ -54,7 +54,7 @@ const OffCanvasMenu = styled.section`
 
     @media ${device.tabletS} {
         top: ${(props) =>
-            props.is_eu_country ? `${cfd_warning_height_tablet + 7.2}rem` : `7.2rem`};
+        props.is_eu_country ? `${cfd_warning_height_tablet + 7.2}rem` : `7.2rem`};
     }
 `
 
@@ -481,7 +481,7 @@ export const OffCanvasMenuWrapper = (props) => {
                             </div>
                             <span>{localize('Terms and conditions')}</span>
                         </StyledLink>
-                        <StyledLink to="/responsible-trading/" onClick={handleArrowClick}>
+                        <StyledLink to="/responsible/" onClick={handleArrowClick}>
                             <div>
                                 <img
                                     src={SecureTrading}

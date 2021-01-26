@@ -9,10 +9,6 @@ import Mail from 'images/svg/contact/mail.svg'
 
 const Wrapper = styled(SectionContainer)`
     border-top: 1px solid var(--color-grey-2);
-
-    @media ${device.mobileL} {
-        border-top: none;
-    }
 `
 
 const CardContainer = styled(Container)`
@@ -91,7 +87,7 @@ const AbsoluteDivider = styled.div`
 
 export const Affiliates = () => {
     return (
-        <Wrapper padding="4rem 0">
+        <Wrapper padding="40px 0">
             <CardContainer>
                 <Item>
                     <Header as="h3" type="section-title">

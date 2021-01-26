@@ -213,7 +213,7 @@ const MarginCalculator = () => {
             is_displayed_on_mobile: true,
         },
         navigation_style: {
-            nav_color: 'red',
+            nav_color: '--color-red',
         },
     }
 

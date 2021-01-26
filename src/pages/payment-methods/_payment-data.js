@@ -172,8 +172,8 @@ const payment_data = [
                 currencies: 'USD GBP EUR AUD',
                 min_max_deposit: '500-100,000',
                 min_max_withdrawal: '500-100,000',
-                deposit_time: <Localize translate_text="1 working day" />,
-                withdrawal_time: <Localize translate_text="1 working day" />,
+                deposit_time: <Localize translate_text="1 day" />,
+                withdrawal_time: <Localize translate_text="1 day" />,
                 description: (
                     <Localize translate_text="Use your bank account to deposit and withdraw. Bank charges apply." />
                 ),
@@ -223,7 +223,7 @@ const payment_data = [
                 min_max_deposit: '10-10,000',
                 min_max_withdrawal: '10-10,000',
                 deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="1 working day" />,
+                withdrawal_time: <Localize translate_text="1 day" />,
                 description: (
                     <Localize translate_text="An easy and accessible way to deposit and withdraw directly using your bank account in South Africa." />
                 ),
@@ -235,8 +235,8 @@ const payment_data = [
                 currencies: 'USD',
                 min_max_deposit: '50-4,500',
                 min_max_withdrawal: '55-2,500',
-                deposit_time: <Localize translate_text="1 working day" />,
-                withdrawal_time: <Localize translate_text="1-3 working days" />,
+                deposit_time: <Localize translate_text="1 day" />,
+                withdrawal_time: <Localize translate_text="1-3 days" />,
                 description: (
                     <Localize translate_text="A payment facility that allows online bank transfers for clients in the Philippines. Available for deposits and withdrawals." />
                 ),
@@ -248,8 +248,8 @@ const payment_data = [
                 currencies: 'USD',
                 min_max_deposit: '10-4,000',
                 min_max_withdrawal: '10-4,000',
-                deposit_time: <Localize translate_text="1 working day" />,
-                withdrawal_time: <Localize translate_text="1-3 working days" />,
+                deposit_time: <Localize translate_text="1 day" />,
+                withdrawal_time: <Localize translate_text="1-3 days" />,
                 description: (
                     <Localize translate_text="A payment facility that allows online bank transfers for clients in Vietnam. Available for deposits and withdrawals." />
                 ),
@@ -271,7 +271,7 @@ const payment_data = [
                 min_max_deposit: '10-10,000',
                 min_max_withdrawal: '10-10,000',
                 deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="1 working day" />,
+                withdrawal_time: <Localize translate_text="1 day" />,
                 description: (
                     <Localize translate_text="Deposit and withdraw using your Visa credit or debit card." />
                 ),
@@ -284,7 +284,7 @@ const payment_data = [
                 min_max_deposit: '10-10,000',
                 min_max_withdrawal: '10-10,000',
                 deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="1 working day" />,
+                withdrawal_time: <Localize translate_text="1 day" />,
                 description: (
                     <Localize translate_text="Deposit and withdraw using your Mastercard credit or debit card." />
                 ),
@@ -297,7 +297,7 @@ const payment_data = [
                 min_max_deposit: '10-10,000',
                 min_max_withdrawal: '10-10,000',
                 deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="1 working day" />,
+                withdrawal_time: <Localize translate_text="1 day" />,
                 description: (
                     <Localize translate_text="Deposit and withdraw using your Maestro debit card." />
                 ),
@@ -310,7 +310,7 @@ const payment_data = [
                 min_max_deposit: '10-10,000',
                 min_max_withdrawal: '10-10,000',
                 deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text=" 2-3 working days" />,
+                withdrawal_time: <Localize translate_text=" 2-3 days" />,
                 description: (
                     <Localize translate_text="Deposit and withdraw using your Diners Club credit or debit card." />
                 ),
@@ -328,7 +328,7 @@ const payment_data = [
                 min_max_deposit: '5-10,000',
                 min_max_withdrawal: '5-10,000',
                 deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="1 working day" />,
+                withdrawal_time: <Localize translate_text="1 day" />,
                 description: (
                     <Localize translate_text="Features fast deposits and withdrawals, low fees, and downloadable transaction history." />
                 ),
@@ -342,7 +342,7 @@ const payment_data = [
                 min_max_deposit: '5-10,000',
                 min_max_withdrawal: '5-10,000',
                 deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="1 working day" />,
+                withdrawal_time: <Localize translate_text="1 day" />,
                 description: (
                     <Localize translate_text="A cheap and easy method for deposits and withdrawals. Features auto payments, annual interest, and real-time statements." />
                 ),
@@ -356,7 +356,7 @@ const payment_data = [
                 min_max_deposit: '10-10,000',
                 min_max_withdrawal: '5-10,000',
                 deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="1 working day" />,
+                withdrawal_time: <Localize translate_text="1 day" />,
                 description: (
                     <Localize translate_text="Quick, simple to use, and available anywhere, anytime. Used by millions of clients worldwide." />
                 ),
@@ -370,7 +370,7 @@ const payment_data = [
                 min_max_deposit: '5-10,000',
                 min_max_withdrawal: '5-10,000',
                 deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="1 working day" />,
+                withdrawal_time: <Localize translate_text="1 day" />,
                 description: (
                     <Localize translate_text="Used by over 20 million clients worldwide. Enjoy instant access and free withdrawals." />
                 ),
@@ -384,7 +384,7 @@ const payment_data = [
                 min_max_deposit: '5-10,000',
                 min_max_withdrawal: '5-10,000',
                 deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="1 working day" />,
+                withdrawal_time: <Localize translate_text="1 day" />,
                 description: (
                     <Localize translate_text="A complete payment service with over 30 million clients, 10,000 signups daily, and is supported by more than 100,000 merchants." />
                 ),
@@ -398,7 +398,7 @@ const payment_data = [
                 min_max_deposit: ['5-200 (USD)', '5-150 (EUR)'],
                 min_max_withdrawal: ['5-180 (USD)', '5-150 (EUR)'],
                 deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="1 working day" />,
+                withdrawal_time: <Localize translate_text="1 day" />,
                 description: (
                     <Localize translate_text="A payment service provider that provides a simple way to transfer money, receive payments, and pay online." />
                 ),
@@ -411,7 +411,7 @@ const payment_data = [
                 min_max_deposit: '5-1,000',
                 min_max_withdrawal: '5-750',
                 deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="1 working day" />,
+                withdrawal_time: <Localize translate_text="1 day" />,
                 description: (
                     <Localize translate_text="A convenient payment service that doesn’t need a bank account or credit card. Accepted by thousands of merchants worldwide." />
                 ),
@@ -424,7 +424,7 @@ const payment_data = [
                 min_max_deposit: '5-10,000',
                 min_max_withdrawal: '5-10,000',
                 deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="1 working day" />,
+                withdrawal_time: <Localize translate_text="1 day" />,
                 description: (
                     <Localize translate_text="A fast and secure money transfer service. Access your money anywhere with the mobile app." />
                 ),
@@ -439,7 +439,7 @@ const payment_data = [
                 min_max_deposit: '5-10,000',
                 min_max_withdrawal: '5-10,000',
                 deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="1 working day" />,
+                withdrawal_time: <Localize translate_text="1 day" />,
                 description: (
                     <Localize translate_text="An easy, cheap, and fast way to transfer money. Supported by banks and merchants worldwide." />
                 ),
@@ -453,7 +453,7 @@ const payment_data = [
                 min_max_deposit: '5-2,500',
                 min_max_withdrawal: '5-2,500',
                 deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="1 working day" />,
+                withdrawal_time: <Localize translate_text="1 day" />,
                 description: (
                     <Localize translate_text="Easily convert your currency to USD and transfer money worldwide." />
                 ),
@@ -467,12 +467,13 @@ const payment_data = [
                 min_max_deposit: '5-10,000',
                 min_max_withdrawal: '5-10,000',
                 deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="1 working day" />,
+                withdrawal_time: <Localize translate_text="1 day" />,
                 description: (
                     <Localize translate_text="Use PayLivre to make deposits and withdrawals with your Brazilian bank account." />
                 ),
                 url: 'https://paylivre.com/',
                 name: 'paylivre',
+                reference: 'paylivre-payment-method.pdf',
             },
         ],
     },

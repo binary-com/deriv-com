@@ -6,9 +6,10 @@ import AvailableTrades from '../_available-trades'
 import synthetic_content from '../static/content/_synthetic'
 import { synthetic_margin } from '../static/content/_margin'
 import { synthetic_multiplier } from '../static/content/_multipliers'
+import { synthetic_options } from '../static/content/_digital-options'
 import Margin from '../components/_margin'
 import Multipliers from '../components/_multipliers'
-import DigitalOptions from './_digital-options.js'
+import DigitalOptions from '../components/_digital-options'
 import { Localize } from 'components/localization'
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
 const OtherMarkets = Loadable(() => import('../_other-markets.js'))
@@ -31,7 +32,12 @@ const StockIndices = ({ simple_step_content }) => (
         </WhyTrade>
         <AvailableTrades
             Margin={<Margin market_content={synthetic_margin} />}
-            DigitalOptions={DigitalOptions}
+            DigitalOptions={
+                <DigitalOptions
+                    market_name={'synthetic indices'}
+                    options_list={synthetic_options}
+                />
+            }
             Multipliers={<Multipliers market_content={synthetic_multiplier} />}
             name="Synthetic indices"
             display_title={

@@ -4,7 +4,7 @@ import AvailablePlatforms from '../_available-platforms'
 import AvailableOptions from '../_available-options'
 import { Col, ContentWrapper, Descriptions, Row, Options, StyledText } from '../_markets-style'
 import MarketInstruments from './_market_instruments'
-import { SectionContainer } from 'components/containers'
+import { SectionContainer, Show } from 'components/containers'
 import { Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 
@@ -28,18 +28,21 @@ const DigitalOptions = ({ market_name, options_list }) => (
             </StyledText>
             <Options>
                 {options_list.options.map((option, index) => (
-                    <Row key={index}>
+                    <Row wrap={option[0].wrap} key={index}>
                         {option.map((content, idx) => (
                             <Col key={idx}>
-                                <AvailableOptions
-                                    title={content.title}
-                                    svg={content.svg}
-                                    content={content.text}
-                                />
+                                <AvailableOptions content={content.text} {...content} />
                             </Col>
                         ))}
                     </Row>
                 ))}
+                <Show.Eu>
+                    {options_list.eu_content?.map((text, index) => (
+                        <Text key={index} mt="1.6rem" color="grey-5" size="var(--text-size-xs)">
+                            {text}
+                        </Text>
+                    ))}
+                </Show.Eu>
             </Options>
             <Text weight="bold" mt="2.4rem">
                 {localize('Instruments available for options trading')}

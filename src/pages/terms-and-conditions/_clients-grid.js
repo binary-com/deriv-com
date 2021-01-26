@@ -62,8 +62,8 @@ const Col = ({
             <Show.Eu>
                 <Cta>
                     <img src={PDF} alt="pdf icon black" />
-                    <a href={url3} target="_blank" rel="noopener noreferrer">
-                        {link_title3}
+                    <a href={url4} target="_blank" rel="noopener noreferrer">
+                        {link_title4}
                     </a>
                 </Cta>
             </Show.Eu>
@@ -72,8 +72,8 @@ const Col = ({
             <Show.Eu>
                 <Cta>
                     <img src={PDF} alt="pdf icon black" />
-                    <a href={url4} target="_blank" rel="noopener noreferrer">
-                        {link_title4}
+                    <a href={url5} target="_blank" rel="noopener noreferrer">
+                        {link_title5}
                     </a>
                 </Cta>
             </Show.Eu>

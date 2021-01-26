@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { Text } from 'components/elements'
 import { Flex, Box } from 'components/containers'
+import { Text } from 'components/elements'
 import device from 'themes/device'
 
 const StyledFlex = styled(Flex)`

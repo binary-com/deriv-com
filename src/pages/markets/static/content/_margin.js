@@ -1,16 +1,16 @@
 import React from 'react'
-import {
-    VolatilityIndices,
-    CrashBoom,
-    StepIndices,
-    RangeBreak,
-    MajorPairs,
-    MinorPairs,
-    ExoticPairs,
-    Metals,
-    Energy,
-} from '../../sub-markets/_submarkets'
 import Symbol from '../../components/_symbol'
+import {
+    CrashBoom,
+    Energy,
+    ExoticPairs,
+    MajorPairs,
+    Metals,
+    MinorPairs,
+    RangeBreak,
+    StepIndices,
+    VolatilityIndices,
+} from '../../sub-markets/_submarkets'
 import {
     CrashBoomDetails,
     EuropeDetails,
@@ -18,8 +18,8 @@ import {
     StepIndicesDetails,
     VolatilityIndicesDetails,
 } from './_details'
-import { localize } from 'components/localization'
 import { OTCGERMAN } from 'components/elements/symbols'
+import { localize } from 'components/localization'
 
 export const commodities_margin = {
     markets_list: {

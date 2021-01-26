@@ -1,8 +1,8 @@
 import { localize } from 'components/localization'
-import FriendlySupport from 'images/svg/friendly-support.svg'
-import ResponsiveWebsite from 'images/svg/responsive-website.svg'
 import ExclusiveTradeType from 'images/svg/exclusive-trade-types.svg'
+import FriendlySupport from 'images/svg/friendly-support.svg'
 import MarketandRisk from 'images/svg/market-and-risk.svg'
+import ResponsiveWebsite from 'images/svg/responsive-website.svg'
 import SevenTrading from 'images/svg/seven-trading.svg'
 
 export default [

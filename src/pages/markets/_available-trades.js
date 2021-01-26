@@ -2,13 +2,13 @@ import React from 'react'
 import styled, { css } from 'styled-components'
 import PropTypes from 'prop-types'
 import { SectionContainer, Flex, Container } from 'components/containers'
-import { Localize } from 'components/localization'
 import { Header } from 'components/elements'
+import { Localize } from 'components/localization'
 import device from 'themes/device'
 //SVG
 import MarginIcon from 'images/svg/margin.svg'
-import OptionsIcon from 'images/svg/options.svg'
 import MultipliersIcon from 'images/svg/multipliers.svg'
+import OptionsIcon from 'images/svg/options.svg'
 
 const StyledSection = styled(SectionContainer)`
     padding: 5rem 0;

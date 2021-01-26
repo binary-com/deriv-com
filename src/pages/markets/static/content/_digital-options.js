@@ -4,35 +4,35 @@ import {
     AsiaOceania,
     ContinuousIndices,
     DailyResetIndices,
+    Energy,
     Europe,
     MajorPairs,
+    Metals,
     MinorPairs,
     SmartFX,
-    Metals,
-    Energy,
 } from '../../sub-markets/_submarkets.js'
 import {
     AmericasDetails,
+    AsiaOceaniaDetails,
     ContinuousIndicesDetails,
     DailyResetIndicesDetails,
-    AsiaOceaniaDetails,
     EuropeDetails,
 } from './_details'
 import { localize, Localize } from 'components/localization'
-import RiseFall from 'images/svg/options/rise-fall.svg'
-import HigherLower from 'images/svg/options/higher-lower.svg'
+import Asians from 'images/svg/options/asians.svg'
+import CloseLow from 'images/svg/options/close-low.svg'
 import EbEo from 'images/svg/options/eb-eo.svg'
+import EvenOdd from 'images/svg/options/even-odd.svg'
+import HighClose from 'images/svg/options/high-close.svg'
+import HigherLower from 'images/svg/options/higher-lower.svg'
+import HighLow from 'images/svg/options/high-low.svg'
+import HighLowTicks from 'images/svg/options/hl-ticks.svg'
+import MatchesDiffers from 'images/svg/options/matches-differs.svg'
+import OuOd from 'images/svg/options/ou-od.svg'
+import RcRp from 'images/svg/options/rc-rp.svg'
+import RiseFall from 'images/svg/options/rise-fall.svg'
 import SbGo from 'images/svg/options/sb-go.svg'
 import TNT from 'images/svg/options/tnt.svg'
-import MatchesDiffers from 'images/svg/options/matches-differs.svg'
-import EvenOdd from 'images/svg/options/even-odd.svg'
-import RcRp from 'images/svg/options/rc-rp.svg'
-import HighLowTicks from 'images/svg/options/hl-ticks.svg'
-import Asians from 'images/svg/options/asians.svg'
-import OuOd from 'images/svg/options/ou-od.svg'
-import HighClose from 'images/svg/options/high-close.svg'
-import HighLow from 'images/svg/options/high-low.svg'
-import CloseLow from 'images/svg/options/close-low.svg'
 
 const getOptions = (is_synthetic_options) => {
     const options = [

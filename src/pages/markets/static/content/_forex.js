@@ -1,9 +1,9 @@
 import { localize } from 'components/localization'
-import FriendlySupport from 'images/svg/friendly-support.svg'
-import Deposit from 'images/svg/deposit-and-withdrawal.svg'
 import AdvancedCharting from 'images/svg/advanced-charting-widgets.svg'
-import ResponsiveWebsite from 'images/svg/responsive-website.svg'
+import Deposit from 'images/svg/deposit-and-withdrawal.svg'
+import FriendlySupport from 'images/svg/friendly-support.svg'
 import Leverage from 'images/svg/leverage.svg'
+import ResponsiveWebsite from 'images/svg/responsive-website.svg'
 
 export default [
     {

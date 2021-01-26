@@ -2,15 +2,15 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { Flex, SectionContainer, Show } from 'components/containers'
+import Box from 'components/containers/box'
 import { Header, Text } from 'components/elements'
 import { localize, Localize, LocalizedLink } from 'components/localization'
-import Box from 'components/containers/box'
 //TODO: using temp svg as a function for having dynamic id
+import Arrow from 'images/svg/arrow-right.svg'
 import Commodities from 'images/svg/markets/commodities.svg'
 import Forex from 'images/svg/markets/forex.svg'
 import StockIndices from 'images/svg/markets/stock.svg'
 import SyntheticIndices from 'images/svg/markets/synthetic.svg'
-import Arrow from 'images/svg/arrow-right.svg'
 import device from 'themes/device'
 
 const markets_type = {

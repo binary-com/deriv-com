@@ -1,8 +1,8 @@
 import { localize } from 'components/localization'
 import FriendlySupport from 'images/svg/friendly-support.svg'
-import ResponsiveWebsite from 'images/svg/responsive-website.svg'
-import NoCommission from 'images/svg/no-commission.svg'
 import MetalAndOil from 'images/svg/precious-metals-and-oils.svg'
+import NoCommission from 'images/svg/no-commission.svg'
+import ResponsiveWebsite from 'images/svg/responsive-website.svg'
 import VariableSpreads from 'images/svg/variable-spreads.svg'
 
 export default [

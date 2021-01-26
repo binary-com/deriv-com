@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import AvailablePlatforms from '../_available-platforms.js'
-import { ContentWrapper, Descriptions, StyledText } from '../_markets-style'
-import MarketInstruments from './_market_instruments.js'
+import AvailablePlatforms from '../../_available-platforms.js'
+import { ContentWrapper, Descriptions, StyledText } from '../../_markets-style'
+import MarketInstruments from '../_market_instruments.js'
 import { SectionContainer } from 'components/containers'
 import { localize } from 'components/localization'
 

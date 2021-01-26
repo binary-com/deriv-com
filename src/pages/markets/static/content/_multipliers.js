@@ -1,11 +1,11 @@
 import React from 'react'
 import {
-    CrashBoom,
     ContinuousIndices,
+    CrashBoom,
     MajorPairs,
     StepIndices,
 } from '../../sub-markets/_submarkets'
-import { CrashBoomDetails, ContinuousIndicesDetails, StepIndicesDetails } from './_details'
+import { ContinuousIndicesDetails, CrashBoomDetails, StepIndicesDetails } from './_details'
 import { localize } from 'components/localization'
 
 export const forex_multiplier = {

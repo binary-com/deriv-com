@@ -2,10 +2,10 @@ import React from 'react'
 import styled from 'styled-components'
 import Globe from './globe.mp4'
 import Globe2 from './globe.webm'
-import { localize } from 'components/localization'
-import { Header } from 'components/elements'
 import { Container } from 'components/containers'
+import { Header } from 'components/elements'
 import { useLazyVideo } from 'components/hooks/lazy-video'
+import { localize } from 'components/localization'
 import device from 'themes/device'
 
 const BackgroundWrapper = styled.div`

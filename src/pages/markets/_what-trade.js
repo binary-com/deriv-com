@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { localize } from 'components/localization'
-import { LinkButton } from 'components/form'
-import { Header, Text } from 'components/elements'
 import { Container, SectionContainer } from 'components/containers'
+import { Header, Text } from 'components/elements'
+import { LinkButton } from 'components/form'
+import { localize } from 'components/localization'
 import device from 'themes/device'
 
 const ContentWrapper = styled(SectionContainer)`

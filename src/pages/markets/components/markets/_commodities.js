@@ -1,16 +1,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Loadable from '@loadable/component'
-import AvailableTrades from '../_available-trades'
-import { WhyTrade } from '../_why-trade'
-import commodities from '../static/content/_commodities'
-import { commodities_margin } from '../static/content/_margin'
-import { commodities_options } from '../static/content/_digital-options'
-import Margin from '../components/_margin'
-import DigitalOptions from '../components/_digital-options'
+import AvailableTrades from '../../_available-trades'
+import { WhyTrade } from '../../_why-trade'
+import commodities from '../../static/content/_commodities'
+import { commodities_margin } from '../../static/content/_margin'
+import { commodities_options } from '../../static/content/_digital-options'
+import Margin from '../sub-markets/_margin'
+import DigitalOptions from '../sub-markets/_digital-options'
 import { Localize } from 'components/localization'
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
-const OtherMarkets = Loadable(() => import('../_other-markets.js'))
+const OtherMarkets = Loadable(() => import('../../_other-markets.js'))
 
 const Commodities = ({ simple_step_content }) => {
     simple_step_content[1].text = (

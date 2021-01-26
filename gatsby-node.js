@@ -63,12 +63,12 @@ exports.onCreatePage = ({ page, actions }) => {
 
     createPage({
         path: '/.well-known/apple-app-site-association',
-        component: path.resolve('./public/apple-app-site-association.json'),
+        component: path.resolve('./static/apple-app-site-association.json'),
     })
 
     createPage({
         path: '/apple-app-site-association',
-        component: path.resolve('./public/apple-app-site-association.json'),
+        component: path.resolve('./static/apple-app-site-association.json'),
     })
 }
 

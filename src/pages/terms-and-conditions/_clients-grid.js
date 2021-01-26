@@ -20,11 +20,13 @@ const Col = ({
     link_title2,
     link_title3,
     link_title4,
+    link_title5,
     title,
     url,
     url2,
     url3,
     url4,
+    url5,
 }) => (
     <GridCol>
         <IconWrapper>
@@ -49,6 +51,14 @@ const Col = ({
             </Cta>
         )}
         {url3 && link_title3 && (
+            <Cta>
+                <img src={PDF} alt="pdf icon black" />
+                <a href={url3} target="_blank" rel="noopener noreferrer">
+                    {link_title3}
+                </a>
+            </Cta>
+        )}
+        {url4 && link_title4 && (
             <Show.Eu>
                 <Cta>
                     <img src={PDF} alt="pdf icon black" />
@@ -58,7 +68,7 @@ const Col = ({
                 </Cta>
             </Show.Eu>
         )}
-        {url4 && link_title4 && (
+        {url5 && link_title5 && (
             <Show.Eu>
                 <Cta>
                     <img src={PDF} alt="pdf icon black" />
@@ -77,11 +87,13 @@ Col.propTypes = {
     link_title2: PropTypes.string,
     link_title3: PropTypes.string,
     link_title4: PropTypes.string,
+    link_title5: PropTypes.string,
     title: PropTypes.string,
     url: PropTypes.string,
     url2: PropTypes.string,
     url3: PropTypes.string,
     url4: PropTypes.string,
+    url5: PropTypes.string,
 }
 
 const IconGrid = () => (
@@ -141,12 +153,14 @@ const IconGrid = () => (
                 )}
                 url="/tnc/deriv-(fx)-ltd.pdf"
                 url2="/tnc/deriv-investments-(europe)-limited.pdf"
-                url3="/tnc/deriv-(europe)-limited.pdf"
-                url4="/tnc/deriv-(mx)-ltd.pdf"
+                url3="/tnc/deriv-(bvi)-ltd.pdf"
+                url4="/tnc/deriv-(europe)-limited.pdf"
+                url5="/tnc/deriv-(mx)-ltd.pdf"
                 link_title={localize('Deriv (FX) Ltd')}
                 link_title2={localize('Deriv Investments (Europe) Limited')}
-                link_title3={localize('Deriv (Europe) Limited')}
-                link_title4={localize('Deriv (MX) Ltd')}
+                link_title3={localize('Deriv (BVI) Ltd')}
+                link_title4={localize('Deriv (Europe) Limited')}
+                link_title5={localize('Deriv (MX) Ltd')}
             />
         </StyledGrid>
     </StyledContainer>

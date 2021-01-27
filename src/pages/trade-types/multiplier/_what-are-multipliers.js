@@ -68,7 +68,7 @@ const RowColumn = styled.div`
     }
 
     @media ${device.tabletL} {
-        width: 328px;
+        width: inherit;
         margin: ${(props) => (props.isHeader ? '0' : '0 auto')};
 
         &:last-child {
@@ -80,7 +80,7 @@ const RowColumn = styled.div`
 const ImgWrapper = styled.div`
     width: 360px;
     @media ${device.tabletL} {
-        width: 328px;
+        width: auto;
         margin: 1rem auto;
     }
 `
@@ -88,14 +88,8 @@ const ImgWrapper = styled.div`
 const TextWrapper = styled.div`
     width: 360px;
     @media ${device.tabletL} {
-        width: 328px;
+        width: auto;
         margin: 0 auto;
-    }
-`
-
-const StyledText = styled(Text)`
-    @media ${device.tabletL} {
-        margin-bottom: 4rem;
     }
 `
 
@@ -213,12 +207,12 @@ const WhatAreOptions = () => {
                                 </ImgWrapper>
 
                                 <TextWrapper>
-                                    <StyledText mt="1.6rem" width="340px">
+                                    <Text m="1.6rem 0 4rem 0">
                                         <Localize
                                             translate_text="<0>With an equivalent $100 margin trade</0>, with 1:500 leverage, you risk 2% * $50,000 = <1>$1,000 loss</1>."
                                             components={[<strong key={0} />, <LossText key={1} />]}
                                         />
-                                    </StyledText>
+                                    </Text>
                                 </TextWrapper>
                             </RowColumn>
                             <RowColumn>

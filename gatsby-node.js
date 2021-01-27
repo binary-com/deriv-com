@@ -9,6 +9,11 @@ exports.onCreatePage = ({ page, actions }) => {
     // First delete the incoming page that was automatically created by Gatsby
     // So everything in src/pages/
     deletePage(page)
+    const is_responsible_trading = (/responsible/g).test(page.path)
+
+    if (is_responsible_trading) {
+        createRedirect({ fromPath: `/responsible-trading/`, toPath: `/responsible`, redirectInBrowser: true, isPermanent: true })
+    }
 
     Object.keys(language_config).map((lang) => {
         // Use the values defined in "locales" to construct the path
@@ -56,6 +61,11 @@ exports.onCreatePage = ({ page, actions }) => {
             const en_path = `/en${localized_path.slice(0, -1)}`
             createRedirect({ fromPath: en_path, toPath: localized_path, redirectInBrowser: true, isPermanent: true })
             createRedirect({ fromPath: `${en_path}/`, toPath: localized_path, redirectInBrowser: true, isPermanent: true })
+        }
+
+        if (is_responsible_trading) {
+            createRedirect({ fromPath: `/${lang}/responsible-trading/`, toPath: `/${lang}/responsible/`, redirectInBrowser: true, isPermanent: true })
+            createRedirect({ fromPath: `/${lang}/responsible-trading`, toPath: `/${lang}/responsible`, redirectInBrowser: true, isPermanent: true })
         }
 
         return current_page

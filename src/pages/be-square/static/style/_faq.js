@@ -1,7 +1,7 @@
 import styled from 'styled-components'
+import { TextWrapper } from './_common'
 import { getWindowWidth } from 'common/utility'
 import { SectionContainer, Container } from 'components/containers'
-import { Header, Text } from 'components/elements'
 import device from 'themes/device'
 
 export const AccordionWrapper = styled.div`
@@ -31,6 +31,11 @@ export const ImageWrapper = styled.img`
     }
 `
 
+export const QuestionAnswerContainer = styled.div`
+    display: grid;
+    grid-row-gap: 8px;
+`
+
 export const Section = styled(SectionContainer)`
     max-width: 1440px;
     background-color: var(--color-white);
@@ -49,36 +54,6 @@ export const TextContainer = styled.div`
     grid-row-gap: 16px;
 `
 
-export const TextWrapper = styled.div`
-    display: grid;
-    grid-row-gap: 8px;
-`
-
-export const Title = styled(Header)`
-    width: fit-content;
-    text-align: center;
-    font-size: 48px;
-    line-height: 60px;
-
-    @media ${device.tablet} {
-        font-size: 28px;
-        line-height: 34px;
-    }
-`
-
-export const StyledText = styled(Text)`
-    max-width: 948px;
-    width: fit-content;
-    font-size: 16px;
-    line-height: 24px;
-
-    @media ${device.tablet} {
-        max-width: 290px;
-        font-size: 14px;
-        line-height: 20px;
-    }
-`
-
-export const Link = styled(StyledText).attrs({ as: 'a' })`
+export const Link = styled(TextWrapper).attrs({ as: 'a' })`
     color: var(--color-red);
 `

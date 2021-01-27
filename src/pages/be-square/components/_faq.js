@@ -1,14 +1,13 @@
 import React from 'react'
 import faq_content from '../static/content/_faq'
+import { TextWrapper, Title } from '../static/style/_common'
 import {
     AccordionWrapper,
     ContentContainer,
     ImageWrapper,
+    QuestionAnswerContainer,
     Section,
-    StyledText,
     TextContainer,
-    TextWrapper,
-    Title,
 } from '../static/style/_faq'
 import { Accordion, AccordionItem } from 'components/elements'
 import { Show } from 'components/containers'
@@ -51,12 +50,17 @@ const FAQ = () => {
                             >
                                 <TextContainer>
                                     {topic.content.map((question, index) => (
-                                        <TextWrapper key={index}>
-                                            <StyledText weight={'bold'}>
+                                        <QuestionAnswerContainer key={index}>
+                                            <TextWrapper
+                                                max_width={['948px', '500px', '290px']}
+                                                weight={'bold'}
+                                            >
                                                 {question.title}
-                                            </StyledText>
-                                            <StyledText>{question.subtitle}</StyledText>
-                                        </TextWrapper>
+                                            </TextWrapper>
+                                            <TextWrapper max_width={['948px', '500px', '290px']}>
+                                                {question.subtitle}
+                                            </TextWrapper>
+                                        </QuestionAnswerContainer>
                                     ))}
                                 </TextContainer>
                             </AccordionItem>

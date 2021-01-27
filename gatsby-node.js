@@ -14,6 +14,7 @@ exports.onCreatePage = ({ page, actions }) => {
         // Use the values defined in "locales" to construct the path
         const { path, is_default } = language_config[lang]
         const localized_path = is_default ? page.path : `${path}${page.path}`
+        const is_responsible_trading = (/^[a-z-]+\/responsible-trading\//g).test(localized_path)
         const is_production = process.env.GATSBY_ENV === 'production'
         const careers_regex = /^[a-z-]+\/careers\//g
         // TODO: this is a temporary workaround to remove a/b testing page
@@ -56,6 +57,11 @@ exports.onCreatePage = ({ page, actions }) => {
             const en_path = `/en${localized_path.slice(0, -1)}`
             createRedirect({ fromPath: en_path, toPath: localized_path, redirectInBrowser: true, isPermanent: true })
             createRedirect({ fromPath: `${en_path}/`, toPath: localized_path, redirectInBrowser: true, isPermanent: true })
+        }
+
+        if (is_responsible_trading) {
+            createRedirect({ fromPath: `/responsible-trading/`, toPath: `/responsible`, redirectInBrowser: true, isPermanent: true })
+            createRedirect({ fromPath: `/${lang}/responsible-trading/`, toPath: `${lang}/responsible`, redirectInBrowser: true, isPermanent: true })
         }
 
         return current_page

@@ -104,7 +104,7 @@ const StyledText = styled(Text)`
 const ExchangeSteps = () => {
     return (
         <Section>
-            <StyledHeader align="center" mb="4rem" as="h2">
+            <StyledHeader type="page-title" align="center" mb="4rem" as="h2">
                 {localize('Exchange in 3 easy steps')}
             </StyledHeader>
             <CardContainer>

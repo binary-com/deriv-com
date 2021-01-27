@@ -366,7 +366,7 @@ const NavDesktop = ({ base, is_ppc_redirect }) => {
     const [show_button, showButton, hideButton] = moveButton()
     const [mounted, setMounted] = useState(false)
     const [has_scrolled, setHasScrolled] = useState(false)
-    const currentPage = useActiveLinkState()
+    const current_page = useActiveLinkState()
 
     // trade
     const trade_ref = useRef(null)
@@ -497,7 +497,7 @@ const NavDesktop = ({ base, is_ppc_redirect }) => {
                     <NavLink onClick={handleTradeClick}>
                         <StyledButton
                             aria-label={localize('Trade')}
-                            active={currentPage === 'trade' || is_trade_open}
+                            active={current_page === 'trade' || is_trade_open}
                             ref={link_trade_ref}
                         >
                             {localize('Trade')}
@@ -506,7 +506,7 @@ const NavDesktop = ({ base, is_ppc_redirect }) => {
                     <NavLink onClick={handleMarketClick}>
                         <StyledButton
                             aria-label={localize('Markets')}
-                            active={currentPage === 'markets' || is_market_open}
+                            active={current_page === 'markets' || is_market_open}
                             ref={link_market_ref}
                         >
                             {localize('Markets')}
@@ -515,7 +515,7 @@ const NavDesktop = ({ base, is_ppc_redirect }) => {
                     <NavLink onClick={handleCompanyClick}>
                         <StyledButton
                             aria-label={localize('About us')}
-                            active={currentPage === 'about' || is_company_open}
+                            active={current_page === 'about' || is_company_open}
                             ref={link_company_ref}
                         >
                             {localize('About us')}
@@ -524,7 +524,7 @@ const NavDesktop = ({ base, is_ppc_redirect }) => {
                     <NavLink onClick={handleResourcesClick}>
                         <StyledButton
                             aria-label={localize('Resources')}
-                            active={currentPage === 'resources' || is_resources_open}
+                            active={current_page === 'resources' || is_resources_open}
                             ref={link_resources_ref}
                         >
                             {localize('Resources')}

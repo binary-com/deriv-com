@@ -13,7 +13,7 @@ export const useActiveLinkState = () => {
     const [currentPage, setCurrentPage] = useState('')
 
     useEffect(() => {
-        let current_root_page = getLocationPathname().match('/([a-zA-Z0-9-]{0,})')
+        let current_root_page = getLocationPathname().match(/\/([a-zA-Z0-9-]*)/)
         if (!current_root_page) return
         Object.keys(navigationMap).forEach((key) => {
             if (navigationMap[key].includes(current_root_page[1])) {

@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { getWindowWidth } from 'common/utility'
 import { SectionContainer, Container } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import device from 'themes/device'
@@ -15,19 +16,32 @@ export const ContentContainer = styled(Container)`
     padding: 80px 0 40px 0;
 
     @media ${device.tablet} {
-        padding: 40px 0 70px 0;
+        padding: 0 0 24px 0;
     }
 `
 
 export const ImageWrapper = styled.img`
     position: absolute;
+    bottom: ${({ bottom }) => bottom ?? 'unset'};
+    left: ${({ left }) =>
+        left ? `calc(${getWindowWidth()}px - ${getWindowWidth() - 1440}px)` : 'unset'};
+
+    @media ${device.desktop} {
+        left: ${({ left }) => left ?? 'unset'};
+    }
 `
 
 export const Section = styled(SectionContainer)`
+    max-width: 1440px;
     background-color: var(--color-white);
     box-shadow: inset 0 1px 0 #e7e7e7;
     padding-bottom: 130px;
     padding-top: 0;
+    margin: 0 auto;
+
+    @media ${device.tablet} {
+        box-shadow: unset;
+    }
 `
 
 export const TextContainer = styled.div`

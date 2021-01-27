@@ -9,12 +9,16 @@ exports.onCreatePage = ({ page, actions }) => {
     // First delete the incoming page that was automatically created by Gatsby
     // So everything in src/pages/
     deletePage(page)
+    const is_responsible_trading = (/responsible/g).test(page.path)
+
+    if (is_responsible_trading) {
+        createRedirect({ fromPath: `/responsible-trading/`, toPath: `/responsible`, redirectInBrowser: true, isPermanent: true })
+    }
 
     Object.keys(language_config).map((lang) => {
         // Use the values defined in "locales" to construct the path
         const { path, is_default } = language_config[lang]
         const localized_path = is_default ? page.path : `${path}${page.path}`
-        const is_responsible_trading = (/^[a-z-]+\/responsible-trading\//g).test(localized_path)
         const is_production = process.env.GATSBY_ENV === 'production'
         const careers_regex = /^[a-z-]+\/careers\//g
         // TODO: this is a temporary workaround to remove a/b testing page
@@ -60,8 +64,8 @@ exports.onCreatePage = ({ page, actions }) => {
         }
 
         if (is_responsible_trading) {
-            createRedirect({ fromPath: `/responsible-trading/`, toPath: `/responsible`, redirectInBrowser: true, isPermanent: true })
-            createRedirect({ fromPath: `/${lang}/responsible-trading/`, toPath: `${lang}/responsible`, redirectInBrowser: true, isPermanent: true })
+            createRedirect({ fromPath: `/${lang}/responsible-trading/`, toPath: `/${lang}/responsible/`, redirectInBrowser: true, isPermanent: true })
+            createRedirect({ fromPath: `/${lang}/responsible-trading`, toPath: `/${lang}/responsible`, redirectInBrowser: true, isPermanent: true })
         }
 
         return current_page

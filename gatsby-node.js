@@ -12,7 +12,8 @@ exports.onCreatePage = ({ page, actions }) => {
     const is_responsible_trading = (/responsible/g).test(page.path)
 
     if (is_responsible_trading) {
-        createRedirect({ fromPath: `/responsible-trading/`, toPath: `/responsible`, redirectInBrowser: true, isPermanent: true })
+        createRedirect({ fromPath: `/responsible-trading/`, toPath: `/responsible/`, redirectInBrowser: true, isPermanent: true })
+        createRedirect({ fromPath: `/responsible-trading`, toPath: `/responsible`, redirectInBrowser: true, isPermanent: true })
     }
 
     Object.keys(language_config).map((lang) => {

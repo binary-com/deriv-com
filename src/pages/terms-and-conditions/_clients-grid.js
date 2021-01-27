@@ -23,7 +23,7 @@ const Col = ({ Icon, content, title, eu_links, non_eu_links }) => (
         </Header>
         <Text lh="1.55">{content}</Text>
 
-        {non_eu_links.map((link, index) => (
+        {non_eu_links?.map((link, index) => (
             <Cta key={index}>
                 <img src={PDF} alt="pdf icon black" />
                 <a href={link.url} target="_blank" rel="noopener noreferrer">
@@ -33,15 +33,14 @@ const Col = ({ Icon, content, title, eu_links, non_eu_links }) => (
         ))}
 
         <Show.Eu>
-            {eu_links &&
-                eu_links.map((link, index) => (
-                    <Cta key={index}>
-                        <img src={PDF} alt="pdf icon black" />
-                        <a href={link.url} target="_blank" rel="noopener noreferrer">
-                            {link.title}
-                        </a>
-                    </Cta>
-                ))}
+            {eu_links?.map((link, index) => (
+                <Cta key={index}>
+                    <img src={PDF} alt="pdf icon black" />
+                    <a href={link.url} target="_blank" rel="noopener noreferrer">
+                        {link.title}
+                    </a>
+                </Cta>
+            ))}
         </Show.Eu>
     </GridCol>
 )

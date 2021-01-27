@@ -17,7 +17,7 @@ import Vector from 'images/svg/be-square/vector.svg'
 
 const FAQ = () => {
     const parent_style = {
-        marginBottom: '40px',
+        marginBottom: '32px',
     }
     const item_style = {
         padding: '32px 24px',
@@ -25,40 +25,51 @@ const FAQ = () => {
         borderRadius: '0 0 8px 8px',
     }
     const header_style = {
-        padding: '24px',
+        padding: '16px',
         borderRadius: '8px',
+        height: 'auto',
     }
     return (
         <Section>
-            <Show.Desktop max_width={'tabletL'}>
-                <ImageWrapper src={Vector} />
-            </Show.Desktop>
-            <ContentContainer>
-                <Title>{localize('FAQs')}</Title>
-            </ContentContainer>
-            <AccordionWrapper>
-                <Accordion has_single_state>
-                    {faq_content.map((topic, index) => (
-                        <AccordionItem
-                            key={index}
-                            header={topic.title}
-                            parent_style={parent_style}
-                            style={item_style}
-                            header_style={header_style}
-                            plus
-                        >
-                            <TextContainer>
-                                {topic.content.map((question, index) => (
-                                    <TextWrapper key={index}>
-                                        <StyledText weight={'bold'}>{question.title}</StyledText>
-                                        <StyledText>{question.subtitle}</StyledText>
-                                    </TextWrapper>
-                                ))}
-                            </TextContainer>
-                        </AccordionItem>
-                    ))}
-                </Accordion>
-            </AccordionWrapper>
+            <div style={{ margin: '0 auto' }}>
+                <Show.Desktop max_width={'tabletL'}>
+                    <ImageWrapper src={Vector} alt="Dotted image" />
+                </Show.Desktop>
+                <ContentContainer>
+                    <Title>{localize('FAQs')}</Title>
+                </ContentContainer>
+                <AccordionWrapper>
+                    <Accordion has_single_state>
+                        {faq_content.map((topic, index) => (
+                            <AccordionItem
+                                key={index}
+                                header={topic.title}
+                                parent_style={parent_style}
+                                style={item_style}
+                                header_style={header_style}
+                                plus
+                            >
+                                <TextContainer>
+                                    {topic.content.map((question, index) => (
+                                        <TextWrapper key={index}>
+                                            <StyledText weight={'bold'}>
+                                                {question.title}
+                                            </StyledText>
+                                            <StyledText>{question.subtitle}</StyledText>
+                                        </TextWrapper>
+                                    ))}
+                                </TextContainer>
+                            </AccordionItem>
+                        ))}
+                    </Accordion>
+                </AccordionWrapper>
+                <ImageWrapper
+                    bottom={'0'}
+                    left={'calc(100% - 599px)'}
+                    src={Vector}
+                    alt="Dotted image"
+                />
+            </div>
         </Section>
     )
 }

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { getLocationPathname } from 'common/utility'
 
 // Maps navigation main elements (keys) to root pages (values)
 const navigationMap = {
@@ -12,14 +13,14 @@ export const useActiveLinkState = () => {
     const [currentPage, setCurrentPage] = useState('')
 
     useEffect(() => {
-        let current_root_page = window.location.pathname.match('/([a-zA-Z0-9-]{0,})')
+        let current_root_page = getLocationPathname().match('/([a-zA-Z0-9-]{0,})')
         if (!current_root_page) return
         Object.keys(navigationMap).forEach((key) => {
             if (navigationMap[key].includes(current_root_page[1])) {
                 setCurrentPage(key)
             }
         })
-    }, [window.location.pathname])
+    }, [getLocationPathname()])
 
     return currentPage
 }

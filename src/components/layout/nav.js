@@ -117,8 +117,7 @@ export const Wrapper = styled(Container)`
         font-size: var(--text-size-xxs);
     }
     @media ${device.mobileM} {
-        ${({ offset_px_mobile }) =>
-            offset_px_mobile ? `width: calc(100% - ${offset_px_mobile}px)` : ``};
+        ${({ offset_px_mobile }) => offset_px_mobile && `width: calc(100% - ${offset_px_mobile}px)`};
     }
 `
 

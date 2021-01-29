@@ -136,6 +136,7 @@ const Availability = () => {
                 mobile_margin="0 0 24px"
                 align="center"
                 as="h2"
+                type="page-title"
                 mb="4rem"
             >
                 <Show.Desktop min_width="992">{localize('How to get DP2P')}</Show.Desktop>

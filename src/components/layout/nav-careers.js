@@ -6,6 +6,7 @@ import { Flex } from 'components/containers'
 import { QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
 import { LocationContext } from 'components/layout/location-context.js'
+import { useActiveLinkState } from 'components/hooks/use-active-link-state'
 import device from 'themes/device'
 
 const query = graphql`
@@ -65,6 +66,8 @@ const CareerNavLeft = styled(NavLeft)`
 export const NavCareers = () => {
     const data = useStaticQuery(query)
     const { has_mounted } = React.useContext(LocationContext)
+    const current_page = useActiveLinkState('careers')
+
     return (
         <>
             <NavWrapper>
@@ -80,6 +83,7 @@ export const NavCareers = () => {
                                 />
                             </CareerLogo>
                             <CareerLink
+                                active={current_page === 'home'}
                                 activeClassName="active"
                                 to="/careers"
                                 aria-label={'Careers'}
@@ -88,6 +92,7 @@ export const NavCareers = () => {
                                 HOME
                             </CareerLink>
                             <CareerLink
+                                active={current_page === 'locations'}
                                 activeClassName="active"
                                 to="/careers/locations/"
                                 aria-label={'Locations'}

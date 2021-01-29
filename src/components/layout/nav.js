@@ -366,7 +366,7 @@ const NavDesktop = ({ base, is_ppc_redirect }) => {
     const [show_button, showButton, hideButton] = moveButton()
     const [mounted, setMounted] = useState(false)
     const [has_scrolled, setHasScrolled] = useState(false)
-    const current_page = useActiveLinkState()
+    const current_page = useActiveLinkState('main')
 
     // trade
     const trade_ref = useRef(null)
@@ -782,6 +782,7 @@ export const NavPartners = ({ no_login_signup }) => {
     const [show_button, showButton, hideButton] = moveButton()
     const [mounted, setMounted] = useState(false)
     const [has_scrolled, setHasScrolled] = useState(false)
+    const current_page = useActiveLinkState('partners')
 
     const buttonHandleScroll = () => {
         setHasScrolled(true)
@@ -833,6 +834,7 @@ export const NavPartners = ({ no_login_signup }) => {
                         <StyledNavCenter>
                             <NavLink>
                                 <StyledLink
+                                    active={current_page === 'affiliate'}
                                     activeClassName="active"
                                     to="/partners/affiliate-ib/"
                                     aria-label={localize('Affiliates and IBs')}
@@ -842,6 +844,7 @@ export const NavPartners = ({ no_login_signup }) => {
                             </NavLink>
                             <NavLink>
                                 <StyledLink
+                                    active={current_page === 'payment'}
                                     activeClassName="active"
                                     to="/partners/payment-agent/"
                                     aria-label={localize('Payment agents')}

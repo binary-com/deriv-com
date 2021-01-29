@@ -170,7 +170,7 @@ const HeroComponent = ({ title, content, background_data, img_data }) => {
                     </HeroContent>
                     <TryButton
                         secondary="true"
-                        to="/cashier/P2P"
+                        to="/cashier/p2p"
                         external="true"
                         is_deriv_app_link
                         target="_blank"

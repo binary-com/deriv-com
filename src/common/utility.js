@@ -107,19 +107,57 @@ function debounce(func, wait, immediate) {
     }
 }
 
-// This function accepts an array of a prop for different data sizes
-// It back propagates the array from end to start to find a value
-// It returns fallback if specified when prop is not provided or 'unset'
+// This function is created to back traverse an array of style values
 const responsiveFallback = (prop, start_from, fallback) => {
     let index = start_from ?? prop?.length ?? 0
-    while (prop && index) {
+    while (prop && index > 0) {
         if (prop[index]) {
             return prop[index]
         }
         --index
     }
 
-    return prop ? prop[index] : fallback || 'unset'
+    return prop ? prop[index] : fallback || undefined
+}
+
+// populate style by traversing keys of props
+const populateStyle = (props, default_props_object, curr_index) => {
+    let style = ''
+
+    Object.keys(props).forEach((prop) => {
+        if (['children', 'theme'].includes(prop)) {
+            return
+        }
+
+        const current_prop = prop.replace(/_/g, '-')
+        style += `${current_prop}: ${
+            Array.isArray(props[prop])
+                ? responsiveFallback(props[prop], curr_index, default_props_object[prop])
+                : props[prop]
+        };`
+    })
+
+    style += applyDefaultValues(props, default_props_object)
+    return style
+}
+
+const removeKeysFromObjects = (object, keys) => {
+    keys.forEach((key) => {
+        delete object[key]
+    })
+}
+
+const applyDefaultValues = (props, default_props_object) => {
+    let style = ''
+
+    Object.keys(default_props_object).forEach((prop) => {
+        if (!(prop in props)) {
+            const current_prop = prop.replace(/_/g, '-')
+            style += `${current_prop}: ${default_props_object[prop]};`
+        }
+    })
+
+    return style
 }
 
 const livechat_client_id = '66aa088aad5a414484c1fd1fa8a5ace7'
@@ -172,6 +210,7 @@ const getDomain = () =>
 export {
     affiliate_signin_url,
     affiliate_signup_url,
+    applyDefaultValues,
     binary_url,
     brand_name,
     besquare_url,
@@ -206,18 +245,17 @@ export {
     getLanguage,
     getLocationHash,
     setLocationHash,
-<<<<<<< HEAD
     getLocationPathname,
     routeBack,
-=======
->>>>>>> Add: FAQ section
     getWindowWidth,
     gtm_test_domain,
     livechat_client_id,
     livechat_license_id,
     map_api_key,
+    populateStyle,
     PromiseClass,
     pushwoosh_app_code,
+    removeKeysFromObjects,
     responsiveFallback,
     sanitize,
     scrollTop,

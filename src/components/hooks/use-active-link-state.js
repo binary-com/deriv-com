@@ -42,7 +42,7 @@ export const useActiveLinkState = (type) => {
     const navigation_map = getNavigationMap(type)
 
     const updateCurrentPage = (type) => {
-        let current_root_page = Array.from(getLocationPathname().matchAll(/\/([a-zA-Z0-9-]*)/g))
+        let current_root_page = Array.from(getLocationPathname().matchAll(/\/([a-zA-Z0-9-]+)/g))
         if (!current_root_page) return
 
         // Only get the first level root page on main pages. Else take the second level.
@@ -55,9 +55,7 @@ export const useActiveLinkState = (type) => {
         })
     }
 
-    useEffect(() => {
-        updateCurrentPage(type)
-    }, [getLocationPathname()])
+    useEffect(() => updateCurrentPage(type), [getLocationPathname()])
 
     return currentPage
 }

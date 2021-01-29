@@ -242,11 +242,8 @@ export {
     getLanguage,
     getLocationHash,
     setLocationHash,
-<<<<<<< HEAD
     getLocationPathname,
     routeBack,
-=======
->>>>>>> Add: FAQ section
     getWindowWidth,
     gtm_test_domain,
     livechat_client_id,

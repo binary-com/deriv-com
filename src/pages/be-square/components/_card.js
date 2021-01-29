@@ -71,7 +71,7 @@ Card.propTypes = {
     custom_icon: PropTypes.object,
     has_list: PropTypes.bool,
     style: PropTypes.object,
-    title_component: PropTypes.string,
+    title_component: PropTypes.object,
 }
 
 export default Card

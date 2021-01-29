@@ -43,7 +43,7 @@ export const useActiveLinkState = (type) => {
 
     const updateCurrentPage = (type) => {
         let current_root_page = Array.from(getLocationPathname().matchAll(/\/([a-zA-Z0-9-]+)/g))
-        if (!current_root_page) return
+        if (!current_root_page || current_root_page.length == 0) return
 
         // Only get the first level root page on main pages. Else take the second level.
         let level = type === 'main' || current_root_page.length == 1 ? 0 : 1

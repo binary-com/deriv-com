@@ -141,7 +141,7 @@ const populateStyle = (props, default_props_object, curr_index) => {
     return style
 }
 
-const removeKeysFromObjects = (object, keys) => {
+const removeKeysFromObject = (object, keys) => {
     keys.forEach((key) => {
         delete object[key]
     })
@@ -255,7 +255,6 @@ export {
     populateStyle,
     PromiseClass,
     pushwoosh_app_code,
-    removeKeysFromObjects,
     responsiveFallback,
     sanitize,
     scrollTop,

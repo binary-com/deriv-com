@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { populateStyle, removeKeysFromObjects, responsiveFallback } from 'common/utility'
+import { populateStyle, removeKeysFromObject, responsiveFallback } from 'common/utility'
 import { Header, Text } from 'components/elements'
 import device from 'themes/device'
 
@@ -28,7 +28,7 @@ export const Title = styled(Header)`
     ${(props) => {
         const default_props_object = { font_size: '48px', line_height: '60px' }
         const keys_to_remove = ['text_align']
-        removeKeysFromObjects(props, keys_to_remove)
+        removeKeysFromObject(props, keys_to_remove)
         return populateStyle(props, default_props_object, 0)
     }}
     width: fit-content;

@@ -13,19 +13,7 @@ import Risk from 'images/svg/risk-tc.svg'
 import PDF from 'images/svg/pdf-icon-black.svg'
 import BFX from 'images/svg/bfx-tc.svg'
 
-const Col = ({
-    Icon,
-    content,
-    link_title,
-    link_title2,
-    link_title3,
-    link_title4,
-    title,
-    url,
-    url2,
-    url3,
-    url4,
-}) => (
+const Col = ({ Icon, content, title, eu_links, non_eu_links }) => (
     <GridCol>
         <IconWrapper>
             <img src={Icon} />
@@ -34,122 +22,146 @@ const Col = ({
             {title}
         </Header>
         <Text lh="1.55">{content}</Text>
-        <Cta>
-            <img src={PDF} alt="pdf icon black" />
-            <a href={url} target="_blank" rel="noopener noreferrer">
-                {link_title}
-            </a>
-        </Cta>
-        {url2 && link_title2 && (
-            <Cta>
+
+        {non_eu_links?.map((link, index) => (
+            <Cta key={index}>
                 <img src={PDF} alt="pdf icon black" />
-                <a href={url2} target="_blank" rel="noopener noreferrer">
-                    {link_title2}
+                <a href={link.url} target="_blank" rel="noopener noreferrer">
+                    {link.title}
                 </a>
             </Cta>
-        )}
-        {url3 && link_title3 && (
-            <Show.Eu>
-                <Cta>
+        ))}
+
+        <Show.Eu>
+            {eu_links?.map((link, index) => (
+                <Cta key={index}>
                     <img src={PDF} alt="pdf icon black" />
-                    <a href={url3} target="_blank" rel="noopener noreferrer">
-                        {link_title3}
+                    <a href={link.url} target="_blank" rel="noopener noreferrer">
+                        {link.title}
                     </a>
                 </Cta>
-            </Show.Eu>
-        )}
-        {url4 && link_title4 && (
-            <Show.Eu>
-                <Cta>
-                    <img src={PDF} alt="pdf icon black" />
-                    <a href={url4} target="_blank" rel="noopener noreferrer">
-                        {link_title4}
-                    </a>
-                </Cta>
-            </Show.Eu>
-        )}
+            ))}
+        </Show.Eu>
     </GridCol>
 )
 Col.propTypes = {
     content: PropTypes.string,
+    eu_links: PropTypes.array,
     Icon: PropTypes.elementType,
-    link_title: PropTypes.string,
-    link_title2: PropTypes.string,
-    link_title3: PropTypes.string,
-    link_title4: PropTypes.string,
+    non_eu_links: PropTypes.array,
     title: PropTypes.string,
-    url: PropTypes.string,
-    url2: PropTypes.string,
-    url3: PropTypes.string,
-    url4: PropTypes.string,
 }
 
-const IconGrid = () => (
-    <StyledContainer>
-        <StyledGrid
-            columns="repeat(3, 1fr)"
-            column_gap="15.4rem"
-            row_gap="8rem"
-            tablet_columns="repeat(2, 1fr)"
-            mobile_columns="1fr"
-            mobile_row_gap="10rem"
-        >
-            <Col
-                Icon={General}
-                title={localize('General terms of use')}
-                content={localize('What you’re agreeing to when you sign up to use Deriv')}
-                url="/tnc/general-terms.pdf"
-                link_title={localize('General terms of use')}
-            />
-            <Col
-                Icon={Trading}
-                title={localize('Trading terms')}
-                content={localize('Rules for making trades on any Deriv trading platform')}
-                url="/tnc/trading-terms.pdf"
-                link_title={localize('Trading terms')}
-            />
-            <Col
-                Icon={Funds}
-                title={localize('Funds & transfers')}
-                content={localize(
-                    'Terms that govern keeping and transferring funds in Deriv and the bonuses you might get',
-                )}
-                url="/tnc/funds-and-transfers.pdf"
-                link_title={localize('Funds & transfers')}
-            />
-            <Col
-                Icon={Security}
-                title={localize('Security & privacy')}
-                content={localize('How we use and protect the information you give us')}
-                url="/tnc/security-and-privacy.pdf"
-                link_title={localize('Security & privacy')}
-            />
-            <Col
-                Icon={Risk}
-                title={localize('Risk disclosure')}
-                content={localize(
-                    'A notice to help you understand the risks that might arise when you trade on Deriv',
-                )}
-                url="/tnc/risk-disclosure.pdf"
-                link_title={localize('Risk disclosure')}
-            />
-            <Col
-                Icon={BFX}
-                title={localize('Additional terms')}
-                content={localize(
-                    'Additional terms and restrictions for Deriv clients in certain countries',
-                )}
-                url="/tnc/deriv-(fx)-ltd.pdf"
-                url2="/tnc/deriv-investments-(europe)-limited.pdf"
-                url3="/tnc/deriv-(europe)-limited.pdf"
-                url4="/tnc/deriv-(mx)-ltd.pdf"
-                link_title={localize('Deriv (FX) Ltd')}
-                link_title2={localize('Deriv Investments (Europe) Limited')}
-                link_title3={localize('Deriv (Europe) Limited')}
-                link_title4={localize('Deriv (MX) Ltd')}
-            />
-        </StyledGrid>
-    </StyledContainer>
-)
+const IconGrid = () => {
+    const columns = [
+        {
+            Icon: General,
+            title: localize('General terms of use'),
+            content: localize('What you’re agreeing to when you sign up to use Deriv'),
+            non_eu_links: [
+                {
+                    url: '/tnc/general-terms.pdf',
+                    title: localize('General terms of use'),
+                },
+            ],
+        },
+        {
+            Icon: Trading,
+            title: localize('Trading terms'),
+            content: localize('Rules for making trades on any Deriv trading platform'),
+            non_eu_links: [
+                {
+                    url: '/tnc/trading-terms.pdf',
+                    title: localize('Trading terms'),
+                },
+            ],
+        },
+        {
+            Icon: Funds,
+            title: localize('Funds & transfers'),
+            content: localize(
+                'Terms that govern keeping and transferring funds in Deriv and the bonuses you might get',
+            ),
+            non_eu_links: [
+                {
+                    url: '/tnc/funds-and-transfers.pdf',
+                    title: localize('Funds & transfers'),
+                },
+            ],
+        },
+        {
+            Icon: Security,
+            title: localize('Security & privacy'),
+            content: localize('How we use and protect the information you give us'),
+            non_eu_links: [
+                {
+                    url: '/tnc/security-and-privacy.pdf',
+                    title: localize('Security & privacy'),
+                },
+            ],
+        },
+        {
+            Icon: Risk,
+            title: localize('Risk disclosure'),
+            content: localize(
+                'A notice to help you understand the risks that might arise when you trade on Deriv',
+            ),
+            non_eu_links: [
+                {
+                    url: '/tnc/risk-disclosure.pdf',
+                    title: localize('Risk disclosure'),
+                },
+            ],
+        },
+        {
+            Icon: BFX,
+            title: localize('Additional terms'),
+            content: localize(
+                'Additional terms and restrictions for Deriv clients in certain countries',
+            ),
+            non_eu_links: [
+                {
+                    url: '/tnc/deriv-(fx)-ltd.pdf',
+                    title: localize('Deriv (FX) Ltd'),
+                },
+                {
+                    url: '/tnc/deriv-investments-(europe)-limited.pdf',
+                    title: localize('Deriv Investments (Europe) Limited'),
+                },
+                {
+                    url: '/tnc/deriv-(bvi)-ltd.pdf',
+                    title: localize('Deriv (BVI) Ltd'),
+                },
+            ],
+            eu_links: [
+                {
+                    url: '/tnc/deriv-(europe)-limited.pdf',
+                    title: localize('Deriv (Europe) Limited'),
+                },
+                {
+                    url: '/tnc/deriv-(mx)-ltd.pdf',
+                    title: localize('Deriv (MX) Ltd'),
+                },
+            ],
+        },
+    ]
+
+    return (
+        <StyledContainer>
+            <StyledGrid
+                columns="repeat(3, 1fr)"
+                column_gap="15.4rem"
+                row_gap="8rem"
+                tablet_columns="repeat(2, 1fr)"
+                mobile_columns="1fr"
+                mobile_row_gap="10rem"
+            >
+                {columns.map((col, index) => {
+                    return <Col {...col} key={index} />
+                })}
+            </StyledGrid>
+        </StyledContainer>
+    )
+}
 
 export default IconGrid

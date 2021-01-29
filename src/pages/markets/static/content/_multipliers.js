@@ -4,9 +4,9 @@ import {
     CrashBoom,
     MajorPairs,
     StepIndices,
-} from '../../sub-markets/_submarkets'
+} from '../../instruments/_submarkets'
 import { ContinuousIndicesDetails, CrashBoomDetails, StepIndicesDetails } from './_details'
-import { localize } from 'components/localization'
+import { Localize } from 'components/localization'
 
 export const forex_multiplier = {
     markets_list: {
@@ -16,7 +16,7 @@ export const forex_multiplier = {
     },
     content: [
         {
-            title: localize('Major pairs'),
+            title: <Localize translate_text="Major pairs" />,
             component: <MajorPairs />,
         },
     ],
@@ -26,24 +26,25 @@ export const synthetic_multiplier = {
     has_global_accordion: true,
     content: [
         {
-            title: localize('Continuous indices'),
+            title: <Localize translate_text="Continuous indices" />,
             component: <ContinuousIndices />,
             details: ContinuousIndicesDetails,
         },
         {
-            title: localize('Crash/Boom'),
+            title: <Localize translate_text="Crash/Boom" />,
             component: <CrashBoom />,
             details: CrashBoomDetails,
         },
         {
-            title: localize('Step indices'),
+            title: <Localize translate_text="Step indices" />,
             component: <StepIndices />,
             details: StepIndicesDetails,
         },
     ],
     eu_content: [
-        localize(
-            'Return to Player (RTP) for multiplier options using multiplier 100 and duration of 1 hour is in the range of 98-99 % on an average. Using a different multiplier or duration may affect the RTP.',
-        ),
+        <Localize
+            key={0}
+            translate_text="Return to Player (RTP) for multiplier options using multiplier 100 and duration of 1 hour is in the range of 98-99 % on an average. Using a different multiplier or duration may affect the RTP."
+        />,
     ],
 }

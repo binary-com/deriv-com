@@ -10,7 +10,7 @@ import {
     Metals,
     MinorPairs,
     SmartFX,
-} from '../../sub-markets/_submarkets.js'
+} from '../../instruments/_submarkets.js'
 import {
     AmericasDetails,
     AsiaOceaniaDetails,
@@ -18,7 +18,7 @@ import {
     DailyResetIndicesDetails,
     EuropeDetails,
 } from './_details'
-import { localize, Localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import Asians from 'images/svg/options/asians.svg'
 import CloseLow from 'images/svg/options/close-low.svg'
 import EbEo from 'images/svg/options/eb-eo.svg'
@@ -38,7 +38,7 @@ const getOptions = (is_synthetic_options) => {
     const options = [
         [
             {
-                title: localize('Up/Down'),
+                title: <Localize translate_text="Up/Down" />,
                 svg: RiseFall,
                 text: (
                     <Localize
@@ -59,7 +59,7 @@ const getOptions = (is_synthetic_options) => {
         ],
         [
             {
-                title: localize('In/Out'),
+                title: <Localize translate_text="In/Out" />,
                 svg: EbEo,
                 text: (
                     <Localize
@@ -80,7 +80,7 @@ const getOptions = (is_synthetic_options) => {
         ],
         [
             {
-                title: localize('Touch/No Touch'),
+                title: <Localize translate_text="Touch/No Touch" />,
                 svg: TNT,
                 text: (
                     <Localize translate_text="Predict whether the market will touch or not touch a target at any time during the contract period." />
@@ -95,7 +95,7 @@ const getOptions = (is_synthetic_options) => {
             [
                 {
                     wrap: 'wrap',
-                    title: localize('Digits'),
+                    title: <Localize translate_text="Digits" />,
                     svg: MatchesDiffers,
                     text: (
                         <Localize
@@ -127,14 +127,14 @@ const getOptions = (is_synthetic_options) => {
             ],
             [
                 {
-                    title: localize('Reset Call/Reset Put'),
+                    title: <Localize translate_text="Reset Call/Reset Put" />,
                     svg: RcRp,
                     text: (
                         <Localize translate_text="Predict whether the exit spot will be higher or lower than either the entry spot or the spot at reset time." />
                     ),
                 },
                 {
-                    title: localize('High/Low Ticks'),
+                    title: <Localize translate_text="High/Low Ticks" />,
                     svg: HighLowTicks,
                     text: (
                         <Localize translate_text="Predict which will be the highest or the lowest tick in a series of five ticks." />
@@ -144,14 +144,14 @@ const getOptions = (is_synthetic_options) => {
             ],
             [
                 {
-                    title: localize('Touch/No Touch'),
+                    title: <Localize translate_text="Touch/No Touch" />,
                     svg: TNT,
                     text: (
                         <Localize translate_text="Predict whether the market will touch or not touch a target at any time during the contract period." />
                     ),
                 },
                 {
-                    title: localize('Asians'),
+                    title: <Localize translate_text="Asians" />,
                     svg: Asians,
                     text: (
                         <Localize translate_text="Predict whether the exit spot (last tick) will be higher or lower than the average of the ticks at the end of the contract period." />
@@ -161,7 +161,7 @@ const getOptions = (is_synthetic_options) => {
             ],
             [
                 {
-                    title: localize('Only Ups/Only Downs'),
+                    title: <Localize translate_text="Only Ups/Only Downs" />,
                     svg: OuOd,
                     text: (
                         <Localize translate_text="Predict whether consecutive ticks will rise or fall successively after the entry spot." />
@@ -171,7 +171,7 @@ const getOptions = (is_synthetic_options) => {
             [
                 {
                     wrap: 'wrap',
-                    title: localize('Lookbacks'),
+                    title: <Localize translate_text="Lookbacks" />,
                     svg: HighClose,
                     text: (
                         <Localize
@@ -211,11 +211,11 @@ export const commodities_options = {
     market_instruments: {
         content: [
             {
-                title: localize('Metals'),
+                title: <Localize translate_text="Metals" />,
                 component: <Metals />,
             },
             {
-                title: localize('Energy'),
+                title: <Localize translate_text="Energy" />,
                 component: <Energy />,
             },
         ],
@@ -230,15 +230,15 @@ export const forex_options = {
     market_instruments: {
         content: [
             {
-                title: localize('Major pairs'),
+                title: <Localize translate_text="Major pairs" />,
                 component: <MajorPairs />,
             },
             {
-                title: localize('Minor pairs'),
+                title: <Localize translate_text="Minor pairs" />,
                 component: <MinorPairs />,
             },
             {
-                title: localize('SmartFX'),
+                title: <Localize translate_text="SmartFX" />,
                 component: <SmartFX />,
             },
         ],
@@ -256,17 +256,17 @@ export const stock_options = {
         has_global_accordion: true,
         content: [
             {
-                title: localize('Americas'),
+                title: <Localize translate_text="Americas" />,
                 component: <Americas />,
                 details: AmericasDetails,
             },
             {
-                title: localize('Asia/ Oceania'),
+                title: <Localize translate_text="Asia/ Oceania" />,
                 component: <AsiaOceania />,
                 details: AsiaOceaniaDetails,
             },
             {
-                title: localize('Europe'),
+                title: <Localize translate_text="Europe" />,
                 component: <Europe />,
                 details: EuropeDetails,
                 custom_index: -1,
@@ -281,12 +281,12 @@ export const synthetic_options = {
         has_global_accordion: true,
         content: [
             {
-                title: localize('Continuous indices'),
+                title: <Localize translate_text="Continuous indices" />,
                 component: <ContinuousIndices />,
                 details: ContinuousIndicesDetails,
             },
             {
-                title: localize('Daily reset indices'),
+                title: <Localize translate_text="Daily reset indices" />,
                 component: <DailyResetIndices />,
                 details: DailyResetIndicesDetails,
             },
@@ -294,8 +294,9 @@ export const synthetic_options = {
     },
     options: getOptions(true),
     eu_content: [
-        localize(
-            'Return to player (RTP) % for lookbacks for a multiplier of 1 and 1m duration is around 87% on average.',
-        ),
+        <Localize
+            key={0}
+            translate_text="Return to player (RTP) % for lookbacks for a multiplier of 1 and 1m duration is around 87% on average."
+        />,
     ],
 }

@@ -10,7 +10,7 @@ import {
     RangeBreak,
     StepIndices,
     VolatilityIndices,
-} from '../../sub-markets/_submarkets'
+} from '../../instruments/_submarkets'
 import {
     CrashBoomDetails,
     EuropeDetails,
@@ -19,7 +19,7 @@ import {
     VolatilityIndicesDetails,
 } from './_details'
 import { OTCGERMAN } from 'components/elements/symbols'
-import { localize } from 'components/localization'
+import { Localize } from 'components/localization'
 
 export const commodities_margin = {
     markets_list: {
@@ -27,11 +27,11 @@ export const commodities_margin = {
     },
     content: [
         {
-            title: localize('Metals'),
+            title: <Localize translate_text="Metals" />,
             component: <Metals />,
         },
         {
-            title: localize('Energy'),
+            title: <Localize translate_text="Energy" />,
             component: <Energy />,
         },
     ],
@@ -45,15 +45,15 @@ export const forex_margin = {
     },
     content: [
         {
-            title: localize('Major pairs'),
+            title: <Localize translate_text="Major pairs" />,
             component: <MajorPairs />,
         },
         {
-            title: localize('Minor pairs'),
+            title: <Localize translate_text="Minor pairs" />,
             component: <MinorPairs />,
         },
         {
-            title: localize('Exotic pairs'),
+            title: <Localize translate_text="Exotic pairs" />,
             component: <ExoticPairs />,
         },
     ],
@@ -63,8 +63,8 @@ export const stock_margin = {
     has_global_accordion: true,
     content: [
         {
-            title: localize('Europe'),
-            component: <Symbol src={OTCGERMAN} text={localize('German Index')} />,
+            title: <Localize translate_text="Europe" />,
+            component: <Symbol src={OTCGERMAN} text={<Localize translate_text="German Index" />} />,
             details: EuropeDetails,
             custom_index: 4,
         },
@@ -75,22 +75,22 @@ export const synthetic_margin = {
     has_global_accordion: true,
     content: [
         {
-            title: localize('Europe'),
+            title: <Localize translate_text="Europe" />,
             component: <VolatilityIndices />,
             details: VolatilityIndicesDetails,
         },
         {
-            title: localize('Crash/Boom'),
+            title: <Localize translate_text="Crash/Boom" />,
             component: <CrashBoom />,
             details: CrashBoomDetails,
         },
         {
-            title: localize('Step indices'),
+            title: <Localize translate_text="Step indices" />,
             component: <StepIndices />,
             details: StepIndicesDetails,
         },
         {
-            title: localize('Range break indices'),
+            title: <Localize translate_text="Range break indices" />,
             component: <RangeBreak />,
             details: RangeBreakIndicesDetails,
         },

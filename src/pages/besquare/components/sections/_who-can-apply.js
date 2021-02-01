@@ -4,11 +4,11 @@ import {
     ContentContainer,
     HeaderWrapper,
     Section,
-} from '../static/style/_who-can-apply'
-import { TextWrapper, Title } from '../static/style/_common'
-import who_can_apply from '../static/content/_who-can-apply'
-import { RedMarkIcon } from '../static/images/_common'
-import Card from './_card'
+} from '../../static/style/_who-can-apply'
+import { TextWrapper, Title } from '../../static/style/_common'
+import who_can_apply from '../../static/content/_who-can-apply'
+import { RedMarkIcon } from '../../static/images/_common'
+import Card from '../helper/_card'
 
 const WhoCanApply = () => {
     const style = {

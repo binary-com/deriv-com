@@ -1,6 +1,6 @@
 import React from 'react'
-import { HeroContainer, HeaderContainer, ImageWrapper } from '../static/style/_hero'
-import { TextWrapper, Title } from '../static/style/_common'
+import { HeroContainer, HeaderContainer, ImageWrapper } from '../../static/style/_hero'
+import { TextWrapper, Title } from '../../static/style/_common'
 import { localize } from 'components/localization'
 import HeroImage from 'images/common/be-square/hero.png'
 

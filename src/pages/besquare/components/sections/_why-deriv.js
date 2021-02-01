@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
-import { Section, ContentContainer, ImageWrapper } from '../static/style/_why-deriv'
-import { TextWrapper, Title } from '../static/style/_common'
+import { Section, ContentContainer, ImageWrapper } from '../../static/style/_why-deriv'
+import { TextWrapper, Title } from '../../static/style/_common'
 import { localize } from 'components/localization'
 
 const query = graphql`

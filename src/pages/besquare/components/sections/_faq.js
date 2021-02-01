@@ -1,6 +1,6 @@
 import React from 'react'
-import faq_content from '../static/content/_faq'
-import { TextWrapper, Title } from '../static/style/_common'
+import faq_content from '../../static/content/_faq'
+import { TextWrapper, Title } from '../../static/style/_common'
 import {
     AccordionWrapper,
     ContentContainer,
@@ -8,7 +8,7 @@ import {
     QuestionAnswerContainer,
     Section,
     TextContainer,
-} from '../static/style/_faq'
+} from '../../static/style/_faq'
 import { Accordion, AccordionItem } from 'components/elements'
 import { Show } from 'components/containers'
 import { localize } from 'components/localization'

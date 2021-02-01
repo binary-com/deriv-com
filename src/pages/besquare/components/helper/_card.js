@@ -6,9 +6,9 @@ import {
     DropdownWrapper,
     IconWrapper,
     ListContainer,
-} from '../static/style/_card'
-import { TextWrapper } from '../static/style/_common'
-import { Minimize, Maximize } from '../static/images/_what-lies-ahead'
+} from '../../static/style/_card'
+import { TextWrapper } from '../../static/style/_common'
+import { Minimize, Maximize } from '../../static/images/_what-lies-ahead'
 
 const Card = ({ card_content, custom_icon, has_list, style, title_component }) => {
     const [is_list_open, setIsListOpen] = useState(false)

@@ -1,8 +1,8 @@
 import React from 'react'
-import { CardContainer, ContentContainer } from '../static/style/_join-us'
-import { Title } from '../static/style/_common'
-import join_us from '../static/content/_join-us'
-import Card from './_card'
+import { CardContainer, ContentContainer } from '../../static/style/_join-us'
+import { Title } from '../../static/style/_common'
+import join_us from '../../static/content/_join-us'
+import Card from '../helper/_card'
 
 const JoinUs = () => {
     const style = {

@@ -1,8 +1,8 @@
 import React from 'react'
-import { CardContainer } from '../static/style/_advantages'
-import { Title } from '../static/style/_common'
-import advantages from '../static/content/_advantages'
-import Card from './_card'
+import { CardContainer } from '../../static/style/_advantages'
+import { Title } from '../../static/style/_common'
+import advantages from '../../static/content/_advantages'
+import Card from '../helper/_card'
 import { Container } from 'components/containers'
 
 const Advantages = () => {

@@ -4,10 +4,10 @@ import {
     ContentContainer,
     Section,
     TitleWrapper,
-} from '../static/style/_what-lies-ahead'
-import { TextWrapper, Title } from '../static/style/_common'
-import what_lies_ahead from '../static/content/_what-lies-ahead'
-import Card from './_card'
+} from '../../static/style/_what-lies-ahead'
+import { TextWrapper, Title } from '../../static/style/_common'
+import what_lies_ahead from '../../static/content/_what-lies-ahead'
+import Card from '../helper/_card'
 
 const WhatLiesAhead = () => {
     const style = {

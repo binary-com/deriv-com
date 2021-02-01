@@ -1,9 +1,9 @@
 import React from 'react'
-import { ContentContainer, ContentWrapper, Section } from '../static/style/_what-is-besquare'
-import { TextWrapper, Title } from '../static/style/_common'
-import { GreenMarkIcon } from '../static/images/_common'
-import what_is_be_square from '../static/content/_what-is-besquare'
-import Card from './_card'
+import { ContentContainer, ContentWrapper, Section } from '../../static/style/_what-is-besquare'
+import { TextWrapper, Title } from '../../static/style/_common'
+import { GreenMarkIcon } from '../../static/images/_common'
+import what_is_be_square from '../../static/content/_what-is-besquare'
+import Card from '../helper/_card'
 
 const WhatIsBeSquare = () => {
     const style = {

@@ -1,5 +1,5 @@
 import React from 'react'
-import application_process from '../static/content/_application-process'
+import application_process from '../../static/content/_application-process'
 import {
     ContentContainer,
     GridContainer,
@@ -7,9 +7,9 @@ import {
     ItemContainer,
     LineWrapper,
     Line02Wrapper,
-} from '../static/style/_application-process'
-import { TextWrapper, Title } from '../static/style/_common'
-import { Line01, Line02 } from '../static/images/_application-process'
+} from '../../static/style/_application-process'
+import { TextWrapper, Title } from '../../static/style/_common'
+import { Line01, Line02 } from '../../static/images/_application-process'
 import { Show } from 'components/containers'
 
 const ApplicationProcess = () => (

@@ -11,7 +11,7 @@ import {
     TextWrapper,
     Title,
 } from './style/footer'
-import { localize, Localize } from 'components/localization'
+import { localize, Localize, LocalizedLink } from 'components/localization'
 import Linkedin from 'images/svg/be-square/linkedin.svg'
 import Twitter from 'images/svg/be-square/twitter.svg'
 import Facebook from 'images/svg/be-square/facebook.svg'
@@ -26,6 +26,29 @@ const query = graphql`
 `
 
 const BeSquareFooter = () => {
+    const social_media_content = [
+        {
+            src: Linkedin,
+            alt: 'Linkedin',
+            link_to: '#',
+        },
+        {
+            src: Facebook,
+            alt: 'Facebook',
+            link_to: 'https://www.facebook.com/BeSquareByDeriv',
+        },
+        {
+            src: Instagram,
+            alt: 'Instagram',
+            link_to: 'https://www.instagram.com/besquarebyderiv',
+        },
+        {
+            src: Twitter,
+            alt: 'Twitter',
+            link_to: 'https://twitter.com/besquarebyderiv',
+        },
+    ]
+
     const data = useStaticQuery(query)
     return (
         <React.Fragment>
@@ -63,15 +86,22 @@ const BeSquareFooter = () => {
                             >
                                 {localize('Follow us')}
                             </TextWrapper>
-                            <img src={Linkedin} alt="Linkedin icon" width="26.67" height="26.67" />
-                            <img src={Facebook} alt="Facebook icon" width="26.67" height="26.67" />
-                            <img
-                                src={Instagram}
-                                alt="Instagram icon"
-                                width="26.67"
-                                height="26.67"
-                            />
-                            <img src={Twitter} alt="Twitter icon" width="26.67" height="26.67" />
+                            {social_media_content.map(({ alt, link_to, src }, index) => (
+                                <LocalizedLink
+                                    key={index}
+                                    external="true"
+                                    to={link_to}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <img
+                                        src={src}
+                                        alt={`${alt} icon`}
+                                        width="26.67"
+                                        height="26.67"
+                                    />
+                                </LocalizedLink>
+                            ))}
                         </FollowUsContainer>
                     </TextContainer>
                 </ContentContainer>

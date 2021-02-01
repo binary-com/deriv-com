@@ -122,4 +122,7 @@ export const onRouteUpdate = () => {
     checkDomain()
 }
 
+// trigger an immediate page refresh when an update is found
+export const onServiceWorkerUpdateReady = () => window.location.reload(true)
+
 export const wrapPageElement = WrapPagesWithLocaleContext

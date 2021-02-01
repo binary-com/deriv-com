@@ -240,8 +240,8 @@ const Regulatory = () => {
                                                 to="https://beta.gamblingcommission.gov.uk/public-register/business/detail/39495"
                                                 rel="noopener noreferrer"
                                                 style={{
-                                                    color: `var(--color-black-3)`,
-                                                    textDecoration: `none`,
+                                                    color: 'var(--color-black-3)',
+                                                    textDecoration: 'none',
                                                 }}
                                             />,
                                         ]}
@@ -287,8 +287,8 @@ const Regulatory = () => {
                                                 to="https://beta.gamblingcommission.gov.uk/public-register/business/detail/39172"
                                                 rel="noopener noreferrer"
                                                 style={{
-                                                    color: `var(--color-black-3)`,
-                                                    textDecoration: `none`,
+                                                    color: 'var(--color-black-3)',
+                                                    textDecoration: 'none',
                                                 }}
                                             />,
                                         ]}

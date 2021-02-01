@@ -2,6 +2,7 @@ import React from 'react'
 import Loadable from '@loadable/component'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import useGTMData from '../hooks/gtm-data-hooks'
 import Copyright from './copyright'
 import { Nav, NavStatic, NavPartners, NavInterim } from './nav'
 import { NavCareers } from './nav-careers'
@@ -10,7 +11,7 @@ import { LocationProvider } from './location-context'
 import EURedirect, { useModal } from 'components/custom/_eu-redirect-modal.js'
 import CookieBanner from 'components/custom/cookie-banner'
 import { CookieStorage } from 'common/storage'
-import { isBrowser } from 'common/utility'
+import { getClientInformation, getDomain, getLanguage, isBrowser } from 'common/utility'
 import { DerivStore } from 'store'
 import { Localize } from 'components/localization'
 import { Text } from 'components/elements'
@@ -94,9 +95,10 @@ const Layout = ({
     const [show_cookie_banner, setShowCookieBanner] = React.useState(false)
     const [show_modal, toggleModal, closeModal] = useModal()
     const [modal_payload, setModalPayload] = React.useState({})
-    const [gtm_data, setGTMData] = React.useState(null)
+    const [gtm_data, setGTMData] = useGTMData()
 
     const is_static = type === 'static'
+    const is_logged_in = getClientInformation(getDomain())
 
     const Main = styled.main`
         margin-top: ${(props) =>
@@ -133,22 +135,21 @@ const Layout = ({
                 (!is_eu_country || tracking_status === 'accepted') && !gtm_data && has_dataLayer
 
             if (allow_tracking) {
-                setGTMData({ event: 'allow_tracking' })
+                setGTMData({
+                    event: 'allow_tracking',
+                    LoggedIn: is_logged_in,
+                    language: getLanguage(),
+                })
             }
             setMounted(true)
         }
     }, [is_eu_country])
 
-    React.useEffect(() => {
-        if (gtm_data) {
-            window.dataLayer.push(gtm_data)
-        }
-    }, [gtm_data])
-
     const onAccept = () => {
         tracking_status_cookie.set(TRACKING_STATUS_KEY, 'accepted')
 
-        if (!gtm_data && has_dataLayer) setGTMData({ event: 'allow_tracking' })
+        if (!gtm_data && has_dataLayer)
+            setGTMData({ event: 'allow_tracking', LoggedIn: is_logged_in, language: getLanguage() })
 
         setShowCookieBanner(false)
     }

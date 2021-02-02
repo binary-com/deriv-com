@@ -895,7 +895,7 @@ export const NavPartners = ({ no_login_signup }) => {
                                 </StyledButton>
                             </NavLink>
                         </StyledNavCenter>
-                        {!no_login_signup ? (
+                        {!no_login_signup && (
                             <StyledNavRight
                                 move={show_button}
                                 button_ref={button_ref}
@@ -924,15 +924,6 @@ export const NavPartners = ({ no_login_signup }) => {
                                     <span>{localize('Affiliate & IB sign up')}</span>
                                 </LinkSignupButton>
                             </StyledNavRight>
-                        ) : (
-                            <NavRight
-                                move={show_button}
-                                button_ref={button_ref}
-                                mounted={mounted}
-                                has_scrolled={has_scrolled}
-                            >
-                                <LanguageSwitcher short_name="true" is_high_nav />
-                            </NavRight>
                         )}
 
                         {is_canvas_menu_open ? (

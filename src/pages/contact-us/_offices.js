@@ -45,7 +45,7 @@ const query = graphql`
         map_rwanda: file(relativePath: { eq: "maps/map-rwanda.png" }) {
             ...fadeIn
         }
-        map_belarus: file(relativePath: { eq: "maps/map-belarus.png" }) {
+        map_minsk: file(relativePath: { eq: "maps/map-minsk.png" }) {
             ...fadeIn
         }
     }
@@ -532,8 +532,8 @@ export const Offices = () => {
                                         rel="noopener noreferrer"
                                     >
                                         <QueryImage
-                                            alt="Map Belarus"
-                                            data={data['map_belarus']}
+                                            alt="Map Minsk"
+                                            data={data['map_minsk']}
                                             height="100%"
                                         />
                                     </LocalizedLink>

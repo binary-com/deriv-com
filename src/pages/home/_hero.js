@@ -157,7 +157,7 @@ export const Hero = () => {
                         )}
 
                         <TypeWriter
-                            as="h4"
+                            as="h2"
                             type="sub-section-title"
                             color="white"
                             max_width="430px"

@@ -218,7 +218,12 @@ const DerivIBProgramme = () => {
                     </SubtitleHeader>
                 </TitleWrapper>
                 <IBSectionContainer padding="4rem 0 9.6rem 0">
-                    <StyledHeaderCommission as="h4" mb="1.6rem" size="1.6rem">
+                    <StyledHeaderCommission
+                        as="h4"
+                        type="sub-section-title"
+                        mb="1.6rem"
+                        size="1.6rem"
+                    >
                         {localize('Choose a commission plan:')}
                     </StyledHeaderCommission>
                     <StyledCardWrapper>
@@ -353,7 +358,7 @@ const DMT5Synthetic = ({ data }) => {
                     </div>
                 ) : (
                     <>
-                        <CardHeader as="h4" mb="0.8rem" lh="1.5">
+                        <CardHeader as="h4" type="sub-section-title" mb="0.8rem" lh="1.5">
                             {localize('How it’s calculated')}
                         </CardHeader>
                         {data.calculation}
@@ -440,7 +445,7 @@ const DMT5Standard = ({ data }) => {
                     </div>
                 ) : (
                     <>
-                        <CardHeader as="h4" mb="0.8rem">
+                        <CardHeader as="h4" type="sub-section-title" mb="0.8rem">
                             {localize('How it’s calculated')}
                         </CardHeader>
                         {data.calculation}
@@ -528,7 +533,7 @@ const DMT5Advanced = ({ data }) => {
                     </div>
                 ) : (
                     <>
-                        <CardHeader as="h4" mb="0.8rem">
+                        <CardHeader as="h4" type="sub-section-title" mb="0.8rem">
                             {localize('How it’s calculated')}
                         </CardHeader>
                         {data.calculation}

@@ -23,6 +23,14 @@ import DMT5BG2 from 'images/svg/dmt5-bg2.svg'
 import { size } from 'themes/device'
 import { isBrowser } from 'common/utility'
 
+const query = graphql`
+    query {
+        deriv_platform: file(relativePath: { eq: "dmt5-banner.png" }) {
+            ...fadeIn
+        }
+    }
+`
+
 const numbers_content = [
     {
         title: <Localize translate_text="330K+" />,
@@ -80,13 +88,7 @@ const DMT5 = () => {
             {/* TODO: add/revise this section when swap free trading design is ready */}
             {/* <SwapFreeTrading /> */}
             <StaticQuery
-                query={graphql`
-                    query {
-                        deriv_platform: file(relativePath: { eq: "dmt5-banner.png" }) {
-                            ...fadeIn
-                        }
-                    }
-                `}
+                query={query}
                 render={(data) => (
                     <DBanner
                         background_pattern={

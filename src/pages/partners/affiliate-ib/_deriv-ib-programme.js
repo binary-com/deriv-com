@@ -218,7 +218,12 @@ const DerivIBProgramme = () => {
                     </SubtitleHeader>
                 </TitleWrapper>
                 <IBSectionContainer padding="4rem 0 9.6rem 0">
-                    <StyledHeaderCommission as="h4" mb="1.6rem" size="1.6rem">
+                    <StyledHeaderCommission
+                        as="h4"
+                        type="sub-section-title"
+                        mb="1.6rem"
+                        size="1.6rem"
+                    >
                         {localize('Choose a commission plan:')}
                     </StyledHeaderCommission>
                     <StyledCardWrapper>
@@ -290,7 +295,7 @@ const DMT5Synthetic = ({ data }) => {
     }
     return (
         <StyledCard
-            height={is_expand && !is_calculated ? '83rem' : '43rem'}
+            height={is_expand && !is_calculated ? '75rem' : '43rem'}
             padding="3.2rem 3.2rem 8.2rem"
             mobileHeight={is_expand && !is_calculated ? '78rem' : '43rem'}
             width="43rem"
@@ -353,7 +358,7 @@ const DMT5Synthetic = ({ data }) => {
                     </div>
                 ) : (
                     <>
-                        <CardHeader as="h4" mb="0.8rem" lh="1.5">
+                        <CardHeader as="h4" type="sub-section-title" mb="0.8rem" lh="1.5">
                             {localize('How it’s calculated')}
                         </CardHeader>
                         {data.calculation}
@@ -440,7 +445,7 @@ const DMT5Standard = ({ data }) => {
                     </div>
                 ) : (
                     <>
-                        <CardHeader as="h4" mb="0.8rem">
+                        <CardHeader as="h4" type="sub-section-title" mb="0.8rem">
                             {localize('How it’s calculated')}
                         </CardHeader>
                         {data.calculation}
@@ -528,7 +533,7 @@ const DMT5Advanced = ({ data }) => {
                     </div>
                 ) : (
                     <>
-                        <CardHeader as="h4" mb="0.8rem">
+                        <CardHeader as="h4" type="sub-section-title" mb="0.8rem">
                             {localize('How it’s calculated')}
                         </CardHeader>
                         {data.calculation}
@@ -638,26 +643,19 @@ const ib_dmt5_synthetic = {
         ],
         [
             <Localize key={0} translate_text="Commission per round trade (per USD 100k)" />,
-            <Localize key={1} translate_text="0.50" />,
-            <Localize key={2} translate_text="0.70" />,
-            <Localize key={3} translate_text="0.50" />,
-            <Localize key={4} translate_text="0.70" />,
-            <Localize key={5} translate_text="0.80" />,
-            <Localize key={6} translate_text="0.40" />,
-            <Localize key={7} translate_text="0.20" />,
-            <Localize key={8} translate_text="1.50" />,
-            <Localize key={9} translate_text="1.50" />,
-            <Localize key={10} translate_text="3.50" />,
-            <Localize key={11} translate_text="3.50" />,
-            <Localize key={12} translate_text="7.50" />,
-            <Localize key={13} translate_text="7.50" />,
-            <Localize key={14} translate_text="10.00" />,
-            <Localize key={15} translate_text="10.00" />,
-            <Localize key={16} translate_text="15.00" />,
-            <Localize key={17} translate_text="15.00" />,
-            <Localize key={18} translate_text="1.50" />,
-            <Localize key={19} translate_text="7.50" />,
-            <Localize key={20} translate_text="15.00" />,
+            <Localize key={1} translate_text="0.30" />,
+            <Localize key={2} translate_text="0.20" />,
+            <Localize key={3} translate_text="0.30" />,
+            <Localize key={4} translate_text="0.20" />,
+            <Localize key={5} translate_text="1.50" />,
+            <Localize key={6} translate_text="3.50" />,
+            <Localize key={7} translate_text="7.50" />,
+            <Localize key={8} translate_text="10.00" />,
+            <Localize key={9} translate_text="15.00" />,
+            <Localize key={10} translate_text="1.50" />,
+            <Localize key={11} translate_text="7.50" />,
+            <Localize key={12} translate_text="15.00" />,
+            <Localize key={13} translate_text="0.20" />,
         ],
     ],
     calculation: (

@@ -137,7 +137,7 @@ const Layout = ({
             if (allow_tracking) {
                 setGTMData({
                     event: 'allow_tracking',
-                    LoggedIn: is_logged_in,
+                    loggedIn: is_logged_in,
                     language: getLanguage(),
                 })
             }
@@ -149,7 +149,7 @@ const Layout = ({
         tracking_status_cookie.set(TRACKING_STATUS_KEY, 'accepted')
 
         if (!gtm_data && has_dataLayer)
-            setGTMData({ event: 'allow_tracking', LoggedIn: is_logged_in, language: getLanguage() })
+            setGTMData({ event: 'allow_tracking', loggedIn: is_logged_in, language: getLanguage() })
 
         setShowCookieBanner(false)
     }

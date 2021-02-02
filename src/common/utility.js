@@ -1,5 +1,5 @@
-import extend from 'extend'
 import Cookies from 'js-cookie'
+import extend from 'extend'
 
 const toISOFormat = (date) => {
     if (date instanceof Date) {

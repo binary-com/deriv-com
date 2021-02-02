@@ -117,9 +117,17 @@ export const onPreRouteUpdate = () => {
     NProgress.start()
 }
 
-export const onRouteUpdate = () => {
+export const onRouteUpdate = ({ location }) => {
     NProgress.done()
     checkDomain()
+
+    const is_contact_us = /contact-us/g.test(location.pathname)
+    const has_refreshed = Cookies.get('has_refreshed')
+
+    if (!has_refreshed && is_contact_us) {
+        Cookies.set('has_refreshed', '1')
+        window.location.reload(true)
+    }
 }
 
 // trigger an immediate page refresh when an update is found

@@ -30,7 +30,7 @@ const BeSquareFooter = () => {
         {
             src: Linkedin,
             alt: 'Linkedin',
-            link_to: '#',
+            link_to: 'https://www.linkedin.com/showcase/besquarebyderiv',
         },
         {
             src: Facebook,

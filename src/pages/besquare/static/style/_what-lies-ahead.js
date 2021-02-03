@@ -7,7 +7,6 @@ export const Section = styled(SectionContainer)`
     padding: 80px 0;
 
     @media ${device.tablet} {
-        background-color: var(--color-white);
         padding: 40px 0;
     }
 `

@@ -200,12 +200,7 @@ const DerivIBProgramme = () => {
         <StyledSection shadow id="deriv-ib">
             <Container direction="column">
                 <TitleWrapper>
-                    <StyledTitleHeader
-                        mb="1.2rem"
-                        type="sub-section-title"
-                        size="4.8rem"
-                        align="center"
-                    >
+                    <StyledTitleHeader mb="1.2rem" type="page-title" align="center">
                         {localize('Deriv IB Programme')}
                     </StyledTitleHeader>
                     <SubtitleHeader as="h4" type="sub-section-title" align="center" weight="normal">
@@ -218,12 +213,7 @@ const DerivIBProgramme = () => {
                     </SubtitleHeader>
                 </TitleWrapper>
                 <IBSectionContainer padding="4rem 0 9.6rem 0">
-                    <StyledHeaderCommission
-                        as="h4"
-                        type="sub-section-title"
-                        mb="1.6rem"
-                        size="1.6rem"
-                    >
+                    <StyledHeaderCommission as="h4" type="sub-section-title" mb="1.6rem">
                         {localize('Choose a commission plan:')}
                     </StyledHeaderCommission>
                     <StyledCardWrapper>

@@ -11,7 +11,7 @@ import { LocationProvider } from './location-context'
 import EURedirect, { useModal } from 'components/custom/_eu-redirect-modal.js'
 import CookieBanner from 'components/custom/cookie-banner'
 import { CookieStorage } from 'common/storage'
-import { getClientInformation, getDomain, getLanguage, isBrowser } from 'common/utility'
+import { isBrowser } from 'common/utility'
 import { DerivStore } from 'store'
 import { Localize } from 'components/localization'
 import { Text } from 'components/elements'
@@ -98,7 +98,6 @@ const Layout = ({
     const [gtm_data, setGTMData] = useGTMData()
 
     const is_static = type === 'static'
-    const is_logged_in = getClientInformation(getDomain())
 
     const Main = styled.main`
         margin-top: ${(props) =>
@@ -135,11 +134,7 @@ const Layout = ({
                 (!is_eu_country || tracking_status === 'accepted') && !gtm_data && has_dataLayer
 
             if (allow_tracking) {
-                setGTMData({
-                    event: 'allow_tracking',
-                    loggedIn: is_logged_in,
-                    language: getLanguage(),
-                })
+                setGTMData({ event: 'allow_tracking' })
             }
             setMounted(true)
         }
@@ -148,8 +143,7 @@ const Layout = ({
     const onAccept = () => {
         tracking_status_cookie.set(TRACKING_STATUS_KEY, 'accepted')
 
-        if (!gtm_data && has_dataLayer)
-            setGTMData({ event: 'allow_tracking', loggedIn: is_logged_in, language: getLanguage() })
+        if (!gtm_data && has_dataLayer) setGTMData({ event: 'allow_tracking' })
 
         setShowCookieBanner(false)
     }

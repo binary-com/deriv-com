@@ -117,23 +117,9 @@ export const onPreRouteUpdate = () => {
     NProgress.start()
 }
 
-export const onRouteUpdate = ({ location }) => {
+export const onRouteUpdate = () => {
     NProgress.done()
     checkDomain()
-
-    const is_contact_us = /contact-us/g.test(location.pathname)
-    const has_refreshed = Cookies.get('had_refreshed')
-
-    if (!has_refreshed && is_contact_us) {
-        Cookies.set('had_refreshed', '1')
-        // location.reload wont work on chrome
-        // eslint-disable-next-line no-self-assign
-        window.location.href = window.location.href
-    }
 }
-
-// trigger an immediate page refresh when an update is found
-// eslint-disable-next-line no-self-assign
-export const onServiceWorkerUpdateReady = () => (window.location.href = window.location.href)
 
 export const wrapPageElement = WrapPagesWithLocaleContext

@@ -125,7 +125,8 @@ export const useLivechat = () => {
                             )
                         }
                     } else {
-                        if (window.LiveChatWidget.get('chat_data')) {
+                        const chat_data = window.LiveChatWidget.get('chat_data')
+                        if (chat_data) {
                             const chatID = window.LiveChatWidget.get('chat_data').chatId ?? ''
                             customerSDK?.deactivateChat({ chatId: chatID }).catch((error) => {
                                 // eslint-disable-nextline

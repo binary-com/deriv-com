@@ -10,7 +10,7 @@ exports.onCreatePage = ({ page, actions }) => {
     // So everything in src/pages/
     deletePage(page)
     const is_responsible_trading = /responsible/g.test(page.path)
-    const is_contact_us = /contact/g.test(page.path)
+    const is_contact_us = /contact_us/g.test(page.path)
 
     if (is_responsible_trading) {
         createRedirect({
@@ -30,13 +30,19 @@ exports.onCreatePage = ({ page, actions }) => {
     if (is_contact_us) {
         createRedirect({
             fromPath: `/contact-us/`,
-            toPath: `/contact/`,
+            toPath: `/contact_us/`,
+            redirectInBrowser: true,
+            isPermanent: true,
+        })
+        createRedirect({
+            fromPath: `/contact/`,
+            toPath: `/contact_us/`,
             redirectInBrowser: true,
             isPermanent: true,
         })
         createRedirect({
             fromPath: `/contact-us`,
-            toPath: `/contact`,
+            toPath: `/contact_us`,
             redirectInBrowser: true,
             isPermanent: true,
         })
@@ -118,13 +124,19 @@ exports.onCreatePage = ({ page, actions }) => {
         if (is_contact_us) {
             createRedirect({
                 fromPath: `/${lang}/contact-us/`,
-                toPath: `/${lang}/contact/`,
+                toPath: `/${lang}/contact_us/`,
+                redirectInBrowser: true,
+                isPermanent: true,
+            })
+            createRedirect({
+                fromPath: `/${lang}/contact/`,
+                toPath: `/${lang}/contact_us/`,
                 redirectInBrowser: true,
                 isPermanent: true,
             })
             createRedirect({
                 fromPath: `/${lang}/contact-us`,
-                toPath: `/${lang}/contact`,
+                toPath: `/${lang}/contact_us`,
                 redirectInBrowser: true,
                 isPermanent: true,
             })

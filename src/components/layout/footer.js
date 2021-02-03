@@ -360,7 +360,7 @@ const Footer = ({ type }) => {
                                         </Link>
                                     </LinkWrapper>
                                     <LinkWrapper>
-                                        <Link to="/contact">{localize('Contact us')}</Link>
+                                        <Link to="/contact_us">{localize('Contact us')}</Link>
                                     </LinkWrapper>
                                     <LinkWrapper>
                                         <Link to="/careers">{localize('Careers')}</Link>

@@ -59,10 +59,6 @@ const StyledSection = styled(SectionContainer)`
     }
 `
 
-const StyledHeader = styled(Header)`
-    margin-top: 0 !important;
-`
-
 const MoreReason = () => {
     return (
         <StyledSection>
@@ -95,9 +91,9 @@ const MoreReason = () => {
                     </Reason>
                     <Reason>
                         <img src={GlobalAffiliate} alt="global affiliate support" />
-                        <StyledHeader as="h4" type="sub-section-title" lh="1.5" mb="8px">
+                        <Header as="h4" type="sub-section-title" lh="1.5" mb="8px">
                             {localize('Global affiliate support')}
-                        </StyledHeader>
+                        </Header>
                         <Text>
                             {localize(
                                 'Got questions? Need help? Call or email a dedicated team of affiliate managers for all the answers.',

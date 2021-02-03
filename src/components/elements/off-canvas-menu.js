@@ -6,7 +6,11 @@ import { LocalizedLink, localize, Localize } from 'components/localization'
 import { Accordion, AccordionItem, NavCard, Text, Divider } from 'components/elements'
 import Signals from 'components/svgs/signals'
 import { useOutsideClick } from 'components/hooks/outside-click'
-import { cfd_warning_height_desktop, cfd_warning_height_tablet, deriv_status_page_url } from 'common/utility'
+import {
+    cfd_warning_height_desktop,
+    cfd_warning_height_tablet,
+    deriv_status_page_url,
+} from 'common/utility'
 // SVG
 import AffiliateIb from 'images/svg/menu/affiliate-ib.svg'
 import Blog from 'images/svg/blog-nav.svg'
@@ -54,7 +58,7 @@ const OffCanvasMenu = styled.section`
 
     @media ${device.tabletS} {
         top: ${(props) =>
-        props.is_eu_country ? `${cfd_warning_height_tablet + 7.2}rem` : `7.2rem`};
+            props.is_eu_country ? `${cfd_warning_height_tablet + 7.2}rem` : `7.2rem`};
     }
 `
 
@@ -366,7 +370,7 @@ export const OffCanvasMenuWrapper = (props) => {
                             </div>
                             <span>{localize('Why choose us?')}</span>
                         </StyledLink>
-                        <StyledLink to="/contact-us/" onClick={handleArrowClick}>
+                        <StyledLink to="/contact/" onClick={handleArrowClick}>
                             <div>
                                 <img src={Contact} alt="contact" width="24" height="24" />
                             </div>

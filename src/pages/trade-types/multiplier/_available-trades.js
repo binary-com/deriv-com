@@ -57,7 +57,8 @@ const CardContainer = styled(Flex)`
     position: relative;
     width: fit-content;
     min-width: 36rem;
-    height: 7.72rem;
+    min-height: 7.72rem;
+    height: auto;
     padding: 0;
     margin: 0 -0.6rem;
     cursor: pointer;
@@ -75,7 +76,7 @@ const CardContainer = styled(Flex)`
         }
         h4 {
             color: ${(props) =>
-        props.active_tab === props.name ? 'var(--color-red)' : 'var(--color-black-3)'};
+                props.active_tab === props.name ? 'var(--color-red)' : 'var(--color-black-3)'};
             opacity: ${(props) => (props.active_tab === props.name ? '1' : '0.56')};
         }
         @media ${device.tabletL} {
@@ -107,12 +108,12 @@ const CardContainer = styled(Flex)`
         transform-origin: bottom left;
         box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.05);
         ${(props) => {
-        if (props.active_tab === props.name)
-            return css`
+            if (props.active_tab === props.name)
+                return css`
                     background-color: var(--color-white);
                     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.05);
                 `
-    }}
+        }}
     }
     @media ${device.tabletL} {
         width: 100%;
@@ -205,7 +206,7 @@ class AvailableTrades extends React.Component {
         const { display_title, Forex, SyntheticIndices } = this.props
         return (
             <StyledSection>
-                <StyledHeader size="var(--text-size-header-1)" align="center" as='h2'>
+                <StyledHeader size="var(--text-size-header-1)" align="center" as="h2">
                     {display_title}
                 </StyledHeader>
                 <StyledContainer direction="column">

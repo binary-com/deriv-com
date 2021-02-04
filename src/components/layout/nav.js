@@ -805,18 +805,6 @@ export const NavPartners = ({ no_login_signup }) => {
         }
     }, [])
 
-    const resources_ref = useRef(null)
-    const link_resources_ref = useRef(null)
-    const [is_resources_open, setIsResourcesOpen] = useState(false)
-    const [has_resources_animation, setHasResourcesAnimation] = useState(false)
-    const closeResources = () => setIsResourcesOpen(false)
-    useOutsideClick(resources_ref, closeResources, link_resources_ref)
-
-    const handleResourcesClick = () => {
-        setHasResourcesAnimation(true)
-        setIsResourcesOpen(!is_resources_open)
-    }
-
     const [is_canvas_menu_open, openOffCanvasMenu, closeOffCanvasMenu] = moveOffCanvasMenu()
     return (
         <>
@@ -849,17 +837,6 @@ export const NavPartners = ({ no_login_signup }) => {
                     </HomeContainer>
                 </DerivHomeWrapper>
                 <StyledNav>
-                    <PlatformsDropdown
-                        forward_ref={resources_ref}
-                        link_ref={link_resources_ref}
-                        is_open={is_resources_open}
-                        has_animation={has_resources_animation}
-                        Content={() => <NavResources onClick={handleResourcesClick} />}
-                        title={localize('Resources')}
-                        description={localize(
-                            'Help yourself to various resources that can help you get the best out of your trading experience.',
-                        )}
-                    />
                     <StyledNavWrapper no_login_signup>
                         <NavLeft>
                             <NavLogoLink to="/partners/" aria-label={localize('Partners')}>
@@ -884,15 +861,6 @@ export const NavPartners = ({ no_login_signup }) => {
                                 >
                                     {localize('Payment agents')}
                                 </StyledLink>
-                            </NavLink>
-                            <NavLink onClick={handleResourcesClick}>
-                                <StyledButton
-                                    aria-label={localize('Resources')}
-                                    active={is_resources_open}
-                                    ref={link_resources_ref}
-                                >
-                                    {localize('Resources')}
-                                </StyledButton>
                             </NavLink>
                         </StyledNavCenter>
                         {!no_login_signup && (

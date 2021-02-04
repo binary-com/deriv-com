@@ -1,9 +1,7 @@
 import { Accordion, AccordionItem } from './accordion'
-import AutoCarousel from './auto-carousel'
 import BackgroundImage from './background-image'
 import { Card, CardChildren, CardStyle, NavCard, CardLink } from './card'
 import Divider from './divider'
-import DotLoader from './dot-loader'
 import Dropdown from './dropdown'
 import Checkbox from './checkbox'
 import Image from './image'
@@ -24,7 +22,6 @@ import { Carousel } from './carousel'
 export {
     Accordion,
     AccordionItem,
-    AutoCarousel,
     BackgroundImage,
     BaseElement,
     Card,
@@ -33,7 +30,6 @@ export {
     CardLink,
     CardStyle,
     Divider,
-    DotLoader,
     Dropdown,
     Checkbox,
     Image,

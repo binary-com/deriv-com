@@ -104,6 +104,12 @@ export const onClientEntry = () => {
         async: true,
     })
 
+    // Add pushwoosh SDK
+    addScript({
+        src: 'cdn.pushwoosh.com/webpush/v3/pushwoosh-web-notifications.js',
+        async: true,
+    })
+
     if (window.location.hostname === 'deriv.com') {
         datadogRum.init({
             clientToken: client_token,

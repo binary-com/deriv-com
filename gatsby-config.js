@@ -128,6 +128,8 @@ module.exports = {
                         type: `image/png`,
                     },
                 ],
+                gcm_sender_id: '516413512615',
+                gcm_user_visible_only: true,
                 // TODO: add translations and support for language routes e.g:
                 // localize: [
                 //     {

@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
-import { Container, Show } from 'components/containers'
+import { Container } from 'components/containers'
 import { BackgroundImage } from 'components/elements'
 
 const StyeldContainer = styled(Container)`
@@ -14,7 +14,6 @@ const query = graphql`
         image: file(relativePath: { eq: "partners-banner.png" }) {
             ...backGroundBlur
         }
-
         image_mobile: file(relativePath: { eq: "partners-banner-mobile.png" }) {
             ...backGroundBlur
         }
@@ -25,32 +24,17 @@ const Hero = ({ children }) => {
     const hero_img = useStaticQuery(query)
     return (
         <>
-            <Show.Desktop max_width={'tabletL'}>
-                <BackgroundImage
-                    data={hero_img.image}
-                    style={{
-                        height: '80rem',
-                        width: '100%',
-                    }}
-                >
-                    <StyeldContainer direction="column" justify="center" align="center">
-                        {children}
-                    </StyeldContainer>
-                </BackgroundImage>
-            </Show.Desktop>
-            <Show.Mobile min_width={'tabletL'}>
-                <BackgroundImage
-                    data={hero_img.image_mobile}
-                    style={{
-                        height: '344px',
-                        width: '100%',
-                    }}
-                >
-                    <StyeldContainer direction="column" justify="center" align="center">
-                        {children}
-                    </StyeldContainer>
-                </BackgroundImage>
-            </Show.Mobile>
+            <BackgroundImage
+                data={hero_img.image}
+                style={{
+                    height: '80rem',
+                    width: '100%',
+                }}
+            >
+                <StyeldContainer direction="column" justify="center" align="center">
+                    {children}
+                </StyeldContainer>
+            </BackgroundImage>
         </>
     )
 }
@@ -58,4 +42,5 @@ const Hero = ({ children }) => {
 Hero.propTypes = {
     children: PropTypes.node,
 }
+
 export default Hero

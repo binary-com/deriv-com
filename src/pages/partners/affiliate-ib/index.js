@@ -40,6 +40,10 @@ const StyledLinkButton = styled(LinkButton)`
         padding: 1.2rem 1rem;
         white-space: nowrap;
     }
+
+    @media ${device.mobileL} {
+        font-size: 10px;
+    }
 `
 
 const StyledSectionContainer = styled(SectionContainer)`

@@ -17,7 +17,6 @@ const BackgroundWrapper = styled(Background)`
 const Wrapper = styled(Container)`
     justify-content: space-between;
     background-color: transparent;
-    width: 80%;
     height: unset;
 
     @media ${device.tabletL} {
@@ -103,6 +102,7 @@ const HeroContent = styled(Flex)`
     }
     @media ${device.mobileL} {
         ${Header} {
+            max-width: 100%;
             font-size: 20px;
             line-height: 25px;
             margin-top: 16px;

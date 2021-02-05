@@ -36,7 +36,7 @@ const StyledLinkButton = styled(LinkButton)`
     border-radius: 4px;
     @media ${device.tabletS} {
         font-size: 14px;
-        width: 230px;
+        width: 300px;
         height: 40px;
         padding: 1.2rem 1rem;
         white-space: nowrap;

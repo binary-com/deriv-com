@@ -22,6 +22,7 @@ export const CrashText = styled(Text)`
 `
 
 export const Descriptions = styled.div`
+    margin-top: ${({ margin_top }) => margin_top ?? 0};
     padding-bottom: 40px;
     border-bottom: 1px solid var(--color-grey-21);
 `
@@ -43,8 +44,8 @@ export const Row = styled(Flex)`
     ${({ is_accordion_row }) => {
         if (!is_accordion_row) {
             return css`
-                border: 1px solid var(--color-grey-22);
                 margin-top: 24px;
+                border: 1px solid var(--color-grey-22);
                 border-radius: 8px;
             `
         }
@@ -79,21 +80,17 @@ export const MarketsWrapper = styled(Flex)`
     }
 `
 
-export const Options = styled(Descriptions)`
-    margin-top: 24px;
+export const OptionsRow = styled(Row)`
+    margin-top: ${({ is_first_child }) => (is_first_child ? '0' : '40px')};
+    border: unset;
+    justify-content: space-between;
 
-    ${Row} {
-        margin-top: 40px;
-        border: unset;
-        justify-content: space-between;
+    @media ${device.tabletL} {
+        flex-direction: column;
+    }
 
-        @media ${device.tabletL} {
-            flex-direction: column;
-        }
-
-        ${Col} {
-            max-width: 384px;
-        }
+    ${Col} {
+        max-width: 384px;
     }
 `
 

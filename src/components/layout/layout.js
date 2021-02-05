@@ -2,6 +2,7 @@ import React from 'react'
 import Loadable from '@loadable/component'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import useGTMData from '../hooks/gtm-data-hooks'
 import Copyright from './copyright'
 import { Nav, NavStatic, NavPartners, NavInterim } from './nav'
 import { NavCareers } from './nav-careers'
@@ -94,7 +95,7 @@ const Layout = ({
     const [show_cookie_banner, setShowCookieBanner] = React.useState(false)
     const [show_modal, toggleModal, closeModal] = useModal()
     const [modal_payload, setModalPayload] = React.useState({})
-    const [gtm_data, setGTMData] = React.useState(null)
+    const [gtm_data, setGTMData] = useGTMData()
 
     const is_static = type === 'static'
 
@@ -138,12 +139,6 @@ const Layout = ({
             setMounted(true)
         }
     }, [is_eu_country])
-
-    React.useEffect(() => {
-        if (gtm_data) {
-            window.dataLayer.push(gtm_data)
-        }
-    }, [gtm_data])
 
     const onAccept = () => {
         tracking_status_cookie.set(TRACKING_STATUS_KEY, 'accepted')

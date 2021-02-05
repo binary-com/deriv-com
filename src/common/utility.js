@@ -1,3 +1,4 @@
+import Cookies from 'js-cookie'
 import extend from 'extend'
 
 const toISOFormat = (date) => {
@@ -69,6 +70,8 @@ const getLanguage = () => (isBrowser() ? localStorage.getItem('i18n') || navigat
 
 const getCrowdin = () =>
     isBrowser() ? localStorage.getItem('jipt_language_code_deriv-com') || navigator.language : null
+
+const getClientInformation = (domain) => Cookies.get('client_information', { domain })
 
 class PromiseClass {
     constructor() {
@@ -143,6 +146,11 @@ const dp2p_google_play_url =
 const cfd_warning_height_desktop = 8
 const cfd_warning_height_tablet = 12
 
+const getDomain = () =>
+    isBrowser() && window.location.hostname.includes(deriv_cookie_domain)
+        ? deriv_cookie_domain
+        : 'binary.sx'
+
 export {
     affiliate_signin_url,
     affiliate_signup_url,
@@ -175,6 +183,8 @@ export {
     isBrowser,
     getCrowdin,
     getCryptoDecimals,
+    getClientInformation,
+    getDomain,
     getPropertyValue,
     getLanguage,
     getLocationHash,

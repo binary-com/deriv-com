@@ -177,8 +177,8 @@ const Layout = ({
             FooterNav = <Copyright />
             break
         default:
-            Navigation = <Nav is_ppc_redirect={is_ppc_redirect} />
-            FooterNav = <Footer />
+            Navigation = <Nav is_ppc_redirect={is_ppc_redirect} is_ppc={is_ppc} />
+            FooterNav = <Footer is_ppc={is_ppc} is_ppc_redirect={is_ppc_redirect} />
             break
     }
 

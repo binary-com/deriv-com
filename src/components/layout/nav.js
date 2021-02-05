@@ -329,7 +329,7 @@ const handleLogin = () => {
     Login.redirectToLogin()
 }
 
-const NavMobile = () => {
+const NavMobile = ({ is_ppc, is_ppc_redirect }) => {
     const [is_canvas_menu_open, openOffCanvasMenu, closeOffCanvasMenu] = moveOffCanvasMenu()
 
     return (
@@ -363,12 +363,14 @@ const NavMobile = () => {
             <OffCanvasMenu
                 is_canvas_menu_open={is_canvas_menu_open}
                 closeOffCanvasMenu={closeOffCanvasMenu}
+                is_ppc={is_ppc}
+                is_ppc_redirect={is_ppc_redirect}
             />
         </Wrapper>
     )
 }
 
-const NavDesktop = ({ base, is_ppc_redirect }) => {
+const NavDesktop = ({ base, is_ppc, is_ppc_redirect }) => {
     const data = useStaticQuery(query)
     const button_ref = useRef(null)
     const [show_button, showButton, hideButton] = moveButton()
@@ -447,7 +449,13 @@ const NavDesktop = ({ base, is_ppc_redirect }) => {
                 link_ref={link_trade_ref}
                 is_open={is_trade_open}
                 has_animation={has_trade_animation}
-                Content={() => <NavPlatform onClick={handleTradeClick} />}
+                Content={() => (
+                    <NavPlatform
+                        onClick={handleTradeClick}
+                        is_ppc={is_ppc}
+                        is_ppc_redirect={is_ppc_redirect}
+                    />
+                )}
                 title={localize('Trading platforms')}
                 description={localize(
                     'Be in full control of your trading with our new and improved platforms.',
@@ -458,7 +466,7 @@ const NavDesktop = ({ base, is_ppc_redirect }) => {
                 link_ref={link_market_ref}
                 is_open={is_market_open}
                 has_animation={has_market_animation}
-                Content={() => <NavMarket onClick={handleMarketClick} />}
+                Content={() => <NavMarket onClick={handleMarketClick} is_ppc={is_ppc} />}
                 title={localize('Markets')}
                 description={localize(
                     'Enjoy our wide range of assets on financial and synthetic markets.',
@@ -489,7 +497,10 @@ const NavDesktop = ({ base, is_ppc_redirect }) => {
 
             <Wrapper>
                 <NavLeft>
-                    <LogoLink to={base || '/'} aria-label={localize('Home')}>
+                    <LogoLink
+                        to={!is_ppc_redirect ? base || '/' : '/landing'}
+                        aria-label={localize('Home')}
+                    >
                         <QueryImage
                             data={data['deriv']}
                             alt={localize('Deriv')}
@@ -560,16 +571,16 @@ const NavDesktop = ({ base, is_ppc_redirect }) => {
     )
 }
 
-export const Nav = ({ base, is_ppc_redirect }) => {
+export const Nav = ({ base, is_ppc_redirect, is_ppc }) => {
     return (
         <NavWrapper>
             <CFDWarning />
             <StyledNav>
                 <Show.Desktop>
-                    <NavDesktop base={base} is_ppc_redirect={is_ppc_redirect} />
+                    <NavDesktop base={base} is_ppc={is_ppc} is_ppc_redirect={is_ppc_redirect} />
                 </Show.Desktop>
                 <Show.Mobile>
-                    <NavMobile />
+                    <NavMobile is_ppc={is_ppc} />
                 </Show.Mobile>
             </StyledNav>
         </NavWrapper>
@@ -578,11 +589,18 @@ export const Nav = ({ base, is_ppc_redirect }) => {
 
 Nav.propTypes = {
     base: PropTypes.string,
+    is_ppc: PropTypes.bool,
     is_ppc_redirect: PropTypes.bool,
 }
 
 NavDesktop.propTypes = {
     base: PropTypes.string,
+    is_ppc: PropTypes.bool,
+    is_ppc_redirect: PropTypes.bool,
+}
+
+NavMobile.propTypes = {
+    is_ppc: PropTypes.bool,
     is_ppc_redirect: PropTypes.bool,
 }
 

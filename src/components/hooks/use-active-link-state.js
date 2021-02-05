@@ -42,8 +42,6 @@ export const useActiveLinkState = (type) => {
     const navigation_map = getNavigationMap(type)
 
     const updateCurrentPage = (type) => {
-        if (!getLocationPathname()) return
-
         const current_root_page = Array.from(getLocationPathname().matchAll(/\/([a-zA-Z0-9-]+)/g))
         if (!current_root_page || current_root_page.length === 0) return
 

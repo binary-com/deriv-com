@@ -301,7 +301,7 @@ const DerivAffiliateProgramme = () => {
                                 </ApplyNow>
                             </div>
                         </StyledCard>
-                        <StyledCard height="52.9rem" tabletHeight="336px">
+                        <StyledCard height="52.9rem">
                             <div>
                                 <CardHeader as="h4" type="sub-section-title" mb="0.8rem">
                                     {localize('CPA (EU only)')}

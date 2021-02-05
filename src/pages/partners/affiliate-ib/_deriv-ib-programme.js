@@ -281,6 +281,11 @@ const StyledLinkButton = styled(LinkButton)`
         padding: 1.5rem 1.6rem;
         height: 40px;
         white-space: nowrap;
+        font-size: 12px;
+    }
+
+    @media ${device.mobileL} {
+        font-size: 10px;
     }
 `
 const DMT5Synthetic = ({ data }) => {

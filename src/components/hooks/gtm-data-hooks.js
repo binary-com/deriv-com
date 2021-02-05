@@ -4,7 +4,7 @@ import { getClientInformation, getDomain, getLanguage, isBrowser } from 'common/
 const useGTMData = () => {
     const [gtm_data, setGTMData] = React.useState(null)
     const domain = getDomain()
-    const is_logged_in = getClientInformation(domain)
+    const client_information = getClientInformation(domain)
     const has_dataLayer = isBrowser() && window.dataLayer
 
     useEffect(() => {
@@ -12,8 +12,10 @@ const useGTMData = () => {
             has_dataLayer &&
                 window.dataLayer.push({
                     ...gtm_data,
-                    loggedIn: is_logged_in,
+                    loggedIn: !!client_information,
                     language: getLanguage(),
+                    visitorId: client_information?.loginid,
+                    currency: client_information?.currency,
                 })
         }
     }, [gtm_data])

@@ -53,6 +53,9 @@ const setLocationHash = (tab) => {
         location.hash = `#${tab}`
     }
 }
+
+const getLocationPathname = () => isBrowser() && window.location.pathname
+
 const routeBack = () => {
     if (isBrowser) {
         window.history.back()
@@ -176,6 +179,7 @@ export {
     getLanguage,
     getLocationHash,
     setLocationHash,
+    getLocationPathname,
     routeBack,
     getWindowWidth,
     gtm_test_domain,

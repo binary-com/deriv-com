@@ -6,16 +6,19 @@ const useGTMData = () => {
     const domain = getDomain()
     const client_information = getClientInformation(domain)
     const has_dataLayer = isBrowser() && window.dataLayer
+    const is_logged_in = !!client_information
 
     useEffect(() => {
         if (gtm_data) {
             has_dataLayer &&
                 window.dataLayer.push({
                     ...gtm_data,
-                    loggedIn: !!client_information,
+                    loggedIn: is_logged_in,
                     language: getLanguage(),
-                    visitorId: client_information?.loginid,
-                    currency: client_information?.currency,
+                    ...(is_logged_in && {
+                        visitorId: client_information.loginid,
+                        currency: client_information.currency,
+                    }),
                 })
         }
     }, [gtm_data])

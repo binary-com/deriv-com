@@ -13,7 +13,7 @@ const getNavigationMap = (type) => {
                     'regulatory',
                     'why-choose-us',
                     'partners',
-                    'contact-us',
+                    'contact_us',
                     'careers',
                 ],
                 resources: [
@@ -42,14 +42,14 @@ export const useActiveLinkState = (type) => {
     const navigation_map = getNavigationMap(type)
 
     const updateCurrentPage = (type) => {
-        const current_root_page = Array.from(getLocationPathname().matchAll(/\/([a-zA-Z0-9-]+)/g))
+        const current_root_page = getLocationPathname().match(/\/([a-zA-Z0-9-_]+)/g)
         if (!current_root_page || current_root_page.length === 0) return
 
         // Only get the first level root page on main pages. Else take the second level.
         const level = type === 'main' || current_root_page.length === 1 ? 0 : 1
 
         Object.keys(navigation_map).forEach((key) => {
-            if (navigation_map[key].includes(current_root_page[level][1])) {
+            if (navigation_map[key].includes(current_root_page[level].replace('/', ''))) {
                 setCurrentPage(key)
             }
         })

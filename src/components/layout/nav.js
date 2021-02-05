@@ -21,6 +21,7 @@ import {
     Text,
     QueryImage,
 } from 'components/elements'
+import { useActiveLinkState } from 'components/hooks/use-active-link-state'
 import { SharedLinkStyle } from 'components/localization/localized-link'
 import Login from 'common/login'
 import device from 'themes/device'
@@ -116,7 +117,15 @@ export const Wrapper = styled(Container)`
     @media ${device.laptop} {
         font-size: var(--text-size-xxs);
     }
+    @media ${device.mobileM} {
+        ${({ offset_px_mobile }) => offset_px_mobile && `width: calc(100% - ${offset_px_mobile}px)`};
+    }
 `
+
+Wrapper.propTypes = {
+    offset_px_mobile: PropTypes.number,
+}
+
 export const NavLeft = styled.div`
     text-align: left;
     display: flex;
@@ -365,6 +374,8 @@ const NavDesktop = ({ base, is_ppc_redirect }) => {
     const [show_button, showButton, hideButton] = moveButton()
     const [mounted, setMounted] = useState(false)
     const [has_scrolled, setHasScrolled] = useState(false)
+    const current_page = useActiveLinkState('main')
+
     // trade
     const trade_ref = useRef(null)
     const link_trade_ref = useRef(null)
@@ -494,7 +505,7 @@ const NavDesktop = ({ base, is_ppc_redirect }) => {
                     <NavLink onClick={handleTradeClick}>
                         <StyledButton
                             aria-label={localize('Trade')}
-                            active={is_trade_open}
+                            active={current_page === 'trade' || is_trade_open}
                             ref={link_trade_ref}
                         >
                             {localize('Trade')}
@@ -503,7 +514,7 @@ const NavDesktop = ({ base, is_ppc_redirect }) => {
                     <NavLink onClick={handleMarketClick}>
                         <StyledButton
                             aria-label={localize('Markets')}
-                            active={is_market_open}
+                            active={current_page === 'markets' || is_market_open}
                             ref={link_market_ref}
                         >
                             {localize('Markets')}
@@ -512,7 +523,7 @@ const NavDesktop = ({ base, is_ppc_redirect }) => {
                     <NavLink onClick={handleCompanyClick}>
                         <StyledButton
                             aria-label={localize('About us')}
-                            active={is_company_open}
+                            active={current_page === 'about' || is_company_open}
                             ref={link_company_ref}
                         >
                             {localize('About us')}
@@ -521,7 +532,7 @@ const NavDesktop = ({ base, is_ppc_redirect }) => {
                     <NavLink onClick={handleResourcesClick}>
                         <StyledButton
                             aria-label={localize('Resources')}
-                            active={is_resources_open}
+                            active={current_page === 'resources' || is_resources_open}
                             ref={link_resources_ref}
                         >
                             {localize('Resources')}
@@ -779,6 +790,7 @@ export const NavPartners = ({ no_login_signup }) => {
     const [show_button, showButton, hideButton] = moveButton()
     const [mounted, setMounted] = useState(false)
     const [has_scrolled, setHasScrolled] = useState(false)
+    const current_page = useActiveLinkState('partners')
 
     const buttonHandleScroll = () => {
         setHasScrolled(true)
@@ -813,7 +825,7 @@ export const NavPartners = ({ no_login_signup }) => {
                                 {localize('About us')}
                             </Text>
                         </HomeLink>
-                        <HomeLink to="/contact-us">
+                        <HomeLink to="/contact_us">
                             <Text color="grey-19" size="var(--text-size-xxs)">
                                 {localize('Contact us')}
                             </Text>
@@ -830,6 +842,7 @@ export const NavPartners = ({ no_login_signup }) => {
                         <StyledNavCenter>
                             <NavLink>
                                 <StyledLink
+                                    active={current_page === 'affiliate'}
                                     activeClassName="active"
                                     to="/partners/affiliate-ib/"
                                     aria-label={localize('Affiliates and IBs')}
@@ -839,6 +852,7 @@ export const NavPartners = ({ no_login_signup }) => {
                             </NavLink>
                             <NavLink>
                                 <StyledLink
+                                    active={current_page === 'payment'}
                                     activeClassName="active"
                                     to="/partners/payment-agent/"
                                     aria-label={localize('Payment agents')}

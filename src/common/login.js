@@ -1,12 +1,7 @@
 import Cookies from 'js-cookie'
 import { isStorageSupported } from './storage'
 import { brand_name } from './utility'
-import {
-    getDataObjFromCookies,
-    getDataLink,
-    getCookiesFields,
-    getCookiesObject,
-} from './cookies'
+import { getDataObjFromCookies, getDataLink, getCookiesFields, getCookiesObject } from './cookies'
 import { getAppId } from './websocket/config'
 
 const Login = (() => {

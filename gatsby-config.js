@@ -206,7 +206,7 @@ module.exports = {
                 includeInDevelopment: false,
             },
         },
-        'gatsby-plugin-offline',
+        'gatsby-plugin-remove-serviceworker',
         {
             resolve: 'gatsby-plugin-anchor-links',
             options: {

@@ -239,10 +239,6 @@ const Regulatory = () => {
                                                 target="_blank"
                                                 to="https://beta.gamblingcommission.gov.uk/public-register/business/detail/39495"
                                                 rel="noopener noreferrer"
-                                                style={{
-                                                    color: 'var(--color-black-3)',
-                                                    textDecoration: 'none',
-                                                }}
                                             />,
                                         ]}
                                     />
@@ -286,10 +282,6 @@ const Regulatory = () => {
                                                 target="_blank"
                                                 to="https://beta.gamblingcommission.gov.uk/public-register/business/detail/39172"
                                                 rel="noopener noreferrer"
-                                                style={{
-                                                    color: 'var(--color-black-3)',
-                                                    textDecoration: 'none',
-                                                }}
                                             />,
                                         ]}
                                     />

@@ -131,8 +131,10 @@ const ButtonWrapper = styled.div`
 
 const StyledHeaderCommission = styled(StyledHeader)`
     margin-bottom: 0;
+    margin-left: -100px;
     font-size: 16px;
     @media (max-width: 1428px) {
+        margin-left: 0;
         text-align: center;
     }
 
@@ -140,6 +142,15 @@ const StyledHeaderCommission = styled(StyledHeader)`
         font-size: 20px;
         text-align: left;
         margin: auto;
+        width: 44rem;
+    }
+
+    @media ${device.mobileL} {
+        width: 40rem;
+    }
+
+    @media ${device.mobileM} {
+        width: 38rem;
     }
 `
 

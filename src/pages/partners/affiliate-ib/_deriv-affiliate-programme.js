@@ -145,6 +145,15 @@ const StyledHeaderCommission = styled(StyledHeader)`
         font-size: 20px;
         text-align: left;
         margin: auto;
+        width: 42rem;
+    }
+
+    @media ${device.mobileL} {
+        width: 41rem;
+    }
+
+    @media ${device.mobileM} {
+        width: 38rem;
     }
 `
 

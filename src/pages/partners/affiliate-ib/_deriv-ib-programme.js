@@ -131,7 +131,7 @@ const ButtonWrapper = styled.div`
 
 const StyledHeaderCommission = styled(StyledHeader)`
     margin-bottom: 0;
-    margin-left: -100px;
+    margin-left: -85px;
     font-size: 16px;
     @media (max-width: 1428px) {
         margin-left: 0;

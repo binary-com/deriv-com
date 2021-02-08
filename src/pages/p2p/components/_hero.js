@@ -97,12 +97,11 @@ const HeroContent = styled(Flex)`
     @media ${device.tabletL} {
         ${Header} {
             font-size: 16px;
-            max-width: 74%;
+            max-width: 100%;
         }
     }
     @media ${device.mobileL} {
         ${Header} {
-            max-width: 100%;
             font-size: 20px;
             line-height: 25px;
             margin-top: 16px;

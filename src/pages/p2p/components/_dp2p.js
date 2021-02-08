@@ -12,7 +12,7 @@ const StyledSection = styled(SectionContainer)`
     padding: 8rem 0 0 0;
 
     @media ${device.tabletL} {
-        padding: 40px 16px 0 16px;
+        padding: 40px 16px 0;
     }
 `
 const StyledContainer = styled(Container)`

@@ -36,10 +36,13 @@ const StyledLinkButton = styled(LinkButton)`
     border-radius: 4px;
     @media ${device.tabletS} {
         font-size: 14px;
-        width: 230px;
         height: 40px;
         padding: 1.2rem 1rem;
         white-space: nowrap;
+    }
+
+    @media ${device.mobileL} {
+        font-size: 10px;
     }
 `
 

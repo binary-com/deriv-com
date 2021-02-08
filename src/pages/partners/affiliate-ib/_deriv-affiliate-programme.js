@@ -145,6 +145,15 @@ const StyledHeaderCommission = styled(StyledHeader)`
         font-size: 20px;
         text-align: left;
         margin: auto;
+        width: 42rem;
+    }
+
+    @media ${device.mobileL} {
+        width: 41rem;
+    }
+
+    @media ${device.mobileM} {
+        width: 38rem;
     }
 `
 
@@ -292,7 +301,7 @@ const DerivAffiliateProgramme = () => {
                                 </ApplyNow>
                             </div>
                         </StyledCard>
-                        <StyledCard height="52.9rem" tabletHeight="336px">
+                        <StyledCard height="52.9rem">
                             <div>
                                 <CardHeader as="h4" type="sub-section-title" mb="0.8rem">
                                     {localize('CPA (EU only)')}

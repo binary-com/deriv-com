@@ -131,8 +131,10 @@ const ButtonWrapper = styled.div`
 
 const StyledHeaderCommission = styled(StyledHeader)`
     margin-bottom: 0;
+    margin-left: -85px;
     font-size: 16px;
     @media (max-width: 1428px) {
+        margin-left: 0;
         text-align: center;
     }
 
@@ -140,11 +142,21 @@ const StyledHeaderCommission = styled(StyledHeader)`
         font-size: 20px;
         text-align: left;
         margin: auto;
+        width: 44rem;
+    }
+
+    @media ${device.mobileL} {
+        width: 40rem;
+    }
+
+    @media ${device.mobileM} {
+        width: 38rem;
     }
 `
 
 const StyledCard = styled(Card)`
     border-radius: 8px;
+    min-width: 44rem;
 
     :nth-child(2) {
         margin: 1.6rem 2.4rem 0;
@@ -269,6 +281,11 @@ const StyledLinkButton = styled(LinkButton)`
         padding: 1.5rem 1.6rem;
         height: 40px;
         white-space: nowrap;
+        font-size: 12px;
+    }
+
+    @media ${device.mobileL} {
+        font-size: 10px;
     }
 `
 const DMT5Synthetic = ({ data }) => {
@@ -285,10 +302,10 @@ const DMT5Synthetic = ({ data }) => {
     }
     return (
         <StyledCard
-            height={is_expand && !is_calculated ? '75rem' : '43rem'}
+            height={is_expand && !is_calculated ? '75rem' : '49rem'}
             padding="3.2rem 3.2rem 8.2rem"
-            mobileHeight={is_expand && !is_calculated ? '78rem' : '43rem'}
-            width="43rem"
+            mobileHeight={is_expand && !is_calculated ? '78rem' : '49rem'}
+            width="44rem"
         >
             <div>
                 {!is_calculated ? (
@@ -378,7 +395,7 @@ const DMT5Standard = ({ data }) => {
         setCalculated(!is_calculated)
     }
     return (
-        <StyledCard padding="3.2rem 3.2rem 8.2rem" width="43rem" height="43rem">
+        <StyledCard padding="3.2rem 3.2rem 8.2rem" width="44rem" height="49rem">
             <div>
                 {!is_calculated ? (
                     <div>
@@ -465,7 +482,7 @@ const DMT5Advanced = ({ data }) => {
         setCalculated(!is_calculated)
     }
     return (
-        <StyledCard padding="3.2rem 3.2rem 8.2rem" width="43rem" height="43rem">
+        <StyledCard padding="3.2rem 3.2rem 8.2rem" width="44rem" height="49rem">
             <div>
                 {!is_calculated ? (
                     <div>

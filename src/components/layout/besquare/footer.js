@@ -66,14 +66,21 @@ const BeSquareFooter = () => {
                             line_height={['30px', '24px']}
                         >
                             <Localize
-                                translate_text="Submit your application before 31 May 2021<0/>If you have any questions, email us at <1>info@besquare.my</1>"
+                                translate_text="Submit your application before 31 May 2021<0/><1>If you have any questions, email us at </1><2>info@besquare.my</2>"
                                 components={[
                                     <StyledLineBreak key={0} />,
-                                    <Link
-                                        font_size={['20px', '16px']}
-                                        line_height={['30px', '24px']}
-                                        href="mailto:info@besquare.my"
+                                    <TextWrapper
                                         key={1}
+                                        max_width={['510px', '328px']}
+                                        font_size={['16px', '12px']}
+                                        display={'inline'}
+                                        line_height={['24px', '18px']}
+                                    />,
+                                    <Link
+                                        font_size={['16px', '12px']}
+                                        line_height={['24px', '18px']}
+                                        href="mailto:info@besquare.my"
+                                        key={2}
                                     />,
                                 ]}
                             />
@@ -118,7 +125,7 @@ const BeSquareFooter = () => {
                     line_height={['19.6px']}
                     padding={['21px 120px', '19px 16px']}
                 >
-                    &copy; {localize('2020 Deriv | All rights reserved')}
+                    &copy; {localize('2021 Deriv | All rights reserved')}
                 </TextWrapper>
             </Section>
         </React.Fragment>

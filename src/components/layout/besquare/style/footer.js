@@ -70,6 +70,7 @@ export const TextContainer = styled.div`
     justify-content: start;
     padding: 80px 0 72px 0;
     grid-row-gap: 24px;
+    margin-right: 104px;
 
     @media ${device.laptop} {
         padding: 0 0 28px 0;
@@ -94,6 +95,7 @@ export const Title = styled(Header)`
 `
 
 export const TextWrapper = styled(Text)`
+    display: ${({ display }) => display};
     max-width: ${({ max_width }) => (max_width ? max_width[0] : 'unset')};
     width: fit-content;
     font-size: ${({ font_size }) => font_size[0] ?? 'unset'};

@@ -14,16 +14,19 @@ const Card = ({ card_content, custom_icon, has_list, style, title_component }) =
     const [is_list_open, setIsListOpen] = useState(false)
 
     const getCurrentDropdownComponent = () => {
+        const DropdownComponent = (
+            <DropdownWrapper
+                onClick={toggleIsListOpen}
+                src={is_list_open ? Minimize : Maximize}
+                alt={`${() => (is_list_open ? 'Minimize' : 'Maximize')} icon`}
+                width="32"
+                height="32"
+            />
+        )
         if (is_list_open) {
             return (
                 <React.Fragment>
-                    <DropdownWrapper
-                        onClick={toggleIsListOpen}
-                        src={Minimize}
-                        alt="Minimize icon"
-                        width="32"
-                        height="32"
-                    />
+                    {DropdownComponent}
                     <ListContainer>
                         {card_content.content.map((item, index) => (
                             <React.Fragment key={index}>
@@ -35,15 +38,7 @@ const Card = ({ card_content, custom_icon, has_list, style, title_component }) =
                 </React.Fragment>
             )
         } else {
-            return (
-                <DropdownWrapper
-                    onClick={toggleIsListOpen}
-                    src={Maximize}
-                    alt="Maximize icon"
-                    width="32"
-                    height="32"
-                />
-            )
+            return <React.Fragment>{DropdownComponent}</React.Fragment>
         }
     }
 

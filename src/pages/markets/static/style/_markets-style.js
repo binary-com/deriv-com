@@ -87,6 +87,7 @@ export const OptionsRow = styled(Flex)`
 
     @media ${device.tabletL} {
         flex-direction: column;
+        align-items: flex-start;
     }
 
     ${Col} {

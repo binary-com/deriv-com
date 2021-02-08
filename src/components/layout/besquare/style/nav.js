@@ -8,6 +8,12 @@ export const ButtonWrapper = styled(LinkButton)`
     width: auto;
     height: auto;
     white-space: nowrap;
+
+    @media ${device.tablet} {
+        min-width: 76px;
+        font-size: 12px;
+        padding: 8px 3px;
+    }
 `
 
 export const Section = styled(SectionContainer)`

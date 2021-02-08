@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import { Section, ContentContainer, ImageWrapper } from '../../static/style/_why-deriv'
 import { TextWrapper, Title } from '../../static/style/_common'
-import { localize } from 'components/localization'
+import { Localize, localize } from 'components/localization'
 
 const query = graphql`
     query {
@@ -47,9 +47,10 @@ const WhyDeriv = () => {
                     grid_area={['unset', 'text-2']}
                     margin={['auto 0', '40px 0 24px']}
                 >
-                    {localize(
-                        'At Deriv, you can learn from our talented IT teams of dedicated innovators and receive international exposure by collaborating with the overseas offices on challenging and exciting projects. Work with state-of-the-art technologies and enjoy the facilities of Deriv’s prestigious new headquarters at Quill 5 in Cyberjaya, where a floor has been dedicated to our BeSquare programme.',
-                    )}
+                    <Localize
+                        translate_text="At Deriv, you can learn from our talented IT teams of dedicated innovators and receive international exposure by collaborating with the overseas offices on challenging and exciting projects. Work with<0/>state-of-the-art technologies and enjoy the facilities of Deriv’s prestigious new headquarters at Quill 5 in Cyberjaya, where a floor has been dedicated to our BeSquare programme."
+                        components={[<br key={0} />]}
+                    />
                 </TextWrapper>
                 <ImageWrapper data={data['quil5']} alt="quil5 building" grid_area="quil5-image" />
             </ContentContainer>

@@ -57,7 +57,7 @@ const WhatLiesAhead = () => {
                     ))}
                 </CardContainer>
                 <TextWrapper
-                    max_width={['791px', '328px']}
+                    max_width={['783px', '328px']}
                     font_size={['16px', '14px']}
                     line_height={['24px', '20px']}
                     text_align={['center', 'left']}

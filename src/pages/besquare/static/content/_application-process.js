@@ -1,5 +1,6 @@
+import React from 'react'
 import { List01, List02, List03, List04 } from '../images/_application-process'
-import { localize } from 'components/localization'
+import { Localize, localize } from 'components/localization'
 
 export default {
     title: localize('Application process'),
@@ -12,7 +13,12 @@ export default {
         {
             src: List02,
             alt: 'List item 2',
-            text: localize('Complete our Self-Assessment Topgrading Interview (SATI).'),
+            text: (
+                <Localize
+                    translate_text="Complete our<0/>Self-Assessment Topgrading Interview (SATI)."
+                    components={[<br key={0} />]}
+                />
+            ),
         },
         {
             src: List03,

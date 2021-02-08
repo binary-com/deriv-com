@@ -80,10 +80,10 @@ export const MarketsWrapper = styled(Flex)`
     }
 `
 
-export const OptionsRow = styled(Row)`
+export const OptionsRow = styled(Flex)`
     margin-top: ${({ is_first_child }) => (is_first_child ? '0' : '40px')};
-    border: unset;
     justify-content: space-between;
+    align-items: center;
 
     @media ${device.tabletL} {
         flex-direction: column;

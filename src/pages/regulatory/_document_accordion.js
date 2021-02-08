@@ -144,12 +144,7 @@ const DocumentAccordion = (locale) => {
     const selected_language = locale.locale.language || 'en'
     const supported_languages = ['es', 'it', 'pl', 'pt']
 
-    const is_supported_language = (language) => {
-        if (supported_languages.includes(language)) {
-            return true
-        }
-        return false
-    }
+    const is_supported_language = (language) => supported_languages.includes(language)
 
     return (
         <Accordion has_single_state id="kid">
@@ -199,9 +194,9 @@ const DocumentAccordion = (locale) => {
                                 rel="noopener noreferrer"
                                 href={`/regulatory/kid/${
                                     is_supported_language(selected_language)
-                                        ? selected_language + '/' + data.ref
-                                        : data.ref
-                                }`}
+                                        ? selected_language + '/'
+                                        : ''
+                                }${data.ref}`}
                                 m="1.6rem 2.4rem"
                             >
                                 <img src={PDFIcon} alt="pdf icon black" />

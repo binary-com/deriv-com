@@ -13,6 +13,7 @@ import {
     TextWrapper,
     Title,
 } from './style/footer'
+import { besquare_form_url } from 'common/utility'
 import { localize, Localize, LocalizedLink } from 'components/localization'
 import Linkedin from 'images/svg/be-square/linkedin.svg'
 import Twitter from 'images/svg/be-square/twitter.svg'
@@ -77,7 +78,7 @@ const BeSquareFooter = () => {
                                 ]}
                             />
                         </TextWrapper>
-                        <ButtonWrapper type="submit" secondary="true" to="#">
+                        <ButtonWrapper type="submit" secondary="true" to={besquare_form_url}>
                             {localize('Apply now')}
                         </ButtonWrapper>
                         <FollowUsContainer>

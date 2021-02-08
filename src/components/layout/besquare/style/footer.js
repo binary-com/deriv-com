@@ -1,12 +1,11 @@
 import styled from 'styled-components'
-import { Container, Flex, SectionContainer } from 'components/containers'
+import { Container, SectionContainer } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
 import device from 'themes/device'
 
 export const ButtonWrapper = styled(LinkButton)`
     max-width: 102px;
-    height: auto;
     white-space: nowrap;
 `
 
@@ -66,9 +65,9 @@ export const ImageWrapper = styled(QueryImage)`
     }
 `
 
-export const TextContainer = styled(Flex)`
+export const TextContainer = styled.div`
     display: grid;
-    justify-content: flex-start;
+    justify-content: start;
     padding: 80px 0 72px 0;
     grid-row-gap: 24px;
 
@@ -106,7 +105,7 @@ export const TextWrapper = styled(Text)`
 
     @media ${device.laptopM} {
         grid-area: ${({ grid_area }) => grid_area};
-        margin: 0 auto;
+        margin: ${({ margin }) => margin ?? '0 auto'};
     }
 
     @media ${device.mobileL} {

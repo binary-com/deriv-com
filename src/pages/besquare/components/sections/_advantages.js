@@ -11,7 +11,7 @@ const Advantages = () => {
             width: ['auto'],
             max_width: ['auto', '290px'],
             height: ['244px', '180px'],
-            padding: ['32px 16px 32px 32px'],
+            padding: ['32px 16px 32px 32px', '24px'],
             border_radius: '16px',
             border: '1px solid var(--color-grey-2)',
         },

@@ -31,7 +31,7 @@ const WhyDeriv = () => {
                     grid_area="employee-image"
                 />
                 <div>
-                    <Title>{localize('Why Deriv?')}</Title>
+                    <Title margin={[0, '0 auto']}>{localize('Why Deriv?')}</Title>
                     <TextWrapper
                         {...text_wrapper}
                         grid_area={['unset', 'text-1']}

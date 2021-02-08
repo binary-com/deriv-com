@@ -4,9 +4,11 @@ import {
     ButtonWrapper,
     ContentContainer,
     FollowUsContainer,
+    IconWrapper,
     ImageWrapper,
     Link,
     Section,
+    StyledLineBreak,
     TextContainer,
     TextWrapper,
     Title,
@@ -63,9 +65,9 @@ const BeSquareFooter = () => {
                             line_height={['30px', '24px']}
                         >
                             <Localize
-                                translate_text="Submit your application before 30 May 2021<0/>If you have any questions, email us at <1>info@besquare.my</1>"
+                                translate_text="Submit your application before 31 May 2021<0/>If you have any questions, email us at <1>info@besquare.my</1>"
                                 components={[
-                                    <br key={0} />,
+                                    <StyledLineBreak key={0} />,
                                     <Link
                                         font_size={['20px', '16px']}
                                         line_height={['30px', '24px']}
@@ -83,6 +85,8 @@ const BeSquareFooter = () => {
                                 max_width={['68px']}
                                 font_size={['16px']}
                                 line_height={['24px']}
+                                grid_area={'follow-us'}
+                                margin={'13px 0 0'}
                             >
                                 {localize('Follow us')}
                             </TextWrapper>
@@ -94,7 +98,7 @@ const BeSquareFooter = () => {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
-                                    <img
+                                    <IconWrapper
                                         src={src}
                                         alt={`${alt} icon`}
                                         width="26.67"

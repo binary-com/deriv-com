@@ -15,6 +15,10 @@ export const Section = styled(SectionContainer)`
     padding: 0;
 `
 
+export const StyledLineBreak = styled.br`
+    margin-top: 20px;
+`
+
 export const ContentContainer = styled(Container)`
     max-width: 1440px;
     margin: 0 auto;
@@ -31,6 +35,19 @@ export const FollowUsContainer = styled.div`
     display: grid;
     grid-template-columns: 68px repeat(4, 26.67px);
     grid-column-gap: 21px;
+
+    @media ${device.tablet} {
+        grid-template-columns: repeat(4, 26.67px);
+        grid-template-areas: 'follow-us follow-us follow-us follow-us' 'icon icon icon icon';
+        grid-template-rows: auto auto;
+    }
+`
+
+export const IconWrapper = styled.img`
+    width: 32px;
+    height: 32px;
+    grid-area: icon;
+    margin-top: 10px;
 `
 
 export const ImageWrapper = styled(QueryImage)`
@@ -56,7 +73,7 @@ export const TextContainer = styled(Flex)`
     grid-row-gap: 24px;
 
     @media ${device.laptop} {
-        padding: 0 0 44px 0;
+        padding: 0 0 28px 0;
         margin: 0;
         justify-content: center;
     }
@@ -85,8 +102,10 @@ export const TextWrapper = styled(Text)`
     line-height: ${({ line_height }) => line_height[0] ?? 'unset'};
     color: var(--color-white);
     padding: ${({ padding }) => (padding ? padding[0] : 0)};
+    margin: ${({ margin }) => margin};
 
     @media ${device.laptopM} {
+        grid-area: ${({ grid_area }) => grid_area};
         margin: 0 auto;
     }
 
@@ -101,4 +120,5 @@ export const TextWrapper = styled(Text)`
 
 export const Link = styled(TextWrapper).attrs({ as: 'a' })`
     color: var(--color-red);
+    text-decoration: none;
 `

@@ -23,7 +23,7 @@ const ApplicationProcess = () => (
                 <ItemContainer key={index}>
                     <IconWrapper src={card.src} alt={card.alt} width="56" height="56" />
                     <TextWrapper
-                        max_width={['240px', '216px']}
+                        max_width={['240px', '280px']}
                         font_size={['24px', '16px']}
                         line_height={['36px', '24px']}
                         text_align={['left', 'center']}

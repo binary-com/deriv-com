@@ -23,10 +23,10 @@ export default {
             alt: 'Front-end development Icon',
             text: localize('Front-end development'),
             content: [
-                localize('Develop a responsive website on GitHub that looks good on all devices.'),
-                localize('Connect to the WebSocket API and display data.'),
+                localize('Deploy and collaborate with GitHub — so what makes GitHub so special?'),
+                localize('Design responsive websites using CSS, JavaScript, HTML, and beyond.'),
                 localize(
-                    'Debug issues using the browser console — a big step towards cleaner code.',
+                    'Discover how React helps with building high-quality web apps by learning about its props, components, hooks, routes, and more.',
                 ),
             ],
         },

@@ -18,7 +18,7 @@ const Multipliers = ({ market_content }) => (
                 </StyledText>
                 <AvailablePlatforms dtrader />
             </Descriptions>
-            <StyledText weight="bold" mt="2.4rem">
+            <StyledText font_size={'16px'} weight="bold" mt="2.4rem">
                 {localize('Instruments available for multipliers trading')}
             </StyledText>
             <MarketInstruments market_content={market_content} />

@@ -96,7 +96,7 @@ export const OptionsRow = styled(Flex)`
 
 export const StyledText = styled(Text)`
     @media ${device.tabletL} {
-        font-size: 20px;
+        font-size: ${({ font_size }) => font_size ?? '20px'};
         text-align: left;
     }
 `

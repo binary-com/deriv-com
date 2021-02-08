@@ -22,7 +22,7 @@ export const CrashText = styled(Text)`
 `
 
 export const Descriptions = styled.div`
-    margin-top: ${({ margin_top }) => margin_top ?? 0};
+    margin-top: ${({ margin_top }) => margin_top ?? '0'};
     padding-bottom: 40px;
     border-bottom: 1px solid var(--color-grey-21);
 `

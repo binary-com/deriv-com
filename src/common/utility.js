@@ -55,7 +55,7 @@ const setLocationHash = (tab) => {
     }
 }
 
-const getLocationPathname = () => isBrowser() && window.location.pathname
+const getLocationPathname = () => (isBrowser() && location ? location.pathname : '')
 
 const routeBack = () => {
     if (isBrowser) {

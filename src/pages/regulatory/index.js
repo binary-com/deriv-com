@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 import EUgrid from './_eu-grid'
 import DocumentAccordion from './_document_accordion'
 import FinancialCommission from './_financial_commission'
@@ -104,7 +105,7 @@ const ExternalBoldLink = styled(LocalizedLink)`
 const Content = styled.div`
     display: contents;
 `
-const Regulatory = () => {
+const Regulatory = (locale) => {
     return (
         <Layout>
             <SEO
@@ -192,7 +193,7 @@ const Regulatory = () => {
             </SectionContainer>
             <SectionContainer padding="0 0 4rem">
                 <SmallContainer fd="column">
-                    <DocumentAccordion />
+                    <DocumentAccordion locale={locale} />
                 </SmallContainer>
             </SectionContainer>
             <SectionContainer padding="0 0 4rem">
@@ -513,6 +514,10 @@ const Regulatory = () => {
             </SectionContainer>
         </Layout>
     )
+}
+
+Regulatory.propTypes = {
+    locale: PropTypes.object,
 }
 
 export default WithIntl()(Regulatory)

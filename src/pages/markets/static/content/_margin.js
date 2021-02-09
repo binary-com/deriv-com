@@ -75,7 +75,7 @@ export const synthetic_margin = {
     has_global_accordion: true,
     content: [
         {
-            title: <Localize translate_text="Europe" />,
+            title: <Localize translate_text="Volatility indices" />,
             component: <VolatilityIndices />,
             details: VolatilityIndicesDetails,
         },

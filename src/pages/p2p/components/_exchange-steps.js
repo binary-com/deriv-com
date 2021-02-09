@@ -105,7 +105,7 @@ const ExchangeSteps = () => {
     return (
         <Section>
             <StyledHeader type="page-title" align="center" mb="4rem" as="h2">
-                {localize('Exchange in 3 easy steps')}
+                {localize('3 steps for faster deposits and withdrawals')}
             </StyledHeader>
             <CardContainer>
                 <Card>
@@ -120,11 +120,11 @@ const ExchangeSteps = () => {
                         </Column>
                         <Column>
                             <StyledCardHeader mt="0.8rem" mb="0.8rem" as="h4">
-                                {localize('Find the right ad or create your own')}
+                                {localize('Find or create an ad')}
                             </StyledCardHeader>
                             <StyledText>
                                 {localize(
-                                    'Look for the right rates and create an order. Don’t see the rates you want? Create your own ad!',
+                                    'Pick the best rates and place an order, or create an ad for the rates you want.',
                                 )}
                             </StyledText>
                         </Column>
@@ -142,10 +142,10 @@ const ExchangeSteps = () => {
                         </Column>
                         <Column>
                             <StyledCardHeader mt="0.8rem" mb="0.8rem" as="h4">
-                                {localize('Settle the payment')}
+                                {localize('Make the payment')}
                             </StyledCardHeader>
                             <StyledText>
-                                {localize('Send or receive payment via funds transfer.')}
+                                {localize('Send or receive payment via fund transfer.')}
                             </StyledText>
                         </Column>
                     </Row>
@@ -165,7 +165,9 @@ const ExchangeSteps = () => {
                                 {localize('Complete the exchange')}
                             </StyledCardHeader>
                             <StyledText>
-                                {localize('Every order must be completed within 2 hours.')}
+                                {localize(
+                                    'Every order must be completed and confirmed within 2 hours.',
+                                )}
                             </StyledText>
                         </Column>
                     </Row>

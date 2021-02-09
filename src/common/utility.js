@@ -249,7 +249,10 @@ export {
     getLocationHash,
     setLocationHash,
     getLocationPathname,
+<<<<<<< HEAD
     routeBack,
+=======
+>>>>>>> Resolve: Conflict
     getWindowWidth,
     gtm_test_domain,
     livechat_client_id,

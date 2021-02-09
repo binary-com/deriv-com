@@ -107,7 +107,7 @@ const query = graphql`
 `
 
 const LeftComponent = ({ params }) => {
-    const { button_text, button_url, header, hide_cta, cta_props } = params
+    const { button_text, button_url, cta_props, header, hide_cta } = params
     return (
         <Flex fd="column" ai="center" max_width="28.2rem">
             <Header as="h3" type="section-title" mb="4rem" align="center">

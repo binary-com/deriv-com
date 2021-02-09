@@ -17,7 +17,7 @@ const Margin = ({ market_content }) => (
                 </StyledText>
                 <AvailablePlatforms dmt5 />
             </Descriptions>
-            <StyledText weight="bold" mt="2.4rem">
+            <StyledText font_size={'16px'} weight="bold" mt="2.4rem">
                 {localize('Instruments available for margin trading')}
             </StyledText>
             <MarketInstruments market_content={market_content} />

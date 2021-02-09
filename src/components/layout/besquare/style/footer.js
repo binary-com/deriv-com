@@ -14,10 +14,6 @@ export const Section = styled(SectionContainer)`
     padding: 0;
 `
 
-export const StyledLineBreak = styled.br`
-    margin-top: 20px;
-`
-
 export const ContentContainer = styled(Container)`
     max-width: 1440px;
     margin: 0 auto;

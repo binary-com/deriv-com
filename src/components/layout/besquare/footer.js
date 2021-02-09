@@ -8,7 +8,6 @@ import {
     ImageWrapper,
     Link,
     Section,
-    StyledLineBreak,
     TextContainer,
     TextWrapper,
     Title,
@@ -68,7 +67,7 @@ const BeSquareFooter = () => {
                             <Localize
                                 translate_text="Submit your application before 31 May 2021<0/><1>If you have any questions, email us at </1><2>info@besquare.my</2>"
                                 components={[
-                                    <StyledLineBreak key={0} />,
+                                    <br key={0} />,
                                     <TextWrapper
                                         key={1}
                                         max_width={['510px', '328px']}
@@ -85,9 +84,11 @@ const BeSquareFooter = () => {
                                 ]}
                             />
                         </TextWrapper>
-                        <ButtonWrapper type="submit" secondary="true" to={besquare_form_url}>
-                            {localize('Apply now')}
-                        </ButtonWrapper>
+                        <div>
+                            <ButtonWrapper type="submit" secondary="true" to={besquare_form_url}>
+                                {localize('Apply now')}
+                            </ButtonWrapper>
+                        </div>
                         <FollowUsContainer>
                             <TextWrapper
                                 max_width={['68px']}

@@ -769,7 +769,7 @@ const SwapCalculator = () => {
                                 </RightContentHeader>
 
                                 <StyledText size="1.6rem">
-                                    <Localize translate_text="For forex and commodities, the swap charge is calculated using the formula is:" />
+                                    <Localize translate_text="For forex and commodities, the swap charge is calculated using the formula:" />
                                 </StyledText>
                                 <StyledText size="1.6rem" mb="2rem">
                                     <Localize

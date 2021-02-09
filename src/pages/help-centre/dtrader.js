@@ -37,17 +37,19 @@ const DTraderContracts = () => (
 
 const DTraderArticle = () => {
     return (
-        <Article header="DTrader">
-            <WhatIsDMT5 text={localize('What is DTrader?')} label="what-is-dtrader" />
-            <DTraderMarkets
-                text={localize('What markets can I trade on DTrader?')}
-                label="markets-on-dtrader"
-            />
-            <DTraderContracts
-                text={localize('What contract types can I use on DTrader?')}
-                label="contracts-on-dtrader"
-            />
-        </Article>
+        <div>
+            <Article header="DTrader" title={localize('Help centre | Frequently asked questions | DTrader | Deriv')} description={localize('Frequently asked questions - DTrader')}>
+                <WhatIsDMT5 text={localize('What is DTrader?')} label="what-is-dtrader" />
+                <DTraderMarkets
+                    text={localize('What markets can I trade on DTrader?')}
+                    label="markets-on-dtrader"
+                />
+                <DTraderContracts
+                    text={localize('What contract types can I use on DTrader?')}
+                    label="contracts-on-dtrader"
+                />
+            </Article>
+        </div>
     )
 }
 

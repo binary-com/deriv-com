@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Helmet } from 'react-helmet'
 import { useStaticQuery, graphql } from 'gatsby'
-import { LocaleContext, localize } from '../localization'
+import { LocaleContext } from '../localization'
 import language_config from '../../../i18n-config'
 import TradingImage from 'images/common/practice.png'
 
@@ -83,12 +83,6 @@ const SEO = ({ description, meta, title, no_index, has_organization_schema }) =>
                     content: metaDescription,
                 },
                 {
-                    name: 'keywords',
-                    content: localize(
-                        'digital options, forex, forex trading, online trading, financial trading, digitals trading, index trading, trading indices, forex trades, trading commodities, digital options strategy, binary broker, binary bet, digital options trading platform, binary strategy, finance, investment, trading',
-                    ),
-                },
-                {
                     name: 'google',
                     content: 'notranslate',
                 },
@@ -154,11 +148,11 @@ const SEO = ({ description, meta, title, no_index, has_organization_schema }) =>
                 },
                 ...(no_index || no_index_staging || is_ach_page
                     ? [
-                          {
-                              name: 'robots',
-                              content: 'noindex',
-                          },
-                      ]
+                        {
+                            name: 'robots',
+                            content: 'noindex',
+                        },
+                    ]
                     : []),
             ].concat(meta)}
         >

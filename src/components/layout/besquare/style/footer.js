@@ -68,12 +68,12 @@ export const ImageWrapper = styled(QueryImage)`
 export const TextContainer = styled.div`
     display: grid;
     justify-content: start;
-    padding: 80px 0 72px 0;
+    padding: 80px 0 72px;
     grid-row-gap: 24px;
     margin-right: 104px;
 
     @media ${device.laptop} {
-        padding: 0 0 28px 0;
+        padding: 0 0 28px;
         margin: 0;
         justify-content: center;
     }

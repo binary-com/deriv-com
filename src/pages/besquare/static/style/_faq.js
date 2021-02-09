@@ -13,10 +13,10 @@ export const AccordionWrapper = styled.div`
 `
 
 export const ContentContainer = styled(Container)`
-    padding: 80px 0 40px 0;
+    padding: 80px 0 40px;
 
     @media ${device.tablet} {
-        padding: 0 0 24px 0;
+        padding: 0 0 24px;
     }
 `
 

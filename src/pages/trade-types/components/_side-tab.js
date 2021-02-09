@@ -39,7 +39,7 @@ const TabButton = styled.div`
 `
 
 const TabList = styled.div`
-    width: 100%;
+    max-width: 100%;
     ${(props) =>
         props.is_reverse
             ? css`

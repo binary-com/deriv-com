@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 import { Header, Text } from 'components/elements'
 import { localize } from 'components/localization'
 import { Container, SectionContainer, Flex } from 'components/containers'
@@ -66,7 +67,7 @@ const MarketCard = styled.article`
         margin-bottom: 4rem;
     }
 `
-const Markets = () => (
+const Markets = ({ is_ppc }) => (
     <StyledSection>
         <Container direction="column">
             <Header align="center" as="h3" type="section-title">
@@ -112,22 +113,28 @@ const Markets = () => (
                         </Text>
                     </div>
                 </MarketCard>
-                <MarketCard>
-                    <img src={SyntheticIndicesIcon} alt="synthetic" width="64" height="64" />
-                    <div>
-                        <Header as="h4" type="sub-section-title">
-                            {localize('Synthetic indices')}
-                        </Header>
-                        <Text>
-                            {localize(
-                                'Enjoy synthetic markets that emulate the excitement of real-world markets without unpredictable real-world disruptions.',
-                            )}
-                        </Text>
-                    </div>
-                </MarketCard>
+                {!is_ppc && (
+                    <MarketCard>
+                        <img src={SyntheticIndicesIcon} alt="synthetic" width="64" height="64" />
+                        <div>
+                            <Header as="h4" type="sub-section-title">
+                                {localize('Synthetic indices')}
+                            </Header>
+                            <Text>
+                                {localize(
+                                    'Enjoy synthetic markets that emulate the excitement of real-world markets without unpredictable real-world disruptions.',
+                                )}
+                            </Text>
+                        </div>
+                    </MarketCard>
+                )}
             </MarketWrapper>
         </Container>
     </StyledSection>
 )
+
+Markets.propTypes = {
+    is_ppc: PropTypes.bool,
+}
 
 export default Markets

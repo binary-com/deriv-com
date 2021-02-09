@@ -65,6 +65,7 @@ const Hero = () => {
                 width: '100vw',
                 backgroundSize: `cover`,
                 backgroundColor: 'var(--color-black)',
+                maxWidth: '100%',
             }}
             dark="0.3"
         >

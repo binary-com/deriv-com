@@ -50,6 +50,7 @@ const PlatformCard = styled.article`
 `
 const StyledHeader = styled(Header)`
     @media ${device.tablet} {
+        line-height: 30px;
         margin-bottom: 40px;
     }
     @media ${device.mobileL} {
@@ -132,7 +133,7 @@ const Availability = () => {
     return (
         <Section>
             <StyledHeader
-                mobile_font_size="32px"
+                type="page-title"
                 mobile_margin="0 0 24px"
                 align="center"
                 as="h2"

@@ -1,6 +1,11 @@
 import React from 'react'
-import Cookies from 'js-cookie'
-import { isBrowser, livechat_client_id, livechat_license_id } from 'common/utility'
+import {
+    getClientInformation,
+    getDomain,
+    isBrowser,
+    livechat_client_id,
+    livechat_license_id,
+} from 'common/utility'
 
 export const useLivechat = () => {
     const [is_livechat_interactive, setLiveChatInteractive] = React.useState(false)
@@ -26,9 +31,7 @@ export const useLivechat = () => {
         let cookie_interval = null
         let script_timeout = null
         if (isBrowser()) {
-            const domain = window.location.hostname.includes('deriv.com')
-                ? 'deriv.com'
-                : 'binary.sx'
+            const domain = getDomain()
             try {
                 import('@livechat/customer-sdk').then((CSDK) => {
                     CustomerSdk.current = CSDK
@@ -43,9 +46,7 @@ export const useLivechat = () => {
                 return function () {
                     const currentCookie = document.cookie
                     if (currentCookie != lastCookie) {
-                        const client_information = Cookies.get('client_information', {
-                            domain,
-                        })
+                        const client_information = getClientInformation(domain)
                         setLoggedIn(!!client_information)
                         lastCookie = currentCookie // store latest cookie
                     }
@@ -76,9 +77,7 @@ export const useLivechat = () => {
     React.useEffect(() => {
         if (isBrowser()) {
             let customerSDK = null
-            const domain = window.location.hostname.includes('deriv.com')
-                ? 'deriv.com'
-                : 'binary.sx'
+            const domain = getDomain()
             if (CustomerSdk.current) {
                 try {
                     customerSDK = CustomerSdk.current.init({
@@ -93,9 +92,7 @@ export const useLivechat = () => {
             if (is_livechat_interactive) {
                 window.LiveChatWidget.on('ready', () => {
                     if (is_logged_in) {
-                        const client_information = Cookies.get('client_information', {
-                            domain,
-                        })
+                        const client_information = getClientInformation(domain)
                         const {
                             loginid,
                             email,
@@ -127,12 +124,10 @@ export const useLivechat = () => {
                     } else {
                         if (window.LiveChatWidget.get('chat_data')) {
                             const chatID = window.LiveChatWidget.get('chat_data').chatId
-                            try {
-                                customerSDK?.deactivateChat({ chatId: chatID })
-                            } catch (e) {
+                            customerSDK?.deactivateChat({ chatId: chatID }).catch((error) => {
                                 // eslint-disable-nextline
-                                console.error(e)
-                            }
+                                console.error(error)
+                            })
                         }
                         window.LiveChatWidget.call('set_customer_email', ' ')
                         window.LiveChatWidget.call('set_customer_name', ' ')

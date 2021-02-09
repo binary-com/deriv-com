@@ -21,6 +21,7 @@ import {
     Text,
     QueryImage,
 } from 'components/elements'
+import { useActiveLinkState } from 'components/hooks/use-active-link-state'
 import { SharedLinkStyle } from 'components/localization/localized-link'
 import Login from 'common/login'
 import device from 'themes/device'
@@ -116,7 +117,16 @@ export const Wrapper = styled(Container)`
     @media ${device.laptop} {
         font-size: var(--text-size-xxs);
     }
+    @media ${device.mobileM} {
+        ${({ offset_px_mobile }) =>
+            offset_px_mobile && `width: calc(100% - ${offset_px_mobile}px)`};
+    }
 `
+
+Wrapper.propTypes = {
+    offset_px_mobile: PropTypes.number,
+}
+
 export const NavLeft = styled.div`
     text-align: left;
     display: flex;
@@ -320,7 +330,7 @@ const handleLogin = () => {
     Login.redirectToLogin()
 }
 
-const NavMobile = () => {
+const NavMobile = ({ is_ppc, is_ppc_redirect }) => {
     const [is_canvas_menu_open, openOffCanvasMenu, closeOffCanvasMenu] = moveOffCanvasMenu()
 
     return (
@@ -354,17 +364,21 @@ const NavMobile = () => {
             <OffCanvasMenu
                 is_canvas_menu_open={is_canvas_menu_open}
                 closeOffCanvasMenu={closeOffCanvasMenu}
+                is_ppc={is_ppc}
+                is_ppc_redirect={is_ppc_redirect}
             />
         </Wrapper>
     )
 }
 
-const NavDesktop = ({ base, is_ppc_redirect }) => {
+const NavDesktop = ({ base, is_ppc, is_ppc_redirect }) => {
     const data = useStaticQuery(query)
     const button_ref = useRef(null)
     const [show_button, showButton, hideButton] = moveButton()
     const [mounted, setMounted] = useState(false)
     const [has_scrolled, setHasScrolled] = useState(false)
+    const current_page = useActiveLinkState('main')
+
     // trade
     const trade_ref = useRef(null)
     const link_trade_ref = useRef(null)
@@ -436,7 +450,13 @@ const NavDesktop = ({ base, is_ppc_redirect }) => {
                 link_ref={link_trade_ref}
                 is_open={is_trade_open}
                 has_animation={has_trade_animation}
-                Content={() => <NavPlatform onClick={handleTradeClick} />}
+                Content={() => (
+                    <NavPlatform
+                        onClick={handleTradeClick}
+                        is_ppc={is_ppc}
+                        is_ppc_redirect={is_ppc_redirect}
+                    />
+                )}
                 title={localize('Trading platforms')}
                 description={localize(
                     'Be in full control of your trading with our new and improved platforms.',
@@ -447,7 +467,7 @@ const NavDesktop = ({ base, is_ppc_redirect }) => {
                 link_ref={link_market_ref}
                 is_open={is_market_open}
                 has_animation={has_market_animation}
-                Content={() => <NavMarket onClick={handleMarketClick} />}
+                Content={() => <NavMarket onClick={handleMarketClick} is_ppc={is_ppc} />}
                 title={localize('Markets')}
                 description={localize(
                     'Enjoy our wide range of assets on financial and synthetic markets.',
@@ -478,7 +498,10 @@ const NavDesktop = ({ base, is_ppc_redirect }) => {
 
             <Wrapper>
                 <NavLeft>
-                    <LogoLink to={base || '/'} aria-label={localize('Home')}>
+                    <LogoLink
+                        to={!is_ppc_redirect ? base || '/' : '/landing'}
+                        aria-label={localize('Home')}
+                    >
                         <QueryImage
                             data={data['deriv']}
                             alt={localize('Deriv')}
@@ -494,7 +517,7 @@ const NavDesktop = ({ base, is_ppc_redirect }) => {
                     <NavLink onClick={handleTradeClick}>
                         <StyledButton
                             aria-label={localize('Trade')}
-                            active={is_trade_open}
+                            active={current_page === 'trade' || is_trade_open}
                             ref={link_trade_ref}
                         >
                             {localize('Trade')}
@@ -503,7 +526,7 @@ const NavDesktop = ({ base, is_ppc_redirect }) => {
                     <NavLink onClick={handleMarketClick}>
                         <StyledButton
                             aria-label={localize('Markets')}
-                            active={is_market_open}
+                            active={current_page === 'markets' || is_market_open}
                             ref={link_market_ref}
                         >
                             {localize('Markets')}
@@ -512,7 +535,7 @@ const NavDesktop = ({ base, is_ppc_redirect }) => {
                     <NavLink onClick={handleCompanyClick}>
                         <StyledButton
                             aria-label={localize('About us')}
-                            active={is_company_open}
+                            active={current_page === 'about' || is_company_open}
                             ref={link_company_ref}
                         >
                             {localize('About us')}
@@ -521,7 +544,7 @@ const NavDesktop = ({ base, is_ppc_redirect }) => {
                     <NavLink onClick={handleResourcesClick}>
                         <StyledButton
                             aria-label={localize('Resources')}
-                            active={is_resources_open}
+                            active={current_page === 'resources' || is_resources_open}
                             ref={link_resources_ref}
                         >
                             {localize('Resources')}
@@ -549,16 +572,16 @@ const NavDesktop = ({ base, is_ppc_redirect }) => {
     )
 }
 
-export const Nav = ({ base, is_ppc_redirect }) => {
+export const Nav = ({ base, is_ppc_redirect, is_ppc }) => {
     return (
         <NavWrapper>
             <CFDWarning />
             <StyledNav>
                 <Show.Desktop>
-                    <NavDesktop base={base} is_ppc_redirect={is_ppc_redirect} />
+                    <NavDesktop base={base} is_ppc={is_ppc} is_ppc_redirect={is_ppc_redirect} />
                 </Show.Desktop>
                 <Show.Mobile>
-                    <NavMobile />
+                    <NavMobile is_ppc={is_ppc} />
                 </Show.Mobile>
             </StyledNav>
         </NavWrapper>
@@ -567,11 +590,18 @@ export const Nav = ({ base, is_ppc_redirect }) => {
 
 Nav.propTypes = {
     base: PropTypes.string,
+    is_ppc: PropTypes.bool,
     is_ppc_redirect: PropTypes.bool,
 }
 
 NavDesktop.propTypes = {
     base: PropTypes.string,
+    is_ppc: PropTypes.bool,
+    is_ppc_redirect: PropTypes.bool,
+}
+
+NavMobile.propTypes = {
+    is_ppc: PropTypes.bool,
     is_ppc_redirect: PropTypes.bool,
 }
 
@@ -788,6 +818,7 @@ export const NavPartners = ({ no_login_signup }) => {
     const [show_button, showButton, hideButton] = moveButton()
     const [mounted, setMounted] = useState(false)
     const [has_scrolled, setHasScrolled] = useState(false)
+    const current_page = useActiveLinkState('partners')
 
     const buttonHandleScroll = () => {
         setHasScrolled(true)
@@ -823,7 +854,7 @@ export const NavPartners = ({ no_login_signup }) => {
                                     {localize('About us')}
                                 </Text>
                             </HomeLink>
-                            <HomeLink to="/contact-us">
+                            <HomeLink to="/contact_us">
                                 <Text color="grey-19" size="var(--text-size-xxs)">
                                     {localize('Contact us')}
                                 </Text>
@@ -846,6 +877,7 @@ export const NavPartners = ({ no_login_signup }) => {
                         <StyledNavCenter>
                             <NavLink>
                                 <StyledLink
+                                    active={current_page === 'affiliate'}
                                     activeClassName="active"
                                     to="/partners/affiliate-ib/"
                                     aria-label={localize('Affiliates and IBs')}
@@ -855,6 +887,7 @@ export const NavPartners = ({ no_login_signup }) => {
                             </NavLink>
                             <NavLink>
                                 <StyledLink
+                                    active={current_page === 'payment'}
                                     activeClassName="active"
                                     to="/partners/payment-agent/"
                                     aria-label={localize('Payment agents')}

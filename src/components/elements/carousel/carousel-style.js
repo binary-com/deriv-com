@@ -122,9 +122,9 @@ export const StyledChevron = styled(Chevron)`
 
 export const NavigationContainer = styled(Flex)`
     position: relative;
-    bottom: 40px;
     width: 100%;
     height: 8px;
+    bottom: ${(props) => props.bottom_offset ?? '40px'};
 `
 
 export const StyledDot = styled.button`
@@ -136,20 +136,7 @@ export const StyledDot = styled.button`
     outline: 0;
     border: 0;
     margin-right: 8px;
-    ${(props) => {
-        let color = '--color-grey-21'
-        switch (props.color) {
-            case 'red':
-                color = '--color-red'
-                break
-            case 'black':
-                color = '--color-black'
-                break
-        }
-        return css`
-            background-color: var(${color});
-        `
-    }}
+    background-color: var(${(props) => props.color ?? '--color-grey-21'});
 `
 
 export const ChevronRight = styled(StyledChevron)`

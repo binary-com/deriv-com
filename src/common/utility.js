@@ -73,6 +73,12 @@ const getCrowdin = () =>
 
 const getClientInformation = (domain) => Cookies.get('client_information', { domain })
 
+const isLoggedIn = () => {
+    const domain = getDomain()
+    const client_information = getClientInformation(domain)
+    return !!client_information
+}
+
 class PromiseClass {
     constructor() {
         this.promise = new Promise((resolve, reject) => {
@@ -193,6 +199,7 @@ export {
     routeBack,
     getWindowWidth,
     gtm_test_domain,
+    isLoggedIn,
     livechat_client_id,
     livechat_license_id,
     map_api_key,

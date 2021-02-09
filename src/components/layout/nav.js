@@ -25,7 +25,12 @@ import { useActiveLinkState } from 'components/hooks/use-active-link-state'
 import { SharedLinkStyle } from 'components/localization/localized-link'
 import Login from 'common/login'
 import device from 'themes/device'
-import { affiliate_signin_url, affiliate_signup_url } from 'common/utility'
+import {
+    affiliate_signin_url,
+    affiliate_signup_url,
+    deriv_app_url,
+    isLoggedIn,
+} from 'common/utility'
 // Icons
 import Logo from 'images/svg/logo-deriv.svg'
 import LogoPartner from 'images/svg/logo-partners.svg'
@@ -280,11 +285,11 @@ const LogoLinkMobile = styled(LocalizedLink)`
     }
 `
 
-const LoginButton = styled(Button)`
+const NowrapButton = styled(Button)`
     white-space: nowrap;
 `
 
-const MobileLogin = styled(Button)`
+const MobileButton = styled(Button)`
     display: none;
     font-size: 14px;
     margin-left: ${({ margin_left }) => margin_left ?? '1.6rem'};
@@ -330,6 +335,10 @@ const handleLogin = () => {
     Login.redirectToLogin()
 }
 
+const handleGetTrading = () => {
+    window.location.href = deriv_app_url
+}
+
 const NavMobile = ({ is_ppc, is_ppc_redirect }) => {
     const [is_canvas_menu_open, openOffCanvasMenu, closeOffCanvasMenu] = moveOffCanvasMenu()
 
@@ -357,9 +366,16 @@ const NavMobile = ({ is_ppc, is_ppc_redirect }) => {
             </LogoLinkMobile>
             <MobileRight>
                 <LanguageSwitcher short_name="true" is_high_nav />
-                <MobileLogin margin_left="0.8rem" onClick={handleLogin} primary>
-                    <span>{localize('Log in')}</span>
-                </MobileLogin>
+
+                {isLoggedIn() ? (
+                    <MobileButton margin_left="0.8rem" onClick={handleGetTrading} primary>
+                        <span>{localize('Get Trading')}</span>
+                    </MobileButton>
+                ) : (
+                    <MobileButton margin_left="0.8rem" onClick={handleLogin} primary>
+                        <span>{localize('Log in')}</span>
+                    </MobileButton>
+                )}
             </MobileRight>
             <OffCanvasMenu
                 is_canvas_menu_open={is_canvas_menu_open}
@@ -558,9 +574,17 @@ const NavDesktop = ({ base, is_ppc, is_ppc_redirect }) => {
                     has_scrolled={has_scrolled}
                 >
                     <LanguageSwitcher short_name="true" is_high_nav />
-                    <LoginButton onClick={handleLogin} primary>
-                        <span>{localize('Log in')}</span>
-                    </LoginButton>
+
+                    {isLoggedIn() ? (
+                        <NowrapButton onClick={handleGetTrading} primary>
+                            <span>{localize('Get Trading')}</span>
+                        </NowrapButton>
+                    ) : (
+                        <NowrapButton onClick={handleLogin} primary>
+                            <span>{localize('Log in')}</span>
+                        </NowrapButton>
+                    )}
+
                     <LocalizedLink to={is_ppc_redirect ? '/landing/signup/' : '/signup/'}>
                         <SignupButton ref={button_ref} secondary="true">
                             <span>{localize('Create free demo account')}</span>

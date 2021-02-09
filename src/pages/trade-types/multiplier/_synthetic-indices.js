@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import { CrashBoom, ContinuousIndices } from '../../markets/sub-markets/_submarkets.js'
-import MarketsAccordion from '../../markets/_markets_accordion.js'
-import AvailablePlatforms from '../../markets/_available-platforms.js'
+import { CrashBoom, ContinuousIndices } from '../../markets/instruments/_submarkets.js'
+import MarketsAccordion from '../../markets/components/helper/_markets_accordion.js'
+import AvailablePlatforms from '../../markets/components/helper/_available-platforms.js'
 import { Text } from 'components/elements'
 import { SectionContainer, Flex, CssGrid, Show } from 'components/containers'
 import { localize, Localize } from 'components/localization'
@@ -114,8 +114,10 @@ const SyntheticIndices = () => {
     return (
         <SectionContainer padding="4rem 0 8rem">
             <Flex max_width="79.2rem" m="0 auto" direction="column">
-                <StyledText mb='12px' align="center">
-                    {localize('Synthetic indices are engineered to mimic real-world market movement; minus real life risk. Trade multipliers on Synthetic Indices 24/7 and benefit from high leverage, tight spreads and fixed generation intervals.')}
+                <StyledText mb="12px" align="center">
+                    {localize(
+                        'Synthetic indices are engineered to mimic real-world market movement; minus real life risk. Trade multipliers on Synthetic Indices 24/7 and benefit from high leverage, tight spreads and fixed generation intervals.',
+                    )}
                 </StyledText>
                 <Text weight="bold">
                     {localize('Synthetics indices available for Multipliers trading')}
@@ -164,7 +166,6 @@ const SyntheticIndices = () => {
                     />
                 </MarketsWrapper>
                 <AvailablePlatforms dtrader />
-
             </Flex>
         </SectionContainer>
     )

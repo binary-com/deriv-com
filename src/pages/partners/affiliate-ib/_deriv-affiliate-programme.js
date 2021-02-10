@@ -71,7 +71,7 @@ const StyledTextHeading = styled(StyledText)`
     }
 `
 const StyledHeader = styled(Header)`
-    @media (max-width: 1428px) {
+    @media (max-width: 1518px) {
         text-align: center;
     }
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import { MajorPairs } from '../../markets/sub-markets/_submarkets.js'
-import AvailablePlatforms from '../../markets/_available-platforms.js'
+import { MajorPairs } from '../../markets/instruments/_submarkets.js'
+import AvailablePlatforms from '../../markets/components/helper/_available-platforms.js'
 import { Text } from 'components/elements'
 import { SectionContainer, Flex, CssGrid } from 'components/containers'
 import { localize } from 'components/localization'
@@ -65,8 +65,10 @@ const Margin = () => {
     return (
         <SectionContainer padding="4rem 0 8rem">
             <Flex max_width="79.2rem" m="0 auto" direction="column">
-                <StyledText mb='12px' align="center">
-                    {localize('Trade Forex with multipliers for high leverage, tight spreads and benefit from multiple opportunities to trade on world events.')}
+                <StyledText mb="12px" align="center">
+                    {localize(
+                        'Trade Forex with multipliers for high leverage, tight spreads and benefit from multiple opportunities to trade on world events.',
+                    )}
                 </StyledText>
                 <StyledTitle>
                     {localize('Forex pairs available for Multipliers trading')}

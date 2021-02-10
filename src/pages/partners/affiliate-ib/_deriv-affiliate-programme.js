@@ -74,10 +74,16 @@ const StyledHeader = styled(Header)`
     @media ${device.laptopL} {
         text-align: center;
         margin: auto;
+        width: 42rem;
     }
 
     @media ${device.mobileL} {
         text-align: left;
+        width: 41rem;
+    }
+
+    @media ${device.mobileM} {
+        width: 38rem;
     }
 `
 

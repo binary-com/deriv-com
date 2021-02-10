@@ -132,14 +132,12 @@ const ButtonWrapper = styled.div`
 const StyledHeaderCommission = styled(StyledHeader)`
     margin-bottom: 0;
     margin-left: -85px;
-    font-size: 16px;
-    @media (max-width: 1428px) {
+    @media ${device.laptopL} {
         margin-left: 0;
         text-align: center;
     }
 
     @media ${device.tabletL} {
-        font-size: 20px;
         text-align: left;
         margin: auto;
         width: 44rem;
@@ -225,7 +223,7 @@ const DerivIBProgramme = () => {
                     </SubtitleHeader>
                 </TitleWrapper>
                 <IBSectionContainer padding="4rem 0 9.6rem 0">
-                    <StyledHeaderCommission as="h4" type="sub-section-title" mb="1.6rem">
+                    <StyledHeaderCommission as="h4" type="main-paragraph" mb="1.6rem">
                         {localize('Choose a commission plan:')}
                     </StyledHeaderCommission>
                     <StyledCardWrapper>

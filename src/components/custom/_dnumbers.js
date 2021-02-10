@@ -2,82 +2,52 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import device from 'themes/device'
-import { Flex } from 'components/containers'
+import { Container, SectionContainer } from 'components/containers'
 import { Header, Text } from 'components/elements'
 
 const NumberWrapper = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 28.2rem;
+    width: 32.8rem;
+`
+const StyledText = styled(Text)`
+    padding-top: 8px;
 
-    ${Text} {
-        padding-top: 0.8rem;
-    }
-
-    @media ${device.laptop} {
-        margin: 1.2rem 0;
-        width: 22rem;
-    }
     @media ${device.tabletL} {
-        margin: 1.2rem 0;
-        width: unset;
-
-        ${Header} {
-            font-size: 24px;
-        }
-        ${Text} {
-            font-size: 16px;
-        }
+        padding-top: 0;
+        margin: 12px 0;
     }
 `
 
-const DnumberContainer = styled(Flex)`
-    margin-top: 2.4rem;
-    margin-bottom: 2.4rem;
-    flex-direction: row;
+const StyledContainer = styled(Container)`
+    display: flex;
+    width: 100%;
 
     @media ${device.tabletL} {
-        margin-bottom: 0;
         flex-direction: column;
     }
 `
 
-const DnumberContent = styled(Flex)`
-    justify-content: space-between;
-    @media ${device.tabletL} {
-        justify-content: space-around;
-    }
-`
-
-const DNumbers = ({ items }) => {
+const DNumbers = ({ items, justify }) => {
     return (
-        <DnumberContainer padding="4rem">
-            <DnumberContent>
-                {items.slice(0, 2).map((item, index) => (
+        <SectionContainer padding="4rem">
+            <StyledContainer justify={justify || 'space-between'}>
+                {items.map((item, index) => (
                     <NumberWrapper key={index}>
                         <Header as="h2" type="page-title" align="center">
                             {item.title}
                         </Header>
-                        <Text align="center">{item.subtitle}</Text>
+                        <StyledText align="center">{item.subtitle}</StyledText>
                     </NumberWrapper>
                 ))}
-            </DnumberContent>
-            <DnumberContent>
-                {items.slice(2, 4).map((item, index) => (
-                    <NumberWrapper key={index}>
-                        <Header as="h2" type="page-title" align="center">
-                            {item.title}
-                        </Header>
-                        <Text align="center">{item.subtitle}</Text>
-                    </NumberWrapper>
-                ))}
-            </DnumberContent>
-        </DnumberContainer>
+            </StyledContainer>
+        </SectionContainer>
     )
 }
 
 DNumbers.propTypes = {
     items: PropTypes.array,
+    justify: PropTypes.string,
 }
 export default DNumbers

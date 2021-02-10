@@ -137,7 +137,7 @@ const StyledHeaderCommission = styled(StyledHeader)`
         text-align: center;
     }
 
-    @media (max-width: 1524px) {
+    @media (max-width: 1444px) {
         text-align: center;
     }
 

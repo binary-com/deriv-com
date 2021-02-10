@@ -71,7 +71,7 @@ const StyledTextHeading = styled(StyledText)`
     }
 `
 const StyledHeader = styled(Header)`
-    @media (max-width: 1518px) {
+    @media ${device.desktopL} {
         text-align: center;
     }
 

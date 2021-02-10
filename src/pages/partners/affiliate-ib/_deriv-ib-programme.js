@@ -131,8 +131,7 @@ const ButtonWrapper = styled.div`
 
 const StyledHeaderCommission = styled(StyledHeader)`
     margin-bottom: 0;
-    margin-left: -85px;
-    @media (max-width: 1518px) {
+    @media ${device.desktopL} {
         margin-left: 0;
         text-align: center;
     }

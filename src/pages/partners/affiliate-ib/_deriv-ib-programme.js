@@ -132,7 +132,7 @@ const ButtonWrapper = styled.div`
 const StyledHeaderCommission = styled(StyledHeader)`
     margin-bottom: 0;
     margin-left: -85px;
-    @media (max-width: 1580px) {
+    @media (max-width: 1428px) {
         margin-left: 0;
         text-align: center;
     }

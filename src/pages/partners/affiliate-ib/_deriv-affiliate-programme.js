@@ -71,18 +71,12 @@ const StyledTextHeading = styled(StyledText)`
     }
 `
 const StyledHeader = styled(Header)`
-    @media ${device.laptopM} {
+    @media (max-width: 1580px) {
         text-align: center;
-        margin: auto;
-        width: 42rem;
-    }
-
-    @media ${device.mobileL} {
-        text-align: left;
-        width: 41rem;
     }
 
     @media ${device.mobileM} {
+        text-align: left;
         width: 38rem;
     }
 `

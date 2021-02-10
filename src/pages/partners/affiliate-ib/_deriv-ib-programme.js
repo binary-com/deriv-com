@@ -132,14 +132,12 @@ const ButtonWrapper = styled.div`
 const StyledHeaderCommission = styled(StyledHeader)`
     margin-bottom: 0;
     margin-left: -85px;
-    @media ${device.laptopM} {
+    @media (max-width: 1580px) {
         margin-left: 0;
         text-align: center;
     }
 
     @media ${device.tabletL} {
-        text-align: left;
-        margin: auto;
         width: 44rem;
     }
 
@@ -148,6 +146,8 @@ const StyledHeaderCommission = styled(StyledHeader)`
     }
 
     @media ${device.mobileM} {
+        text-align: left;
+        margin: auto;
         width: 38rem;
     }
 `

@@ -71,7 +71,7 @@ const StyledTextHeading = styled(StyledText)`
     }
 `
 const StyledHeader = styled(Header)`
-    @media ${device.laptopL} {
+    @media ${device.laptopM} {
         text-align: center;
         margin: auto;
         width: 42rem;

@@ -18,7 +18,7 @@ const Col = styled(Flex)`
     max-width: 13.2rem;
 
     @media ${device.tabletL} {
-        max-width: 12rem;
+        max-width: 15rem;
     }
 `
 

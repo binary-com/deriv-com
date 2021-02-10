@@ -366,7 +366,6 @@ const NavMobile = ({ is_ppc, is_ppc_redirect }) => {
             </LogoLinkMobile>
             <MobileRight>
                 <LanguageSwitcher short_name="true" is_high_nav />
-
                 {isLoggedIn() ? (
                     <MobileButton margin_left="0.8rem" onClick={handleGetTrading} primary>
                         <span>{localize('Get Trading')}</span>
@@ -574,7 +573,6 @@ const NavDesktop = ({ base, is_ppc, is_ppc_redirect }) => {
                     has_scrolled={has_scrolled}
                 >
                     <LanguageSwitcher short_name="true" is_high_nav />
-
                     {isLoggedIn() ? (
                         <NowrapButton onClick={handleGetTrading} primary>
                             <span>{localize('Get Trading')}</span>
@@ -584,7 +582,6 @@ const NavDesktop = ({ base, is_ppc, is_ppc_redirect }) => {
                             <span>{localize('Log in')}</span>
                         </NowrapButton>
                     )}
-
                     <LocalizedLink to={is_ppc_redirect ? '/landing/signup/' : '/signup/'}>
                         <SignupButton ref={button_ref} secondary="true">
                             <span>{localize('Create free demo account')}</span>

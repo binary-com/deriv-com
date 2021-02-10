@@ -138,11 +138,8 @@ const StyledHeaderCommission = styled(StyledHeader)`
     }
 
     @media (max-width: 1444px) {
+        margin-left: auto;
         text-align: center;
-    }
-
-    @media ${device.tabletL} {
-        width: 44rem;
     }
 
     @media ${device.mobileL} {

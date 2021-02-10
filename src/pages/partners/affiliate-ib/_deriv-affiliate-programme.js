@@ -75,6 +75,10 @@ const StyledHeader = styled(Header)`
         text-align: center;
     }
 
+    @media (max-width: 1524px) {
+        text-align: center;
+    }
+
     @media ${device.mobileM} {
         text-align: left;
         width: 38rem;

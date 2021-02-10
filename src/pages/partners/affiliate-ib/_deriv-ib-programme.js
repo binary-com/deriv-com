@@ -275,6 +275,10 @@ const StyledTR = styled(TR)`
 
 const SyntheticTable = styled(Table)`
     grid-template-columns: 50% 50%;
+
+    @media ${device.tabletL} {
+        grid-template-columns: 65% 35%;
+    }
 `
 const StyledLinkButton = styled(LinkButton)`
     height: 40px;

@@ -1,7 +1,3 @@
-# Description
-
-Summary
-
 Changes:
 
 -   ...

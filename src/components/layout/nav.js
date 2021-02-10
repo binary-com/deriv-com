@@ -217,6 +217,11 @@ const NavRight = styled.div`
         display: none;
     }
 `
+const NavGetTrading = styled.div`
+    display: inline-flex;
+    text-align: right;
+    padding: 0;
+`
 const NavLink = styled.li`
     list-style-type: none;
     display: flex;
@@ -447,6 +452,8 @@ const NavDesktop = ({ base, is_ppc, is_ppc_redirect }) => {
         handleScroll(showButton, hideButton)
     }
 
+    const LanguageSwitcherNavDesktop = () => <LanguageSwitcher short_name="true" is_high_nav />
+
     useEffect(() => {
         setMounted(true)
         document.addEventListener('scroll', buttonHandleScroll, {
@@ -566,28 +573,34 @@ const NavDesktop = ({ base, is_ppc, is_ppc_redirect }) => {
                         </StyledButton>
                     </NavLink>
                 </NavCenter>
-                <NavRight
-                    move={show_button}
-                    button_ref={button_ref}
-                    mounted={mounted}
-                    has_scrolled={has_scrolled}
-                >
-                    <LanguageSwitcher short_name="true" is_high_nav />
-                    {isLoggedIn() ? (
-                        <NowrapButton onClick={handleGetTrading} primary>
-                            <span>{localize('Get Trading')}</span>
-                        </NowrapButton>
-                    ) : (
+
+                {isLoggedIn() ? (
+                    <>
+                        <LanguageSwitcherNavDesktop />
+                        <NavGetTrading>
+                            <NowrapButton onClick={handleGetTrading} primary>
+                                <span>{localize('Get Trading')}</span>
+                            </NowrapButton>
+                        </NavGetTrading>
+                    </>
+                ) : (
+                    <NavRight
+                        move={show_button}
+                        button_ref={button_ref}
+                        mounted={mounted}
+                        has_scrolled={has_scrolled}
+                    >
+                        <LanguageSwitcherNavDesktop />
                         <NowrapButton onClick={handleLogin} primary>
                             <span>{localize('Log in')}</span>
                         </NowrapButton>
-                    )}
-                    <LocalizedLink to={is_ppc_redirect ? '/landing/signup/' : '/signup/'}>
-                        <SignupButton ref={button_ref} secondary="true">
-                            <span>{localize('Create free demo account')}</span>
-                        </SignupButton>
-                    </LocalizedLink>
-                </NavRight>
+                        <LocalizedLink to={is_ppc_redirect ? '/landing/signup/' : '/signup/'}>
+                            <SignupButton ref={button_ref} secondary="true">
+                                <span>{localize('Create free demo account')}</span>
+                            </SignupButton>
+                        </LocalizedLink>
+                    </NavRight>
+                )}
             </Wrapper>
         </div>
     )

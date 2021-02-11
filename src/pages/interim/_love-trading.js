@@ -106,7 +106,7 @@ const query = graphql`
     }
 `
 
-const LeftComponent = ({ params }) => {
+const LeftCTASection = ({ params }) => {
     const { button_text, button_url, cta_props, header, hide_cta } = params
     return (
         <Flex fd="column" ai="center" max_width="28.2rem">
@@ -121,11 +121,11 @@ const LeftComponent = ({ params }) => {
     )
 }
 
-LeftComponent.propTypes = {
+LeftCTASection.propTypes = {
     params: PropTypes.object,
 }
 
-const RightComponent = ({ params }) => {
+const RightCTASection = ({ params }) => {
     const { button_props, button_text, button_url, cta_props, header, hide_cta } = params
     return (
         <Flex width="auto" fd="column" ai="center" ml="0" max_width="38.4rem">
@@ -147,7 +147,7 @@ const RightComponent = ({ params }) => {
     )
 }
 
-RightComponent.propTypes = {
+RightCTASection.propTypes = {
     params: PropTypes.object,
 }
 
@@ -159,11 +159,11 @@ export const LoveTradingComponent = ({ bg_image, image, left, right }) => {
                 <QueryImage data={data[image]} width="54rem" />
             </AbsoluteWrapper>
             <Responsive jc="space-between" position="relative">
-                {left.custom_content || <LeftComponent params={left} />}
+                {left.custom_content || <LeftCTASection params={left} />}
                 <MobileWrapper>
                     <QueryImage data={data[image]} width="30rem" />
                 </MobileWrapper>
-                {right.custom_content || <RightComponent params={right} />}
+                {right.custom_content || <RightCTASection params={right} />}
             </Responsive>
         </Section>
     )

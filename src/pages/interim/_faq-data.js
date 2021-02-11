@@ -76,10 +76,11 @@ const OtherChanges = () => (
     <>
         <Text>
             <Localize
-                translate_text="You’ll see that <1>Deriv.com</1> has everything you get on <1>Binary.com</1>, and more."
+                translate_text="You’ll see that <0>Deriv.com</0> has everything you get on <1>Binary.com</1>, and more."
                 components={[
+                    <LocalizedLinkText key={0} to="/" weight="bold" />,
                     <LocalizedLinkText
-                        key={0}
+                        key={1}
                         external="true"
                         to="home"
                         is_binary_link
@@ -87,7 +88,6 @@ const OtherChanges = () => (
                         rel="noopener noreferrer"
                         weight="bold"
                     />,
-                    <LocalizedLinkText key={1} to="/" weight="bold" />,
                 ]}
             />
         </Text>

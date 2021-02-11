@@ -7,14 +7,15 @@ import { LocationContext } from '../layout/location-context.js'
 import language_config from '../../../i18n-config'
 import { LocaleContext } from './locale-context'
 import {
+    affiliate_signin_url,
+    affiliate_signup_url,
     besquare_url,
     binary_url,
     blog_url,
     community_url,
-    affiliate_signin_url,
-    affiliate_signup_url,
-    smarttrader_url,
     deriv_app_url,
+    deriv_bot_app_url,
+    smarttrader_url,
     zoho_url,
 } from 'common/utility'
 import { DerivStore } from 'store'
@@ -69,23 +70,24 @@ export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
 
     const is_index = to === `/`
     const {
-        target,
-        rel,
+        ariaLabel,
         className,
-        style,
+        external,
+        is_affiliate_link,
+        is_affiliate_sign_in_link,
+        is_besquare_link,
         is_binary_link,
         is_blog_link,
-        is_besquare_link,
         is_community_link,
-        is_affiliate_link,
-        is_mail_link,
-        is_affiliate_sign_in_link,
-        is_smarttrader_link,
+        is_dbot_link,
         is_deriv_app_link,
+        is_mail_link,
+        is_smarttrader_link,
         is_zoho_link,
-        ariaLabel,
         onClick,
-        external,
+        rel,
+        style,
+        target,
     } = props
 
     // If it's the default language or non localized link, don't do anything
@@ -117,6 +119,8 @@ export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
             lang_to = `${besquare_url}${to}`
         } else if (is_zoho_link) {
             lang_to = `${zoho_url}${to}`
+        } else if (is_dbot_link) {
+            lang_to = `${deriv_bot_app_url}?lang=${locale}`
         } else {
             lang_to = to
         }
@@ -223,6 +227,7 @@ LocalizedLink.propTypes = {
     is_binary_link: PropTypes.bool,
     is_blog_link: PropTypes.bool,
     is_community_link: PropTypes.bool,
+    is_dbot_link: PropTypes.bool,
     is_deriv_app_link: PropTypes.bool,
     is_mail_link: PropTypes.bool,
     is_smarttrader_link: PropTypes.bool,

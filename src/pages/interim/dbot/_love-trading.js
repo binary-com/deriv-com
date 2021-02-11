@@ -1,7 +1,6 @@
 import React from 'react'
 import { LoveTradingComponent } from '../_love-trading'
 import { Localize } from 'components/localization'
-import { deriv_app_url } from 'common/utility'
 
 const content = {
     left: {
@@ -13,7 +12,7 @@ const content = {
     right: {
         header: <Localize translate_text="Love Binary Bot?" />,
         button_text: <Localize translate_text="Try DBot on Deriv.com" />,
-        button_url: deriv_app_url + '/bot',
+        button_props: { is_dbot_link: true },
         cta_props: { is_white: true },
         hide_cta: true,
     },

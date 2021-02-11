@@ -38,6 +38,7 @@ const WhoCanApply = () => {
                         font_size={['24px', '18px']}
                         line_height={['36px', '22px']}
                         max_width={['384px', '320px']}
+                        margin_top={['0', '8px']}
                     >
                         {who_can_apply.subtitle}
                     </TextWrapper>

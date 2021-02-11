@@ -19,7 +19,6 @@ export const ContentContainer = styled(Container)`
 
     @media ${device.tabletL} {
         display: grid;
-        grid-row-gap: 30px;
     }
 `
 

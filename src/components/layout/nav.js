@@ -220,6 +220,8 @@ const NavRight = styled.div`
 const NavGetTrading = styled.div`
     display: inline-flex;
     text-align: right;
+    align-items: center;
+    justify-content: center;
     padding: 0;
 `
 const NavLink = styled.li`
@@ -575,14 +577,12 @@ const NavDesktop = ({ base, is_ppc, is_ppc_redirect }) => {
                 </NavCenter>
 
                 {isLoggedIn() ? (
-                    <>
+                    <NavGetTrading>
                         <LanguageSwitcherNavDesktop />
-                        <NavGetTrading>
-                            <NowrapButton onClick={handleGetTrading} primary>
-                                <span>{localize('Get Trading')}</span>
-                            </NowrapButton>
-                        </NavGetTrading>
-                    </>
+                        <NowrapButton onClick={handleGetTrading} primary>
+                            <span>{localize('Get Trading')}</span>
+                        </NowrapButton>
+                    </NavGetTrading>
                 ) : (
                     <NavRight
                         move={show_button}

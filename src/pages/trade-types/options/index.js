@@ -19,9 +19,9 @@ const Options = () => {
     return !is_eu_country ? (
         <Layout>
             <SEO
-                title={localize('Trade types | Options')}
+                title={localize('Options trading | Trading types | Deriv')}
                 description={localize(
-                    'Options are products that allow for payouts from predicting market movements, without needing to buy the underlying asset.',
+                    'Learn about options trading on Deriv. Earn payouts by correctly predicting price movements without needing to buy the underlying assets.',
                 )}
             />
             <Hero jc="cneter" ai="center">

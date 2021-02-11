@@ -6,8 +6,7 @@ import {
     Col,
     ContentWrapper,
     Descriptions,
-    Row,
-    Options,
+    OptionsRow,
     StyledText,
 } from '../../static/style/_markets-style'
 import MarketInstruments from '../sections/_market_instruments'
@@ -27,21 +26,21 @@ const DigitalOptions = ({ market_name, options_list }) => (
                 </StyledText>
                 <AvailablePlatforms dtrader dbot smarttrader tablet_direction="column" />
             </Descriptions>
-            <StyledText weight="bold" mt="2.4rem">
+            <StyledText font_size={'16px'} weight="bold" mt="2.4rem">
                 <Localize
                     translate_text="Option trades available on {{market_name}}"
                     values={{ market_name }}
                 />
             </StyledText>
-            <Options>
+            <Descriptions margin_top={'24px'}>
                 {options_list.options.map((option, index) => (
-                    <Row wrap={option[0].wrap} key={index}>
+                    <OptionsRow wrap={option[0].wrap} key={index} is_first_child={!index}>
                         {option.map((content, idx) => (
                             <Col key={idx}>
                                 <AvailableOptions content={content.text} {...content} />
                             </Col>
                         ))}
-                    </Row>
+                    </OptionsRow>
                 ))}
                 <Show.Eu>
                     {options_list.eu_content?.map((text, index) => (
@@ -50,7 +49,7 @@ const DigitalOptions = ({ market_name, options_list }) => (
                         </Text>
                     ))}
                 </Show.Eu>
-            </Options>
+            </Descriptions>
             <Text weight="bold" mt="2.4rem">
                 {localize('Instruments available for options trading')}
             </Text>

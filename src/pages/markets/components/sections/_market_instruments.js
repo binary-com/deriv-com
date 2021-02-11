@@ -6,7 +6,7 @@ import { Col, MarketsWrapper, MarketsList, Row, Title } from '../../static/style
 const MarketInstruments = ({ market_content }) => (
     <MarketsWrapper>
         {market_content.content?.map((content, index) =>
-            market_content.has_global_accordion || content.has_accordion ? (
+            market_content.has_global_accordion || content.details ? (
                 <MarketsAccordion
                     key={index}
                     renderTitle={() => (

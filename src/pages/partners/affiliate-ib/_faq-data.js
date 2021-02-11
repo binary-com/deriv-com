@@ -6,8 +6,7 @@ import { Header, Text, LinkText } from 'components/elements'
 import { isBrowser, affiliate_signup_url } from 'common/utility'
 
 const ItemContainer = styled(SectionContainer)`
-    padding: 4rem 0;
-    max-width: 79rem;
+    padding: 0;
 `
 
 const HeaderPrimary = styled(Header)`
@@ -25,12 +24,11 @@ const TextSecondary = styled(Text)`
 const TextList = styled(Text)`
     margin-top: 1.6rem;
     margin-bottom: 0.8rem;
-    font-weight: bold;
 `
 
 const StyledLink = styled(LinkText)`
     color: var(--color-red);
-    font-weight: bold;
+    font-weight: normal;
 `
 
 const StyledUl = styled.ul`
@@ -41,8 +39,9 @@ const StyledUl = styled.ul`
 
 const LocalizedLinkText = styled((props) => <LocalizedLink {...props} />)`
     color: var(--color-red);
-    font-weight: bold;
+    font-weight: normal;
     text-decoration: none;
+    size: 14px;
 
     &:hover {
         text-decoration: underline;
@@ -247,8 +246,8 @@ const AffiliateReferralTools = () => (
         </Header>
         <TextPrimary>
             <Localize
-                translate_text="We have a tried-and-tested selection of referral tools, including banners, videos, reviews, and text ads. If you’d like certain tools to be customised to your site requirements, please contact your account manager at <0>partners@deriv.com</0>."
-                components={[<StyledLink href="mailto:partners@deriv.com" key={0} />]}
+                translate_text="We have a tried-and-tested selection of referral tools, including banners, videos, reviews, and text ads. If you’d like certain tools to be customised to your site requirements, please contact your account manager at <0>affiliates@deriv.com</0>."
+                components={[<StyledLink href="mailto:affiliates@deriv.com" key={0} />]}
             />
         </TextPrimary>
     </ItemContainer>
@@ -319,8 +318,8 @@ const IBAccountManagement = () => (
         </TextPrimary>
         <TextSecondary>
             <Localize
-                translate_text="If you’re already registered as a Deriv affiliate, you can email us at <0>partners@deriv.com</0> instead."
-                components={[<StyledLink href="mailto:partners@deriv.com" key={0} />]}
+                translate_text="If you’re already registered as a Deriv affiliate, you can email us at <0>affiliates@deriv.com</0> instead."
+                components={[<StyledLink href="mailto:affiliates@deriv.com" key={0} />]}
             />
         </TextSecondary>
         <HeaderPrimary as="h5" type="main-paragraph">

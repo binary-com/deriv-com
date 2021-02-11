@@ -118,7 +118,8 @@ export const Wrapper = styled(Container)`
         font-size: var(--text-size-xxs);
     }
     @media ${device.mobileM} {
-        ${({ offset_px_mobile }) => offset_px_mobile && `width: calc(100% - ${offset_px_mobile}px)`};
+        ${({ offset_px_mobile }) =>
+            offset_px_mobile && `width: calc(100% - ${offset_px_mobile}px)`};
     }
 `
 
@@ -715,11 +716,7 @@ const StyledNavCenter = styled(NavCenter)`
     white-space: nowrap;
 
     @media (max-width: 1300px) {
-        margin-left: 9.3rem;
         font-size: 12px !important;
-    }
-    @media (max-width: 1080px) {
-        margin-left: 7.3rem;
     }
 `
 
@@ -801,6 +798,19 @@ const NavLogoLink = styled(LogoLink)`
     }
 `
 
+const LSContainer = styled(Container)`
+    text-align: right;
+    margin-left: 200px;
+`
+
+const DesktopLS = styled(Show.Desktop)`
+    z-index: 2;
+`
+
+const StyledContainer = styled(Container)`
+    margin: 0;
+`
+
 // Note: When using layout component for partners page, please add type='partners' and padding_top='10rem'
 export const NavPartners = ({ no_login_signup }) => {
     const nav_ref = useRef(null)
@@ -832,22 +842,29 @@ export const NavPartners = ({ no_login_signup }) => {
             <NavWrapper ref={nav_ref}>
                 <CFDWarning />
                 <DerivHomeWrapper>
-                    <HomeContainer justify="flex-start">
-                        <HomeLink to="/">
-                            <Text color="grey-19" size="var(--text-size-xxs)">
-                                {localize('Deriv website')}
-                            </Text>
-                        </HomeLink>
-                        <HomeLink to="/about">
-                            <Text color="grey-19" size="var(--text-size-xxs)">
-                                {localize('About us')}
-                            </Text>
-                        </HomeLink>
-                        <HomeLink to="/contact_us">
-                            <Text color="grey-19" size="var(--text-size-xxs)">
-                                {localize('Contact us')}
-                            </Text>
-                        </HomeLink>
+                    <HomeContainer justify="space-between">
+                        <StyledContainer justify="flex-start">
+                            <HomeLink to="/">
+                                <Text color="grey-19" size="var(--text-size-xxs)">
+                                    {localize('Deriv website')}
+                                </Text>
+                            </HomeLink>
+                            <HomeLink to="/about">
+                                <Text color="grey-19" size="var(--text-size-xxs)">
+                                    {localize('About us')}
+                                </Text>
+                            </HomeLink>
+                            <HomeLink to="/contact_us">
+                                <Text color="grey-19" size="var(--text-size-xxs)">
+                                    {localize('Contact us')}
+                                </Text>
+                            </HomeLink>
+                        </StyledContainer>
+                        <DesktopLS>
+                            <LSContainer>
+                                <LanguageSwitcher short_name="true" />
+                            </LSContainer>
+                        </DesktopLS>
                     </HomeContainer>
                 </DerivHomeWrapper>
                 <StyledNav>
@@ -879,21 +896,20 @@ export const NavPartners = ({ no_login_signup }) => {
                                 </StyledLink>
                             </NavLink>
                         </StyledNavCenter>
-                        {!no_login_signup ? (
+                        {!no_login_signup && (
                             <StyledNavRight
                                 move={show_button}
                                 button_ref={button_ref}
                                 mounted={mounted}
                                 has_scrolled={has_scrolled}
                             >
-                                <LanguageSwitcher short_name="true" is_high_nav />
                                 <LinkButton
                                     to={affiliate_signin_url}
                                     external="true"
                                     is_affiliate_sign_in_link
                                     target="_blank"
                                     primary
-                                    style={{ width: '14rem' }}
+                                    style={{ width: '16rem' }}
                                 >
                                     <span>{localize('Affiliate & IB log in')}</span>
                                 </LinkButton>
@@ -904,20 +920,11 @@ export const NavPartners = ({ no_login_signup }) => {
                                     target="_blank"
                                     ref={button_ref}
                                     secondary="true"
-                                    style={{ width: '14rem' }}
+                                    style={{ width: '18rem' }}
                                 >
                                     <span>{localize('Affiliate & IB sign up')}</span>
                                 </LinkSignupButton>
                             </StyledNavRight>
-                        ) : (
-                            <NavRight
-                                move={show_button}
-                                button_ref={button_ref}
-                                mounted={mounted}
-                                has_scrolled={has_scrolled}
-                            >
-                                <LanguageSwitcher short_name="true" is_high_nav />
-                            </NavRight>
                         )}
 
                         {is_canvas_menu_open ? (
@@ -952,7 +959,12 @@ export const NavPartners = ({ no_login_signup }) => {
                                         target="_blank"
                                         primary
                                     >
-                                        <span>{localize('Affiliate & IB Log in')}</span>
+                                        <Show.Desktop>
+                                            <span>{localize('Affiliate & IB log in')}</span>
+                                        </Show.Desktop>
+                                        <Show.Mobile>
+                                            <span>{localize('Log in')}</span>
+                                        </Show.Mobile>
                                     </LinkMobileLogin>
                                 )}
                             </Flex>

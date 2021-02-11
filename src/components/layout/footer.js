@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 import { Container, CssGrid, Flex, Show } from '../containers'
 import { StyledLink, Text, QueryImage } from '../elements'
 import { LocationContext } from './location-context'
-import { deriv_status_page_url, mga_link_url } from 'common/utility'
+import { mga_link_url, community_url, deriv_status_page_url } from 'common/utility'
 // TODO: (discussion) make footer pure component, and move usage of footer to custom
 import device from 'themes/device'
 import { localize, Localize, LocalizedLink } from 'components/localization'
@@ -484,9 +484,8 @@ const Footer = ({ type, is_ppc, is_ppc_redirect }) => {
                                     </LinkWrapper>
                                     <LinkWrapper>
                                         <Link
-                                            to=""
-                                            is_community_link
                                             external="true"
+                                            to={community_url}
                                             target="_blank"
                                             rel="noopener noreferrer"
                                         >
@@ -637,7 +636,7 @@ const Footer = ({ type, is_ppc, is_ppc_redirect }) => {
                             <Show.Desktop>
                                 <Show.NonEU>
                                     <DisclaimerParagraph no_margin>
-                                        <Localize translate_text="The financial products offered on this website include options and contracts for difference (CFDs) which are considered complex derivatives and may not be suitable for everyone. CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money. The products mentioned here may be affected by changes in currency exchange rates. If you invest in these products, you may lose some or all of your investment, and the value of your investment may fluctuate. You should never invest money that you cannot afford to lose and never trade with borrowed money." />
+                                        <Localize translate_text="CFDs are considered complex derivatives and may not be suitable for retail clients. CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money. The products mentioned here may be affected by changes in currency exchange rates. If you invest in these products, you may lose some or all of your investment, and the value of your investment may fluctuate. You should never invest money that you cannot afford to lose and never trade with borrowed money." />
                                     </DisclaimerParagraph>
                                     <DisclaimerParagraph>
                                         <Localize
@@ -655,9 +654,7 @@ const Footer = ({ type, is_ppc, is_ppc_redirect }) => {
                                 <Show.Eu>
                                     <DisclaimerParagraph no_margin>
                                         <Localize
-                                            translate_text="The financial products offered on this website include options and contracts for difference (CFDs) which are considered complex derivatives and may not be suitable for everyone.<0/><0/>
-                                            CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. 74% of retail investor accounts lose money when trading CFDs with this provider. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money.<0/><0/>
-                                            The products mentioned here may be affected by changes in currency exchange rates. If you invest in these products, you may lose some or all of your investment and the value of your investment may fluctuate. You should never invest money that you cannot afford to lose and never trade with borrowed money."
+                                            translate_text="CFDs are considered complex derivatives and may not be suitable for retail clients.<0/><0/>CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. 71% of retail investor accounts lose money when trading CFDs with this provider. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money.<0/><0/>The products mentioned here may be affected by changes in currency exchange rates. If you invest in these products, you may lose some or all of your investment and the value of your investment may fluctuate. You should never invest money that you cannot afford to lose and never trade with borrowed money."
                                             components={[<br key={0} />]}
                                         />
                                     </DisclaimerParagraph>
@@ -685,9 +682,7 @@ const Footer = ({ type, is_ppc, is_ppc_redirect }) => {
                                 <Show.Eu>
                                     <DisclaimerParagraph no_margin>
                                         <Localize
-                                            translate_text="The financial products offered on this website include options and contracts for difference (CFDs) which are considered complex derivatives and may not be suitable for everyone.<0/><0/>
-                                            CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. 74% of retail investor accounts lose money when trading CFDs with this provider. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money.<0/><0/>
-                                            The products mentioned here may be affected by changes in currency exchange rates. If you invest in these products, you may lose some or all of your investment and the value of your investment may fluctuate. You should never invest money that you cannot afford to lose and never trade with borrowed money."
+                                            translate_text="CFDs are considered complex derivatives and may not be suitable for retail clients.<0/><0/>CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. 71% of retail investor accounts lose money when trading CFDs with this provider. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money.<0/><0/>The products mentioned here may be affected by changes in currency exchange rates. If you invest in these products, you may lose some or all of your investment and the value of your investment may fluctuate. You should never invest money that you cannot afford to lose and never trade with borrowed money."
                                             components={[<br key={0} />]}
                                         />
                                     </DisclaimerParagraph>
@@ -712,7 +707,7 @@ const Footer = ({ type, is_ppc, is_ppc_redirect }) => {
                                 </Show.Eu>
                                 <Show.NonEU>
                                     <DisclaimerParagraph no_margin>
-                                        <Localize translate_text="The financial products offered on this website include options and contracts for difference (CFDs) which are considered complex derivatives and may not be suitable for everyone. CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money. The products mentioned here may be affected by changes in currency exchange rates. If you invest in these products, you may lose some or all of your investment, and the value of your investment may fluctuate. You should never invest money that you cannot afford to lose and never trade with borrowed money." />
+                                        <Localize translate_text="CFDs are considered complex derivatives and may not be suitable for retail clients. CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money. The products mentioned here may be affected by changes in currency exchange rates. If you invest in these products, you may lose some or all of your investment, and the value of your investment may fluctuate. You should never invest money that you cannot afford to lose and never trade with borrowed money." />
                                     </DisclaimerParagraph>
                                     <DisclaimerParagraph>
                                         <Localize

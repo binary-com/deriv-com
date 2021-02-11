@@ -2,6 +2,7 @@ import React from 'react'
 import * as icons from 'components/elements/symbols'
 import { Localize } from 'components/localization'
 
+// TODO: move this file to static/content
 export const americas = [
     {
         src: icons.OTCUS,
@@ -322,6 +323,32 @@ export const smart_fx = [
     {
         src: icons.USDINDEX,
         text: <Localize translate_text="USD Index" />,
+    },
+]
+
+export const smart_gold_index = [
+    {
+        src: icons.GOLDUSD,
+        text: <Localize translate_text="Smart Gold Index" />,
+    },
+]
+
+export const step_fx = [
+    {
+        src: icons.EURUSD,
+        text: <Localize translate_text="EURUSD Step Index" />,
+    },
+    {
+        src: icons.AUDUSD,
+        text: <Localize translate_text="AUDUSD Step Index" />,
+    },
+    {
+        src: icons.USDJPY,
+        text: <Localize translate_text="USDJPY Step Index" />,
+    },
+    {
+        src: icons.EURJPY,
+        text: <Localize translate_text="EURJPY Step Index" />,
     },
 ]
 

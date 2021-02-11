@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-
+import device from 'themes/device'
 function ColGen(num, is_balance) {
     let grid_col_template = ''
     for (let i = 0; i < num; i++) {
@@ -40,5 +40,28 @@ const TR = styled.div`
     padding: 0.8rem 1rem 0.8rem 0;
     background-color: ${(props) => (props.isTitle === 'true' ? 'var(--color-grey-8)' : 'unset')};
     border-bottom: 2px solid var(--color-grey-8);
+    @media ${device.tabletL} {
+        p {
+            white-space: ${(props) => (props.isTitle === 'true' ? '' : 'nowrap')};
+            font-size: 14px;
+        }
+    }
+    @media ${device.mobileL} {
+        p {
+            font-size: 12px;
+        }
+    }
 `
-export { TR, TC, Table }
+
+const TRAP = styled.div`
+    padding: 0.8rem 1rem 0.8rem 0;
+    background-color: ${(props) => (props.isTitle === 'true' ? 'var(--color-grey-8)' : 'unset')};
+    border-bottom: 2px solid var(--color-grey-8);
+    height: 30px;
+    @media ${device.mobileL} {
+        height: ${(props) => (props.isTitle === 'true' ? '60px' : '40px')};
+        display: flex;
+        align-items: center;
+    }
+`
+export { TR, TRAP, TC, Table }

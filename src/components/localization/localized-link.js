@@ -82,6 +82,7 @@ export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
         is_dbot_link,
         is_deriv_app_link,
         is_mail_link,
+        is_mt5_link,
         is_smarttrader_link,
         is_zoho_link,
         onClick,
@@ -121,6 +122,8 @@ export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
             lang_to = `${zoho_url}${to}`
         } else if (is_dbot_link) {
             lang_to = `${deriv_bot_app_url}?lang=${locale}`
+        } else if (is_mt5_link) {
+            lang_to = `${deriv_app_url}/mt5?lang=${locale}`
         } else {
             lang_to = to
         }
@@ -230,6 +233,7 @@ LocalizedLink.propTypes = {
     is_dbot_link: PropTypes.bool,
     is_deriv_app_link: PropTypes.bool,
     is_mail_link: PropTypes.bool,
+    is_mt5_link: PropTypes.bool,
     is_smarttrader_link: PropTypes.bool,
     is_zoho_link: PropTypes.bool,
     onClick: PropTypes.func,

@@ -1,6 +1,5 @@
 import React from 'react'
 import { LoveTradingComponent } from '../_love-trading'
-import { deriv_app_url } from 'common/utility'
 import { Localize } from 'components/localization'
 import PlatformMt5 from 'images/svg/interim/bg-dmt5.svg'
 
@@ -15,7 +14,7 @@ const content = {
     right: {
         header: <Localize translate_text="Love MT5 on Binary.com?" />,
         button_text: <Localize translate_text="Try MT5 on Deriv.com" />,
-        button_url: deriv_app_url + '/mt5',
+        button_props: { is_mt5_link: true },
         hide_cta: true,
     },
 }

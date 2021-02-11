@@ -71,10 +71,17 @@ const StyledTextHeading = styled(StyledText)`
     }
 `
 const StyledHeader = styled(Header)`
-    margin-bottom: 1.6rem;
-
-    @media ${device.tabletL} {
+    @media ${device.desktopL} {
         text-align: center;
+    }
+
+    @media (max-width: 1524px) {
+        text-align: center;
+    }
+
+    @media ${device.mobileM} {
+        text-align: left;
+        width: 38rem;
     }
 `
 
@@ -134,29 +141,6 @@ const StyledCard = styled(Card)`
     }
 `
 
-const StyledHeaderCommission = styled(StyledHeader)`
-    margin-bottom: 0;
-    font-size: 16px;
-    @media (max-width: 1428px) {
-        text-align: center;
-    }
-
-    @media ${device.tabletL} {
-        font-size: 20px;
-        text-align: left;
-        margin: auto;
-        width: 42rem;
-    }
-
-    @media ${device.mobileL} {
-        width: 41rem;
-    }
-
-    @media ${device.mobileM} {
-        width: 38rem;
-    }
-`
-
 const RevenueShare = [
     {
         title: <Localize translate_text="Net revenue" />,
@@ -212,9 +196,9 @@ const DerivAffiliateProgramme = () => {
                     </SubtitleHeader>
                 </TitleWrapper>
                 <ComissionPlanContainer>
-                    <StyledHeaderCommission as="h4">
+                    <StyledHeader as="h4" type="main-paragraph">
                         {localize('Choose a commission plan:')}
-                    </StyledHeaderCommission>
+                    </StyledHeader>
                     <CardWrapper>
                         <StyledCard height="52.9rem" tabletHeight="348px">
                             <div>

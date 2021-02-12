@@ -836,7 +836,6 @@ const LSContainer = styled(Container)`
     text-align: right;
     margin-left: 200px;
 `
-
 const DesktopLS = styled(Show.Desktop)`
     z-index: 2;
 `

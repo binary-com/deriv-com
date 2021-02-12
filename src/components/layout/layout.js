@@ -147,7 +147,6 @@ const Layout = ({
 
         setShowCookieBanner(false)
     }
-
     const onDecline = () => {
         tracking_status_cookie.set(TRACKING_STATUS_KEY, 'declined')
         setShowCookieBanner(false)

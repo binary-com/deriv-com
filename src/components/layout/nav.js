@@ -346,7 +346,7 @@ const handleGetTrading = () => {
     window.location.href = deriv_app_url
 }
 
-const NavMobile = ({ is_ppc, is_ppc_redirect }) => {
+const NavMobile = ({ is_ppc, is_ppc_redirect, is_logged_in }) => {
     const [is_canvas_menu_open, openOffCanvasMenu, closeOffCanvasMenu] = moveOffCanvasMenu()
 
     return (
@@ -373,7 +373,7 @@ const NavMobile = ({ is_ppc, is_ppc_redirect }) => {
             </LogoLinkMobile>
             <MobileRight>
                 <LanguageSwitcher short_name="true" is_high_nav />
-                {isLoggedIn() ? (
+                {is_logged_in ? (
                     <MobileButton margin_left="0.8rem" onClick={handleGetTrading} primary>
                         <span>{localize('Get Trading')}</span>
                     </MobileButton>
@@ -393,7 +393,7 @@ const NavMobile = ({ is_ppc, is_ppc_redirect }) => {
     )
 }
 
-const NavDesktop = ({ base, is_ppc, is_ppc_redirect }) => {
+const NavDesktop = ({ base, is_ppc, is_ppc_redirect, is_logged_in }) => {
     const data = useStaticQuery(query)
     const button_ref = useRef(null)
     const [show_button, showButton, hideButton] = moveButton()
@@ -576,7 +576,7 @@ const NavDesktop = ({ base, is_ppc, is_ppc_redirect }) => {
                     </NavLink>
                 </NavCenter>
 
-                {isLoggedIn() ? (
+                {is_logged_in ? (
                     <NavGetTrading>
                         <LanguageSwitcherNavDesktop />
                         <NowrapButton onClick={handleGetTrading} primary>
@@ -607,15 +607,26 @@ const NavDesktop = ({ base, is_ppc, is_ppc_redirect }) => {
 }
 
 export const Nav = ({ base, is_ppc_redirect, is_ppc }) => {
+    const [is_logged_in, setLoggedIn] = useState(false)
+
+    useEffect(() => {
+        setLoggedIn(isLoggedIn())
+    }, [])
+
     return (
         <NavWrapper>
             <CFDWarning />
             <StyledNav>
                 <Show.Desktop>
-                    <NavDesktop base={base} is_ppc={is_ppc} is_ppc_redirect={is_ppc_redirect} />
+                    <NavDesktop
+                        base={base}
+                        is_ppc={is_ppc}
+                        is_ppc_redirect={is_ppc_redirect}
+                        is_logged_in={is_logged_in}
+                    />
                 </Show.Desktop>
                 <Show.Mobile>
-                    <NavMobile is_ppc={is_ppc} />
+                    <NavMobile is_ppc={is_ppc} is_logged_in={is_logged_in} />
                 </Show.Mobile>
             </StyledNav>
         </NavWrapper>
@@ -630,11 +641,13 @@ Nav.propTypes = {
 
 NavDesktop.propTypes = {
     base: PropTypes.string,
+    is_logged_in: PropTypes.bool,
     is_ppc: PropTypes.bool,
     is_ppc_redirect: PropTypes.bool,
 }
 
 NavMobile.propTypes = {
+    is_logged_in: PropTypes.bool,
     is_ppc: PropTypes.bool,
     is_ppc_redirect: PropTypes.bool,
 }

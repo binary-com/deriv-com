@@ -2,6 +2,7 @@ import React from 'react'
 import { LoveTradingComponent } from '../_love-trading'
 import { Localize } from 'components/localization'
 import PlatformMt5 from 'images/svg/interim/bg-dmt5.svg'
+import PlatformMt5Mobile from 'images/common/interim-mt5-mobile-bg.png'
 
 const content = {
     left: {
@@ -10,6 +11,7 @@ const content = {
         button_url: '/',
     },
     bg_image: PlatformMt5,
+    bg_image_mobile: PlatformMt5Mobile,
     image: 'dmt5',
     right: {
         header: <Localize translate_text="Love MT5 on Binary.com?" />,

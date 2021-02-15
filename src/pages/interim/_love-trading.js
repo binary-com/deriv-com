@@ -12,7 +12,7 @@ import PlatformMobile from 'images/common/interim-mobile-bg.png'
 
 const Section = styled(Box)`
     width: 100%;
-    min-height: 308px;
+    height: 350px;
     background-image: url(${(props) => props.image || Platform});
     background-size: 65% 100%;
     background-position-x: right;
@@ -20,7 +20,8 @@ const Section = styled(Box)`
     position: relative;
 
     @media ${device.tablet} {
-        background-image: url(${(props) => props.image || PlatformMobile});
+        height: 700px;
+        background-image: url(${(props) => props.mobile_image || PlatformMobile});
         background-size: 100% 63%;
         background-position-y: bottom;
         background-repeat: no-repeat;
@@ -151,10 +152,10 @@ RightCTASection.propTypes = {
     params: PropTypes.object,
 }
 
-export const LoveTradingComponent = ({ bg_image, image, left, right }) => {
+export const LoveTradingComponent = ({ bg_image, bg_image_mobile, image, left, right }) => {
     const data = useStaticQuery(query)
     return (
-        <Section p="3.2rem 0" image={bg_image}>
+        <Section p="3.2rem 0" image={bg_image} mobile_image={bg_image_mobile}>
             <AbsoluteWrapper>
                 <QueryImage data={data[image]} width="54rem" />
             </AbsoluteWrapper>
@@ -171,6 +172,7 @@ export const LoveTradingComponent = ({ bg_image, image, left, right }) => {
 
 LoveTradingComponent.propTypes = {
     bg_image: PropTypes.object,
+    bg_image_mobile: PropTypes.object,
     image: PropTypes.string,
     left: PropTypes.object,
     right: PropTypes.object,

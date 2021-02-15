@@ -2,10 +2,17 @@ import React from 'react'
 import NProgress from 'nprogress'
 import Cookies from 'js-cookie'
 import { datadogRum } from '@datadog/browser-rum'
+import { Pushwoosh } from 'web-push-notifications'
 import { WrapPagesWithLocaleContext } from './src/components/localization'
 import { isProduction, isLocalHost } from './src/common/websocket/config'
 import { LocalStore } from './src/common/storage'
-import { application_id, client_token, gtm_test_domain, sample_rate } from './src/common/utility'
+import {
+    application_id,
+    client_token,
+    gtm_test_domain,
+    sample_rate,
+    pushwoosh_app_code,
+} from './src/common/utility'
 import { MediaContextProvider } from './src/themes/media'
 import { DerivProvider } from './src/store'
 import './static/css/ibm-plex-sans-var.css'
@@ -30,6 +37,51 @@ const addScript = (settings) => {
     if (id) script.id = settings['id']
 
     document.body.appendChild(script)
+}
+
+const sendTags = (push_woosh) => {
+    const language = LocalStore.get('i18n')
+    const domain = window.location.hostname.includes('deriv.com') ? 'deriv.com' : 'binary.sx'
+    const { loginid, residence } = Cookies.get('client_information', {
+        domain,
+    })
+
+    push_woosh.push((api) => {
+        api.getTags()
+            .then((result) => {
+                if (
+                    !result.result['Login ID'] ||
+                    !result.result['Site Language'] ||
+                    !result.result.Residence
+                ) {
+                    return api.setTags({
+                        'Login ID': loginid,
+                        'Site Language': language.toLowerCase(),
+                        Residence: residence,
+                    })
+                }
+                return null
+            })
+            .catch((e) => {
+                // eslint-disable-next-line no-console
+                console.error(e)
+                return null
+            })
+    })
+}
+
+const pushwooshInit = (push_woosh) => {
+    push_woosh.push([
+        'init',
+        {
+            logLevel: 'error', // or info or debug
+            applicationCode: pushwoosh_app_code,
+            safariWebsitePushID: 'web.com.deriv',
+            defaultNotificationTitle: 'Deriv.com',
+            defaultNotificationImage: 'https://deriv.com/static/favicons/favicon-192x192.png',
+        },
+    ])
+    sendTags(push_woosh)
 }
 
 export const wrapRootElement = ({ element }) => {
@@ -82,6 +134,8 @@ export const onClientEntry = () => {
     NProgress.start()
 
     const is_gtm_test_domain = window.location.hostname === gtm_test_domain
+    const has_initialized = false
+    const push_woosh = new Pushwoosh()
 
     // Add GTM script for test domain
     if (!isLocalHost() && is_gtm_test_domain) {
@@ -110,6 +164,10 @@ export const onClientEntry = () => {
             applicationId: application_id,
             sampleRate: sample_rate,
         })
+    }
+
+    if (isProduction() && !has_initialized) {
+        pushwooshInit(push_woosh)
     }
 }
 

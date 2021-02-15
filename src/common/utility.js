@@ -145,6 +145,7 @@ const dp2p_google_play_url =
     'https://play.google.com/store/apps/details?id=com.deriv.dp2p&hl=en&gl=US'
 const cfd_warning_height_desktop = 8
 const cfd_warning_height_tablet = 12
+const pushwoosh_app_code = 'DD293-35A19'
 
 const getDomain = () =>
     isBrowser() && window.location.hostname.includes(deriv_cookie_domain)
@@ -197,6 +198,7 @@ export {
     livechat_license_id,
     map_api_key,
     PromiseClass,
+    pushwoosh_app_code,
     sanitize,
     scrollTop,
     sentenceCase,

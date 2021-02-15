@@ -142,37 +142,42 @@ const ResetDMT5Password = () => (
 
 const DMT5Article = () => {
     return (
-        <Article header="DMT5">
-            <WhatIsDMT5 text={localize('What is DMT5?')} label="what-is-dmt5" />
-            <DifferenceDMT5DTrader
-                text={localize('What are the major differences between DTrader and DMT5?')}
-                label="differences-of-dtrader-and-dmt5"
-            />
-            <DifferentAccounts
-                text={localize(
-                    'What are the differences between the DMT5 Synthetic Indices, Financial and Financial STP accounts?',
-                )}
-                label="differences-of-dmt5-accounts"
-            />
-            <WithdrawDMT5
-                text={localize('How can I withdraw funds from my DMT5 real money account?')}
-                label="withdraw-funds-from-DMT5"
-            />
-            <LoginCredentials
-                text={localize(
-                    'Why are my DMT5 login details different from my Deriv login details?',
-                )}
-                label="login-credentials"
-            />
-            <ResetDMT5Password
-                text={localize('How can I reset my DMT5 account password?')}
-                label="reset-dmt5-password"
-            />
-            <DepositDMT5
-                text={localize('How can I deposit funds into my DMT5 real money account?')}
-                label="deposit-to-dmt5"
-            />
-        </Article>
+        <div>
+            <Article
+                header="DMT5"
+                title={localize('Help centre | Frequently asked questions | DMT5 | Deriv')}
+                description={localize('Frequently asked questions - DMT5')}
+            >
+                <WhatIsDMT5 text={localize('What is DMT5?')} label="what-is-dmt5" />
+                <DifferenceDMT5DTrader
+                    text={localize('What are the major differences between DTrader and DMT5?')}
+                    label="differences-of-dtrader-and-dmt5"
+                />
+                <DifferentAccounts
+                    text={localize(
+                        'What are the differences between the DMT5 Synthetic Indices, Financial and Financial STP accounts?',
+                    )}
+                    label="differences-of-dmt5-accounts"
+                />
+                <WithdrawDMT5
+                    text={localize('How can I withdraw funds from my DMT5 real money account?')}
+                    label="withdraw-funds-from-DMT5"
+                />
+                <LoginCredentials
+                    text={localize(
+                        'Why are my DMT5 login details different from my Deriv login details?',
+                    )}
+                />
+                <ResetDMT5Password
+                    text={localize('How can I reset my DMT5 account password?')}
+                    label="reset-dmt5-password"
+                />
+                <DepositDMT5
+                    text={localize('How can I deposit funds into my DMT5 real money account?')}
+                    label="deposit-to-dmt5"
+                />
+            </Article>
+        </div>
     )
 }
 

@@ -43,20 +43,26 @@ const DocumentsDeclined = () => (
 
 const SecurityArticle = () => {
     return (
-        <Article header={localize('Security')}>
-            <VerifyAccount
-                text={localize('Do I need to verify my Deriv account?')}
-                label="verify-account"
-            />
-            <VerificationDuration
-                text={localize('How long does verification take?')}
-                label="verification-duration"
-            />
-            <DocumentsDeclined
-                text={localize('Why were my documents declined?')}
-                label="documents-declined"
-            />
-        </Article>
+        <div>
+            <Article
+                header={localize('Security')}
+                title={localize('Help centre | Frequently asked questions | Security | Deriv')}
+                description={localize('Frequently asked questions - Security')}
+            >
+                <VerifyAccount
+                    text={localize('Do I need to verify my Deriv account?')}
+                    label="verify-account"
+                />
+                <VerificationDuration
+                    text={localize('How long does verification take?')}
+                    label="verification-duration"
+                />
+                <DocumentsDeclined
+                    text={localize('Why were my documents declined?')}
+                    label="documents-declined"
+                />
+            </Article>
+        </div>
     )
 }
 

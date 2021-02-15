@@ -1,37 +1,80 @@
 import React from 'react'
 import styled from 'styled-components'
+import { graphql, useStaticQuery } from 'gatsby'
 import { SmallContainer, Ul } from '../components/_style'
-import { SectionContainer, Flex } from 'components/containers'
-import { Header, Text, CardStyle } from 'components/elements'
-import { localize, Localize } from 'components/localization'
-import Info from 'images/svg/trade-types/info.svg'
+import { SectionContainer, Show } from 'components/containers'
+import { Header, Text, QueryImage } from 'components/elements'
+import { LinkButton } from 'components/form'
+import { localize } from 'components/localization'
+import device from 'themes/device'
 
-const Card = styled.article`
-    ${CardStyle}
+const query = graphql`
+    query {
+        example: file(relativePath: { eq: "trade-types/margin-example-crash-boom.png" }) {
+            ...fadeIn
+        }
+        example_mobile: file(
+            relativePath: { eq: "trade-types/margin-example-crash-boom-mobile.png" }
+        ) {
+            ...fadeIn
+        }
+    }
 `
 
-const CardHeading = styled(Flex)`
-    padding: 3rem 2.4rem;
-    background: var(--color-grey-25);
-    align-items: center;
+const ShowWrapper = styled.div`
+    width: 100%;
 `
 
-const CardBody = styled(Flex)`
-    flex-direction: column;
-    padding: 2.4rem;
-`
-const InfoWrapper = styled.div`
-    margin-right: 1.6rem;
-`
+const ExampleImage = styled(QueryImage)`
+    margin: ${(props) => (props.center ? '0 auto' : 'unset')};
+    width: 792px;
+    height: 453px;
 
-const Note = styled.div`
-    background-color: var(--color-grey-25);
-    border-radius: 60px;
-    padding: 0.8rem 2.4rem;
-    width: fit-content;
+    @media ${device.laptop} {
+        width: 630px;
+        height: 361px;
+    }
+
+    @media ${device.tabletL} {
+        width: 328px;
+        height: 506px;
+    }
+
+    @media ${device.mobileM} {
+        width: 289px;
+        height: 454px;
+    }
+`
+const StyledLinkButton = styled(LinkButton)`
+    padding: 1.2rem 1.5rem;
+    font-size: 14px;
+    max-height: 4rem;
+    height: 100%;
+    margin-right: 0.8rem;
+
+    @media ${device.laptop} {
+        padding: 1.5rem 1.6rem;
+        height: 42px;
+        white-space: nowrap;
+        display: block;
+        max-height: 40px;
+
+        :nth-child(2) {
+            margin-bottom: 16px;
+        }
+    }
+
+    :active {
+        outline: none;
+        border: none;
+    }
+    :focus {
+        outline: 0;
+    }
 `
 
 const Policies = () => {
+    const data = useStaticQuery(query)
     return (
         <>
             <SectionContainer background="white" padding="4rem 0 0">
@@ -80,107 +123,138 @@ const Policies = () => {
                     <Header as="h3" type="section-title" mb="0.8rem">
                         {localize('Things you should know when trading on margin')}
                     </Header>
-                    <Text weight="bold" mb="0.8rem">
+                    <Text size="var(--text-size-m)" weight="bold" mb="0.8rem">
                         {localize('Margin increases both potential profit and loss')}
                     </Text>
-                    <Text mb="1.2rem">
+                    <Text mb="2.4rem">
                         {localize(
                             'Trading on margin increases your market exposure, thus amplifying both your potential profit and loss.',
                         )}
                     </Text>
-                    <Text weight="bold" mb="0.8rem">
+                    <Text size="var(--text-size-m)" weight="bold" mb="0.8rem">
                         {localize('Stop-loss')}
                     </Text>
-                    <Text mb="1.2rem">
+                    <Text mb="1.6rem">
                         {localize(
-                            'You can use the stop-loss tool to minimise potential losses and decrease the chances of getting a margin call.',
+                            'You can set the stop loss level to minimise potential losses and decrease the chances of getting a margin call. When you set this level, your trade will automatically close when your losses equal the stop loss amount.',
                         )}
                     </Text>
                     <Text weight="bold" mb="0.8rem">
+                        {localize('Stop loss with Crash/Boom/Range break indices')}
+                    </Text>
+                    <Text mb="1.6rem">
+                        {localize(
+                            'Stop loss works slightly differently in Crash/Boom/Range break indices. When trading on these indices with a stop loss level, your trade will automatically close if your losses exceed the stop loss amount.',
+                        )}
+                    </Text>
+                    <Text mb="1.6rem">
+                        {localize(
+                            'The reason is that in Crash/Boom/Range break indices, sudden fluctuations in price between one tick to another can sometimes surpass the stop loss you set. In this case, your trade will close at the nearest applicable market price instead of exactly at the stop loss level.',
+                        )}
+                    </Text>
+                    <Text mb="1.6rem">
+                        {localize(
+                            'For example, you predict that the market will go up, and buy a contract on Crash 500 index at 8,000.',
+                        )}
+                    </Text>
+                    <Text mb="1.6rem">
+                        {localize(
+                            'When the market price climbs to 8,700, you decide to set the stop loss level at 8,200. After a few ticks, the price dives to 8,100, surpassing your stop loss level.',
+                        )}
+                    </Text>
+                    <Text mb="1.6rem">
+                        {localize(
+                            'Your trade will automatically close at 8,100, which is the nearest applicable market price to your stop loss level.',
+                        )}
+                    </Text>
+                    <Show.Desktop>
+                        <ExampleImage data={data['example']} />
+                    </Show.Desktop>
+                    <ShowWrapper>
+                        <Show.Mobile width="100%">
+                            <ExampleImage data={data['example_mobile']} />
+                        </Show.Mobile>
+                    </ShowWrapper>
+
+                    <Text size="var(--text-size-m)" weight="bold" mb="0.8rem" mt="2.4rem">
                         {localize('Margin call')}
                     </Text>
-                    <Text mb="1.2rem">
+                    <Text mb="2.4rem">
                         {localize(
                             'You can still open positions when you get a margin call,  but we recommend you add funds to your account to keep your positions running.',
                         )}
                     </Text>
-                    <Text weight="bold" mb="0.8rem">
+                    <Text size="var(--text-size-m)" weight="bold" mb="0.8rem">
                         {localize('Margin requirements')}
                     </Text>
-                    <Text mb="4rem">
+                    <Text mb="2.4rem">
                         {localize(
                             'Margin requirements may differ depending on factors like the asset you want to trade, the equity in your account, your account type and market conditions.',
                         )}
                     </Text>
-                    <Card>
-                        <CardHeading>
-                            <InfoWrapper>
-                                <img src={Info} alt="info" />
-                            </InfoWrapper>
-                            <Header as="h4" type="sub-section-title" id="swap-policy">
-                                {localize('Important notes on our swap rates (overnight funding)')}
-                            </Header>
-                        </CardHeading>
-                        <CardBody>
-                            <Text mb="1.6rem">
+                    <Header as="h4" type="sub-section-title" id="swap-policy">
+                        {localize('Swap rates (overnight funding)')}
+                    </Header>
+
+                    <Text mb="1.6rem">
+                        {localize(
+                            'If you keep any position open overnight, an interest adjustment (or swap rate) will be made to your trading account to compensate for the cost of keeping your position open. Instruments traded on our platforms are subjected to different swap rates and other conditions:',
+                        )}
+                    </Text>
+                    <Header as="h5" type="main-paragraph" mb="0.8rem">
+                        {localize('Forex and commodities')}
+                    </Header>
+                    <Text mb="0.8rem">
+                        {localize(
+                            'The swap rate is based on interbank lending rates, in addition to a 2% fee that is charged daily (every night) that your position is held. The swap rate also depends on the time and days that you hold your positions open:',
+                        )}
+                    </Text>
+                    <Ul>
+                        <li>
+                            <Text>
                                 {localize(
-                                    'If you keep any position open overnight, an interest adjustment (or swap rate) will be made to your trading account to compensate for the cost of keeping your position open. Instruments traded on our platforms are subjected to different swap rates and other conditions:',
+                                    'If you keep a position open past 23:59:59 GMT, you will be subjected to the basic swap rate.',
                                 )}
                             </Text>
-                            <Header as="h5" type="main-paragraph" mb="0.8rem">
-                                {localize('Forex and commodities')}
-                            </Header>
-                            <Text mb="0.8rem">
+                        </li>
+                        <li>
+                            <Text>
                                 {localize(
-                                    'The swap rate is based on interbank lending rates, in addition to a 2% fee that is charged daily (every night) that your position is held. The swap rate also depends on the time and days that you hold your positions open:',
+                                    'Since it takes two days for forex transactions to settle, positions that are still open on Wednesday at 23:59:59 GMT will be charged three times the swap rate to account for weekends.',
                                 )}
                             </Text>
-                            <Ul>
-                                <li>
-                                    <Text>
-                                        {localize(
-                                            'If you keep a position open past 23:59:59 GMT, you will be subjected to the basic swap rate.',
-                                        )}
-                                    </Text>
-                                </li>
-                                <li>
-                                    <Text>
-                                        {localize(
-                                            'Since it takes two days for forex transactions to settle, positions that are still open on Wednesday at 23:59:59 GMT will be charged three times the swap rate to account for weekends.',
-                                        )}
-                                    </Text>
-                                </li>
-                                <li>
-                                    <Text>
-                                        {localize(
-                                            'Our swap rate may also be adjusted to take holidays into account.',
-                                        )}
-                                    </Text>
-                                </li>
-                            </Ul>
-                            <Header as="h5" type="main-paragraph" mt="1.6rem" mb="0.8rem">
-                                {localize('Synthetic indices')}
-                            </Header>
-                            <Text mb="0.8rem">
+                        </li>
+                        <li>
+                            <Text>
                                 {localize(
-                                    'An interest adjustment will be made to your trading account to compensate for the cost of keeping your position open overnight.',
+                                    'Our swap rate may also be adjusted to take holidays into account.',
                                 )}
                             </Text>
-                            <Text mb="0.8rem">
-                                <Localize
-                                    translate_text="The interest adjustment is calculated on an annual basis for long and short positions according to the formula: <0>(volume in lot * specified swap size/100)/360</0>."
-                                    components={[<strong key={0} />]}
-                                />
-                            </Text>
-                            <Note>
-                                <Text size="14px">
-                                    {localize(
-                                        'Please note that our swap rate also depends on the time and days you hold your positions open.',
-                                    )}
-                                </Text>
-                            </Note>
-                        </CardBody>
-                    </Card>
+                        </li>
+                    </Ul>
+                    <Header as="h5" type="main-paragraph" mt="1.6rem" mb="0.8rem">
+                        {localize('Synthetic indices')}
+                    </Header>
+                    <Text mb="1.6rem">
+                        {localize(
+                            'An interest adjustment will be made to your trading account to compensate for the cost of keeping your position open overnight. The interest adjustment is calculated on an annual basis for long and short positions.',
+                        )}
+                    </Text>
+                    <Text mb="1.6rem">
+                        {localize(
+                            'You can use our swap calculator to estimate the swap charges required to keep your positions open overnight on DMT5.',
+                        )}
+                    </Text>
+
+                    <StyledLinkButton secondary="true" to="/trade-types/margin">
+                        {localize('Swap calculator')}
+                    </StyledLinkButton>
+
+                    <Text size="var(--text-size-xs)" mt="1.6rem">
+                        {localize(
+                            'Please note that our swap rate also depends on the time and days you hold your positions open.',
+                        )}
+                    </Text>
                 </SmallContainer>
             </SectionContainer>
         </>

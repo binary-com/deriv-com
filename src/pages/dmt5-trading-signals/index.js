@@ -45,7 +45,7 @@ const signal_content_provider = {
         <Localize translate_text="If you are a professional trader, the MT5 trading signals service allows you to share your strategies with other traders for free or a subscription fee that you determine. When traders subscribe to your signal, your deals are automatically replicated on their accounts each time you place a trade." />
     ),
     list: [
-        <Localize translate_text="Easy to set up – no installation required" key={0} />,
+        <Localize translate_text="Easy to set up – no installation required." key={0} />,
         <Localize translate_text="Additional income stream from monthly subscriptions." key={1} />,
         <Localize translate_text="Automated copying – no extra work from you." key={2} />,
     ],

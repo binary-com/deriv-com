@@ -145,35 +145,41 @@ const DormantFee = () => (
 
 const AccountArticle = () => {
     return (
-        <Article header={localize('Account')}>
-            <WhoCanOpenAnAccount
-                text={localize("Why can't I create an account?")}
-                label="who-can-open-an-account"
-            />
-            <ChangingPersonalDetails
-                text={localize('How can I change my personal details?')}
-                label="changing-your-personal-details"
-            />
-            <ChangeAccountCurrency
-                text={localize("How can I change my account's currency?")}
-                label="change-account-currency"
-            />
-            <RecoveringPassword
-                text={localize(
-                    'I forgot my Google/Facebook account password. How can I log in to my Deriv account?',
-                )}
-                label="recovering-your-password"
-            />
-            <CloseAccount
-                text={localize('How can I close my account?')}
-                label="close-your-account"
-            />
-            <UnsubscribeEmail
-                text={localize('How do I unsubscribe from marketing emails?')}
-                label="unsubscribe-marketing-emails"
-            />
-            <DormantFee text={localize('What is a dormant fee?')} label="what-is-dormant-fee" />
-        </Article>
+        <div>
+            <Article
+                header={localize('Account')}
+                title={localize('Help centre | Frequently asked questions | Account | Deriv')}
+                description={localize('Frequently asked questions - Account')}
+            >
+                <WhoCanOpenAnAccount
+                    text={localize("Why can't I create an account?")}
+                    label="who-can-open-an-account"
+                />
+                <ChangingPersonalDetails
+                    text={localize('How can I change my personal details?')}
+                    label="changing-your-personal-details"
+                />
+                <ChangeAccountCurrency
+                    text={localize("How can I change my account's currency?")}
+                    label="change-account-currency"
+                />
+                <RecoveringPassword
+                    text={localize(
+                        'I forgot my Google/Facebook account password. How can I log in to my Deriv account?',
+                    )}
+                    label="recovering-your-password"
+                />
+                <CloseAccount
+                    text={localize('How can I close my account?')}
+                    label="close-your-account"
+                />
+                <UnsubscribeEmail
+                    text={localize('How do I unsubscribe from marketing emails?')}
+                    label="unsubscribe-marketing-emails"
+                />
+                <DormantFee text={localize('What is a dormant fee?')} label="what-is-dormant-fee" />
+            </Article>
+        </div>
     )
 }
 

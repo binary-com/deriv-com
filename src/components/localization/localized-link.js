@@ -121,7 +121,9 @@ export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
         } else if (is_zoho_link) {
             lang_to = `${zoho_url}${to}`
         } else if (is_dbot_link) {
-            lang_to = `${deriv_bot_app_url}?lang=${locale}`
+            const available_languages = ['id', 'pt', 'es']
+            const dbot_lang = available_languages.includes(locale) ? locale : 'en'
+            lang_to = `${deriv_bot_app_url}?lang=${dbot_lang.toUpperCase()}`
         } else if (is_mt5_link) {
             lang_to = `${deriv_app_url}/mt5?lang=${locale}`
         } else {

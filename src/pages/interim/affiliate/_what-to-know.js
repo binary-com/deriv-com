@@ -33,6 +33,7 @@ const WhatToKnow = () => {
                                 rel="noopener noreferrer"
                                 color="red"
                                 size="24px"
+                                is_affiliate_sign_in_link
                             />,
                             <Span key={1} weight="bold" />,
                         ]}

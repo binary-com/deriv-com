@@ -5,6 +5,7 @@ export const size = {
     tabletS: 576,
     bp680: 680,
     tablet: 768,
+    bp749: 749,
     tabletL: 992,
     laptop: 1024,
     laptopM: 1200,

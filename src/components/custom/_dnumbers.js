@@ -10,14 +10,16 @@ const NumberWrapper = styled.div`
     flex-direction: column;
     justify-content: center;
     width: 32.8rem;
+`
+const StyledText = styled(Text)`
+    padding-top: 8px;
 
-    ${Text} {
-        padding-top: 0.8rem;
-    }
     @media ${device.tabletL} {
-        margin: 1.2rem 0;
+        padding-top: 0;
+        margin: 12px 0;
     }
 `
+
 const StyledContainer = styled(Container)`
     display: flex;
     width: 100%;
@@ -36,7 +38,7 @@ const DNumbers = ({ items, justify }) => {
                         <Header as="h2" type="page-title" align="center">
                             {item.title}
                         </Header>
-                        <Text align="center">{item.subtitle}</Text>
+                        <StyledText align="center">{item.subtitle}</StyledText>
                     </NumberWrapper>
                 ))}
             </StyledContainer>

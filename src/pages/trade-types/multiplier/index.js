@@ -23,9 +23,9 @@ const Multipliers = () => {
     return (
         <Layout>
             <SEO
-                title={localize('Trade types | Multipliers')}
+                title={localize('Multipliers trading | Trade types | Deriv')}
                 description={localize(
-                    'Multipliers allow you to profit from correctly predicting whether the market will go up or down.',
+                    'Learn about multipliers trading on Deriv. Enjoy a new way to trade with leverage without risking more than your stake — more profit potential, no swap charges.',
                 )}
             />
             <Hero jc="cneter" ai="center">

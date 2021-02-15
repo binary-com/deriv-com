@@ -8,6 +8,8 @@ import Layout from 'components/layout/layout'
 import { SectionContainer, Container, SEO } from 'components/containers'
 import { localize, Localize, WithIntl } from 'components/localization'
 import { affiliate_signup_url } from 'common/utility'
+import device from 'themes/device'
+
 const DNumber = Loadable(() => import('components/custom/_dnumbers.js'))
 const WhyUs = Loadable(() => import('./_why-us.js'))
 const WhoCanAplly = Loadable(() => import('./_who-can-apply.js'))
@@ -20,8 +22,50 @@ const CTA = Loadable(() => import('./_partner-cta'))
 const StyledHeader = styled(Header)`
     width: 100%;
     max-width: 70rem;
-    margin-bottom: 4rem;
+    @media ${device.tabletS} {
+        font-size: 40px;
+        text-align: left;
+    }
+
+    &:nth-child(2) {
+        margin-bottom: 4rem;
+    }
 `
+
+const StyledLinkButton = styled(LinkButton)`
+    border-radius: 4px;
+    @media ${device.tabletS} {
+        font-size: 14px;
+        height: 40px;
+        padding: 1.2rem 1rem;
+        white-space: nowrap;
+    }
+
+    @media ${device.mobileL} {
+        font-size: 10px;
+    }
+`
+
+const StyledSectionContainer = styled(SectionContainer)`
+    @media ${device.tabletL} {
+        padding-top: 40px;
+        padding-bottom: 40px;
+        padding-right: 16px;
+        padding-left: 16px;
+    }
+`
+
+const SubtitleHeader = styled(Header)`
+    width: 1170px;
+    @media ${device.laptopL} {
+        width: 100%;
+    }
+    @media ${device.tabletL} {
+        font-size: 16px;
+        text-align: justify;
+    }
+`
+
 const items = [
     { title: '47K+', subtitle: <Localize translate_text="members" /> },
     { title: '$14M+', subtitle: <Localize translate_text="paid out" /> },
@@ -67,29 +111,32 @@ const AffiliateIb = () => {
                 )}
             />
             <Hero>
-                <StyledHeader as="h1" type="display-title" color="white" align="center" lh="1.25">
-                    {localize('Partner with a trusted online trading provider')}
+                <StyledHeader as="h1" color="white" align="center" lh="1.25" type="display-title">
+                    {localize('Partner with a trusted')}
                 </StyledHeader>
-                <LinkButton
+                <StyledHeader as="h1" color="white" align="center" lh="1.25" type="display-title">
+                    {localize('online trading provider')}
+                </StyledHeader>
+                <StyledLinkButton
                     to={affiliate_signup_url}
                     external="true"
                     target="_blank"
                     is_affiliate_link
                     secondary
                 >
-                    {localize('Sign up as our affiliate & IB')}
-                </LinkButton>
+                    {localize('Sign up as our affiliate and IB')}
+                </StyledLinkButton>
             </Hero>
-            <SectionContainer padding="8rem 0 4rem">
+            <StyledSectionContainer padding="8rem 0 4rem">
                 <Container direction="column">
-                    <Header as="h4" type="sub-section-title" weight="500" align="center">
+                    <SubtitleHeader as="h4" type="sub-section-title" weight="normal" align="center">
                         {localize(
-                            'Earn 45% lifetime commission with an online trading provider that enables anyone to trade on popular financial markets with the utmost convenience. Deriv Group Ltd - the owner of Binary.com and Deriv.com - has a proven track record of running successful referral programmes with prompt payouts.',
+                            'Earn up to 45% lifetime commission with an online trading provider that enables anyone to trade on popular financial markets with the utmost convenience. Deriv Group Ltd – the owner of Binary.com and Deriv.com – has a proven track record of running successful referral programmes with prompt payouts.',
                         )}
-                    </Header>
+                    </SubtitleHeader>
                     <DNumber items={items} justify="space-around" />
                 </Container>
-            </SectionContainer>
+            </StyledSectionContainer>
             <DerivAffiliateProgramme />
             <DerivIBProgramme />
             <WhyUs items={why_partner_with_us_items} />

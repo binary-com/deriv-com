@@ -25,10 +25,10 @@ const TabWrapper = styled.div`
 const ContactContainer = styled.div`
     margin-top: 8rem;
 `
-export const Article = ({ children, header }) => {
+export const Article = ({ children, header, title, description }) => {
     return (
         <Layout>
-            <SEO title={localize('Help Center | ' + header)} />
+            <SEO title={title} description={description} />
             <Container align="left" justify="flex-start" direction="column">
                 <StyledLink
                     to="/help-centre/"
@@ -64,5 +64,7 @@ export const Article = ({ children, header }) => {
 
 Article.propTypes = {
     children: PropTypes.node,
+    description: PropTypes.string,
     header: PropTypes.string,
+    title: PropTypes.string,
 }

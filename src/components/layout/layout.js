@@ -2,6 +2,7 @@ import React from 'react'
 import Loadable from '@loadable/component'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import useGTMData from '../hooks/gtm-data-hooks'
 import Copyright from './copyright'
 import { Nav, NavStatic, NavPartners, NavInterim } from './nav'
 import { NavCareers } from './nav-careers'
@@ -67,7 +68,7 @@ export const CFDWarning = ({ is_ppc }) => {
             <CFDContainer>
                 <CFDText>
                     <Localize
-                        translate_text="CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. <0>74% of retail investor accounts lose money when trading CFDs with this provider.</0> You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money."
+                        translate_text="CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. <0>71% of retail investor accounts lose money when trading CFDs with this provider.</0> You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money."
                         components={[<strong key={0} />]}
                     />
                 </CFDText>
@@ -94,7 +95,7 @@ const Layout = ({
     const [show_cookie_banner, setShowCookieBanner] = React.useState(false)
     const [show_modal, toggleModal, closeModal] = useModal()
     const [modal_payload, setModalPayload] = React.useState({})
-    const [gtm_data, setGTMData] = React.useState(null)
+    const [gtm_data, setGTMData] = useGTMData()
 
     const is_static = type === 'static'
 
@@ -139,12 +140,6 @@ const Layout = ({
         }
     }, [is_eu_country])
 
-    React.useEffect(() => {
-        if (gtm_data) {
-            window.dataLayer.push(gtm_data)
-        }
-    }, [gtm_data])
-
     const onAccept = () => {
         tracking_status_cookie.set(TRACKING_STATUS_KEY, 'accepted')
 
@@ -182,8 +177,8 @@ const Layout = ({
             FooterNav = <Copyright />
             break
         default:
-            Navigation = <Nav is_ppc_redirect={is_ppc_redirect} />
-            FooterNav = <Footer />
+            Navigation = <Nav is_ppc_redirect={is_ppc_redirect} is_ppc={is_ppc} />
+            FooterNav = <Footer is_ppc={is_ppc} is_ppc_redirect={is_ppc_redirect} />
             break
     }
 

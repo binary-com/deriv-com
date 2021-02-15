@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
+import PropTypes from 'prop-types'
 import { TraderCard, BotCard, DMT5Card } from 'components/custom/other-platforms.js'
 import { localize } from 'components/localization'
 import { SectionContainer, Container, Flex, CssGrid } from 'components/containers'
@@ -60,7 +61,7 @@ const StyledSection = styled(SectionContainer)`
     background-image: linear-gradient(to bottom, var(--color-grey-11), rgba(238, 238, 238, 0));
 `
 
-const Trade = () => {
+const Trade = ({ is_ppc_redirect }) => {
     // one option always has to be selected
     const [selected, setSelected] = React.useState(null)
     const data = useStaticQuery(query)
@@ -123,7 +124,7 @@ const Trade = () => {
                                 onMouseEnter={() => setSelected(platforms.mt5)}
                                 onMouseLeave={() => setSelected('')}
                             >
-                                <DMT5Card />
+                                <DMT5Card is_ppc_redirect={is_ppc_redirect} />
                             </div>
                         </CssGrid>
                     </div>
@@ -131,6 +132,10 @@ const Trade = () => {
             </Container>
         </StyledSection>
     )
+}
+
+Trade.propTypes = {
+    is_ppc_redirect: PropTypes.bool,
 }
 
 export default Trade

@@ -126,8 +126,8 @@ export const BotCard = ({ is_selected, word_break_cover }) => (
     </StyledLink>
 )
 
-export const DMT5Card = ({ is_selected, word_break_cover }) => (
-    <StyledLink ariaLabel={localize('DMT5')} to="/dmt5">
+export const DMT5Card = ({ is_selected, is_ppc_redirect, word_break_cover }) => (
+    <StyledLink ariaLabel={localize('DMT5')} to={!is_ppc_redirect ? '/dmt5' : '/landing/dmt5'}>
         <Card
             cover_background="var(--color-green)"
             cover_content={localize('Discover DMT5 now')}
@@ -180,7 +180,7 @@ export const SmarttraderCard = ({ is_selected, word_break_cover }) => (
     </StyledLink>
 )
 
-export const OtherPlatform = ({ header, subHeader, exclude, is_nav }) => (
+export const OtherPlatform = ({ header, subHeader, exclude, is_nav, is_ppc_redirect }) => (
     <SectionContainer padding="0">
         {is_nav ? null : (
             <HeaderWrapper>
@@ -206,7 +206,7 @@ export const OtherPlatform = ({ header, subHeader, exclude, is_nav }) => (
         <StyledFlexGridContainer content_width="38.4rem" gap="1rem" grid="3" justify="center">
             {exclude.toLowerCase() !== 'dtrader' && <TraderCard />}
             {exclude.toLowerCase() !== 'dbot' && <BotCard />}
-            {exclude.toLowerCase() !== 'dmt5' && <DMT5Card />}
+            {exclude.toLowerCase() !== 'dmt5' && <DMT5Card is_ppc_redirect={is_ppc_redirect} />}
         </StyledFlexGridContainer>
     </SectionContainer>
 )
@@ -224,10 +224,11 @@ OtherPlatform.propTypes = {
     exclude: PropTypes.string,
     header: PropTypes.string,
     is_nav: PropTypes.bool,
+    is_ppc_redirect: PropTypes.bool,
     subHeader: PropTypes.string,
 }
 
-export const NavPlatform = ({ onClick }) => {
+export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
     const { is_eu_country } = React.useContext(DerivStore)
 
     return (
@@ -259,7 +260,7 @@ export const NavPlatform = ({ onClick }) => {
                     }
                     title={<Localize translate_text="DMT5" />}
                     onClick={onClick}
-                    to="/dmt5"
+                    to={!is_ppc_redirect ? '/dmt5' : '/landing/dmt5'}
                 />
                 <NavCard
                     icon={() => <img src={Smarttrader} alt="Smarttrader" width="32" height="32" />}
@@ -275,48 +276,58 @@ export const NavPlatform = ({ onClick }) => {
                     otherLinkProps={{ rel: 'noopener noreferrer' }}
                 />
             </Flex>
-            <MarginDivider width="2px" height="100%" color="grey-8" />
-            <Flex direction="column" wrap="wrap" jc="flex-start">
-                <StyledText>{localize('Trade types')}</StyledText>
-                <NavCard
-                    icon={() => <img src={Margin} alt="Margin" width="32" height="32" />}
-                    content={
-                        <Localize translate_text="Trade with leverage and low spreads for better returns on successful trades." />
-                    }
-                    title={<Localize translate_text="Margin trading" />}
-                    onClick={onClick}
-                    to="/trade-types/margin"
-                />
-                {!is_eu_country && (
-                    <NavCard
-                        icon={() => <img src={Options} alt="Options" width="32" height="32" />}
-                        content={
-                            <Localize translate_text="Earn fixed payouts by predicting an asset's price movement." />
-                        }
-                        title={<Localize translate_text="Options" />}
-                        onClick={onClick}
-                        to="/trade-types/options"
-                    />
-                )}
-                <NavCard
-                    icon={() => <img src={Multipliers} alt="Multipliers" width="32" height="32" />}
-                    content={
-                        <Localize translate_text="Combine the upside of margin trading with the simplicity of options." />
-                    }
-                    title={<Localize translate_text="Multipliers" />}
-                    onClick={onClick}
-                    to="/trade-types/multiplier"
-                />
-            </Flex>
+            {!is_ppc && (
+                <>
+                    <MarginDivider width="2px" height="100%" color="grey-8" />
+                    <Flex direction="column" wrap="wrap" jc="flex-start">
+                        <StyledText>{localize('Trade types')}</StyledText>
+                        <NavCard
+                            icon={() => <img src={Margin} alt="Margin" width="32" height="32" />}
+                            content={
+                                <Localize translate_text="Trade with leverage and low spreads for better returns on successful trades." />
+                            }
+                            title={<Localize translate_text="Margin trading" />}
+                            onClick={onClick}
+                            to="/trade-types/margin"
+                        />
+                        {!is_eu_country && (
+                            <NavCard
+                                icon={() => (
+                                    <img src={Options} alt="Options" width="32" height="32" />
+                                )}
+                                content={
+                                    <Localize translate_text="Earn fixed payouts by predicting an asset's price movement." />
+                                }
+                                title={<Localize translate_text="Options" />}
+                                onClick={onClick}
+                                to="/trade-types/options"
+                            />
+                        )}
+                        <NavCard
+                            icon={() => (
+                                <img src={Multipliers} alt="Multipliers" width="32" height="32" />
+                            )}
+                            content={
+                                <Localize translate_text="Combine the upside of margin trading with the simplicity of options." />
+                            }
+                            title={<Localize translate_text="Multipliers" />}
+                            onClick={onClick}
+                            to="/trade-types/multiplier"
+                        />
+                    </Flex>
+                </>
+            )}
         </Flex>
     )
 }
 
 NavPlatform.propTypes = {
+    is_ppc: PropTypes.bool,
+    is_ppc_redirect: PropTypes.bool,
     onClick: PropTypes.func,
 }
 
-export const NavMarket = ({ onClick }) => (
+export const NavMarket = ({ onClick, is_ppc }) => (
     <Flex direction="column" wrap="wrap" jc="flex-start">
         <NavCard
             icon={() => <img src={Forex} alt="Forex" width="32" height="32" />}
@@ -327,17 +338,19 @@ export const NavMarket = ({ onClick }) => (
             onClick={onClick}
             to="/markets#forex"
         />
-        <NavCard
-            icon={() => (
-                <img src={SyntheticIndices} alt="SyntheticIndices" width="32" height="32" />
-            )}
-            content={
-                <Localize translate_text="Enjoy synthetic markets that emulate real-world market movements." />
-            }
-            title={<Localize translate_text="Synthetic indices" />}
-            onClick={onClick}
-            to="/markets#synthetic"
-        />
+        {!is_ppc && (
+            <NavCard
+                icon={() => (
+                    <img src={SyntheticIndices} alt="SyntheticIndices" width="32" height="32" />
+                )}
+                content={
+                    <Localize translate_text="Enjoy synthetic markets that emulate real-world market movements." />
+                }
+                title={<Localize translate_text="Synthetic indices" />}
+                onClick={onClick}
+                to="/markets#synthetic"
+            />
+        )}
         <NavCard
             icon={() => <img src={StockIndices} alt="StockIndices" width="32" height="32" />}
             content={
@@ -360,6 +373,7 @@ export const NavMarket = ({ onClick }) => (
 )
 
 NavMarket.propTypes = {
+    is_ppc: PropTypes.bool,
     onClick: PropTypes.func,
 }
 

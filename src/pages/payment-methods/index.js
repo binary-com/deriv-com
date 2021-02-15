@@ -138,11 +138,11 @@ const DisplayAccordianItem = ({ pd, crypto_config, locale }) => {
                                     {pd.is_crypto || pd.is_fiat_onramp ? (
                                         <BoldText>{localize('Min deposit')}</BoldText>
                                     ) : (
-                                            <React.Fragment>
-                                                <BoldText>{localize('Min-max')}</BoldText>
-                                                <BoldText>{localize('deposit')}</BoldText>
-                                            </React.Fragment>
-                                        )}
+                                        <React.Fragment>
+                                            <BoldText>{localize('Min-max')}</BoldText>
+                                            <BoldText>{localize('deposit')}</BoldText>
+                                        </React.Fragment>
+                                    )}
                                 </Th>
                                 {!pd.is_fiat_onramp && (
                                     <Th>
@@ -151,11 +151,11 @@ const DisplayAccordianItem = ({ pd, crypto_config, locale }) => {
                                                 <BoldText>{localize('Min withdrawal')}</BoldText>
                                             </>
                                         ) : (
-                                                <React.Fragment>
-                                                    <BoldText>{localize('Min-max')}</BoldText>
-                                                    <BoldText>{localize('withdrawal')}</BoldText>
-                                                </React.Fragment>
-                                            )}
+                                            <React.Fragment>
+                                                <BoldText>{localize('Min-max')}</BoldText>
+                                                <BoldText>{localize('withdrawal')}</BoldText>
+                                            </React.Fragment>
+                                        )}
                                     </Th>
                                 )}
                                 {pd.is_fiat_onramp ? (
@@ -163,11 +163,11 @@ const DisplayAccordianItem = ({ pd, crypto_config, locale }) => {
                                         <BoldText>{localize('Deposit processing time')}</BoldText>
                                     </Th>
                                 ) : (
-                                        <Th>
-                                            <BoldText>{localize('Deposit')}</BoldText>
-                                            <BoldText>{localize('processing time')}</BoldText>
-                                        </Th>
-                                    )}
+                                    <Th>
+                                        <BoldText>{localize('Deposit')}</BoldText>
+                                        <BoldText>{localize('processing time')}</BoldText>
+                                    </Th>
+                                )}
 
                                 {!pd.is_fiat_onramp && (
                                     <Th>

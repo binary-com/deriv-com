@@ -17,9 +17,9 @@ const Margin = () => {
     return (
         <Layout>
             <SEO
-                title={localize('Trade types | Margin trading')}
+                title={localize('Margin trading | Trade types | Deriv')}
                 description={localize(
-                    'Options are products that allow for payouts from predicting market movements, without needing to buy the underlying asset.',
+                    'Learn about margin trading on Deriv MT5 (DMT5). Enjoy 24/7 trading, high leverage, and zero commissions on forex, synthetic indices, and other assets.',
                 )}
             />
             <Hero jc="cneter" ai="center">

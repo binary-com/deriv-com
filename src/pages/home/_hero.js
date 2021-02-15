@@ -1,6 +1,7 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled, { keyframes } from 'styled-components'
+import PropTypes from 'prop-types'
 import VerticalCarousel from './_vertical-carousel.js'
 import device from 'themes/device'
 import { LinkButton } from 'components/form'
@@ -64,6 +65,14 @@ const contents = [
     <Localize key={3} translate_text="Sharp prices" />,
     <Localize key={4} translate_text="Tight spreads" />,
 ]
+
+const contents_ppc = [
+    <Localize key={0} translate_text="20+ years of experience" />,
+    <Localize key={1} translate_text="100+ tradeable assets" />,
+    <Localize key={2} translate_text="Sharp prices" />,
+    <Localize key={3} translate_text="Tight spreads" />,
+]
+
 const TypeWriter = styled(Header)`
     min-height: 7.2rem;
 `
@@ -103,9 +112,11 @@ const ImageWrapper = styled(Box)`
         margin-top: 0;
     }
 `
-export const Hero = () => {
+export const Hero = ({ is_ppc }) => {
     const data = useStaticQuery(query)
-    const typewriter_text = localize('Trade forex, commodities, synthetic and stock indices')
+    const typewriter_text = !is_ppc
+        ? localize('Trade forex, commodities, synthetic and stock indices')
+        : localize('Trade forex, commodities, and stock indices')
     const [type_writer, setTypeWriter] = React.useState('')
     const [check_first_load, setFirstLoad] = React.useState(false)
     let type_writer_timeout
@@ -165,7 +176,7 @@ export const Hero = () => {
                         >
                             {localize(type_writer)}
                         </TypeWriter>
-                        <VerticalCarousel contents={contents} />
+                        <VerticalCarousel contents={!is_ppc ? contents : contents_ppc} />
                     </Details>
                     <ImageWrapper>
                         {check_first_load && (
@@ -196,4 +207,8 @@ export const Hero = () => {
             </Container>
         </HeroWrapper>
     )
+}
+
+Hero.propTypes = {
+    is_ppc: PropTypes.bool,
 }

@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Card, CardWrapper } from './_partner-card.js'
-import { Table, TR, TC } from './_table.js'
+import { Table, TRAP, TC } from './_table.js'
 import { SectionContainer, Container } from 'components/containers'
 import { Header, Text } from 'components/elements/typography'
 import { localize, Localize } from 'components/localization'
@@ -11,30 +11,102 @@ import device from 'themes/device'
 
 const StyledSection = styled(SectionContainer)`
     padding-bottom: 0;
-    background-color: var(--color-grey-8);
+    background-color: var(--color-grey-31);
+    @media ${device.tabletL} {
+        padding: 40px 0;
+    }
 `
+
+const ContentContainer = styled(Container)`
+    @media ${device.tabletL} {
+        padding: 0;
+    }
+`
+
 const TitleWrapper = styled.section`
     max-width: 99.6rem;
 
     h1:first-child {
         margin-bottom: 1.6rem;
     }
+
+    @media ${device.tabletL} {
+        ${Header} {
+            font-size: 24px;
+        }
+    }
+`
+
+const SubtitleHeader = styled(Header)`
+    width: 792px;
+    @media ${device.laptopL} {
+        width: 100%;
+    }
+    @media ${device.tabletL} {
+        font-size: 16px !important;
+    }
+`
+
+const ComissionPlanContainer = styled(SectionContainer)`
+    padding: 4rem 0 8rem 0;
+    @media ${device.tabletL} {
+        padding: 16px 0 0 0;
+    }
+    @media ${device.mobileM} {
+        width: unset;
+    }
 `
 
 const StyledText = styled(Text)`
     font-size: 1.4rem;
     line-height: 1.15;
-`
-const StyledHeader = styled(Header)`
-    margin-bottom: 1.6rem;
-
     @media ${device.tabletL} {
-        text-align: center;
+        font-size: 14px;
     }
 `
+
+const StyledTextHeading = styled(StyledText)`
+    @media ${device.tabletL} {
+        font-size: 14px;
+    }
+`
+const StyledHeader = styled(Header)`
+    @media ${device.desktopL} {
+        text-align: center;
+    }
+
+    @media (max-width: 1524px) {
+        text-align: center;
+    }
+
+    @media ${device.mobileM} {
+        text-align: left;
+        width: 38rem;
+    }
+`
+
+const CardHeader = styled(Header)`
+    @media ${device.tabletL} {
+        font-size: 16px;
+    }
+`
+
+const CardText = styled(Text)`
+    @media ${device.tabletL} {
+        font-size: 16px;
+    }
+`
+
 const ApplyNow = styled(LinkButton)`
     display: block;
     width: 100%;
+    border-radius: 4px;
+
+    @media ${device.tabletL} {
+        font-size: 14px;
+        margin-bottom: 16px;
+        height: 40px;
+    }
 `
 
 const CPAContent = styled.div`
@@ -44,18 +116,28 @@ const CPAContent = styled.div`
 `
 
 const StyledCard = styled(Card)`
+    border-radius: 8px;
+
     :nth-child(2) {
         margin: 1.6rem 2.4rem 0;
 
         @media ${device.tabletL} {
-            margin: 2.4rem 0;
+            margin: 24px 0;
         }
     }
-`
 
-const StyledHeaderCommission = styled(StyledHeader)`
-    @media (max-width: 1428px) {
-        text-align: center;
+    @media ${device.tabletL} {
+        min-width: 328px;
+        padding: 16px;
+        height: ${(props) => (props.tabletHeight ? props.tabletHeight : '')};
+    }
+
+    @media ${device.mobileM} {
+        min-width: unset;
+
+        p {
+            font-size: 12px;
+        }
     }
 `
 
@@ -102,42 +184,44 @@ const Turnover = [
 const DerivAffiliateProgramme = () => {
     return (
         <StyledSection>
-            <Container direction="column">
+            <ContentContainer direction="column">
                 <TitleWrapper>
-                    <Header as="h3" type="section-title" align="center" mb="1.6rem">
+                    <Header size="4.8rem" align="center" as="h3" mb="1.2rem">
                         {localize('Deriv Affiliate Programme')}
                     </Header>
-                    <Header as="h4" type="sub-section-title" align="center" weight="500">
+                    <SubtitleHeader as="h4" type="sub-section-title" align="center" weight="normal">
                         {localize(
                             'Partner with us as an affiliate. Earn commission from the total net revenue of your referred clients’ trades on DTrader and DBot.',
                         )}
-                    </Header>
+                    </SubtitleHeader>
                 </TitleWrapper>
-                <SectionContainer>
-                    <StyledHeaderCommission as="h4" type="sub-section-title">
+                <ComissionPlanContainer>
+                    <StyledHeader as="h4" type="main-paragraph">
                         {localize('Choose a commission plan:')}
-                    </StyledHeaderCommission>
+                    </StyledHeader>
                     <CardWrapper>
-                        <StyledCard height="55.3rem">
+                        <StyledCard height="52.9rem" tabletHeight="348px">
                             <div>
-                                <Header as="h4" type="sub-section-title">
+                                <CardHeader as="h4" type="sub-section-title" mb="0.8rem">
                                     {localize('Revenue share')}
-                                </Header>
-                                <Text>
+                                </CardHeader>
+                                <CardText>
                                     {localize(
                                         'Earn based on the monthly net revenue generated by your clients.',
                                     )}
-                                </Text>
+                                </CardText>
                                 <Table grid_col_number={2}>
                                     {RevenueShare.map((col, index) => (
                                         <TC grid_area={'area' + index} key={index}>
-                                            <TR isTitle="true">
-                                                <StyledText weight="bold">{col.title}</StyledText>
-                                            </TR>
+                                            <TRAP isTitle="true">
+                                                <StyledTextHeading weight="bold">
+                                                    {col.title}
+                                                </StyledTextHeading>
+                                            </TRAP>
                                             {col.data.map((data, index) => (
-                                                <TR key={index}>
+                                                <TRAP key={index}>
                                                     <StyledText>{data}</StyledText>
-                                                </TR>
+                                                </TRAP>
                                             ))}
                                         </TC>
                                     ))}
@@ -155,36 +239,39 @@ const DerivAffiliateProgramme = () => {
                                 </ApplyNow>
                             </div>
                         </StyledCard>
-                        <StyledCard height="55.3rem">
+                        <StyledCard height="52.9rem" tabletHeight="596px">
                             <div>
-                                <Header as="h4" type="sub-section-title">
+                                <CardHeader as="h4" type="sub-section-title" mb="0.8rem">
                                     {localize('Turnover')}
-                                </Header>
-                                <Text>
-                                    {localize('Earn based on each contract’s payout probability.')}
-                                </Text>
+                                </CardHeader>
+                                <CardText>
+                                    <Localize
+                                        translate_text="<0>Options:</0> Earn based on each contract’s payout probability."
+                                        components={[<strong key={0} />]}
+                                    />
+                                </CardText>
                                 <Table grid_col_number={2}>
                                     {Turnover.map((col, index) => (
                                         <TC grid_area={'area' + index} key={index}>
-                                            <TR isTitle="true">
+                                            <TRAP isTitle="true">
                                                 <StyledText weight="bold">
                                                     {localize(col.title)}
                                                 </StyledText>
-                                            </TR>
+                                            </TRAP>
                                             {col.data.map((data, index) => (
-                                                <TR key={index}>
+                                                <TRAP key={index}>
                                                     <StyledText>{localize(data)}</StyledText>
-                                                </TR>
+                                                </TRAP>
                                             ))}
                                         </TC>
                                     ))}
                                 </Table>
-                                <Text mt="3.2rem">
+                                <CardText mt="3.2rem">
                                     <Localize
                                         translate_text="<0>Multipliers:</0> Earn 40% of the commissions generated from your clients’ trades."
                                         components={[<strong key={0} />]}
                                     />
-                                </Text>
+                                </CardText>
                             </div>
                             <div>
                                 <ApplyNow
@@ -198,25 +285,27 @@ const DerivAffiliateProgramme = () => {
                                 </ApplyNow>
                             </div>
                         </StyledCard>
-                        <StyledCard height="55.3rem">
+                        <StyledCard height="52.9rem">
                             <div>
-                                <Header as="h4" type="sub-section-title">
+                                <CardHeader as="h4" type="sub-section-title" mb="0.8rem">
                                     {localize('CPA (EU only)')}
-                                </Header>
-                                <Text>{localize('Earn based on each successful referral.')}</Text>
+                                </CardHeader>
+                                <CardText>
+                                    {localize('Earn based on each successful referral.')}
+                                </CardText>
                                 <CPAContent>
-                                    <Text>
+                                    <CardText>
                                         <Localize
                                             translate_text="You earn <0>USD 100</0> when a referred client successfully deposits a one-time or cumulative total of <0>USD 100</0> into their Deriv account."
                                             components={[<strong key={0} />]}
                                         />
-                                    </Text>
-                                    <Text>
+                                    </CardText>
+                                    <CardText>
                                         <Localize
-                                            translate_text="This plan is only available for clients based in the EU."
+                                            translate_text="This plan is available exclusively for EU-based clients."
                                             components={[<strong key={0} />]}
                                         />
-                                    </Text>
+                                    </CardText>
                                 </CPAContent>
                             </div>
                             <div>
@@ -232,8 +321,8 @@ const DerivAffiliateProgramme = () => {
                             </div>
                         </StyledCard>
                     </CardWrapper>
-                </SectionContainer>
-            </Container>
+                </ComissionPlanContainer>
+            </ContentContainer>
         </StyledSection>
     )
 }

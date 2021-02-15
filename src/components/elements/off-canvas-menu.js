@@ -190,7 +190,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                 }
                                 title={<Localize translate_text="DMT5" />}
                                 onClick={handleArrowClick}
-                                to="/dmt5"
+                                to={props.is_ppc_redirect ? '/dmt5' : '/landing/dmt5'}
                             />
                         </Flex>
                         <Flex>
@@ -215,61 +215,70 @@ export const OffCanvasMenuWrapper = (props) => {
                                 otherLinkProps={{ rel: 'noopener noreferrer' }}
                             />
                         </Flex>
-                        <Divider m="16px 0" width="100%" height="1px" color="grey-8" />
-                        <Text color="grey-5" mb="8px" size="14px">
-                            {localize('Trade types')}
-                        </Text>
-                        <Flex mb="2rem">
-                            <NavCard
-                                icon={() => (
-                                    <img
-                                        src={MarginTrading}
-                                        alt="MarginTrading"
-                                        width="32"
-                                        height="32"
+                        {!props.is_ppc && (
+                            <>
+                                <Divider m="16px 0" width="100%" height="1px" color="grey-8" />
+                                <Text color="grey-5" mb="8px" size="14px">
+                                    {localize('Trade types')}
+                                </Text>
+                                <Flex mb="2rem">
+                                    <NavCard
+                                        icon={() => (
+                                            <img
+                                                src={MarginTrading}
+                                                alt="MarginTrading"
+                                                width="32"
+                                                height="32"
+                                            />
+                                        )}
+                                        content={
+                                            <Localize translate_text="Trade with leverage and low spreads for better returns on successful trades." />
+                                        }
+                                        title={<Localize translate_text="Margin trading" />}
+                                        onClick={handleArrowClick}
+                                        to="/trade-types/margin/"
                                     />
+                                </Flex>
+                                {!is_eu_country && (
+                                    <Flex mb="2rem">
+                                        <NavCard
+                                            icon={() => (
+                                                <img
+                                                    src={Options}
+                                                    alt="Options"
+                                                    width="32"
+                                                    height="32"
+                                                />
+                                            )}
+                                            content={
+                                                <Localize translate_text="Earn fixed payouts by predicting an asset's price movement." />
+                                            }
+                                            title={<Localize translate_text="Options" />}
+                                            onClick={handleArrowClick}
+                                            to="/trade-types/options"
+                                        />
+                                    </Flex>
                                 )}
-                                content={
-                                    <Localize translate_text="Trade with leverage and low spreads for better returns on successful trades." />
-                                }
-                                title={<Localize translate_text="Margin trading" />}
-                                onClick={handleArrowClick}
-                                to="/trade-types/margin/"
-                            />
-                        </Flex>
-                        {!is_eu_country && (
-                            <Flex mb="2rem">
-                                <NavCard
-                                    icon={() => (
-                                        <img src={Options} alt="Options" width="32" height="32" />
-                                    )}
-                                    content={
-                                        <Localize translate_text="Earn fixed payouts by predicting an asset's price movement." />
-                                    }
-                                    title={<Localize translate_text="Options" />}
-                                    onClick={handleArrowClick}
-                                    to="/trade-types/options"
-                                />
-                            </Flex>
+                                <Flex mb="2rem">
+                                    <NavCard
+                                        icon={() => (
+                                            <img
+                                                src={Multipliers}
+                                                alt="Multipliers"
+                                                width="32"
+                                                height="32"
+                                            />
+                                        )}
+                                        content={
+                                            <Localize translate_text="Combine the upside of margin trading with the simplicity of options." />
+                                        }
+                                        title={<Localize translate_text="Multipliers" />}
+                                        onClick={handleArrowClick}
+                                        to="/trade-types/multiplier"
+                                    />
+                                </Flex>
+                            </>
                         )}
-                        <Flex mb="2rem">
-                            <NavCard
-                                icon={() => (
-                                    <img
-                                        src={Multipliers}
-                                        alt="Multipliers"
-                                        width="32"
-                                        height="32"
-                                    />
-                                )}
-                                content={
-                                    <Localize translate_text="Combine the upside of margin trading with the simplicity of options." />
-                                }
-                                title={<Localize translate_text="Multipliers" />}
-                                onClick={handleArrowClick}
-                                to="/trade-types/multiplier"
-                            />
-                        </Flex>
                     </AccordionItem>
                     <AccordionItem
                         header={localize('Markets')}
@@ -287,24 +296,26 @@ export const OffCanvasMenuWrapper = (props) => {
                                 to="/markets#forex"
                             />
                         </Flex>
-                        <Flex mb="3.2rem">
-                            <NavCard
-                                icon={() => (
-                                    <img
-                                        src={SyntheticIndices}
-                                        alt="SyntheticIndices"
-                                        width="32"
-                                        height="32"
-                                    />
-                                )}
-                                content={localize(
-                                    'Enjoy synthetic markets that emulate real-world market movements.',
-                                )}
-                                title={localize('Synthetic indices')}
-                                onClick={handleArrowClick}
-                                to="/markets#synthetic"
-                            />
-                        </Flex>
+                        {!props.is_ppc && (
+                            <Flex mb="3.2rem">
+                                <NavCard
+                                    icon={() => (
+                                        <img
+                                            src={SyntheticIndices}
+                                            alt="SyntheticIndices"
+                                            width="32"
+                                            height="32"
+                                        />
+                                    )}
+                                    content={localize(
+                                        'Enjoy synthetic markets that emulate real-world market movements.',
+                                    )}
+                                    title={localize('Synthetic indices')}
+                                    onClick={handleArrowClick}
+                                    to="/markets#synthetic"
+                                />
+                            </Flex>
+                        )}
                         <Flex mb="3.2rem">
                             <NavCard
                                 icon={() => (
@@ -580,7 +591,14 @@ export const OffCanvasMenuPartner = (props) => {
 OffCanvasMenuPartner.propTypes = {
     closeOffCanvasMenu: PropTypes.func,
     is_canvas_menu_open: PropTypes.bool,
+    is_ppc: PropTypes.bool,
 }
+
+OffCanvasMenuWrapper.propTypes = {
+    is_ppc: PropTypes.bool,
+    is_ppc_redirect: PropTypes.bool,
+}
+
 export const moveOffCanvasMenu = (initState = false) => {
     const [is_canvas_menu_open, setOffCanvasMenuPosition] = useState(initState)
     const openOffCanvasMenu = () => setOffCanvasMenuPosition(true)

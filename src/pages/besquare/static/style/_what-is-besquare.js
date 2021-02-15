@@ -5,7 +5,7 @@ import device from 'themes/device'
 export const Section = styled(SectionContainer)`
     width: 100%;
     background-color: var(--color-grey-30);
-    padding: 80px 0;
+    padding: 80px 0 56px;
 
     @media ${device.tablet} {
         padding: 40px 16px;

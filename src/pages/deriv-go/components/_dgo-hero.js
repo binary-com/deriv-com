@@ -4,14 +4,13 @@ import PropTypes from 'prop-types'
 import { graphql, useStaticQuery } from 'gatsby'
 import { localize } from 'components/localization'
 import { Flex } from 'components/containers'
-import { Header, QueryImage } from 'components/elements'
+import { Header, QueryImage, BackgroundImage } from 'components/elements'
 import { LinkButton } from 'components/form'
 import device from 'themes/device.js'
-import Dgoogle_play_Logo from '/home/deriv/Desktop/deriv-com/src/images/common/derivgo/derivgo_gogleplay.png'
+import Dgoogle_play_Logo from 'images/common/derivgo/derivgo_gogleplay.png'
 
 const Wrapper = styled.div`
     position: relative;
-    background-color: var(--color-blue);
     width: 100%;
     display: flex;
     height: 575px;
@@ -66,7 +65,7 @@ const LottieWrapper = styled.div`
     max-width: 384px;
     position: absolute;
     top: 10.8rem;
-    right: 12rem;
+    right: 10rem;
 
     @media ${device.laptopM} {
         max-width: 500px;
@@ -188,6 +187,14 @@ const InformationWrapper = styled(Flex)`
 
 const query = graphql`
     query {
+        image: file(relativePath: { eq: "derivgo_background.png" }) {
+            childImageSharp {
+                fluid(maxWidth: 1024, srcSetBreakpoints: [1440]) {
+                    ...GatsbyImageSharpFluid_withWebp_noBase64
+                    originalName
+                }
+            }
+        }
         mobile_float: file(relativePath: { eq: "mobile_float.png" }) {
             childImageSharp {
                 fluid(maxWidth: 1024, srcSetBreakpoints: [1440]) {
@@ -210,45 +217,7 @@ const DGoHero = ({
     Logo,
 }) => {
     const data = useStaticQuery(query)
-    // const getRedirectLink = () => {
-    //     const path = image_name === 'dbot' ? '/bot' : '/'
-    //     return path
-    // }
 
-    // const BackgroundSVG = styled.img`
-    //     position: absolute;
-    //     top: 0;
-    //     right: 0;
-    //     height: 100%;
-
-    //     @media ${device.laptopM} {
-    //         width: 100%;
-    //         max-width: 1440px;
-    //         height: initial;
-    //     }
-    //     @media ${device.laptop} {
-    //         width: 100%;
-    //     }
-    //     @media ${device.tabletL} {
-    //         width: 100%;
-    //         max-width: 350px;
-    //     }
-    //     @media ${device.tablet} {
-    //         width: 100%;
-    //     }
-    //     @media ${device.tabletS} {
-    //         width: 80%;
-    //         max-width: 337px;
-    //     }
-    //     @media ${device.mobileL} {
-    //         max-width: 250px;
-    //         min-height: 244px;
-    //     }
-    //     @media ${device.mobileM} {
-    //         max-width: 205px;
-    //         min-height: 0;
-    //     }
-    // `
     const DLogo = styled.img`
         width: 213px !important;
         height: 28px !important;
@@ -260,48 +229,61 @@ const DGoHero = ({
         margin-right: 1.6rem;
     `
     return (
-        <Wrapper>
-            <InformationWrapper height="unset" direction="column">
-                <StyledHeader as="h4" weight="normal">
-                    <DLogo src={Logo} alt="logo" width="213" height="27" />
-                </StyledHeader>
-                <HeroContent>
-                    <StyledContent as="h1">{content}</StyledContent>
-                    <NormalContent>{description}</NormalContent>
-                </HeroContent>
-                <LinkWrapper>
-                    {google_play && (
-                        <Dgoogle_play
-                            src={Dgoogle_play_Logo}
-                            alt="Get it on Google Play"
-                            width="138"
-                            height="40"
+        <BackgroundImage
+            data={data.image}
+            alt={'background image'}
+            style={{
+                height: '562px;',
+                width: '100vw',
+                backgroundSize: `cover`,
+                backgroundColor: 'var(--color-white)',
+                margin: '0 0 94.2px;',
+                padding: '32px 732px 103px 222px;',
+                objectFit: 'contain;',
+                backgroundImage: 'linear-gradient(352deg, #1e3c57 70%, #5085b6 15%);',
+            }}
+        >
+            <Wrapper>
+                <InformationWrapper height="unset" direction="column">
+                    <StyledHeader as="h4" weight="normal">
+                        <DLogo src={Logo} alt="logo" width="213" height="27" />
+                    </StyledHeader>
+                    <HeroContent>
+                        <StyledContent as="h1">{content}</StyledContent>
+                        <NormalContent>{description}</NormalContent>
+                    </HeroContent>
+                    <LinkWrapper>
+                        {google_play && (
+                            <Dgoogle_play
+                                src={Dgoogle_play_Logo}
+                                alt="Get it on Google Play"
+                                width="138"
+                                height="40"
+                            />
+                        )}
+                        {ios_coming_soon && (
+                            <IosComingSoon>{localize('( iOS coming soon )')}</IosComingSoon>
+                        )}
+                    </LinkWrapper>
+                </InformationWrapper>
+
+                <LottieWrapper>
+                    {image_name === 'mobile_float' ? (
+                        <QueryImage data={data['mobile_float']} alt={background_alt} />
+                    ) : (
+                        <QueryImage
+                            data={data[is_mobile ? image_name + '_mobile' : image_name]}
+                            alt={background_alt}
                         />
                     )}
-                    {ios_coming_soon && (
-                        <IosComingSoon>{localize('( iOS coming soon )')}</IosComingSoon>
-                    )}
-                </LinkWrapper>
-            </InformationWrapper>
-
-            <LottieWrapper>
-                {image_name === 'mobile_float' ? (
-                    <QueryImage data={data['mobile_float']} alt={background_alt} />
-                ) : (
-                    <QueryImage
-                        data={data[is_mobile ? image_name + '_mobile' : image_name]}
-                        alt={background_alt}
-                    />
-                )}
-            </LottieWrapper>
-        </Wrapper>
+                </LottieWrapper>
+            </Wrapper>
+        </BackgroundImage>
     )
 }
 
 DGoHero.propTypes = {
     background_alt: PropTypes.string,
-    background_image_name: PropTypes.string,
-    background_svg: PropTypes.func,
     content: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     description: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     google_play: PropTypes.func,
@@ -309,7 +291,6 @@ DGoHero.propTypes = {
     ios_coming_soon: PropTypes.bool,
     is_mobile: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
     Logo: PropTypes.func,
-    title: PropTypes.string,
 }
 
 export default DGoHero

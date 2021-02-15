@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Flex } from 'components/containers'
+import { Flex, Show } from 'components/containers'
 import device from 'themes/device'
 
 export const ContentContainer = styled(Flex)`
@@ -47,6 +47,12 @@ export const ItemContainer = styled.div`
     @media ${device.tablet} {
         grid-row-gap: 8px;
         justify-content: center;
+    }
+`
+
+export const LineBreakContainer = styled(Show.Desktop)`
+    @media ${device.tablet} {
+        display: none;
     }
 `
 

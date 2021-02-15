@@ -9,6 +9,7 @@ const WhatIsBeSquare = () => {
     const style = {
         card_wrapper: {
             max_width: ['486px', '328px'],
+            width: ['max-content'],
             grid_template_columns: ['auto auto'],
             grid_column_gap: ['8px'],
             align_items: 'start',
@@ -21,7 +22,7 @@ const WhatIsBeSquare = () => {
         icon_wrapper: {
             width: ['16px'],
             height: ['16px'],
-            margin: '12px 0 0 16px',
+            margin: ['12px 0 0 16px', '14px 0 0 12px'],
         },
         text_wrapper: {
             max_width: ['446px', '328px'],

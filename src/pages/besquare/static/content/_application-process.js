@@ -1,5 +1,6 @@
 import React from 'react'
 import { List01, List02, List03, List04 } from '../images/_application-process'
+import { LineBreakContainer } from '../style/_application-process'
 import { Localize, localize } from 'components/localization'
 
 export default {
@@ -15,8 +16,8 @@ export default {
             alt: 'List item 2',
             text: (
                 <Localize
-                    translate_text="Complete our<0/>Self-Assessment Topgrading Interview (SATI)."
-                    components={[<br key={0} />]}
+                    translate_text="Complete our<0><1/></0>Self-Assessment Topgrading Interview (SATI)."
+                    components={[<LineBreakContainer key={0} />, <br key={1} />]}
                 />
             ),
         },

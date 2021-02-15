@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import { Localize } from 'components/localization'
-import { Header, QueryImage } from 'components/elements'
+import { Header, LocalizedLinkText, Text, QueryImage } from 'components/elements'
 import { Flex } from 'components/containers'
 import device from 'themes/device'
 
@@ -19,22 +19,37 @@ const Section = styled.div`
 `
 
 const StyledHeader = styled(Header)`
-    line-height: 1.25;
-    font-size: 3rem !important;
+    font-size: 2.8rem !important;
+    margin: 0 228px 8px 0;
+    width: 528px;
 `
 
 const ImageWrapper = styled(Flex)`
     display: flex;
 `
 
+const Content = styled.div`
+    width: 100%;
+    max-width: 60rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    ${Text} {
+        font-stretch: normal;
+        font-style: normal;
+        letter-spacing: normal;
+        color: #333333;
+    }
+`
+
 const Left = styled.div`
-    margin-right: 1.6rem;
+    margin-right: 1.8rem;
     margin-top: 40px;
     margin-bottom: 40px;
 `
 
 const Right = styled.div`
-    justify-content: flex-end;
     margin-top: 52px;
     margin-bottom: 52px;
 `
@@ -66,11 +81,22 @@ const NewApp = () => {
                         />
                     </Left>
                 </ImageWrapper>
-                <StyledHeader align="center" mt="40px">
-                    <Localize translate_text="Get the new Deriv Go mobile app" />
-                </StyledHeader>
+                <Content>
+                    <StyledHeader>
+                        <Localize translate_text="Get the new Deriv Go mobile app" />
+                    </StyledHeader>
+                    <Text size="20px" width="732px">
+                        <Localize
+                            translate_text="Scan this QR code to download the app from the <0>Google Play Store</0>."
+                            components={[<LocalizedLinkText size={20} color="red" key={0} />]}
+                        />
+                    </Text>
+                    <Text size="12px">
+                        <Localize translate_text="(iOS users: We haven't forgrotten you. A version for you is in the works.)" />
+                    </Text>
+                </Content>
                 <ImageWrapper>
-                    <Right margin="12px 0 8px 24px">
+                    <Right ml="20px">
                         <QueryImage
                             data={data['qr_code']}
                             alt={'QR code'}

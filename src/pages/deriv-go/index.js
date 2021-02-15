@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import Loadable from '@loadable/component'
 import DHero from './components/_dgo-hero'
-import { SEO } from 'components/containers'
+import BetaVersion from './components/beta-version'
+import Copyright from './components/copyright'
 import { localize, WithIntl, Localize } from 'components/localization'
-import Copyright from 'components/layout/copyright.js'
 import { size } from 'themes/device'
 import { isBrowser } from 'common/utility'
 import dgo_logo from 'images/common/derivgo/derivgo_logo.png'
-import DGoBGMobile from 'images/svg/dtrader-bg-mobile.svg'
-import DGoBG from 'images/common/derivgo/derivgo_background.png'
 const DContent = Loadable(() => import('./components/_dcontent'))
 const NewApp = Loadable(() => import('./components/_new-app'))
 
@@ -45,12 +43,9 @@ const DerivGo = () => {
         setMobile(isBrowser() ? window.screen.width <= size.mobileL : false)
         window.addEventListener('resize', handleResizeWindow)
     })
+
     return (
         <>
-            <SEO
-                title={localize('DerivGO | Online Trading Platform | Deriv.com')}
-                description={localize('DERIVGO Mobile App.')}
-            />
             <DHero
                 content={
                     <Localize
@@ -64,14 +59,14 @@ const DerivGo = () => {
                         components={[<br key={0} />]}
                     />
                 }
-                background_svg={is_mobile ? DGoBGMobile : DGoBG}
-                background_alt={localize('DGo Board')}
                 google_play
                 ios_coming_soon
                 Logo={dgo_logo}
                 image_name="mobile_float"
                 is_mobile={is_mobile}
             />
+
+            <BetaVersion />
 
             <DContent items={items} />
 

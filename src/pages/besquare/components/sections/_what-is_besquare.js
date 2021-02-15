@@ -17,7 +17,7 @@ const WhatIsBeSquare = () => {
             box_shadow: '0 4px 8px rgba(14, 14, 14, 0.1)',
             border_radius: '4px',
             margin: ['0 0 24px'],
-            padding: ['0 12px', '12px'],
+            padding: ['0 12px', '0'],
         },
         icon_wrapper: {
             width: ['16px'],
@@ -25,8 +25,8 @@ const WhatIsBeSquare = () => {
             margin: '12px 0 0 12px',
         },
         text_wrapper: {
-            max_width: ['438px', '300px'],
-            padding: ['8px 8px 12px', '12px 12px 12px 8px'],
+            max_width: ['438px', '328px'],
+            padding: ['8px 8px 12px', '12px 0 12px 8px'],
         },
     }
 

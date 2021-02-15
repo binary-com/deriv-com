@@ -14,6 +14,7 @@ export const CardWrapper = styled.div`
     max-width: ${({ max_width }) => responsiveFallback(max_width, 0)};
     grid-template-columns: ${({ grid_template_columns }) =>
         responsiveFallback(grid_template_columns, 0)};
+    grid-template-rows: ${({ grid_template_rows }) => responsiveFallback(grid_template_rows, 0)};
     grid-template-areas: ${({ grid_template_areas }) => {
         if (grid_template_areas) {
             let full_area = grid_template_areas[0]
@@ -25,11 +26,11 @@ export const CardWrapper = styled.div`
     }};
     grid-column-gap: ${({ grid_column_gap }) => responsiveFallback(grid_column_gap, 0)};
     grid-row-gap: ${({ grid_row_gap }) => responsiveFallback(grid_row_gap, 0)};
-    align-items: ${({ align_items }) => align_items ?? 'unset'};
-    justify-content: ${({ justify_content }) => justify_content ?? 'unset'};
-    box-shadow: ${({ box_shadow }) => box_shadow ?? 'unset'};
-    border-radius: ${({ border_radius }) => border_radius ?? 'unset'};
-    border: ${({ border }) => border ?? 'unset'};
+    align-items: ${({ align_items }) => align_items};
+    justify-content: ${({ justify_content }) => justify_content};
+    box-shadow: ${({ box_shadow }) => box_shadow};
+    border-radius: ${({ border_radius }) => border_radius};
+    border: ${({ border }) => border};
     background-color: ${({ background_color }) => responsiveFallback(background_color, 0)};
     padding: ${({ padding }) => responsiveFallback(padding, 0, 0)};
     margin: ${({ has_last_child_props, margin }) =>
@@ -58,6 +59,8 @@ export const CardWrapper = styled.div`
                 background-color: ${({ background_color }) => responsiveFallback(background_color)};
                 grid-template-columns: ${({ grid_template_columns }) =>
                     responsiveFallback(grid_template_columns)};
+                grid-template-rows: ${({ grid_template_rows }) =>
+                    responsiveFallback(grid_template_rows)};
                 grid-column-gap: ${({ grid_column_gap }) => responsiveFallback(grid_column_gap)};
                 grid-row-gap: ${({ grid_row_gap }) => responsiveFallback(grid_row_gap, 1)};
                 padding: ${({ padding }) => responsiveFallback(padding, 1, 0)};

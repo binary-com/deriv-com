@@ -22,6 +22,12 @@ import { DerivStore } from 'store'
 
 const non_localized_links = ['/careers', '/careers/']
 
+const getDerivAppLanguage = (link, locale) => {
+    const available_lang = ['id', 'pt', 'es']
+    const lang = available_lang.includes(locale) ? locale : 'en'
+    return `${link}?lang=${lang.toUpperCase()}`
+}
+
 export const SharedLinkStyle = css`
     color: var(--color-white);
     text-decoration: none;
@@ -121,11 +127,9 @@ export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
         } else if (is_zoho_link) {
             lang_to = `${zoho_url}${to}`
         } else if (is_dbot_link) {
-            const available_languages = ['id', 'pt', 'es']
-            const dbot_lang = available_languages.includes(locale) ? locale : 'en'
-            lang_to = `${deriv_bot_app_url}?lang=${dbot_lang.toUpperCase()}`
+            lang_to = getDerivAppLanguage(deriv_bot_app_url, locale)
         } else if (is_mt5_link) {
-            lang_to = `${deriv_app_url}/mt5?lang=${locale}`
+            lang_to = getDerivAppLanguage(`${deriv_app_url}/mt5`, locale)
         } else {
             lang_to = to
         }

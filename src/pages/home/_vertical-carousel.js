@@ -32,7 +32,7 @@ const VerticalCarousel = ({ contents }) => {
         <Carousel has_autoplay autoplay_interval={2500} {...settings}>
             {contents.map((content, index) => (
                 <StyledHeader
-                    as="h4"
+                    as="h3"
                     type="sub-section-title"
                     color="white"
                     index={index}

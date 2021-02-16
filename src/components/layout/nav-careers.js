@@ -113,7 +113,7 @@ export const NavCareers = () => {
                         <CareerRight jc="flex-end" ai="center">
                             {has_mounted && (
                                 <CareerButton
-                                    external
+                                    external="true"
                                     secondary
                                     is_zoho_link
                                     to="/"

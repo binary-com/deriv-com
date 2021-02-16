@@ -147,6 +147,7 @@ const cfd_warning_height = {
     desktop: 8,
     tablet: 12,
 }
+const pushwoosh_app_code = 'DD293-35A19'
 
 const getDomain = () =>
     isBrowser() && window.location.hostname.includes(deriv_cookie_domain)
@@ -198,6 +199,7 @@ export {
     livechat_license_id,
     map_api_key,
     PromiseClass,
+    pushwoosh_app_code,
     sanitize,
     scrollTop,
     sentenceCase,

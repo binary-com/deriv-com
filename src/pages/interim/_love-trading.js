@@ -19,7 +19,7 @@ const Section = styled(Box)`
     background-repeat: no-repeat;
     position: relative;
 
-    @media ${device.tablet} {
+    @media ${device.tabletL} {
         height: 700px;
         background-image: url(${(props) => props.mobile_image || PlatformMobile});
         background-size: 100% 63%;
@@ -29,7 +29,7 @@ const Section = styled(Box)`
 `
 
 const Responsive = styled(Container)`
-    @media ${device.tablet} {
+    @media ${device.tabletL} {
         flex-direction: column;
     }
 `
@@ -63,16 +63,6 @@ const AbsoluteWrapper = styled(Box)`
         }
     }
     @media ${device.tabletL} {
-        .gatsby-image-wrapper {
-            width: 40rem;
-        }
-    }
-    @media (max-width: 872px) {
-        .gatsby-image-wrapper {
-            width: 32rem;
-        }
-    }
-    @media ${device.tablet} {
         display: none;
     }
 `
@@ -80,7 +70,7 @@ const AbsoluteWrapper = styled(Box)`
 const MobileWrapper = styled.div`
     display: none;
 
-    @media ${device.tablet} {
+    @media ${device.tabletL} {
         display: block;
         margin: 3.2rem 0;
     }
@@ -107,18 +97,25 @@ const query = graphql`
     }
 `
 
+const StyledLeftContainer = styled(Flex)`
+    @media ${device.tabletL} {
+        height: 210px;
+        max-width: unset;
+    }
+`
+
 const LeftCTASection = ({ params }) => {
     const { button_text, button_url, cta_props, header, hide_cta } = params
     return (
-        <Flex fd="column" ai="center" max_width="28.2rem">
-            <Header as="h3" type="section-title" mb="4rem" align="center">
+        <StyledLeftContainer fd="column" ai="center" max_width="28.2rem">
+            <Header as="h3" type="section-title" mb="4rem" align="center" tabletL={{ mb: '34px' }}>
                 {header}
             </Header>
             <FitButton secondary to={button_url}>
                 {button_text}
             </FitButton>
             {!hide_cta && <CtaBinary {...(cta_props || {})} />}
-        </Flex>
+        </StyledLeftContainer>
     )
 }
 

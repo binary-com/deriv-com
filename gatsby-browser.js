@@ -134,8 +134,8 @@ export const onClientEntry = () => {
     NProgress.start()
 
     const is_gtm_test_domain = window.location.hostname === gtm_test_domain
-    const has_initialized = false
     const push_woosh = new Pushwoosh()
+    let has_initialized = false
 
     // Add GTM script for test domain
     if (!isLocalHost() && is_gtm_test_domain) {
@@ -168,6 +168,7 @@ export const onClientEntry = () => {
 
     if (isProduction() && !has_initialized) {
         pushwooshInit(push_woosh)
+        has_initialized = true
     }
 }
 

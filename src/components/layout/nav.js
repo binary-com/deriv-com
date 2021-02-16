@@ -631,48 +631,58 @@ const StyledLogo = styled(LogoLink)`
         }
     }
 `
+
+const NavInterimContainer = styled.div`
+    position: relative;
+`
+
 export const NavInterim = ({ interim_type }) => (
     <InterimNav>
         <CFDWarning />
-        <Container jc="space-between" p="2.4rem 0">
-            <Flex ai="center" jc="flex-start">
-                <Show.Desktop>
-                    <StyledLogo to={`/interim/${interim_type}`} aria-label={localize('Home')}>
-                        <Flex ai="center">
-                            <img src={Logo} alt="logo" width="190px" height="27px" />
-                            <img
-                                src={LogoCombinedShape}
-                                alt="logo combined shape desktop"
-                                width="120"
-                                height="17"
-                            />
-                        </Flex>
-                    </StyledLogo>
-                </Show.Desktop>
-                <Show.Mobile>
-                    <LogoLinkMobile to={`/interim/${interim_type}`} aria-label={localize('Home')}>
-                        <Flex>
-                            <img src={LogoOnly} alt="logo only 2" width="115px" height="27px" />
-                            <LogoDescription ai="center">
-                                <Line />
+        <NavInterimContainer>
+            <Container jc="space-between" p="2.4rem 0">
+                <Flex ai="center" jc="flex-start">
+                    <Show.Desktop>
+                        <StyledLogo to={`/interim/${interim_type}`} aria-label={localize('Home')}>
+                            <Flex ai="center">
+                                <img src={Logo} alt="logo" width="190" height="27" />
                                 <img
                                     src={LogoCombinedShape}
-                                    alt="logo combined shape mobile"
+                                    alt="logo combined shape desktop"
                                     width="120"
                                     height="17"
                                 />
-                            </LogoDescription>
-                        </Flex>
-                    </LogoLinkMobile>
-                </Show.Mobile>
-            </Flex>
-            <Auto jc="flex-end" ai="center">
-                <LanguageSwitcher short_name="true" />
-                <LeftButton secondary to="/">
-                    {localize('Explore Deriv.com')}
-                </LeftButton>
-            </Auto>
-        </Container>
+                            </Flex>
+                        </StyledLogo>
+                    </Show.Desktop>
+                    <Show.Mobile>
+                        <LogoLinkMobile
+                            to={`/interim/${interim_type}`}
+                            aria-label={localize('Home')}
+                        >
+                            <Flex>
+                                <img src={LogoOnly} alt="logo only 2" width="115" height="27" />
+                                <LogoDescription ai="center">
+                                    <Line />
+                                    <img
+                                        src={LogoCombinedShape}
+                                        alt="logo combined shape mobile"
+                                        width="120"
+                                        height="17"
+                                    />
+                                </LogoDescription>
+                            </Flex>
+                        </LogoLinkMobile>
+                    </Show.Mobile>
+                </Flex>
+                <Auto jc="flex-end" ai="center">
+                    <LanguageSwitcher short_name="true" />
+                    <LeftButton secondary to="/">
+                        {localize('Explore Deriv.com')}
+                    </LeftButton>
+                </Auto>
+            </Container>
+        </NavInterimContainer>
     </InterimNav>
 )
 

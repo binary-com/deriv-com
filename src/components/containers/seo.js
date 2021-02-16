@@ -54,7 +54,7 @@ const SEO = ({ description, meta, title, no_index, has_organization_schema }) =>
             '@context': 'https://schema.org',
             '@type': 'Organization',
             name: 'Deriv',
-            alternateName: 'Binary.com',
+            alternateName: 'Deriv.com',
             url: 'http://www.deriv.com',
             logo: 'https://deriv.com/static/1b57a116945933314eefeec0030c8e9d/2a4de/logo.png',
             sameAs: [
@@ -63,7 +63,7 @@ const SEO = ({ description, meta, title, no_index, has_organization_schema }) =>
                 'https://www.instagram.com/deriv_official',
                 'https://youtube.com/c/Derivdotcom',
                 'https://www.linkedin.com/company/derivdotcom/',
-                'http://www.deriv.com',
+                'https://www.deriv.com',
             ],
         }
     }
@@ -148,11 +148,11 @@ const SEO = ({ description, meta, title, no_index, has_organization_schema }) =>
                 },
                 ...(no_index || no_index_staging || is_ach_page
                     ? [
-                        {
-                            name: 'robots',
-                            content: 'noindex',
-                        },
-                    ]
+                          {
+                              name: 'robots',
+                              content: 'noindex',
+                          },
+                      ]
                     : []),
             ].concat(meta)}
         >

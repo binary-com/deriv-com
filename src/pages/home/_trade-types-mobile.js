@@ -56,7 +56,7 @@ const TradeTypeSlide = ({ description, icon, link, linkTitle, title }) => {
                             mt="1.6rem"
                             mb="0.8rem"
                             align="center"
-                            as="h6"
+                            as="h4"
                             type="main-paragraph"
                         >
                             {title}

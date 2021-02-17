@@ -143,8 +143,11 @@ const dmt5_android_url =
 const dmt5_ios_url = 'https://download.mql5.com/cdn/mobile/mt5/ios?server=Deriv-Demo,Deriv-Server'
 const dp2p_google_play_url =
     'https://play.google.com/store/apps/details?id=com.deriv.dp2p&hl=en&gl=US'
-const cfd_warning_height_desktop = 8
-const cfd_warning_height_tablet = 12
+const cfd_warning_height = {
+    desktop: 8,
+    tablet: 12,
+}
+const pushwoosh_app_code = 'DD293-35A19'
 
 const getDomain = () =>
     isBrowser() && window.location.hostname.includes(deriv_cookie_domain)
@@ -162,8 +165,7 @@ export {
     checkElemInArray,
     cloneObject,
     blog_url,
-    cfd_warning_height_desktop,
-    cfd_warning_height_tablet,
+    cfd_warning_height,
     deriv_cookie_domain,
     dmt5_windows_url,
     dmt5_linux_url,
@@ -197,6 +199,7 @@ export {
     livechat_license_id,
     map_api_key,
     PromiseClass,
+    pushwoosh_app_code,
     sanitize,
     scrollTop,
     sentenceCase,

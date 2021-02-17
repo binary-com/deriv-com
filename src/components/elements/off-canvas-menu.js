@@ -6,11 +6,7 @@ import { LocalizedLink, localize, Localize } from 'components/localization'
 import { Accordion, AccordionItem, NavCard, Text, Divider } from 'components/elements'
 import Signals from 'components/svgs/signals'
 import { useOutsideClick } from 'components/hooks/outside-click'
-import {
-    cfd_warning_height_desktop,
-    cfd_warning_height_tablet,
-    deriv_status_page_url,
-} from 'common/utility'
+import { cfd_warning_height, deriv_status_page_url } from 'common/utility'
 // SVG
 import AffiliateIb from 'images/svg/menu/affiliate-ib.svg'
 import Blog from 'images/svg/blog-nav.svg'
@@ -47,7 +43,7 @@ import Trade from 'images/svg/trader-tool-nav.svg'
 const OffCanvasMenu = styled.section`
     position: fixed;
     background-color: var(--color-white);
-    top: ${(props) => (props.is_eu_country ? `${cfd_warning_height_desktop + 7.2}rem` : `7.2rem`)};
+    top: ${(props) => (props.is_eu_country ? `${cfd_warning_height.desktop + 7.2}rem` : `7.2rem`)};
     height: 100vh;
     width: 253px;
     opacity: 1;
@@ -58,15 +54,15 @@ const OffCanvasMenu = styled.section`
 
     @media ${device.tabletS} {
         top: ${(props) =>
-            props.is_eu_country ? `${cfd_warning_height_tablet + 7.2}rem` : `7.2rem`};
+            props.is_eu_country ? `${cfd_warning_height.tablet + 7.2}rem` : `7.2rem`};
     }
 `
 
 const OffCanvasMenuSecondary = styled(OffCanvasMenu)`
-    top: ${(props) => (props.is_eu_country ? `${cfd_warning_height_desktop + 10}rem` : `10rem`)};
+    top: ${(props) => (props.is_eu_country ? `${cfd_warning_height.desktop + 10}rem` : `10rem`)};
 
     @media ${device.tabletS} {
-        top: ${(props) => (props.is_eu_country ? `${cfd_warning_height_tablet + 10}rem` : `10rem`)};
+        top: ${(props) => (props.is_eu_country ? `${cfd_warning_height.tablet + 10}rem` : `10rem`)};
     }
 `
 

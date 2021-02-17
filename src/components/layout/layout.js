@@ -11,7 +11,7 @@ import { LocationProvider } from './location-context'
 import EURedirect, { useModal } from 'components/custom/_eu-redirect-modal.js'
 import CookieBanner from 'components/custom/cookie-banner'
 import { CookieStorage } from 'common/storage'
-import { isBrowser } from 'common/utility'
+import { cfd_warning_height, isBrowser } from 'common/utility'
 import { DerivStore } from 'store'
 import { Localize } from 'components/localization'
 import { Text } from 'components/elements'
@@ -26,18 +26,15 @@ const has_dataLayer = isBrowser() && window.dataLayer
 const TRACKING_STATUS_KEY = 'tracking_status'
 const tracking_status_cookie = new CookieStorage(TRACKING_STATUS_KEY)
 
-const cfd_warning_height_desktop = 8
-const cfd_warning_height_tablet = 12
-
 const CFDWrapper = styled.section`
     background-color: var(--color-grey-25);
     background-size: cover;
-    height: ${cfd_warning_height_desktop}rem;
+    height: ${cfd_warning_height.desktop}rem;
     display: flex;
     align-items: center;
 
     @media ${device.tabletS} {
-        height: ${cfd_warning_height_tablet}rem;
+        height: ${cfd_warning_height.tablet}rem;
     }
 `
 
@@ -79,6 +76,25 @@ export const CFDWarning = ({ is_ppc }) => {
     )
 }
 
+const Main = styled.main`
+    margin-top: ${(props) =>
+        props.use_eu_margin
+            ? (props.margin_top && `${props.margin_top + cfd_warning_height.desktop}rem`) ||
+              `${7 + cfd_warning_height.desktop}rem`
+            : (props.margin_top && `${props.margin_top}rem`) || `7rem`};
+    background: var(--color-white);
+    height: 100%;
+    position: relative;
+
+    @media ${device.tabletS} {
+        margin-top: ${(props) =>
+            props.use_eu_margin
+                ? (props.margin_top && `${props.margin_top + cfd_warning_height.tablet}rem`) ||
+                  `${7 + cfd_warning_height.tablet}rem`
+                : (props.margin_top && `${props.margin_top}rem`) || `7rem`};
+    }
+`
+
 const Layout = ({
     children,
     interim_type,
@@ -98,25 +114,10 @@ const Layout = ({
     const [gtm_data, setGTMData] = useGTMData()
 
     const is_static = type === 'static'
-
-    const Main = styled.main`
-        margin-top: ${(props) =>
-            (!type && is_ppc) || is_eu_country
-                ? (props.margin_top && `${props.margin_top + cfd_warning_height_desktop}rem`) ||
-                  7 + cfd_warning_height_desktop + `rem`
-                : (props.margin_top && `${props.margin_top}rem`) || `7rem`};
-        background: var(--color-white);
-        height: 100%;
-        position: relative;
-
-        @media ${device.tabletS} {
-            margin-top: ${(props) =>
-                (!type && is_ppc) || is_eu_country
-                    ? (props.margin_top && `${props.margin_top + cfd_warning_height_tablet}rem`) ||
-                      7 + cfd_warning_height_tablet + `rem`
-                    : (props.margin_top && `${props.margin_top}rem`) || `7rem`};
-        }
-    `
+    //this pages do not show a banner (cfd) on top of nav. so no need to adjust top margin of main for these pages
+    const no_warning_pages = ['static', 'careers']
+    //cfd warning should be shown for pay per click even if the client is not from eu
+    const should_use_eu_margin = !no_warning_pages.includes(type) && (is_eu_country || is_ppc)
 
     // Every layout change will trigger scroll to top
     React.useEffect(() => {
@@ -190,7 +191,11 @@ const Layout = ({
             setModalPayload={setModalPayload}
         >
             {Navigation}
-            <Main margin_top={margin_top} is_static={is_static}>
+            <Main
+                margin_top={margin_top}
+                is_static={is_static}
+                use_eu_margin={should_use_eu_margin}
+            >
                 {children}
             </Main>
             {show_cookie_banner && (
@@ -225,7 +230,7 @@ Layout.propTypes = {
     interim_type: PropTypes.string,
     is_ppc: PropTypes.bool,
     is_ppc_redirect: PropTypes.bool,
-    margin_top: PropTypes.number,
+    margin_top: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     nav_type: PropTypes.string,
     no_live_chat: PropTypes.bool,
     no_login_signup: PropTypes.bool,

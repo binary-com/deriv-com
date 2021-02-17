@@ -40,7 +40,7 @@ const addScript = (settings) => {
 }
 
 const sendTags = (push_woosh) => {
-    const language = LocalStore.get('i18n')
+    const language = LocalStore.get('i18n') || ''
     const domain = window.location.hostname.includes('deriv.com') ? 'deriv.com' : 'binary.sx'
     const { loginid, residence } = Cookies.get('client_information', {
         domain,

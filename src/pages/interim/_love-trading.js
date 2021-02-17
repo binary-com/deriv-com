@@ -107,7 +107,7 @@ const StyledLeftContainer = styled(Flex)`
 const LeftCTASection = ({ params }) => {
     const { button_text, button_url, cta_props, header, hide_cta } = params
     return (
-        <StyledLeftContainer fd="column" ai="center" max_width="28.2rem">
+        <>
             <Header as="h3" type="section-title" mb="4rem" align="center" tabletL={{ mb: '34px' }}>
                 {header}
             </Header>
@@ -115,7 +115,7 @@ const LeftCTASection = ({ params }) => {
                 {button_text}
             </FitButton>
             {!hide_cta && <CtaBinary {...(cta_props || {})} />}
-        </StyledLeftContainer>
+        </>
     )
 }
 
@@ -157,7 +157,9 @@ export const LoveTradingComponent = ({ bg_image, bg_image_mobile, image, left, r
                 <QueryImage data={data[image]} width="54rem" />
             </AbsoluteWrapper>
             <Responsive jc="space-between" position="relative">
-                {left.custom_content || <LeftCTASection params={left} />}
+                <StyledLeftContainer fd="column" ai="center" max_width="28.2rem">
+                    {left.custom_content || <LeftCTASection params={left} />}
+                </StyledLeftContainer>
                 <MobileWrapper>
                     <QueryImage data={data[image]} width="30rem" />
                 </MobileWrapper>

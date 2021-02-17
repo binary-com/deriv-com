@@ -9,7 +9,7 @@ const content = {
         header: <Localize translate_text="Got more questions?" />,
         button_url: '/',
         custom_content: (
-            <Flex fd="column" ai="center" max_width="28.2rem">
+            <>
                 <Header as="h3" type="section-title" m="2.4rem 0" align="center">
                     <Localize translate_text="Got more questions?" />
                 </Header>
@@ -26,7 +26,7 @@ const content = {
                         partners@deriv.com
                     </LocalizedLinkText>
                 </Text>
-            </Flex>
+            </>
         ),
         hide_cta: true,
     },

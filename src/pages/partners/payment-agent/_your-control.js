@@ -14,7 +14,8 @@ const Card = styled(Flex)`
     border-radius: 4px;
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.05);
     background: var(--color-white);
-    height: 13.6rem;
+    min-height: 13.6rem;
+    height: auto;
     width: auto;
     justify-content: flex-start;
     align-items: center;

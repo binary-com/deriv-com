@@ -44,7 +44,10 @@ const sendTags = (push_woosh) => {
     const domain = window.location.hostname.includes('deriv.com') ? 'deriv.com' : 'binary.sx'
     const { loginid, residence } = Cookies.get('client_information', {
         domain,
-    })
+    }) || {
+        loginid: '',
+        residence: '',
+    }
 
     push_woosh.push((api) => {
         api.getTags()

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { populateStyle, removeKeysFromObject, responsiveFallback } from 'common/utility'
+import { populateStyle, responsiveFallback } from 'common/utility'
 import { Header, Text } from 'components/elements'
 import device from 'themes/device'
 
@@ -27,9 +27,8 @@ export const Title = styled(Header)`
     text-align: ${({ text_align }) => text_align ?? 'center'};
     ${(props) => {
         const default_props_object = { font_size: '48px', line_height: '60px' }
-        const keys_to_remove = ['text_align']
-        removeKeysFromObject(props, keys_to_remove)
-        return populateStyle(props, default_props_object, 0)
+        const keys_to_skip = ['text_align']
+        return populateStyle(props, default_props_object, 0, keys_to_skip)
     }}
     width: fit-content;
 

@@ -16,7 +16,7 @@ export default {
             alt: 'List item 2',
             text: (
                 <Localize
-                    translate_text="Complete our<0><1/></0>Self-Assessment Topgrading Interview (SATI)."
+                    translate_text="Complete our <0><1/></0>Self-Assessment Topgrading Interview (SATI)."
                     components={[<LineBreakContainer key={0} />, <br key={1} />]}
                 />
             ),

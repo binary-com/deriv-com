@@ -55,7 +55,7 @@ const Absolute = styled.div`
     display: ${(props) => !props.is_open && 'none'};
 
     @media ${device.mobileL} {
-        top: ${(props) => (props.is_high_nav ? '7rem' : '8rem')};
+        top: ${(props) => (props.is_high_nav ? '7rem' : '9rem')};
         left: 0;
     }
 `

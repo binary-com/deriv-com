@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { graphql, useStaticQuery } from 'gatsby'
 import device from 'themes/device'
-import { Container, SectionContainer } from 'components/containers'
+import { Container, SectionContainer, Flex } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
 
 const StyledSection = styled(SectionContainer)`
@@ -12,13 +12,8 @@ const StyledSection = styled(SectionContainer)`
     padding: 6.4rem 1.6rem;
     margin: 2rem auto;
 `
-const StyledContainer = styled(Container)`
-    display: flex;
-    flex-direction: column;
-`
-const Content = styled.div`
+const Content = styled(Flex)`
     width: 60%;
-    display: flex;
     flex-direction: column;
     justify-content: center;
     margin-right: ${(props) => props.margin_right};
@@ -125,15 +120,12 @@ const Parallelogram = ({ trading, reverse, two_title }) => {
     const data = useStaticQuery(query)
     return (
         <StyledSection>
-            <StyledContainer>
+            <Container fd="column">
                 {trading.map((item, index) => {
                     let is_even = reverse ? (index + 1) % 2 : index % 2
                     return (
                         <Row flex_direction={!is_even ? 'row' : 'row-reverse'} key={index}>
-                            <Content
-                                margin_right={!is_even ? '4.0rem' : '0'}
-                                margin_left={!is_even ? '0' : '4.0rem'}
-                            >
+                            <Content>
                                 <StyledHeader type="display-title">{item.title}</StyledHeader>
                                 <Text>{item.subtitle}</Text>
                                 {two_title && (
@@ -155,7 +147,7 @@ const Parallelogram = ({ trading, reverse, two_title }) => {
                         </Row>
                     )
                 })}
-            </StyledContainer>
+            </Container>
         </StyledSection>
     )
 }

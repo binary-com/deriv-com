@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="90" height="90" viewBox="0 0 90 90">
+    <defs>
+        <path id="wvpvt1k2la" d="M0 0.062L72.823 0.062 72.823 48.447 0 48.447z"/>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <g>
+            <g>
+                <g>
+                    <path stroke="#979797" d="M0 1.109H88V89.109H0z" opacity=".01" transform="translate(-1081 -2804) translate(120 2640) translate(962 164)"/>
+                    <path fill="#85ACAF" d="M0 81.168c0 4.385 3.278 7.941 7.321 7.941h58.568c4.043 0 7.321-3.556 7.321-7.941v-4.63H0v4.63z" transform="translate(-1081 -2804) translate(120 2640) translate(962 164)"/>
+                    <g transform="translate(-1081 -2804) translate(120 2640) translate(962 164) translate(0 26.252)">
+                        <mask id="5euz3fvqcb" fill="#fff">
+                            <use xlink:href="#wvpvt1k2la"/>
+                        </mask>
+                        <path fill="#85ACAF" d="M48.484 30.472v10.982h-5.88V30.472h-5.876l5.877-7.936 2.94-3.968 2.939 3.968 5.878 7.936h-5.878zm-18.266 1.04l-2.939 3.968-2.94-3.966-5.878-7.937h5.878V12.596h5.879v10.981h5.876l-5.876 7.935zM65.54.062H7.282C3.261.062 0 3.369 0 7.448v40.999h72.823V7.448c0-4.079-3.26-7.386-7.283-7.386z" mask="url(#5euz3fvqcb)"/>
+                    </g>
+                    <path fill="#FF444F" d="M63.227.37c-13.681 0-24.773 11.09-24.773 24.773 0 13.68 11.092 24.773 24.773 24.773S88 38.824 88 25.143C88 11.46 76.908.37 63.227.37z" style="mix-blend-mode:multiply" transform="translate(-1081 -2804) translate(120 2640) translate(962 164)"/>
+                    <path fill="#FFF" d="M58.47 18.513c0-1.851-1.5-3.353-3.352-3.353-1.853 0-3.353 1.502-3.353 3.353 0 1.853 1.5 3.353 3.353 3.353 1.851 0 3.352-1.5 3.352-3.353zm.44 18.758h-4.88L68.102 15.16h4.881L58.91 37.27zm8.333-3.28c0-1.851 1.5-3.353 3.353-3.353 1.853 0 3.354 1.502 3.354 3.353 0 1.853-1.5 3.354-3.354 3.354-1.853 0-3.353-1.501-3.353-3.354z" transform="translate(-1081 -2804) translate(120 2640) translate(962 164)"/>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

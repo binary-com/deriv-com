@@ -8,8 +8,6 @@ import { Header, Text, QueryImage } from 'components/elements'
 
 const StyledSection = styled(SectionContainer)`
     background-color: var(--color-white);
-    box-shadow: inset 1px 0 0 1px var(--color-grey-2);
-
     @media ${device.tabletL} {
         padding: 1.74rem 0 4rem 0;
     }
@@ -19,39 +17,51 @@ const StyledContainer = styled(Container)`
     flex-direction: column;
 `
 const Content = styled.div`
-    width: 100%;
-    max-width: 58.8rem;
+    width: 60%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     margin-right: ${(props) => props.margin_right};
+    margin-left: ${(props) => props.margin_left};
 
     ${Text} {
         margin-top: 2.2rem;
+        font-size: 2.4rem;
+        @media ${device.laptopM} {
+            font-size: 2.4rem;
+        }
+        @media ${device.tabletL} {
+            font-size: 1.6rem;
+            text-align: center;
+        }
     }
 
     @media ${device.tabletL} {
+        width: 100%;
+        max-width: 58.8rem;
         margin: 0 auto;
     }
 `
 
 const ImageWrapper = styled.div`
-    max-width: 58.8rem;
-    width: 100%;
-    max-height: 30rem;
+    display: flex;
+    width: 40%;
     margin-right: ${(props) => props.margin_right};
 
     @media ${device.tabletL} {
         margin: 2rem auto;
+        max-width: 58.8rem;
+        width: 100%;
     }
 `
 const StyledHeader = styled(Header)`
     line-height: 1.25;
 
     @media ${device.tabletL} {
-        font-size: 24px;
+        font-size: 40px;
         line-height: 40px;
         margin-top: 2rem;
+        text-align: center;
     }
 `
 const Row = styled.div`
@@ -120,8 +130,11 @@ const DTrading = ({ trading, reverse, two_title }) => {
                     let is_even = reverse ? (index + 1) % 2 : index % 2
                     return (
                         <Row flex_direction={!is_even ? 'row' : 'row-reverse'} key={index}>
-                            <Content margin_right={!is_even ? '2.4rem' : '0'}>
-                                <StyledHeader type="page-title">{item.title}</StyledHeader>
+                            <Content
+                                margin_right={!is_even ? '4.0rem' : '0'}
+                                margin_left={!is_even ? '0' : '4.0rem'}
+                            >
+                                <StyledHeader type="display-title">{item.title}</StyledHeader>
                                 <Text>{item.subtitle}</Text>
                                 {two_title && (
                                     <>

@@ -64,19 +64,16 @@ const TextDiv = styled(Flex)`
 
 const ImageWrapper = styled(Flex)`
     width: 40%;
-    justify-content: center;
 
     @media ${device.tabletL} {
         height: unset;
         width: 100%;
-        justify-content: center;
         align-items: center;
         padding: 36px 0;
     }
 `
 const ImageDiv = styled(Flex)`
     width: 488px;
-    justify-content: center;
     align-items: center;
 
     @media ${device.tabletL} {

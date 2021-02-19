@@ -82,6 +82,7 @@ const pushwooshInit = (push_woosh) => {
             safariWebsitePushID: 'web.com.deriv',
             defaultNotificationTitle: 'Deriv.com',
             defaultNotificationImage: 'https://deriv.com/static/favicons/favicon-192x192.png',
+            autoSubscribe: true,
         },
     ])
     sendTags(push_woosh)

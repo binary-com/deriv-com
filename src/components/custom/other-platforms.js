@@ -444,6 +444,8 @@ export const NavResources = ({ onClick }) => (
             onClick={onClick}
             to={community_url}
             target="_blank"
+            external="true"
+            rel="noopener noreferrer"
         />
         <CardLink
             icon={() => <img src={TraderTool} alt="traders tools" width="24" height="24" />}
@@ -469,6 +471,8 @@ export const NavResources = ({ onClick }) => (
             onClick={onClick}
             to={deriv_blog_url}
             target="_blank"
+            external="true"
+            rel="noopener noreferrer"
         />
     </Flex>
 )

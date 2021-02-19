@@ -124,7 +124,13 @@ const WithdrawMaestroMastercard = () => (
 const DepositsAndWithdrawalArticle = () => {
     return (
         <div>
-            <Article header={localize('Deposits and withdrawals')} title={localize('Help centre | Frequently asked questions | Deposits and withdrawals | Deriv')} description={localize('Frequently asked questions - Deposits and withdrawals')}>
+            <Article
+                header={localize('Deposits and withdrawals')}
+                title={localize(
+                    'Help centre | Frequently asked questions | Deposits and withdrawals | Deriv',
+                )}
+                description={localize('Frequently asked questions - Deposits and withdrawals')}
+            >
                 <PaymentMethods
                     text={localize('What payment methods do you support?')}
                     label="payment-methods"

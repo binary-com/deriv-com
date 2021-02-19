@@ -9,8 +9,12 @@ import { Header, Text, QueryImage } from 'components/elements'
 const StyledSection = styled(SectionContainer)`
     background-color: var(--color-white);
     @media ${device.tabletL} {
-        padding: 17px 0 4px 0;
+        padding: 1.74rem 0 4rem 0;
     }
+`
+const StyledContainer = styled(Container)`
+    display: flex;
+    flex-direction: column;
 `
 const Content = styled.div`
     width: 60%;
@@ -121,12 +125,15 @@ const DTrading = ({ trading, reverse, two_title }) => {
     const data = useStaticQuery(query)
     return (
         <StyledSection>
-            <Container fd="column">
+            <StyledContainer>
                 {trading.map((item, index) => {
                     let is_even = reverse ? (index + 1) % 2 : index % 2
                     return (
                         <Row flex_direction={!is_even ? 'row' : 'row-reverse'} key={index}>
-                            <Content mr={!is_even ? '4.0rem' : '0'} ml={!is_even ? '0' : '4.0rem'}>
+                            <Content
+                                margin_right={!is_even ? '4.0rem' : '0'}
+                                margin_left={!is_even ? '0' : '4.0rem'}
+                            >
                                 <StyledHeader type="display-title">{item.title}</StyledHeader>
                                 <Text>{item.subtitle}</Text>
                                 {two_title && (
@@ -148,7 +155,7 @@ const DTrading = ({ trading, reverse, two_title }) => {
                         </Row>
                     )
                 })}
-            </Container>
+            </StyledContainer>
         </StyledSection>
     )
 }

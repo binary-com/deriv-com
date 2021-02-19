@@ -14,7 +14,7 @@ const Wrapper = styled(Flex)`
     }
 `
 
-const StyledImage = styled.img`
+const ImageWrapper = styled.img`
     margin: 0 auto 1.6rem;
     width: 64px;
     height: 64px;
@@ -26,6 +26,11 @@ const Card = styled(Flex)`
     justify-content: flex-start;
     flex-wrap: wrap;
 
+    & > img {
+        margin-bottom: 1.6rem;
+        width: 64px;
+        height: 64px;
+    }
     @media ${device.tabletL} {
         width: 100%;
         max-width: 58.8rem;
@@ -47,7 +52,7 @@ const WhyTradeWithUs = ({ itemsArr, mainTitle, columnPerRow }) => {
                     {itemsArr.map((item, index) => {
                         return (
                             <Card direction="column" key={index} width={CardWidth}>
-                                <StyledImage src={item.icon} alt={item.image_alt} />
+                                <ImageWrapper src={item.icon} alt={item.image_alt} />
                                 <Header as="h4" type="sub-section-title" mb="0.8rem" align="center">
                                     {item.title}
                                 </Header>

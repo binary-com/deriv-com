@@ -25,7 +25,12 @@ import { useActiveLinkState } from 'components/hooks/use-active-link-state'
 import { SharedLinkStyle } from 'components/localization/localized-link'
 import Login from 'common/login'
 import device from 'themes/device'
-import { affiliate_signin_url, affiliate_signup_url } from 'common/utility'
+import {
+    affiliate_signin_url,
+    affiliate_signup_url,
+    deriv_app_url,
+    isLoggedIn,
+} from 'common/utility'
 // Icons
 import Logo from 'images/svg/logo-deriv.svg'
 import LogoPartner from 'images/svg/logo-partners.svg'
@@ -212,6 +217,13 @@ const NavRight = styled.div`
         display: none;
     }
 `
+const NavGetTrading = styled.div`
+    display: inline-flex;
+    text-align: right;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+`
 const NavLink = styled.li`
     list-style-type: none;
     display: flex;
@@ -280,11 +292,11 @@ const LogoLinkMobile = styled(LocalizedLink)`
     }
 `
 
-const LoginButton = styled(Button)`
+const NowrapButton = styled(Button)`
     white-space: nowrap;
 `
 
-const MobileLogin = styled(Button)`
+const MobileButton = styled(Button)`
     display: none;
     font-size: 14px;
     margin-left: ${({ margin_left }) => margin_left ?? '1.6rem'};
@@ -330,7 +342,11 @@ const handleLogin = () => {
     Login.redirectToLogin()
 }
 
-const NavMobile = ({ is_ppc, is_ppc_redirect }) => {
+const handleGetTrading = () => {
+    window.location.href = deriv_app_url
+}
+
+const NavMobile = ({ is_ppc, is_ppc_redirect, is_logged_in }) => {
     const [is_canvas_menu_open, openOffCanvasMenu, closeOffCanvasMenu] = moveOffCanvasMenu()
 
     return (
@@ -357,9 +373,15 @@ const NavMobile = ({ is_ppc, is_ppc_redirect }) => {
             </LogoLinkMobile>
             <MobileRight>
                 <LanguageSwitcher short_name="true" is_high_nav />
-                <MobileLogin margin_left="0.8rem" onClick={handleLogin} primary>
-                    <span>{localize('Log in')}</span>
-                </MobileLogin>
+                {is_logged_in ? (
+                    <MobileButton margin_left="0.8rem" onClick={handleGetTrading} primary>
+                        <span>{localize('Get Trading')}</span>
+                    </MobileButton>
+                ) : (
+                    <MobileButton margin_left="0.8rem" onClick={handleLogin} primary>
+                        <span>{localize('Log in')}</span>
+                    </MobileButton>
+                )}
             </MobileRight>
             <OffCanvasMenu
                 is_canvas_menu_open={is_canvas_menu_open}
@@ -371,7 +393,7 @@ const NavMobile = ({ is_ppc, is_ppc_redirect }) => {
     )
 }
 
-const NavDesktop = ({ base, is_ppc, is_ppc_redirect }) => {
+const NavDesktop = ({ base, is_ppc, is_ppc_redirect, is_logged_in }) => {
     const data = useStaticQuery(query)
     const button_ref = useRef(null)
     const [show_button, showButton, hideButton] = moveButton()
@@ -431,6 +453,8 @@ const NavDesktop = ({ base, is_ppc, is_ppc_redirect }) => {
         setHasScrolled(true)
         handleScroll(showButton, hideButton)
     }
+
+    const LanguageSwitcherNavDesktop = () => <LanguageSwitcher short_name="true" is_high_nav />
 
     useEffect(() => {
         setMounted(true)
@@ -551,37 +575,58 @@ const NavDesktop = ({ base, is_ppc, is_ppc_redirect }) => {
                         </StyledButton>
                     </NavLink>
                 </NavCenter>
-                <NavRight
-                    move={show_button}
-                    button_ref={button_ref}
-                    mounted={mounted}
-                    has_scrolled={has_scrolled}
-                >
-                    <LanguageSwitcher short_name="true" is_high_nav />
-                    <LoginButton onClick={handleLogin} primary>
-                        <span>{localize('Log in')}</span>
-                    </LoginButton>
-                    <LocalizedLink to={is_ppc_redirect ? '/landing/signup/' : '/signup/'}>
-                        <SignupButton ref={button_ref} secondary="true">
-                            <span>{localize('Create free demo account')}</span>
-                        </SignupButton>
-                    </LocalizedLink>
-                </NavRight>
+
+                {is_logged_in ? (
+                    <NavGetTrading>
+                        <LanguageSwitcherNavDesktop />
+                        <NowrapButton onClick={handleGetTrading} primary>
+                            <span>{localize('Get Trading')}</span>
+                        </NowrapButton>
+                    </NavGetTrading>
+                ) : (
+                    <NavRight
+                        move={show_button}
+                        button_ref={button_ref}
+                        mounted={mounted}
+                        has_scrolled={has_scrolled}
+                    >
+                        <LanguageSwitcherNavDesktop />
+                        <NowrapButton onClick={handleLogin} primary>
+                            <span>{localize('Log in')}</span>
+                        </NowrapButton>
+                        <LocalizedLink to={is_ppc_redirect ? '/landing/signup/' : '/signup/'}>
+                            <SignupButton ref={button_ref} secondary="true">
+                                <span>{localize('Create free demo account')}</span>
+                            </SignupButton>
+                        </LocalizedLink>
+                    </NavRight>
+                )}
             </Wrapper>
         </div>
     )
 }
 
 export const Nav = ({ base, is_ppc_redirect, is_ppc }) => {
+    const [is_logged_in, setLoggedIn] = useState(false)
+
+    useEffect(() => {
+        setLoggedIn(isLoggedIn())
+    }, [])
+
     return (
         <NavWrapper>
             <CFDWarning />
             <StyledNav>
                 <Show.Desktop>
-                    <NavDesktop base={base} is_ppc={is_ppc} is_ppc_redirect={is_ppc_redirect} />
+                    <NavDesktop
+                        base={base}
+                        is_ppc={is_ppc}
+                        is_ppc_redirect={is_ppc_redirect}
+                        is_logged_in={is_logged_in}
+                    />
                 </Show.Desktop>
                 <Show.Mobile>
-                    <NavMobile is_ppc={is_ppc} />
+                    <NavMobile is_ppc={is_ppc} is_logged_in={is_logged_in} />
                 </Show.Mobile>
             </StyledNav>
         </NavWrapper>
@@ -596,11 +641,13 @@ Nav.propTypes = {
 
 NavDesktop.propTypes = {
     base: PropTypes.string,
+    is_logged_in: PropTypes.bool,
     is_ppc: PropTypes.bool,
     is_ppc_redirect: PropTypes.bool,
 }
 
 NavMobile.propTypes = {
+    is_logged_in: PropTypes.bool,
     is_ppc: PropTypes.bool,
     is_ppc_redirect: PropTypes.bool,
 }

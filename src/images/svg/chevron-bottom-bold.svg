@@ -1,8 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-    <title id='chevron-bottom'>Chevron Bold</title>
-    <g fill="none" fill-rule="evenodd">
-        <path d="M0 0H16V16H0z" />
-        <path fill="#FF444F" fill-rule="nonzero"
-            d="M3.625 6.22c-.432-.346-1.06-.276-1.406.155-.345.432-.275 1.06.156 1.406l5 4c.366.292.884.292 1.25 0l5-4c.431-.345.5-.974.156-1.406-.345-.431-.974-.5-1.406-.156L8 9.72l-4.375-3.5z" />
-    </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"><g fill="none" fill-rule="evenodd"><path d="M0 0h16v16H0z"/><path fill="#FF444F" fill-rule="nonzero" d="M3.625 6.22a1 1 0 10-1.25 1.561l5 4c.366.292.884.292 1.25 0l5-4c.431-.345.5-.974.156-1.406a1.002 1.002 0 00-1.406-.156L8 9.72l-4.375-3.5z"/></g></svg>

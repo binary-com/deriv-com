@@ -1,13 +1,1 @@
-<svg role='img' xmlns="http://www.w3.org/2000/svg" width="67" height="251" viewBox="0 0 67 251">
-    <title id='downwards-right'>Downwards right</title>
-    <g fill="none" fill-rule="evenodd" stroke-linecap="round">
-        <path stroke="#FF5E67" stroke-linejoin="round" stroke-width="3.999"
-            d="M133.975 35.383L124.975 45.245 133.72 53.383"
-            transform="rotate(85.008 24.805 25.033) rotate(178 129.475 44.383)" />
-        <path stroke="#333" stroke-dasharray="11.998" stroke-opacity=".32" stroke-width="3.999"
-            d="M.922 41.336s53.005 14.913 106.302 6.227" transform="rotate(85.008 24.805 25.033)" />
-        <path stroke="#333" stroke-dasharray="11.999" stroke-opacity=".32" stroke-width="4"
-            d="M149.453 40.996s29.712-6.175 49.423-13.487C219.097 20.007 233.23 13.445 258.444.59"
-            transform="rotate(85.008 24.805 25.033)" />
-    </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="67" height="251"><g fill="none" fill-rule="evenodd" stroke-linecap="round"><path stroke="#FF5E67" stroke-linejoin="round" stroke-width="3.999" d="M5.156 127.619l10.884 7.732 7.013-9.67"/><path stroke="#333" stroke-dasharray="11.998" stroke-opacity=".32" stroke-width="3.999" d="M6.486 2.66S-3.758 56.76 9.532 109.1"/><path stroke="#333" stroke-dasharray="11.999" stroke-opacity=".32" stroke-width="4" d="M19.749 150.597s8.737 29.062 17.736 48.062c9.234 19.492 17 33 32 57"/></g></svg>

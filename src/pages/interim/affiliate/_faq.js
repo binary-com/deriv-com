@@ -125,7 +125,7 @@ const FAQ = () => {
             <Container direction="column">
                 <FAQWrapper jc="space-between">
                     <Question>
-                        <Header as="h3" mb="0.8rem" lh="1.25">
+                        <Header as="h3" type="section-title" mb="0.8rem" lh="1.25">
                             {localize('How will it affect my clients?')}
                         </Header>
                         <Text>

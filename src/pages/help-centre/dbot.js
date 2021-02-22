@@ -703,9 +703,16 @@ const ViewChart = () => (
 const DBotArticle = () => {
     return (
         <div>
-            <Article header="DBot" title={localize('Help centre | Frequently asked questions | DBot | Deriv')} description={localize('Frequently asked questions - DBot')}>
+            <Article
+                header="DBot"
+                title={localize('Help centre | Frequently asked questions | DBot | Deriv')}
+                description={localize('Frequently asked questions - DBot')}
+            >
                 <WhatIsDBot text={localize('What is DBot?')} label="what-is-dbot" />
-                <FindBlocks text={localize('How do I find the blocks I need?')} label="find-blocks" />
+                <FindBlocks
+                    text={localize('How do I find the blocks I need?')}
+                    label="find-blocks"
+                />
                 <RemoveBlocks
                     text={localize('How do I remove blocks from the workspace?')}
                     label="remove-blocks"

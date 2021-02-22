@@ -25,7 +25,7 @@ const Card = styled(Flex)`
 `
 
 const CardHeader = styled(Header)`
-    white-space:nowrap;
+    white-space: nowrap;
 `
 
 const DerivNumbers = () => {

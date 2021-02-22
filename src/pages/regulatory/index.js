@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 import EUgrid from './_eu-grid'
 import DocumentAccordion from './_document_accordion'
 import FinancialCommission from './_financial_commission'
@@ -104,7 +105,7 @@ const ExternalBoldLink = styled(LocalizedLink)`
 const Content = styled.div`
     display: contents;
 `
-const Regulatory = () => {
+const Regulatory = (locale) => {
     return (
         <Layout>
             <SEO
@@ -192,7 +193,7 @@ const Regulatory = () => {
             </SectionContainer>
             <SectionContainer padding="0 0 4rem">
                 <SmallContainer fd="column">
-                    <DocumentAccordion />
+                    <DocumentAccordion locale={locale} />
                 </SmallContainer>
             </SectionContainer>
             <SectionContainer padding="0 0 4rem">
@@ -413,7 +414,7 @@ const Regulatory = () => {
                             </Text>
                             <Text max_width="58.8rem">
                                 {localize(
-                                    'Clients in the rest of the world (except for restricted countries such as the USA, Canada, and Hong Kong) who wish to trade CFDs on financial instruments can have MetaTrader 5 accounts under Deriv (V) Ltd and Champion Group Ltd.',
+                                    'Clients in the rest of the world (except for restricted countries such as the USA, Canada, and Hong Kong) who wish to trade CFDs on financial instruments can have MetaTrader 5 accounts under Deriv (V) Ltd and Champion Group Ltd. These companies do not offer CFDs on cryptocurrencies.',
                                 )}
                             </Text>
                         </CssGridColumn>
@@ -513,6 +514,10 @@ const Regulatory = () => {
             </SectionContainer>
         </Layout>
     )
+}
+
+Regulatory.propTypes = {
+    locale: PropTypes.object,
 }
 
 export default WithIntl()(Regulatory)

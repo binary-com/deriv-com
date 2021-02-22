@@ -92,8 +92,7 @@ const Process = ({ title, description, style }) => (
 const SharedIconLeftStyles = css`
     height: 129px;
     width: 129px;
-    margin-left: 6.4rem;
-    margin-right: 4rem;
+    margin: auto 4rem auto 6.4rem;
 
     @media ${device.tablet} {
         margin: 0;
@@ -102,8 +101,7 @@ const SharedIconLeftStyles = css`
 const SharedIconRightStyles = css`
     height: 129px;
     width: 129px;
-    margin-left: 4rem;
-    margin-right: 6.4rem;
+    margin: auto 6.4rem auto 4rem;
 
     @media ${device.tablet} {
         margin: 0;

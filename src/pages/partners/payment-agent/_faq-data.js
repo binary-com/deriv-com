@@ -65,7 +65,7 @@ const AccountManagement = () => (
         </Header>
         <TextPrimary>
             <Localize
-                translate_text="To change your payment method, please contact us via <0>livechat</0> for assistance."
+                translate_text="To change your payment method, please contact us via <0>livechat</0>."
                 components={[
                     <TextLink
                         key={0}

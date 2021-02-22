@@ -18,6 +18,7 @@ const useGTMData = () => {
                     ...(is_logged_in && {
                         visitorId: client_information.loginid,
                         currency: client_information.currency,
+                        email: client_information.email,
                     }),
                 })
         }

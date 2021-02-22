@@ -9,6 +9,7 @@ import { LocalStore } from './src/common/storage'
 import {
     application_id,
     client_token,
+    getLanguage,
     gtm_test_domain,
     sample_rate,
     pushwoosh_app_code,
@@ -101,11 +102,6 @@ export const onInitialClientRender = () => {
     // Check if not production and match ach or ach/
     if (is_browser) {
         const match_ach = window.location.pathname.match(/^(\/ach\/)|\/ach$/)
-        const has_datalayer = window.dataLayer
-        const domain = window.location.hostname.includes('deriv.com') ? 'deriv.com' : 'binary.sx'
-        const is_logged_in = Cookies.get('client_information', {
-            domain,
-        })
 
         if (match_ach) {
             // TODO: remove this line when production ready for translation
@@ -124,10 +120,6 @@ export const onInitialClientRender = () => {
                 document.head.appendChild(crowdin);
             `
             document.head.appendChild(jipt)
-        }
-
-        if (has_datalayer) {
-            window.dataLayer.push({ logged_in: is_logged_in })
         }
     }
 
@@ -183,6 +175,29 @@ export const onPreRouteUpdate = () => {
 export const onRouteUpdate = () => {
     NProgress.done()
     checkDomain()
+
+    const dataLayer = window.dataLayer
+    const domain = window.location.hostname.includes('deriv.com') ? 'deriv.com' : 'binary.sx'
+    const client_information = Cookies.get('client_information', {
+        domain,
+    })
+    const is_logged_in = !!client_information
+
+    // wrap inside a timeout to ensure the title has properly been changed
+    setTimeout(() => {
+        const eventName = 'page_load'
+
+        dataLayer.push({
+            event: eventName,
+            loggedIn: is_logged_in,
+            language: getLanguage(),
+            ...(is_logged_in && {
+                visitorId: client_information.loginid,
+                currency: client_information.currency,
+                email: client_information.email,
+            }),
+        })
+    }, 50)
 }
 
 export const wrapPageElement = WrapPagesWithLocaleContext

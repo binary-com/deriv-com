@@ -2,10 +2,10 @@ import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { Flex } from 'components/containers'
-import StocksHeaderOverlayBg from 'images/svg/stocksHeaderOverlayBg.svg'
-import StocksHeaderOverlayBelowSectionBg from 'images/svg/stocksHeaderOverlayBelowSectionBg.svg'
-import StocksHeaderBelowSection from 'images/svg/stocksHeaderBelowSection.svg'
-import stocksHeaderBelowSectionM from 'images/svg/stocksHeaderBelowSection-m.svg'
+import StocksHeaderOverlayBg from 'images/svg/stock-indices/stocksHeaderOverlayBg.svg'
+import StocksHeaderOverlayBelowSectionBg from 'images/svg/stock-indices/stocksHeaderOverlayBelowSectionBg.svg'
+import StocksHeaderBelowSection from 'images/svg/stock-indices/stocksHeaderBelowSection.svg'
+import stocksHeaderBelowSectionM from 'images/svg/stock-indices/stocksHeaderBelowSection-m.svg'
 import Show from 'components/containers/show'
 import device from 'themes/device.js'
 import { localize } from 'components/localization'
@@ -14,7 +14,7 @@ import { LinkButton } from 'components/form'
 
 const query = graphql`
     query {
-        mainHeaderImage: file(relativePath: { eq: "stocksMainHeaderImg.png" }) {
+        mainHeaderImage: file(relativePath: { eq: "stock-indices/stocksMainHeaderImg.png" }) {
             ...fadeIn
         }
     }
@@ -47,8 +47,6 @@ const TopHeaderWrapper = styled(Flex)`
         max-width: 1600px;
     }
     @media ${device.laptopM} {
-        height: 680px;
-        padding: 0 80px;
         padding: 0 12rem;
     }
     @media ${device.laptop} {
@@ -113,9 +111,7 @@ const TopHeaderTextDiv = styled(Flex)`
     }
 `
 const TopTextWrapper = styled(Flex)`
-    width: 100%;
     flex-direction: column;
-    justify-content: center;
 
     @media ${device.laptopM} {
         margin-top: -20px;
@@ -127,7 +123,6 @@ const TopTextWrapper = styled(Flex)`
 const StyledLinkButton = styled(LinkButton)`
     padding: 14px 16px;
     width: auto;
-    font-size: 14px;
     margin-right: 1.6rem;
     border: unset;
     @media ${device.mobileL} {
@@ -160,7 +155,6 @@ const StyledHeaderSmall = styled(Header)`
     }
 `
 const BtnDiv = styled(Flex)`
-    width: 100%;
     height: unset;
     justify-content: start;
     @media ${device.tablet} {
@@ -179,12 +173,9 @@ const TopHeaderBgDiv = styled(Flex)`
     }
 `
 const TopHeaderImgWrapper = styled(Flex)`
-    width: 100%;
-    justify-content: center;
     align-items: flex-end;
 
     @media ${device.laptop} {
-        width: 100%;
         max-width: 400px;
     }
     @media ${device.tabletL} {
@@ -205,7 +196,6 @@ const TopHeaderImgWrapper = styled(Flex)`
     }
 `
 const SectionWrapper = styled(Flex)`
-    width: 100%;
     height: 720px;
     padding: 0 120px;
     flex-direction: row;
@@ -219,7 +209,7 @@ const SectionWrapper = styled(Flex)`
         /* height: 625px; */
     }
     @media ${device.tabletL} {
-        height: 545px;
+        /* height: 545px; */
         padding: 32px 60px 27px;
         flex-direction: column-reverse;
     }
@@ -264,7 +254,6 @@ const SectionBannerImg = styled.img`
 `
 const SectionTextWrapper = styled(Flex)`
     width: 55%;
-    justify-content: center;
     align-items: center;
     flex-direction: column;
     margin-left: 120px;
@@ -277,7 +266,6 @@ const SectionTextWrapper = styled(Flex)`
     @media ${device.tabletL} {
         width: 100%;
         max-width: 58.8rem;
-        justify-content: center;
         margin: 0 auto;
     }
 `

@@ -15,18 +15,14 @@ const StyledSection = styled(SectionContainer)`
 const Content = styled(Flex)`
     width: 60%;
     flex-direction: column;
-    justify-content: center;
     margin-right: ${(props) => props.margin_right};
     margin-left: ${(props) => props.margin_left};
 
     ${Text} {
         margin-top: 2.2rem;
         font-size: 2.4rem;
-        @media ${device.laptopM} {
-            font-size: 2.4rem;
-        }
         @media ${device.tabletL} {
-            font-size: 1.6rem;
+            font-size: 16px;
             text-align: center;
         }
     }
@@ -108,10 +104,10 @@ const query = graphql`
         how_you_want: file(relativePath: { eq: "how-you-want.png" }) {
             ...fadeIn
         }
-        stocks_zero_fees: file(relativePath: { eq: "stocks-zero-fees.png" }) {
+        stocks_zero_fees: file(relativePath: { eq: "stock-indices/stocks-zero-fees.png" }) {
             ...fadeIn
         }
-        stocks_blue_chip: file(relativePath: { eq: "stocks-blue-chip.png" }) {
+        stocks_blue_chip: file(relativePath: { eq: "stock-indices/stocks-blue-chip.png" }) {
             ...fadeIn
         }
     }

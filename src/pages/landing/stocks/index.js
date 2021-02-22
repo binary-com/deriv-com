@@ -7,22 +7,22 @@ import {
     Parallelogram,
     WhyTradeWithUs,
 } from './_lazy-load.js'
-import BackgroundFooterStocksPattern from 'images/svg/stocks-footer-banner-overlay-shape.svg'
+import BackgroundFooterStocksPattern from 'images/svg/stock-indices/stocks-footer-banner-overlay-shape.svg'
 import Layout from 'components/layout/layout'
 import { Show, SEO } from 'components/containers'
 import { localize, WithIntl, Localize } from 'components/localization'
 import { size } from 'themes/device'
 import { isBrowser } from 'common/utility'
-import ExtendedTimeSVG from 'images/svg/stocks-extended-time.svg'
-import NoCommisionSVG from 'images/svg/stocks-no-commission.svg'
-import HighLeverageSVG from 'images/svg/stocks-high-leverage.svg'
-import TwelveIndicesSVG from 'images/svg/stocks-12-world-indices.svg'
-import FourtyStocksSVG from 'images/svg/stocks-80-analytic-objects.svg'
-import LowCapitalSVG from 'images/svg/stocks-minimum-capital.svg'
+import ExtendedTimeSVG from 'images/svg/stock-indices/stocks-extended-time.svg'
+import NoCommisionSVG from 'images/svg/stock-indices/stocks-no-commission.svg'
+import HighLeverageSVG from 'images/svg/stock-indices/stocks-high-leverage.svg'
+import TwelveIndicesSVG from 'images/svg/stock-indices/stocks-12-world-indices.svg'
+import FourtyStocksSVG from 'images/svg/stock-indices/stocks-80-analytic-objects.svg'
+import LowCapitalSVG from 'images/svg/stock-indices/stocks-minimum-capital.svg'
 
 const query = graphql`
     query {
-        stocks_banner: file(relativePath: { eq: "mac-book-pro-with-iphone.png" }) {
+        stocks_banner: file(relativePath: { eq: "stock-indices/mac-book-pro-with-iphone.png" }) {
             ...fadeIn
         }
     }

@@ -84,7 +84,6 @@ const ImageDiv = styled(Flex)`
     }
 `
 const BtnDiv = styled(Flex)`
-    width: 100%;
     justify-content: start;
 
     @media ${device.tabletL} {
@@ -95,7 +94,6 @@ const BtnDiv = styled(Flex)`
 const StyledLinkButton = styled(LinkButton)`
     padding: 14px 16px;
     width: auto;
-    font-size: 14px;
     margin-right: 1.6rem;
     border: unset;
     @media ${device.mobileL} {

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Table, TR, TC } from './_table.js'
 import { Card, CardWrapper } from './_partner-card.js'
-import { SectionContainer, Container } from 'components/containers'
+import { SectionContainer, Container, Flex } from 'components/containers'
 import { Header, Text } from 'components/elements/typography'
 import { localize, Localize } from 'components/localization'
 import { Button, LinkButton } from 'components/form'
@@ -258,9 +258,9 @@ const DerivIBProgramme = () => {
 }
 
 const StyledChevron = styled.img`
-    width: 100%;
     margin-top: 0.8rem;
     height: 16px;
+    width: 16px;
     cursor: pointer;
     transform: ${(props) => (props.is_expand == 'true' ? 'rotate(-180deg)' : 'inherit ')};
 `
@@ -353,12 +353,14 @@ const DMT5Synthetic = ({ data }) => {
                             ))}
                         </SyntheticTable>
                         {has_expansion && (
-                            <StyledChevron
-                                src={Chevron}
-                                alt="chevron"
-                                onClick={toggleExpand}
-                                is_expand={is_expand.toString()}
-                            />
+                            <Flex>
+                                <StyledChevron
+                                    src={Chevron}
+                                    alt="chevron"
+                                    onClick={toggleExpand}
+                                    is_expand={is_expand.toString()}
+                                />
+                            </Flex>
                         )}
                         <HowItsCalculate>
                             <StyledButton flat onClick={toggleCalculated}>

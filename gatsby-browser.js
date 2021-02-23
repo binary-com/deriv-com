@@ -187,7 +187,7 @@ export const onRouteUpdate = () => {
     setTimeout(() => {
         const eventName = 'page_load'
 
-        dataLayer.push({
+        dataLayer?.push({
             event: eventName,
             loggedIn: is_logged_in,
             language: getLanguage(),

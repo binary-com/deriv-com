@@ -94,13 +94,5 @@
     },
     "bugs": {
         "url": "https://github.com/binary-com/deriv-com/issues"
-    },
-    "lint-staged": {
-        "src/**/*.js": [
-            "prettier --write",
-            "eslint --fix",
-            "stylelint --formatter verbose",
-            "git add"
-        ]
     }
 }

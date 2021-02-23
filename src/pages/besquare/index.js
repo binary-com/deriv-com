@@ -10,10 +10,17 @@ import WhatLiesAhead from './components/sections/_what-lies-ahead'
 import WhoCanApply from './components/sections/_who-can-apply'
 import WhyDeriv from './components/sections/_why-deriv'
 import Layout from 'components/layout/layout'
-import { WithIntl } from 'components/localization'
+import { SEO } from 'components/containers'
+import { WithIntl, localize } from 'components/localization'
 
 const BeSquare = () => (
     <Layout type="be-square">
+        <SEO
+            title={localize('BeSquare By Deriv')}
+            description={localize(
+                'Learn more about BeSquare, a graduate training programme by Deriv that equips fresh graduates with essential skills to kickstart their career in IT.',
+            )}
+        />
         <Hero />
         <Description />
         <WhatIsBeSquare />

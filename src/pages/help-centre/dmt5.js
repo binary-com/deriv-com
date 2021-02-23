@@ -143,9 +143,11 @@ const ResetDMT5Password = () => (
 const DMT5Article = () => {
     return (
         <div>
-            <Article header="DMT5" title={localize('Help centre | Frequently asked questions | DMT5 | Deriv')} description={localize(
-                'Frequently asked questions - DMT5',
-            )}>
+            <Article
+                header="DMT5"
+                title={localize('Help centre | Frequently asked questions | DMT5 | Deriv')}
+                description={localize('Frequently asked questions - DMT5')}
+            >
                 <WhatIsDMT5 text={localize('What is DMT5?')} label="what-is-dmt5" />
                 <DifferenceDMT5DTrader
                     text={localize('What are the major differences between DTrader and DMT5?')}
@@ -174,7 +176,7 @@ const DMT5Article = () => {
                     text={localize('How can I deposit funds into my DMT5 real money account?')}
                     label="deposit-to-dmt5"
                 />
-            </Article >
+            </Article>
         </div>
     )
 }

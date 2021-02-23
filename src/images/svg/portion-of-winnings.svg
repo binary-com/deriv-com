@@ -1,14 +1,1 @@
-<svg role="img" xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
-    <title id='bad-judgement-icon-title'>Save a portion</title>
-    <defs>
-        <linearGradient id="a" x1="0%" y1="100%" y2="0%">
-            <stop offset="0%" stop-color="#FF444F" />
-            <stop offset="100%" stop-color="#FF6444" />
-        </linearGradient>
-    </defs>
-    <g fill="none" fill-rule="evenodd">
-        <path d="M0 0h64v64H0z" />
-        <path fill="url(#a)"
-            d="M62 0a2 2 0 0 1 2 2v54a2 2 0 0 1-2 2h-9v5a1 1 0 0 1-1 1H41a1 1 0 0 1-1-1v-5H24v5a1 1 0 0 1-1 1H12a1 1 0 0 1-1-1v-5H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h60zM22 59h-9v3h9v-3zm29 0h-9v3h9v-3zM62 2H2v54h60V2zm-7 5a2 2 0 0 1 2 2v39a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h46zm0 2H9v39h46V9zm-23 5a1 1 0 0 1 .993.883L33 15v4l-.001.05A10 10 0 0 1 41.95 28H45a1 1 0 0 1 .117 1.993L45 30l-3.05.001a10.003 10.003 0 0 1-8.949 8.95L33 42a1 1 0 0 1-1.993.117L31 42v-3.05a10.003 10.003 0 0 1-8.95-8.949L19 30a1 1 0 0 1-.117-1.993L19 28h3.05a10.003 10.003 0 0 1 8.953-8.95L31 19v-4a1 1 0 0 1 1-1zm0 7a8 8 0 1 0 0 16 8 8 0 0 0 0-16zm0 3a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z" />
-    </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64"><defs><linearGradient id="a" x1="0%" y1="100%" y2="0%"><stop offset="0%" stop-color="#FF444F"/><stop offset="100%" stop-color="#FF6444"/></linearGradient></defs><g fill="none" fill-rule="evenodd"><path d="M0 0h64v64H0z"/><path fill="url(#a)" d="M62 0a2 2 0 012 2v54a2 2 0 01-2 2h-9v5a1 1 0 01-1 1H41a1 1 0 01-1-1v-5H24v5a1 1 0 01-1 1H12a1 1 0 01-1-1v-5H2a2 2 0 01-2-2V2a2 2 0 012-2h60zM22 59h-9v3h9v-3zm29 0h-9v3h9v-3zM62 2H2v54h60V2zm-7 5a2 2 0 012 2v39a2 2 0 01-2 2H9a2 2 0 01-2-2V9a2 2 0 012-2h46zm0 2H9v39h46V9zm-23 5a1 1 0 01.993.883L33 15v4l-.001.05A10 10 0 0141.95 28H45a1 1 0 01.117 1.993L45 30l-3.05.001a10.003 10.003 0 01-8.949 8.95L33 42a1 1 0 01-1.993.117L31 42v-3.05a10.003 10.003 0 01-8.95-8.949L19 30a1 1 0 01-.117-1.993L19 28h3.05a10.003 10.003 0 018.953-8.95L31 19v-4a1 1 0 011-1zm0 7a8 8 0 100 16 8 8 0 000-16zm0 3a5 5 0 110 10 5 5 0 010-10zm0 2a3 3 0 100 6 3 3 0 000-6z"/></g></svg>

@@ -116,9 +116,16 @@ const WeekendContracts = () => (
 const TradingArticle = () => {
     return (
         <div>
-            <Article header={localize('Trading')} title={localize('Help centre | Frequently asked questions | Trading | Deriv')} description={localize('Frequently asked questions - Trading')}>
+            <Article
+                header={localize('Trading')}
+                title={localize('Help centre | Frequently asked questions | Trading | Deriv')}
+                description={localize('Frequently asked questions - Trading')}
+            >
                 <Forex text={localize('What is forex?')} label="what-is-forex" />
-                <Commodities text={localize('What are commodities?')} label="what-are-commodities" />
+                <Commodities
+                    text={localize('What are commodities?')}
+                    label="what-are-commodities"
+                />
                 <StockIndices
                     text={localize('What are stock indices?')}
                     label="what-are-stock-indices"
@@ -143,7 +150,10 @@ const TradingArticle = () => {
                     text={localize('How can I automate my trading strategy?')}
                     label="how-to-automate-trading-strategy"
                 />
-                <TradingLimits text={localize('What are my trading limits?')} label="trading-limits" />
+                <TradingLimits
+                    text={localize('What are my trading limits?')}
+                    label="trading-limits"
+                />
                 <WeekendContracts
                     text={localize('What contracts are available for trading on weekends?')}
                     label="contracts-available-on-weekends"

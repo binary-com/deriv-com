@@ -58,7 +58,7 @@ const Faq = () => {
                         header_style={header_style}
                         plus
                     >
-                        {<NeedSignUp />}
+                        <NeedSignUp />
                     </AccordionItem>
                     <AccordionItem
                         header={localize('Will Binary.com be removed?')}
@@ -67,7 +67,7 @@ const Faq = () => {
                         header_style={header_style}
                         plus
                     >
-                        {<BinaryRemoved />}
+                        <BinaryRemoved />
                     </AccordionItem>
                     <AccordionItem
                         header={localize('Is Deriv.com secure?')}
@@ -76,7 +76,7 @@ const Faq = () => {
                         header_style={header_style}
                         plus
                     >
-                        {<DerivSecure />}
+                        <DerivSecure />
                     </AccordionItem>
                     <AccordionItem
                         header={localize('What other changes will I be seeing?')}
@@ -85,7 +85,7 @@ const Faq = () => {
                         header_style={header_style}
                         plus
                     >
-                        {<OtherChanges />}
+                        <OtherChanges />
                     </AccordionItem>
                 </Accordion>
             </AccordionWrapper>

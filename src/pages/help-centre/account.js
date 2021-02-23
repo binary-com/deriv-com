@@ -146,7 +146,11 @@ const DormantFee = () => (
 const AccountArticle = () => {
     return (
         <div>
-            <Article header={localize('Account')} title={localize('Help centre | Frequently asked questions | Account | Deriv')} description={localize('Frequently asked questions - Account')}>
+            <Article
+                header={localize('Account')}
+                title={localize('Help centre | Frequently asked questions | Account | Deriv')}
+                description={localize('Frequently asked questions - Account')}
+            >
                 <WhoCanOpenAnAccount
                     text={localize("Why can't I create an account?")}
                     label="who-can-open-an-account"

@@ -35,7 +35,7 @@ module.exports = {
         path: 'th',
         display_name: 'Thai',
         short_name: 'TH',
-        affiliate_lang: 13,
+        affiliate_lang: 12,
     },
     id: {
         path: 'id',

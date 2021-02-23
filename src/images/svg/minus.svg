@@ -1,4 +1,1 @@
-<svg role='img' xmlns="http://www.w3.org/2000/svg" width="16" height="2" viewBox="0 0 16 2">
-    <title id='minus'>minus</title>
-    <rect width="16" height="2" fill="#FF444F" rx="1" />
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"><rect width="12" height="2" x="2" y="7" rx="1" fill="#FF444F"/></svg>

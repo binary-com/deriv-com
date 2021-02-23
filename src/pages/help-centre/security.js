@@ -44,7 +44,11 @@ const DocumentsDeclined = () => (
 const SecurityArticle = () => {
     return (
         <div>
-            <Article header={localize('Security')} title={localize('Help centre | Frequently asked questions | Security | Deriv')} description={localize('Frequently asked questions - Security')}>
+            <Article
+                header={localize('Security')}
+                title={localize('Help centre | Frequently asked questions | Security | Deriv')}
+                description={localize('Frequently asked questions - Security')}
+            >
                 <VerifyAccount
                     text={localize('Do I need to verify my Deriv account?')}
                     label="verify-account"

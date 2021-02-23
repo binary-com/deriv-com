@@ -3,18 +3,13 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { graphql, useStaticQuery } from 'gatsby'
 import { localize } from 'components/localization'
-import { Flex } from 'components/containers'
+import { Container, Flex, SectionContainer } from 'components/containers'
 import { Header, QueryImage, BackgroundImage } from 'components/elements'
 import { LinkButton } from 'components/form'
 import device from 'themes/device.js'
-import Dgoogle_play_Logo from 'images/common/derivgo/derivgo_gogleplay.png'
 
-const Wrapper = styled.div`
-    position: relative;
-    width: 100%;
-    display: flex;
-    height: 575px;
-    padding: 12rem 12rem 9rem 12rem;
+const Wrapper = styled(Container)`
+    margin-bottom: 4rem;
 
     @media ${device.laptopM} {
         max-height: 429px;
@@ -48,15 +43,15 @@ const HeroContent = styled.div`
             font-size: 32px;
         }
     }
-`
-const StyledHeader = styled(Header)`
-    color: var(--color-white);
-    display: flex;
-    margin-top: 0;
-    font-size: 2.4rem;
-
-    @media ${device.laptopM} {
-        font-size: 24px;
+    @media ${device.tabletL} {
+        ${Header} {
+            font-size: 24px;
+        }
+    }
+    @media ${device.tablet} {
+        ${Header} {
+            font-size: 32px;
+        }
     }
 `
 
@@ -65,7 +60,7 @@ const LottieWrapper = styled.div`
     max-width: 384px;
     position: absolute;
     top: 10.8rem;
-    right: 10rem;
+    right: 38rem;
 
     @media ${device.laptopM} {
         max-width: 500px;
@@ -104,7 +99,7 @@ const LottieWrapper = styled.div`
 
 const LinkWrapper = styled.div`
     display: flex;
-    margin-top: 3.2rem;
+    margin-top: 3.8rem;
 
     @media (max-width: 1420px) {
         top: 480px;
@@ -125,8 +120,17 @@ const LinkWrapper = styled.div`
     }
 `
 
+const ImageWrapper = styled.div`
+    width: 213px;
+    height: 28px;
+    margin: 0 273px 71px 0;
+    object-fit: contain;
+`
+
 const IosComingSoon = styled(LinkButton)`
     color: var(--color-white);
+    font-size: 1.2rem;
+    font-weight: normal;
     width: auto;
 
     @media ${device.mobileL} {
@@ -141,19 +145,24 @@ const IosComingSoon = styled(LinkButton)`
 `
 
 const StyledContent = styled(Header)`
-    font-size: 6.4rem;
+    font-size: 5.2rem;
+    font-weight: bold;
+    margin: 0 35px 16px 0;
 
     @media (max-width: 1322px) {
         font-size: 4.2rem;
     }
 `
+
 const NormalContent = styled(Header)`
-    font-size: 2.4rem;
+    font-size: 2rem;
+    font-weight: normal;
 
     @media (max-width: 1322px) {
         font-size: 1.2rem;
     }
 `
+
 const InformationWrapper = styled(Flex)`
     width: 100%;
     max-width: 562px;
@@ -203,7 +212,19 @@ const query = graphql`
                 }
             }
         }
+        Dgoogle_play_Logo: file(relativePath: { eq: "derivgo/derivgo_gogleplay.png" }) {
+            ...fadeIn
+        }
+        dlogo: file(relativePath: { eq: "derivgo/derivgo_logo.png" }) {
+            ...fadeIn
+        }
     }
+`
+
+const StyledBackgroundImage = styled(BackgroundImage)`
+    background-color: var(--color-white);
+    background-size: contain;
+    padding: 32px 732px 103px 222px;
 `
 
 const DGoHero = ({
@@ -218,55 +239,40 @@ const DGoHero = ({
 }) => {
     const data = useStaticQuery(query)
 
-    const DLogo = styled.img`
-        width: 213px !important;
-        height: 28px !important;
-        margin-right: 1.6rem;
-    `
-    const Dgoogle_play = styled.img`
-        width: 138px !important;
-        height: 40px !important;
-        margin-right: 1.6rem;
-    `
     return (
-        <BackgroundImage
-            data={data.image}
-            alt={'background image'}
-            style={{
-                height: '562px;',
-                width: '100vw',
-                backgroundSize: `cover`,
-                backgroundColor: 'var(--color-white)',
-                margin: '0 0 94.2px;',
-                padding: '32px 732px 103px 222px;',
-                objectFit: 'contain;',
-                backgroundImage: 'linear-gradient(352deg, #1e3c57 70%, #5085b6 15%);',
-            }}
-        >
-            <Wrapper>
-                <InformationWrapper height="unset" direction="column">
-                    <StyledHeader as="h4" weight="normal">
-                        <DLogo src={Logo} alt="logo" width="213" height="27" />
-                    </StyledHeader>
-                    <HeroContent>
-                        <StyledContent as="h1">{content}</StyledContent>
-                        <NormalContent>{description}</NormalContent>
-                    </HeroContent>
-                    <LinkWrapper>
-                        {google_play && (
-                            <Dgoogle_play
-                                src={Dgoogle_play_Logo}
-                                alt="Get it on Google Play"
-                                width="138"
-                                height="40"
-                            />
-                        )}
-                        {ios_coming_soon && (
-                            <IosComingSoon>{localize('( iOS coming soon )')}</IosComingSoon>
-                        )}
-                    </LinkWrapper>
-                </InformationWrapper>
-
+        <SectionContainer background="var(--color-white)" height="448px" width="1440px">
+            <StyledBackgroundImage data={data.image} alt={'background image'}>
+                <Wrapper>
+                    <InformationWrapper height="unset" direction="column">
+                        <ImageWrapper>
+                            {Logo && (
+                                <QueryImage
+                                    data={data.dlogo}
+                                    alt={'logo'}
+                                    height={'27px'}
+                                    width={'213px'}
+                                />
+                            )}
+                        </ImageWrapper>
+                        <HeroContent>
+                            <StyledContent>{content}</StyledContent>
+                            <NormalContent>{description}</NormalContent>
+                        </HeroContent>
+                        <LinkWrapper>
+                            {google_play && (
+                                <QueryImage
+                                    data={data.Dgoogle_play_Logo}
+                                    alt={'Get it on Google Play'}
+                                    height={'40px'}
+                                    width={'138px'}
+                                />
+                            )}
+                            {ios_coming_soon && (
+                                <IosComingSoon>{localize('( iOS coming soon )')}</IosComingSoon>
+                            )}
+                        </LinkWrapper>
+                    </InformationWrapper>
+                </Wrapper>
                 <LottieWrapper>
                     {image_name === 'mobile_float' ? (
                         <QueryImage data={data['mobile_float']} alt={background_alt} />
@@ -277,8 +283,8 @@ const DGoHero = ({
                         />
                     )}
                 </LottieWrapper>
-            </Wrapper>
-        </BackgroundImage>
+            </StyledBackgroundImage>
+        </SectionContainer>
     )
 }
 

@@ -8,8 +8,8 @@ const Copyright = () => {
     return (
         <Box bg="var(--color-black)">
             <Container jc="flex-start" p="1.4rem">
-                <img src={CopyrightIc} alt="copyright ic" width="16" height="16" />
-                <Text color="white" size="12px" margin="0 0 0 4px">
+                <img src={CopyrightIc} alt="copyright ic" width="16" height="16" ml="0" />
+                <Text color="white" size="12px" ml="0">
                     {localize('2021 Deriv | All rights reserved')}
                 </Text>
             </Container>

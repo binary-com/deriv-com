@@ -44,12 +44,13 @@ const Content = styled.div`
 `
 
 const Left = styled.div`
-    margin-right: 1.8rem;
+    margin-left: 400px;
     margin-top: 40px;
     margin-bottom: 40px;
 `
 
 const Right = styled.div`
+    margin-right: 420px;
     margin-top: 52px;
     margin-bottom: 52px;
 `
@@ -72,7 +73,7 @@ const NewApp = () => {
         <Section>
             <Flex>
                 <ImageWrapper>
-                    <Left margin-left="222px">
+                    <Left>
                         <QueryImage
                             data={data['dgo_logo']}
                             alt={'logo'}

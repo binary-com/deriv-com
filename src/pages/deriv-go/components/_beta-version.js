@@ -6,18 +6,15 @@ import { Text } from 'components/elements'
 
 const StyledSection = styled(SectionContainer)`
     background-color: var(--color-white);
-    width: 100vw;
+    margin-top: 210px;
 `
 
 const Content = styled.div`
-    width: 100%;
-    max-width: 78rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: 100px 230px 80px;
+    line-height: 1.5;
+    margin: 98px 222px 10px 370px;
 
     ${Text} {
+        text-align: center;
         width: 996px;
         height: 72px;
         font-size: 24px;
@@ -28,7 +25,7 @@ const Content = styled.div`
 const BetaVersion = () => {
     return (
         <StyledSection>
-            <Content ml="222px">
+            <Content>
                 <Text>
                     <Localize translate_text="The beta version of our mobile app is now available. Trade mulipliers on forex and synthetic indeces, and get the best deriv experience optimised for mobile:" />
                 </Text>

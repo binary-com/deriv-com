@@ -2,12 +2,15 @@ import React, { useState } from 'react'
 import { Formik, Field } from 'formik'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
-import { optionItemDefault, syntheticItemLists, financialItemLists } from './_underlying-data'
+import {
+    optionItemDefault,
+    syntheticItemLists,
+    financialItemLists,
+} from '../components/_underlying-data'
 import {
     SwapTabSelector,
     StyledText,
     StyledSection,
-    SectionHeader,
     SectionSubtitle,
     ContentContainer,
     SwapFormWrapper,
@@ -32,10 +35,10 @@ import {
     BottomContent,
     BottomText,
     StyledLinkButton,
-} from './_style'
-import validation from './_validation'
+} from '../components/_style'
+import validation from '../components/_validation'
 import { localize, Localize } from 'components/localization'
-import { QueryImage } from 'components/elements'
+import { Text, QueryImage } from 'components/elements'
 import { Flex, Show } from 'components/containers'
 import Input from 'components/form/input'
 
@@ -222,10 +225,12 @@ const SwapCalculator = () => {
 
     return (
         <StyledSection direction="column">
-            <SectionHeader as="h2" type="page-title" align="center" mt="8rem" mb="1.2rem">
-                {localize('Swap calculator')}
-            </SectionHeader>
-
+            <Text padding="0rem 0rem 6rem 32rem">
+                <Localize
+                    translate_text="Trader`s tools > <0> Swap Calculator</0>"
+                    components={[<strong key={0} />]}
+                ></Localize>
+            </Text>
             <SectionSubtitle as="h5" align="center" mb="4rem" weight="normal">
                 {localize(
                     'Our swap calculator helps you to estimate the swap charges required to keep your positions open overnight on Deriv MetaTrader 5 (DMT5).',

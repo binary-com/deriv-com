@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import PipCalculator from './_pip-calculator'
+import SwapCalculator from './_swap-calculator'
 import { Flex, Container, SEO } from 'components/containers'
 import { Header } from 'components/elements'
 import { localize, WithIntl } from 'components/localization'
@@ -14,20 +14,20 @@ const Hero = styled(Flex)`
     background-size: cover;
 `
 
-const PipCalc = () => {
+const SwapCalc = () => {
     return (
         <Layout>
-            <SEO title={localize('Trade tools')} description={localize('Pip calculator')} />
+            <SEO title={localize('Trade tools')} description={localize('Margin calculator')} />
             <Hero jc="center" ai="center">
                 <Container>
                     <Header as="h1" type="display-title" color="white" align="center">
-                        {localize('Pip Calculator')}
+                        {localize('Swap Calculator')}
                     </Header>
                 </Container>
             </Hero>
-            <PipCalculator />
+            <SwapCalculator />
         </Layout>
     )
 }
 
-export default WithIntl()(PipCalc)
+export default WithIntl()(SwapCalc)

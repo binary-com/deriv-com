@@ -383,7 +383,7 @@ const MarginCalculator = () => {
                         </StyledText>
                         <StyledText mb="1.6rem">
                             <Localize
-                                translate_text="<0> Margin = (volume in lots × contract size × asset price)÷leverage </0>"
+                                translate_text="<0> Margin = (volume × contract size × asset price) ÷ leverage </0>"
                                 components={[<strong key={0} />]}
                             />
                         </StyledText>
@@ -393,7 +393,7 @@ const MarginCalculator = () => {
                         </StyledText>
                         <StyledText mb="2.4rem">
                             {localize(
-                                'For instance, if you are trading the USD/CHF forex pair, the margin requirement will be calculated in Swiss Franc (CHF) which is the quote currency. On the other hand, if you are trading Volatility Index 75,  then the margin requirement will be computed in US Dollar (USD), which is the denomination of the underlying asset – Volatility Index 75.',
+                                'For instance, if you are trading the USD/CHF forex pair, the margin requirement will be calculated in Swiss Franc (CHF) which is the quote currency. On the other hand, if you are trading Volatility Index 75,  then the margin requirement will be calculated in US Dollar (USD), which is the denomination of the underlying asset – Volatility Index 75.',
                             )}
                         </StyledText>
 

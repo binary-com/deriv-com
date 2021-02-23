@@ -45,14 +45,6 @@ const PipCalculator = () => {
             pip_formula: file(relativePath: { eq: "trade-tools/pip-value-formula.png" }) {
                 ...fadeIn
             }
-            pip_info: file(relativePath: { eq: "trade-tools/margin-info.png" }) {
-                ...fadeIn
-            }
-            pip_formula_mobile: file(
-                relativePath: { eq: "trade-tools/margin-formula-mobile.png" }
-            ) {
-                ...fadeIn
-            }
         }
     `
     const data = useStaticQuery(query)

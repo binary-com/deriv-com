@@ -139,7 +139,6 @@ const FooterBanner = ({ background_pattern, data, is_ppc, small_title, title }) 
             left: 10%;
         }
         @media ${device.tabletL} {
-            width: 40rem;
             top: 10%;
             left: 45%;
             transform: translate(-50%, -50%);

@@ -205,11 +205,8 @@ const SectionWrapper = styled(Flex)`
     @media ${device.desktopL} {
         max-width: 1600px;
     }
-    @media ${device.laptopM} {
-        /* height: 625px; */
-    }
-    @media ${device.tabletL} {
-        /* height: 545px; */
+    @media (max-width: 991px) {
+        height: 545px;
         padding: 32px 60px 27px;
         flex-direction: column-reverse;
     }
@@ -292,7 +289,7 @@ const SectionStyledHeaderSmall = styled(Header)`
         max-width: 100%;
     }
 `
-const is_ppc = true
+// const is_ppc = true
 
 const HeaderSection = () => {
     const data = useStaticQuery(query)
@@ -321,7 +318,7 @@ const HeaderSection = () => {
                                 <StyledLinkButton
                                     type="submit"
                                     secondary="true"
-                                    to={is_ppc ? '/landing/signup/' : '/signup/'}
+                                    to={'/landing/signup/'}
                                 >
                                     {localize('Sign up')}
                                 </StyledLinkButton>

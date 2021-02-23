@@ -167,6 +167,7 @@ const DMT5Article = () => {
                     text={localize(
                         'Why are my DMT5 login details different from my Deriv login details?',
                     )}
+                    label="dmt5-different-login-details"
                 />
                 <ResetDMT5Password
                     text={localize('How can I reset my DMT5 account password?')}

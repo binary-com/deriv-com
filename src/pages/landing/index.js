@@ -1,14 +1,8 @@
 import React from 'react'
 // import Ticker from './home/_ticker'
-import {
-    Markets,
-    Trade,
-    TradeTheWayYouLike,
-    WhatOurClientsSay,
-    SimpleSteps,
-    Signup,
-} from '../home/_lazy-load'
-import { Hero } from '../home/_hero'
+import { Markets, Trade, WhatOurClientsSay, SimpleSteps, Signup } from '../home/_lazy-load'
+import Hero from '../home/_hero'
+import TradeTheWayYouLike from '../home/_trade-the-way-you-like'
 import { SEO, Show } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { WithIntl, Localize, localize } from 'components/localization'

@@ -30,6 +30,8 @@ const isProduction = () =>
 
 const isStaging = () => isBrowser() && domain_config.staging.hostname === window.location.hostname
 
+const isLive = () => isProduction() || isStaging()
+
 const isLocalHost = () => isBrowser() && domain_config.local.hostname === window.location.hostname
 
 const getAppId = () => {
@@ -67,4 +69,4 @@ const getSocketURL = () => {
     return `wss://${server_url}/websockets/v3`
 }
 
-export { getAppId, getSocketURL, isProduction, isLocalHost }
+export { getAppId, getSocketURL, isProduction, isLive, isLocalHost }

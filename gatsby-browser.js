@@ -4,7 +4,7 @@ import Cookies from 'js-cookie'
 import { datadogRum } from '@datadog/browser-rum'
 import { Pushwoosh } from 'web-push-notifications'
 import { WrapPagesWithLocaleContext } from './src/components/localization'
-import { isProduction, isLocalHost } from './src/common/websocket/config'
+import { isProduction, isLive, isLocalHost } from './src/common/websocket/config'
 import { LocalStore } from './src/common/storage'
 import {
     application_id,
@@ -87,6 +87,9 @@ const pushwooshInit = (push_woosh) => {
         },
     ])
     sendTags(push_woosh)
+    push_woosh.push(() => {
+        Pushwoosh.driver.getPermission()
+    })
 }
 
 export const wrapRootElement = ({ element }) => {
@@ -131,7 +134,9 @@ export const onClientEntry = () => {
 
     const is_gtm_test_domain = window.location.hostname === gtm_test_domain
     const push_woosh = new Pushwoosh()
-    let has_initialized = false
+    if (isLive()) {
+        pushwooshInit(push_woosh)
+    }
 
     // Add GTM script for test domain
     if (!isLocalHost() && is_gtm_test_domain) {
@@ -160,11 +165,6 @@ export const onClientEntry = () => {
             applicationId: application_id,
             sampleRate: sample_rate,
         })
-    }
-
-    if (isProduction() && !has_initialized) {
-        pushwooshInit(push_woosh)
-        has_initialized = true
     }
 }
 

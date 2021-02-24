@@ -4,7 +4,7 @@ import Cookies from 'js-cookie'
 import { datadogRum } from '@datadog/browser-rum'
 import { Pushwoosh } from 'web-push-notifications'
 import { WrapPagesWithLocaleContext } from './src/components/localization'
-import { isProduction, isLocalHost } from './src/common/websocket/config'
+import { isProduction, isLive, isLocalHost } from './src/common/websocket/config'
 import { LocalStore } from './src/common/storage'
 import {
     application_id,
@@ -40,7 +40,7 @@ const addScript = (settings) => {
     document.body.appendChild(script)
 }
 
-const sendTags = (push_woosh) => {
+const sendTags = (api) => {
     const language = LocalStore.get('i18n') || ''
     const domain = window.location.hostname.includes('deriv.com') ? 'deriv.com' : 'binary.sx'
     const { loginid, residence } = Cookies.get('client_information', {
@@ -49,29 +49,26 @@ const sendTags = (push_woosh) => {
         loginid: '',
         residence: '',
     }
-
-    push_woosh.push((api) => {
-        api.getTags()
-            .then((result) => {
-                if (
-                    !result.result['Login ID'] ||
-                    !result.result['Site Language'] ||
-                    !result.result.Residence
-                ) {
-                    return api.setTags({
-                        'Login ID': loginid,
-                        'Site Language': language.toLowerCase(),
-                        Residence: residence,
-                    })
-                }
-                return null
-            })
-            .catch((e) => {
-                // eslint-disable-next-line no-console
-                console.error(e)
-                return null
-            })
-    })
+    api.getTags()
+        .then((result) => {
+            if (
+                !result.result['Login ID'] ||
+                !result.result['Site Language'] ||
+                !result.result.Residence
+            ) {
+                return api.setTags({
+                    'Login ID': loginid,
+                    'Site Language': language.toLowerCase(),
+                    Residence: residence,
+                })
+            }
+            return null
+        })
+        .catch((e) => {
+            // eslint-disable-next-line no-console
+            console.error(e)
+            return null
+        })
 }
 
 const pushwooshInit = (push_woosh) => {
@@ -86,7 +83,14 @@ const pushwooshInit = (push_woosh) => {
             autoSubscribe: true,
         },
     ])
-    sendTags(push_woosh)
+
+    push_woosh.push([
+        'onReady',
+        function (api) {
+            push_woosh.subscribe()
+            sendTags(api)
+        },
+    ])
 }
 
 export const wrapRootElement = ({ element }) => {
@@ -131,7 +135,9 @@ export const onClientEntry = () => {
 
     const is_gtm_test_domain = window.location.hostname === gtm_test_domain
     const push_woosh = new Pushwoosh()
-    let has_initialized = false
+    if (isLive()) {
+        pushwooshInit(push_woosh)
+    }
 
     // Add GTM script for test domain
     if (!isLocalHost() && is_gtm_test_domain) {
@@ -160,11 +166,6 @@ export const onClientEntry = () => {
             applicationId: application_id,
             sampleRate: sample_rate,
         })
-    }
-
-    if (isProduction() && !has_initialized) {
-        pushwooshInit(push_woosh)
-        has_initialized = true
     }
 }
 

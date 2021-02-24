@@ -168,6 +168,8 @@ const StyledLinkText = styled(LinkText)`
     font-size: ${(props) => props.size || '14px'};
 `
 const StyledBinaryLogo = styled.img`
+    height: 42px;
+    width: 43px;
     margin-right: 0.8rem;
     margin-top: 1rem;
 

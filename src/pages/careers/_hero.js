@@ -43,7 +43,7 @@ const query = graphql`
         image: file(relativePath: { eq: "careers/career-landing-screen.jpg" }) {
             childImageSharp {
                 fluid(maxWidth: 2048) {
-                    ...GatsbyImageSharpFluid
+                    ...GatsbyImageSharpFluid_withWebp_noBase64
                     originalName
                 }
             }

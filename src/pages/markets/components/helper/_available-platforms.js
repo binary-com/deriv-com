@@ -32,7 +32,6 @@ const PlatformsContainer = styled(Flex)`
 `
 const StyledText = styled(Text)`
     margin-right: 1.6rem;
-    width: 102px;
 
     @media ${device.tabletL} {
         font-size: 1.75rem;

@@ -246,7 +246,7 @@ const Policies = () => {
                         )}
                     </Text>
 
-                    <StyledLinkButton secondary="true" to="/trade-types/margin">
+                    <StyledLinkButton secondary="true" to="/trader-tools#swapCalculator">
                         {localize('Swap calculator')}
                     </StyledLinkButton>
 

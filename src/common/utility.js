@@ -171,7 +171,6 @@ const deriv_status_page_url = 'https://deriv.statuspage.io'
 const smarttrader_url = 'https://smarttrader.deriv.com'
 const binary_url = 'https://binary.com'
 const blog_url = 'https://blog.deriv.com'
-const besquare_url = 'https://besquare.deriv.com'
 const deriv_cookie_domain = 'deriv.com'
 const affiliate_signup_url = 'https://login.deriv.com/signup.php'
 const affiliate_signin_url = 'https://login.deriv.com/signin.php'
@@ -210,7 +209,6 @@ export {
     besquare_form_url,
     binary_url,
     brand_name,
-    besquare_url,
     application_id,
     client_token,
     checkElemInArray,

@@ -422,7 +422,7 @@ const Regulatory = () => {
                             </Text>
                             <Text max_width="58.8rem">
                                 {localize(
-                                    'Clients in the rest of the world (except for restricted countries such as the USA, Canada, and Hong Kong) who wish to trade CFDs on financial instruments can have MetaTrader 5 accounts under Deriv (V) Ltd and Champion Group Ltd.',
+                                    'Clients in the rest of the world (except for restricted countries such as the USA, Canada, and Hong Kong) who wish to trade CFDs on financial instruments can have MetaTrader 5 accounts under Deriv (V) Ltd and Champion Group Ltd. These companies do not offer CFDs on cryptocurrencies.',
                                 )}
                             </Text>
                         </CssGridColumn>

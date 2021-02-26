@@ -170,12 +170,13 @@ const StyledLinkText = styled(LinkText)`
 const StyledBinaryLogo = styled.img`
     height: 42px;
     width: 43px;
-    margin-right: 0.8rem;
+    margin-right: 8px;
     margin-top: 1rem;
 
     @media ${device.mobileL} {
         margin-top: 8px;
-        min-width: 32px;
+        height: 40px;
+        width: 40px;
     }
 `
 const SignupNew = ({

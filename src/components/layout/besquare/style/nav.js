@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { Container, SectionContainer } from 'components/containers'
+import { LocalizedLink } from 'components/localization'
 import { LinkButton } from 'components/form'
 import device from 'themes/device'
 
@@ -38,17 +39,15 @@ export const ContentContainer = styled(Container)`
     justify-content: space-between;
 `
 
-export const LogoWrapper = styled.img`
-    margin-left: 0;
-    width: 286px;
-    height: 27px;
+export const LogoWrapper = styled.div`
+    display: inline-block;
+`
 
-    :hover {
-        cursor: pointer;
-    }
-
+export const StyledLogoLink = styled(LocalizedLink)`
     @media ${device.tablet} {
-        width: 168px;
-        height: 16px;
+        img {
+            width: 168px;
+            height: 16px;
+        }
     }
 `

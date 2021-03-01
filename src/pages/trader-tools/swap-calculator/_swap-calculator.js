@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Formik, Field } from 'formik'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
-import { optionItemDefault, syntheticItemLists, financialItemLists } from './_underlying-data'
+import { optionItemDefault, syntheticItemLists, financialItemLists } from '../common/_underlying-data'
 import {
     SwapTabSelector,
     StyledText,
@@ -32,8 +32,8 @@ import {
     BottomContent,
     BottomText,
     StyledLinkButton,
-} from './_style'
-import validation from './_validation'
+} from '../common/_style'
+import validation from '../common/_validation'
 import { localize, Localize } from 'components/localization'
 import { QueryImage } from 'components/elements'
 import { Flex, Show } from 'components/containers'

@@ -6,7 +6,7 @@ import {
     leverageItemLists,
     syntheticItemLists,
     financialItemLists,
-} from './_underlying-data'
+} from '../common/_underlying-data'
 import {
     StyledText,
     StyledSection,
@@ -36,8 +36,8 @@ import {
     BottomContent,
     BottomText,
     StyledLinkButton,
-} from './_style'
-import validation from './_validation'
+} from '../common/_style'
+import validation from '../common/_validation'
 import { localize, Localize } from 'components/localization'
 import { Flex, Show } from 'components/containers'
 import { QueryImage, Dropdown } from 'components/elements'

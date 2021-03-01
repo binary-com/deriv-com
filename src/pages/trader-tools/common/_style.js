@@ -4,6 +4,14 @@ import { Flex, SectionContainer } from 'components/containers'
 import { Header, Text, Dropdown } from 'components/elements'
 import { Button, LinkButton } from 'components/form'
 import device from 'themes/device'
+import Patterns from 'images/common/dmt5-signals/dmt5-signals-patterns.png'
+
+export const Hero = styled(Flex)`
+    height: 40rem;
+    background: var(--color-black);
+    background-image: url(${Patterns});
+    background-size: cover;
+`
 
 export const StyledText = styled(Text)`
     @media ${device.tabletL} {

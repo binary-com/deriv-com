@@ -37,6 +37,7 @@ const NavDropdown = styled.div`
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.1);
     border-radius: 0.4rem;
     transition: opacity 0.3s, transform 0.3s;
+    will-change: display, left, opacity;
     animation-name: ${(props) => (props.is_open ? FadeInDown : FadeOutUp)};
     animation-fill-mode: both;
     animation-duration: ${(props) => (props.has_animation ? '0.3s' : '0')};

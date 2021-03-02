@@ -51,6 +51,7 @@ const StyledHeader = styled(Header)`
     animation-duration: 0.5s;
     animation-fill-mode: both;
     animation-delay: ${(props) => props.ad};
+    will-change: opacity, margin-left;
     font-size: 8rem;
     line-height: 1.25;
 

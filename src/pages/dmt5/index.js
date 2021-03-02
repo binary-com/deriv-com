@@ -8,7 +8,6 @@ import {
     DBanner,
     MarginCalculator,
 } from './_lazy-load'
-// import TradeControl from './_trade-control.js'
 import DHero from './_dhero'
 import Numbers from './_numbers'
 import WhatIsTrader from './_what-is-trader'

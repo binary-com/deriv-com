@@ -35,6 +35,7 @@ const NavDropdown = styled.div`
     border-radius: 0.4rem;
     transition: opacity 0.3s, transform 0.3s;
     animation-name: ${FadeInDown};
+    will-change: display, left, opacity;
     animation-fill-mode: both;
     animation-duration: 0.3s;
     overflow: visible;

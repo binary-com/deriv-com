@@ -128,7 +128,7 @@ export const NavLeft = styled.div`
     max-width: 30rem;
     width: 100%;
 
-    @media ${device.tabletL} {
+    @media (max-width: 991px) {
         display: none;
     }
 `
@@ -158,7 +158,7 @@ const NavCenter = styled.ul`
     @media (max-width: 1105px) {
         font-size: 11px;
     }
-    @media ${device.tabletL} {
+    @media (max-width: 991px) {
         display: none;
     }
 `
@@ -202,7 +202,7 @@ const NavRight = styled.div`
         pointer-events: ${(props) => (props.move ? 'visible' : 'none')};
         cursor: ${(props) => (props.move ? 'pointer' : 'default')};
     }
-    @media ${device.tabletL} {
+    @media (max-width: 991px) {
         display: none;
     }
 `

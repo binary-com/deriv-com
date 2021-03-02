@@ -16,19 +16,13 @@ export const ImageWrapper = styled.div`
 
 const QueryImage = ({ data, alt, width, height, className }) => {
     if (data) {
-        const data_fluid = data.childImageSharp.fluid
-        const data_fixed = data.childImageSharp.fixed
+        const { fluid, fixed } = data.childImageSharp
         return (
             <ImageWrapper width={width} height={height} className={className}>
-                <Img
-                    alt={alt}
-                    {...(data_fluid ? { fluid: data_fluid } : { fixed: data_fixed })}
-                    height="100%"
-                />
+                <Img alt={alt} {...(fluid ? { fluid } : { fixed })} height="100%" />
             </ImageWrapper>
         )
     }
-
     return null
 }
 

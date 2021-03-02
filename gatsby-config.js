@@ -20,7 +20,17 @@ module.exports = {
             },
         },
         'gatsby-transformer-sharp',
-        'gatsby-plugin-sharp',
+        {
+            resolve: `gatsby-plugin-sharp`,
+            options: {
+                failOnError: true,
+                base64Width: 20,
+                forceBase64Format: `webp`,
+                useMozJpeg: process.env.GATSBY_JPEG_ENCODER === `MOZJPEG`,
+                stripMetadata: true,
+                defaultQuality: 50,
+            },
+        },
         {
             resolve: 'gatsby-plugin-sitemap',
             options: {
@@ -156,7 +166,7 @@ module.exports = {
                 stages: ['develop'],
                 extensions: ['js'],
                 exclude: ['node_modules', '.cache', 'public'],
-              },
+            },
         },
         {
             resolve: 'gatsby-plugin-stylelint',

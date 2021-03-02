@@ -6,7 +6,6 @@ import Divider from './divider'
 import DotLoader from './dot-loader'
 import Dropdown from './dropdown'
 import Checkbox from './checkbox'
-import Image from './image'
 import QueryImage, { ImageWrapper } from './query-image'
 import { StyledLink } from './link'
 import {
@@ -28,30 +27,29 @@ export {
     BackgroundImage,
     BaseElement,
     Card,
-    Carousel,
     CardChildren,
     CardLink,
     CardStyle,
+    Carousel,
+    Checkbox,
     Divider,
     DotLoader,
     Dropdown,
-    Checkbox,
-    Image,
+    Header,
     ImageWrapper,
-    QueryImage,
-    StyledLink,
+    Li,
+    LinkText,
+    LocalizedLinkText,
+    moveOffCanvasMenu,
     NavCard,
     OffCanvasMenu,
     OffCanvasMenuPartner,
-    moveOffCanvasMenu,
+    QueryImage,
     SideTab,
+    SpanLinkText,
+    StyledLink,
     Tabs,
     Text,
-    LinkText,
-    LocalizedLinkText,
-    Header,
-    SpanLinkText,
     Timeline,
     Ul,
-    Li,
 }

@@ -48,9 +48,10 @@ const OffCanvasMenu = styled.section`
     width: 253px;
     opacity: 1;
     overflow: scroll;
-    transition: left 0.4s;
+    transition: transform 0.4s;
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.1);
-    left: ${(props) => (props.is_canvas_menu_open ? '0' : '-254px')};
+    left: -254px;
+    ${({ is_canvas_menu_open }) => is_canvas_menu_open && 'transform: translateX(254px)'};
 
     @media ${device.tabletS} {
         top: ${(props) =>

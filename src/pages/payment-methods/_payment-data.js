@@ -24,7 +24,7 @@ import Tether from 'images/svg/payment-methods/payment-tether.svg'
 import Help2Pay from 'images/svg/payment-methods/payment-help-pay.svg'
 import DragonPhoenix from 'images/svg/payment-methods/payment-dragon-phoenix.svg'
 import ZingPay from 'images/svg/payment-methods/payment-zing-pay.svg'
-import DragonPay from 'images/svg/payment-methods/payment-dragon-pay.svg'
+// import DragonPay from 'images/svg/payment-methods/payment-dragon-pay.svg'
 import NganLuong from 'images/svg/payment-methods/payment-ngan-luong.svg'
 import Diners from 'images/svg/payment-methods/payment-diners.svg'
 // import Bianance from 'images/svg/payment-methods/payment-binance-usd.svg'
@@ -113,9 +113,9 @@ const DragonPhoenixIc = styled.img`
 const ZingPayIc = styled.img`
     ${icon_css}
 `
-const DragonPayIc = styled.img`
-    ${icon_css}
-`
+// const DragonPayIc = styled.img`
+//     ${icon_css}
+// `
 const NganLuongIc = styled.img`
     ${icon_css}
 `
@@ -230,19 +230,19 @@ const payment_data = [
                 name: 'ZingPay',
                 reference: 'zingpay-payment-method.pdf',
             },
-            {
-                method: <DragonPayIc src={DragonPay} alt="Dragon pay" />,
-                currencies: 'USD',
-                min_max_deposit: '50-4,500',
-                min_max_withdrawal: '55-2,500',
-                deposit_time: <Localize translate_text="1 day" />,
-                withdrawal_time: <Localize translate_text="1-3 days" />,
-                description: (
-                    <Localize translate_text="A payment facility that allows online bank transfers for clients in the Philippines. Available for deposits and withdrawals." />
-                ),
-                name: 'DragonPay',
-                reference: 'dragonpay-payment-method.pdf',
-            },
+            // {
+            //     method: <DragonPayIc src={DragonPay} alt="Dragon pay" />,
+            //     currencies: 'USD',
+            //     min_max_deposit: '50-4,500',
+            //     min_max_withdrawal: '55-2,500',
+            //     deposit_time: <Localize translate_text="1 day" />,
+            //     withdrawal_time: <Localize translate_text="1-3 days" />,
+            //     description: (
+            //         <Localize translate_text="A payment facility that allows online bank transfers for clients in the Philippines. Available for deposits and withdrawals." />
+            //     ),
+            //     name: 'DragonPay',
+            //     reference: 'dragonpay-payment-method.pdf',
+            // },
             {
                 method: <NganLuongIc src={NganLuong} alt="NganLuong" />,
                 currencies: 'USD',

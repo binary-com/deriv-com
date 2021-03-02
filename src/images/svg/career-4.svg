@@ -1,10 +1,1 @@
-<svg role="img" xmlns="http://www.w3.org/2000/svg" width="131" height="131" viewBox="0 0 131 131">
-    <title id='career-4'>4</title>
-    <g fill="none" fill-rule="evenodd" transform="translate(1 1)">
-        <circle cx="64.5" cy="64.5" r="63.767" stroke="#EFEFEF" stroke-width="2" />
-        <circle cx="65" cy="65" r="47" fill="#FF5E67" fill-rule="nonzero" />
-        <text fill="#FFF" font-family="IBMPlexSans-Bold, IBM Plex Sans" font-size="71" font-weight="bold">
-            <tspan x="44" y="91">4</tspan>
-        </text>
-    </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="131" height="131"><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><circle cx="64.5" cy="64.5" r="63.767" stroke="#EFEFEF" stroke-width="2"/><circle cx="65" cy="65" r="47" fill="#FF5E67" fill-rule="nonzero"/><text fill="#FFF" font-family="IBMPlexSans-Bold, IBM Plex Sans" font-size="71" font-weight="bold"><tspan x="44" y="91">4</tspan></text></g></svg>

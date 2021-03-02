@@ -5,6 +5,8 @@ import styled from 'styled-components'
 import useGTMData from '../hooks/gtm-data-hooks'
 import Copyright from './copyright'
 import { Nav, NavStatic, NavPartners, NavInterim } from './nav'
+import BeSquareNav from './besquare/nav'
+import BeSquareFooter from './besquare/footer'
 import { NavCareers } from './nav-careers'
 import { NavP2P } from './nav-p2p'
 import { LocationProvider } from './location-context'
@@ -176,6 +178,10 @@ const Layout = ({
         case 'p2p':
             Navigation = <NavP2P nav_type={nav_type} />
             FooterNav = <Copyright />
+            break
+        case 'be-square':
+            Navigation = <BeSquareNav />
+            FooterNav = <BeSquareFooter />
             break
         default:
             Navigation = <Nav is_ppc_redirect={is_ppc_redirect} is_ppc={is_ppc} />

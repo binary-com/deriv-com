@@ -4,11 +4,12 @@ import Cookies from 'js-cookie'
 import { datadogRum } from '@datadog/browser-rum'
 import { Pushwoosh } from 'web-push-notifications'
 import { WrapPagesWithLocaleContext } from './src/components/localization'
-import { isProduction, isLocalHost } from './src/common/websocket/config'
+import { isProduction, isLive, isLocalHost } from './src/common/websocket/config'
 import { LocalStore } from './src/common/storage'
 import {
     application_id,
     client_token,
+    getLanguage,
     gtm_test_domain,
     sample_rate,
     pushwoosh_app_code,
@@ -39,7 +40,7 @@ const addScript = (settings) => {
     document.body.appendChild(script)
 }
 
-const sendTags = (push_woosh) => {
+const sendTags = (api) => {
     const language = LocalStore.get('i18n') || ''
     const domain = window.location.hostname.includes('deriv.com') ? 'deriv.com' : 'binary.sx'
     const { loginid, residence } = Cookies.get('client_information', {
@@ -48,29 +49,26 @@ const sendTags = (push_woosh) => {
         loginid: '',
         residence: '',
     }
-
-    push_woosh.push((api) => {
-        api.getTags()
-            .then((result) => {
-                if (
-                    !result.result['Login ID'] ||
-                    !result.result['Site Language'] ||
-                    !result.result.Residence
-                ) {
-                    return api.setTags({
-                        'Login ID': loginid,
-                        'Site Language': language.toLowerCase(),
-                        Residence: residence,
-                    })
-                }
-                return null
-            })
-            .catch((e) => {
-                // eslint-disable-next-line no-console
-                console.error(e)
-                return null
-            })
-    })
+    api.getTags()
+        .then((result) => {
+            if (
+                !result.result['Login ID'] ||
+                !result.result['Site Language'] ||
+                !result.result.Residence
+            ) {
+                return api.setTags({
+                    'Login ID': loginid,
+                    'Site Language': language.toLowerCase(),
+                    Residence: residence,
+                })
+            }
+            return null
+        })
+        .catch((e) => {
+            // eslint-disable-next-line no-console
+            console.error(e)
+            return null
+        })
 }
 
 const pushwooshInit = (push_woosh) => {
@@ -82,9 +80,17 @@ const pushwooshInit = (push_woosh) => {
             safariWebsitePushID: 'web.com.deriv',
             defaultNotificationTitle: 'Deriv.com',
             defaultNotificationImage: 'https://deriv.com/static/favicons/favicon-192x192.png',
+            autoSubscribe: true,
         },
     ])
-    sendTags(push_woosh)
+
+    push_woosh.push([
+        'onReady',
+        function (api) {
+            push_woosh.subscribe()
+            sendTags(api)
+        },
+    ])
 }
 
 export const wrapRootElement = ({ element }) => {
@@ -100,11 +106,6 @@ export const onInitialClientRender = () => {
     // Check if not production and match ach or ach/
     if (is_browser) {
         const match_ach = window.location.pathname.match(/^(\/ach\/)|\/ach$/)
-        const has_datalayer = window.dataLayer
-        const domain = window.location.hostname.includes('deriv.com') ? 'deriv.com' : 'binary.sx'
-        const is_logged_in = Cookies.get('client_information', {
-            domain,
-        })
 
         if (match_ach) {
             // TODO: remove this line when production ready for translation
@@ -124,10 +125,6 @@ export const onInitialClientRender = () => {
             `
             document.head.appendChild(jipt)
         }
-
-        if (has_datalayer) {
-            window.dataLayer.push({ logged_in: is_logged_in })
-        }
     }
 
     NProgress.done()
@@ -138,7 +135,9 @@ export const onClientEntry = () => {
 
     const is_gtm_test_domain = window.location.hostname === gtm_test_domain
     const push_woosh = new Pushwoosh()
-    let has_initialized = false
+    if (isLive()) {
+        pushwooshInit(push_woosh)
+    }
 
     // Add GTM script for test domain
     if (!isLocalHost() && is_gtm_test_domain) {
@@ -168,11 +167,6 @@ export const onClientEntry = () => {
             sampleRate: sample_rate,
         })
     }
-
-    if (isProduction() && !has_initialized) {
-        pushwooshInit(push_woosh)
-        has_initialized = true
-    }
 }
 
 export const onPreRouteUpdate = () => {
@@ -182,6 +176,29 @@ export const onPreRouteUpdate = () => {
 export const onRouteUpdate = () => {
     NProgress.done()
     checkDomain()
+
+    const dataLayer = window.dataLayer
+    const domain = window.location.hostname.includes('deriv.com') ? 'deriv.com' : 'binary.sx'
+    const client_information = Cookies.get('client_information', {
+        domain,
+    })
+    const is_logged_in = !!client_information
+
+    // wrap inside a timeout to ensure the title has properly been changed
+    setTimeout(() => {
+        const eventName = 'page_load'
+
+        dataLayer?.push({
+            event: eventName,
+            loggedIn: is_logged_in,
+            language: getLanguage(),
+            ...(is_logged_in && {
+                visitorId: client_information.loginid,
+                currency: client_information.currency,
+                email: client_information.email,
+            }),
+        })
+    }, 50)
 }
 
 export const wrapPageElement = WrapPagesWithLocaleContext

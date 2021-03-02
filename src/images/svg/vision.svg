@@ -1,10 +1,1 @@
-<svg role="img" xmlns="http://www.w3.org/2000/svg" width="48" height="48">
-    <title id='vision-icon-title'>Vision</title>
-    <g fill="none" fill-rule="evenodd" stroke-width="1.846">
-        <circle cx="24" cy="23.51" r="4.898" fill="#FFF" stroke="#000" />
-        <circle cx="26.783" cy="20.416" r="2.293" fill="#FFF" stroke="#FF444F" />
-        <circle cx="24" cy="23.755" r="9.231" stroke="#000" />
-        <path stroke="#85ACB0"
-            d="M23.782 13.89c-7.548 0-14.174 2.668-19.922 8.03a2.77 2.77 0 0 0 .083 4.123c5.724 4.927 12.324 7.383 19.84 7.383 7.494 0 14.201-2.444 20.155-7.346a2.77 2.77 0 0 0 .083-4.204c-5.979-5.332-12.712-7.987-20.239-7.987z" />
-    </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48"><g fill="none" fill-rule="evenodd" stroke-width="1.846"><circle cx="24" cy="23.51" r="4.898" fill="#FFF" stroke="#000"/><circle cx="26.783" cy="20.416" r="2.293" fill="#FFF" stroke="#FF444F"/><circle cx="24" cy="23.755" r="9.231" stroke="#000"/><path stroke="#85ACB0" d="M23.782 13.89c-7.548 0-14.174 2.668-19.922 8.03a2.77 2.77 0 00.083 4.123c5.724 4.927 12.324 7.383 19.84 7.383 7.494 0 14.201-2.444 20.155-7.346a2.77 2.77 0 00.083-4.204c-5.979-5.332-12.712-7.987-20.239-7.987z"/></g></svg>

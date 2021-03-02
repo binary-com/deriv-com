@@ -168,12 +168,15 @@ const StyledLinkText = styled(LinkText)`
     font-size: ${(props) => props.size || '14px'};
 `
 const StyledBinaryLogo = styled.img`
-    margin-right: 0.8rem;
+    height: 42px;
+    width: 43px;
+    margin-right: 8px;
     margin-top: 1rem;
 
     @media ${device.mobileL} {
         margin-top: 8px;
-        min-width: 32px;
+        height: 40px;
+        width: 40px;
     }
 `
 const SignupNew = ({

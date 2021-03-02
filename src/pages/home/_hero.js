@@ -51,6 +51,7 @@ const StyledHeader = styled(Header)`
     animation-duration: 0.5s;
     animation-fill-mode: both;
     animation-delay: ${(props) => props.ad};
+    will-change: opacity, margin-left;
     font-size: 8rem;
     line-height: 1.25;
 
@@ -112,7 +113,7 @@ const ImageWrapper = styled(Box)`
         margin-top: 0;
     }
 `
-export const Hero = ({ is_ppc }) => {
+const Hero = ({ is_ppc }) => {
     const data = useStaticQuery(query)
     const typewriter_text = !is_ppc
         ? localize('Trade forex, commodities, synthetic and stock indices')
@@ -212,3 +213,5 @@ export const Hero = ({ is_ppc }) => {
 Hero.propTypes = {
     is_ppc: PropTypes.bool,
 }
+
+export default Hero

@@ -1,8 +1,1 @@
-<svg role="img" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
-    <title id="checklist-icon-title">Checklist</title>
-    <g fill="none" fill-rule="evenodd">
-        <circle cx="15" cy="15" r="15" fill="#333" />
-        <path stroke="#FFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            d="M10 15.88l3.951 3.235L20.553 11" />
-    </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"><g fill="none" fill-rule="evenodd"><circle cx="15" cy="15" r="15" fill="#333"/><path stroke="#FFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 15.88l3.951 3.235L20.553 11"/></g></svg>

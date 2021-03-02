@@ -9,38 +9,40 @@ import { localize } from 'components/localization'
 import device from 'themes/device'
 
 const query = graphql`
-query {
-    example: file(relativePath: { eq: "trade-types/margin-example-crash-boom.png" }) {
-        ...fadeIn
+    query {
+        example: file(relativePath: { eq: "trade-types/margin-example-crash-boom.png" }) {
+            ...fadeIn
+        }
+        example_mobile: file(
+            relativePath: { eq: "trade-types/margin-example-crash-boom-mobile.png" }
+        ) {
+            ...fadeIn
+        }
     }
-    example_mobile: file(relativePath: { eq: "trade-types/margin-example-crash-boom-mobile.png" }) {
-        ...fadeIn
-    }
-}
 `
 
 const ShowWrapper = styled.div`
-    width:100%;
+    width: 100%;
 `
 
 const ExampleImage = styled(QueryImage)`
-    margin:${(props) => (props.center ? '0 auto' : 'unset')};
+    margin: ${(props) => (props.center ? '0 auto' : 'unset')};
     width: 792px;
     height: 453px;
 
-    @media ${device.laptop}{
+    @media ${device.laptop} {
         width: 630px;
         height: 361px;
     }
 
-    @media ${device.tabletL}{
-        width:328px;
-        height:506px;
+    @media ${device.tabletL} {
+        width: 328px;
+        height: 506px;
     }
 
-    @media ${device.mobileM}{
-        width:289px;
-        height:454px;
+    @media ${device.mobileM} {
+        width: 289px;
+        height: 454px;
     }
 `
 const StyledLinkButton = styled(LinkButton)`
@@ -138,33 +140,31 @@ const Policies = () => {
                         )}
                     </Text>
                     <Text weight="bold" mb="0.8rem">
+                        {localize('Stop loss with Crash/Boom/Range break indices')}
+                    </Text>
+                    <Text mb="1.6rem">
                         {localize(
-                            'Stop loss with Crash/Boom/Range break indices',
+                            'Stop loss works slightly differently in Crash/Boom/Range break indices. When trading on these indices with a stop loss level, your trade will automatically close if your losses exceed the stop loss amount.',
                         )}
                     </Text>
                     <Text mb="1.6rem">
                         {localize(
-                            "Stop loss works slightly differently in Crash/Boom/Range break indices. When trading on these indices with a stop loss level, your trade will automatically close if your losses exceed the stop loss amount.",
+                            'The reason is that in Crash/Boom/Range break indices, sudden fluctuations in price between one tick to another can sometimes surpass the stop loss you set. In this case, your trade will close at the nearest applicable market price instead of exactly at the stop loss level.',
                         )}
                     </Text>
                     <Text mb="1.6rem">
                         {localize(
-                            "The reason is that in Crash/Boom/Range break indices, sudden fluctuations in price between one tick to another can sometimes surpass the stop loss you set. In this case, your trade will close at the nearest applicable market price instead of exactly at the stop loss level.",
+                            'For example, you predict that the market will go up, and buy a contract on Crash 500 index at 8,000.',
                         )}
                     </Text>
                     <Text mb="1.6rem">
                         {localize(
-                            "For example, you predict that the market will go up, and buy a contract on Crash 500 index at 8,000.",
+                            'When the market price climbs to 8,700, you decide to set the stop loss level at 8,200. After a few ticks, the price dives to 8,100, surpassing your stop loss level.',
                         )}
                     </Text>
                     <Text mb="1.6rem">
                         {localize(
-                            "When the market price climbs to 8,700, you decide to set the stop loss level at 8,200. After a few ticks, the price dives to 8,100, surpassing your stop loss level.",
-                        )}
-                    </Text>
-                    <Text mb="1.6rem">
-                        {localize(
-                            "Your trade will automatically close at 8,100, which is the nearest applicable market price to your stop loss level.",
+                            'Your trade will automatically close at 8,100, which is the nearest applicable market price to your stop loss level.',
                         )}
                     </Text>
                     <Show.Desktop>
@@ -241,10 +241,12 @@ const Policies = () => {
                         )}
                     </Text>
                     <Text mb="1.6rem">
-                        {localize('You can use our swap calculator to estimate the swap charges required to keep your positions open overnight on DMT5.')}
+                        {localize(
+                            'You can use our swap calculator to estimate the swap charges required to keep your positions open overnight on DMT5.',
+                        )}
                     </Text>
 
-                    <StyledLinkButton secondary="true" to="/trade-types/margin">
+                    <StyledLinkButton secondary="true" to="/trader-tools#swapCalculator">
                         {localize('Swap calculator')}
                     </StyledLinkButton>
 
@@ -253,7 +255,6 @@ const Policies = () => {
                             'Please note that our swap rate also depends on the time and days you hold your positions open.',
                         )}
                     </Text>
-
                 </SmallContainer>
             </SectionContainer>
         </>

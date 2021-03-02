@@ -1,17 +1,1 @@
-<svg role="img" id="carousel-chevron-icon-svg" viewBox="0 0 16 28" version="1.1" xmlns="http://www.w3.org/2000/svg"
-    xmlns:xlink="http://www.w3.org/1999/xlink">
-    <title id="carousel-chevron-icon">Arrow</title>
-    <g id="Homepage" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="1.0---Homepage" transform="translate(-48.000000, -2903.000000)" fill="#C2C2C2" fill-rule="nonzero">
-            <g id="More-reasons-to-love-Deriv" transform="translate(0.000000, 2629.000000)">
-                <g id="outlined/navigation/dropdown/left/stroke" transform="translate(40.000000, 272.000000)">
-                    <path
-                        d="M15.9999859,19.1715729 L26.5857864,8.58577938 C27.366835,7.8047308 28.633165,7.8047308 29.4142136,8.58577938 C30.1952621,9.36682797 30.1952621,10.6331579 29.4142136,11.4142065 L17.4142065,23.4142136 C16.6331579,24.1952621 15.366828,24.1952621 14.5857794,23.4142136 L2.58577233,11.4142065 C1.80472374,10.6331579 1.80472374,9.36682797 2.58577233,8.58577938 C3.36682091,7.8047308 4.63315087,7.8047308 5.41419945,8.58577938 L15.9999859,19.1715729 Z"
-                        id="Path-13"
-                        transform="translate(15.999993, 15.999996) rotate(90.000000) translate(-15.999993, -15.999996) ">
-                    </path>
-                </g>
-            </g>
-        </g>
-    </g>
-</svg>
+<svg viewBox="0 0 16 28" xmlns="http://www.w3.org/2000/svg"><path d="M4.828 14l10.586 10.586a2 2 0 01-2.828 2.828l-12-12a2 2 0 010-2.828l12-12a2 2 0 112.828 2.828L4.828 14z" fill="#C2C2C2" fill-rule="nonzero"/></svg>

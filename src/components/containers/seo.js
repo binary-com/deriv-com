@@ -55,7 +55,7 @@ const SEO = ({ description, meta, title, no_index, has_organization_schema }) =>
             '@type': 'Organization',
             name: 'Deriv',
             alternateName: 'Deriv.com',
-            url: 'http://www.deriv.com',
+            url: 'https://www.deriv.com',
             logo: 'https://deriv.com/static/1b57a116945933314eefeec0030c8e9d/2a4de/logo.png',
             sameAs: [
                 'https://www.facebook.com/derivdotcom',

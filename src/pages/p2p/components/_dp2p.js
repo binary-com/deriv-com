@@ -12,12 +12,16 @@ const StyledSection = styled(SectionContainer)`
     padding: 8rem 0 0 0;
 
     @media ${device.tabletL} {
-        padding-top: 40px;
+        padding: 40px 16px 0;
     }
 `
 const StyledContainer = styled(Container)`
     display: flex;
     flex-direction: column;
+
+    @media ${device.tabletL} {
+        width: 100%;
+    }
 `
 const Content = styled.div`
     width: 100%;

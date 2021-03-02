@@ -1,14 +1,1 @@
-<svg role="img" xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
-    <title id='borrow-money-icon'>Borrow money</title>
-    <g fill="none" fill-rule="evenodd">
-        <path stroke="#FF444F" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            d="M31.5 18V4.59M38.15 4.59h4.7M31.5 4.59a3.11 3.11 0 0 1 3-3.09 3.43 3.43 0 0 1 3.32 3.12" />
-        <path fill="#85ACB0" fill-rule="nonzero"
-            d="M32 24c10.493 0 19 8.507 19 19s-8.507 19-19 19-19-8.507-19-19 8.507-19 19-19zm0-2c-11.598 0-21 9.402-21 21s9.402 21 21 21 21-9.402 21-21a21 21 0 0 0-21-21z" />
-        <path stroke="#85ACB0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            d="M25.5 23.65v-3.3A2.35 2.35 0 0 1 27.85 18h8.3a2.35 2.35 0 0 1 2.35 2.35v3.3" />
-        <path stroke="#0E0E0E" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            d="M39 39.2a7 7 0 0 0-13.9 0L39 47.39a7 7 0 0 1-13.9 0M32.15 28.06v4.09M32.15 55.28V58" />
-        <path d="M0 0h64v64H0z" />
-    </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64"><g fill="none" fill-rule="evenodd"><path stroke="#FF444F" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M31.5 18V4.59m6.65 0h4.7m-11.35 0a3.11 3.11 0 013-3.09 3.43 3.43 0 013.32 3.12"/><path fill="#85ACB0" fill-rule="nonzero" d="M32 24c10.493 0 19 8.507 19 19s-8.507 19-19 19-19-8.507-19-19 8.507-19 19-19zm0-2c-11.598 0-21 9.402-21 21s9.402 21 21 21 21-9.402 21-21a21 21 0 00-21-21z"/><path stroke="#85ACB0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M25.5 23.65v-3.3A2.35 2.35 0 0127.85 18h8.3a2.35 2.35 0 012.35 2.35v3.3"/><path stroke="#0E0E0E" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M39 39.2a7 7 0 00-13.9 0L39 47.39a7 7 0 01-13.9 0m7.05-19.33v4.09m0 23.13V58"/><path d="M0 0h64v64H0z"/></g></svg>

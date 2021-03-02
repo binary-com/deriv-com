@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import { WhyTrader, StartTrader, DownloadApp, Flexibility, DBanner } from '../../dmt5/_lazy-load'
-// import TradeControl from './_trade-control.js'
 import DHero from '../../dmt5/_dhero'
 import Numbers from '../../dmt5/_numbers'
 import WhatIsTrader from '../../dmt5/_what-is-trader'

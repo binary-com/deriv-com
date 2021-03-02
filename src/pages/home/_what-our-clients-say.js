@@ -236,17 +236,15 @@ const WhatOurClientsSay = () => {
                     </Header>
                 </Container>
                 <Carousel has_autoplay autoplay_interval={4000} {...settings}>
-                    {our_client_slides.map((trader, idx) => (
-                        <div key={idx}>
-                            <ClientSlide
-                                key={trader.name}
-                                quote={trader.quote}
-                                name={trader.name}
-                                location={trader.location}
-                                img={data[trader.id]}
-                                img_alt={trader.name + localize(" - Deriv's Client")}
-                            />
-                        </div>
+                    {our_client_slides.map((trader) => (
+                        <ClientSlide
+                            key={trader.id}
+                            quote={trader.quote}
+                            name={trader.name}
+                            location={trader.location}
+                            img={data[trader.id]}
+                            img_alt={trader.name + localize(" - Deriv's Client")}
+                        />
                     ))}
                 </Carousel>
             </StyledSection>

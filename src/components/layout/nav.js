@@ -409,15 +409,21 @@ const NavMobile = ({ is_ppc, is_ppc_redirect, is_logged_in }) => {
                     alt="hamburger"
                     onClick={openOffCanvasMenu}
                     width="16px"
+                    height="14px"
                 />
             )}
 
             <LogoLinkMobileMain to="/" aria-label={localize('Home')}>
                 <Flex>
-                    <img src={LogoOnly} alt="logo only" width="115px" />
+                    <img src={LogoOnly} alt="logo only" width="115px" height="20px" />
                     <LogoDescription ai="center">
                         <Line />
-                        <img src={LogoCombinedShape} alt="logo combined shape 2" />
+                        <img
+                            src={LogoCombinedShape}
+                            alt="logo combined shape 2"
+                            width="120"
+                            height="17"
+                        />
                     </LogoDescription>
                 </Flex>
             </LogoLinkMobileMain>
@@ -512,11 +518,20 @@ const NavDesktop = ({ base, is_ppc, is_ppc_redirect, is_logged_in }) => {
                         />
                     </LogoLink>
                     <Line />
-                    <img src={LogoCombinedShape} alt="logo combined shape" />
-                </NavLeftMain>
-                <NavCenter ref={navigation_bar_ref}>
-                    <NavLink onClick={(e) => handleLinkClick('trade', e.target)}>
-                        <StyledButton aria-label={localize('Trade')} active={checkActive('trade')}>
+                    <img
+                        src={LogoCombinedShape}
+                        alt="logo combined shape"
+                        width="120"
+                        height="17"
+                    />
+                </NavLeft>
+                <NavCenter>
+                    <NavLink onClick={handleTradeClick}>
+                        <StyledButton
+                            aria-label={localize('Trade')}
+                            active={current_page === 'trade' || is_trade_open}
+                            ref={link_trade_ref}
+                        >
                             {localize('Trade')}
                         </StyledButton>
                     </NavLink>

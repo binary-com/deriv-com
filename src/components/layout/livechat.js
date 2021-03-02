@@ -39,9 +39,9 @@ const LiveChat = () => {
                     onMouseLeave={() => setLivechatHover(false)}
                 >
                     {is_livechat_hover ? (
-                        <img src={LiveChatHover} alt="livechat hover" />
+                        <img src={LiveChatHover} width="32" height="32" alt="livechat hover" />
                     ) : (
-                        <img src={LiveChatIC} alt="livechat ic" />
+                        <img src={LiveChatIC} width="32" height="32" alt="livechat ic" />
                     )}
                 </StyledLiveChat>
             )}

@@ -29,6 +29,7 @@ module.exports = {
                 useMozJpeg: process.env.GATSBY_JPEG_ENCODER === `MOZJPEG`,
                 stripMetadata: true,
                 defaultQuality: 50,
+                webpQuality: 50,
             },
         },
         {

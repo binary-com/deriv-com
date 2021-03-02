@@ -25,6 +25,11 @@ const query = graphql`
         stocks_banner: file(relativePath: { eq: "stock-indices/mac-book-pro-with-iphone.png" }) {
             ...fadeIn
         }
+        stocks_banner_mobile: file(
+            relativePath: { eq: "stock-indices/mobile-mac-book-pro-with-iphone.png" }
+        ) {
+            ...fadeIn
+        }
     }
 `
 
@@ -90,6 +95,7 @@ const blueChips = [
         ),
 
         image_name: 'stocks_blue_chip',
+        image_name_mobile: 'stocks_blue_chip_mobile',
         image_alt: localize('Blue Chips'),
     },
 ]
@@ -105,7 +111,6 @@ const Stocks = () => {
         window.addEventListener('resize', handleResizeWindow)
     })
     const data = useStaticQuery(query)
-
     return (
         <Layout is_ppc_redirect={true}>
             <SEO
@@ -117,12 +122,22 @@ const Stocks = () => {
             />
             <HeaderSection />
             <Show.Desktop>
-                <DTrading trading={trading} reverse={false} />
+                <DTrading
+                    trading={trading}
+                    setWidth={'486px'}
+                    reverse={false}
+                    contentMargin={'24px'}
+                />
             </Show.Desktop>
             <Show.Mobile>
                 <Parallelogram trading={tradingMobile} reverse={false} />
             </Show.Mobile>
-            <DTrading trading={blueChips} reverse={true} />
+            <DTrading
+                trading={blueChips}
+                setWidth={'486px'}
+                reverse={true}
+                contentMargin={'24px'}
+            />
             <WhyTradeWithUs
                 itemsArr={WhyTradeWithUsArr}
                 mainTitle={<Localize translate_text="Why trade stocks and indices on Deriv" />}

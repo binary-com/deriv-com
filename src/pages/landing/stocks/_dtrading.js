@@ -3,17 +3,21 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { graphql, useStaticQuery } from 'gatsby'
 import device from 'themes/device'
-import { Container, SectionContainer } from 'components/containers'
+import { Container, Flex, SectionContainer } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
 
 const StyledSection = styled(SectionContainer)`
     background-color: var(--color-white);
+    padding: 40px 120px;
     @media ${device.tabletL} {
-        padding: 17px 0 4px 0;
+        padding: 40px 16px 32px;
     }
 `
+const Wrapper = styled(Container)`
+    width: 100%;
+`
 const Content = styled.div`
-    width: 60%;
+    width: 689px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -21,14 +25,12 @@ const Content = styled.div`
     margin-left: ${(props) => props.margin_left};
 
     ${Text} {
-        margin-top: 2.2rem;
-        font-size: 2.4rem;
-        @media ${device.laptopM} {
-            font-size: 2.4rem;
-        }
+        margin-top: 16px;
+        font-size: 24px;
         @media ${device.tabletL} {
-            font-size: 1.6rem;
+            font-size: 20px;
             text-align: center;
+            margin-top: 8px;
         }
     }
 
@@ -38,16 +40,31 @@ const Content = styled.div`
         margin: 0 auto;
     }
 `
+const DesktopImageWrapper = styled(Container)`
+    width: 100%;
+    @media ${device.tabletL} {
+        display: none;
+    }
+`
+const MobileImageWrapper = styled(Container)`
+    display: none;
+    @media ${device.tabletL} {
+        display: flex;
+        width: 100%;
+    }
+`
 
-const ImageWrapper = styled.div`
-    display: flex;
-    width: 40%;
+const ImageWrapper = styled(Flex)`
+    width: ${(props) => props.width};
     margin-right: ${(props) => props.margin_right};
 
     @media ${device.tabletL} {
-        margin: 2rem auto;
+        margin: 2rem auto 0;
         max-width: 58.8rem;
         width: 100%;
+    }
+    @media ${device.mobileL} {
+        max-width: 216px;
     }
 `
 const StyledHeader = styled(Header)`
@@ -56,7 +73,7 @@ const StyledHeader = styled(Header)`
     @media ${device.tabletL} {
         font-size: 40px;
         line-height: 40px;
-        margin-top: 2rem;
+        margin-top: 24px;
         text-align: center;
     }
 `
@@ -69,9 +86,11 @@ const Row = styled.div`
     &:first-child {
         margin-top: 0;
     }
-
+    @media ${device.desktopS} {
+        justify-content: center;
+    }
     @media ${device.tabletL} {
-        flex-direction: column;
+        flex-direction: ${(props) => props.flex_direction_mobile};
     }
 `
 const query = graphql`
@@ -115,18 +134,31 @@ const query = graphql`
         stocks_blue_chip: file(relativePath: { eq: "stock-indices/stocks-blue-chip.png" }) {
             ...fadeIn
         }
+        stocks_blue_chip_mobile: file(
+            relativePath: { eq: "stock-indices/stocks-blue-chip-m.png" }
+        ) {
+            ...fadeIn
+        }
     }
 `
-const DTrading = ({ trading, reverse, two_title }) => {
+const DTrading = ({ contentMargin, trading, reverse, setWidth, two_title }) => {
     const data = useStaticQuery(query)
+
     return (
         <StyledSection>
-            <Container fd="column">
+            <Wrapper fd="column" ai="center">
                 {trading.map((item, index) => {
                     let is_even = reverse ? (index + 1) % 2 : index % 2
                     return (
-                        <Row flex_direction={!is_even ? 'row' : 'row-reverse'} key={index}>
-                            <Content mr={!is_even ? '4.0rem' : '0'} ml={!is_even ? '0' : '4.0rem'}>
+                        <Row
+                            flex_direction={!is_even ? 'row' : 'row-reverse'}
+                            flex_direction_mobile={!is_even ? 'column' : 'column-reverse'}
+                            key={index}
+                        >
+                            <Content
+                                margin_right={!is_even ? contentMargin : '0'}
+                                margin_left={!is_even ? '0' : contentMargin}
+                            >
                                 <StyledHeader type="display-title">{item.title}</StyledHeader>
                                 <Text>{item.subtitle}</Text>
                                 {two_title && (
@@ -138,23 +170,45 @@ const DTrading = ({ trading, reverse, two_title }) => {
                                     </>
                                 )}
                             </Content>
-                            <ImageWrapper margin_right={!is_even ? '0' : '2.4rem'}>
-                                <QueryImage
-                                    data={data[item.image_name]}
-                                    alt={item.image_alt}
-                                    width="100%"
-                                />
-                            </ImageWrapper>
+                            {item.image_name_mobile && (
+                                <ImageWrapper width={setWidth ? setWidth : '448px;'} ai="center">
+                                    <DesktopImageWrapper>
+                                        <QueryImage
+                                            data={data[item.image_name]}
+                                            alt={item.image_alt}
+                                            width="100%"
+                                        />
+                                    </DesktopImageWrapper>
+                                    <MobileImageWrapper>
+                                        <QueryImage
+                                            data={data[item.image_name_mobile]}
+                                            alt={item.image_alt}
+                                            width="100%"
+                                        />
+                                    </MobileImageWrapper>
+                                </ImageWrapper>
+                            )}
+                            {!item.image_name_mobile && (
+                                <ImageWrapper width={setWidth ? setWidth : '448px;'} ai="center">
+                                    <QueryImage
+                                        data={data[item.image_name]}
+                                        alt={item.image_alt}
+                                        width="100%"
+                                    />
+                                </ImageWrapper>
+                            )}
                         </Row>
                     )
                 })}
-            </Container>
+            </Wrapper>
         </StyledSection>
     )
 }
 
 DTrading.propTypes = {
+    contentMargin: PropTypes.string,
     reverse: PropTypes.bool,
+    setWidth: PropTypes.string,
     trading: PropTypes.array,
     two_title: PropTypes.bool,
 }

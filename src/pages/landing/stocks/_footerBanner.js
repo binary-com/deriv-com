@@ -1,26 +1,26 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { Flex } from 'components/containers'
+import { Container, Flex } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
 import { localize } from 'components/localization'
+// import Show from 'components/containers/show'
 import device from 'themes/device.js'
 
 const BannerWrapper = styled(Flex)`
     overflow: hidden;
     border-top: 1px solid rgba(151, 151, 151, 0.2);
     background-color: var(--color-black);
-    padding: 53px 120px 56px;
+    padding: 80px 120px;
     height: 100%;
 
     @media ${device.tabletL} {
         height: unset;
-        padding: 16px;
+        padding: 40px 16px;
     }
 `
 const MainWrapper = styled(Flex)`
-    width: 100%;
     max-width: 1200px;
     margin: 0 auto;
     flex-direction: row;
@@ -34,20 +34,24 @@ const MainWrapper = styled(Flex)`
     }
 `
 const TextWrapper = styled(Flex)`
-    width: 60%;
+    width: 588px;
+    margin-right: 126px;
     justify-content: start;
+
+    @media ${device.laptopM} {
+        margin-right: 60px;
+    }
 
     @media ${device.tabletL} {
         height: unset;
         width: 100%;
+        max-width: 58.8rem;
         justify-content: center;
         align-items: center;
-        padding: 24px 0;
+        margin-right: 0;
     }
 `
 const TextDiv = styled(Flex)`
-    width: 75%;
-    max-width: 62rem;
     position: relative;
     text-align: left;
     flex-direction: column;
@@ -59,91 +63,79 @@ const TextDiv = styled(Flex)`
         max-width: 100%;
         text-align: center;
         justify-content: center;
+        margin-bottom: 24px;
     }
 `
-
-const ImageWrapper = styled(Flex)`
-    width: 40%;
-
+const DesktopImageWrapper = styled(Container)`
+    width: 100%;
     @media ${device.tabletL} {
-        height: unset;
+        display: none;
+    }
+`
+const MobileImageWrapper = styled(Container)`
+    display: none;
+    @media ${device.tabletL} {
         width: 100%;
-        align-items: center;
-        padding: 36px 0;
+        display: flex;
     }
 `
-const ImageDiv = styled(Flex)`
-    width: 488px;
-    align-items: center;
+const ImageWrapper = styled(Flex)`
+    width: 486px;
 
     @media ${device.tabletL} {
+        width: 100%;
         max-width: 300px;
-    }
-    @media ${device.tablet} {
         height: unset;
+        align-items: center;
+    }
+    @media ${device.mobileL} {
+        max-width: unset;
     }
 `
 const BtnDiv = styled(Flex)`
     justify-content: start;
-
-    @media ${device.tabletL} {
-        justify-content: center;
-    }
 `
 
 const StyledLinkButton = styled(LinkButton)`
-    padding: 14px 16px;
+    padding: 10px 16px;
     width: auto;
-    margin-right: 1.6rem;
     border: unset;
+
     @media ${device.mobileL} {
         white-space: nowrap;
     }
-    @media (max-width: 360px) {
-        margin-bottom: 1.6rem;
-    }
 `
 const StyledHeader = styled(Header)`
-    @media ${device.laptopM} {
-        font-size: 3.2rem;
-        max-width: 60rem;
-    }
+    font-size: 48px;
+    line-height: 1.25;
     @media ${device.tabletL} {
-        font-size: 24px;
-        text-align: center;
+        font-size: 32px;
+        margin-bottom: 8px;
     }
 `
 const StyledHeaderSmall = styled(Header)`
+    font-size: 24px;
+    line-height: 1.5;
+    max-width: 584px;
+    margin: 0 auto 24px 0;
     @media ${device.laptopM} {
-        font-size: 2.4rem;
-        max-width: 60rem;
+        max-width: unset;
     }
+
     @media ${device.tabletL} {
-        font-size: 16px;
-        text-align: center;
+        font-size: 20px;
     }
 `
 
 const FooterBanner = ({ background_pattern, data, is_ppc, small_title, title }) => {
     const BackgroundPattern = styled.img`
         position: absolute;
-        top: -93%;
-        left: -6%;
+        top: -298px;
+        left: -8%;
         z-index: 1;
-        width: 600px;
+        width: 558px;
 
-        @media ${device.laptopM} {
-            width: 40rem;
-            height: initial;
-            top: -30%;
-            left: 10%;
-        }
         @media ${device.tabletL} {
-            top: 10%;
-            left: 45%;
-            transform: translate(-50%, -50%);
-        }
-        @media ${device.tablet} {
             display: none;
         }
     `
@@ -153,7 +145,7 @@ const FooterBanner = ({ background_pattern, data, is_ppc, small_title, title }) 
             <MainWrapper>
                 <TextWrapper>
                     <TextDiv>
-                        <StyledHeader color="white" type="section-title" mb="1.6rem">
+                        <StyledHeader color="white" type="section-title" mb="8px">
                             {title}
                         </StyledHeader>
                         <StyledHeaderSmall
@@ -161,7 +153,7 @@ const FooterBanner = ({ background_pattern, data, is_ppc, small_title, title }) 
                             type="sub-section-title"
                             weight="normal"
                             size="2.4rem"
-                            mb="3.2rem"
+                            mb="24px"
                         >
                             {small_title}
                         </StyledHeaderSmall>
@@ -171,21 +163,30 @@ const FooterBanner = ({ background_pattern, data, is_ppc, small_title, title }) 
                                 secondary="true"
                                 to={is_ppc ? '/landing/signup/' : '/signup/'}
                             >
-                                {localize('Sign up')}
+                                {localize('Create a demo account')}
                             </StyledLinkButton>
                         </BtnDiv>
                     </TextDiv>
-                    <BackgroundPattern src={background_pattern} alt="background pattern" />
                 </TextWrapper>
                 <ImageWrapper>
-                    <ImageDiv>
-                        <QueryImage
-                            data={data['stocks_banner']}
-                            alt="deriv platform"
-                            width="100%"
-                        />
-                    </ImageDiv>
+                    <Flex>
+                        <DesktopImageWrapper>
+                            <QueryImage
+                                data={data['stocks_banner']}
+                                alt="deriv platform"
+                                width="100%"
+                            />
+                        </DesktopImageWrapper>
+                        <MobileImageWrapper>
+                            <QueryImage
+                                data={data['stocks_banner']}
+                                alt="deriv platform"
+                                width="100%"
+                            />
+                        </MobileImageWrapper>
+                    </Flex>
                 </ImageWrapper>
+                <BackgroundPattern src={background_pattern} alt="background pattern" />
             </MainWrapper>
         </BannerWrapper>
     )

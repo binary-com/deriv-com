@@ -8,10 +8,15 @@ import { Header, Text, QueryImage } from 'components/elements'
 
 const StyledSection = styled(SectionContainer)`
     background-color: var(--color-grey-30);
-    clip-path: polygon(0 0, 100% 6%, 100% 100%, 0 94%);
-    padding: 6.4rem 1.6rem;
-    margin: 2rem auto;
+    clip-path: polygon(0 0, 100% 4%, 100% 100%, 0 96%);
+    padding: 64px 16px;
 `
+const MainWrapper = styled(Container)`
+    @media ${device.tabletL} {
+        width: 100%;
+    }
+`
+
 const Content = styled(Flex)`
     width: 60%;
     flex-direction: column;
@@ -22,7 +27,8 @@ const Content = styled(Flex)`
         margin-top: 2.2rem;
         font-size: 2.4rem;
         @media ${device.tabletL} {
-            font-size: 16px;
+            margin-top: 8px;
+            font-size: 20px;
             text-align: center;
         }
     }
@@ -50,8 +56,7 @@ const StyledHeader = styled(Header)`
 
     @media ${device.tabletL} {
         font-size: 40px;
-        line-height: 40px;
-        margin-top: 2rem;
+        line-height: 50px;
         text-align: center;
     }
 `
@@ -116,7 +121,7 @@ const Parallelogram = ({ trading, reverse, two_title }) => {
     const data = useStaticQuery(query)
     return (
         <StyledSection>
-            <Container fd="column">
+            <MainWrapper fd="column">
                 {trading.map((item, index) => {
                     let is_even = reverse ? (index + 1) % 2 : index % 2
                     return (
@@ -133,17 +138,19 @@ const Parallelogram = ({ trading, reverse, two_title }) => {
                                     </>
                                 )}
                             </Content>
-                            <ImageWrapper margin_right={!is_even ? '0' : '2.4rem'}>
-                                <QueryImage
-                                    data={data[item.image_name]}
-                                    alt={item.image_alt}
-                                    width="100%"
-                                />
-                            </ImageWrapper>
+                            {item.image_name && (
+                                <ImageWrapper margin_right={!is_even ? '0' : '2.4rem'}>
+                                    <QueryImage
+                                        data={data[item.image_name]}
+                                        alt={item.image_alt}
+                                        width="100%"
+                                    />
+                                </ImageWrapper>
+                            )}
                         </Row>
                     )
                 })}
-            </Container>
+            </MainWrapper>
         </StyledSection>
     )
 }

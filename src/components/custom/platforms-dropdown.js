@@ -69,8 +69,8 @@ const getNavigationContents = (type, is_ppc, is_ppc_redirect) => {
 }
 
 const PlatformsDropdown = ({ current_ref, is_ppc, is_ppc_redirect, parent, setActiveDropdown }) => {
-    const [left_offset, setLeftOffset] = useState(0)
-    const [left_arrow_offset, setLeftArrowOffset] = useState(0)
+    const [left_offset, setLeftOffset] = useState(current_ref.offsetLeft)
+    const [left_arrow_offset, setLeftArrowOffset] = useState(current_ref.offsetWidth / 2 - 15)
     const dropdownContainerRef = useRef(null)
 
     const updateOffsets = () => {
@@ -84,7 +84,6 @@ const PlatformsDropdown = ({ current_ref, is_ppc, is_ppc_redirect, parent, setAc
         if (dropdownContainerRef) {
             setActiveDropdown(dropdownContainerRef)
         }
-        updateOffsets()
         window.addEventListener('resize', updateOffsets)
         return () => {
             window.removeEventListener('resize', updateOffsets)

@@ -368,15 +368,14 @@ const NavMobile = ({ is_ppc, is_ppc_redirect }) => {
 const NavDesktop = ({ base, is_ppc, is_ppc_redirect }) => {
     const data = useStaticQuery(query)
     const button_ref = useRef(null)
-    const [show_button, showButton, hideButton] = moveButton()
+    const navigation_bar_ref = useRef(null)
     const [mounted, setMounted] = useState(false)
     const [has_scrolled, setHasScrolled] = useState(false)
-    const current_page = useActiveLinkState('main')
-
-    const navigation_bar_ref = React.useRef(null)
     const [active_dropdown, setActiveDropdown] = useState('')
     const [active_link_ref, setActiveLinkRef] = useState(null)
     const [active_dropdown_ref, setActiveDropdownRef] = useState(null)
+    const [show_button, showButton, hideButton] = moveButton()
+    const current_page = useActiveLinkState('main')
 
     const buttonHandleScroll = () => {
         setHasScrolled(true)
@@ -402,7 +401,7 @@ const NavDesktop = ({ base, is_ppc, is_ppc_redirect }) => {
         }
     }, [])
 
-    useOutsideClick(active_dropdown_ref, closeDropdown, navigation_bar_ref)
+    useOutsideClick(navigation_bar_ref, closeDropdown, active_dropdown_ref)
 
     return (
         <div>

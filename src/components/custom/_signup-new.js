@@ -196,10 +196,7 @@ const SignupNew = ({
     const handleChange = (event) => {
         setCheckBoxState(event.currentTarget.checked)
     }
-    const url =
-        getLanguage() === 'en' || getLanguage() == null
-            ? '/terms-and-conditions/'
-            : `/${getLanguage()}/terms-and-conditions/`
+    const url = `/${getLanguage()}/terms-and-conditions/`
     return (
         <SignupContent>
             <Show.Desktop>

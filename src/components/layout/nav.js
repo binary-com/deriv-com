@@ -382,6 +382,8 @@ const NavDesktop = ({ base, is_ppc, is_ppc_redirect }) => {
         handleScroll(showButton, hideButton)
     }
 
+    const checkActive = (link) => link === active_dropdown && link === current_page
+
     const closeDropdown = () => setActiveDropdown('')
 
     const handleLinkClick = (dropdown, target) => {
@@ -434,17 +436,14 @@ const NavDesktop = ({ base, is_ppc, is_ppc_redirect }) => {
                 </NavLeft>
                 <NavCenter ref={navigation_bar_ref}>
                     <NavLink onClick={(e) => handleLinkClick('trade', e.target)}>
-                        <StyledButton
-                            aria-label={localize('Trade')}
-                            active={current_page === 'trade' || active_dropdown === 'trade'}
-                        >
+                        <StyledButton aria-label={localize('Trade')} active={checkActive('trade')}>
                             {localize('Trade')}
                         </StyledButton>
                     </NavLink>
                     <NavLink onClick={(e) => handleLinkClick('markets', e.target)}>
                         <StyledButton
                             aria-label={localize('Markets')}
-                            active={current_page === 'markets' || active_dropdown === 'markets'}
+                            active={checkActive('markets')}
                         >
                             {localize('Markets')}
                         </StyledButton>
@@ -452,7 +451,7 @@ const NavDesktop = ({ base, is_ppc, is_ppc_redirect }) => {
                     <NavLink onClick={(e) => handleLinkClick('about', e.target)}>
                         <StyledButton
                             aria-label={localize('About us')}
-                            active={current_page === 'about' || active_dropdown === 'about'}
+                            active={checkActive('about')}
                         >
                             {localize('About us')}
                         </StyledButton>
@@ -460,7 +459,7 @@ const NavDesktop = ({ base, is_ppc, is_ppc_redirect }) => {
                     <NavLink onClick={(e) => handleLinkClick('resources', e.target)}>
                         <StyledButton
                             aria-label={localize('Resources')}
-                            active={current_page === 'resources' || active_dropdown === 'resources'}
+                            active={checkActive('resources')}
                         >
                             {localize('Resources')}
                         </StyledButton>

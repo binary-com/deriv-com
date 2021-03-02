@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { getLanguage } from 'common/utility'
 import { Input, Button } from 'components/form'
+import { getLanguage } from 'common/utility'
 import { Show } from 'components/containers'
 import { Header, Text, LinkText, Checkbox } from 'components/elements'
 import { localize, Localize } from 'components/localization'
@@ -196,11 +196,11 @@ const SignupNew = ({
     const handleChange = (event) => {
         setCheckBoxState(event.currentTarget.checked)
     }
-    const url =
-        getLanguage() === 'en' || getLanguage() == null
+
+    const url = getLanguage() === 'en' || getLanguage() == null
             ? '/terms-and-conditions/'
             : `/${getLanguage()}/terms-and-conditions/`
-            
+     
     return (
         <SignupContent>
             <Show.Desktop>

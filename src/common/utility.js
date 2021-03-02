@@ -13,6 +13,8 @@ const toISOFormat = (date) => {
     return ''
 }
 
+const getLang = localStorage.getItem('i18n')
+
 const toHashFormat = (string) => string.replace(/\s+/g, '-').toLowerCase() // change space to dash then lowercase all
 
 const isBrowser = () => typeof window !== 'undefined'
@@ -66,7 +68,7 @@ const checkElemInArray = (tab_list, tab) => tab_list.includes(tab)
 
 const getWindowWidth = () => (isBrowser() && window.screen ? window.screen.width : '')
 
-const getLanguage = () => (isBrowser() ? localStorage.getItem('i18n') || navigator.language : null)
+const getLanguage = () => (getLang ? getLang || navigator.language : null)
 
 const getCrowdin = () =>
     isBrowser() ? localStorage.getItem('jipt_language_code_deriv-com') || navigator.language : null

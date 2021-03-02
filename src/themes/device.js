@@ -8,6 +8,7 @@ export const size = {
     bp749: 749,
     tabletL: 992,
     laptop: 1024,
+    bp1060: 1060,
     laptopM: 1200,
     laptopL: 1440,
     desktopS: 1680,

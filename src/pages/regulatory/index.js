@@ -145,9 +145,18 @@ const Regulatory = (locale) => {
                     </StyledHeader>
                     <Box>
                         <Text>
-                            {localize(
-                                'Deriv Investments (Europe) Limited, W Business Centre, Level 3, Triq Dun Karm, Birkirkara BKR 9033, Malta, is licensed in Malta and authorised by the Malta Financial Services Authority under the Investments Services Act to provide investment services in the European Union.',
-                            )}
+                            <Localize
+                                translate_text="Deriv Investments (Europe) Limited, W Business Centre, Level 3, Triq Dun Karm, Birkirkara BKR 9033, Malta, is licensed in Malta (<0>licence no. IS/70156</0>) and authorised by the Malta Financial Services Authority under the Investments Services Act to provide investment services in the European Union."
+                                components={[
+                                    <LinkText
+                                        key={0}
+                                        weight="bold"
+                                        target="_blank"
+                                        href="/regulatory/Deriv_Investments_(Europe)_Limited.pdf"
+                                        rel="noopener noreferrer"
+                                    />,
+                                ]}
+                            />
                         </Text>
                         <Text mt="2rem">
                             {localize(
@@ -156,7 +165,7 @@ const Regulatory = (locale) => {
                         </Text>
                         <Text mt="2rem">
                             {localize(
-                                'Clients in the European Union who wish to trade investment products will have their accounts opened under Deriv Investments (Europe) Limited.',
+                                'Clients in the European Union who wish to trade investment products can have accounts under Deriv Investments (Europe) Limited.',
                             )}
                         </Text>
                     </Box>
@@ -223,7 +232,7 @@ const Regulatory = (locale) => {
                                 </Desktop>
                                 <Text mt="0.8rem" mb="1.6rem" max_width="58.8rem">
                                     <Localize
-                                        translate_text="Deriv (Europe) Limited, W Business Centre, Level 3, Triq Dun Karm, Birkirkara BKR 9033, Malta, is licensed for synthetic indices by the Malta Gaming Authority (<0>licence no. MGA/B2C/102/2000</0>), by the Gambling Commission for clients in Great Britain under (<1>account no. 39495</1>), and by the Revenue Commissioners for clients in Ireland (licence no. 1010285)."
+                                        translate_text="Deriv (Europe) Limited, W Business Centre, Level 3, Triq Dun Karm, Birkirkara BKR 9033, Malta, is licensed and regulated for synthetic indices by the Malta Gaming Authority (<0>licence no. MGA/B2C/102/2000</0>), by the Gambling Commission for clients in Great Britain under <1>account no. 39495</1>, and by the Revenue Commissioners for clients in Ireland (licence no. 1010285)."
                                         components={[
                                             <LinkText
                                                 key={0}
@@ -435,7 +444,7 @@ const Regulatory = (locale) => {
                             </Desktop>
                             <Text mt="0.8rem" mb="1.6rem" max_width="58.8rem">
                                 {localize(
-                                    'Deriv (SVG) LLC, Hinds Buildings, Kingstown, St. Vincent and the Grenadines (company number 273 LLC 2020).',
+                                    'Deriv (SVG) LLC is located in Hinds Buildings, Kingstown, St. Vincent and the Grenadines (company no. 273 LLC 2020).',
                                 )}
                             </Text>
                             <Text max_width="58.8rem">

@@ -404,7 +404,7 @@ const NavDesktop = ({ base, is_ppc, is_ppc_redirect, is_logged_in }) => {
         handleScroll(showButton, hideButton)
     }
 
-    const checkActive = (link) => link === active_dropdown && link === current_page
+    const checkActive = (link_name) => link_name === active_dropdown && link_name === current_page
 
     const closeDropdown = () => setActiveDropdown('')
 
@@ -414,8 +414,11 @@ const NavDesktop = ({ base, is_ppc, is_ppc_redirect, is_logged_in }) => {
         setActiveLinkRef(target)
     }
 
-    const setDropdownRef = (new_ref) => setActiveDropdownRef(new_ref)
     const LanguageSwitcherNavDesktop = () => <LanguageSwitcher short_name="true" is_high_nav />
+
+    const setDropdownRef = (new_ref) => setActiveDropdownRef(new_ref)
+
+    useOutsideClick(navigation_bar_ref, closeDropdown, active_dropdown_ref)
 
     useEffect(() => {
         setMounted(true)
@@ -425,8 +428,6 @@ const NavDesktop = ({ base, is_ppc, is_ppc_redirect, is_logged_in }) => {
             document.removeEventListener('scroll', buttonHandleScroll)
         }
     }, [])
-
-    useOutsideClick(navigation_bar_ref, closeDropdown, active_dropdown_ref)
 
     return (
         <div>

@@ -359,15 +359,21 @@ const NavMobile = ({ is_ppc, is_ppc_redirect, is_logged_in }) => {
                     alt="hamburger"
                     onClick={openOffCanvasMenu}
                     width="16px"
+                    height="14px"
                 />
             )}
 
             <LogoLinkMobile to="/" aria-label={localize('Home')}>
                 <Flex>
-                    <img src={LogoOnly} alt="logo only" width="115px" />
+                    <img src={LogoOnly} alt="logo only" width="115px" height="20px" />
                     <LogoDescription ai="center">
                         <Line />
-                        <img src={LogoCombinedShape} alt="logo combined shape 2" />
+                        <img
+                            src={LogoCombinedShape}
+                            alt="logo combined shape 2"
+                            width="120"
+                            height="17"
+                        />
                     </LogoDescription>
                 </Flex>
             </LogoLinkMobile>
@@ -535,7 +541,12 @@ const NavDesktop = ({ base, is_ppc, is_ppc_redirect, is_logged_in }) => {
                         />
                     </LogoLink>
                     <Line />
-                    <img src={LogoCombinedShape} alt="logo combined shape" />
+                    <img
+                        src={LogoCombinedShape}
+                        alt="logo combined shape"
+                        width="120"
+                        height="17"
+                    />
                 </NavLeft>
                 <NavCenter>
                     <NavLink onClick={handleTradeClick}>

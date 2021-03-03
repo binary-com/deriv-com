@@ -1,9 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { Input, Button } from 'components/form'
 import { Show } from 'components/containers'
-import { isBrowser } from 'common/utility'
 import { Header, Text, LinkText, Checkbox } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device.js'
@@ -193,15 +192,18 @@ const SignupNew = ({
 }) => {
     const [checkBoxState, setCheckBoxState] = useState(false)
 
+    // Correct
+    const [key, setKey] = useState(undefined)
+
+    useEffect(() => {
+    setKey(localStorage.getItem('i18n'))
+    }, [])
+
     const handleChange = (event) => {
         setCheckBoxState(event.currentTarget.checked)
     }
 
-    const language = (isBrowser() ? localStorage.getItem('i18n')?.replace('-', '_') : localStorage.getItem('i18n'))
-
-    const url = language == null
-            ? '/terms-and-conditions/'
-            : `/${language}/terms-and-conditions/`
+    const url = `/${key}/terms-and-conditions/`
      
     return (
         <SignupContent>
@@ -279,7 +281,7 @@ const SignupNew = ({
                     secondary
                     onChange={handleChange}
                     checked={checkBoxState}
-                />
+                />{key}
                 <CheckboxSpan>
                     <Localize
                         fontSize="var(--text-size-xs)"

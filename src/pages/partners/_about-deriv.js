@@ -10,12 +10,7 @@ const query = graphql`
     {
         deriv_platform: file(relativePath: { eq: "partner-deriv-platform.png" }) {
             childImageSharp {
-                gatsbyImageData(
-                    width: 486
-                    breakpoints: [340, 400, 600, 1280]
-                    placeholder: NONE
-                    layout: CONSTRAINED
-                )
+                gatsbyImageData(breakpoints: [360, 486], placeholder: NONE, layout: CONSTRAINED)
             }
         }
     }

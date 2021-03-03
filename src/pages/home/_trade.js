@@ -7,23 +7,24 @@ import { localize } from 'components/localization'
 import { SectionContainer, Container, Flex, CssGrid } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
 
-const query = graphql`{
-  dtrader_trade: file(relativePath: {eq: "dtrader_trade_home.png"}) {
-    childImageSharp {
-      gatsbyImageData(width: 794, placeholder: NONE, layout: CONSTRAINED)
+const query = graphql`
+    {
+        dtrader_trade: file(relativePath: { eq: "dtrader_trade_home.png" }) {
+            childImageSharp {
+                gatsbyImageData(breakpoints: [360, 794], placeholder: NONE, layout: CONSTRAINED)
+            }
+        }
+        dmt5_trade: file(relativePath: { eq: "dmt5_trade_home.png" }) {
+            childImageSharp {
+                gatsbyImageData(breakpoints: [360, 794], placeholder: NONE, layout: CONSTRAINED)
+            }
+        }
+        dbot_trade: file(relativePath: { eq: "dbot_trade_home.png" }) {
+            childImageSharp {
+                gatsbyImageData(breakpoints: [360, 794], placeholder: NONE, layout: CONSTRAINED)
+            }
+        }
     }
-  }
-  dmt5_trade: file(relativePath: {eq: "dmt5_trade_home.png"}) {
-    childImageSharp {
-      gatsbyImageData(width: 794, placeholder: NONE, layout: CONSTRAINED)
-    }
-  }
-  dbot_trade: file(relativePath: {eq: "dbot_trade_home.png"}) {
-    childImageSharp {
-      gatsbyImageData(width: 794, placeholder: NONE, layout: CONSTRAINED)
-    }
-  }
-}
 `
 const platforms = Object.freeze({
     trader: 'dtrader',

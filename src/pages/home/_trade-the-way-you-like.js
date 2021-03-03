@@ -7,13 +7,16 @@ import { localize } from 'components/localization'
 import { SectionContainer } from 'components/containers'
 import { OtherPlatform } from 'components/custom/other-platforms.js'
 
-const query = graphql`{
-  dtrader_artboard: file(relativePath: {eq: "dtrader_trade_home.png"}) {
-    childImageSharp {
-      gatsbyImageData(width: 794, placeholder: NONE, layout: CONSTRAINED)
+const query = graphql`
+    {
+        dtrader_artboard: file(relativePath: { eq: "dtrader_trade_home.png" }) {
+            childImageSharp {
+                    breakpoints: [360, 794]
+                    placeholder: NONE
+                    layout: CONSTRAINED
+            }
+        }
     }
-  }
-}
 `
 const ImageWrapper = styled.div`
     max-width: 65rem;

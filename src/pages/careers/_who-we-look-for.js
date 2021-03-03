@@ -79,18 +79,19 @@ const ImageWrapper = styled.div`
     width: 100%;
     max-width: 65rem;
 `
-const query = graphql`{
-  teamfocus: file(relativePath: {eq: "careers/team-focus.jpg"}) {
-    childImageSharp {
-      gatsbyImageData(width: 650, placeholder: NONE, layout: CONSTRAINED)
+const query = graphql`
+    {
+        teamfocus: file(relativePath: { eq: "careers/team-focus.jpg" }) {
+            childImageSharp {
+                gatsbyImageData(breakpoints: [360, 650], placeholder: NONE, layout: CONSTRAINED)
+            }
+        }
+        peopleeating: file(relativePath: { eq: "careers/people-eating.jpg" }) {
+            childImageSharp {
+                gatsbyImageData(breakpoints: [360, 650], placeholder: NONE, layout: CONSTRAINED)
+            }
+        }
     }
-  }
-  peopleeating: file(relativePath: {eq: "careers/people-eating.jpg"}) {
-    childImageSharp {
-      gatsbyImageData(width: 650, placeholder: NONE, layout: CONSTRAINED)
-    }
-  }
-}
 `
 
 const WhoWeLookFor = () => {

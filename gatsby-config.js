@@ -31,6 +31,7 @@ module.exports = {
                 defaultQuality: 50,
             },
         },
+        `gatsby-plugin-image`,
         {
             resolve: 'gatsby-plugin-sitemap',
             options: {

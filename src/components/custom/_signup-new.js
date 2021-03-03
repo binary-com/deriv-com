@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { Input, Button } from 'components/form'
-import { getLanguage } from 'common/utility'
 import { Show } from 'components/containers'
 import { Header, Text, LinkText, Checkbox } from 'components/elements'
 import { localize, Localize } from 'components/localization'
@@ -197,7 +196,7 @@ const SignupNew = ({
         setCheckBoxState(event.currentTarget.checked)
     }
 
-    const url = getLanguage() === 'en' || getLanguage() == null
+    const url = localStorage.getItem("i18n") === null
             ? '/terms-and-conditions/'
             : `/${localStorage.getItem('i18n')?.replace('-', '_')}/terms-and-conditions/`
      

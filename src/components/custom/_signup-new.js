@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { Input, Button } from 'components/form'
 import { Show } from 'components/containers'
+import { isBrowser } from 'common/utility'
 import { Header, Text, LinkText, Checkbox } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device.js'
@@ -196,9 +197,11 @@ const SignupNew = ({
         setCheckBoxState(event.currentTarget.checked)
     }
 
-    const url = localStorage.getItem("i18n") === null
+    const language = (isBrowser() && localStorage.getItem('i18n')?.replace('-', '_'))
+
+    const url = language == null
             ? '/terms-and-conditions/'
-            : `/${localStorage.getItem('i18n')?.replace('-', '_')}/terms-and-conditions/`
+            : `/${language}/terms-and-conditions/`
      
     return (
         <SignupContent>

@@ -5,7 +5,7 @@ export const backGroundBlur = graphql`
         childImageSharp {
             gatsbyImageData(
                 quality: 75
-                breakpoints: [320, 600, 1280, 1920]
+                breakpoints: [360, 600, 1280, 1920]
                 formats: [AUTO, WEBP, AVIF]
                 layout: FULL_WIDTH
                 placeholder: NONE
@@ -19,7 +19,7 @@ export const fadeIn = graphql`
         childImageSharp {
             gatsbyImageData(
                 quality: 45
-                breakpoints: [320, 600, 992]
+                breakpoints: [360, 600, 992]
                 formats: [AUTO, WEBP, AVIF]
                 layout: FULL_WIDTH
                 placeholder: NONE

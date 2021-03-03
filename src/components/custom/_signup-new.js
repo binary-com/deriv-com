@@ -197,7 +197,7 @@ const SignupNew = ({
         setCheckBoxState(event.currentTarget.checked)
     }
 
-    const language = (isBrowser() && localStorage.getItem('i18n')?.replace('-', '_'))
+    const language = (isBrowser() ? localStorage.getItem('i18n')?.replace('-', '_') : localStorage.getItem('i18n'))
 
     const url = language == null
             ? '/terms-and-conditions/'

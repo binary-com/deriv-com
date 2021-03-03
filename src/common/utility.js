@@ -66,7 +66,7 @@ const checkElemInArray = (tab_list, tab) => tab_list.includes(tab)
 
 const getWindowWidth = () => (isBrowser() && window.screen ? window.screen.width : '')
 
-const getLanguage = () => (localStorage.getItem('i18n') !== null ? localStorage.getItem('i18n') || navigator.language : null)
+const getLanguage = () => (isBrowser() ? localStorage.getItem('i18n') || navigator.language : null)
 
 const getCrowdin = () =>
     isBrowser() ? localStorage.getItem('jipt_language_code_deriv-com') || navigator.language : null

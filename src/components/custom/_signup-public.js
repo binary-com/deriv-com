@@ -9,6 +9,7 @@ import { Flex, Show } from 'components/containers'
 import { deriv_app_url } from 'common/utility'
 import device from 'themes/device.js'
 // SVG
+import Apple from 'images/svg/apple.svg'
 import Facebook from 'images/svg/facebook-blue.svg'
 import Google from 'images/svg/google.svg'
 import Arrow from 'images/svg/chevron-right.svg'
@@ -68,7 +69,7 @@ const MobileSignupFormWrapper = styled(Flex)`
     width: 50%;
     align-items: center;
     padding: 0 2rem;
-    @media ${device.mobileM} {
+    @media ${device.mobileL} {
         width: 100%;
 
         & > div {
@@ -115,15 +116,10 @@ const EmailButton = styled(Button)`
 const SocialWrapper = styled(Flex)`
     width: 100%;
     margin-top: 1.8rem;
-    @media ${device.tabletL} {
-        button {
-            width: 14.25rem;
-        }
-    }
 `
 const SocialButton = styled(Button)`
     width: 70px;
-    padding: 9px 24px;
+    padding: 7px 24px;
     border-radius: 4px;
     justify-content: center;
     display: flex;
@@ -132,12 +128,16 @@ const SocialButton = styled(Button)`
     height: 4rem;
     margin: 0 0.8rem;
     @media ${device.tabletL} {
-        width: 114px;
+        width: 14.25rem;
         height: 48px;
         padding: 14px 15px 14px 13px;
         justify-content: center;
         align-items: center;
-        margin: ${(props) => (props.left ? '0 8px 0 16px' : '0')};
+    }
+    @media (max-width: 500px) {
+        width: 90px;
+        height: 40px;
+        padding: 14px 15px 12px 13px;
     }
 `
 
@@ -171,16 +171,17 @@ const StyledText = styled(Text)`
     }
 `
 
-const StyledSpan = styled.span`
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--color-grey-13);
-    margin-left: 4px;
+// const StyledSpan = styled.span`
+//     font-size: 13px;
+//     font-weight: 500;
+//     color: var(--color-grey-13);
+//     margin-left: 4px;
 
-    @media ${device.tabletL} {
-        margin-left: 8px;
-    }
-`
+//     @media ${device.tabletL} {
+//         margin-left: 8px;
+//     }
+// `
+
 const ImageWrapper = styled(Flex)`
     position: relative;
     width: 41.1rem;
@@ -323,7 +324,7 @@ const SignupPublic = ({
                                     social
                                 >
                                     <span>
-                                        <img src={Facebook} alt="facebook" width="12" height="22" />
+                                        <img src={Facebook} alt="facebook" width="24" height="24" />
                                     </span>
                                 </SocialButton>
                                 <SocialButton
@@ -335,7 +336,19 @@ const SignupPublic = ({
                                     social
                                 >
                                     <span>
-                                        <img src={Google} alt="google" width="22" height="23" />
+                                        <img src={Google} alt="google" width="24" height="24" />
+                                    </span>
+                                </SocialButton>
+                                <SocialButton
+                                    onClick={handleSocialSignup}
+                                    provider="apple"
+                                    data-provider="apple"
+                                    id="gtm-signup-apple"
+                                    type="button"
+                                    social
+                                >
+                                    <span>
+                                        <img src={Apple} alt="apple" width="24" height="24" />
                                     </span>
                                 </SocialButton>
                             </SocialWrapper>
@@ -418,13 +431,10 @@ const SignupPublic = ({
                                     id="gtm-signup-google"
                                     type="button"
                                     social
-                                    left
                                 >
                                     <span>
-                                        <img src={Google} alt="google" width="22" height="23" />
+                                        <img src={Google} alt="google" width="24" height="24" />
                                     </span>
-
-                                    <StyledSpan>Google</StyledSpan>
                                 </SocialButton>
                                 <SocialButton
                                     onClick={handleSocialSignup}
@@ -435,9 +445,20 @@ const SignupPublic = ({
                                     social
                                 >
                                     <span>
-                                        <img src={Facebook} alt="facebook" width="12" height="22" />
+                                        <img src={Facebook} alt="facebook" width="24" height="24" />
                                     </span>
-                                    <StyledSpan>Facebook</StyledSpan>
+                                </SocialButton>
+                                <SocialButton
+                                    onClick={handleSocialSignup}
+                                    provider="apple"
+                                    data-provider="apple"
+                                    id="gtm-signup-apple"
+                                    type="button"
+                                    social
+                                >
+                                    <span>
+                                        <img src={Apple} alt="apple" width="24" height="24" />
+                                    </span>
                                 </SocialButton>
                             </SocialWrapper>
                         </div>

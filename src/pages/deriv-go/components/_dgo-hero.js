@@ -3,27 +3,13 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { graphql, useStaticQuery } from 'gatsby'
 import { localize } from 'components/localization'
-import { Container, Flex, SectionContainer } from 'components/containers'
+import { Container, Flex, SectionContainer, Show } from 'components/containers'
 import { Header, QueryImage, BackgroundImage } from 'components/elements'
 import { LinkButton } from 'components/form'
 import device from 'themes/device.js'
 
 const Wrapper = styled(Container)`
     margin-bottom: 4rem;
-
-    @media ${device.laptopM} {
-        max-height: 429px;
-        padding: 8rem 12rem 8rem 4rem;
-    }
-    @media ${device.tabletL} {
-        min-height: 304px;
-        flex-direction: column;
-    }
-    @media ${device.tablet} {
-        flex-direction: column-reverse;
-        max-height: 640px;
-        padding: 0 16px 40px 16px;
-    }
 `
 
 const HeroContent = styled.div`
@@ -38,19 +24,12 @@ const HeroContent = styled.div`
         line-height: 1.25;
     }
 
-    @media ${device.laptopM} {
+    @media ${device.mobileL} {
+        display: flex;
+        margin-top: 26px;
+
         ${Header} {
-            font-size: 32px;
-        }
-    }
-    @media ${device.tabletL} {
-        ${Header} {
-            font-size: 24px;
-        }
-    }
-    @media ${device.tablet} {
-        ${Header} {
-            font-size: 32px;
+            line-height: 1.35;
         }
     }
 `
@@ -62,38 +41,23 @@ const LottieWrapper = styled.div`
     top: 10.8rem;
     right: 38rem;
 
-    @media ${device.laptopM} {
-        max-width: 500px;
-        top: 8rem;
-        right: 8rem;
-    }
-    @media ${device.laptop} {
-        max-width: 450px;
-        right: 10rem;
-    }
     @media ${device.tabletL} {
-        max-width: 390px;
-        top: 5rem;
-        right: 2rem;
+        top: 20rem;
+        right: unset;
+        width: 288px;
+        height: 487px;
     }
-    @media ${device.tabletS} {
-        max-width: 380px;
-        top: 5rem;
-        right: 2rem;
+
+    @media ${device.laptopM} {
+        max-width: 284px;
     }
+
     @media ${device.mobileL} {
-        max-width: 328px;
-        top: 34px;
-        left: 50%;
+        height: 487px;
+        width: 288px;
+        top: 400px;
+        margin-left: 46px;
         right: unset;
-        transform: translateX(-50%);
-    }
-    @media ${device.mobileM} {
-        max-width: 280px;
-        top: 34px;
-        left: 50%;
-        right: unset;
-        transform: translateX(-50%);
     }
 `
 
@@ -101,22 +65,10 @@ const LinkWrapper = styled.div`
     display: flex;
     margin-top: 3.8rem;
 
-    @media (max-width: 1420px) {
-        top: 480px;
-    }
-    @media ${device.laptopM} {
-        top: 350px;
-    }
-    @media ${device.tabletL} {
-        top: 236px;
-    }
-    @media ${device.tablet} {
+    @media ${device.mobileL} {
         position: unset;
         top: unset;
-        justify-content: start;
-    }
-    @media (max-width: 360px) {
-        flex-wrap: wrap;
+        justify-content: center;
     }
 `
 
@@ -125,6 +77,21 @@ const ImageWrapper = styled.div`
     height: 28px;
     margin: 0 273px 71px 0;
     object-fit: contain;
+
+    @media ${device.tabletL} {
+        display: flex;
+        justify-content: center;
+    }
+
+    @media ${device.laptopM} {
+        margin: 0 35px 16px 0;
+    }
+
+    @media ${device.mobileL} {
+        display: flex;
+        justify-content: center;
+        margin: 32px 84px 0 60px;
+    }
 `
 
 const IosComingSoon = styled(LinkButton)`
@@ -134,6 +101,7 @@ const IosComingSoon = styled(LinkButton)`
     width: auto;
 
     @media ${device.mobileL} {
+        font-size: 1.8rem;
         max-width: 100%;
         white-space: nowrap;
         margin-left: 0;
@@ -145,12 +113,22 @@ const IosComingSoon = styled(LinkButton)`
 `
 
 const StyledContent = styled(Header)`
-    font-size: 5.2rem;
+    font-size: 5rem;
     font-weight: bold;
     margin: 0 35px 16px 0;
 
-    @media (max-width: 1322px) {
-        font-size: 4.2rem;
+    @media ${device.tabletL} {
+        text-align: center;
+    }
+
+    @media ${device.laptopM} {
+        margin: 0 35px 16px 0;
+    }
+
+    @media ${device.mobileL} {
+        font-size: 4.6rem;
+        text-align: center;
+        justify-content: center;
     }
 `
 
@@ -158,8 +136,9 @@ const NormalContent = styled(Header)`
     font-size: 2rem;
     font-weight: normal;
 
-    @media (max-width: 1322px) {
-        font-size: 1.2rem;
+    @media ${device.mobileL} {
+        justify-content: center;
+        font-size: 18px;
     }
 `
 
@@ -167,9 +146,6 @@ const InformationWrapper = styled(Flex)`
     width: 100%;
     max-width: 562px;
 
-    @media (max-width: 1320px) {
-        max-width: 450px;
-    }
     @media ${device.laptop} {
         max-width: 390px;
     }
@@ -189,9 +165,6 @@ const InformationWrapper = styled(Flex)`
         top: 280px;
         max-width: 328px;
     }
-    @media ${device.mobileM} {
-        top: 230px;
-    }
 `
 
 const query = graphql`
@@ -203,6 +176,9 @@ const query = graphql`
                     originalName
                 }
             }
+        }
+        bg_mobile: file(relativePath: { eq: "bg_copy.png" }) {
+            ...fadeIn
         }
         mobile_float: file(relativePath: { eq: "mobile_float.png" }) {
             childImageSharp {
@@ -225,6 +201,36 @@ const StyledBackgroundImage = styled(BackgroundImage)`
     background-color: var(--color-white);
     background-size: contain;
     padding: 32px 732px 103px 222px;
+
+    @media ${device.tabletL} {
+        width: 768px;
+    }
+
+    @media ${device.mobileL} {
+        height: 632px;
+        width: 425px;
+        padding: 0;
+    }
+    @media ${device.mobileM} {
+        height: 632px;
+        width: 375px;
+        padding: 0;
+    }
+`
+const Section = styled.div`
+    background: var(--color-white);
+    @media ${device.tabletL} {
+        width: 768px;
+        height: 280px;
+    }
+    @media ${device.mobileL} {
+        width: 425px;
+        height: 280px;
+    }
+    @media ${device.mobileM} {
+        width: 375px;
+        height: 280px;
+    }
 `
 
 const DGoHero = ({
@@ -240,51 +246,103 @@ const DGoHero = ({
     const data = useStaticQuery(query)
 
     return (
-        <SectionContainer background="var(--color-white)" height="448px" width="1440px">
-            <StyledBackgroundImage data={data.image} alt={'background image'}>
-                <Wrapper>
-                    <InformationWrapper height="unset" direction="column">
-                        <ImageWrapper>
-                            {Logo && (
+        <div>
+            <Show.Desktop>
+                <SectionContainer background="var(--color-white)" height="430px" width="1440px">
+                    <StyledBackgroundImage data={data.image} alt={'background image'}>
+                        <Wrapper>
+                            <InformationWrapper height="unset" direction="column">
+                                <ImageWrapper>
+                                    {Logo && (
+                                        <QueryImage
+                                            data={data.dlogo}
+                                            alt={'logo'}
+                                            height={'27px'}
+                                            width={'213px'}
+                                        />
+                                    )}
+                                </ImageWrapper>
+                                <HeroContent>
+                                    <StyledContent>{content}</StyledContent>
+                                    <NormalContent>{description}</NormalContent>
+                                </HeroContent>
+                                <LinkWrapper>
+                                    {google_play && (
+                                        <QueryImage
+                                            data={data.Dgoogle_play_Logo}
+                                            alt={'Get it on Google Play'}
+                                            height={'40px'}
+                                            width={'138px'}
+                                        />
+                                    )}
+                                    {ios_coming_soon && (
+                                        <IosComingSoon>
+                                            {localize('( iOS coming soon )')}
+                                        </IosComingSoon>
+                                    )}
+                                </LinkWrapper>
+                            </InformationWrapper>
+                        </Wrapper>
+                        <LottieWrapper>
+                            {image_name === 'mobile_float' ? (
+                                <QueryImage data={data['mobile_float']} alt={background_alt} />
+                            ) : (
                                 <QueryImage
-                                    data={data.dlogo}
-                                    alt={'logo'}
-                                    height={'27px'}
-                                    width={'213px'}
+                                    data={data[is_mobile ? image_name + '_mobile' : image_name]}
+                                    alt={background_alt}
                                 />
                             )}
-                        </ImageWrapper>
-                        <HeroContent>
-                            <StyledContent>{content}</StyledContent>
-                            <NormalContent>{description}</NormalContent>
-                        </HeroContent>
-                        <LinkWrapper>
-                            {google_play && (
-                                <QueryImage
-                                    data={data.Dgoogle_play_Logo}
-                                    alt={'Get it on Google Play'}
-                                    height={'40px'}
-                                    width={'138px'}
-                                />
-                            )}
+                        </LottieWrapper>
+                    </StyledBackgroundImage>
+                </SectionContainer>
+            </Show.Desktop>
+            <Show.Mobile>
+                <StyledBackgroundImage data={data.bg_mobile} alt={'mobile background'}>
+                    <Wrapper>
+                        <InformationWrapper direction="column">
+                            <ImageWrapper>
+                                {Logo && (
+                                    <QueryImage
+                                        data={data.dlogo}
+                                        alt={'logo'}
+                                        height={'25px'}
+                                        width={'190px'}
+                                    />
+                                )}
+                            </ImageWrapper>
+                            <HeroContent>
+                                <StyledContent>{content}</StyledContent>
+                                <NormalContent>{description}</NormalContent>
+                            </HeroContent>
+                            <LinkWrapper>
+                                {google_play && (
+                                    <QueryImage
+                                        data={data.Dgoogle_play_Logo}
+                                        alt={'Get it on Google Play'}
+                                        height={'40px'}
+                                        width={'138px'}
+                                    />
+                                )}
+                            </LinkWrapper>
                             {ios_coming_soon && (
                                 <IosComingSoon>{localize('( iOS coming soon )')}</IosComingSoon>
                             )}
-                        </LinkWrapper>
-                    </InformationWrapper>
-                </Wrapper>
-                <LottieWrapper>
-                    {image_name === 'mobile_float' ? (
-                        <QueryImage data={data['mobile_float']} alt={background_alt} />
-                    ) : (
-                        <QueryImage
-                            data={data[is_mobile ? image_name + '_mobile' : image_name]}
-                            alt={background_alt}
-                        />
-                    )}
-                </LottieWrapper>
-            </StyledBackgroundImage>
-        </SectionContainer>
+                        </InformationWrapper>
+                    </Wrapper>
+                    <LottieWrapper>
+                        {image_name === 'mobile_float' ? (
+                            <QueryImage data={data['mobile_float']} alt={background_alt} />
+                        ) : (
+                            <QueryImage
+                                data={data[is_mobile ? image_name + '_mobile' : image_name]}
+                                alt={background_alt}
+                            />
+                        )}
+                    </LottieWrapper>
+                </StyledBackgroundImage>
+                <Section />
+            </Show.Mobile>
+        </div>
     )
 }
 

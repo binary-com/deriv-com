@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { SectionContainer } from 'components/containers'
 import { Localize } from 'components/localization'
 import { Text } from 'components/elements'
+import device from 'themes/device.js'
 
 const StyledSection = styled(SectionContainer)`
     background-color: var(--color-white);
@@ -18,7 +19,19 @@ const Content = styled.div`
         width: 996px;
         height: 72px;
         font-size: 24px;
-        color: #333333;
+        color: black;
+    }
+
+    @media ${device.laptopM} {
+        width: 1400px;
+        margin: 50px;
+
+        ${Text} {
+            width: 596px;
+            height: 72px;
+            font-size: 24px;
+            color: black;
+        }
     }
 `
 

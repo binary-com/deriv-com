@@ -73,6 +73,12 @@ const getCrowdin = () =>
 
 const getClientInformation = (domain) => Cookies.get('client_information', { domain })
 
+const isLoggedIn = () => {
+    const domain = getDomain()
+    const client_information = getClientInformation(domain)
+    return !!client_information
+}
+
 class PromiseClass {
     constructor() {
         this.promise = new Promise((resolve, reject) => {
@@ -107,6 +113,53 @@ function debounce(func, wait, immediate) {
     }
 }
 
+// This function is created to back traverse an array of style values
+const responsiveFallback = (prop, start_from, fallback) => {
+    let index = start_from ?? prop?.length ?? 0
+    while (prop && index > 0) {
+        if (prop[index]) {
+            return prop[index]
+        }
+        --index
+    }
+
+    return prop ? prop[index] : fallback || undefined
+}
+
+// populate style by traversing keys of props
+const populateStyle = (props, default_props_object, curr_index) => {
+    let style = ''
+
+    Object.keys(props).forEach((prop) => {
+        if (['children', 'theme'].includes(prop)) {
+            return
+        }
+
+        const current_prop = prop.replace(/_/g, '-')
+        style += `${current_prop}: ${
+            Array.isArray(props[prop])
+                ? responsiveFallback(props[prop], curr_index, default_props_object[prop])
+                : props[prop]
+        };`
+    })
+
+    style += applyDefaultValues(props, default_props_object)
+    return style
+}
+
+const applyDefaultValues = (props, default_props_object) => {
+    let style = ''
+
+    Object.keys(default_props_object).forEach((prop) => {
+        if (!(prop in props)) {
+            const current_prop = prop.replace(/_/g, '-')
+            style += `${current_prop}: ${default_props_object[prop]};`
+        }
+    })
+
+    return style
+}
+
 const livechat_client_id = '66aa088aad5a414484c1fd1fa8a5ace7'
 const livechat_license_id = 12049137
 const trimSpaces = (value) => value.trim()
@@ -114,6 +167,8 @@ const trimSpaces = (value) => value.trim()
 const application_id = 'f0aef779-d9ec-4517-807e-a84c683c4265'
 const client_token = 'pubc42fda54523c5fb23c564e3d8bceae88'
 const sample_rate = 25
+const besquare_form_url =
+    'https://docs.google.com/forms/d/e/1FAIpQLSezAMqeiuY-17mfxnjfNYDy_x0Zdkk7oAuKF-M52F0q4ooVpw/viewform'
 const deriv_app_url = 'https://app.deriv.com'
 const deriv_bot_app_url = 'https://app.deriv.com/bot'
 const deriv_blog_url = 'https://blog.deriv.com'
@@ -143,8 +198,12 @@ const dmt5_android_url =
 const dmt5_ios_url = 'https://download.mql5.com/cdn/mobile/mt5/ios?server=Deriv-Demo,Deriv-Server'
 const dp2p_google_play_url =
     'https://play.google.com/store/apps/details?id=com.deriv.dp2p&hl=en&gl=US'
-const cfd_warning_height_desktop = 8
-const cfd_warning_height_tablet = 12
+const derivgo_google_play_url = 'https://play.google.com/store/apps/details?id=com.deriv.app'
+const cfd_warning_height = {
+    desktop: 8,
+    tablet: 12,
+}
+const pushwoosh_app_code = 'DD293-35A19'
 
 const getDomain = () =>
     isBrowser() && window.location.hostname.includes(deriv_cookie_domain)
@@ -154,6 +213,8 @@ const getDomain = () =>
 export {
     affiliate_signin_url,
     affiliate_signup_url,
+    applyDefaultValues,
+    besquare_form_url,
     binary_url,
     brand_name,
     besquare_url,
@@ -162,8 +223,7 @@ export {
     checkElemInArray,
     cloneObject,
     blog_url,
-    cfd_warning_height_desktop,
-    cfd_warning_height_tablet,
+    cfd_warning_height,
     deriv_cookie_domain,
     dmt5_windows_url,
     dmt5_linux_url,
@@ -175,6 +235,7 @@ export {
     deriv_bot_app_url,
     deriv_dp2p_app_url,
     deriv_status_page_url,
+    derivgo_google_play_url,
     dmt5_macos_url,
     dp2p_google_play_url,
     mga_link_url,
@@ -193,10 +254,14 @@ export {
     routeBack,
     getWindowWidth,
     gtm_test_domain,
+    isLoggedIn,
     livechat_client_id,
     livechat_license_id,
     map_api_key,
+    populateStyle,
     PromiseClass,
+    pushwoosh_app_code,
+    responsiveFallback,
     sanitize,
     scrollTop,
     sentenceCase,

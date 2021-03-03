@@ -98,6 +98,7 @@ const BtnDiv = styled(Flex)`
 
 const StyledLinkButton = styled(LinkButton)`
     padding: 10px 16px;
+    line-height: 20px;
     width: auto;
     border: unset;
 

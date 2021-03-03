@@ -101,6 +101,7 @@ const TopTextWrapper = styled(Flex)`
 `
 const StyledLinkButton = styled(LinkButton)`
     border: unset;
+    line-height: 20px;
 `
 const StyledHeader = styled(Header)`
     margin-bottom: 16px;
@@ -317,9 +318,10 @@ const HeaderSection = () => {
                     </SectionStyledHeader>
                     <SectionStyledHeaderSmall type="sub-section-title" weight="normal">
                         {localize(
-                            'Facebook. Tesla. Zoom. Mcdonalds.Trade on the global household names you see every day on our DMT5 platform. We’ve got all your favourite brands in tech, finance, retail, plus more.',
+                            'Facebook. Tesla. Zoom. Mcdonalds. Trade on the global household names you see every day on our DMT5 platform. We’ve got all your favourite brands in tech, finance, retail, plus more.',
                         )}
                     </SectionStyledHeaderSmall>
+
                     <BackgroundPatternSection
                         src={StocksHeaderOverlayBelowSectionBg}
                         alt="background pattern section"

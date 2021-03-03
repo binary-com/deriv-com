@@ -1,7 +1,6 @@
-// TODO: replace image.js completely with this component
 import React from 'react'
 import styled from 'styled-components'
-import Img from 'gatsby-image'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import PropTypes from 'prop-types'
 
 export const ImageWrapper = styled.div`
@@ -15,11 +14,11 @@ export const ImageWrapper = styled.div`
 `
 
 const QueryImage = ({ data, alt, width, height, className }) => {
+    const image = getImage(data)
     if (data) {
-        const { fluid, fixed } = data.childImageSharp
         return (
             <ImageWrapper width={width} height={height} className={className}>
-                <Img alt={alt} {...(fluid ? { fluid } : { fixed })} height="100%" />
+                <GatsbyImage image={image} alt={alt} height="100%" />
             </ImageWrapper>
         )
     }

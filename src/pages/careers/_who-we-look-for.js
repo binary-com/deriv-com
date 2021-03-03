@@ -79,25 +79,18 @@ const ImageWrapper = styled.div`
     width: 100%;
     max-width: 65rem;
 `
-const query = graphql`
-    query {
-        teamfocus: file(relativePath: { eq: "careers/team-focus.jpg" }) {
-            childImageSharp {
-                fluid(maxWidth: 650) {
-                    ...GatsbyImageSharpFluid_withWebp_noBase64
-                    originalName
-                }
-            }
-        }
-        peopleeating: file(relativePath: { eq: "careers/people-eating.jpg" }) {
-            childImageSharp {
-                fluid(maxWidth: 650) {
-                    ...GatsbyImageSharpFluid_withWebp_noBase64
-                    originalName
-                }
-            }
-        }
+const query = graphql`{
+  teamfocus: file(relativePath: {eq: "careers/team-focus.jpg"}) {
+    childImageSharp {
+      gatsbyImageData(width: 650, placeholder: NONE, layout: CONSTRAINED)
     }
+  }
+  peopleeating: file(relativePath: {eq: "careers/people-eating.jpg"}) {
+    childImageSharp {
+      gatsbyImageData(width: 650, placeholder: NONE, layout: CONSTRAINED)
+    }
+  }
+}
 `
 
 const WhoWeLookFor = () => {

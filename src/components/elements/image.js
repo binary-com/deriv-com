@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { StaticQuery, graphql } from 'gatsby'
-import Img from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 import PropTypes from 'prop-types'
 
 export const ImageWrapper = styled.div`
@@ -46,7 +46,11 @@ const Image = ({ img_name, alt, width, height }) => (
 
             return (
                 <ImageWrapper width={width} height={height}>
-                    <Img alt={alt} fluid={image.node.fluid} height="100%" />
+                    <GatsbyImage
+                        image={image.childImageSharp.gatsbyImageData}
+                        alt={alt}
+                        height="100%"
+                    />
                 </ImageWrapper>
             )
         }}

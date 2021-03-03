@@ -38,17 +38,13 @@ const RedBanner = styled.span`
     color: var(--color-red);
 `
 
-const query = graphql`
-    query {
-        image: file(relativePath: { eq: "careers/career-landing-screen.jpg" }) {
-            childImageSharp {
-                fluid(maxWidth: 2048) {
-                    ...GatsbyImageSharpFluid_withWebp_noBase64
-                    originalName
-                }
-            }
-        }
+const query = graphql`{
+  image: file(relativePath: {eq: "careers/career-landing-screen.jpg"}) {
+    childImageSharp {
+      gatsbyImageData(placeholder: NONE, layout: FULL_WIDTH)
     }
+  }
+}
 `
 
 const Hero = () => {

@@ -193,7 +193,7 @@ const InformationWrapper = styled(Flex)`
 `
 
 const query = graphql`
-    query {
+    {
         dbot: file(relativePath: { eq: "dbot_trade.png" }) {
             ...fadeIn
         }
@@ -202,10 +202,7 @@ const query = graphql`
         }
         dtrader: file(relativePath: { eq: "dtrader_trade.png" }) {
             childImageSharp {
-                fluid(maxWidth: 1024, srcSetBreakpoints: [1440]) {
-                    ...GatsbyImageSharpFluid_withWebp_noBase64
-                    originalName
-                }
+                gatsbyImageData(breakpoints: [1440], placeholder: NONE, layout: FULL_WIDTH)
             }
         }
         dbot_mobile: file(relativePath: { eq: "dbot_trade_mobile.png" }) {

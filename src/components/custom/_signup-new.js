@@ -199,7 +199,7 @@ const SignupNew = ({
 
     const url = getLanguage() === 'en' || getLanguage() == null
             ? '/terms-and-conditions/'
-            : `/${language}/terms-and-conditions/`
+            : `/${localStorage.getItem('i18n')?.replace('-', '_')}/terms-and-conditions/`
      
     return (
         <SignupContent>

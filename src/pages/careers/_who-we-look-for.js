@@ -83,12 +83,22 @@ const query = graphql`
     {
         teamfocus: file(relativePath: { eq: "careers/team-focus.jpg" }) {
             childImageSharp {
-                gatsbyImageData(breakpoints: [360, 650], placeholder: NONE, layout: CONSTRAINED)
+                gatsbyImageData(
+                    quality: 45
+                    breakpoints: [360, 650]
+                    placeholder: NONE
+                    layout: CONSTRAINED
+                )
             }
         }
         peopleeating: file(relativePath: { eq: "careers/people-eating.jpg" }) {
             childImageSharp {
-                gatsbyImageData(breakpoints: [360, 650], placeholder: NONE, layout: CONSTRAINED)
+                gatsbyImageData(
+                    quality: 45
+                    breakpoints: [360, 650]
+                    placeholder: NONE
+                    layout: CONSTRAINED
+                )
             }
         }
     }

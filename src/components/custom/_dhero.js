@@ -202,7 +202,12 @@ const query = graphql`
         }
         dtrader: file(relativePath: { eq: "dtrader_trade.png" }) {
             childImageSharp {
-                gatsbyImageData(breakpoints: [1440], placeholder: NONE, layout: FULL_WIDTH)
+                gatsbyImageData(
+                    quality: 70
+                    breakpoints: [360, 992, 1440]
+                    placeholder: NONE
+                    layout: FULL_WIDTH
+                )
             }
         }
         dbot_mobile: file(relativePath: { eq: "dbot_trade_mobile.png" }) {

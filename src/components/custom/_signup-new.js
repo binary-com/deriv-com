@@ -281,7 +281,7 @@ const SignupNew = ({
                     secondary
                     onChange={handleChange}
                     checked={checkBoxState}
-                />{key}
+                />
                 <CheckboxSpan>
                     <Localize
                         fontSize="var(--text-size-xs)"

@@ -11,9 +11,12 @@ const query = graphql`
     {
         dtrader_artboard: file(relativePath: { eq: "dtrader_trade_home.png" }) {
             childImageSharp {
+                gatsbyImageData(
+                    quality: 45
                     breakpoints: [360, 794]
                     placeholder: NONE
                     layout: CONSTRAINED
+                )
             }
         }
     }

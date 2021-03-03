@@ -197,8 +197,6 @@ const SignupNew = ({
         setCheckBoxState(event.currentTarget.checked)
     }
 
-    const language = localStorage.getItem('i18n')?.replace('-', '_')
-
     const url = getLanguage() === 'en' || getLanguage() == null
             ? '/terms-and-conditions/'
             : `/${language}/terms-and-conditions/`
@@ -279,7 +277,7 @@ const SignupNew = ({
                     secondary
                     onChange={handleChange}
                     checked={checkBoxState}
-                />{language}
+                />
                 <CheckboxSpan>
                     <Localize
                         fontSize="var(--text-size-xs)"

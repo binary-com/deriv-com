@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { Localize } from 'components/localization'
 import { Header, LocalizedLinkText, Text, QueryImage } from 'components/elements'
 import { Flex, Show } from 'components/containers'
+import { Button } from 'components/form'
 import device from 'themes/device'
 
 const Section = styled.div`
@@ -71,6 +72,7 @@ const Left = styled.div`
     margin-left: 400px;
     margin-top: 40px;
     margin-bottom: 40px;
+
     @media ${device.tabletL} {
         margin-left: 16px;
         margin-top: 17px;
@@ -81,6 +83,19 @@ const Left = styled.div`
         margin-left: 16px;
         margin-top: 17px;
         margin-bottom: 15px;
+    }
+`
+const AndroidButton = styled(Button)`
+    @media ${device.mobileL} {
+        background: transparent;
+        border: 1px solid var(--color-grey);
+        width: 102px;
+        padding: 1.6px;
+
+        &:hover {
+            background: transparent;
+            border-color: var(--color-grey);
+        }
     }
 `
 
@@ -176,9 +191,11 @@ const NewApp = () => {
                         </Text>
                     </Content>
                     <Right>
-                        <Text size="12px" width="85px" style={{ fontWeight: 'bold' }}>
-                            <Localize translate_text="Get on Android" />
-                        </Text>
+                        <AndroidButton>
+                            <Text size="12px" width="85px" style={{ fontWeight: 'bold' }}>
+                                <Localize translate_text="Get on Android" />
+                            </Text>
+                        </AndroidButton>
                     </Right>
                 </Flex>
             </Show.Mobile>

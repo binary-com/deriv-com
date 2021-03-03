@@ -6,6 +6,7 @@ import { localize } from 'components/localization'
 import { Container, Flex, SectionContainer, Show } from 'components/containers'
 import { Header, QueryImage, BackgroundImage } from 'components/elements'
 import { LinkButton } from 'components/form'
+import { derivgo_google_play_url } from 'common/utility'
 import device from 'themes/device.js'
 
 const Wrapper = styled(Container)`
@@ -109,6 +110,17 @@ const IosComingSoon = styled(LinkButton)`
 
     @media (max-width: 360px) {
         white-space: nowrap;
+    }
+`
+const GooglePlay = styled(LinkButton)`
+    background: transparent;
+    border: 0.5px solid var(--color-grey);
+    width: 141px;
+    padding: 0;
+
+    &:hover {
+        background: transparent;
+        border-color: var(--color-grey);
     }
 `
 
@@ -315,14 +327,22 @@ const DGoHero = ({
                                 <NormalContent>{description}</NormalContent>
                             </HeroContent>
                             <LinkWrapper>
-                                {google_play && (
-                                    <QueryImage
-                                        data={data.Dgoogle_play_Logo}
-                                        alt={'Get it on Google Play'}
-                                        height={'40px'}
-                                        width={'138px'}
-                                    />
-                                )}
+                                <GooglePlay
+                                    secondary="true"
+                                    to={derivgo_google_play_url}
+                                    external="true"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    {google_play && (
+                                        <QueryImage
+                                            data={data.Dgoogle_play_Logo}
+                                            alt={'Get it on Google Play'}
+                                            height={'40px'}
+                                            width={'138px'}
+                                        />
+                                    )}
+                                </GooglePlay>
                             </LinkWrapper>
                             {ios_coming_soon && (
                                 <IosComingSoon>{localize('( iOS coming soon )')}</IosComingSoon>

@@ -41,12 +41,7 @@ const RedBanner = styled.span`
 const query = graphql`
     query {
         image: file(relativePath: { eq: "careers/career-landing-screen.jpg" }) {
-            childImageSharp {
-                fluid(quality: 90, maxWidth: 2048, srcSetBreakpoints: [600, 1440]) {
-                    ...GatsbyImageSharpFluid_withWebp_noBase64
-                    originalName
-                }
-            }
+            ...backGroundBlurLegacy
         }
     }
 `

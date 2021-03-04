@@ -190,20 +190,19 @@ const SignupNew = ({
     is_ppc,
     is_submitting,
 }) => {
+    
     const [checkBoxState, setCheckBoxState] = useState(false)
-
-    // Correct
-    const [key, setKey] = useState(undefined)
+    const [language_code, setLanguageCode] = useState('en')
 
     useEffect(() => {
-    setKey(localStorage.getItem('i18n'))
+     setLanguageCode(localStorage.getItem('i18n'))
     }, [])
 
     const handleChange = (event) => {
         setCheckBoxState(event.currentTarget.checked)
     }
 
-    const url = `/${key}/terms-and-conditions/`
+    const url = `/${language_code}/terms-and-conditions/`
      
     return (
         <SignupContent>

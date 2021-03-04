@@ -237,7 +237,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
             <Flex direction="column" wrap="wrap" jc="flex-start">
                 <StyledText>{localize('Trading platforms')}</StyledText>
                 <NavCard
-                    ariaLabel="Dtrader"
+                    aria_label="Dtrader"
                     icon={() => <img src={DTrader} alt="Dtrader" width="32" height="32" />}
                     content={
                         <Localize translate_text="A whole new trading experience on a powerful yet easy to use platform." />
@@ -247,7 +247,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                     to="/dtrader"
                 />
                 <NavCard
-                    ariaLabel="DBot"
+                    aria_label="DBot"
                     icon={() => <img src={DBot} alt="DBot" width="32" height="32" />}
                     content={
                         <Localize translate_text="Automated trading at your fingertips. No coding needed." />
@@ -257,7 +257,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                     to="/dbot"
                 />
                 <NavCard
-                    ariaLabel="DMT5"
+                    aria_label="DMT5"
                     icon={() => <img src={DMT5} alt="DMT5" width="32" height="32" />}
                     content={
                         <Localize translate_text="Trade on Deriv MetaTrader 5 (DMT5), the all-in-one FX and CFD trading platform." />
@@ -267,7 +267,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                     to={!is_ppc_redirect ? '/dmt5' : '/landing/dmt5'}
                 />
                 <NavCard
-                    ariaLabel="SmartTrader"
+                    aria_label="SmartTrader"
                     icon={() => <img src={Smarttrader} alt="Smarttrader" width="32" height="32" />}
                     content={
                         <Localize translate_text="Trade the world’s markets with our popular user-friendly platform." />
@@ -287,6 +287,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                     <Flex direction="column" wrap="wrap" jc="flex-start">
                         <StyledText>{localize('Trade types')}</StyledText>
                         <NavCard
+                            aria_label="Margin trading"
                             icon={() => <img src={Margin} alt="Margin" width="32" height="32" />}
                             content={
                                 <Localize translate_text="Trade with leverage and low spreads for better returns on successful trades." />
@@ -297,6 +298,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                         />
                         {!is_eu_country && (
                             <NavCard
+                                aria_label="Options"
                                 icon={() => (
                                     <img src={Options} alt="Options" width="32" height="32" />
                                 )}
@@ -309,7 +311,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                             />
                         )}
                         <NavCard
-                            ariaLabel="Multipliers"
+                            aria_label="Multipliers"
                             icon={() => (
                                 <img src={Multipliers} alt="Multipliers" width="32" height="32" />
                             )}
@@ -336,6 +338,7 @@ NavPlatform.propTypes = {
 export const NavMarket = ({ onClick, is_ppc }) => (
     <Flex direction="column" wrap="wrap" jc="flex-start">
         <NavCard
+            aria_label="Forex"
             icon={() => <img src={Forex} alt="Forex" width="32" height="32" />}
             content={
                 <Localize translate_text="Trade the world’s largest financial market with popular forex pairs." />
@@ -346,6 +349,7 @@ export const NavMarket = ({ onClick, is_ppc }) => (
         />
         {!is_ppc && (
             <NavCard
+                aria_label="Synthetic indices"
                 icon={() => (
                     <img src={SyntheticIndices} alt="SyntheticIndices" width="32" height="32" />
                 )}
@@ -358,6 +362,7 @@ export const NavMarket = ({ onClick, is_ppc }) => (
             />
         )}
         <NavCard
+            ariaLabel="Stock indices"
             icon={() => <img src={StockIndices} alt="StockIndices" width="32" height="32" />}
             content={
                 <Localize translate_text="Predict broader market trends and diversify your risk with stock indices." />
@@ -367,6 +372,7 @@ export const NavMarket = ({ onClick, is_ppc }) => (
             to="/markets#stock"
         />
         <NavCard
+            aria_label="Commodities"
             icon={() => <img src={Commodities} alt="Commodities" width="32" height="32" />}
             content={
                 <Localize translate_text="Trade natural resources that are central to the world's economy." />

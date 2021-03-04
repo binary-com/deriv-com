@@ -12,20 +12,10 @@ const StyeldContainer = styled(Container)`
 const query = graphql`
     query {
         image: file(relativePath: { eq: "partners-banner.png" }) {
-            childImageSharp {
-                fluid(quality: 90, maxWidth: 2048, srcSetBreakpoints: [600, 1440]) {
-                    ...GatsbyImageSharpFluid_withWebp_noBase64
-                    originalName
-                }
-            }
+            ...backGroundBlurLegacy
         }
         image_mobile: file(relativePath: { eq: "partners-banner-mobile.png" }) {
-            childImageSharp {
-                fluid(quality: 90, maxWidth: 2048, srcSetBreakpoints: [600, 1440]) {
-                    ...GatsbyImageSharpFluid_withWebp_noBase64
-                    originalName
-                }
-            }
+            ...backGroundBlurLegacy
         }
     }
 `

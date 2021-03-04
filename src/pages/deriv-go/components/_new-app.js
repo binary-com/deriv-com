@@ -14,11 +14,6 @@ const Section = styled.div`
     height: 200px;
     background-color: #f5f7fa;
 
-    @media ${device.tabletL} {
-        width: 768px;
-        height: 65px;
-    }
-
     @media ${device.mobileL} {
         width: 425px;
         height: 65px;
@@ -72,12 +67,6 @@ const Left = styled.div`
     margin-left: 400px;
     margin-top: 40px;
     margin-bottom: 40px;
-
-    @media ${device.tabletL} {
-        margin-left: 16px;
-        margin-top: 17px;
-        margin-bottom: 15px;
-    }
 
     @media ${device.mobileL} {
         margin-left: 16px;

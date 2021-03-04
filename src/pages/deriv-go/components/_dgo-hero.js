@@ -3,14 +3,15 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { graphql, useStaticQuery } from 'gatsby'
 import { localize } from 'components/localization'
-import { Container, Flex, SectionContainer, Show } from 'components/containers'
+import { Container, Flex, Show, SectionContainer } from 'components/containers'
 import { Header, QueryImage, BackgroundImage } from 'components/elements'
 import { LinkButton } from 'components/form'
 import { derivgo_google_play_url } from 'common/utility'
 import device from 'themes/device.js'
 
 const Wrapper = styled(Container)`
-    margin-bottom: 4rem;
+    display: flex;
+    justify-content: flex-start;
 `
 
 const HeroContent = styled.div`
@@ -39,7 +40,7 @@ const LottieWrapper = styled.div`
     width: 597px;
     max-width: 384px;
     position: absolute;
-    top: 10.8rem;
+    top: 24.8rem;
     right: 38rem;
 
     @media ${device.tabletL} {
@@ -64,19 +65,20 @@ const LottieWrapper = styled.div`
 
 const LinkWrapper = styled.div`
     display: flex;
-    margin-top: 3.8rem;
+    margin-top: 8rem;
 
     @media ${device.mobileL} {
         position: unset;
         top: unset;
         justify-content: center;
+        margin-top: 3.8rem;
     }
 `
 
 const ImageWrapper = styled.div`
     width: 213px;
     height: 28px;
-    margin: 0 273px 71px 0;
+    margin: 50px 273px 71px 0;
     object-fit: contain;
 
     @media ${device.tabletL} {
@@ -125,7 +127,7 @@ const GooglePlay = styled(LinkButton)`
 `
 
 const StyledContent = styled(Header)`
-    font-size: 5rem;
+    font-size: 6.2rem;
     font-weight: bold;
     margin: 0 35px 16px 0;
 
@@ -145,7 +147,7 @@ const StyledContent = styled(Header)`
 `
 
 const NormalContent = styled(Header)`
-    font-size: 2rem;
+    font-size: 2.8rem;
     font-weight: normal;
 
     @media ${device.mobileL} {
@@ -211,30 +213,28 @@ const query = graphql`
 
 const StyledBackgroundImage = styled(BackgroundImage)`
     background-color: var(--color-white);
+    background-size: cover;
+    height: 74rem;
+    width: 100vw;
+    max-width: 100%;
+`
+const MobileImage = styled(BackgroundImage)`
+    background-color: var(--color-white);
     background-size: contain;
-    padding: 32px 732px 103px 222px;
-
-    @media ${device.tabletL} {
-        width: 768px;
-    }
+    padding: 0;
+    height: 632px;
 
     @media ${device.mobileL} {
-        height: 632px;
         width: 425px;
-        padding: 0;
     }
     @media ${device.mobileM} {
-        height: 632px;
         width: 375px;
-        padding: 0;
     }
 `
+
 const Section = styled.div`
     background: var(--color-white);
-    @media ${device.tabletL} {
-        width: 768px;
-        height: 280px;
-    }
+
     @media ${device.mobileL} {
         width: 425px;
         height: 280px;
@@ -260,8 +260,8 @@ const DGoHero = ({
     return (
         <div>
             <Show.Desktop>
-                <SectionContainer background="var(--color-white)" height="430px" width="1440px">
-                    <StyledBackgroundImage data={data.image} alt={'background image'}>
+                <SectionContainer backgroundColor="var(--color-white)" padding="0" height="50rem">
+                    <StyledBackgroundImage data={data.image} alt={'derivgo image'}>
                         <Wrapper>
                             <InformationWrapper height="unset" direction="column">
                                 <ImageWrapper>
@@ -279,14 +279,22 @@ const DGoHero = ({
                                     <NormalContent>{description}</NormalContent>
                                 </HeroContent>
                                 <LinkWrapper>
-                                    {google_play && (
-                                        <QueryImage
-                                            data={data.Dgoogle_play_Logo}
-                                            alt={'Get it on Google Play'}
-                                            height={'40px'}
-                                            width={'138px'}
-                                        />
-                                    )}
+                                    <GooglePlay
+                                        secondary="true"
+                                        to={derivgo_google_play_url}
+                                        external="true"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        {google_play && (
+                                            <QueryImage
+                                                data={data.Dgoogle_play_Logo}
+                                                alt={'Get it on Google Play'}
+                                                height={'40px'}
+                                                width={'138px'}
+                                            />
+                                        )}
+                                    </GooglePlay>
                                     {ios_coming_soon && (
                                         <IosComingSoon>
                                             {localize('( iOS coming soon )')}
@@ -309,7 +317,7 @@ const DGoHero = ({
                 </SectionContainer>
             </Show.Desktop>
             <Show.Mobile>
-                <StyledBackgroundImage data={data.bg_mobile} alt={'mobile background'}>
+                <MobileImage data={data.bg_mobile} alt={'mobile background'}>
                     <Wrapper>
                         <InformationWrapper direction="column">
                             <ImageWrapper>
@@ -359,7 +367,7 @@ const DGoHero = ({
                             />
                         )}
                     </LottieWrapper>
-                </StyledBackgroundImage>
+                </MobileImage>
                 <Section />
             </Show.Mobile>
         </div>

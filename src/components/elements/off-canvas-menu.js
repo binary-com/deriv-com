@@ -156,6 +156,7 @@ export const OffCanvasMenuWrapper = (props) => {
                         </Text>
                         <Flex mb="2rem">
                             <NavCard
+                                aria_label={localize('DTrader')}
                                 icon={() => (
                                     <img src={DTrader} alt="DTrader" width="32" height="32" />
                                 )}
@@ -169,6 +170,7 @@ export const OffCanvasMenuWrapper = (props) => {
                         </Flex>
                         <Flex mb="2rem">
                             <NavCard
+                                aria_label={localize('DBot')}
                                 icon={() => <img src={DBot} alt="DBot" width="32" height="32" />}
                                 content={
                                     <Localize translate_text="Automated trading at your fingertips. No coding needed." />
@@ -180,6 +182,7 @@ export const OffCanvasMenuWrapper = (props) => {
                         </Flex>
                         <Flex mb="2rem">
                             <NavCard
+                                aria_label={localize('DMT5')}
                                 icon={() => <img src={DMT5} alt="DMT5" width="32" height="32" />}
                                 content={
                                     <Localize translate_text="Trade on Deriv MetaTrader 5 (DMT5), the all-in-one FX and CFD trading platform." />
@@ -191,6 +194,7 @@ export const OffCanvasMenuWrapper = (props) => {
                         </Flex>
                         <Flex>
                             <NavCard
+                                aria_label={localize('SmartTrader')}
                                 icon={() => (
                                     <img
                                         src={Smarttrader}
@@ -219,6 +223,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                 </Text>
                                 <Flex mb="2rem">
                                     <NavCard
+                                        aria_label={localize('Margin trading')}
                                         icon={() => (
                                             <img
                                                 src={MarginTrading}
@@ -238,6 +243,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                 {!is_eu_country && (
                                     <Flex mb="2rem">
                                         <NavCard
+                                            aria_label={localize('Options')}
                                             icon={() => (
                                                 <img
                                                     src={Options}
@@ -257,6 +263,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                 )}
                                 <Flex mb="2rem">
                                     <NavCard
+                                        aria_label={localize('Multipliers')}
                                         icon={() => (
                                             <img
                                                 src={Multipliers}
@@ -283,6 +290,7 @@ export const OffCanvasMenuWrapper = (props) => {
                     >
                         <Flex mb="3.2rem">
                             <NavCard
+                                aria_label={localize('Forex')}
                                 icon={() => <img src={Forex} alt="Forex" width="32" height="32" />}
                                 content={localize(
                                     'Trade the world’s largest financial market with popular forex pairs.',
@@ -295,6 +303,7 @@ export const OffCanvasMenuWrapper = (props) => {
                         {!props.is_ppc && (
                             <Flex mb="3.2rem">
                                 <NavCard
+                                    aria_label={localize('Synthetic indices')}
                                     icon={() => (
                                         <img
                                             src={SyntheticIndices}
@@ -314,6 +323,7 @@ export const OffCanvasMenuWrapper = (props) => {
                         )}
                         <Flex mb="3.2rem">
                             <NavCard
+                                aria_label={localize('Stock Indices')}
                                 icon={() => (
                                     <img
                                         src={StockIndices}
@@ -332,6 +342,7 @@ export const OffCanvasMenuWrapper = (props) => {
                         </Flex>
                         <Flex>
                             <NavCard
+                                aria_label={localize('Commodities')}
                                 icon={() => (
                                     <img
                                         src={Commodities}

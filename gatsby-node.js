@@ -146,9 +146,7 @@ exports.onCreatePage = ({ page, actions }) => {
     })
 }
 
-exports.onCreateWebpackConfig = ({ actions, getConfig }) => {
-    const config = getConfig()
-    if (config.optimization) config.optimization.minimizer[0].options.parallel = 2
+exports.onCreateWebpackConfig = ({ actions }) => {
     actions.setWebpackConfig({
         resolve: {
             modules: [path.resolve(__dirname, 'src'), 'node_modules'],

@@ -93,7 +93,7 @@ const StyledFlexGridContainer = styled(FlexGridContainer)`
 `
 
 export const TraderCard = ({ is_selected, word_break_cover }) => (
-    <StyledLink ariaLabel={localize('DTrader')} to="/dtrader">
+    <StyledLink ariaLabel="DTrader" to="/dtrader">
         <Card
             cover_background="var(--color-red)"
             cover_content={localize('Discover DTrader now')}
@@ -110,7 +110,7 @@ export const TraderCard = ({ is_selected, word_break_cover }) => (
 )
 
 export const BotCard = ({ is_selected, word_break_cover }) => (
-    <StyledLink ariaLabel={localize('DBot')} to="/dbot">
+    <StyledLink ariaLabel="DBot" to="/dbot">
         <Card
             cover_background="var(--color-orange)"
             cover_content={localize('Discover DBot now')}
@@ -127,7 +127,7 @@ export const BotCard = ({ is_selected, word_break_cover }) => (
 )
 
 export const DMT5Card = ({ is_selected, is_ppc_redirect, word_break_cover }) => (
-    <StyledLink ariaLabel={localize('DMT5')} to={!is_ppc_redirect ? '/dmt5' : '/landing/dmt5'}>
+    <StyledLink ariaLabel="DMT5" to={!is_ppc_redirect ? '/dmt5' : '/landing/dmt5'}>
         <Card
             cover_background="var(--color-green)"
             cover_content={localize('Discover DMT5 now')}
@@ -149,6 +149,7 @@ export const DMT5Card = ({ is_selected, is_ppc_redirect, word_break_cover }) => 
 
 export const SmarttraderCard = ({ is_selected, word_break_cover }) => (
     <StyledLink
+        ariaLabel="SmartTrader"
         to="trading"
         is_smarttrader_link
         external="true"
@@ -236,6 +237,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
             <Flex direction="column" wrap="wrap" jc="flex-start">
                 <StyledText>{localize('Trading platforms')}</StyledText>
                 <NavCard
+                    ariaLabel="Dtrader"
                     icon={() => <img src={DTrader} alt="Dtrader" width="32" height="32" />}
                     content={
                         <Localize translate_text="A whole new trading experience on a powerful yet easy to use platform." />
@@ -245,6 +247,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                     to="/dtrader"
                 />
                 <NavCard
+                    ariaLabel="DBot"
                     icon={() => <img src={DBot} alt="DBot" width="32" height="32" />}
                     content={
                         <Localize translate_text="Automated trading at your fingertips. No coding needed." />
@@ -254,6 +257,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                     to="/dbot"
                 />
                 <NavCard
+                    ariaLabel="DMT5"
                     icon={() => <img src={DMT5} alt="DMT5" width="32" height="32" />}
                     content={
                         <Localize translate_text="Trade on Deriv MetaTrader 5 (DMT5), the all-in-one FX and CFD trading platform." />
@@ -263,6 +267,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                     to={!is_ppc_redirect ? '/dmt5' : '/landing/dmt5'}
                 />
                 <NavCard
+                    ariaLabel="SmartTrader"
                     icon={() => <img src={Smarttrader} alt="Smarttrader" width="32" height="32" />}
                     content={
                         <Localize translate_text="Trade the world’s markets with our popular user-friendly platform." />
@@ -304,6 +309,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                             />
                         )}
                         <NavCard
+                            ariaLabel="Multipliers"
                             icon={() => (
                                 <img src={Multipliers} alt="Multipliers" width="32" height="32" />
                             )}

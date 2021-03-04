@@ -156,7 +156,7 @@ export const OffCanvasMenuWrapper = (props) => {
                         </Text>
                         <Flex mb="2rem">
                             <NavCard
-                                aria_label={localize('DTrader')}
+                                aria_label="DTrader"
                                 icon={() => (
                                     <img src={DTrader} alt="DTrader" width="32" height="32" />
                                 )}
@@ -170,7 +170,7 @@ export const OffCanvasMenuWrapper = (props) => {
                         </Flex>
                         <Flex mb="2rem">
                             <NavCard
-                                aria_label={localize('DBot')}
+                                aria_label="DBot"
                                 icon={() => <img src={DBot} alt="DBot" width="32" height="32" />}
                                 content={
                                     <Localize translate_text="Automated trading at your fingertips. No coding needed." />
@@ -182,7 +182,7 @@ export const OffCanvasMenuWrapper = (props) => {
                         </Flex>
                         <Flex mb="2rem">
                             <NavCard
-                                aria_label={localize('DMT5')}
+                                aria_label="DMT5"
                                 icon={() => <img src={DMT5} alt="DMT5" width="32" height="32" />}
                                 content={
                                     <Localize translate_text="Trade on Deriv MetaTrader 5 (DMT5), the all-in-one FX and CFD trading platform." />
@@ -194,7 +194,7 @@ export const OffCanvasMenuWrapper = (props) => {
                         </Flex>
                         <Flex>
                             <NavCard
-                                aria_label={localize('SmartTrader')}
+                                aria_label="SmartTrader"
                                 icon={() => (
                                     <img
                                         src={Smarttrader}
@@ -223,7 +223,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                 </Text>
                                 <Flex mb="2rem">
                                     <NavCard
-                                        aria_label={localize('Margin trading')}
+                                        aria_label="Margin trading"
                                         icon={() => (
                                             <img
                                                 src={MarginTrading}
@@ -243,7 +243,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                 {!is_eu_country && (
                                     <Flex mb="2rem">
                                         <NavCard
-                                            aria_label={localize('Options')}
+                                            aria_label="Options"
                                             icon={() => (
                                                 <img
                                                     src={Options}
@@ -263,7 +263,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                 )}
                                 <Flex mb="2rem">
                                     <NavCard
-                                        aria_label={localize('Multipliers')}
+                                        aria_label="Multipliers"
                                         icon={() => (
                                             <img
                                                 src={Multipliers}
@@ -284,13 +284,13 @@ export const OffCanvasMenuWrapper = (props) => {
                         )}
                     </AccordionItem>
                     <AccordionItem
-                        header={localize('Markets')}
+                        header="Markets"
                         header_style={header_style}
                         style={content_style}
                     >
                         <Flex mb="3.2rem">
                             <NavCard
-                                aria_label={localize('Forex')}
+                                aria_label="Forex"
                                 icon={() => <img src={Forex} alt="Forex" width="32" height="32" />}
                                 content={localize(
                                     'Trade the world’s largest financial market with popular forex pairs.',
@@ -303,7 +303,7 @@ export const OffCanvasMenuWrapper = (props) => {
                         {!props.is_ppc && (
                             <Flex mb="3.2rem">
                                 <NavCard
-                                    aria_label={localize('Synthetic indices')}
+                                    aria_label="Synthetic indices"
                                     icon={() => (
                                         <img
                                             src={SyntheticIndices}
@@ -323,7 +323,7 @@ export const OffCanvasMenuWrapper = (props) => {
                         )}
                         <Flex mb="3.2rem">
                             <NavCard
-                                aria_label={localize('Stock Indices')}
+                                aria_label="Stock Indices"
                                 icon={() => (
                                     <img
                                         src={StockIndices}
@@ -342,7 +342,7 @@ export const OffCanvasMenuWrapper = (props) => {
                         </Flex>
                         <Flex>
                             <NavCard
-                                aria_label={localize('Commodities')}
+                                aria_label="Commodities"
                                 icon={() => (
                                     <img
                                         src={Commodities}
@@ -361,7 +361,7 @@ export const OffCanvasMenuWrapper = (props) => {
                         </Flex>
                     </AccordionItem>
                     <AccordionItem
-                        header={localize('About us')}
+                        header="About us"
                         header_style={header_style}
                         style={content_style}
                     >

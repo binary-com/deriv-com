@@ -167,8 +167,8 @@ const trimSpaces = (value) => value.trim()
 const application_id = 'f0aef779-d9ec-4517-807e-a84c683c4265'
 const client_token = 'pubc42fda54523c5fb23c564e3d8bceae88'
 const sample_rate = 25
-const besquare_form_url =
-    'https://docs.google.com/forms/d/e/1FAIpQLSezAMqeiuY-17mfxnjfNYDy_x0Zdkk7oAuKF-M52F0q4ooVpw/viewform'
+const besquare_signup_url =
+    'https://deriv.zohorecruit.com/jobs/Careers/590522000011882533/BeSquare-Graduate-Trainee?source=CareerSite'
 const deriv_app_url = 'https://app.deriv.com'
 const deriv_bot_app_url = 'https://app.deriv.com/bot'
 const deriv_blog_url = 'https://blog.deriv.com'
@@ -177,7 +177,6 @@ const deriv_status_page_url = 'https://deriv.statuspage.io'
 const smarttrader_url = 'https://smarttrader.deriv.com'
 const binary_url = 'https://binary.com'
 const blog_url = 'https://blog.deriv.com'
-const besquare_url = 'https://besquare.deriv.com'
 const deriv_cookie_domain = 'deriv.com'
 const affiliate_signup_url = 'https://login.deriv.com/signup.php'
 const affiliate_signin_url = 'https://login.deriv.com/signin.php'
@@ -213,10 +212,9 @@ export {
     affiliate_signin_url,
     affiliate_signup_url,
     applyDefaultValues,
-    besquare_form_url,
+    besquare_signup_url,
     binary_url,
     brand_name,
-    besquare_url,
     application_id,
     client_token,
     checkElemInArray,

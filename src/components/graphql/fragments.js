@@ -1,6 +1,6 @@
 import { graphql } from 'gatsby'
 
-// To do: This should replace backGroundBlurLegacy once background images is supported in gatsby-plugin-image
+// TO DO: This should replace backGroundBlurLegacy once background images is supported in gatsby-plugin-image
 export const backGroundBlur = graphql`
     fragment backGroundBlur on File {
         childImageSharp {

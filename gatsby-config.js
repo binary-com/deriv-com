@@ -169,14 +169,15 @@ module.exports = {
                 exclude: ['node_modules', '.cache', 'public'],
             },
         },
-        {
-            resolve: 'gatsby-plugin-stylelint',
-            options: {
-                emitErrors: false,
-                files: ['src/**/*.js'],
-                lintDirtyModulesOnly: true,
-            },
-        },
+        // TO DO: To be renabled when this plugin support gatsby V3
+        // {
+        //     resolve: 'gatsby-plugin-stylelint',
+        //     options: {
+        //         emitErrors: false,
+        //         files: ['src/**/*.js'],
+        //         lintDirtyModulesOnly: true,
+        //     },
+        // },
         {
             resolve: 'gatsby-plugin-robots-txt',
             options: {

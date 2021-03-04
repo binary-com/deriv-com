@@ -404,7 +404,7 @@ const NavDesktop = ({ base, is_ppc, is_ppc_redirect, is_logged_in }) => {
         handleScroll(showButton, hideButton)
     }
 
-    const checkActive = (link_name) => link_name === active_dropdown && link_name === current_page
+    const checkActive = (link_name) => link_name === active_dropdown || link_name === current_page
 
     const closeDropdown = () => setActiveDropdown('')
 

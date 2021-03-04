@@ -53,18 +53,6 @@ export const NavWrapper = styled.div`
     position: fixed;
     top: 0;
     z-index: 100;
-
-    /* .fresnel-between-start-bp1060 {
-        display: none;
-    } */
-
-    /* @media ${device.bp1060} {
-        .fresnel-between-start-bp1060 {
-            display: flex;
-            width: 100%;
-            align-items: center;
-        }
-    } */
 `
 
 const InterimNav = styled.nav`

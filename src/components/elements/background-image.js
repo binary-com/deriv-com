@@ -17,13 +17,13 @@ export const Background = ({ children, data, style, dark, ...props }) => {
         <StyledBackground
             Tag="div"
             style={style}
-            fluid={data.childImageSharp.gatsbyImageData}
+            fluid={data.childImageSharp.fluid}
             dark={dark}
             {...props}
         >
             {children}
         </StyledBackground>
-    );
+    )
 }
 
 Background.propTypes = {

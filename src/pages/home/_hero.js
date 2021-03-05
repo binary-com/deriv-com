@@ -176,7 +176,7 @@ const Hero = ({ is_ppc }) => {
                                 <StaticImage
                                     src="../../images/common/home/platform_devices.png"
                                     alt="platform devices mobile"
-                                    placeholder="blurred"
+                                    placeholder="dominantColor"
                                 />
                             </Show.Mobile>
                         )}
@@ -184,7 +184,7 @@ const Hero = ({ is_ppc }) => {
                             <StaticImage
                                 src="../../images/common/home/platform_devices.png"
                                 alt="platform devices"
-                                placeholder="blurred"
+                                placeholder="dominantColor"
                             />
                         </Show.Desktop>
                     </ImageWrapper>

@@ -61,11 +61,11 @@ const StyledContainer = styled(Container)`
     }
 `
 
-const getNavigationContents = (type, is_ppc, is_ppc_redirect) => {
-    if (type === 'trade') return <NavPlatform is_ppc={is_ppc} is_ppc_redirect={is_ppc_redirect} />
-    if (type === 'markets') return <NavMarket is_ppc={is_ppc} />
-    if (type === 'about') return <NavCompany />
-    if (type === 'resources') return <NavResources />
+const getNavigationContents = (parent, is_ppc, is_ppc_redirect) => {
+    if (parent === 'trade') return <NavPlatform is_ppc={is_ppc} is_ppc_redirect={is_ppc_redirect} />
+    if (parent === 'markets') return <NavMarket is_ppc={is_ppc} />
+    if (parent === 'about') return <NavCompany />
+    if (parent === 'resources') return <NavResources />
 }
 
 const PlatformsDropdown = ({ current_ref, is_ppc, is_ppc_redirect, parent, setActiveDropdown }) => {

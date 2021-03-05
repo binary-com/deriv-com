@@ -40,7 +40,7 @@ const Asuncion = () => {
             <SEO
                 title={localize('Asunción | Our office – Paraguay | Deriv')}
                 description={localize(
-                    'Find your role with us by bowsing Deriv job opportunities in Asunción, Paraguay.',
+                    'Find your role with us by browsing Deriv job opportunities in Asunción, Paraguay.',
                 )}
             />
             <LocationLayout location={asuncion} images={images} />

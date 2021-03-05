@@ -25,7 +25,7 @@ module.exports = {
             options: {
                 failOnError: true,
                 base64Width: 20,
-                forceBase64Format: `webp`,
+                forceBase64Format: 'webp',
                 useMozJpeg: process.env.GATSBY_JPEG_ENCODER === `MOZJPEG`,
                 stripMetadata: true,
                 defaultQuality: 50,

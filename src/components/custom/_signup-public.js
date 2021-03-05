@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { graphql, useStaticQuery } from 'gatsby'
+import { StaticImage } from 'gatsby-plugin-image'
 import { Input, Button } from 'components/form'
-import { Header, Text, QueryImage, LinkText } from 'components/elements'
+import { Header, Text, LinkText } from 'components/elements'
 import { localize } from 'components/localization'
 import { Flex, Show } from 'components/containers'
 import { deriv_app_url } from 'common/utility'
@@ -14,14 +14,6 @@ import Google from 'images/svg/google.svg'
 import Arrow from 'images/svg/chevron-right.svg'
 import BackgroundPattern from 'images/common/bg_banner_signup.png'
 import RedBanner from 'images/svg/bg_banner_signup_mobile.svg'
-
-const query = graphql`
-    query {
-        deriv_platform: file(relativePath: { eq: "deriv-platform-banner.png" }) {
-            ...fadeIn
-        }
-    }
-`
 
 const Wrapper = styled.div`
     position: relative;
@@ -251,17 +243,15 @@ const SignupPublic = ({
     handleSocialSignup,
     is_submitting,
 }) => {
-    const data = useStaticQuery(query)
     return (
         <>
             <Show.Desktop>
                 <Wrapper>
                     <div style={{ position: 'absolute', left: '50%', height: '100%' }}>
                         <ImageWrapper ai="center">
-                            <QueryImage
-                                data={data['deriv_platform']}
+                            <StaticImage
+                                src="../../images/common/deriv-platform-banner.png"
                                 alt="deriv platform"
-                                width="100%"
                             />
                         </ImageWrapper>
                     </div>
@@ -444,10 +434,9 @@ const SignupPublic = ({
                     </MobileSignupFormWrapper>
                     <MobileBackground>
                         <MobilePlatform>
-                            <QueryImage
-                                data={data['deriv_platform']}
+                            <StaticImage
+                                src="../../images/common/deriv-platform-banner.png"
                                 alt="deriv platform"
-                                width="100%"
                             />
                         </MobilePlatform>
                         <MobileRedBanner>

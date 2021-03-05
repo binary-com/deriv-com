@@ -391,7 +391,7 @@ export const NavCard = ({
 }
 
 NavCard.propTypes = {
-    aria_label: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+    aria_label: PropTypes.string,
     className: PropTypes.string,
     content: PropTypes.oneOfType([PropTypes.string, PropTypes.array, PropTypes.object]),
     external: PropTypes.string,

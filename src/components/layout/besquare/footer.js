@@ -56,7 +56,10 @@ const BeSquareFooter = () => {
         <React.Fragment>
             <Section color="black">
                 <ContentContainer>
-                    <ImageWrapper data={data['footer_image']} alt="Deriv employee" />
+                    <ImageWrapper
+                        data={data['footer_image']}
+                        alt="Fresh graduates discussing with their laptops"
+                    />
                     <TextContainer>
                         <Title>{localize('Next intake: July 2021')}</Title>
                         <TextWrapper

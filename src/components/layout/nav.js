@@ -232,6 +232,10 @@ const StyledButton = styled.span`
     cursor: pointer;
     user-select: none;
     white-space: nowrap;
+
+    @media ${device.laptopM} {
+        padding: 0.5rem 0.8rem;
+    }
 `
 
 const SignupButton = styled(Button)`

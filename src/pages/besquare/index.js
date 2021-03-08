@@ -11,15 +11,14 @@ import WhoCanApply from './components/sections/_who-can-apply'
 import WhyDeriv from './components/sections/_why-deriv'
 import Layout from 'components/layout/layout'
 import { SEO } from 'components/containers'
-import { WithIntl, localize } from 'components/localization'
 
 const BeSquare = () => (
     <Layout type="be-square">
         <SEO
             title={'BeSquare By Deriv'}
-            description={localize(
-                'Learn more about BeSquare, a graduate training programme by Deriv that equips fresh graduates with essential skills to kickstart their career in IT.',
-            )}
+            description={
+                'Learn more about BeSquare, a graduate training programme by Deriv that equips fresh graduates with essential skills to kickstart their career in IT.'
+            }
         />
         <Hero />
         <Description />
@@ -34,4 +33,4 @@ const BeSquare = () => (
     </Layout>
 )
 
-export default WithIntl()(BeSquare)
+export default BeSquare

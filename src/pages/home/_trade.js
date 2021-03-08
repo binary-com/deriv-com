@@ -58,18 +58,21 @@ const Trade = ({ is_ppc_redirect }) => {
                                 <StaticImage
                                     src="../../images/common/dtrader_trade_home.png"
                                     alt={localize('DTrader')}
+                                    formats={['avif', 'webp', 'jpg']}
                                 />
                             </ImageWrapper>
                             <ImageWrapper is_selected={selected === platforms.bot}>
                                 <StaticImage
                                     src="../../images/common/dbot_trade_home.png"
                                     alt={localize('DBot')}
+                                    formats={['avif', 'webp', 'jpg']}
                                 />
                             </ImageWrapper>
                             <ImageWrapper is_selected={selected === platforms.mt5}>
                                 <StaticImage
                                     src="../../images/common/dmt5_trade_home.png"
                                     alt={localize('DMT5')}
+                                    formats={['avif', 'webp', 'jpg']}
                                 />
                             </ImageWrapper>
                         </ImageContainer>

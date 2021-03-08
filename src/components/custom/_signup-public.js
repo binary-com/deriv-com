@@ -252,6 +252,7 @@ const SignupPublic = ({
                             <StaticImage
                                 src="../../images/common/deriv-platform-banner.png"
                                 alt="deriv platform"
+                                formats={['avif', 'webp', 'jpg']}
                             />
                         </ImageWrapper>
                     </div>
@@ -437,6 +438,7 @@ const SignupPublic = ({
                             <StaticImage
                                 src="../../images/common/deriv-platform-banner.png"
                                 alt="deriv platform"
+                                formats={['avif', 'webp', 'jpg']}
                             />
                         </MobilePlatform>
                         <MobileRedBanner>

@@ -177,6 +177,7 @@ const Hero = ({ is_ppc }) => {
                                     src="../../images/common/home/platform_devices.png"
                                     alt="platform devices mobile"
                                     placeholder="dominantColor"
+                                    formats={['avif', 'webp', 'jpg']}
                                 />
                             </Show.Mobile>
                         )}
@@ -185,6 +186,7 @@ const Hero = ({ is_ppc }) => {
                                 src="../../images/common/home/platform_devices.png"
                                 alt="platform devices"
                                 placeholder="dominantColor"
+                                formats={['avif', 'webp', 'jpg']}
                             />
                         </Show.Desktop>
                     </ImageWrapper>

@@ -27,6 +27,7 @@ const TradeTheWayYouLike = ({ is_ppc_redirect }) => {
                 <StaticImage
                     src="../../images/common/dtrader_trade_home.png"
                     alt={localize('Dtrader artboard')}
+                    formats={['avif', 'webp', 'jpg']}
                 />
             </ImageWrapper>
             <OtherPlatform exclude="" is_nav is_ppc_redirect={is_ppc_redirect} />

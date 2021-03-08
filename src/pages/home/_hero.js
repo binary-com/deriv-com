@@ -182,6 +182,7 @@ const Hero = ({ is_ppc }) => {
                             alt="platform devices"
                             placeholder="dominantColor"
                             formats={['avif', 'webp', 'jpg']}
+                            quality={40}
                             loading="eager"
                         />
                     </ImageWrapper>

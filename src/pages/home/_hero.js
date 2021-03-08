@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import styled, { keyframes } from 'styled-components'
 import PropTypes from 'prop-types'
 import { StaticImage } from 'gatsby-plugin-image'
@@ -105,12 +105,26 @@ const ImageWrapper = styled(Box)`
         margin-top: 0;
     }
 `
+
+const MobileWrapper = styled(Flex)`
+    display: none;
+    @media ${device.tabletL} {
+        display: block;
+    }
+`
+
+const DesktopWrapper = styled(Flex)`
+    display: block;
+    @media ${device.tabletL} {
+        display: none;
+    }
+`
+
 const Hero = ({ is_ppc }) => {
     const typewriter_text = !is_ppc
         ? localize('Trade forex, commodities, synthetic and stock indices')
         : localize('Trade forex, commodities, and stock indices')
-    const [type_writer, setTypeWriter] = React.useState('')
-    const [check_first_load, setFirstLoad] = React.useState(false)
+    const [type_writer, setTypeWriter] = useState('')
     let type_writer_timeout
 
     const typeWriterAnimation = (i = 0) => {
@@ -120,11 +134,10 @@ const Hero = ({ is_ppc }) => {
         }
     }
 
-    React.useEffect(() => {
+    useEffect(() => {
         let start_animations_timeout = setTimeout(() => {
             typeWriterAnimation()
         }, 1200)
-        setFirstLoad(true)
         return () => {
             clearTimeout(start_animations_timeout)
             clearTimeout(type_writer_timeout)
@@ -136,29 +149,22 @@ const Hero = ({ is_ppc }) => {
             <Container>
                 <HeroContainer>
                     <Details>
-                        <Show.Desktop>
-                            <Flex mb="1.6rem" direction="column">
-                                <StyledHeader color="white" ad="0.5s">
-                                    <Localize translate_text="Simple." />
-                                </StyledHeader>
-                                <StyledHeader color="white" ad="0.6s">
-                                    <Localize translate_text="Flexible." />
-                                </StyledHeader>
-                                <StyledHeader color="white" ad="0.7s">
-                                    <Localize translate_text="Reliable." />
-                                </StyledHeader>
-                            </Flex>
-                        </Show.Desktop>
-                        {check_first_load && (
-                            <Show.Mobile>
-                                <Flex>
-                                    <StyledHeader color="white" mb="2rem" as="h1">
-                                        <Localize translate_text="Simple. Flexible. Reliable." />
-                                    </StyledHeader>
-                                </Flex>
-                            </Show.Mobile>
-                        )}
-
+                        <DesktopWrapper mb="1.6rem" direction="column">
+                            <StyledHeader color="white" ad="0.5s">
+                                <Localize translate_text="Simple." />
+                            </StyledHeader>
+                            <StyledHeader color="white" ad="0.6s">
+                                <Localize translate_text="Flexible." />
+                            </StyledHeader>
+                            <StyledHeader color="white" ad="0.7s">
+                                <Localize translate_text="Reliable." />
+                            </StyledHeader>
+                        </DesktopWrapper>
+                        <MobileWrapper>
+                            <StyledHeader color="white" mb="2rem" as="h1">
+                                <Localize translate_text="Simple. Flexible. Reliable." />
+                            </StyledHeader>
+                        </MobileWrapper>
                         <TypeWriter
                             as="h2"
                             type="sub-section-title"
@@ -171,24 +177,12 @@ const Hero = ({ is_ppc }) => {
                         <VerticalCarousel contents={!is_ppc ? contents : contents_ppc} />
                     </Details>
                     <ImageWrapper>
-                        {check_first_load && (
-                            <Show.Mobile>
-                                <StaticImage
-                                    src="../../images/common/home/platform_devices.png"
-                                    alt="platform devices mobile"
-                                    placeholder="dominantColor"
-                                    formats={['avif', 'webp', 'jpg']}
-                                />
-                            </Show.Mobile>
-                        )}
-                        <Show.Desktop>
-                            <StaticImage
-                                src="../../images/common/home/platform_devices.png"
-                                alt="platform devices"
-                                placeholder="dominantColor"
-                                formats={['avif', 'webp', 'jpg']}
-                            />
-                        </Show.Desktop>
+                        <StaticImage
+                            src="../../images/common/home/platform_devices.png"
+                            alt="platform devices"
+                            placeholder="dominantColor"
+                            formats={['avif', 'webp', 'jpg']}
+                        />
                     </ImageWrapper>
                     <ButtonWrapper>
                         <HeroButton secondary="true" to="/signup/">

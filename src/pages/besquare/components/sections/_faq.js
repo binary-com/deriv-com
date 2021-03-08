@@ -34,7 +34,7 @@ const FAQ = () => {
                     <ImageWrapper src={Vector} alt="Dotted image" />
                 </Show.Desktop>
                 <ContentContainer>
-                    <Title>{'FAQs'}</Title>
+                    <Title>FAQs</Title>
                 </ContentContainer>
                 <AccordionWrapper>
                     <Accordion has_single_state>

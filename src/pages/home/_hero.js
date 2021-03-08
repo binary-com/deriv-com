@@ -5,7 +5,7 @@ import { StaticImage } from 'gatsby-plugin-image'
 import VerticalCarousel from './_vertical-carousel.js'
 import device from 'themes/device'
 import { LinkButton } from 'components/form'
-import { Container, CssGrid, Box, Flex, Show } from 'components/containers'
+import { Container, CssGrid, Box, Flex } from 'components/containers'
 import { Header } from 'components/elements'
 import { Localize, localize } from 'components/localization'
 

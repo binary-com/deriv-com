@@ -169,15 +169,6 @@ module.exports = {
                 exclude: ['node_modules', '.cache', 'public'],
             },
         },
-        // TO DO: To be renabled when this plugin support gatsby V3
-        // {
-        //     resolve: 'gatsby-plugin-stylelint',
-        //     options: {
-        //         emitErrors: false,
-        //         files: ['src/**/*.js'],
-        //         lintDirtyModulesOnly: true,
-        //     },
-        // },
         {
             resolve: 'gatsby-plugin-robots-txt',
             options: {
@@ -221,15 +212,6 @@ module.exports = {
             resolve: 'gatsby-plugin-anchor-links',
             options: {
                 offset: -100,
-            },
-        },
-        {
-            resolve: 'gatsby-plugin-webpack-bundle-analyser-v2',
-            options: {
-                production: true,
-                disable: !process.env.ANALYZE_BUNDLE_SIZE,
-                generateStatsFile: true,
-                analyzerMode: 'static',
             },
         },
     ],

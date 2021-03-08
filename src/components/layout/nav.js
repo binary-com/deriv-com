@@ -53,18 +53,6 @@ export const NavWrapper = styled.div`
     position: fixed;
     top: 0;
     z-index: 100;
-
-    .fresnel-between-start-tabletL {
-        display: none;
-    }
-
-    @media ${device.tabletL} {
-        .fresnel-between-start-tabletL {
-            display: flex;
-            width: 100%;
-            align-items: center;
-        }
-    }
 `
 
 const InterimNav = styled.nav`
@@ -107,7 +95,7 @@ export const StyledNav = styled.nav`
     width: 100%;
     position: relative;
     z-index: 1;
-    @media ${device.tabletL} {
+    @media (max-width: 1060px) {
         height: auto;
     }
 `
@@ -138,10 +126,6 @@ export const NavLeft = styled.div`
     align-items: center;
     max-width: 30rem;
     width: 100%;
-
-    @media (max-width: 991px) {
-        display: none;
-    }
 `
 
 const StaticWrapper = styled.nav`
@@ -160,17 +144,14 @@ const NavCenter = styled.ul`
     justify-content: center;
     line-height: 1.2;
 
-    @media (max-width: 1210px) {
+    @media (max-width: 1227px) {
         font-size: 14px;
     }
     @media (max-width: 1175px) {
         font-size: 12px;
     }
-    @media (max-width: 1105px) {
+    @media (max-width: 1116px) {
         font-size: 11px;
-    }
-    @media (max-width: 991px) {
-        display: none;
     }
 `
 const NavRight = styled.div`
@@ -236,7 +217,7 @@ const NavLink = styled.li`
     }
 
     @media ${device.laptopM} {
-        margin-right: 1.6rem;
+        margin-right: 1rem;
     }
 
     ${(props) => {
@@ -251,6 +232,10 @@ const StyledButton = styled.span`
     cursor: pointer;
     user-select: none;
     white-space: nowrap;
+
+    @media ${device.laptopM} {
+        padding: 0.5rem 0.8rem;
+    }
 `
 
 const SignupButton = styled(Button)`
@@ -266,7 +251,7 @@ const LinkSignupButton = styled(LinkButton)`
 const HamburgerMenu = styled.img`
     cursor: pointer;
     display: none;
-    @media ${device.tabletL} {
+    @media (max-width: 1060px) {
         display: block;
         cursor: pointer;
     }
@@ -275,7 +260,7 @@ const HamburgerMenu = styled.img`
 const CloseMenu = styled.img`
     cursor: pointer;
     display: none;
-    @media ${device.tabletL} {
+    @media (max-width: 1060px) {
         display: block;
         cursor: pointer;
     }
@@ -285,7 +270,7 @@ const LogoLinkMobile = styled(LocalizedLink)`
     cursor: pointer;
     display: none;
 
-    @media ${device.tabletL} {
+    @media (max-width: 1060px) {
         display: block;
         cursor: pointer;
         margin-left: 2rem;
@@ -300,7 +285,7 @@ const MobileButton = styled(Button)`
     display: none;
     font-size: 14px;
     margin-left: ${({ margin_left }) => margin_left ?? '1.6rem'};
-    @media ${device.tabletL} {
+    @media (max-width: 1060px) {
         display: block;
     }
     @media ${device.mobileL} {
@@ -310,7 +295,7 @@ const MobileButton = styled(Button)`
 const LinkMobileLogin = styled(LinkButton)`
     display: none;
     font-size: 14px;
-    @media ${device.tabletL} {
+    @media (max-width: 1060px) {
         display: block;
         margin-left: auto;
     }
@@ -328,7 +313,7 @@ const MobileRight = styled.div`
     display: none;
     align-items: center;
 
-    @media ${device.tabletL} {
+    @media (max-width: 1060px) {
         display: flex;
     }
 `
@@ -628,7 +613,7 @@ export const Nav = ({ base, is_ppc_redirect, is_ppc }) => {
         <NavWrapper>
             <CFDWarning />
             <StyledNav>
-                <Show.Desktop>
+                <Show.Desktop max_width="bp1060">
                     <NavDesktop
                         base={base}
                         is_ppc={is_ppc}
@@ -636,7 +621,7 @@ export const Nav = ({ base, is_ppc_redirect, is_ppc }) => {
                         is_logged_in={is_logged_in}
                     />
                 </Show.Desktop>
-                <Show.Mobile>
+                <Show.Mobile min_width="bp1060">
                     <NavMobile is_ppc={is_ppc} is_logged_in={is_logged_in} />
                 </Show.Mobile>
             </StyledNav>
@@ -822,7 +807,7 @@ const StyledNavRight = styled(NavRight)`
 const StyledNavWrapper = styled(Wrapper)`
     justify-content: flex-start;
 
-    @media ${device.tabletL} {
+    @media (max-width: 1060px) {
         justify-content: ${(props) => (props.no_login_signup ? 'flex-start' : 'space-between')};
     }
 

@@ -102,9 +102,7 @@ export const NavCareers = () => {
                             </CareerLink>
                             <CareerLink
                                 activeClassName="active"
-                                to="/"
-                                is_besquare_link
-                                external="true"
+                                to="/besquare"
                                 aria-label={'BeSquare'}
                             >
                                 BESQUARE

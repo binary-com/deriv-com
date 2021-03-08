@@ -3,7 +3,7 @@ import { Container, Flex, SectionContainer } from 'components/containers'
 import device from 'themes/device'
 
 export const Section = styled(SectionContainer)`
-    background-color: var(--color-grey-30);
+    background-color: var(--color-grey-37);
     padding: 80px 0;
 
     @media ${device.tablet} {

@@ -150,7 +150,6 @@ const StylelintPlugin = require('stylelint-webpack-plugin')
 const defaultOptions = {
     files: '**/*.{js,jsx}',
     emitErrors: false,
-    lintDirtyModulesOnly: true,
 }
 
 exports.onCreateWebpackConfig = ({ actions }, { ...options }) => {

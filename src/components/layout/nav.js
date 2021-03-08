@@ -384,6 +384,12 @@ const NavMobile = ({ is_ppc, is_ppc_redirect, is_logged_in }) => {
     )
 }
 
+const NavDesktopWrapper = styled.div`
+    @media (max-width: 1060px) {
+        display: none;
+    }
+`
+
 const NavDesktop = ({ base, is_ppc, is_ppc_redirect, is_logged_in }) => {
     const data = useStaticQuery(query)
     const button_ref = useRef(null)
@@ -459,7 +465,7 @@ const NavDesktop = ({ base, is_ppc, is_ppc_redirect, is_logged_in }) => {
     }, [])
 
     return (
-        <div>
+        <NavDesktopWrapper>
             <PlatformsDropdown
                 forward_ref={trade_ref}
                 link_ref={link_trade_ref}
@@ -598,7 +604,7 @@ const NavDesktop = ({ base, is_ppc, is_ppc_redirect, is_logged_in }) => {
                     </NavRight>
                 )}
             </Wrapper>
-        </div>
+        </NavDesktopWrapper>
     )
 }
 
@@ -613,14 +619,12 @@ export const Nav = ({ base, is_ppc_redirect, is_ppc }) => {
         <NavWrapper>
             <CFDWarning />
             <StyledNav>
-                <Show.Desktop max_width="bp1060">
-                    <NavDesktop
-                        base={base}
-                        is_ppc={is_ppc}
-                        is_ppc_redirect={is_ppc_redirect}
-                        is_logged_in={is_logged_in}
-                    />
-                </Show.Desktop>
+                <NavDesktop
+                    base={base}
+                    is_ppc={is_ppc}
+                    is_ppc_redirect={is_ppc_redirect}
+                    is_logged_in={is_logged_in}
+                />
                 <Show.Mobile min_width="bp1060">
                     <NavMobile is_ppc={is_ppc} is_logged_in={is_logged_in} />
                 </Show.Mobile>

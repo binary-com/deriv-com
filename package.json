@@ -1,6 +1,7 @@
 {
     "name": "deriv-com",
     "description": "Deriv.com static content",
+    "sideEffects": false,
     "version": "0.1.0",
     "author": "Deriv",
     "dependencies": {

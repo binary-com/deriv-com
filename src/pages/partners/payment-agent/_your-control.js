@@ -34,6 +34,10 @@ const Card = styled(Flex)`
 const CardText = styled(Text)`
     margin-left: 16px;
 
+    @media ${device.laptopM} {
+        font-size: 16px;
+    }
+
     @media ${device.tabletL} {
         width: 100%;
         max-width: unset;
@@ -43,7 +47,7 @@ const CardText = styled(Text)`
 `
 
 const StyledText = styled(Text)`
-    @media ${device.tabletL} {
+    @media ${device.tablet} {
         font-size: 16px;
         margin: 16px 0 24px;
     }
@@ -56,11 +60,11 @@ const YourControl = () => {
                 <Header as="h3" size="var(--text-size-header-1)" align="center">
                     {localize('You are in control')}
                 </Header>
-                <StyledText size="24px" align="center" m="12px 0 40px">
+                <StyledText size="2.4rem" align="center" m="12px 0 40px">
                     {localize('As a payment agent, you are an independent exchanger. You can:')}
                 </StyledText>
                 <CssGrid
-                    columns="repeat(2, 38.4rem)"
+                    columns="repeat(2, 384px)"
                     height="auto"
                     column_gap="2.4rem"
                     row_gap="2.4rem"

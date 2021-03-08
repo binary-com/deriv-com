@@ -15,7 +15,7 @@ import { WithIntl, localize } from 'components/localization'
 import BeSquareOg from 'images/common/be-square/besquare-og.png'
 
 const meta_attributes = {
-    og_title: localize('BeSquare graduate programme by Deriv'),
+    og_title: 'BeSquare graduate programme by Deriv',
     og_type: 'website',
     og_img_width: '600',
     og_img_height: '315',

@@ -11,17 +11,18 @@ import LoudSpeaker from 'images/svg/icon-loudspeaker.svg'
 import WithdrawDeposit from 'images/svg/pa-withdraw-deposit.svg'
 
 const Card = styled(Flex)`
-    padding: 24px;
+    padding: 24px 32px;
     border-radius: 4px;
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.05);
     background: var(--color-white);
-    height: 120px;
+    height: 12rem;
     width: auto;
     justify-content: flex-start;
     align-items: center;
 
     @media ${device.tabletL} {
         flex-direction: column;
+        padding: 24px;
         width: 328px;
         min-height: 184px;
         height: auto;
@@ -64,7 +65,7 @@ const YourControl = () => {
                     {localize('As a payment agent, you are an independent exchanger. You can:')}
                 </StyledText>
                 <CssGrid
-                    columns="repeat(2, 384px)"
+                    columns="repeat(2, 38.4rem)"
                     height="auto"
                     column_gap="2.4rem"
                     row_gap="2.4rem"

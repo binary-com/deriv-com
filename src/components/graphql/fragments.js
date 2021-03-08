@@ -6,7 +6,7 @@ export const backGroundBlur = graphql`
         childImageSharp {
             gatsbyImageData(
                 quality: 65
-                breakpoints: [360, 600, 1280, 1920]
+                breakpoints: [360, 600, 1280]
                 formats: [AUTO, WEBP, AVIF]
                 layout: FULL_WIDTH
                 placeholder: NONE

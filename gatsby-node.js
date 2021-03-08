@@ -152,9 +152,7 @@ const defaultOptions = {
     emitErrors: false,
 }
 
-exports.onCreateWebpackConfig = ({ actions, getConfig }, { ...options }) => {
-    const config = getConfig()
-    if (config.optimization) config.optimization.splitChunks.minChunks = 2
+exports.onCreateWebpackConfig = ({ actions }, { ...options }) => {
     actions.setWebpackConfig({
         plugins: [new StylelintPlugin({ ...defaultOptions, ...options })],
         resolve: {

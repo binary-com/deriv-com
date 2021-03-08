@@ -5,7 +5,7 @@ export const backGroundBlur = graphql`
     fragment backGroundBlur on File {
         childImageSharp {
             gatsbyImageData(
-                quality: 65
+                quality: 55
                 breakpoints: [360, 600, 1280]
                 formats: [AUTO, WEBP, AVIF]
                 layout: FULL_WIDTH
@@ -18,7 +18,7 @@ export const backGroundBlur = graphql`
 export const backGroundBlurLegacy = graphql`
     fragment backGroundBlurLegacy on File {
         childImageSharp {
-            fluid(quality: 90, maxWidth: 2048, srcSetBreakpoints: [600, 1440]) {
+            fluid(quality: 55, srcSetBreakpoints: [360, 600, 1280) {
                 ...GatsbyImageSharpFluid_withWebp_noBase64
                 originalName
             }

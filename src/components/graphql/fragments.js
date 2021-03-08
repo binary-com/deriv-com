@@ -18,7 +18,7 @@ export const backGroundBlur = graphql`
 export const backGroundBlurLegacy = graphql`
     fragment backGroundBlurLegacy on File {
         childImageSharp {
-            fluid(quality: 55, srcSetBreakpoints: [360, 600, 1280) {
+            fluid(quality: 55, maxWidth: 2048, srcSetBreakpoints: [360, 600, 1280]) {
                 ...GatsbyImageSharpFluid_withWebp_noBase64
                 originalName
             }

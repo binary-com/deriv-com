@@ -16,7 +16,7 @@ import { WithIntl, localize } from 'components/localization'
 const BeSquare = () => (
     <Layout type="be-square">
         <SEO
-            title={localize('BeSquare By Deriv')}
+            title={'BeSquare By Deriv'}
             description={localize(
                 'Learn more about BeSquare, a graduate training programme by Deriv that equips fresh graduates with essential skills to kickstart their career in IT.',
             )}

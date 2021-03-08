@@ -197,11 +197,12 @@ export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
     }
 
     if (props.anchor) {
-        return <AnchorLink {...props} to={internal_to} ref={ref} />
+        return <AnchorLink title={ariaLabel} {...props} to={internal_to} ref={ref} />
     }
 
     return (
         <GatsbyLink
+            aria-label={ariaLabel}
             target={target}
             rel={rel}
             className={className}

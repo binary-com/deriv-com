@@ -449,6 +449,12 @@ const NavMobile = ({ is_ppc, is_ppc_redirect, is_logged_in }) => {
     )
 }
 
+const NavDesktopWrapper = styled.div`
+    @media (max-width: 1060px) {
+        display: none;
+    }
+`
+
 const NavDesktop = ({ base, is_ppc, is_ppc_redirect, is_logged_in }) => {
     const data = useStaticQuery(query)
     const button_ref = useRef(null)
@@ -492,17 +498,58 @@ const NavDesktop = ({ base, is_ppc, is_ppc_redirect, is_logged_in }) => {
     }, [])
 
     return (
-        <div>
-            {active_dropdown && (
-                <PlatformsDropdown
-                    key={active_dropdown}
-                    current_ref={active_link_ref}
-                    parent={active_dropdown}
-                    is_ppc={is_ppc}
-                    is_ppc_redirect={is_ppc_redirect}
-                    setActiveDropdown={setDropdownRef}
-                />
-            )}
+        <NavDesktopWrapper>
+            <PlatformsDropdown
+                forward_ref={trade_ref}
+                link_ref={link_trade_ref}
+                is_open={is_trade_open}
+                has_animation={has_trade_animation}
+                Content={() => (
+                    <NavPlatform
+                        onClick={handleTradeClick}
+                        is_ppc={is_ppc}
+                        is_ppc_redirect={is_ppc_redirect}
+                    />
+                )}
+                title={localize('Trading platforms')}
+                description={localize(
+                    'Be in full control of your trading with our new and improved platforms.',
+                )}
+            />
+            <PlatformsDropdown
+                forward_ref={market_ref}
+                link_ref={link_market_ref}
+                is_open={is_market_open}
+                has_animation={has_market_animation}
+                Content={() => <NavMarket onClick={handleMarketClick} is_ppc={is_ppc} />}
+                title={localize('Markets')}
+                description={localize(
+                    'Enjoy our wide range of assets on financial and synthetic markets.',
+                )}
+            />
+            <PlatformsDropdown
+                forward_ref={company_ref}
+                link_ref={link_company_ref}
+                is_open={is_company_open}
+                has_animation={has_company_animation}
+                Content={() => <NavCompany onClick={handleCompanyClick} />}
+                title={localize('About us')}
+                description={localize(
+                    "Get to know our leadership team, learn about our history, and see why we're different.",
+                )}
+            />
+            <PlatformsDropdown
+                forward_ref={resources_ref}
+                link_ref={link_resources_ref}
+                is_open={is_resources_open}
+                has_animation={has_resources_animation}
+                Content={() => <NavResources onClick={handleResourcesClick} />}
+                title={localize('Resources')}
+                description={localize(
+                    'Help yourself to various resources that can help you get the best out of your trading experience.',
+                )}
+            />
+
             <Wrapper>
                 <NavLeftMain>
                     <LogoLink
@@ -587,7 +634,7 @@ const NavDesktop = ({ base, is_ppc, is_ppc_redirect, is_logged_in }) => {
                     </NavRight>
                 )}
             </Wrapper>
-        </div>
+        </NavDesktopWrapper>
     )
 }
 
@@ -609,15 +656,13 @@ export const Nav = ({ base, is_ppc_redirect, is_ppc }) => {
     return (
         <NavWrapperMain>
             <CFDWarning />
-            <StyledNavMain>
-                <Show.Desktop max_width="bp1060">
-                    <MemoizedNavDesktop
-                        base={base}
-                        is_ppc={is_ppc}
-                        is_ppc_redirect={is_ppc_redirect}
-                        is_logged_in={is_logged_in}
-                    />
-                </Show.Desktop>
+            <StyledNav>
+                <NavDesktop
+                    base={base}
+                    is_ppc={is_ppc}
+                    is_ppc_redirect={is_ppc_redirect}
+                    is_logged_in={is_logged_in}
+                />
                 <Show.Mobile min_width="bp1060">
                     <MemoizedNavMobile is_ppc={is_ppc} is_logged_in={is_logged_in} />
                 </Show.Mobile>

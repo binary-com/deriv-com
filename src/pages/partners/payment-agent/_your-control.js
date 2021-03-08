@@ -20,6 +20,10 @@ const Card = styled(Flex)`
     justify-content: flex-start;
     align-items: center;
 
+    @media ${device.laptop} {
+        height: 120px;
+    }
+
     @media ${device.tabletL} {
         flex-direction: column;
         padding: 24px;

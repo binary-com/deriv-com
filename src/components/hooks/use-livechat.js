@@ -64,7 +64,7 @@ export const useLivechat = () => {
                         }
                     })
                 })
-            }, 2000)
+            }, 2500)
         }
 
         return () => {

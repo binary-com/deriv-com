@@ -396,11 +396,17 @@ const handleGetTrading = () => {
     window.location.href = deriv_app_url
 }
 
+const MobileWrapper = styled(Wrapper)`
+    @media (max-width: 1060px) {
+        display: none;
+    }
+`
+
 const NavMobile = ({ is_ppc, is_ppc_redirect, is_logged_in }) => {
     const [is_canvas_menu_open, openOffCanvasMenu, closeOffCanvasMenu] = moveOffCanvasMenu()
 
     return (
-        <Wrapper width="95%">
+        <MobileWrapper width="95%">
             {is_canvas_menu_open ? (
                 <CloseMenu src={Close} alt="close menu" onClick={closeOffCanvasMenu} width="16px" />
             ) : (
@@ -412,7 +418,6 @@ const NavMobile = ({ is_ppc, is_ppc_redirect, is_logged_in }) => {
                     height="14px"
                 />
             )}
-
             <LogoLinkMobileMain to="/" aria-label={localize('Home')}>
                 <Flex>
                     <img src={LogoOnly} alt="logo only" width="115px" height="20px" />
@@ -445,7 +450,7 @@ const NavMobile = ({ is_ppc, is_ppc_redirect, is_logged_in }) => {
                 is_ppc={is_ppc}
                 is_ppc_redirect={is_ppc_redirect}
             />
-        </Wrapper>
+        </MobileWrapper>
     )
 }
 
@@ -663,9 +668,7 @@ export const Nav = ({ base, is_ppc_redirect, is_ppc }) => {
                     is_ppc_redirect={is_ppc_redirect}
                     is_logged_in={is_logged_in}
                 />
-                <Show.Mobile min_width="bp1060">
-                    <MemoizedNavMobile is_ppc={is_ppc} is_logged_in={is_logged_in} />
-                </Show.Mobile>
+                <NavMobile is_ppc={is_ppc} is_logged_in={is_logged_in} />
             </StyledNavMain>
         </NavWrapperMain>
     )

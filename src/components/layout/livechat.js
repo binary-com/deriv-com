@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { useLivechat } from 'components/hooks/use-livechat'
@@ -24,7 +24,7 @@ const StyledLiveChat = styled.div`
 `
 
 const LiveChat = () => {
-    const [is_livechat_hover, setLivechatHover] = React.useState(false)
+    const [is_livechat_hover, setLivechatHover] = useState(false)
     const [is_livechat_interactive, LC_API] = useLivechat()
 
     return (

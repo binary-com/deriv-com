@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import Loadable from '@loadable/component'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
@@ -211,8 +211,12 @@ const Layout = ({
                     is_open={show_cookie_banner}
                 />
             )}
-            {!no_live_chat && <LiveChat />}
-            {FooterNav}
+            {!no_live_chat && (
+                <Suspense>
+                    <LiveChat />
+                </Suspense>
+            )}
+            <Suspense>{FooterNav}</Suspense>
             <EURedirect
                 toggle={toggleModal}
                 is_open={show_modal}

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 // import Ticker from './home/_ticker'
 import {
     TradeTypesMobile,
@@ -54,12 +54,15 @@ const Home = () => {
                 has_organization_schema
             />
             <Hero />
-
             <Show.Mobile>
-                <TradeTheWayYouLike />
+                <Suspense>
+                    <TradeTheWayYouLike />
+                </Suspense>
             </Show.Mobile>
             <Show.Desktop>
-                <Trade />
+                <Suspense>
+                    <Trade />
+                </Suspense>
             </Show.Desktop>
 
             <Show.Mobile>

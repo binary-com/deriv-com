@@ -396,17 +396,11 @@ const handleGetTrading = () => {
     window.location.href = deriv_app_url
 }
 
-const MobileWrapper = styled(Wrapper)`
-    @media (max-width: 1060px) {
-        display: none;
-    }
-`
-
 const NavMobile = ({ is_ppc, is_ppc_redirect, is_logged_in }) => {
     const [is_canvas_menu_open, openOffCanvasMenu, closeOffCanvasMenu] = moveOffCanvasMenu()
 
     return (
-        <MobileWrapper width="95%">
+        <Wrapper width="95%">
             {is_canvas_menu_open ? (
                 <CloseMenu src={Close} alt="close menu" onClick={closeOffCanvasMenu} width="16px" />
             ) : (
@@ -450,15 +444,9 @@ const NavMobile = ({ is_ppc, is_ppc_redirect, is_logged_in }) => {
                 is_ppc={is_ppc}
                 is_ppc_redirect={is_ppc_redirect}
             />
-        </MobileWrapper>
+        </Wrapper>
     )
 }
-
-const NavDesktopWrapper = styled.div`
-    @media (max-width: 1060px) {
-        display: none;
-    }
-`
 
 const NavDesktop = ({ base, is_ppc, is_ppc_redirect, is_logged_in }) => {
     const data = useStaticQuery(query)
@@ -503,7 +491,7 @@ const NavDesktop = ({ base, is_ppc, is_ppc_redirect, is_logged_in }) => {
     }, [])
 
     return (
-        <NavDesktopWrapper>
+        <div>
             <PlatformsDropdown
                 forward_ref={trade_ref}
                 link_ref={link_trade_ref}
@@ -639,7 +627,7 @@ const NavDesktop = ({ base, is_ppc, is_ppc_redirect, is_logged_in }) => {
                     </NavRight>
                 )}
             </Wrapper>
-        </NavDesktopWrapper>
+        </div>
     )
 }
 
@@ -661,14 +649,18 @@ export const Nav = ({ base, is_ppc_redirect, is_ppc }) => {
     return (
         <NavWrapperMain>
             <CFDWarning />
-            <StyledNav>
-                <NavDesktop
-                    base={base}
-                    is_ppc={is_ppc}
-                    is_ppc_redirect={is_ppc_redirect}
-                    is_logged_in={is_logged_in}
-                />
-                <NavMobile is_ppc={is_ppc} is_logged_in={is_logged_in} />
+            <StyledNavMain>
+                <Show.Desktop max_width="bp1060">
+                    <NavDesktop
+                        base={base}
+                        is_ppc={is_ppc}
+                        is_ppc_redirect={is_ppc_redirect}
+                        is_logged_in={is_logged_in}
+                    />
+                </Show.Desktop>
+                <Show.Mobile min_width="bp1060">
+                    <NavMobile is_ppc={is_ppc} is_logged_in={is_logged_in} />
+                </Show.Mobile>
             </StyledNavMain>
         </NavWrapperMain>
     )

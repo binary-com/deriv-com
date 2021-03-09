@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react'
+import React from 'react'
 // import Ticker from './home/_ticker'
 import {
     TradeTypesMobile,
@@ -55,14 +55,10 @@ const Home = () => {
             />
             <Hero />
             <Show.Mobile>
-                <Suspense>
-                    <TradeTheWayYouLike />
-                </Suspense>
+                <TradeTheWayYouLike />
             </Show.Mobile>
             <Show.Desktop>
-                <Suspense>
-                    <Trade />
-                </Suspense>
+                <Trade />
             </Show.Desktop>
 
             <Show.Mobile>

@@ -2,7 +2,13 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
-import { StyledNav, NavWrapper, LogoLink, Wrapper, NavLeft } from './nav'
+import {
+    StyledNavPartners as StyledNav,
+    NavWrapperPartners as NavWrapper,
+    LogoLink,
+    Wrapper,
+    NavLeftPartners as NavLeft,
+} from './nav'
 import { localize } from 'components/localization'
 import { QueryImage } from 'components/elements'
 import { Show } from 'components/containers'

@@ -21,9 +21,6 @@ const Display = styled.div`
     margin-right: 2.4rem;
     cursor: pointer;
 
-    @media ${device.laptopM} {
-        margin-right: 10px;
-    }
     @media ${device.mobileL} {
         margin-right: 0.4rem;
     }

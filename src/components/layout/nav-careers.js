@@ -1,7 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
-import { StyledNav, StyledLink, NavWrapper, LogoLink, Wrapper, NavLeft } from './nav'
+import {
+    StyledNavPartners as StyledNav,
+    StyledLink,
+    NavWrapperPartners as NavWrapper,
+    LogoLink,
+    Wrapper,
+    NavLeftPartners as NavLeft,
+} from './nav'
 import { Flex } from 'components/containers'
 import { QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'

@@ -116,7 +116,7 @@ const IosComingSoon = styled(LinkButton)`
 `
 const GooglePlay = styled(LinkButton)`
     background: transparent;
-    border: 0.5px solid var(--color-grey);
+    border: 0;
     width: 141px;
     padding: 0;
 

@@ -199,10 +199,8 @@ const dmt5_ios_url = 'https://download.mql5.com/cdn/mobile/mt5/ios?server=Deriv-
 const dp2p_google_play_url =
     'https://play.google.com/store/apps/details?id=com.deriv.dp2p&hl=en&gl=US'
 const derivgo_google_play_url = 'https://play.google.com/store/apps/details?id=com.deriv.app'
-const cfd_warning_height = {
-    desktop: 8,
-    tablet: 12,
-}
+const cfd_warning_height_desktop = 8
+const cfd_warning_height_tablet = 12
 const pushwoosh_app_code = 'DD293-35A19'
 
 const getDomain = () =>
@@ -223,7 +221,8 @@ export {
     checkElemInArray,
     cloneObject,
     blog_url,
-    cfd_warning_height,
+    cfd_warning_height_desktop,
+    cfd_warning_height_tablet,
     deriv_cookie_domain,
     dmt5_windows_url,
     dmt5_linux_url,

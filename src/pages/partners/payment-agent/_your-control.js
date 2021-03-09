@@ -11,17 +11,22 @@ import LoudSpeaker from 'images/svg/icon-loudspeaker.svg'
 import WithdrawDeposit from 'images/svg/pa-withdraw-deposit.svg'
 
 const Card = styled(Flex)`
-    padding: 24px;
+    padding: 24px 32px;
     border-radius: 4px;
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.05);
     background: var(--color-white);
-    height: 120px;
+    height: 12rem;
     width: auto;
     justify-content: flex-start;
     align-items: center;
 
+    @media ${device.laptop} {
+        height: 120px;
+    }
+
     @media ${device.tabletL} {
         flex-direction: column;
+        padding: 24px;
         width: 328px;
         min-height: 184px;
         height: auto;
@@ -34,6 +39,10 @@ const Card = styled(Flex)`
 const CardText = styled(Text)`
     margin-left: 16px;
 
+    @media ${device.laptopM} {
+        font-size: 16px;
+    }
+
     @media ${device.tabletL} {
         width: 100%;
         max-width: unset;
@@ -43,7 +52,7 @@ const CardText = styled(Text)`
 `
 
 const StyledText = styled(Text)`
-    @media ${device.tabletL} {
+    @media ${device.tablet} {
         font-size: 16px;
         margin: 16px 0 24px;
     }
@@ -56,7 +65,7 @@ const YourControl = () => {
                 <Header as="h3" size="var(--text-size-header-1)" align="center">
                     {localize('You are in control')}
                 </Header>
-                <StyledText size="24px" align="center" m="12px 0 40px">
+                <StyledText size="2.4rem" align="center" m="12px 0 40px">
                     {localize('As a payment agent, you are an independent exchanger. You can:')}
                 </StyledText>
                 <CssGrid

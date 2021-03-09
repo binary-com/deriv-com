@@ -205,7 +205,7 @@ const query = graphql`
                 gatsbyImageData(
                     quality: 70
                     breakpoints: [360, 992, 1440]
-                    placeholder: NONE
+                    placeholder: DOMINANT_COLOR
                     layout: FULL_WIDTH
                 )
             }

@@ -86,7 +86,7 @@ const query = graphql`
                 gatsbyImageData(
                     quality: 45
                     breakpoints: [360, 650]
-                    placeholder: NONE
+                    placeholder: DOMINANT_COLOR
                     layout: CONSTRAINED
                 )
             }
@@ -96,7 +96,7 @@ const query = graphql`
                 gatsbyImageData(
                     quality: 45
                     breakpoints: [360, 650]
-                    placeholder: NONE
+                    placeholder: DOMINANT_COLOR
                     layout: CONSTRAINED
                 )
             }

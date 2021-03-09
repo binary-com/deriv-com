@@ -41,7 +41,7 @@ const RedBanner = styled.span`
 const query = graphql`
     query {
         image: file(relativePath: { eq: "careers/career-landing-screen.jpg" }) {
-            ...backGroundBlurLegacy
+            ...backGroundBlur
         }
     }
 `

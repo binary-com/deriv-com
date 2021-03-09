@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import {
     getClientInformation,
     getDomain,
@@ -8,10 +8,10 @@ import {
 } from 'common/utility'
 
 export const useLivechat = () => {
-    const [is_livechat_interactive, setLiveChatInteractive] = React.useState(false)
+    const [is_livechat_interactive, setLiveChatInteractive] = useState(false)
     const LC_API = (isBrowser() && window.LC_API) || {}
-    const [is_logged_in, setLoggedIn] = React.useState(false)
-    const CustomerSdk = React.useRef(null)
+    const [is_logged_in, setLoggedIn] = useState(false)
+    const CustomerSdk = useRef(null)
 
     const url_params = new URLSearchParams((isBrowser() && window.location.search) || '')
     const is_livechat_query = url_params.get('is_livechat_open')
@@ -27,7 +27,7 @@ export const useLivechat = () => {
         if (callback) callback()
     }
 
-    React.useEffect(() => {
+    useEffect(() => {
         let cookie_interval = null
         let script_timeout = null
         if (isBrowser()) {

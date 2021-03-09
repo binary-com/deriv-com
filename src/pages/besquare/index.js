@@ -16,6 +16,7 @@ import BeSquareOg from 'images/common/be-square/besquare-og.png'
 
 const meta_attributes = {
     og_title: 'BeSquare graduate programme by Deriv',
+    og_description: 'Learn essential skills from innovative tech teams.',
     og_type: 'website',
     og_img_width: '600',
     og_img_height: '315',
@@ -26,7 +27,9 @@ const BeSquare = () => (
     <Layout type="be-square">
         <SEO
             title={localize('BeSquare By Deriv')}
-            description={localize('Learn essential skills from innovative tech teams.')}
+            description={localize(
+                'Learn more about BeSquare, a graduate training programme by Deriv that equips fresh graduates with essential skills to kickstart their career in IT.',
+            )}
             meta_attributes={meta_attributes}
         />
         <Hero />

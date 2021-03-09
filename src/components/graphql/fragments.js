@@ -1,27 +1,15 @@
 import { graphql } from 'gatsby'
 
-// TO DO: This should replace backGroundBlurLegacy once background images is supported in gatsby-plugin-image
 export const backGroundBlur = graphql`
     fragment backGroundBlur on File {
         childImageSharp {
             gatsbyImageData(
-                quality: 55
-                breakpoints: [360, 600, 1280]
-                formats: [AUTO, WEBP, AVIF]
+                quality: 70
+                breakpoints: [360, 992, 1440, 2048]
+                formats: [AVIF, WEBP, AUTO]
                 layout: FULL_WIDTH
-                placeholder: NONE
+                placeholder: DOMINANT_COLOR
             )
-        }
-    }
-`
-
-export const backGroundBlurLegacy = graphql`
-    fragment backGroundBlurLegacy on File {
-        childImageSharp {
-            fluid(quality: 55, maxWidth: 2048, srcSetBreakpoints: [360, 600, 1280]) {
-                ...GatsbyImageSharpFluid_withWebp_noBase64
-                originalName
-            }
         }
     }
 `
@@ -32,9 +20,9 @@ export const fadeIn = graphql`
             gatsbyImageData(
                 quality: 45
                 breakpoints: [360, 600, 992]
-                formats: [AUTO, WEBP, AVIF]
+                formats: [AVIF, WEBP, AUTO]
                 layout: FULL_WIDTH
-                placeholder: NONE
+                placeholder: DOMINANT_COLOR
             )
         }
     }

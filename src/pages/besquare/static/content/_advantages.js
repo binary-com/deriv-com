@@ -6,46 +6,45 @@ import {
     TopPerformersIcon,
     WorldExposureIcon,
 } from '../images/_advantages'
-import { localize } from 'components/localization'
 
 export default {
-    title: localize('BeSquare advantages'),
+    title: 'BeSquare advantages',
     content: [
         {
             src: TopPerformersIcon,
             alt: 'Jobs for top performers icon',
-            title: localize('Jobs for top performers'),
-            text: localize('A job offer from Deriv for the best BeSquare graduates'),
+            title: 'Jobs for top performers',
+            text: 'A job offer from Deriv for the best BeSquare graduates',
         },
         {
             src: WorldExposureIcon,
             alt: 'Real-world exposure icon',
-            title: localize('Real-world exposure'),
-            text: localize('Real-life projects led by Deriv best IT minds'),
+            title: 'Real-world exposure',
+            text: 'Real-life projects led by Deriv best IT minds',
         },
         {
             src: CrossDomainTrainingIcon,
             alt: 'Cross-domain training icon',
-            title: localize('Cross-domain training'),
-            text: localize('Rotation through all Deriv tech teams'),
+            title: 'Cross-domain training',
+            text: 'Rotation through all Deriv tech teams',
         },
         {
             src: NoExperienceIcon,
             alt: 'Zero experience needed icon',
-            title: localize('Zero experience needed'),
-            text: localize('Open to Malaysian graduates even with no work experience'),
+            title: 'Zero experience needed',
+            text: 'Open to Malaysian graduates even with no work experience',
         },
         {
             src: TrainIcon,
             alt: 'Train to get hired icon',
-            title: localize('Train to get hired'),
-            text: localize('A chance to boost your CV and your employability'),
+            title: 'Train to get hired',
+            text: 'A chance to boost your CV and your employability',
         },
         {
             src: PaidProgrammeIcon,
             alt: 'Paid programme icon',
-            title: localize('Paid programme'),
-            text: localize('On-the-job experience with a sponsoring FinTech company'),
+            title: 'Paid programme',
+            text: 'On-the-job experience with a sponsoring FinTech company',
         },
     ],
 }

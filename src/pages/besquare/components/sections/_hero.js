@@ -1,7 +1,6 @@
 import React from 'react'
 import { HeroContainer, HeaderContainer, ImageWrapper } from '../../static/style/_hero'
 import { TextWrapper, Title } from '../../static/style/_common'
-import { localize } from 'components/localization'
 import HeroImage from 'images/common/be-square/hero.png'
 
 const Hero = () => (
@@ -14,7 +13,7 @@ const Hero = () => (
                 line_height={['100px', '50px']}
                 max_width={['415px', '237px']}
             >
-                {localize('BeSquare by Deriv')}
+                BeSquare by Deriv
             </Title>
             <TextWrapper
                 color={'white'}
@@ -22,7 +21,7 @@ const Hero = () => (
                 line_height={['36px', '22px']}
                 max_width={['384px', '328px']}
             >
-                {localize('Launch your IT career with our graduate programme')}
+                Launch your IT career with our graduate programme
             </TextWrapper>
         </HeaderContainer>
         <ImageWrapper src={HeroImage} alt="hero image" />

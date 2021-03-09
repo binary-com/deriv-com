@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { graphql, useStaticQuery } from 'gatsby'
 import device from 'themes/device'
-import { Container, SectionContainer } from 'components/containers'
+import { Container, SectionContainer, Show } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
 import NavArrow from 'images/svg/navigation.svg'
 
@@ -109,36 +109,76 @@ const query = graphql`
 const TradingTools = ({ tools, reverse }) => {
     const data = useStaticQuery(query)
     return (
-        <StyledSection>
-            <StyledContainer>
-                {tools.map((item, index) => {
-                    let is_even = reverse ? (index + 1) % 2 : index % 2
-                    return (
-                        <Row flex_direction={is_even ? 'row-reverse' : 'row'} key={index}>
-                            <ImageWrapper margin_right={is_even ? '13rem' : '0'}>
-                                <QueryImage
-                                    data={data[item.image_name]}
-                                    alt={item.image_alt}
-                                    width="100%"
-                                />
-                            </ImageWrapper>
-                            <Content margin_right={!is_even ? '13rem' : '0'}>
-                                <StyledHeader type="section-title">{item.title}</StyledHeader>
-                                <Text>
-                                    {item.subtitle}
-                                    <img
-                                        src={NavArrow}
-                                        alt="move down arrow"
-                                        width="24"
-                                        height="14"
-                                    />
-                                </Text>
-                            </Content>
-                        </Row>
-                    )
-                })}
-            </StyledContainer>
-        </StyledSection>
+        <div>
+            <Show.Desktop>
+                <StyledSection>
+                    <StyledContainer>
+                        {tools.map((item, index) => {
+                            let is_even = reverse ? (index + 1) % 2 : index % 2
+                            return (
+                                <Row flex_direction={is_even ? 'row-reverse' : 'row'} key={index}>
+                                    <ImageWrapper margin_right={is_even ? '13rem' : '0'}>
+                                        <QueryImage
+                                            data={data[item.image_name]}
+                                            alt={item.image_alt}
+                                            width="100%"
+                                        />
+                                    </ImageWrapper>
+                                    <Content margin_right={!is_even ? '13rem' : '0'}>
+                                        <StyledHeader type="section-title">
+                                            {item.title}
+                                        </StyledHeader>
+                                        <Text>
+                                            {item.subtitle}
+                                            <img
+                                                src={NavArrow}
+                                                alt="move down arrow"
+                                                width="24"
+                                                height="14"
+                                            />
+                                        </Text>
+                                    </Content>
+                                </Row>
+                            )
+                        })}
+                    </StyledContainer>
+                </StyledSection>
+            </Show.Desktop>
+            <Show.Mobile>
+                <StyledSection>
+                    <StyledContainer>
+                        {tools.map((item, index) => {
+                            let is_even = reverse ? (index + 1) % 2 : index % 2
+                            return (
+                                <Row flex_direction={is_even ? 'row' : 'row-reverse'} key={index}>
+                                    <Content margin_right={!is_even ? '13rem' : '0'}>
+                                        <StyledHeader type="section-title">
+                                            {item.title}
+                                        </StyledHeader>
+                                        <Text>
+                                            {item.subtitle}
+                                            <img
+                                                src={NavArrow}
+                                                alt="move down arrow"
+                                                width="24"
+                                                height="14"
+                                            />
+                                        </Text>
+                                    </Content>
+                                    <ImageWrapper margin_right={is_even ? '13rem' : '0'}>
+                                        <QueryImage
+                                            data={data[item.image_name]}
+                                            alt={item.image_alt}
+                                            width="100%"
+                                        />
+                                    </ImageWrapper>
+                                </Row>
+                            )
+                        })}
+                    </StyledContainer>
+                </StyledSection>
+            </Show.Mobile>
+        </div>
     )
 }
 

@@ -31,33 +31,32 @@ export const useLivechat = () => {
         let cookie_interval = null
         let script_timeout = null
         if (isBrowser()) {
-            const domain = getDomain()
-            try {
-                import('@livechat/customer-sdk').then((CSDK) => {
-                    CustomerSdk.current = CSDK
-                })
-            } catch (e) {
-                // eslint-disable-nextline
-                console.error(e)
-            }
-
-            const checkCookie = (() => {
-                let lastCookie = document.cookie // 'static' memory between function calls
-                return function () {
-                    const currentCookie = document.cookie
-                    if (currentCookie != lastCookie) {
-                        const client_information = getClientInformation(domain)
-                        setLoggedIn(!!client_information)
-                        lastCookie = currentCookie // store latest cookie
-                    }
-                }
-            })()
-
-            cookie_interval = setInterval(checkCookie, 500)
-
             // The purpose is to load the script after everything is load but not async or defer. Therefore, it will be ignored in the rendering timeline
             script_timeout = setTimeout(() => {
                 loadLiveChatScript(() => {
+                    const domain = getDomain()
+                    try {
+                        import('@livechat/customer-sdk').then((CSDK) => {
+                            CustomerSdk.current = CSDK
+                        })
+                    } catch (e) {
+                        // eslint-disable-nextline
+                    }
+
+                    const checkCookie = (() => {
+                        let lastCookie = document.cookie // 'static' memory between function calls
+                        return function () {
+                            const currentCookie = document.cookie
+                            if (currentCookie != lastCookie) {
+                                const client_information = getClientInformation(domain)
+                                setLoggedIn(!!client_information)
+                                lastCookie = currentCookie // store latest cookie
+                            }
+                        }
+                    })()
+
+                    cookie_interval = setInterval(checkCookie, 500)
+
                     window.LiveChatWidget.on('ready', () => {
                         setLiveChatInteractive(true)
                         if (is_livechat_query?.toLowerCase() === 'true') {
@@ -65,7 +64,7 @@ export const useLivechat = () => {
                         }
                     })
                 })
-            }, 2000)
+            }, 2500)
         }
 
         return () => {

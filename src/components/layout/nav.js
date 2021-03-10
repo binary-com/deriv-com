@@ -173,6 +173,7 @@ const StaticWrapper = styled.nav`
 `
 
 const NavCenter = styled.ul`
+    width: 100%;
     text-align: center;
     padding: 0;
     display: flex;

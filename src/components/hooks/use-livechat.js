@@ -16,7 +16,7 @@ export const useLivechat = () => {
     const url_params = new URLSearchParams((isBrowser() && window.location.search) || '')
     const is_livechat_query = url_params.get('is_livechat_open')
 
-    const loadLiveChatScript = (callback) => {
+    const loadLiveChatScript = React.useCallback((callback) => {
         const livechat_script = document.createElement('script')
         livechat_script.innerHTML = `
             window.__lc = window.__lc || {};
@@ -25,7 +25,7 @@ export const useLivechat = () => {
         `
         document.body.appendChild(livechat_script)
         if (callback) callback()
-    }
+    })
 
     useEffect(() => {
         let cookie_interval = null
@@ -64,7 +64,7 @@ export const useLivechat = () => {
                         }
                     })
                 })
-            }, 3000)
+            }, 3500)
         }
 
         return () => {

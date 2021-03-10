@@ -1,15 +1,9 @@
 // TODO: (discussion) make nav pure component, and move usage of nav to custom
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import PlatformsDropdown from '../custom/platforms-dropdown'
-import {
-    NavPlatform,
-    NavCompany,
-    NavResources,
-    NavMarket,
-} from 'components/custom/other-platforms.js'
 import { useOutsideClick } from 'components/hooks/outside-click'
 import { LocalizedLink, localize, LanguageSwitcher } from 'components/localization'
 import { Button, LinkButton } from 'components/form'
@@ -457,71 +451,39 @@ const NavMobile = ({ is_ppc, is_ppc_redirect, is_logged_in }) => {
 const NavDesktop = ({ base, is_ppc, is_ppc_redirect, is_logged_in }) => {
     const data = useStaticQuery(query)
     const button_ref = useRef(null)
-    const [show_button, showButton, hideButton] = moveButton()
+    const navigation_bar_ref = useRef(null)
     const [mounted, setMounted] = useState(false)
     const [has_scrolled, setHasScrolled] = useState(false)
+    const [active_dropdown, setActiveDropdown] = useState('')
+    const [active_link_ref, setActiveLinkRef] = useState(null)
+    const [active_dropdown_ref, setActiveDropdownRef] = useState(null)
+    const [show_button, showButton, hideButton] = moveButton()
     const current_page = useActiveLinkState('main')
 
-    // trade
-    const trade_ref = useRef(null)
-    const link_trade_ref = useRef(null)
-    const [is_trade_open, setIsTradeOpen] = useState(false)
-    const [has_trade_animation, setHasTradeAnimation] = useState(false)
-    const closeTrade = () => setIsTradeOpen(false)
-    useOutsideClick(trade_ref, closeTrade, link_trade_ref)
-    const handleTradeClick = () => {
-        setHasTradeAnimation(true)
-        setIsTradeOpen(!is_trade_open)
-    }
-
-    // market
-    const market_ref = useRef(null)
-    const link_market_ref = useRef(null)
-    const [is_market_open, setIsMarketOpen] = useState(false)
-    const [has_market_animation, setHasMarketAnimation] = useState(false)
-    const closeMarket = () => setIsMarketOpen(false)
-    useOutsideClick(market_ref, closeMarket, link_market_ref)
-    const handleMarketClick = () => {
-        setHasMarketAnimation(true)
-        setIsMarketOpen(!is_market_open)
-    }
-
-    // company
-    const company_ref = useRef(null)
-    const link_company_ref = useRef(null)
-    const [is_company_open, setIsCompanyOpen] = useState(false)
-    const [has_company_animation, setHasCompanyAnimation] = useState(false)
-    const closeCompany = () => setIsCompanyOpen(false)
-    useOutsideClick(company_ref, closeCompany, link_company_ref)
-    const handleCompanyClick = () => {
-        setHasCompanyAnimation(true)
-        setIsCompanyOpen(!is_company_open)
-    }
-
-    // resources
-    const resources_ref = useRef(null)
-    const link_resources_ref = useRef(null)
-    const [is_resources_open, setIsResourcesOpen] = useState(false)
-    const [has_resources_animation, setHasResourcesAnimation] = useState(false)
-    const closeResources = () => setIsResourcesOpen(false)
-    useOutsideClick(resources_ref, closeResources, link_resources_ref)
-    const handleResourcesClick = () => {
-        setHasResourcesAnimation(true)
-        setIsResourcesOpen(!is_resources_open)
-    }
-
-    const buttonHandleScroll = () => {
+    const buttonHandleScroll = useCallback(() => {
         setHasScrolled(true)
         handleScroll(showButton, hideButton)
+    })
+
+    const checkActive = (link_name) => link_name === active_dropdown || link_name === current_page
+
+    const closeDropdown = () => useCallback(setActiveDropdown(''))
+
+    const handleLinkClick = (dropdown, target) => {
+        setActiveDropdown(dropdown)
+        if (!target) return
+        setActiveLinkRef(target)
     }
 
     const LanguageSwitcherNavDesktop = () => <LanguageSwitcher short_name="true" is_high_nav />
 
+    const setDropdownRef = (new_ref) => setActiveDropdownRef(new_ref)
+
+    useOutsideClick(navigation_bar_ref, closeDropdown, active_dropdown_ref)
+
     useEffect(() => {
         setMounted(true)
-        document.addEventListener('scroll', buttonHandleScroll, {
-            passive: true,
-        })
+        document.addEventListener('scroll', buttonHandleScroll, { passive: true })
 
         return () => {
             document.removeEventListener('scroll', buttonHandleScroll)
@@ -530,57 +492,16 @@ const NavDesktop = ({ base, is_ppc, is_ppc_redirect, is_logged_in }) => {
 
     return (
         <div>
-            <PlatformsDropdown
-                forward_ref={trade_ref}
-                link_ref={link_trade_ref}
-                is_open={is_trade_open}
-                has_animation={has_trade_animation}
-                Content={() => (
-                    <NavPlatform
-                        onClick={handleTradeClick}
-                        is_ppc={is_ppc}
-                        is_ppc_redirect={is_ppc_redirect}
-                    />
-                )}
-                title={localize('Trading platforms')}
-                description={localize(
-                    'Be in full control of your trading with our new and improved platforms.',
-                )}
-            />
-            <PlatformsDropdown
-                forward_ref={market_ref}
-                link_ref={link_market_ref}
-                is_open={is_market_open}
-                has_animation={has_market_animation}
-                Content={() => <NavMarket onClick={handleMarketClick} is_ppc={is_ppc} />}
-                title={localize('Markets')}
-                description={localize(
-                    'Enjoy our wide range of assets on financial and synthetic markets.',
-                )}
-            />
-            <PlatformsDropdown
-                forward_ref={company_ref}
-                link_ref={link_company_ref}
-                is_open={is_company_open}
-                has_animation={has_company_animation}
-                Content={() => <NavCompany onClick={handleCompanyClick} />}
-                title={localize('About us')}
-                description={localize(
-                    "Get to know our leadership team, learn about our history, and see why we're different.",
-                )}
-            />
-            <PlatformsDropdown
-                forward_ref={resources_ref}
-                link_ref={link_resources_ref}
-                is_open={is_resources_open}
-                has_animation={has_resources_animation}
-                Content={() => <NavResources onClick={handleResourcesClick} />}
-                title={localize('Resources')}
-                description={localize(
-                    'Help yourself to various resources that can help you get the best out of your trading experience.',
-                )}
-            />
-
+            {active_dropdown && (
+                <PlatformsDropdown
+                    key={active_dropdown}
+                    current_ref={active_link_ref}
+                    parent={active_dropdown}
+                    is_ppc={is_ppc}
+                    is_ppc_redirect={is_ppc_redirect}
+                    setActiveDropdown={setDropdownRef}
+                />
+            )}
             <Wrapper>
                 <NavLeftMain>
                     <LogoLink
@@ -603,39 +524,32 @@ const NavDesktop = ({ base, is_ppc, is_ppc_redirect, is_logged_in }) => {
                         height="17"
                     />
                 </NavLeftMain>
-                <NavCenter>
-                    <NavLink onClick={handleTradeClick}>
-                        <StyledButton
-                            aria-label={localize('Trade')}
-                            active={current_page === 'trade' || is_trade_open}
-                            ref={link_trade_ref}
-                        >
+                <NavCenter ref={navigation_bar_ref}>
+                    <NavLink onClick={(e) => handleLinkClick('trade', e.target)}>
+                        <StyledButton aria-label={localize('Trade')} active={checkActive('trade')}>
                             {localize('Trade')}
                         </StyledButton>
                     </NavLink>
-                    <NavLink onClick={handleMarketClick}>
+                    <NavLink onClick={(e) => handleLinkClick('markets', e.target)}>
                         <StyledButton
                             aria-label={localize('Markets')}
-                            active={current_page === 'markets' || is_market_open}
-                            ref={link_market_ref}
+                            active={checkActive('markets')}
                         >
                             {localize('Markets')}
                         </StyledButton>
                     </NavLink>
-                    <NavLink onClick={handleCompanyClick}>
+                    <NavLink onClick={(e) => handleLinkClick('about', e.target)}>
                         <StyledButton
                             aria-label={localize('About us')}
-                            active={current_page === 'about' || is_company_open}
-                            ref={link_company_ref}
+                            active={checkActive('about')}
                         >
                             {localize('About us')}
                         </StyledButton>
                     </NavLink>
-                    <NavLink onClick={handleResourcesClick}>
+                    <NavLink onClick={(e) => handleLinkClick('resources', e.target)}>
                         <StyledButton
                             aria-label={localize('Resources')}
-                            active={current_page === 'resources' || is_resources_open}
-                            ref={link_resources_ref}
+                            active={checkActive('resources')}
                         >
                             {localize('Resources')}
                         </StyledButton>

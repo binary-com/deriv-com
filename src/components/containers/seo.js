@@ -10,7 +10,7 @@ const non_localized_links = ['/careers', '/careers/']
 
 const languages = Object.keys(language_config)
 languages.push('x-default')
-const SEO = ({ description, meta, title, no_index, has_organization_schema }) => {
+const SEO = ({ description, meta, title, no_index, has_organization_schema, meta_attributes }) => {
     let queries = []
     queries = useStaticQuery(
         graphql`
@@ -88,7 +88,7 @@ const SEO = ({ description, meta, title, no_index, has_organization_schema }) =>
                 },
                 {
                     property: 'og:title',
-                    content: title,
+                    content: meta_attributes?.og_title || title,
                 },
                 {
                     property: 'og:site_name',
@@ -96,11 +96,11 @@ const SEO = ({ description, meta, title, no_index, has_organization_schema }) =>
                 },
                 {
                     property: 'og:description',
-                    content: metaDescription,
+                    content: meta_attributes?.og_description || metaDescription,
                 },
                 {
                     property: 'og:type',
-                    content: 'website',
+                    content: meta_attributes?.og_type || 'website',
                 },
                 {
                     property: 'og:locale',
@@ -108,15 +108,15 @@ const SEO = ({ description, meta, title, no_index, has_organization_schema }) =>
                 },
                 {
                     property: 'og:image',
-                    content: TradingImage,
+                    content: meta_attributes?.og_img || TradingImage,
                 },
                 {
                     property: 'og:image:width',
-                    content: '723',
+                    content: meta_attributes?.og_img_width || '723',
                 },
                 {
                     property: 'og:image:height',
-                    content: '423',
+                    content: meta_attributes?.og_img_height || '423',
                 },
                 {
                     name: 'twitter:card',
@@ -191,6 +191,7 @@ SEO.propTypes = {
     description: PropTypes.string,
     has_organization_schema: PropTypes.bool,
     meta: PropTypes.arrayOf(PropTypes.object),
+    meta_attributes: PropTypes.object,
     no_index: PropTypes.bool,
     title: PropTypes.string.isRequired,
 }

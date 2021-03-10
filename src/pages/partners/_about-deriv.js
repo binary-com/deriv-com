@@ -9,13 +9,7 @@ import device from 'themes/device'
 const query = graphql`
     {
         deriv_platform: file(relativePath: { eq: "partner-deriv-platform.png" }) {
-            childImageSharp {
-                gatsbyImageData(
-                    breakpoints: [360, 486]
-                    placeholder: DOMINANT_COLOR
-                    layout: CONSTRAINED
-                )
-            }
+            ...fadeIn
         }
     }
 `

@@ -201,14 +201,7 @@ const query = graphql`
             ...fadeIn
         }
         dtrader: file(relativePath: { eq: "dtrader_trade.png" }) {
-            childImageSharp {
-                gatsbyImageData(
-                    quality: 70
-                    breakpoints: [360, 992, 1440]
-                    placeholder: DOMINANT_COLOR
-                    layout: FULL_WIDTH
-                )
-            }
+            ...fadeIn
         }
         dbot_mobile: file(relativePath: { eq: "dbot_trade_mobile.png" }) {
             ...fadeIn

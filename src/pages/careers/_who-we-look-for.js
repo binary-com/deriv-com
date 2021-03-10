@@ -82,24 +82,10 @@ const ImageWrapper = styled.div`
 const query = graphql`
     {
         teamfocus: file(relativePath: { eq: "careers/team-focus.jpg" }) {
-            childImageSharp {
-                gatsbyImageData(
-                    quality: 45
-                    breakpoints: [360, 650]
-                    placeholder: DOMINANT_COLOR
-                    layout: CONSTRAINED
-                )
-            }
+            ...fadeIn
         }
         peopleeating: file(relativePath: { eq: "careers/people-eating.jpg" }) {
-            childImageSharp {
-                gatsbyImageData(
-                    quality: 45
-                    breakpoints: [360, 650]
-                    placeholder: DOMINANT_COLOR
-                    layout: CONSTRAINED
-                )
-            }
+            ...fadeIn
         }
     }
 `

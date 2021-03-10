@@ -64,7 +64,7 @@ export const useLivechat = () => {
                         }
                     })
                 })
-            }, 3500)
+            }, 3000)
         }
 
         return () => {
@@ -85,7 +85,6 @@ export const useLivechat = () => {
                     })
                 } catch (e) {
                     // eslint-disable-nextline
-                    console.error(e)
                 }
             }
             if (is_livechat_interactive) {
@@ -124,9 +123,8 @@ export const useLivechat = () => {
                         const chat_data = window.LiveChatWidget.get('chat_data')
                         if (chat_data) {
                             const chatID = window.LiveChatWidget.get('chat_data').chatId ?? ''
-                            customerSDK?.deactivateChat({ chatId: chatID }).catch((error) => {
+                            customerSDK?.deactivateChat({ chatId: chatID }).catch(() => {
                                 // eslint-disable-nextline
-                                console.error(error)
                             })
                         }
                         window.LiveChatWidget.call('set_customer_email', ' ')

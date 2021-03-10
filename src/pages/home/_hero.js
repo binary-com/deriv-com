@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import styled, { keyframes } from 'styled-components'
 import PropTypes from 'prop-types'
-import { StaticImage } from 'gatsby-plugin-image'
+import { graphql, useStaticQuery } from 'gatsby'
 import VerticalCarousel from './_vertical-carousel.js'
 import device from 'themes/device'
 import { LinkButton } from 'components/form'
 import { Container, CssGrid, Box, Flex } from 'components/containers'
-import { Header } from 'components/elements'
+import { Header, QueryImage } from 'components/elements'
 import { Localize, localize } from 'components/localization'
 
 const HeroWrapper = styled.section`
@@ -120,7 +120,16 @@ const DesktopWrapper = styled(Flex)`
     }
 `
 
+const query = graphql`
+    query {
+        background: file(relativePath: { eq: "home/platform_devices.png" }) {
+            ...largeImage
+        }
+    }
+`
+
 const Hero = ({ is_ppc }) => {
+    const data = useStaticQuery(query)
     const typewriter_text = !is_ppc
         ? localize('Trade forex, commodities, synthetic and stock indices')
         : localize('Trade forex, commodities, and stock indices')
@@ -177,12 +186,9 @@ const Hero = ({ is_ppc }) => {
                         <VerticalCarousel contents={!is_ppc ? contents : contents_ppc} />
                     </Details>
                     <ImageWrapper>
-                        <StaticImage
-                            src="../../images/common/home/platform_devices.png"
+                        <QueryImage
+                            data={data['background']}
                             alt="platform devices"
-                            placeholder="dominantColor"
-                            formats={['avif', 'webp', 'jpg']}
-                            quality={40}
                             loading="eager"
                         />
                     </ImageWrapper>

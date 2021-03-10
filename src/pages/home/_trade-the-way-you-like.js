@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
+import { graphql, useStaticQuery } from 'gatsby'
 import PropTypes from 'prop-types'
-import { StaticImage } from 'gatsby-plugin-image'
-import { Header, Text } from 'components/elements'
+import { Header, Text, QueryImage } from 'components/elements'
 import { localize } from 'components/localization'
 import { SectionContainer } from 'components/containers'
 import { OtherPlatform } from 'components/custom/other-platforms.js'
@@ -11,10 +11,21 @@ const ImageWrapper = styled.div`
     max-width: 65rem;
     margin: 3rem auto 0;
 `
+
 const StyledSection = styled(SectionContainer)`
     background: linear-gradient(#efefef, #ffffff);
 `
+
+const query = graphql`
+    query {
+        dtrader_artboard: file(relativePath: { eq: "dtrader_trade_home.png" }) {
+            ...largeImage
+        }
+    }
+`
+
 const TradeTheWayYouLike = ({ is_ppc_redirect }) => {
+    const data = useStaticQuery(query)
     return (
         <StyledSection padding="5rem 2rem">
             <Header as="h3" type="section-title" align="center">
@@ -24,11 +35,7 @@ const TradeTheWayYouLike = ({ is_ppc_redirect }) => {
                 {localize('Choose from three powerful platforms — designed with you in mind')}
             </Text>
             <ImageWrapper>
-                <StaticImage
-                    src="../../images/common/dtrader_trade_home.png"
-                    alt={localize('Dtrader artboard')}
-                    formats={['avif', 'webp', 'jpg']}
-                />
+                <QueryImage data={data['dtrader_artboard']} alt={localize('Dtrader artboard')} />
             </ImageWrapper>
             <OtherPlatform exclude="" is_nav is_ppc_redirect={is_ppc_redirect} />
         </StyledSection>

@@ -1,11 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
+import { graphql, useStaticQuery } from 'gatsby'
 import PropTypes from 'prop-types'
-import { StaticImage } from 'gatsby-plugin-image'
 import { TraderCard, BotCard, DMT5Card } from 'components/custom/other-platforms.js'
 import { localize } from 'components/localization'
 import { SectionContainer, Container, Flex, CssGrid } from 'components/containers'
-import { Header } from 'components/elements'
+import { Header, QueryImage } from 'components/elements'
 
 const platforms = Object.freeze({
     trader: 'dtrader',
@@ -32,8 +32,22 @@ const ImageContainer = styled.div`
 const StyledSection = styled(SectionContainer)`
     background-image: linear-gradient(to bottom, var(--color-grey-11), rgba(238, 238, 238, 0));
 `
+const query = graphql`
+    query {
+        dtrader_trade: file(relativePath: { eq: "dtrader_trade_home.png" }) {
+            ...largeImage
+        }
+        dbot_trade: file(relativePath: { eq: "dbot_trade_home.png" }) {
+            ...largeImage
+        }
+        dmt5_trade: file(relativePath: { eq: "dmt5_trade_home.png" }) {
+            ...largeImage
+        }
+    }
+`
 
 const Trade = ({ is_ppc_redirect }) => {
+    const data = useStaticQuery(query)
     // one option always has to be selected
     const [selected, setSelected] = React.useState(null)
     return (
@@ -55,25 +69,16 @@ const Trade = ({ is_ppc_redirect }) => {
                     <div style={{ width: '100%', maxWidth: '65.7rem', marginRight: '6rem' }}>
                         <ImageContainer>
                             <ImageWrapper is_selected={!selected || selected === platforms.trader}>
-                                <StaticImage
-                                    src="../../images/common/dtrader_trade_home.png"
+                                <QueryImage
+                                    data={data['dtrader_trade']}
                                     alt={localize('DTrader')}
-                                    formats={['avif', 'webp', 'jpg']}
                                 />
                             </ImageWrapper>
                             <ImageWrapper is_selected={selected === platforms.bot}>
-                                <StaticImage
-                                    src="../../images/common/dbot_trade_home.png"
-                                    alt={localize('DBot')}
-                                    formats={['avif', 'webp', 'jpg']}
-                                />
+                                <QueryImage data={data['dbot_trade']} alt={localize('DBot')} />
                             </ImageWrapper>
                             <ImageWrapper is_selected={selected === platforms.mt5}>
-                                <StaticImage
-                                    src="../../images/common/dmt5_trade_home.png"
-                                    alt={localize('DMT5')}
-                                    formats={['avif', 'webp', 'jpg']}
-                                />
+                                <QueryImage data={data['dmt5_trade']} alt={localize('DMT5')} />
                             </ImageWrapper>
                         </ImageContainer>
                     </div>

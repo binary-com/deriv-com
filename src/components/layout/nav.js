@@ -41,8 +41,14 @@ const query = graphql`
         }
     }
 `
-
-export const NavWrapper = styled.div`
+// TODO: Proper refactor of shared nav sub components between the various nav bars
+export const NavWrapperMain = styled.div`
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+`
+export const NavWrapperPartners = styled.div`
     width: 100%;
     position: fixed;
     top: 0;
@@ -51,7 +57,6 @@ export const NavWrapper = styled.div`
     .fresnel-between-start-tabletL {
         display: none;
     }
-
     @media ${device.tabletL} {
         .fresnel-between-start-tabletL {
             display: flex;
@@ -95,7 +100,18 @@ const Line = styled.div`
     background-color: var(--color-white);
 `
 
-export const StyledNav = styled.nav`
+export const StyledNavMain = styled.nav`
+    background-color: var(--color-black);
+    height: 7.2rem;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    @media (max-width: 1060px) {
+        height: auto;
+    }
+`
+
+export const StyledNavPartners = styled.nav`
     background-color: var(--color-black);
     height: 7.2rem;
     width: 100%;
@@ -105,6 +121,7 @@ export const StyledNav = styled.nav`
         height: auto;
     }
 `
+
 export const Wrapper = styled(Container)`
     font-size: var(--text-size-s);
     padding: 1.2rem 0;
@@ -126,7 +143,15 @@ Wrapper.propTypes = {
     offset_px_mobile: PropTypes.number,
 }
 
-export const NavLeft = styled.div`
+export const NavLeftMain = styled.div`
+    text-align: left;
+    display: flex;
+    align-items: center;
+    max-width: 30rem;
+    width: 100%;
+`
+
+export const NavLeftPartners = styled.div`
     text-align: left;
     display: flex;
     align-items: center;
@@ -154,13 +179,13 @@ const NavCenter = styled.ul`
     justify-content: center;
     line-height: 1.2;
 
-    @media (max-width: 1210px) {
+    @media (max-width: 1227px) {
         font-size: 14px;
     }
     @media (max-width: 1175px) {
         font-size: 12px;
     }
-    @media (max-width: 1105px) {
+    @media (max-width: 1116px) {
         font-size: 11px;
     }
     @media (max-width: 991px) {
@@ -230,7 +255,7 @@ const NavLink = styled.li`
     }
 
     @media ${device.laptopM} {
-        margin-right: 1.6rem;
+        margin-right: 1rem;
     }
 
     ${(props) => {
@@ -245,6 +270,10 @@ const StyledButton = styled.span`
     cursor: pointer;
     user-select: none;
     white-space: nowrap;
+
+    @media ${device.laptopM} {
+        padding: 0.5rem 0.8rem;
+    }
 `
 
 const SignupButton = styled(Button)`
@@ -260,7 +289,16 @@ const LinkSignupButton = styled(LinkButton)`
 const HamburgerMenu = styled.img`
     cursor: pointer;
     display: none;
-    @media ${device.tabletL} {
+    @media (max-width: 1060px) {
+        display: block;
+        cursor: pointer;
+    }
+`
+const HamburgerMenuPartners = styled.img`
+    cursor: pointer;
+    display: none;
+
+    @media (max-width: 991px) {
         display: block;
         cursor: pointer;
     }
@@ -269,12 +307,30 @@ const HamburgerMenu = styled.img`
 const CloseMenu = styled.img`
     cursor: pointer;
     display: none;
+    @media (max-width: 1060px) {
+        display: block;
+        cursor: pointer;
+    }
+`
+const CloseMenuPartners = styled.img`
+    cursor: pointer;
+    display: none;
     @media ${device.tabletL} {
         display: block;
         cursor: pointer;
     }
 `
 
+const LogoLinkMobileMain = styled(LocalizedLink)`
+    cursor: pointer;
+    display: none;
+
+    @media (max-width: 1060px) {
+        display: block;
+        cursor: pointer;
+        margin-left: 2rem;
+    }
+`
 const LogoLinkMobile = styled(LocalizedLink)`
     cursor: pointer;
     display: none;
@@ -294,7 +350,7 @@ const MobileButton = styled(Button)`
     display: none;
     font-size: 14px;
     margin-left: ${({ margin_left }) => margin_left ?? '1.6rem'};
-    @media ${device.tabletL} {
+    @media (max-width: 1060px) {
         display: block;
     }
     @media ${device.mobileL} {
@@ -317,12 +373,12 @@ const handleScroll = (show, hide) => {
     window.scrollY > show_height ? show() : hide()
 }
 
-const MobileRight = styled.div`
+const MobileRightMain = styled.div`
     margin-left: auto;
     display: none;
     align-items: center;
 
-    @media ${device.tabletL} {
+    @media (max-width: 1060px) {
         display: flex;
     }
 `
@@ -356,7 +412,7 @@ const NavMobile = ({ is_ppc, is_ppc_redirect, is_logged_in }) => {
                 />
             )}
 
-            <LogoLinkMobile to="/" aria-label={localize('Home')}>
+            <LogoLinkMobileMain to="/" aria-label={localize('Home')}>
                 <Flex>
                     <img src={LogoOnly} alt="logo only" width="115px" />
                     <LogoDescription ai="center">
@@ -364,8 +420,8 @@ const NavMobile = ({ is_ppc, is_ppc_redirect, is_logged_in }) => {
                         <img src={LogoCombinedShape} alt="logo combined shape 2" />
                     </LogoDescription>
                 </Flex>
-            </LogoLinkMobile>
-            <MobileRight>
+            </LogoLinkMobileMain>
+            <MobileRightMain>
                 <LanguageSwitcher short_name="true" is_high_nav />
                 {is_logged_in ? (
                     <MobileButton margin_left="0.8rem" onClick={handleGetTrading} primary>
@@ -376,7 +432,7 @@ const NavMobile = ({ is_ppc, is_ppc_redirect, is_logged_in }) => {
                         <span>{localize('Log in')}</span>
                     </MobileButton>
                 )}
-            </MobileRight>
+            </MobileRightMain>
             <OffCanvasMenu
                 is_canvas_menu_open={is_canvas_menu_open}
                 closeOffCanvasMenu={closeOffCanvasMenu}
@@ -442,7 +498,7 @@ const NavDesktop = ({ base, is_ppc, is_ppc_redirect, is_logged_in }) => {
                 />
             )}
             <Wrapper>
-                <NavLeft>
+                <NavLeftMain>
                     <LogoLink
                         to={!is_ppc_redirect ? base || '/' : '/landing'}
                         aria-label={localize('Home')}
@@ -457,7 +513,7 @@ const NavDesktop = ({ base, is_ppc, is_ppc_redirect, is_logged_in }) => {
                     </LogoLink>
                     <Line />
                     <img src={LogoCombinedShape} alt="logo combined shape" />
-                </NavLeft>
+                </NavLeftMain>
                 <NavCenter ref={navigation_bar_ref}>
                     <NavLink onClick={(e) => handleLinkClick('trade', e.target)}>
                         <StyledButton aria-label={localize('Trade')} active={checkActive('trade')}>
@@ -528,10 +584,10 @@ export const Nav = ({ base, is_ppc_redirect, is_ppc }) => {
     }, [])
 
     return (
-        <NavWrapper>
+        <NavWrapperMain>
             <CFDWarning />
-            <StyledNav>
-                <Show.Desktop>
+            <StyledNavMain>
+                <Show.Desktop max_width="bp1060">
                     <NavDesktop
                         base={base}
                         is_ppc={is_ppc}
@@ -539,11 +595,11 @@ export const Nav = ({ base, is_ppc_redirect, is_ppc }) => {
                         is_logged_in={is_logged_in}
                     />
                 </Show.Desktop>
-                <Show.Mobile>
+                <Show.Mobile min_width="bp1060">
                     <NavMobile is_ppc={is_ppc} is_logged_in={is_logged_in} />
                 </Show.Mobile>
-            </StyledNav>
-        </NavWrapper>
+            </StyledNavMain>
+        </NavWrapperMain>
     )
 }
 
@@ -682,12 +738,20 @@ const HomeContainer = styled(Container)`
     height: 100%;
 `
 
-const StyledNavCenter = styled(NavCenter)`
+const StyledNavCenter = styled.ul`
+    text-align: center;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    line-height: 1.2;
     margin-left: 13.3rem;
     white-space: nowrap;
 
     @media (max-width: 1300px) {
-        font-size: 12px !important;
+        font-size: 12px;
+    }
+    @media (max-width: 991px) {
+        display: none;
     }
 `
 
@@ -810,7 +874,7 @@ export const NavPartners = ({ no_login_signup }) => {
     const [is_canvas_menu_open, openOffCanvasMenu, closeOffCanvasMenu] = moveOffCanvasMenu()
     return (
         <>
-            <NavWrapper ref={nav_ref}>
+            <NavWrapperPartners ref={nav_ref}>
                 <CFDWarning />
                 <DerivHomeWrapper>
                     <HomeContainer justify="space-between">
@@ -838,13 +902,13 @@ export const NavPartners = ({ no_login_signup }) => {
                         </DesktopLS>
                     </HomeContainer>
                 </DerivHomeWrapper>
-                <StyledNav>
+                <StyledNavPartners>
                     <StyledNavWrapper no_login_signup>
-                        <NavLeft>
+                        <NavLeftPartners>
                             <NavLogoLink to="/partners/" aria-label={localize('Partners')}>
                                 <img src={LogoPartner} alt="logo partner" />
                             </NavLogoLink>
-                        </NavLeft>
+                        </NavLeftPartners>
                         <StyledNavCenter>
                             <NavLink>
                                 <StyledLink
@@ -899,14 +963,14 @@ export const NavPartners = ({ no_login_signup }) => {
                         )}
 
                         {is_canvas_menu_open ? (
-                            <CloseMenu
+                            <CloseMenuPartners
                                 src={Close}
                                 alt="close menu 2"
                                 onClick={closeOffCanvasMenu}
                                 width="16px"
                             />
                         ) : (
-                            <HamburgerMenu
+                            <HamburgerMenuPartners
                                 src={Hamburger}
                                 alt="hamburger menu2"
                                 onClick={openOffCanvasMenu}
@@ -945,8 +1009,8 @@ export const NavPartners = ({ no_login_signup }) => {
                             closeOffCanvasMenu={closeOffCanvasMenu}
                         />
                     </StyledNavWrapper>
-                </StyledNav>
-            </NavWrapper>
+                </StyledNavPartners>
+            </NavWrapperPartners>
         </>
     )
 }

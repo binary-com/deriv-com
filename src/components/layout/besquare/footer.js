@@ -12,7 +12,7 @@ import {
     TextWrapper,
     Title,
 } from './style/footer'
-import { besquare_form_url } from 'common/utility'
+import { besquare_signup_url } from 'common/utility'
 import { localize, Localize, LocalizedLink } from 'components/localization'
 import Linkedin from 'images/svg/be-square/linkedin.svg'
 import Twitter from 'images/svg/be-square/twitter.svg'
@@ -56,7 +56,10 @@ const BeSquareFooter = () => {
         <React.Fragment>
             <Section color="black">
                 <ContentContainer>
-                    <ImageWrapper data={data['footer_image']} alt="Deriv employee" />
+                    <ImageWrapper
+                        data={data['footer_image']}
+                        alt="Fresh graduates discussing with their laptops"
+                    />
                     <TextContainer>
                         <Title>{localize('Next intake: July 2021')}</Title>
                         <TextWrapper
@@ -85,7 +88,13 @@ const BeSquareFooter = () => {
                             />
                         </TextWrapper>
                         <div>
-                            <ButtonWrapper type="submit" secondary="true" to={besquare_form_url}>
+                            <ButtonWrapper
+                                secondary="true"
+                                to={besquare_signup_url}
+                                external
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
                                 {localize('Apply now')}
                             </ButtonWrapper>
                         </div>

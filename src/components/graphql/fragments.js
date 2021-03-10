@@ -6,7 +6,7 @@ export const heroImage = graphql`
             gatsbyImageData(
                 formats: [AVIF, WEBP, AUTO]
                 layout: FULL_WIDTH
-                breakpoints: [360, 992, 1440, 2048]
+                breakpoints: [360, 992, 2048]
                 placeholder: DOMINANT_COLOR
             )
         }

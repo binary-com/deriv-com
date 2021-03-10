@@ -6,7 +6,7 @@ export const heroImage = graphql`
             gatsbyImageData(
                 formats: [AVIF, WEBP, AUTO]
                 layout: FULL_WIDTH
-                breakpoints: [360, 992, 2048]
+                breakpoints: [360, 992, 1920]
                 placeholder: DOMINANT_COLOR
             )
         }
@@ -17,7 +17,6 @@ export const fadeIn = graphql`
     fragment fadeIn on File {
         childImageSharp {
             gatsbyImageData(
-                quality: 40
                 formats: [AVIF, WEBP, AUTO]
                 layout: CONSTRAINED
                 breakpoints: [360, 992]

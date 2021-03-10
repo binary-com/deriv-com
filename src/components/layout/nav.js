@@ -1,5 +1,5 @@
 // TODO: (discussion) make nav pure component, and move usage of nav to custom
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
@@ -399,14 +399,14 @@ const NavDesktop = ({ base, is_ppc, is_ppc_redirect, is_logged_in }) => {
     const [show_button, showButton, hideButton] = moveButton()
     const current_page = useActiveLinkState('main')
 
-    const buttonHandleScroll = () => {
+    const buttonHandleScroll = useCallback(() => {
         setHasScrolled(true)
         handleScroll(showButton, hideButton)
-    }
+    })
 
     const checkActive = (link_name) => link_name === active_dropdown || link_name === current_page
 
-    const closeDropdown = () => setActiveDropdown('')
+    const closeDropdown = () => useCallback(setActiveDropdown(''))
 
     const handleLinkClick = (dropdown, target) => {
         setActiveDropdown(dropdown)

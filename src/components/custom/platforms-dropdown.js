@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 import PropTypes from 'prop-types'
 import styled, { keyframes } from 'styled-components'
 import {
@@ -73,12 +73,12 @@ const PlatformsDropdown = ({ current_ref, is_ppc, is_ppc_redirect, parent, setAc
     const [left_arrow_offset, setLeftArrowOffset] = useState(current_ref.offsetWidth / 2 - 15)
     const dropdownContainerRef = useRef(null)
 
-    const updateOffsets = () => {
+    const updateOffsets = useCallback(() => {
         if (current_ref) {
             setLeftOffset(current_ref.offsetLeft)
             setLeftArrowOffset(current_ref.offsetWidth / 2 - 15)
         }
-    }
+    })
 
     useEffect(() => {
         if (dropdownContainerRef) {

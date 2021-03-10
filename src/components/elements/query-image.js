@@ -13,12 +13,12 @@ export const ImageWrapper = styled.div`
     }
 `
 
-const QueryImage = ({ data, alt, width, height, className }) => {
+const QueryImage = ({ alt, className, data, height, width, loading }) => {
     const image = getImage(data)
     if (data) {
         return (
             <ImageWrapper width={width} height={height} className={className}>
-                <GatsbyImage image={image} alt={alt} height="100%" />
+                <GatsbyImage image={image} alt={alt} height="100%" loading={loading || 'lazy'} />
             </ImageWrapper>
         )
     }
@@ -30,6 +30,7 @@ QueryImage.propTypes = {
     className: PropTypes.string,
     data: PropTypes.object.isRequired,
     height: PropTypes.string,
+    loading: PropTypes.string,
     width: PropTypes.string,
 }
 export default QueryImage

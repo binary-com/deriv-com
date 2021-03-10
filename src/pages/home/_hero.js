@@ -123,7 +123,7 @@ const DesktopWrapper = styled(Flex)`
 const query = graphql`
     query {
         background: file(relativePath: { eq: "home/platform_devices.png" }) {
-            ...largeImage
+            ...fadeIn
         }
     }
 `

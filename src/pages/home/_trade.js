@@ -35,13 +35,13 @@ const StyledSection = styled(SectionContainer)`
 const query = graphql`
     query {
         dtrader_trade: file(relativePath: { eq: "dtrader_trade_home.png" }) {
-            ...largeImage
+            ...fadeIn
         }
         dbot_trade: file(relativePath: { eq: "dbot_trade_home.png" }) {
-            ...largeImage
+            ...fadeIn
         }
         dmt5_trade: file(relativePath: { eq: "dmt5_trade_home.png" }) {
-            ...largeImage
+            ...fadeIn
         }
     }
 `

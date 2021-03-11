@@ -491,7 +491,7 @@ const NavDesktop = ({ base, is_ppc, is_ppc_redirect, is_logged_in }) => {
     }, [])
 
     return (
-        <div>
+        <>
             {active_dropdown && (
                 <PlatformsDropdown
                     key={active_dropdown}
@@ -582,7 +582,7 @@ const NavDesktop = ({ base, is_ppc, is_ppc_redirect, is_logged_in }) => {
                     </NavRight>
                 )}
             </Wrapper>
-        </div>
+        </>
     )
 }
 

@@ -587,7 +587,7 @@ export const Nav = ({ base, is_ppc_redirect, is_ppc }) => {
 
         let checkCookieChange = setInterval(() => {
             setLoggedIn(isLoggedIn())
-        }, 500)
+        }, 1000)
         return () => clearInterval(checkCookieChange)
     }, [])
 

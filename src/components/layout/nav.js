@@ -238,6 +238,7 @@ const NavRight = styled.div`
     }
 `
 const NavGetTrading = styled.div`
+    width: auto;
     display: inline-flex;
     text-align: right;
     align-items: center;
@@ -757,6 +758,7 @@ const StyledNavCenter = styled.ul`
 `
 
 const StyledNavRight = styled(NavRight)`
+    width: auto;
     margin-left: auto;
     transform: translateX(
         ${(props) => {

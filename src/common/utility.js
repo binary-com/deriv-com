@@ -212,7 +212,6 @@ const getLocalizedUrl = (path, is_index, to) =>
     `/${path}${is_index ? `` : to}`
 
 export {
-    getLocalizedUrl,
     affiliate_signin_url,
     affiliate_signup_url,
     applyDefaultValues,
@@ -272,4 +271,5 @@ export {
     trimSpaces,
     p2p_playstore_url,
     sample_rate,
+    getLocalizedUrl,
 }

@@ -14,16 +14,8 @@ export const useMarketingData = () => {
     const utm_data_params = url_params.get('utm_data')
 
     useEffect(() => {
-        if (affiliate_token_cookie) {
-            setAffiliateToken(affiliate_token_cookie)
-        } else {
-            setAffiliateToken(affiliate_token_params ?? affiliate_token_cookie)
-        }
-        if (utm_data_cookie) {
-            setUtmData(utm_data_cookie)
-        } else {
-            setUtmData(utm_data_params ?? utm_data_cookie)
-        }
+        setAffiliateToken(affiliate_token_params ?? affiliate_token_cookie)
+        setUtmData(utm_data_params ?? utm_data_cookie)
     }, [url_params])
 
     return [affiliate_token, utm_data]

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { graphql, StaticQuery } from 'gatsby'
 import styled from 'styled-components'
+import Cookies from 'js-cookie'
 import { getCookiesObject, getCookiesFields, getDataObjFromCookies } from 'common/cookies'
 import { Box } from 'components/containers'
 import Login from 'common/login'
@@ -15,7 +16,6 @@ import SignupSimple from 'components/custom/_signup-simple'
 import { Header, QueryImage, StyledLink, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device.js'
-import { DerivStore } from 'store'
 
 const Form = styled.form`
     height: 100%;
@@ -90,7 +90,7 @@ class Signup extends Component {
     }
 
     getVerifyEmailRequest = (email) => {
-        const { affiliate_token } = React.useContext(DerivStore)
+        const affiliate_token = Cookies.getJSON('affiliate_tracking')
 
         const cookies = getCookiesFields()
         const cookies_objects = getCookiesObject(cookies)

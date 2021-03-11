@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { useWebsiteStatus } from 'components/hooks/website-status-hooks'
-import { useMarketingData } from 'components/hooks/use-marketing-data'
 import { isEuCountry, isP2PAllowedCountry } from 'common/country-base'
 
 export const DerivStore = React.createContext()
 
 export const DerivProvider = ({ children }) => {
     const [website_status] = useWebsiteStatus()
-    const [affiliate_token, utm_data] = useMarketingData()
     const [is_eu_country, setEuCountry] = useState(null)
     const [is_p2p_allowed_country, setP2PAllowedCountry] = useState(false)
     const [crypto_config, setCryptoConfig] = useState(null)
@@ -26,11 +24,9 @@ export const DerivProvider = ({ children }) => {
     return (
         <DerivStore.Provider
             value={{
-                affiliate_token,
-                crypto_config,
                 is_eu_country,
                 is_p2p_allowed_country,
-                utm_data,
+                crypto_config,
             }}
         >
             {children}

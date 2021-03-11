@@ -576,11 +576,19 @@ const NavDesktop = ({ base, is_ppc, is_ppc_redirect, is_logged_in }) => {
     )
 }
 
+const MemoizedNavDesktop = React.memo(NavDesktop)
+const MemoizedNavMobile = React.memo(NavMobile)
+
 export const Nav = ({ base, is_ppc_redirect, is_ppc }) => {
     const [is_logged_in, setLoggedIn] = useState(false)
 
     useEffect(() => {
         setLoggedIn(isLoggedIn())
+
+        let checkCookieChange = setInterval(() => {
+            setLoggedIn(isLoggedIn())
+        }, 800)
+        return () => clearInterval(checkCookieChange)
     }, [])
 
     return (
@@ -588,7 +596,7 @@ export const Nav = ({ base, is_ppc_redirect, is_ppc }) => {
             <CFDWarning />
             <StyledNavMain>
                 <Show.Desktop max_width="bp1060">
-                    <NavDesktop
+                    <MemoizedNavDesktop
                         base={base}
                         is_ppc={is_ppc}
                         is_ppc_redirect={is_ppc_redirect}
@@ -596,7 +604,7 @@ export const Nav = ({ base, is_ppc_redirect, is_ppc }) => {
                     />
                 </Show.Desktop>
                 <Show.Mobile min_width="bp1060">
-                    <NavMobile is_ppc={is_ppc} is_logged_in={is_logged_in} />
+                    <MemoizedNavMobile is_ppc={is_ppc} is_logged_in={is_logged_in} />
                 </Show.Mobile>
             </StyledNavMain>
         </NavWrapperMain>

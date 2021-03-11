@@ -208,7 +208,11 @@ const getDomain = () =>
         ? deriv_cookie_domain
         : 'binary.sx'
 
+const getLocalizedUrl = (path, is_index, to) =>
+    `/${path}${is_index ? `` : to}`
+
 export {
+    getLocalizedUrl,
     affiliate_signin_url,
     affiliate_signup_url,
     applyDefaultValues,

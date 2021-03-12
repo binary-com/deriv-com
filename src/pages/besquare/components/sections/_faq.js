@@ -11,7 +11,6 @@ import {
 } from '../../static/style/_faq'
 import { Accordion, AccordionItem } from 'components/elements'
 import { Show } from 'components/containers'
-import { localize } from 'components/localization'
 import Vector from 'images/svg/be-square/vector.svg'
 
 const FAQ = () => {
@@ -35,7 +34,7 @@ const FAQ = () => {
                     <ImageWrapper src={Vector} alt="Dotted image" />
                 </Show.Desktop>
                 <ContentContainer>
-                    <Title>{localize('FAQs')}</Title>
+                    <Title>FAQs</Title>
                 </ContentContainer>
                 <AccordionWrapper>
                     <Accordion has_single_state>

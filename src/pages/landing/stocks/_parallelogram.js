@@ -3,55 +3,61 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { graphql, useStaticQuery } from 'gatsby'
 import device from 'themes/device'
-import { Container, SectionContainer } from 'components/containers'
+import { Container, SectionContainer, Flex } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
 
 const StyledSection = styled(SectionContainer)`
-    background-color: var(--color-white);
-    box-shadow: inset 1px 0 0 1px var(--color-grey-2);
-
+    background-color: var(--color-grey-30);
+    clip-path: polygon(0 0, 100% 4%, 100% 100%, 0 96%);
+    padding: 64px 16px;
+`
+const MainWrapper = styled(Container)`
     @media ${device.tabletL} {
-        padding: 1.74rem 0 4rem 0;
+        width: 100%;
     }
 `
-const StyledContainer = styled(Container)`
-    display: flex;
+
+const Content = styled(Flex)`
+    width: 60%;
     flex-direction: column;
-`
-const Content = styled.div`
-    width: 100%;
-    max-width: 58.8rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     margin-right: ${(props) => props.margin_right};
+    margin-left: ${(props) => props.margin_left};
 
     ${Text} {
         margin-top: 2.2rem;
+        font-size: 2.4rem;
+        @media ${device.tabletL} {
+            margin-top: 8px;
+            font-size: 20px;
+            text-align: center;
+        }
     }
 
     @media ${device.tabletL} {
+        width: 100%;
+        max-width: 58.8rem;
         margin: 0 auto;
     }
 `
 
 const ImageWrapper = styled.div`
-    max-width: 58.8rem;
-    width: 100%;
-    max-height: 30rem;
+    display: flex;
+    width: 40%;
     margin-right: ${(props) => props.margin_right};
 
     @media ${device.tabletL} {
         margin: 2rem auto;
+        max-width: 58.8rem;
+        width: 100%;
     }
 `
 const StyledHeader = styled(Header)`
     line-height: 1.25;
 
     @media ${device.tabletL} {
-        font-size: 24px;
-        line-height: 40px;
-        margin-top: 2rem;
+        font-size: 40px;
+        line-height: 50px;
+        text-align: center;
     }
 `
 const Row = styled.div`
@@ -103,25 +109,25 @@ const query = graphql`
         how_you_want: file(relativePath: { eq: "how-you-want.png" }) {
             ...fadeIn
         }
-        stocks_zero_fees: file(relativePath: { eq: "stocks-zero-fees.png" }) {
+        stocks_zero_fees: file(relativePath: { eq: "stock-indices/stocks-zero-fees.png" }) {
             ...fadeIn
         }
-        stocks_blue_chip: file(relativePath: { eq: "stocks-blue-chip.png" }) {
+        stocks_blue_chip: file(relativePath: { eq: "stock-indices/stocks-blue-chip.png" }) {
             ...fadeIn
         }
     }
 `
-const DTrading = ({ trading, reverse, two_title }) => {
+const Parallelogram = ({ trading, reverse, two_title }) => {
     const data = useStaticQuery(query)
     return (
         <StyledSection>
-            <StyledContainer>
+            <MainWrapper fd="column">
                 {trading.map((item, index) => {
                     let is_even = reverse ? (index + 1) % 2 : index % 2
                     return (
                         <Row flex_direction={!is_even ? 'row' : 'row-reverse'} key={index}>
-                            <Content margin_right={!is_even ? '2.4rem' : '0'}>
-                                <StyledHeader type="page-title">{item.title}</StyledHeader>
+                            <Content>
+                                <StyledHeader type="display-title">{item.title}</StyledHeader>
                                 <Text>{item.subtitle}</Text>
                                 {two_title && (
                                     <>
@@ -132,25 +138,27 @@ const DTrading = ({ trading, reverse, two_title }) => {
                                     </>
                                 )}
                             </Content>
-                            <ImageWrapper margin_right={!is_even ? '0' : '2.4rem'}>
-                                <QueryImage
-                                    data={data[item.image_name]}
-                                    alt={item.image_alt}
-                                    width="100%"
-                                />
-                            </ImageWrapper>
+                            {item.image_name && (
+                                <ImageWrapper margin_right={!is_even ? '0' : '2.4rem'}>
+                                    <QueryImage
+                                        data={data[item.image_name]}
+                                        alt={item.image_alt}
+                                        width="100%"
+                                    />
+                                </ImageWrapper>
+                            )}
                         </Row>
                     )
                 })}
-            </StyledContainer>
+            </MainWrapper>
         </StyledSection>
     )
 }
 
-DTrading.propTypes = {
+Parallelogram.propTypes = {
     reverse: PropTypes.bool,
     trading: PropTypes.array,
     two_title: PropTypes.bool,
 }
 
-export default DTrading
+export default Parallelogram

@@ -19,7 +19,7 @@ const Wrapper = styled.section`
     background-color: rgba(200, 214, 215, 0.22);
 
     @media ${device.tabletL} {
-        height: 90vh;
+        height: 120vh;
     }
     @media ${device.mobileL} {
         height: 100vh;

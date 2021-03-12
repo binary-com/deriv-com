@@ -41,7 +41,10 @@ const StyledText = styled(Text)`
     @media ${(props) => device.tabletL && props.notedBox} {
         width: 13rem;
     }
-    @media ${device.mobileL} {
+    @media (max-width: 340px) {
+        width: 17rem;
+    }
+    @media ${device.tabletL} {
         font-size: ${(props) => props.tabletFontSize || 'var(--text-size-xxs)'};
     }
 `
@@ -307,7 +310,7 @@ const SignupNew = ({
             </EmailButton>
             <SignupWithContainer>
                 <Line />
-                <StyledText color="grey-5" align="center" tabletFontSize="1.5rem">
+                <StyledText color="grey-5" align="center" tabletFontSize="12px">
                     {localize('Or sign up with')}
                 </StyledText>
                 <Line />

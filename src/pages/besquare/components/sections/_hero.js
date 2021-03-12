@@ -24,7 +24,7 @@ const Hero = () => (
                 Launch your IT career with our graduate programme
             </TextWrapper>
         </HeaderContainer>
-        <ImageWrapper src={HeroImage} alt="hero image" />
+        <ImageWrapper src={HeroImage} alt="BeSquare students standing with their laptops" />
     </HeroContainer>
 )
 

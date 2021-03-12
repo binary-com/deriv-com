@@ -336,21 +336,23 @@ const SvgWrapper = styled.div`
 `
 
 export const NavCard = ({
-    icon: Icon,
-    title,
-    content,
-    onClick,
-    to,
-    style,
-    external,
-    target,
+    aria_label,
     className,
+    content,
+    external,
+    icon: Icon,
     is_binary_link,
     is_smarttrader_link,
+    onClick,
     otherLinkProps,
+    style,
+    target,
+    title,
+    to,
 }) => {
     return (
         <LocalizedLink
+            ariaLabel={aria_label}
             onClick={onClick}
             to={to}
             style={{
@@ -389,6 +391,7 @@ export const NavCard = ({
 }
 
 NavCard.propTypes = {
+    aria_label: PropTypes.string,
     className: PropTypes.string,
     content: PropTypes.oneOfType([PropTypes.string, PropTypes.array, PropTypes.object]),
     external: PropTypes.string,

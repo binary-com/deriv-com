@@ -26,7 +26,7 @@ const WhyDeriv = () => {
             <ContentContainer>
                 <ImageWrapper
                     data={data['why_deriv']}
-                    alt="deriv employee"
+                    alt="Tech students discussing about BeSquare programme"
                     grid_area="employee-image"
                 />
                 <div>
@@ -58,7 +58,11 @@ const WhyDeriv = () => {
                     new headquarters at Quill 5 in Cyberjaya, where a floor has been dedicated to
                     our BeSquare programme.
                 </TextWrapper>
-                <ImageWrapper data={data['quil5']} alt="quil5 building" grid_area="quil5-image" />
+                <ImageWrapper
+                    data={data['quil5']}
+                    alt="Quill-5 Deriv's new headquarter in Malaysia"
+                    grid_area="quil5-image"
+                />
             </ContentContainer>
         </Section>
     )

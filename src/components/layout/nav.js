@@ -463,7 +463,7 @@ const NavDesktop = ({ base, is_ppc, is_ppc_redirect, is_logged_in }) => {
     const buttonHandleScroll = useCallback(() => {
         setHasScrolled(true)
         handleScroll(showButton, hideButton)
-    }, [])
+    }, [navigation_bar_ref?.current])
 
     const checkActive = (link_name) => link_name === active_dropdown || link_name === current_page
 
@@ -486,7 +486,7 @@ const NavDesktop = ({ base, is_ppc, is_ppc_redirect, is_logged_in }) => {
         return () => {
             document.removeEventListener('scroll', buttonHandleScroll)
         }
-    }, [])
+    }, [navigation_bar_ref?.current])
 
     return (
         <>

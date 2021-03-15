@@ -71,7 +71,7 @@ const getLanguage = () => (isBrowser() ? localStorage.getItem('i18n') || navigat
 const getCrowdin = () =>
     isBrowser() ? localStorage.getItem('jipt_language_code_deriv-com') || navigator.language : null
 
-const getClientInformation = (domain) => Cookies.get('client_information', { domain })
+const getClientInformation = (domain) => Cookies.getJSON('client_information', { domain })
 
 const isLoggedIn = () => {
     const domain = getDomain()

@@ -50,6 +50,7 @@ export const Header = styled(({ as = 'h1', children, ...props }) =>
     font-weight: ${(props) => props.weight || 'bold'};
     font-size: ${(props) => {
         if (props.size) return props.size
+        if (props.type === 'main-landing-title') return '8.0rem'
         if (props.type === 'display-title') return '6.4rem'
         if (props.type === 'page-title') return '4.8rem'
         if (props.type === 'section-title') return '3.2rem'
@@ -58,6 +59,7 @@ export const Header = styled(({ as = 'h1', children, ...props }) =>
         if (props.type === 'sub-paragraph') return '1.4rem'
     }};
     line-height: ${(props) => {
+        if (props.type === 'main-landing-title') return '8rem'
         if (props.type === 'display-title') return '8rem'
         if (props.type === 'page-title') return '6rem'
         if (props.type === 'section-title') return '4rem'
@@ -69,6 +71,7 @@ export const Header = styled(({ as = 'h1', children, ...props }) =>
 
     @media ${device.tabletL} {
         font-size: ${(props) => {
+            if (props.type === 'main-landing-title') return '40px'
             if (props.type === 'display-title') return '40px'
             if (props.type === 'page-title') return '32px'
             if (props.type === 'section-title') return '24px'
@@ -77,6 +80,7 @@ export const Header = styled(({ as = 'h1', children, ...props }) =>
             if (props.type === 'sub-paragraph') return '14px'
         }};
         line-height: ${(props) => {
+            if (props.type === 'main-landing-title') return '50px'
             if (props.type === 'display-title') return '50px'
             if (props.type === 'page-title') return '40px'
             if (props.type === 'section-title') return '30px'

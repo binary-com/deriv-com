@@ -1,6 +1,5 @@
 import React from 'react'
 import NProgress from 'nprogress'
-import Cookies from 'js-cookie'
 import { datadogRum } from '@datadog/browser-rum'
 import { Pushwoosh } from 'web-push-notifications'
 import { WrapPagesWithLocaleContext } from './src/components/localization'
@@ -13,6 +12,8 @@ import {
     gtm_test_domain,
     sample_rate,
     pushwoosh_app_code,
+    getDomain,
+    getClientInformation,
 } from './src/common/utility'
 import { MediaContextProvider } from './src/themes/media'
 import { DerivProvider } from './src/store'
@@ -42,10 +43,8 @@ const addScript = (settings) => {
 
 const sendTags = (api) => {
     const language = LocalStore.get('i18n') || ''
-    const domain = window.location.hostname.includes('deriv.com') ? 'deriv.com' : 'binary.sx'
-    const { loginid, residence } = Cookies.get('client_information', {
-        domain,
-    }) || {
+    const domain = getDomain();
+    const { loginid, residence } = getClientInformation(domain) || {
         loginid: '',
         residence: '',
     }
@@ -178,10 +177,8 @@ export const onRouteUpdate = () => {
     checkDomain()
 
     const dataLayer = window.dataLayer
-    const domain = window.location.hostname.includes('deriv.com') ? 'deriv.com' : 'binary.sx'
-    const client_information = Cookies.get('client_information', {
-        domain,
-    })
+    const domain = getDomain();
+    const client_information = getClientInformation(domain);
     const is_logged_in = !!client_information
 
     // wrap inside a timeout to ensure the title has properly been changed

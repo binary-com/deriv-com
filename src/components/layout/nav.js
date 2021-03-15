@@ -463,11 +463,9 @@ const NavDesktop = ({ base, is_ppc, is_ppc_redirect, is_logged_in }) => {
     const buttonHandleScroll = useCallback(() => {
         setHasScrolled(true)
         handleScroll(showButton, hideButton)
-    })
+    }, [])
 
     const checkActive = (link_name) => link_name === active_dropdown || link_name === current_page
-
-    const closeDropdown = () => useCallback(setActiveDropdown(''))
 
     const handleLinkClick = (dropdown, target) => {
         setActiveDropdown(dropdown)
@@ -479,7 +477,7 @@ const NavDesktop = ({ base, is_ppc, is_ppc_redirect, is_logged_in }) => {
 
     const setDropdownRef = (new_ref) => setActiveDropdownRef(new_ref)
 
-    useOutsideClick(navigation_bar_ref, closeDropdown, active_dropdown_ref)
+    useOutsideClick(navigation_bar_ref, () => setActiveDropdown(''), active_dropdown_ref)
 
     useEffect(() => {
         setMounted(true)

@@ -154,9 +154,9 @@ export const onClientEntry = () => {
         })
     }
 
-    addScript({
-        src: 'https://static.deriv.com/scripts/cookie.js',
-    })
+    // addScript({
+    //     src: 'https://static.deriv.com/scripts/cookie.js',
+    // })
 
     if (window.location.hostname === 'deriv.com') {
         datadogRum.init({

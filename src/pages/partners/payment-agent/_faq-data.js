@@ -1,12 +1,10 @@
 import React from 'react'
-import {
-    HeaderPrimary,
-    TextPrimary,
-    StyledLink,
-    LocalizedLinkText,
-} from '../affiliate-ib/_faq-data'
+import styled from 'styled-components'
+import { HeaderPrimary, TextPrimary, LocalizedLinkText } from '../affiliate-ib/_faq-data'
+import { Header, LinkText } from 'components/elements'
 import { localize, Localize } from 'components/localization'
-import { Header } from 'components/elements'
+
+const TextLink = styled(LinkText).attrs({ as: 'span' })``
 
 const General = () => (
     <>
@@ -67,8 +65,17 @@ const AccountManagement = () => (
         </Header>
         <TextPrimary>
             <Localize
-                translate_text="To change your payment method, please send an email to <0>support@deriv.com</0> for assistance."
-                components={[<StyledLink href="mailto:support@deriv.com" key={0} />]}
+                translate_text="To change your payment method, please contact us via <0>livechat</0>."
+                components={[
+                    <TextLink
+                        key={0}
+                        color="red"
+                        onClick={() => {
+                            // eslint-disable-next-line no-undef
+                            LC_API.open_chat_window()
+                        }}
+                    />,
+                ]}
             />
         </TextPrimary>
         <HeaderPrimary as="h5" type="main-paragraph">
@@ -100,5 +107,4 @@ const AccountManagement = () => (
         </TextPrimary>
     </>
 )
-
 export { General, AccountManagement }

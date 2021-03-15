@@ -9,7 +9,7 @@ import Spam from 'images/svg/spam.svg'
 import Typo from 'images/svg/typo.svg'
 import WorkEmail from 'images/svg/work-email.svg'
 import Firewalls from 'images/svg/firewalls.svg'
-import { Container } from 'components/containers'
+import { Container, Show } from 'components/containers'
 
 const Grid = styled(Container)`
     display: grid;
@@ -31,11 +31,6 @@ const GridCol = styled.article`
 
     @media ${device.mobileL} {
         grid-template-columns: 4rem 1fr;
-
-        & > svg {
-            width: 40px;
-            height: 40px;
-        }
     }
 `
 const StyledText = styled(Text)`
@@ -45,12 +40,24 @@ const StyledText = styled(Text)`
 `
 
 const Col = ({ Icon, alt, content }) => (
-    <GridCol>
-        <img src={Icon} alt={alt} />
-        <StyledText color="black-3" lh="1.55" mt="0.8rem">
-            {content}
-        </StyledText>
-    </GridCol>
+    <div>
+        <Show.Desktop>
+            <GridCol>
+                <img src={Icon} alt={alt} />
+                <StyledText color="black-3" lh="1.55" mt="0.8rem">
+                    {content}
+                </StyledText>
+            </GridCol>
+        </Show.Desktop>
+        <Show.Mobile>
+            <GridCol>
+                <img src={Icon} alt={alt} width="40px" height="40px" />
+                <StyledText color="black-3" lh="1.55" mt="0.8rem">
+                    {content}
+                </StyledText>
+            </GridCol>
+        </Show.Mobile>
+    </div>
 )
 Col.propTypes = {
     alt: PropTypes.string,

@@ -88,7 +88,7 @@ const PlatformsDropdown = ({ current_ref, is_ppc, is_ppc_redirect, parent, setAc
         return () => {
             window.removeEventListener('resize', updateOffsets)
         }
-    }, [current_ref])
+    }, [parent])
 
     return (
         <Show.Desktop>

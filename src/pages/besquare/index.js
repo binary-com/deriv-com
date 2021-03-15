@@ -11,15 +11,25 @@ import WhoCanApply from './components/sections/_who-can-apply'
 import WhyDeriv from './components/sections/_why-deriv'
 import Layout from 'components/layout/layout'
 import { SEO } from 'components/containers'
-import { WithIntl, localize } from 'components/localization'
+import BeSquareOg from 'images/common/be-square/besquare-og.png'
+
+const meta_attributes = {
+    og_title: 'BeSquare graduate programme by Deriv',
+    og_description: 'Learn essential skills from innovative tech teams.',
+    og_type: 'website',
+    og_img_width: '600',
+    og_img_height: '315',
+    og_img: BeSquareOg,
+}
 
 const BeSquare = () => (
     <Layout type="be-square">
         <SEO
-            title={localize('BeSquare By Deriv')}
-            description={localize(
-                'Learn more about BeSquare, a graduate training programme by Deriv that equips fresh graduates with essential skills to kickstart their career in IT.',
-            )}
+            title={'BeSquare By Deriv'}
+            description={
+                'Learn more about BeSquare, a graduate training programme by Deriv that equips fresh graduates with essential skills to kickstart their career in IT.'
+            }
+            meta_attributes={meta_attributes}
         />
         <Hero />
         <Description />
@@ -34,4 +44,4 @@ const BeSquare = () => (
     </Layout>
 )
 
-export default WithIntl()(BeSquare)
+export default BeSquare

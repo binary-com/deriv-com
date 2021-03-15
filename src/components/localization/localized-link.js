@@ -9,7 +9,6 @@ import { LocaleContext } from './locale-context'
 import {
     affiliate_signin_url,
     affiliate_signup_url,
-    besquare_url,
     binary_url,
     blog_url,
     community_url,
@@ -81,7 +80,6 @@ export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
         external,
         is_affiliate_link,
         is_affiliate_sign_in_link,
-        is_besquare_link,
         is_binary_link,
         is_blog_link,
         is_community_link,
@@ -122,8 +120,6 @@ export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
             lang_to = `${blog_url}${to}`
         } else if (is_community_link) {
             lang_to = `${community_url}${to}`
-        } else if (is_besquare_link) {
-            lang_to = `${besquare_url}${to}`
         } else if (is_zoho_link) {
             lang_to = `${zoho_url}${to}`
         } else if (is_dbot_link) {
@@ -141,7 +137,6 @@ export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
             !is_affiliate_link &&
             !is_community_link &&
             !is_affiliate_sign_in_link &&
-            !is_besquare_link &&
             !is_blog_link &&
             !is_zoho_link
         ) {
@@ -202,11 +197,12 @@ export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
     }
 
     if (props.anchor) {
-        return <AnchorLink {...props} to={internal_to} ref={ref} />
+        return <AnchorLink title={ariaLabel} {...props} to={internal_to} ref={ref} />
     }
 
     return (
         <GatsbyLink
+            aria-label={ariaLabel}
             target={target}
             rel={rel}
             className={className}
@@ -232,7 +228,6 @@ LocalizedLink.propTypes = {
     has_no_end_slash: PropTypes.bool,
     is_affiliate_link: PropTypes.bool,
     is_affiliate_sign_in_link: PropTypes.bool,
-    is_besquare_link: PropTypes.bool,
     is_binary_link: PropTypes.bool,
     is_blog_link: PropTypes.bool,
     is_community_link: PropTypes.bool,

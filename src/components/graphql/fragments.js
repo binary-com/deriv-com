@@ -12,6 +12,19 @@ export const heroImage = graphql`
     }
 `
 
+export const colorPlaceholder = graphql`
+    fragment colorPlaceholder on File {
+        childImageSharp {
+            gatsbyImageData(
+                formats: [AUTO, WEBP]
+                layout: CONSTRAINED
+                breakpoints: [360, 992]
+                placeholder: DOMINANT_COLOR
+            )
+        }
+    }
+`
+
 export const fadeIn = graphql`
     fragment fadeIn on File {
         childImageSharp {
@@ -19,7 +32,7 @@ export const fadeIn = graphql`
                 formats: [AUTO, WEBP]
                 layout: CONSTRAINED
                 breakpoints: [360, 992]
-                placeholder: DOMINANT_COLOR
+                placeholder: NONE
             )
         }
     }

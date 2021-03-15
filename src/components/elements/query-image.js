@@ -33,4 +33,5 @@ QueryImage.propTypes = {
     loading: PropTypes.string,
     width: PropTypes.string,
 }
+
 export default QueryImage

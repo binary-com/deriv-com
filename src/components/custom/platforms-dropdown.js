@@ -78,7 +78,7 @@ const PlatformsDropdown = ({ current_ref, is_ppc, is_ppc_redirect, parent, setAc
             setLeftOffset(current_ref.offsetLeft)
             setLeftArrowOffset(current_ref.offsetWidth / 2 - 15)
         }
-    })
+    }, [current_ref])
 
     useEffect(() => {
         if (dropdownContainerRef) {
@@ -88,7 +88,7 @@ const PlatformsDropdown = ({ current_ref, is_ppc, is_ppc_redirect, parent, setAc
         return () => {
             window.removeEventListener('resize', updateOffsets)
         }
-    }, [parent])
+    }, [current_ref])
 
     return (
         <Show.Desktop>

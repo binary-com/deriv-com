@@ -186,11 +186,7 @@ const Hero = ({ is_ppc }) => {
                         <VerticalCarousel contents={!is_ppc ? contents : contents_ppc} />
                     </Details>
                     <ImageWrapper>
-                        <QueryImage
-                            data={data['background']}
-                            alt="platform devices"
-                            loading="eager"
-                        />
+                        <QueryImage data={data['background']} alt="platform devices" is_eager />
                     </ImageWrapper>
                     <ButtonWrapper>
                         <HeroButton secondary="true" to="/signup/">

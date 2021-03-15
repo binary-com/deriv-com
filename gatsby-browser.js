@@ -43,7 +43,7 @@ const addScript = (settings) => {
 
 const sendTags = (api) => {
     const language = LocalStore.get('i18n') || ''
-    const domain = getDomain();
+    const domain = getDomain()
     const { loginid, residence } = getClientInformation(domain) || {
         loginid: '',
         residence: '',
@@ -156,7 +156,6 @@ export const onClientEntry = () => {
 
     addScript({
         src: 'https://static.deriv.com/scripts/cookie.js',
-        async: true,
     })
 
     if (window.location.hostname === 'deriv.com') {
@@ -177,8 +176,8 @@ export const onRouteUpdate = () => {
     checkDomain()
 
     const dataLayer = window.dataLayer
-    const domain = getDomain();
-    const client_information = getClientInformation(domain);
+    const domain = getDomain()
+    const client_information = getClientInformation(domain)
     const is_logged_in = !!client_information
 
     // wrap inside a timeout to ensure the title has properly been changed

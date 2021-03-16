@@ -202,6 +202,7 @@ const cfd_warning_height = {
     tablet: 12,
 }
 const pushwoosh_app_code = 'DD293-35A19'
+const deriv_go_playstore_url = 'https://play.google.com/store/apps/details?id=com.deriv.app'
 
 const getDomain = () =>
     isBrowser() && window.location.hostname.includes(deriv_cookie_domain)
@@ -268,4 +269,5 @@ export {
     trimSpaces,
     p2p_playstore_url,
     sample_rate,
+    deriv_go_playstore_url,
 }

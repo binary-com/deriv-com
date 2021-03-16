@@ -48,9 +48,7 @@ const Content = styled.div`
 `
 
 const ImageWrapper = styled.div`
-    max-width: 47.1rem;
     width: 100%;
-    max-height: 30rem;
     margin-right: ${(props) => props.margin_right};
 
     @media ${device.tabletL} {
@@ -65,16 +63,13 @@ const StyledText = styled(Text)`
     font-size: 2.4rem;
     line-height: 36px;
     text-align: center;
+    margin-bottom: 4rem;
 `
 const Row = styled.div`
     flex-direction: ${(props) => props.flex_direction};
     width: 100%;
     display: flex;
-    margin-top: 8rem;
-
-    &:first-child {
-        margin-top: 0;
-    }
+    margin-top: 4rem;
 
     @media ${device.tabletL} {
         flex-direction: column;

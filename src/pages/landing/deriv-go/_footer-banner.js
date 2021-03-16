@@ -9,6 +9,7 @@ import DerivSmallLogo from 'images/svg/deriv-go/dgo-logo-footer.svg'
 import { Header, LocalizedLinkText, QueryImage } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import { LinkButton } from 'components/form'
+import { deriv_go_playstore_url } from 'common/utility'
 
 const query = graphql`
     query {
@@ -129,7 +130,8 @@ const GoFooterBanner = () => {
                                 translate_text="Scan this QR code to download the app from the <0>Google Play Store</0>."
                                 components={[
                                     <LocalizedLinkText
-                                        to="/signup"
+                                        to={deriv_go_playstore_url}
+                                        target="_blank"
                                         size={24}
                                         color="red"
                                         key={0}
@@ -162,7 +164,11 @@ const GoFooterBanner = () => {
                 </Show.Desktop>
                 <Show.Mobile>
                     <BtnDiv>
-                        <StyledLinkButton type="submit" secondary="true" to={'/landing/signup/'}>
+                        <StyledLinkButton
+                            type="submit"
+                            secondary="true"
+                            to={deriv_go_playstore_url}
+                        >
                             {localize('Get on Android')}
                         </StyledLinkButton>
                     </BtnDiv>

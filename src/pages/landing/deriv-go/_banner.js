@@ -32,6 +32,9 @@ const HeaderWrapper = styled(Flex)`
     background: rgb(80, 133, 182);
     background: linear-gradient(180deg, rgba(80, 133, 182, 1) 0%, rgba(30, 60, 87, 1) 100%);
     clip-path: polygon(0 0, 100% 0%, 100% 85%, 0 100%);
+    @media ${device.desktopL} {
+        height: 720px;
+    }
     @media ${device.tabletL} {
         clip-path: polygon(0 0, 100% 0%, 100% 85%, 0 100%);
         height: 632px;

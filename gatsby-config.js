@@ -28,7 +28,7 @@ module.exports = {
                 forceBase64Format: 'webp',
                 useMozJpeg: process.env.GATSBY_JPEG_ENCODER === `MOZJPEG`,
                 stripMetadata: true,
-                defaultQuality: 40,
+                defaultQuality: 45,
             },
         },
         `gatsby-plugin-image`,

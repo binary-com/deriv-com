@@ -60,6 +60,10 @@ import {
     CHFJPY,
     NZDUSD,
     XRPUSD,
+    EURINDEX,
+    AUDINDEX,
+    GBPINDEX,
+    USDINDEX
 } from 'components/elements/symbols.js'
 import { localize } from 'components/localization'
 
@@ -240,37 +244,37 @@ export const financialItemLists = [
         name: 'BCHUSD',
         display_name: localize('BCH/USD'),
         icon: <img src={BCHUSD} alt="bch usd" />,
-        market: 'forex',
+        market: 'crypto',
     },
     {
         name: 'BTCUSD',
         display_name: localize('BTC/USD'),
         icon: <img src={BTCUSD} alt="btc usd" />,
-        market: 'forex',
+        market: 'crypto',
     },
     {
         name: 'DSHUSD',
         display_name: localize('DSH/USD'),
         icon: <img src={DSHUSD} alt="dsh usd" />,
-        market: 'forex',
+        market: 'crypto',
     },
     {
         name: 'EOSUSD',
         display_name: localize('EOS/USD'),
         icon: <img src={EOSUSD} alt="eos usd" />,
-        market: 'forex',
+        market: 'crypto',
     },
     {
         name: 'LTCUSD',
         display_name: localize('LTC/USD'),
         icon: <img src={LTCUSD} alt="ltc usd" />,
-        market: 'forex',
+        market: 'crypto',
     },
     {
         name: 'XRPUSD',
         display_name: localize('XRP/USD'),
         icon: <img src={XRPUSD} alt="xrp usd" />,
-        market: 'forex',
+        market: 'crypto',
     },
     {
         name: 'AUDCAD',
@@ -463,5 +467,35 @@ export const financialItemLists = [
         display_name: localize('Platinum/USD'),
         icon: <img src={PLATINUMUSD} alt="platinum usd" />,
         market: 'commodities',
+    },
+    {
+        name: 'AUDINDEX',
+        display_name: localize('AUD Index'),
+        icon: <img src={AUDINDEX} alt="aud index" />,
+        market: 'smartfx',
+    },
+    {
+        name: 'GBPINDEX',
+        display_name: localize('GBP Index'),
+        icon: <img src={GBPINDEX} alt="gbp index" />,
+        market: 'smartfx',
+    },
+    {
+        name: 'EURINDEX',
+        display_name: localize('EUR Index'),
+        icon: <img src={EURINDEX} alt="eur index" />,
+        market: 'smartfx',
+    },
+    {
+        name: 'USDINDEX',
+        display_name: localize('USD Index'),
+        icon: <img src={USDINDEX} alt="usd index" />,
+        market: 'smartfx',
+    },
+    {
+        name: 'GOLDINDEX',
+        display_name: localize('Gold Index'),
+        icon: <img src={GOLDUSD} alt="gold index" />,
+        market: 'smartfx',
     },
 ]

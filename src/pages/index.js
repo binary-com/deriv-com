@@ -1,13 +1,13 @@
 import React from 'react'
 // import Ticker from './home/_ticker'
 import {
-    TradeTypesMobile,
-    TradeTypes,
     Markets,
-    Trade,
-    WhatOurClientsSay,
-    SimpleSteps,
     Signup,
+    SimpleSteps,
+    Trade,
+    TradeTypes,
+    TradeTypesMobile,
+    WhatOurClientsSay,
 } from './home/_lazy-load'
 import Hero from './home/_hero'
 import TradeTheWayYouLike from './home/_trade-the-way-you-like'

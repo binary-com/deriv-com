@@ -55,7 +55,7 @@ export const useLivechat = () => {
                         }
                     })()
 
-                    cookie_interval = setInterval(checkCookie, 500)
+                    cookie_interval = setInterval(checkCookie, 600)
 
                     window.LiveChatWidget.on('ready', () => {
                         setLiveChatInteractive(true)

@@ -18,6 +18,14 @@ const kid_data = [
         title: <Localize translate_text="Multipliers" />,
         ref: 'kid_deriv_multipliers.pdf',
     },
+    {
+        title: <Localize translate_text="Stocks" />,
+        ref: 'kid_deriv_Stocks.pdf',
+    },
+    {
+        title: <Localize translate_text="Stock Indices" />,
+        ref: 'kid_deriv_Stock Indices.pdf',
+    },
 ]
 
 export default kid_data

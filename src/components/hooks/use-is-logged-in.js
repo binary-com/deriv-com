@@ -14,7 +14,7 @@ const useIsLoggedIn = () => {
         return () => clearInterval(checkCookieChange)
     })
 
-    return is_logged_in
+    return [is_logged_in]
 }
 
 export default useIsLoggedIn

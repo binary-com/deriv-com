@@ -2,7 +2,7 @@ import React from 'react'
 import { Hero } from './common/_style'
 import TradingTools from './_tools'
 import { Container, SEO } from 'components/containers'
-import { Header, LocalizedLinkText } from 'components/elements'
+import { Header } from 'components/elements'
 import { localize, WithIntl, Localize } from 'components/localization'
 import Layout from 'components/layout/layout'
 
@@ -10,84 +10,60 @@ const tools = [
     {
         title: <Localize translate_text="Margin calculator" />,
         subtitle: (
-            <Localize
-                translate_text="Estimate the margin you need to hold your positions. The result depends on leverage, volume lot, and your DMT5 account balance. <br /><0>Try margin calculator</0>"
-                components={[<LocalizedLinkText color="red" key={0} />]}
-            />
+            <Localize translate_text="Estimate the margin you need to hold your positions. The result depends on leverage, volume lot, and your DMT5 account balance." />
         ),
-
+        link: {
+            text: <Localize translate_text="Try margin calculator" />,
+            route: '/trader-tools/margin-calculator',
+        },
         image_name: 'margin',
         image_alt: localize('margin calculator'),
     },
     {
         title: <Localize translate_text="Swap calculator" />,
         subtitle: (
-            <Localize
-                translate_text="Calculate the overnight fees for holding any open positions. The fees can be positive or negative depending on your swap rate.<br /><0>Try swap calculator</0>"
-                components={[<LocalizedLinkText color="red" key={0} />]}
-            />
+            <Localize translate_text="Calculate the overnight fees for holding any open positions. The fees can be positive or negative depending on your swap rate." />
         ),
-        subtitle_mobile: (
-            <Localize
-                translate_text="Calculate the overnight fees for holding any open positions. The fees can be positive or negative depending on your swap rate.<br /><0>Try swap calculator</0>"
-                components={[<LocalizedLinkText color="red" key={0} />]}
-            />
-        ),
-
+        link: {
+            text: <Localize translate_text="Try swap calculator" />,
+            route: '/trader-tools/swap-calculator',
+        },
         image_name: 'swap',
         image_alt: localize('swap calculator'),
     },
     {
         title: <Localize translate_text="Pip calculator" />,
         subtitle: (
-            <Localize
-                translate_text="Find the value of the pips in your trades to manage your risk efficiently.<br /><0>Try pip calculator</0>"
-                components={[<LocalizedLinkText color="red" key={0} />]}
-            />
+            <Localize translate_text="Find the value of the pips in your trades to manage your risk efficiently." />
         ),
-        subtitle_mobile: (
-            <Localize
-                translate_text="Find the value of the pips in your trades to manage your risk efficiently.<br /><0>Try pip calculator</0>"
-                components={[<LocalizedLinkText color="red" key={0} />]}
-            />
-        ),
-
+        link: {
+            text: <Localize translate_text="Try pip calculator" />,
+            route: '/trader-tools/pip-calculator',
+        },
         image_name: 'pip',
         image_alt: localize('pip calculator'),
     },
     {
         title: <Localize translate_text="PnL for margin" />,
         subtitle: (
-            <Localize
-                translate_text="Estimate the stop loss and/or take profit levels as well as the pip value for your contract to mitigate your risk when buying or selling a position.<br /><0>Try PnL for margin</0>"
-                components={[<LocalizedLinkText color="red" key={0} />]}
-            />
+            <Localize translate_text="Estimate the stop loss and/or take profit levels as well as the pip value for your contract to mitigate your risk when buying or selling a position." />
         ),
-        subtitle_mobile: (
-            <Localize
-                translate_text="Estimate the stop loss and/or take profit levels as well as the pip value for your contract to mitigate your risk when buying or selling a position.<br /><0>Try PnL for margin</0>"
-                components={[<LocalizedLinkText color="red" key={0} />]}
-            />
-        ),
-
+        link: {
+            text: <Localize translate_text="Try PnL for margin" />,
+            route: '/trader-tools/pnl-margin',
+        },
         image_name: 'pnl_margin',
         image_alt: localize('PnL margin'),
     },
     {
         title: <Localize translate_text="PnL for multipliers" />,
         subtitle: (
-            <Localize
-                translate_text="Estimate the stop loss and/or take profit level as well as the stop loss and/or take profit amount for your contract to mitigate your risk in case the market price moves against your favour.<br /><0>Try PnL for multipliers</0>"
-                components={[<LocalizedLinkText color="red" key={0} />]}
-            />
+            <Localize translate_text="Estimate the stop loss and/or take profit level as well as the stop loss and/or take profit amount for your contract to mitigate your risk in case the market price moves against your favour." />
         ),
-        subtitle_mobile: (
-            <Localize
-                translate_text="Estimate the stop loss and/or take profit level as well as the stop loss and/or take profit amount for your contract to mitigate your risk in case the market price moves against your favour.<br /><0>Try PnL for multipliers</0>"
-                components={[<LocalizedLinkText color="red" key={0} />]}
-            />
-        ),
-
+        link: {
+            text: <Localize translate_text="Try PnL for multipliers" />,
+            route: '/trader-tools/pnl-multipliers',
+        },
         image_name: 'pnl_multipliers',
         image_alt: localize('PnL multipliers'),
     },

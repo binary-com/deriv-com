@@ -1,5 +1,5 @@
 // TODO: (discussion) make nav pure component, and move usage of nav to custom
-import React, { useCallback, useEffect, useRef, useState } from 'react'
+import React, { useCallback, useContext, useEffect, useRef, useState } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
@@ -19,12 +19,7 @@ import { useActiveLinkState } from 'components/hooks/use-active-link-state'
 import { SharedLinkStyle } from 'components/localization/localized-link'
 import Login from 'common/login'
 import device from 'themes/device'
-import {
-    affiliate_signin_url,
-    affiliate_signup_url,
-    deriv_app_url,
-    isLoggedIn,
-} from 'common/utility'
+import { affiliate_signin_url, affiliate_signup_url, deriv_app_url } from 'common/utility'
 // Icons
 import Logo from 'images/svg/logo-deriv.svg'
 import LogoPartner from 'images/svg/logo-partners.svg'
@@ -33,6 +28,7 @@ import Close from 'images/svg/close-long.svg'
 import LogoOnly from 'images/svg/logo-deriv-only.svg'
 import LogoCombinedShape from 'images/svg/logo-combined-shape.svg'
 import { CFDWarning } from 'components/layout'
+import { DerivStore } from 'store'
 
 const query = graphql`
     query {
@@ -580,16 +576,7 @@ const MemoizedNavDesktop = React.memo(NavDesktop)
 const MemoizedNavMobile = React.memo(NavMobile)
 
 export const Nav = ({ base, is_ppc_redirect, is_ppc }) => {
-    const [is_logged_in, setLoggedIn] = useState(false)
-
-    useEffect(() => {
-        setLoggedIn(isLoggedIn())
-
-        let checkCookieChange = setInterval(() => {
-            setLoggedIn(isLoggedIn())
-        }, 800)
-        return () => clearInterval(checkCookieChange)
-    }, [])
+    const is_logged_in = useContext(DerivStore)
 
     return (
         <NavWrapperMain>

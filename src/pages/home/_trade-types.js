@@ -9,6 +9,7 @@ import OptionsLogo from 'images/svg/trade-types/options.svg'
 import MultipliersLogo from 'images/svg/trade-types/multipliers.svg'
 import { LinkButton } from 'components/form'
 import { DerivStore } from 'store'
+import { deriv_app_url } from 'common/utility'
 
 const TradingButton = styled(LinkButton)`
     height: 40px;
@@ -27,7 +28,6 @@ const StyledContainer = styled(Container)`
 `
 
 const TradeTypes = () => {
-    
     const margin = {
         icon: <img src={MarginLogo} alt="margin" width="48" height="49" />,
         title: <Localize translate_text="Margin trading" />,
@@ -55,9 +55,9 @@ const TradeTypes = () => {
         link: '/trade-types/multiplier',
         linkTitle: localize('Multiplier'),
     }
-    
-    const { is_eu_country } = React.useContext(DerivStore)
-    
+
+    const { is_eu_country, is_logged_in } = React.useContext(DerivStore)
+
     const trade_types = is_eu_country ? [margin, multipliers] : [margin, options, multipliers]
 
     return (
@@ -68,11 +68,19 @@ const TradeTypes = () => {
                         {localize('Trade types')}
                     </Header>
                     <Text size="2.4rem" mt="1.6rem" mb="5rem">
-                        {localize('Explore different trade types to trade on your preferred market.')}
+                        {localize(
+                            'Explore different trade types to trade on your preferred market.',
+                        )}
                     </Text>
-                    <TradingButton type="submit" secondary="true" to="/signup/">
-                        {localize('Start trading')}
-                    </TradingButton>
+                    {is_logged_in ? (
+                        <TradingButton secondary="true" to={deriv_app_url}>
+                            {localize('Get Trading')}
+                        </TradingButton>
+                    ) : (
+                        <TradingButton type="submit" secondary="true" to="/signup/">
+                            {localize('Start trading')}
+                        </TradingButton>
+                    )}
                 </Flex>
                 <Flex>
                     {trade_types.map((trade_type, idx) => (

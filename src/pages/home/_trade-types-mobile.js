@@ -10,6 +10,7 @@ import OptionsLogo from 'images/svg/trade-types/options.svg'
 import MultipliersLogo from 'images/svg/trade-types/multipliers.svg'
 import Arrow from 'images/svg/arrow-right.svg'
 import { DerivStore } from 'store'
+import { deriv_app_url } from 'common/utility'
 
 const StyledSection = styled(SectionContainer)`
     display: flex;
@@ -87,7 +88,6 @@ TradeTypeSlide.propTypes = {
 }
 
 const TradeTypesMobile = () => {
-
     const margin = {
         icon: <img src={MarginLogo} alt="margin" width="48" height="49" />,
         title: <Localize translate_text="Margin trading" />,
@@ -115,11 +115,11 @@ const TradeTypesMobile = () => {
         link: '/trade-types/multiplier',
         linkTitle: localize('Multiplier'),
     }
-    
-    const { is_eu_country } = React.useContext(DerivStore)
-        
+
+    const { is_eu_country, is_logged_in } = React.useContext(DerivStore)
+
     const trade_types = is_eu_country ? [margin, multipliers] : [margin, options, multipliers]
-    
+
     const settings = {
         options: {
             align: 'center',
@@ -168,7 +168,11 @@ const TradeTypesMobile = () => {
                         />
                     ))}
                 </Carousel>
-                <TradingButton type="submit" secondary="true" to="/signup/">
+                <TradingButton
+                    type="submit"
+                    secondary="true"
+                    to={is_logged_in ? deriv_app_url : '/signup/'}
+                >
                     {localize('Start trading')}
                 </TradingButton>
             </StyledSection>

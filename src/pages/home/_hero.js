@@ -8,6 +8,8 @@ import { LinkButton } from 'components/form'
 import { Container, CssGrid, Box, Flex, Show } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
 import { Localize, localize } from 'components/localization'
+import useIsLoggedIn from 'components/hooks/use-is-logged-in.js'
+import { deriv_app_url } from 'common/utility'
 
 const query = graphql`
     query {
@@ -120,6 +122,7 @@ const Hero = ({ is_ppc }) => {
         : localize('Trade forex, commodities, and stock indices')
     const [type_writer, setTypeWriter] = React.useState('')
     const [check_first_load, setFirstLoad] = React.useState(false)
+    const isLoggedIn = useIsLoggedIn()
     let type_writer_timeout
 
     const typeWriterAnimation = (i = 0) => {
@@ -200,9 +203,15 @@ const Hero = ({ is_ppc }) => {
                         </Show.Desktop>
                     </ImageWrapper>
                     <ButtonWrapper>
-                        <HeroButton secondary="true" to="/signup/">
-                            <Localize translate_text="Create free demo account" />
-                        </HeroButton>
+                        {isLoggedIn ? (
+                            <HeroButton secondary="true" to="/signup/">
+                                <Localize translate_text="Create free demo account" />
+                            </HeroButton>
+                        ) : (
+                            <HeroButton secondary="true" to={deriv_app_url}>
+                                <Localize translate_text="Get Trading" />
+                            </HeroButton>
+                        )}
                     </ButtonWrapper>
                 </HeroContainer>
             </Container>

@@ -6,12 +6,13 @@ import {
     livechat_client_id,
     livechat_license_id,
 } from 'common/utility'
+import { DerivStore } from 'store'
 
 export const useLivechat = () => {
     const [is_livechat_interactive, setLiveChatInteractive] = React.useState(false)
     const LC_API = (isBrowser() && window.LC_API) || {}
-    const [is_logged_in, setLoggedIn] = React.useState(false)
     const CustomerSdk = React.useRef(null)
+    const { is_logged_in } = React.useContext(DerivStore)
 
     const url_params = new URLSearchParams((isBrowser() && window.location.search) || '')
     const is_livechat_query = url_params.get('is_livechat_open')
@@ -28,10 +29,8 @@ export const useLivechat = () => {
     }
 
     React.useEffect(() => {
-        let cookie_interval = null
         let script_timeout = null
         if (isBrowser()) {
-            const domain = getDomain()
             try {
                 import('@livechat/customer-sdk').then((CSDK) => {
                     CustomerSdk.current = CSDK
@@ -40,20 +39,6 @@ export const useLivechat = () => {
                 // eslint-disable-nextline
                 console.error(e)
             }
-
-            const checkCookie = (() => {
-                let lastCookie = document.cookie // 'static' memory between function calls
-                return function () {
-                    const currentCookie = document.cookie
-                    if (currentCookie != lastCookie) {
-                        const client_information = getClientInformation(domain)
-                        setLoggedIn(!!client_information)
-                        lastCookie = currentCookie // store latest cookie
-                    }
-                }
-            })()
-
-            cookie_interval = setInterval(checkCookie, 500)
 
             // The purpose is to load the script after everything is load but not async or defer. Therefore, it will be ignored in the rendering timeline
             script_timeout = setTimeout(() => {
@@ -68,10 +53,7 @@ export const useLivechat = () => {
             }, 2000)
         }
 
-        return () => {
-            clearInterval(cookie_interval)
-            clearTimeout(script_timeout)
-        }
+        return () => clearTimeout(script_timeout)
     }, [])
 
     React.useEffect(() => {

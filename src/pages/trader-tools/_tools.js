@@ -8,9 +8,6 @@ import { Header, Text, QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
 
 const StyledSection = styled(SectionContainer)`
-    background-color: var(--color-white);
-    width: 100%;
-
     @media ${device.tabletL} {
         padding: 40px 0;
     }
@@ -97,7 +94,7 @@ const query = graphql`
 const TradingTools = ({ tools, reverse }) => {
     const data = useStaticQuery(query)
     return (
-        <StyledSection>
+        <StyledSection background="white">
             <Container fd="column">
                 {tools.map((item, index) => {
                     let is_even = reverse ? (index + 1) % 2 : index % 2

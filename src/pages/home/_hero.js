@@ -204,12 +204,12 @@ const Hero = ({ is_ppc }) => {
                     </ImageWrapper>
                     <ButtonWrapper>
                         {isLoggedIn ? (
-                            <HeroButton secondary="true" to="/signup/">
-                                <Localize translate_text="Create free demo account" />
-                            </HeroButton>
-                        ) : (
                             <HeroButton secondary="true" to={deriv_app_url}>
                                 <Localize translate_text="Get Trading" />
+                            </HeroButton>
+                        ) : (
+                            <HeroButton secondary="true" to="/signup/">
+                                <Localize translate_text="Create free demo account" />
                             </HeroButton>
                         )}
                     </ButtonWrapper>

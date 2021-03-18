@@ -5,7 +5,7 @@ import { isLoggedIn } from 'common/utility'
 export const LogInContext = createContext()
 
 export const LogInProvider = ({ children }) => {
-    const [is_logged_in, setLoggedIn] = useState(true)
+    const [is_logged_in, setLoggedIn] = useState(false)
 
     useEffect(() => {
         setLoggedIn(isLoggedIn())

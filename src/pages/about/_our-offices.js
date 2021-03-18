@@ -210,7 +210,7 @@ export const OurOffices = () => {
                         </Flex>
                         <Flex fd="column" ai="center">
                             <Text align="center" color="red" size="4.8rem" weight="bold">
-                                9
+                                10
                             </Text>
                             <Text align="center">{localize('Corporate offices')}</Text>
                         </Flex>
@@ -240,6 +240,12 @@ export const OurOffices = () => {
                                 top="58%"
                                 title={localize('Rwanda')}
                                 link="/contact_us#rwanda"
+                            />
+                            <MapPin
+                                left="48%"
+                                top="20%"
+                                title={localize('Belarus')}
+                                link="/contact_us#belarus"
                             />
                             <MapPin
                                 left="63.5%"
@@ -288,6 +294,12 @@ export const OurOffices = () => {
                                 top="26.8%"
                                 title="Cyprus"
                                 link="/contact_us#cyprus"
+                            />
+                            <MapPin
+                                left="47%"
+                                top="18%"
+                                title={localize('Belarus')}
+                                link="/contact_us#belarus"
                             />
                             <MapPin left="52%" top="51%" title="Rwanda" link="/contact_us#rwanda" />
                             <MapPin left="62%" top="32%" title="Dubai" link="/contact_us#dubai" />

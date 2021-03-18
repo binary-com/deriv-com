@@ -1,13 +1,15 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
-import { Container, Flex } from 'components/containers'
+import { Flex } from 'components/containers'
+import { LocalizedLink, localize } from 'components/localization'
+import { Header, QueryImage } from 'components/elements'
 import device from 'themes/device.js'
+import { deriv_go_playstore_url, deriv_go_huaweiappgallery_url } from 'common/utility'
 // svgs
 import TopBannerLogo from 'images/svg/deriv-go/deriv-go-logo.svg'
+import HuaweiAppGallery from 'images/svg/deriv-go/huawei-app-gallery.svg'
 import GooglePlayLogo from 'images/svg/deriv-go/google-play.svg'
-import { localize } from 'components/localization'
-import { Header, QueryImage } from 'components/elements'
 
 const query = graphql`
     query {
@@ -37,7 +39,7 @@ const HeaderWrapper = styled(Flex)`
     }
     @media ${device.tabletL} {
         clip-path: polygon(0 0, 100% 0%, 100% 85%, 0 100%);
-        height: 632px;
+        height: 672px;
     }
 `
 const TopContent = styled(Flex)`
@@ -53,7 +55,7 @@ const TopContent = styled(Flex)`
         max-width: 58.8rem;
         flex-direction: column;
         justify-content: center;
-        height: 367px;
+        height: 407px;
         padding: 0 16px;
     }
 `
@@ -84,19 +86,14 @@ const TopContentLogo = styled.img`
     }
 `
 const StyledHeader = styled(Header)`
-    margin-bottom: 16px;
-    line-height: 1.25;
     @media ${device.tabletL} {
-        font-size: 40px;
         text-align: center;
     }
 `
 const StyledHeaderSmall = styled(Header)`
     max-width: 58rem;
-    line-height: 1.5;
     margin-bottom: 40px;
     @media ${device.tabletL} {
-        font-size: 20px;
         margin-bottom: 24px;
         max-width: 100%;
         text-align: center;
@@ -113,14 +110,19 @@ const TopAppStoreWrapper = styled(Flex)`
         height: unset;
     }
 `
-const GoogleStoreLogo = styled.img`
-    width: 138px;
-    height: 40px;
+const AppButton = styled(LocalizedLink)`
     margin-right: 8px;
+    padding: 0;
+    border: none;
+    background: none;
     @media ${device.tabletL} {
         margin-right: unset;
         margin-bottom: 6px;
     }
+`
+const AppLogo = styled.img`
+    width: 138px;
+    height: 40px;
 `
 const StyledSmallAppstore = styled(Header)`
     max-width: 58rem;
@@ -133,7 +135,6 @@ const StyledSmallAppstore = styled(Header)`
 const BottomWrapper = styled(Flex)`
     max-width: 996px;
     height: 126px;
-    padding: 0;
     margin: 0 auto;
     justify-content: flex-end;
     position: relative;
@@ -147,7 +148,6 @@ const BottomWrapper = styled(Flex)`
 `
 const BannerImageWrapper = styled(Flex)`
     width: 384px;
-    display: flex;
     align-items: flex-end;
     position: absolute;
     bottom: 0;
@@ -157,13 +157,13 @@ const BannerImageWrapper = styled(Flex)`
         bottom: 56px;
     }
 `
-const DesktopImageWrapper = styled(Container)`
+const DesktopImageWrapper = styled.div`
     width: 100%;
     @media ${device.tabletL} {
         display: none;
     }
 `
-const MobileImageWrapper = styled(Container)`
+const MobileImageWrapper = styled.div`
     display: none;
     @media ${device.tabletL} {
         display: flex;
@@ -173,13 +173,14 @@ const MobileImageWrapper = styled(Container)`
 
 const Banner = () => {
     const data = useStaticQuery(query)
+
     return (
         <MainWrapper>
             <HeaderWrapper>
                 <TopContent>
                     <TopContentLeft>
                         <TopContentLogo src={TopBannerLogo} alt="deriv-go logo" />
-                        <StyledHeader color="white" type="display-title">
+                        <StyledHeader color="white" type="display-title" mb="1.6rem">
                             {localize('Trade at the speed of touch')}
                         </StyledHeader>
                         <StyledHeaderSmall color="white" type="sub-section-title" weight="normal">
@@ -188,7 +189,22 @@ const Banner = () => {
                             )}
                         </StyledHeaderSmall>
                         <TopAppStoreWrapper>
-                            <GoogleStoreLogo src={GooglePlayLogo} alt="google store logo" />
+                            <AppButton
+                                external="true"
+                                to={deriv_go_playstore_url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <AppLogo src={GooglePlayLogo} alt="google store logo" />
+                            </AppButton>
+                            <AppButton
+                                external="true"
+                                to={deriv_go_huaweiappgallery_url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <AppLogo src={HuaweiAppGallery} alt="huawei app gallery logo" />
+                            </AppButton>
                             <StyledSmallAppstore color="white" type="sub-paragraph" weight="normal">
                                 {localize('(iOS coming soon)')}
                             </StyledSmallAppstore>

@@ -1,9 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
-// import { Text } from 'components/elements/typography'
 import { Flex, Show } from 'components/containers'
-// import { localize } from 'components/localization'
 import device from 'themes/device.js'
 import DerivSmallLogo from 'images/svg/deriv-go/dgo-logo-footer.svg'
 import { Header, LocalizedLinkText, QueryImage } from 'components/elements'
@@ -56,10 +54,7 @@ const TextWrapper = styled(Flex)`
 `
 const StyledHeader = styled(Header)`
     margin-bottom: 8px;
-    line-height: 40px;
     @media ${device.tabletL} {
-        font-size: 16px;
-        line-height: 24px;
         margin-bottom: 0;
     }
 `
@@ -72,28 +67,12 @@ const StyledHeaderSmall = styled(Header)`
         margin-bottom: 0;
     }
 `
-const StyledHeaderSub = styled(Header)`
-    line-height: 1.5;
-`
-// const DesktopImageWrapper = styled(Container)`
-//     width: 100%;
-//     @media ${device.tabletL} {
-//         display: none;
-//     }
-// `
-// const MobileImageWrapper = styled(Container)`
-//     display: none;
-//     @media ${device.tabletL} {
-//         display: flex;
-//         width: 100%;
-//     }
-// `
 const QRCodeImgWrapper = styled(Flex)`
     width: 96px;
     height: 96px;
     align-items: center;
 `
-const BtnDiv = styled(Flex)`
+const ButtonWrapper = styled(Flex)`
     width: 105px;
     justify-content: start;
 `
@@ -121,7 +100,7 @@ const GoFooterBanner = () => {
                         </StyledHeader>
                     </Show.Desktop>
                     <Show.Mobile>
-                        <StyledHeader type="section-title">{localize('Deriv Go')}</StyledHeader>
+                        <StyledHeader type="main-paragraph">{localize('Deriv Go')}</StyledHeader>
                     </Show.Mobile>
 
                     <Show.Desktop>
@@ -141,16 +120,16 @@ const GoFooterBanner = () => {
                         </StyledHeaderSmall>
                     </Show.Desktop>
                     <Show.Mobile>
-                        <StyledHeaderSmall type="sub-section-title" weight="normal">
+                        <Header type="sub-paragraph" weight="normal">
                             {localize('Trade on the GO')}
-                        </StyledHeaderSmall>
+                        </Header>
                     </Show.Mobile>
                     <Show.Desktop>
-                        <StyledHeaderSub type="main-paragraph" weight="normal">
+                        <Header type="main-paragraph" weight="normal">
                             {localize(
                                 '(iOS users: We haven’t forgotten you. A version for you is in the works.)',
                             )}
-                        </StyledHeaderSub>
+                        </Header>
                     </Show.Desktop>
                 </TextWrapper>
                 <Show.Desktop>
@@ -163,7 +142,7 @@ const GoFooterBanner = () => {
                     </QRCodeImgWrapper>
                 </Show.Desktop>
                 <Show.Mobile>
-                    <BtnDiv>
+                    <ButtonWrapper>
                         <StyledLinkButton
                             type="submit"
                             secondary="true"
@@ -171,7 +150,7 @@ const GoFooterBanner = () => {
                         >
                             {localize('Get on Android')}
                         </StyledLinkButton>
-                    </BtnDiv>
+                    </ButtonWrapper>
                 </Show.Mobile>
             </MainWrapper>
         </BannerWrapper>

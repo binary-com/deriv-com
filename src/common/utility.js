@@ -203,6 +203,7 @@ const cfd_warning_height = {
 }
 const pushwoosh_app_code = 'DD293-35A19'
 const deriv_go_playstore_url = 'https://play.google.com/store/apps/details?id=com.deriv.app'
+const deriv_go_huaweiappgallery_url = 'https://appgallery.huawei.com/#/app/C103801913'
 
 const getDomain = () =>
     isBrowser() && window.location.hostname.includes(deriv_cookie_domain)
@@ -270,4 +271,5 @@ export {
     p2p_playstore_url,
     sample_rate,
     deriv_go_playstore_url,
+    deriv_go_huaweiappgallery_url,
 }

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { graphql, useStaticQuery } from 'gatsby'
 import device from 'themes/device'
-import { Container, SectionContainer, Show } from 'components/containers'
+import { Container, Flex, SectionContainer, Show } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
 import { localize } from 'components/localization'
 
@@ -16,7 +16,6 @@ const StyledSection = styled(SectionContainer)`
     }
 `
 const StyledContainer = styled(Container)`
-    display: flex;
     flex-direction: column;
     max-width: 996px;
 
@@ -24,40 +23,22 @@ const StyledContainer = styled(Container)`
         width: 100%;
     }
 `
-const Content = styled.div`
+const Content = styled(Flex)`
     width: 100%;
     max-width: 38.4rem;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     margin-right: ${(props) => props.margin_right};
 
     ${Text} {
         font-size: 2.4rem;
         margin-top: 0.8rem;
-
-        @media ${device.tabletL} {
-            text-align: center;
-            font-size: 16px;
-        }
-    }
-
-    @media ${device.tabletL} {
-        margin: 0 auto;
     }
 `
 
 const ImageWrapper = styled.div`
     width: 100%;
     margin-right: ${(props) => props.margin_right};
-
-    @media ${device.tabletL} {
-        margin: 2rem auto;
-    }
-`
-const StyledHeader = styled(Header)`
-    font-size: 32px;
-    line-height: 1.25;
 `
 const StyledText = styled(Text)`
     font-size: 2.4rem;
@@ -65,16 +46,9 @@ const StyledText = styled(Text)`
     text-align: center;
     margin-bottom: 4rem;
 `
-const Row = styled.div`
-    flex-direction: ${(props) => props.flex_direction};
-    width: 100%;
-    display: flex;
+const Row = styled(Flex)`
+    align-items: center;
     margin-top: 4rem;
-
-    @media ${device.tabletL} {
-        flex-direction: column;
-        margin-top: 40px;
-    }
 `
 const query = graphql`
     query {
@@ -102,9 +76,9 @@ const DerivGoContent = ({ P2P, reverse, two_title }) => {
                 {P2P.map((item, index) => {
                     let is_even = reverse ? (index + 1) % 2 : index % 2
                     return (
-                        <Row flex_direction={!is_even ? 'row' : 'row-reverse'} key={index}>
+                        <Row fd={!is_even ? 'row' : 'row-reverse'} key={index}>
                             <Content margin_right={!is_even ? '12.6rem' : '0'}>
-                                <StyledHeader>{item.title}</StyledHeader>
+                                <Header type="section-title">{item.title}</Header>
                                 <Show.Desktop>
                                     <Text>{item.subtitle}</Text>
                                 </Show.Desktop>
@@ -113,7 +87,9 @@ const DerivGoContent = ({ P2P, reverse, two_title }) => {
                                 </Show.Mobile>
                                 {two_title && (
                                     <>
-                                        <StyledHeader mt="2.4rem">{item.second_title}</StyledHeader>
+                                        <Header type="section-title" mt="2.4rem">
+                                            {item.second_title}
+                                        </Header>
                                         <Text>{item.second_subtitle}</Text>
                                     </>
                                 )}

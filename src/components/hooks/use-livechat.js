@@ -7,7 +7,7 @@ import {
     livechat_license_id,
 } from 'common/utility'
 
-export const useLivechat = ({ is_logged_in }) => {
+export const useLivechat = (is_logged_in) => {
     const [is_livechat_interactive, setLiveChatInteractive] = React.useState(false)
     const LC_API = (isBrowser() && window.LC_API) || {}
     const CustomerSdk = React.useRef(null)

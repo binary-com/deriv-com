@@ -251,10 +251,6 @@ export const InputGroup = styled.div`
 
 export const CalculateButton = styled(Button)`
     width: 100%;
-
-    @media ${device.mobileL} {
-        font-size: 14px;
-    }
 `
 
 export const RightContent = styled.div`
@@ -282,7 +278,7 @@ export const ImageWrapper = styled.div`
 `
 
 export const FormulaText = styled.div`
-    background-color: #f9fafc;
+    background-color: var(--color-grey-25);
     padding: 1.6rem;
     font-size: 14px;
     line-height: 2;
@@ -317,7 +313,6 @@ export const BottomText = styled(Text)`
 
 export const LinkWrapper = styled(Flex)`
     padding: 2rem 2rem 1rem;
-    width: 100%;
 
     @media (max-width: 1420px) {
         top: 480px;
@@ -340,7 +335,6 @@ export const LinkWrapper = styled(Flex)`
 
 export const StyledLinkButton = styled(LinkButton)`
     padding: 1.2rem 1.5rem;
-    font-size: 14px;
     max-height: 4rem;
     height: 100%;
     margin-right: 0.8rem;

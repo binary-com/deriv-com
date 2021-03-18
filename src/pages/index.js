@@ -11,7 +11,6 @@ import {
 } from './home/_lazy-load'
 import Hero from './home/_hero'
 import TradeTheWayYouLike from './home/_trade-the-way-you-like'
-import { LogInProvider } from 'components/layout/log-in-context'
 import { SEO, Show } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl, Localize } from 'components/localization'
@@ -46,43 +45,39 @@ const simple_step_content = [
 
 const Home = () => {
     return (
-        <LogInProvider>
-            <Layout>
-                <SEO
-                    title={localize(
-                        'Online trading platform | Forex, commodities and indices | Deriv',
-                    )}
-                    description={localize(
-                        'Deriv - An online trading platform that offers a wide selection of derivatives to trade on 24/7.',
-                    )}
-                    has_organization_schema
-                />
-                <Hero />
+        <Layout>
+            <SEO
+                title={localize('Online trading platform | Forex, commodities and indices | Deriv')}
+                description={localize(
+                    'Deriv - An online trading platform that offers a wide selection of derivatives to trade on 24/7.',
+                )}
+                has_organization_schema
+            />
+            <Hero />
 
-                <Show.Mobile>
-                    <TradeTheWayYouLike />
-                </Show.Mobile>
-                <Show.Desktop>
-                    <Trade />
-                </Show.Desktop>
+            <Show.Mobile>
+                <TradeTheWayYouLike />
+            </Show.Mobile>
+            <Show.Desktop>
+                <Trade />
+            </Show.Desktop>
 
-                <Show.Mobile>
-                    <TradeTypesMobile />
-                </Show.Mobile>
-                <Show.Desktop>
-                    <TradeTypes />
-                </Show.Desktop>
-                <Markets />
-                <SimpleSteps
-                    content={simple_step_content}
-                    header={<Localize translate_text="3 simple steps" />}
-                />
-                <WhatOurClientsSay />
-                <Signup appearance={Appearances.public} />
-                {/* TODO: investigate performance and enable later */}
-                {/* {!isProduction() && <Ticker />} */}
-            </Layout>
-        </LogInProvider>
+            <Show.Mobile>
+                <TradeTypesMobile />
+            </Show.Mobile>
+            <Show.Desktop>
+                <TradeTypes />
+            </Show.Desktop>
+            <Markets />
+            <SimpleSteps
+                content={simple_step_content}
+                header={<Localize translate_text="3 simple steps" />}
+            />
+            <WhatOurClientsSay />
+            <Signup appearance={Appearances.public} />
+            {/* TODO: investigate performance and enable later */}
+            {/* {!isProduction() && <Ticker />} */}
+        </Layout>
     )
 }
 

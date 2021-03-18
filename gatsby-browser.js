@@ -17,6 +17,7 @@ import {
 } from './src/common/utility'
 import { MediaContextProvider } from './src/themes/media'
 import { DerivProvider } from './src/store'
+import { LogInProvider } from './src/components/layout/log-in-context'
 import './static/css/ibm-plex-sans-var.css'
 
 const is_browser = typeof window !== 'undefined'
@@ -43,7 +44,7 @@ const addScript = (settings) => {
 
 const sendTags = (api) => {
     const language = LocalStore.get('i18n') || ''
-    const domain = getDomain();
+    const domain = getDomain()
     const { loginid, residence } = getClientInformation(domain) || {
         loginid: '',
         residence: '',
@@ -95,7 +96,9 @@ const pushwooshInit = (push_woosh) => {
 export const wrapRootElement = ({ element }) => {
     return (
         <DerivProvider>
-            <MediaContextProvider>{element}</MediaContextProvider>
+            <LogInProvider>
+                <MediaContextProvider>{element}</MediaContextProvider>
+            </LogInProvider>
         </DerivProvider>
     )
 }
@@ -177,8 +180,8 @@ export const onRouteUpdate = () => {
     checkDomain()
 
     const dataLayer = window.dataLayer
-    const domain = getDomain();
-    const client_information = getClientInformation(domain);
+    const domain = getDomain()
+    const client_information = getClientInformation(domain)
     const is_logged_in = !!client_information
 
     // wrap inside a timeout to ensure the title has properly been changed

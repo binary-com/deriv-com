@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
 import { Form } from 'formik'
 import { Flex, SectionContainer } from 'components/containers'
-import { Header, Text, Dropdown } from 'components/elements'
+import { Text, Dropdown } from 'components/elements'
 import { Button, LinkButton } from 'components/form'
 import device from 'themes/device'
 import Patterns from 'images/common/dmt5-signals/dmt5-signals-patterns.png'
@@ -17,28 +17,15 @@ export const Hero = styled(Flex)`
     }
 `
 
-export const StyledText = styled(Text)`
-    @media ${device.tabletL} {
-        font-size: 16px;
-    }
-`
-
 export const StyledSection = styled(SectionContainer)`
     position: relative;
     padding: 3rem 0;
-`
-
-export const SectionHeader = styled(Header)`
-    @media ${device.tabletL} {
-        font-size: 32px;
-    }
 `
 
 export const SectionSubtitle = styled(Text)`
     width: 79.2rem;
     margin: auto;
     margin-bottom: 4rem;
-    font-size: 16px;
     @media ${device.tablet} {
         width: unset;
         padding: 0 16px;
@@ -51,7 +38,6 @@ export const SwapTabSelector = styled(Flex)`
     height: 8.4rem;
     border-radius: 4px;
     border: solid 1px rgba(51, 51, 51, 0.1);
-    justify-content: center;
     flex-direction: column;
     cursor: pointer;
     ${(props) =>
@@ -103,7 +89,7 @@ export const SwapFormWrapper = styled(FormWrapper)`
 `
 
 export const CalculatorForm = styled(Form)`
-    background-color: #ffffff;
+    background-color: var(--color-white);
     border-radius: 10px;
     box-sizing: border-box;
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.05);
@@ -246,7 +232,7 @@ export const CalculatorTabItem = styled.div`
         width: 140px;
     }
 
-    ${StyledText} {
+    ${Text} {
         @media ${device.mobileL} {
             font-size: 14px;
         }
@@ -263,16 +249,6 @@ export const InputGroup = styled.div`
     margin: 2.4rem 0;
 `
 
-export const ActionSection = styled(Flex)`
-    margin-top: 3rem;
-    justify-content: center;
-`
-
-export const SwapActionSection = styled(Flex)`
-    padding: 0 2rem 2rem 2rem;
-    justify-content: center;
-`
-
 export const CalculateButton = styled(Button)`
     width: 100%;
 
@@ -287,13 +263,6 @@ export const RightContent = styled.div`
     margin: 0;
     @media ${device.laptopM} {
         margin: auto;
-    }
-`
-
-export const RightContentHeader = styled(Header)`
-    line-height: 1.25;
-    @media ${device.mobileL} {
-        font-size: 24px;
     }
 `
 
@@ -338,38 +307,17 @@ export const BottomContent = styled(Flex)`
     padding: 0 16px;
 `
 
-export const BottomText = styled(StyledText)`
+export const BottomText = styled(Text)`
     width: 120rem;
 
     @media ${device.laptopL} {
         width: auto;
     }
-
-    @media ${device.tabletL} {
-        font-size: 16px;
-    }
 `
-
-// export const RightContentHeaderP = styled.div`
-//     font-size: 16px;
-//     font-weight: normal;
-//     font-stretch: normal;
-//     font-style: normal;
-//     line-height: 1.5;
-//     letter-spacing: normal;
-//     text-align: center;
-//     color: #333333;
-//     margin-bottom: 40px;
-
-//     @media ${device.mobileL} {
-//         margin-bottom: 16px;
-//     }
-// `
 
 export const LinkWrapper = styled(Flex)`
     padding: 2rem 2rem 1rem;
     width: 100%;
-    justify-content: center;
 
     @media (max-width: 1420px) {
         top: 480px;

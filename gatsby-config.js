@@ -4,7 +4,6 @@ module.exports = {
     // pathPrefix: process.env.PATH_PREFIX || '/deriv-com/', // For non CNAME GH-pages deployment
     flags: {
         FAST_DEV: true,
-        FAST_REFRESH: true,
     },
     siteMetadata: {
         title: 'Deriv',

@@ -11,7 +11,7 @@
         "@svgr/webpack": "^5.5.0",
         "commander": "^7.1.0",
         "crc-32": "^1.2.0",
-        "embla-carousel": "^4.2.0",
+        "embla-carousel": "^4.2.1",
         "eslint-import-resolver-node": "^0.3.4",
         "extend": "^3.0.2",
         "formik": "^2.2.6",
@@ -43,7 +43,7 @@
         "react-is": "^17.0.1",
         "react-perfect-scrollbar": "^1.5.8",
         "web-push-notifications": "^3.18.2",
-        "webpack": "^5.26.2"
+        "webpack": "^5.26.3"
     },
     "devDependencies": {
         "babel-eslint": "10.1.0",

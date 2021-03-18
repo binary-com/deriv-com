@@ -8,7 +8,7 @@ import { Container, SectionContainer, Flex, Show } from 'components/containers'
 import device from 'themes/device'
 import Pattern from 'images/svg/pattern.svg'
 import PatternMobile from 'images/svg/pattern-mobile.svg'
-import { DerivStore } from 'store'
+import { LogInContext } from 'components/layout/log-in-context'
 import { deriv_app_url } from 'common/utility'
 
 const StyledSection = styled(SectionContainer)`
@@ -122,7 +122,7 @@ const StyledLinkButton = styled(LinkButton)`
 `
 
 const SimpleSteps = ({ header, content }) => {
-    const { is_logged_in } = useContext(DerivStore)
+    const { is_logged_in } = useContext(LogInContext)
 
     return (
         <StyledSection>

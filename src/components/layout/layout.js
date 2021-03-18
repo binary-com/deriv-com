@@ -15,6 +15,7 @@ import CookieBanner from 'components/custom/cookie-banner'
 import { CookieStorage } from 'common/storage'
 import { cfd_warning_height, isBrowser } from 'common/utility'
 import { DerivStore } from 'store'
+import { LogInContext } from 'components/layout/log-in-context'
 import { Localize } from 'components/localization'
 import { Text } from 'components/elements'
 import device from 'themes/device'
@@ -109,6 +110,7 @@ const Layout = ({
     type,
 }) => {
     const { is_eu_country } = React.useContext(DerivStore)
+    const { is_logged_in } = React.useContext(LogInContext)
     const [has_mounted, setMounted] = React.useState(false)
     const [show_cookie_banner, setShowCookieBanner] = React.useState(false)
     const [show_modal, toggleModal, closeModal] = useModal()
@@ -184,7 +186,13 @@ const Layout = ({
             FooterNav = <BeSquareFooter />
             break
         default:
-            Navigation = <Nav is_ppc_redirect={is_ppc_redirect} is_ppc={is_ppc} />
+            Navigation = (
+                <Nav
+                    is_ppc_redirect={is_ppc_redirect}
+                    is_ppc={is_ppc}
+                    is_logged_in={is_logged_in}
+                />
+            )
             FooterNav = <Footer is_ppc={is_ppc} is_ppc_redirect={is_ppc_redirect} />
             break
     }
@@ -211,7 +219,7 @@ const Layout = ({
                     is_open={show_cookie_banner}
                 />
             )}
-            {!no_live_chat && <LiveChat />}
+            {!no_live_chat && <LiveChat is_logged_in={is_logged_in} />}
             {FooterNav}
             <EURedirect
                 toggle={toggleModal}

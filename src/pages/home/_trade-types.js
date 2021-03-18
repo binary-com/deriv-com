@@ -10,6 +10,7 @@ import MultipliersLogo from 'images/svg/trade-types/multipliers.svg'
 import { LinkButton } from 'components/form'
 import { DerivStore } from 'store'
 import { deriv_app_url } from 'common/utility'
+import { LogInContext } from 'components/layout/log-in-context'
 
 const TradingButton = styled(LinkButton)`
     height: 40px;
@@ -56,7 +57,8 @@ const TradeTypes = () => {
         linkTitle: localize('Multiplier'),
     }
 
-    const { is_eu_country, is_logged_in } = React.useContext(DerivStore)
+    const { is_eu_country } = React.useContext(DerivStore)
+    const { is_logged_in } = React.useContext(LogInContext)
 
     const trade_types = is_eu_country ? [margin, multipliers] : [margin, options, multipliers]
 

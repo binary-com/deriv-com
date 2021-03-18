@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { Carousel, Header, Text } from 'components/elements'
@@ -11,6 +11,7 @@ import MultipliersLogo from 'images/svg/trade-types/multipliers.svg'
 import Arrow from 'images/svg/arrow-right.svg'
 import { DerivStore } from 'store'
 import { deriv_app_url } from 'common/utility'
+import { LogInContext } from 'components/layout/log-in-context'
 
 const StyledSection = styled(SectionContainer)`
     display: flex;
@@ -116,7 +117,8 @@ const TradeTypesMobile = () => {
         linkTitle: localize('Multiplier'),
     }
 
-    const { is_eu_country, is_logged_in } = React.useContext(DerivStore)
+    const { is_eu_country } = useContext(DerivStore)
+    const { is_logged_in } = useContext(LogInContext)
 
     const trade_types = is_eu_country ? [margin, multipliers] : [margin, options, multipliers]
 

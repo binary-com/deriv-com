@@ -23,9 +23,9 @@ const StyledLiveChat = styled.div`
     }
 `
 
-const LiveChat = () => {
+const LiveChat = ({ is_logged_in }) => {
     const [is_livechat_hover, setLivechatHover] = React.useState(false)
-    const [is_livechat_interactive, LC_API] = useLivechat()
+    const [is_livechat_interactive, LC_API] = useLivechat(is_logged_in)
 
     return (
         <>
@@ -51,6 +51,7 @@ const LiveChat = () => {
 
 LiveChat.propTypes = {
     is_livechat_interactive: PropTypes.bool,
+    is_logged_in: PropTypes.bool,
     LC_API: PropTypes.object,
     setLiveChatInteractive: PropTypes.func,
 }

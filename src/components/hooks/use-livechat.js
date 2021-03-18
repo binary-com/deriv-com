@@ -6,13 +6,11 @@ import {
     livechat_client_id,
     livechat_license_id,
 } from 'common/utility'
-import { DerivStore } from 'store'
 
-export const useLivechat = () => {
+export const useLivechat = ({ is_logged_in }) => {
     const [is_livechat_interactive, setLiveChatInteractive] = React.useState(false)
     const LC_API = (isBrowser() && window.LC_API) || {}
     const CustomerSdk = React.useRef(null)
-    const { is_logged_in } = React.useContext(DerivStore)
 
     const url_params = new URLSearchParams((isBrowser() && window.location.search) || '')
     const is_livechat_query = url_params.get('is_livechat_open')

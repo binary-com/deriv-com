@@ -1,5 +1,5 @@
 // TODO: (discussion) make nav pure component, and move usage of nav to custom
-import React, { useCallback, useContext, useEffect, useRef, useState } from 'react'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
@@ -28,7 +28,6 @@ import Close from 'images/svg/close-long.svg'
 import LogoOnly from 'images/svg/logo-deriv-only.svg'
 import LogoCombinedShape from 'images/svg/logo-combined-shape.svg'
 import { CFDWarning } from 'components/layout'
-import { DerivStore } from 'store'
 
 const query = graphql`
     query {
@@ -392,7 +391,7 @@ const handleGetTrading = () => {
     window.location.href = deriv_app_url
 }
 
-const NavMobile = ({ is_ppc, is_ppc_redirect, is_logged_in }) => {
+const NavMobile = ({ is_logged_in, is_ppc, is_ppc_redirect }) => {
     const [is_canvas_menu_open, openOffCanvasMenu, closeOffCanvasMenu] = moveOffCanvasMenu()
 
     return (
@@ -572,34 +571,28 @@ const NavDesktop = ({ base, is_ppc, is_ppc_redirect, is_logged_in }) => {
     )
 }
 
-const MemoizedNavDesktop = React.memo(NavDesktop)
-const MemoizedNavMobile = React.memo(NavMobile)
-
-export const Nav = ({ base, is_ppc_redirect, is_ppc }) => {
-    const is_logged_in = useContext(DerivStore)
-
-    return (
-        <NavWrapperMain>
-            <CFDWarning />
-            <StyledNavMain>
-                <Show.Desktop max_width="bp1060">
-                    <MemoizedNavDesktop
-                        base={base}
-                        is_ppc={is_ppc}
-                        is_ppc_redirect={is_ppc_redirect}
-                        is_logged_in={is_logged_in}
-                    />
-                </Show.Desktop>
-                <Show.Mobile min_width="bp1060">
-                    <MemoizedNavMobile is_ppc={is_ppc} is_logged_in={is_logged_in} />
-                </Show.Mobile>
-            </StyledNavMain>
-        </NavWrapperMain>
-    )
-}
+export const Nav = ({ base, is_logged_in, is_ppc, is_ppc_redirect }) => (
+    <NavWrapperMain>
+        <CFDWarning />
+        <StyledNavMain>
+            <Show.Desktop max_width="bp1060">
+                <NavDesktop
+                    base={base}
+                    is_ppc={is_ppc}
+                    is_ppc_redirect={is_ppc_redirect}
+                    is_logged_in={is_logged_in}
+                />
+            </Show.Desktop>
+            <Show.Mobile min_width="bp1060">
+                <NavMobile is_ppc={is_ppc} is_logged_in={is_logged_in} />
+            </Show.Mobile>
+        </StyledNavMain>
+    </NavWrapperMain>
+)
 
 Nav.propTypes = {
     base: PropTypes.string,
+    is_logged_in: PropTypes.bool,
     is_ppc: PropTypes.bool,
     is_ppc_redirect: PropTypes.bool,
 }

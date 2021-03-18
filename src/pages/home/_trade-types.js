@@ -38,6 +38,7 @@ const TradeTypes = () => {
         link: '/trade-types/margin',
         linkTitle: localize('Margin'),
     }
+
     const options = {
         icon: <img src={OptionsLogo} alt="options" width="48" height="49" />,
         title: <Localize translate_text="Options" />,
@@ -47,6 +48,7 @@ const TradeTypes = () => {
         link: '/trade-types/options',
         linkTitle: localize('Options'),
     }
+
     const multipliers = {
         icon: <img src={MultipliersLogo} alt="multipliers" width="48" height="49" />,
         title: <Localize translate_text="Multipliers" />,

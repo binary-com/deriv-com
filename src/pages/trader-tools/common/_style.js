@@ -11,6 +11,10 @@ export const Hero = styled(Flex)`
     background: var(--color-black);
     background-image: url(${Patterns});
     background-size: cover;
+
+    @media ${device.tabletL} {
+        height: 210px;
+    }
 `
 
 export const StyledText = styled(Text)`

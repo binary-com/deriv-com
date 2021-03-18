@@ -2,14 +2,27 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { graphql, useStaticQuery } from 'gatsby'
-import device from 'themes/device'
-import { Container, SectionContainer, Flex } from 'components/containers'
+import { Container, SectionContainer, Flex, Show } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
+import device from 'themes/device'
 
 const StyledSection = styled(SectionContainer)`
     @media ${device.tabletL} {
         padding: 40px 0;
+    }
+`
+const ToolWrapper = styled(Flex)`
+    flex-direction: ${(props) => props.flex_direction};
+    align-items: space-between;
+
+    .fresnel-container {
+        display: flex;
+    }
+
+    @media ${device.tabletL} {
+        flex-direction: column-reverse;
+        max-width: 500px;
     }
 `
 const ImageWrapper = styled.div`
@@ -22,11 +35,15 @@ const ImageWrapper = styled.div`
         margin: 24px 0 0;
     }
 `
-
 const Content = styled(Flex)`
     max-width: 39rem;
     margin-right: ${(props) => props.margin_right};
     margin-left: ${(props) => props.margin_left};
+
+    @media ${device.tabletL} {
+        max-width: 100%;
+        margin: 0;
+    }
 `
 const StyledLinkButton = styled(LinkButton)`
     margin-top: 16px;
@@ -53,21 +70,6 @@ const Divider = styled.div`
         :not(:last-child) {
             margin: 40px 0;
         }
-    }
-`
-const DesktopWrapper = styled(Flex)`
-    flex-direction: ${(props) => props.flex_direction};
-    align-items: space-between;
-
-    @media ${device.tabletL} {
-        display: none;
-    }
-`
-const MobileWrapper = styled(Flex)`
-    display: none;
-    @media ${device.tabletL} {
-        display: block;
-        max-width: 500px;
     }
 `
 
@@ -100,7 +102,7 @@ const TradingTools = ({ tools, reverse }) => {
                     let is_even = reverse ? (index + 1) % 2 : index % 2
                     return (
                         <>
-                            <DesktopWrapper
+                            <ToolWrapper
                                 flex_direction={is_even ? 'row-reverse' : 'row'}
                                 key={index}
                             >
@@ -113,6 +115,11 @@ const TradingTools = ({ tools, reverse }) => {
                                         alt={item.image_alt}
                                         width="100%"
                                     />
+                                    <Show.Mobile>
+                                        <StyledLinkButton tertiary to={item.link.route}>
+                                            {item.link.text}
+                                        </StyledLinkButton>
+                                    </Show.Mobile>
                                 </ImageWrapper>
                                 <Content
                                     height="auto"
@@ -124,29 +131,13 @@ const TradingTools = ({ tools, reverse }) => {
                                         {item.title}
                                     </Header>
                                     <Text>{item.subtitle}</Text>
-                                    <StyledLinkButton tertiary to={item.link.route}>
-                                        {item.link.text}
-                                    </StyledLinkButton>
+                                    <Show.Desktop>
+                                        <StyledLinkButton tertiary to={item.link.route}>
+                                            {item.link.text}
+                                        </StyledLinkButton>
+                                    </Show.Desktop>
                                 </Content>
-                            </DesktopWrapper>
-                            <MobileWrapper>
-                                <Header as="h3" type="section-title" mb="8px">
-                                    {item.title}
-                                </Header>
-                                <Text>{item.subtitle}</Text>
-                                <ImageWrapper>
-                                    <QueryImage
-                                        data={data[item.image_name]}
-                                        alt={item.image_alt}
-                                        width="100%"
-                                    />
-                                </ImageWrapper>
-                                <Flex>
-                                    <StyledLinkButton tertiary to={item.link.route}>
-                                        {item.link.text}
-                                    </StyledLinkButton>
-                                </Flex>
-                            </MobileWrapper>
+                            </ToolWrapper>
                             <Divider />
                         </>
                     )

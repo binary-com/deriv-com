@@ -176,13 +176,8 @@ module.exports = {
                         disallow: [
                             '/404/',
                             '/ach/',
-                            '/zh_cn/',
-                            '/zh_tw/',
-                            '/amp/',
                             '/homepage/',
                             '/landing/',
-                            '*derivtnc*',
-                            '*deriv_tnc*',
                         ],
                     },
                 ],

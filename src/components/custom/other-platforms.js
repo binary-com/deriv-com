@@ -34,7 +34,7 @@ import Options from 'images/svg/options-nav.svg'
 import Partner from 'images/svg/menu/partner.svg'
 import Payment from 'images/svg/menu/payment-methods.svg'
 import RegulatoryInfo from 'images/svg/menu/regulatory.svg'
-import Signals from 'images/svg/menu/signals.svg'
+import Signals from 'components/svgs/signals'
 import Smarttrader from 'images/svg/smarttrader.svg'
 import StockIndices from 'images/svg/stock-indices-nav.svg'
 import Story from 'images/svg/menu/story.svg'
@@ -472,7 +472,7 @@ export const NavResources = ({ onClick }) => (
             to="/payment-methods/"
         />
         <CardLink
-            icon={() => <img src={Signals} alt="signals" width="24" height="24" />}
+            icon={() => <Signals dynamic_id="dmt5-signals" />}
             title={localize('DMT5 Signals')}
             onClick={onClick}
             to="/dmt5-trading-signals/#signal-subscriber/"

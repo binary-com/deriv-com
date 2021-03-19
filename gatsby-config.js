@@ -22,6 +22,12 @@ module.exports = {
         'gatsby-transformer-sharp',
         {
             resolve: `gatsby-plugin-sharp`,
+            options: {
+                failOnError: true,
+                base64Width: 20,
+                forceBase64Format: 'webp',
+                stripMetadata: true,
+            },
         },
         `gatsby-plugin-image`,
         {

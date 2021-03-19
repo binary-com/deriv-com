@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React from 'react'
 import {
     getClientInformation,
     getDomain,
@@ -8,15 +8,15 @@ import {
 } from 'common/utility'
 
 export const useLivechat = () => {
-    const [is_livechat_interactive, setLiveChatInteractive] = useState(false)
+    const [is_livechat_interactive, setLiveChatInteractive] = React.useState(false)
     const LC_API = (isBrowser() && window.LC_API) || {}
-    const [is_logged_in, setLoggedIn] = useState(false)
-    const CustomerSdk = useRef(null)
+    const [is_logged_in, setLoggedIn] = React.useState(false)
+    const CustomerSdk = React.useRef(null)
 
     const url_params = new URLSearchParams((isBrowser() && window.location.search) || '')
     const is_livechat_query = url_params.get('is_livechat_open')
 
-    const loadLiveChatScript = React.useCallback((callback) => {
+    const loadLiveChatScript = (callback) => {
         const livechat_script = document.createElement('script')
         livechat_script.innerHTML = `
             window.__lc = window.__lc || {};
@@ -25,38 +25,39 @@ export const useLivechat = () => {
         `
         document.body.appendChild(livechat_script)
         if (callback) callback()
-    })
+    }
 
-    useEffect(() => {
+    React.useEffect(() => {
         let cookie_interval = null
         let script_timeout = null
         if (isBrowser()) {
+            const domain = getDomain()
+            try {
+                import('@livechat/customer-sdk').then((CSDK) => {
+                    CustomerSdk.current = CSDK
+                })
+            } catch (e) {
+                // eslint-disable-nextline
+                console.error(e)
+            }
+
+            const checkCookie = (() => {
+                let lastCookie = document.cookie // 'static' memory between function calls
+                return function () {
+                    const currentCookie = document.cookie
+                    if (currentCookie != lastCookie) {
+                        const client_information = getClientInformation(domain)
+                        setLoggedIn(!!client_information)
+                        lastCookie = currentCookie // store latest cookie
+                    }
+                }
+            })()
+
+            cookie_interval = setInterval(checkCookie, 500)
+
             // The purpose is to load the script after everything is load but not async or defer. Therefore, it will be ignored in the rendering timeline
             script_timeout = setTimeout(() => {
                 loadLiveChatScript(() => {
-                    const domain = getDomain()
-                    try {
-                        import('@livechat/customer-sdk').then((CSDK) => {
-                            CustomerSdk.current = CSDK
-                        })
-                    } catch (e) {
-                        // eslint-disable-nextline
-                    }
-
-                    const checkCookie = (() => {
-                        let lastCookie = document.cookie // 'static' memory between function calls
-                        return function () {
-                            const currentCookie = document.cookie
-                            if (currentCookie != lastCookie) {
-                                const client_information = getClientInformation(domain)
-                                setLoggedIn(!!client_information)
-                                lastCookie = currentCookie // store latest cookie
-                            }
-                        }
-                    })()
-
-                    cookie_interval = setInterval(checkCookie, 600)
-
                     window.LiveChatWidget.on('ready', () => {
                         setLiveChatInteractive(true)
                         if (is_livechat_query?.toLowerCase() === 'true') {
@@ -85,6 +86,7 @@ export const useLivechat = () => {
                     })
                 } catch (e) {
                     // eslint-disable-nextline
+                    console.error(e)
                 }
             }
             if (is_livechat_interactive) {
@@ -123,8 +125,9 @@ export const useLivechat = () => {
                         const chat_data = window.LiveChatWidget.get('chat_data')
                         if (chat_data) {
                             const chatID = window.LiveChatWidget.get('chat_data').chatId ?? ''
-                            customerSDK?.deactivateChat({ chatId: chatID }).catch(() => {
+                            customerSDK?.deactivateChat({ chatId: chatID }).catch((error) => {
                                 // eslint-disable-nextline
+                                console.error(error)
                             })
                         }
                         window.LiveChatWidget.call('set_customer_email', ' ')

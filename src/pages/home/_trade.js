@@ -7,6 +7,34 @@ import { localize } from 'components/localization'
 import { SectionContainer, Container, Flex, CssGrid } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
 
+const query = graphql`
+    query {
+        dtrader_trade: file(relativePath: { eq: "dtrader_trade_home.png" }) {
+            childImageSharp {
+                fluid(maxWidth: 794) {
+                    ...GatsbyImageSharpFluid_withWebp_noBase64
+                    originalName
+                }
+            }
+        }
+        dmt5_trade: file(relativePath: { eq: "dmt5_trade_home.png" }) {
+            childImageSharp {
+                fluid(maxWidth: 794) {
+                    ...GatsbyImageSharpFluid_withWebp_noBase64
+                    originalName
+                }
+            }
+        }
+        dbot_trade: file(relativePath: { eq: "dbot_trade_home.png" }) {
+            childImageSharp {
+                fluid(maxWidth: 794) {
+                    ...GatsbyImageSharpFluid_withWebp_noBase64
+                    originalName
+                }
+            }
+        }
+    }
+`
 const platforms = Object.freeze({
     trader: 'dtrader',
     bot: 'dbot',
@@ -32,24 +60,11 @@ const ImageContainer = styled.div`
 const StyledSection = styled(SectionContainer)`
     background-image: linear-gradient(to bottom, var(--color-grey-11), rgba(238, 238, 238, 0));
 `
-const query = graphql`
-    query {
-        dtrader_trade: file(relativePath: { eq: "dtrader_trade_home.png" }) {
-            ...fadeIn
-        }
-        dbot_trade: file(relativePath: { eq: "dbot_trade_home.png" }) {
-            ...fadeIn
-        }
-        dmt5_trade: file(relativePath: { eq: "dmt5_trade_home.png" }) {
-            ...fadeIn
-        }
-    }
-`
 
 const Trade = ({ is_ppc_redirect }) => {
-    const data = useStaticQuery(query)
     // one option always has to be selected
     const [selected, setSelected] = React.useState(null)
+    const data = useStaticQuery(query)
     return (
         <StyledSection>
             <Container direction="column">
@@ -72,13 +87,22 @@ const Trade = ({ is_ppc_redirect }) => {
                                 <QueryImage
                                     data={data['dtrader_trade']}
                                     alt={localize('DTrader')}
+                                    width="100%"
                                 />
                             </ImageWrapper>
                             <ImageWrapper is_selected={selected === platforms.bot}>
-                                <QueryImage data={data['dbot_trade']} alt={localize('DBot')} />
+                                <QueryImage
+                                    data={data['dbot_trade']}
+                                    alt={localize('DBot')}
+                                    width="100%"
+                                />
                             </ImageWrapper>
                             <ImageWrapper is_selected={selected === platforms.mt5}>
-                                <QueryImage data={data['dmt5_trade']} alt={localize('DMT5')} />
+                                <QueryImage
+                                    data={data['dmt5_trade']}
+                                    alt={localize('DMT5')}
+                                    width="100%"
+                                />
                             </ImageWrapper>
                         </ImageContainer>
                     </div>

@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import { Flex } from 'components/containers'
 import { LocalizedLink, localize, Localize } from 'components/localization'
 import { Accordion, AccordionItem, NavCard, Text, Divider } from 'components/elements'
+import Signals from 'components/svgs/signals'
 import { useOutsideClick } from 'components/hooks/outside-click'
 import { cfd_warning_height, deriv_status_page_url } from 'common/utility'
 // SVG
@@ -38,7 +39,6 @@ import Terms from 'images/svg/menu/terms.svg'
 import { DerivStore } from 'store'
 import device from 'themes/device'
 import Trade from 'images/svg/trader-tool-nav.svg'
-import Signals from 'images/svg/menu/signals.svg'
 
 const OffCanvasMenu = styled.section`
     position: fixed;
@@ -450,7 +450,7 @@ export const OffCanvasMenuWrapper = (props) => {
                         >
                             <div>
                                 <SvgWrapper>
-                                    <img src={Signals} alt="signals" width="24" height="24" />
+                                    <Signals dynamic_id="dmt5-signals" />
                                 </SvgWrapper>
                             </div>
                             <span>{localize('DMT5 Signals')}</span>

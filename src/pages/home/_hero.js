@@ -1,13 +1,21 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
+import { graphql, useStaticQuery } from 'gatsby'
 import styled, { keyframes } from 'styled-components'
 import PropTypes from 'prop-types'
-import { graphql, useStaticQuery } from 'gatsby'
 import VerticalCarousel from './_vertical-carousel.js'
 import device from 'themes/device'
 import { LinkButton } from 'components/form'
-import { Container, CssGrid, Box, Flex } from 'components/containers'
+import { Container, CssGrid, Box, Flex, Show } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
 import { Localize, localize } from 'components/localization'
+
+const query = graphql`
+    query {
+        background: file(relativePath: { eq: "home/platform_devices.png" }) {
+            ...fadeIn
+        }
+    }
+`
 
 const HeroWrapper = styled.section`
     width: 100%;
@@ -105,35 +113,13 @@ const ImageWrapper = styled(Box)`
         margin-top: 0;
     }
 `
-
-const MobileWrapper = styled(Flex)`
-    display: none;
-    @media ${device.tabletL} {
-        display: block;
-    }
-`
-
-const DesktopWrapper = styled(Flex)`
-    display: block;
-    @media ${device.tabletL} {
-        display: none;
-    }
-`
-
-const query = graphql`
-    query {
-        background: file(relativePath: { eq: "home/platform_devices.png" }) {
-            ...colorPlaceholder
-        }
-    }
-`
-
 const Hero = ({ is_ppc }) => {
     const data = useStaticQuery(query)
     const typewriter_text = !is_ppc
         ? localize('Trade forex, commodities, synthetic and stock indices')
         : localize('Trade forex, commodities, and stock indices')
-    const [type_writer, setTypeWriter] = useState('')
+    const [type_writer, setTypeWriter] = React.useState('')
+    const [check_first_load, setFirstLoad] = React.useState(false)
     let type_writer_timeout
 
     const typeWriterAnimation = (i = 0) => {
@@ -143,10 +129,11 @@ const Hero = ({ is_ppc }) => {
         }
     }
 
-    useEffect(() => {
+    React.useEffect(() => {
         let start_animations_timeout = setTimeout(() => {
             typeWriterAnimation()
         }, 1200)
+        setFirstLoad(true)
         return () => {
             clearTimeout(start_animations_timeout)
             clearTimeout(type_writer_timeout)
@@ -158,22 +145,29 @@ const Hero = ({ is_ppc }) => {
             <Container>
                 <HeroContainer>
                     <Details>
-                        <DesktopWrapper mb="1.6rem" direction="column">
-                            <StyledHeader color="white" ad="0.5s">
-                                <Localize translate_text="Simple." />
-                            </StyledHeader>
-                            <StyledHeader color="white" ad="0.6s">
-                                <Localize translate_text="Flexible." />
-                            </StyledHeader>
-                            <StyledHeader color="white" ad="0.7s">
-                                <Localize translate_text="Reliable." />
-                            </StyledHeader>
-                        </DesktopWrapper>
-                        <MobileWrapper>
-                            <StyledHeader color="white" mb="2rem" as="h1">
-                                <Localize translate_text="Simple. Flexible. Reliable." />
-                            </StyledHeader>
-                        </MobileWrapper>
+                        <Show.Desktop>
+                            <Flex mb="1.6rem" direction="column">
+                                <StyledHeader color="white" ad="0.5s">
+                                    <Localize translate_text="Simple." />
+                                </StyledHeader>
+                                <StyledHeader color="white" ad="0.6s">
+                                    <Localize translate_text="Flexible." />
+                                </StyledHeader>
+                                <StyledHeader color="white" ad="0.7s">
+                                    <Localize translate_text="Reliable." />
+                                </StyledHeader>
+                            </Flex>
+                        </Show.Desktop>
+                        {check_first_load && (
+                            <Show.Mobile>
+                                <Flex>
+                                    <StyledHeader color="white" mb="2rem" as="h1">
+                                        <Localize translate_text="Simple. Flexible. Reliable." />
+                                    </StyledHeader>
+                                </Flex>
+                            </Show.Mobile>
+                        )}
+
                         <TypeWriter
                             as="h2"
                             type="sub-section-title"
@@ -186,7 +180,24 @@ const Hero = ({ is_ppc }) => {
                         <VerticalCarousel contents={!is_ppc ? contents : contents_ppc} />
                     </Details>
                     <ImageWrapper>
-                        <QueryImage data={data['background']} alt="platform devices" is_eager />
+                        {check_first_load && (
+                            <Show.Mobile>
+                                <QueryImage
+                                    data={data.background}
+                                    alt="platform devices mobile"
+                                    width="100%"
+                                    height="233"
+                                />
+                            </Show.Mobile>
+                        )}
+                        <Show.Desktop>
+                            <QueryImage
+                                data={data.background}
+                                alt="platform devices"
+                                width="100%"
+                                height="346"
+                            />
+                        </Show.Desktop>
                     </ImageWrapper>
                     <ButtonWrapper>
                         <HeroButton secondary="true" to="/signup/">

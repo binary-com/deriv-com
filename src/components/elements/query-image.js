@@ -1,6 +1,7 @@
+// TODO: replace image.js completely with this component
 import React from 'react'
 import styled from 'styled-components'
-import { GatsbyImage, getImage } from 'gatsby-plugin-image'
+import Img from 'gatsby-image'
 import PropTypes from 'prop-types'
 
 export const ImageWrapper = styled.div`
@@ -13,20 +14,21 @@ export const ImageWrapper = styled.div`
     }
 `
 
-const QueryImage = ({ alt, className, data, height, is_eager, width }) => {
-    const image = getImage(data)
+const QueryImage = ({ data, alt, width, height, className }) => {
     if (data) {
+        const data_fluid = data.childImageSharp.fluid
+        const data_fixed = data.childImageSharp.fixed
         return (
             <ImageWrapper width={width} height={height} className={className}>
-                <GatsbyImage
-                    image={image}
+                <Img
                     alt={alt}
+                    {...(data_fluid ? { fluid: data_fluid } : { fixed: data_fixed })}
                     height="100%"
-                    loading={is_eager ? 'eager' : 'lazy'}
                 />
             </ImageWrapper>
         )
     }
+
     return null
 }
 
@@ -35,8 +37,6 @@ QueryImage.propTypes = {
     className: PropTypes.string,
     data: PropTypes.object.isRequired,
     height: PropTypes.string,
-    is_eager: PropTypes.bool,
     width: PropTypes.string,
 }
-
 export default QueryImage

@@ -146,15 +146,10 @@ exports.onCreatePage = ({ page, actions }) => {
     })
 }
 
-const StylelintPlugin = require('stylelint-webpack-plugin')
-const defaultOptions = {
-    files: '**/*.{js,jsx}',
-    emitErrors: false,
-}
-
-exports.onCreateWebpackConfig = ({ actions }, { ...options }) => {
+exports.onCreateWebpackConfig = ({ actions, getConfig }) => {
+    const config = getConfig()
+    if (config.optimization) config.optimization.minimizer[0].options.parallel = 2
     actions.setWebpackConfig({
-        plugins: [new StylelintPlugin({ ...defaultOptions, ...options })],
         resolve: {
             modules: [path.resolve(__dirname, 'src'), 'node_modules'],
         },

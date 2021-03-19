@@ -20,7 +20,18 @@ module.exports = {
             },
         },
         'gatsby-transformer-sharp',
-        'gatsby-plugin-sharp',
+        {
+            resolve: `gatsby-plugin-sharp`,
+            options: {
+                failOnError: true,
+                base64Width: 20,
+                forceBase64Format: 'webp',
+                useMozJpeg: process.env.GATSBY_JPEG_ENCODER === `MOZJPEG`,
+                stripMetadata: true,
+                defaultQuality: 40,
+            },
+        },
+        `gatsby-plugin-image`,
         {
             resolve: 'gatsby-plugin-sitemap',
             options: {
@@ -156,14 +167,6 @@ module.exports = {
                 stages: ['develop'],
                 extensions: ['js'],
                 exclude: ['node_modules', '.cache', 'public'],
-              },
-        },
-        {
-            resolve: 'gatsby-plugin-stylelint',
-            options: {
-                emitErrors: false,
-                files: ['src/**/*.js'],
-                lintDirtyModulesOnly: true,
             },
         },
         {
@@ -209,15 +212,6 @@ module.exports = {
             resolve: 'gatsby-plugin-anchor-links',
             options: {
                 offset: -100,
-            },
-        },
-        {
-            resolve: 'gatsby-plugin-webpack-bundle-analyser-v2',
-            options: {
-                production: true,
-                disable: !process.env.ANALYZE_BUNDLE_SIZE,
-                generateStatsFile: true,
-                analyzerMode: 'static',
             },
         },
     ],

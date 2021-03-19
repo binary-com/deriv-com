@@ -409,15 +409,20 @@ const NavMobile = ({ is_ppc, is_ppc_redirect, is_logged_in }) => {
                     alt="hamburger"
                     onClick={openOffCanvasMenu}
                     width="16px"
+                    height="14px"
                 />
             )}
-
             <LogoLinkMobileMain to="/" aria-label={localize('Home')}>
                 <Flex>
-                    <img src={LogoOnly} alt="logo only" width="115px" />
+                    <img src={LogoOnly} alt="logo only" width="115px" height="20px" />
                     <LogoDescription ai="center">
                         <Line />
-                        <img src={LogoCombinedShape} alt="logo combined shape 2" />
+                        <img
+                            src={LogoCombinedShape}
+                            alt="logo combined shape 2"
+                            width="120"
+                            height="17"
+                        />
                     </LogoDescription>
                 </Flex>
             </LogoLinkMobileMain>
@@ -458,11 +463,9 @@ const NavDesktop = ({ base, is_ppc, is_ppc_redirect, is_logged_in }) => {
     const buttonHandleScroll = useCallback(() => {
         setHasScrolled(true)
         handleScroll(showButton, hideButton)
-    })
+    }, [navigation_bar_ref?.current])
 
     const checkActive = (link_name) => link_name === active_dropdown || link_name === current_page
-
-    const closeDropdown = () => useCallback(setActiveDropdown(''))
 
     const handleLinkClick = (dropdown, target) => {
         setActiveDropdown(dropdown)
@@ -474,7 +477,7 @@ const NavDesktop = ({ base, is_ppc, is_ppc_redirect, is_logged_in }) => {
 
     const setDropdownRef = (new_ref) => setActiveDropdownRef(new_ref)
 
-    useOutsideClick(navigation_bar_ref, closeDropdown, active_dropdown_ref)
+    useOutsideClick(navigation_bar_ref, () => setActiveDropdown(''), active_dropdown_ref)
 
     useEffect(() => {
         setMounted(true)
@@ -483,10 +486,10 @@ const NavDesktop = ({ base, is_ppc, is_ppc_redirect, is_logged_in }) => {
         return () => {
             document.removeEventListener('scroll', buttonHandleScroll)
         }
-    }, [])
+    }, [navigation_bar_ref?.current])
 
     return (
-        <div>
+        <>
             {active_dropdown && (
                 <PlatformsDropdown
                     key={active_dropdown}
@@ -512,7 +515,12 @@ const NavDesktop = ({ base, is_ppc, is_ppc_redirect, is_logged_in }) => {
                         />
                     </LogoLink>
                     <Line />
-                    <img src={LogoCombinedShape} alt="logo combined shape" />
+                    <img
+                        src={LogoCombinedShape}
+                        alt="logo combined shape"
+                        width="120"
+                        height="17"
+                    />
                 </NavLeftMain>
                 <NavCenter ref={navigation_bar_ref}>
                     <NavLink onClick={(e) => handleLinkClick('trade', e.target)}>
@@ -572,7 +580,7 @@ const NavDesktop = ({ base, is_ppc, is_ppc_redirect, is_logged_in }) => {
                     </NavRight>
                 )}
             </Wrapper>
-        </div>
+        </>
     )
 }
 

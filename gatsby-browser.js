@@ -1,14 +1,23 @@
 import React from 'react'
 import NProgress from 'nprogress'
-import Cookies from 'js-cookie'
+import { datadogRum } from '@datadog/browser-rum'
+import { Pushwoosh } from 'web-push-notifications'
 import { WrapPagesWithLocaleContext } from './src/components/localization'
-import { isProduction, isLocalHost } from './src/common/websocket/config'
-import { CookieStorage, LocalStore } from './src/common/storage'
-import { isMobile } from './src/common/os-detect'
-import { gtm_test_domain } from './src/common/utility'
+import { isProduction, isLive, isLocalHost } from './src/common/websocket/config'
+import { LocalStore } from './src/common/storage'
+import {
+    application_id,
+    client_token,
+    getLanguage,
+    gtm_test_domain,
+    sample_rate,
+    pushwoosh_app_code,
+    getDomain,
+    getClientInformation,
+} from './src/common/utility'
 import { MediaContextProvider } from './src/themes/media'
 import { DerivProvider } from './src/store'
-import 'typeface-ibm-plex-sans'
+import './static/css/ibm-plex-sans-var.css'
 
 const is_browser = typeof window !== 'undefined'
 
@@ -21,15 +30,66 @@ const checkDomain = () => {
 }
 
 const addScript = (settings) => {
-    const script = document.createElement("script")
-    const { async, text, src, id } = settings;
+    const script = document.createElement('script')
+    const { async, text, src, id } = settings
 
     if (async) script.async = settings['async']
     if (text) script.text = settings['text']
     if (src) script.src = settings['src']
     if (id) script.id = settings['id']
-    
+
     document.body.appendChild(script)
+}
+
+const sendTags = (api) => {
+    const language = LocalStore.get('i18n') || ''
+    const domain = getDomain();
+    const { loginid, residence } = getClientInformation(domain) || {
+        loginid: '',
+        residence: '',
+    }
+    api.getTags()
+        .then((result) => {
+            if (
+                !result.result['Login ID'] ||
+                !result.result['Site Language'] ||
+                !result.result.Residence
+            ) {
+                return api.setTags({
+                    'Login ID': loginid,
+                    'Site Language': language.toLowerCase(),
+                    Residence: residence,
+                })
+            }
+            return null
+        })
+        .catch((e) => {
+            // eslint-disable-next-line no-console
+            console.error(e)
+            return null
+        })
+}
+
+const pushwooshInit = (push_woosh) => {
+    push_woosh.push([
+        'init',
+        {
+            logLevel: 'error', // or info or debug
+            applicationCode: pushwoosh_app_code,
+            safariWebsitePushID: 'web.com.deriv',
+            defaultNotificationTitle: 'Deriv.com',
+            defaultNotificationImage: 'https://deriv.com/static/favicons/favicon-192x192.png',
+            autoSubscribe: true,
+        },
+    ])
+
+    push_woosh.push([
+        'onReady',
+        function (api) {
+            push_woosh.subscribe()
+            sendTags(api)
+        },
+    ])
 }
 
 export const wrapRootElement = ({ element }) => {
@@ -45,11 +105,6 @@ export const onInitialClientRender = () => {
     // Check if not production and match ach or ach/
     if (is_browser) {
         const match_ach = window.location.pathname.match(/^(\/ach\/)|\/ach$/)
-        const has_datalayer = window.dataLayer
-        const domain = window.location.hostname.includes('deriv.com') ? 'deriv.com' : 'binary.sx'
-        const is_logged_in = Cookies.get('client_information', {
-            domain,
-        })
 
         if (match_ach) {
             // TODO: remove this line when production ready for translation
@@ -69,17 +124,8 @@ export const onInitialClientRender = () => {
             `
             document.head.appendChild(jipt)
         }
-
-        if (has_datalayer) {
-            window.dataLayer.push({ logged_in: is_logged_in })
-        }
     }
-    // Configure traffic source
-    const signup_device_cookie = new CookieStorage('signup_device')
 
-    if (!signup_device_cookie.get('signup_device')) {
-        signup_device_cookie.set('signup_device', isMobile() ? 'mobile' : 'desktop')
-    }
     NProgress.done()
 }
 
@@ -87,6 +133,10 @@ export const onClientEntry = () => {
     NProgress.start()
 
     const is_gtm_test_domain = window.location.hostname === gtm_test_domain
+    const push_woosh = new Pushwoosh()
+    if (isLive()) {
+        pushwooshInit(push_woosh)
+    }
 
     // Add GTM script for test domain
     if (!isLocalHost() && is_gtm_test_domain) {
@@ -95,7 +145,7 @@ export const onClientEntry = () => {
             id: 'gtm-test-container',
         })
         addScript({
-            text:`
+            text: `
                 (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
                 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
                 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
@@ -105,9 +155,17 @@ export const onClientEntry = () => {
     }
 
     addScript({
-        src:'https://static.deriv.com/scripts/cookie.js',
+        src: 'https://static.deriv.com/scripts/cookie.js',
         async: true,
     })
+
+    if (window.location.hostname === 'deriv.com') {
+        datadogRum.init({
+            clientToken: client_token,
+            applicationId: application_id,
+            sampleRate: sample_rate,
+        })
+    }
 }
 
 export const onPreRouteUpdate = () => {
@@ -117,6 +175,27 @@ export const onPreRouteUpdate = () => {
 export const onRouteUpdate = () => {
     NProgress.done()
     checkDomain()
+
+    const dataLayer = window.dataLayer
+    const domain = getDomain();
+    const client_information = getClientInformation(domain);
+    const is_logged_in = !!client_information
+
+    // wrap inside a timeout to ensure the title has properly been changed
+    setTimeout(() => {
+        const eventName = 'page_load'
+
+        dataLayer?.push({
+            event: eventName,
+            loggedIn: is_logged_in,
+            language: getLanguage(),
+            ...(is_logged_in && {
+                visitorId: client_information.loginid,
+                currency: client_information.currency,
+                email: client_information.email,
+            }),
+        })
+    }, 50)
 }
 
 export const wrapPageElement = WrapPagesWithLocaleContext

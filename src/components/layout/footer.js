@@ -1,10 +1,11 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
+import PropTypes from 'prop-types'
 import { Container, CssGrid, Flex, Show } from '../containers'
 import { StyledLink, Text, QueryImage } from '../elements'
 import { LocationContext } from './location-context'
-import { mga_link_url } from 'common/utility'
+import { mga_link_url, community_url, deriv_status_page_url } from 'common/utility'
 // TODO: (discussion) make footer pure component, and move usage of footer to custom
 import device from 'themes/device'
 import { localize, Localize, LocalizedLink } from 'components/localization'
@@ -242,44 +243,68 @@ const mobile_accordion_header = {
     backgroundColor: 'var(--color-grey-25)',
     boxShadow: 'none',
 }
+
 const mobile_accordion_header_about = Object.assign({}, mobile_accordion_header)
-const SocialWrapperComponent = () => {
-    return (
-        <SocialWrapper>
+
+const SocialWrapperComponent = ({ is_career_page }) => {
+    const alt_string = (is_career_page ? 'career' : '') + ' icon link'
+    const accounts = [
+        {
+            link: is_career_page
+                ? 'https://www.facebook.com/derivcareers'
+                : 'https://www.facebook.com/derivdotcom/',
+            image: Facebook,
+            image_alt: `facebook ${alt_string}`,
+        },
+        {
+            link: is_career_page
+                ? 'https://www.instagram.com/derivcareers/'
+                : 'https://www.instagram.com/deriv_official/',
+            image: Instagram,
+            image_alt: `instagram ${alt_string}`,
+        },
+        {
+            link: 'https://www.linkedin.com/company/derivdotcom/',
+            image: Linkedin,
+            image_alt: `linkedin ${alt_string}`,
+        },
+    ]
+
+    const twitter = {
+        link: 'https://twitter.com/derivdotcom/',
+        image: Twitter,
+        image_alt: `twitter ${alt_string}`,
+    }
+
+    if (!is_career_page) {
+        accounts.splice(1, 0, twitter)
+    }
+
+    return <SocialMediaComponent social_accounts={accounts} />
+}
+
+SocialWrapperComponent.propTypes = {
+    is_career_page: PropTypes.bool,
+}
+
+const SocialMediaComponent = ({ social_accounts }) => (
+    <SocialWrapper>
+        {social_accounts.map((account, index) => (
             <LocalizedLink
+                key={index}
                 external="true"
-                to="https://www.facebook.com/derivdotcom/"
+                to={account.link}
                 target="_blank"
                 rel="noopener noreferrer"
             >
-                <img src={Facebook} alt="facebook" width="41" height="41" />
+                <img src={account.image} alt={account.image_alt} width="41" height="41" />
             </LocalizedLink>
-            <LocalizedLink
-                external="true"
-                to="https://twitter.com/derivdotcom"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                <img src={Twitter} alt="twitter" width="41" height="41" />
-            </LocalizedLink>
-            <LocalizedLink
-                external="true"
-                to="https://www.instagram.com/deriv_official/"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                <img src={Instagram} alt="instagram" width="41" height="41" />
-            </LocalizedLink>
-            <LocalizedLink
-                external="true"
-                to="https://www.linkedin.com/company/derivdotcom/"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                <img src={Linkedin} alt="linkedin" width="41" height="41" />
-            </LocalizedLink>
-        </SocialWrapper>
-    )
+        ))}
+    </SocialWrapper>
+)
+
+SocialMediaComponent.propTypes = {
+    social_accounts: PropTypes.array,
 }
 
 const query = graphql`
@@ -290,11 +315,12 @@ const query = graphql`
     }
 `
 
-const Footer = () => {
+const Footer = ({ type, is_ppc, is_ppc_redirect }) => {
     const image_query = useStaticQuery(query)
     const { show_cookie_banner } = React.useContext(LocationContext)
 
     mobile_accordion_header_about.borderTop = 'none'
+    const current_year = new Date().getFullYear()
 
     return (
         <StyledFooter has_banner_cookie={show_cookie_banner}>
@@ -304,7 +330,7 @@ const Footer = () => {
                         <StyledLogo src={Logo} alt="logo" width="147" height="25" />
                         <Show.Eu>
                             <Show.Desktop>
-                                <SocialWrapperComponent />
+                                <SocialWrapperComponent is_career_page={type === 'careers'} />
                             </Show.Desktop>
                         </Show.Eu>
                     </DerivLogoWrapper>
@@ -334,7 +360,7 @@ const Footer = () => {
                                         </Link>
                                     </LinkWrapper>
                                     <LinkWrapper>
-                                        <Link to="/contact-us">{localize('Contact us')}</Link>
+                                        <Link to="/contact_us">{localize('Contact us')}</Link>
                                     </LinkWrapper>
                                     <LinkWrapper>
                                         <Link to="/careers">{localize('Careers')}</Link>
@@ -351,7 +377,9 @@ const Footer = () => {
                                         <Link to="/dbot">{localize('DBot')}</Link>
                                     </LinkWrapper>
                                     <LinkWrapper>
-                                        <Link to="/dmt5">{localize('DMT5')}</Link>
+                                        <Link to={!is_ppc_redirect ? '/dmt5' : '/landing/dmt5'}>
+                                            {localize('DMT5')}
+                                        </Link>
                                     </LinkWrapper>
                                     <LinkWrapper>
                                         <Link
@@ -365,28 +393,30 @@ const Footer = () => {
                                         </Link>
                                     </LinkWrapper>
                                 </LinksCol>
-                                <LinksCol>
-                                    <LinkWrapper>
-                                        <Title>{localize('TRADE TYPES')}</Title>
-                                    </LinkWrapper>
-                                    <LinkWrapper first_child="true">
-                                        <Link to="/trade-types/margin">
-                                            {localize('Margin trading')}
-                                        </Link>
-                                    </LinkWrapper>
-                                    <Show.NonEU>
+                                {!is_ppc && (
+                                    <LinksCol>
                                         <LinkWrapper>
-                                            <Link to="/trade-types/options">
-                                                {localize('Options')}
+                                            <Title>{localize('TRADE TYPES')}</Title>
+                                        </LinkWrapper>
+                                        <LinkWrapper first_child="true">
+                                            <Link to="/trade-types/margin">
+                                                {localize('Margin trading')}
                                             </Link>
                                         </LinkWrapper>
-                                    </Show.NonEU>
-                                    <LinkWrapper>
-                                        <Link to="/trade-types/multiplier">
-                                            {localize('Multipliers')}
-                                        </Link>
-                                    </LinkWrapper>
-                                </LinksCol>
+                                        <Show.NonEU>
+                                            <LinkWrapper>
+                                                <Link to="/trade-types/options">
+                                                    {localize('Options')}
+                                                </Link>
+                                            </LinkWrapper>
+                                        </Show.NonEU>
+                                        <LinkWrapper>
+                                            <Link to="/trade-types/multiplier">
+                                                {localize('Multipliers')}
+                                            </Link>
+                                        </LinkWrapper>
+                                    </LinksCol>
+                                )}
                                 <LinksCol>
                                     <LinkWrapper>
                                         <Title>{localize('MARKETS')}</Title>
@@ -394,11 +424,13 @@ const Footer = () => {
                                     <LinkWrapper first_child="true">
                                         <Link to="/markets#forex">{localize('Forex')}</Link>
                                     </LinkWrapper>
-                                    <LinkWrapper>
-                                        <Link to="/markets#synthetic">
-                                            {localize('Synthetic indices')}
-                                        </Link>
-                                    </LinkWrapper>
+                                    {!is_ppc && (
+                                        <LinkWrapper>
+                                            <Link to="/markets#synthetic">
+                                                {localize('Synthetic indices')}
+                                            </Link>
+                                        </LinkWrapper>
+                                    )}
                                     <LinkWrapper>
                                         <Link to="/markets#stock">{localize('Stock indices')}</Link>
                                     </LinkWrapper>
@@ -423,7 +455,7 @@ const Footer = () => {
                                         </Link>
                                     </LinkWrapper>
                                     <LinkWrapper>
-                                        <Link to="/responsible-trading">
+                                        <Link to="/responsible">
                                             {localize('Secure and responsible trading')}
                                         </Link>
                                     </LinkWrapper>
@@ -451,8 +483,42 @@ const Footer = () => {
                                         <Link to="/help-centre">{localize('Help centre')}</Link>
                                     </LinkWrapper>
                                     <LinkWrapper>
+                                        <Link
+                                            external="true"
+                                            to={community_url}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                        >
+                                            {localize('Community')}
+                                        </Link>
+                                    </LinkWrapper>
+                                    <LinkWrapper>
+                                        <Link to="/trader-tools">{localize('Traders’ tools')}</Link>
+                                    </LinkWrapper>
+                                    <LinkWrapper>
                                         <Link to="/payment-methods">
                                             {localize('Payment methods')}
+                                        </Link>
+                                    </LinkWrapper>
+                                    <LinkWrapper>
+                                        <Link
+                                            to={deriv_status_page_url}
+                                            target="_blank"
+                                            external="true"
+                                            rel="noopener noreferrer"
+                                        >
+                                            {localize('Status page')}
+                                        </Link>
+                                    </LinkWrapper>
+                                    <LinkWrapper>
+                                        <Link
+                                            to=""
+                                            is_blog_link
+                                            external="true"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                        >
+                                            {localize('Blog')}
                                         </Link>
                                     </LinkWrapper>
                                 </LinksCol>
@@ -509,7 +575,7 @@ const Footer = () => {
                         <Show.Eu>
                             <DisclaimerParagraph>
                                 <Localize
-                                    translate_text="Deriv Investments (Europe) Limited, W Business Centre, Level 3, Triq Dun Karm, Birkirkara BKR 9033, Malta, is licensed in Malta and regulated by the Malta Financial Services Authority under the Investments Services Act to provide investment services in the European Union (<0>licence no. IS/70156</0>). It is also authorised and subject to limited regulation by the Financial Conduct Authority in the UK. Details about the extent of our authorisation and regulation by the Financial Conduct Authority are available from us on request."
+                                    translate_text="Deriv Investments (Europe) Limited, W Business Centre, Level 3, Triq Dun Karm, Birkirkara BKR 9033, Malta, is licensed in Malta (<0>licence no. IS/70156</0>) and regulated by the Malta Financial Services Authority under the Investments Services Act to provide investment services in the European Union. It is also authorised and subject to limited regulation by the Financial Conduct Authority in the UK. Details about the extent of our authorisation and regulation by the Financial Conduct Authority are available from us on request."
                                     components={[
                                         <StaticAsset
                                             key={0}
@@ -522,7 +588,7 @@ const Footer = () => {
                             </DisclaimerParagraph>
                             <DisclaimerParagraph>
                                 <Localize
-                                    translate_text="Deriv (MX) Ltd, Millennium House, Level 1, Victoria Road, Douglas IM2 4RW, Isle of Man, is licensed and regulated in Great Britain by the Gambling Commission under <1>account no. 39172</1> and by the Gambling Supervision Commission in the Isle of Man (<0>view licence</0>)."
+                                    translate_text="Deriv (MX) Ltd, Millennium House, Level 1, Victoria Road, Douglas IM2 4RW, Isle of Man, licensed and regulated by the Gambling Supervision Commission in the Isle of Man (<0>view licence</0>) and by the UK Gambling Commission for clients in the UK (<1>account no. 39172</1>)."
                                     components={[
                                         <StaticAsset
                                             key={0}
@@ -534,7 +600,7 @@ const Footer = () => {
                                             external="true"
                                             key={1}
                                             target="_blank"
-                                            to="https://secure.gamblingcommission.gov.uk/PublicRegister/Search/Detail/39172"
+                                            to="https://beta.gamblingcommission.gov.uk/public-register/business/detail/39172"
                                             rel="noopener noreferrer"
                                         />,
                                     ]}
@@ -542,7 +608,7 @@ const Footer = () => {
                             </DisclaimerParagraph>
                             <DisclaimerParagraph>
                                 <Localize
-                                    translate_text="Deriv (Europe) Limited, W Business Centre, Level 3, Triq Dun Karm, Birkirkara BKR 9033, Malta, is licensed and regulated for synthetic indices by the Malta Gaming Authority (<0>licence no. MGA/B2C/102/2000</0>), by the Gambling Commission for clients in Great Britain under <1>account no. 39495</1>, and by the Revenue Commissioners for clients in Ireland (licence no. 1010285)."
+                                    translate_text="Deriv (Europe) Limited, W Business Centre, Level 3, Triq Dun Karm, Birkirkara BKR 9033, Malta, is licensed and regulated for synthetic indices by the Malta Gaming Authority (<0>licence no. MGA/B2C/102/2000</0>), by the Gambling Commission for clients in Great Britain (<1>account no. 39495</1>), and by the Revenue Commissioners for clients in Ireland (licence no. 1010285)."
                                     components={[
                                         <StaticAsset
                                             key={0}
@@ -554,7 +620,7 @@ const Footer = () => {
                                             external="true"
                                             key={1}
                                             target="_blank"
-                                            to="https://secure.gamblingcommission.gov.uk/PublicRegister/Search/Detail/39495"
+                                            to="https://beta.gamblingcommission.gov.uk/public-register/business/detail/39495"
                                             rel="noopener noreferrer"
                                         />,
                                     ]}
@@ -570,7 +636,7 @@ const Footer = () => {
                             <Show.Desktop>
                                 <Show.NonEU>
                                     <DisclaimerParagraph no_margin>
-                                        <Localize translate_text="The financial products offered on this website include options and contracts for difference (CFDs) which are considered complex derivatives and may not be suitable for everyone. CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money. The products mentioned here may be affected by changes in currency exchange rates. If you invest in these products, you may lose some or all of your investment, and the value of your investment may fluctuate. You should never invest money that you cannot afford to lose and never trade with borrowed money." />
+                                        <Localize translate_text="CFDs are considered complex derivatives and may not be suitable for retail clients. CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money. The products mentioned here may be affected by changes in currency exchange rates. If you invest in these products, you may lose some or all of your investment, and the value of your investment may fluctuate. You should never invest money that you cannot afford to lose and never trade with borrowed money." />
                                     </DisclaimerParagraph>
                                     <DisclaimerParagraph>
                                         <Localize
@@ -579,7 +645,7 @@ const Footer = () => {
                                                 <BoldLink
                                                     key={0}
                                                     target="_blank"
-                                                    to="/responsible-trading/"
+                                                    to="/responsible/"
                                                 />,
                                             ]}
                                         />
@@ -587,12 +653,13 @@ const Footer = () => {
                                 </Show.NonEU>
                                 <Show.Eu>
                                     <DisclaimerParagraph no_margin>
-                                        <Localize
-                                            translate_text="The financial products offered on this website include options and contracts for difference (CFDs) which are considered complex derivatives and may not be suitable for everyone.<0/><0/>
-                                            CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. 74% of retail investor accounts lose money when trading CFDs with this provider. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money.<0/><0/>
-                                            The products mentioned here may be affected by changes in currency exchange rates. If you invest in these products, you may lose some or all of your investment and the value of your investment may fluctuate. You should never invest money that you cannot afford to lose and never trade with borrowed money."
-                                            components={[<br key={0} />]}
-                                        />
+                                        <Localize translate_text="CFDs are considered complex derivatives and may not be suitable for retail clients." />
+                                    </DisclaimerParagraph>
+                                    <DisclaimerParagraph>
+                                        <Localize translate_text="CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. 71% of retail investor accounts lose money when trading CFDs with this provider. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money." />
+                                    </DisclaimerParagraph>
+                                    <DisclaimerParagraph>
+                                        <Localize translate_text="The products mentioned here may be affected by changes in currency exchange rates. If you invest in these products, you may lose some or all of your investment and the value of your investment may fluctuate. You should never invest money that you cannot afford to lose and never trade with borrowed money." />
                                     </DisclaimerParagraph>
                                     <DisclaimerParagraph>
                                         <Localize
@@ -601,11 +668,11 @@ const Footer = () => {
                                                 <BoldLink
                                                     key={0}
                                                     target="_blank"
-                                                    to="/responsible-trading/"
+                                                    to="/responsible/"
                                                 />,
                                                 <BoldLink
                                                     external="true"
-                                                    key={0}
+                                                    key={1}
                                                     target="_blank"
                                                     to="https://www.begambleaware.org/"
                                                 />,
@@ -617,12 +684,13 @@ const Footer = () => {
                             <Show.Mobile>
                                 <Show.Eu>
                                     <DisclaimerParagraph no_margin>
-                                        <Localize
-                                            translate_text="The financial products offered on this website include options and contracts for difference (CFDs) which are considered complex derivatives and may not be suitable for everyone.<0/><0/>
-                                            CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. 74% of retail investor accounts lose money when trading CFDs with this provider. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money.<0/><0/>
-                                            The products mentioned here may be affected by changes in currency exchange rates. If you invest in these products, you may lose some or all of your investment and the value of your investment may fluctuate. You should never invest money that you cannot afford to lose and never trade with borrowed money."
-                                            components={[<br key={0} />]}
-                                        />
+                                        <Localize translate_text="CFDs are considered complex derivatives and may not be suitable for retail clients." />
+                                    </DisclaimerParagraph>
+                                    <DisclaimerParagraph>
+                                        <Localize translate_text="CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. 71% of retail investor accounts lose money when trading CFDs with this provider. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money." />
+                                    </DisclaimerParagraph>
+                                    <DisclaimerParagraph>
+                                        <Localize translate_text="The products mentioned here may be affected by changes in currency exchange rates. If you invest in these products, you may lose some or all of your investment and the value of your investment may fluctuate. You should never invest money that you cannot afford to lose and never trade with borrowed money." />
                                     </DisclaimerParagraph>
                                     <DisclaimerParagraph>
                                         <Localize
@@ -631,11 +699,11 @@ const Footer = () => {
                                                 <BoldLink
                                                     key={0}
                                                     target="_blank"
-                                                    to="/responsible-trading/"
+                                                    to="/responsible/"
                                                 />,
                                                 <BoldLink
                                                     external="true"
-                                                    key={0}
+                                                    key={1}
                                                     target="_blank"
                                                     to="https://www.begambleaware.org/"
                                                 />,
@@ -645,7 +713,7 @@ const Footer = () => {
                                 </Show.Eu>
                                 <Show.NonEU>
                                     <DisclaimerParagraph no_margin>
-                                        <Localize translate_text="The financial products offered on this website include options and contracts for difference (CFDs) which are considered complex derivatives and may not be suitable for everyone. CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money. The products mentioned here may be affected by changes in currency exchange rates. If you invest in these products, you may lose some or all of your investment, and the value of your investment may fluctuate. You should never invest money that you cannot afford to lose and never trade with borrowed money." />
+                                        <Localize translate_text="CFDs are considered complex derivatives and may not be suitable for retail clients. CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money. The products mentioned here may be affected by changes in currency exchange rates. If you invest in these products, you may lose some or all of your investment, and the value of your investment may fluctuate. You should never invest money that you cannot afford to lose and never trade with borrowed money." />
                                     </DisclaimerParagraph>
                                     <DisclaimerParagraph>
                                         <Localize
@@ -654,7 +722,7 @@ const Footer = () => {
                                                 <BoldLink
                                                     key={0}
                                                     target="_blank"
-                                                    to="/responsible-trading/"
+                                                    to="/responsible/"
                                                 />,
                                             ]}
                                         />
@@ -665,14 +733,19 @@ const Footer = () => {
                     </Disclaimer>
                     <Copyright>
                         <img src={CopyrightIc} alt="copyright ic" width="16" height="16" />
-                        <Text ml="0.4rem">{localize('2020 Deriv | All rights reserved')}</Text>
+                        <Text ml="0.4rem">
+                            <Localize
+                                translate_text="{{current_year}} Deriv | All rights reserved"
+                                values={{ current_year }}
+                            />
+                        </Text>
                     </Copyright>
                     <Show.NonEU>
-                        <SocialWrapperComponent />
+                        <SocialWrapperComponent is_career_page={type === 'careers'} />
                     </Show.NonEU>
                     <Show.Eu>
                         <Show.Mobile>
-                            <SocialWrapperComponent />
+                            <SocialWrapperComponent is_career_page={type === 'careers'} />
                         </Show.Mobile>
                     </Show.Eu>
                     <Show.Eu>
@@ -756,6 +829,12 @@ const Footer = () => {
             </Container>
         </StyledFooter>
     )
+}
+
+Footer.propTypes = {
+    is_ppc: PropTypes.bool,
+    is_ppc_redirect: PropTypes.bool,
+    type: PropTypes.string,
 }
 
 export default Footer

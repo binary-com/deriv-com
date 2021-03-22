@@ -38,15 +38,23 @@ const HeroContent = styled(Flex)`
     justify-content: flex-start;
     height: unset;
 
+    /* TODO: remove these selectors and have conditional logics all in HeroHeader instead */
     ${Header} {
         color: var(--color-white);
         display: flex;
         margin-top: 1.6rem;
         line-height: 1.25;
     }
+
     @media ${device.laptopM} {
         ${Header} {
             font-size: 32px;
+        }
+    }
+
+    @media ${device.mobileM} {
+        ${Header} {
+            font-size: ${({ is_ppc }) => is_ppc && '27.5px'};
         }
     }
 `
@@ -198,6 +206,7 @@ const DHero = ({
     is_mobile,
     join_us_for_free,
     go_to_live_demo,
+    is_ppc,
     Logo,
 }) => {
     const data = useStaticQuery(query)
@@ -270,14 +279,17 @@ const DHero = ({
                     <DLogo src={Logo} alt="logo" width="32" height="32" />
                     {title}
                 </StyledHeader>
-                <HeroContent>
+                <HeroContent is_ppc={is_ppc}>
                     <HeroHeader as="h1" type="display-title">
                         {content}
                     </HeroHeader>
                 </HeroContent>
                 <LinkWrapper>
                     {join_us_for_free && (
-                        <StyledLinkButton secondary="true" to="/signup/">
+                        <StyledLinkButton
+                            secondary="true"
+                            to={is_ppc ? '/landing/signup/' : '/signup'}
+                        >
                             {localize('Create free demo account')}
                         </StyledLinkButton>
                     )}
@@ -315,6 +327,7 @@ DHero.propTypes = {
     go_to_live_demo: PropTypes.bool,
     image_name: PropTypes.string,
     is_mobile: PropTypes.bool,
+    is_ppc: PropTypes.bool,
     join_us_for_free: PropTypes.bool,
     Logo: PropTypes.any,
     title: PropTypes.string,

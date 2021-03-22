@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
-import Forex from './forex/_forex.js'
-import Commodities from './commodities/_commodities.js'
-import SyntheticIndices from './synthetic/_synthetic-indices.js'
-import StockIndices from './stock/_stock-indices.js'
-import { Hero } from './_hero'
+import Commodities from './components/markets/_commodities.js'
+import Forex from './components/markets/_forex'
+import StockIndices from './components/markets/_stock-indices.js'
+import SyntheticIndices from './components/markets/_synthetic-indices.js'
+import { Hero } from './components/sections/_hero'
 import Signup, { Appearances } from 'components/custom/signup'
 import Layout from 'components/layout/layout'
 import { localize, Localize, WithIntl } from 'components/localization'
@@ -120,7 +120,12 @@ const TabsContainer = styled(Flex)`
 
 const Markets = () => (
     <Layout>
-        <SEO description={localize('Markets to trade')} title={localize('Markets')} />
+        <SEO
+            description={localize(
+                'Learn about the markets that you can trade online with Deriv, including forex, commodities, synthetic indices, and stock indices.',
+            )}
+            title={localize('Markets | Markets to trade | Deriv')}
+        />
         <Hero />
         <TabsContainer>
             <Tabs tab_list={['forex', 'synthetic', 'stock', 'commodities']} route_from="markets">

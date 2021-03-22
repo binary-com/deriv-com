@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Table, TR, TC } from './_table.js'
 import { Card, CardWrapper } from './_partner-card.js'
-import { SectionContainer, Container } from 'components/containers'
+import { SectionContainer, Container, Flex } from 'components/containers'
 import { Header, Text } from 'components/elements/typography'
 import { localize, Localize } from 'components/localization'
 import { Button, LinkButton } from 'components/form'
@@ -16,14 +16,55 @@ const TitleWrapper = styled.div`
     margin: 0 auto;
 `
 
+const StyledCardWrapper = styled(CardWrapper)`
+    flex-wrap: nowrap;
+    @media ${device.laptopL} {
+        flex-wrap: wrap;
+    }
+`
+
 const StyledSection = styled(SectionContainer)`
-    box-shadow: ${(props) => (props.shadow ? '0 1px 0 0 rgba(0, 0, 0, 0.1)' : '')};
     padding-bottom: 0;
     text-align: ${(props) => props.align || 'left'};
+
+    @media ${device.tabletL} {
+        padding: 40px 0;
+        box-shadow: ${(props) => (props.shadow ? '0 1px 0 0 rgba(0, 0, 0, 0.1)' : '')};
+    }
+`
+
+const DecideSection = styled(StyledSection)`
+    padding-top: 40px;
+    @media ${device.tabletL} {
+        padding: 40px 0 0 0;
+    }
+`
+
+const IBSectionContainer = styled(SectionContainer)`
+    padding-bottom: 80px;
+    @media ${device.tabletL} {
+        padding: 16px 0 0;
+    }
+    @media ${device.mobileM} {
+        width: unset;
+    }
 `
 const StyledHeader = styled(Header)`
     @media ${device.tabletL} {
         text-align: center;
+        font-size: 16px;
+    }
+`
+
+const CardHeader = styled(Header)`
+    @media ${device.tabletL} {
+        font-size: 16px;
+    }
+`
+
+const CardText = styled(Text)`
+    @media ${device.tabletL} {
+        font-size: 14px;
     }
 `
 
@@ -32,11 +73,31 @@ const BackButton = styled(Button)`
     color: var(--color-black);
     height: 40px;
     padding: 0 1.6rem;
+    margin-right: 1.6rem;
+`
+
+const StyledButton = styled(Button)`
+    @media ${device.tabletL} {
+        font-size: 14px;
+    }
+`
+
+const LinkButtonContactUs = styled(LinkButton)`
+    @media ${device.tablet} {
+        display: block;
+        margin: auto;
+        font-size: 14px;
+        width: 216px;
+        height: 40px;
+    }
 `
 
 const StyledText = styled(Text)`
     font-size: 1.4rem;
     line-height: 1.15;
+    @media ${device.tabletL} {
+        font-size: 14px;
+    }
 `
 
 const HowItsCalculate = styled.div`
@@ -52,7 +113,7 @@ const HowItsCalculate = styled.div`
 
 const ButtonWrapper = styled.div`
     display: flex;
-    justify-content: flex-start;
+    justify-content: flex-end;
     margin-top: 1.6rem;
     position: absolute;
     bottom: 0;
@@ -63,98 +124,171 @@ const ButtonWrapper = styled.div`
     button:last-child {
         margin-left: 1.6rem;
     }
+    @media ${device.tabletL} {
+        justify-content: center;
+    }
 `
 
 const StyledHeaderCommission = styled(StyledHeader)`
-    @media (max-width: 1428px) {
+    margin-bottom: 0;
+    margin-left: -85px;
+    @media ${device.desktopL} {
+        margin-left: 0;
         text-align: center;
+    }
+
+    @media (max-width: 1444px) {
+        margin-left: auto;
+        text-align: center;
+    }
+
+    @media ${device.mobileL} {
+        width: 40rem;
+    }
+
+    @media ${device.mobileM} {
+        text-align: left;
+        margin: auto;
+        width: 38rem;
     }
 `
 
 const StyledCard = styled(Card)`
-    margin: 1.6rem 2.4rem 0;
+    border-radius: 8px;
+    min-width: 44rem;
+
+    :nth-child(2) {
+        margin: 1.6rem 2.4rem 0;
+
+        @media ${device.tabletL} {
+            margin: 24px 0;
+        }
+    }
 
     @media ${device.tabletL} {
-        margin: 2.4rem 0;
+        min-width: 328px;
+        padding: 16px;
+        margin: 1.6rem 0 1.6rem 0;
+        height: ${(props) => (props.tabletHeight ? props.tabletHeight : '')};
+    }
+
+    @media ${device.mobileM} {
+        min-width: unset;
+        height: ${(props) => (props.mobileHeight ? props.mobileHeight : '')};
+
+        p {
+            font-size: 12px;
+        }
+    }
+`
+
+const StyledTitleHeader = styled(Header)`
+    @media ${device.tabletL} {
+        font-size: 24px;
+    }
+`
+
+const SubtitleHeader = styled(Header)`
+    @media ${device.laptopL} {
+        width: 100%;
+    }
+    @media ${device.tabletL} {
+        font-size: 16px !important;
     }
 `
 
 const TitleTR = styled(TR)`
-    height: 6rem;
+    height: 5rem;
+    display: flex;
+    align-items: center;
+
+    @media ${device.tabletL} {
+        height: 60px;
+    }
 `
 const DerivIBProgramme = () => {
     return (
         <StyledSection shadow id="deriv-ib">
             <Container direction="column">
                 <TitleWrapper>
-                    <Header mb="1.6rem" as="h3" type="section-title" align="center">
+                    <StyledTitleHeader mb="1.2rem" type="page-title" align="center">
                         {localize('Deriv IB Programme')}
-                    </Header>
-                    <Header as="h4" type="sub-section-title" align="center" weight="500">
+                    </StyledTitleHeader>
+                    <SubtitleHeader as="h4" type="sub-section-title" align="center" weight="normal">
                         {localize(
                             'Our introducing broker programme is available to all Deriv affiliates.',
                         )}
-                    </Header>
-                    <Header as="h4" type="sub-section-title" align="center" weight="500">
+                    </SubtitleHeader>
+                    <SubtitleHeader as="h4" type="sub-section-title" align="center" weight="normal">
                         {localize('Earn commission from your clients’ trades on DMT5.')}
-                    </Header>
+                    </SubtitleHeader>
                 </TitleWrapper>
-                <SectionContainer padding="4rem 0 9.6rem 0">
-                    <StyledHeaderCommission as="h4" type="sub-section-title" mb="1.6rem">
+                <IBSectionContainer padding="4rem 0 9.6rem 0">
+                    <StyledHeaderCommission as="h4" type="main-paragraph" mb="1.6rem">
                         {localize('Choose a commission plan:')}
                     </StyledHeaderCommission>
-                    <CardWrapper>
+                    <StyledCardWrapper>
+                        <DMT5Synthetic data={ib_dmt5_synthetic} />
                         <DMT5Standard data={ib_dmt5_standard} />
                         <DMT5Advanced data={ib_dmt5_advanced} />
-                        <DMT5Synthetic data={ib_dmt5_synthetic} />
-                    </CardWrapper>
-                    <StyledSection padding="4rem 0 0 0" align="center">
+                    </StyledCardWrapper>
+                    <DecideSection align="center">
                         <StyledHeader
                             as="h4"
                             type="sub-section-title"
                             align="center"
-                            weight="500"
-                            mb="2.6rem"
+                            weight="medium"
+                            mb="3.2rem"
                         >
                             {localize('Can’t decide which programme or commission plan suits you?')}
                         </StyledHeader>
-                        <LinkButton
+                        <LinkButtonContactUs
                             external="true"
                             secondary
                             to="mailto:partners@deriv.com"
                             is_mail_link
                         >
                             {localize('Contact us')}
-                        </LinkButton>
-                    </StyledSection>
-                </SectionContainer>
+                        </LinkButtonContactUs>
+                    </DecideSection>
+                </IBSectionContainer>
             </Container>
         </StyledSection>
     )
 }
 
 const StyledChevron = styled.img`
-    width: 100%;
     margin-top: 0.8rem;
     height: 16px;
+    width: 16px;
     cursor: pointer;
     transform: ${(props) => (props.is_expand == 'true' ? 'rotate(-180deg)' : 'inherit ')};
 `
 
 const StyledTR = styled(TR)`
     display: ${(props) => (props.hidden ? 'hidden' : 'block')};
+    white-space: nowrap;
 `
 
 const SyntheticTable = styled(Table)`
-    grid-template-columns: 55% 47%;
+    grid-template-columns: 50% 50%;
+
+    @media ${device.tabletL} {
+        grid-template-columns: 65% 35%;
+    }
 `
 const StyledLinkButton = styled(LinkButton)`
     height: 40px;
 
-    @media ${device.mobileL} {
+    @media ${device.tabletL} {
         padding: 1.5rem 1.6rem;
         height: 40px;
         white-space: nowrap;
+        font-size: 12px;
+    }
+
+    @media ${device.mobileL} {
+        font-size: 10px;
     }
 `
 const DMT5Synthetic = ({ data }) => {
@@ -170,18 +304,19 @@ const DMT5Synthetic = ({ data }) => {
         setExpand(!is_expand)
     }
     return (
-        <Card
-            height={is_expand && !is_calculated ? '100rem' : '49rem'}
-            padding="3.2rem 1.6rem 8.2rem"
-            width="43rem"
+        <StyledCard
+            height={is_expand && !is_calculated ? '75rem' : '49rem'}
+            padding="3.2rem 3.2rem 8.2rem"
+            mobileHeight={is_expand && !is_calculated ? '78rem' : '49rem'}
+            width="44rem"
         >
             <div>
                 {!is_calculated ? (
                     <div>
-                        <Header as="h4" type="sub-section-title">
+                        <CardHeader as="h4" type="sub-section-title" mb="0.8rem">
                             {data.name}
-                        </Header>
-                        <Text>{data.description}</Text>
+                        </CardHeader>
+                        <CardText>{data.description}</CardText>
                         <SyntheticTable grid_col_number={data.assets.length} is_balance={true}>
                             {data.assets.map((asset, idx) => (
                                 <TC grid_area={`area${idx}`} key={idx}>
@@ -218,26 +353,31 @@ const DMT5Synthetic = ({ data }) => {
                             ))}
                         </SyntheticTable>
                         {has_expansion && (
-                            <StyledChevron
-                                src={Chevron}
-                                alt="chevron"
-                                onClick={toggleExpand}
-                                is_expand={is_expand.toString()}
-                            />
+                            <Flex>
+                                <StyledChevron
+                                    src={Chevron}
+                                    alt="chevron"
+                                    onClick={toggleExpand}
+                                    is_expand={is_expand.toString()}
+                                />
+                            </Flex>
                         )}
                         <HowItsCalculate>
-                            <Button flat onClick={toggleCalculated}>
+                            <StyledButton flat onClick={toggleCalculated}>
                                 {localize("How it's calculated")}
-                            </Button>
+                            </StyledButton>
                         </HowItsCalculate>
                     </div>
                 ) : (
                     <>
-                        <Header as="h4" type="sub-section-title" lh="1.5">
+                        <CardHeader as="h4" type="sub-section-title" mb="0.8rem" lh="1.5">
                             {localize('How it’s calculated')}
-                        </Header>
+                        </CardHeader>
                         {data.calculation}
                         <ButtonWrapper>
+                            <BackButton tertiary onClick={toggleCalculated}>
+                                {localize('Back')}
+                            </BackButton>
                             <StyledLinkButton
                                 secondary
                                 to={affiliate_signup_url}
@@ -247,14 +387,11 @@ const DMT5Synthetic = ({ data }) => {
                             >
                                 {localize('Become an affiliate')}
                             </StyledLinkButton>
-                            <BackButton tertiary onClick={toggleCalculated}>
-                                {localize('Back')}
-                            </BackButton>
                         </ButtonWrapper>
                     </>
                 )}
             </div>
-        </Card>
+        </StyledCard>
     )
 }
 const DMT5Standard = ({ data }) => {
@@ -263,14 +400,14 @@ const DMT5Standard = ({ data }) => {
         setCalculated(!is_calculated)
     }
     return (
-        <Card padding="3.2rem 3.2rem 8.2rem" width="43rem">
+        <StyledCard padding="3.2rem 3.2rem 8.2rem" width="44rem" height="49rem">
             <div>
                 {!is_calculated ? (
                     <div>
-                        <Header as="h4" type="sub-section-title">
+                        <CardHeader type="sub-section-title" as="h4" mb="0.8rem">
                             {data.name}
-                        </Header>
-                        <Text>{data.description}</Text>
+                        </CardHeader>
+                        <CardText>{data.description}</CardText>
                         <Table grid_col_number={data.assets.length}>
                             {data.assets.map((asset, idx) => (
                                 <TC grid_area={`area${idx}`} key={idx}>
@@ -313,18 +450,21 @@ const DMT5Standard = ({ data }) => {
                             ))}
                         </Table>
                         <HowItsCalculate>
-                            <Button flat onClick={toggleCalculated}>
+                            <StyledButton flat onClick={toggleCalculated}>
                                 {localize("How it's calculated")}
-                            </Button>
+                            </StyledButton>
                         </HowItsCalculate>
                     </div>
                 ) : (
                     <>
-                        <Header as="h4" type="sub-section-title">
+                        <CardHeader as="h4" type="sub-section-title" mb="0.8rem">
                             {localize('How it’s calculated')}
-                        </Header>
+                        </CardHeader>
                         {data.calculation}
                         <ButtonWrapper>
+                            <BackButton tertiary onClick={toggleCalculated}>
+                                {localize('Back')}
+                            </BackButton>
                             <StyledLinkButton
                                 secondary
                                 to={affiliate_signup_url}
@@ -334,14 +474,11 @@ const DMT5Standard = ({ data }) => {
                             >
                                 {localize('Become an affiliate')}
                             </StyledLinkButton>
-                            <BackButton tertiary onClick={toggleCalculated}>
-                                {localize('Back')}
-                            </BackButton>
                         </ButtonWrapper>
                     </>
                 )}
             </div>
-        </Card>
+        </StyledCard>
     )
 }
 const DMT5Advanced = ({ data }) => {
@@ -350,14 +487,14 @@ const DMT5Advanced = ({ data }) => {
         setCalculated(!is_calculated)
     }
     return (
-        <StyledCard padding="3.2rem 3.2rem 8.2rem" width="43rem">
+        <StyledCard padding="3.2rem 3.2rem 8.2rem" width="44rem" height="49rem">
             <div>
                 {!is_calculated ? (
                     <div>
-                        <Header as="h4" type="sub-section-title">
+                        <CardHeader as="h4" type="sub-section-title" mb="0.8rem">
                             {data.name}
-                        </Header>
-                        <Text>{data.description}</Text>
+                        </CardHeader>
+                        <CardText>{data.description}</CardText>
                         <Table grid_col_number={data.assets.length}>
                             {data.assets.map((asset, idx) => (
                                 <TC grid_area={`area${idx}`} key={idx}>
@@ -401,18 +538,21 @@ const DMT5Advanced = ({ data }) => {
                             ))}
                         </Table>
                         <HowItsCalculate>
-                            <Button flat onClick={toggleCalculated}>
+                            <StyledButton flat onClick={toggleCalculated}>
                                 {localize("How it's calculated")}
-                            </Button>
+                            </StyledButton>
                         </HowItsCalculate>
                     </div>
                 ) : (
                     <>
-                        <Header as="h4" type="sub-section-title">
+                        <CardHeader as="h4" type="sub-section-title" mb="0.8rem">
                             {localize('How it’s calculated')}
-                        </Header>
+                        </CardHeader>
                         {data.calculation}
                         <ButtonWrapper>
+                            <BackButton tertiary onClick={toggleCalculated}>
+                                {localize('Back')}
+                            </BackButton>
                             <StyledLinkButton
                                 secondary
                                 to={affiliate_signup_url}
@@ -422,9 +562,6 @@ const DMT5Advanced = ({ data }) => {
                             >
                                 {localize('Become an affiliate')}
                             </StyledLinkButton>
-                            <BackButton tertiary onClick={toggleCalculated}>
-                                {localize('Back')}
-                            </BackButton>
                         </ButtonWrapper>
                     </>
                 )}
@@ -435,7 +572,7 @@ const DMT5Advanced = ({ data }) => {
 const ib_dmt5_standard = {
     name: <Localize translate_text="DMT5 Financial" />,
     description: (
-        <Localize translate_text="Earn when your clients trade on a DMT5 Financial account." />
+        <Localize translate_text="Earn when your clients trade on a DMT5 Standard account." />
     ),
     assets: [
         [
@@ -454,24 +591,25 @@ const ib_dmt5_standard = {
     ],
     calculation: (
         <>
-            <Text>
+            <CardText>
                 <Localize translate_text="For forex and metal assets, your commission is represented in the base currency. For example, a round trade (i.e. opening and closing a position) of 1 lot of EUR/USD will pay out EUR 10 in commission. A round trade of 1 lot of USD/CAD will pay out USD 10 in commission." />
-            </Text>
-            <Text mt="2rem">
+            </CardText>
+            <CardText mt="2rem">
                 <Localize translate_text="For cryptocurrency assets, a round trade of 1 lot of BTC/USD with a spot price of USD 10,000 will pay out USD 30 in commission." />
-            </Text>
+            </CardText>
         </>
     ),
 }
 const ib_dmt5_advanced = {
     name: <Localize translate_text="DMT5 Financial STP" />,
     description: (
-        <Localize translate_text="Earn when your clients trade on a DMT5 Financial STP account." />
+        <Localize translate_text="Earn when your clients trade on a DMT5 Advanced account." />
     ),
     assets: [
         [
             { title: <Localize translate_text="Asset" />, style: { minWidth: '13rem' } },
-            <Localize key={0} translate_text="Forex and metals" />,
+            <Localize key={0} translate_text="Forex" />,
+            <Localize key={1} translate_text="Cryptocurrencies" />,
         ],
         [
             {
@@ -479,78 +617,70 @@ const ib_dmt5_advanced = {
                 style: { maxWidth: '16rem' },
             },
             <Localize key={0} translate_text="5 per lot" />,
-        ],
-    ],
-    calculation: (
-        <Text>
-            <Localize translate_text="For forex assets, your commission is represented in the base currency. For example, a round trade of 1 lot of EUR/USD will pay out EUR 5 in commission. A round trade of 1 lot of USD/CAD will pay out USD 5 in commission." />
-        </Text>
-    ),
-}
-const ib_dmt5_synthetic = {
-    name: <Localize translate_text="DMT5 Synthetic" />,
-    description: (
-        <Localize translate_text="Earn when your clients trade on a DMT5 Synthetic account." />
-    ),
-    assets: [
-        [
-            <Localize key={0} translate_text="Asset" />,
-            <Localize key={1} translate_text="Crash 1000 Index" />,
-            <Localize key={2} translate_text="Crash 500 Index" />,
-            <Localize key={3} translate_text="Boom 1000 Index" />,
-            <Localize key={4} translate_text="Boom 500 Index" />,
-            <Localize key={5} translate_text="Range Break 100 Index" />,
-            <Localize key={6} translate_text="Range Break 200 Index" />,
-            <Localize key={7} translate_text="Step Index" />,
-            <Localize key={8} translate_text="Volatility 10 Index" />,
-            <Localize key={9} translate_text="Volatility 10 (1s) Index" />,
-            <Localize key={10} translate_text="Volatility 25 Index" />,
-            <Localize key={11} translate_text="Volatility 25 (1s) Index" />,
-            <Localize key={12} translate_text="Volatility 50 Index" />,
-            <Localize key={13} translate_text="Volatility 50 (1s) Index" />,
-            <Localize key={14} translate_text="Volatility 75 Index" />,
-            <Localize key={15} translate_text="Volatility 75 (1s) Index" />,
-            <Localize key={16} translate_text="Volatility 100 Index" />,
-            <Localize key={17} translate_text="Volatility 100 (1s) Index" />,
-            <Localize key={18} translate_text="HF Volatility 10 Index" />,
-            <Localize key={19} translate_text="HF Volatility 50 Index" />,
-            <Localize key={20} translate_text="HF Volatility 100 Index" />,
-        ],
-        [
-            <Localize key={0} translate_text="Commission per round trade (per USD 100k)" />,
-            '0.50',
-            '0.70',
-            '0.50',
-            '0.70',
-            '0.80',
-            '0.40',
-            '0.20',
-            '1.50',
-            '1.50',
-            '3.50',
-            '3.50',
-            '7.50',
-            '7.50',
-            '10.00',
-            '10.00',
-            '15.00',
-            '15.00',
-            '1.50',
-            '7.50',
-            '15.00',
+            <Localize key={1} translate_text="0.3% per lot" />,
         ],
     ],
     calculation: (
         <>
-            <Text>
+            <CardText>
+                <Localize translate_text="For forex assets, your commission is represented in the base currency. For example, a round trade (i.e. opening and closing a position) of 1 lot of EUR/USD will pay out EUR 5 in commission. A round trade of 1 lot of USD/CAD will pay out USD 5 in commission." />
+            </CardText>
+            <CardText mt="2rem">
+                <Localize translate_text="For cryptocurrency assets, a round trade of 1 lot of BTC/USD with a spot price of USD 10,000 will pay out USD 20 in commission." />
+            </CardText>
+        </>
+    ),
+}
+const ib_dmt5_synthetic = {
+    name: <Localize translate_text="DMT5 Synthetic indices" />,
+    description: (
+        <Localize translate_text="Earn when your clients trade on a DMT5 Synthetic Indices account." />
+    ),
+    assets: [
+        [
+            <Localize key={0} translate_text="Asset" />,
+            <Localize key={1} translate_text="Crash 500 Index" />,
+            <Localize key={2} translate_text="Crash 1000 Index" />,
+            <Localize key={3} translate_text="Boom 500 Index" />,
+            <Localize key={4} translate_text="Boom 1000 Index" />,
+            <Localize key={5} translate_text="Volatility 10 Index" />,
+            <Localize key={6} translate_text="Volatility 25 Index" />,
+            <Localize key={7} translate_text="Volatility 50 Index" />,
+            <Localize key={8} translate_text="Volatility 75 Index" />,
+            <Localize key={9} translate_text="Volatility 100 Index" />,
+            <Localize key={10} translate_text="HF Volatility 10 Index" />,
+            <Localize key={11} translate_text="HF Volatility 50 Index" />,
+            <Localize key={12} translate_text="HF Volatility 100 Index" />,
+            <Localize key={13} translate_text="Step Index" />,
+        ],
+        [
+            <Localize key={0} translate_text="Commission per round trade (per USD 100k)" />,
+            <Localize key={1} translate_text="0.30" />,
+            <Localize key={2} translate_text="0.20" />,
+            <Localize key={3} translate_text="0.30" />,
+            <Localize key={4} translate_text="0.20" />,
+            <Localize key={5} translate_text="1.50" />,
+            <Localize key={6} translate_text="3.50" />,
+            <Localize key={7} translate_text="7.50" />,
+            <Localize key={8} translate_text="10.00" />,
+            <Localize key={9} translate_text="15.00" />,
+            <Localize key={10} translate_text="1.50" />,
+            <Localize key={11} translate_text="7.50" />,
+            <Localize key={12} translate_text="15.00" />,
+            <Localize key={13} translate_text="0.20" />,
+        ],
+    ],
+    calculation: (
+        <>
+            <CardText>
                 <Localize translate_text="For example, a round trade of 1 lot of the Volatility 75 Index for a price of USD 125,000 would pay out USD 12.5 in commission based on the following formula:" />
-            </Text>
-            <Text weight="bold" m="2.5rem 0">
+            </CardText>
+            <CardText weight="bold" m="1.6rem 0">
                 <Localize translate_text="USD 10 X 1 lot X USD 125,000 / 100,000 = USD 12.5" />
-            </Text>
-            <StyledText size="var(--text-size-s)" lh="1.5">
+            </CardText>
+            <CardText>
                 <Localize translate_text="If your account currency is in euro or pound sterling, your commission will be converted based on the latest exchange rate." />
-            </StyledText>
+            </CardText>
         </>
     ),
 }

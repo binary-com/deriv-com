@@ -1,6 +1,6 @@
 ## File Structure
 
-In this project, tey to keep relevant files in 5 major directories which are `common`, `components`, `images`, `pages`, `themes`, `translations`.
+In this project, try to keep relevant files in 5 major directories which are `common`, `components`, `images`, `pages`, `themes`, `translations`.
 
 Below is a sample file structure of the project.
 

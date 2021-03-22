@@ -1,15 +1,1 @@
-<svg role="img" xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
-    <title id='demo-icon'>Demo</title>
-    <g fill="none" fill-rule="evenodd">
-        <path stroke="#0E0E0E" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            d="M52.23 46.59v-5.11c0-5.65-4.89-9.89-10.48-9.89h-20a9.78 9.78 0 0 0-10 9.89v5.11" />
-        <path fill="#0E0E0E" fill-rule="nonzero"
-            d="M32 9.59a8.5 8.5 0 1 1-8.5 8.5 8.51 8.51 0 0 1 8.5-8.5zm0-2c-5.799 0-10.5 4.701-10.5 10.5s4.701 10.5 10.5 10.5 10.5-4.701 10.5-10.5A10.5 10.5 0 0 0 32 7.59z" />
-        <path fill="#85ACB0" fill-rule="nonzero"
-            d="M32 2c16.569 0 30 13.431 30 30 0 16.569-13.431 30-30 30C15.431 62 2 48.569 2 32 2 15.431 15.431 2 32 2zm0-2C14.327 0 0 14.327 0 32c0 17.673 14.327 32 32 32 17.673 0 32-14.327 32-32A32 32 0 0 0 32 0z" />
-        <text fill="#FF444F" font-family="IBMPlexSans-Bold, IBM Plex Sans" font-size="12" font-weight="bold">
-            <tspan x="14.98" y="52.92">DEMO</tspan>
-        </text>
-        <path d="M0 0h64v64H0z" />
-    </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64"><g fill="none" fill-rule="evenodd"><path stroke="#0E0E0E" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M52.23 46.59v-5.11c0-5.65-4.89-9.89-10.48-9.89h-20a9.78 9.78 0 00-10 9.89v5.11"/><path fill="#0E0E0E" fill-rule="nonzero" d="M32 9.59a8.5 8.5 0 11-8.5 8.5 8.51 8.51 0 018.5-8.5zm0-2c-5.799 0-10.5 4.701-10.5 10.5s4.701 10.5 10.5 10.5 10.5-4.701 10.5-10.5A10.5 10.5 0 0032 7.59z"/><path fill="#85ACB0" fill-rule="nonzero" d="M32 2c16.569 0 30 13.431 30 30 0 16.569-13.431 30-30 30C15.431 62 2 48.569 2 32 2 15.431 15.431 2 32 2zm0-2C14.327 0 0 14.327 0 32c0 17.673 14.327 32 32 32 17.673 0 32-14.327 32-32A32 32 0 0032 0z"/><text fill="#FF444F" font-family="IBMPlexSans-Bold, IBM Plex Sans" font-size="12" font-weight="bold"><tspan x="14.98" y="52.92">DEMO</tspan></text><path d="M0 0h64v64H0z"/></g></svg>

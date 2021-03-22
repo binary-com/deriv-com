@@ -43,7 +43,7 @@ const query = graphql`
         image: file(relativePath: { eq: "careers/career-landing-screen.jpg" }) {
             childImageSharp {
                 fluid(maxWidth: 2048) {
-                    ...GatsbyImageSharpFluid
+                    ...GatsbyImageSharpFluid_withWebp_noBase64
                     originalName
                 }
             }
@@ -65,6 +65,7 @@ const Hero = () => {
                 width: '100vw',
                 backgroundSize: `cover`,
                 backgroundColor: 'var(--color-black)',
+                maxWidth: '100%',
             }}
             dark="0.3"
         >
@@ -83,7 +84,7 @@ const Hero = () => {
                     <LinkButton
                         secondary="true"
                         to={zoho_url}
-                        external
+                        external="true"
                         target="_blank"
                         rel="noopener noreferrer"
                     >

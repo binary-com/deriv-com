@@ -1,3 +1,4 @@
+import Cookies from 'js-cookie'
 import extend from 'extend'
 
 const toISOFormat = (date) => {
@@ -53,6 +54,9 @@ const setLocationHash = (tab) => {
         location.hash = `#${tab}`
     }
 }
+
+const getLocationPathname = () => (isBrowser() && location ? location.pathname : '')
+
 const routeBack = () => {
     if (isBrowser) {
         window.history.back()
@@ -66,6 +70,14 @@ const getLanguage = () => (isBrowser() ? localStorage.getItem('i18n') || navigat
 
 const getCrowdin = () =>
     isBrowser() ? localStorage.getItem('jipt_language_code_deriv-com') || navigator.language : null
+
+const getClientInformation = (domain) => Cookies.getJSON('client_information', { domain })
+
+const isLoggedIn = () => {
+    const domain = getDomain()
+    const client_information = getClientInformation(domain)
+    return !!client_information
+}
 
 class PromiseClass {
     constructor() {
@@ -101,20 +113,75 @@ function debounce(func, wait, immediate) {
     }
 }
 
+// This function is created to back traverse an array of style values
+const responsiveFallback = (prop, start_from, fallback) => {
+    let index = start_from ?? prop?.length ?? 0
+    while (prop && index > 0) {
+        if (prop[index]) {
+            return prop[index]
+        }
+        --index
+    }
+
+    return prop ? prop[index] : fallback || undefined
+}
+
+// populate style by traversing keys of props
+const populateStyle = (props, default_props_object, curr_index) => {
+    let style = ''
+
+    Object.keys(props).forEach((prop) => {
+        if (['children', 'theme'].includes(prop)) {
+            return
+        }
+
+        const current_prop = prop.replace(/_/g, '-')
+        style += `${current_prop}: ${
+            Array.isArray(props[prop])
+                ? responsiveFallback(props[prop], curr_index, default_props_object[prop])
+                : props[prop]
+        };`
+    })
+
+    style += applyDefaultValues(props, default_props_object)
+    return style
+}
+
+const applyDefaultValues = (props, default_props_object) => {
+    let style = ''
+
+    Object.keys(default_props_object).forEach((prop) => {
+        if (!(prop in props)) {
+            const current_prop = prop.replace(/_/g, '-')
+            style += `${current_prop}: ${default_props_object[prop]};`
+        }
+    })
+
+    return style
+}
+
 const livechat_client_id = '66aa088aad5a414484c1fd1fa8a5ace7'
 const livechat_license_id = 12049137
 const trimSpaces = (value) => value.trim()
 
+const application_id = 'f0aef779-d9ec-4517-807e-a84c683c4265'
+const client_token = 'pubc42fda54523c5fb23c564e3d8bceae88'
+const sample_rate = 25
+const besquare_signup_url =
+    'https://deriv.zohorecruit.com/jobs/Careers/590522000011882533/BeSquare-Graduate-Trainee?source=CareerSite'
 const deriv_app_url = 'https://app.deriv.com'
 const deriv_bot_app_url = 'https://app.deriv.com/bot'
+const deriv_blog_url = 'https://blog.deriv.com'
 const deriv_dp2p_app_url = 'https://app.deriv.com/cashier/p2p'
+const deriv_status_page_url = 'https://deriv.statuspage.io'
 const smarttrader_url = 'https://smarttrader.deriv.com'
 const binary_url = 'https://binary.com'
+const blog_url = 'https://blog.deriv.com'
 const deriv_cookie_domain = 'deriv.com'
 const affiliate_signup_url = 'https://login.deriv.com/signup.php'
 const affiliate_signin_url = 'https://login.deriv.com/signin.php'
-const community_url = 'https://community.deriv.com/'
-const zoho_url = 'https://deriv.zohorecruit.com/'
+const community_url = 'https://community.deriv.com'
+const zoho_url = 'https://deriv.zohorecruit.com'
 const brand_name = 'Deriv'
 const map_api_key = 'AIzaSyAEha6-HeZuI95L9JWmX3m6o-AxQr_oFqU'
 const gtm_test_domain = 'deriv-com.binary.sx'
@@ -130,53 +197,75 @@ const dmt5_android_url =
 const dmt5_ios_url = 'https://download.mql5.com/cdn/mobile/mt5/ios?server=Deriv-Demo,Deriv-Server'
 const dp2p_google_play_url =
     'https://play.google.com/store/apps/details?id=com.deriv.dp2p&hl=en&gl=US'
-const cfd_warning_height_desktop = 8
-const cfd_warning_height_tablet = 12
+const cfd_warning_height = {
+    desktop: 8,
+    tablet: 12,
+}
+const pushwoosh_app_code = 'DD293-35A19'
+
+const getDomain = () =>
+    isBrowser() && window.location.hostname.includes(deriv_cookie_domain)
+        ? deriv_cookie_domain
+        : 'binary.sx'
 
 export {
     affiliate_signin_url,
     affiliate_signup_url,
+    applyDefaultValues,
+    besquare_signup_url,
     binary_url,
     brand_name,
-    cfd_warning_height_desktop,
-    cfd_warning_height_tablet,
+    application_id,
+    client_token,
     checkElemInArray,
     cloneObject,
-    community_url,
-    debounce,
-    deriv_app_url,
-    deriv_bot_app_url,
+    blog_url,
+    cfd_warning_height,
     deriv_cookie_domain,
-    deriv_dp2p_app_url,
+    dmt5_windows_url,
+    dmt5_linux_url,
     dmt5_android_url,
     dmt5_ios_url,
-    dmt5_linux_url,
+    community_url,
+    deriv_app_url,
+    deriv_blog_url,
+    deriv_bot_app_url,
+    deriv_dp2p_app_url,
+    deriv_status_page_url,
     dmt5_macos_url,
-    dmt5_windows_url,
     dp2p_google_play_url,
+    mga_link_url,
+    debounce,
+    isEmptyObject,
+    isBrowser,
     getCrowdin,
     getCryptoDecimals,
+    getClientInformation,
+    getDomain,
+    getPropertyValue,
     getLanguage,
     getLocationHash,
-    getPropertyValue,
+    setLocationHash,
+    getLocationPathname,
+    routeBack,
     getWindowWidth,
     gtm_test_domain,
-    isBrowser,
-    isEmptyObject,
+    isLoggedIn,
     livechat_client_id,
     livechat_license_id,
     map_api_key,
-    mga_link_url,
-    p2p_playstore_url,
+    populateStyle,
     PromiseClass,
-    routeBack,
+    pushwoosh_app_code,
+    responsiveFallback,
     sanitize,
     scrollTop,
     sentenceCase,
-    setLocationHash,
     smarttrader_url,
-    toHashFormat,
     toISOFormat,
-    trimSpaces,
+    toHashFormat,
     zoho_url,
+    trimSpaces,
+    p2p_playstore_url,
+    sample_rate,
 }

@@ -1,9 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { getLanguage } from 'common/utility'
 import { Input, Button } from 'components/form'
-import { Show } from 'components/containers'
 import { Header, Text, LinkText, Checkbox } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device.js'
@@ -30,7 +28,19 @@ const SignupContent = styled.div`
         padding: 6rem 2rem;
     }
 `
+const StyledHeader = styled(Header)`
+    @media ${device.tabletL} {
+        font-size: 3rem;
+        margin-bottom: 3rem;
+    }
+`
 
+const SubTitle = styled(Text)`
+    @media ${device.tabletL} {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+`
 const Line = styled.div`
     width: 130px;
     height: 1px;
@@ -168,80 +178,80 @@ const StyledLinkText = styled(LinkText)`
     font-size: ${(props) => props.size || '14px'};
 `
 const StyledBinaryLogo = styled.img`
-    margin-right: 0.8rem;
+    height: 42px;
+    width: 43px;
+    margin-right: 8px;
     margin-top: 1rem;
 
     @media ${device.mobileL} {
         margin-top: 8px;
-        min-width: 32px;
+        height: 40px;
+        width: 40px;
     }
 `
 const SignupNew = ({
-    email_error_msg,
-    email,
-    clearEmail,
-    handleInputChange,
-    handleValidation,
     autofocus,
-    handleSocialSignup,
+    clearEmail,
+    email,
+    email_error_msg,
+    handleInputChange,
     handleLogin,
+    handleSocialSignup,
+    handleValidation,
+    is_ppc,
     is_submitting,
 }) => {
     const [checkBoxState, setCheckBoxState] = useState(false)
+    const [language_code, setLanguageCode] = useState('en')
+
+    useEffect(() => {
+        setLanguageCode(localStorage.getItem('i18n'))
+    }, [])
 
     const handleChange = (event) => {
         setCheckBoxState(event.currentTarget.checked)
     }
-    const url =
-        getLanguage() === 'en' || getLanguage() == null
-            ? '/terms-and-conditions/'
-            : `/${getLanguage()}/terms-and-conditions/`
+
+    const url = `/${language_code}/terms-and-conditions/`
+
     return (
         <SignupContent>
-            <Show.Desktop>
-                <Header as="h4" type="sub-section-title" mb="0.8rem">
-                    {localize('Sign up')}
-                </Header>
-                <Text>{localize('Enter your email address to begin')}</Text>
-            </Show.Desktop>
-            <Show.Mobile>
-                <Header size="3rem" mb="2rem">
-                    {localize('Sign up')}
-                </Header>
-                <Text mb="1rem" size="2rem">
-                    {localize('Enter your email address to begin')}
-                </Text>
-            </Show.Mobile>
+            <StyledHeader as="h4" type="sub-section-title" mb="0.8rem">
+                {localize('Sign up')}
+            </StyledHeader>
+            <SubTitle>{localize('Enter your email address to begin')}</SubTitle>
 
-            <NoteBox>
-                <StyledBinaryLogo src={BinaryLogo} alt="binarylogo" />
-                <div>
-                    <StyledText
-                        mb="0.4rem"
-                        notedBox
-                        color="grey-16"
-                        size="var(--text-size-xs)"
-                        tabletFontSize="12px"
-                    >
-                        <Localize
-                            translate_text="Got a <0>Binary.com</0> account?"
-                            components={[<strong key={0} />]}
-                        />
-                    </StyledText>
-                    <StyledText
-                        notedBox
-                        size="var(--text-size-xxs)"
-                        tabletFontSize="12px"
-                        color="grey-16"
-                        lh="18px"
-                    >
-                        <Localize
-                            translate_text="Log in to <0>Deriv.com</0> with your <0>Binary.com</0> username and password."
-                            components={[<strong key={0} />]}
-                        />
-                    </StyledText>
-                </div>
-            </NoteBox>
+            {!is_ppc && (
+                <NoteBox>
+                    <StyledBinaryLogo src={BinaryLogo} alt="binarylogo" />
+                    <div>
+                        <StyledText
+                            mb="0.4rem"
+                            notedBox
+                            color="grey-16"
+                            size="var(--text-size-xs)"
+                            tabletFontSize="12px"
+                        >
+                            <Localize
+                                translate_text="Got a <0>Binary.com</0> account?"
+                                components={[<strong key={0} />]}
+                            />
+                        </StyledText>
+                        <StyledText
+                            notedBox
+                            size="var(--text-size-xxs)"
+                            tabletFontSize="12px"
+                            color="grey-16"
+                            lh="18px"
+                        >
+                            <Localize
+                                translate_text="Log in to <0>Deriv.com</0> with your <0>Binary.com</0> username and password."
+                                components={[<strong key={0} />]}
+                            />
+                        </StyledText>
+                    </div>
+                </NoteBox>
+            )}
 
             <InputGroup>
                 <Input
@@ -351,6 +361,7 @@ SignupNew.propTypes = {
     handleLogin: PropTypes.func,
     handleSocialSignup: PropTypes.func,
     handleValidation: PropTypes.func,
+    is_ppc: PropTypes.bool,
     is_submitting: PropTypes.bool,
 }
 

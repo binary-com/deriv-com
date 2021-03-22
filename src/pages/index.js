@@ -5,12 +5,12 @@ import {
     TradeTypes,
     Markets,
     Trade,
-    TradeTheWayYouLike,
     WhatOurClientsSay,
     SimpleSteps,
     Signup,
 } from './home/_lazy-load'
-import { Hero } from './home/_hero'
+import Hero from './home/_hero'
+import TradeTheWayYouLike from './home/_trade-the-way-you-like'
 import { SEO, Show } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl, Localize } from 'components/localization'

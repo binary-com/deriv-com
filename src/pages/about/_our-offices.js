@@ -220,41 +220,56 @@ export const OurOffices = () => {
                             <MapPin
                                 left="19%"
                                 top="75%"
-                                title="Paraguay"
-                                link="/contact-us#paraguay"
+                                title={localize('Paraguay')}
+                                link="/contact_us#paraguay"
                             />
                             <MapPin
                                 left="45.5%"
                                 top="32.5%"
-                                title="Malta"
-                                link="/contact-us#malta"
+                                title={localize('Malta')}
+                                link="/contact_us#malta"
                             />
                             <MapPin
                                 left="51.5%"
                                 top="32%"
-                                title="Cyprus"
-                                link="/contact-us#cyprus"
+                                title={localize('Cyprus')}
+                                link="/contact_us#cyprus"
                             />
-                            <MapPin left="52%" top="58%" title="Rwanda" link="/contact-us#rwanda" />
-                            <MapPin left="63.5%" top="40%" title="Dubai" link="/contact-us#dubai" />
-                            <MapPin left="81%" top="55.5%" title="Ipoh" link="/contact-us#ipoh" />
+                            <MapPin
+                                left="52%"
+                                top="58%"
+                                title={localize('Rwanda')}
+                                link="/contact_us#rwanda"
+                            />
+                            <MapPin
+                                left="63.5%"
+                                top="40%"
+                                title={localize('Dubai')}
+                                link="/contact_us#dubai"
+                            />
+                            <MapPin
+                                left="81%"
+                                top="55.5%"
+                                title={localize('Ipoh')}
+                                link="/contact_us#ipoh"
+                            />
                             <MapPin
                                 left="81.8%"
                                 top="58.5%"
-                                title="Cyberjaya"
-                                link="/contact-us#cyberjaya"
+                                title={localize('Cyberjaya')}
+                                link="/contact_us#cyberjaya"
                             />
                             <MapPin
                                 left="83%"
                                 top="60.3%"
-                                title="Melaka"
-                                link="/contact-us#melaka"
+                                title={localize('Melaka')}
+                                link="/contact_us#melaka"
                             />
                             <MapPin
                                 left="88%"
                                 top="55.5%"
-                                title="Labuan"
-                                link="/contact-us#labuan"
+                                title={localize('Labuan')}
+                                link="/contact_us#labuan"
                             />
                         </MapImage>
                     </Show.Desktop>
@@ -265,26 +280,26 @@ export const OurOffices = () => {
                                 left="19%"
                                 top="65%"
                                 title="Paraguay"
-                                link="/contact-us#paraguay"
+                                link="/contact_us#paraguay"
                             />
-                            <MapPin left="46%" top="27%" title="Malta" link="/contact-us#malta" />
+                            <MapPin left="46%" top="27%" title="Malta" link="/contact_us#malta" />
                             <MapPin
                                 left="52.4%"
                                 top="26.8%"
                                 title="Cyprus"
-                                link="/contact-us#cyprus"
+                                link="/contact_us#cyprus"
                             />
-                            <MapPin left="52%" top="51%" title="Rwanda" link="/contact-us#rwanda" />
-                            <MapPin left="62%" top="32%" title="Dubai" link="/contact-us#dubai" />
-                            <MapPin left="81.5%" top="48.5%" title="Ipoh" link="/contact-us#ipoh" />
+                            <MapPin left="52%" top="51%" title="Rwanda" link="/contact_us#rwanda" />
+                            <MapPin left="62%" top="32%" title="Dubai" link="/contact_us#dubai" />
+                            <MapPin left="81.5%" top="48.5%" title="Ipoh" link="/contact_us#ipoh" />
                             <MapPin
                                 left="82%"
                                 top="52%"
                                 title="Cyberjaya"
-                                link="/contact-us#cyberjaya"
+                                link="/contact_us#cyberjaya"
                             />
-                            <MapPin left="83%" top="55%" title="Melaka" link="/contact-us#melaka" />
-                            <MapPin left="88%" top="48%" title="Labuan" link="/contact-us#labuan" />
+                            <MapPin left="83%" top="55%" title="Melaka" link="/contact_us#melaka" />
+                            <MapPin left="88%" top="48%" title="Labuan" link="/contact_us#labuan" />
                         </MapImage>
                     </Show.Mobile>
                 </OfficeWrapper>

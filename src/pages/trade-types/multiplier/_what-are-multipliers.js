@@ -1,7 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
+import Loadable from '@loadable/component'
 import { SmallContainer, Grid, WhyTradeItem } from '../components/_style'
+import Margin from './_margin.js'
+import SyntheticIndices from './_synthetic-indices.js'
 import device from 'themes/device'
 import { SectionContainer, Flex } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
@@ -14,6 +17,7 @@ import ResponsivePlatform from 'images/svg/trade-types/responsive-platform.svg'
 import FriendlySupport from 'images/svg/trade-types/friendly-support.svg'
 import Seven from 'images/svg/trade-types/seven.svg'
 import CrashBoom from 'images/svg/trade-types/crash-boom.svg'
+const AvailableTrades = Loadable(() => import('./_available-trades.js'))
 
 const StyledHeader = styled(Header)`
     @media ${device.tablet} {
@@ -68,7 +72,7 @@ const RowColumn = styled.div`
     }
 
     @media ${device.tabletL} {
-        width: 328px;
+        width: inherit;
         margin: ${(props) => (props.isHeader ? '0' : '0 auto')};
 
         &:last-child {
@@ -80,7 +84,7 @@ const RowColumn = styled.div`
 const ImgWrapper = styled.div`
     width: 360px;
     @media ${device.tabletL} {
-        width: 328px;
+        width: auto;
         margin: 1rem auto;
     }
 `
@@ -88,14 +92,8 @@ const ImgWrapper = styled.div`
 const TextWrapper = styled.div`
     width: 360px;
     @media ${device.tabletL} {
-        width: 328px;
+        width: auto;
         margin: 0 auto;
-    }
-`
-
-const StyledText = styled(Text)`
-    @media ${device.tabletL} {
-        margin-bottom: 4rem;
     }
 `
 
@@ -213,12 +211,12 @@ const WhatAreOptions = () => {
                                 </ImgWrapper>
 
                                 <TextWrapper>
-                                    <StyledText mt="1.6rem" width="340px">
+                                    <Text m="1.6rem 0 4rem 0">
                                         <Localize
                                             translate_text="<0>With an equivalent $100 margin trade</0>, with 1:500 leverage, you risk 2% * $50,000 = <1>$1,000 loss</1>."
                                             components={[<strong key={0} />, <LossText key={1} />]}
                                         />
-                                    </StyledText>
+                                    </Text>
                                 </TextWrapper>
                             </RowColumn>
                             <RowColumn>
@@ -242,6 +240,11 @@ const WhatAreOptions = () => {
                     </Flex>
                 </SmallContainer>
             </StyledSectionContainer>
+            <AvailableTrades
+                display_title={localize('Instruments available to trade on Multipliers')}
+                Forex={Margin}
+                SyntheticIndices={SyntheticIndices}
+            />
             <SectionContainer background="grey-23" padding="4rem 0">
                 <SmallContainer direction="column" jc="flex-start" ai="flex-start">
                     <Header as="h3" size="3.2rem" mb="4rem">

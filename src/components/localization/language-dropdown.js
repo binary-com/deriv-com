@@ -51,9 +51,11 @@ const Absolute = styled.div`
     transition: all 0.35s ease-in-out;
     cursor: default;
     border-radius: 4px;
+    will-change: display;
+    display: ${(props) => !props.is_open && 'none'};
 
     @media ${device.mobileL} {
-        top: ${(props) => (props.is_high_nav ? '7rem' : '8rem')};
+        top: ${(props) => (props.is_high_nav ? '7rem' : '9rem')};
         left: 0;
     }
 `
@@ -79,11 +81,12 @@ const ItemContainer = styled.div`
     padding: 1.6rem 0.8rem;
     position: relative;
     width: auto;
-    display: ${(props) => (props.is_open ? 'grid' : 'none')};
+    display: grid;
     grid-template-columns: 1fr 1fr;
     grid-column-gap: 2.4rem;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
     border-radius: 4px;
+    will-change: opacity;
     animation-name: ${(props) => (props.is_open ? FadeInDown : FadeOutUp)};
     animation-fill-mode: both;
     animation-duration: 0.3s;
@@ -203,7 +206,7 @@ const Dropdown = ({ default_option, onChange, option_list, is_high_nav }) => {
                     <Arrow expanded={`${is_open ? 'true' : 'false'}`} />
                 </Display>
 
-                <Absolute is_high_nav={is_high_nav}>
+                <Absolute is_high_nav={is_high_nav} is_open={is_open}>
                     <ItemContainer is_open={is_open}>
                         {option_list.map((option, idx) => {
                             if (!option) return null

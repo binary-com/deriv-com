@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import kid_data from './data/_kid_data.js'
 import { Text, Accordion, AccordionItem, LinkText } from 'components/elements'
 import { Flex } from 'components/containers'
 import { localize } from 'components/localization'
@@ -122,7 +123,7 @@ const RTS27_28 = () => (
     </>
 )
 
-const DocumentAccordion = () => {
+const DocumentAccordion = (locale) => {
     const content_style = {
         background: 'var(--color-white)',
         boxShadow: '-2px 6px 15px 0 rgba(195, 195, 195, 0.31)',
@@ -139,6 +140,11 @@ const DocumentAccordion = () => {
         marginBottom: '2.4rem',
         width: '100%',
     }
+
+    const selected_language = locale.locale.language || 'en'
+    const supported_languages = ['es', 'it', 'pl', 'pt']
+
+    const is_supported_language = (language) => supported_languages.includes(language)
 
     return (
         <Accordion has_single_state id="kid">
@@ -180,48 +186,23 @@ const DocumentAccordion = () => {
                 </Text>
                 <Flex>
                     <EdgeFlex mt="1.8rem">
-                        <FlexText
-                            color="red"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            href="/regulatory/kid_deriv_commodities.pdf"
-                            m="1.6rem 2.4rem"
-                        >
-                            <img src={PDFIcon} alt="pdf icon black" />
-                            <span>{localize('Commodities')}</span>
-                        </FlexText>
-                        <FlexText
-                            color="red"
-                            width="unset"
-                            as="a"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            href="/regulatory/kid_deriv_forex.pdf"
-                            m="1.6rem 2.4rem"
-                        >
-                            <img src={PDFIcon} alt="pdf icon black" />
-                            <span>{localize('Forex')}</span>
-                        </FlexText>
-                        <FlexText
-                            color="red"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            href="/regulatory/kid_deriv_crypto.pdf"
-                            m="1.6rem 2.4rem"
-                        >
-                            <img src={PDFIcon} alt="pdf icon black" />
-                            <span>{localize('Cryptocurrency')}</span>
-                        </FlexText>
-                        <FlexText
-                            color="red"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            href="/regulatory/kid_deriv_multipliers.pdf"
-                            m="1.6rem 2.4rem"
-                        >
-                            <img src={PDFIcon} alt="pdf icon black" />
-                            <span>{localize('Multipliers')}</span>
-                        </FlexText>
+                        {kid_data.map((data, idx) => (
+                            <FlexText
+                                key={idx}
+                                color="red"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                href={`/regulatory/kid/${
+                                    is_supported_language(selected_language)
+                                        ? selected_language + '/'
+                                        : ''
+                                }${data.ref}`}
+                                m="1.6rem 2.4rem"
+                            >
+                                <img src={PDFIcon} alt="pdf icon black" />
+                                <span>{data.title}</span>
+                            </FlexText>
+                        ))}
                     </EdgeFlex>
                 </Flex>
             </AccordionItem>

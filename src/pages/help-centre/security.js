@@ -1,29 +1,8 @@
 import React from 'react'
-import styled from 'styled-components'
-import { Header, Text } from '../../components/elements/typography'
 import { Article } from './_article'
+import { ArticleWrapper, StyledHeader } from './_help-centre-style'
+import { Text } from 'components/elements'
 import { localize, WithIntl } from 'components/localization'
-import device from 'themes/device'
-
-const ArticleWrapper = styled.div`
-    max-width: 71.2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    height: 100%;
-    font-size: var(--text-size-s);
-    line-height: 1.5;
-    margin-left: 12.6rem;
-    margin-top: 1.6rem;
-
-    @media ${device.tabletL} {
-        margin-left: 0;
-    }
-`
-
-const StyledHeader = styled(Header)`
-    margin-bottom: 2.4rem;
-`
 
 const VerifyAccount = () => (
     <ArticleWrapper>
@@ -64,20 +43,26 @@ const DocumentsDeclined = () => (
 
 const SecurityArticle = () => {
     return (
-        <Article header={localize('Security')}>
-            <VerifyAccount
-                text={localize('Do I need to verify my Deriv account?')}
-                label="verify-account"
-            />
-            <VerificationDuration
-                text={localize('How long does verification take?')}
-                label="verification-duration"
-            />
-            <DocumentsDeclined
-                text={localize('Why were my documents declined?')}
-                label="documents-declined"
-            />
-        </Article>
+        <div>
+            <Article
+                header={localize('Security')}
+                title={localize('Help centre | Frequently asked questions | Security | Deriv')}
+                description={localize('Frequently asked questions - Security')}
+            >
+                <VerifyAccount
+                    text={localize('Do I need to verify my Deriv account?')}
+                    label="verify-account"
+                />
+                <VerificationDuration
+                    text={localize('How long does verification take?')}
+                    label="verification-duration"
+                />
+                <DocumentsDeclined
+                    text={localize('Why were my documents declined?')}
+                    label="documents-declined"
+                />
+            </Article>
+        </div>
     )
 }
 

@@ -1,42 +1,9 @@
 import React from 'react'
-import styled from 'styled-components'
 import { Article } from './_article'
+import { ArticleWrapper, ExternalLink, StyledHeader, StyledText } from './_help-centre-style'
 import { deriv_app_url } from 'common/utility'
-import { Text, Header, LocalizedLinkText } from 'components/elements/typography'
+import { Text } from 'components/elements'
 import { Localize, localize, WithIntl } from 'components/localization'
-import device from 'themes/device'
-
-const ArticleWrapper = styled.div`
-    max-width: 71.2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    height: 100%;
-    font-size: var(--text-size-s);
-    line-height: 1.5;
-    margin-left: 12.6rem;
-    margin-top: 1.6rem;
-
-    @media ${device.tabletL} {
-        margin-left: 0;
-    }
-`
-const ExternalLink = styled.a`
-    text-decoration: none;
-    font-size: var(--text-size-s);
-    font-weight: bold;
-    color: var(--color-red);
-
-    :hover {
-        text-decoration: underline !important;
-    }
-`
-const StyledText = styled(Text)`
-    margin-top: 1.7rem;
-`
-const StyledHeader = styled(Header)`
-    margin-bottom: 2.4rem;
-`
 
 const PaymentMethods = () => (
     <ArticleWrapper>
@@ -45,7 +12,7 @@ const PaymentMethods = () => (
             <Localize
                 translate_text="Our list of <0>supported payment methods</0> includes bank wire, credit and debit cards, e-wallets, and cryptocurrencies."
                 components={[
-                    <LocalizedLinkText
+                    <ExternalLink
                         to="/payment-methods/"
                         target="_blank"
                         rel="noopener noreferrer"
@@ -109,7 +76,7 @@ const LiftWithdrawalLimits = () => (
                 components={[
                     <strong key={0} />,
                     <ExternalLink
-                        href={`${deriv_app_url}/account/account-limits`}
+                        to={`${deriv_app_url}/account/account-limits`}
                         target="_blank"
                         rel="noopener noreferrer"
                         key={1}
@@ -156,40 +123,48 @@ const WithdrawMaestroMastercard = () => (
 
 const DepositsAndWithdrawalArticle = () => {
     return (
-        <Article header={localize('Deposits and withdrawals')}>
-            <PaymentMethods
-                text={localize('What payment methods do you support?')}
-                label="payment-methods"
-            />
-            <WithdrawalProcessingTime
-                text={localize('How long does it take to process deposits and withdrawals?')}
-                label="deposit-withdrawal-processing-time"
-            />
-            <MinimumDepositWithdrawal
-                text={localize('What is the minimum deposit or withdrawal amount?')}
-                label="minimum-deposit-or-withdrawal"
-            />
-            <ExpiredVerificationLink
-                text={localize('My withdrawal verification link expired. What should I do?')}
-                label="expired-verification-link"
-            />
-            <LiftWithdrawalLimits
-                text={localize('How can I lift my withdrawal limits?')}
-                label="lift-withdrawal-limits"
-            />
-            <CreditCardDepositDeclined
-                text={localize('Why does my credit card deposit keep getting declined?')}
-                label="credit-card-deposit-declined"
-            />
-            <WithdrawDepositBonus
-                text={localize('Can I withdraw my deposit bonus?')}
-                label="withdraw-deposit-bonus"
-            />
-            <WithdrawMaestroMastercard
-                text={localize("Why can't I withdraw funds to my Maestro/Mastercard?")}
-                label="withdraw-to-maestro-mastercard"
-            />
-        </Article>
+        <div>
+            <Article
+                header={localize('Deposits and withdrawals')}
+                title={localize(
+                    'Help centre | Frequently asked questions | Deposits and withdrawals | Deriv',
+                )}
+                description={localize('Frequently asked questions - Deposits and withdrawals')}
+            >
+                <PaymentMethods
+                    text={localize('What payment methods do you support?')}
+                    label="payment-methods"
+                />
+                <WithdrawalProcessingTime
+                    text={localize('How long does it take to process deposits and withdrawals?')}
+                    label="deposit-withdrawal-processing-time"
+                />
+                <MinimumDepositWithdrawal
+                    text={localize('What is the minimum deposit or withdrawal amount?')}
+                    label="minimum-deposit-or-withdrawal"
+                />
+                <ExpiredVerificationLink
+                    text={localize('My withdrawal verification link expired. What should I do?')}
+                    label="expired-verification-link"
+                />
+                <LiftWithdrawalLimits
+                    text={localize('How can I lift my withdrawal limits?')}
+                    label="lift-withdrawal-limits"
+                />
+                <CreditCardDepositDeclined
+                    text={localize('Why does my credit card deposit keep getting declined?')}
+                    label="credit-card-deposit-declined"
+                />
+                <WithdrawDepositBonus
+                    text={localize('Can I withdraw my deposit bonus?')}
+                    label="withdraw-deposit-bonus"
+                />
+                <WithdrawMaestroMastercard
+                    text={localize("Why can't I withdraw funds to my Maestro/Mastercard?")}
+                    label="withdraw-to-maestro-mastercard"
+                />
+            </Article>
+        </div>
     )
 }
 

@@ -1,39 +1,9 @@
 import React from 'react'
-import styled from 'styled-components'
 import { Article } from './_article'
+import { ArticleWrapper, ExternalLink, StyledHeader } from './_help-centre-style'
 import { deriv_app_url } from 'common/utility'
-import { Text, Header } from 'components/elements/typography'
-import { localize, Localize, WithIntl, LocalizedLink } from 'components/localization'
-import device from 'themes/device'
-
-const ArticleWrapper = styled.div`
-    max-width: 71.2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    height: 100%;
-    font-size: var(--text-size-s);
-    line-height: 1.5;
-    margin-left: 12.6rem;
-    margin-top: 1.6rem;
-
-    @media ${device.tabletL} {
-        margin-left: 0;
-    }
-`
-const ExternalLink = styled(LocalizedLink)`
-    text-decoration: none;
-    font-size: var(--text-size-s);
-    font-weight: bold;
-    color: var(--color-red);
-
-    :hover {
-        text-decoration: underline;
-    }
-`
-const StyledHeader = styled(Header)`
-    margin-bottom: 2.4rem;
-`
+import { Text } from 'components/elements'
+import { localize, Localize, WithIntl } from 'components/localization'
 
 const Forex = () => (
     <ArticleWrapper>
@@ -145,39 +115,51 @@ const WeekendContracts = () => (
 
 const TradingArticle = () => {
     return (
-        <Article header={localize('Trading')}>
-            <Forex text={localize('What is forex?')} label="what-is-forex" />
-            <Commodities text={localize('What are commodities?')} label="what-are-commodities" />
-            <StockIndices
-                text={localize('What are stock indices?')}
-                label="what-are-stock-indices"
-            />
-            <SyntheticIndices
-                text={localize('What are synthetic indices?')}
-                label="what-are-synthetic-indices"
-            />
-            <CFD
-                text={localize('What are contracts for difference (CFDs)?')}
-                label="what-are-cfds"
-            />
-            <DigitalOptions
-                text={localize('What are digital options?')}
-                label="what-are-digital-options"
-            />
-            <TradingPlatforms
-                text={localize('How many trading platforms do you offer?')}
-                label="how-many-trading-platforms"
-            />
-            <AutomateTradingStrategy
-                text={localize('How can I automate my trading strategy?')}
-                label="how-to-automate-trading-strategy"
-            />
-            <TradingLimits text={localize('What are my trading limits?')} label="trading-limits" />
-            <WeekendContracts
-                text={localize('What contracts are available for trading on weekends?')}
-                label="contracts-available-on-weekends"
-            />
-        </Article>
+        <div>
+            <Article
+                header={localize('Trading')}
+                title={localize('Help centre | Frequently asked questions | Trading | Deriv')}
+                description={localize('Frequently asked questions - Trading')}
+            >
+                <Forex text={localize('What is forex?')} label="what-is-forex" />
+                <Commodities
+                    text={localize('What are commodities?')}
+                    label="what-are-commodities"
+                />
+                <StockIndices
+                    text={localize('What are stock indices?')}
+                    label="what-are-stock-indices"
+                />
+                <SyntheticIndices
+                    text={localize('What are synthetic indices?')}
+                    label="what-are-synthetic-indices"
+                />
+                <CFD
+                    text={localize('What are contracts for difference (CFDs)?')}
+                    label="what-are-cfds"
+                />
+                <DigitalOptions
+                    text={localize('What are digital options?')}
+                    label="what-are-digital-options"
+                />
+                <TradingPlatforms
+                    text={localize('How many trading platforms do you offer?')}
+                    label="how-many-trading-platforms"
+                />
+                <AutomateTradingStrategy
+                    text={localize('How can I automate my trading strategy?')}
+                    label="how-to-automate-trading-strategy"
+                />
+                <TradingLimits
+                    text={localize('What are my trading limits?')}
+                    label="trading-limits"
+                />
+                <WeekendContracts
+                    text={localize('What contracts are available for trading on weekends?')}
+                    label="contracts-available-on-weekends"
+                />
+            </Article>
+        </div>
     )
 }
 

@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
-import { WhyTrader, StartTrader, DownloadApp, Flexibility, DBanner } from './_lazy-load'
-// import TradeControl from './_trade-control.js'
+import { graphql, StaticQuery } from 'gatsby'
+import {
+    WhyTrader,
+    StartTrader,
+    DownloadApp,
+    Flexibility,
+    DBanner,
+    MarginCalculator,
+} from './_lazy-load'
 import DHero from './_dhero'
 import Numbers from './_numbers'
 import WhatIsTrader from './_what-is-trader'
@@ -24,6 +30,21 @@ const query = graphql`
     }
 `
 
+const numbers_content = [
+    {
+        title: <Localize translate_text="330K+" />,
+        subtitle: <Localize translate_text="clients on DMT5" />,
+    },
+    {
+        title: <Localize translate_text="100+" />,
+        subtitle: <Localize translate_text="tradable assets" />,
+    },
+    {
+        title: <Localize translate_text="24/7" />,
+        subtitle: <Localize translate_text="trading" />,
+    },
+]
+
 const DMT5 = () => {
     const [is_mobile, setMobile] = useState(false)
     const handleResizeWindow = () => {
@@ -34,7 +55,6 @@ const DMT5 = () => {
         setMobile(isBrowser() ? window.screen.width <= size.mobileL : false)
         window.addEventListener('resize', handleResizeWindow)
     })
-    const data = useStaticQuery(query)
 
     return (
         <Layout>
@@ -55,20 +75,28 @@ const DMT5 = () => {
                 background_svg2={DMT5BG2}
                 background_alt={localize('DMT5')}
             />
-            <Numbers />
+            <Numbers numbers_content={numbers_content} />
             <WhatIsTrader />
             <WhyTrader />
             <StartTrader />
             <DownloadApp />
             {/* TODO: add this section when trade tools are ready */}
             {/* <TradeControl /> */}
+            <MarginCalculator />
             <Flexibility />
-            <DBanner
-                background_pattern={
-                    is_mobile ? BackgroundPatternDMT5_mobile : BackgroundPatternDMT5
-                }
-                title={<Localize translate_text="Get into the DMT5 experience" />}
-                data={data}
+            {/* TODO: add/revise this section when swap free trading design is ready */}
+            {/* <SwapFreeTrading /> */}
+            <StaticQuery
+                query={query}
+                render={(data) => (
+                    <DBanner
+                        background_pattern={
+                            is_mobile ? BackgroundPatternDMT5_mobile : BackgroundPatternDMT5
+                        }
+                        title={<Localize translate_text="Get into the DMT5 experience" />}
+                        data={data}
+                    />
+                )}
             />
         </Layout>
     )

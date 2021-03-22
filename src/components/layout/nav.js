@@ -1,15 +1,9 @@
 // TODO: (discussion) make nav pure component, and move usage of nav to custom
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import PlatformsDropdown from '../custom/platforms-dropdown'
-import {
-    NavPlatform,
-    NavCompany,
-    NavResources,
-    NavMarket,
-} from 'components/custom/other-platforms.js'
 import { useOutsideClick } from 'components/hooks/outside-click'
 import { LocalizedLink, localize, LanguageSwitcher } from 'components/localization'
 import { Button, LinkButton } from 'components/form'
@@ -21,10 +15,16 @@ import {
     Text,
     QueryImage,
 } from 'components/elements'
+import { useActiveLinkState } from 'components/hooks/use-active-link-state'
 import { SharedLinkStyle } from 'components/localization/localized-link'
 import Login from 'common/login'
 import device from 'themes/device'
-import { affiliate_signin_url, affiliate_signup_url } from 'common/utility'
+import {
+    affiliate_signin_url,
+    affiliate_signup_url,
+    deriv_app_url,
+    isLoggedIn,
+} from 'common/utility'
 // Icons
 import Logo from 'images/svg/logo-deriv.svg'
 import LogoPartner from 'images/svg/logo-partners.svg'
@@ -41,8 +41,14 @@ const query = graphql`
         }
     }
 `
-
-export const NavWrapper = styled.div`
+// TODO: Proper refactor of shared nav sub components between the various nav bars
+export const NavWrapperMain = styled.div`
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+`
+export const NavWrapperPartners = styled.div`
     width: 100%;
     position: fixed;
     top: 0;
@@ -51,7 +57,6 @@ export const NavWrapper = styled.div`
     .fresnel-between-start-tabletL {
         display: none;
     }
-
     @media ${device.tabletL} {
         .fresnel-between-start-tabletL {
             display: flex;
@@ -95,7 +100,18 @@ const Line = styled.div`
     background-color: var(--color-white);
 `
 
-export const StyledNav = styled.nav`
+export const StyledNavMain = styled.nav`
+    background-color: var(--color-black);
+    height: 7.2rem;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    @media (max-width: 1060px) {
+        height: auto;
+    }
+`
+
+export const StyledNavPartners = styled.nav`
     background-color: var(--color-black);
     height: 7.2rem;
     width: 100%;
@@ -105,6 +121,7 @@ export const StyledNav = styled.nav`
         height: auto;
     }
 `
+
 export const Wrapper = styled(Container)`
     font-size: var(--text-size-s);
     padding: 1.2rem 0;
@@ -116,15 +133,32 @@ export const Wrapper = styled(Container)`
     @media ${device.laptop} {
         font-size: var(--text-size-xxs);
     }
+    @media ${device.mobileM} {
+        ${({ offset_px_mobile }) =>
+            offset_px_mobile && `width: calc(100% - ${offset_px_mobile}px)`};
+    }
 `
-export const NavLeft = styled.div`
+
+Wrapper.propTypes = {
+    offset_px_mobile: PropTypes.number,
+}
+
+export const NavLeftMain = styled.div`
+    text-align: left;
+    display: flex;
+    align-items: center;
+    max-width: 30rem;
+    width: 100%;
+`
+
+export const NavLeftPartners = styled.div`
     text-align: left;
     display: flex;
     align-items: center;
     max-width: 30rem;
     width: 100%;
 
-    @media ${device.tabletL} {
+    @media (max-width: 991px) {
         display: none;
     }
 `
@@ -145,16 +179,16 @@ const NavCenter = styled.ul`
     justify-content: center;
     line-height: 1.2;
 
-    @media (max-width: 1210px) {
+    @media (max-width: 1227px) {
         font-size: 14px;
     }
     @media (max-width: 1175px) {
         font-size: 12px;
     }
-    @media (max-width: 1105px) {
+    @media (max-width: 1116px) {
         font-size: 11px;
     }
-    @media ${device.tabletL} {
+    @media (max-width: 991px) {
         display: none;
     }
 `
@@ -198,9 +232,16 @@ const NavRight = styled.div`
         pointer-events: ${(props) => (props.move ? 'visible' : 'none')};
         cursor: ${(props) => (props.move ? 'pointer' : 'default')};
     }
-    @media ${device.tabletL} {
+    @media (max-width: 991px) {
         display: none;
     }
+`
+const NavGetTrading = styled.div`
+    display: inline-flex;
+    text-align: right;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
 `
 const NavLink = styled.li`
     list-style-type: none;
@@ -214,7 +255,7 @@ const NavLink = styled.li`
     }
 
     @media ${device.laptopM} {
-        margin-right: 1.6rem;
+        margin-right: 1rem;
     }
 
     ${(props) => {
@@ -229,6 +270,10 @@ const StyledButton = styled.span`
     cursor: pointer;
     user-select: none;
     white-space: nowrap;
+
+    @media ${device.laptopM} {
+        padding: 0.5rem 0.8rem;
+    }
 `
 
 const SignupButton = styled(Button)`
@@ -244,7 +289,16 @@ const LinkSignupButton = styled(LinkButton)`
 const HamburgerMenu = styled.img`
     cursor: pointer;
     display: none;
-    @media ${device.tabletL} {
+    @media (max-width: 1060px) {
+        display: block;
+        cursor: pointer;
+    }
+`
+const HamburgerMenuPartners = styled.img`
+    cursor: pointer;
+    display: none;
+
+    @media (max-width: 991px) {
         display: block;
         cursor: pointer;
     }
@@ -253,12 +307,30 @@ const HamburgerMenu = styled.img`
 const CloseMenu = styled.img`
     cursor: pointer;
     display: none;
+    @media (max-width: 1060px) {
+        display: block;
+        cursor: pointer;
+    }
+`
+const CloseMenuPartners = styled.img`
+    cursor: pointer;
+    display: none;
     @media ${device.tabletL} {
         display: block;
         cursor: pointer;
     }
 `
 
+const LogoLinkMobileMain = styled(LocalizedLink)`
+    cursor: pointer;
+    display: none;
+
+    @media (max-width: 1060px) {
+        display: block;
+        cursor: pointer;
+        margin-left: 2rem;
+    }
+`
 const LogoLinkMobile = styled(LocalizedLink)`
     cursor: pointer;
     display: none;
@@ -270,15 +342,15 @@ const LogoLinkMobile = styled(LocalizedLink)`
     }
 `
 
-const LoginButton = styled(Button)`
+const NowrapButton = styled(Button)`
     white-space: nowrap;
 `
 
-const MobileLogin = styled(Button)`
+const MobileButton = styled(Button)`
     display: none;
     font-size: 14px;
     margin-left: ${({ margin_left }) => margin_left ?? '1.6rem'};
-    @media ${device.tabletL} {
+    @media (max-width: 1060px) {
         display: block;
     }
     @media ${device.mobileL} {
@@ -301,12 +373,12 @@ const handleScroll = (show, hide) => {
     window.scrollY > show_height ? show() : hide()
 }
 
-const MobileRight = styled.div`
+const MobileRightMain = styled.div`
     margin-left: auto;
     display: none;
     align-items: center;
 
-    @media ${device.tabletL} {
+    @media (max-width: 1060px) {
         display: flex;
     }
 `
@@ -320,7 +392,11 @@ const handleLogin = () => {
     Login.redirectToLogin()
 }
 
-const NavMobile = () => {
+const handleGetTrading = () => {
+    window.location.href = deriv_app_url
+}
+
+const NavMobile = ({ is_ppc, is_ppc_redirect, is_logged_in }) => {
     const [is_canvas_menu_open, openOffCanvasMenu, closeOffCanvasMenu] = moveOffCanvasMenu()
 
     return (
@@ -336,7 +412,7 @@ const NavMobile = () => {
                 />
             )}
 
-            <LogoLinkMobile to="/" aria-label={localize('Home')}>
+            <LogoLinkMobileMain to="/" aria-label={localize('Home')}>
                 <Flex>
                     <img src={LogoOnly} alt="logo only" width="115px" />
                     <LogoDescription ai="center">
@@ -344,85 +420,65 @@ const NavMobile = () => {
                         <img src={LogoCombinedShape} alt="logo combined shape 2" />
                     </LogoDescription>
                 </Flex>
-            </LogoLinkMobile>
-            <MobileRight>
+            </LogoLinkMobileMain>
+            <MobileRightMain>
                 <LanguageSwitcher short_name="true" is_high_nav />
-                <MobileLogin margin_left="0.8rem" onClick={handleLogin} primary>
-                    <span>{localize('Log in')}</span>
-                </MobileLogin>
-            </MobileRight>
+                {is_logged_in ? (
+                    <MobileButton margin_left="0.8rem" onClick={handleGetTrading} primary>
+                        <span>{localize('Get Trading')}</span>
+                    </MobileButton>
+                ) : (
+                    <MobileButton margin_left="0.8rem" onClick={handleLogin} primary>
+                        <span>{localize('Log in')}</span>
+                    </MobileButton>
+                )}
+            </MobileRightMain>
             <OffCanvasMenu
                 is_canvas_menu_open={is_canvas_menu_open}
                 closeOffCanvasMenu={closeOffCanvasMenu}
+                is_ppc={is_ppc}
+                is_ppc_redirect={is_ppc_redirect}
             />
         </Wrapper>
     )
 }
 
-const NavDesktop = ({ base }) => {
+const NavDesktop = ({ base, is_ppc, is_ppc_redirect, is_logged_in }) => {
     const data = useStaticQuery(query)
     const button_ref = useRef(null)
-    const [show_button, showButton, hideButton] = moveButton()
+    const navigation_bar_ref = useRef(null)
     const [mounted, setMounted] = useState(false)
     const [has_scrolled, setHasScrolled] = useState(false)
-    // trade
-    const trade_ref = useRef(null)
-    const link_trade_ref = useRef(null)
-    const [is_trade_open, setIsTradeOpen] = useState(false)
-    const [has_trade_animation, setHasTradeAnimation] = useState(false)
-    const closeTrade = () => setIsTradeOpen(false)
-    useOutsideClick(trade_ref, closeTrade, link_trade_ref)
-    const handleTradeClick = () => {
-        setHasTradeAnimation(true)
-        setIsTradeOpen(!is_trade_open)
-    }
+    const [active_dropdown, setActiveDropdown] = useState('')
+    const [active_link_ref, setActiveLinkRef] = useState(null)
+    const [active_dropdown_ref, setActiveDropdownRef] = useState(null)
+    const [show_button, showButton, hideButton] = moveButton()
+    const current_page = useActiveLinkState('main')
 
-    // market
-    const market_ref = useRef(null)
-    const link_market_ref = useRef(null)
-    const [is_market_open, setIsMarketOpen] = useState(false)
-    const [has_market_animation, setHasMarketAnimation] = useState(false)
-    const closeMarket = () => setIsMarketOpen(false)
-    useOutsideClick(market_ref, closeMarket, link_market_ref)
-    const handleMarketClick = () => {
-        setHasMarketAnimation(true)
-        setIsMarketOpen(!is_market_open)
-    }
-
-    // company
-    const company_ref = useRef(null)
-    const link_company_ref = useRef(null)
-    const [is_company_open, setIsCompanyOpen] = useState(false)
-    const [has_company_animation, setHasCompanyAnimation] = useState(false)
-    const closeCompany = () => setIsCompanyOpen(false)
-    useOutsideClick(company_ref, closeCompany, link_company_ref)
-    const handleCompanyClick = () => {
-        setHasCompanyAnimation(true)
-        setIsCompanyOpen(!is_company_open)
-    }
-
-    // resources
-    const resources_ref = useRef(null)
-    const link_resources_ref = useRef(null)
-    const [is_resources_open, setIsResourcesOpen] = useState(false)
-    const [has_resources_animation, setHasResourcesAnimation] = useState(false)
-    const closeResources = () => setIsResourcesOpen(false)
-    useOutsideClick(resources_ref, closeResources, link_resources_ref)
-    const handleResourcesClick = () => {
-        setHasResourcesAnimation(true)
-        setIsResourcesOpen(!is_resources_open)
-    }
-
-    const buttonHandleScroll = () => {
+    const buttonHandleScroll = useCallback(() => {
         setHasScrolled(true)
         handleScroll(showButton, hideButton)
+    })
+
+    const checkActive = (link_name) => link_name === active_dropdown || link_name === current_page
+
+    const closeDropdown = () => useCallback(setActiveDropdown(''))
+
+    const handleLinkClick = (dropdown, target) => {
+        setActiveDropdown(dropdown)
+        if (!target) return
+        setActiveLinkRef(target)
     }
+
+    const LanguageSwitcherNavDesktop = () => <LanguageSwitcher short_name="true" is_high_nav />
+
+    const setDropdownRef = (new_ref) => setActiveDropdownRef(new_ref)
+
+    useOutsideClick(navigation_bar_ref, closeDropdown, active_dropdown_ref)
 
     useEffect(() => {
         setMounted(true)
-        document.addEventListener('scroll', buttonHandleScroll, {
-            passive: true,
-        })
+        document.addEventListener('scroll', buttonHandleScroll, { passive: true })
 
         return () => {
             document.removeEventListener('scroll', buttonHandleScroll)
@@ -431,54 +487,22 @@ const NavDesktop = ({ base }) => {
 
     return (
         <div>
-            <PlatformsDropdown
-                forward_ref={trade_ref}
-                link_ref={link_trade_ref}
-                is_open={is_trade_open}
-                has_animation={has_trade_animation}
-                Content={() => <NavPlatform onClick={handleTradeClick} />}
-                title={localize('Trading platforms')}
-                description={localize(
-                    'Be in full control of your trading with our new and improved platforms.',
-                )}
-            />
-            <PlatformsDropdown
-                forward_ref={market_ref}
-                link_ref={link_market_ref}
-                is_open={is_market_open}
-                has_animation={has_market_animation}
-                Content={() => <NavMarket onClick={handleMarketClick} />}
-                title={localize('Markets')}
-                description={localize(
-                    'Enjoy our wide range of assets on financial and synthetic markets.',
-                )}
-            />
-            <PlatformsDropdown
-                forward_ref={company_ref}
-                link_ref={link_company_ref}
-                is_open={is_company_open}
-                has_animation={has_company_animation}
-                Content={() => <NavCompany onClick={handleCompanyClick} />}
-                title={localize('About us')}
-                description={localize(
-                    "Get to know our leadership team, learn about our history, and see why we're different.",
-                )}
-            />
-            <PlatformsDropdown
-                forward_ref={resources_ref}
-                link_ref={link_resources_ref}
-                is_open={is_resources_open}
-                has_animation={has_resources_animation}
-                Content={() => <NavResources onClick={handleResourcesClick} />}
-                title={localize('Resources')}
-                description={localize(
-                    'Help yourself to various resources that can help you get the best out of your trading experience.',
-                )}
-            />
-
+            {active_dropdown && (
+                <PlatformsDropdown
+                    key={active_dropdown}
+                    current_ref={active_link_ref}
+                    parent={active_dropdown}
+                    is_ppc={is_ppc}
+                    is_ppc_redirect={is_ppc_redirect}
+                    setActiveDropdown={setDropdownRef}
+                />
+            )}
             <Wrapper>
-                <NavLeft>
-                    <LogoLink to={base || '/'} aria-label={localize('Home')}>
+                <NavLeftMain>
+                    <LogoLink
+                        to={!is_ppc_redirect ? base || '/' : '/landing'}
+                        aria-label={localize('Home')}
+                    >
                         <QueryImage
                             data={data['deriv']}
                             alt={localize('Deriv')}
@@ -489,88 +513,121 @@ const NavDesktop = ({ base }) => {
                     </LogoLink>
                     <Line />
                     <img src={LogoCombinedShape} alt="logo combined shape" />
-                </NavLeft>
-                <NavCenter>
-                    <NavLink onClick={handleTradeClick}>
-                        <StyledButton
-                            aria-label={localize('Trade')}
-                            active={is_trade_open}
-                            ref={link_trade_ref}
-                        >
+                </NavLeftMain>
+                <NavCenter ref={navigation_bar_ref}>
+                    <NavLink onClick={(e) => handleLinkClick('trade', e.target)}>
+                        <StyledButton aria-label={localize('Trade')} active={checkActive('trade')}>
                             {localize('Trade')}
                         </StyledButton>
                     </NavLink>
-                    <NavLink onClick={handleMarketClick}>
+                    <NavLink onClick={(e) => handleLinkClick('markets', e.target)}>
                         <StyledButton
                             aria-label={localize('Markets')}
-                            active={is_market_open}
-                            ref={link_market_ref}
+                            active={checkActive('markets')}
                         >
                             {localize('Markets')}
                         </StyledButton>
                     </NavLink>
-                    <NavLink onClick={handleCompanyClick}>
+                    <NavLink onClick={(e) => handleLinkClick('about', e.target)}>
                         <StyledButton
                             aria-label={localize('About us')}
-                            active={is_company_open}
-                            ref={link_company_ref}
+                            active={checkActive('about')}
                         >
                             {localize('About us')}
                         </StyledButton>
                     </NavLink>
-                    <NavLink onClick={handleResourcesClick}>
+                    <NavLink onClick={(e) => handleLinkClick('resources', e.target)}>
                         <StyledButton
                             aria-label={localize('Resources')}
-                            active={is_resources_open}
-                            ref={link_resources_ref}
+                            active={checkActive('resources')}
                         >
                             {localize('Resources')}
                         </StyledButton>
                     </NavLink>
                 </NavCenter>
-                <NavRight
-                    move={show_button}
-                    button_ref={button_ref}
-                    mounted={mounted}
-                    has_scrolled={has_scrolled}
-                >
-                    <LanguageSwitcher short_name="true" is_high_nav />
-                    <LoginButton onClick={handleLogin} primary>
-                        <span>{localize('Log in')}</span>
-                    </LoginButton>
-                    <LocalizedLink to="/signup/">
-                        <SignupButton ref={button_ref} secondary="true">
-                            <span>{localize('Create free demo account')}</span>
-                        </SignupButton>
-                    </LocalizedLink>
-                </NavRight>
+
+                {is_logged_in ? (
+                    <NavGetTrading>
+                        <LanguageSwitcherNavDesktop />
+                        <NowrapButton onClick={handleGetTrading} primary>
+                            <span>{localize('Get Trading')}</span>
+                        </NowrapButton>
+                    </NavGetTrading>
+                ) : (
+                    <NavRight
+                        move={show_button}
+                        button_ref={button_ref}
+                        mounted={mounted}
+                        has_scrolled={has_scrolled}
+                    >
+                        <LanguageSwitcherNavDesktop />
+                        <NowrapButton onClick={handleLogin} primary>
+                            <span>{localize('Log in')}</span>
+                        </NowrapButton>
+                        <LocalizedLink to={is_ppc_redirect ? '/landing/signup/' : '/signup/'}>
+                            <SignupButton ref={button_ref} secondary="true">
+                                <span>{localize('Create free demo account')}</span>
+                            </SignupButton>
+                        </LocalizedLink>
+                    </NavRight>
+                )}
             </Wrapper>
         </div>
     )
 }
 
-export const Nav = ({ base }) => {
+const MemoizedNavDesktop = React.memo(NavDesktop)
+const MemoizedNavMobile = React.memo(NavMobile)
+
+export const Nav = ({ base, is_ppc_redirect, is_ppc }) => {
+    const [is_logged_in, setLoggedIn] = useState(false)
+
+    useEffect(() => {
+        setLoggedIn(isLoggedIn())
+
+        let checkCookieChange = setInterval(() => {
+            setLoggedIn(isLoggedIn())
+        }, 800)
+        return () => clearInterval(checkCookieChange)
+    }, [])
+
     return (
-        <NavWrapper>
+        <NavWrapperMain>
             <CFDWarning />
-            <StyledNav>
-                <Show.Desktop>
-                    <NavDesktop base={base} />
+            <StyledNavMain>
+                <Show.Desktop max_width="bp1060">
+                    <MemoizedNavDesktop
+                        base={base}
+                        is_ppc={is_ppc}
+                        is_ppc_redirect={is_ppc_redirect}
+                        is_logged_in={is_logged_in}
+                    />
                 </Show.Desktop>
-                <Show.Mobile>
-                    <NavMobile />
+                <Show.Mobile min_width="bp1060">
+                    <MemoizedNavMobile is_ppc={is_ppc} is_logged_in={is_logged_in} />
                 </Show.Mobile>
-            </StyledNav>
-        </NavWrapper>
+            </StyledNavMain>
+        </NavWrapperMain>
     )
 }
 
 Nav.propTypes = {
     base: PropTypes.string,
+    is_ppc: PropTypes.bool,
+    is_ppc_redirect: PropTypes.bool,
 }
 
 NavDesktop.propTypes = {
     base: PropTypes.string,
+    is_logged_in: PropTypes.bool,
+    is_ppc: PropTypes.bool,
+    is_ppc_redirect: PropTypes.bool,
+}
+
+NavMobile.propTypes = {
+    is_logged_in: PropTypes.bool,
+    is_ppc: PropTypes.bool,
+    is_ppc_redirect: PropTypes.bool,
 }
 
 const Auto = styled(Flex)`
@@ -599,54 +656,64 @@ const StyledLogo = styled(LogoLink)`
         }
     }
 `
+
+const NavInterimContainer = styled.div`
+    position: relative;
+`
+
 export const NavInterim = ({ interim_type }) => (
     <InterimNav>
         <CFDWarning />
-        <Container jc="space-between" p="2.4rem 0">
-            <Flex ai="center" jc="flex-start">
-                <Show.Desktop>
-                    <StyledLogo to={`/interim/${interim_type}`} aria-label={localize('Home')}>
-                        <Flex ai="center">
-                            <img src={Logo} alt="logo" width="190px" height="27px" />
-                            <img
-                                src={LogoCombinedShape}
-                                alt="logo combined shape desktop"
-                                width="120"
-                                height="17"
-                            />
-                        </Flex>
-                    </StyledLogo>
-                </Show.Desktop>
-                <Show.Mobile>
-                    <LogoLinkMobile to={`/interim/${interim_type}`} aria-label={localize('Home')}>
-                        <Flex>
-                            <img src={LogoOnly} alt="logo only 2" width="115px" height="27px" />
-                            <LogoDescription ai="center">
-                                <Line />
+        <NavInterimContainer>
+            <Container jc="space-between" p="2.4rem 0">
+                <Flex ai="center" jc="flex-start">
+                    <Show.Desktop>
+                        <StyledLogo to={`/interim/${interim_type}`} aria-label={localize('Home')}>
+                            <Flex ai="center">
+                                <img src={Logo} alt="logo" width="190" height="27" />
                                 <img
                                     src={LogoCombinedShape}
-                                    alt="logo combined shape mobile"
+                                    alt="logo combined shape desktop"
                                     width="120"
                                     height="17"
                                 />
-                            </LogoDescription>
-                        </Flex>
-                    </LogoLinkMobile>
-                </Show.Mobile>
-            </Flex>
-            <Auto jc="flex-end" ai="center">
-                <LanguageSwitcher short_name="true" />
-                <LeftButton secondary to="/">
-                    {localize('Explore Deriv.com')}
-                </LeftButton>
-            </Auto>
-        </Container>
+                            </Flex>
+                        </StyledLogo>
+                    </Show.Desktop>
+                    <Show.Mobile>
+                        <LogoLinkMobile
+                            to={`/interim/${interim_type}`}
+                            aria-label={localize('Home')}
+                        >
+                            <Flex>
+                                <img src={LogoOnly} alt="logo only 2" width="115" height="27" />
+                                <LogoDescription ai="center">
+                                    <Line />
+                                    <img
+                                        src={LogoCombinedShape}
+                                        alt="logo combined shape mobile"
+                                        width="120"
+                                        height="17"
+                                    />
+                                </LogoDescription>
+                            </Flex>
+                        </LogoLinkMobile>
+                    </Show.Mobile>
+                </Flex>
+                <Auto jc="flex-end" ai="center">
+                    <LanguageSwitcher short_name="true" />
+                    <LeftButton secondary to="/">
+                        {localize('Explore Deriv.com')}
+                    </LeftButton>
+                </Auto>
+            </Container>
+        </NavInterimContainer>
     </InterimNav>
 )
 
-export const NavStatic = () => (
+export const NavStatic = ({ is_ppc }) => (
     <>
-        <CFDWarning />
+        <CFDWarning is_ppc={is_ppc} />
         <StaticWrapper>
             <LogoLink mw="31rem" to="/" aria-label={localize('Home')}>
                 <Flex ai="center">
@@ -679,16 +746,20 @@ const HomeContainer = styled(Container)`
     height: 100%;
 `
 
-const StyledNavCenter = styled(NavCenter)`
+const StyledNavCenter = styled.ul`
+    text-align: center;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    line-height: 1.2;
     margin-left: 13.3rem;
     white-space: nowrap;
 
     @media (max-width: 1300px) {
-        margin-left: 9.3rem;
-        font-size: 12px !important;
+        font-size: 12px;
     }
-    @media (max-width: 1080px) {
-        margin-left: 7.3rem;
+    @media (max-width: 991px) {
+        display: none;
     }
 `
 
@@ -770,6 +841,19 @@ const NavLogoLink = styled(LogoLink)`
     }
 `
 
+const LSContainer = styled(Container)`
+    text-align: right;
+    margin-left: 200px;
+`
+
+const DesktopLS = styled(Show.Desktop)`
+    z-index: 2;
+`
+
+const StyledContainer = styled(Container)`
+    margin: 0;
+`
+
 // Note: When using layout component for partners page, please add type='partners' and padding_top='10rem'
 export const NavPartners = ({ no_login_signup }) => {
     const nav_ref = useRef(null)
@@ -777,6 +861,7 @@ export const NavPartners = ({ no_login_signup }) => {
     const [show_button, showButton, hideButton] = moveButton()
     const [mounted, setMounted] = useState(false)
     const [has_scrolled, setHasScrolled] = useState(false)
+    const current_page = useActiveLinkState('partners')
 
     const buttonHandleScroll = () => {
         setHasScrolled(true)
@@ -797,37 +882,45 @@ export const NavPartners = ({ no_login_signup }) => {
     const [is_canvas_menu_open, openOffCanvasMenu, closeOffCanvasMenu] = moveOffCanvasMenu()
     return (
         <>
-            <NavWrapper ref={nav_ref}>
+            <NavWrapperPartners ref={nav_ref}>
                 <CFDWarning />
                 <DerivHomeWrapper>
-                    <HomeContainer justify="flex-start">
-                        <HomeLink to="/">
-                            <Text color="grey-19" size="var(--text-size-xxs)">
-                                {localize('Deriv website')}
-                            </Text>
-                        </HomeLink>
-                        <HomeLink to="/about">
-                            <Text color="grey-19" size="var(--text-size-xxs)">
-                                {localize('About us')}
-                            </Text>
-                        </HomeLink>
-                        <HomeLink to="/contact-us">
-                            <Text color="grey-19" size="var(--text-size-xxs)">
-                                {localize('Contact us')}
-                            </Text>
-                        </HomeLink>
+                    <HomeContainer justify="space-between">
+                        <StyledContainer justify="flex-start">
+                            <HomeLink to="/">
+                                <Text color="grey-19" size="var(--text-size-xxs)">
+                                    {localize('Deriv website')}
+                                </Text>
+                            </HomeLink>
+                            <HomeLink to="/about">
+                                <Text color="grey-19" size="var(--text-size-xxs)">
+                                    {localize('About us')}
+                                </Text>
+                            </HomeLink>
+                            <HomeLink to="/contact_us">
+                                <Text color="grey-19" size="var(--text-size-xxs)">
+                                    {localize('Contact us')}
+                                </Text>
+                            </HomeLink>
+                        </StyledContainer>
+                        <DesktopLS>
+                            <LSContainer>
+                                <LanguageSwitcher short_name="true" />
+                            </LSContainer>
+                        </DesktopLS>
                     </HomeContainer>
                 </DerivHomeWrapper>
-                <StyledNav>
+                <StyledNavPartners>
                     <StyledNavWrapper no_login_signup>
-                        <NavLeft>
+                        <NavLeftPartners>
                             <NavLogoLink to="/partners/" aria-label={localize('Partners')}>
                                 <img src={LogoPartner} alt="logo partner" />
                             </NavLogoLink>
-                        </NavLeft>
+                        </NavLeftPartners>
                         <StyledNavCenter>
                             <NavLink>
                                 <StyledLink
+                                    active={current_page === 'affiliate'}
                                     activeClassName="active"
                                     to="/partners/affiliate-ib/"
                                     aria-label={localize('Affiliates and IBs')}
@@ -837,6 +930,7 @@ export const NavPartners = ({ no_login_signup }) => {
                             </NavLink>
                             <NavLink>
                                 <StyledLink
+                                    active={current_page === 'payment'}
                                     activeClassName="active"
                                     to="/partners/payment-agent/"
                                     aria-label={localize('Payment agents')}
@@ -845,21 +939,20 @@ export const NavPartners = ({ no_login_signup }) => {
                                 </StyledLink>
                             </NavLink>
                         </StyledNavCenter>
-                        {!no_login_signup ? (
+                        {!no_login_signup && (
                             <StyledNavRight
                                 move={show_button}
                                 button_ref={button_ref}
                                 mounted={mounted}
                                 has_scrolled={has_scrolled}
                             >
-                                <LanguageSwitcher short_name="true" is_high_nav />
                                 <LinkButton
                                     to={affiliate_signin_url}
                                     external="true"
                                     is_affiliate_sign_in_link
                                     target="_blank"
                                     primary
-                                    style={{ width: '14rem' }}
+                                    style={{ width: '16rem' }}
                                 >
                                     <span>{localize('Affiliate & IB log in')}</span>
                                 </LinkButton>
@@ -870,31 +963,22 @@ export const NavPartners = ({ no_login_signup }) => {
                                     target="_blank"
                                     ref={button_ref}
                                     secondary="true"
-                                    style={{ width: '14rem' }}
+                                    style={{ width: '18rem' }}
                                 >
                                     <span>{localize('Affiliate & IB sign up')}</span>
                                 </LinkSignupButton>
                             </StyledNavRight>
-                        ) : (
-                            <NavRight
-                                move={show_button}
-                                button_ref={button_ref}
-                                mounted={mounted}
-                                has_scrolled={has_scrolled}
-                            >
-                                <LanguageSwitcher short_name="true" is_high_nav />
-                            </NavRight>
                         )}
 
                         {is_canvas_menu_open ? (
-                            <CloseMenu
+                            <CloseMenuPartners
                                 src={Close}
                                 alt="close menu 2"
                                 onClick={closeOffCanvasMenu}
                                 width="16px"
                             />
                         ) : (
-                            <HamburgerMenu
+                            <HamburgerMenuPartners
                                 src={Hamburger}
                                 alt="hamburger menu2"
                                 onClick={openOffCanvasMenu}
@@ -918,7 +1002,12 @@ export const NavPartners = ({ no_login_signup }) => {
                                         target="_blank"
                                         primary
                                     >
-                                        <span>{localize('Affiliate & IB Log in')}</span>
+                                        <Show.Desktop>
+                                            <span>{localize('Affiliate & IB log in')}</span>
+                                        </Show.Desktop>
+                                        <Show.Mobile>
+                                            <span>{localize('Log in')}</span>
+                                        </Show.Mobile>
                                     </LinkMobileLogin>
                                 )}
                             </Flex>
@@ -928,8 +1017,8 @@ export const NavPartners = ({ no_login_signup }) => {
                             closeOffCanvasMenu={closeOffCanvasMenu}
                         />
                     </StyledNavWrapper>
-                </StyledNav>
-            </NavWrapper>
+                </StyledNavPartners>
+            </NavWrapperPartners>
         </>
     )
 }
@@ -942,6 +1031,7 @@ function moveButton(is_visible = false) {
 }
 
 NavStatic.propTypes = {
+    is_ppc: PropTypes.bool,
     is_static: PropTypes.bool,
 }
 

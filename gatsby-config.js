@@ -48,6 +48,10 @@ module.exports = {
                     '/**/homepage/**',
                     '/offline-plugin-app-shell-fallback',
                     '/**/offline-plugin-app-shell-fallback',
+                    '/landing',
+                    '/landing/**',
+                    '/**/landing',
+                    '/**/landing/**',
                 ],
                 serialize: ({ site, allSitePage }) =>
                     allSitePage.edges.map((edge) => {
@@ -124,6 +128,8 @@ module.exports = {
                         type: `image/png`,
                     },
                 ],
+                gcm_sender_id: '370236002280',
+                gcm_user_visible_only: true,
                 // TODO: add translations and support for language routes e.g:
                 // localize: [
                 //     {
@@ -147,14 +153,10 @@ module.exports = {
         {
             resolve: 'gatsby-plugin-eslint',
             options: {
-                test: /\.js$|\.jsx$/,
-                exclude: /(node_modules|.cache|public)/,
                 stages: ['develop'],
-                options: {
-                    emitWarning: true,
-                    failOnError: false,
-                },
-            },
+                extensions: ['js'],
+                exclude: ['node_modules', '.cache', 'public'],
+              },
         },
         {
             resolve: 'gatsby-plugin-stylelint',
@@ -178,6 +180,7 @@ module.exports = {
                             '/zh_tw/',
                             '/amp/',
                             '/homepage/',
+                            '/landing/',
                             '*derivtnc*',
                             '*deriv_tnc*',
                         ],
@@ -201,11 +204,20 @@ module.exports = {
                 includeInDevelopment: false,
             },
         },
-        'gatsby-plugin-offline',
+        'gatsby-plugin-remove-serviceworker',
         {
             resolve: 'gatsby-plugin-anchor-links',
             options: {
                 offset: -100,
+            },
+        },
+        {
+            resolve: 'gatsby-plugin-webpack-bundle-analyser-v2',
+            options: {
+                production: true,
+                disable: !process.env.ANALYZE_BUNDLE_SIZE,
+                generateStatsFile: true,
+                analyzerMode: 'static',
             },
         },
     ],

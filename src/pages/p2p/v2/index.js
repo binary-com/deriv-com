@@ -64,7 +64,7 @@ const DP2P_v2 = () => {
                         />
                     }
                     content={
-                        <Localize translate_text="Waiting too long? With DP2P, it just takes minutes. Spend more time on things that really matter." />
+                        <Localize translate_text="Waiting on your deposits and withdrawals? With DP2P it takes minutes. So you can spend more time on important things - like trading." />
                     }
                     image_name="DP2P"
                 />
@@ -73,7 +73,7 @@ const DP2P_v2 = () => {
                 <Hero
                     title={localize('Faster deposits and withdrawals')}
                     content={
-                        <Localize translate_text="Waiting too long? With DP2P, it just takes minutes. Spend more time on things that really matter." />
+                        <Localize translate_text="Waiting on your deposits and withdrawals? With DP2P it takes minutes. So you can spend more time on important things - like trading." />
                     }
                     image_name="DP2P"
                 />

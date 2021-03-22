@@ -111,7 +111,17 @@ const IsDerivRegulated = () => (
                 />
             </Show.Eu>
             <Show.NonEU>
-                <Localize translate_text="Yes. Deriv.com and Binary.com are owned by the same group, which is licensed and regulated in many jurisdictions around the world." />
+                <Localize
+                    translate_text="Yes. Deriv.com and Binary.com are owned by the same group, which is <0>licensed and regulated</0> in many jurisdictions around the world."
+                    components={[
+                        <StyledLink
+                            to="/regulatory/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            key={0}
+                        />,
+                    ]}
+                />
             </Show.NonEU>
         </Text>
     </MaxWidth>

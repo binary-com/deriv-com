@@ -7,15 +7,25 @@ import { LocationContext } from '../layout/location-context.js'
 import language_config from '../../../i18n-config'
 import { LocaleContext } from './locale-context'
 import {
-    binary_url,
     affiliate_signin_url,
     affiliate_signup_url,
-    smarttrader_url,
+    binary_url,
+    blog_url,
+    community_url,
     deriv_app_url,
+    deriv_bot_app_url,
+    smarttrader_url,
+    zoho_url,
 } from 'common/utility'
 import { DerivStore } from 'store'
 
 const non_localized_links = ['/careers', '/careers/']
+
+const getDerivAppLanguage = (link, locale) => {
+    const available_lang = ['id', 'pt', 'es']
+    const lang = available_lang.includes(locale) ? locale : 'en'
+    return `${link}?lang=${lang.toUpperCase()}`
+}
 
 export const SharedLinkStyle = css`
     color: var(--color-white);
@@ -48,6 +58,10 @@ export const SharedLinkStyle = css`
         props.active &&
         css`
             text-shadow: 0 0 0.8px var(--color-white), 0 0 0.8px var(--color-white);
+
+            &::before {
+                width: 1.6rem;
+            }
         `}
 `
 const ExternalLink = styled.a`
@@ -61,19 +75,24 @@ export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
 
     const is_index = to === `/`
     const {
-        target,
-        rel,
-        className,
-        style,
-        is_binary_link,
-        is_affiliate_link,
-        is_mail_link,
-        is_affiliate_sign_in_link,
-        is_smarttrader_link,
-        is_deriv_app_link,
         ariaLabel,
-        onClick,
+        className,
         external,
+        is_affiliate_link,
+        is_affiliate_sign_in_link,
+        is_binary_link,
+        is_blog_link,
+        is_community_link,
+        is_dbot_link,
+        is_deriv_app_link,
+        is_mail_link,
+        is_mt5_link,
+        is_smarttrader_link,
+        is_zoho_link,
+        onClick,
+        rel,
+        style,
+        target,
     } = props
 
     // If it's the default language or non localized link, don't do anything
@@ -97,6 +116,16 @@ export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
             lang_to = `${smarttrader_url}/${thai_excluded_locale}/${to}.html`
         } else if (is_deriv_app_link) {
             lang_to = `${deriv_app_url}${to}`
+        } else if (is_blog_link) {
+            lang_to = `${blog_url}${to}`
+        } else if (is_community_link) {
+            lang_to = `${community_url}${to}`
+        } else if (is_zoho_link) {
+            lang_to = `${zoho_url}${to}`
+        } else if (is_dbot_link) {
+            lang_to = getDerivAppLanguage(deriv_bot_app_url, locale)
+        } else if (is_mt5_link) {
+            lang_to = getDerivAppLanguage(`${deriv_app_url}/mt5`, locale)
         } else {
             lang_to = to
         }
@@ -106,7 +135,10 @@ export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
             !is_smarttrader_link &&
             !is_deriv_app_link &&
             !is_affiliate_link &&
-            !is_affiliate_sign_in_link
+            !is_community_link &&
+            !is_affiliate_sign_in_link &&
+            !is_blog_link &&
+            !is_zoho_link
         ) {
             return (
                 <a
@@ -165,11 +197,12 @@ export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
     }
 
     if (props.anchor) {
-        return <AnchorLink {...props} to={internal_to} ref={ref} />
+        return <AnchorLink title={ariaLabel} {...props} to={internal_to} ref={ref} />
     }
 
     return (
         <GatsbyLink
+            aria-label={ariaLabel}
             target={target}
             rel={rel}
             className={className}
@@ -196,9 +229,14 @@ LocalizedLink.propTypes = {
     is_affiliate_link: PropTypes.bool,
     is_affiliate_sign_in_link: PropTypes.bool,
     is_binary_link: PropTypes.bool,
+    is_blog_link: PropTypes.bool,
+    is_community_link: PropTypes.bool,
+    is_dbot_link: PropTypes.bool,
     is_deriv_app_link: PropTypes.bool,
     is_mail_link: PropTypes.bool,
+    is_mt5_link: PropTypes.bool,
     is_smarttrader_link: PropTypes.bool,
+    is_zoho_link: PropTypes.bool,
     onClick: PropTypes.func,
     props: PropTypes.object,
     rel: PropTypes.string,

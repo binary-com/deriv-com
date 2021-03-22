@@ -12,14 +12,14 @@ import Graph from 'images/svg/graph.svg'
 const Wrapper = styled.section`
     padding: 8rem 0;
     width: 100%;
-    height: 100%;
+    height: 80vh;
     justify-content: center;
     display: flex;
     flex-direction: row;
     background-color: rgba(200, 214, 215, 0.22);
 
     @media ${device.mobileL} {
-        height: 100%;
+        height: 100vh;
         padding: 0;
     }
 `
@@ -60,10 +60,12 @@ const StyledGraph = styled.img`
 `
 
 const NewSignup = () => {
-    const [submitState, setSubmitState] = useState('')
+    const [submit_state, setSubmitState] = useState('')
+    const [email, setEmail] = useState('')
 
-    function getSubmitState(submitStatus) {
+    function updateSubmitState(submitStatus, email) {
         setSubmitState(submitStatus)
+        setEmail(email)
     }
     return (
         <Layout type="static" margin_top={'0'}>
@@ -74,7 +76,7 @@ const NewSignup = () => {
                 )}
             />
             <Wrapper>
-                {!(submitState === 'success') && (
+                {submit_state !== 'success' && (
                     <Content>
                         <StyledGraph src={Graph} alt="graph" />
                         <Header mt="2.4rem" as="h3" type="section-title">
@@ -93,7 +95,9 @@ const NewSignup = () => {
                 <Signup
                     appearance={Appearances.newSignup}
                     bgColor="grey-14"
-                    onSubmit={getSubmitState}
+                    onSubmit={updateSubmitState}
+                    submit_state={submit_state}
+                    email={email}
                     autofocus={true}
                 />
             </Wrapper>

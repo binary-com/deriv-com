@@ -89,40 +89,39 @@ const Process = ({ title, description, style }) => (
     </ProcessWrapper>
 )
 
-const StyledCareer1 = styled.img`
-    margin-left: 6.4rem;
-    margin-right: 4rem;
+const SharedIconLeftStyles = css`
+    height: 129px;
+    width: 129px;
+    margin: auto 4rem auto 6.4rem;
 
     @media ${device.tablet} {
         margin: 0;
     }
+`
+const SharedIconRightStyles = css`
+    height: 129px;
+    width: 129px;
+    margin: auto 6.4rem auto 4rem;
+
+    @media ${device.tablet} {
+        margin: 0;
+    }
+`
+
+const StyledCareer1 = styled.img`
+    ${SharedIconLeftStyles}
 `
 
 const StyledCareer2 = styled.img`
-    margin-left: 4rem;
-    margin-right: 6.4rem;
-
-    @media ${device.tablet} {
-        margin: 0;
-    }
+    ${SharedIconRightStyles}
 `
 
 const StyledCareer3 = styled.img`
-    margin-left: 6.4rem;
-    margin-right: 4rem;
-
-    @media ${device.tablet} {
-        margin: 0;
-    }
+    ${SharedIconLeftStyles}
 `
 
 const StyledCareer4 = styled.img`
-    margin-left: 4rem;
-    margin-right: 6.4rem;
-
-    @media ${device.tablet} {
-        margin: 0;
-    }
+    ${SharedIconRightStyles}
 `
 
 const DownwardsShape = styled(Show.Desktop)`

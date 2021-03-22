@@ -4,65 +4,66 @@ import PropTypes from 'prop-types'
 import { Flex } from 'components/containers'
 import { LocalizedLink, localize, Localize } from 'components/localization'
 import { Accordion, AccordionItem, NavCard, Text, Divider } from 'components/elements'
+import Signals from 'components/svgs/signals'
 import { useOutsideClick } from 'components/hooks/outside-click'
-import {
-    community_url,
-    cfd_warning_height_desktop,
-    cfd_warning_height_tablet,
-} from 'common/utility'
+import { cfd_warning_height, deriv_status_page_url } from 'common/utility'
 // SVG
-import DTrader from 'images/svg/dtrader-icon.svg'
-import DMT5 from 'images/svg/dmt5-icon.svg'
-import DBot from 'images/svg/dbot-icon.svg'
-import Smarttrader from 'images/svg/smarttrader.svg'
-import Forex from 'images/svg/forex-nav.svg'
-import Commodities from 'images/svg/commodities-nav.svg'
-import StockIndices from 'images/svg/stock-indices-nav.svg'
-import SyntheticIndices from 'images/svg/synthetic-indices-nav.svg'
-import MarginTrading from 'images/svg/margin-trading-nav.svg'
-import Options from 'images/svg/options-nav.svg'
-import Multipliers from 'images/svg/multipliers-nav.svg'
-import Story from 'images/svg/menu/story.svg'
-import Leadership from 'images/svg/menu/leadership.svg'
-import Partner from 'images/svg/menu/partner.svg'
-import Choose from 'images/svg/menu/choose.svg'
-import Contact from 'images/svg/menu/contact.svg'
-import Career from 'images/svg/menu/careers.svg'
-import Help from 'images/svg/menu/help-center.svg'
-import Payment from 'images/svg/menu/payment-methods.svg'
-import Regulatory from 'images/svg/menu/regulatory.svg'
-import Terms from 'images/svg/menu/terms.svg'
-import SecureTrading from 'images/svg/menu/secure-trading.svg'
-import Community from 'images/svg/menu/community.svg'
-import Diagonal from 'images/svg/pink-right-diagonal.svg'
 import AffiliateIb from 'images/svg/menu/affiliate-ib.svg'
+import Blog from 'images/svg/blog-nav.svg'
+import Career from 'images/svg/menu/careers.svg'
+import Choose from 'images/svg/menu/choose.svg'
+import Commodities from 'images/svg/commodities-nav.svg'
+import Community from 'images/svg/menu/community.svg'
+import Contact from 'images/svg/menu/contact.svg'
+import DBot from 'images/svg/dbot-icon.svg'
+import Diagonal from 'images/svg/pink-right-diagonal.svg'
+import DMT5 from 'images/svg/dmt5-icon.svg'
+import DTrader from 'images/svg/dtrader-icon.svg'
+import Forex from 'images/svg/forex-nav.svg'
+import Help from 'images/svg/menu/help-center.svg'
+import Leadership from 'images/svg/menu/leadership.svg'
+import MarginTrading from 'images/svg/margin-trading-nav.svg'
+import Multipliers from 'images/svg/multipliers-nav.svg'
+import Options from 'images/svg/options-nav.svg'
+import Partner from 'images/svg/menu/partner.svg'
+import Payment from 'images/svg/menu/payment-methods.svg'
 import PaymentAgent from 'images/svg/menu/payment-agent.svg'
+import Regulatory from 'images/svg/menu/regulatory.svg'
+import SecureTrading from 'images/svg/menu/secure-trading.svg'
+import Smarttrader from 'images/svg/smarttrader.svg'
+import Status from 'images/svg/status.svg'
+import StockIndices from 'images/svg/stock-indices-nav.svg'
+import Story from 'images/svg/menu/story.svg'
+import SyntheticIndices from 'images/svg/synthetic-indices-nav.svg'
+import Terms from 'images/svg/menu/terms.svg'
 import { DerivStore } from 'store'
 import device from 'themes/device'
+import Trade from 'images/svg/trader-tool-nav.svg'
 
 const OffCanvasMenu = styled.section`
     position: fixed;
     background-color: var(--color-white);
-    top: ${(props) => (props.is_eu_country ? `${cfd_warning_height_desktop + 7.2}rem` : `7.2rem`)};
+    top: ${(props) => (props.is_eu_country ? `${cfd_warning_height.desktop + 7.2}rem` : `7.2rem`)};
     height: 100vh;
     width: 253px;
     opacity: 1;
     overflow: scroll;
-    transition: left 0.4s;
+    transition: transform 0.4s;
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.1);
-    left: ${(props) => (props.is_canvas_menu_open ? '0' : '-254px')};
+    left: -254px;
+    ${({ is_canvas_menu_open }) => is_canvas_menu_open && 'transform: translateX(254px)'};
 
     @media ${device.tabletS} {
         top: ${(props) =>
-            props.is_eu_country ? `${cfd_warning_height_tablet + 7.2}rem` : `7.2rem`};
+            props.is_eu_country ? `${cfd_warning_height.tablet + 7.2}rem` : `7.2rem`};
     }
 `
 
 const OffCanvasMenuSecondary = styled(OffCanvasMenu)`
-    top: ${(props) => (props.is_eu_country ? `${cfd_warning_height_desktop + 10}rem` : `10rem`)};
+    top: ${(props) => (props.is_eu_country ? `${cfd_warning_height.desktop + 10}rem` : `10rem`)};
 
     @media ${device.tabletS} {
-        top: ${(props) => (props.is_eu_country ? `${cfd_warning_height_tablet + 10}rem` : `10rem`)};
+        top: ${(props) => (props.is_eu_country ? `${cfd_warning_height.tablet + 10}rem` : `10rem`)};
     }
 `
 
@@ -93,6 +94,12 @@ const StyledLink = styled((props) => <LocalizedLink {...props} />)`
     &:first-child {
         margin-top: 16px;
     }
+`
+
+const SvgWrapper = styled.div`
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
 `
 
 const OffCanvasMenuContainer = styled.div`
@@ -149,6 +156,7 @@ export const OffCanvasMenuWrapper = (props) => {
                         </Text>
                         <Flex mb="2rem">
                             <NavCard
+                                aria_label="DTrader"
                                 icon={() => (
                                     <img src={DTrader} alt="DTrader" width="32" height="32" />
                                 )}
@@ -162,6 +170,7 @@ export const OffCanvasMenuWrapper = (props) => {
                         </Flex>
                         <Flex mb="2rem">
                             <NavCard
+                                aria_label="DBot"
                                 icon={() => <img src={DBot} alt="DBot" width="32" height="32" />}
                                 content={
                                     <Localize translate_text="Automated trading at your fingertips. No coding needed." />
@@ -173,17 +182,19 @@ export const OffCanvasMenuWrapper = (props) => {
                         </Flex>
                         <Flex mb="2rem">
                             <NavCard
+                                aria_label="DMT5"
                                 icon={() => <img src={DMT5} alt="DMT5" width="32" height="32" />}
                                 content={
                                     <Localize translate_text="Trade on Deriv MetaTrader 5 (DMT5), the all-in-one FX and CFD trading platform." />
                                 }
                                 title={<Localize translate_text="DMT5" />}
                                 onClick={handleArrowClick}
-                                to="/dmt5"
+                                to={props.is_ppc_redirect ? '/dmt5' : '/landing/dmt5'}
                             />
                         </Flex>
                         <Flex>
                             <NavCard
+                                aria_label="SmartTrader"
                                 icon={() => (
                                     <img
                                         src={Smarttrader}
@@ -204,69 +215,82 @@ export const OffCanvasMenuWrapper = (props) => {
                                 otherLinkProps={{ rel: 'noopener noreferrer' }}
                             />
                         </Flex>
-                        <Divider m="16px 0" width="100%" height="1px" color="grey-8" />
-                        <Text color="grey-5" mb="8px" size="14px">
-                            {localize('Trade types')}
-                        </Text>
-                        <Flex mb="2rem">
-                            <NavCard
-                                icon={() => (
-                                    <img
-                                        src={MarginTrading}
-                                        alt="MarginTrading"
-                                        width="32"
-                                        height="32"
+                        {!props.is_ppc && (
+                            <>
+                                <Divider m="16px 0" width="100%" height="1px" color="grey-8" />
+                                <Text color="grey-5" mb="8px" size="14px">
+                                    {localize('Trade types')}
+                                </Text>
+                                <Flex mb="2rem">
+                                    <NavCard
+                                        aria_label="Margin trading"
+                                        icon={() => (
+                                            <img
+                                                src={MarginTrading}
+                                                alt="MarginTrading"
+                                                width="32"
+                                                height="32"
+                                            />
+                                        )}
+                                        content={
+                                            <Localize translate_text="Trade with leverage and low spreads for better returns on successful trades." />
+                                        }
+                                        title={<Localize translate_text="Margin trading" />}
+                                        onClick={handleArrowClick}
+                                        to="/trade-types/margin/"
                                     />
+                                </Flex>
+                                {!is_eu_country && (
+                                    <Flex mb="2rem">
+                                        <NavCard
+                                            aria_label="Options"
+                                            icon={() => (
+                                                <img
+                                                    src={Options}
+                                                    alt="Options"
+                                                    width="32"
+                                                    height="32"
+                                                />
+                                            )}
+                                            content={
+                                                <Localize translate_text="Earn fixed payouts by predicting an asset's price movement." />
+                                            }
+                                            title={<Localize translate_text="Options" />}
+                                            onClick={handleArrowClick}
+                                            to="/trade-types/options"
+                                        />
+                                    </Flex>
                                 )}
-                                content={
-                                    <Localize translate_text="Trade with leverage and low spreads for better returns on successful trades." />
-                                }
-                                title={<Localize translate_text="Margin trading" />}
-                                onClick={handleArrowClick}
-                                to="/trade-types/margin/"
-                            />
-                        </Flex>
-                        {!is_eu_country && (
-                            <Flex mb="2rem">
-                                <NavCard
-                                    icon={() => (
-                                        <img src={Options} alt="Options" width="32" height="32" />
-                                    )}
-                                    content={
-                                        <Localize translate_text="Earn fixed payouts by predicting an asset's price movement." />
-                                    }
-                                    title={<Localize translate_text="Options" />}
-                                    onClick={handleArrowClick}
-                                    to="/trade-types/options"
-                                />
-                            </Flex>
+                                <Flex mb="2rem">
+                                    <NavCard
+                                        aria_label="Multipliers"
+                                        icon={() => (
+                                            <img
+                                                src={Multipliers}
+                                                alt="Multipliers"
+                                                width="32"
+                                                height="32"
+                                            />
+                                        )}
+                                        content={
+                                            <Localize translate_text="Combine the upside of margin trading with the simplicity of options." />
+                                        }
+                                        title={<Localize translate_text="Multipliers" />}
+                                        onClick={handleArrowClick}
+                                        to="/trade-types/multiplier"
+                                    />
+                                </Flex>
+                            </>
                         )}
-                        <Flex mb="2rem">
-                            <NavCard
-                                icon={() => (
-                                    <img
-                                        src={Multipliers}
-                                        alt="Multipliers"
-                                        width="32"
-                                        height="32"
-                                    />
-                                )}
-                                content={
-                                    <Localize translate_text="Combine the upside of margin trading with the simplicity of options." />
-                                }
-                                title={<Localize translate_text="Multipliers" />}
-                                onClick={handleArrowClick}
-                                to="/trade-types/multiplier"
-                            />
-                        </Flex>
                     </AccordionItem>
                     <AccordionItem
-                        header={localize('Markets')}
+                        header="Markets"
                         header_style={header_style}
                         style={content_style}
                     >
                         <Flex mb="3.2rem">
                             <NavCard
+                                aria_label="Forex"
                                 icon={() => <img src={Forex} alt="Forex" width="32" height="32" />}
                                 content={localize(
                                     'Trade the world’s largest financial market with popular forex pairs.',
@@ -276,26 +300,30 @@ export const OffCanvasMenuWrapper = (props) => {
                                 to="/markets#forex"
                             />
                         </Flex>
+                        {!props.is_ppc && (
+                            <Flex mb="3.2rem">
+                                <NavCard
+                                    aria_label="Synthetic indices"
+                                    icon={() => (
+                                        <img
+                                            src={SyntheticIndices}
+                                            alt="SyntheticIndices"
+                                            width="32"
+                                            height="32"
+                                        />
+                                    )}
+                                    content={localize(
+                                        'Enjoy synthetic markets that emulate real-world market movements.',
+                                    )}
+                                    title={localize('Synthetic indices')}
+                                    onClick={handleArrowClick}
+                                    to="/markets#synthetic"
+                                />
+                            </Flex>
+                        )}
                         <Flex mb="3.2rem">
                             <NavCard
-                                icon={() => (
-                                    <img
-                                        src={SyntheticIndices}
-                                        alt="SyntheticIndices"
-                                        width="32"
-                                        height="32"
-                                    />
-                                )}
-                                content={localize(
-                                    'Enjoy synthetic markets that emulate real-world market movements.',
-                                )}
-                                title={localize('Synthetic indices')}
-                                onClick={handleArrowClick}
-                                to="/markets#synthetic"
-                            />
-                        </Flex>
-                        <Flex mb="3.2rem">
-                            <NavCard
+                                aria_label="Stock Indices"
                                 icon={() => (
                                     <img
                                         src={StockIndices}
@@ -314,6 +342,7 @@ export const OffCanvasMenuWrapper = (props) => {
                         </Flex>
                         <Flex>
                             <NavCard
+                                aria_label="Commodities"
                                 icon={() => (
                                     <img
                                         src={Commodities}
@@ -360,7 +389,7 @@ export const OffCanvasMenuWrapper = (props) => {
                             </div>
                             <span>{localize('Why choose us?')}</span>
                         </StyledLink>
-                        <StyledLink to="/contact-us/" onClick={handleArrowClick}>
+                        <StyledLink to="/contact_us/" onClick={handleArrowClick}>
                             <div>
                                 <img src={Contact} alt="contact" width="24" height="24" />
                             </div>
@@ -387,27 +416,72 @@ export const OffCanvasMenuWrapper = (props) => {
                             </div>
                             <span>{localize('Help centre')}</span>
                         </StyledLink>
-                        {/* TODO: add this when blog is ready */}
-                        {/* <StyledLink to="/blog/" onClick={handleArrowClick}>
-                            {localize('Blog')}
-                        </StyledLink> */}
-                        <StyledLink to="/payment-methods/" onClick={handleArrowClick}>
-                            <div>
-                                <img src={Payment} alt="payment" width="24" height="24" />
-                            </div>
-                            <span>{localize('Payment methods')}</span>
-                        </StyledLink>
                         <StyledLink
-                            to={community_url}
-                            onClick={handleArrowClick}
+                            to=""
+                            is_community_link
                             external="true"
                             target="_blank"
                             rel="noopener noreferrer"
+                            onClick={handleArrowClick}
                         >
                             <div>
                                 <img src={Community} alt="community" width="24" height="24" />
                             </div>
                             <Span>{localize('Community')}</Span>
+                            <SpanSvg>
+                                <img src={Diagonal} alt="diagonal" width="16" height="16" />
+                            </SpanSvg>
+                        </StyledLink>
+                        <StyledLink to="/trader-tools/" onClick={handleArrowClick}>
+                            <div>
+                                <img src={Trade} alt="trader tools" width="24" height="24" />
+                            </div>
+                            <span>{localize('Traders’ tools')}</span>
+                        </StyledLink>
+                        <StyledLink to="/payment-methods/" onClick={handleArrowClick}>
+                            <div>
+                                <img src={Payment} alt="payment methods" width="24" height="24" />
+                            </div>
+                            <span>{localize('Payment methods')}</span>
+                        </StyledLink>
+                        <StyledLink
+                            to="/dmt5-trading-signals/#signal-subscriber/"
+                            onClick={handleArrowClick}
+                        >
+                            <div>
+                                <SvgWrapper>
+                                    <Signals dynamic_id="dmt5-signals" />
+                                </SvgWrapper>
+                            </div>
+                            <span>{localize('DMT5 Signals')}</span>
+                        </StyledLink>
+                        <StyledLink
+                            to={deriv_status_page_url}
+                            external="true"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={handleArrowClick}
+                        >
+                            <div>
+                                <img src={Status} alt="status" width="24" height="24" />
+                            </div>
+                            <Span>{localize('Status page')}</Span>
+                            <SpanSvg>
+                                <img src={Diagonal} alt="diagonal" width="16" height="16" />
+                            </SpanSvg>
+                        </StyledLink>
+                        <StyledLink
+                            to=""
+                            is_blog_link
+                            external="true"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={handleArrowClick}
+                        >
+                            <div>
+                                <img src={Blog} alt="blog" width="24" height="24" />
+                            </div>
+                            <Span>{localize('Blog')}</Span>
                             <SpanSvg>
                                 <img src={Diagonal} alt="diagonal" width="16" height="16" />
                             </SpanSvg>
@@ -430,7 +504,7 @@ export const OffCanvasMenuWrapper = (props) => {
                             </div>
                             <span>{localize('Terms and conditions')}</span>
                         </StyledLink>
-                        <StyledLink to="/responsible-trading/" onClick={handleArrowClick}>
+                        <StyledLink to="/responsible/" onClick={handleArrowClick}>
                             <div>
                                 <img
                                     src={SecureTrading}
@@ -524,7 +598,14 @@ export const OffCanvasMenuPartner = (props) => {
 OffCanvasMenuPartner.propTypes = {
     closeOffCanvasMenu: PropTypes.func,
     is_canvas_menu_open: PropTypes.bool,
+    is_ppc: PropTypes.bool,
 }
+
+OffCanvasMenuWrapper.propTypes = {
+    is_ppc: PropTypes.bool,
+    is_ppc_redirect: PropTypes.bool,
+}
+
 export const moveOffCanvasMenu = (initState = false) => {
     const [is_canvas_menu_open, setOffCanvasMenuPosition] = useState(initState)
     const openOffCanvasMenu = () => setOffCanvasMenuPosition(true)

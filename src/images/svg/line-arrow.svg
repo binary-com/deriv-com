@@ -1,8 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="20" height="30" viewBox="0 0 20 30" role="img">
-    <title id="line-arrow">Line Arrow</title>
-    <g fill="none" fill-rule="evenodd">
-        <path fill="#EC3F3F" fill-rule="nonzero"
-            d="M10 13.19l3.97-3.97a.75.75 0 0 1 1.06 1.06l-4.5 4.5a.75.75 0 0 1-1.06 0l-4.5-4.5a.75.75 0 1 1 1.06-1.06L10 13.19z" />
-        <rect width="18" height="28" x="1" y="1" stroke="#E0E0E0" stroke-width="2" rx="9" />
-    </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="30"><g fill="none" fill-rule="evenodd"><path fill="#EC3F3F" fill-rule="nonzero" d="M10 13.19l3.97-3.97a.75.75 0 011.06 1.06l-4.5 4.5a.75.75 0 01-1.06 0l-4.5-4.5a.75.75 0 111.06-1.06L10 13.19z"/><rect width="18" height="28" x="1" y="1" stroke="#E0E0E0" stroke-width="2" rx="9"/></g></svg>

@@ -1,14 +1,1 @@
-<svg role="img" xmlns="http://www.w3.org/2000/svg" width="38" height="36" viewBox="0 0 38 36">
-    <title id='deriv-icon-title'>Deriv</title>
-    <defs>
-        <linearGradient id="deriv_a" x1="50%" x2="50%" y1="0%" y2="100%">
-            <stop offset="0%" stop-color="#FF6544" />
-            <stop offset="100%" stop-color="#FF4449" />
-        </linearGradient>
-    </defs>
-    <g fill="none" fill-rule="nonzero">
-        <path fill="url(#deriv_a)"
-            d="M8.244 0v.039L21.94 18 0 35.961V36h22.154c6.466 0 12.076-4.498 13.53-10.848l1.833-8.01a14.081 14.081 0 0 0-2.663-11.859A13.843 13.843 0 0 0 23.99 0H8.244z" />
-        <path fill="#B51A31" d="M21.93 18.036L12.298 36H0z" />
-    </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="38" height="36"><defs><linearGradient id="a" x1="50%" x2="50%" y1="0%" y2="100%"><stop offset="0%" stop-color="#FF6544"/><stop offset="100%" stop-color="#FF4449"/></linearGradient></defs><g fill="none"><path fill="url(#a)" d="M8.244 0v.039L21.94 18 0 35.961V36h22.154c6.466 0 12.076-4.498 13.53-10.848l1.833-8.01a14.081 14.081 0 00-2.663-11.859A13.843 13.843 0 0023.99 0H8.244z"/><path fill="#B51A31" d="M21.93 18.036L12.298 36H0z"/></g></svg>

@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components'
+import { Flex } from 'components/containers'
 import device from 'themes/device'
 import { ReactComponent as Chevron } from 'images/svg/carousel-chevron.svg'
 
@@ -117,6 +118,25 @@ export const StyledChevron = styled(Chevron)`
             `
         }}
     }
+`
+
+export const NavigationContainer = styled(Flex)`
+    position: relative;
+    width: 100%;
+    height: 8px;
+    bottom: ${(props) => props.bottom_offset ?? '40px'};
+`
+
+export const StyledDot = styled.div`
+    cursor: pointer;
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+    padding: 0;
+    outline: 0;
+    border: 0;
+    margin-right: 8px;
+    background-color: var(${(props) => props.color ?? '--color-grey-21'});
 `
 
 export const ChevronRight = styled(StyledChevron)`

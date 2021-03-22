@@ -174,7 +174,7 @@ const SwapCalculator = () => {
     }
 
     const getContractSize = (symbol) => {
-        let contractSize = 1
+        let contractSize = 1 //crypto falls into this contract size
 
         if (symbol.market === 'forex') {
             contractSize = 100000
@@ -195,6 +195,10 @@ const SwapCalculator = () => {
 
         if (symbol.name === 'Step Index') {
             contractSize = 10
+        }
+
+        if (symbol.market === 'smartfx') {
+            contractSize = 100
         }
 
         return contractSize
@@ -769,7 +773,7 @@ const SwapCalculator = () => {
                                 </RightContentHeader>
 
                                 <StyledText size="1.6rem">
-                                    <Localize translate_text="For forex and commodities, the swap charge is calculated using the formula is:" />
+                                    <Localize translate_text="For forex and commodities, the swap charge is calculated using the formula:" />
                                 </StyledText>
                                 <StyledText size="1.6rem" mb="2rem">
                                     <Localize

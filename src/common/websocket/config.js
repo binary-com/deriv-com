@@ -13,7 +13,7 @@ const domain_config = {
         app_id: 11780,
     },
     staging: {
-        hostname: 'dev.deriv.com',
+        hostname: 'staging.deriv.com',
         app_id: 16303,
     },
     test: {
@@ -29,6 +29,8 @@ const isProduction = () =>
     isBrowser() && domain_config.production.hostname === window.location.hostname
 
 const isStaging = () => isBrowser() && domain_config.staging.hostname === window.location.hostname
+
+const isLive = () => isProduction() || isStaging()
 
 const isLocalHost = () => isBrowser() && domain_config.local.hostname === window.location.hostname
 
@@ -67,4 +69,4 @@ const getSocketURL = () => {
     return `wss://${server_url}/websockets/v3`
 }
 
-export { getAppId, getSocketURL, isProduction, isLocalHost }
+export { getAppId, getSocketURL, isProduction, isLive, isLocalHost }

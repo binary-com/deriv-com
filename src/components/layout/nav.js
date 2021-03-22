@@ -409,20 +409,15 @@ const NavMobile = ({ is_ppc, is_ppc_redirect, is_logged_in }) => {
                     alt="hamburger"
                     onClick={openOffCanvasMenu}
                     width="16px"
-                    height="14px"
                 />
             )}
+
             <LogoLinkMobileMain to="/" aria-label={localize('Home')}>
                 <Flex>
-                    <img src={LogoOnly} alt="logo only" width="115px" height="20px" />
+                    <img src={LogoOnly} alt="logo only" width="115px" />
                     <LogoDescription ai="center">
                         <Line />
-                        <img
-                            src={LogoCombinedShape}
-                            alt="logo combined shape 2"
-                            width="120"
-                            height="17"
-                        />
+                        <img src={LogoCombinedShape} alt="logo combined shape 2" />
                     </LogoDescription>
                 </Flex>
             </LogoLinkMobileMain>
@@ -463,7 +458,7 @@ const NavDesktop = ({ base, is_ppc, is_ppc_redirect, is_logged_in }) => {
     const buttonHandleScroll = useCallback(() => {
         setHasScrolled(true)
         handleScroll(showButton, hideButton)
-    }, [navigation_bar_ref?.current])
+    })
 
     const checkActive = (link_name) => link_name === active_dropdown || link_name === current_page
 
@@ -486,7 +481,7 @@ const NavDesktop = ({ base, is_ppc, is_ppc_redirect, is_logged_in }) => {
         return () => {
             document.removeEventListener('scroll', buttonHandleScroll)
         }
-    }, [navigation_bar_ref?.current])
+    }, [])
 
     return (
         <>
@@ -515,20 +510,11 @@ const NavDesktop = ({ base, is_ppc, is_ppc_redirect, is_logged_in }) => {
                         />
                     </LogoLink>
                     <Line />
-                    <img
-                        src={LogoCombinedShape}
-                        alt="logo combined shape"
-                        width="120"
-                        height="17"
-                    />
-                </NavLeft>
-                <NavCenter>
-                    <NavLink onClick={handleTradeClick}>
-                        <StyledButton
-                            aria-label={localize('Trade')}
-                            active={current_page === 'trade' || is_trade_open}
-                            ref={link_trade_ref}
-                        >
+                    <img src={LogoCombinedShape} alt="logo combined shape" />
+                </NavLeftMain>
+                <NavCenter ref={navigation_bar_ref}>
+                    <NavLink onClick={(e) => handleLinkClick('trade', e.target)}>
+                        <StyledButton aria-label={localize('Trade')} active={checkActive('trade')}>
                             {localize('Trade')}
                         </StyledButton>
                     </NavLink>
@@ -608,7 +594,7 @@ export const Nav = ({ base, is_ppc_redirect, is_ppc }) => {
             <CFDWarning />
             <StyledNavMain>
                 <Show.Desktop max_width="bp1060">
-                    <NavDesktop
+                    <MemoizedNavDesktop
                         base={base}
                         is_ppc={is_ppc}
                         is_ppc_redirect={is_ppc_redirect}
@@ -616,7 +602,7 @@ export const Nav = ({ base, is_ppc_redirect, is_ppc }) => {
                     />
                 </Show.Desktop>
                 <Show.Mobile min_width="bp1060">
-                    <NavMobile is_ppc={is_ppc} is_logged_in={is_logged_in} />
+                    <MemoizedNavMobile is_ppc={is_ppc} is_logged_in={is_logged_in} />
                 </Show.Mobile>
             </StyledNavMain>
         </NavWrapperMain>

@@ -175,7 +175,6 @@ module.exports = {
                         allow: '/',
                         disallow: [
                             '/404/',
-                            '/ach/',
                             '/homepage/',
                             '/landing/',
                         ],

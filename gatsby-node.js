@@ -147,12 +147,19 @@ exports.onCreatePage = ({ page, actions }) => {
 }
 
 const StylelintPlugin = require('stylelint-webpack-plugin')
+const TerserPlugin = require('terser-webpack-plugin')
 const defaultOptions = {
     files: '**/*.{js,jsx}',
     emitErrors: false,
 }
 
-exports.onCreateWebpackConfig = ({ actions }, { ...options }) => {
+exports.onCreateWebpackConfig = ({ actions, getConfig }, { ...options }) => {
+    const config = getConfig()
+    // Disable parallel threads. This method uses os.cpus().length to get the total threads available to run
+    // which will not be accurate in VMs/Dockers causing CirleCI errors.
+    if (config.optimization) {
+        config.optimization.minimizer = [new TerserPlugin({ parallel: false })]
+    }
     actions.setWebpackConfig({
         plugins: [new StylelintPlugin({ ...defaultOptions, ...options })],
         resolve: {

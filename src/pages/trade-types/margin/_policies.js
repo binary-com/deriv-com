@@ -132,7 +132,7 @@ const Policies = () => {
                         )}
                     </Text>
                     <Text size="var(--text-size-m)" weight="bold" mb="0.8rem">
-                        {localize('Stop-loss')}
+                        {localize('Stop loss')}
                     </Text>
                     <Text mb="1.6rem">
                         {localize(

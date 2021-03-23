@@ -362,7 +362,7 @@ const LinkMobileLogin = styled(LinkButton)`
     font-size: 14px;
     @media ${device.tabletL} {
         display: block;
-        margin-left: auto;
+        margin-left: 0.8rem;
     }
     @media ${device.mobileL} {
         font-size: var(--text-size-xxs);

@@ -1,4 +1,5 @@
 import React from 'react'
+import Cookies from 'js-cookie'
 import {
     getClientInformation,
     getDomain,
@@ -93,6 +94,7 @@ export const useLivechat = () => {
                 window.LiveChatWidget.on('ready', () => {
                     if (is_logged_in) {
                         const client_information = getClientInformation(domain)
+                        const utm_source_cookie = Cookies.getJSON('utm_data', { domain })
                         const {
                             loginid,
                             email,
@@ -102,6 +104,7 @@ export const useLivechat = () => {
                             first_name,
                             last_name,
                         } = JSON.parse(client_information)
+                        const utm_data = JSON.parse(utm_source_cookie) || {};
 
                         const session_variables = {
                             loginid: loginid ?? '',
@@ -110,6 +113,17 @@ export const useLivechat = () => {
                             residence: residence ?? '',
                             email: email ?? '',
                         }
+
+                        var custom_variables = [
+                            { name: "residence", value: residence },
+                            { name: "is_logged_in", value: is_logged_in },
+                            { name: "utm_source", value: utm_data.utm_source },
+                            { name: "utm_medium", value: utm_data.utm_medium },
+                            { name: "utm_campaign", value: utm_data.utm_campaign },
+                            { name: "login_id", value: loginid },
+                            { name: "landing_company", value: landing_company_shortcode }
+                        ];
+                        window.LC_API.update_custom_variables(custom_variables);
 
                         window.LiveChatWidget.call('set_session_variables', session_variables)
                         if (email) {

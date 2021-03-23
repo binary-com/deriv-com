@@ -43,7 +43,7 @@ const addScript = (settings) => {
 
 const sendTags = (api) => {
     const language = LocalStore.get('i18n') || ''
-    const domain = getDomain();
+    const domain = getDomain()
     const { loginid, residence } = getClientInformation(domain) || {
         loginid: '',
         residence: '',
@@ -78,7 +78,7 @@ const pushwooshInit = (push_woosh) => {
             applicationCode: pushwoosh_app_code,
             safariWebsitePushID: 'web.com.deriv',
             defaultNotificationTitle: 'Deriv.com',
-            defaultNotificationImage: 'https://deriv.com/static/favicons/favicon-192x192.png',
+            defaultNotificationImage: 'https://deriv.com/favicons/favicon-192x192.png',
             autoSubscribe: true,
         },
     ])
@@ -181,8 +181,8 @@ export const onRouteUpdate = () => {
     checkDomain()
 
     const dataLayer = window.dataLayer
-    const domain = getDomain();
-    const client_information = getClientInformation(domain);
+    const domain = getDomain()
+    const client_information = getClientInformation(domain)
     const is_logged_in = !!client_information
 
     // wrap inside a timeout to ensure the title has properly been changed

@@ -26,7 +26,9 @@ const ToolWrapper = styled(Flex)`
         max-width: 500px;
     }
 `
-const StyledQueryImage = styled(QueryImage)`
+const Column = styled.div`
+    width: 100%;
+    height: 100%;
     margin-right: ${(props) => props.margin_right};
     margin-left: ${(props) => props.margin_left};
 
@@ -105,18 +107,21 @@ const TradingTools = ({ tools }) => {
                                 flex_direction={is_even ? 'row-reverse' : 'row'}
                                 key={index}
                             >
-                                <StyledQueryImage
-                                    data={data[item.image_name]}
-                                    alt={item.image_alt}
-                                    height="100%"
+                                <Column
                                     margin_right={is_even ? '102px' : '0'}
                                     margin_left={is_even ? '0' : '102px'}
-                                />
-                                <Show.Mobile>
-                                    <StyledLinkButton tertiary to={item.link.route}>
-                                        {item.link.text}
-                                    </StyledLinkButton>
-                                </Show.Mobile>
+                                >
+                                    <QueryImage
+                                        data={data[item.image_name]}
+                                        alt={item.image_alt}
+                                        height="100%"
+                                    />
+                                    <Show.Mobile>
+                                        <StyledLinkButton tertiary to={item.link.route}>
+                                            {item.link.text}
+                                        </StyledLinkButton>
+                                    </Show.Mobile>
+                                </Column>
                                 <Content
                                     height="auto"
                                     fd="column"

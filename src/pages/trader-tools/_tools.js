@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { graphql, useStaticQuery } from 'gatsby'
+import { isEven } from 'common/utility'
 import { Container, SectionContainer, Flex, Show } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
@@ -25,9 +26,7 @@ const ToolWrapper = styled(Flex)`
         max-width: 500px;
     }
 `
-const ImageWrapper = styled.div`
-    width: 100%;
-    height: 100%;
+const StyledQueryImage = styled(QueryImage)`
     margin-right: ${(props) => props.margin_right};
     margin-left: ${(props) => props.margin_left};
 
@@ -93,34 +92,31 @@ const query = graphql`
     }
 `
 
-const TradingTools = ({ tools, reverse }) => {
+const TradingTools = ({ tools }) => {
     const data = useStaticQuery(query)
     return (
         <StyledSection background="white">
             <Container fd="column">
                 {tools.map((item, index) => {
-                    let is_even = reverse ? (index + 1) % 2 : index % 2
+                    let is_even = isEven(index)
                     return (
                         <>
                             <ToolWrapper
                                 flex_direction={is_even ? 'row-reverse' : 'row'}
                                 key={index}
                             >
-                                <ImageWrapper
+                                <StyledQueryImage
+                                    data={data[item.image_name]}
+                                    alt={item.image_alt}
+                                    height="100%"
                                     margin_right={is_even ? '102px' : '0'}
                                     margin_left={is_even ? '0' : '102px'}
-                                >
-                                    <QueryImage
-                                        data={data[item.image_name]}
-                                        alt={item.image_alt}
-                                        width="100%"
-                                    />
-                                    <Show.Mobile>
-                                        <StyledLinkButton tertiary to={item.link.route}>
-                                            {item.link.text}
-                                        </StyledLinkButton>
-                                    </Show.Mobile>
-                                </ImageWrapper>
+                                />
+                                <Show.Mobile>
+                                    <StyledLinkButton tertiary to={item.link.route}>
+                                        {item.link.text}
+                                    </StyledLinkButton>
+                                </Show.Mobile>
                                 <Content
                                     height="auto"
                                     fd="column"

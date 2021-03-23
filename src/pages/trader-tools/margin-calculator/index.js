@@ -9,7 +9,10 @@ import Layout from 'components/layout/layout'
 const MarginCalculator = () => {
     return (
         <Layout>
-            <SEO title={localize('Margin Calculator')} />
+            <SEO
+                title={localize('Margin Calculator')}
+                description={localize('Margin Calculator')}
+            />
             <Hero jc="center" ai="center">
                 <Container>
                     <Header as="h1" type="display-title" color="white" align="center">

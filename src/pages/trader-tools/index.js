@@ -73,7 +73,10 @@ const tools = [
 const TraderTools = () => {
     return (
         <Layout>
-            <SEO title={localize('Trade tools')} />
+            <SEO
+                title={localize("Traders' tools | Deriv")}
+                description={localize("Traders' tools")}
+            />
             <Hero jc="center" ai="center">
                 <Container>
                     <Header as="h1" type="display-title" color="white" align="center">

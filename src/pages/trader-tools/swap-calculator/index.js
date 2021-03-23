@@ -9,7 +9,7 @@ import Layout from 'components/layout/layout'
 const SwapCalculator = () => {
     return (
         <Layout>
-            <SEO title={localize('Swap Calculator')} />
+            <SEO title={localize('Swap Calculator')} description={localize('Swap Calculator')} />
             <Hero jc="center" ai="center">
                 <Container>
                     <Header as="h1" type="display-title" color="white" align="center">

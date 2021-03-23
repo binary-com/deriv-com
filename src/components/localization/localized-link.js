@@ -16,16 +16,11 @@ import {
     deriv_bot_app_url,
     smarttrader_url,
     zoho_url,
+    getDerivAppLanguage,
 } from 'common/utility'
 import { DerivStore } from 'store'
 
 const non_localized_links = ['/careers', '/careers/']
-
-const getDerivAppLanguage = (link, locale) => {
-    const available_lang = ['id', 'pt', 'es']
-    const lang = available_lang.includes(locale) ? locale : 'en'
-    return `${link}?lang=${lang.toUpperCase()}`
-}
 
 export const SharedLinkStyle = css`
     color: var(--color-white);

@@ -24,6 +24,8 @@ import {
     affiliate_signup_url,
     deriv_app_url,
     isLoggedIn,
+    getLanguage,
+    getDerivAppLanguage,
 } from 'common/utility'
 // Icons
 import Logo from 'images/svg/logo-deriv.svg'
@@ -393,7 +395,11 @@ const handleLogin = () => {
 }
 
 const handleGetTrading = () => {
-    window.location.href = deriv_app_url
+    if(getDerivAppLanguage.includes(getLanguage)){
+        window.location.href = `${deriv_app_url}?lang=${getLanguage}`
+    } else {
+        window.location.href = deriv_app_url
+    }
 }
 
 const NavMobile = ({ is_ppc, is_ppc_redirect, is_logged_in }) => {

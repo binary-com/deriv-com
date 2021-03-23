@@ -155,10 +155,11 @@ const defaultOptions = {
 
 exports.onCreateWebpackConfig = ({ actions, getConfig }, { ...options }) => {
     const config = getConfig()
-    // Disable parallel threads. This method uses os.cpus().length to get the total threads available to run
-    // which will not be accurate in VMs/Dockers causing CirleCI errors.
     if (config.optimization) {
-        config.optimization.minimizer = [new TerserPlugin({ parallel: false })]
+        // Respect CPU Count configured in GATSBY_CPU_COUNT env var. If not set ->
+        // Development env: use max thread (true) -> Other env: use default docker cpu count (2) (medium)
+        const parallel_value = Number.parseInt(process.env.GATSBY_CPU_COUNT) || (process.env.GATSBY_ENV === 'development' ? true : 2)
+        config.optimization.minimizer = [new TerserPlugin({ parallel: parallel_value })]
     }
     actions.setWebpackConfig({
         plugins: [new StylelintPlugin({ ...defaultOptions, ...options })],

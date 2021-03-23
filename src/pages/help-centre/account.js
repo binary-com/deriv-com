@@ -84,6 +84,7 @@ const RecoveringPassword = () => (
                 components={[
                     <ExternalLink
                         to="/reset-password"
+                        external="true"
                         weight="bold"
                         target="_blank"
                         rel="noopener noreferrer"

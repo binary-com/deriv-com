@@ -395,11 +395,7 @@ const handleLogin = () => {
 }
 
 const handleGetTrading = () => {
-    if(getDerivAppLanguage.includes(getLanguage)){
-        window.location.href = `${deriv_app_url}?lang=${getLanguage}`
-    } else {
-        window.location.href = deriv_app_url
-    }
+    window.location.href = getDerivAppLanguage(deriv_app_url, getLanguage);
 }
 
 const NavMobile = ({ is_ppc, is_ppc_redirect, is_logged_in }) => {

@@ -38,7 +38,7 @@ function toISOFormat(date) {
     }
     return ''
 }
-export const initCookies = () => {
+export const initMarketingCookies = () => {
     const searchParams = new URLSearchParams(window.location.search)
     const brand_name = 'deriv'
     const app_id = 11780

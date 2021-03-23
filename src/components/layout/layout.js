@@ -3,7 +3,6 @@ import Loadable from '@loadable/component'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import useGTMData from '../hooks/gtm-data-hooks'
-import { initCookies } from '../../../scripts/handle-cookies'
 import Copyright from './copyright'
 import { Nav, NavStatic, NavPartners, NavInterim } from './nav'
 import BeSquareNav from './besquare/nav'
@@ -126,7 +125,6 @@ const Layout = ({
     React.useEffect(() => {
         if (isBrowser()) {
             window.scrollTo(0, 0)
-            initCookies()
         }
     }, [])
 

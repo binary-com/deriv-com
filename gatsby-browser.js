@@ -5,7 +5,7 @@ import { Pushwoosh } from 'web-push-notifications'
 import { WrapPagesWithLocaleContext } from './src/components/localization'
 import { isProduction, isLive, isLocalHost } from './src/common/websocket/config'
 import { LocalStore } from './src/common/storage'
-import { initMarketingCookies } from './src/common/marketing-cookies'
+// import { initMarketingCookies } from './src/common/marketing-cookies'
 import {
     application_id,
     client_token,
@@ -132,7 +132,7 @@ export const onInitialClientRender = () => {
 
 export const onClientEntry = () => {
     NProgress.start()
-    initMarketingCookies()
+    // initMarketingCookies()
 
     const is_gtm_test_domain = window.location.hostname === gtm_test_domain
     const push_woosh = new Pushwoosh()

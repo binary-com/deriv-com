@@ -366,6 +366,7 @@ const LinkMobileLogin = styled(LinkButton)`
     }
     @media ${device.mobileL} {
         font-size: var(--text-size-xxs);
+        margin-left: 0.8rem;
     }
 `
 const handleScroll = (show, hide) => {

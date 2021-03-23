@@ -86,7 +86,11 @@ const pushwooshInit = (push_woosh) => {
     push_woosh.push([
         'onReady',
         function (api) {
-            push_woosh.subscribe()
+            push_woosh.isSubscribed().then((is_subscribed) => {
+                if (!is_subscribed) {
+                    push_woosh.subscribe()
+                }
+            })
             sendTags(api)
         },
     ])

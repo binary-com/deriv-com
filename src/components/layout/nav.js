@@ -395,9 +395,8 @@ const handleLogin = () => {
 }
 
 const handleGetTrading = () => {
-    let getTradingUrl = getDerivAppLanguage(deriv_app_url, getLanguage)
-    // window.location.href = getTradingUrl
-    alert(getTradingUrl)
+    let getTradingUrl = getDerivAppLanguage(deriv_app_url, getLanguage())
+    window.location.href = getTradingUrl
 }
 
 const NavMobile = ({ is_ppc, is_ppc_redirect, is_logged_in }) => {

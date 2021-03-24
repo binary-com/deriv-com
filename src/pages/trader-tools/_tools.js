@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { graphql, useStaticQuery } from 'gatsby'
-import { isEven } from 'common/utility'
+import { isIndexEven } from 'common/utility'
 import { Container, SectionContainer, Flex, Show } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
@@ -100,7 +100,7 @@ const TradingTools = ({ tools }) => {
         <StyledSection background="white">
             <Container fd="column">
                 {tools.map((item, index) => {
-                    let is_even = isEven(index)
+                    let is_even = isIndexEven(index)
                     return (
                         <>
                             <ToolWrapper

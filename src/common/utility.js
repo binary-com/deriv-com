@@ -88,7 +88,7 @@ class PromiseClass {
     }
 }
 
-const isEven = (index, reverse) => (reverse ? (index + 1) % 2 : index % 2)
+const isIndexEven = (index, reverse) => (reverse ? (index + 1) % 2 : index % 2)
 
 const sanitize = (input) => input.replace(/[.*+?^${}()|[\]\\]/g, '')
 
@@ -249,7 +249,7 @@ export {
     gtm_test_domain,
     isBrowser,
     isEmptyObject,
-    isEven,
+    isIndexEven,
     isLoggedIn,
     livechat_client_id,
     livechat_license_id,

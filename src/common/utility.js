@@ -68,7 +68,7 @@ const getWindowWidth = () => (isBrowser() && window.screen ? window.screen.width
 
 const getLanguage = () => (isBrowser() ? localStorage.getItem('i18n') || navigator.language : null)
 
-const getDerivAppLanguage = (link, locale) => {
+const getDerivAppLocalizedURL = (link, locale) => {
     const available_lang = ['id', 'pt', 'es']
     const lang = available_lang.includes(locale) ? locale : 'en'
     return `${link}?lang=${lang.toUpperCase()}`
@@ -250,7 +250,7 @@ export {
     getDomain,
     getPropertyValue,
     getLanguage,
-    getDerivAppLanguage,
+    getDerivAppLocalizedURL,
     getLocationHash,
     setLocationHash,
     getLocationPathname,

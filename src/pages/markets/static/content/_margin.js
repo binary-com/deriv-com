@@ -8,13 +8,17 @@ import {
     Metals,
     MinorPairs,
     RangeBreak,
+    SmartFX,
     StepIndices,
     VolatilityIndices,
 } from '../../instruments/_submarkets'
+import { smart_gold_index } from '../../instruments/_market-symbols'
 import {
     CrashBoomDetails,
     EuropeDetails,
     RangeBreakIndicesDetails,
+    SmartFXDetails,
+    SmartGoldIndexDetails,
     StepIndicesDetails,
     VolatilityIndicesDetails,
 } from './_details'
@@ -55,6 +59,16 @@ export const forex_margin = {
         {
             title: <Localize translate_text="Exotic pairs" />,
             component: <ExoticPairs />,
+        },
+        {
+            title: <Localize translate_text="Smart FX" />,
+            component: <SmartFX />,
+            details: SmartFXDetails,
+        },
+        {
+            title: <Localize translate_text="Smart Gold Index" />,
+            component: <Symbol instruments_type={smart_gold_index} />,
+            details: SmartGoldIndexDetails,
         },
     ],
 }

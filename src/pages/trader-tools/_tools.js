@@ -95,6 +95,8 @@ const query = graphql`
 `
 
 const TradingTools = ({ tools }) => {
+    const inner_margin = '126px'
+    const outer_margin = '102px'
     const data = useStaticQuery(query)
     return (
         <StyledSection background="white">
@@ -108,8 +110,8 @@ const TradingTools = ({ tools }) => {
                                 key={index}
                             >
                                 <Column
-                                    margin_right={is_even ? '102px' : '0'}
-                                    margin_left={is_even ? '0' : '102px'}
+                                    margin_right={is_even ? outer_margin : '0'}
+                                    margin_left={is_even ? '0' : outer_margin}
                                 >
                                     <QueryImage
                                         data={data[item.image_name]}
@@ -125,8 +127,8 @@ const TradingTools = ({ tools }) => {
                                 <Content
                                     height="auto"
                                     fd="column"
-                                    margin_right={is_even ? '126px' : '102px'}
-                                    margin_left={is_even ? '102px' : '126px'}
+                                    margin_right={is_even ? inner_margin : outer_margin}
+                                    margin_left={is_even ? outer_margin : inner_margin}
                                 >
                                     <Header as="h3" type="section-title" mb="8px">
                                         {item.title}

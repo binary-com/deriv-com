@@ -85,7 +85,7 @@ const StyledSubHeader = styled(Header)`
 
 const TradingLimits = () => {
     const [website_status] = useWebsiteStatus()
-    const currentClientCountry = website_status?.clients_country || ''
+    const current_client_country = website_status?.clients_country || ''
     return (
         <Flex tablet_direction="column">
             <Flex height="auto">
@@ -218,7 +218,7 @@ const TradingLimits = () => {
                                     </TimelineTick.Item>
                                     <TimelineTick.Item>
                                         <Text>
-                                            {isUK(currentClientCountry)
+                                            {isUK(current_client_country)
                                                 ? localize(
                                                       'If you do not wish to renew the self-exclusion and you make a request to trade again, there will be a cooling-off period of 1 day before you are allowed access to our site. Please note that you must contact our Customer Support team by calling + 447723580049. It is not enough to send an email.',
                                                   )

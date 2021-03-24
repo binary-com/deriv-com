@@ -103,7 +103,7 @@ const ButtonWrapper = styled(Box)`
     }
 `
 const ImageWrapper = styled(Box)`
-    width: 58%;
+    width: 58.8%;
     margin-top: 4rem;
 
     @media ${device.tabletL} {

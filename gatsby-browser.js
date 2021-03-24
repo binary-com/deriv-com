@@ -158,11 +158,6 @@ export const onClientEntry = () => {
         })
     }
 
-    addScript({
-        src: 'https://static.deriv.com/scripts/cookie.js',
-        async: true,
-    })
-
     if (window.location.hostname === 'deriv.com') {
         datadogRum.init({
             clientToken: client_token,

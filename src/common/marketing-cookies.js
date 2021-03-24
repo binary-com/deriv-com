@@ -38,7 +38,7 @@ function toISOFormat(date) {
     }
     return ''
 }
-export const initMarketingCookies = () => {
+(function initMarketingCookies() {
     const searchParams = new URLSearchParams(window.location.search)
     const brand_name = 'deriv'
     const app_id = 11780
@@ -118,4 +118,4 @@ export const initMarketingCookies = () => {
         eraseCookie('gclid')
         document.cookie = `gclid=${searchParams.get('gclid')};domain=${getDomain()}; path=/;`
     }
-}
+})()

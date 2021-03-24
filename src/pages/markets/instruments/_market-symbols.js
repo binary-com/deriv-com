@@ -333,25 +333,6 @@ export const smart_gold_index = [
     },
 ]
 
-export const step_fx = [
-    {
-        src: icons.EURUSD,
-        text: <Localize translate_text="EURUSD Step Index" />,
-    },
-    {
-        src: icons.AUDUSD,
-        text: <Localize translate_text="AUDUSD Step Index" />,
-    },
-    {
-        src: icons.USDJPY,
-        text: <Localize translate_text="USDJPY Step Index" />,
-    },
-    {
-        src: icons.EURJPY,
-        text: <Localize translate_text="EURJPY Step Index" />,
-    },
-]
-
 export const minor_pairs = [
     {
         src: icons.AUDCAD,

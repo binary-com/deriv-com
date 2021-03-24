@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="338" height="115" viewBox="0 0 338 115">
+    <g fill="none" fill-rule="evenodd">
+        <g>
+            <g>
+                <g>
+                    <g>
+                        <g transform="translate(-959 -2722) translate(0 2256) translate(936 328) translate(24 68) translate(0 71)">
+                            <rect width="336" height="113" fill="#FFF" stroke="#E5E5E5" rx="8"/>
+                            <g transform="translate(222 16)">
+                                <rect width="98" height="81" fill="#577A92" fill-opacity=".04" rx="8"/>
+                                <text fill="#333" font-family="IBMPlexSans-Bold, IBM Plex Sans" font-size="14" font-weight="bold">
+                                    <tspan x="31.453" y="22">EUR 2.5</tspan>
+                                </text>
+                                <text fill="#333" font-family="IBMPlexSans-Bold, IBM Plex Sans" font-size="14" font-weight="bold">
+                                    <tspan x="14.3" y="22">=</tspan>
+                                </text>
+                                <text fill="#999" font-family="IBMPlexSans, IBM Plex Sans" font-size="14">
+                                    <tspan x="10.297" y="66">Commission</tspan>
+                                </text>
+                                <g transform="translate(47 33)">
+                                    <path fill="#E5E5E5" fill-rule="nonzero" d="M3 4L3 20 2 20 2 4z"/>
+                                    <circle cx="2.5" cy="2.5" r="2" fill="#577A92" fill-opacity=".04" stroke="#E5E5E5"/>
+                                </g>
+                            </g>
+                            <g fill="#333" font-size="14">
+                                <text font-family="IBMPlexSans, IBM Plex Sans" transform="translate(44 24)">
+                                    <tspan x="0" y="14">EUR 2.5</tspan>
+                                </text>
+                                <text font-family="IBMPlexSans, IBM Plex Sans" transform="translate(44 24)">
+                                    <tspan x="108" y="14">1 lot</tspan>
+                                </text>
+                                <text font-family="Helvetica" transform="translate(44 24)">
+                                    <tspan x="75" y="14">×</tspan>
+                                </text>
+                            </g>
+                            <g>
+                                <text fill="#999" font-family="IBMPlexSans, IBM Plex Sans" font-size="14" transform="translate(17 49)">
+                                    <tspan x=".038" y="34">Commission rate</tspan>
+                                </text>
+                                <g transform="translate(17 49) translate(51)">
+                                    <path fill="#E5E5E5" fill-rule="nonzero" d="M3 4L3 20 2 20 2 4z"/>
+                                    <circle cx="2.5" cy="2.5" r="2" fill="#577A92" fill-opacity=".04" stroke="#E5E5E5"/>
+                                </g>
+                            </g>
+                            <g>
+                                <text fill="#999" font-family="IBMPlexSans, IBM Plex Sans" font-size="14" transform="translate(142 49)">
+                                    <tspan x="1.483" y="34">Volume</tspan>
+                                </text>
+                                <g transform="translate(142 49) translate(23)">
+                                    <path fill="#E5E5E5" fill-rule="nonzero" d="M3 4L3 20 2 20 2 4z"/>
+                                    <circle cx="2.5" cy="2.5" r="2" fill="#577A92" fill-opacity=".04" stroke="#E5E5E5"/>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

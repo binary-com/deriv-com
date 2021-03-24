@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Card, CardWrapper } from './_partner-card.js'
-import { Table, TRAP, TC } from './_table.js'
+import { Table, TRAP, TRAPREVERSE, TC } from './_table.js'
 import { SectionContainer, Container } from 'components/containers'
 import { Header, Text } from 'components/elements/typography'
 import { localize, Localize } from 'components/localization'
@@ -11,7 +11,7 @@ import device from 'themes/device'
 
 const StyledSection = styled(SectionContainer)`
     padding-bottom: 0;
-    background-color: var(--color-grey-31);
+    background-color: var(--color-grey-39);
     @media ${device.tabletL} {
         padding: 40px 0;
     }
@@ -39,6 +39,7 @@ const TitleWrapper = styled.section`
 
 const SubtitleHeader = styled(Header)`
     width: 792px;
+    max-width: 792px;
     @media ${device.laptopL} {
         width: 100%;
     }
@@ -59,26 +60,27 @@ const ComissionPlanContainer = styled(SectionContainer)`
 
 const StyledText = styled(Text)`
     font-size: 1.4rem;
-    line-height: 1.15;
+    line-height: 1.5;
+    text-align: center;
     @media ${device.tabletL} {
         font-size: 14px;
     }
 `
 
 const StyledTextHeading = styled(StyledText)`
+    text-align: center;
+
     @media ${device.tabletL} {
         font-size: 14px;
     }
 `
 const StyledHeader = styled(Header)`
-    @media ${device.desktopL} {
-        text-align: center;
-    }
-
     @media (max-width: 1524px) {
+        text-align: left;
+    }
+    @media ${device.laptopM} {
         text-align: center;
     }
-
     @media ${device.mobileM} {
         text-align: left;
         width: 38rem;
@@ -116,14 +118,21 @@ const CPAContent = styled.div`
 `
 
 const StyledCard = styled(Card)`
+    min-width: calc((100% - 5.6rem) / 3);
+    width: calc((100% - 5.6rem) / 3);
     border-radius: 8px;
 
     :nth-child(2) {
-        margin: 1.6rem 2.4rem 0;
+        margin: 1.6rem 2.8rem 0;
 
         @media ${device.tabletL} {
             margin: 24px 0;
         }
+    }
+
+    @media ${device.laptopM} {
+        min-width: 38.4rem;
+        width: 38.4rem;
     }
 
     @media ${device.tabletL} {
@@ -139,6 +148,12 @@ const StyledCard = styled(Card)`
             font-size: 12px;
         }
     }
+`
+const StyledTrap = styled(TRAP)`
+    background-color: var(--color-grey-39);
+    padding: 1rem 0.8rem;
+    height: 40px;
+    border-bottom: none;
 `
 
 const RevenueShare = [
@@ -172,11 +187,11 @@ const Turnover = [
     {
         title: <Localize translate_text="Commission" />,
         data: [
-            <Localize key={0} translate_text="1.5%" />,
+            <Localize key={0} translate_text="1.25%" />,
             <Localize key={1} translate_text="1%" />,
             <Localize key={2} translate_text="0.75%" />,
             <Localize key={3} translate_text="0.5%" />,
-            <Localize key={4} translate_text="0.4%" />,
+            <Localize key={4} translate_text="0.25%" />,
             <Localize key={5} translate_text="0%" />,
         ],
     },
@@ -200,7 +215,7 @@ const DerivAffiliateProgramme = () => {
                         {localize('Choose a commission plan:')}
                     </StyledHeader>
                     <CardWrapper>
-                        <StyledCard height="52.9rem" tabletHeight="348px">
+                        <StyledCard height="57.0rem" tabletHeight="348px" padding="2.4rem">
                             <div>
                                 <CardHeader as="h4" type="sub-section-title" mb="0.8rem">
                                     {localize('Revenue share')}
@@ -213,15 +228,18 @@ const DerivAffiliateProgramme = () => {
                                 <Table grid_col_number={2}>
                                     {RevenueShare.map((col, index) => (
                                         <TC grid_area={'area' + index} key={index}>
-                                            <TRAP isTitle="true">
+                                            <StyledTrap isTitle="true">
                                                 <StyledTextHeading weight="bold">
                                                     {col.title}
                                                 </StyledTextHeading>
-                                            </TRAP>
+                                            </StyledTrap>
                                             {col.data.map((data, index) => (
-                                                <TRAP key={index}>
+                                                <TRAPREVERSE
+                                                    even={index % 2 ? 'true' : ''}
+                                                    key={index}
+                                                >
                                                     <StyledText>{data}</StyledText>
-                                                </TRAP>
+                                                </TRAPREVERSE>
                                             ))}
                                         </TC>
                                     ))}
@@ -239,7 +257,7 @@ const DerivAffiliateProgramme = () => {
                                 </ApplyNow>
                             </div>
                         </StyledCard>
-                        <StyledCard height="52.9rem" tabletHeight="596px">
+                        <StyledCard height="57.0rem" tabletHeight="570px" padding="2.4rem">
                             <div>
                                 <CardHeader as="h4" type="sub-section-title" mb="0.8rem">
                                     {localize('Turnover')}
@@ -253,20 +271,23 @@ const DerivAffiliateProgramme = () => {
                                 <Table grid_col_number={2}>
                                     {Turnover.map((col, index) => (
                                         <TC grid_area={'area' + index} key={index}>
-                                            <TRAP isTitle="true">
+                                            <StyledTrap isTitle="true">
                                                 <StyledText weight="bold">
                                                     {localize(col.title)}
                                                 </StyledText>
-                                            </TRAP>
+                                            </StyledTrap>
                                             {col.data.map((data, index) => (
-                                                <TRAP key={index}>
-                                                    <StyledText>{localize(data)}</StyledText>
-                                                </TRAP>
+                                                <TRAPREVERSE
+                                                    even={index % 2 ? 'true' : ''}
+                                                    key={index}
+                                                >
+                                                    <StyledText>{data}</StyledText>
+                                                </TRAPREVERSE>
                                             ))}
                                         </TC>
                                     ))}
                                 </Table>
-                                <CardText mt="3.2rem">
+                                <CardText mt="2.4rem">
                                     <Localize
                                         translate_text="<0>Multipliers:</0> Earn 40% of the commissions generated from your clients’ trades."
                                         components={[<strong key={0} />]}
@@ -285,7 +306,7 @@ const DerivAffiliateProgramme = () => {
                                 </ApplyNow>
                             </div>
                         </StyledCard>
-                        <StyledCard height="52.9rem">
+                        <StyledCard height="57.0rem" tabletHeight="348px" padding="2.4rem">
                             <div>
                                 <CardHeader as="h4" type="sub-section-title" mb="0.8rem">
                                     {localize('CPA (EU only)')}

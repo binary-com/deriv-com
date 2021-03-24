@@ -57,11 +57,27 @@ const TRAP = styled.div`
     padding: 0.8rem 1rem 0.8rem 0;
     background-color: ${(props) => (props.isTitle === 'true' ? 'var(--color-grey-8)' : 'unset')};
     border-bottom: 2px solid var(--color-grey-8);
-    height: 30px;
+
+    /* height: 30px; */
     @media ${device.mobileL} {
-        height: ${(props) => (props.isTitle === 'true' ? '60px' : '40px')};
+        /* height: ${(props) => (props.isTitle === 'true' ? '60px' : '40px')}; */
         display: flex;
         align-items: center;
+        justify-content: center;
     }
 `
-export { TR, TRAP, TC, Table }
+
+const TRAPREVERSE = styled.div`
+    padding: 1rem 0.8rem;
+    background-color: ${(props) => (props.even === 'true' ? 'var(--color-grey-39)' : 'unset')};
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+
+    :last-child {
+        height: 100%;
+    }
+`
+
+export { TR, TRAP, TRAPREVERSE, TC, Table }

@@ -136,10 +136,6 @@ export const onInitialClientRender = () => {
 export const onClientEntry = () => {
     NProgress.start()
 
-    addScript({
-        src: 'https://static.deriv.com/scripts/cookie.js',
-    })
-
     const is_gtm_test_domain = window.location.hostname === gtm_test_domain
     const push_woosh = new Pushwoosh()
     if (isLive()) {
@@ -161,6 +157,11 @@ export const onClientEntry = () => {
                 })(window,document,'script','dataLayer','GTM-TNX2ZKH');`,
         })
     }
+
+    addScript({
+        src: 'https://static.deriv.com/scripts/cookie.js',
+        async: true,
+    })
 
     if (window.location.hostname === 'deriv.com') {
         datadogRum.init({

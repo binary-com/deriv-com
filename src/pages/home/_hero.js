@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 import VerticalCarousel from './_vertical-carousel.js'
 import device from 'themes/device'
 import { LinkButton } from 'components/form'
-import { Container, CssGrid, Box, Flex, Show } from 'components/containers'
+import { Container, Box, Flex, Show } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
 import { Localize, localize } from 'components/localization'
 
@@ -17,6 +17,11 @@ const query = graphql`
     }
 `
 
+const StyledContainer = styled(Container)`
+    @media ${device.tabletL} {
+        align-items: center;
+    }
+`
 const HeroWrapper = styled.section`
     width: 100%;
     padding: 8rem 0;
@@ -77,40 +82,33 @@ const contents_ppc = [
 const TypeWriter = styled(Header)`
     min-height: 7.2rem;
 `
-const HeroContainer = styled(CssGrid)`
-    grid-template-columns: repeat(12, 1fr);
-    width: 100%;
-    grid-column-gap: 2.4rem;
-    grid-template-areas:
-        'details details details details details video video video video video video video'
-        'button button button button button button button button button button button button';
-
+const StyledHeroContainer = styled(Flex)`
     @media ${device.tabletL} {
-        grid-template-columns: repeat(1, 1fr);
-        grid-template-areas:
-            'details'
-            'video'
-            'button';
+        flex-direction: column;
     }
 `
-
 const Details = styled(Box)`
-    grid-area: details;
+    width: 41.2%;
     max-height: 58.7rem;
+    @media ${device.bp1060} {
+        max-height: unset;
+    }
+    @media ${device.tabletL} {
+        width: unset;
+    }
 `
 const ButtonWrapper = styled(Box)`
-    grid-area: button;
-
     @media ${device.tabletL} {
         margin-top: 3rem;
     }
 `
 const ImageWrapper = styled(Box)`
-    grid-area: video;
+    width: 58.8%;
     margin-top: 4rem;
 
     @media ${device.tabletL} {
         margin-top: 0;
+        width: unset;
     }
 `
 const Hero = ({ is_ppc }) => {
@@ -142,8 +140,8 @@ const Hero = ({ is_ppc }) => {
 
     return (
         <HeroWrapper>
-            <Container>
-                <HeroContainer>
+            <StyledContainer fd="column" ai="flex-start">
+                <StyledHeroContainer>
                     <Details>
                         <Show.Desktop>
                             <Flex mb="1.6rem" direction="column">
@@ -199,13 +197,13 @@ const Hero = ({ is_ppc }) => {
                             />
                         </Show.Desktop>
                     </ImageWrapper>
-                    <ButtonWrapper>
-                        <HeroButton secondary="true" to="/signup/">
-                            <Localize translate_text="Create free demo account" />
-                        </HeroButton>
-                    </ButtonWrapper>
-                </HeroContainer>
-            </Container>
+                </StyledHeroContainer>
+                <ButtonWrapper>
+                    <HeroButton secondary="true" to="/signup/">
+                        <Localize translate_text="Create free demo account" />
+                    </HeroButton>
+                </ButtonWrapper>
+            </StyledContainer>
         </HeroWrapper>
     )
 }

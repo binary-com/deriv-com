@@ -18,9 +18,6 @@ const Wrapper = styled.section`
     flex-direction: row;
     background-color: rgba(200, 214, 215, 0.22);
 
-    @media ${device.tabletL} {
-        height: 120vh;
-    }
     @media ${device.mobileL} {
         height: 100vh;
         padding: 0;

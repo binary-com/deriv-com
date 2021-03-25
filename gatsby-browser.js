@@ -43,7 +43,7 @@ const addScript = (settings) => {
 
 const sendTags = (api) => {
     const language = LocalStore.get('i18n') || ''
-    const domain = getDomain();
+    const domain = getDomain()
     const { loginid, residence } = getClientInformation(domain) || {
         loginid: '',
         residence: '',
@@ -86,7 +86,11 @@ const pushwooshInit = (push_woosh) => {
     push_woosh.push([
         'onReady',
         function (api) {
-            push_woosh.subscribe()
+            push_woosh.isSubscribed().then((is_subscribed) => {
+                if (!is_subscribed) {
+                    push_woosh.subscribe()
+                }
+            })
             sendTags(api)
         },
     ])
@@ -177,8 +181,8 @@ export const onRouteUpdate = () => {
     checkDomain()
 
     const dataLayer = window.dataLayer
-    const domain = getDomain();
-    const client_information = getClientInformation(domain);
+    const domain = getDomain()
+    const client_information = getClientInformation(domain)
     const is_logged_in = !!client_information
 
     // wrap inside a timeout to ensure the title has properly been changed

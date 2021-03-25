@@ -90,7 +90,7 @@ export const useLivechat = () => {
             if (is_livechat_interactive) {
                 window.LiveChatWidget.on('ready', () => {
                     if (is_logged_in) {
-                        const client_information = getClientInformation(domain)
+                        const client_information = getClientInformation(domain) || ''
                         const {
                             loginid,
                             email,

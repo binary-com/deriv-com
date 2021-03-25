@@ -156,9 +156,14 @@ const defaultOptions = {
 exports.onCreateWebpackConfig = ({ actions, getConfig }, { ...options }) => {
     const config = getConfig()
     if (config.optimization) {
-        // Respect CPU Count configured in GATSBY_CPU_COUNT env var. If not set ->
-        // Development env: use max thread (true) -> Other env: use default docker cpu count (2) (medium)
-        const parallel_value = Number.parseInt(process.env.GATSBY_CPU_COUNT) || (process.env.GATSBY_ENV === 'development' ? true : 2)
+        // Respect CPU Count configured in GATSBY_CPU_COUNT env var.
+        // If GATSBY_CPU_COUNT is not set, will disable threading only in staging or production environment.
+        // Will always use max threads during development.
+        const parallel_value =
+            Number.parseInt(process.env.GATSBY_CPU_COUNT) ||
+            (process.env.GATSBY_ENV === 'production' || process.env.GATSBY_ENV === 'staging'
+                ? false
+                : true)
         config.optimization.minimizer = [new TerserPlugin({ parallel: parallel_value })]
     }
     actions.setWebpackConfig({

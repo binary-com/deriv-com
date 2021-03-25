@@ -60,7 +60,7 @@ export const faq_schema = {
         },
         {
             '@type': 'Question',
-            name: localize('How can I add, remove or change my accepted payment  methods?'),
+            name: localize('How can I add, remove or change my accepted payment methods?'),
             acceptedAnswer: {
                 '@type': 'Answer',
                 text:

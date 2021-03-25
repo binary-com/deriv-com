@@ -16,16 +16,11 @@ import {
     deriv_bot_app_url,
     smarttrader_url,
     zoho_url,
+    getDerivAppLocalizedURL,
 } from 'common/utility'
 import { DerivStore } from 'store'
 
 const non_localized_links = ['/careers', '/careers/']
-
-const getDerivAppLanguage = (link, locale) => {
-    const available_lang = ['id', 'pt', 'es']
-    const lang = available_lang.includes(locale) ? locale : 'en'
-    return `${link}?lang=${lang.toUpperCase()}`
-}
 
 export const SharedLinkStyle = css`
     color: var(--color-white);
@@ -123,9 +118,9 @@ export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
         } else if (is_zoho_link) {
             lang_to = `${zoho_url}${to}`
         } else if (is_dbot_link) {
-            lang_to = getDerivAppLanguage(deriv_bot_app_url, locale)
+            lang_to = getDerivAppLocalizedURL(deriv_bot_app_url, locale)
         } else if (is_mt5_link) {
-            lang_to = getDerivAppLanguage(`${deriv_app_url}/mt5`, locale)
+            lang_to = getDerivAppLocalizedURL(`${deriv_app_url}/mt5`, locale)
         } else {
             lang_to = to
         }

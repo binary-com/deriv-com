@@ -24,6 +24,8 @@ import {
     affiliate_signup_url,
     deriv_app_url,
     isLoggedIn,
+    getLanguage,
+    getDerivAppLocalizedURL,
 } from 'common/utility'
 // Icons
 import Logo from 'images/svg/logo-deriv.svg'
@@ -393,7 +395,8 @@ const handleLogin = () => {
 }
 
 const handleGetTrading = () => {
-    window.location.href = deriv_app_url
+    let trading_url_localized = getDerivAppLocalizedURL(deriv_app_url, getLanguage())
+    window.location.href = trading_url_localized
 }
 
 const NavMobile = ({ is_ppc, is_ppc_redirect, is_logged_in }) => {

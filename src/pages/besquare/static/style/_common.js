@@ -9,7 +9,7 @@ export const TextWrapper = styled(Text)`
         return populateStyle(props, default_props_object, 0)
     }}
     width: fit-content;
-
+    
     @media ${device.tabletL} {
         max-width: ${({ max_width }) => responsiveFallback(max_width, max_width?.length !== 2)};
         grid-area: ${({ grid_area }) => responsiveFallback(grid_area, 1)};
@@ -17,9 +17,9 @@ export const TextWrapper = styled(Text)`
 
     @media ${device.tablet} {
         ${(props) => {
-            const default_props_object = { font_size: '14px', line_height: '20px' }
-            return populateStyle(props, default_props_object)
-        }}
+        const default_props_object = { font_size: '14px', line_height: '20px' }
+        return populateStyle(props, default_props_object)
+    }}
     }
 `
 
@@ -32,10 +32,11 @@ export const Title = styled(Header)`
     }}
     width: fit-content;
 
+
     @media ${device.tablet} {
         ${(props) => {
-            const default_props_object = { font_size: '28px', line_height: '34px' }
-            return populateStyle(props, default_props_object)
-        }}
+        const default_props_object = { font_size: '28px', line_height: '34px' }
+        return populateStyle(props, default_props_object)
+    }}
     }
 `

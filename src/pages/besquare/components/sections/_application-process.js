@@ -14,7 +14,7 @@ import { Show } from 'components/containers'
 
 const ApplicationProcess = () => (
     <ContentContainer>
-        <Title>{application_process.title}</Title>
+        <Title as="h2">{application_process.title}</Title>
         <Show.Desktop max_width="laptopM">
             <LineWrapper src={Line01} alt="Dotted line" />
         </Show.Desktop>

@@ -43,14 +43,10 @@ export const useLivechat = () => {
             }
 
             const checkCookie = (() => {
-                let lastCookie = document.cookie // 'static' memory between function calls
                 return function () {
-                    const currentCookie = document.cookie
-                    if (currentCookie != lastCookie) {
-                        const client_information = getClientInformation(domain)
-                        setLoggedIn(!!client_information)
-                        lastCookie = currentCookie // store latest cookie
-                    }
+                    const client_information = getClientInformation(domain)
+                    console.log(!!client_information) //eslint-disable-line
+                    setLoggedIn(!!client_information)
                 }
             })()
 
@@ -60,6 +56,7 @@ export const useLivechat = () => {
             script_timeout = setTimeout(() => {
                 loadLiveChatScript(() => {
                     window.LiveChatWidget.on('ready', () => {
+                        console.log('livechat set to interactive') // eslint-disable-line
                         setLiveChatInteractive(true)
                         if (is_livechat_query?.toLowerCase() === 'true') {
                             window.LC_API.open_chat_window()
@@ -76,7 +73,9 @@ export const useLivechat = () => {
     }, [])
 
     React.useEffect(() => {
+        console.log("hook called") //eslint-disable-line
         if (isBrowser()) {
+            console.log('is browser') // eslint-disable-line
             let customerSDK = null
             const domain = getDomain()
             if (CustomerSdk.current) {
@@ -91,8 +90,11 @@ export const useLivechat = () => {
                 }
             }
             if (is_livechat_interactive) {
+                console.log("is_livechat_interactive") // eslint-disable-line
                 window.LiveChatWidget.on('ready', () => {
+                    console.log("livechat interactive") // eslint-disable-line
                     if (is_logged_in) {
+                        console.log('is_logged_in'); //eslint-disable-line
                         const client_information = getClientInformation(domain)
                         const utm_source_cookie = Cookies.getJSON('utm_data', { domain })
                         const {
@@ -103,7 +105,7 @@ export const useLivechat = () => {
                             residence,
                             first_name,
                             last_name,
-                        } = JSON.parse(client_information)
+                        } = JSON.parse(client_information) || {};
                         const utm_data = JSON.parse(utm_source_cookie) || {};
 
                         const session_variables = {
@@ -114,7 +116,7 @@ export const useLivechat = () => {
                             email: email ?? '',
                         }
 
-                        var custom_variables = [
+                        const custom_variables = [
                             { name: "residence", value: residence },
                             { name: "is_logged_in", value: is_logged_in },
                             { name: "utm_source", value: utm_data.utm_source },
@@ -123,6 +125,7 @@ export const useLivechat = () => {
                             { name: "login_id", value: loginid },
                             { name: "landing_company", value: landing_company_shortcode }
                         ];
+                        console.log(custom_variables) // eslint-disable-line
                         window.LC_API.update_custom_variables(custom_variables);
 
                         window.LiveChatWidget.call('set_session_variables', session_variables)
@@ -136,6 +139,7 @@ export const useLivechat = () => {
                             )
                         }
                     } else {
+                        console.log('not logged in') // eslint-disable-line
                         const chat_data = window.LiveChatWidget.get('chat_data')
                         if (chat_data) {
                             const chatID = window.LiveChatWidget.get('chat_data').chatId ?? ''
@@ -156,7 +160,7 @@ export const useLivechat = () => {
                 })
             }
         }
-    }, [is_logged_in, CustomerSdk])
+    }, [is_logged_in, CustomerSdk, is_livechat_interactive])
 
     return [is_livechat_interactive, LC_API]
 }

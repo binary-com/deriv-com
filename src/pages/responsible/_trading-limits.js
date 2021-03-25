@@ -6,6 +6,7 @@ import { isUK } from 'common/country-base'
 import { Localize, localize } from 'components/localization'
 import { TimelineTick } from 'components/elements/timeline'
 import device from 'themes/device'
+import { useWebsiteStatus } from 'components/hooks/website-status-hooks'
 
 const ContentWrapper = styled(Flex)`
     justify-content: center;
@@ -83,6 +84,8 @@ const StyledSubHeader = styled(Header)`
 `
 
 const TradingLimits = () => {
+    const [website_status] = useWebsiteStatus()
+    const current_client_country = website_status?.clients_country || ''
     return (
         <Flex tablet_direction="column">
             <Flex height="auto">
@@ -215,12 +218,12 @@ const TradingLimits = () => {
                                     </TimelineTick.Item>
                                     <TimelineTick.Item>
                                         <Text>
-                                            {isUK
+                                            {isUK(current_client_country)
                                                 ? localize(
                                                       'If you do not wish to renew the self-exclusion and you make a request to trade again, there will be a cooling-off period of 1 day before you are allowed access to our site. Please note that you must contact our Customer Support team by calling + 447723580049. It is not enough to send an email.',
                                                   )
                                                 : localize(
-                                                      'If you do not wish to renew the self-exclusion and you make a request to trade again, there will be a cooling-off period of 1 day before you are allowed access to our site. If you’re a UK resident, please note that you must contact our Customer Support team by calling + 447723580049. It is not enough to send an email.',
+                                                      'If you do not wish to renew the self-exclusion and you make a request to trade again, there will be a cooling-off period of 1 day before you are allowed access to our site.',
                                                   )}
                                         </Text>
                                     </TimelineTick.Item>

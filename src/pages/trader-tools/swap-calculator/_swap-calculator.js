@@ -8,6 +8,8 @@ import {
     financialItemLists,
 } from '../common/_underlying-data'
 import {
+    BreadCrumb,
+    BreadCrumbWrapper,
     SwapTabSelector,
     StyledSection,
     SectionSubtitle,
@@ -30,14 +32,14 @@ import {
     StyledOl,
     LinkWrapper,
     BottomContent,
-    BottomText,
     StyledLinkButton,
 } from '../common/_style'
 import validation from '../common/_validation'
 import { localize, Localize } from 'components/localization'
-import { Header, QueryImage, Text } from 'components/elements'
+import { Header, QueryImage, Text, LocalizedLinkText } from 'components/elements'
 import { Flex, Show } from 'components/containers'
 import Input from 'components/form/input'
+import RightArrow from 'images/svg/black-right-arrow.svg'
 
 const StyledInputGroup = styled(InputGroup)`
     margin: 0;
@@ -221,318 +223,659 @@ const SwapCalculator = () => {
     }
 
     return (
-        <StyledSection direction="column">
-            <Header as="h2" type="page-title" align="center" mt="8rem" mb="1.2rem">
-                {localize('Swap calculator')}
-            </Header>
+        <>
+            <BreadCrumbWrapper>
+                <BreadCrumb jc="flex-start" ai="center">
+                    <LocalizedLinkText to="/trader-tools" color="grey-5">
+                        {localize("Traders' tools")}
+                    </LocalizedLinkText>
+                    <img
+                        src={RightArrow}
+                        alt="right arrow"
+                        height="16"
+                        width="16"
+                        style={{ margin: '0 8px' }}
+                    />
+                    <Text>{localize('Swap calculator')}</Text>
+                </BreadCrumb>
+            </BreadCrumbWrapper>
+            <StyledSection direction="column">
+                <SectionSubtitle as="h3" type="sub-section-title" align="center" weight="normal">
+                    {localize(
+                        'Our swap calculator helps you to estimate the swap charges required to keep your positions open overnight on Deriv MetaTrader 5 (DMT5).',
+                    )}
+                </SectionSubtitle>
 
-            <SectionSubtitle as="h5" align="center" mb="4rem" weight="normal">
-                {localize(
-                    'Our swap calculator helps you to estimate the swap charges required to keep your positions open overnight on Deriv MetaTrader 5 (DMT5).',
-                )}
-            </SectionSubtitle>
-
-            <Flex mb="40px" p="0 1.6rem" tablet={{ mb: '32px', height: 'unset' }}>
-                <SwapTabSelector
-                    active={tab === 'Synthetic'}
-                    onClick={() => onTabClick('Synthetic')}
+                <Flex
+                    mt="40px"
+                    mb="40px"
+                    p="0 1.6rem"
+                    tablet={{ mt: '32px', mb: '32px', height: 'unset' }}
                 >
-                    <Text size="var(--text-size-m)" align="center">
-                        {localize('Synthetic indices')}
-                    </Text>
-                </SwapTabSelector>
-                <SwapTabSelector active={tab === 'Real'} onClick={() => onTabClick('Real')}>
-                    <Text size="var(--text-size-m)" align="center">
-                        {localize('Forex and commodities')}
-                    </Text>
-                </SwapTabSelector>
-            </Flex>
+                    <SwapTabSelector
+                        active={tab === 'Synthetic'}
+                        onClick={() => onTabClick('Synthetic')}
+                    >
+                        <Text size="var(--text-size-m)" align="center">
+                            {localize('Synthetic indices')}
+                        </Text>
+                    </SwapTabSelector>
+                    <SwapTabSelector active={tab === 'Real'} onClick={() => onTabClick('Real')}>
+                        <Text size="var(--text-size-m)" align="center">
+                            {localize('Forex and commodities')}
+                        </Text>
+                    </SwapTabSelector>
+                </Flex>
 
-            {tab === 'Synthetic' ? (
-                <>
-                    <ContentContainer mb="4.0rem">
-                        <SwapFormWrapper>
-                            <Formik
-                                enableReinitialize
-                                initialValues={{
-                                    swapCharge: 0,
-                                    swapChargeSymbol: 'USD',
-                                    symbol: '',
-                                    volume: '',
-                                    optionList: syntheticItemLists,
-                                    contractSize: '',
-                                    swapRate: '',
-                                    assetPrice: '',
-                                }}
-                                validate={resetValidationSynthetic}
-                                onSubmit={(values, { setFieldValue }) => {
-                                    setFieldValue('swapCharge', getSwapChargeSynthetic(values))
-                                    setFieldValue('volume', numberSubmitFormat(values.volume))
-                                    setFieldValue(
-                                        'swapRate',
-                                        numberSubmitFormatNegative(values.swapRate),
-                                    )
-                                    setFieldValue(
-                                        'assetPrice',
-                                        numberSubmitFormat(values.assetPrice),
-                                    )
-                                }}
-                            >
-                                {({
-                                    values,
-                                    setFieldValue,
-                                    handleBlur,
-                                    errors,
-                                    touched,
-                                    setFieldError,
-                                    setFieldTouched,
-                                    isValid,
-                                    dirty,
-                                }) => (
-                                    <CalculatorForm>
-                                        <CalculatorHeader>
-                                            <CalculatorLabel htmlFor="message">
-                                                {localize('Swap charge')}
-                                            </CalculatorLabel>
-                                            <CalculatorOutputContainer>
-                                                <CalculatorOutputField>
-                                                    {numberWithCommas(values.swapCharge)}
-                                                </CalculatorOutputField>
-                                                <CalculatorOutputSymbol>
-                                                    {values.swapChargeSymbol}
-                                                </CalculatorOutputSymbol>
-                                            </CalculatorOutputContainer>
-                                        </CalculatorHeader>
+                {tab === 'Synthetic' ? (
+                    <>
+                        <ContentContainer mb="4.0rem">
+                            <SwapFormWrapper>
+                                <Formik
+                                    enableReinitialize
+                                    initialValues={{
+                                        swapCharge: 0,
+                                        swapChargeSymbol: 'USD',
+                                        symbol: '',
+                                        volume: '',
+                                        optionList: syntheticItemLists,
+                                        contractSize: '',
+                                        swapRate: '',
+                                        assetPrice: '',
+                                    }}
+                                    validate={resetValidationSynthetic}
+                                    onSubmit={(values, { setFieldValue }) => {
+                                        setFieldValue('swapCharge', getSwapChargeSynthetic(values))
+                                        setFieldValue('volume', numberSubmitFormat(values.volume))
+                                        setFieldValue(
+                                            'swapRate',
+                                            numberSubmitFormatNegative(values.swapRate),
+                                        )
+                                        setFieldValue(
+                                            'assetPrice',
+                                            numberSubmitFormat(values.assetPrice),
+                                        )
+                                    }}
+                                >
+                                    {({
+                                        values,
+                                        setFieldValue,
+                                        handleBlur,
+                                        errors,
+                                        touched,
+                                        setFieldError,
+                                        setFieldTouched,
+                                        isValid,
+                                        dirty,
+                                    }) => (
+                                        <CalculatorForm>
+                                            <CalculatorHeader>
+                                                <CalculatorLabel htmlFor="message">
+                                                    {localize('Swap charge')}
+                                                </CalculatorLabel>
+                                                <CalculatorOutputContainer>
+                                                    <CalculatorOutputField>
+                                                        {numberWithCommas(values.swapCharge)}
+                                                    </CalculatorOutputField>
+                                                    <CalculatorOutputSymbol>
+                                                        {values.swapChargeSymbol}
+                                                    </CalculatorOutputSymbol>
+                                                </CalculatorOutputContainer>
+                                            </CalculatorHeader>
 
-                                        <CalculatorBody>
-                                            <CalculatorDropdown
-                                                mb="2.4rem"
-                                                option_list={values.optionList}
-                                                label={localize('Symbol')}
-                                                default_option={optionItemDefault}
-                                                selected_option={values.symbol}
-                                                id="symbol"
-                                                onChange={(value) => {
-                                                    setFieldValue(
-                                                        'swapCurrency',
-                                                        getCurrencySwap(value),
-                                                    )
-
-                                                    setFieldValue(
-                                                        'contractSize',
-                                                        getContractSize(value),
-                                                    )
-                                                    setFieldValue('symbol', value)
-                                                }}
-                                                contractSize={values.contractSize}
-                                                error={touched.symbol && errors.symbol}
-                                                onBlur={handleBlur}
-                                            />
-
-                                            <InputGroup>
-                                                <Field
-                                                    name="volume"
-                                                    value={values.volume}
+                                            <CalculatorBody>
+                                                <CalculatorDropdown
+                                                    mb="2.4rem"
+                                                    option_list={values.optionList}
+                                                    label={localize('Symbol')}
+                                                    default_option={optionItemDefault}
+                                                    selected_option={values.symbol}
+                                                    id="symbol"
                                                     onChange={(value) => {
-                                                        setFieldValue('volume', value)
+                                                        setFieldValue(
+                                                            'swapCurrency',
+                                                            getCurrencySwap(value),
+                                                        )
+
+                                                        setFieldValue(
+                                                            'contractSize',
+                                                            getContractSize(value),
+                                                        )
+                                                        setFieldValue('symbol', value)
                                                     }}
-                                                >
-                                                    {({ field }) => (
-                                                        <Input
-                                                            {...field}
-                                                            id="volume"
-                                                            type="text"
-                                                            label={localize('Volume')}
-                                                            autoComplete="off"
-                                                            error={touched.volume && errors.volume}
-                                                            onBlur={handleBlur}
-                                                            data-lpignore="true"
-                                                            handleError={(current_input) => {
-                                                                setFieldValue('volume', '', false)
-                                                                setFieldError('volume', '')
-                                                                setFieldTouched(
-                                                                    'volume',
-                                                                    false,
-                                                                    false,
-                                                                )
-                                                                current_input.focus()
-                                                            }}
-                                                            maxLength="8"
-                                                            background="white"
-                                                        />
-                                                    )}
-                                                </Field>
-                                            </InputGroup>
+                                                    contractSize={values.contractSize}
+                                                    error={touched.symbol && errors.symbol}
+                                                    onBlur={handleBlur}
+                                                />
 
-                                            <InputGroup>
-                                                <Field
-                                                    name="assetPrice"
-                                                    value={values.assetPrice}
-                                                    onChange={(value) => {
-                                                        setFieldValue('assetPrice', value)
-                                                    }}
-                                                >
-                                                    {({ field }) => (
-                                                        <Input
-                                                            {...field}
-                                                            id="asset"
-                                                            type="text"
-                                                            value={values.assetPrice}
-                                                            label={localize('Asset price')}
-                                                            autoComplete="off"
-                                                            error={
-                                                                touched.assetPrice &&
-                                                                errors.assetPrice
-                                                            }
-                                                            onBlur={handleBlur}
-                                                            data-lpignore="true"
-                                                            handleError={(current_input) => {
-                                                                setFieldValue(
-                                                                    'assetPrice',
-                                                                    '',
-                                                                    false,
-                                                                )
-                                                                setFieldError('assetPrice', '')
-                                                                setFieldTouched(
-                                                                    'assetPrice',
-                                                                    false,
-                                                                    false,
-                                                                )
-                                                                current_input.focus()
-                                                            }}
-                                                            maxLength="15"
-                                                            background="white"
-                                                        />
-                                                    )}
-                                                </Field>
-                                            </InputGroup>
+                                                <InputGroup>
+                                                    <Field
+                                                        name="volume"
+                                                        value={values.volume}
+                                                        onChange={(value) => {
+                                                            setFieldValue('volume', value)
+                                                        }}
+                                                    >
+                                                        {({ field }) => (
+                                                            <Input
+                                                                {...field}
+                                                                id="volume"
+                                                                type="text"
+                                                                label={localize('Volume')}
+                                                                autoComplete="off"
+                                                                error={
+                                                                    touched.volume && errors.volume
+                                                                }
+                                                                onBlur={handleBlur}
+                                                                data-lpignore="true"
+                                                                handleError={(current_input) => {
+                                                                    setFieldValue(
+                                                                        'volume',
+                                                                        '',
+                                                                        false,
+                                                                    )
+                                                                    setFieldError('volume', '')
+                                                                    setFieldTouched(
+                                                                        'volume',
+                                                                        false,
+                                                                        false,
+                                                                    )
+                                                                    current_input.focus()
+                                                                }}
+                                                                maxLength="8"
+                                                                background="white"
+                                                            />
+                                                        )}
+                                                    </Field>
+                                                </InputGroup>
 
-                                            <StyledInputGroup>
-                                                <Field
-                                                    name="swapRate"
-                                                    value={values.swapRate}
-                                                    onChange={(value) => {
-                                                        setFieldValue('swapRate', value)
-                                                    }}
-                                                >
-                                                    {({ field }) => (
-                                                        <Input
-                                                            {...field}
-                                                            id="swapRate"
-                                                            type="text"
-                                                            value={values.swapRate}
-                                                            label={localize('Swap rate')}
-                                                            autoComplete="off"
-                                                            error={
-                                                                touched.swapRate && errors.swapRate
-                                                            }
-                                                            onBlur={handleBlur}
-                                                            data-lpignore="true"
-                                                            handleError={(current_input) => {
-                                                                setFieldValue('swapRate', '', false)
-                                                                setFieldError('swapRate', '')
-                                                                setFieldTouched(
-                                                                    'swapRate',
-                                                                    false,
-                                                                    false,
-                                                                )
-                                                                current_input.focus()
-                                                            }}
-                                                            maxLength="15"
-                                                            background="white"
-                                                        />
-                                                    )}
-                                                </Field>
-                                            </StyledInputGroup>
-                                            <Flex mt="1.5rem">
-                                                <CalculateButton
-                                                    secondary
-                                                    type="submit"
-                                                    disabled={!isValid || !dirty}
-                                                >
-                                                    {localize('Calculate')}
-                                                </CalculateButton>
-                                            </Flex>
-                                        </CalculatorBody>
-                                    </CalculatorForm>
-                                )}
-                            </Formik>
-                        </SwapFormWrapper>
+                                                <InputGroup>
+                                                    <Field
+                                                        name="assetPrice"
+                                                        value={values.assetPrice}
+                                                        onChange={(value) => {
+                                                            setFieldValue('assetPrice', value)
+                                                        }}
+                                                    >
+                                                        {({ field }) => (
+                                                            <Input
+                                                                {...field}
+                                                                id="asset"
+                                                                type="text"
+                                                                value={values.assetPrice}
+                                                                label={localize('Asset price')}
+                                                                autoComplete="off"
+                                                                error={
+                                                                    touched.assetPrice &&
+                                                                    errors.assetPrice
+                                                                }
+                                                                onBlur={handleBlur}
+                                                                data-lpignore="true"
+                                                                handleError={(current_input) => {
+                                                                    setFieldValue(
+                                                                        'assetPrice',
+                                                                        '',
+                                                                        false,
+                                                                    )
+                                                                    setFieldError('assetPrice', '')
+                                                                    setFieldTouched(
+                                                                        'assetPrice',
+                                                                        false,
+                                                                        false,
+                                                                    )
+                                                                    current_input.focus()
+                                                                }}
+                                                                maxLength="15"
+                                                                background="white"
+                                                            />
+                                                        )}
+                                                    </Field>
+                                                </InputGroup>
 
-                        <RightContent>
-                            <TextWrapper>
-                                <Header as="h3" type="section-title" mb="8px">
-                                    {localize('How swap charges are calculated')}
-                                </Header>
-
-                                <Text>
-                                    <Localize translate_text="For synthetic indices, the swap charge is calculated on an annual basis for long and short positions using the formula:" />
-                                </Text>
-                                <Text mb="2rem">
-                                    <Localize
-                                        translate_text="<0>Swap charge = volume × contract size × asset price × (swap rate/100) /360</0>"
-                                        components={[<strong key={0} />]}
-                                    />
-                                </Text>
-
-                                <Text mb="2rem">
-                                    <Localize translate_text="This gives you the swap charge in USD." />
-                                </Text>
-
-                                <Header as="h3" type="section-title" mb="0.8rem">
-                                    {localize('Example calculation')}
-                                </Header>
-
-                                <Text mb="2rem">
-                                    {localize(
-                                        'Let’s say you want to keep 0.01 lots of Volatility 75 Index with an asset price of 400,000 USD and swap rate of -7.5 open for one night.',
+                                                <StyledInputGroup>
+                                                    <Field
+                                                        name="swapRate"
+                                                        value={values.swapRate}
+                                                        onChange={(value) => {
+                                                            setFieldValue('swapRate', value)
+                                                        }}
+                                                    >
+                                                        {({ field }) => (
+                                                            <Input
+                                                                {...field}
+                                                                id="swapRate"
+                                                                type="text"
+                                                                value={values.swapRate}
+                                                                label={localize('Swap rate')}
+                                                                autoComplete="off"
+                                                                error={
+                                                                    touched.swapRate &&
+                                                                    errors.swapRate
+                                                                }
+                                                                onBlur={handleBlur}
+                                                                data-lpignore="true"
+                                                                handleError={(current_input) => {
+                                                                    setFieldValue(
+                                                                        'swapRate',
+                                                                        '',
+                                                                        false,
+                                                                    )
+                                                                    setFieldError('swapRate', '')
+                                                                    setFieldTouched(
+                                                                        'swapRate',
+                                                                        false,
+                                                                        false,
+                                                                    )
+                                                                    current_input.focus()
+                                                                }}
+                                                                maxLength="15"
+                                                                background="white"
+                                                            />
+                                                        )}
+                                                    </Field>
+                                                </StyledInputGroup>
+                                                <Flex mt="1.5rem">
+                                                    <CalculateButton
+                                                        secondary
+                                                        type="submit"
+                                                        disabled={!isValid || !dirty}
+                                                    >
+                                                        {localize('Calculate')}
+                                                    </CalculateButton>
+                                                </Flex>
+                                            </CalculatorBody>
+                                        </CalculatorForm>
                                     )}
-                                </Text>
-                            </TextWrapper>
-                            <ImageWrapper>
-                                <Show.Desktop>
-                                    <QueryImage
-                                        data={data.swap_synthetic_formula}
-                                        alt={'swap synthetic formula'}
-                                    />
-                                </Show.Desktop>
-                                <Show.Mobile>
-                                    <QueryImage
-                                        data={data.swap_synthetic_formula_mobile}
-                                        alt={'swap synthetic formula mobile'}
-                                    />
-                                </Show.Mobile>
-                                <FormulaText size="14px">
-                                    <StyledOl>
-                                        <li>
-                                            <span>
-                                                <Localize translate_text="If the swap rate is positive, your account will be credited with the swap amount. If it is negative, your account will be debited" />
-                                            </span>
-                                        </li>
-                                    </StyledOl>
-                                </FormulaText>
-                            </ImageWrapper>
-                            <TextWrapper>
-                                <Text mt="1.6rem">
-                                    <Localize
-                                        translate_text="So you will be required to pay a swap charge of <0>0.83 USD</0> to keep the position open for one night."
-                                        components={[<strong key={0} />]}
-                                    />
-                                </Text>
-                            </TextWrapper>
-                        </RightContent>
-                    </ContentContainer>
+                                </Formik>
+                            </SwapFormWrapper>
 
-                    <BottomContent direction="column">
-                        <BottomText size="1.6rem" mb="2.4rem">
-                            <Localize
-                                translate_text="To view the asset price and swap rate, go to Deriv MetaTrader 5 (DMT5), click on the <0>View </0> tab and select<0> Market Watch</0>, then right-click on the symbol you want to trade and select <0>Specification.</0>"
-                                components={[<strong key={0} />]}
-                            />
-                        </BottomText>
+                            <RightContent>
+                                <TextWrapper>
+                                    <Header as="h3" type="section-title" mb="8px">
+                                        {localize('How to calculate swap charges')}
+                                    </Header>
 
-                        <LinkWrapper>
-                            {
+                                    <Text>
+                                        <Localize translate_text="For synthetic, the swap charge is calculated on an annual basis for long and short positions using the formula:" />
+                                    </Text>
+                                    <Text mb="2rem">
+                                        <Localize
+                                            translate_text="<0>Swap charge = volume × contract size × asset price × (swap rate ÷ 100) ÷ 360</0>"
+                                            components={[<strong key={0} />]}
+                                        />
+                                    </Text>
+
+                                    <Text mb="2rem">
+                                        <Localize translate_text="This gives you the swap charge in USD." />
+                                    </Text>
+
+                                    <Header as="h3" type="section-title" mb="0.8rem">
+                                        {localize('Example calculation')}
+                                    </Header>
+
+                                    <Text mb="2rem">
+                                        {localize(
+                                            'Let’s say you want to keep 0.01 lots of Volatility 75 Index with an asset price of 400,000 USD and swap rate of -7.5 open for one night.',
+                                        )}
+                                    </Text>
+                                </TextWrapper>
+                                <ImageWrapper>
+                                    <Show.Desktop>
+                                        <QueryImage
+                                            data={data.swap_synthetic_formula}
+                                            alt={'swap synthetic formula'}
+                                        />
+                                    </Show.Desktop>
+                                    <Show.Mobile>
+                                        <QueryImage
+                                            data={data.swap_synthetic_formula_mobile}
+                                            alt={'swap synthetic formula mobile'}
+                                        />
+                                    </Show.Mobile>
+                                    <FormulaText size="14px">
+                                        <StyledOl>
+                                            <li>
+                                                <span>
+                                                    <Localize translate_text="If the swap rate is positive, your account will be credited with the swap amount. If it is negative, your account will be debited" />
+                                                </span>
+                                            </li>
+                                        </StyledOl>
+                                    </FormulaText>
+                                </ImageWrapper>
+                                <TextWrapper>
+                                    <Text mt="1.6rem">
+                                        <Localize
+                                            translate_text="So you will be required to pay a swap charge of <0>0.83 USD</0> to keep the position open for one night."
+                                            components={[<strong key={0} />]}
+                                        />
+                                    </Text>
+                                </TextWrapper>
+                            </RightContent>
+                        </ContentContainer>
+
+                        <BottomContent direction="column">
+                            <LinkWrapper>
+                                {
+                                    <StyledLinkButton
+                                        tertiary="true"
+                                        to="https://app.deriv.com/mt5"
+                                        external="true"
+                                        target="_blank"
+                                    >
+                                        {localize('Go to DMT5 dashboard')}
+                                    </StyledLinkButton>
+                                }
+                                {
+                                    <StyledLinkButton
+                                        secondary="true"
+                                        to="/trade-types/margin#swap-policy"
+                                    >
+                                        {localize('Learn more about swaps')}
+                                    </StyledLinkButton>
+                                }
+                            </LinkWrapper>
+                        </BottomContent>
+                    </>
+                ) : (
+                    <>
+                        <ContentContainer mb="2.0rem">
+                            <SwapFormWrapper>
+                                <Formik
+                                    enableReinitialize
+                                    initialValues={{
+                                        swapCharge: 0,
+                                        swapChargeSymbol: 'USD',
+                                        symbol: '',
+                                        volume: '',
+                                        optionList: financialItemLists,
+                                        contractSize: '',
+                                        swapRate: '',
+                                        pointValue: '',
+                                    }}
+                                    validate={resetValidationForex}
+                                    onSubmit={(values, { setFieldValue }) => {
+                                        setFieldValue('swapCharge', getSwapChargeForex(values))
+                                        setFieldValue('volume', numberSubmitFormat(values.volume))
+                                        setFieldValue(
+                                            'swapRate',
+                                            numberSubmitFormatNegative(values.swapRate),
+                                        )
+                                        setFieldValue(
+                                            'pointValue',
+                                            numberSubmitFormat(values.pointValue),
+                                        )
+                                    }}
+                                >
+                                    {({
+                                        values,
+                                        setFieldValue,
+                                        handleBlur,
+                                        errors,
+                                        touched,
+                                        isValid,
+                                        dirty,
+                                        setFieldTouched,
+                                        setFieldError,
+                                    }) => (
+                                        <CalculatorForm>
+                                            <CalculatorHeader>
+                                                <CalculatorLabel htmlFor="message">
+                                                    {localize('Swap charge')}
+                                                </CalculatorLabel>
+                                                <CalculatorOutputContainer>
+                                                    <CalculatorOutputField>
+                                                        {numberWithCommas(values.swapCharge)}
+                                                    </CalculatorOutputField>
+                                                    <CalculatorOutputSymbol>
+                                                        {values.swapChargeSymbol}
+                                                    </CalculatorOutputSymbol>
+                                                </CalculatorOutputContainer>
+                                            </CalculatorHeader>
+
+                                            <CalculatorBody>
+                                                <CalculatorDropdown
+                                                    mb="2.4rem"
+                                                    default_option={optionItemDefault}
+                                                    option_list={values.optionList}
+                                                    label={localize('Symbol')}
+                                                    selected_option={values.symbol}
+                                                    id="symbol"
+                                                    onChange={(value) => {
+                                                        setFieldValue(
+                                                            'swapCurrency',
+                                                            getCurrencySwap(value),
+                                                        )
+                                                        setFieldValue(
+                                                            'contractSize',
+                                                            getContractSize(value),
+                                                        )
+                                                        setFieldValue('symbol', value)
+                                                    }}
+                                                    contractSize={values.contractSize}
+                                                    error={touched.symbol && errors.symbol}
+                                                    onBlur={handleBlur}
+                                                />
+                                                <InputGroup>
+                                                    <Field
+                                                        name="volume"
+                                                        value={values.volume}
+                                                        onChange={(value) => {
+                                                            setFieldValue('volume', value)
+                                                        }}
+                                                    >
+                                                        {({ field }) => (
+                                                            <Input
+                                                                {...field}
+                                                                id="volume"
+                                                                type="text"
+                                                                label={localize('Volume')}
+                                                                autoComplete="off"
+                                                                error={
+                                                                    touched.volume && errors.volume
+                                                                }
+                                                                onBlur={handleBlur}
+                                                                data-lpignore="true"
+                                                                handleError={(current_input) => {
+                                                                    setFieldValue(
+                                                                        'volume',
+                                                                        '',
+                                                                        false,
+                                                                    )
+                                                                    setFieldError('volume', '')
+                                                                    setFieldTouched(
+                                                                        'volume',
+                                                                        false,
+                                                                        false,
+                                                                    )
+                                                                    current_input.focus()
+                                                                }}
+                                                                maxLength="8"
+                                                                background="white"
+                                                            />
+                                                        )}
+                                                    </Field>
+                                                </InputGroup>
+
+                                                <InputGroup>
+                                                    <Field
+                                                        name="pointValue"
+                                                        value={values.pointValue}
+                                                        onChange={(value) => {
+                                                            setFieldValue('pointValue', value)
+                                                        }}
+                                                    >
+                                                        {({ field }) => (
+                                                            <Input
+                                                                {...field}
+                                                                id="pointValue"
+                                                                type="text"
+                                                                value={values.pointValue}
+                                                                label={localize('Point value')}
+                                                                autoComplete="off"
+                                                                error={
+                                                                    touched.pointValue &&
+                                                                    errors.pointValue
+                                                                }
+                                                                onBlur={handleBlur}
+                                                                data-lpignore="true"
+                                                                handleError={(current_input) => {
+                                                                    setFieldValue(
+                                                                        'pointValue',
+                                                                        '',
+                                                                        false,
+                                                                    )
+                                                                    setFieldError('pointValue', '')
+                                                                    setFieldTouched(
+                                                                        'pointValue',
+                                                                        false,
+                                                                        false,
+                                                                    )
+                                                                    current_input.focus()
+                                                                }}
+                                                                maxLength="15"
+                                                                background="white"
+                                                            />
+                                                        )}
+                                                    </Field>
+                                                </InputGroup>
+
+                                                <StyledInputGroup>
+                                                    <Field
+                                                        name="swapRate"
+                                                        value={values.swapRate}
+                                                        onChange={(value) => {
+                                                            setFieldValue('swapRate', value)
+                                                        }}
+                                                    >
+                                                        {({ field }) => (
+                                                            <Input
+                                                                {...field}
+                                                                id="swapRate"
+                                                                type="text"
+                                                                value={values.swapRate}
+                                                                label={localize('Swap rate')}
+                                                                autoComplete="off"
+                                                                error={
+                                                                    touched.swapRate &&
+                                                                    errors.swapRate
+                                                                }
+                                                                onBlur={handleBlur}
+                                                                data-lpignore="true"
+                                                                handleError={(current_input) => {
+                                                                    setFieldValue(
+                                                                        'swapRate',
+                                                                        '',
+                                                                        false,
+                                                                    )
+                                                                    setFieldError('swapRate', '')
+                                                                    setFieldTouched(
+                                                                        'swapRate',
+                                                                        false,
+                                                                        false,
+                                                                    )
+                                                                    current_input.focus()
+                                                                }}
+                                                                maxLength="15"
+                                                                background="white"
+                                                            />
+                                                        )}
+                                                    </Field>
+                                                </StyledInputGroup>
+                                                <Flex mt="1.5rem">
+                                                    <CalculateButton
+                                                        secondary
+                                                        type="submit"
+                                                        disabled={!isValid || !dirty}
+                                                    >
+                                                        {localize('Calculate')}
+                                                    </CalculateButton>
+                                                </Flex>
+                                            </CalculatorBody>
+                                        </CalculatorForm>
+                                    )}
+                                </Formik>
+                            </SwapFormWrapper>
+
+                            <RightContent direction="column" max_width="69rem">
+                                <TextWrapper>
+                                    <Header as="h3" type="section-title" mb="8px">
+                                        {localize('How swap charges are calculated')}
+                                    </Header>
+
+                                    <Text>
+                                        <Localize translate_text="For financial, the swap charge is calculated using the formula:" />
+                                    </Text>
+                                    <Text mb="2rem">
+                                        <Localize
+                                            translate_text="<0>Swap charge = volume × contract size × point value × swap rate</0>"
+                                            components={[<strong key={0} />]}
+                                        />
+                                    </Text>
+
+                                    <Text mb="2rem">
+                                        <Localize translate_text="This gives you the swap charge in the quote currency for forex pairs, or in the denomination of the underlying asset for commodities." />
+                                    </Text>
+
+                                    <Text mb="2rem">
+                                        <Localize translate_text="For instance, if you are trading the USD/JPY forex pair, the swap charge will be computed in Japanese Yen (JPY) which is the quote currency. On the other hand, if you are trading oil,  then the swap charge will be computed in US Dollar (USD), which is the denomination of the underlying asset – oil." />
+                                    </Text>
+
+                                    <Header as="h3" type="section-title" mb="0.8rem">
+                                        {localize('Example calculation')}
+                                    </Header>
+
+                                    <Text mb="2rem">
+                                        {localize(
+                                            'Let’s say you want to keep two lots of EUR/USD with a point value of 0.00001 and swap rate of -0.12 open for one night.',
+                                        )}
+                                    </Text>
+                                </TextWrapper>
+                                <ImageWrapper>
+                                    <Show.Desktop>
+                                        <QueryImage
+                                            data={data.swap_forex_formula}
+                                            alt={'Swap forex formula'}
+                                        />
+                                    </Show.Desktop>
+                                    <Show.Mobile>
+                                        <QueryImage
+                                            data={data.swap_forex_formula_mobile}
+                                            alt={'Swap forex formula mobile'}
+                                        />
+                                    </Show.Mobile>
+                                    <FormulaText size="14px">
+                                        <StyledOl>
+                                            <li>
+                                                <span>
+                                                    <Localize translate_text="One standard lot for Forex = 100,000 units" />
+                                                </span>
+                                            </li>
+                                            <li>
+                                                <span>
+                                                    <Localize translate_text="Point value is based on the current digit of the asset" />
+                                                </span>
+                                            </li>
+                                            <li>
+                                                <span>
+                                                    <Localize translate_text="If the swap rate is positive, your account will be credited with the swap amount. If it is negative, your account will be debited" />
+                                                </span>
+                                            </li>
+                                        </StyledOl>
+                                    </FormulaText>
+                                </ImageWrapper>
+                                <TextWrapper>
+                                    <Text mt="1.6rem">
+                                        <Localize
+                                            translate_text="So you will be required to pay a swap charge of <0>0.24 USD</0> to keep the position open for one night."
+                                            components={[<strong key={0} />]}
+                                        />
+                                    </Text>
+                                </TextWrapper>
+                            </RightContent>
+                        </ContentContainer>
+
+                        <BottomContent direction="column">
+                            <LinkWrapper>
                                 <StyledLinkButton
                                     tertiary="true"
                                     to="https://app.deriv.com/mt5"
@@ -541,334 +884,18 @@ const SwapCalculator = () => {
                                 >
                                     {localize('Go to DMT5 dashboard')}
                                 </StyledLinkButton>
-                            }
-                            {
                                 <StyledLinkButton
                                     secondary="true"
                                     to="/trade-types/margin#swap-policy"
                                 >
                                     {localize('Learn more about swaps')}
                                 </StyledLinkButton>
-                            }
-                        </LinkWrapper>
-                    </BottomContent>
-                </>
-            ) : (
-                <>
-                    <ContentContainer mb="2.0rem">
-                        <SwapFormWrapper>
-                            <Formik
-                                enableReinitialize
-                                initialValues={{
-                                    swapCharge: 0,
-                                    swapChargeSymbol: 'USD',
-                                    symbol: '',
-                                    volume: '',
-                                    optionList: financialItemLists,
-                                    contractSize: '',
-                                    swapRate: '',
-                                    pointValue: '',
-                                }}
-                                validate={resetValidationForex}
-                                onSubmit={(values, { setFieldValue }) => {
-                                    setFieldValue('swapCharge', getSwapChargeForex(values))
-                                    setFieldValue('volume', numberSubmitFormat(values.volume))
-                                    setFieldValue(
-                                        'swapRate',
-                                        numberSubmitFormatNegative(values.swapRate),
-                                    )
-                                    setFieldValue(
-                                        'pointValue',
-                                        numberSubmitFormat(values.pointValue),
-                                    )
-                                }}
-                            >
-                                {({
-                                    values,
-                                    setFieldValue,
-                                    handleBlur,
-                                    errors,
-                                    touched,
-                                    isValid,
-                                    dirty,
-                                    setFieldTouched,
-                                    setFieldError,
-                                }) => (
-                                    <CalculatorForm>
-                                        <CalculatorHeader>
-                                            <CalculatorLabel htmlFor="message">
-                                                {localize('Swap charge')}
-                                            </CalculatorLabel>
-                                            <CalculatorOutputContainer>
-                                                <CalculatorOutputField>
-                                                    {numberWithCommas(values.swapCharge)}
-                                                </CalculatorOutputField>
-                                                <CalculatorOutputSymbol>
-                                                    {values.swapChargeSymbol}
-                                                </CalculatorOutputSymbol>
-                                            </CalculatorOutputContainer>
-                                        </CalculatorHeader>
-
-                                        <CalculatorBody>
-                                            <CalculatorDropdown
-                                                mb="2.4rem"
-                                                default_option={optionItemDefault}
-                                                option_list={values.optionList}
-                                                label={localize('Symbol')}
-                                                selected_option={values.symbol}
-                                                id="symbol"
-                                                onChange={(value) => {
-                                                    setFieldValue(
-                                                        'swapCurrency',
-                                                        getCurrencySwap(value),
-                                                    )
-                                                    setFieldValue(
-                                                        'contractSize',
-                                                        getContractSize(value),
-                                                    )
-                                                    setFieldValue('symbol', value)
-                                                }}
-                                                contractSize={values.contractSize}
-                                                error={touched.symbol && errors.symbol}
-                                                onBlur={handleBlur}
-                                            />
-                                            <InputGroup>
-                                                <Field
-                                                    name="volume"
-                                                    value={values.volume}
-                                                    onChange={(value) => {
-                                                        setFieldValue('volume', value)
-                                                    }}
-                                                >
-                                                    {({ field }) => (
-                                                        <Input
-                                                            {...field}
-                                                            id="volume"
-                                                            type="text"
-                                                            label={localize('Volume')}
-                                                            autoComplete="off"
-                                                            error={touched.volume && errors.volume}
-                                                            onBlur={handleBlur}
-                                                            data-lpignore="true"
-                                                            handleError={(current_input) => {
-                                                                setFieldValue('volume', '', false)
-                                                                setFieldError('volume', '')
-                                                                setFieldTouched(
-                                                                    'volume',
-                                                                    false,
-                                                                    false,
-                                                                )
-                                                                current_input.focus()
-                                                            }}
-                                                            maxLength="8"
-                                                            background="white"
-                                                        />
-                                                    )}
-                                                </Field>
-                                            </InputGroup>
-
-                                            <InputGroup>
-                                                <Field
-                                                    name="pointValue"
-                                                    value={values.pointValue}
-                                                    onChange={(value) => {
-                                                        setFieldValue('pointValue', value)
-                                                    }}
-                                                >
-                                                    {({ field }) => (
-                                                        <Input
-                                                            {...field}
-                                                            id="pointValue"
-                                                            type="text"
-                                                            value={values.pointValue}
-                                                            label={localize('Point value')}
-                                                            autoComplete="off"
-                                                            error={
-                                                                touched.pointValue &&
-                                                                errors.pointValue
-                                                            }
-                                                            onBlur={handleBlur}
-                                                            data-lpignore="true"
-                                                            handleError={(current_input) => {
-                                                                setFieldValue(
-                                                                    'pointValue',
-                                                                    '',
-                                                                    false,
-                                                                )
-                                                                setFieldError('pointValue', '')
-                                                                setFieldTouched(
-                                                                    'pointValue',
-                                                                    false,
-                                                                    false,
-                                                                )
-                                                                current_input.focus()
-                                                            }}
-                                                            maxLength="15"
-                                                            background="white"
-                                                        />
-                                                    )}
-                                                </Field>
-                                            </InputGroup>
-
-                                            <StyledInputGroup>
-                                                <Field
-                                                    name="swapRate"
-                                                    value={values.swapRate}
-                                                    onChange={(value) => {
-                                                        setFieldValue('swapRate', value)
-                                                    }}
-                                                >
-                                                    {({ field }) => (
-                                                        <Input
-                                                            {...field}
-                                                            id="swapRate"
-                                                            type="text"
-                                                            value={values.swapRate}
-                                                            label={localize('Swap rate')}
-                                                            autoComplete="off"
-                                                            error={
-                                                                touched.swapRate && errors.swapRate
-                                                            }
-                                                            onBlur={handleBlur}
-                                                            data-lpignore="true"
-                                                            handleError={(current_input) => {
-                                                                setFieldValue('swapRate', '', false)
-                                                                setFieldError('swapRate', '')
-                                                                setFieldTouched(
-                                                                    'swapRate',
-                                                                    false,
-                                                                    false,
-                                                                )
-                                                                current_input.focus()
-                                                            }}
-                                                            maxLength="15"
-                                                            background="white"
-                                                        />
-                                                    )}
-                                                </Field>
-                                            </StyledInputGroup>
-                                            <Flex mt="1.5rem">
-                                                <CalculateButton
-                                                    secondary
-                                                    type="submit"
-                                                    disabled={!isValid || !dirty}
-                                                >
-                                                    {localize('Calculate')}
-                                                </CalculateButton>
-                                            </Flex>
-                                        </CalculatorBody>
-                                    </CalculatorForm>
-                                )}
-                            </Formik>
-                        </SwapFormWrapper>
-
-                        <RightContent direction="column" max_width="69rem">
-                            <TextWrapper>
-                                <Header as="h3" type="section-title" mb="8px">
-                                    {localize('How swap charges are calculated')}
-                                </Header>
-
-                                <Text>
-                                    <Localize translate_text="For forex and commodities, the swap charge is calculated using the formula:" />
-                                </Text>
-                                <Text mb="2rem">
-                                    <Localize
-                                        translate_text="<0>Swap charge = volume × contract size × point value × swap rate</0>"
-                                        components={[<strong key={0} />]}
-                                    />
-                                </Text>
-
-                                <Text mb="2rem">
-                                    <Localize translate_text="This gives you the swap charge in the quote currency for forex pairs, or in the denomination of the underlying asset for commodities." />
-                                </Text>
-
-                                <Text mb="2rem">
-                                    <Localize translate_text="For instance, if you are trading the USD/JPY forex pair, the swap charge will be computed in Japanese Yen (JPY) which is the quote currency. On the other hand, if you are trading oil,  then the swap charge will be computed in US Dollar (USD), which is the denomination of the underlying asset – oil." />
-                                </Text>
-
-                                <Header as="h3" type="section-title" mb="0.8rem">
-                                    {localize('Example calculation')}
-                                </Header>
-
-                                <Text mb="2rem">
-                                    {localize(
-                                        'Let’s say you want to keep two lots of EUR/USD with a point value of 0.00001 and swap rate of -0.12 open for one night.',
-                                    )}
-                                </Text>
-                            </TextWrapper>
-                            <ImageWrapper>
-                                <Show.Desktop>
-                                    <QueryImage
-                                        data={data.swap_forex_formula}
-                                        alt={'Swap forex formula'}
-                                    />
-                                </Show.Desktop>
-                                <Show.Mobile>
-                                    <QueryImage
-                                        data={data.swap_forex_formula_mobile}
-                                        alt={'Swap forex formula mobile'}
-                                    />
-                                </Show.Mobile>
-                                <FormulaText size="14px">
-                                    <StyledOl>
-                                        <li>
-                                            <span>
-                                                <Localize translate_text="One standard lot for Forex = 100,000 units" />
-                                            </span>
-                                        </li>
-                                        <li>
-                                            <span>
-                                                <Localize translate_text="Point value is based on the current digit of the asset" />
-                                            </span>
-                                        </li>
-                                        <li>
-                                            <span>
-                                                <Localize translate_text="If the swap rate is positive, your account will be credited with the swap amount. If it is negative, your account will be debited" />
-                                            </span>
-                                        </li>
-                                    </StyledOl>
-                                </FormulaText>
-                            </ImageWrapper>
-                            <TextWrapper>
-                                <Text mt="1.6rem">
-                                    <Localize
-                                        translate_text="So you will be required to pay a swap charge of <0>0.24 USD</0> to keep the position open for one night."
-                                        components={[<strong key={0} />]}
-                                    />
-                                </Text>
-                            </TextWrapper>
-                        </RightContent>
-                    </ContentContainer>
-
-                    <BottomContent direction="column">
-                        <BottomText mb="2.4rem" mt="2.4rem">
-                            <Localize
-                                translate_text="To view the swap rate and digits of the asset, go to Deriv MetaTrader 5 (DMT5), click on the <0>View </0> tab and select<0> Market Watch</0>, then right-click on the symbol you want to trade and select <0>Specification.</0>"
-                                components={[<strong key={0} />]}
-                            />
-                        </BottomText>
-
-                        <BottomText mb="2.4rem">
-                            <Localize translate_text="You can derive the point value from the current digits of the asset. Typically, if the digit is 3, then the point value will be 0.001. If the digit is 5, then the point value will be 0.00001, and so on." />
-                        </BottomText>
-
-                        <LinkWrapper>
-                            <StyledLinkButton
-                                tertiary="true"
-                                to="https://app.deriv.com/mt5"
-                                external="true"
-                                target="_blank"
-                            >
-                                {localize('Go to DMT5 dashboard')}
-                            </StyledLinkButton>
-                            <StyledLinkButton secondary="true" to="/trade-types/margin#swap-policy">
-                                {localize('Learn more about swaps')}
-                            </StyledLinkButton>
-                        </LinkWrapper>
-                    </BottomContent>
-                </>
-            )}
-        </StyledSection>
+                            </LinkWrapper>
+                        </BottomContent>
+                    </>
+                )}
+            </StyledSection>
+        </>
     )
 }
 

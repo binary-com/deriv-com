@@ -377,7 +377,7 @@ const Footer = ({ type, is_ppc, is_ppc_redirect }) => {
                                         <Link to="/dbot">{localize('DBot')}</Link>
                                     </LinkWrapper>
                                     <LinkWrapper>
-                                        <Link to={!is_ppc_redirect ? '/dmt5' : '/landing/dmt5'}>
+                                        <Link to={is_ppc_redirect ? '/landing/dmt5' : '/dmt5'}>
                                             {localize('DMT5')}
                                         </Link>
                                     </LinkWrapper>

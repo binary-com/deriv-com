@@ -38,7 +38,6 @@ export const useLivechat = () => {
                 })
             } catch (e) {
                 // eslint-disable-nextline
-                console.error(e)
             }
 
             const checkCookie = (() => {
@@ -86,7 +85,6 @@ export const useLivechat = () => {
                     })
                 } catch (e) {
                     // eslint-disable-nextline
-                    console.error(e)
                 }
             }
             if (is_livechat_interactive) {

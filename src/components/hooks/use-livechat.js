@@ -38,8 +38,7 @@ export const useLivechat = () => {
                     CustomerSdk.current = CSDK
                 })
             } catch (e) {
-                // eslint-disable-nextline
-                console.error(e)
+                //eslint-disable-no-empty
             }
 
             /* this function runs every second to determine logged in status*/
@@ -81,8 +80,7 @@ export const useLivechat = () => {
                         clientId: livechat_client_id,
                     })
                 } catch (e) {
-                    // eslint-disable-nextline
-                    console.error(e)
+                    // eslint-disable-no-empty
                 }
             }
             if (is_livechat_interactive) {
@@ -135,9 +133,7 @@ export const useLivechat = () => {
                         if (chat_id) {
                             if (customerSDK) {
                                 customerSDK.on('connected', () => {
-                                    customerSDK?.deactivateChat({ chatId: chat_id }).catch((error) => {
-                                        // eslint-disable-nextline
-                                        console.error(error)
+                                    customerSDK?.deactivateChat({ chatId: chat_id }).catch(() => {
                                     })
                                 })
                             }

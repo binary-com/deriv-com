@@ -99,7 +99,7 @@ export const useLivechat = () => {
                             residence,
                             first_name,
                             last_name,
-                        } = JSON.parse(client_information)
+                        } = client_information
 
                         const session_variables = {
                             loginid: loginid ?? '',

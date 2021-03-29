@@ -46,7 +46,7 @@ export const useLivechat = () => {
                 return function () {
                     const currentCookie = document.cookie
                     if (currentCookie != lastCookie) {
-                        const client_information = getClientInformation(domain)
+                        const client_information = getClientInformation(domain) || null
                         setLoggedIn(!!client_information)
                         lastCookie = currentCookie // store latest cookie
                     }
@@ -92,7 +92,7 @@ export const useLivechat = () => {
             if (is_livechat_interactive) {
                 window.LiveChatWidget.on('ready', () => {
                     if (is_logged_in) {
-                        const client_information = getClientInformation(domain) || ''
+                        const client_information = getClientInformation(domain) || null
                         const {
                             loginid,
                             email,

@@ -132,7 +132,7 @@ const MarginCalculator = () => {
     }
 
     const getContractSize = (symbol) => {
-        let contractSize = 1
+        let contractSize = 1 //crypto falls into this contract size
 
         if (symbol.market === 'forex') {
             contractSize = 100000
@@ -153,6 +153,10 @@ const MarginCalculator = () => {
 
         if (symbol.name === 'Step Index') {
             contractSize = 10
+        }
+
+        if (symbol.market === 'smartfx') {
+            contractSize = 100
         }
 
         return contractSize

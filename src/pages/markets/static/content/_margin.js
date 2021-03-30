@@ -12,14 +12,13 @@ import {
     StepIndices,
     VolatilityIndices,
 } from '../../instruments/_submarkets'
-import { smart_gold_index, step_fx } from '../../instruments/_market-symbols'
+import { smart_gold_index } from '../../instruments/_market-symbols'
 import {
     CrashBoomDetails,
     EuropeDetails,
     RangeBreakIndicesDetails,
     SmartFXDetails,
     SmartGoldIndexDetails,
-    StepFXDetails,
     StepIndicesDetails,
     VolatilityIndicesDetails,
 } from './_details'
@@ -65,11 +64,6 @@ export const forex_margin = {
             title: <Localize translate_text="Smart FX" />,
             component: <SmartFX />,
             details: SmartFXDetails,
-        },
-        {
-            title: <Localize translate_text="Step FX" />,
-            component: <Symbol instruments_type={step_fx} />,
-            details: StepFXDetails,
         },
         {
             title: <Localize translate_text="Smart Gold Index" />,

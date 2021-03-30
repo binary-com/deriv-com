@@ -68,10 +68,16 @@ const getWindowWidth = () => (isBrowser() && window.screen ? window.screen.width
 
 const getLanguage = () => (isBrowser() ? localStorage.getItem('i18n') || navigator.language : null)
 
+const getDerivAppLocalizedURL = (link, locale) => {
+    const available_lang = ['id', 'pt', 'es']
+    const lang = available_lang.includes(locale) ? locale : 'en'
+    return `${link}?lang=${lang.toUpperCase()}`
+}
+
 const getCrowdin = () =>
     isBrowser() ? localStorage.getItem('jipt_language_code_deriv-com') || navigator.language : null
 
-const getClientInformation = (domain) => Cookies.get('client_information', { domain })
+const getClientInformation = (domain) => Cookies.getJSON('client_information', { domain })
 
 const isLoggedIn = () => {
     const domain = getDomain()
@@ -247,6 +253,7 @@ export {
     getDomain,
     getPropertyValue,
     getLanguage,
+    getDerivAppLocalizedURL,
     getLocationHash,
     setLocationHash,
     getLocationPathname,

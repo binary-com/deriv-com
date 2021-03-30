@@ -103,6 +103,12 @@ const query = graphql`
         how_you_want: file(relativePath: { eq: "how-you-want.png" }) {
             ...fadeIn
         }
+        stocks_zero_fees: file(relativePath: { eq: "stocks-zero-fees.png" }) {
+            ...fadeIn
+        }
+        stocks_blue_chip: file(relativePath: { eq: "stocks-blue-chip.png" }) {
+            ...fadeIn
+        }
     }
 `
 const DTrading = ({ trading, reverse, two_title }) => {

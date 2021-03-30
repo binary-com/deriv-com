@@ -1,9 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { getLanguage } from 'common/utility'
 import { Input, Button } from 'components/form'
-import { Show } from 'components/containers'
 import { Header, Text, LinkText, Checkbox } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device.js'
@@ -30,7 +28,19 @@ const SignupContent = styled.div`
         padding: 6rem 2rem;
     }
 `
+const StyledHeader = styled(Header)`
+    @media ${device.tabletL} {
+        font-size: 3rem;
+        margin-bottom: 3rem;
+    }
+`
 
+const SubTitle = styled(Text)`
+    @media ${device.tabletL} {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+`
 const Line = styled.div`
     width: 130px;
     height: 1px;
@@ -192,30 +202,24 @@ const SignupNew = ({
     is_submitting,
 }) => {
     const [checkBoxState, setCheckBoxState] = useState(false)
+    const [language_code, setLanguageCode] = useState('en')
+
+    useEffect(() => {
+        setLanguageCode(localStorage.getItem('i18n'))
+    }, [])
 
     const handleChange = (event) => {
         setCheckBoxState(event.currentTarget.checked)
     }
-    const url =
-        getLanguage() === 'en' || getLanguage() == null
-            ? '/terms-and-conditions/'
-            : `/${getLanguage()}/terms-and-conditions/`
+
+    const url = `/${language_code}/terms-and-conditions/`
+
     return (
         <SignupContent>
-            <Show.Desktop>
-                <Header as="h4" type="sub-section-title" mb="0.8rem">
-                    {localize('Sign up')}
-                </Header>
-                <Text>{localize('Enter your email address to begin')}</Text>
-            </Show.Desktop>
-            <Show.Mobile>
-                <Header size="3rem" mb="2rem">
-                    {localize('Sign up')}
-                </Header>
-                <Text mb="1rem" size="2rem">
-                    {localize('Enter your email address to begin')}
-                </Text>
-            </Show.Mobile>
+            <StyledHeader as="h4" type="sub-section-title" mb="0.8rem">
+                {localize('Sign up')}
+            </StyledHeader>
+            <SubTitle>{localize('Enter your email address to begin')}</SubTitle>
 
             {!is_ppc && (
                 <NoteBox>

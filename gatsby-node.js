@@ -148,9 +148,10 @@ exports.onCreatePage = ({ page, actions }) => {
 
 const StylelintPlugin = require('stylelint-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
-const defaultOptions = {
-    files: '**/*.{js}',
+const style_lint_options = {
+    files: 'src/**/*.js',
     emitErrors: false,
+    lintDirtyModulesOnly: true,
 }
 
 exports.onCreateWebpackConfig = ({ actions, getConfig }, { ...options }) => {
@@ -167,7 +168,7 @@ exports.onCreateWebpackConfig = ({ actions, getConfig }, { ...options }) => {
         config.optimization.minimizer = [new TerserPlugin({ parallel: parallel_value })]
     }
     actions.setWebpackConfig({
-        plugins: [new StylelintPlugin({ ...defaultOptions, ...options })],
+        plugins: [new StylelintPlugin({ ...style_lint_options, ...options })],
         resolve: {
             modules: [path.resolve(__dirname, 'src'), 'node_modules'],
         },

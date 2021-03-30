@@ -5,6 +5,7 @@ import device from 'themes/device'
 import { GridContainer, CssGrid, CssGridColumn } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { localize, Localize, LocalizedLink } from 'components/localization'
+import { community_url } from 'common/utility'
 // Icons
 import ProvenTrackRecord from 'images/svg/wd-proven-track-record.svg'
 import LicensedRegulated from 'images/svg/wd-licensed-regulated.svg'
@@ -138,8 +139,17 @@ export const IconGrid = () => (
                 title={localize('Help when you need it')}
                 content={
                     <Localize
-                        translate_text="The Deriv support team is available 24/7 – even on weekends. You can raise issues easily by phone and a customer service ticketing system. We also have a <0>Help centre</0> to answer your most common questions."
-                        components={[<LocalizedLink key={0} to="/help-centre/" />]}
+                        translate_text="The Deriv support team is available via live chat 24/7 – even on weekends. You can also find answers at our <0>Help centre</0> and get help from fellow traders in <1>Community</1>."
+                        components={[
+                            <LocalizedLink key={0} to="/help-centre/" />,
+                            <LocalizedLink
+                                key={1}
+                                to={community_url}
+                                external="true"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            />,
+                        ]}
                     />
                 }
             />

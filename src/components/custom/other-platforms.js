@@ -127,7 +127,7 @@ export const BotCard = ({ is_selected, word_break_cover }) => (
 )
 
 export const DMT5Card = ({ is_selected, is_ppc_redirect, word_break_cover }) => (
-    <StyledLink ariaLabel="DMT5" to={!is_ppc_redirect ? '/dmt5' : '/landing/dmt5'}>
+    <StyledLink ariaLabel="DMT5" to={is_ppc_redirect ? '/landing/dmt5' : '/dmt5'}>
         <Card
             cover_background="var(--color-green)"
             cover_content={localize('Discover DMT5 now')}
@@ -264,7 +264,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                     }
                     title={<Localize translate_text="DMT5" />}
                     onClick={onClick}
-                    to={!is_ppc_redirect ? '/dmt5' : '/landing/dmt5'}
+                    to={is_ppc_redirect ? '/landing/dmt5' : '/dmt5'}
                 />
                 <NavCard
                     aria_label="SmartTrader"

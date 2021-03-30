@@ -207,16 +207,6 @@ export const SmartGoldIndexDetails = () => (
     </DetailsContainer>
 )
 
-export const StepFXDetails = () => (
-    <DetailsContainer>
-        <Text>
-            {localize(
-                'The market price moves up or down at a fixed step size (0.001) based on the price movement of the underlying instrument.',
-            )}
-        </Text>
-    </DetailsContainer>
-)
-
 export const StepIndicesDetails = () => (
     <DetailsContainer>
         <Text>

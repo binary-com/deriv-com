@@ -189,7 +189,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                 }
                                 title={<Localize translate_text="DMT5" />}
                                 onClick={handleArrowClick}
-                                to={props.is_ppc_redirect ? '/dmt5' : '/landing/dmt5'}
+                                to={props.is_ppc_redirect ? '/landing/dmt5' : '/dmt5'}
                             />
                         </Flex>
                         <Flex>

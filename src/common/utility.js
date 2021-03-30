@@ -214,6 +214,9 @@ const getDomain = () =>
         ? deriv_cookie_domain
         : 'binary.sx'
 
+const getLocalizedUrl = (path, is_index, to) =>
+    `/${path}${is_index ? `` : to}`
+
 export {
     affiliate_signin_url,
     affiliate_signup_url,
@@ -275,4 +278,5 @@ export {
     trimSpaces,
     p2p_playstore_url,
     sample_rate,
+    getLocalizedUrl,
 }

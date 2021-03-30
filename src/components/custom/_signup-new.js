@@ -6,6 +6,7 @@ import { Header, Text, LinkText, Checkbox } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device.js'
 // SVG
+import Apple from 'images/svg/apple.svg'
 import Facebook from 'images/svg/facebook-blue.svg'
 import BinaryLogo from 'images/svg/binary-logo.svg'
 import Google from 'images/svg/google.svg'
@@ -50,7 +51,10 @@ const StyledText = styled(Text)`
     @media ${(props) => device.tabletL && props.notedBox} {
         width: 13rem;
     }
-    @media ${device.mobileL} {
+    @media (max-width: 340px) {
+        width: 17rem;
+    }
+    @media ${device.tabletL} {
         font-size: ${(props) => props.tabletFontSize || 'var(--text-size-xxs)'};
     }
 `
@@ -104,9 +108,9 @@ const SocialButton = styled(Button)`
     box-shadow: none;
     background-color: ${(props) => props.bgColor || 'var(--color-white)'};
     border: solid 1px var(--color-grey-21);
-    width: 19.5rem;
+    width: 12.5rem;
     height: 3.8rem;
-    padding: 0.8rem 0;
+    padding: 0.5rem 0;
 
     &:hover {
         background: ${(props) => {
@@ -115,8 +119,9 @@ const SocialButton = styled(Button)`
     }
 
     @media ${device.tabletL} {
-        width: 20rem;
+        width: 100%;
         height: 6rem;
+        margin-top:1rem;
     }
     @media ${device.mobileM} {
         &:first-child {
@@ -132,7 +137,8 @@ const SocialWrapper = styled.div`
     justify-content: space-between;
 
     @media ${device.tabletL} {
-        margin-top: 2rem;
+        flex-direction: column;
+        margin-top: 1rem;
     }
     @media ${device.mobile} {
         justify-content: space-around;
@@ -308,7 +314,7 @@ const SignupNew = ({
             </EmailButton>
             <SignupWithContainer>
                 <Line />
-                <StyledText color="grey-5" align="center" tabletFontSize="1.5rem">
+                <StyledText color="grey-5" align="center" tabletFontSize="12px">
                     {localize('Or sign up with')}
                 </StyledText>
                 <Line />
@@ -324,7 +330,7 @@ const SignupNew = ({
                     social
                 >
                     <span>
-                        <img src={Google} alt="google" width="22" height="23" />
+                        <img src={Google} alt="google" width="24" height="24" />
                     </span>
                     <Span>Google</Span>
                 </SocialButton>
@@ -337,9 +343,22 @@ const SignupNew = ({
                     social
                 >
                     <span>
-                        <img src={Facebook} alt="facebook" width="12" height="22" />
+                        <img src={Facebook} alt="facebook" width="24" height="24" />
                     </span>
                     <Span>Facebook</Span>
+                </SocialButton>
+                <SocialButton
+                    onClick={handleSocialSignup}
+                    provider="apple"
+                    data-provider="apple"
+                    id="gtm-signup-apple"
+                    type="button"
+                    social
+                >
+                    <span>
+                        <img src={Apple} alt="apple" width="24" height="24" />
+                    </span>
+                    <Span>Apple</Span>
                 </SocialButton>
             </SocialWrapper>
             <LoginText>

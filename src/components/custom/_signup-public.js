@@ -9,6 +9,7 @@ import { Flex, Show } from 'components/containers'
 import { deriv_app_url } from 'common/utility'
 import device from 'themes/device.js'
 // SVG
+import Apple from 'images/svg/apple.svg'
 import Facebook from 'images/svg/facebook-blue.svg'
 import Google from 'images/svg/google.svg'
 import Arrow from 'images/svg/chevron-right.svg'
@@ -68,7 +69,7 @@ const MobileSignupFormWrapper = styled(Flex)`
     width: 50%;
     align-items: center;
     padding: 0 2rem;
-    @media ${device.mobileM} {
+    @media ${device.mobileL} {
         width: 100%;
 
         & > div {
@@ -115,15 +116,16 @@ const EmailButton = styled(Button)`
 const SocialWrapper = styled(Flex)`
     width: 100%;
     margin-top: 1.8rem;
-    @media ${device.tabletL} {
-        button {
-            width: 14.25rem;
-        }
+`
+
+const MobileSocialWrapper = styled(SocialWrapper) `
+    @media ${device.tabletL}{
+        flex-direction: column;
     }
 `
 const SocialButton = styled(Button)`
     width: 70px;
-    padding: 9px 24px;
+    padding: 7px 24px;
     border-radius: 4px;
     justify-content: center;
     display: flex;
@@ -137,7 +139,11 @@ const SocialButton = styled(Button)`
         padding: 14px 15px 14px 13px;
         justify-content: center;
         align-items: center;
-        margin: ${(props) => (props.left ? '0 8px 0 16px' : '0')};
+    }
+    @media (max-width: 500px) {
+        width: 100%;
+        height: 40px;
+        padding: 14px 15px 12px 13px;
     }
 `
 
@@ -162,7 +168,7 @@ const StyledHeaderText = styled(Text)`
         font-size: 2rem;
     }
 `
-const StyledText = styled(Text)`
+const SignInText = styled(Text)`
     width: auto;
     margin-right: 2rem;
     @media ${device.tabletL} {
@@ -171,16 +177,13 @@ const StyledText = styled(Text)`
     }
 `
 
-const StyledSpan = styled.span`
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--color-grey-13);
-    margin-left: 4px;
-
+const MobileSignInText = styled (SignInText)`
     @media ${device.tabletL} {
-        margin-left: 8px;
+        width: unset;
+        margin: 0 auto 0.8rem 0.8rem;
     }
 `
+
 const ImageWrapper = styled(Flex)`
     position: relative;
     width: 41.1rem;
@@ -313,7 +316,7 @@ const SignupPublic = ({
                                 </EmailButton>
                             </InputGroup>
                             <SocialWrapper jc="unset" ai="center">
-                                <StyledText>{localize('Or sign in with')}</StyledText>
+                                <SignInText>{localize('Or sign in with')}</SignInText>
                                 <SocialButton
                                     onClick={handleSocialSignup}
                                     provider="facebook"
@@ -323,7 +326,7 @@ const SignupPublic = ({
                                     social
                                 >
                                     <span>
-                                        <img src={Facebook} alt="facebook" width="12" height="22" />
+                                        <img src={Facebook} alt="facebook" width="24" height="24" />
                                     </span>
                                 </SocialButton>
                                 <SocialButton
@@ -335,7 +338,19 @@ const SignupPublic = ({
                                     social
                                 >
                                     <span>
-                                        <img src={Google} alt="google" width="22" height="23" />
+                                        <img src={Google} alt="google" width="24" height="24" />
+                                    </span>
+                                </SocialButton>
+                                <SocialButton
+                                    onClick={handleSocialSignup}
+                                    provider="apple"
+                                    data-provider="apple"
+                                    id="gtm-signup-apple"
+                                    type="button"
+                                    social
+                                >
+                                    <span>
+                                        <img src={Apple} alt="apple" width="24" height="24" />
                                     </span>
                                 </SocialButton>
                             </SocialWrapper>
@@ -409,37 +424,47 @@ const SignupPublic = ({
                                     {localize('Sign up')}
                                 </EmailButton>
                             </InputGroup>
-                            <SocialWrapper jc="unset" ai="center">
-                                <StyledText>{localize('Or sign in with')}</StyledText>
-                                <SocialButton
-                                    onClick={handleSocialSignup}
-                                    provider="google"
-                                    data-provider="google"
-                                    id="gtm-signup-google"
-                                    type="button"
-                                    social
-                                    left
-                                >
-                                    <span>
-                                        <img src={Google} alt="google" width="22" height="23" />
-                                    </span>
-
-                                    <StyledSpan>Google</StyledSpan>
-                                </SocialButton>
-                                <SocialButton
-                                    onClick={handleSocialSignup}
-                                    provider="facebook"
-                                    data-provider="facebook"
-                                    id="gtm-signup-facebook"
-                                    type="button"
-                                    social
-                                >
-                                    <span>
-                                        <img src={Facebook} alt="facebook" width="12" height="22" />
-                                    </span>
-                                    <StyledSpan>Facebook</StyledSpan>
-                                </SocialButton>
-                            </SocialWrapper>
+                            <MobileSocialWrapper jc="unset" ai="center">
+                                <MobileSignInText>{localize('Or sign in with')}</MobileSignInText>
+                                <Flex>
+                                    <SocialButton
+                                        onClick={handleSocialSignup}
+                                        provider="google"
+                                        data-provider="google"
+                                        id="gtm-signup-google"
+                                        type="button"
+                                        social
+                                    >
+                                        <span>
+                                            <img src={Google} alt="google" width="24" height="24" />
+                                        </span>
+                                    </SocialButton>
+                                    <SocialButton
+                                        onClick={handleSocialSignup}
+                                        provider="facebook"
+                                        data-provider="facebook"
+                                        id="gtm-signup-facebook"
+                                        type="button"
+                                        social
+                                    >
+                                        <span>
+                                            <img src={Facebook} alt="facebook" width="24" height="24" />
+                                        </span>
+                                    </SocialButton>
+                                    <SocialButton
+                                        onClick={handleSocialSignup}
+                                        provider="apple"
+                                        data-provider="apple"
+                                        id="gtm-signup-apple"
+                                        type="button"
+                                        social
+                                    >
+                                        <span>
+                                            <img src={Apple} alt="apple" width="24" height="24" />
+                                        </span>
+                                    </SocialButton>
+                                </Flex>
+                            </MobileSocialWrapper>
                         </div>
                     </MobileSignupFormWrapper>
                     <MobileBackground>

@@ -29,7 +29,6 @@ module.exports = {
                 failOnError: true,
                 base64Width: 20,
                 forceBase64Format: 'webp',
-                useMozJpeg: process.env.GATSBY_JPEG_ENCODER === `MOZJPEG`,
                 stripMetadata: true,
                 defaultQuality: 40,
             },
@@ -179,11 +178,7 @@ module.exports = {
                     {
                         userAgent: '*',
                         allow: '/',
-                        disallow: [
-                            '/404/',
-                            '/homepage/',
-                            '/landing/',
-                        ],
+                        disallow: ['/404/', '/homepage/', '/landing/'],
                     },
                 ],
             },

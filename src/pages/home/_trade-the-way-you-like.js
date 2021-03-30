@@ -35,7 +35,11 @@ const TradeTheWayYouLike = ({ is_ppc_redirect }) => {
                 {localize('Choose from three powerful platforms — designed with you in mind')}
             </Text>
             <ImageWrapper>
-                <QueryImage data={data['dtrader_artboard']} alt={localize('Dtrader artboard')} />
+                <QueryImage
+                    data={data['dtrader_artboard']}
+                    alt={localize('Dtrader artboard')}
+                    is_eager
+                />
             </ImageWrapper>
             <OtherPlatform exclude="" is_nav is_ppc_redirect={is_ppc_redirect} />
         </StyledSection>

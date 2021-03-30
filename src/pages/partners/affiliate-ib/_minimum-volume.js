@@ -1,56 +1,55 @@
 import React from 'react'
 import styled from 'styled-components'
-import { graphql, useStaticQuery } from 'gatsby'
+import { ResultStrong } from './_style'
+import CalculatedFormula from './_calculated-formula'
 import { Header, Text } from 'components/elements/typography'
-import { SectionContainer, Flex } from 'components/containers'
-import { QueryImage } from 'components/elements'
+import { Container, SectionContainer, Flex } from 'components/containers'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
 
-const query = graphql`
-    query {
-        minimum_volume_top_one: file(
-            relativePath: { eq: "affiliate-and-ib/minimum-volume-top-one.png" }
-        ) {
-            ...fadeIn
-        }
-        minimum_volume_top_two: file(
-            relativePath: { eq: "affiliate-and-ib/minimum-volume-top-two.png" }
-        ) {
-            ...fadeIn
-        }
-        minimum_volume_bottom_one: file(
-            relativePath: { eq: "affiliate-and-ib/minimum-volume-bottom-one.png" }
-        ) {
-            ...fadeIn
-        }
-        minimum_volume_bottom_two: file(
-            relativePath: { eq: "affiliate-and-ib/minimum-volume-bottom-two.png" }
-        ) {
-            ...fadeIn
-        }
-    }
-`
-
 const StyledSection = styled(SectionContainer)`
-    padding: 0;
-    margin-top: 80px;
+    padding: 0 0 8rem;
     @media ${device.tabletL} {
         padding: 40px 0;
     }
 `
-
 const TitleWrapper = styled(Flex)`
     max-width: 120rem;
     margin: 0 auto 2.4rem;
+
+    ${Text} {
+        max-width: 792px;
+        margin: 0 auto;
+    }
+
+    @media ${device.tabletL} {
+        margin: 0 auto 16px;
+
+        ${Header} {
+            font-size: 20px;
+            line-height: 25px;
+        }
+    }
+`
+const StyledHeader = styled(Header)`
+    @media ${device.mobileL} {
+        margin: 0 auto 16px;
+        text-align: left !important;
+    }
 `
 const ExampleWrapper = styled(Flex)`
     max-width: 120rem;
     margin: 0 auto;
     flex-direction: column;
+
+    @media ${device.laptopM} {
+        h1 {
+            text-align: center;
+        }
+    }
 `
 const CalculationWrapper = styled(Flex)`
-    @media ${device.tabletL} {
+    @media ${device.laptopM} {
         flex-direction: column;
     }
 `
@@ -60,83 +59,189 @@ const LeftWrapper = styled(Flex)`
     background-color: var(--color-grey-39);
     margin-right: 2.4rem;
 
-    @media ${device.tabletL} {
+    @media (max-width: 1360px) {
+        width: 45%;
+    }
+
+    @media ${device.laptopM} {
+        width: 100%;
+        max-width: 58.8rem;
         margin-right: 0;
+        margin-bottom: 0.8rem;
+        padding: 1.6rem;
+    }
+    @media ${device.tabletL} {
+        margin-bottom: 0;
+    }
+
+    ${Text} {
+        @media ${device.tabletL} {
+            max-width: 295px;
+        }
     }
 `
 const RightWrapper = styled(Flex)`
     width: 588px;
     flex-direction: column;
-`
-const TopImage = styled(QueryImage)`
-    margin-bottom: 2rem;
-`
 
+    @media ${device.laptopM} {
+        width: 100%;
+        max-width: 58.8rem;
+    }
+`
 const MinimumVolume = () => {
-    const data = useStaticQuery(query)
-
     return (
         <StyledSection>
-            <TitleWrapper direction="column">
-                <Header type="page-title" align="center" mb="0.8rem">
-                    {localize('Minimum volume requirement')}
-                </Header>
-                <Text size="1.6rem" align="center">
-                    <Localize
-                        translate_text="To receive the minimum commission (0.01 in any currency) allowed by the system, the minimum volume <0/>requirement is calculated based on the following formulas:"
-                        components={[<br key={0} />]}
-                    />
-                </Text>
-            </TitleWrapper>
-            <ExampleWrapper>
-                <Header type="main-paragraph" mb="2.4rem">
-                    {localize('Example:')}
-                </Header>
-                <CalculationWrapper ai="center" mb="2.4rem">
-                    <LeftWrapper>
-                        <Text size="1.6rem">
-                            {localize(
-                                'A deal for 1 lot of BTC/USD (with a BTC to USD exchange rate of USD 50,000) per USD 100,000 turnover will pay out a commission of USD 20. The minimum volume required to receive the minimum commission of USD 0.01 is determined using the following formula:',
-                            )}
-                        </Text>
-                    </LeftWrapper>
-                    <RightWrapper>
-                        <TopImage
-                            data={data['minimum_volume_top_one']}
-                            alt="Minimum volume formula 1"
-                            width="100%"
-                        />
-                        <QueryImage
-                            data={data['minimum_volume_top_two']}
-                            alt="Minimum volume formula 2"
-                            width="100%"
-                        />
-                    </RightWrapper>
-                </CalculationWrapper>
-                <CalculationWrapper ai="center">
-                    <LeftWrapper>
-                        <Text size="1.6rem">
-                            {localize(
-                                'A deal for 1 lot of the Volatility Index 75 for a price of USD 500,000 per USD 100,000 turnover will pay out a commission of USD 5. The minimum volume required to receive the minimum commission of USD 0.01 is determined using the following formula:',
-                            )}
-                        </Text>
-                    </LeftWrapper>
-                    <RightWrapper>
-                        <TopImage
-                            data={data['minimum_volume_bottom_one']}
-                            alt="Minimum volume formula 3"
-                            width="100%"
-                        />
-                        <QueryImage
-                            data={data['minimum_volume_bottom_two']}
-                            alt="Minimum volume formula 4"
-                            width="100%"
-                        />
-                    </RightWrapper>
-                </CalculationWrapper>
-            </ExampleWrapper>
+            <Container direction="column">
+                <TitleWrapper direction="column">
+                    <Header type="page-title" align="center" mb="0.8rem">
+                        {localize('Minimum volume requirement')}
+                    </Header>
+                    <Text size="16px" align="center">
+                        <Localize translate_text="To receive the minimum commission (0.01 in any currency) allowed by the system, the minimum volume requirement is calculated based on the following formulas:" />
+                    </Text>
+                </TitleWrapper>
+                <ExampleWrapper>
+                    <StyledHeader type="main-paragraph" mb="2.4rem">
+                        {localize('Example:')}
+                    </StyledHeader>
+                    <CalculationWrapper ai="center" mb="24px">
+                        <LeftWrapper>
+                            <Text size="16px">
+                                {localize(
+                                    'A deal for 1 lot of BTC/USD (with a BTC to USD exchange rate of USD 50,000) per USD 100,000 turnover will pay out a commission of USD 20. The minimum volume required to receive the minimum commission of USD 0.01 is determined using the following formula:',
+                                )}
+                            </Text>
+                        </LeftWrapper>
+                        <RightWrapper>
+                            <CalculatedFormula data={firstCalculatedFormula} />
+                        </RightWrapper>
+                    </CalculationWrapper>
+                    <CalculationWrapper ai="center">
+                        <LeftWrapper>
+                            <Text size="16px">
+                                {localize(
+                                    'A deal for 1 lot of the Volatility Index 75 for a price of USD 500,000 per USD 100,000 turnover will pay out a commission of USD 5. The minimum volume required to receive the minimum commission of USD 0.01 is determined using the following formula:',
+                                )}
+                            </Text>
+                        </LeftWrapper>
+                        <RightWrapper>
+                            <CalculatedFormula data={secondCalculatedFormula} />
+                        </RightWrapper>
+                    </CalculationWrapper>
+                </ExampleWrapper>
+            </Container>
         </StyledSection>
     )
 }
 
+const firstCalculatedFormula = {
+    list: [
+        {
+            totalItem: 3,
+            formula: [
+                {
+                    item: <Localize translate_text="(0.01" />,
+                    description: <Localize translate_text="Min. commission" />,
+                    next_operator: <Localize translate_text="✕" />,
+                },
+                {
+                    item: <Localize translate_text="USD 100,000)" />,
+                    description: <Localize translate_text="Adjusted volume" />,
+                    next_operator: <Localize translate_text="÷" />,
+                },
+                {
+                    item: <Localize translate_text="20" />,
+                    description: <Localize translate_text="Commission rate" />,
+                },
+            ],
+            result: {
+                total: (
+                    <Localize
+                        translate_text="<0>USD 50</0> Volume"
+                        components={[<ResultStrong key={0} />]}
+                    />
+                ),
+            },
+        },
+        {
+            totalItem: 2,
+            formula: [
+                {
+                    item: <Localize translate_text="USD 50" />,
+                    description: <Localize translate_text="Volume" />,
+                    next_operator: <Localize translate_text="÷" />,
+                },
+                {
+                    item: <Localize translate_text="USD 50,000" />,
+                    description: <Localize translate_text="Spot price" />,
+                },
+            ],
+            result: {
+                total: (
+                    <Localize
+                        translate_text="<0>0.001 lots</0>"
+                        components={[<ResultStrong key={0} />]}
+                    />
+                ),
+                description: <Localize translate_text="Volume in lots" />,
+            },
+        },
+    ],
+}
+
+const secondCalculatedFormula = {
+    list: [
+        {
+            totalItem: 3,
+            formula: [
+                {
+                    item: <Localize translate_text="(0.01" />,
+                    description: <Localize translate_text="Min. commission" />,
+                    next_operator: <Localize translate_text="✕" />,
+                },
+                {
+                    item: <Localize translate_text="USD 100,000)" />,
+                    description: <Localize translate_text="Adjusted volume" />,
+                    next_operator: <Localize translate_text="÷" />,
+                },
+                {
+                    item: <Localize translate_text="5" />,
+                    description: <Localize translate_text="Commission rate" />,
+                },
+            ],
+            result: {
+                total: (
+                    <Localize
+                        translate_text="<0>USD 200</0> Volume"
+                        components={[<ResultStrong key={0} />]}
+                    />
+                ),
+            },
+        },
+        {
+            totalItem: 2,
+            formula: [
+                {
+                    item: <Localize translate_text="USD 200" />,
+                    description: <Localize translate_text="volume" />,
+                    next_operator: <Localize translate_text="÷" />,
+                },
+                {
+                    item: <Localize translate_text="USD 500,000" />,
+                    description: <Localize translate_text="Spot price" />,
+                },
+            ],
+            result: {
+                total: (
+                    <Localize
+                        translate_text="<0>0.0004 lots</0>"
+                        components={[<ResultStrong key={0} />]}
+                    />
+                ),
+                description: <Localize translate_text="Volume in lots" />,
+            },
+        },
+    ],
+}
 export default MinimumVolume

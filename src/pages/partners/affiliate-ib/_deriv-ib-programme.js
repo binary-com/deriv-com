@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import DERIVIBDMT5Cards from './_dmt5-cards.js'
 import { CardWrapper } from './_partner-card.js'
-import { SectionContainer, Container } from 'components/containers'
+import { SectionContainer, Container, Flex } from 'components/containers'
 import { Header } from 'components/elements/typography'
 import { localize, Localize } from 'components/localization'
 import { LinkButton } from 'components/form'
@@ -25,22 +25,21 @@ const StyledSection = styled(SectionContainer)`
     text-align: ${(props) => props.align || 'left'};
 
     @media ${device.tabletL} {
-        padding: 40px 0;
-        box-shadow: ${(props) => (props.shadow ? '0 1px 0 0 rgba(0, 0, 0, 0.1)' : '')};
+        padding: 40px 0 0;
     }
 `
 
 const DecideSection = styled(StyledSection)`
     padding-top: 40px;
     @media ${device.tabletL} {
-        padding: 40px 0 0 0;
+        padding: 24px 0 0 0;
     }
 `
 
 const IBSectionContainer = styled(SectionContainer)`
     padding-bottom: 80px;
     @media ${device.tabletL} {
-        padding: 16px 0 0;
+        padding: 24px 0 0;
     }
     @media ${device.mobileM} {
         width: unset;
@@ -52,13 +51,14 @@ const StyledHeader = styled(Header)`
         font-size: 16px;
     }
 `
-
+const LinkButtonContactUsWrapper = styled(Flex)`
+    margin-top: 8px;
+`
 const LinkButtonContactUs = styled(LinkButton)`
     @media ${device.tablet} {
         display: block;
         margin: auto;
-        font-size: 14px;
-        width: 216px;
+        width: 100%;
         height: 40px;
     }
 `
@@ -97,11 +97,15 @@ const StyledTitleHeader = styled(Header)`
 `
 
 const SubtitleHeader = styled(Header)`
+    line-height: 36px;
+
     @media ${device.laptopL} {
         width: 100%;
     }
     @media ${device.tabletL} {
+        line-height: 24px;
         font-size: 16px !important;
+        max-width: 305px;
     }
 `
 
@@ -127,9 +131,9 @@ const DerivIBProgramme = () => {
                         {localize('Choose a commission plan:')}
                     </StyledHeaderCommission>
                     <StyledCardWrapper>
-                        <DERIVIBDMT5Cards data={ib_dmt5_syntheticNew} />
-                        <DERIVIBDMT5Cards data={ib_dmt5_financialNew} />
-                        <DERIVIBDMT5Cards data={ib_dmt5_financialSTPNew} />
+                        <DERIVIBDMT5Cards data={ib_dmt5_synthetic} />
+                        <DERIVIBDMT5Cards data={ib_dmt5_financial} />
+                        <DERIVIBDMT5Cards data={ib_dmt5_financialSTP} />
                     </StyledCardWrapper>
                     <DecideSection align="center">
                         <StyledHeader
@@ -137,18 +141,20 @@ const DerivIBProgramme = () => {
                             type="sub-section-title"
                             align="center"
                             weight="medium"
-                            mb="3.2rem"
+                            mb="24px"
                         >
                             {localize('Can’t decide which programme or commission plan suits you?')}
                         </StyledHeader>
-                        <LinkButtonContactUs
-                            external="true"
-                            secondary
-                            to="mailto:partners@deriv.com"
-                            is_mail_link
-                        >
-                            {localize('Contact us')}
-                        </LinkButtonContactUs>
+                        <LinkButtonContactUsWrapper>
+                            <LinkButtonContactUs
+                                external="true"
+                                secondary
+                                to="mailto:partners@deriv.com"
+                                is_mail_link
+                            >
+                                {localize('Contact us')}
+                            </LinkButtonContactUs>
+                        </LinkButtonContactUsWrapper>
                     </DecideSection>
                 </IBSectionContainer>
             </Container>
@@ -156,8 +162,7 @@ const DerivIBProgramme = () => {
     )
 }
 
-// new dmt5cards setting
-const ib_dmt5_syntheticNew = {
+const ib_dmt5_synthetic = {
     name: <Localize translate_text="Deriv MT5 Synthetics" />,
     description: (
         <Localize translate_text="Earn when your clients trade on an MT5 Synthetics account." />
@@ -253,16 +258,18 @@ const ib_dmt5_syntheticNew = {
             notes: [
                 {
                     title: <Localize translate_text="Please note:" />,
-                    desc: (
-                        <Localize translate_text="Commission payout for all assets will be converted to your deposit currency based on the latest exchange rate." />
-                    ),
+                    desc: {
+                        firstText: (
+                            <Localize translate_text="Commission payout for all assets will be converted to your deposit currency based on the latest exchange rate." />
+                        ),
+                    },
                 },
             ],
         },
     ],
 }
 
-const ib_dmt5_financialNew = {
+const ib_dmt5_financial = {
     name: <Localize translate_text="Deriv MT5 Financial" />,
     description: (
         <Localize translate_text="Earn when your clients trade on an MT5 Financial account." />
@@ -386,16 +393,21 @@ const ib_dmt5_financialNew = {
             notes: [
                 {
                     title: <Localize translate_text="Please note:" />,
-                    desc: (
-                        <Localize translate_text="For forex, your commission is represented in the base currency (EUR in the above example). Commission payout for all assets will be converted to your deposit currency based on the latest exchange rate." />
-                    ),
+                    desc: {
+                        firstText: (
+                            <Localize translate_text="For forex, your commission is represented in the base currency (EUR in the above example)." />
+                        ),
+                        secondText: (
+                            <Localize translate_text="Commission payout for all assets will be converted to your deposit currency based on the latest exchange rate." />
+                        ),
+                    },
                 },
             ],
         },
     ],
 }
 
-const ib_dmt5_financialSTPNew = {
+const ib_dmt5_financialSTP = {
     name: <Localize translate_text="Deriv MT5 Financial STP" />,
     description: (
         <Localize translate_text="Earn when your clients trade on an MT5 Financial STP account." />
@@ -493,9 +505,14 @@ const ib_dmt5_financialSTPNew = {
             notes: [
                 {
                     title: <Localize translate_text="Please note:" />,
-                    desc: (
-                        <Localize translate_text="For forex, your commission is represented in the base currency (EUR in the above example).Commission payout for all assets will be converted to your deposit currency based on the latest exchange rate." />
-                    ),
+                    desc: {
+                        firstText: (
+                            <Localize translate_text="For forex, your commission is represented in the base currency (EUR in the above example)." />
+                        ),
+                        secondText: (
+                            <Localize translate_text="Commission payout for all assets will be converted to your deposit currency based on the latest exchange rate." />
+                        ),
+                    },
                 },
             ],
         },

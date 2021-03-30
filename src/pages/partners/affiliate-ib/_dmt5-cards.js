@@ -47,8 +47,8 @@ const StyledCard = styled(Card)`
     height: auto;
     position: relative;
     border-radius: 8px;
-    min-width: calc((100% - 5.6rem) / 3);
-    width: calc((100% - 5.6rem) / 3);
+    min-width: calc((100% - 4.8rem) / 3);
+    width: calc((100% - 4.8rem) / 3);
     justify-content: flex-start;
 
     :nth-child(2) {
@@ -67,36 +67,31 @@ const StyledCard = styled(Card)`
     @media ${device.tabletL} {
         min-width: 328px;
         padding: 16px 16px 0;
-        margin: 1.6rem 0 1.6rem 0;
         height: ${(props) => (props.tabletHeight ? props.tabletHeight : '')};
+
+        :first-child {
+            margin: 24px 0 0;
+        }
     }
 
     @media ${device.mobileM} {
         min-width: unset;
         width: 100%;
         height: ${(props) => (props.mobileHeight ? props.mobileHeight : '')};
-
-        p {
-            font-size: 12px;
-        }
     }
 `
 const CardWrappers = styled(Flex)`
     min-height: 27.3rem;
     flex-direction: column;
     justify-content: flex-start;
-`
-const CardHeader = styled(Header)`
+
     @media ${device.tabletL} {
-        font-size: 16px;
+        min-height: unset;
     }
 `
 
 const CardText = styled(Text)`
     margin-bottom: 16px;
-    @media ${device.tabletL} {
-        font-size: 14px;
-    }
 `
 const AccordionWrapper = styled.div`
     max-width: 996px;
@@ -104,12 +99,17 @@ const AccordionWrapper = styled.div`
     margin: 0 auto;
     position: relative;
     z-index: 2;
+
+    @media ${device.tabletL} {
+        div {
+            margin: 0;
+        }
+    }
 `
 const TableWrapper = styled(Table)`
     margin: 0 auto 1.6rem;
     grid-auto-rows: 1fr;
 `
-
 const StyledTrap = styled(TRAP)`
     height: ${(props) => (props.headerHeight ? props.headerHeight : '')};
     background-color: var(--color-grey-39);
@@ -120,29 +120,14 @@ const StyledTrap = styled(TRAP)`
     align-items: center;
     justify-content: center;
 `
-
 const StyledText = styled(Text)`
-    font-size: 1.4rem;
-    line-height: 1.5;
     text-align: center;
-    @media ${device.tabletL} {
-        font-size: 14px;
-    }
 `
-
-const StyledTextHeading = styled(StyledText)`
-    text-align: center;
-
-    @media ${device.tabletL} {
-        font-size: 14px;
-    }
-`
-
 const HowItsCalculate = styled.div`
     display: flex;
     width: auto;
     margin: 0 -25px;
-    padding: 1.6rem 0;
+    padding: 16px 0;
     justify-content: center;
     border-top: 1px solid var(--color-grey-21);
 
@@ -197,9 +182,10 @@ const DERIVIBDMT5Cards = ({ data }) => {
         padding: '0',
         background: 'var(--color-white)',
         borderRadius: '0 0 8px 8px',
+        marginBottom: '16px',
     }
     const header_style = {
-        padding: '15px 0 17px',
+        padding: '14px 0 17px',
         borderRadius: '0',
         height: 'auto',
         boxShadow: 'unset',
@@ -227,9 +213,9 @@ const DERIVIBDMT5Cards = ({ data }) => {
             {!is_calculated ? (
                 <>
                     <CardWrappers>
-                        <CardHeader as="h4" type="sub-section-title" mb="0.8rem">
+                        <Header as="h4" type="sub-section-title" mb="0.8rem">
                             {data.name}
-                        </CardHeader>
+                        </Header>
                         <CardText>{data.description}</CardText>
                         <AccordionWrapper>
                             <Accordion has_single_state>
@@ -252,16 +238,18 @@ const DERIVIBDMT5Cards = ({ data }) => {
                                                         isTitle="true"
                                                         headerHeight={value.headerHeight}
                                                     >
-                                                        <StyledTextHeading weight="bold">
+                                                        <StyledText size="14px" weight="bold">
                                                             {listedValue.title}
-                                                        </StyledTextHeading>
+                                                        </StyledText>
                                                     </StyledTrap>
                                                     {listedValue.list.map((data, indexData) => (
                                                         <TRAPREVERSE
                                                             even={indexData % 2 ? 'true' : ''}
                                                             key={indexData}
                                                         >
-                                                            <StyledText>{data}</StyledText>
+                                                            <StyledText size="14px">
+                                                                {data}
+                                                            </StyledText>
                                                         </TRAPREVERSE>
                                                     ))}
                                                 </TC>
@@ -282,9 +270,9 @@ const DERIVIBDMT5Cards = ({ data }) => {
                 <>
                     {data.countDetails.map((valueCalc, indexCalc) => (
                         <Flex key={indexCalc} direction="column" ai="flex-start" height="auto">
-                            <CardHeader as="h4" type="sub-section-title" mb="0.8rem">
+                            <Header as="h4" type="sub-section-title" mb="0.8rem">
                                 {valueCalc.title}
-                            </CardHeader>
+                            </Header>
                             {valueCalc.list.map((valueDetails) => (
                                 <>
                                     <Text mb="0.8rem" size="1.4rem">
@@ -304,9 +292,20 @@ const DERIVIBDMT5Cards = ({ data }) => {
                                     <Header type="sub-paragraph" mb="0.8rem">
                                         {valueNotes.title}
                                     </Header>
-                                    <Text mb="0" size="1.4rem">
-                                        {valueNotes.desc}
-                                    </Text>
+                                    {valueNotes.desc.secondText ? (
+                                        <>
+                                            <Text mb="16px" size="1.4rem">
+                                                {valueNotes.desc.firstText}
+                                            </Text>
+                                            <Text mb="0" size="1.4rem">
+                                                {valueNotes.desc.secondText}
+                                            </Text>
+                                        </>
+                                    ) : (
+                                        <Text mb="0" size="1.4rem">
+                                            {valueNotes.desc.firstText}
+                                        </Text>
+                                    )}
                                 </>
                             ))}
                             <ButtonWrapper>

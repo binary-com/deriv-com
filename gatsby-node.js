@@ -149,7 +149,7 @@ exports.onCreatePage = ({ page, actions }) => {
 const StylelintPlugin = require('stylelint-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
 const defaultOptions = {
-    files: '**/*.{js,jsx}',
+    files: '**/*.{js}',
     emitErrors: false,
 }
 

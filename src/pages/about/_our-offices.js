@@ -210,7 +210,7 @@ export const OurOffices = () => {
                         </Flex>
                         <Flex fd="column" ai="center">
                             <Text align="center" color="red" size="4.8rem" weight="bold">
-                                9
+                                10
                             </Text>
                             <Text align="center">{localize('Corporate offices')}</Text>
                         </Flex>
@@ -240,6 +240,12 @@ export const OurOffices = () => {
                                 top="58%"
                                 title={localize('Rwanda')}
                                 link="/contact_us#rwanda"
+                            />
+                            <MapPin
+                                left="48%"
+                                top="20%"
+                                title={localize('Belarus')}
+                                link="/contact_us#belarus"
                             />
                             <MapPin
                                 left="63.5%"
@@ -278,19 +284,25 @@ export const OurOffices = () => {
                         <MapImage data={data['office_background_map_mobile']}>
                             <MapPin
                                 left="19%"
-                                top="65%"
+                                top="70%"
                                 title="Paraguay"
                                 link="/contact_us#paraguay"
                             />
-                            <MapPin left="46%" top="27%" title="Malta" link="/contact_us#malta" />
+                            <MapPin left="45%" top="31.5%" title="Malta" link="/contact_us#malta" />
                             <MapPin
                                 left="52.4%"
-                                top="26.8%"
+                                top="33.8%"
                                 title="Cyprus"
                                 link="/contact_us#cyprus"
                             />
-                            <MapPin left="52%" top="51%" title="Rwanda" link="/contact_us#rwanda" />
-                            <MapPin left="62%" top="32%" title="Dubai" link="/contact_us#dubai" />
+                            <MapPin
+                                left="49%"
+                                top="17.5%"
+                                title={localize('Belarus')}
+                                link="/contact_us#belarus"
+                            />
+                            <MapPin left="52%" top="57%" title="Rwanda" link="/contact_us#rwanda" />
+                            <MapPin left="64%" top="36.8%" title="Dubai" link="/contact_us#dubai" />
                             <MapPin left="81.5%" top="48.5%" title="Ipoh" link="/contact_us#ipoh" />
                             <MapPin
                                 left="82%"
@@ -299,7 +311,7 @@ export const OurOffices = () => {
                                 link="/contact_us#cyberjaya"
                             />
                             <MapPin left="83%" top="55%" title="Melaka" link="/contact_us#melaka" />
-                            <MapPin left="88%" top="48%" title="Labuan" link="/contact_us#labuan" />
+                            <MapPin left="88.5%" top="51%" title="Labuan" link="/contact_us#labuan" />
                         </MapImage>
                     </Show.Mobile>
                 </OfficeWrapper>

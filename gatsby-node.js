@@ -146,29 +146,10 @@ exports.onCreatePage = ({ page, actions }) => {
     })
 }
 
-const StylelintPlugin = require('stylelint-webpack-plugin')
-const TerserPlugin = require('terser-webpack-plugin')
-const style_lint_options = {
-    files: 'src/**/*.js',
-    emitErrors: false,
-    lintDirtyModulesOnly: true,
-}
-
-exports.onCreateWebpackConfig = ({ actions, getConfig }, { ...options }) => {
+exports.onCreateWebpackConfig = ({ actions, getConfig }) => {
     const config = getConfig()
-    if (config.optimization) {
-        // Respect CPU Count configured in GATSBY_CPU_COUNT env var.
-        // If GATSBY_CPU_COUNT is not set, will disable threading only in staging or production environment.
-        // Will always use max threads during development.
-        const parallel_value =
-            Number.parseInt(process.env.GATSBY_CPU_COUNT) ||
-            (process.env.GATSBY_ENV === 'production' || process.env.GATSBY_ENV === 'staging'
-                ? false
-                : true)
-        config.optimization.minimizer = [new TerserPlugin({ parallel: parallel_value })]
-    }
+    if (config.optimization) config.optimization.minimizer[0].options.parallel = 2
     actions.setWebpackConfig({
-        plugins: [new StylelintPlugin({ ...style_lint_options, ...options })],
         resolve: {
             modules: [path.resolve(__dirname, 'src'), 'node_modules'],
         },

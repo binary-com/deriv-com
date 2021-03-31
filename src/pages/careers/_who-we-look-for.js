@@ -80,12 +80,22 @@ const ImageWrapper = styled.div`
     max-width: 65rem;
 `
 const query = graphql`
-    {
+    query {
         teamfocus: file(relativePath: { eq: "careers/team-focus.jpg" }) {
-            ...fadeIn
+            childImageSharp {
+                fluid(maxWidth: 650) {
+                    ...GatsbyImageSharpFluid_withWebp_noBase64
+                    originalName
+                }
+            }
         }
         peopleeating: file(relativePath: { eq: "careers/people-eating.jpg" }) {
-            ...fadeIn
+            childImageSharp {
+                fluid(maxWidth: 650) {
+                    ...GatsbyImageSharpFluid_withWebp_noBase64
+                    originalName
+                }
+            }
         }
     }
 `

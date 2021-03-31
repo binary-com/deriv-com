@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { graphql, useStaticQuery } from 'gatsby'
 import { Input, Button } from 'components/form'
-import { Header, LinkText, QueryImage, Text } from 'components/elements'
+import { Header, Text, QueryImage, LinkText } from 'components/elements'
 import { localize } from 'components/localization'
 import { Flex, Show } from 'components/containers'
 import { deriv_app_url } from 'common/utility'
@@ -261,7 +261,11 @@ const SignupPublic = ({
                 <Wrapper>
                     <div style={{ position: 'absolute', left: '50%', height: '100%' }}>
                         <ImageWrapper ai="center">
-                            <QueryImage data={data['deriv_platform']} alt="deriv platform" />
+                            <QueryImage
+                                data={data['deriv_platform']}
+                                alt="deriv platform"
+                                width="100%"
+                            />
                         </ImageWrapper>
                     </div>
                     <SignupFormWrapper>
@@ -465,7 +469,11 @@ const SignupPublic = ({
                     </MobileSignupFormWrapper>
                     <MobileBackground>
                         <MobilePlatform>
-                            <QueryImage data={data['deriv_platform']} alt="deriv platform" />
+                            <QueryImage
+                                data={data['deriv_platform']}
+                                alt="deriv platform"
+                                width="100%"
+                            />
                         </MobilePlatform>
                         <MobileRedBanner>
                             <img src={RedBanner} alt="redbanner" width="100%" height="248" />

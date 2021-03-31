@@ -161,10 +161,10 @@ jobs:
     docker:
       - image: circleci/node:lts-stretch
         environment:
-          - GATSBY_CPU_COUNT=3
+          - GATSBY_CPU_COUNT=4
           - GATSBY_MAP_API_KEY=${GATSBY_MAP_API_KEY}
           - GATSBY_ENV=staging
-    resource_class: medium+
+    resource_class: large
     steps:
       - git_checkout_from_cache
       - npm_install_from_cache
@@ -175,10 +175,10 @@ jobs:
     docker:
       - image: circleci/node:lts-stretch
         environment:
-          - GATSBY_CPU_COUNT=3
+          - GATSBY_CPU_COUNT=4
           - GATSBY_MAP_API_KEY=${GATSBY_MAP_API_KEY}
           - GATSBY_ENV=staging
-    resource_class: medium+
+    resource_class: large
     steps:
       - git_checkout_from_cache
       - npm_install_from_cache
@@ -195,10 +195,10 @@ jobs:
     docker:
       - image: circleci/node:lts-stretch
         environment:
-          - GATSBY_CPU_COUNT=3
+          - GATSBY_CPU_COUNT=4
           - GATSBY_MAP_API_KEY=${GATSBY_MAP_API_KEY}
           - GATSBY_ENV=production
-    resource_class: medium+
+    resource_class: large
     steps:
       - git_checkout_from_cache
       - npm_install_from_cache

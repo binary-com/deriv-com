@@ -2,9 +2,6 @@ const language_config = require(`./i18n-config.js`)
 
 module.exports = {
     // pathPrefix: process.env.PATH_PREFIX || '/deriv-com/', // For non CNAME GH-pages deployment
-    flags: {
-        FAST_DEV: true,
-    },
     siteMetadata: {
         title: 'Deriv',
         description:
@@ -23,17 +20,7 @@ module.exports = {
             },
         },
         'gatsby-transformer-sharp',
-        {
-            resolve: `gatsby-plugin-sharp`,
-            options: {
-                failOnError: true,
-                base64Width: 20,
-                forceBase64Format: 'webp',
-                stripMetadata: true,
-                defaultQuality: 40,
-            },
-        },
-        `gatsby-plugin-image`,
+        'gatsby-plugin-sharp',
         {
             resolve: 'gatsby-plugin-sitemap',
             options: {
@@ -169,6 +156,14 @@ module.exports = {
                 stages: ['develop'],
                 extensions: ['js'],
                 exclude: ['node_modules', '.cache', 'public'],
+              },
+        },
+        {
+            resolve: 'gatsby-plugin-stylelint',
+            options: {
+                emitErrors: false,
+                files: ['src/**/*.js'],
+                lintDirtyModulesOnly: true,
             },
         },
         {
@@ -178,7 +173,11 @@ module.exports = {
                     {
                         userAgent: '*',
                         allow: '/',
-                        disallow: ['/404/', '/homepage/', '/landing/'],
+                        disallow: [
+                            '/404/',
+                            '/homepage/',
+                            '/landing/',
+                        ],
                     },
                 ],
             },
@@ -204,6 +203,15 @@ module.exports = {
             resolve: 'gatsby-plugin-anchor-links',
             options: {
                 offset: -100,
+            },
+        },
+        {
+            resolve: 'gatsby-plugin-webpack-bundle-analyser-v2',
+            options: {
+                production: true,
+                disable: !process.env.ANALYZE_BUNDLE_SIZE,
+                generateStatsFile: true,
+                analyzerMode: 'static',
             },
         },
     ],

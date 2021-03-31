@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
+import { graphql, useStaticQuery } from 'gatsby'
 import styled, { keyframes } from 'styled-components'
 import PropTypes from 'prop-types'
-import { graphql, useStaticQuery } from 'gatsby'
 import VerticalCarousel from './_vertical-carousel.js'
 import device from 'themes/device'
 import { LinkButton } from 'components/form'
@@ -111,13 +111,12 @@ const ImageWrapper = styled(Box)`
         width: unset;
     }
 `
-
 const Hero = ({ is_ppc }) => {
     const data = useStaticQuery(query)
     const typewriter_text = !is_ppc
         ? localize('Trade forex, commodities, synthetic and stock indices')
         : localize('Trade forex, commodities, and stock indices')
-    const [type_writer, setTypeWriter] = useState('')
+    const [type_writer, setTypeWriter] = React.useState('')
     const [check_first_load, setFirstLoad] = React.useState(false)
     let type_writer_timeout
 
@@ -128,7 +127,7 @@ const Hero = ({ is_ppc }) => {
         }
     }
 
-    useEffect(() => {
+    React.useEffect(() => {
         let start_animations_timeout = setTimeout(() => {
             typeWriterAnimation()
         }, 1200)
@@ -166,6 +165,7 @@ const Hero = ({ is_ppc }) => {
                                 </Flex>
                             </Show.Mobile>
                         )}
+
                         <TypeWriter
                             as="h2"
                             type="sub-section-title"
@@ -181,21 +181,19 @@ const Hero = ({ is_ppc }) => {
                         {check_first_load && (
                             <Show.Mobile>
                                 <QueryImage
-                                    data={data['background']}
+                                    data={data.background}
                                     alt="platform devices mobile"
                                     width="100%"
                                     height="233"
-                                    is_eager
                                 />
                             </Show.Mobile>
                         )}
                         <Show.Desktop>
                             <QueryImage
-                                data={data['background']}
+                                data={data.background}
                                 alt="platform devices"
                                 width="100%"
                                 height="346"
-                                is_eager
                             />
                         </Show.Desktop>
                     </ImageWrapper>

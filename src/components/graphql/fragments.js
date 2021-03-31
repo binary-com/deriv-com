@@ -1,26 +1,12 @@
 import { graphql } from 'gatsby'
 
-export const heroImage = graphql`
-    fragment heroImage on File {
+export const backGroundBlur = graphql`
+    fragment backGroundBlur on File {
         childImageSharp {
-            gatsbyImageData(
-                formats: [AUTO, AVIF, WEBP]
-                layout: FULL_WIDTH
-                placeholder: DOMINANT_COLOR
-            )
-        }
-    }
-`
-
-export const colorPlaceholder = graphql`
-    fragment colorPlaceholder on File {
-        childImageSharp {
-            gatsbyImageData(
-                formats: [AUTO, WEBP]
-                layout: CONSTRAINED
-                breakpoints: [360, 992]
-                placeholder: DOMINANT_COLOR
-            )
+            fluid(quality: 90, maxWidth: 2048, srcSetBreakpoints: [600, 1440]) {
+                ...GatsbyImageSharpFluid_withWebp_noBase64
+                originalName
+            }
         }
     }
 `
@@ -28,12 +14,10 @@ export const colorPlaceholder = graphql`
 export const fadeIn = graphql`
     fragment fadeIn on File {
         childImageSharp {
-            gatsbyImageData(
-                formats: [AUTO, WEBP]
-                layout: CONSTRAINED
-                breakpoints: [360, 992]
-                placeholder: NONE
-            )
+            fluid(maxWidth: 1024, srcSetBreakpoints: [600, 1440]) {
+                ...GatsbyImageSharpFluid_withWebp_noBase64
+                originalName
+            }
         }
     }
 `

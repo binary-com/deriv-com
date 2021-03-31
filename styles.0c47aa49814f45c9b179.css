@@ -1,0 +1,18 @@
+@font-face {
+    font-family: 'IBM Plex Sans';
+    font-style: normal;
+    font-display: swap;
+	src:url(/static/IBMPlexSansVar-Roman-48d3454abc00e7e66effe4165923d578.woff2) format('woff2 supports variations'),
+        url(/static/IBMPlexSansVar-Roman-48d3454abc00e7e66effe4165923d578.woff2) format('woff2-variations');
+	font-weight: 100 700;
+}
+
+@font-face {
+    font-family: 'IBM Plex Sans';
+    font-style: italic;
+    font-display: swap;
+	src:url(/static/IBMPlexSansVar-Italic-df26a8aea035eb42dba1a156adff1fdd.woff2) format('woff2 supports variations'),
+        url(/static/IBMPlexSansVar-Italic-df26a8aea035eb42dba1a156adff1fdd.woff2) format('woff2-variations');
+	font-weight: 100 700;
+}
+

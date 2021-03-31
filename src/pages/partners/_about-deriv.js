@@ -7,14 +7,9 @@ import { localize } from 'components/localization'
 import device from 'themes/device'
 
 const query = graphql`
-    query {
+    {
         deriv_platform: file(relativePath: { eq: "partner-deriv-platform.png" }) {
-            childImageSharp {
-                fluid(maxWidth: 486, srcSetBreakpoints: [340, 400, 600, 1280]) {
-                    ...GatsbyImageSharpFluid_withWebp_noBase64
-                    originalName
-                }
-            }
+            ...fadeIn
         }
     }
 `

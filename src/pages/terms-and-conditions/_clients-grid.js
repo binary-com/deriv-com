@@ -60,7 +60,7 @@ const IconGrid = () => {
             content: localize('What you’re agreeing to when you sign up to use Deriv'),
             non_eu_links: [
                 {
-                    url: '/tnc/general-terms-v1.0.pdf',
+                    url: '/tnc/general-terms.pdf',
                     title: localize('General terms of use'),
                 },
             ],
@@ -125,7 +125,7 @@ const IconGrid = () => {
                     title: localize('Deriv (FX) Ltd'),
                 },
                 {
-                    url: '/tnc/deriv-Investments-(europe)-limited-v1.0.pdf',
+                    url: '/tnc/deriv-investments-(europe)-limited.pdf',
                     title: localize('Deriv Investments (Europe) Limited'),
                 },
                 {

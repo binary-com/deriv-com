@@ -23,15 +23,13 @@ import {
 import { Show } from 'components/containers'
 
 const CalculatedFormula = ({ data }) => {
-    let itemList = data.list
+    const itemList = data.list
 
     return (
         <>
             <Show.Desktop>
                 {itemList.map((value, index) => {
-                    const formula = value.formula
-                    const result = value.result
-
+                    const { formula, result } = value
                     return (
                         <FormulaContainer key={index}>
                             <FormulaHighlight>
@@ -67,8 +65,7 @@ const CalculatedFormula = ({ data }) => {
             <Show.Mobile>
                 <>
                     {itemList.map((value, index) => {
-                        const totalItem = value.totalItem
-                        const formula = value.formula
+                        const { totalItem, formula } = value
                         const totalResult = value.result.total
                         const totalResultDesc = value.result.description
                         const totalNumberofOperation = 2
@@ -77,29 +74,20 @@ const CalculatedFormula = ({ data }) => {
                                 <FormulaHighlight>
                                     <FormulaTopWrapper>
                                         {formula.map((list, indexData) => {
-                                            let items = list.item
-                                            let desc = list.description
-                                            let nextOperator = list.next_operator
+                                            const { item, description } = list
+                                            const nextOperator = list.next_operator
 
                                             return (
                                                 <>
                                                     <FormulaValueMobile key={indexData}>
-                                                        {items}
-                                                        {indexData > 0 ? (
-                                                            <PointerContainer top>
-                                                                <PointerDot />
-                                                                <PointerStick />
-                                                                <PointerText top>
-                                                                    {desc}
-                                                                </PointerText>
-                                                            </PointerContainer>
-                                                        ) : (
-                                                            <PointerContainer>
-                                                                <PointerDot />
-                                                                <PointerStick />
-                                                                <PointerText>{desc}</PointerText>
-                                                            </PointerContainer>
-                                                        )}
+                                                        {item}
+                                                        <PointerContainer top={indexData > 0}>
+                                                            <PointerDot />
+                                                            <PointerStick />
+                                                            <PointerText top={indexData > 0}>
+                                                                {description}
+                                                            </PointerText>
+                                                        </PointerContainer>
                                                     </FormulaValueMobile>
 
                                                     {nextOperator && (
@@ -128,19 +116,18 @@ const CalculatedFormula = ({ data }) => {
                                 <FormulaHighlight>
                                     <FormulaTopWrapper oneLine>
                                         {formula.map((list, indexData) => {
-                                            let items = list.item
-                                            let desc = list.description
-                                            let nextOperator = list.next_operator
+                                            const { item, description } = list
+                                            const nextOperator = list.next_operator
 
                                             return (
                                                 <>
                                                     <FormulaValueMobileOneLine key={indexData}>
-                                                        {items}
+                                                        {item}
                                                         <PointerContainerMobile>
                                                             <PointerDot />
                                                             <PointerStick />
                                                             <PointerTextMobile>
-                                                                {desc}
+                                                                {description}
                                                             </PointerTextMobile>
                                                         </PointerContainerMobile>
                                                     </FormulaValueMobileOneLine>

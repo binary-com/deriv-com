@@ -14,7 +14,7 @@ import CopyrightIc from 'images/svg/copyright.svg'
 import Logo from 'images/svg/deriv-footer.svg'
 import Twitter from 'images/svg/footer-twitter.svg'
 import Instagram from 'images/svg/footer-instagram.svg'
-// import Facebook from 'images/svg/footer-facebook.svg'
+import Facebook from 'images/svg/footer-facebook.svg'
 import Linkedin from 'images/svg/footer-linkedin.svg'
 //EU icons
 import Gamstop from 'images/svg/gamstop.svg'
@@ -249,13 +249,13 @@ const mobile_accordion_header_about = Object.assign({}, mobile_accordion_header)
 const SocialWrapperComponent = ({ is_career_page }) => {
     const alt_string = (is_career_page ? 'career' : '') + ' icon link'
     const accounts = [
-        // {
-        //     link: is_career_page
-        //         ? 'https://www.facebook.com/derivcareers'
-        //         : 'https://www.facebook.com/derivdotcom/',
-        //     image: Facebook,
-        //     image_alt: `facebook ${alt_string}`,
-        // },
+        {
+            link: is_career_page
+                ? 'https://www.facebook.com/derivcareers'
+                : 'https://www.facebook.com/derivdotcom/',
+            image: Facebook,
+            image_alt: `facebook ${alt_string}`,
+        },
         {
             link: is_career_page
                 ? 'https://www.instagram.com/derivcareers/'

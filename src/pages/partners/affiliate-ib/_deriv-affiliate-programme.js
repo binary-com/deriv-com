@@ -111,6 +111,10 @@ const StyledCard = styled(Card)`
         }
     }
 
+    @media (max-width: 1313px) {
+        height: 59rem;
+    }
+
     @media ${device.laptopM} {
         min-width: 38.4rem;
         width: 38.4rem;
@@ -119,7 +123,7 @@ const StyledCard = styled(Card)`
     @media ${device.tabletL} {
         min-width: unset;
         padding: 24px 16px;
-        height: ${(props) => (props.tabletHeight ? props.tabletHeight : '')};
+        ${(props) => props.tabletHeight && 'height:' + props.tabletHeight};
 
         :first-child {
             margin-top: 16px;

@@ -41,7 +41,7 @@ export const FormulaGreen = styled.span`
 export const FormulaHighlight = styled(Flex)`
     width: 100%;
     border-radius: 4px;
-    background-color: #ffffff;
+    background-color: var(--color-white);
     align-items: flex-start;
 
     @media ${device.tabletL} {

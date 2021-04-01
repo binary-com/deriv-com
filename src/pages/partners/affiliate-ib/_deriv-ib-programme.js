@@ -32,7 +32,7 @@ const StyledSection = styled(SectionContainer)`
 const DecideSection = styled(StyledSection)`
     padding-top: 40px;
     @media ${device.tabletL} {
-        padding: 24px 0 0 0;
+        padding: 24px 0 0;
     }
 `
 
@@ -58,7 +58,6 @@ const LinkButtonContactUs = styled(LinkButton)`
     @media ${device.tablet} {
         display: block;
         margin: auto;
-        width: 100%;
         height: 40px;
     }
 `

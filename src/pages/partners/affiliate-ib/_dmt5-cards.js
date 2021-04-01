@@ -67,7 +67,7 @@ const StyledCard = styled(Card)`
     @media ${device.tabletL} {
         min-width: 328px;
         padding: 16px 16px 0;
-        height: ${(props) => (props.tabletHeight ? props.tabletHeight : '')};
+        ${(props) => props.tabletHeight && 'height:' + props.tabletHeight};
 
         :first-child {
             margin: 24px 0 0;
@@ -77,7 +77,7 @@ const StyledCard = styled(Card)`
     @media ${device.mobileM} {
         min-width: unset;
         width: 100%;
-        height: ${(props) => (props.mobileHeight ? props.mobileHeight : '')};
+        ${(props) => props.mobileHeight && 'height:' + props.mobileHeight};
     }
 `
 const CardWrappers = styled(Flex)`

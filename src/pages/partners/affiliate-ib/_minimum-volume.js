@@ -32,7 +32,11 @@ const TitleWrapper = styled(Flex)`
     }
 `
 const StyledHeader = styled(Header)`
+    max-width: 1200px;
+    margin: 0 auto 24px;
+
     @media ${device.mobileL} {
+        max-width: unset;
         margin: 0 auto 16px;
         text-align: left !important;
     }
@@ -108,9 +112,7 @@ const MinimumVolume = () => {
                     <CalculationWrapper ai="center" mb="24px">
                         <LeftWrapper>
                             <Text size="16px">
-                                {localize(
-                                    'A deal for 1 lot of BTC/USD (with a BTC to USD exchange rate of USD 50,000) per USD 100,000 turnover will pay out a commission of USD 20. The minimum volume required to receive the minimum commission of USD 0.01 is determined using the following formula:',
-                                )}
+                                <Localize translate_text="A deal for 1 lot of BTC/USD (with a BTC to USD exchange rate of USD 50,000) per USD 100,000 turnover will pay out a commission of USD 20. The minimum volume required to receive the minimum commission of USD 0.01 is determined using the following formula:" />
                             </Text>
                         </LeftWrapper>
                         <RightWrapper>
@@ -120,9 +122,7 @@ const MinimumVolume = () => {
                     <CalculationWrapper ai="center">
                         <LeftWrapper>
                             <Text size="16px">
-                                {localize(
-                                    'A deal for 1 lot of the Volatility Index 75 for a price of USD 500,000 per USD 100,000 turnover will pay out a commission of USD 5. The minimum volume required to receive the minimum commission of USD 0.01 is determined using the following formula:',
-                                )}
+                                <Localize translate_text="A deal for 1 lot of the Volatility Index 75 for a price of USD 500,000 per USD 100,000 turnover will pay out a commission of USD 5. The minimum volume required to receive the minimum commission of USD 0.01 is determined using the following formula:" />
                             </Text>
                         </LeftWrapper>
                         <RightWrapper>
@@ -141,18 +141,18 @@ const firstCalculatedFormula = {
             totalItem: 3,
             formula: [
                 {
-                    item: <Localize translate_text="(0.01" />,
-                    description: <Localize translate_text="Min. commission" />,
-                    next_operator: <Localize translate_text="✕" />,
+                    item: '(0.01',
+                    description: 'Min. commission',
+                    next_operator: '✕',
                 },
                 {
-                    item: <Localize translate_text="USD 100,000)" />,
-                    description: <Localize translate_text="Adjusted volume" />,
-                    next_operator: <Localize translate_text="÷" />,
+                    item: 'USD 100,000)',
+                    description: 'Adjusted volume',
+                    next_operator: '÷',
                 },
                 {
-                    item: <Localize translate_text="20" />,
-                    description: <Localize translate_text="Commission rate" />,
+                    item: '20',
+                    description: 'Commission rate',
                 },
             ],
             result: {
@@ -168,13 +168,13 @@ const firstCalculatedFormula = {
             totalItem: 2,
             formula: [
                 {
-                    item: <Localize translate_text="USD 50" />,
-                    description: <Localize translate_text="Volume" />,
-                    next_operator: <Localize translate_text="÷" />,
+                    item: 'USD 50',
+                    description: 'Volume',
+                    next_operator: '÷',
                 },
                 {
-                    item: <Localize translate_text="USD 50,000" />,
-                    description: <Localize translate_text="Spot price" />,
+                    item: 'USD 50,000',
+                    description: 'Spot price',
                 },
             ],
             result: {
@@ -184,7 +184,7 @@ const firstCalculatedFormula = {
                         components={[<ResultStrong key={0} />]}
                     />
                 ),
-                description: <Localize translate_text="Volume in lots" />,
+                description: 'Volume in lots',
             },
         },
     ],
@@ -196,18 +196,18 @@ const secondCalculatedFormula = {
             totalItem: 3,
             formula: [
                 {
-                    item: <Localize translate_text="(0.01" />,
-                    description: <Localize translate_text="Min. commission" />,
-                    next_operator: <Localize translate_text="✕" />,
+                    item: '(0.01',
+                    description: 'Min. commission',
+                    next_operator: '✕',
                 },
                 {
-                    item: <Localize translate_text="USD 100,000)" />,
-                    description: <Localize translate_text="Adjusted volume" />,
-                    next_operator: <Localize translate_text="÷" />,
+                    item: 'USD 100,000)',
+                    description: 'Adjusted volume',
+                    next_operator: '÷',
                 },
                 {
-                    item: <Localize translate_text="5" />,
-                    description: <Localize translate_text="Commission rate" />,
+                    item: '5',
+                    description: 'Commission rate',
                 },
             ],
             result: {
@@ -223,13 +223,13 @@ const secondCalculatedFormula = {
             totalItem: 2,
             formula: [
                 {
-                    item: <Localize translate_text="USD 200" />,
-                    description: <Localize translate_text="volume" />,
-                    next_operator: <Localize translate_text="÷" />,
+                    item: 'USD 200',
+                    description: 'volume',
+                    next_operator: '÷',
                 },
                 {
-                    item: <Localize translate_text="USD 500,000" />,
-                    description: <Localize translate_text="Spot price" />,
+                    item: 'USD 500,000',
+                    description: 'Spot price',
                 },
             ],
             result: {
@@ -239,7 +239,7 @@ const secondCalculatedFormula = {
                         components={[<ResultStrong key={0} />]}
                     />
                 ),
-                description: <Localize translate_text="Volume in lots" />,
+                description: 'Volume in lots',
             },
         },
     ],

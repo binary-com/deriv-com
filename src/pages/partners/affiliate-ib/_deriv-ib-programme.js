@@ -55,10 +55,11 @@ const LinkButtonContactUsWrapper = styled(Flex)`
     margin-top: 8px;
 `
 const LinkButtonContactUs = styled(LinkButton)`
-    @media ${device.tablet} {
+    @media ${device.mobileL} {
         display: block;
         margin: auto;
         height: 40px;
+        width: 100%;
     }
 `
 

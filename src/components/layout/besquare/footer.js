@@ -16,7 +16,7 @@ import { besquare_signup_url } from 'common/utility'
 import { localize, Localize, LocalizedLink } from 'components/localization'
 import Linkedin from 'images/svg/be-square/linkedin.svg'
 import Twitter from 'images/svg/be-square/twitter.svg'
-// import Facebook from 'images/svg/be-square/facebook.svg'
+import Facebook from 'images/svg/be-square/facebook.svg'
 import Instagram from 'images/svg/be-square/instagram.svg'
 
 const query = graphql`
@@ -34,11 +34,11 @@ const BeSquareFooter = () => {
             alt: 'Linkedin',
             link_to: 'https://www.linkedin.com/showcase/besquarebyderiv',
         },
-        // {
-        //     src: Facebook,
-        //     alt: 'Facebook',
-        //     link_to: 'https://www.facebook.com/BeSquareByDeriv',
-        // },
+        {
+            src: Facebook,
+            alt: 'Facebook',
+            link_to: 'https://www.facebook.com/BeSquareByDeriv',
+        },
         {
             src: Instagram,
             alt: 'Instagram',

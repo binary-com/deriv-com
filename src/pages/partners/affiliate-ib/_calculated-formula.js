@@ -71,7 +71,8 @@ const CalculatedFormula = ({ data }) => {
                         const formula = value.formula
                         const totalResult = value.result.total
                         const totalResultDesc = value.result.description
-                        return totalItem > 2 ? (
+                        const totalNumberofOperation = 2
+                        return totalItem > totalNumberofOperation ? (
                             <FormulaContainer key={index}>
                                 <FormulaHighlight>
                                     <FormulaTopWrapper>

@@ -231,8 +231,8 @@ const payment_data = [
             {
                 method: <ZingPayIc src={ZingPay} alt="zingPay" />,
                 currencies: 'USD GBP EUR AUD',
-                min_max_deposit: '10-10,000',
-                min_max_withdrawal: '10-10,000',
+                min_max_deposit: '10-500',
+                min_max_withdrawal: '10-1,500',
                 deposit_time: <Localize translate_text="Instant" />,
                 withdrawal_time: <Localize translate_text="1 working day" />,
                 description: (
@@ -778,7 +778,7 @@ const payment_data = [
                 method: <ChangellyIc src={Changelly} alt="Changelly" />,
                 currencies: 'USD EUR GBP BTC',
                 min_max_deposit: '50-5,000',
-                deposit_time: <Localize translate_text="Funds available as soon as confirmed" />,
+                deposit_time: <Localize translate_text="5-30 minutes" />,
                 description: (
                     <Localize translate_text="A safe and speedy crypto exchange and fiat-to-crypto service that's available worldwide. Offering 150+ cryptocurrencies. 24/7 live chat support." />
                 ),
@@ -789,7 +789,7 @@ const payment_data = [
                 method: <WyreIc src={Wyre} alt="Wyre" />,
                 currencies: 'USD EUR GBP AUD MXN BTC ETH WETH DAI',
                 min_max_deposit: <Localize translate_text="50-5,000" />,
-                deposit_time: <Localize translate_text="Funds available as soon as confirmed" />,
+                deposit_time: <Localize translate_text="5-30 minutes" />,
                 description: (
                     <Localize translate_text="Purchase crypto using your credit and debit card to top-up your Deriv account with this global fiat-to-crypto exchange." />
                 ),
@@ -799,7 +799,7 @@ const payment_data = [
                 method: <XanpoolIc src={Xanpool} alt="Xanpool" />,
                 currencies: 'HKD SGD MYR PHP THB INR VND IDR BTC ETH LTC USDT',
                 min_max_deposit: <Localize translate_text="50-5,000" />,
-                deposit_time: <Localize translate_text="Funds available as soon as confirmed" />,
+                deposit_time: <Localize translate_text="5-30 minutes" />,
                 description: (
                     <Localize translate_text="Buy cryptocurrencies in an instant. Enjoy easy, quick, and secure exchanges using your local payment methods." />
                 ),
@@ -809,7 +809,7 @@ const payment_data = [
                 method: <BanxaIc src={Banxa} alt="Banxa" />,
                 currencies: 'USD EUR GBP AUD CAD BTC LTC USDT USDC',
                 min_max_deposit: '50-5,000',
-                deposit_time: <Localize translate_text="Funds available as soon as confirmed" />,
+                deposit_time: <Localize translate_text="5-30 minutes" />,
                 description: (
                     <Localize translate_text="Make fast, easy, and secure deposits with this internationally compliant fiat-to-crypto exchange using your credit or debit card. Registrations are hassle-free." />
                 ),

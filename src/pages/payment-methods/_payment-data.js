@@ -12,7 +12,7 @@ import PerfectMoney from 'images/svg/payment-methods/payment-perfect-money.svg'
 import Skrill from 'images/svg/payment-methods/payment-skrill.svg'
 import Neteller from 'images/svg/payment-methods/payment-neteller.svg'
 import Webmoney from 'images/svg/payment-methods/payment-webmoney.svg'
-import Qiwi from 'images/svg/payment-methods/payment-qiwi.svg'
+// import Qiwi from 'images/svg/payment-methods/payment-qiwi.svg'
 import PaysafeCard from 'images/svg/payment-methods/payment-paysafe.svg'
 import Jeton from 'images/svg/payment-methods/payment-jeton.svg'
 import Sticpay from 'images/svg/payment-methods/payment-sticpay.svg'
@@ -24,7 +24,7 @@ import Tether from 'images/svg/payment-methods/payment-tether.svg'
 import Help2Pay from 'images/svg/payment-methods/payment-help-pay.svg'
 import DragonPhoenix from 'images/svg/payment-methods/payment-dragon-phoenix.svg'
 import ZingPay from 'images/svg/payment-methods/payment-zing-pay.svg'
-import DragonPay from 'images/svg/payment-methods/payment-dragon-pay.svg'
+// import DragonPay from 'images/svg/payment-methods/payment-dragon-pay.svg'
 import NganLuong from 'images/svg/payment-methods/payment-ngan-luong.svg'
 import Diners from 'images/svg/payment-methods/payment-diners.svg'
 // import Bianance from 'images/svg/payment-methods/payment-binance-usd.svg'
@@ -42,8 +42,8 @@ import Banxa from 'images/svg/payment-methods/payment-banxa.svg'
 import Paylivre from 'images/svg/payment-methods/payment-paylivre.svg'
 import Discover from 'images/svg/payment-methods/payment-discover.svg'
 import OnlineNaira from 'images/svg/payment-methods/payment-onlinenaira.svg'
-import Tigo from 'images/svg/payment-methods/payment-tigo.svg'
-import Airtel from 'images/svg/payment-methods/payment-airtel.svg'
+// import Tigo from 'images/svg/payment-methods/payment-tigo.svg'
+// import Airtel from 'images/svg/payment-methods/payment-airtel.svg'
 
 const icon_css = css`
     width: 72px;
@@ -81,9 +81,9 @@ const NetellerIc = styled.img`
 const WebmoneyIc = styled.img`
     ${icon_css}
 `
-const QiwiIc = styled.img`
-    ${icon_css}
-`
+// const QiwiIc = styled.img`
+//     ${icon_css}
+// `
 const PaysafeCardIc = styled.img`
     ${icon_css}
 `
@@ -117,9 +117,9 @@ const DragonPhoenixIc = styled.img`
 const ZingPayIc = styled.img`
     ${icon_css}
 `
-const DragonPayIc = styled.img`
-    ${icon_css}
-`
+// const DragonPayIc = styled.img`
+//     ${icon_css}
+// `
 const NganLuongIc = styled.img`
     ${icon_css}
 `
@@ -174,13 +174,13 @@ const OnlineNairaIc = styled.img`
     ${icon_css}
 `
 
-const TigoIc= styled.img`
-    ${icon_css}
-`
+// const TigoIc= styled.img`
+//     ${icon_css}
+// `
 
-const AirtelIc = styled.img`
-    ${icon_css}
-`
+// const AirtelIc = styled.img`
+//     ${icon_css}
+// `
 
 const NoIconText = styled.div`
     color:var(--color-red);
@@ -241,19 +241,19 @@ const payment_data = [
                 name: 'ZingPay',
                 reference: 'zingpay-payment-method.pdf',
             },
-            {
-                method: <DragonPayIc src={DragonPay} alt="Dragon pay" />,
-                currencies: 'USD',
-                min_max_deposit: '50-4,500',
-                min_max_withdrawal: '50-2,500',
-                deposit_time: <Localize translate_text="1 working day" />,
-                withdrawal_time: <Localize translate_text="1-3 working days" />,
-                description: (
-                    <Localize translate_text="A payment facility that allows online bank transfers for clients in the Philippines. Available for deposits and withdrawals." />
-                ),
-                name: 'DragonPay',
-                reference: 'dragonpay-payment-method.pdf',
-            },
+            // {
+            //     method: <DragonPayIc src={DragonPay} alt="Dragon pay" />,
+            //     currencies: 'USD',
+            //     min_max_deposit: '50-4,500',
+            //     min_max_withdrawal: '50-2,500',
+            //     deposit_time: <Localize translate_text="1 working day" />,
+            //     withdrawal_time: <Localize translate_text="1-3 working days" />,
+            //     description: (
+            //         <Localize translate_text="A payment facility that allows online bank transfers for clients in the Philippines. Available for deposits and withdrawals." />
+            //     ),
+            //     name: 'DragonPay',
+            //     reference: 'dragonpay-payment-method.pdf',
+            // },
             {
                 method: <NganLuongIc src={NganLuong} alt="NganLuong" />,
                 currencies: 'USD',
@@ -414,19 +414,19 @@ const payment_data = [
                 name: 'webmoney',
                 reference: 'webmoney-payment-method.pdf',
             },
-            {
-                method: <QiwiIc src={Qiwi} alt="Qiwi" />,
-                currencies: 'USD EUR',
-                min_max_deposit: ['5-200 (USD)', '5-150 (EUR)'],
-                min_max_withdrawal: ['5-180 (USD)', '5-150 (EUR)'],
-                deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="1 working day" />,
-                description: (
-                    <Localize translate_text="A payment service provider that provides a simple way to transfer money, receive payments, and pay online." />
-                ),
-                url: 'https://qiwi.com/',
-                name: 'qiwi',
-            },
+            // {
+            //     method: <QiwiIc src={Qiwi} alt="Qiwi" />,
+            //     currencies: 'USD EUR',
+            //     min_max_deposit: ['5-200 (USD)', '5-150 (EUR)'],
+            //     min_max_withdrawal: ['5-180 (USD)', '5-150 (EUR)'],
+            //     deposit_time: <Localize translate_text="Instant" />,
+            //     withdrawal_time: <Localize translate_text="1 working day" />,
+            //     description: (
+            //         <Localize translate_text="A payment service provider that provides a simple way to transfer money, receive payments, and pay online." />
+            //     ),
+            //     url: 'https://qiwi.com/',
+            //     name: 'qiwi',
+            // },
             {
                 method: <PaysafeCardIc src={PaysafeCard} alt="PaysafeCard" />,
                 currencies: 'USD GBP EUR AUD',
@@ -524,55 +524,81 @@ const payment_data = [
                 name: 'onlinenaira',
                 reference: 'paylivre-payment-method.pdf',
             },
+            // {
+            //     method: <NoIconText> MTN Mobile Money</NoIconText>,
+            //     currencies: 'GHS UGX',
+            //     min_max_deposit: '10-500',
+            //     min_max_withdrawal: 'Not applicable',
+            //     deposit_time: <Localize translate_text="Instant" />,
+            //     withdrawal_time: <Localize translate_text="Not applicable" />,
+            //     description: (
+            //         <Localize translate_text="Make deposits directly from your mobile with this affordable, fast, and secure payment solution for clients in Ghana and Uganda." />
+            //     ),
+            //     name: 'mtnmobilemoney',
+            // },
+            // {
+            //     method: <TigoIc src={Tigo} alt='tigo'/>,
+            //     currencies: 'GHS',
+            //     min_max_deposit: '10-500',
+            //     min_max_withdrawal: 'Not applicable',
+            //     deposit_time: <Localize translate_text="Instant" />,
+            //     withdrawal_time: <Localize translate_text="Not applicable" />,
+            //     description: (
+            //         <Localize translate_text="Make secure deposits directly from your mobile. For clients in Ghana." />
+            //     ),
+            //     url:'https://www.tigo.com.gt/tigopay',
+            //     name: 'tigo',
+            // },
+            // {
+            //     method: <AirtelIc src={Airtel} alt='airtel'/>,
+            //     currencies: 'GHS UGX',
+            //     min_max_deposit: '10-500',
+            //     min_max_withdrawal: 'Not applicable',
+            //     deposit_time: <Localize translate_text="Instant" />,
+            //     withdrawal_time: <Localize translate_text="Not applicable" />,
+            //     description: (
+            //         <Localize translate_text="Make deposits easily using your mobile. For clients in Ghana and Uganda. " />
+            //     ),
+            //     url:'https://www.airtel.in/',
+            //     name: 'airtel',
+            // },
+            // {
+            //     method: <NoIconText> Vodafone Cash </NoIconText>,
+            //     currencies: 'GHS',
+            //     min_max_deposit: '10-500',
+            //     min_max_withdrawal: 'Not applicable',
+            //     deposit_time: <Localize translate_text="Instant" />,
+            //     withdrawal_time: <Localize translate_text="Not applicable" />,
+            //     description: (
+            //         <Localize translate_text="Make deposits directly from your mobile with this popular payment solution for clients in Ghana. No bank account needed. " />
+            //     ),
+            //     name: 'vodafone',
+            // },
             {
-                method: <NoIconText> MTN Mobile Money</NoIconText>,
-                currencies: 'GHS UGX',
-                min_max_deposit: '10-500',
+                method: <NoIconText>Beyonic</NoIconText>,
+                currencies: 'UGX, TZS',
+                min_max_deposit: '5-1,000',
                 min_max_withdrawal: 'Not applicable',
                 deposit_time: <Localize translate_text="Instant" />,
                 withdrawal_time: <Localize translate_text="Not applicable" />,
                 description: (
-                    <Localize translate_text="Make deposits directly from your mobile with this affordable, fast, and secure payment solution for clients in Ghana and Uganda." />
+                    <Localize translate_text="Make deposits easily using your mobile. For clients in Uganda and Tanzania." />
                 ),
-                name: 'mtnmobilemoney',
+                url:'https://beyonic.com/',
+                name: 'beyonic',
             },
             {
-                method: <TigoIc src={Tigo} alt='tigo'/>,
-                currencies: 'GHS',
-                min_max_deposit: '10-500',
+                method: <NoIconText>Trustly</NoIconText>,
+                currencies: 'EUR',
+                min_max_deposit: '10-100',
                 min_max_withdrawal: 'Not applicable',
                 deposit_time: <Localize translate_text="Instant" />,
                 withdrawal_time: <Localize translate_text="Not applicable" />,
                 description: (
-                    <Localize translate_text="Make secure deposits directly from your mobile. For clients in Ghana." />
+                    <Localize translate_text="Enjoy fast, smooth, and secure deposits and withdrawals with Trustly. " />
                 ),
-                url:'https://www.tigo.com.gt/tigopay',
-                name: 'tigo',
-            },
-            {
-                method: <AirtelIc src={Airtel} alt='airtel'/>,
-                currencies: 'GHS UGX',
-                min_max_deposit: '10-500',
-                min_max_withdrawal: 'Not applicable',
-                deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="Not applicable" />,
-                description: (
-                    <Localize translate_text="Make deposits easily using your mobile. For clients in Ghana and Uganda. " />
-                ),
-                url:'https://www.airtel.in/',
-                name: 'airtel',
-            },
-            {
-                method: <NoIconText> Vodafone Cash </NoIconText>,
-                currencies: 'GHS',
-                min_max_deposit: '10-500',
-                min_max_withdrawal: 'Not applicable',
-                deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="Not applicable" />,
-                description: (
-                    <Localize translate_text="Make deposits directly from your mobile with this popular payment solution for clients in Ghana. No bank account needed. " />
-                ),
-                name: 'vodafone',
+                url:'https://www.trustly.net/',
+                name: 'trustly',
             },
         ],
     },

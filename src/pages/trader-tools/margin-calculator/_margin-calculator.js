@@ -31,13 +31,22 @@ import {
     FormulaText,
     StyledOl,
     LinkWrapper,
-    BottomContent,
     StyledLinkButton,
+    item_style,
+    header_style,
 } from '../common/_style'
 import validation from '../common/_validation'
 import { localize, Localize } from 'components/localization'
 import { Flex, Show } from 'components/containers'
-import { Header, Text, QueryImage, Dropdown, LocalizedLinkText } from 'components/elements'
+import {
+    Header,
+    Text,
+    QueryImage,
+    Dropdown,
+    LocalizedLinkText,
+    Accordion,
+    AccordionItem,
+} from 'components/elements'
 import Input from 'components/form/input'
 import RightArrow from 'images/svg/black-right-arrow.svg'
 
@@ -423,67 +432,77 @@ const MarginCalculator = () => {
                                 {localize('Example calculation')}
                             </Header>
 
-                            <Text mb="16px">
-                                {localize(
-                                    'Let’s say you want to trade two lots of EUR/USD with an asset price of 1.10 USD and leverage of 100.',
-                                )}
-                            </Text>
+                            <Accordion has_single_state>
+                                <AccordionItem
+                                    header={localize('Margin required')}
+                                    header_style={header_style}
+                                    style={item_style}
+                                    plus
+                                >
+                                    <Text mb="16px">
+                                        {localize(
+                                            'Let’s say you want to trade two lots of EUR/USD with an asset price of 1.10 USD and leverage of 100.',
+                                        )}
+                                    </Text>
+
+                                    <ImageWrapper>
+                                        <Show.Desktop>
+                                            <QueryImage
+                                                data={data.margin_formula}
+                                                alt={'Margin formula'}
+                                            />
+                                        </Show.Desktop>
+
+                                        <Show.Mobile>
+                                            <QueryImage
+                                                data={data.margin_formula_mobile}
+                                                alt={'Margin formula mobile'}
+                                            />
+                                        </Show.Mobile>
+
+                                        <FormulaText>
+                                            <StyledOl>
+                                                <li>
+                                                    <span>
+                                                        <Localize translate_text=" One standard lot of forex = 100,000 units" />
+                                                    </span>
+                                                </li>
+                                            </StyledOl>
+                                        </FormulaText>
+                                    </ImageWrapper>
+
+                                    <TextWrapper>
+                                        <Text mb="1.6rem" mt="1.6rem">
+                                            <Localize
+                                                translate_text="So you will require a margin rate of <0>2,200 USD</0> to open the above position."
+                                                components={[<strong key={0} />]}
+                                            />
+                                        </Text>
+                                        <Text>
+                                            {localize(
+                                                'Note that these are approximate values only and will differ depending on the leverage that is set for your account and the asset you want to trade.',
+                                            )}
+                                        </Text>
+                                    </TextWrapper>
+                                </AccordionItem>
+                            </Accordion>
                         </TextWrapper>
 
-                        <ImageWrapper>
-                            <Show.Desktop>
-                                <QueryImage data={data.margin_formula} alt={'Margin formula'} />
-                            </Show.Desktop>
-
-                            <Show.Mobile>
-                                <QueryImage
-                                    data={data.margin_formula_mobile}
-                                    alt={'Margin formula mobile'}
-                                />
-                            </Show.Mobile>
-
-                            <FormulaText>
-                                <StyledOl>
-                                    <li>
-                                        <span>
-                                            <Localize translate_text=" One standard lot of forex = 100,000 units" />
-                                        </span>
-                                    </li>
-                                </StyledOl>
-                            </FormulaText>
-                        </ImageWrapper>
-
-                        <TextWrapper>
-                            <Text mb="1.6rem" mt="1.6rem">
-                                <Localize
-                                    translate_text="So you will require a margin rate of <0>2,200 USD</0> to open the above position."
-                                    components={[<strong key={0} />]}
-                                />
-                            </Text>
-                            <Text>
-                                {localize(
-                                    'Note that these are approximate values only and will differ depending on the leverage that is set for your account and the asset you want to trade.',
-                                )}
-                            </Text>
-                        </TextWrapper>
+                        <LinkWrapper>
+                            <StyledLinkButton
+                                tertiary="true"
+                                to="https://app.deriv.com/mt5"
+                                external="true"
+                                target="_blank"
+                            >
+                                {localize('Go to DMT5 dashboard')}
+                            </StyledLinkButton>
+                            <StyledLinkButton secondary="true" to="/trade-types/margin">
+                                {localize('Learn more about margin')}
+                            </StyledLinkButton>
+                        </LinkWrapper>
                     </RightContent>
                 </ContentContainer>
-
-                <BottomContent direction="column">
-                    <LinkWrapper>
-                        <StyledLinkButton
-                            tertiary="true"
-                            to="https://app.deriv.com/mt5"
-                            external="true"
-                            target="_blank"
-                        >
-                            {localize('Go to DMT5 dashboard')}
-                        </StyledLinkButton>
-                        <StyledLinkButton secondary="true" to="/trade-types/margin">
-                            {localize('Learn more about margin')}
-                        </StyledLinkButton>
-                    </LinkWrapper>
-                </BottomContent>
             </StyledSection>
         </>
     )

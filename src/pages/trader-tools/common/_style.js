@@ -49,9 +49,9 @@ export const SectionSubtitle = styled(Header)`
 `
 
 export const SwapTabSelector = styled(Flex)`
-    padding: 2.4rem 4rem;
-    width: 35rem;
-    height: 8.4rem;
+    padding: 22px 40px;
+    width: auto;
+    height: 80px;
     border-radius: 4px;
     border: solid 1px rgba(51, 51, 51, 0.1);
     flex-direction: column;
@@ -73,7 +73,6 @@ export const SwapTabSelector = styled(Flex)`
               `}
 
     @media ${device.mobileL} {
-        width: 164px;
         padding: 12px 24px;
     }
 `
@@ -95,16 +94,15 @@ export const FormWrapper = styled(Flex)`
     width: unset;
 
     @media ${device.laptopM} {
-        margin-bottom: 40px;
-        margin-right: 0;
+        margin: 0 0 40px;
     }
 `
 export const SwapFormWrapper = styled(FormWrapper)`
-    height: 569px;
-    margin-top: 45px;
+    @media ${device.desktop} {
+        height: 569px;
+    }
     @media ${device.tabletL} {
         height: unset;
-        margin-top: 0;
     }
 `
 
@@ -305,18 +303,13 @@ export const StyledOl = styled.ol`
     }
 `
 
-export const BottomContent = styled(Flex)`
-    max-width: 100%;
-    align-items: center;
-    font-size: 1.6rem;
-    text-align: center;
-`
-
 export const LinkWrapper = styled(Flex)`
+    margin-top: 40px;
+    justify-content: flex-start;
+
     @media ${device.laptop} {
         flex-direction: column-reverse;
-        max-width: 584px;
-        padding: 0 16px;
+        max-width: 552px;
     }
 `
 
@@ -340,3 +333,13 @@ export const StyledLinkButton = styled(LinkButton)`
         outline: 0;
     }
 `
+export const item_style = {
+    padding: '16px 0',
+}
+export const header_style = {
+    padding: '16px 24px',
+    border: 'none',
+    borderRadius: '8px',
+    position: 'relative',
+    boxShadow: '0 4px 8px 0 rgba(14, 14, 14, 0.1)',
+}

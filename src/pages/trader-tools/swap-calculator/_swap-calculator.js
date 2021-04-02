@@ -31,12 +31,20 @@ import {
     FormulaText,
     StyledOl,
     LinkWrapper,
-    BottomContent,
     StyledLinkButton,
+    item_style,
+    header_style,
 } from '../common/_style'
 import validation from '../common/_validation'
 import { localize, Localize } from 'components/localization'
-import { Header, QueryImage, Text, LocalizedLinkText } from 'components/elements'
+import {
+    Header,
+    QueryImage,
+    Text,
+    LocalizedLinkText,
+    Accordion,
+    AccordionItem,
+} from 'components/elements'
 import { Flex, Show } from 'components/containers'
 import Input from 'components/form/input'
 import RightArrow from 'images/svg/black-right-arrow.svg'
@@ -246,23 +254,18 @@ const SwapCalculator = () => {
                     )}
                 </SectionSubtitle>
 
-                <Flex
-                    mt="40px"
-                    mb="40px"
-                    p="0 1.6rem"
-                    tablet={{ mt: '32px', mb: '32px', height: 'unset' }}
-                >
+                <Flex mt="80px" mb="40px" tablet={{ mt: '40px', mb: '24px' }}>
                     <SwapTabSelector
                         active={tab === 'Synthetic'}
                         onClick={() => onTabClick('Synthetic')}
                     >
                         <Text size="var(--text-size-m)" align="center">
-                            {localize('Synthetic indices')}
+                            {localize('Synthetic')}
                         </Text>
                     </SwapTabSelector>
                     <SwapTabSelector active={tab === 'Real'} onClick={() => onTabClick('Real')}>
                         <Text size="var(--text-size-m)" align="center">
-                            {localize('Forex and commodities')}
+                            {localize('Financial')}
                         </Text>
                     </SwapTabSelector>
                 </Flex>
@@ -509,72 +512,80 @@ const SwapCalculator = () => {
                                         <Localize translate_text="This gives you the swap charge in USD." />
                                     </Text>
 
-                                    <Header as="h3" type="section-title" mb="0.8rem">
+                                    <Header as="h3" type="section-title" mb="16px">
                                         {localize('Example calculation')}
                                     </Header>
 
-                                    <Text mb="2rem">
-                                        {localize(
-                                            'Let’s say you want to keep 0.01 lots of Volatility 75 Index with an asset price of 400,000 USD and swap rate of -7.5 open for one night.',
-                                        )}
-                                    </Text>
-                                </TextWrapper>
-                                <ImageWrapper>
-                                    <Show.Desktop>
-                                        <QueryImage
-                                            data={data.swap_synthetic_formula}
-                                            alt={'swap synthetic formula'}
-                                        />
-                                    </Show.Desktop>
-                                    <Show.Mobile>
-                                        <QueryImage
-                                            data={data.swap_synthetic_formula_mobile}
-                                            alt={'swap synthetic formula mobile'}
-                                        />
-                                    </Show.Mobile>
-                                    <FormulaText size="14px">
-                                        <StyledOl>
-                                            <li>
-                                                <span>
-                                                    <Localize translate_text="If the swap rate is positive, your account will be credited with the swap amount. If it is negative, your account will be debited" />
-                                                </span>
-                                            </li>
-                                        </StyledOl>
-                                    </FormulaText>
-                                </ImageWrapper>
-                                <TextWrapper>
-                                    <Text mt="1.6rem">
-                                        <Localize
-                                            translate_text="So you will be required to pay a swap charge of <0>0.83 USD</0> to keep the position open for one night."
-                                            components={[<strong key={0} />]}
-                                        />
-                                    </Text>
+                                    <Accordion has_single_state>
+                                        <AccordionItem
+                                            header={localize('Swap charge')}
+                                            header_style={header_style}
+                                            style={item_style}
+                                            plus
+                                        >
+                                            <Text mb="2rem">
+                                                {localize(
+                                                    'Let’s say you want to keep 0.01 lots of Volatility 75 Index with an asset price of 400,000 USD and swap rate of -7.5 open for one night.',
+                                                )}
+                                            </Text>
+
+                                            <ImageWrapper>
+                                                <Show.Desktop>
+                                                    <QueryImage
+                                                        data={data.swap_synthetic_formula}
+                                                        alt={'swap synthetic formula'}
+                                                    />
+                                                </Show.Desktop>
+                                                <Show.Mobile>
+                                                    <QueryImage
+                                                        data={data.swap_synthetic_formula_mobile}
+                                                        alt={'swap synthetic formula mobile'}
+                                                    />
+                                                </Show.Mobile>
+                                                <FormulaText size="14px">
+                                                    <StyledOl>
+                                                        <li>
+                                                            <span>
+                                                                <Localize translate_text="If the swap rate is positive, your account will be credited with the swap amount. If it is negative, your account will be debited" />
+                                                            </span>
+                                                        </li>
+                                                    </StyledOl>
+                                                </FormulaText>
+                                            </ImageWrapper>
+                                            <TextWrapper>
+                                                <Text mt="1.6rem">
+                                                    <Localize
+                                                        translate_text="So you will be required to pay a swap charge of <0>0.83 USD</0> to keep the position open for one night."
+                                                        components={[<strong key={0} />]}
+                                                    />
+                                                </Text>
+                                            </TextWrapper>
+                                        </AccordionItem>
+                                    </Accordion>
+
+                                    <LinkWrapper>
+                                        {
+                                            <StyledLinkButton
+                                                tertiary="true"
+                                                to="https://app.deriv.com/mt5"
+                                                external="true"
+                                                target="_blank"
+                                            >
+                                                {localize('Go to DMT5 dashboard')}
+                                            </StyledLinkButton>
+                                        }
+                                        {
+                                            <StyledLinkButton
+                                                secondary="true"
+                                                to="/trade-types/margin#swap-policy"
+                                            >
+                                                {localize('Learn more about swaps')}
+                                            </StyledLinkButton>
+                                        }
+                                    </LinkWrapper>
                                 </TextWrapper>
                             </RightContent>
                         </ContentContainer>
-
-                        <BottomContent direction="column">
-                            <LinkWrapper>
-                                {
-                                    <StyledLinkButton
-                                        tertiary="true"
-                                        to="https://app.deriv.com/mt5"
-                                        external="true"
-                                        target="_blank"
-                                    >
-                                        {localize('Go to DMT5 dashboard')}
-                                    </StyledLinkButton>
-                                }
-                                {
-                                    <StyledLinkButton
-                                        secondary="true"
-                                        to="/trade-types/margin#swap-policy"
-                                    >
-                                        {localize('Learn more about swaps')}
-                                    </StyledLinkButton>
-                                }
-                            </LinkWrapper>
-                        </BottomContent>
                     </>
                 ) : (
                     <>
@@ -820,78 +831,85 @@ const SwapCalculator = () => {
                                         <Localize translate_text="For instance, if you are trading the USD/JPY forex pair, the swap charge will be computed in Japanese Yen (JPY) which is the quote currency. On the other hand, if you are trading oil,  then the swap charge will be computed in US Dollar (USD), which is the denomination of the underlying asset – oil." />
                                     </Text>
 
-                                    <Header as="h3" type="section-title" mb="0.8rem">
+                                    <Header as="h3" type="section-title" mb="16px">
                                         {localize('Example calculation')}
                                     </Header>
 
-                                    <Text mb="2rem">
-                                        {localize(
-                                            'Let’s say you want to keep two lots of EUR/USD with a point value of 0.00001 and swap rate of -0.12 open for one night.',
-                                        )}
-                                    </Text>
-                                </TextWrapper>
-                                <ImageWrapper>
-                                    <Show.Desktop>
-                                        <QueryImage
-                                            data={data.swap_forex_formula}
-                                            alt={'Swap forex formula'}
-                                        />
-                                    </Show.Desktop>
-                                    <Show.Mobile>
-                                        <QueryImage
-                                            data={data.swap_forex_formula_mobile}
-                                            alt={'Swap forex formula mobile'}
-                                        />
-                                    </Show.Mobile>
-                                    <FormulaText size="14px">
-                                        <StyledOl>
-                                            <li>
-                                                <span>
-                                                    <Localize translate_text="One standard lot for Forex = 100,000 units" />
-                                                </span>
-                                            </li>
-                                            <li>
-                                                <span>
-                                                    <Localize translate_text="Point value is based on the current digit of the asset" />
-                                                </span>
-                                            </li>
-                                            <li>
-                                                <span>
-                                                    <Localize translate_text="If the swap rate is positive, your account will be credited with the swap amount. If it is negative, your account will be debited" />
-                                                </span>
-                                            </li>
-                                        </StyledOl>
-                                    </FormulaText>
-                                </ImageWrapper>
-                                <TextWrapper>
-                                    <Text mt="1.6rem">
-                                        <Localize
-                                            translate_text="So you will be required to pay a swap charge of <0>0.24 USD</0> to keep the position open for one night."
-                                            components={[<strong key={0} />]}
-                                        />
-                                    </Text>
+                                    <Accordion has_single_state>
+                                        <AccordionItem
+                                            header={localize('Swap charge')}
+                                            header_style={header_style}
+                                            style={item_style}
+                                            plus
+                                        >
+                                            <Text mb="2rem">
+                                                {localize(
+                                                    'Let’s say you want to keep two lots of EUR/USD with a point value of 0.00001 and swap rate of -0.12 open for one night.',
+                                                )}
+                                            </Text>
+
+                                            <ImageWrapper>
+                                                <Show.Desktop>
+                                                    <QueryImage
+                                                        data={data.swap_forex_formula}
+                                                        alt={'Swap forex formula'}
+                                                    />
+                                                </Show.Desktop>
+                                                <Show.Mobile>
+                                                    <QueryImage
+                                                        data={data.swap_forex_formula_mobile}
+                                                        alt={'Swap forex formula mobile'}
+                                                    />
+                                                </Show.Mobile>
+                                                <FormulaText size="14px">
+                                                    <StyledOl>
+                                                        <li>
+                                                            <span>
+                                                                <Localize translate_text="One standard lot for Forex = 100,000 units" />
+                                                            </span>
+                                                        </li>
+                                                        <li>
+                                                            <span>
+                                                                <Localize translate_text="Point value is based on the current digit of the asset" />
+                                                            </span>
+                                                        </li>
+                                                        <li>
+                                                            <span>
+                                                                <Localize translate_text="If the swap rate is positive, your account will be credited with the swap amount. If it is negative, your account will be debited" />
+                                                            </span>
+                                                        </li>
+                                                    </StyledOl>
+                                                </FormulaText>
+                                            </ImageWrapper>
+                                            <TextWrapper>
+                                                <Text mt="1.6rem">
+                                                    <Localize
+                                                        translate_text="So you will be required to pay a swap charge of <0>0.24 USD</0> to keep the position open for one night."
+                                                        components={[<strong key={0} />]}
+                                                    />
+                                                </Text>
+                                            </TextWrapper>
+                                        </AccordionItem>
+                                    </Accordion>
+                                    <LinkWrapper>
+                                        <StyledLinkButton
+                                            tertiary="true"
+                                            to="https://app.deriv.com/mt5"
+                                            external="true"
+                                            target="_blank"
+                                        >
+                                            {localize('Go to DMT5 dashboard')}
+                                        </StyledLinkButton>
+                                        <StyledLinkButton
+                                            secondary="true"
+                                            to="/trade-types/margin#swap-policy"
+                                        >
+                                            {localize('Learn more about swaps')}
+                                        </StyledLinkButton>
+                                    </LinkWrapper>
                                 </TextWrapper>
                             </RightContent>
                         </ContentContainer>
-
-                        <BottomContent direction="column">
-                            <LinkWrapper>
-                                <StyledLinkButton
-                                    tertiary="true"
-                                    to="https://app.deriv.com/mt5"
-                                    external="true"
-                                    target="_blank"
-                                >
-                                    {localize('Go to DMT5 dashboard')}
-                                </StyledLinkButton>
-                                <StyledLinkButton
-                                    secondary="true"
-                                    to="/trade-types/margin#swap-policy"
-                                >
-                                    {localize('Learn more about swaps')}
-                                </StyledLinkButton>
-                            </LinkWrapper>
-                        </BottomContent>
                     </>
                 )}
             </StyledSection>

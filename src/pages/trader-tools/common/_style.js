@@ -278,12 +278,6 @@ export const RightContent = styled.div`
     }
 `
 
-export const TextWrapper = styled.div``
-
-export const ImageWrapper = styled.div`
-    width: 100%;
-`
-
 export const FormulaText = styled.div`
     background-color: var(--color-grey-25);
     padding: 1.6rem;

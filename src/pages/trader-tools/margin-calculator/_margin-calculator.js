@@ -25,8 +25,6 @@ import {
     InputGroup,
     CalculateButton,
     RightContent,
-    TextWrapper,
-    ImageWrapper,
     FormulaText,
     StyledOl,
     LinkWrapper,
@@ -403,89 +401,80 @@ const MarginCalculator = () => {
                     </FormWrapper>
 
                     <RightContent>
-                        <TextWrapper>
-                            <Header as="h3" type="section-title" mb="0.8rem">
-                                {localize('How to calculate margin')}
-                            </Header>
+                        <Header as="h3" type="section-title" mb="0.8rem">
+                            {localize('How to calculate margin')}
+                        </Header>
 
-                            <Text>
-                                <Localize translate_text="The margin required for a contract on DMT5 is calculated based on the formula:" />
-                            </Text>
-                            <Text mb="1.6rem">
-                                <Localize
-                                    translate_text="<0> Margin = volume in lots × contract size × asset price/leverage </0>"
-                                    components={[<strong key={0} />]}
-                                />
-                            </Text>
+                        <Text>
+                            <Localize translate_text="The margin required for a contract on DMT5 is calculated based on the formula:" />
+                        </Text>
+                        <Text mb="1.6rem">
+                            <Localize
+                                translate_text="<0> Margin = volume in lots × contract size × asset price/leverage </0>"
+                                components={[<strong key={0} />]}
+                            />
+                        </Text>
 
-                            <Text mb="1.6rem">
-                                <Localize translate_text="This gives you the margin requirement in the quote currency for forex pairs, or in the denomination of the underlying asset for other instruments." />
-                            </Text>
-                            <Text mb="40px">
-                                {localize(
-                                    'For instance, if you are trading the USD/CHF forex pair, the margin requirement will be calculated in Swiss Franc (CHF) which is the quote currency. On the other hand, if you are trading Volatility Index 75,  then the margin requirement will be computed in US Dollar (USD), which is the denomination of the underlying asset – Volatility Index 75.',
-                                )}
-                            </Text>
+                        <Text mb="1.6rem">
+                            <Localize translate_text="This gives you the margin requirement in the quote currency for forex pairs, or in the denomination of the underlying asset for other instruments." />
+                        </Text>
+                        <Text mb="40px">
+                            {localize(
+                                'For instance, if you are trading the USD/CHF forex pair, the margin requirement will be calculated in Swiss Franc (CHF) which is the quote currency. On the other hand, if you are trading Volatility Index 75,  then the margin requirement will be computed in US Dollar (USD), which is the denomination of the underlying asset – Volatility Index 75.',
+                            )}
+                        </Text>
 
-                            <Header as="h3" type="section-title" mb="0.8rem">
-                                {localize('Example calculation')}
-                            </Header>
+                        <Header as="h3" type="section-title" mb="0.8rem">
+                            {localize('Example calculation')}
+                        </Header>
 
-                            <Accordion has_single_state>
-                                <AccordionItem
-                                    header={localize('Margin required')}
-                                    header_style={header_style}
-                                    style={item_style}
-                                    plus
-                                >
-                                    <Text mb="16px">
-                                        {localize(
-                                            'Let’s say you want to trade two lots of EUR/USD with an asset price of 1.10 USD and leverage of 100.',
-                                        )}
-                                    </Text>
+                        <Accordion has_single_state>
+                            <AccordionItem
+                                header={localize('Margin required')}
+                                header_style={header_style}
+                                style={item_style}
+                                plus
+                            >
+                                <Text mb="16px">
+                                    {localize(
+                                        'Let’s say you want to trade two lots of EUR/USD with an asset price of 1.10 USD and leverage of 100.',
+                                    )}
+                                </Text>
 
-                                    <ImageWrapper>
-                                        <Show.Desktop>
-                                            <QueryImage
-                                                data={data.margin_formula}
-                                                alt={'Margin formula'}
-                                            />
-                                        </Show.Desktop>
+                                <Show.Desktop>
+                                    <QueryImage data={data.margin_formula} alt={'Margin formula'} />
+                                </Show.Desktop>
 
-                                        <Show.Mobile>
-                                            <QueryImage
-                                                data={data.margin_formula_mobile}
-                                                alt={'Margin formula mobile'}
-                                            />
-                                        </Show.Mobile>
+                                <Show.Mobile>
+                                    <QueryImage
+                                        data={data.margin_formula_mobile}
+                                        alt={'Margin formula mobile'}
+                                    />
+                                </Show.Mobile>
 
-                                        <FormulaText>
-                                            <StyledOl>
-                                                <li>
-                                                    <span>
-                                                        <Localize translate_text=" One standard lot of forex = 100,000 units" />
-                                                    </span>
-                                                </li>
-                                            </StyledOl>
-                                        </FormulaText>
-                                    </ImageWrapper>
+                                <FormulaText>
+                                    <StyledOl>
+                                        <li>
+                                            <span>
+                                                <Localize translate_text=" One standard lot of forex = 100,000 units" />
+                                            </span>
+                                        </li>
+                                    </StyledOl>
+                                </FormulaText>
 
-                                    <TextWrapper>
-                                        <Text mb="1.6rem" mt="1.6rem">
-                                            <Localize
-                                                translate_text="So you will require a margin rate of <0>2,200 USD</0> to open the above position."
-                                                components={[<strong key={0} />]}
-                                            />
-                                        </Text>
-                                        <Text>
-                                            {localize(
-                                                'Note that these are approximate values only and will differ depending on the leverage that is set for your account and the asset you want to trade.',
-                                            )}
-                                        </Text>
-                                    </TextWrapper>
-                                </AccordionItem>
-                            </Accordion>
-                        </TextWrapper>
+                                <Text mb="1.6rem" mt="1.6rem">
+                                    <Localize
+                                        translate_text="So you will require a margin rate of <0>2,200 USD</0> to open the above position."
+                                        components={[<strong key={0} />]}
+                                    />
+                                </Text>
+                                <Text>
+                                    {localize(
+                                        'Note that these are approximate values only and will differ depending on the leverage that is set for your account and the asset you want to trade.',
+                                    )}
+                                </Text>
+                            </AccordionItem>
+                        </Accordion>
 
                         <LinkWrapper>
                             <StyledLinkButton

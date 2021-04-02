@@ -219,11 +219,10 @@ const payment_data = [
                 method: <DragonPhoenixIc src={DragonPhoenix} alt="dragon phoenix" />,
                 currencies: 'USD EUR GBP AUD',
                 min_max_deposit: '10-10,000',
-                min_max_withdrawal: <Localize translate_text="10-10,000" />,
                 deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="1-2 working days" />,
+                withdrawal_time: <Localize translate_text="Not applicable" />,
                 description: (
-                    <Localize translate_text="A payment facility that allows online bank transfers for clients across Southeast Asia. Currently available for making deposits in Vietnam, Thailand, and Indonesia." />
+                    <Localize translate_text="Deposit and withdraw easily in THB, IDR, and VND." />
                 ),
                 name: 'DragonPhoenix',
                 reference: 'dragonphoenix-payment-method.pdf',
@@ -236,7 +235,7 @@ const payment_data = [
                 deposit_time: <Localize translate_text="Instant" />,
                 withdrawal_time: <Localize translate_text="1 working day" />,
                 description: (
-                    <Localize translate_text="An easy and accessible way to deposit and withdraw directly using your bank account in South Africa." />
+                    <Localize translate_text="Payments simplified. Fast and reliable way to deposit funds in your local currency." />
                 ),
                 name: 'ZingPay',
                 reference: 'zingpay-payment-method.pdf',
@@ -336,7 +335,7 @@ const payment_data = [
                 deposit_time: <Localize translate_text="Instant" />,
                 withdrawal_time: <Localize translate_text="Not applicable" />,
                 description: (
-                    <Localize translate_text="Deposit and withdraw using your Discover credit card." />
+                    <Localize translate_text="Deposit using your Discover credit card." />
                 ),
             },
         ],
@@ -574,32 +573,32 @@ const payment_data = [
             //     ),
             //     name: 'vodafone',
             // },
-            {
-                method: <NoIconText>Beyonic</NoIconText>,
-                currencies: 'UGX, TZS',
-                min_max_deposit: '5-1,000',
-                min_max_withdrawal: 'Not applicable',
-                deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="Not applicable" />,
-                description: (
-                    <Localize translate_text="Make deposits easily using your mobile. For clients in Uganda and Tanzania." />
-                ),
-                url:'https://beyonic.com/',
-                name: 'beyonic',
-            },
-            {
-                method: <NoIconText>Trustly</NoIconText>,
-                currencies: 'EUR',
-                min_max_deposit: '10-100',
-                min_max_withdrawal: 'Not applicable',
-                deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="Not applicable" />,
-                description: (
-                    <Localize translate_text="Enjoy fast, smooth, and secure deposits and withdrawals with Trustly. " />
-                ),
-                url:'https://www.trustly.net/',
-                name: 'trustly',
-            },
+            // {
+            //     method: <NoIconText>Beyonic</NoIconText>,
+            //     currencies: 'UGX, TZS',
+            //     min_max_deposit: '5-1,000',
+            //     min_max_withdrawal: 'Not applicable',
+            //     deposit_time: <Localize translate_text="Instant" />,
+            //     withdrawal_time: <Localize translate_text="Not applicable" />,
+            //     description: (
+            //         <Localize translate_text="Make deposits easily using your mobile. For clients in Uganda and Tanzania." />
+            //     ),
+            //     url:'https://beyonic.com/',
+            //     name: 'beyonic',
+            // },
+            // {
+            //     method: <NoIconText>Trustly</NoIconText>,
+            //     currencies: 'EUR',
+            //     min_max_deposit: '10-100',
+            //     min_max_withdrawal: 'Not applicable',
+            //     deposit_time: <Localize translate_text="Instant" />,
+            //     withdrawal_time: <Localize translate_text="Not applicable" />,
+            //     description: (
+            //         <Localize translate_text="Enjoy fast, smooth, and secure deposits and withdrawals with Trustly. " />
+            //     ),
+            //     url:'https://www.trustly.net/',
+            //     name: 'trustly',
+            // },
         ],
     },
     {
@@ -801,7 +800,7 @@ const payment_data = [
                 min_max_deposit: <Localize translate_text="50-5,000" />,
                 deposit_time: <Localize translate_text="5-30 minutes" />,
                 description: (
-                    <Localize translate_text="Buy cryptocurrencies in an instant. Enjoy easy, quick, and secure exchanges using your local payment methods." />
+                    <Localize translate_text="Make a deposit into your Deriv crypto account via local bank wire with this fiat-to-crypto exchange for clients in Southeast Asia." />
                 ),
                 name: 'Xanpool',
             },

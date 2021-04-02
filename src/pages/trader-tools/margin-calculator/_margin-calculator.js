@@ -12,8 +12,7 @@ import {
     SectionSubtitle,
     ContentContainer,
     FormWrapper,
-    BreadCrumb,
-    BreadCrumbWrapper,
+    BreadCrumbContainer,
     CalculatorForm,
     CalculatorHeader,
     CalculatorLabel,
@@ -179,8 +178,8 @@ const MarginCalculator = () => {
 
     return (
         <>
-            <BreadCrumbWrapper>
-                <BreadCrumb jc="flex-start" ai="center">
+            <BreadCrumbContainer>
+                <Flex jc="flex-start" ai="center">
                     <LocalizedLinkText to="/trader-tools" color="grey-5">
                         {localize("Traders' tools")}
                     </LocalizedLinkText>
@@ -192,8 +191,8 @@ const MarginCalculator = () => {
                         style={{ margin: '0 8px' }}
                     />
                     <Text>{localize('Margin calculator')}</Text>
-                </BreadCrumb>
-            </BreadCrumbWrapper>
+                </Flex>
+            </BreadCrumbContainer>
             <StyledSection direction="column">
                 <SectionSubtitle as="h3" type="sub-section-title" align="center" weight="normal">
                     {localize(

@@ -8,8 +8,7 @@ import {
     financialItemLists,
 } from '../common/_underlying-data'
 import {
-    BreadCrumb,
-    BreadCrumbWrapper,
+    BreadCrumbContainer,
     SwapTabSelector,
     StyledSection,
     SectionSubtitle,
@@ -232,8 +231,8 @@ const SwapCalculator = () => {
 
     return (
         <>
-            <BreadCrumbWrapper>
-                <BreadCrumb jc="flex-start" ai="center">
+            <BreadCrumbContainer>
+                <Flex jc="flex-start" ai="center">
                     <LocalizedLinkText to="/trader-tools" color="grey-5">
                         {localize("Traders' tools")}
                     </LocalizedLinkText>
@@ -245,8 +244,8 @@ const SwapCalculator = () => {
                         style={{ margin: '0 8px' }}
                     />
                     <Text>{localize('Swap calculator')}</Text>
-                </BreadCrumb>
-            </BreadCrumbWrapper>
+                </Flex>
+            </BreadCrumbContainer>
             <StyledSection direction="column">
                 <SectionSubtitle as="h3" type="sub-section-title" align="center" weight="normal">
                     {localize(

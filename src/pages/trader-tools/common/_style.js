@@ -16,7 +16,7 @@ export const Hero = styled(Flex)`
         height: 210px;
     }
 `
-export const BreadCrumbWrapper = styled(Container)`
+export const BreadCrumbContainer = styled(Container)`
     margin-top: 2.4rem;
 
     @media ${device.laptopL} {
@@ -26,8 +26,6 @@ export const BreadCrumbWrapper = styled(Container)`
         width: 90%;
     }
 `
-
-export const BreadCrumb = styled(Flex)``
 
 export const StyledSection = styled(SectionContainer)`
     position: relative;

@@ -219,6 +219,7 @@ const payment_data = [
                 method: <DragonPhoenixIc src={DragonPhoenix} alt="dragon phoenix" />,
                 currencies: 'USD EUR GBP AUD',
                 min_max_deposit: '10-10,000',
+                min_max_withdrawal: <Localize translate_text="Not applicable" />,
                 deposit_time: <Localize translate_text="Instant" />,
                 withdrawal_time: <Localize translate_text="Not applicable" />,
                 description: (

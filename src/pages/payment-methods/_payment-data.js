@@ -577,9 +577,9 @@ const payment_data = [
             //     method: <NoIconText>Beyonic</NoIconText>,
             //     currencies: 'UGX, TZS',
             //     min_max_deposit: '5-1,000',
-            //     min_max_withdrawal: 'Not applicable',
+            //     min_max_withdrawal: '5-1,000',
             //     deposit_time: <Localize translate_text="Instant" />,
-            //     withdrawal_time: <Localize translate_text="Not applicable" />,
+            //     withdrawal_time: <Localize translate_text="1-2 working days" />,
             //     description: (
             //         <Localize translate_text="Make deposits easily using your mobile. For clients in Uganda and Tanzania." />
             //     ),

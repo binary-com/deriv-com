@@ -50,12 +50,7 @@ const AccordionHeader = styled.div`
         height: 100%;
     }
 `
-const ResponsiveWrapper = styled.div`
-    @media ${device.tablet} {
-        margin-left: 16px;
-        margin-right: 16px;
-    }
-`
+const ResponsiveWrapper = styled.div``
 
 const AccordionWrapper = styled.div`
     width: 100%;

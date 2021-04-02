@@ -26,6 +26,10 @@ const Question = styled.div`
 const Answer = styled.div`
     width: 100%;
     max-width: 69rem;
+
+    @media ${device.tablet} {
+        margin: 0 16px;
+    }
 `
 
 const FAQWrapper = styled(Flex)`

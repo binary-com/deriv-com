@@ -236,7 +236,7 @@ const SwapCalculator = () => {
                     </LocalizedLinkText>
                     <img
                         src={RightArrow}
-                        alt="right arrow"
+                        alt={localize('right arrow')}
                         height="16"
                         width="16"
                         style={{ margin: '0 8px' }}
@@ -528,20 +528,25 @@ const SwapCalculator = () => {
                                         <Show.Desktop>
                                             <QueryImage
                                                 data={data.swap_synthetic_formula}
-                                                alt={'swap synthetic formula'}
+                                                alt={localize('swap synthetic formula')}
                                             />
                                         </Show.Desktop>
                                         <Show.Mobile>
                                             <QueryImage
                                                 data={data.swap_synthetic_formula_mobile}
-                                                alt={'swap synthetic formula mobile'}
+                                                alt={localize('swap synthetic formula mobile')}
                                             />
                                         </Show.Mobile>
                                         <FormulaText size="14px">
                                             <StyledOl>
                                                 <li>
                                                     <span>
-                                                        <Localize translate_text="If the swap rate is positive, your account will be credited with the swap amount. If it is negative, your account will be debited" />
+                                                        <Localize translate_text="The contract size is one standard lot of Volatility 75 Index = 1" />
+                                                    </span>
+                                                </li>
+                                                <li>
+                                                    <span>
+                                                        <Localize translate_text="If the swap rate is positive, your account will be credited with the swap amount. If it is negative, your account will be debited." />
                                                     </span>
                                                 </li>
                                             </StyledOl>
@@ -549,7 +554,7 @@ const SwapCalculator = () => {
 
                                         <Text mt="1.6rem">
                                             <Localize
-                                                translate_text="So you will be required to pay a swap charge of <0>0.83 USD</0> to keep the position open for one night."
+                                                translate_text="So you will require a swap charge of <0>0.83 USD</0> to keep the position open for one night."
                                                 components={[<strong key={0} />]}
                                             />
                                         </Text>
@@ -560,9 +565,11 @@ const SwapCalculator = () => {
                                     {
                                         <StyledLinkButton
                                             tertiary="true"
-                                            to="https://app.deriv.com/mt5"
+                                            is_deriv_app_link
+                                            to="/mt5"
                                             external="true"
                                             target="_blank"
+                                            rel="noopener noreferrer"
                                         >
                                             {localize('Go to DMT5 dashboard')}
                                         </StyledLinkButton>
@@ -842,13 +849,13 @@ const SwapCalculator = () => {
                                         <Show.Desktop>
                                             <QueryImage
                                                 data={data.swap_forex_formula}
-                                                alt={'Swap forex formula'}
+                                                alt={localize('Swap forex formula')}
                                             />
                                         </Show.Desktop>
                                         <Show.Mobile>
                                             <QueryImage
                                                 data={data.swap_forex_formula_mobile}
-                                                alt={'Swap forex formula mobile'}
+                                                alt={localize('Swap forex formula mobile')}
                                             />
                                         </Show.Mobile>
                                         <FormulaText size="14px">
@@ -860,12 +867,12 @@ const SwapCalculator = () => {
                                                 </li>
                                                 <li>
                                                     <span>
-                                                        <Localize translate_text="Point value is based on the current digit of the asset" />
+                                                        <Localize translate_text="The point value is derivied from the current digits of the asset. In this example, the digit is 5, so the point value is 0.00001." />
                                                     </span>
                                                 </li>
                                                 <li>
                                                     <span>
-                                                        <Localize translate_text="If the swap rate is positive, your account will be credited with the swap amount. If it is negative, your account will be debited" />
+                                                        <Localize translate_text="If the swap rate is positive, your account will be credited with the swap amount. If it is negative, your account will be debited." />
                                                     </span>
                                                 </li>
                                             </StyledOl>
@@ -873,7 +880,7 @@ const SwapCalculator = () => {
 
                                         <Text mt="1.6rem">
                                             <Localize
-                                                translate_text="So you will be required to pay a swap charge of <0>0.24 USD</0> to keep the position open for one night."
+                                                translate_text="So you will require a swap charge of <0>0.24 USD</0> to keep the position open for one night."
                                                 components={[<strong key={0} />]}
                                             />
                                         </Text>
@@ -882,9 +889,11 @@ const SwapCalculator = () => {
                                 <LinkWrapper>
                                     <StyledLinkButton
                                         tertiary="true"
-                                        to="https://app.deriv.com/mt5"
+                                        is_deriv_app_link
+                                        to="/mt5"
                                         external="true"
                                         target="_blank"
+                                        rel="noopener noreferrer"
                                     >
                                         {localize('Go to DMT5 dashboard')}
                                     </StyledLinkButton>

@@ -286,10 +286,23 @@ export const FormulaText = styled.div`
 `
 
 export const StyledOl = styled.ol`
-    list-style: decimal;
+    list-style-type: none;
+    counter-reset: item;
     font-weight: bold;
-    margin-left: 20px;
+    margin-left: 4px;
 
+    li {
+        display: block;
+        position: relative;
+        margin-left: 12px;
+    }
+    li::before {
+        position: absolute;
+        content: counter(item) '  ';
+        counter-increment: item;
+        font-size: 10px;
+        margin: -1px 0 0 -10px;
+    }
     span {
         font-weight: 300;
     }

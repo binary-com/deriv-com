@@ -183,7 +183,7 @@ const MarginCalculator = () => {
                     </LocalizedLinkText>
                     <img
                         src={RightArrow}
-                        alt="right arrow"
+                        alt={localize('right arrow')}
                         height="16"
                         width="16"
                         style={{ margin: '0 8px' }}
@@ -442,13 +442,16 @@ const MarginCalculator = () => {
                                 </Text>
 
                                 <Show.Desktop>
-                                    <QueryImage data={data.margin_formula} alt={'Margin formula'} />
+                                    <QueryImage
+                                        data={data.margin_formula}
+                                        alt={localize('Margin formula')}
+                                    />
                                 </Show.Desktop>
 
                                 <Show.Mobile>
                                     <QueryImage
                                         data={data.margin_formula_mobile}
-                                        alt={'Margin formula mobile'}
+                                        alt={localize('Margin formula mobile')}
                                     />
                                 </Show.Mobile>
 
@@ -456,7 +459,7 @@ const MarginCalculator = () => {
                                     <StyledOl>
                                         <li>
                                             <span>
-                                                <Localize translate_text=" One standard lot of forex = 100,000 units" />
+                                                <Localize translate_text="One standard lot of forex = 100,000 units" />
                                             </span>
                                         </li>
                                     </StyledOl>
@@ -479,9 +482,11 @@ const MarginCalculator = () => {
                         <LinkWrapper>
                             <StyledLinkButton
                                 tertiary="true"
-                                to="https://app.deriv.com/mt5"
+                                is_deriv_app_link
+                                to="/mt5"
                                 external="true"
                                 target="_blank"
+                                rel="noopener noreferrer"
                             >
                                 {localize('Go to DMT5 dashboard')}
                             </StyledLinkButton>

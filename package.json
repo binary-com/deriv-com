@@ -91,6 +91,11 @@
         "deploy-dev": "npm run build && gh-pages -d public",
         "deploy-branch": "PATH_PREFIX=/deriv-com/br/$branch_name npm run build && gh-pages -d public -e br/$branch_name"
     },
+    "husky": {
+        "hooks": {
+            "pre-commit": "npm run test"
+        }
+    },
     "repository": {
         "type": "git",
         "url": "https://github.com/binary-com/deriv-com"

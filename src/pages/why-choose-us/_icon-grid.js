@@ -5,7 +5,6 @@ import device from 'themes/device'
 import { GridContainer, CssGrid, CssGridColumn } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { localize, Localize, LocalizedLink } from 'components/localization'
-import { community_url } from 'common/utility'
 // Icons
 import ProvenTrackRecord from 'images/svg/wd-proven-track-record.svg'
 import LicensedRegulated from 'images/svg/wd-licensed-regulated.svg'
@@ -144,7 +143,8 @@ export const IconGrid = () => (
                             <LocalizedLink key={0} to="/help-centre/" />,
                             <LocalizedLink
                                 key={1}
-                                to={community_url}
+                                to=""
+                                is_community_link
                                 external="true"
                                 target="_blank"
                                 rel="noopener noreferrer"

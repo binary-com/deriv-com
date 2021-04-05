@@ -410,7 +410,7 @@ const MarginCalculator = () => {
                         </Text>
                         <Text mb="1.6rem">
                             <Localize
-                                translate_text="<0> Margin = volume in lots × contract size × asset price/leverage </0>"
+                                translate_text="<0>Margin = (volume × contract size × asset price) ÷ leverage</0>"
                                 components={[<strong key={0} />]}
                             />
                         </Text>

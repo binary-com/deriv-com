@@ -495,7 +495,7 @@ const SwapCalculator = () => {
                                 </Header>
 
                                 <Text>
-                                    <Localize translate_text="For synthetic, the swap charge is calculated on an annual basis for long and short positions using the formula:" />
+                                    <Localize translate_text="For synthetic, the swap charge is calculated on an annual basis for long and short positions based on this formula:" />
                                 </Text>
                                 <Text mb="2rem">
                                     <Localize
@@ -812,7 +812,7 @@ const SwapCalculator = () => {
                                 </Header>
 
                                 <Text>
-                                    <Localize translate_text="For financial, the swap charge is calculated using the formula:" />
+                                    <Localize translate_text="For financial, the swap charge is calculated based on this formula:" />
                                 </Text>
                                 <Text mb="2rem">
                                     <Localize

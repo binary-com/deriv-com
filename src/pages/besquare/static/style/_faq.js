@@ -10,10 +10,6 @@ export const AccordionWrapper = styled.div`
     margin: 0 auto;
     position: relative;
     z-index: 2;
-
-    @media ${device.tablet} {
-        margin: 0 16px;
-    }
 `
 
 export const ContentContainer = styled(Container)`

@@ -182,10 +182,10 @@ const OnlineNairaIc = styled.img`
 //     ${icon_css}
 // `
 
-const NoIconText = styled.div`
-    color:var(--color-red);
-    font-size:1.5rem;
-`
+// const NoIconText = styled.div`
+//     color:var(--color-red);
+//     font-size:1.5rem;
+// `
 
 const payment_data = [
     {
@@ -335,9 +335,7 @@ const payment_data = [
                 min_max_withdrawal: 'Not applicable',
                 deposit_time: <Localize translate_text="Instant" />,
                 withdrawal_time: <Localize translate_text="Not applicable" />,
-                description: (
-                    <Localize translate_text="Deposit using your Discover credit card." />
-                ),
+                description: <Localize translate_text="Deposit using your Discover credit card." />,
             },
         ],
     },

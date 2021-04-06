@@ -371,13 +371,13 @@ const Footer = ({ type, is_ppc, is_ppc_redirect }) => {
                                         <Title>{localize('TRADE')}</Title>
                                     </LinkWrapper>
                                     <LinkWrapper first_child="true">
-                                        <Link to="/dtrader">{localize('DTrader')}</Link>
+                                        <Link to="/dtrader/">{localize('DTrader')}</Link>
                                     </LinkWrapper>
                                     <LinkWrapper>
-                                        <Link to="/dbot">{localize('DBot')}</Link>
+                                        <Link to="/dbot/">{localize('DBot')}</Link>
                                     </LinkWrapper>
                                     <LinkWrapper>
-                                        <Link to={is_ppc_redirect ? '/landing/dmt5' : '/dmt5'}>
+                                        <Link to={is_ppc_redirect ? '/landing/dmt5/' : '/dmt5/'}>
                                             {localize('DMT5')}
                                         </Link>
                                     </LinkWrapper>
@@ -399,19 +399,19 @@ const Footer = ({ type, is_ppc, is_ppc_redirect }) => {
                                             <Title>{localize('TRADE TYPES')}</Title>
                                         </LinkWrapper>
                                         <LinkWrapper first_child="true">
-                                            <Link to="/trade-types/margin">
+                                            <Link to="/trade-types/margin/">
                                                 {localize('Margin trading')}
                                             </Link>
                                         </LinkWrapper>
                                         <Show.NonEU>
                                             <LinkWrapper>
-                                                <Link to="/trade-types/options">
+                                                <Link to="/trade-types/options/">
                                                     {localize('Options')}
                                                 </Link>
                                             </LinkWrapper>
                                         </Show.NonEU>
                                         <LinkWrapper>
-                                            <Link to="/trade-types/multiplier">
+                                            <Link to="/trade-types/multiplier/">
                                                 {localize('Multipliers')}
                                             </Link>
                                         </LinkWrapper>

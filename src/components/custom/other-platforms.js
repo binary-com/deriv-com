@@ -264,7 +264,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                     }
                     title={<Localize translate_text="DMT5" />}
                     onClick={onClick}
-                    to={!is_ppc_redirect ? '/dmt5/' : '/landing/dmt5/'}
+                    to={!is_ppc_redirect ? '/landing/dmt5/' : '/dmt5/'}
                 />
                 <NavCard
                     aria_label="SmartTrader"

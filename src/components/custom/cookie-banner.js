@@ -35,7 +35,7 @@ const Wrapper = styled.div`
     width: 100%;
     height: 18.4rem;
     padding: 4.8rem 0;
-    transition: all 0.3s ease-in-out;
+    transition: opacity 0.3s ease-in-out, bottom 0.3s ease-in-out;
     z-index: 200;
     opacity: 0;
     animation-name: ${(props) => (props.is_open ? FadeInDown : FadeOutUp)};

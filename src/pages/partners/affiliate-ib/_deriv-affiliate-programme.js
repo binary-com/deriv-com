@@ -88,7 +88,7 @@ const ApplyNow = styled(LinkButton)`
 
     @media ${device.tabletL} {
         height: 40px;
-        margin-top: ${(props) => (props.mt_mobile ? props.mt_mobile : '0')};
+        margin-top: ${(props) => props.mt_mobile || '0'};
     }
 `
 

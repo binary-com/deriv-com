@@ -138,23 +138,23 @@ export const PointerContainer = styled.div`
     margin-top: 8px;
     flex-direction: column;
     align-items: center;
-    margin-left: ${(props) => (props.ml ? props.ml : '0')};
+    margin-left: ${(props) => props.ml || '0'};
 
     @media ${device.tabletL} {
         position: absolute;
-        margin-top: ${(props) => (props.top ? '0' : '8px')};
-        flex-direction: ${(props) => (props.top ? 'column-reverse' : 'column')};
-        top: ${(props) => (props.top ? '-16px' : 'unset')};
-        margin-left: ${(props) => (props.top ? '0' : '20px')};
-        left: ${(props) => (props.top ? '50%' : 'unset')};
-        transform: ${(props) => (props.top ? 'translate(-50%, -50%)' : 'unset')};
+        margin-top: ${(props) => (props.is_top ? '0' : '8px')};
+        flex-direction: ${(props) => (props.is_top ? 'column-reverse' : 'column')};
+        top: ${(props) => (props.is_top ? '-16px' : 'unset')};
+        margin-left: ${(props) => (props.is_top ? '0' : '20px')};
+        left: ${(props) => (props.is_top ? '50%' : 'unset')};
+        transform: ${(props) => (props.is_top ? 'translate(-50%, -50%)' : 'unset')};
     }
 `
 export const PointerContainerMobile = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-left: ${(props) => (props.ml ? props.ml : '0')};
+    margin-left: ${(props) => props.ml || '0'};
 `
 export const PointerDot = styled.div`
     height: 5px;
@@ -179,10 +179,10 @@ export const PointerText = styled.div`
 
     @media ${device.tabletL} {
         width: 110px;
-        margin: ${(props) => (props.top ? '0 0 26px' : '26px 0 0')};
-        right: ${(props) => (props.top ? '-8px' : 'unset')};
-        left: ${(props) => (props.top ? 'unset' : '-20px')};
-        text-align: ${(props) => (props.top ? 'right' : 'left')};
+        margin: ${(props) => (props.is_top ? '0 0 26px' : '26px 0 0')};
+        right: ${(props) => (props.is_top ? '-8px' : 'unset')};
+        left: ${(props) => (props.is_top ? 'unset' : '-20px')};
+        text-align: ${(props) => (props.is_top ? 'right' : 'left')};
     }
 
     @media (max-width: 340px) {

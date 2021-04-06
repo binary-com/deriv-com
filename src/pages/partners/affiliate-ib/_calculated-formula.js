@@ -81,10 +81,10 @@ const CalculatedFormula = ({ data }) => {
                                                 <>
                                                     <FormulaValueMobile key={indexData}>
                                                         {item}
-                                                        <PointerContainer top={indexData > 0}>
+                                                        <PointerContainer is_top={indexData > 0}>
                                                             <PointerDot />
                                                             <PointerStick />
-                                                            <PointerText top={indexData > 0}>
+                                                            <PointerText is_top={indexData > 0}>
                                                                 {description}
                                                             </PointerText>
                                                         </PointerContainer>

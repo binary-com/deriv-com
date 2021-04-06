@@ -808,7 +808,7 @@ const SwapCalculator = () => {
 
                             <RightContent direction="column" max_width="69rem">
                                 <Header as="h3" type="section-title" mb="8px">
-                                    {localize('How swap charges are calculated')}
+                                    {localize('How to calculate swap charges')}
                                 </Header>
 
                                 <Text>
@@ -901,7 +901,7 @@ const SwapCalculator = () => {
                                         secondary="true"
                                         to="/trade-types/margin#swap-policy"
                                     >
-                                        {localize('Learn more about swaps')}
+                                        {localize('Learn more about swap')}
                                     </StyledLinkButton>
                                 </LinkWrapper>
                             </RightContent>

@@ -246,6 +246,10 @@ const ContractSizeWrapper = styled(Text)`
     position: absolute;
     cursor: text;
     color: var(--color-grey-5);
+
+    @media ${device.tabletL} {
+        margin-top: 2px;
+    }
 `
 
 const DefaultOptionText = styled(Text)`

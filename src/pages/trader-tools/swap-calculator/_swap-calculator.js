@@ -579,7 +579,7 @@ const SwapCalculator = () => {
                                             secondary="true"
                                             to="/trade-types/margin#swap-policy"
                                         >
-                                            {localize('Learn more about swaps')}
+                                            {localize('Learn more about swap')}
                                         </StyledLinkButton>
                                     }
                                 </LinkWrapper>

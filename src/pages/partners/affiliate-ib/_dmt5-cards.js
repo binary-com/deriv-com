@@ -44,7 +44,7 @@ const query = graphql`
 
 const StyledCard = styled(Card)`
     min-height: 37.1rem;
-    height: auto;
+    height: 100%;
     position: relative;
     border-radius: 8px;
     min-width: calc((100% - 4.8rem) / 3);

@@ -35,19 +35,35 @@ const CFDWrapper = styled.section`
     display: flex;
     align-items: center;
 
+    @media ${device.tabletL} {
+        overflow-y: scroll;
+        display: block;
+    }
     @media ${device.tabletS} {
         height: ${cfd_warning_height.tablet}rem;
     }
 `
 
 const CFDContainer = styled(Container)`
+    @media ${device.bp1060} {
+        width: 90%;
+    }
     @media ${device.tabletL} {
         width: 95%;
+    }
+    @media ${device.tabletS} {
+        margin: 1rem auto;
+    }
+    @media ${device.mobileL} {
+        margin: 2rem auto;
+    }
+    @media ${device.mobileM} {
+        margin: 1rem auto;
     }
 `
 
 const CFDText = styled(Text)`
-    @media ${device.tabletL} {
+    @media ${device.bp1060} {
         font-size: 14px;
     }
 

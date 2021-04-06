@@ -7,6 +7,7 @@ const Hero = () => (
     <HeroContainer>
         <HeaderContainer>
             <Title
+                as="h1"
                 color={'white'}
                 text_align={'left'}
                 font_size={['80px', '40px']}

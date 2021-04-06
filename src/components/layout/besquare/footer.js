@@ -61,7 +61,7 @@ const BeSquareFooter = () => {
                         alt="Fresh graduates discussing with their laptops"
                     />
                     <TextContainer>
-                        <Title>{localize('Next intake: July 2021')}</Title>
+                        <Title as="h3">{localize('Next intake: July 2021')}</Title>
                         <TextWrapper
                             max_width={['510px', '328px']}
                             font_size={['20px', '16px']}

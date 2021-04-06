@@ -24,6 +24,7 @@ const JoinUs = () => {
     return (
         <ContentContainer>
             <Title
+                as="h2"
                 max_width={['690px', '328px']}
                 font_size={['32px', '24px']}
                 line_height={['40px', '30px']}

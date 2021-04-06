@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { Link as GatsbyLink } from 'gatsby'
@@ -16,12 +16,20 @@ import {
     deriv_bot_app_url,
     smarttrader_url,
     zoho_url,
+    getLocalizedUrl,
     getDerivAppLocalizedURL,
 } from 'common/utility'
 import { DerivStore } from 'store'
 
 const non_localized_links = ['/careers', '/careers/']
 
+const ShareDisabledStyle = css`
+    ${(props) =>
+        props.disabled &&
+        `
+        pointer-events: none;
+        opacity: 0.32;`}
+`
 export const SharedLinkStyle = css`
     color: var(--color-white);
     text-decoration: none;
@@ -61,8 +69,19 @@ export const SharedLinkStyle = css`
 `
 const ExternalLink = styled.a`
     ${SharedLinkStyle}
+    ${ShareDisabledStyle}
+`
+const StyledAnchor = styled.a`
+    ${ShareDisabledStyle}
+`
+const StyledAnchorLink = styled(AnchorLink)`
+    ${ShareDisabledStyle}
+`
+const StyledGatsbyLink = styled(GatsbyLink)`
+    ${ShareDisabledStyle}
 `
 export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
+    const [has_mounted, setMounted] = React.useState(false)
     // Use the globally available context to choose the right path
     const { locale } = React.useContext(LocaleContext)
     const { is_eu_country } = React.useContext(DerivStore)
@@ -90,13 +109,19 @@ export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
         target,
     } = props
 
+    useEffect(() => {
+        setMounted(true)
+    }, [])
+
     // If it's the default language or non localized link, don't do anything
     // If it's another language, add the "path"
     // However, if the homepage/index page is linked don't add the "to"
     // Because otherwise this would add a trailing slash
     const { is_default, path, affiliate_lang } = language_config[locale]
     const is_non_localized = non_localized_links.includes(to)
-    const path_to = is_default || is_non_localized ? to : `/${path}${is_index ? `` : `${to}`}/`
+    const localizedUrl = getLocalizedUrl(path, is_index, to);
+
+    const path_to = is_default || is_non_localized ? to : localizedUrl
     if (external || external === 'true') {
         let lang_to = ''
         if (is_binary_link) {
@@ -136,7 +161,7 @@ export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
             !is_zoho_link
         ) {
             return (
-                <a
+                <StyledAnchor
                     target={target}
                     rel={rel}
                     className={className}
@@ -156,13 +181,14 @@ export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
                             onClick()
                         }
                     }}
+                    disabled={!has_mounted}
                 >
                     {props.children}
-                </a>
+                </StyledAnchor>
             )
         } else {
             return (
-                <a
+                <StyledAnchor
                     target={target}
                     rel={rel}
                     className={className}
@@ -171,15 +197,16 @@ export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
                     ref={ref}
                     aria-label={ariaLabel}
                     onClick={onClick}
+                    disabled={!has_mounted}
                 >
                     {props.children}
-                </a>
+                </StyledAnchor>
             )
         }
     }
     if (props.external_link)
         return (
-            <ExternalLink href={to} ref={ref} onClick={onClick}>
+            <ExternalLink href={to} ref={ref} onClick={onClick} disabled={!has_mounted}>
                 {props.children}
             </ExternalLink>
         )
@@ -192,11 +219,19 @@ export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
     }
 
     if (props.anchor) {
-        return <AnchorLink title={ariaLabel} {...props} to={internal_to} ref={ref} />
+        return (
+            <StyledAnchorLink
+                title={ariaLabel}
+                {...props}
+                to={internal_to}
+                ref={ref}
+                disabled={!has_mounted}
+            />
+        )
     }
 
     return (
-        <GatsbyLink
+        <StyledGatsbyLink
             aria-label={ariaLabel}
             target={target}
             rel={rel}
@@ -205,9 +240,10 @@ export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
             to={internal_to}
             ref={ref}
             onClick={onClick}
+            disabled={!has_mounted}
         >
             {props.children}
-        </GatsbyLink>
+        </StyledGatsbyLink>
     )
 })
 

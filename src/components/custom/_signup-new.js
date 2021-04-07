@@ -105,6 +105,9 @@ const SignupWithContainer = styled.div`
 `
 
 const SocialButton = styled(Button)`
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
     box-shadow: none;
     background-color: ${(props) => props.bgColor || 'var(--color-white)'};
     border: solid 1px var(--color-grey-21);
@@ -121,7 +124,7 @@ const SocialButton = styled(Button)`
     @media ${device.tabletL} {
         width: 100%;
         height: 6rem;
-        margin-top:1rem;
+        margin-top: 1rem;
     }
     @media ${device.mobileM} {
         &:first-child {
@@ -160,13 +163,12 @@ const LoginText = styled(Text)`
         font-size: 2rem;
     }
 `
-const Span = styled.span`
+const SocialText = styled(Text)`
     margin-right: 1.4rem;
     margin-left: 0.7rem;
     font-weight: 500;
     font-size: 1.2rem;
     color: var(--color-grey-16);
-    vertical-align: super;
 
     @media ${device.tabletL} {
         margin-left: 2.7rem;
@@ -329,10 +331,8 @@ const SignupNew = ({
                     type="button"
                     social
                 >
-                    <span>
-                        <img src={Google} alt="google" width="24" height="24" />
-                    </span>
-                    <Span>Google</Span>
+                    <img src={Google} alt="google" width="24" height="24" />
+                    <SocialText>Google</SocialText>
                 </SocialButton>
                 <SocialButton
                     onClick={handleSocialSignup}
@@ -342,10 +342,8 @@ const SignupNew = ({
                     type="button"
                     social
                 >
-                    <span>
-                        <img src={Facebook} alt="facebook" width="24" height="24" />
-                    </span>
-                    <Span>Facebook</Span>
+                    <img src={Facebook} alt="facebook" width="24" height="24" />
+                    <SocialText>Facebook</SocialText>
                 </SocialButton>
                 <SocialButton
                     onClick={handleSocialSignup}
@@ -358,7 +356,7 @@ const SignupNew = ({
                     <span>
                         <img src={Apple} alt="apple" width="24" height="24" />
                     </span>
-                    <Span>Apple</Span>
+                    <SocialText>Apple</SocialText>
                 </SocialButton>
             </SocialWrapper>
             <LoginText>

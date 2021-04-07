@@ -45,9 +45,6 @@ const resetValidation = (values) => {
 
 const getMarginCurrency = (symbol) => {
     let currency = 'USD'
-    if (symbol.market === 'synthetic_indices' || symbol.market === 'commodities') {
-        currency = 'USD'
-    }
 
     if (symbol.name === 'DAX_30') {
         currency = 'EUR'

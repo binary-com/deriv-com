@@ -52,6 +52,10 @@ module.exports = {
                     '/landing/**',
                     '/**/landing',
                     '/**/landing/**',
+                    '/careers',
+                    '**/careers',
+                    '/careers/**',
+                    '**/careers/**',
                 ],
                 serialize: ({ site, allSitePage }) =>
                     allSitePage.edges.map((edge) => {

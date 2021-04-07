@@ -353,9 +353,7 @@ const SignupNew = ({
                     type="button"
                     social
                 >
-                    <span>
-                        <img src={Apple} alt="apple" width="24" height="24" />
-                    </span>
+                    <img src={Apple} alt="apple" width="24" height="24" />
                     <SocialText>Apple</SocialText>
                 </SocialButton>
             </SocialWrapper>

@@ -385,7 +385,7 @@ const PipCalculator = () => {
 
                                 <Show.Desktop>
                                     <QueryImage
-                                        data={data.pip_value__forex_formula}
+                                        data={data.pip_value_forex_formula}
                                         alt={localize('Pip Forex formula')}
                                     />
                                     <QueryImage
@@ -396,7 +396,7 @@ const PipCalculator = () => {
 
                                 <Show.Mobile>
                                     <QueryImage
-                                        data={data.pip_value_formula_mobile}
+                                        data={data.pip_value_forex_formula_mobile}
                                         alt={localize('Pip Forex formula')}
                                     />
                                     <QueryImage

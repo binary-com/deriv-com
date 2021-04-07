@@ -10,21 +10,21 @@ import device from 'themes/device'
 const FadeInDown = keyframes`
     from {
         opacity: 0;
-        bottom: -18.4rem;
+        transform: translateY(0);
     }
     to {
         opacity: 1;
-        bottom: 0;
+        transform: translateY(-18.4rem);
     }
 `
 const FadeOutUp = keyframes`
     from {
         opacity: 1;
-        bottom: 0;
+        transform: translateY(-18.4rem);
     }
     to {
-        opacity:0;
-        bottom: -18.4rem;
+        opacity: 0;
+        transform: translateY(0);
     }
 `
 
@@ -35,7 +35,7 @@ const Wrapper = styled.div`
     width: 100%;
     height: 18.4rem;
     padding: 4.8rem 0;
-    transition: opacity 0.3s ease-in-out, bottom 0.3s ease-in-out;
+    transition: translate 0.3s ease-in-out, opacity 0.3s ease-in-out;
     z-index: 200;
     opacity: 0;
     animation-name: ${(props) => (props.is_open ? FadeInDown : FadeOutUp)};

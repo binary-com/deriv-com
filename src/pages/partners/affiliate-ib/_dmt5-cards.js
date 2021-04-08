@@ -9,7 +9,7 @@ import { Header, Text } from 'components/elements/typography'
 import { Accordion, AccordionItem, QueryImage } from 'components/elements'
 import { localize } from 'components/localization'
 import { Button, LinkButton } from 'components/form'
-import { affiliate_signup_url } from 'common/utility'
+import { affiliate_signup_url } from 'common/constants'
 import device from 'themes/device'
 
 const query = graphql`

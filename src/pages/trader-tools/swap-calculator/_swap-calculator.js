@@ -3,6 +3,17 @@ import { Formik, Field } from 'formik'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import {
+    getSwapChargeSynthetic,
+    getSwapChargeForex,
+    resetValidationSynthetic,
+    resetValidationForex,
+    getContractSize,
+    getCurrency,
+    numberSubmitFormatNegative,
+    numberSubmitFormat,
+    numberWithCommas,
+} from '../common/_utility';
+import {
     optionItemDefault,
     syntheticItemLists,
     financialItemLists,
@@ -32,7 +43,6 @@ import {
     SwapFormWrapper,
     SwapTabSelector,
 } from '../common/_style'
-import validation from '../common/_validation'
 import { localize, Localize } from 'components/localization'
 import {
     Accordion,
@@ -79,152 +89,6 @@ const SwapCalculator = () => {
 
     const onTabClick = (tab) => {
         setTab(tab)
-    }
-
-    const getSwapChargeSynthetic = (values) => {
-        const { volume, assetPrice, swapRate, contractSize, symbol } = values
-
-        let swap_formula_synthetic
-        const STEPINDEX_VALUE = 100
-        const RANGEBREAK100VALUE = 400
-        const RANGEBREAK200VALUE = 800
-
-        if (symbol.name === 'Step Index') {
-            swap_formula_synthetic = volume * STEPINDEX_VALUE
-        } else if (symbol.name === 'Range Break 100 Index') {
-            swap_formula_synthetic = volume * RANGEBREAK100VALUE
-        } else if (symbol.name === 'Range Break 200 Index') {
-            swap_formula_synthetic = volume * RANGEBREAK200VALUE
-        } else {
-            swap_formula_synthetic = (volume * contractSize * assetPrice * (swapRate / 100)) / 360
-        }
-        return toFixed(swap_formula_synthetic)
-    }
-
-    const getSwapChargeForex = (values) => {
-        const { volume, pointValue, swapRate, contractSize } = values
-        const swap_formula_forex = volume * contractSize * pointValue * swapRate
-        return toFixed(swap_formula_forex)
-    }
-
-    const toFixed = (val) => {
-        return parseFloat(val.toFixed(3)).toLocaleString()
-    }
-
-    const resetValidationSynthetic = (values) => {
-        const errors = {}
-        const symbol_error = validation.symbol(values.symbol)
-        const volume_error = validation.volume(values.volume)
-        const assetPrice_error = validation.assetPrice(values.assetPrice)
-        const swapRate_error = validation.swapRate(values.swapRate)
-
-        if (symbol_error) {
-            errors.symbol = symbol_error
-        }
-        if (volume_error) {
-            errors.volume = volume_error
-        }
-        if (assetPrice_error) {
-            errors.assetPrice = assetPrice_error
-        }
-
-        if (swapRate_error) {
-            errors.swapRate = swapRate_error
-        }
-
-        return errors
-    }
-
-    const resetValidationForex = (values) => {
-        const errors = {}
-        const symbol_error = validation.symbol(values.symbol.display_name)
-        const volume_error = validation.volume(values.volume)
-        const pointValue_error = validation.pointValue(values.pointValue)
-        const swapRate_error = validation.swapRate(values.swapRate)
-
-        if (symbol_error) {
-            errors.symbol = symbol_error
-        }
-        if (volume_error) {
-            errors.volume = volume_error
-        }
-        if (pointValue_error) {
-            errors.pointValue = pointValue_error
-        }
-
-        if (swapRate_error) {
-            errors.swapRate = swapRate_error
-        }
-
-        return errors
-    }
-
-    const getCurrencySwap = (symbol) => {
-        let currency = 'USD'
-        if (symbol.market === 'synthetic_indices' || symbol.market === 'commodities') {
-            currency = 'USD'
-        }
-
-        if (symbol.name === 'DAX_30') {
-            currency = 'EUR'
-        }
-
-        if (symbol.market === 'forex' && symbol.name !== 'default' && symbol.name !== 'CL_BRENT') {
-            currency = symbol.display_name.slice(-3)
-        }
-
-        return currency
-    }
-
-    const getContractSize = (symbol) => {
-        let contractSize = 1 //crypto falls into this contract size
-
-        if (symbol.market === 'forex') {
-            contractSize = 100000
-        }
-
-        if (symbol.market === 'commodities') {
-            switch (symbol.name) {
-                case 'XAGUSD':
-                    contractSize = 5000
-                    break
-                case 'XAUUSD':
-                case 'XPDUSD':
-                case 'XPTUSD':
-                    contractSize = 100
-                    break
-            }
-        }
-
-        if (symbol.name === 'Step Index') {
-            contractSize = 10
-        }
-
-        if (symbol.market === 'smartfx') {
-            contractSize = 100
-        }
-
-        return contractSize
-    }
-
-    const numberWithCommas = (input) => {
-        return input.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
-    }
-
-    const numberSubmitFormat = (input) => {
-        return input.replace(/^0+(?!\.|$)/, '')
-    }
-
-    const numberSubmitFormatNegative = (input) => {
-        let result = input.replace(/^(-?)0+/, '$1')
-
-        if (result.charAt(0) == '-' && result.charAt(1) == '.') {
-            result = result.slice(0, 1) + '0' + result.slice(1)
-        } else if (result.charAt(0) == '.') {
-            result = '0' + result
-        }
-
-        return result
     }
 
     return (
@@ -334,7 +198,7 @@ const SwapCalculator = () => {
                                                     onChange={(value) => {
                                                         setFieldValue(
                                                             'swapCurrency',
-                                                            getCurrencySwap(value),
+                                                            getCurrency(value),
                                                         )
 
                                                         setFieldValue(
@@ -653,7 +517,7 @@ const SwapCalculator = () => {
                                                     onChange={(value) => {
                                                         setFieldValue(
                                                             'swapCurrency',
-                                                            getCurrencySwap(value),
+                                                            getCurrency(value),
                                                         )
                                                         setFieldValue(
                                                             'contractSize',

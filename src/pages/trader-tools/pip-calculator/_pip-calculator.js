@@ -2,9 +2,9 @@ import React, { useState } from 'react'
 import { Formik, Field } from 'formik'
 import { graphql, useStaticQuery } from 'gatsby'
 import {
-    getMargin,
+    getPipValue,
     resetValidation,
-    getMarginCurrency,
+    getCurrency,
     getContractSize,
     numberWithCommas,
     numberSubmitFormat,
@@ -119,7 +119,7 @@ const PipCalculator = () => {
                             }}
                             validate={resetValidation}
                             onSubmit={(values, { setFieldValue }) => {
-                                setFieldValue('margin', getMargin(values))
+                                setFieldValue('margin', getPipValue(values))
                                 setFieldValue('volume', numberSubmitFormat(values.volume))
                                 setFieldValue('pointValue', numberSubmitFormat(values.pointValue))
                             }}
@@ -196,7 +196,7 @@ const PipCalculator = () => {
                                             onChange={(value) => {
                                                 setFieldValue(
                                                     'marginSymbol',
-                                                    getMarginCurrency(value),
+                                                    getCurrency(value),
                                                 )
                                                 setFieldValue(
                                                     'contractSize',

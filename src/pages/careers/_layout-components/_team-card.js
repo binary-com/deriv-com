@@ -34,7 +34,7 @@ export const StyledCard = styled(LocalizedLink)`
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.05);
     border-radius: 4px;
     background: var(--color-white);
-    transition: transform 0.3s;
+    transition: all 0.3s;
     overflow: hidden;
     cursor: pointer;
 

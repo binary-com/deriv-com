@@ -419,7 +419,6 @@ export const OffCanvasMenuWrapper = (props) => {
                         <StyledLink
                             to=""
                             is_community_link
-                            external="true"
                             target="_blank"
                             rel="noopener noreferrer"
                             onClick={handleArrowClick}
@@ -473,7 +472,6 @@ export const OffCanvasMenuWrapper = (props) => {
                         <StyledLink
                             to=""
                             is_blog_link
-                            external="true"
                             target="_blank"
                             rel="noopener noreferrer"
                             onClick={handleArrowClick}

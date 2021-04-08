@@ -13,7 +13,6 @@ import {
 } from 'components/elements'
 import { localize, LocalizedLink, Localize } from 'components/localization'
 import device from 'themes/device'
-import { community_url, deriv_blog_url } from 'common/utility'
 import { DerivStore } from 'store'
 // icons
 import Blog from 'images/svg/blog-nav.svg'
@@ -454,9 +453,9 @@ export const NavResources = ({ onClick }) => (
             icon={() => <img src={Community} alt="community" width="24" height="24" />}
             title={localize('Community')}
             onClick={onClick}
-            to={community_url}
+            to=""
+            is_community_link
             target="_blank"
-            external="true"
             rel="noopener noreferrer"
         />
         <CardLink
@@ -481,9 +480,9 @@ export const NavResources = ({ onClick }) => (
             icon={() => <img src={Blog} alt="blog" width="24" height="24" />}
             title={localize('Blog')}
             onClick={onClick}
-            to={deriv_blog_url}
+            to=""
+            is_blog_link
             target="_blank"
-            external="true"
             rel="noopener noreferrer"
         />
     </Flex>

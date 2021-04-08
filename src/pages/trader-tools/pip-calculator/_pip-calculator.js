@@ -36,6 +36,8 @@ import {
     SectionSubtitle,
     StyledLinkButton,
     StyledSection,
+    FormulaText,
+    StyledOl,
 } from '../common/_style'
 import {
     Accordion,
@@ -59,24 +61,12 @@ const PipCalculator = () => {
             pip_value_forex_formula: file(relativePath: { eq: "trade-tools/pip-value-forex-formula.png" }) {
                 ...fadeIn
             }
-            pip_info: file(relativePath: { eq: "trade-tools/pip-info.png" }) {
-                ...fadeIn
-            }
-            pip_forex_info: file(relativePath: { eq: "trade-tools/pip-forex-info.png" }) {
-                ...fadeIn
-            }
             pip_value_formula_mobile: file(
                 relativePath: { eq: "trade-tools/pip-value-formula-mobile.png" }
             ) {
                 ...fadeIn
             }
             pip_value_forex_formula_mobile: file(relativePath: { eq: "trade-tools/pip-value-forex-formula-mobile.png" }) {
-                ...fadeIn
-            }
-            pip_info_mobile: file(relativePath: { eq: "trade-tools/pip-info-mobile.png" }) {
-                ...fadeIn
-            }
-            pip_forex_info_mobile: file(relativePath: { eq: "trade-tools/pip-forex-info-mobile.png" }) {
                 ...fadeIn
             }
         }
@@ -362,9 +352,25 @@ const PipCalculator = () => {
                                         alt={localize('Pip Info')}
                                     />
                                 </Show.Mobile>
-
+                                <FormulaText>
+                                    <StyledOl>
+                                        <li>
+                                            <span>
+                                                {localize('The point value is derived from the current digits of the assets. In the example, the digit is 2, so the point value is 0.01.')}
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <span>
+                                                {localize('The contract size is one standard lot of Volatility 75 index = 1')}
+                                            </span>
+                                        </li>
+                                    </StyledOl>
+                                </FormulaText>
                                 <Text mb="1.6rem" mt="1.6rem">
-                                    {localize('So your pip value is 0.01 USD.')}
+                                    <Localize
+                                        translate_text="So your pip value is <0>0.01 USD.</0>"
+                                        components={[<strong key={0} />]}
+                                    />
                                 </Text>
 
                             </AccordionItem>
@@ -385,10 +391,6 @@ const PipCalculator = () => {
                                         data={data.pip_value_forex_formula}
                                         alt={localize('Pip Forex formula')}
                                     />
-                                    <QueryImage
-                                        data={data.pip_forex_info}
-                                        alt={localize('Pip Forex Info')}
-                                    />
                                 </Show.Desktop>
 
                                 <Show.Mobile>
@@ -396,16 +398,29 @@ const PipCalculator = () => {
                                         data={data.pip_value_forex_formula_mobile}
                                         alt={localize('Pip Forex formula')}
                                     />
-                                    <QueryImage
-                                        data={data.pip_forex_info_mobile}
-                                        alt={localize('Pip Forex Info')}
-                                    />
                                 </Show.Mobile>
 
-                                <Text mb="1.6rem" mt="1.6rem">
-                                    {localize('So your pip value is 2 USD.')}
-                                </Text>
+                                <FormulaText>
+                                    <StyledOl>
+                                        <li>
+                                            <span>
+                                                {localize('The point value is derived from the current digits of the assets. In the example, the digit is 5, so the point value is 0.00001.')}
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <span>
+                                                {localize('One standard lot of forex = 100,000 units')}
+                                            </span>
+                                        </li>
+                                    </StyledOl>
+                                </FormulaText>
 
+                                <Text mb="1.6rem" mt="1.6rem">
+                                    <Localize
+                                        translate_text="So your pip value is <0>2 USD.</0>"
+                                        components={[<strong key={0} />]}
+                                    />
+                                </Text>
                             </AccordionItem>
                         </Accordion>
 

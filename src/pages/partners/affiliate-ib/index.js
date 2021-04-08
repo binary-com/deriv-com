@@ -15,7 +15,6 @@ const WhyUs = Loadable(() => import('./_why-us.js'))
 const WhoCanAplly = Loadable(() => import('./_who-can-apply.js'))
 const DerivAffiliateProgramme = Loadable(() => import('./_deriv-affiliate-programme'))
 const DerivIBProgramme = Loadable(() => import('./_deriv-ib-programme.js'))
-const MinimumVolume = Loadable(() => import('./_minimum-volume.js'))
 const MoreReason = Loadable(() => import('./_more-reason.js'))
 const Faq = Loadable(() => import('./_faq'))
 const CTA = Loadable(() => import('./_partner-cta'))
@@ -139,7 +138,6 @@ const AffiliateIb = () => {
             </StyledSectionContainer>
             <DerivAffiliateProgramme />
             <DerivIBProgramme />
-            <MinimumVolume />
             <WhyUs items={why_partner_with_us_items} />
             <WhoCanAplly />
             <MoreReason />

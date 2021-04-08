@@ -306,7 +306,7 @@ const PipCalculator = () => {
                         </Header>
 
                         <Text>
-                            <Localize translate_text="The pip value for a contract on DMT5 is calculated based on this formula:" />
+                            {localize('The pip value for a contract on DMT5 is calculated based on this formula:')}
                         </Text>
                         <Text mb="1.6rem">
                             <Localize
@@ -316,7 +316,7 @@ const PipCalculator = () => {
                         </Text>
 
                         <Text mb="1.6rem">
-                            <Localize translate_text="For synthetic accounts, the pip value is calculated in USD." />
+                            {localize('For synthetic accounts, the pip value is calculated in USD.')}
                         </Text>
                         <Text mb="40px">
                             {localize(
@@ -364,10 +364,7 @@ const PipCalculator = () => {
                                 </Show.Mobile>
 
                                 <Text mb="1.6rem" mt="1.6rem">
-                                    <Localize
-                                        translate_text="So your pip value is 0.01 USD."
-                                        components={[<strong key={0} />]}
-                                    />
+                                    {localize('So your pip value is 0.01 USD.')}
                                 </Text>
 
                             </AccordionItem>
@@ -406,10 +403,7 @@ const PipCalculator = () => {
                                 </Show.Mobile>
 
                                 <Text mb="1.6rem" mt="1.6rem">
-                                    <Localize
-                                        translate_text="So your pip value is 2 USD."
-                                        components={[<strong key={0} />]}
-                                    />
+                                    {localize('So your pip value is 2 USD.')}
                                 </Text>
 
                             </AccordionItem>

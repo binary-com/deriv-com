@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { matchSorter } from 'match-sorter'
 import styled, { css } from 'styled-components'
 import { Helmet } from 'react-helmet'
-import { navigate } from '@reach/router'
 import Loadable from '@loadable/component'
 import { articles } from './_help-articles'
 import { SearchSuccess, SearchError } from './_search-results'
@@ -246,15 +245,6 @@ class HelpCentre extends Component {
     }
 
     handleSubmit = (e) => e.preventDefault()
-
-    handleSelectArticle = (article) => {
-        navigate(`#${article.label}`)
-        this.setState({
-            toggle_search: false,
-            search_has_transition: false,
-            search: '',
-        })
-    }
 
     toggleSearch = () =>
         this.setState((prevState) => ({

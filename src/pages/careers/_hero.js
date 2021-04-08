@@ -4,7 +4,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import Container from './_layout-components/_container'
 import { Header, BackgroundImage } from 'components/elements'
 import { LinkButton } from 'components/form'
-import { zoho_url } from 'common/utility'
+import { zoho_url } from 'common/constants'
 import { LocationContext } from 'components/layout/location-context.js'
 import device from 'themes/device'
 

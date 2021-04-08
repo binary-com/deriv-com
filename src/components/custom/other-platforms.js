@@ -13,7 +13,7 @@ import {
 } from 'components/elements'
 import { localize, LocalizedLink, Localize } from 'components/localization'
 import device from 'themes/device'
-import { community_url, deriv_blog_url } from 'common/utility'
+import { community_url, deriv_blog_url } from 'common/constants'
 import { DerivStore } from 'store'
 // icons
 import Blog from 'images/svg/blog-nav.svg'

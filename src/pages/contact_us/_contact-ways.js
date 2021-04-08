@@ -6,7 +6,7 @@ import { SectionContainer, Container, Flex } from 'components/containers'
 import { Localize } from 'components/localization'
 import { LinkButton } from 'components/form'
 import device from 'themes/device'
-import { community_url } from 'common/utility'
+import { community_url } from 'common/constants'
 
 const query = graphql`
     query {

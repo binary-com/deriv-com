@@ -18,7 +18,7 @@ import {
     dmt5_linux_url,
     dmt5_android_url,
     dmt5_ios_url,
-} from 'common/utility'
+} from 'common/constants'
 
 const query = graphql`
     query {

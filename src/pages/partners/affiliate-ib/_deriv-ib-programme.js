@@ -7,7 +7,7 @@ import { SectionContainer, Container, Flex } from 'components/containers'
 import { Header, Text } from 'components/elements/typography'
 import { localize, Localize } from 'components/localization'
 import { Button, LinkButton } from 'components/form'
-import { affiliate_signup_url } from 'common/utility'
+import { affiliate_signup_url } from 'common/constants'
 import device from 'themes/device'
 import Chevron from 'images/svg/chevron-bottom-bold.svg'
 

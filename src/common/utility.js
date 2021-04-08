@@ -146,10 +146,11 @@ const populateStyle = (props, default_props_object, curr_index) => {
         }
 
         const current_prop = prop.replace(/_/g, '-')
-        style += `${current_prop}: ${Array.isArray(props[prop])
-            ? responsiveFallback(props[prop], curr_index, default_props_object[prop])
-            : props[prop]
-            };`
+        style += `${current_prop}: ${
+            Array.isArray(props[prop])
+                ? responsiveFallback(props[prop], curr_index, default_props_object[prop])
+                : props[prop]
+        };`
     })
 
     style += applyDefaultValues(props, default_props_object)
@@ -180,7 +181,6 @@ const besquare_signup_url =
     'https://deriv.zohorecruit.com/jobs/Careers/590522000011882533/BeSquare-Graduate-Trainee?source=CareerSite'
 const deriv_app_url = 'https://app.deriv.com'
 const deriv_bot_app_url = 'https://app.deriv.com/bot'
-const deriv_blog_url = 'https://blog.deriv.com'
 const deriv_dp2p_app_url = 'https://app.deriv.com/cashier/p2p'
 const deriv_status_page_url = 'https://deriv.statuspage.io'
 const smarttrader_url = 'https://smarttrader.deriv.com'
@@ -235,7 +235,6 @@ export {
     community_url,
     debounce,
     deriv_app_url,
-    deriv_blog_url,
     deriv_bot_app_url,
     deriv_cookie_domain,
     deriv_dp2p_app_url,

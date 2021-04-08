@@ -2,9 +2,9 @@ import Cookies from 'js-cookie'
 import extend from 'extend'
 import { deriv_cookie_domain, deriv_app_languages } from './constants'
 
-const trimSpaces = (value) => value.trim()
+export const trimSpaces = (value) => value.trim()
 
-const toISOFormat = (date) => {
+export const toISOFormat = (date) => {
     if (date instanceof Date) {
         const utc_year = date.getUTCFullYear()
         const utc_month = (date.getUTCMonth() + 1 < 10 ? '0' : '') + (date.getMonth() + 1)
@@ -16,11 +16,11 @@ const toISOFormat = (date) => {
     return ''
 }
 
-const toHashFormat = (string) => string.replace(/\s+/g, '-').toLowerCase() // change space to dash then lowercase all
+export const toHashFormat = (string) => string.replace(/\s+/g, '-').toLowerCase() // change space to dash then lowercase all
 
-const isBrowser = () => typeof window !== 'undefined'
+export const isBrowser = () => typeof window !== 'undefined'
 
-const isEmptyObject = (obj) => {
+export const isEmptyObject = (obj) => {
     let is_empty = true
     if (obj && obj instanceof Object) {
         Object.keys(obj).forEach((key) => {
@@ -30,17 +30,17 @@ const isEmptyObject = (obj) => {
     return is_empty
 }
 
-const scrollTop = () => {
+export const scrollTop = () => {
     if (isBrowser()) {
         document.body.scrollTop = 0
         document.documentElement.scrollTop = 0
     }
 }
 
-const cloneObject = (obj) =>
+export const cloneObject = (obj) =>
     !isEmptyObject(obj) ? extend(true, Array.isArray(obj) ? [] : {}, obj) : obj
 
-const getPropertyValue = (obj, k) => {
+export const getPropertyValue = (obj, k) => {
     let keys = k
     if (!Array.isArray(keys)) keys = [keys]
     if (!isEmptyObject(obj) && keys[0] in obj && keys && keys.length > 1) {
@@ -49,55 +49,57 @@ const getPropertyValue = (obj, k) => {
     // else return clone of object to avoid overwriting data
     return obj ? cloneObject(obj[keys[0]]) : undefined
 }
-const getLocationHash = () =>
+export const getLocationHash = () =>
     isBrowser() && location.hash ? location.hash.slice(1).replace(/(\/)$/g, '') : ''
 
-const setLocationHash = (tab) => {
+export const setLocationHash = (tab) => {
     if (isBrowser()) {
         location.hash = `#${tab}`
     }
 }
 
-const getLocationPathname = () => (isBrowser() && location ? location.pathname : '')
+export const getLocationPathname = () => (isBrowser() && location ? location.pathname : '')
 
-const routeBack = () => {
+export const routeBack = () => {
     if (isBrowser) {
         window.history.back()
     }
 }
-const checkElemInArray = (tab_list, tab) => tab_list.includes(tab)
+export const checkElemInArray = (tab_list, tab) => tab_list.includes(tab)
 
-const getWindowWidth = () => (isBrowser() && window.screen ? window.screen.width : '')
+export const getWindowWidth = () => (isBrowser() && window.screen ? window.screen.width : '')
 
-const getLanguage = () => (isBrowser() ? localStorage.getItem('i18n') || navigator.language : null)
+export const getLanguage = () =>
+    isBrowser() ? localStorage.getItem('i18n') || navigator.language : null
 
-const getDerivAppLocalizedURL = (link, locale) => {
+export const getDerivAppLocalizedURL = (link, locale) => {
     const lang = deriv_app_languages.includes(locale) ? locale : 'en'
     return `${link}?lang=${lang.toUpperCase()}`
 }
 
-const getCrowdin = () =>
+export const getCrowdin = () =>
     isBrowser() ? localStorage.getItem('jipt_language_code_deriv-com') || navigator.language : null
 
-const getClientInformation = (domain) => Cookies.getJSON('client_information', { domain })
+export const getClientInformation = (domain) => Cookies.getJSON('client_information', { domain })
 
-const getUTMData = (domain) => Cookies.getJSON('utm_data', { domain })
+export const getUTMData = (domain) => Cookies.getJSON('utm_data', { domain })
 
-const isLoggedIn = () => {
+export const isLoggedIn = () => {
     const domain = getDomain()
     const client_information = getClientInformation(domain)
     return !!client_information
 }
 
-const isIndexEven = (index, reverse) => (reverse ? (index + 1) % 2 : index % 2)
+export const isIndexEven = (index, reverse) => (reverse ? (index + 1) % 2 : index % 2)
 
-const sanitize = (input) => input.replace(/[.*+?^${}()|[\]\\]/g, '')
+export const sanitize = (input) => input.replace(/[.*+?^${}()|[\]\\]/g, '')
 
-const sentenceCase = (input) => input.charAt(0).toUpperCase() + input.slice(1)
+export const sentenceCase = (input) => input.charAt(0).toUpperCase() + input.slice(1)
 
-const getCryptoDecimals = (input) => input.toFixed(1 - Math.floor(Math.log(input) / Math.log(10)))
+export const getCryptoDecimals = (input) =>
+    input.toFixed(1 - Math.floor(Math.log(input) / Math.log(10)))
 
-function debounce(func, wait, immediate) {
+export function debounce(func, wait, immediate) {
     let timeout
     return function () {
         const context = this
@@ -117,7 +119,7 @@ function debounce(func, wait, immediate) {
 }
 
 // This function is created to back traverse an array of style values
-const responsiveFallback = (prop, start_from, fallback) => {
+export const responsiveFallback = (prop, start_from, fallback) => {
     let index = start_from ?? prop?.length ?? 0
     while (prop && index > 0) {
         if (prop[index]) {
@@ -130,7 +132,7 @@ const responsiveFallback = (prop, start_from, fallback) => {
 }
 
 // populate style by traversing keys of props
-const populateStyle = (props, default_props_object, curr_index) => {
+export const populateStyle = (props, default_props_object, curr_index) => {
     let style = ''
 
     Object.keys(props).forEach((prop) => {
@@ -150,7 +152,7 @@ const populateStyle = (props, default_props_object, curr_index) => {
     return style
 }
 
-const applyDefaultValues = (props, default_props_object) => {
+export const applyDefaultValues = (props, default_props_object) => {
     let style = ''
 
     Object.keys(default_props_object).forEach((prop) => {
@@ -163,42 +165,9 @@ const applyDefaultValues = (props, default_props_object) => {
     return style
 }
 
-const getDomain = () =>
+export const getDomain = () =>
     isBrowser() && window.location.hostname.includes(deriv_cookie_domain)
         ? deriv_cookie_domain
         : 'binary.sx'
 
-const getLocalizedUrl = (path, is_index, to) => `/${path}${is_index ? `` : to}`
-
-export {
-    applyDefaultValues,
-    checkElemInArray,
-    cloneObject,
-    debounce,
-    getClientInformation,
-    getCrowdin,
-    getCryptoDecimals,
-    getDomain,
-    getLanguage,
-    getDerivAppLocalizedURL,
-    getLocationHash,
-    getLocationPathname,
-    getUTMData,
-    getPropertyValue,
-    getWindowWidth,
-    isBrowser,
-    isEmptyObject,
-    isIndexEven,
-    isLoggedIn,
-    populateStyle,
-    responsiveFallback,
-    routeBack,
-    sanitize,
-    scrollTop,
-    sentenceCase,
-    setLocationHash,
-    toHashFormat,
-    toISOFormat,
-    trimSpaces,
-    getLocalizedUrl,
-}
+export const getLocalizedUrl = (path, is_index, to) => `/${path}${is_index ? `` : to}`

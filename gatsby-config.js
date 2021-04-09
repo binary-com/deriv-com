@@ -209,6 +209,15 @@ module.exports = {
                 analyzerMode: 'static',
             },
         },
-        'gatsby-plugin-offline',
+        {
+            resolve: `gatsby-plugin-offline`,
+            options: {
+                workboxConfig: {
+                    importScripts: [
+                        `https://cdn.pushwoosh.com/webpush/v3/pushwoosh-service-worker.js`,
+                    ],
+                },
+            },
+        },
     ],
 }

@@ -156,7 +156,7 @@ module.exports = {
                 stages: ['develop'],
                 extensions: ['js'],
                 exclude: ['node_modules', '.cache', 'public'],
-              },
+            },
         },
         {
             resolve: 'gatsby-plugin-stylelint',
@@ -173,11 +173,7 @@ module.exports = {
                     {
                         userAgent: '*',
                         allow: '/',
-                        disallow: [
-                            '/404/',
-                            '/homepage/',
-                            '/landing/',
-                        ],
+                        disallow: ['/404/', '/homepage/', '/landing/'],
                     },
                 ],
             },
@@ -214,5 +210,6 @@ module.exports = {
                 analyzerMode: 'static',
             },
         },
+        'gatsby-plugin-offline',
     ],
 }

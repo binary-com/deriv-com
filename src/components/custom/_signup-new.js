@@ -62,14 +62,14 @@ const NoteBox = styled.div`
     display: flex;
     flex-direction: row;
     width: 100%;
-    height: 7.7rem;
+    min-height: 7.7rem;
     padding: 8px 8px;
     margin-top: 1.6rem;
     border-radius: 0.4rem;
     background-color: rgba(242, 243, 244, 0.56);
 
     @media ${device.mobileL} {
-        height: 80px;
+        min-height: 80px;
         padding: 13px 16px;
     }
 `

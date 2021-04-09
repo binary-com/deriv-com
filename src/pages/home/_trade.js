@@ -49,7 +49,7 @@ const ImageWrapper = styled.div`
     opacity: ${(props) => (props.is_selected ? '1' : '0')};
     z-index: ${(props) => (props.is_selected ? '0' : '10')};
     position: absolute;
-    transition: all 0.25s;
+    transition: opacity 0.25s;
 `
 
 const ImageContainer = styled.div`

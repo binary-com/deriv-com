@@ -194,7 +194,6 @@ module.exports = {
                 includeInDevelopment: false,
             },
         },
-        'gatsby-plugin-remove-serviceworker',
         {
             resolve: 'gatsby-plugin-anchor-links',
             options: {

@@ -58,25 +58,21 @@ const toFixed = (val) => {
 
 const getCurrency = (symbol) => {
     let currency = 'USD'
-
+    
     if (symbol.name === 'DAX_30') {
         currency = 'EUR'
     }
-
     if (symbol.market === 'forex' && symbol.name !== 'default' && symbol.name !== 'CL_BRENT') {
         currency = symbol.display_name.slice(-3)
     }
-
     return currency
 }
 
 const getContractSize = (symbol) => {
     let contractSize = 1 //crypto falls into this contract size
-
     if (symbol.market === 'forex') {
         contractSize = 100000
     }
-
     if (symbol.market === 'commodities') {
         switch (symbol.name) {
             case 'XAGUSD':
@@ -89,15 +85,12 @@ const getContractSize = (symbol) => {
                 break
         }
     }
-
     if (symbol.name === 'Step Index') {
         contractSize = 10
     }
-
     if (symbol.market === 'smartfx') {
         contractSize = 100
     }
-
     return contractSize
 }
 
@@ -129,7 +122,6 @@ const resetValidationMargin = (values) => {
     if (leverage_error) {
         errors.leverage = leverage_error
     }
-
     return errors
 }
 
@@ -152,15 +144,12 @@ const resetValidationSynthetic = (values) => {
     const swapRate_error = validation.swapRate(values.swapRate)
 
     resetValidationCommon(values)
-
     if (assetPrice_error) {
         errors.assetPrice = assetPrice_error
     }
-
     if (swapRate_error) {
         errors.swapRate = swapRate_error
     }
-
     return errors
 }
 
@@ -170,15 +159,12 @@ const resetValidationForex = (values) => {
     const swapRate_error = validation.swapRate(values.swapRate)
 
     resetValidationCommon(values)
-
     if (pointValue_error) {
         errors.pointValue = pointValue_error
     }
-
     if (swapRate_error) {
         errors.swapRate = swapRate_error
     }
-
     return errors
 }
 
@@ -198,7 +184,6 @@ const numberSubmitFormatNegative = (input) => {
     } else if (result.charAt(0) == '.') {
         result = '0' + result
     }
-
     return result
 }
 

@@ -368,7 +368,7 @@ const PipCalculator = () => {
                                 </FormulaText>
                                 <Text mb="1.6rem" mt="1.6rem">
                                     <Localize
-                                        translate_text="So your pip value is <0>0.01 USD.</0>"
+                                        translate_text="So your pip value is <0>0.01 USD</0>."
                                         components={[<strong key={0} />]}
                                     />
                                 </Text>
@@ -417,7 +417,7 @@ const PipCalculator = () => {
 
                                 <Text mb="1.6rem" mt="1.6rem">
                                     <Localize
-                                        translate_text="So your pip value is <0>2 USD.</0>"
+                                        translate_text="So your pip value is <0>2 USD</0>."
                                         components={[<strong key={0} />]}
                                     />
                                 </Text>

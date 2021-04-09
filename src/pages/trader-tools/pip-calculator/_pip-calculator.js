@@ -3,7 +3,7 @@ import { Formik, Field } from 'formik'
 import { graphql, useStaticQuery } from 'gatsby'
 import {
     getPipValue,
-    resetValidation,
+    resetValidationPip,
     getCurrency,
     getContractSize,
     numberWithCommas,
@@ -117,7 +117,7 @@ const PipCalculator = () => {
                                 optionList: syntheticItemLists,
                                 contractSize: '',
                             }}
-                            validate={resetValidation}
+                            validate={resetValidationPip}
                             onSubmit={(values, { setFieldValue }) => {
                                 setFieldValue('margin', getPipValue(values))
                                 setFieldValue('volume', numberSubmitFormat(values.volume))

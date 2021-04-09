@@ -24,7 +24,6 @@ const rawCalculation = (values, specialFormula) => {
 }
 
 const getMargin = (values) => {
-    alert(values);
     const { volume, assetPrice, leverage, contractSize } = values
     const specialFormula = (volume * contractSize * assetPrice) / leverage.name
     let margin_formula = rawCalculation(values, specialFormula)
@@ -55,25 +54,6 @@ const getSwapChargeForex = (values) => {
 
 const toFixed = (val) => {
     return parseFloat(val.toFixed(3)).toLocaleString()
-}
-
-const resetValidation = (values) => {
-    const errors = {}
-    const symbol_error = validation.symbol(values.symbol)
-    const volume_error = validation.volume(values.volume)
-    const pointValue_error = validation.pointValue(values.pointValue)
-
-    if (symbol_error) {
-        errors.symbol = symbol_error
-    }
-    if (volume_error) {
-        errors.volume = volume_error
-    }
-    if (pointValue_error) {
-        errors.pointValue = pointValue_error
-    }
-
-    return errors
 }
 
 const getCurrency = (symbol) => {
@@ -121,12 +101,11 @@ const getContractSize = (symbol) => {
     return contractSize
 }
 
-const resetValidationSynthetic = (values) => {
+const resetValidationCommon = (values) => {
     const errors = {}
+
     const symbol_error = validation.symbol(values.symbol)
     const volume_error = validation.volume(values.volume)
-    const assetPrice_error = validation.assetPrice(values.assetPrice)
-    const swapRate_error = validation.swapRate(values.swapRate)
 
     if (symbol_error) {
         errors.symbol = symbol_error
@@ -134,6 +113,46 @@ const resetValidationSynthetic = (values) => {
     if (volume_error) {
         errors.volume = volume_error
     }
+    return errors
+}
+
+const resetValidationMargin = (values) => {
+    const errors = {}
+    const assetPrice_error = validation.assetPrice(values.assetPrice)
+    const leverage_error = validation.leverage(values.leverage)
+
+    resetValidationCommon(values)
+
+    if (assetPrice_error) {
+        errors.assetPrice = assetPrice_error
+    }
+    if (leverage_error) {
+        errors.leverage = leverage_error
+    }
+
+    return errors
+}
+
+const resetValidationPip = (values) => {
+    const errors = {}
+    const pointValue_error = validation.pointValue(values.pointValue)
+
+    resetValidationCommon(values)
+
+    if (pointValue_error) {
+        errors.pointValue = pointValue_error
+    }
+
+    return errors
+}
+
+const resetValidationSynthetic = (values) => {
+    const errors = {}
+    const assetPrice_error = validation.assetPrice(values.assetPrice)
+    const swapRate_error = validation.swapRate(values.swapRate)
+
+    resetValidationCommon(values)
+
     if (assetPrice_error) {
         errors.assetPrice = assetPrice_error
     }
@@ -147,17 +166,11 @@ const resetValidationSynthetic = (values) => {
 
 const resetValidationForex = (values) => {
     const errors = {}
-    const symbol_error = validation.symbol(values.symbol.display_name)
-    const volume_error = validation.volume(values.volume)
     const pointValue_error = validation.pointValue(values.pointValue)
     const swapRate_error = validation.swapRate(values.swapRate)
 
-    if (symbol_error) {
-        errors.symbol = symbol_error
-    }
-    if (volume_error) {
-        errors.volume = volume_error
-    }
+    resetValidationCommon(values)
+
     if (pointValue_error) {
         errors.pointValue = pointValue_error
     }
@@ -194,9 +207,10 @@ export {
     getSwapChargeSynthetic,
     getPipValue,
     getSwapChargeForex,
-    resetValidation,
+    resetValidationPip,
     resetValidationSynthetic,
     resetValidationForex,
+    resetValidationMargin,
     getCurrency,
     getContractSize,
     numberSubmitFormatNegative,

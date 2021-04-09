@@ -50,138 +50,6 @@ const StyledIcon = styled.img`
     height: 72px;
 `
 
-const BankTransferIc = styled.img`
-    ${icon_css}
-`
-const PaytrustIc = styled.img`
-    ${icon_css}
-`
-const VisaIc = styled.img`
-    ${icon_css}
-`
-const MasterCardIc = styled.img`
-    ${icon_css}
-`
-const MaestroIc = styled.img`
-    ${icon_css}
-`
-const FasapayIc = styled.img`
-    ${icon_css}
-`
-
-const PerfectMoneyIc = styled.img`
-    ${icon_css}
-`
-const SkrillIc = styled.img`
-    ${icon_css}
-`
-const NetellerIc = styled.img`
-    ${icon_css}
-`
-const WebmoneyIc = styled.img`
-    ${icon_css}
-`
-// const QiwiIc = styled.img`
-//     ${icon_css}
-// `
-const PaysafeCardIc = styled.img`
-    ${icon_css}
-`
-const JetonIc = styled.img`
-    ${icon_css}
-`
-const SticpayIc = styled.img`
-    ${icon_css}
-`
-const AirtmIc = styled.img`
-    ${icon_css}
-`
-const BitcoinIc = styled.img`
-    ${icon_css}
-`
-const EthereumIc = styled.img`
-    ${icon_css}
-`
-const LitecoinIc = styled.img`
-    ${icon_css}
-`
-const TetherIc = styled.img`
-    ${icon_css}
-`
-const Help2PayIc = styled.img`
-    ${icon_css}
-`
-const DragonPhoenixIc = styled.img`
-    ${icon_css}
-`
-const ZingPayIc = styled.img`
-    ${icon_css}
-`
-// const DragonPayIc = styled.img`
-//     ${icon_css}
-// `
-const NganLuongIc = styled.img`
-    ${icon_css}
-`
-const DinersIc = styled.img`
-    ${icon_css}
-`
-// const BiananceIC = styled(Bianance)`
-//     ${icon_css}
-// `
-// const DaiIc = styled(Dai)`
-//     ${icon_css}
-// `
-// const StasisEuroIc = styled(StasisEuro)`
-//     ${icon_css}
-// `
-// const IdkIc = styled(Idk)`
-//     ${icon_css}
-// `
-// const PaxosIc = styled(Paxos)`
-//     ${icon_css}
-// `
-// const TrueIc = styled(True)`
-//     ${icon_css}
-// `
-const UsdCoinIc = styled.img`
-    ${icon_css}
-`
-// const UsdkIc = styled(Usdk)`
-//     ${icon_css}
-// `
-
-const ChangellyIc = styled.img`
-    ${icon_css}
-`
-const WyreIc = styled.img`
-    ${icon_css}
-`
-const XanpoolIc = styled.img`
-    ${icon_css}
-`
-const BanxaIc = styled.img`
-    ${icon_css}
-`
-const PaylivreIc = styled.img`
-    ${icon_css}
-`
-const DiscoverIc = styled.img`
-    ${icon_css}
-`
-
-const OnlineNairaIc = styled.img`
-    ${icon_css}
-`
-
-// const TigoIc= styled.img`
-//     ${icon_css}
-// `
-
-// const AirtelIc = styled.img`
-//     ${icon_css}
-// `
-
 // const NoIconText = styled.div`
 //     color:var(--color-red);
 //     font-size:1.5rem;
@@ -216,7 +84,7 @@ const payment_data = [
                 name: 'paytrust88',
             },
             {
-                method: <DragonPhoenixIc src={DragonPhoenix} alt="dragon phoenix" />,
+                method: <StyledIcon src={DragonPhoenix} alt="dragon phoenix" />,
                 currencies: 'USD EUR GBP AUD',
                 min_max_deposit: '10-10,000',
                 min_max_withdrawal: <Localize translate_text="Not applicable" />,
@@ -329,7 +197,7 @@ const payment_data = [
                 reference: 'diners-club-payment-method.pdf',
             },
             {
-                method: <DiscoverIc src={Discover} alt="Discover" />,
+                method: <StyledIcon src={Discover} alt="Discover" />,
                 currencies: 'USD',
                 min_max_deposit: '10-10,000',
                 min_max_withdrawal: 'Not applicable',
@@ -413,7 +281,7 @@ const payment_data = [
                 reference: 'webmoney-payment-method.pdf',
             },
             // {
-            //     method: <QiwiIc src={Qiwi} alt="Qiwi" />,
+            //     method: <StyledIcon src={Qiwi} alt="Qiwi" />,
             //     currencies: 'USD EUR',
             //     min_max_deposit: ['5-200 (USD)', '5-150 (EUR)'],
             //     min_max_withdrawal: ['5-180 (USD)', '5-150 (EUR)'],
@@ -426,7 +294,7 @@ const payment_data = [
             //     name: 'qiwi',
             // },
             {
-                method: <PaysafeCardIc src={PaysafeCard} alt="PaysafeCard" />,
+                method: <StyledIcon src={PaysafeCard} alt="PaysafeCard" />,
                 currencies: 'USD GBP EUR AUD',
                 min_max_deposit: '5-1,000',
                 min_max_withdrawal: '5-750',
@@ -482,7 +350,7 @@ const payment_data = [
                 reference: 'airtm-payment-method.pdf',
             },
             {
-                method: <Help2PayIc src={Help2Pay} alt="help2pay" />,
+                method: <StyledIcon src={Help2Pay} alt="help2pay" />,
                 currencies: 'USD',
                 min_max_deposit: '5-10,000',
                 min_max_withdrawal: <Localize translate_text="5-10,000" />,
@@ -495,7 +363,7 @@ const payment_data = [
                 reference: 'help2pay-payment-method.pdf',
             },
             {
-                method: <PaylivreIc src={Paylivre} alt="Paylivre" />,
+                method: <StyledIcon src={Paylivre} alt="Paylivre" />,
                 currencies: 'USD',
                 min_max_deposit: '5-500',
                 min_max_withdrawal: '5-2,000',
@@ -509,7 +377,7 @@ const payment_data = [
                 reference: 'paylivre-payment-method.pdf',
             },
             {
-                method: <OnlineNairaIc src={OnlineNaira} alt="OnlineNaira" />,
+                method: <StyledIcon src={OnlineNaira} alt="OnlineNaira" />,
                 currencies: 'USD',
                 min_max_deposit: '10-500',
                 min_max_withdrawal: '10-2,000',
@@ -535,7 +403,7 @@ const payment_data = [
             //     name: 'mtnmobilemoney',
             // },
             // {
-            //     method: <TigoIc src={Tigo} alt='tigo'/>,
+            //     method: <StyledIcon src={Tigo} alt='tigo'/>,
             //     currencies: 'GHS',
             //     min_max_deposit: '10-500',
             //     min_max_withdrawal: 'Not applicable',
@@ -548,7 +416,7 @@ const payment_data = [
             //     name: 'tigo',
             // },
             // {
-            //     method: <AirtelIc src={Airtel} alt='airtel'/>,
+            //     method: <StyledIcon src={Airtel} alt='airtel'/>,
             //     currencies: 'GHS UGX',
             //     min_max_deposit: '10-500',
             //     min_max_withdrawal: 'Not applicable',
@@ -794,17 +662,7 @@ const payment_data = [
             //     name: 'Wyre',
             // },
             {
-                method: <WyreIc src={Wyre} alt="Wyre" />,
-                currencies: 'USD EUR GBP AUD MXN BTC ETH WETH DAI',
-                min_max_deposit: <Localize translate_text="50-5,000" />,
-                deposit_time: <Localize translate_text="5-30 minutes" />,
-                description: (
-                    <Localize translate_text="Purchase crypto using your credit and debit card to top-up your Deriv account with this global fiat-to-crypto exchange." />
-                ),
-                name: 'Wyre',
-            },
-            {
-                method: <XanpoolIc src={Xanpool} alt="Xanpool" />,
+                method: <StyledIcon src={Xanpool} alt="Xanpool" />,
                 currencies: 'HKD SGD MYR PHP THB INR VND IDR BTC ETH LTC USDT',
                 min_max_deposit: <Localize translate_text="50-5,000" />,
                 deposit_time: <Localize translate_text="5-30 minutes" />,

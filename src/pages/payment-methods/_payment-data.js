@@ -1,5 +1,5 @@
 import React from 'react'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import { Localize } from 'components/localization'
 // SVG
 import BankTransfer from 'images/svg/payment-methods/payment-bank-transfer.svg'
@@ -27,7 +27,7 @@ import ZingPay from 'images/svg/payment-methods/payment-zing-pay.svg'
 // import DragonPay from 'images/svg/payment-methods/payment-dragon-pay.svg'
 import NganLuong from 'images/svg/payment-methods/payment-ngan-luong.svg'
 import Diners from 'images/svg/payment-methods/payment-diners.svg'
-// import Bianance from 'images/svg/payment-methods/payment-binance-usd.svg'
+// import Binance from 'images/svg/payment-methods/payment-binance-usd.svg'
 // import Dai from 'images/svg/payment-methods/payment-multi-collateral-dai.svg'
 // import StasisEuro from 'images/svg/payment-methods/payment-stasis-euro.svg'
 // import Idk from 'images/svg/payment-methods/payment-idk.svg'
@@ -36,7 +36,7 @@ import Diners from 'images/svg/payment-methods/payment-diners.svg'
 import UsdCoin from 'images/svg/payment-methods/payment-usd-coin.svg'
 // import Usdk from 'images/svg/payment-methods/payment-usdk.svg'
 import Changelly from 'images/svg/payment-methods/payment-changelly.svg'
-import Wyre from 'images/svg/payment-methods/payment-wyre.svg'
+// import Wyre from 'images/svg/payment-methods/payment-wyre.svg'
 import Xanpool from 'images/svg/payment-methods/payment-xanpool.svg'
 import Banxa from 'images/svg/payment-methods/payment-banxa.svg'
 import Paylivre from 'images/svg/payment-methods/payment-paylivre.svg'
@@ -45,142 +45,10 @@ import OnlineNaira from 'images/svg/payment-methods/payment-onlinenaira.svg'
 // import Tigo from 'images/svg/payment-methods/payment-tigo.svg'
 // import Airtel from 'images/svg/payment-methods/payment-airtel.svg'
 
-const icon_css = css`
+const StyledIcon = styled.img`
     width: 72px;
     height: 72px;
 `
-
-const BankTransferIc = styled.img`
-    ${icon_css}
-`
-const PaytrustIc = styled.img`
-    ${icon_css}
-`
-const VisaIc = styled.img`
-    ${icon_css}
-`
-const MasterCardIc = styled.img`
-    ${icon_css}
-`
-const MaestroIc = styled.img`
-    ${icon_css}
-`
-const FasapayIc = styled.img`
-    ${icon_css}
-`
-
-const PerfectMoneyIc = styled.img`
-    ${icon_css}
-`
-const SkrillIc = styled.img`
-    ${icon_css}
-`
-const NetellerIc = styled.img`
-    ${icon_css}
-`
-const WebmoneyIc = styled.img`
-    ${icon_css}
-`
-// const QiwiIc = styled.img`
-//     ${icon_css}
-// `
-const PaysafeCardIc = styled.img`
-    ${icon_css}
-`
-const JetonIc = styled.img`
-    ${icon_css}
-`
-const SticpayIc = styled.img`
-    ${icon_css}
-`
-const AirtmIc = styled.img`
-    ${icon_css}
-`
-const BitcoinIc = styled.img`
-    ${icon_css}
-`
-const EthereumIc = styled.img`
-    ${icon_css}
-`
-const LitecoinIc = styled.img`
-    ${icon_css}
-`
-const TetherIc = styled.img`
-    ${icon_css}
-`
-const Help2PayIc = styled.img`
-    ${icon_css}
-`
-const DragonPhoenixIc = styled.img`
-    ${icon_css}
-`
-const ZingPayIc = styled.img`
-    ${icon_css}
-`
-// const DragonPayIc = styled.img`
-//     ${icon_css}
-// `
-const NganLuongIc = styled.img`
-    ${icon_css}
-`
-const DinersIc = styled.img`
-    ${icon_css}
-`
-// const BiananceIC = styled(Bianance)`
-//     ${icon_css}
-// `
-// const DaiIc = styled(Dai)`
-//     ${icon_css}
-// `
-// const StasisEuroIc = styled(StasisEuro)`
-//     ${icon_css}
-// `
-// const IdkIc = styled(Idk)`
-//     ${icon_css}
-// `
-// const PaxosIc = styled(Paxos)`
-//     ${icon_css}
-// `
-// const TrueIc = styled(True)`
-//     ${icon_css}
-// `
-const UsdCoinIc = styled.img`
-    ${icon_css}
-`
-// const UsdkIc = styled(Usdk)`
-//     ${icon_css}
-// `
-
-const ChangellyIc = styled.img`
-    ${icon_css}
-`
-const WyreIc = styled.img`
-    ${icon_css}
-`
-const XanpoolIc = styled.img`
-    ${icon_css}
-`
-const BanxaIc = styled.img`
-    ${icon_css}
-`
-const PaylivreIc = styled.img`
-    ${icon_css}
-`
-const DiscoverIc = styled.img`
-    ${icon_css}
-`
-
-const OnlineNairaIc = styled.img`
-    ${icon_css}
-`
-
-// const TigoIc= styled.img`
-//     ${icon_css}
-// `
-
-// const AirtelIc = styled.img`
-//     ${icon_css}
-// `
 
 // const NoIconText = styled.div`
 //     color:var(--color-red);
@@ -192,7 +60,7 @@ const payment_data = [
         name: <Localize translate_text="Bank wire" />,
         data: [
             {
-                method: <BankTransferIc src={BankTransfer} alt="bank transfer" />,
+                method: <StyledIcon src={BankTransfer} alt="bank transfer" />,
                 currencies: 'USD GBP EUR AUD',
                 min_max_deposit: '500-100,000',
                 min_max_withdrawal: '500-100,000',
@@ -204,7 +72,7 @@ const payment_data = [
                 name: 'bank transfer',
             },
             {
-                method: <PaytrustIc src={Paytrust} alt="pay safe card" />,
+                method: <StyledIcon src={Paytrust} alt="pay safe card" />,
                 currencies: 'USD',
                 min_max_deposit: '10-17,000',
                 min_max_withdrawal: <Localize translate_text="Not applicable" />,
@@ -216,7 +84,7 @@ const payment_data = [
                 name: 'paytrust88',
             },
             {
-                method: <DragonPhoenixIc src={DragonPhoenix} alt="dragon phoenix" />,
+                method: <StyledIcon src={DragonPhoenix} alt="dragon phoenix" />,
                 currencies: 'USD EUR GBP AUD',
                 min_max_deposit: '10-10,000',
                 min_max_withdrawal: <Localize translate_text="Not applicable" />,
@@ -229,7 +97,7 @@ const payment_data = [
                 reference: 'dragonphoenix-payment-method.pdf',
             },
             {
-                method: <ZingPayIc src={ZingPay} alt="zingPay" />,
+                method: <StyledIcon src={ZingPay} alt="zingPay" />,
                 currencies: 'USD GBP EUR AUD',
                 min_max_deposit: '10-500',
                 min_max_withdrawal: '10-1,500',
@@ -242,7 +110,7 @@ const payment_data = [
                 reference: 'zingpay-payment-method.pdf',
             },
             // {
-            //     method: <DragonPayIc src={DragonPay} alt="Dragon pay" />,
+            //     method: <StyledIcon src={DragonPay} alt="Dragon pay" />,
             //     currencies: 'USD',
             //     min_max_deposit: '50-4,500',
             //     min_max_withdrawal: '50-2,500',
@@ -255,7 +123,7 @@ const payment_data = [
             //     reference: 'dragonpay-payment-method.pdf',
             // },
             {
-                method: <NganLuongIc src={NganLuong} alt="NganLuong" />,
+                method: <StyledIcon src={NganLuong} alt="NganLuong" />,
                 currencies: 'USD',
                 min_max_deposit: '10-4,000',
                 min_max_withdrawal: '10-4,000',
@@ -277,7 +145,7 @@ const payment_data = [
         ),
         data: [
             {
-                method: <VisaIc src={Visa} alt="Visa" />,
+                method: <StyledIcon src={Visa} alt="Visa" />,
                 currencies: 'USD GBP EUR AUD',
                 min_max_deposit: '10-10,000',
                 min_max_withdrawal: '10-10,000',
@@ -290,7 +158,7 @@ const payment_data = [
                 reference: 'visa-payment-method.pdf',
             },
             {
-                method: <MasterCardIc src={MasterCard} alt="Mastercard" />,
+                method: <StyledIcon src={MasterCard} alt="Mastercard" />,
                 currencies: 'USD GBP EUR AUD',
                 min_max_deposit: '10-10,000',
                 min_max_withdrawal: '10-10,000',
@@ -303,7 +171,7 @@ const payment_data = [
                 reference: 'mastercard-payment-method.pdf',
             },
             {
-                method: <MaestroIc src={Maestro} alt="Maestro" />,
+                method: <StyledIcon src={Maestro} alt="Maestro" />,
                 currencies: 'USD GBP EUR AUD',
                 min_max_deposit: '10-10,000',
                 min_max_withdrawal: '10-10,000',
@@ -316,7 +184,7 @@ const payment_data = [
                 reference: 'maestrocard-payment-method.pdf',
             },
             {
-                method: <DinersIc src={Diners} alt="Diners" />,
+                method: <StyledIcon src={Diners} alt="Diners" />,
                 currencies: 'USD GBP EUR AUD',
                 min_max_deposit: '10-10,000',
                 min_max_withdrawal: '10-10,000',
@@ -329,7 +197,7 @@ const payment_data = [
                 reference: 'diners-club-payment-method.pdf',
             },
             {
-                method: <DiscoverIc src={Discover} alt="Discover" />,
+                method: <StyledIcon src={Discover} alt="Discover" />,
                 currencies: 'USD',
                 min_max_deposit: '10-10,000',
                 min_max_withdrawal: 'Not applicable',
@@ -343,7 +211,7 @@ const payment_data = [
         name: <Localize translate_text="E-wallets" />,
         data: [
             {
-                method: <FasapayIc src={Fasapay} alt="Fasapay" />,
+                method: <StyledIcon src={Fasapay} alt="Fasapay" />,
                 currencies: 'USD',
                 min_max_deposit: '5-10,000',
                 min_max_withdrawal: '5-10,000',
@@ -357,7 +225,7 @@ const payment_data = [
                 reference: 'fasapay-payment-method.pdf',
             },
             {
-                method: <PerfectMoneyIc src={PerfectMoney} alt="PerfectMoney" />,
+                method: <StyledIcon src={PerfectMoney} alt="PerfectMoney" />,
                 currencies: 'USD EUR',
                 min_max_deposit: '5-10,000',
                 min_max_withdrawal: '5-10,000',
@@ -371,7 +239,7 @@ const payment_data = [
                 reference: 'perfectmoney-payment-method.pdf',
             },
             {
-                method: <SkrillIc src={Skrill} alt="Skrill" />,
+                method: <StyledIcon src={Skrill} alt="Skrill" />,
                 currencies: 'USD GBP EUR AUD',
                 min_max_deposit: '10-10,000',
                 min_max_withdrawal: '5-10,000',
@@ -385,7 +253,7 @@ const payment_data = [
                 reference: 'skrill-payment-method.pdf',
             },
             {
-                method: <NetellerIc src={Neteller} alt="Neteller" />,
+                method: <StyledIcon src={Neteller} alt="Neteller" />,
                 currencies: 'USD GBP EUR AUD',
                 min_max_deposit: '5-10,000',
                 min_max_withdrawal: '5-10,000',
@@ -399,7 +267,7 @@ const payment_data = [
                 reference: 'neteller-payment-method.pdf',
             },
             {
-                method: <WebmoneyIc src={Webmoney} alt="Webmoney" />,
+                method: <StyledIcon src={Webmoney} alt="Webmoney" />,
                 currencies: 'USD EUR',
                 min_max_deposit: '5-10,000',
                 min_max_withdrawal: '5-10,000',
@@ -413,7 +281,7 @@ const payment_data = [
                 reference: 'webmoney-payment-method.pdf',
             },
             // {
-            //     method: <QiwiIc src={Qiwi} alt="Qiwi" />,
+            //     method: <StyledIcon src={Qiwi} alt="Qiwi" />,
             //     currencies: 'USD EUR',
             //     min_max_deposit: ['5-200 (USD)', '5-150 (EUR)'],
             //     min_max_withdrawal: ['5-180 (USD)', '5-150 (EUR)'],
@@ -426,7 +294,7 @@ const payment_data = [
             //     name: 'qiwi',
             // },
             {
-                method: <PaysafeCardIc src={PaysafeCard} alt="PaysafeCard" />,
+                method: <StyledIcon src={PaysafeCard} alt="PaysafeCard" />,
                 currencies: 'USD GBP EUR AUD',
                 min_max_deposit: '5-1,000',
                 min_max_withdrawal: '5-750',
@@ -439,7 +307,7 @@ const payment_data = [
                 name: 'paysafe',
             },
             {
-                method: <JetonIc src={Jeton} alt="Jeton" />,
+                method: <StyledIcon src={Jeton} alt="Jeton" />,
                 currencies: 'USD EUR',
                 min_max_deposit: '5-10,000',
                 min_max_withdrawal: '5-10,000',
@@ -454,7 +322,7 @@ const payment_data = [
             },
 
             {
-                method: <SticpayIc src={Sticpay} alt="Sticpay" />,
+                method: <StyledIcon src={Sticpay} alt="Sticpay" />,
                 currencies: 'USD GBP EUR',
                 min_max_deposit: '5-10,000',
                 min_max_withdrawal: '5-10,000',
@@ -468,7 +336,7 @@ const payment_data = [
                 reference: 'sticpay-payment-method.pdf',
             },
             {
-                method: <AirtmIc src={Airtm} alt="Airtm" />,
+                method: <StyledIcon src={Airtm} alt="Airtm" />,
                 currencies: 'USD',
                 min_max_deposit: '5-2,500',
                 min_max_withdrawal: '5-2,500',
@@ -482,7 +350,7 @@ const payment_data = [
                 reference: 'airtm-payment-method.pdf',
             },
             {
-                method: <Help2PayIc src={Help2Pay} alt="help2pay" />,
+                method: <StyledIcon src={Help2Pay} alt="help2pay" />,
                 currencies: 'USD',
                 min_max_deposit: '5-10,000',
                 min_max_withdrawal: <Localize translate_text="5-10,000" />,
@@ -495,7 +363,7 @@ const payment_data = [
                 reference: 'help2pay-payment-method.pdf',
             },
             {
-                method: <PaylivreIc src={Paylivre} alt="Paylivre" />,
+                method: <StyledIcon src={Paylivre} alt="Paylivre" />,
                 currencies: 'USD',
                 min_max_deposit: '5-500',
                 min_max_withdrawal: '5-2,000',
@@ -509,7 +377,7 @@ const payment_data = [
                 reference: 'paylivre-payment-method.pdf',
             },
             {
-                method: <OnlineNairaIc src={OnlineNaira} alt="OnlineNaira" />,
+                method: <StyledIcon src={OnlineNaira} alt="OnlineNaira" />,
                 currencies: 'USD',
                 min_max_deposit: '10-500',
                 min_max_withdrawal: '10-2,000',
@@ -535,7 +403,7 @@ const payment_data = [
             //     name: 'mtnmobilemoney',
             // },
             // {
-            //     method: <TigoIc src={Tigo} alt='tigo'/>,
+            //     method: <StyledIcon src={Tigo} alt='tigo'/>,
             //     currencies: 'GHS',
             //     min_max_deposit: '10-500',
             //     min_max_withdrawal: 'Not applicable',
@@ -548,7 +416,7 @@ const payment_data = [
             //     name: 'tigo',
             // },
             // {
-            //     method: <AirtelIc src={Airtel} alt='airtel'/>,
+            //     method: <StyledIcon src={Airtel} alt='airtel'/>,
             //     currencies: 'GHS UGX',
             //     min_max_deposit: '10-500',
             //     min_max_withdrawal: 'Not applicable',
@@ -608,7 +476,7 @@ const payment_data = [
         ),
         data: [
             // {
-            //     method: <BiananceIC />,
+            //     method: <StyledIcon src={Binance} alt='Binance' />,
             //     currencies: 'BUSD',
             //     min_max_deposit: <Localize translate_text="No minimum" />,
             //     min_max_withdrawal: undefined,
@@ -620,7 +488,7 @@ const payment_data = [
             //     name: 'BUSD',
             // },
             {
-                method: <BitcoinIc src={Bitcoin} alt="Bitcoin" />,
+                method: <StyledIcon src={Bitcoin} alt="Bitcoin" />,
                 currencies: 'BTC',
                 min_max_deposit: <Localize translate_text="No minimum" />,
                 min_max_withdrawal: undefined,
@@ -645,7 +513,7 @@ const payment_data = [
             //     name: 'DAI',
             // },
             {
-                method: <EthereumIc src={Ethereum} alt="Ethereum" />,
+                method: <StyledIcon src={Ethereum} alt="Ethereum" />,
                 currencies: 'ETH',
                 min_max_deposit: <Localize translate_text="No minimum" />,
                 min_max_withdrawal: undefined,
@@ -658,7 +526,7 @@ const payment_data = [
                 reference: 'ETH-payment-method.pdf',
             },
             // {
-            //     method: <StasisEuroIc />,
+            //     method: <StyledIcon src={StasisEuro} alt='StasisEuro' />,
             //     currencies: 'EURS',
             //     min_max_deposit: <Localize translate_text="No minimum" />,
             //     min_max_withdrawal: undefined,
@@ -670,7 +538,7 @@ const payment_data = [
             //     name: 'EURS',
             // },
             // {
-            //     method: <IdkIc />,
+            //     method: <StyledIcon src={Idk} alt='Idk' />,
             //     currencies: 'IDK',
             //     min_max_deposit: <Localize translate_text="No minimum" />,
             //     min_max_withdrawal: undefined,
@@ -682,7 +550,7 @@ const payment_data = [
             //     name: 'IDK',
             // },
             {
-                method: <LitecoinIc src={Litecoin} alt="Litecoin" />,
+                method: <StyledIcon src={Litecoin} alt="Litecoin" />,
                 currencies: 'LTC',
                 min_max_deposit: <Localize translate_text="No minimum" />,
                 min_max_withdrawal: undefined,
@@ -695,7 +563,7 @@ const payment_data = [
                 reference: 'litecoin-payment-method.pdf',
             },
             // {
-            //     method: <PaxosIc />,
+            //     method: <StyledIcon src={Paxos} alt='Paxos' />,
             //     currencies: 'PAX',
             //     min_max_deposit: <Localize translate_text="No minimum" />,
             //     min_max_withdrawal: undefined,
@@ -707,7 +575,7 @@ const payment_data = [
             //     name: 'PAX',
             // },
             // {
-            //     method: <TrueIc />,
+            //     method: <StyledIcon src={True} alt='True' />,
             //     currencies: 'TUSD',
             //     min_max_deposit: <Localize translate_text="No minimum" />,
             //     min_max_withdrawal: undefined,
@@ -719,7 +587,7 @@ const payment_data = [
             //     name: 'TUSD',
             // },
             {
-                method: <UsdCoinIc src={UsdCoin} alt="UsdCoin" />,
+                method: <StyledIcon src={UsdCoin} alt="UsdCoin" />,
                 currencies: 'USDC',
                 min_max_deposit: <Localize translate_text="No minimum" />,
                 min_max_withdrawal: undefined,
@@ -731,7 +599,7 @@ const payment_data = [
                 name: 'USDC',
             },
             // {
-            //     method: <UsdkIc />,
+            //     method: <StyledIcon src={Usdk} alt='Usdk' />,
             //     currencies: 'USDK',
             //     min_max_deposit: <Localize translate_text="No minimum" />,
             //     min_max_withdrawal: undefined,
@@ -743,7 +611,7 @@ const payment_data = [
             //     name: 'USDK',
             // },
             {
-                method: <TetherIc src={Tether} alt="Tether" />,
+                method: <StyledIcon src={Tether} alt="Tether" />,
                 currencies: 'USDT',
                 min_max_deposit: <Localize translate_text="No minimum" />,
                 min_max_withdrawal: undefined,
@@ -755,7 +623,7 @@ const payment_data = [
                 name: 'UST',
             },
             // {
-            //     method: <TetherIc />,
+            //     method: <StyledIcon src={Tether} alt='Tether' />,
             //     currencies: 'eUSDT',
             //     min_max_deposit: <Localize translate_text="No minimum" />,
             //     min_max_withdrawal: undefined,
@@ -773,7 +641,7 @@ const payment_data = [
         is_fiat_onramp: true,
         data: [
             {
-                method: <ChangellyIc src={Changelly} alt="Changelly" />,
+                method: <StyledIcon src={Changelly} alt="Changelly" />,
                 currencies: 'USD EUR GBP BTC',
                 min_max_deposit: '50-5,000',
                 deposit_time: <Localize translate_text="5-30 minutes" />,
@@ -783,18 +651,18 @@ const payment_data = [
                 name: 'Changelly',
                 reference: 'changelly-payment-method.pdf',
             },
+            // {
+            //     method: <StyledIcon src={Wyre} alt="Wyre" />,
+            //     currencies: 'USD EUR GBP AUD MXN BTC ETH WETH DAI',
+            //     min_max_deposit: <Localize translate_text="50-5,000" />,
+            //     deposit_time: <Localize translate_text="5-30 minutes" />,
+            //     description: (
+            //         <Localize translate_text="Purchase crypto using your credit and debit card to top-up your Deriv account with this global fiat-to-crypto exchange." />
+            //     ),
+            //     name: 'Wyre',
+            // },
             {
-                method: <WyreIc src={Wyre} alt="Wyre" />,
-                currencies: 'USD EUR GBP AUD MXN BTC ETH WETH DAI',
-                min_max_deposit: <Localize translate_text="50-5,000" />,
-                deposit_time: <Localize translate_text="5-30 minutes" />,
-                description: (
-                    <Localize translate_text="Purchase crypto using your credit and debit card to top-up your Deriv account with this global fiat-to-crypto exchange." />
-                ),
-                name: 'Wyre',
-            },
-            {
-                method: <XanpoolIc src={Xanpool} alt="Xanpool" />,
+                method: <StyledIcon src={Xanpool} alt="Xanpool" />,
                 currencies: 'HKD SGD MYR PHP THB INR VND IDR BTC ETH LTC USDT',
                 min_max_deposit: <Localize translate_text="50-5,000" />,
                 deposit_time: <Localize translate_text="5-30 minutes" />,
@@ -804,7 +672,7 @@ const payment_data = [
                 name: 'Xanpool',
             },
             {
-                method: <BanxaIc src={Banxa} alt="Banxa" />,
+                method: <StyledIcon src={Banxa} alt="Banxa" />,
                 currencies: 'USD EUR GBP AUD CAD BTC LTC USDT USDC',
                 min_max_deposit: '50-5,000',
                 deposit_time: <Localize translate_text="5-30 minutes" />,

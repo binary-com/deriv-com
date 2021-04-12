@@ -144,7 +144,7 @@ const TradingLimits = () => {
                                             is_deriv_app_link
                                             external="true"
                                             target="_blank"
-                                            rel="noopener noreferrer"
+                                            rel="nofollow noopener noreferrer"
                                             color="red"
                                             key={0}
                                         />,

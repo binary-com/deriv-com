@@ -300,7 +300,7 @@ const DHero = ({
                             to={redirectUrl()}
                             is_deriv_app_link
                             target="_blank"
-                            rel="noopener noreferrer"
+                            rel="nofollow noopener noreferrer"
                         >
                             {localize('Go to live demo')}
                         </StyledLinkButton>

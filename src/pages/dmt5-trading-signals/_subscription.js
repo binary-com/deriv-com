@@ -281,7 +281,7 @@ const Subscription = () => {
                     is_deriv_app_link
                     to="/mt5"
                     target="_blank"
-                    rel="noopener noreferrer"
+                    rel="nofollow noopener noreferrer"
                 >
                     {localize('Go to your DMT5 terminal')}
                 </DMT5Button>

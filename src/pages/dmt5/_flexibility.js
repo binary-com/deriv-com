@@ -148,7 +148,7 @@ const Flexibility = () => {
                 to="/mt5"
                 is_deriv_app_link
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="nofollow noopener noreferrer"
             >
                 {localize('Go to DMT5 dashboard')}
             </StyledLinkButton>

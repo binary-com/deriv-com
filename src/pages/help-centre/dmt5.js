@@ -128,7 +128,7 @@ const ResetDMT5Password = () => (
                     <ExternalLink
                         href={`${deriv_app_url}/mt5`}
                         target="_blank"
-                        rel="noopener noreferrer"
+                        rel="nofollow noopener noreferrer"
                         key={1}
                     />,
                     <strong key={0} />,

@@ -455,6 +455,7 @@ const MarginCalculator = () => {
                         to="https://app.deriv.com/mt5"
                         external="true"
                         target="_blank"
+                        rel="nofollow noopener noreferrer"
                     >
                         {localize('Go to DMT5 dashboard')}
                     </StyledLinkButton>

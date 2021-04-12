@@ -148,7 +148,6 @@ const SyntheticIndices = () => {
                     />
                 </MarketsWrapper>
                 <AvailablePlatforms dtrader />
-                
                 <MarketsWrapper direction="column">
                     <MarketsAccordion
                         renderTitle={() => (

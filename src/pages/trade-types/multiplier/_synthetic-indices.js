@@ -1,8 +1,10 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { CrashBoom, ContinuousIndices } from '../../markets/instruments/_submarkets.js'
 import MarketsAccordion from '../../markets/components/helper/_markets_accordion.js'
 import AvailablePlatforms from '../../markets/components/helper/_available-platforms.js'
+import { synthetic_multiplier } from '../../markets/static/content/_multipliers'
 import { Text } from 'components/elements'
 import { SectionContainer, Flex, CssGrid, Show } from 'components/containers'
 import { localize, Localize } from 'components/localization'
@@ -12,12 +14,6 @@ const StyledText = styled(Text)`
     @media ${device.tabletL} {
         text-align: left;
     }
-`
-
-const EURTPText = styled(Text)`
-    font-size: 14px;
-    color: #999999;
-    margin-top: 20px;
 `
 
 const Col = styled(Flex)`
@@ -173,13 +169,19 @@ const SyntheticIndices = () => {
                 </MarketsWrapper>
                 <AvailablePlatforms dtrader />
                 <Show.Eu>
-                    <EURTPText>
-                        {localize('Return to player for mulitplier options is in the range of 95.0-99.9% for all indices on an average. Using a different multiplier or duration may affect the RTP.')}
-                    </EURTPText>
-                </Show.Eu>
+                {synthetic_multiplier.eu_content?.map((text, index) => (
+                    <Text key={index} mt="2.5rem" color="grey-5" size="var(--text-size-xs)">
+                        {text}
+                    </Text>
+                ))}
+            </Show.Eu>
             </Flex>
         </SectionContainer>
     )
+}
+
+SyntheticIndices.propTypes = {
+    market_content: PropTypes.object,
 }
 
 export default SyntheticIndices

@@ -1,5 +1,5 @@
 import React from 'react'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import { Localize } from 'components/localization'
 // SVG
 import BankTransfer from 'images/svg/payment-methods/payment-bank-transfer.svg'
@@ -12,7 +12,7 @@ import PerfectMoney from 'images/svg/payment-methods/payment-perfect-money.svg'
 import Skrill from 'images/svg/payment-methods/payment-skrill.svg'
 import Neteller from 'images/svg/payment-methods/payment-neteller.svg'
 import Webmoney from 'images/svg/payment-methods/payment-webmoney.svg'
-import Qiwi from 'images/svg/payment-methods/payment-qiwi.svg'
+// import Qiwi from 'images/svg/payment-methods/payment-qiwi.svg'
 import PaysafeCard from 'images/svg/payment-methods/payment-paysafe.svg'
 import Jeton from 'images/svg/payment-methods/payment-jeton.svg'
 import Sticpay from 'images/svg/payment-methods/payment-sticpay.svg'
@@ -27,7 +27,7 @@ import ZingPay from 'images/svg/payment-methods/payment-zing-pay.svg'
 // import DragonPay from 'images/svg/payment-methods/payment-dragon-pay.svg'
 import NganLuong from 'images/svg/payment-methods/payment-ngan-luong.svg'
 import Diners from 'images/svg/payment-methods/payment-diners.svg'
-// import Bianance from 'images/svg/payment-methods/payment-binance-usd.svg'
+// import Binance from 'images/svg/payment-methods/payment-binance-usd.svg'
 // import Dai from 'images/svg/payment-methods/payment-multi-collateral-dai.svg'
 // import StasisEuro from 'images/svg/payment-methods/payment-stasis-euro.svg'
 // import Idk from 'images/svg/payment-methods/payment-idk.svg'
@@ -36,153 +36,45 @@ import Diners from 'images/svg/payment-methods/payment-diners.svg'
 import UsdCoin from 'images/svg/payment-methods/payment-usd-coin.svg'
 // import Usdk from 'images/svg/payment-methods/payment-usdk.svg'
 import Changelly from 'images/svg/payment-methods/payment-changelly.svg'
-import Wyre from 'images/svg/payment-methods/payment-wyre.svg'
+// import Wyre from 'images/svg/payment-methods/payment-wyre.svg'
 import Xanpool from 'images/svg/payment-methods/payment-xanpool.svg'
 import Banxa from 'images/svg/payment-methods/payment-banxa.svg'
 import Paylivre from 'images/svg/payment-methods/payment-paylivre.svg'
+import Discover from 'images/svg/payment-methods/payment-discover.svg'
+import OnlineNaira from 'images/svg/payment-methods/payment-onlinenaira.svg'
+// import Tigo from 'images/svg/payment-methods/payment-tigo.svg'
+// import Airtel from 'images/svg/payment-methods/payment-airtel.svg'
 
-const icon_css = css`
+const StyledIcon = styled.img`
     width: 72px;
     height: 72px;
 `
 
-const BankTransferIc = styled.img`
-    ${icon_css}
-`
-const PaytrustIc = styled.img`
-    ${icon_css}
-`
-const VisaIc = styled.img`
-    ${icon_css}
-`
-const MasterCardIc = styled.img`
-    ${icon_css}
-`
-const MaestroIc = styled.img`
-    ${icon_css}
-`
-const FasapayIc = styled.img`
-    ${icon_css}
-`
-
-const PerfectMoneyIc = styled.img`
-    ${icon_css}
-`
-const SkrillIc = styled.img`
-    ${icon_css}
-`
-const NetellerIc = styled.img`
-    ${icon_css}
-`
-const WebmoneyIc = styled.img`
-    ${icon_css}
-`
-const QiwiIc = styled.img`
-    ${icon_css}
-`
-const PaysafeCardIc = styled.img`
-    ${icon_css}
-`
-const JetonIc = styled.img`
-    ${icon_css}
-`
-const SticpayIc = styled.img`
-    ${icon_css}
-`
-const AirtmIc = styled.img`
-    ${icon_css}
-`
-const BitcoinIc = styled.img`
-    ${icon_css}
-`
-const EthereumIc = styled.img`
-    ${icon_css}
-`
-const LitecoinIc = styled.img`
-    ${icon_css}
-`
-const TetherIc = styled.img`
-    ${icon_css}
-`
-const Help2PayIc = styled.img`
-    ${icon_css}
-`
-const DragonPhoenixIc = styled.img`
-    ${icon_css}
-`
-const ZingPayIc = styled.img`
-    ${icon_css}
-`
-// const DragonPayIc = styled.img`
-//     ${icon_css}
+// const NoIconText = styled.div`
+//     color:var(--color-red);
+//     font-size:1.5rem;
 // `
-const NganLuongIc = styled.img`
-    ${icon_css}
-`
-const DinersIc = styled.img`
-    ${icon_css}
-`
-// const BiananceIC = styled(Bianance)`
-//     ${icon_css}
-// `
-// const DaiIc = styled(Dai)`
-//     ${icon_css}
-// `
-// const StasisEuroIc = styled(StasisEuro)`
-//     ${icon_css}
-// `
-// const IdkIc = styled(Idk)`
-//     ${icon_css}
-// `
-// const PaxosIc = styled(Paxos)`
-//     ${icon_css}
-// `
-// const TrueIc = styled(True)`
-//     ${icon_css}
-// `
-const UsdCoinIc = styled.img`
-    ${icon_css}
-`
-// const UsdkIc = styled(Usdk)`
-//     ${icon_css}
-// `
-
-const ChangellyIc = styled.img`
-    ${icon_css}
-`
-const WyreIc = styled.img`
-    ${icon_css}
-`
-const XanpoolIc = styled.img`
-    ${icon_css}
-`
-const BanxaIc = styled.img`
-    ${icon_css}
-`
-const PaylivreIc = styled.img`
-    ${icon_css}
-`
 
 const payment_data = [
     {
         name: <Localize translate_text="Bank wire" />,
         data: [
             {
-                method: <BankTransferIc src={BankTransfer} alt="bank transfer" />,
+                method: <StyledIcon src={BankTransfer} alt="bank transfer" />,
                 currencies: 'USD GBP EUR AUD',
                 min_max_deposit: '500-100,000',
                 min_max_withdrawal: '500-100,000',
-                deposit_time: <Localize translate_text="1 day" />,
-                withdrawal_time: <Localize translate_text="1 day" />,
+                deposit_time: <Localize translate_text="1 working day" />,
+                withdrawal_time: <Localize translate_text="1 working day" />,
                 description: (
                     <Localize translate_text="Use your bank account to deposit and withdraw. Bank charges apply." />
                 ),
                 name: 'bank transfer',
             },
             {
-                method: <PaytrustIc src={Paytrust} alt="pay safe card" />,
+                method: <StyledIcon src={Paytrust} alt="pay safe card" />,
                 currencies: 'USD',
-                min_max_deposit: '25-10,000',
+                min_max_deposit: '10-17,000',
                 min_max_withdrawal: <Localize translate_text="Not applicable" />,
                 deposit_time: <Localize translate_text="Instant" />,
                 withdrawal_time: <Localize translate_text="Not applicable" />,
@@ -192,51 +84,38 @@ const payment_data = [
                 name: 'paytrust88',
             },
             {
-                method: <Help2PayIc src={Help2Pay} alt="help2pay" />,
-                currencies: 'USD',
+                method: <StyledIcon src={DragonPhoenix} alt="dragon phoenix" />,
+                currencies: 'USD EUR GBP AUD',
                 min_max_deposit: '10-10,000',
                 min_max_withdrawal: <Localize translate_text="Not applicable" />,
                 deposit_time: <Localize translate_text="Instant" />,
                 withdrawal_time: <Localize translate_text="Not applicable" />,
                 description: (
-                    <Localize translate_text="The leading payment software solution in Southeast Asia. Currently available for making deposits in Vietnam, Thailand, and Indonesia." />
-                ),
-                name: 'Help2Pay',
-                reference: 'help2pay-payment-method.pdf',
-            },
-            {
-                method: <DragonPhoenixIc src={DragonPhoenix} alt="dragon phoenix" />,
-                currencies: 'USD',
-                min_max_deposit: '10-10,000',
-                min_max_withdrawal: <Localize translate_text="Not applicable" />,
-                deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="Not applicable" />,
-                description: (
-                    <Localize translate_text="A payment facility that allows online bank transfers for clients across Southeast Asia. Currently available for making deposits in Vietnam, Thailand, and Indonesia." />
+                    <Localize translate_text="Deposit and withdraw easily in THB, IDR, and VND." />
                 ),
                 name: 'DragonPhoenix',
                 reference: 'dragonphoenix-payment-method.pdf',
             },
             {
-                method: <ZingPayIc src={ZingPay} alt="zingPay" />,
+                method: <StyledIcon src={ZingPay} alt="zingPay" />,
                 currencies: 'USD GBP EUR AUD',
-                min_max_deposit: '10-10,000',
-                min_max_withdrawal: '10-10,000',
+                min_max_deposit: '10-500',
+                min_max_withdrawal: '10-1,500',
                 deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="1 day" />,
+                withdrawal_time: <Localize translate_text="1 working day" />,
                 description: (
-                    <Localize translate_text="An easy and accessible way to deposit and withdraw directly using your bank account in South Africa." />
+                    <Localize translate_text="Payments simplified. Fast and reliable way to deposit funds in your local currency." />
                 ),
                 name: 'ZingPay',
                 reference: 'zingpay-payment-method.pdf',
             },
             // {
-            //     method: <DragonPayIc src={DragonPay} alt="Dragon pay" />,
+            //     method: <StyledIcon src={DragonPay} alt="Dragon pay" />,
             //     currencies: 'USD',
             //     min_max_deposit: '50-4,500',
-            //     min_max_withdrawal: '55-2,500',
-            //     deposit_time: <Localize translate_text="1 day" />,
-            //     withdrawal_time: <Localize translate_text="1-3 days" />,
+            //     min_max_withdrawal: '50-2,500',
+            //     deposit_time: <Localize translate_text="1 working day" />,
+            //     withdrawal_time: <Localize translate_text="1-3 working days" />,
             //     description: (
             //         <Localize translate_text="A payment facility that allows online bank transfers for clients in the Philippines. Available for deposits and withdrawals." />
             //     ),
@@ -244,12 +123,12 @@ const payment_data = [
             //     reference: 'dragonpay-payment-method.pdf',
             // },
             {
-                method: <NganLuongIc src={NganLuong} alt="NganLuong" />,
+                method: <StyledIcon src={NganLuong} alt="NganLuong" />,
                 currencies: 'USD',
                 min_max_deposit: '10-4,000',
                 min_max_withdrawal: '10-4,000',
-                deposit_time: <Localize translate_text="1 day" />,
-                withdrawal_time: <Localize translate_text="1-3 days" />,
+                deposit_time: <Localize translate_text="1 working day" />,
+                withdrawal_time: <Localize translate_text="1-3 working days" />,
                 description: (
                     <Localize translate_text="A payment facility that allows online bank transfers for clients in Vietnam. Available for deposits and withdrawals." />
                 ),
@@ -266,12 +145,12 @@ const payment_data = [
         ),
         data: [
             {
-                method: <VisaIc src={Visa} alt="Visa" />,
+                method: <StyledIcon src={Visa} alt="Visa" />,
                 currencies: 'USD GBP EUR AUD',
                 min_max_deposit: '10-10,000',
                 min_max_withdrawal: '10-10,000',
                 deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="1 day" />,
+                withdrawal_time: <Localize translate_text="1 working day" />,
                 description: (
                     <Localize translate_text="Deposit and withdraw using your Visa credit or debit card." />
                 ),
@@ -279,12 +158,12 @@ const payment_data = [
                 reference: 'visa-payment-method.pdf',
             },
             {
-                method: <MasterCardIc src={MasterCard} alt="Mastercard" />,
+                method: <StyledIcon src={MasterCard} alt="Mastercard" />,
                 currencies: 'USD GBP EUR AUD',
                 min_max_deposit: '10-10,000',
                 min_max_withdrawal: '10-10,000',
                 deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="1 day" />,
+                withdrawal_time: <Localize translate_text="1 working day" />,
                 description: (
                     <Localize translate_text="Deposit and withdraw using your Mastercard credit or debit card." />
                 ),
@@ -292,12 +171,12 @@ const payment_data = [
                 reference: 'mastercard-payment-method.pdf',
             },
             {
-                method: <MaestroIc src={Maestro} alt="Maestro" />,
+                method: <StyledIcon src={Maestro} alt="Maestro" />,
                 currencies: 'USD GBP EUR AUD',
                 min_max_deposit: '10-10,000',
                 min_max_withdrawal: '10-10,000',
                 deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="1 day" />,
+                withdrawal_time: <Localize translate_text="1 working day" />,
                 description: (
                     <Localize translate_text="Deposit and withdraw using your Maestro debit card." />
                 ),
@@ -305,17 +184,26 @@ const payment_data = [
                 reference: 'maestrocard-payment-method.pdf',
             },
             {
-                method: <DinersIc src={Diners} alt="Diners" />,
+                method: <StyledIcon src={Diners} alt="Diners" />,
                 currencies: 'USD GBP EUR AUD',
                 min_max_deposit: '10-10,000',
                 min_max_withdrawal: '10-10,000',
                 deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text=" 2-3 days" />,
+                withdrawal_time: <Localize translate_text="1 working day" />,
                 description: (
                     <Localize translate_text="Deposit and withdraw using your Diners Club credit or debit card." />
                 ),
                 name: 'diners',
                 reference: 'diners-club-payment-method.pdf',
+            },
+            {
+                method: <StyledIcon src={Discover} alt="Discover" />,
+                currencies: 'USD',
+                min_max_deposit: '10-10,000',
+                min_max_withdrawal: 'Not applicable',
+                deposit_time: <Localize translate_text="Instant" />,
+                withdrawal_time: <Localize translate_text="Not applicable" />,
+                description: <Localize translate_text="Deposit using your Discover credit card." />,
             },
         ],
     },
@@ -323,12 +211,12 @@ const payment_data = [
         name: <Localize translate_text="E-wallets" />,
         data: [
             {
-                method: <FasapayIc src={Fasapay} alt="Fasapay" />,
+                method: <StyledIcon src={Fasapay} alt="Fasapay" />,
                 currencies: 'USD',
                 min_max_deposit: '5-10,000',
                 min_max_withdrawal: '5-10,000',
                 deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="1 day" />,
+                withdrawal_time: <Localize translate_text="1 working day" />,
                 description: (
                     <Localize translate_text="Features fast deposits and withdrawals, low fees, and downloadable transaction history." />
                 ),
@@ -337,12 +225,12 @@ const payment_data = [
                 reference: 'fasapay-payment-method.pdf',
             },
             {
-                method: <PerfectMoneyIc src={PerfectMoney} alt="PerfectMoney" />,
+                method: <StyledIcon src={PerfectMoney} alt="PerfectMoney" />,
                 currencies: 'USD EUR',
                 min_max_deposit: '5-10,000',
                 min_max_withdrawal: '5-10,000',
                 deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="1 day" />,
+                withdrawal_time: <Localize translate_text="1 working day" />,
                 description: (
                     <Localize translate_text="A cheap and easy method for deposits and withdrawals. Features auto payments, annual interest, and real-time statements." />
                 ),
@@ -351,12 +239,12 @@ const payment_data = [
                 reference: 'perfectmoney-payment-method.pdf',
             },
             {
-                method: <SkrillIc src={Skrill} alt="Skrill" />,
+                method: <StyledIcon src={Skrill} alt="Skrill" />,
                 currencies: 'USD GBP EUR AUD',
                 min_max_deposit: '10-10,000',
                 min_max_withdrawal: '5-10,000',
                 deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="1 day" />,
+                withdrawal_time: <Localize translate_text="1 working day" />,
                 description: (
                     <Localize translate_text="Quick, simple to use, and available anywhere, anytime. Used by millions of clients worldwide." />
                 ),
@@ -365,12 +253,12 @@ const payment_data = [
                 reference: 'skrill-payment-method.pdf',
             },
             {
-                method: <NetellerIc src={Neteller} alt="Neteller" />,
+                method: <StyledIcon src={Neteller} alt="Neteller" />,
                 currencies: 'USD GBP EUR AUD',
                 min_max_deposit: '5-10,000',
                 min_max_withdrawal: '5-10,000',
                 deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="1 day" />,
+                withdrawal_time: <Localize translate_text="1 working day" />,
                 description: (
                     <Localize translate_text="Used by over 20 million clients worldwide. Enjoy instant access and free withdrawals." />
                 ),
@@ -379,12 +267,12 @@ const payment_data = [
                 reference: 'neteller-payment-method.pdf',
             },
             {
-                method: <WebmoneyIc src={Webmoney} alt="Webmoney" />,
+                method: <StyledIcon src={Webmoney} alt="Webmoney" />,
                 currencies: 'USD EUR',
                 min_max_deposit: '5-10,000',
                 min_max_withdrawal: '5-10,000',
                 deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="1 day" />,
+                withdrawal_time: <Localize translate_text="1 working day" />,
                 description: (
                     <Localize translate_text="A complete payment service with over 30 million clients, 10,000 signups daily, and is supported by more than 100,000 merchants." />
                 ),
@@ -392,26 +280,26 @@ const payment_data = [
                 name: 'webmoney',
                 reference: 'webmoney-payment-method.pdf',
             },
+            // {
+            //     method: <StyledIcon src={Qiwi} alt="Qiwi" />,
+            //     currencies: 'USD EUR',
+            //     min_max_deposit: ['5-200 (USD)', '5-150 (EUR)'],
+            //     min_max_withdrawal: ['5-180 (USD)', '5-150 (EUR)'],
+            //     deposit_time: <Localize translate_text="Instant" />,
+            //     withdrawal_time: <Localize translate_text="1 working day" />,
+            //     description: (
+            //         <Localize translate_text="A payment service provider that provides a simple way to transfer money, receive payments, and pay online." />
+            //     ),
+            //     url: 'https://qiwi.com/',
+            //     name: 'qiwi',
+            // },
             {
-                method: <QiwiIc src={Qiwi} alt="Qiwi" />,
-                currencies: 'USD EUR',
-                min_max_deposit: ['5-200 (USD)', '5-150 (EUR)'],
-                min_max_withdrawal: ['5-180 (USD)', '5-150 (EUR)'],
-                deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="1 day" />,
-                description: (
-                    <Localize translate_text="A payment service provider that provides a simple way to transfer money, receive payments, and pay online." />
-                ),
-                url: 'https://qiwi.com/',
-                name: 'qiwi',
-            },
-            {
-                method: <PaysafeCardIc src={PaysafeCard} alt="PaysafeCard" />,
+                method: <StyledIcon src={PaysafeCard} alt="PaysafeCard" />,
                 currencies: 'USD GBP EUR AUD',
                 min_max_deposit: '5-1,000',
                 min_max_withdrawal: '5-750',
                 deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="1 day" />,
+                withdrawal_time: <Localize translate_text="1 working day" />,
                 description: (
                     <Localize translate_text="A convenient payment service that doesn’t need a bank account or credit card. Accepted by thousands of merchants worldwide." />
                 ),
@@ -419,12 +307,12 @@ const payment_data = [
                 name: 'paysafe',
             },
             {
-                method: <JetonIc src={Jeton} alt="Jeton" />,
+                method: <StyledIcon src={Jeton} alt="Jeton" />,
                 currencies: 'USD EUR',
                 min_max_deposit: '5-10,000',
                 min_max_withdrawal: '5-10,000',
                 deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="1 day" />,
+                withdrawal_time: <Localize translate_text="1 working day" />,
                 description: (
                     <Localize translate_text="A fast and secure money transfer service. Access your money anywhere with the mobile app." />
                 ),
@@ -434,12 +322,12 @@ const payment_data = [
             },
 
             {
-                method: <SticpayIc src={Sticpay} alt="Sticpay" />,
+                method: <StyledIcon src={Sticpay} alt="Sticpay" />,
                 currencies: 'USD GBP EUR',
                 min_max_deposit: '5-10,000',
                 min_max_withdrawal: '5-10,000',
                 deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="1 day" />,
+                withdrawal_time: <Localize translate_text="1 working day" />,
                 description: (
                     <Localize translate_text="An easy, cheap, and fast way to transfer money. Supported by banks and merchants worldwide." />
                 ),
@@ -448,12 +336,12 @@ const payment_data = [
                 reference: 'sticpay-payment-method.pdf',
             },
             {
-                method: <AirtmIc src={Airtm} alt="Airtm" />,
+                method: <StyledIcon src={Airtm} alt="Airtm" />,
                 currencies: 'USD',
                 min_max_deposit: '5-2,500',
                 min_max_withdrawal: '5-2,500',
                 deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="1 day" />,
+                withdrawal_time: <Localize translate_text="1 working day" />,
                 description: (
                     <Localize translate_text="Easily convert your currency to USD and transfer money worldwide." />
                 ),
@@ -462,12 +350,25 @@ const payment_data = [
                 reference: 'airtm-payment-method.pdf',
             },
             {
-                method: <PaylivreIc src={Paylivre} alt="Paylivre" />,
+                method: <StyledIcon src={Help2Pay} alt="help2pay" />,
                 currencies: 'USD',
                 min_max_deposit: '5-10,000',
-                min_max_withdrawal: '5-10,000',
+                min_max_withdrawal: <Localize translate_text="5-10,000" />,
                 deposit_time: <Localize translate_text="Instant" />,
-                withdrawal_time: <Localize translate_text="1 day" />,
+                withdrawal_time: <Localize translate_text="1 working day" />,
+                description: (
+                    <Localize translate_text="The leading payment software solution in Southeast Asia. Currently available for making deposits in Vietnam, Thailand, and Indonesia." />
+                ),
+                name: 'Help2Pay',
+                reference: 'help2pay-payment-method.pdf',
+            },
+            {
+                method: <StyledIcon src={Paylivre} alt="Paylivre" />,
+                currencies: 'USD',
+                min_max_deposit: '5-500',
+                min_max_withdrawal: '5-2,000',
+                deposit_time: <Localize translate_text="Instant" />,
+                withdrawal_time: <Localize translate_text="1-2 working days" />,
                 description: (
                     <Localize translate_text="Use PayLivre to make deposits and withdrawals with your Brazilian bank account." />
                 ),
@@ -475,6 +376,96 @@ const payment_data = [
                 name: 'paylivre',
                 reference: 'paylivre-payment-method.pdf',
             },
+            {
+                method: <StyledIcon src={OnlineNaira} alt="OnlineNaira" />,
+                currencies: 'USD',
+                min_max_deposit: '10-500',
+                min_max_withdrawal: '10-2,000',
+                deposit_time: <Localize translate_text="Instant" />,
+                withdrawal_time: <Localize translate_text="1-2 working day" />,
+                description: (
+                    <Localize translate_text="Make fast and secure deposits and withdrawals with this mobile-friendly solution for clients in Nigeria." />
+                ),
+                url: 'https://www.onlinenaira.com/',
+                name: 'onlinenaira',
+                reference: 'paylivre-payment-method.pdf',
+            },
+            // {
+            //     method: <NoIconText> MTN Mobile Money</NoIconText>,
+            //     currencies: 'GHS UGX',
+            //     min_max_deposit: '10-500',
+            //     min_max_withdrawal: 'Not applicable',
+            //     deposit_time: <Localize translate_text="Instant" />,
+            //     withdrawal_time: <Localize translate_text="Not applicable" />,
+            //     description: (
+            //         <Localize translate_text="Make deposits directly from your mobile with this affordable, fast, and secure payment solution for clients in Ghana and Uganda." />
+            //     ),
+            //     name: 'mtnmobilemoney',
+            // },
+            // {
+            //     method: <StyledIcon src={Tigo} alt='tigo'/>,
+            //     currencies: 'GHS',
+            //     min_max_deposit: '10-500',
+            //     min_max_withdrawal: 'Not applicable',
+            //     deposit_time: <Localize translate_text="Instant" />,
+            //     withdrawal_time: <Localize translate_text="Not applicable" />,
+            //     description: (
+            //         <Localize translate_text="Make secure deposits directly from your mobile. For clients in Ghana." />
+            //     ),
+            //     url:'https://www.tigo.com.gt/tigopay',
+            //     name: 'tigo',
+            // },
+            // {
+            //     method: <StyledIcon src={Airtel} alt='airtel'/>,
+            //     currencies: 'GHS UGX',
+            //     min_max_deposit: '10-500',
+            //     min_max_withdrawal: 'Not applicable',
+            //     deposit_time: <Localize translate_text="Instant" />,
+            //     withdrawal_time: <Localize translate_text="Not applicable" />,
+            //     description: (
+            //         <Localize translate_text="Make deposits easily using your mobile. For clients in Ghana and Uganda. " />
+            //     ),
+            //     url:'https://www.airtel.in/',
+            //     name: 'airtel',
+            // },
+            // {
+            //     method: <NoIconText> Vodafone Cash </NoIconText>,
+            //     currencies: 'GHS',
+            //     min_max_deposit: '10-500',
+            //     min_max_withdrawal: 'Not applicable',
+            //     deposit_time: <Localize translate_text="Instant" />,
+            //     withdrawal_time: <Localize translate_text="Not applicable" />,
+            //     description: (
+            //         <Localize translate_text="Make deposits directly from your mobile with this popular payment solution for clients in Ghana. No bank account needed. " />
+            //     ),
+            //     name: 'vodafone',
+            // },
+            // {
+            //     method: <NoIconText>Beyonic</NoIconText>,
+            //     currencies: 'UGX, TZS',
+            //     min_max_deposit: '5-1,000',
+            //     min_max_withdrawal: '5-1,000',
+            //     deposit_time: <Localize translate_text="Instant" />,
+            //     withdrawal_time: <Localize translate_text="1-2 working days" />,
+            //     description: (
+            //         <Localize translate_text="Make deposits easily using your mobile. For clients in Uganda and Tanzania." />
+            //     ),
+            //     url:'https://beyonic.com/',
+            //     name: 'beyonic',
+            // },
+            // {
+            //     method: <NoIconText>Trustly</NoIconText>,
+            //     currencies: 'EUR',
+            //     min_max_deposit: '10-100',
+            //     min_max_withdrawal: 'Not applicable',
+            //     deposit_time: <Localize translate_text="Instant" />,
+            //     withdrawal_time: <Localize translate_text="Not applicable" />,
+            //     description: (
+            //         <Localize translate_text="Enjoy fast, smooth, and secure deposits and withdrawals with Trustly. " />
+            //     ),
+            //     url:'https://www.trustly.net/',
+            //     name: 'trustly',
+            // },
         ],
     },
     {
@@ -485,7 +476,7 @@ const payment_data = [
         ),
         data: [
             // {
-            //     method: <BiananceIC />,
+            //     method: <StyledIcon src={Binance} alt='Binance' />,
             //     currencies: 'BUSD',
             //     min_max_deposit: <Localize translate_text="No minimum" />,
             //     min_max_withdrawal: undefined,
@@ -497,7 +488,7 @@ const payment_data = [
             //     name: 'BUSD',
             // },
             {
-                method: <BitcoinIc src={Bitcoin} alt="Bitcoin" />,
+                method: <StyledIcon src={Bitcoin} alt="Bitcoin" />,
                 currencies: 'BTC',
                 min_max_deposit: <Localize translate_text="No minimum" />,
                 min_max_withdrawal: undefined,
@@ -522,7 +513,7 @@ const payment_data = [
             //     name: 'DAI',
             // },
             {
-                method: <EthereumIc src={Ethereum} alt="Ethereum" />,
+                method: <StyledIcon src={Ethereum} alt="Ethereum" />,
                 currencies: 'ETH',
                 min_max_deposit: <Localize translate_text="No minimum" />,
                 min_max_withdrawal: undefined,
@@ -535,7 +526,7 @@ const payment_data = [
                 reference: 'ETH-payment-method.pdf',
             },
             // {
-            //     method: <StasisEuroIc />,
+            //     method: <StyledIcon src={StasisEuro} alt='StasisEuro' />,
             //     currencies: 'EURS',
             //     min_max_deposit: <Localize translate_text="No minimum" />,
             //     min_max_withdrawal: undefined,
@@ -547,7 +538,7 @@ const payment_data = [
             //     name: 'EURS',
             // },
             // {
-            //     method: <IdkIc />,
+            //     method: <StyledIcon src={Idk} alt='Idk' />,
             //     currencies: 'IDK',
             //     min_max_deposit: <Localize translate_text="No minimum" />,
             //     min_max_withdrawal: undefined,
@@ -559,7 +550,7 @@ const payment_data = [
             //     name: 'IDK',
             // },
             {
-                method: <LitecoinIc src={Litecoin} alt="Litecoin" />,
+                method: <StyledIcon src={Litecoin} alt="Litecoin" />,
                 currencies: 'LTC',
                 min_max_deposit: <Localize translate_text="No minimum" />,
                 min_max_withdrawal: undefined,
@@ -572,7 +563,7 @@ const payment_data = [
                 reference: 'litecoin-payment-method.pdf',
             },
             // {
-            //     method: <PaxosIc />,
+            //     method: <StyledIcon src={Paxos} alt='Paxos' />,
             //     currencies: 'PAX',
             //     min_max_deposit: <Localize translate_text="No minimum" />,
             //     min_max_withdrawal: undefined,
@@ -584,7 +575,7 @@ const payment_data = [
             //     name: 'PAX',
             // },
             // {
-            //     method: <TrueIc />,
+            //     method: <StyledIcon src={True} alt='True' />,
             //     currencies: 'TUSD',
             //     min_max_deposit: <Localize translate_text="No minimum" />,
             //     min_max_withdrawal: undefined,
@@ -596,7 +587,7 @@ const payment_data = [
             //     name: 'TUSD',
             // },
             {
-                method: <UsdCoinIc src={UsdCoin} alt="UsdCoin" />,
+                method: <StyledIcon src={UsdCoin} alt="UsdCoin" />,
                 currencies: 'USDC',
                 min_max_deposit: <Localize translate_text="No minimum" />,
                 min_max_withdrawal: undefined,
@@ -608,7 +599,7 @@ const payment_data = [
                 name: 'USDC',
             },
             // {
-            //     method: <UsdkIc />,
+            //     method: <StyledIcon src={Usdk} alt='Usdk' />,
             //     currencies: 'USDK',
             //     min_max_deposit: <Localize translate_text="No minimum" />,
             //     min_max_withdrawal: undefined,
@@ -620,7 +611,7 @@ const payment_data = [
             //     name: 'USDK',
             // },
             {
-                method: <TetherIc src={Tether} alt="Tether" />,
+                method: <StyledIcon src={Tether} alt="Tether" />,
                 currencies: 'USDT',
                 min_max_deposit: <Localize translate_text="No minimum" />,
                 min_max_withdrawal: undefined,
@@ -632,7 +623,7 @@ const payment_data = [
                 name: 'UST',
             },
             // {
-            //     method: <TetherIc />,
+            //     method: <StyledIcon src={Tether} alt='Tether' />,
             //     currencies: 'eUSDT',
             //     min_max_deposit: <Localize translate_text="No minimum" />,
             //     min_max_withdrawal: undefined,
@@ -650,43 +641,43 @@ const payment_data = [
         is_fiat_onramp: true,
         data: [
             {
-                method: <ChangellyIc src={Changelly} alt="Changelly" />,
+                method: <StyledIcon src={Changelly} alt="Changelly" />,
                 currencies: 'USD EUR GBP BTC',
-                min_max_deposit: 'USD50',
-                deposit_time: <Localize translate_text="Funds available as soon as confirmed" />,
+                min_max_deposit: '50-5,000',
+                deposit_time: <Localize translate_text="5-30 minutes" />,
                 description: (
-                    <Localize translate_text="Your simple access to crypto. Fast and secure way to exchange and purchase 150+ cryptocurrencies. 24/7 live-chat support." />
+                    <Localize translate_text="A safe and speedy crypto exchange and fiat-to-crypto service that's available worldwide. Offering 150+ cryptocurrencies. 24/7 live chat support." />
                 ),
                 name: 'Changelly',
                 reference: 'changelly-payment-method.pdf',
             },
+            // {
+            //     method: <StyledIcon src={Wyre} alt="Wyre" />,
+            //     currencies: 'USD EUR GBP AUD MXN BTC ETH WETH DAI',
+            //     min_max_deposit: <Localize translate_text="50-5,000" />,
+            //     deposit_time: <Localize translate_text="5-30 minutes" />,
+            //     description: (
+            //         <Localize translate_text="Purchase crypto using your credit and debit card to top-up your Deriv account with this global fiat-to-crypto exchange." />
+            //     ),
+            //     name: 'Wyre',
+            // },
             {
-                method: <WyreIc src={Wyre} alt="Wyre" />,
-                currencies: 'USD EUR GBP AUD MXN BTC ETH WETH DAI',
-                min_max_deposit: <Localize translate_text="No minimum" />,
-                deposit_time: <Localize translate_text="Funds available as soon as confirmed" />,
-                description: (
-                    <Localize translate_text="Wyre gives you a secure bridge between fiat currencies and cryptocurrencies." />
-                ),
-                name: 'Wyre',
-            },
-            {
-                method: <XanpoolIc src={Xanpool} alt="Xanpool" />,
+                method: <StyledIcon src={Xanpool} alt="Xanpool" />,
                 currencies: 'HKD SGD MYR PHP THB INR VND IDR BTC ETH LTC USDT',
-                min_max_deposit: <Localize translate_text="No minimum" />,
-                deposit_time: <Localize translate_text="Funds available as soon as confirmed" />,
+                min_max_deposit: <Localize translate_text="50-5,000" />,
+                deposit_time: <Localize translate_text="5-30 minutes" />,
                 description: (
-                    <Localize translate_text="Buy cryptocurrencies in an instant. Enjoy easy, quick, and secure exchanges using your local payment methods." />
+                    <Localize translate_text="Make a deposit into your Deriv crypto account via local bank wire with this fiat-to-crypto exchange for clients in Southeast Asia." />
                 ),
                 name: 'Xanpool',
             },
             {
-                method: <BanxaIc src={Banxa} alt="Banxa" />,
+                method: <StyledIcon src={Banxa} alt="Banxa" />,
                 currencies: 'USD EUR GBP AUD CAD BTC LTC USDT USDC',
-                min_max_deposit: 'USD20',
-                deposit_time: <Localize translate_text="Funds available as soon as confirmed" />,
+                min_max_deposit: '50-5,000',
+                deposit_time: <Localize translate_text="5-30 minutes" />,
                 description: (
-                    <Localize translate_text="A fast and secure fiat-to-crypto payment service. Deposit cryptocurrencies from anywhere in the world using credit/debit cards and bank transfers." />
+                    <Localize translate_text="Make fast, easy, and secure deposits with this internationally compliant fiat-to-crypto exchange using your credit or debit card. Registrations are hassle-free." />
                 ),
                 name: 'Banxa',
             },

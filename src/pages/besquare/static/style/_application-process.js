@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Flex, Show } from 'components/containers'
+import { Flex } from 'components/containers'
 import device from 'themes/device'
 
 export const ContentContainer = styled(Flex)`
@@ -50,7 +50,7 @@ export const ItemContainer = styled.div`
     }
 `
 
-export const LineBreakContainer = styled(Show.Desktop)`
+export const LineBreak = styled.br`
     @media ${device.tablet} {
         display: none;
     }

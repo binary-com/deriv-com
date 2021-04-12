@@ -1,13 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { getLanguage } from 'common/utility'
 import { Input, Button } from 'components/form'
-import { Show } from 'components/containers'
 import { Header, Text, LinkText, Checkbox } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device.js'
 // SVG
+import Apple from 'images/svg/apple.svg'
 import Facebook from 'images/svg/facebook-blue.svg'
 import BinaryLogo from 'images/svg/binary-logo.svg'
 import Google from 'images/svg/google.svg'
@@ -30,7 +29,19 @@ const SignupContent = styled.div`
         padding: 6rem 2rem;
     }
 `
+const StyledHeader = styled(Header)`
+    @media ${device.tabletL} {
+        font-size: 3rem;
+        margin-bottom: 3rem;
+    }
+`
 
+const SubTitle = styled(Text)`
+    @media ${device.tabletL} {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+`
 const Line = styled.div`
     width: 130px;
     height: 1px;
@@ -40,7 +51,10 @@ const StyledText = styled(Text)`
     @media ${(props) => device.tabletL && props.notedBox} {
         width: 13rem;
     }
-    @media ${device.mobileL} {
+    @media (max-width: 340px) {
+        width: 17rem;
+    }
+    @media ${device.tabletL} {
         font-size: ${(props) => props.tabletFontSize || 'var(--text-size-xxs)'};
     }
 `
@@ -48,14 +62,14 @@ const NoteBox = styled.div`
     display: flex;
     flex-direction: row;
     width: 100%;
-    height: 7.7rem;
+    min-height: 7.7rem;
     padding: 8px 8px;
     margin-top: 1.6rem;
     border-radius: 0.4rem;
     background-color: rgba(242, 243, 244, 0.56);
 
     @media ${device.mobileL} {
-        height: 80px;
+        min-height: 80px;
         padding: 13px 16px;
     }
 `
@@ -91,12 +105,15 @@ const SignupWithContainer = styled.div`
 `
 
 const SocialButton = styled(Button)`
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
     box-shadow: none;
     background-color: ${(props) => props.bgColor || 'var(--color-white)'};
     border: solid 1px var(--color-grey-21);
-    width: 19.5rem;
+    width: 12.5rem;
     height: 3.8rem;
-    padding: 0.8rem 0;
+    padding: 0.5rem 0;
 
     &:hover {
         background: ${(props) => {
@@ -105,8 +122,9 @@ const SocialButton = styled(Button)`
     }
 
     @media ${device.tabletL} {
-        width: 20rem;
+        width: 100%;
         height: 6rem;
+        margin-top: 1rem;
     }
     @media ${device.mobileM} {
         &:first-child {
@@ -122,7 +140,8 @@ const SocialWrapper = styled.div`
     justify-content: space-between;
 
     @media ${device.tabletL} {
-        margin-top: 2rem;
+        flex-direction: column;
+        margin-top: 1rem;
     }
     @media ${device.mobile} {
         justify-content: space-around;
@@ -144,13 +163,12 @@ const LoginText = styled(Text)`
         font-size: 2rem;
     }
 `
-const Span = styled.span`
+const SocialText = styled(Text)`
     margin-right: 1.4rem;
     margin-left: 0.7rem;
     font-weight: 500;
     font-size: 1.2rem;
     color: var(--color-grey-16);
-    vertical-align: super;
 
     @media ${device.tabletL} {
         margin-left: 2.7rem;
@@ -192,30 +210,24 @@ const SignupNew = ({
     is_submitting,
 }) => {
     const [checkBoxState, setCheckBoxState] = useState(false)
+    const [language_code, setLanguageCode] = useState('en')
+
+    useEffect(() => {
+        setLanguageCode(localStorage.getItem('i18n'))
+    }, [])
 
     const handleChange = (event) => {
         setCheckBoxState(event.currentTarget.checked)
     }
-    const url =
-        getLanguage() === 'en' || getLanguage() == null
-            ? '/terms-and-conditions/'
-            : `/${getLanguage()}/terms-and-conditions/`
+
+    const url = `/${language_code}/terms-and-conditions/`
+
     return (
         <SignupContent>
-            <Show.Desktop>
-                <Header as="h4" type="sub-section-title" mb="0.8rem">
-                    {localize('Sign up')}
-                </Header>
-                <Text>{localize('Enter your email address to begin')}</Text>
-            </Show.Desktop>
-            <Show.Mobile>
-                <Header size="3rem" mb="2rem">
-                    {localize('Sign up')}
-                </Header>
-                <Text mb="1rem" size="2rem">
-                    {localize('Enter your email address to begin')}
-                </Text>
-            </Show.Mobile>
+            <StyledHeader as="h4" type="sub-section-title" mb="0.8rem">
+                {localize('Sign up')}
+            </StyledHeader>
+            <SubTitle>{localize('Enter your email address to begin')}</SubTitle>
 
             {!is_ppc && (
                 <NoteBox>
@@ -304,7 +316,7 @@ const SignupNew = ({
             </EmailButton>
             <SignupWithContainer>
                 <Line />
-                <StyledText color="grey-5" align="center" tabletFontSize="1.5rem">
+                <StyledText color="grey-5" align="center" tabletFontSize="12px">
                     {localize('Or sign up with')}
                 </StyledText>
                 <Line />
@@ -319,10 +331,8 @@ const SignupNew = ({
                     type="button"
                     social
                 >
-                    <span>
-                        <img src={Google} alt="google" width="22" height="23" />
-                    </span>
-                    <Span>Google</Span>
+                    <img src={Google} alt="google" width="24" height="24" />
+                    <SocialText>Google</SocialText>
                 </SocialButton>
                 <SocialButton
                     onClick={handleSocialSignup}
@@ -332,10 +342,19 @@ const SignupNew = ({
                     type="button"
                     social
                 >
-                    <span>
-                        <img src={Facebook} alt="facebook" width="12" height="22" />
-                    </span>
-                    <Span>Facebook</Span>
+                    <img src={Facebook} alt="facebook" width="24" height="24" />
+                    <SocialText>Facebook</SocialText>
+                </SocialButton>
+                <SocialButton
+                    onClick={handleSocialSignup}
+                    provider="apple"
+                    data-provider="apple"
+                    id="gtm-signup-apple"
+                    type="button"
+                    social
+                >
+                    <img src={Apple} alt="apple" width="24" height="24" />
+                    <SocialText>Apple</SocialText>
                 </SocialButton>
             </SocialWrapper>
             <LoginText>

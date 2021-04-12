@@ -38,7 +38,7 @@ const WhatIsBeSquare = () => {
         <Section>
             <ContentContainer>
                 <ContentWrapper>
-                    <Title text_align={'left'} max_width={['282px']} margin={['0', '0 auto']}>
+                    <Title as="h2" text_align={'left'} max_width={['282px']} margin={['0', '0 auto']}>
                         {what_is_be_square.title}
                     </Title>
                     <TextWrapper max_width={['486px', '292px']} margin={['8px 0 0', '16px 0']}>

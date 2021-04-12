@@ -6,11 +6,9 @@ import {
     leverageItemLists,
     syntheticItemLists,
     financialItemLists,
-} from './_underlying-data'
+} from '../common/_underlying-data'
 import {
-    StyledText,
     StyledSection,
-    SectionHeader,
     SectionSubtitle,
     ContentContainer,
     FormWrapper,
@@ -24,10 +22,8 @@ import {
     CalculatorTabItem,
     CalculatorDropdown,
     InputGroup,
-    ActionSection,
     CalculateButton,
     RightContent,
-    RightContentHeader,
     TextWrapper,
     ImageWrapper,
     FormulaText,
@@ -36,11 +32,11 @@ import {
     BottomContent,
     BottomText,
     StyledLinkButton,
-} from './_style'
-import validation from './_validation'
+} from '../common/_style'
+import validation from '../common/_validation'
 import { localize, Localize } from 'components/localization'
 import { Flex, Show } from 'components/containers'
-import { QueryImage, Dropdown } from 'components/elements'
+import { Header, Text, QueryImage, Dropdown } from 'components/elements'
 import Input from 'components/form/input'
 
 const MarginCalculator = () => {
@@ -132,7 +128,7 @@ const MarginCalculator = () => {
     }
 
     const getContractSize = (symbol) => {
-        let contractSize = 1
+        let contractSize = 1 //crypto falls into this contract size
 
         if (symbol.market === 'forex') {
             contractSize = 100000
@@ -155,6 +151,10 @@ const MarginCalculator = () => {
             contractSize = 10
         }
 
+        if (symbol.market === 'smartfx') {
+            contractSize = 100
+        }
+
         return contractSize
     }
 
@@ -168,9 +168,9 @@ const MarginCalculator = () => {
 
     return (
         <StyledSection direction="column">
-            <SectionHeader as="h2" type="page-title" align="center" mt="6rem" mb="1.2rem">
+            <Header as="h2" type="page-title" align="center" mt="6rem" mb="1.2rem">
                 {localize('Margin calculator')}
-            </SectionHeader>
+            </Header>
 
             <SectionSubtitle as="h5" align="center" weight="normal">
                 {localize(
@@ -244,9 +244,7 @@ const MarginCalculator = () => {
                                                 resetForm({})
                                             }}
                                         >
-                                            <StyledText align="center">
-                                                {localize('Synthetic')}
-                                            </StyledText>
+                                            <Text align="center">{localize('Synthetic')}</Text>
                                         </CalculatorTabItem>
                                         <CalculatorTabItem
                                             active={tab === 'Financial'}
@@ -259,9 +257,7 @@ const MarginCalculator = () => {
                                                 setFieldValue('optionList', financialItemLists)
                                             }}
                                         >
-                                            <StyledText align="center">
-                                                {localize('Financial')}
-                                            </StyledText>
+                                            <Text align="center">{localize('Financial')}</Text>
                                         </CalculatorTabItem>
                                     </Flex>
 
@@ -355,7 +351,7 @@ const MarginCalculator = () => {
                                         autoComplete="off"
                                         data-lpignore="true"
                                     />
-                                    <ActionSection>
+                                    <Flex mt="3rem">
                                         <CalculateButton
                                             secondary
                                             type="submit"
@@ -363,7 +359,7 @@ const MarginCalculator = () => {
                                         >
                                             {localize('Calculate')}
                                         </CalculateButton>
-                                    </ActionSection>
+                                    </Flex>
                                 </CalculatorBody>
                             </CalculatorForm>
                         )}
@@ -372,38 +368,38 @@ const MarginCalculator = () => {
 
                 <RightContent>
                     <TextWrapper>
-                        <RightContentHeader as="h3" type="section-title" mb="0.8rem">
+                        <Header as="h3" type="section-title" mb="0.8rem">
                             {localize('How margin is calculated')}
-                        </RightContentHeader>
+                        </Header>
 
-                        <StyledText>
+                        <Text>
                             <Localize translate_text="The margin required for a contract on DMT5 is calculated based on the formula:" />
-                        </StyledText>
-                        <StyledText mb="1.6rem">
+                        </Text>
+                        <Text mb="1.6rem">
                             <Localize
                                 translate_text="<0> Margin = volume in lots × contract size × asset price/leverage </0>"
                                 components={[<strong key={0} />]}
                             />
-                        </StyledText>
+                        </Text>
 
-                        <StyledText mb="1.6rem">
+                        <Text mb="1.6rem">
                             <Localize translate_text="This gives you the margin requirement in the quote currency for forex pairs, or in the denomination of the underlying asset for other instruments." />
-                        </StyledText>
-                        <StyledText mb="2.4rem">
+                        </Text>
+                        <Text mb="2.4rem">
                             {localize(
                                 'For instance, if you are trading the USD/CHF forex pair, the margin requirement will be calculated in Swiss Franc (CHF) which is the quote currency. On the other hand, if you are trading Volatility Index 75,  then the margin requirement will be computed in US Dollar (USD), which is the denomination of the underlying asset – Volatility Index 75.',
                             )}
-                        </StyledText>
+                        </Text>
 
-                        <RightContentHeader as="h3" type="section-title" mb="0.8rem">
+                        <Header as="h3" type="section-title" mb="0.8rem">
                             {localize('Example calculation')}
-                        </RightContentHeader>
+                        </Header>
 
-                        <StyledText mb="16px">
+                        <Text mb="16px">
                             {localize(
                                 'Let’s say you want to trade two lots of EUR/USD with an asset price of 1.10 USD and leverage of 100.',
                             )}
-                        </StyledText>
+                        </Text>
                     </TextWrapper>
 
                     <ImageWrapper>
@@ -430,17 +426,17 @@ const MarginCalculator = () => {
                     </ImageWrapper>
 
                     <TextWrapper>
-                        <StyledText mb="1.6rem" mt="1.6rem">
+                        <Text mb="1.6rem" mt="1.6rem">
                             <Localize
                                 translate_text="So you will require a margin rate of <0>2,200 USD</0> to open the above position."
                                 components={[<strong key={0} />]}
                             />
-                        </StyledText>
-                        <StyledText>
+                        </Text>
+                        <Text>
                             {localize(
                                 'Note that these are approximate values only and will differ depending on the leverage that is set for your account and the asset you want to trade.',
                             )}
-                        </StyledText>
+                        </Text>
                     </TextWrapper>
                 </RightContent>
             </ContentContainer>

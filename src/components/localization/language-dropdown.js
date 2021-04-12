@@ -48,10 +48,10 @@ const Absolute = styled.div`
     left: -22rem;
     height: auto;
     background-color: var(--color-white);
-    transition: all 0.35s ease-in-out;
+    transition: opacity 0.35s ease-in-out;
     cursor: default;
     border-radius: 4px;
-    will-change: display;
+    will-change: opacity;
     display: ${(props) => !props.is_open && 'none'};
 
     @media ${device.mobileL} {

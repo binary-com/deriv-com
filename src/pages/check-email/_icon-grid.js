@@ -31,13 +31,15 @@ const GridCol = styled.article`
 
     @media ${device.mobileL} {
         grid-template-columns: 4rem 1fr;
-
-        & > svg {
-            width: 40px;
-            height: 40px;
-        }
     }
 `
+const Img = styled.img`
+    @media ${device.tabletL} {
+        width: 40px;
+        height: 40px;
+    }
+`
+
 const StyledText = styled(Text)`
     @media ${device.tabletL} {
         font-size: 2rem;
@@ -46,7 +48,7 @@ const StyledText = styled(Text)`
 
 const Col = ({ Icon, alt, content }) => (
     <GridCol>
-        <img src={Icon} alt={alt} />
+        <Img src={Icon} alt={alt} />
         <StyledText color="black-3" lh="1.55" mt="0.8rem">
             {content}
         </StyledText>

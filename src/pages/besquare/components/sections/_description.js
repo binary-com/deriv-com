@@ -1,7 +1,6 @@
 import React from 'react'
 import { TextWrapper } from '../../static/style/_common'
 import { Container, SectionContainer } from 'components/containers'
-import { localize } from 'components/localization'
 
 const Description = () => (
     <SectionContainer color={'white'} padding={'0'}>
@@ -14,9 +13,11 @@ const Description = () => (
                 padding={['173px 0 80px', '80px 3% 40px']}
                 width={'100%'}
             >
-                {localize(
-                    'Deriv’s 6-month graduate programme gives you a holistic learning experience with real-world scenarios, backed by a well-structured curriculum. Learn essential skills from innovative IT teams in an established, global FinTech company. If you’re exceptional at embracing BeSquare challenges and our company values, you’ll get an immediate job offer from Deriv at the end of the programme.',
-                )}
+                Deriv’s 6-month graduate programme gives you a holistic learning experience with
+                real-world scenarios, backed by a well-structured curriculum. Learn essential skills
+                from innovative IT teams in an established, global FinTech company. If you’re
+                exceptional at embracing BeSquare challenges and our company values, you’ll get an
+                immediate job offer from Deriv at the end of the programme.
             </TextWrapper>
         </Container>
     </SectionContainer>

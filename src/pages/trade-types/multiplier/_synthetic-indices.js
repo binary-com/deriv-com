@@ -113,7 +113,7 @@ const ContinuousIndicesDetails = () => (
 
 const SyntheticIndices = () => {
     return (
-        <SectionContainer padding="4rem 0 4rem">
+        <SectionContainer padding="4rem 0 8rem">
             <Flex max_width="79.2rem" m="0 auto" direction="column">
                 <StyledText mb="12px" align="center">
                     {localize(

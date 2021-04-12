@@ -14,6 +14,12 @@ const StyledText = styled(Text)`
     }
 `
 
+const EURTPText = styled(Text)`
+    font-size: 14px;
+    color: #999999;
+    margin-top: 20px;
+`
+
 const Col = styled(Flex)`
     max-width: 13.2rem;
 
@@ -112,7 +118,7 @@ const ContinuousIndicesDetails = () => (
 
 const SyntheticIndices = () => {
     return (
-        <SectionContainer padding="4rem 0 8rem">
+        <SectionContainer padding="4rem 0 4rem">
             <Flex max_width="79.2rem" m="0 auto" direction="column">
                 <StyledText mb="12px" align="center">
                     {localize(
@@ -147,7 +153,7 @@ const SyntheticIndices = () => {
                     />
                 </MarketsWrapper>
                 <AvailablePlatforms dtrader />
-
+                
                 <MarketsWrapper direction="column">
                     <MarketsAccordion
                         renderTitle={() => (
@@ -166,6 +172,11 @@ const SyntheticIndices = () => {
                     />
                 </MarketsWrapper>
                 <AvailablePlatforms dtrader />
+                <Show.Eu>
+                    <EURTPText>
+                        {localize('Return to player for mulitplier options is in the range of 95.0-99.9% for all indices on an average. Using a different multiplier or duration may affect the RTP.')}
+                    </EURTPText>
+                </Show.Eu>
             </Flex>
         </SectionContainer>
     )

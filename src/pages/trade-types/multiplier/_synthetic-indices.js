@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { CrashBoom, ContinuousIndices } from '../../markets/instruments/_submarkets.js'
 import MarketsAccordion from '../../markets/components/helper/_markets_accordion.js'
@@ -178,10 +177,6 @@ const SyntheticIndices = () => {
             </Flex>
         </SectionContainer>
     )
-}
-
-SyntheticIndices.propTypes = {
-    market_content: PropTypes.object,
 }
 
 export default SyntheticIndices

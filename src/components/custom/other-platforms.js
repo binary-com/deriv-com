@@ -237,7 +237,6 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
             <Flex direction="column" wrap="wrap" jc="flex-start">
                 <StyledText>{localize('Trading platforms')}</StyledText>
                 <NavCard
-                    as="span"
                     aria_label="Dtrader"
                     icon={() => <img src={DTrader} alt="Dtrader" width="32" height="32" />}
                     content={
@@ -248,7 +247,6 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                     to="/dtrader"
                 />
                 <NavCard
-                    as="span"
                     aria_label="DBot"
                     icon={() => <img src={DBot} alt="DBot" width="32" height="32" />}
                     content={
@@ -259,7 +257,6 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                     to="/dbot"
                 />
                 <NavCard
-                    as="span"
                     aria_label="DMT5"
                     icon={() => <img src={DMT5} alt="DMT5" width="32" height="32" />}
                     content={
@@ -270,7 +267,6 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                     to={is_ppc_redirect ? '/landing/dmt5' : '/dmt5'}
                 />
                 <NavCard
-                    as="span"
                     aria_label="SmartTrader"
                     icon={() => <img src={Smarttrader} alt="Smarttrader" width="32" height="32" />}
                     content={
@@ -291,7 +287,6 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                     <Flex direction="column" wrap="wrap" jc="flex-start">
                         <StyledText>{localize('Trade types')}</StyledText>
                         <NavCard
-                            as="span"
                             aria_label="Margin trading"
                             icon={() => <img src={Margin} alt="Margin" width="32" height="32" />}
                             content={
@@ -303,7 +298,6 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                         />
                         {!is_eu_country && (
                             <NavCard
-                                as="span"
                                 aria_label="Options"
                                 icon={() => (
                                     <img src={Options} alt="Options" width="32" height="32" />
@@ -317,7 +311,6 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                             />
                         )}
                         <NavCard
-                            as="span"
                             aria_label="Multipliers"
                             icon={() => (
                                 <img src={Multipliers} alt="Multipliers" width="32" height="32" />
@@ -345,7 +338,6 @@ NavPlatform.propTypes = {
 export const NavMarket = ({ onClick, is_ppc }) => (
     <Flex direction="column" wrap="wrap" jc="flex-start">
         <NavCard
-            as="span"
             aria_label="Forex"
             icon={() => <img src={Forex} alt="Forex" width="32" height="32" />}
             content={
@@ -357,7 +349,6 @@ export const NavMarket = ({ onClick, is_ppc }) => (
         />
         {!is_ppc && (
             <NavCard
-                as="span"
                 aria_label="Synthetic indices"
                 icon={() => (
                     <img src={SyntheticIndices} alt="SyntheticIndices" width="32" height="32" />
@@ -371,7 +362,6 @@ export const NavMarket = ({ onClick, is_ppc }) => (
             />
         )}
         <NavCard
-            as="span"
             ariaLabel="Stock indices"
             icon={() => <img src={StockIndices} alt="StockIndices" width="32" height="32" />}
             content={
@@ -382,7 +372,6 @@ export const NavMarket = ({ onClick, is_ppc }) => (
             to="/markets#stock"
         />
         <NavCard
-            as="span"
             aria_label="Commodities"
             icon={() => <img src={Commodities} alt="Commodities" width="32" height="32" />}
             content={
@@ -403,35 +392,30 @@ NavMarket.propTypes = {
 export const NavCompany = ({ onClick }) => (
     <Flex direction="column" wrap="wrap" jc="flex-start" max_width="42rem">
         <CardLink
-            as="span"
             icon={() => <img src={Story} alt="story" width="24" height="24" />}
             title={localize('Our story')}
             onClick={onClick}
             to="/about/#story"
         />
         <CardLink
-            as="span"
             icon={() => <img src={Leadership} alt="leadership" width="24" height="24" />}
             title={localize('Our leadership')}
             onClick={onClick}
             to="/about/#leadership"
         />
         <CardLink
-            as="span"
             icon={() => <img src={RegulatoryInfo} alt="regulatory" width="24" height="24" />}
             title={localize('Regulatory information')}
             onClick={onClick}
             to="/regulatory/"
         />
         <CardLink
-            as="span"
             icon={() => <img src={Choose} alt="choose" width="24" height="24" />}
             title={localize('Why choose us?')}
             onClick={onClick}
             to="/why-choose-us/"
         />
         <CardLink
-            as="span"
             icon={() => <img src={Partner} alt="partner" width="24" height="24" />}
             title={localize('Partnership programmes')}
             onClick={onClick}
@@ -439,14 +423,12 @@ export const NavCompany = ({ onClick }) => (
         />
 
         <CardLink
-            as="span"
             icon={() => <img src={Contact} alt="contact" width="24" height="24" />}
             title={localize('Contact us')}
             onClick={onClick}
             to="/contact_us/"
         />
         <CardLink
-            as="span"
             icon={() => <img src={Career} alt="career" width="24" height="24" />}
             title={localize('Careers')}
             onClick={onClick}
@@ -463,14 +445,12 @@ NavCompany.propTypes = {
 export const NavResources = ({ onClick }) => (
     <Flex direction="column" wrap="wrap" jc="flex-start" max_width="42rem">
         <CardLink
-            as="span"
             icon={() => <img src={Help} alt="help" width="24" height="24" />}
             title={localize('Help centre')}
             onClick={onClick}
             to="/help-centre/"
         />
         <CardLink
-            as="span"
             icon={() => <img src={Community} alt="community" width="24" height="24" />}
             title={localize('Community')}
             onClick={onClick}
@@ -480,28 +460,24 @@ export const NavResources = ({ onClick }) => (
             rel="noopener noreferrer"
         />
         <CardLink
-            as="span"
             icon={() => <img src={TraderTool} alt="traders tools" width="24" height="24" />}
             title={localize('Traders’ tools')}
             onClick={onClick}
             to="/trader-tools/"
         />
         <CardLink
-            as="span"
             icon={() => <img src={Payment} alt="payment" width="24" height="24" />}
             title={localize('Payment methods')}
             onClick={onClick}
             to="/payment-methods/"
         />
         <CardLink
-            as="span"
             icon={() => <Signals dynamic_id="dmt5-signals" />}
             title={localize('DMT5 Signals')}
             onClick={onClick}
             to="/dmt5-trading-signals/#signal-subscriber/"
         />
         <CardLink
-            as="span"
             icon={() => <img src={Blog} alt="blog" width="24" height="24" />}
             title={localize('Blog')}
             onClick={onClick}

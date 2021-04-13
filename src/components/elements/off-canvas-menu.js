@@ -156,7 +156,6 @@ export const OffCanvasMenuWrapper = (props) => {
                         </Text>
                         <Flex mb="2rem">
                             <NavCard
-                                as="span"
                                 aria_label="DTrader"
                                 icon={() => (
                                     <img src={DTrader} alt="DTrader" width="32" height="32" />
@@ -171,7 +170,6 @@ export const OffCanvasMenuWrapper = (props) => {
                         </Flex>
                         <Flex mb="2rem">
                             <NavCard
-                                as="span"
                                 aria_label="DBot"
                                 icon={() => <img src={DBot} alt="DBot" width="32" height="32" />}
                                 content={
@@ -184,7 +182,6 @@ export const OffCanvasMenuWrapper = (props) => {
                         </Flex>
                         <Flex mb="2rem">
                             <NavCard
-                                as="span"
                                 aria_label="DMT5"
                                 icon={() => <img src={DMT5} alt="DMT5" width="32" height="32" />}
                                 content={
@@ -197,7 +194,6 @@ export const OffCanvasMenuWrapper = (props) => {
                         </Flex>
                         <Flex>
                             <NavCard
-                                as="span"
                                 aria_label="SmartTrader"
                                 icon={() => (
                                     <img
@@ -227,7 +223,6 @@ export const OffCanvasMenuWrapper = (props) => {
                                 </Text>
                                 <Flex mb="2rem">
                                     <NavCard
-                                        as="span"
                                         aria_label="Margin trading"
                                         icon={() => (
                                             <img
@@ -248,7 +243,6 @@ export const OffCanvasMenuWrapper = (props) => {
                                 {!is_eu_country && (
                                     <Flex mb="2rem">
                                         <NavCard
-                                            as="span"
                                             aria_label="Options"
                                             icon={() => (
                                                 <img
@@ -269,7 +263,6 @@ export const OffCanvasMenuWrapper = (props) => {
                                 )}
                                 <Flex mb="2rem">
                                     <NavCard
-                                        as="span"
                                         aria_label="Multipliers"
                                         icon={() => (
                                             <img
@@ -297,7 +290,6 @@ export const OffCanvasMenuWrapper = (props) => {
                     >
                         <Flex mb="3.2rem">
                             <NavCard
-                                as="span"
                                 aria_label="Forex"
                                 icon={() => <img src={Forex} alt="Forex" width="32" height="32" />}
                                 content={localize(
@@ -311,7 +303,6 @@ export const OffCanvasMenuWrapper = (props) => {
                         {!props.is_ppc && (
                             <Flex mb="3.2rem">
                                 <NavCard
-                                    as="span"
                                     aria_label="Synthetic indices"
                                     icon={() => (
                                         <img
@@ -332,7 +323,6 @@ export const OffCanvasMenuWrapper = (props) => {
                         )}
                         <Flex mb="3.2rem">
                             <NavCard
-                                as="span"
                                 aria_label="Stock Indices"
                                 icon={() => (
                                     <img
@@ -352,7 +342,6 @@ export const OffCanvasMenuWrapper = (props) => {
                         </Flex>
                         <Flex>
                             <NavCard
-                                as="span"
                                 aria_label="Commodities"
                                 icon={() => (
                                     <img

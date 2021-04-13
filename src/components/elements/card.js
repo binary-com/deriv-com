@@ -336,7 +336,6 @@ const SvgWrapper = styled.div`
 `
 
 export const NavCard = ({
-    as,
     aria_label,
     className,
     content,
@@ -376,7 +375,7 @@ export const NavCard = ({
                 </SvgWrapper>
 
                 <NavContent>
-                    <ResponsiveHeader as={as} size="var(--text-size-s)" lh="1.14" mb="0.8rem">
+                    <ResponsiveHeader as="span" size="var(--text-size-s)" lh="1.14" mb="0.8rem">
                         {title}
                     </ResponsiveHeader>
                     <ResponsiveText color="grey-5">{content}</ResponsiveText>
@@ -393,7 +392,6 @@ export const NavCard = ({
 
 NavCard.propTypes = {
     aria_label: PropTypes.string,
-    as: PropTypes.string,
     className: PropTypes.string,
     content: PropTypes.oneOfType([PropTypes.string, PropTypes.array, PropTypes.object]),
     external: PropTypes.string,
@@ -443,7 +441,7 @@ const RelativeFlex = styled(Flex)`
     position: relative;
 `
 
-export const CardLink = ({ icon: Icon, title, to, style, external, target, onClick, as }) => {
+export const CardLink = ({ icon: Icon, title, to, style, external, target, onClick }) => {
     return (
         <LocalizedLink
             target={target}
@@ -465,7 +463,7 @@ export const CardLink = ({ icon: Icon, title, to, style, external, target, onCli
                         </IconRightWrapper>
                     )}
                     <ResponsiveHeader
-                        as= {as}
+                        as="span"
                         color="black-3"
                         size="var(--text-size-xs)"
                         lh="1.14"
@@ -485,7 +483,6 @@ export const CardLink = ({ icon: Icon, title, to, style, external, target, onCli
 }
 
 CardLink.propTypes = {
-    as: PropTypes.string,
     content: PropTypes.string,
     external: PropTypes.string,
     icon: PropTypes.func,

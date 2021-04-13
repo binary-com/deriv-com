@@ -167,7 +167,7 @@ const SyntheticIndices = () => {
                 </MarketsWrapper>
                 <AvailablePlatforms dtrader />
                 <Show.Eu>
-                    {synthetic_multiplier.eu_content?.map((text, index) => (
+                    {synthetic_multiplier.eu_content.map((text, index) => (
                         <Text key={index} mt="2.5rem" color="grey-5" size="var(--text-size-xs)">
                             {text}
                         </Text>

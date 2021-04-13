@@ -81,12 +81,12 @@ const CardContainer = styled(Flex)`
             width: 100%;
             height: 100%;
             justify-content: flex-start;
-            padding: 10px 44px 0 0;
+            padding: 10px 0 0 0;
 
             img {
                 width: 16px;
                 height: 16px;
-                margin-right: 1rem;
+                margin-right: 5px;
             }
         }
     }
@@ -125,7 +125,7 @@ const TabMarginIcon = styled.img`
     ${(props) => {
         if (props.active_tab === props.name)
             return css`
-                margin-left: 16px;
+                margin-left: 5px;
             `
     }}
 `
@@ -134,7 +134,7 @@ const TabOptionIcon = styled.img`
     ${(props) => {
         if (props.active_tab === props.name)
             return css`
-                margin-left: 16px;
+                margin-left: 5px;
             `
     }}
 `
@@ -143,7 +143,7 @@ const TabMultiplierIcon = styled.img`
     ${(props) => {
         if (props.active_tab === props.name)
             return css`
-                margin-left: 16px;
+                margin-left: 5px;
             `
     }}
 `

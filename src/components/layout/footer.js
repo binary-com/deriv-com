@@ -350,20 +350,20 @@ const Footer = ({ type, is_ppc, is_ppc_redirect }) => {
                                         </Link>
                                     </LinkWrapper>
                                     <LinkWrapper>
-                                        <Link to="/why-choose-us">
+                                        <Link to="/why-choose-us/">
                                             {localize('Why choose us?')}
                                         </Link>
                                     </LinkWrapper>
                                     <LinkWrapper>
-                                        <Link to="/partners">
+                                        <Link to="/partners/">
                                             {localize('Partnership programmes')}
                                         </Link>
                                     </LinkWrapper>
                                     <LinkWrapper>
-                                        <Link to="/contact_us">{localize('Contact us')}</Link>
+                                        <Link to="/contact_us/">{localize('Contact us')}</Link>
                                     </LinkWrapper>
                                     <LinkWrapper>
-                                        <Link to="/careers">{localize('Careers')}</Link>
+                                        <Link to="/careers/">{localize('Careers')}</Link>
                                     </LinkWrapper>
                                 </LinksCol>
                                 <LinksCol>
@@ -371,13 +371,13 @@ const Footer = ({ type, is_ppc, is_ppc_redirect }) => {
                                         <Title>{localize('TRADE')}</Title>
                                     </LinkWrapper>
                                     <LinkWrapper first_child="true">
-                                        <Link to="/dtrader">{localize('DTrader')}</Link>
+                                        <Link to="/dtrader/">{localize('DTrader')}</Link>
                                     </LinkWrapper>
                                     <LinkWrapper>
-                                        <Link to="/dbot">{localize('DBot')}</Link>
+                                        <Link to="/dbot/">{localize('DBot')}</Link>
                                     </LinkWrapper>
                                     <LinkWrapper>
-                                        <Link to={is_ppc_redirect ? '/landing/dmt5' : '/dmt5'}>
+                                        <Link to={is_ppc_redirect ? '/landing/dmt5/' : '/dmt5/'}>
                                             {localize('DMT5')}
                                         </Link>
                                     </LinkWrapper>
@@ -399,19 +399,19 @@ const Footer = ({ type, is_ppc, is_ppc_redirect }) => {
                                             <Title>{localize('TRADE TYPES')}</Title>
                                         </LinkWrapper>
                                         <LinkWrapper first_child="true">
-                                            <Link to="/trade-types/margin">
+                                            <Link to="/trade-types/margin/">
                                                 {localize('Margin trading')}
                                             </Link>
                                         </LinkWrapper>
                                         <Show.NonEU>
                                             <LinkWrapper>
-                                                <Link to="/trade-types/options">
+                                                <Link to="/trade-types/options/">
                                                     {localize('Options')}
                                                 </Link>
                                             </LinkWrapper>
                                         </Show.NonEU>
                                         <LinkWrapper>
-                                            <Link to="/trade-types/multiplier">
+                                            <Link to="/trade-types/multiplier/">
                                                 {localize('Multipliers')}
                                             </Link>
                                         </LinkWrapper>
@@ -470,7 +470,7 @@ const Footer = ({ type, is_ppc, is_ppc_redirect }) => {
                                         </Link>
                                     </LinkWrapper>
                                     <LinkWrapper>
-                                        <Link to="/partners/payment-agent">
+                                        <Link to="/partners/payment-agent/">
                                             {localize('Payment agents')}
                                         </Link>
                                     </LinkWrapper>
@@ -480,7 +480,7 @@ const Footer = ({ type, is_ppc, is_ppc_redirect }) => {
                                         <Title>{localize('RESOURCES')}</Title>
                                     </LinkWrapper>
                                     <LinkWrapper first_child="true">
-                                        <Link to="/help-centre">{localize('Help centre')}</Link>
+                                        <Link to="/help-centre/">{localize('Help centre')}</Link>
                                     </LinkWrapper>
                                     <LinkWrapper>
                                         <Link
@@ -492,10 +492,10 @@ const Footer = ({ type, is_ppc, is_ppc_redirect }) => {
                                         </Link>
                                     </LinkWrapper>
                                     <LinkWrapper>
-                                        <Link to="/trader-tools">{localize('Traders’ tools')}</Link>
+                                        <Link to="/trader-tools/">{localize('Traders’ tools')}</Link>
                                     </LinkWrapper>
                                     <LinkWrapper>
-                                        <Link to="/payment-methods">
+                                        <Link to="/payment-methods/">
                                             {localize('Payment methods')}
                                         </Link>
                                     </LinkWrapper>

@@ -86,6 +86,11 @@ const CardContainer = styled(Flex)`
             img {
                 width: 16px;
                 height: 16px;
+                margin-right: 1rem;
+            }
+        }
+        @media ${device.mobileL} {
+            img {
                 margin-right: 5px;
             }
         }

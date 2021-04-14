@@ -61,7 +61,7 @@ const StyledInput = styled.input`
     /* prettier-ignore */
     background: var(--color-${(props) => props.inputBackground || 'none'});
     color: var(--color-${(props) => props.inputColor || 'black'});
-    font-size: var(--text-size-xs);
+    font-size: var(--text-size-s);
     padding: 1rem 1rem 1rem 0.8rem;
     height: ${(props) => props.height || '40px'};
     width: 100%;

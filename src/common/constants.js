@@ -14,7 +14,6 @@ export const client_token = 'pubc42fda54523c5fb23c564e3d8bceae88'
 export const community_url = 'https://community.deriv.com'
 export const deriv_app_languages = ['id', 'pt', 'es']
 export const deriv_app_url = 'https://app.deriv.com'
-export const deriv_blog_url = 'https://blog.deriv.com'
 export const deriv_bot_app_url = 'https://app.deriv.com/bot'
 export const deriv_cookie_domain = 'deriv.com'
 export const deriv_dp2p_app_url = 'https://app.deriv.com/cashier/p2p'

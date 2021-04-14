@@ -124,7 +124,10 @@ const TabIcon = styled.img`
     ${(props) => {
         if (props.active_tab === props.name)
             return css`
-                margin-left: 5px;
+                margin-left: 16px;
+                @media ${device.mobileL} {
+                    margin-left: 5px;
+                }
             `
     }}
 `

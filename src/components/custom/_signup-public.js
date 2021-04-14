@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { graphql, useStaticQuery } from 'gatsby'
+import AgreementLabel from './_agreement-label'
 import { Input, Button } from 'components/form'
 import { Header, Text, QueryImage, LinkText } from 'components/elements'
 import { localize } from 'components/localization'
@@ -255,6 +256,10 @@ const SignupPublic = ({
     is_submitting,
 }) => {
     const data = useStaticQuery(query)
+    const [checkBoxState, setCheckBoxState] = useState(false)
+    const handleChange = (event) => {
+        setCheckBoxState(event.currentTarget.checked)
+    }
     return (
         <>
             <Show.Desktop>
@@ -307,14 +312,16 @@ const SignupPublic = ({
                                     />
                                 </InputWrapper>
                                 <EmailButton
+                                    checkBoxState={checkBoxState}
                                     id="gtm-signup-email"
                                     type="submit"
                                     secondary="true"
-                                    disabled={is_submitting}
+                                    disabled={is_submitting || !checkBoxState || email_error_msg}
                                 >
                                     {localize('Sign up')}
                                 </EmailButton>
                             </InputGroup>
+                            <AgreementLabel checkBoxState={checkBoxState} handleChangeCheckbox={handleChange} />
                             <SocialWrapper jc="unset" ai="center">
                                 <SignInText>{localize('Or sign in with')}</SignInText>
                                 <SocialButton
@@ -416,14 +423,16 @@ const SignupPublic = ({
                                     />
                                 </InputWrapper>
                                 <EmailButton
+                                    checkBoxState={checkBoxState}
                                     id="gtm-signup-email"
                                     type="submit"
                                     secondary="true"
-                                    disabled={is_submitting}
+                                    disabled={is_submitting || !checkBoxState || email_error_msg}
                                 >
                                     {localize('Sign up')}
                                 </EmailButton>
                             </InputGroup>
+                            <AgreementLabel checkBoxState={checkBoxState} handleChangeCheckbox={handleChange} />
                             <MobileSocialWrapper jc="unset" ai="center">
                                 <MobileSignInText>{localize('Or sign in with')}</MobileSignInText>
                                 <Flex>

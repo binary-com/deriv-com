@@ -68,10 +68,18 @@ const getWindowWidth = () => (isBrowser() && window.screen ? window.screen.width
 
 const getLanguage = () => (isBrowser() ? localStorage.getItem('i18n') || navigator.language : null)
 
+const getDerivAppLocalizedURL = (link, locale) => {
+    const available_lang = ['id', 'pt', 'es']
+    const lang = available_lang.includes(locale) ? locale : 'en'
+    return `${link}?lang=${lang.toUpperCase()}`
+}
+
 const getCrowdin = () =>
     isBrowser() ? localStorage.getItem('jipt_language_code_deriv-com') || navigator.language : null
 
 const getClientInformation = (domain) => Cookies.getJSON('client_information', { domain })
+
+const getUTMData = (domain) => Cookies.getJSON('utm_data', { domain })
 
 const isLoggedIn = () => {
     const domain = getDomain()
@@ -87,6 +95,8 @@ class PromiseClass {
         })
     }
 }
+
+const isIndexEven = (index, reverse) => (reverse ? (index + 1) % 2 : index % 2)
 
 const sanitize = (input) => input.replace(/[.*+?^${}()|[\]\\]/g, '')
 
@@ -171,7 +181,6 @@ const besquare_signup_url =
     'https://deriv.zohorecruit.com/jobs/Careers/590522000011882533/BeSquare-Graduate-Trainee?source=CareerSite'
 const deriv_app_url = 'https://app.deriv.com'
 const deriv_bot_app_url = 'https://app.deriv.com/bot'
-const deriv_blog_url = 'https://blog.deriv.com'
 const deriv_dp2p_app_url = 'https://app.deriv.com/cashier/p2p'
 const deriv_status_page_url = 'https://deriv.statuspage.io'
 const smarttrader_url = 'https://smarttrader.deriv.com'
@@ -208,64 +217,69 @@ const getDomain = () =>
         ? deriv_cookie_domain
         : 'binary.sx'
 
+const getLocalizedUrl = (path, is_index, to) => `/${path}${is_index ? `` : to}`
+
 export {
     affiliate_signin_url,
     affiliate_signup_url,
+    application_id,
     applyDefaultValues,
     besquare_signup_url,
     binary_url,
-    brand_name,
-    application_id,
-    client_token,
-    checkElemInArray,
-    cloneObject,
     blog_url,
+    brand_name,
     cfd_warning_height,
-    deriv_cookie_domain,
-    dmt5_windows_url,
-    dmt5_linux_url,
-    dmt5_android_url,
-    dmt5_ios_url,
+    checkElemInArray,
+    client_token,
+    cloneObject,
     community_url,
+    debounce,
     deriv_app_url,
-    deriv_blog_url,
     deriv_bot_app_url,
+    deriv_cookie_domain,
     deriv_dp2p_app_url,
     deriv_status_page_url,
+    dmt5_android_url,
+    dmt5_ios_url,
+    dmt5_linux_url,
     dmt5_macos_url,
+    dmt5_windows_url,
     dp2p_google_play_url,
-    mga_link_url,
-    debounce,
-    isEmptyObject,
-    isBrowser,
+    getClientInformation,
     getCrowdin,
     getCryptoDecimals,
-    getClientInformation,
     getDomain,
-    getPropertyValue,
     getLanguage,
+    getDerivAppLocalizedURL,
     getLocationHash,
-    setLocationHash,
     getLocationPathname,
-    routeBack,
+    getUTMData,
+    getPropertyValue,
     getWindowWidth,
     gtm_test_domain,
+    isBrowser,
+    isEmptyObject,
+    isIndexEven,
     isLoggedIn,
     livechat_client_id,
     livechat_license_id,
     map_api_key,
+    mga_link_url,
+    p2p_playstore_url,
     populateStyle,
     PromiseClass,
     pushwoosh_app_code,
     responsiveFallback,
+    routeBack,
+    sample_rate,
     sanitize,
     scrollTop,
     sentenceCase,
+    setLocationHash,
     smarttrader_url,
-    toISOFormat,
     toHashFormat,
-    zoho_url,
+    toISOFormat,
     trimSpaces,
-    p2p_playstore_url,
-    sample_rate,
+    getLocalizedUrl,
+    zoho_url,
 }

@@ -30,7 +30,7 @@ const WhyDeriv = () => {
                     grid_area="employee-image"
                 />
                 <div>
-                    <Title margin={[0, '0 auto']}>Why Deriv?</Title>
+                    <Title as="h2" margin={[0, '0 auto']}>Why Deriv?</Title>
                     <TextWrapper
                         {...text_wrapper}
                         grid_area={['unset', 'text-1']}

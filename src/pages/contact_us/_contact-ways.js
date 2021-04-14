@@ -5,8 +5,8 @@ import { Header, QueryImage } from 'components/elements'
 import { SectionContainer, Container, Flex } from 'components/containers'
 import { Localize } from 'components/localization'
 import { LinkButton } from 'components/form'
-import device from 'themes/device'
 import { community_url } from 'common/utility'
+import device from 'themes/device'
 
 const query = graphql`
     query {
@@ -37,7 +37,6 @@ const contactways = [
             <StyledLinkButton
                 secondary="true"
                 to={community_url}
-                external="true"
                 target="_blank"
                 rel="noopener noreferrer"
             >

@@ -6,7 +6,7 @@ import { LocalizedLink, localize, Localize } from 'components/localization'
 import { Accordion, AccordionItem, NavCard, Text, Divider } from 'components/elements'
 import Signals from 'components/svgs/signals'
 import { useOutsideClick } from 'components/hooks/outside-click'
-import { cfd_warning_height, deriv_status_page_url } from 'common/utility'
+import { blog_url, cfd_warning_height, community_url, deriv_status_page_url } from 'common/utility'
 // SVG
 import AffiliateIb from 'images/svg/menu/affiliate-ib.svg'
 import Blog from 'images/svg/blog-nav.svg'
@@ -165,7 +165,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                 }
                                 title={<Localize translate_text="DTrader" />}
                                 onClick={handleArrowClick}
-                                to="/dtrader"
+                                to="/dtrader/"
                             />
                         </Flex>
                         <Flex mb="2rem">
@@ -177,7 +177,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                 }
                                 title={<Localize translate_text="DBot" />}
                                 onClick={handleArrowClick}
-                                to="/dbot"
+                                to="/dbot/"
                             />
                         </Flex>
                         <Flex mb="2rem">
@@ -189,7 +189,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                 }
                                 title={<Localize translate_text="DMT5" />}
                                 onClick={handleArrowClick}
-                                to={props.is_ppc_redirect ? '/dmt5' : '/landing/dmt5'}
+                                to={props.is_ppc_redirect ? '/landing/dmt5/' : '/dmt5/'}
                             />
                         </Flex>
                         <Flex>
@@ -257,7 +257,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                             }
                                             title={<Localize translate_text="Options" />}
                                             onClick={handleArrowClick}
-                                            to="/trade-types/options"
+                                            to="/trade-types/options/"
                                         />
                                     </Flex>
                                 )}
@@ -277,7 +277,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                         }
                                         title={<Localize translate_text="Multipliers" />}
                                         onClick={handleArrowClick}
-                                        to="/trade-types/multiplier"
+                                        to="/trade-types/multiplier/"
                                     />
                                 </Flex>
                             </>
@@ -417,9 +417,7 @@ export const OffCanvasMenuWrapper = (props) => {
                             <span>{localize('Help centre')}</span>
                         </StyledLink>
                         <StyledLink
-                            to=""
-                            is_community_link
-                            external="true"
+                            to={community_url}
                             target="_blank"
                             rel="noopener noreferrer"
                             onClick={handleArrowClick}
@@ -471,9 +469,7 @@ export const OffCanvasMenuWrapper = (props) => {
                             </SpanSvg>
                         </StyledLink>
                         <StyledLink
-                            to=""
-                            is_blog_link
-                            external="true"
+                            to={blog_url}
                             target="_blank"
                             rel="noopener noreferrer"
                             onClick={handleArrowClick}

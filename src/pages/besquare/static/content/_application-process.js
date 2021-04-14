@@ -1,6 +1,6 @@
 import React from 'react'
 import { List01, List02, List03, List04 } from '../images/_application-process'
-import { LineBreakContainer } from '../style/_application-process'
+import { LineBreak } from '../style/_application-process'
 
 export default {
     title: 'Application process',
@@ -15,10 +15,7 @@ export default {
             alt: 'List item 2',
             text: (
                 <>
-                    Complete our{' '}
-                    <LineBreakContainer>
-                        <br />
-                    </LineBreakContainer>
+                    Complete our <LineBreak />
                     Self-Assessment Topgrading Interview (SATI).
                 </>
             ),

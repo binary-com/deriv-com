@@ -33,7 +33,7 @@ const WhoCanApply = () => {
         <Section>
             <ContentContainer>
                 <HeaderWrapper>
-                    <Title>{who_can_apply.title}</Title>
+                    <Title as="h2">{who_can_apply.title}</Title>
                     <TextWrapper
                         font_size={['24px', '18px']}
                         line_height={['36px', '22px']}

@@ -41,7 +41,7 @@ const WhatLiesAhead = () => {
         <Section>
             <ContentContainer>
                 <TitleWrapper>
-                    <Title>{what_lies_ahead.title}</Title>
+                    <Title as="h2">{what_lies_ahead.title}</Title>
                     <TextWrapper
                         max_width={['792px', '328px']}
                         font_size={['24px', '18px']}

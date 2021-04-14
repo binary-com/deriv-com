@@ -56,7 +56,6 @@ export const Community = () => {
                         </Text>
                         <StyledLinkButton
                             secondary="true"
-                            external="true"
                             to={community_url}
                             target="_blank"
                             rel="noopener noreferrer"

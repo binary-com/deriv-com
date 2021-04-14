@@ -433,7 +433,6 @@ export const NavCompany = ({ onClick }) => (
             title={localize('Careers')}
             onClick={onClick}
             to="/careers/"
-            external="true"
         />
     </Flex>
 )

@@ -10,8 +10,6 @@ import {
     affiliate_signin_url,
     affiliate_signup_url,
     binary_url,
-    blog_url,
-    community_url,
     deriv_app_url,
     deriv_bot_app_url,
     smarttrader_url,
@@ -95,8 +93,6 @@ export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
         is_affiliate_link,
         is_affiliate_sign_in_link,
         is_binary_link,
-        is_blog_link,
-        is_community_link,
         is_dbot_link,
         is_deriv_app_link,
         is_mail_link,
@@ -119,7 +115,7 @@ export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
     // Because otherwise this would add a trailing slash
     const { is_default, path, affiliate_lang } = language_config[locale]
     const is_non_localized = non_localized_links.includes(to)
-    const localizedUrl = getLocalizedUrl(path, is_index, to);
+    const localizedUrl = getLocalizedUrl(path, is_index, to)
 
     const path_to = is_default || is_non_localized ? to : localizedUrl
     if (external || external === 'true') {
@@ -136,10 +132,6 @@ export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
             lang_to = `${smarttrader_url}/${thai_excluded_locale}/${to}.html`
         } else if (is_deriv_app_link) {
             lang_to = `${deriv_app_url}${to}`
-        } else if (is_blog_link) {
-            lang_to = `${blog_url}${to}`
-        } else if (is_community_link) {
-            lang_to = `${community_url}${to}`
         } else if (is_zoho_link) {
             lang_to = `${zoho_url}${to}`
         } else if (is_dbot_link) {
@@ -155,9 +147,7 @@ export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
             !is_smarttrader_link &&
             !is_deriv_app_link &&
             !is_affiliate_link &&
-            !is_community_link &&
             !is_affiliate_sign_in_link &&
-            !is_blog_link &&
             !is_zoho_link
         ) {
             return (
@@ -260,8 +250,6 @@ LocalizedLink.propTypes = {
     is_affiliate_link: PropTypes.bool,
     is_affiliate_sign_in_link: PropTypes.bool,
     is_binary_link: PropTypes.bool,
-    is_blog_link: PropTypes.bool,
-    is_community_link: PropTypes.bool,
     is_dbot_link: PropTypes.bool,
     is_deriv_app_link: PropTypes.bool,
     is_mail_link: PropTypes.bool,

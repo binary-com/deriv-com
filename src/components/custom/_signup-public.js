@@ -319,7 +319,10 @@ const SignupPublic = ({
                                     {localize('Sign up')}
                                 </EmailButton>
                             </InputGroup>
-                            <AgreementLabel isChecked={isChecked} handleChangeCheckbox={handleChange} />
+                            <AgreementLabel
+                                isChecked={isChecked}
+                                handleChangeCheckbox={handleChange}
+                            />
                             <SocialWrapper jc="unset" ai="center">
                                 <SignInText>{localize('Or sign in with')}</SignInText>
                                 <SocialButton
@@ -430,7 +433,10 @@ const SignupPublic = ({
                                     {localize('Sign up')}
                                 </EmailButton>
                             </InputGroup>
-                            <AgreementLabel isChecked={isChecked} handleChangeCheckbox={handleChange} />
+                            <AgreementLabel
+                                isChecked={isChecked}
+                                handleChangeCheckbox={handleChange}
+                            />
                             <MobileSocialWrapper jc="unset" ai="center">
                                 <MobileSignInText>{localize('Or sign in with')}</MobileSignInText>
                                 <Flex>

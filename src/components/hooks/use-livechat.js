@@ -85,39 +85,42 @@ export const useLivechat = () => {
             }
             if (is_livechat_interactive) {
                 window.LiveChatWidget.on('ready', () => {
+                    const utm_data = getUTMData(domain)
+                    const client_information = getClientInformation(domain)
+                    
+                    const {
+                        utm_source,
+                        utm_medium,
+                        utm_campaign,
+                    } = (utm_data) || {};
+
+                    const {
+                        loginid,
+                        email,
+                        landing_company_shortcode,
+                        currency,
+                        residence,
+                        first_name,
+                        last_name,
+                    } = (client_information) || {};
+
+                    /* the session variables are sent to CS team dashboard to notify user has logged in
+                    and also acts as custom variables to trigger targeted engagement */
+                    const session_variables = {
+                        is_logged_in: is_logged_in,
+                        loginid: loginid ?? '',
+                        landing_company_shortcode: landing_company_shortcode ?? '',
+                        currency: currency ?? '',
+                        residence: residence ?? '',
+                        email: email ?? '',
+                        utm_source: utm_source ?? '',
+                        utm_medium: utm_medium ?? '',
+                        utm_campaign: utm_campaign ?? '',
+                    }
+                
+                    window.LiveChatWidget.call('set_session_variables', session_variables)
+                    
                     if (is_logged_in) {
-                        const client_information = getClientInformation(domain)
-                        const utm_data = getUTMData(domain) || {}
-                        const {
-                            loginid,
-                            email,
-                            landing_company_shortcode,
-                            currency,
-                            residence,
-                            first_name,
-                            last_name,
-                        } = (client_information) || {};
-                        const {
-                            utm_source,
-                            utm_medium,
-                            utm_campaign,
-                        } = (utm_data) || {};
-
-                        /* the session variables are sent to CS team dashboard to notify user has logged in
-                        and also acts as custom variables to trigger targeted engagement */
-                        const session_variables = {
-                            is_logged_in: is_logged_in,
-                            loginid: loginid ?? '',
-                            landing_company_shortcode: landing_company_shortcode ?? '',
-                            currency: currency ?? '',
-                            residence: residence ?? '',
-                            email: email ?? '',
-                            utm_source: utm_source ?? '',
-                            utm_medium: utm_medium ?? '',
-                            utm_campaign: utm_campaign ?? '',
-                        }
-
-                        window.LiveChatWidget.call('set_session_variables', session_variables)
                         if (email) {
                             window.LiveChatWidget.call('set_customer_email', email)
                         }
@@ -128,7 +131,6 @@ export const useLivechat = () => {
                             )
                         }
                     } else {
-                        window.LiveChatWidget.call('set_session_variables', '')
                         const chat_id = window.LiveChatWidget.get('chat_data').chatId
                         if (chat_id) {
                             if (customerSDK) {

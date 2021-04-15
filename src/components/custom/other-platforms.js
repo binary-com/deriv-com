@@ -12,8 +12,8 @@ import {
     Divider,
 } from 'components/elements'
 import { localize, LocalizedLink, Localize } from 'components/localization'
+import { blog_url, community_url } from 'common/utility'
 import device from 'themes/device'
-import { community_url, deriv_blog_url } from 'common/utility'
 import { DerivStore } from 'store'
 // icons
 import Blog from 'images/svg/blog-nav.svg'
@@ -244,7 +244,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                     }
                     title={<Localize translate_text="DTrader" />}
                     onClick={onClick}
-                    to="/dtrader"
+                    to="/dtrader/"
                 />
                 <NavCard
                     aria_label="DBot"
@@ -254,7 +254,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                     }
                     title={<Localize translate_text="DBot" />}
                     onClick={onClick}
-                    to="/dbot"
+                    to="/dbot/"
                 />
                 <NavCard
                     aria_label="DMT5"
@@ -264,7 +264,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                     }
                     title={<Localize translate_text="DMT5" />}
                     onClick={onClick}
-                    to={is_ppc_redirect ? '/landing/dmt5' : '/dmt5'}
+                    to={is_ppc_redirect ? '/landing/dmt5/' : '/dmt5/'}
                 />
                 <NavCard
                     aria_label="SmartTrader"
@@ -294,7 +294,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                             }
                             title={<Localize translate_text="Margin trading" />}
                             onClick={onClick}
-                            to="/trade-types/margin"
+                            to="/trade-types/margin/"
                         />
                         {!is_eu_country && (
                             <NavCard
@@ -307,7 +307,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                                 }
                                 title={<Localize translate_text="Options" />}
                                 onClick={onClick}
-                                to="/trade-types/options"
+                                to="/trade-types/options/"
                             />
                         )}
                         <NavCard
@@ -320,7 +320,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                             }
                             title={<Localize translate_text="Multipliers" />}
                             onClick={onClick}
-                            to="/trade-types/multiplier"
+                            to="/trade-types/multiplier/"
                         />
                     </Flex>
                 </>
@@ -433,7 +433,6 @@ export const NavCompany = ({ onClick }) => (
             title={localize('Careers')}
             onClick={onClick}
             to="/careers/"
-            external="true"
         />
     </Flex>
 )
@@ -456,7 +455,6 @@ export const NavResources = ({ onClick }) => (
             onClick={onClick}
             to={community_url}
             target="_blank"
-            external="true"
             rel="noopener noreferrer"
         />
         <CardLink
@@ -481,9 +479,8 @@ export const NavResources = ({ onClick }) => (
             icon={() => <img src={Blog} alt="blog" width="24" height="24" />}
             title={localize('Blog')}
             onClick={onClick}
-            to={deriv_blog_url}
+            to={blog_url}
             target="_blank"
-            external="true"
             rel="noopener noreferrer"
         />
     </Flex>

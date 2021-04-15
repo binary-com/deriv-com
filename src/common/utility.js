@@ -79,6 +79,8 @@ const getCrowdin = () =>
 
 const getClientInformation = (domain) => Cookies.getJSON('client_information', { domain })
 
+const getUTMData = (domain) => Cookies.getJSON('utm_data', { domain })
+
 const isLoggedIn = () => {
     const domain = getDomain()
     const client_information = getClientInformation(domain)
@@ -179,7 +181,6 @@ const besquare_signup_url =
     'https://deriv.zohorecruit.com/jobs/Careers/590522000011882533/BeSquare-Graduate-Trainee?source=CareerSite'
 const deriv_app_url = 'https://app.deriv.com'
 const deriv_bot_app_url = 'https://app.deriv.com/bot'
-const deriv_blog_url = 'https://blog.deriv.com'
 const deriv_dp2p_app_url = 'https://app.deriv.com/cashier/p2p'
 const deriv_status_page_url = 'https://deriv.statuspage.io'
 const smarttrader_url = 'https://smarttrader.deriv.com'
@@ -234,7 +235,6 @@ export {
     community_url,
     debounce,
     deriv_app_url,
-    deriv_blog_url,
     deriv_bot_app_url,
     deriv_cookie_domain,
     deriv_dp2p_app_url,
@@ -253,6 +253,7 @@ export {
     getDerivAppLocalizedURL,
     getLocationHash,
     getLocationPathname,
+    getUTMData,
     getPropertyValue,
     getWindowWidth,
     gtm_test_domain,

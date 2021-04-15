@@ -38,12 +38,12 @@ const AgreementLabel = ({handleChangeCheckbox, isChecked}) => {
                         translate_text="I agree to the <0>terms and conditions</0>"
                         components={[
                             <LinkText
+                                key={0}
                                 href={url}
                                 target="_blank"
                                 size="14px"
                                 color="red"
                                 rel="noopener noreferrer"
-                                key={0}
                             />,
                         ]}
                     />

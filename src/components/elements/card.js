@@ -377,7 +377,7 @@ export const NavCard = ({
                 </SvgWrapper>
 
                 <NavContent>
-                    <ResponsiveHeader size="var(--text-size-s)" lh="1.14" mb="0.8rem">
+                    <ResponsiveHeader as="span" size="var(--text-size-s)" lh="1.14" mb="0.8rem">
                         {title}
                     </ResponsiveHeader>
                     <ResponsiveText color="grey-5">{content}</ResponsiveText>
@@ -466,6 +466,7 @@ export const CardLink = ({ icon: Icon, title, to, style, external, target, onCli
                         </IconRightWrapper>
                     )}
                     <ResponsiveHeader
+                        as="span"
                         color="black-3"
                         size="var(--text-size-xs)"
                         lh="1.14"

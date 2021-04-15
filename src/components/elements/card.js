@@ -349,6 +349,7 @@ export const NavCard = ({
     target,
     title,
     to,
+    ...props
 }) => {
     return (
         <LocalizedLink
@@ -368,6 +369,7 @@ export const NavCard = ({
             is_binary_link={is_binary_link}
             is_smarttrader_link={is_smarttrader_link}
             {...otherLinkProps}
+            {...props}
         >
             <FlexHover jc="flex-start" direction="row" tablet_direction="row">
                 <SvgWrapper>
@@ -441,7 +443,7 @@ const RelativeFlex = styled(Flex)`
     position: relative;
 `
 
-export const CardLink = ({ icon: Icon, title, to, style, external, target, onClick }) => {
+export const CardLink = ({ icon: Icon, title, to, style, external, target, onClick, ...props }) => {
     return (
         <LocalizedLink
             target={target}
@@ -454,6 +456,7 @@ export const CardLink = ({ icon: Icon, title, to, style, external, target, onCli
                 ...style,
             }}
             external={external}
+            {...props}
         >
             <HoverFlex p="1rem 1.6rem" jc="flex-start" direction="row" tablet_direction="row">
                 <RelativeFlex ai="center" jc="flex-start">

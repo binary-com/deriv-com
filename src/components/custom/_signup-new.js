@@ -203,7 +203,7 @@ const SignupNew = ({
     is_ppc,
     is_submitting,
 }) => {
-    const [isChecked, setChecked] = useState(false)
+    const [is_checked, setChecked] = useState(false)
 
     const handleChange = (event) => {
         setChecked(event.currentTarget.checked)
@@ -270,14 +270,14 @@ const SignupNew = ({
                 />
             </InputGroup>
             <AgreementLabel
-                isChecked={isChecked}
+                isChecked={is_checked}
                 handleChangeCheckbox={handleChange}
             />
             <EmailButton
-                isChecked={isChecked}
+                isChecked={is_checked}
                 type="submit"
                 secondary="true"
-                disabled={is_submitting || !isChecked || email_error_msg}
+                disabled={is_submitting || !is_checked || email_error_msg}
                 id="gtm-signup-email"
             >
                 {localize('Create demo account')}

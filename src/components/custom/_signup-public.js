@@ -254,7 +254,7 @@ const SignupPublic = ({
     is_submitting,
 }) => {
     const data = useStaticQuery(query)
-    const [isChecked, setChecked] = useState(false)
+    const [is_checked, setChecked] = useState(false)
     const handleChange = (event) => {
         setChecked(event.currentTarget.checked)
     }
@@ -310,17 +310,17 @@ const SignupPublic = ({
                                     />
                                 </InputWrapper>
                                 <EmailButton
-                                    isChecked={isChecked}
+                                    isChecked={is_checked}
                                     id="gtm-signup-email"
                                     type="submit"
                                     secondary="true"
-                                    disabled={is_submitting || !isChecked || email_error_msg}
+                                    disabled={is_submitting || !is_checked || email_error_msg}
                                 >
                                     {localize('Sign up')}
                                 </EmailButton>
                             </InputGroup>
                             <AgreementLabel
-                                isChecked={isChecked}
+                                isChecked={is_checked}
                                 handleChangeCheckbox={handleChange}
                             />
                             <SocialWrapper jc="unset" ai="center">
@@ -424,17 +424,17 @@ const SignupPublic = ({
                                     />
                                 </InputWrapper>
                                 <EmailButton
-                                    isChecked={isChecked}
+                                    isChecked={is_checked}
                                     id="gtm-signup-email"
                                     type="submit"
                                     secondary="true"
-                                    disabled={is_submitting || !isChecked || email_error_msg}
+                                    disabled={is_submitting || !is_checked || email_error_msg}
                                 >
                                     {localize('Sign up')}
                                 </EmailButton>
                             </InputGroup>
                             <AgreementLabel
-                                isChecked={isChecked}
+                                isChecked={is_checked}
                                 handleChangeCheckbox={handleChange}
                             />
                             <MobileSocialWrapper jc="unset" ai="center">

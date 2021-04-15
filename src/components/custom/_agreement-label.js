@@ -7,7 +7,6 @@ import device from 'themes/device.js'
 
 const CheckboxSpan = styled.span`
     font-size: var(--text-size-xs);
-
     @media ${device.tabletL} {
         font-size: 1.75rem;
     }

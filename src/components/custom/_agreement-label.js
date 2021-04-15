@@ -12,10 +12,7 @@ const CheckboxSpan = styled.span`
         font-size: 1.75rem;
     }
 `
-const StyledLinkText = styled(LinkText)`
-    font-size: ${(props) => props.size || '14px'};
-`
-const AgreementLabel = ({handleChangeCheckbox, checkBoxState}) => {
+const AgreementLabel = ({handleChangeCheckbox, isChecked}) => {
     const [language_code, setLanguageCode] = useState('en')
 
     useEffect(() => {
@@ -34,16 +31,17 @@ const AgreementLabel = ({handleChangeCheckbox, checkBoxState}) => {
                     class="signup_agree_tnc"
                     secondary
                     onChange={handleChange}
-                    checked={checkBoxState}
+                    checked={isChecked}
                 />
                 <CheckboxSpan>
                     <Localize
                         fontSize="var(--text-size-xs)"
                         translate_text="I agree to the <0>terms and conditions</0>"
                         components={[
-                            <StyledLinkText
+                            <LinkText
                                 href={url}
                                 target="_blank"
+                                size="14px"
                                 color="red"
                                 rel="noopener noreferrer"
                                 key={0}
@@ -56,8 +54,8 @@ const AgreementLabel = ({handleChangeCheckbox, checkBoxState}) => {
 }
 
 AgreementLabel.propTypes = {
-    checkBoxState: PropTypes.bool,
     handleChangeCheckbox: PropTypes.func,
+    isChecked: PropTypes.bool,
 }
 
 export default AgreementLabel

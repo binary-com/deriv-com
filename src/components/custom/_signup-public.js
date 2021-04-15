@@ -24,7 +24,6 @@ const query = graphql`
         }
     }
 `
-
 const Wrapper = styled.div`
     position: relative;
     display: flex;
@@ -40,7 +39,6 @@ const Wrapper = styled.div`
         height: auto;
     }
 `
-
 const MobileWrapper = styled.div`
     position: relative;
     display: flex;
@@ -50,7 +48,6 @@ const MobileWrapper = styled.div`
     overflow: hidden;
     border-top: 1px solid rgba(151, 151, 151, 0.2);
 `
-
 const SignupFormWrapper = styled(Flex)`
     width: 50%;
     align-items: center;
@@ -65,7 +62,6 @@ const SignupFormWrapper = styled(Flex)`
         }
     }
 `
-
 const MobileSignupFormWrapper = styled(Flex)`
     width: 50%;
     align-items: center;
@@ -78,7 +74,6 @@ const MobileSignupFormWrapper = styled(Flex)`
         }
     }
 `
-
 const BackgroundWrapper = styled(Flex)`
     min-height: 35.3rem;
     height: 100%;
@@ -86,7 +81,6 @@ const BackgroundWrapper = styled(Flex)`
     background-image: url(${BackgroundPattern});
     clip-path: polygon(14rem 0, 100% 0%, 100% 100%, 0% 100%);
 `
-
 const InputWrapper = styled.div`
     width: 28rem;
     @media ${device.tabletL} {
@@ -118,9 +112,14 @@ const SocialWrapper = styled(Flex)`
     width: 100%;
     margin-top: 1.8rem;
 `
+<<<<<<< HEAD
 
 const MobileSocialWrapper = styled(SocialWrapper)`
     @media ${device.tabletL} {
+=======
+const MobileSocialWrapper = styled(SocialWrapper) `
+    @media ${device.tabletL}{
+>>>>>>> 093df02020 (add fix agreement label)
         flex-direction: column;
     }
 `
@@ -147,7 +146,6 @@ const SocialButton = styled(Button)`
         padding: 14px 15px 12px 13px;
     }
 `
-
 const StyledHeader = styled(Header)`
     width: ${(props) => props.width || '41.4rem'};
     @media ${device.tablet} {
@@ -157,7 +155,6 @@ const StyledHeader = styled(Header)`
         margin-top: 2rem;
     }
 `
-
 const StyledHeaderText = styled(Text)`
     width: ${(props) => props.width || '41.4rem'};
     font-size: var(--text-size-m);
@@ -177,14 +174,17 @@ const SignInText = styled(Text)`
         margin-right: 0;
     }
 `
+<<<<<<< HEAD
 
 const MobileSignInText = styled(SignInText)`
+=======
+const MobileSignInText = styled (SignInText)`
+>>>>>>> 093df02020 (add fix agreement label)
     @media ${device.tabletL} {
         width: unset;
         margin: 0 auto 0.8rem 0.8rem;
     }
 `
-
 const ImageWrapper = styled(Flex)`
     position: relative;
     width: 41.1rem;
@@ -203,7 +203,6 @@ const redirectToDerivApp = (e) => {
     e.preventDefault()
     window.open(deriv_app_url, '_blank')
 }
-
 const LinkFlex = styled(LinkText)`
     display: flex;
     align-items: center;
@@ -218,7 +217,6 @@ const MobileBackground = styled.div`
     position: relative;
     padding-bottom: 4rem;
 `
-
 const DerivExperience = styled.div`
     display: flex;
     align-items: center;
@@ -256,9 +254,9 @@ const SignupPublic = ({
     is_submitting,
 }) => {
     const data = useStaticQuery(query)
-    const [checkBoxState, setCheckBoxState] = useState(false)
+    const [isChecked, setChecked] = useState(false)
     const handleChange = (event) => {
-        setCheckBoxState(event.currentTarget.checked)
+        setChecked(event.currentTarget.checked)
     }
     return (
         <>
@@ -312,16 +310,16 @@ const SignupPublic = ({
                                     />
                                 </InputWrapper>
                                 <EmailButton
-                                    checkBoxState={checkBoxState}
+                                    isChecked={isChecked}
                                     id="gtm-signup-email"
                                     type="submit"
                                     secondary="true"
-                                    disabled={is_submitting || !checkBoxState || email_error_msg}
+                                    disabled={is_submitting || !isChecked || email_error_msg}
                                 >
                                     {localize('Sign up')}
                                 </EmailButton>
                             </InputGroup>
-                            <AgreementLabel checkBoxState={checkBoxState} handleChangeCheckbox={handleChange} />
+                            <AgreementLabel isChecked={isChecked} handleChangeCheckbox={handleChange} />
                             <SocialWrapper jc="unset" ai="center">
                                 <SignInText>{localize('Or sign in with')}</SignInText>
                                 <SocialButton
@@ -423,16 +421,16 @@ const SignupPublic = ({
                                     />
                                 </InputWrapper>
                                 <EmailButton
-                                    checkBoxState={checkBoxState}
+                                    isChecked={isChecked}
                                     id="gtm-signup-email"
                                     type="submit"
                                     secondary="true"
-                                    disabled={is_submitting || !checkBoxState || email_error_msg}
+                                    disabled={is_submitting || !isChecked || email_error_msg}
                                 >
                                     {localize('Sign up')}
                                 </EmailButton>
                             </InputGroup>
-                            <AgreementLabel checkBoxState={checkBoxState} handleChangeCheckbox={handleChange} />
+                            <AgreementLabel isChecked={isChecked} handleChangeCheckbox={handleChange} />
                             <MobileSocialWrapper jc="unset" ai="center">
                                 <MobileSignInText>{localize('Or sign in with')}</MobileSignInText>
                                 <Flex>

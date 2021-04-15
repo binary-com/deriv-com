@@ -79,11 +79,11 @@ const content = {
                 components={[
                     <strong key={0} />,
                     <LocalizedLinkText
+                        key={1}
                         external="true"
                         to="https://app.deriv.com/mt5"
                         color="red"
                         size={16}
-                        key={1}
                     />,
                 ]}
                 Server

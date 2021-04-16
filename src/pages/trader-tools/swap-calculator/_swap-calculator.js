@@ -886,7 +886,7 @@ const SwapCalculator = () => {
                                         </Text>
                                     </AccordionItem>
                                 </Accordion>
-                                <LinkWrapper>
+                                <LinkWrapper height="auto">
                                     <StyledLinkButton
                                         tertiary="true"
                                         is_deriv_app_link

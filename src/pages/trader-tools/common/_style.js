@@ -311,6 +311,7 @@ export const StyledOl = styled.ol`
 export const LinkWrapper = styled(Flex)`
     margin-top: 40px;
     justify-content: flex-start;
+    height: auto;
 
     @media ${device.laptop} {
         flex-direction: column-reverse;

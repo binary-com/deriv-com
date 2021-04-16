@@ -342,6 +342,7 @@ export const item_style = {
     padding: '16px 0',
 }
 export const header_style = {
+    marginTop: '15px',
     padding: '16px 24px',
     border: 'none',
     borderRadius: '8px',

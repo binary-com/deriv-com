@@ -8,7 +8,11 @@ import {
     getContractSize,
     getCurrency,
     resetValidationMargin,
+<<<<<<< HEAD
 } from '../common/_utility'
+=======
+} from '../common/_utility';
+>>>>>>> a1fd8b20d1 (Habib/pip calculator (#1603))
 import {
     optionItemDefault,
     leverageItemLists,
@@ -193,7 +197,14 @@ const MarginCalculator = () => {
                                             items={values.optionList}
                                             label={localize('Symbol')}
                                             onChange={(value) => {
+<<<<<<< HEAD
                                                 setFieldValue('marginSymbol', getCurrency(value))
+=======
+                                                setFieldValue(
+                                                    'marginSymbol',
+                                                    getCurrency(value),
+                                                )
+>>>>>>> a1fd8b20d1 (Habib/pip calculator (#1603))
                                                 setFieldValue(
                                                     'contractSize',
                                                     getContractSize(value),

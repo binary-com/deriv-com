@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import React from 'react'
 import styled from 'styled-components'
 import { localize } from 'components/localization'
@@ -8,7 +7,7 @@ import { SectionContainer, Container, Flex } from 'components/containers'
 const HeadingText = styled(Text)`
     font-weight: bold;
     font-size: 48px;
-    border-right: 1px solid;
+    border-right: 1px solid var(--color-grey-21);
     padding-right: 24px;
 `
 
@@ -29,7 +28,7 @@ const selling_points = [
 
 const SellingPoints = () => {
     return (
-        <SectionContainer>
+        <SectionContainer padding="40px 0" background="grey-25">
             <Container>
                 <Flex>
                     {selling_points.map((index) => {

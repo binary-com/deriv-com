@@ -181,9 +181,11 @@ const deriv_dp2p_app_url = `https://app.${domain_url}/cashier/p2p`
 const smarttrader_url = `https://smarttrader.${domain_url}`
 const blog_url = `https://blog.${domain_url}`
 const deriv_cookie_domain = domain_url
+const login_url = `https://login.${domain_url}`
 const affiliate_signup_url = `https://login.${domain_url}/signup.php`
 const affiliate_signin_url = `https://login.${domain_url}/signin.php`
 const community_url = `https://community.${domain_url}`
+const oauth_url = `https://oauth.${domain_url}`
 
 const livechat_client_id = '66aa088aad5a414484c1fd1fa8a5ace7'
 const livechat_license_id = 12049137
@@ -289,4 +291,6 @@ export {
     trimSpaces,
     getLocalizedUrl,
     zoho_url,
+    oauth_url,
+    login_url,
 }

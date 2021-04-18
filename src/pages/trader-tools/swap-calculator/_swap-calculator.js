@@ -34,6 +34,7 @@ import {
     StyledLinkButton,
 } from '../common/_style'
 import validation from '../common/_validation'
+import { deriv_app_url } from '../../../common/utility'
 import { localize, Localize } from 'components/localization'
 import { Header, QueryImage, Text } from 'components/elements'
 import { Flex, Show } from 'components/containers'
@@ -535,7 +536,7 @@ const SwapCalculator = () => {
                             {
                                 <StyledLinkButton
                                     tertiary="true"
-                                    to="https://app.deriv.com/mt5"
+                                    to={`${deriv_app_url}/mt5`}
                                     external="true"
                                     target="_blank"
                                 >
@@ -855,7 +856,7 @@ const SwapCalculator = () => {
                         <LinkWrapper>
                             <StyledLinkButton
                                 tertiary="true"
-                                to="https://app.deriv.com/mt5"
+                                to={`${deriv_app_url}/mt5`}
                                 external="true"
                                 target="_blank"
                             >

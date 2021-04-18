@@ -34,6 +34,7 @@ import {
     StyledLinkButton,
 } from '../common/_style'
 import validation from '../common/_validation'
+import { deriv_app_url } from '../../../common/utility'
 import { localize, Localize } from 'components/localization'
 import { Flex, Show } from 'components/containers'
 import { Header, Text, QueryImage, Dropdown } from 'components/elements'
@@ -452,7 +453,7 @@ const MarginCalculator = () => {
                 <LinkWrapper>
                     <StyledLinkButton
                         tertiary="true"
-                        to="https://app.deriv.com/mt5"
+                        to={`${deriv_app_url}/mt5`}
                         external="true"
                         target="_blank"
                     >

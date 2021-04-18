@@ -9,6 +9,7 @@ import DBot from 'images/svg/dbot-icon.svg'
 import DMT5 from 'images/svg/dmt5-icon.svg'
 import DTrader from 'images/svg/dtrader-icon.svg'
 import SmartTrader from 'images/svg/smarttrader.svg'
+import { smarttrader_url } from '../../../../common/utility'
 
 const PlatformsContainer = styled(Flex)`
     justify-content: space-around;
@@ -99,7 +100,7 @@ const AvailablePlatforms = ({
                 )}
                 {smarttrader && (
                     <a
-                        href="https://smarttrader.deriv.com/"
+                        href= {smarttrader_url}
                         target="_blank"
                         rel="noopener noreferrer"
                     >

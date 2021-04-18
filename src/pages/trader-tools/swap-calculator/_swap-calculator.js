@@ -33,7 +33,6 @@ import {
     SwapTabSelector,
 } from '../common/_style'
 import validation from '../common/_validation'
-import { deriv_app_url } from '../../../common/utility'
 import { localize, Localize } from 'components/localization'
 import {
     Accordion,

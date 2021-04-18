@@ -119,7 +119,7 @@ export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
     // Because otherwise this would add a trailing slash
     const { is_default, path, affiliate_lang } = language_config[locale]
     const is_non_localized = non_localized_links.includes(to)
-    const localizedUrl = getLocalizedUrl(path, is_index, to);
+    const localizedUrl = getLocalizedUrl(path, is_index, to)
 
     const path_to = is_default || is_non_localized ? to : localizedUrl
     if (external || external === 'true') {
@@ -155,9 +155,7 @@ export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
             !is_smarttrader_link &&
             !is_deriv_app_link &&
             !is_affiliate_link &&
-            !is_community_link &&
             !is_affiliate_sign_in_link &&
-            !is_blog_link &&
             !is_zoho_link
         ) {
             return (

@@ -50,12 +50,6 @@ const AccordionHeader = styled.div`
         height: 100%;
     }
 `
-const ResponsiveWrapper = styled.div`
-    @media ${device.tablet} {
-        margin-left: 16px;
-        margin-right: 16px;
-    }
-`
 
 const AccordionWrapper = styled.div`
     width: 100%;
@@ -108,7 +102,7 @@ const ItemExpanded = ({ is_default_open, child, child_idx, nodes, id }) => {
     return (
         <>
             {child.props.is_showed != false && (
-                <ResponsiveWrapper
+                <div
                     key={child_idx}
                     style={child.props.parent_style}
                     id={id}
@@ -161,7 +155,7 @@ const ItemExpanded = ({ is_default_open, child, child_idx, nodes, id }) => {
                             {child}
                         </div>
                     </AccordionWrapper>
-                </ResponsiveWrapper>
+                </div>
             )}
         </>
     )

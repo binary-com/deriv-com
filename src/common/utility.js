@@ -146,10 +146,11 @@ const populateStyle = (props, default_props_object, curr_index) => {
         }
 
         const current_prop = prop.replace(/_/g, '-')
-        style += `${current_prop}: ${Array.isArray(props[prop])
-            ? responsiveFallback(props[prop], curr_index, default_props_object[prop])
-            : props[prop]
-            };`
+        style += `${current_prop}: ${
+            Array.isArray(props[prop])
+                ? responsiveFallback(props[prop], curr_index, default_props_object[prop])
+                : props[prop]
+        };`
     })
 
     style += applyDefaultValues(props, default_props_object)
@@ -243,7 +244,6 @@ export {
     community_url,
     debounce,
     deriv_app_url,
-    deriv_blog_url,
     deriv_bot_app_url,
     deriv_cookie_domain,
     deriv_dp2p_app_url,

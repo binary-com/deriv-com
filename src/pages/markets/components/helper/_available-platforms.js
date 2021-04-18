@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import { smarttrader_url } from '../../../../common/utility'
 import { Flex } from 'components/containers'
 import { Text } from 'components/elements'
 import { localize, LocalizedLink } from 'components/localization'
@@ -9,7 +10,6 @@ import DBot from 'images/svg/dbot-icon.svg'
 import DMT5 from 'images/svg/dmt5-icon.svg'
 import DTrader from 'images/svg/dtrader-icon.svg'
 import SmartTrader from 'images/svg/smarttrader.svg'
-import { smarttrader_url } from '../../../../common/utility'
 
 const PlatformsContainer = styled(Flex)`
     justify-content: space-around;

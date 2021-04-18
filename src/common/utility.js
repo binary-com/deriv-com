@@ -293,4 +293,5 @@ export {
     zoho_url,
     oauth_url,
     login_url,
+    deriv_blog_url,
 }

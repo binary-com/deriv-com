@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 import { Container, CssGrid, Flex, Show } from '../containers'
 import { StyledLink, Text, QueryImage } from '../elements'
 import { LocationContext } from './location-context'
-import { deriv_status_page_url, mga_link_url } from 'common/utility'
+import { deriv_status_page_url, mga_link_url, deriv_blog_url } from 'common/utility'
 // TODO: (discussion) make footer pure component, and move usage of footer to custom
 import device from 'themes/device'
 import { localize, Localize, LocalizedLink } from 'components/localization'
@@ -515,7 +515,7 @@ const Footer = ({ type, is_ppc, is_ppc_redirect }) => {
                                     </LinkWrapper>
                                     <LinkWrapper>
                                         <Link
-                                            to=""
+                                            to={deriv_blog_url}
                                             is_blog_link
                                             external="true"
                                             target="_blank"

@@ -368,6 +368,7 @@ const LinkMobileLogin = styled(LinkButton)`
     }
     @media ${device.mobileL} {
         font-size: var(--text-size-xxs);
+        margin-left: 1rem;
     }
 `
 const handleScroll = (show, hide) => {
@@ -986,7 +987,7 @@ export const NavPartners = ({ no_login_signup }) => {
 
                         <Mobile>
                             <Flex ai="center">
-                                <LogoLinkMobile to="/" aria-label={localize('Home')}>
+                                <LogoLinkMobile to="/partners" aria-label={localize('Home')}>
                                     <ResLogo src={LogoOnly} alt="reslogo" />
                                 </LogoLinkMobile>
                                 <Flex ml="auto" ai="center" width="auto">

@@ -169,6 +169,22 @@ const applyDefaultValues = (props, default_props_object) => {
     return style
 }
 
+const domain_url =
+    isBrowser() && window.location.hostname.indexOf('deriv') > -1
+    ? window.location.hostname
+    : 'deriv.com'
+
+const deriv_app_url = `https://app.${domain_url}`
+const deriv_bot_app_url = `https://app.${domain_url}/bot`
+const deriv_blog_url = `https://blog.${domain_url}`
+const deriv_dp2p_app_url = `https://app.${domain_url}/cashier/p2p`
+const smarttrader_url = `https://smarttrader.${domain_url}`
+const blog_url = `https://blog.${domain_url}`
+const deriv_cookie_domain = domain_url
+const affiliate_signup_url = `https://login.${domain_url}/signup.php`
+const affiliate_signin_url = `https://login.${domain_url}/signin.php`
+const community_url = `https://community.${domain_url}`
+
 const livechat_client_id = '66aa088aad5a414484c1fd1fa8a5ace7'
 const livechat_license_id = 12049137
 const trimSpaces = (value) => value.trim()
@@ -178,18 +194,8 @@ const client_token = 'pubc42fda54523c5fb23c564e3d8bceae88'
 const sample_rate = 25
 const besquare_signup_url =
     'https://deriv.zohorecruit.com/jobs/Careers/590522000011882533/BeSquare-Graduate-Trainee?source=CareerSite'
-const deriv_app_url = 'https://app.deriv.com'
-const deriv_bot_app_url = 'https://app.deriv.com/bot'
-const deriv_blog_url = 'https://blog.deriv.com'
-const deriv_dp2p_app_url = 'https://app.deriv.com/cashier/p2p'
 const deriv_status_page_url = 'https://deriv.statuspage.io'
-const smarttrader_url = 'https://smarttrader.deriv.com'
 const binary_url = 'https://binary.com'
-const blog_url = 'https://blog.deriv.com'
-const deriv_cookie_domain = 'deriv.com'
-const affiliate_signup_url = 'https://login.deriv.com/signup.php'
-const affiliate_signin_url = 'https://login.deriv.com/signin.php'
-const community_url = 'https://community.deriv.com'
 const zoho_url = 'https://deriv.zohorecruit.com'
 const brand_name = 'Deriv'
 const map_api_key = 'AIzaSyAEha6-HeZuI95L9JWmX3m6o-AxQr_oFqU'

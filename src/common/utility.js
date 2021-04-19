@@ -170,9 +170,9 @@ const applyDefaultValues = (props, default_props_object) => {
     return style
 }
 
-const supported_domain = ['deriv.com', 'deriv.me']
+const supported_domains = ['deriv.com', 'deriv.me']
 const domain_url =
-    isBrowser() && supported_domain.includes(window.location.hostname)
+    isBrowser() && supported_domains.includes(window.location.hostname)
     ? window.location.hostname
     : 'deriv.com'
 

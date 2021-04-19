@@ -15,7 +15,7 @@ const domain_config = {
         },
         {
             hostname: 'deriv.me',
-            app_id: 11781,
+            app_id: 1411,
         },
     ],
     staging: {

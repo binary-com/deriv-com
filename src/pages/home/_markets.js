@@ -107,7 +107,7 @@ const Markets = ({ is_ppc }) => (
                     <img src={StockIcon} alt="stock" width="64" height="64" />
                     <div>
                         <Header as="h4" type="sub-section-title">
-                            {localize('Stocks & Indices')}
+                            {localize('Stocks & indices')}
                         </Header>
                         <Text>
                             {localize(

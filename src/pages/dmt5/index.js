@@ -66,7 +66,7 @@ const DMT5 = () => {
             />
             <DHero
                 title={localize('Deriv MetaTrader 5 (DMT5)')}
-                content={<Localize translate_text="The all-in-one FX and CFD trading platform" />}
+                content={<Localize translate_text="The all-in-one CFD trading platform" />}
                 join_us_for_free
                 Logo={dmt5_logo}
                 image_name="dmt5"

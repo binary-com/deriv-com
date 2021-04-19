@@ -1,7 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
+import DTrading from 'components/custom/_dtrading'
 import { SectionContainer, Container, Flex } from 'components/containers'
-import { localize } from 'components/localization'
+import { Localize, localize } from 'components/localization'
 import { Header, Text } from 'components/elements/typography'
 import Icon24_7 from 'images/svg/derivx/24-7.svg'
 import IconMultipleMarketing from 'images/svg/derivx/multiple-marketing.svg'
@@ -24,50 +25,93 @@ const Card = styled(Flex)`
     }
 `
 
+const trading = [
+    {
+        title: <Localize translate_text="Bespoke trading experience" />,
+        subtitle: (
+            <Localize translate_text="Easily customise your trading environment. Drag and drop widgets, create your own layouts, and get the info you need, when you need it." />
+        ),
+        image_name: 'bespoke',
+        image_alt: 'Bespoke trading experience',
+    },
+    {
+        title: <Localize translate_text="Intuitive tools" />,
+        subtitle: (
+            <Localize translate_text="Keep track of your progress with the dashboard, learn from historical trades with the journal, and create custom watchlists for your favourite assets." />
+        ),
+        image_name: 'intuitive',
+        image_alt: 'Intuitive tools',
+    },
+    {
+        title: <Localize translate_text="Know your margin" />,
+        subtitle: (
+            <Localize translate_text="You'll always be informed of the margin impact on your account before every trade." />
+        ),
+        image_name: 'margin',
+        image_alt: 'Know your margin',
+    },
+    {
+        title: <Localize translate_text="Feature-rich charts" />,
+        subtitle: (
+            <Localize translate_text="Enjoy multiple chart views, 90+ indicators, and 13 drawing tools." />
+        ),
+        image_name: 'feature_rich',
+        image_alt: 'Feature-rich charts',
+    },
+]
+
 const card_data = [
     {
         icon: IconNewPromising,
-        title: 'New and promising',
-        subtitle: 'Deriv X is our second CFD platform, after MT5. It’s packed with features and built to fit your trading style.',
+        icon_alt: 'New and promising',
+        title: <Localize translate_text='New and promising' />,
+        subtitle: <Localize translate_text='Deriv X is our second CFD platform, after MT5. It’s packed with features and built to fit your trading style.' />,
     },
     {
         icon: IconMultipleMarketing,
-        title: 'Multiple markets on a single platform',
-        subtitle: 'Trade various assets in multiple markets simultaneously.',
+        icon_alt: 'Multiple markets on a single platform',
+        title: <Localize translate_text='Multiple markets on a single platform' />,
+        subtitle: <Localize translate_text='Trade various assets in multiple markets simultaneously.' />,
     },
     {
         icon: Icon24_7,
-        title: '24/7 trading',
-        subtitle: 'Trade cryptocurrencies and synthetic indices anytime, even on weekends and holidays.',
+        icon_alt: '24/7 trading',
+        title: <Localize translate_text='24/7 trading' />,
+        subtitle: <Localize translate_text='Trade cryptocurrencies and synthetic indices anytime, even on weekends and holidays.' />,
     },
 ]
 
 const WhyTradeDerivX = () => {
     return (
-        <SectionContainer>
-            <Container fd='column'>
-                <Header type='page-title' align="center">
-                    {localize('Why trade with Deriv X')}
-                </Header>
-                <Flex ai='flex-start' mt="40px">
-                    {card_data.map((index) => {
-                        return (
-                            <Card key={index}>
-                                <div>
-                                    <img src={index.icon} alt={index.title} />
-                                </div>
-                                <Header width='240px' type='sub-section-title' mt='7px' mb='8px'>
-                                    {localize(index.title)}
-                                </Header>
-                                <Text>
-                                    {localize(index.subtitle)}
-                                </Text>
-                            </Card>
-                        )
-                    })}
-                </Flex>
-            </Container>
-        </SectionContainer>
+        <div>
+            <SectionContainer>
+                <Container fd='column'>
+                    <Header type='page-title' align="center">
+                        {localize('Why trade with Deriv X')}
+                    </Header>
+                    <Flex ai='flex-start' mt="40px">
+                        {card_data.map((index) => {
+                            return (
+                                <Card key={index}>
+                                    <div>
+                                        <img src={index.icon} alt={index.icon_alt} />
+                                    </div>
+                                    <Header width='240px' type='sub-section-title' mt='7px' mb='8px'>
+                                        {index.title}
+                                    </Header>
+                                    <Text>
+                                        {index.subtitle}
+                                    </Text>
+                                </Card>
+                            )
+                        })}
+                    </Flex>
+                </Container>
+            </SectionContainer>
+            <SectionContainer>
+                <DTrading trading={trading} />
+            </SectionContainer>
+        </div>
     )
 }
 

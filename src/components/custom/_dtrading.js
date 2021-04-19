@@ -109,6 +109,18 @@ const query = graphql`
         stocks_blue_chip: file(relativePath: { eq: "stocks-blue-chip.png" }) {
             ...fadeIn
         }
+        bespoke: file(relativePath: { eq: "derivx/bespoke.png" }) {
+            ...fadeIn
+        } 
+        feature_rich: file(relativePath: { eq: "derivx/feature-rich.png" }) {
+            ...fadeIn
+        }
+        intuitive: file(relativePath: { eq: "derivx/intuitive.png" }) {
+            ...fadeIn
+        }
+        margin: file(relativePath: { eq: "derivx/margin.png" }) {
+            ...fadeIn
+        }
     }
 `
 const DTrading = ({ trading, reverse, two_title }) => {

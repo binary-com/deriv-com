@@ -60,7 +60,7 @@ const content = {
         step_one_header: <Localize translate_text="1. Head to MQL5.com" />,
         step_one_text: (
             <Localize
-                translate_text="In the <0>MQL5 signals showcase page</0> click the Create signal button."
+                translate_text="In the <0>MQL5 signals showcase page</0>, click the Create signal button."
                 components={[
                     <LocalizedLinkText
                         external="true"
@@ -75,7 +75,7 @@ const content = {
         step_two_header: <Localize translate_text="2. Fill in your details" />,
         step_two_text: (
             <Localize
-                translate_text="Complete the form with your Deriv MT5 account credentials. In the <0>Broker</0> field, enter your account server name:< /br><0>- Deriv-Demo</0> if your signal is for demo accounts only < /br> <0>-Deriv-Server</0>  or <0>Deriv-Server-02 </0> if your signal is for real accounts only. (You can find the account server name on your <1>Deriv MT5 dashboard</1>.)"
+                translate_text="Complete the form with your Deriv MT5 account credentials. In the <0>Broker</0> field, enter your account server name:< /br><0>- Deriv-Demo</0> if your signal is for demo accounts only < /br> <0>-Deriv-Server</0>  or <0>Deriv-Server-02 </0> if your signal is for real accounts only. < /br> (You can find the account server name on your <1>Deriv MT5 dashboard</1>.)"
                 components={[
                     <strong key={0} />,
                     <LocalizedLinkText

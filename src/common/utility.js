@@ -178,7 +178,6 @@ const domain_url =
 
 const deriv_app_url = `https://app.${domain_url}`
 const deriv_bot_app_url = `https://app.${domain_url}/bot`
-const deriv_blog_url = `https://blog.${domain_url}`
 const deriv_dp2p_app_url = `https://app.${domain_url}/cashier/p2p`
 const smarttrader_url = `https://smarttrader.${domain_url}`
 const blog_url = `https://blog.${domain_url}`
@@ -294,5 +293,4 @@ export {
     zoho_url,
     oauth_url,
     login_url,
-    deriv_blog_url,
 }

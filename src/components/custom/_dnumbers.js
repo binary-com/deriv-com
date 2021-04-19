@@ -11,7 +11,7 @@ const NumberWrapper = styled.div`
     justify-content: center;
     width: 32.8rem;
     @media ${device.tabletL} {
-        padding: 1.2rem;
+        padding: 10px;
         width: auto;
     }
 `
@@ -29,7 +29,7 @@ const StyledContainer = styled(Container)`
     width: 100%;
     @media ${device.tabletL} {
         flex-wrap: wrap;
-        margin: 2rem 1.2rem 0;
+        margin: 20px 12px 0;
     }
 `
 

@@ -14,8 +14,8 @@ const StyledButton = styled(Button)`
 `
 
 const StyledChevron = styled.img`
-    height: 16px;
-    width: 16px;
+    height: 14px;
+    width: 14px;
     transform: ${(props) => (props.expanded ? 'inherit' : 'rotate(-180deg)')};
     transition: transform 0.25s ease-out;
 `

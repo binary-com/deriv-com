@@ -5,18 +5,16 @@ import { Pushwoosh } from 'web-push-notifications'
 import { WrapPagesWithLocaleContext } from './src/components/localization'
 import { isProduction, isLive, isLocalHost } from './src/common/websocket/config'
 import { LocalStore } from './src/common/storage'
+import { MediaContextProvider } from './src/themes/media'
+import { DerivProvider } from './src/store'
+import { getClientInformation, getDomain, getLanguage } from 'common/utility'
 import {
     application_id,
     client_token,
-    getLanguage,
     gtm_test_domain,
     sample_rate,
     pushwoosh_app_code,
-    getDomain,
-    getClientInformation,
-} from './src/common/utility'
-import { MediaContextProvider } from './src/themes/media'
-import { DerivProvider } from './src/store'
+} from 'common/constants'
 import './static/css/ibm-plex-sans-var.css'
 
 const is_browser = typeof window !== 'undefined'

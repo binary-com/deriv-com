@@ -5,7 +5,7 @@ import { SectionContainer, Container, Flex } from 'components/containers'
 import { Header, Text } from 'components/elements/typography'
 import { LinkButton } from 'components/form'
 import { localize } from 'components/localization'
-import { affiliate_signup_url } from 'common/utility'
+import { affiliate_signup_url } from 'common/constants'
 
 const StyledSection = styled(SectionContainer)`
     background-color: var(--color-black-3);

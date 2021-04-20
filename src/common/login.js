@@ -1,6 +1,5 @@
 import Cookies from 'js-cookie'
 import { isStorageSupported } from './storage'
-import { brand_name, oauth_url } from './utility'
 import {
     getDataObjFromCookies,
     getDataLink,
@@ -8,6 +7,7 @@ import {
     getCookiesObject,
 } from './cookies'
 import { getAppId } from './websocket/config'
+import { oauth_url, brand_name } from 'common/constants'
 
 const Login = (() => {
     const redirectToLogin = () => {

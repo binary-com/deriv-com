@@ -11,7 +11,6 @@ import {
     BreadCrumbContainer,
     CalculateButton,
     CalculatorBody,
-    CalculatorDropdown,
     CalculatorForm,
     CalculatorHeader,
     CalculatorLabel,
@@ -39,6 +38,7 @@ import {
     Accordion,
     AccordionItem,
     Dropdown,
+    DropdownSearch,
     Header,
     LocalizedLinkText,
     QueryImage,
@@ -283,12 +283,13 @@ const MarginCalculator = () => {
                                             </CalculatorTabItem>
                                         </Flex>
 
-                                        <CalculatorDropdown
-                                            option_list={values.optionList}
-                                            label={localize('Symbol')}
-                                            default_option={optionItemDefault}
-                                            selected_option={values.symbol}
+                                        <DropdownSearch
                                             id="symbol"
+                                            contract_size={values.contractSize}
+                                            default_item={optionItemDefault}
+                                            error={touched.symbol && errors.symbol}
+                                            items={values.optionList}
+                                            label={localize('Symbol')}
                                             onChange={(value) => {
                                                 setFieldValue(
                                                     'marginSymbol',
@@ -300,10 +301,8 @@ const MarginCalculator = () => {
                                                 )
                                                 setFieldValue('symbol', value)
                                             }}
-                                            error={touched.symbol && errors.symbol}
+                                            selected_item={values.symbol}
                                             onBlur={handleBlur}
-                                            autocomplete="off"
-                                            contractSize={values.contractSize}
                                         />
 
                                         <InputGroup>

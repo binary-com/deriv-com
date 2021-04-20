@@ -64,6 +64,8 @@ const routeBack = () => {
 }
 const checkElemInArray = (tab_list, tab) => tab_list.includes(tab)
 
+const getCommaSeparatedNumber = (input) => input.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+
 const getWindowWidth = () => (isBrowser() && window.screen ? window.screen.width : '')
 
 const getLanguage = () => (isBrowser() ? localStorage.getItem('i18n') || navigator.language : null)
@@ -245,6 +247,7 @@ export {
     dmt5_macos_url,
     dmt5_windows_url,
     dp2p_google_play_url,
+    getCommaSeparatedNumber,
     getClientInformation,
     getCrowdin,
     getCryptoDecimals,

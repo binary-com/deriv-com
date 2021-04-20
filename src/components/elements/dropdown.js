@@ -1,14 +1,14 @@
-import React, { useRef, useState } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
+import { getCommaSeparatedNumber } from 'common/utility'
+import { useDropdownHooks } from 'components/hooks/dropdown-hooks'
 import { Text } from 'components/elements/typography'
-import Keycodes from 'common/keycodes'
-import { useOutsideClick } from 'components/hooks/outside-click'
 import { ReactComponent as Chevron } from 'images/svg/chevron-bottom.svg'
 import device from 'themes/device'
 import { Flex } from 'components/containers'
 
-const Symbol = styled(Flex)`
+export const Symbol = styled(Flex)`
     width: fit-content;
     margin-top: 8px;
 
@@ -40,7 +40,7 @@ const Symbol = styled(Flex)`
     }
 `
 
-const DropdownContainer = styled.ul`
+export const DropdownContainer = styled.ul`
     list-style: none;
     position: relative;
     border: 1px solid var(--color-grey-7);
@@ -48,10 +48,14 @@ const DropdownContainer = styled.ul`
     padding: 0;
     border-radius: 4px;
     height: 40px;
-    margin-bottom: 0;
+    margin-bottom: ${(props) => props.mb ?? '0'};
 
     /* ul has no focus attributes, it needs to pass on active props instead */
-    ${(props) => props.active && 'border-color: var(--color-green) !important;'}
+    ${(props) =>
+        props.active &&
+        css`
+            border-color: var(--color-green) !important;
+        `}
 
     &:hover {
         border-color: var(--color-grey-5);
@@ -89,7 +93,7 @@ const DropdownContainer = styled.ul`
     }}
 `
 
-const StyledDiv = styled.div`
+export const StyledDiv = styled.div`
     position: relative;
     top: -30px;
 `
@@ -116,11 +120,12 @@ const DropdownSelected = styled.li`
     }
 `
 
-const ListContainer = styled.li`
+export const ListContainer = styled.li`
     position: relative;
+    list-style: none;
 `
 
-const ListItem = styled.li`
+export const ListItem = styled.li`
     color: var(--color-black-3);
     padding: 1rem 1.6rem;
     transition: background-color 0.1s linear, color 0.1s linear;
@@ -161,7 +166,7 @@ const ListItem = styled.li`
     }
 `
 
-const UnorderedList = styled.ul`
+export const UnorderedList = styled.ul`
     z-index: 1;
     list-style: none;
     margin: 0;
@@ -186,7 +191,7 @@ const UnorderedList = styled.ul`
         `}
 `
 
-const Arrow = styled(Chevron)`
+export const Arrow = styled(Chevron)`
     position: absolute;
     right: 8px;
     top: 25%;
@@ -198,10 +203,9 @@ const Arrow = styled(Chevron)`
     }
 `
 
-const StyledLabel = styled.label`
-    /* prettier-ignore */
-    color: var(--color-${(props) => props.labelColor || 'grey'});
-    background: var(--color-${(props) => props.labelColor || 'white'});
+export const StyledLabel = styled.label`
+    color: grey;
+    background: white;
     font-size: var(--text-size-xs);
     position: absolute;
     pointer-events: none;
@@ -232,14 +236,14 @@ const StyledLabel = styled.label`
         `}
 `
 
-const ErrorMessages = styled(Text)`
+export const ErrorMessages = styled(Text)`
     position: absolute;
     padding-left: 0.8rem;
     font-size: 1.2rem;
     min-height: 16px;
 `
 
-const ContractSizeWrapper = styled(Text)`
+export const ContractSizeWrapper = styled(Text)`
     padding-left: 0.8rem;
     font-size: 1.2rem;
     min-height: 16px;
@@ -252,9 +256,74 @@ const ContractSizeWrapper = styled(Text)`
     }
 `
 
-const DefaultOptionText = styled(Text)`
+export const DefaultOptionText = styled(Text)`
     color: var(--color-grey-5);
 `
+
+export const ItemList = ({ error, handleChange, is_open, nodes, option_list, selected_option }) => {
+    return (
+        <ListContainer aria-expanded={is_open ? 'true' : 'false'} role="list">
+            <UnorderedList open={is_open}>
+                {option_list &&
+                    option_list.map(
+                        (option) =>
+                            option && (
+                                <ListItem
+                                    tabIndex="0"
+                                    id={option?.name}
+                                    key={option?.name}
+                                    ref={(c) => nodes.set(option?.display_name, c)}
+                                    onClick={() => handleChange(option, error)}
+                                    onKeyDown={(e) => {
+                                        if (e.key === 'Tab' || e.key === 'Enter') {
+                                            handleChange(option, error)
+                                        }
+                                    }}
+                                    is_selected={option?.name === selected_option?.name}
+                                >
+                                    <Symbol>
+                                        {option?.icon}
+                                        <Text>{option?.display_name}</Text>
+                                    </Symbol>
+                                </ListItem>
+                            ),
+                    )}
+            </UnorderedList>
+        </ListContainer>
+    )
+}
+
+ItemList.propTypes = {
+    contractSize: PropTypes.any,
+    default_option: PropTypes.any,
+    error: PropTypes.any,
+    handleChange: PropTypes.func,
+    is_open: PropTypes.bool,
+    nodes: PropTypes.object,
+    option_list: PropTypes.array,
+    selected_option: PropTypes.any,
+}
+
+export const BottomLabel = ({ error, contract_size }) => {
+    return (
+        <StyledDiv>
+            <ErrorMessages lh="1.4" align="left" color="red-1">
+                {error}
+            </ErrorMessages>
+
+            {contract_size && (
+                <ContractSizeWrapper lh="1.4" align="left">
+                    Contract size : {getCommaSeparatedNumber(contract_size)}
+                </ContractSizeWrapper>
+            )}
+        </StyledDiv>
+    )
+}
+
+BottomLabel.propTypes = {
+    contract_size: PropTypes.any,
+    error: PropTypes.any,
+}
 
 const Dropdown = ({
     default_option,
@@ -267,87 +336,9 @@ const Dropdown = ({
     contractSize,
     ...props
 }) => {
-    const [is_open, setOpen] = useState(false)
-    const nodes = new Map()
-    const dropdown_ref = useRef(null)
-
-    useOutsideClick(dropdown_ref, () => setOpen(false))
-
-    const toggleListVisibility = (e) => {
-        e.preventDefault()
-        const open_dropdown =
-            e.keyCode === Keycodes.SPACE ||
-            e.keyCode === Keycodes.ENTER ||
-            e.keyCode === Keycodes.TAB
-
-        // adding each item nodes a listener (click and keys)
-        // and filter if there is null nodes in the array
-        Array.from(nodes.values())
-            .filter((node) => node !== null)
-            .forEach((node) => addItemListener(node))
-
-        if (e.keyCode === Keycodes.ESCAPE) {
-            closeList()
-        }
-        if (e.type === 'click' || open_dropdown) {
-            setOpen(!is_open)
-        }
-        if (e.keyCode === Keycodes.DOWN_ARROW) {
-            focusNextListItem(Keycodes.DOWN_ARROW)
-        }
-        if (e.keyCode === Keycodes.UP_ARROW) {
-            focusNextListItem(Keycodes.UP_ARROW)
-        }
-    }
-
-    const closeList = () => {
-        setOpen(false)
-    }
-
-    const focusNextListItem = (direction) => {
-        const activeElement = document.activeElement
-
-        if (activeElement.id === 'selected_dropdown') {
-            Array.from(nodes.values())[0].focus()
-        } else {
-            const active_nodes = nodes.get(activeElement.id)
-            if (active_nodes) {
-                if (direction === Keycodes.DOWN_ARROW) {
-                    active_nodes.nextSibling && active_nodes.nextSibling.focus()
-                } else if (direction === Keycodes.UP_ARROW) {
-                    active_nodes.previousSibling && active_nodes.previousSibling.focus()
-                }
-            }
-        }
-    }
-
-    const addItemListener = (node) => {
-        node.addEventListener('keydown', (e) => {
-            e.preventDefault()
-            switch (e.keyCode) {
-                case Keycodes.DOWN_ARROW:
-                    focusNextListItem(Keycodes.DOWN_ARROW)
-                    break
-                case Keycodes.UP_ARROW:
-                    focusNextListItem(Keycodes.UP_ARROW)
-                    break
-                case Keycodes.escape:
-                    closeList()
-                    break
-                default:
-                    break
-            }
-        })
-    }
-
-    const handleChange = (option) => {
-        onChange(option)
-        closeList()
-    }
-
-    const numberWithCommas = (input) => {
-        return input.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
-    }
+    const [is_open, dropdown_ref, nodes, handleChange, toggleListVisibility] = useDropdownHooks(
+        onChange,
+    )
 
     return (
         <>
@@ -369,62 +360,23 @@ const Dropdown = ({
                 >
                     <Symbol>
                         {selected_option ? (
-                            <>
-                                <Text>{selected_option.display_name}</Text>
-                            </>
+                            <Text>{selected_option.display_name}</Text>
                         ) : (
-                            <>
-                                <DefaultOptionText>{default_option.display_name}</DefaultOptionText>
-                            </>
+                            <DefaultOptionText>{default_option.display_name}</DefaultOptionText>
                         )}
                     </Symbol>
-                    <Arrow expanded={`${is_open ? 'true' : 'false'}`} />
+                    <Arrow expanded={is_open ? 'true' : 'false'} />
                 </DropdownSelected>
-                <ListContainer aria-expanded={`${is_open ? 'true' : 'false'}`} role="list">
-                    <UnorderedList open={is_open}>
-                        {option_list &&
-                            option_list.map(
-                                (option) =>
-                                    option && (
-                                        <ListItem
-                                            tabIndex="0"
-                                            id={option?.name}
-                                            key={option?.name}
-                                            ref={(c) => nodes.set(option?.display_name, c)}
-                                            onClick={() => handleChange(option, error)}
-                                            onKeyDown={(e) => {
-                                                switch (e.keyCode) {
-                                                    case Keycodes.TAB:
-                                                    case Keycodes.ENTER:
-                                                        handleChange(option, error)
-                                                        break
-                                                    default:
-                                                        break
-                                                }
-                                            }}
-                                            is_selected={option?.name === selected_option?.name}
-                                        >
-                                            <Symbol>
-                                                {option?.icon}
-                                                <Text>{option?.display_name}</Text>
-                                            </Symbol>
-                                        </ListItem>
-                                    ),
-                            )}
-                    </UnorderedList>
-                </ListContainer>
             </DropdownContainer>
-            <StyledDiv>
-                <ErrorMessages lh="1.4" align="left" color="red-1">
-                    {error}
-                </ErrorMessages>
-
-                {contractSize && (
-                    <ContractSizeWrapper lh="1.4" align="left">
-                        Contract size : {numberWithCommas(contractSize)}
-                    </ContractSizeWrapper>
-                )}
-            </StyledDiv>
+            <ItemList
+                error={error}
+                handleChange={handleChange}
+                is_open={is_open}
+                nodes={nodes}
+                option_list={option_list}
+                selected_option={selected_option}
+            />
+            <BottomLabel contract_size={contractSize} error={error} />
         </>
     )
 }

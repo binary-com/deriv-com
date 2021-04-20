@@ -14,24 +14,26 @@ import Apple from 'images/svg/apple.svg'
 import Facebook from 'images/svg/facebook-blue.svg'
 import Google from 'images/svg/google.svg'
 import Arrow from 'images/svg/chevron-right.svg'
-import BackgroundPattern from 'images/common/bg_banner_signup.png'
+import BackgroundPattern from 'images/common/sign-up-banner-bg.png'
+import BackgroundPatternPhone from 'images/common/banner-phone.png'
 import RedBanner from 'images/svg/bg_banner_signup_mobile.svg'
 
 const query = graphql`
     query {
-        deriv_platform: file(relativePath: { eq: "deriv-platform-banner.png" }) {
+        deriv_platform: file(relativePath: { eq: "banner-phone.png" }) {
             ...fadeIn
         }
     }
 `
 const Wrapper = styled.div`
+    background-image: url(${BackgroundPattern});
+    background-repeat: round;
     position: relative;
     display: flex;
     flex-direction: row;
     min-height: 35.3rem;
     align-items: center;
     width: 100%;
-    overflow: hidden;
     border-top: 1px solid rgba(151, 151, 151, 0.2);
     border-bottom: 1px solid rgba(151, 151, 151, 0.2);
     @media (max-width: 991px) {
@@ -75,11 +77,13 @@ const MobileSignupFormWrapper = styled(Flex)`
     }
 `
 const BackgroundWrapper = styled(Flex)`
+    background-image: url(${BackgroundPatternPhone});
+    background-size: contain;
+    background-position: 0 10px;
+    background-repeat:no-repeat;
     min-height: 35.3rem;
     height: 100%;
     width: 50%;
-    background-image: url(${BackgroundPattern});
-    clip-path: polygon(14rem 0, 100% 0%, 100% 100%, 0% 100%);
 `
 const InputWrapper = styled.div`
     width: 28rem;
@@ -97,7 +101,7 @@ const EmailButton = styled(Button)`
     margin-left: 1rem;
     min-width: 105px;
     height: 40px;
-    padding: 10px 28px;
+    padding: 10px;
     border-radius: 4px;
     @media ${device.tabletL} {
         padding: 10px 16px;
@@ -111,21 +115,27 @@ const EmailButton = styled(Button)`
 const SocialWrapper = styled(Flex)`
     width: 100%;
     margin-top: 1.8rem;
+    flex-wrap: wrap;
 `
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 const MobileSocialWrapper = styled(SocialWrapper)`
     @media ${device.tabletL} {
 =======
 const MobileSocialWrapper = styled(SocialWrapper) `
+=======
+const MobileSocialWrapper = styled(SocialWrapper)`
+>>>>>>> cd683b91ab (add functionality ui)
     @media ${device.tabletL}{
 >>>>>>> 093df02020 (add fix agreement label)
         flex-direction: column;
     }
 `
 const SocialButton = styled(Button)`
-    width: 70px;
-    padding: 7px 24px;
+    width: 110px;
+    line-height: 25px;
+    padding: 5px;
     border-radius: 4px;
     justify-content: center;
     display: flex;
@@ -133,6 +143,13 @@ const SocialButton = styled(Button)`
     border: solid 1px var(--color-grey-7);
     height: 4rem;
     margin: 0 0.8rem;
+    
+    &:nth-of-type(1) {
+        margin-left: 0;
+    }
+    img {
+        padding-right: 5px;
+    }
     @media ${device.tabletL} {
         width: 114px;
         height: 48px;
@@ -146,6 +163,10 @@ const SocialButton = styled(Button)`
         padding: 14px 15px 12px 13px;
     }
 `
+const SocialButtonText = styled.div`
+    display: flex;
+`
+
 const StyledHeader = styled(Header)`
     width: ${(props) => props.width || '41.4rem'};
     @media ${device.tablet} {
@@ -155,9 +176,17 @@ const StyledHeader = styled(Header)`
         margin-top: 2rem;
     }
 `
+const StyledFormWrapper = styled(Header)`
+    background: white;
+    max-width: 414px;
+    padding: 20px;
+    margin-left: 30px;
+    border-radius: 10px;
+    position: relative;
+    top: 30px;
+`
 const StyledHeaderText = styled(Text)`
     width: ${(props) => props.width || '41.4rem'};
-    font-size: var(--text-size-m);
     @media ${device.tablet} {
         width: auto;
     }
@@ -167,36 +196,29 @@ const StyledHeaderText = styled(Text)`
     }
 `
 const SignInText = styled(Text)`
+    display:block;
     width: auto;
     margin-right: 2rem;
+    flex-basis: 100%;
+    margin-bottom: 10px;
     @media ${device.tabletL} {
         width: 90px;
         margin-right: 0;
     }
 `
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 const MobileSignInText = styled(SignInText)`
 =======
 const MobileSignInText = styled (SignInText)`
 >>>>>>> 093df02020 (add fix agreement label)
+=======
+const MobileSignInText = styled(SignInText)`
+>>>>>>> cd683b91ab (add functionality ui)
     @media ${device.tabletL} {
         width: unset;
         margin: 0 auto 0.8rem 0.8rem;
-    }
-`
-const ImageWrapper = styled(Flex)`
-    position: relative;
-    width: 41.1rem;
-    left: -28%;
-    z-index: 2;
-    height: 100%;
-
-    div {
-        width: 100%;
-    }
-    @media (max-width: 1350px) {
-        width: 25rem;
     }
 `
 const redirectToDerivApp = (e) => {
@@ -262,18 +284,9 @@ const SignupPublic = ({
         <>
             <Show.Desktop>
                 <Wrapper>
-                    <div style={{ position: 'absolute', left: '50%', height: '100%' }}>
-                        <ImageWrapper ai="center">
-                            <QueryImage
-                                data={data['deriv_platform']}
-                                alt="deriv platform"
-                                width="100%"
-                            />
-                        </ImageWrapper>
-                    </div>
                     <SignupFormWrapper>
-                        <div>
-                            <StyledHeader type="section-title">
+                        <StyledFormWrapper>
+                            <StyledHeader type="section-title" width="100%">
                                 {localize('Join over 1 million traders worldwide')}
                             </StyledHeader>
                             <br />
@@ -327,27 +340,29 @@ const SignupPublic = ({
                                 <SignInText>{localize('Or sign in with')}</SignInText>
                                 <SocialButton
                                     onClick={handleSocialSignup}
-                                    provider="facebook"
-                                    data-provider="facebook"
-                                    id="gtm-signup-facebook"
-                                    type="button"
-                                    social
-                                >
-                                    <span>
-                                        <img src={Facebook} alt="facebook" width="24" height="24" />
-                                    </span>
-                                </SocialButton>
-                                <SocialButton
-                                    onClick={handleSocialSignup}
                                     provider="google"
                                     data-provider="google"
                                     id="gtm-signup-google"
                                     type="button"
                                     social
                                 >
-                                    <span>
+                                    <SocialButtonText>
                                         <img src={Google} alt="google" width="24" height="24" />
-                                    </span>
+                                        <span>Google</span>
+                                    </SocialButtonText>
+                                </SocialButton>
+                                <SocialButton
+                                    onClick={handleSocialSignup}
+                                    provider="facebook"
+                                    data-provider="facebook"
+                                    id="gtm-signup-facebook"
+                                    type="button"
+                                    social
+                                >
+                                    <SocialButtonText>
+                                        <img src={Facebook} alt="facebook" width="24" height="24" />
+                                        <span>Facebook</span>
+                                    </SocialButtonText>
                                 </SocialButton>
                                 <SocialButton
                                     onClick={handleSocialSignup}
@@ -357,12 +372,13 @@ const SignupPublic = ({
                                     type="button"
                                     social
                                 >
-                                    <span>
+                                    <SocialButtonText>
                                         <img src={Apple} alt="apple" width="24" height="24" />
-                                    </span>
+                                        <span>Apple</span>
+                                    </SocialButtonText>
                                 </SocialButton>
                             </SocialWrapper>
-                        </div>
+                        </StyledFormWrapper>
                     </SignupFormWrapper>
                     <BackgroundWrapper direction="column" ai="center">
                         <LinkFlex
@@ -373,11 +389,12 @@ const SignupPublic = ({
                             rel="noopener noreferrer"
                         >
                             <StyledHeader
-                                size="2.8rem"
-                                max_width="28.2rem"
+                                size="4rem"
+                                // max_width="28.2rem"
                                 align="center"
                                 color="grey-8"
                                 mr="1.2rem"
+                                ml="1rem"
                             >
                                 {localize('Get a taste of the Deriv experience')}
                             </StyledHeader>

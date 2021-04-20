@@ -135,7 +135,7 @@ const Markets = () => (
                 <Tabs.Panel label={localize('Synthetic indices')}>
                     <SyntheticIndices simple_step_content={simple_step_content_synthetic} />
                 </Tabs.Panel>
-                <Tabs.Panel label={localize('Stock indices')}>
+                <Tabs.Panel label={localize('Stocks & indices')}>
                     <StockIndices simple_step_content={simple_step_content_stock} />
                 </Tabs.Panel>
                 <Tabs.Panel label={localize('Commodities')}>

@@ -5,12 +5,17 @@ import { SectionContainer } from 'components/containers'
 import { localize } from 'components/localization'
 import { Header, Accordion, AccordionItem } from 'components/elements'
 import DotPattern from 'images/svg/dot-pattern.svg'
+import device from 'themes/device'
 
 const AccordionWrapper = styled.div`
     max-width: 99.6rem;
     margin: 0 auto;
     position: relative;
     z-index: 2;
+
+    @media ${device.tablet} {
+        margin: 0 16px;
+    }
 `
 
 const RelativeContainer = styled(SectionContainer)`

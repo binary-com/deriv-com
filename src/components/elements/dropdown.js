@@ -8,7 +8,7 @@ import { ReactComponent as Chevron } from 'images/svg/chevron-bottom.svg'
 import device from 'themes/device'
 import { Flex } from 'components/containers'
 
-export const Symbol = styled(Flex)`
+const Symbol = styled(Flex)`
     width: fit-content;
     margin-top: 8px;
 
@@ -24,8 +24,8 @@ export const Symbol = styled(Flex)`
 
         @media ${device.tabletM} {
             width: unset;
-            margin-top: 4px;
             height: 24px;
+            margin-top: 4px;
         }
     }
     ${Text} {
@@ -93,7 +93,7 @@ export const DropdownContainer = styled.ul`
     }}
 `
 
-export const StyledDiv = styled.div`
+const StyledDiv = styled.div`
     position: relative;
     top: -30px;
 `
@@ -120,12 +120,12 @@ const DropdownSelected = styled.li`
     }
 `
 
-export const ListContainer = styled.li`
+const ListContainer = styled.li`
     position: relative;
     list-style: none;
 `
 
-export const ListItem = styled.li`
+const ListItem = styled.li`
     color: var(--color-black-3);
     padding: 1rem 1.6rem;
     transition: background-color 0.1s linear, color 0.1s linear;
@@ -166,7 +166,7 @@ export const ListItem = styled.li`
     }
 `
 
-export const UnorderedList = styled.ul`
+const UnorderedList = styled.ul`
     z-index: 1;
     list-style: none;
     margin: 0;
@@ -236,14 +236,14 @@ export const StyledLabel = styled.label`
         `}
 `
 
-export const ErrorMessages = styled(Text)`
+const ErrorMessages = styled(Text)`
     position: absolute;
     padding-left: 0.8rem;
     font-size: 1.2rem;
     min-height: 16px;
 `
 
-export const ContractSizeWrapper = styled(Text)`
+const ContractSizeWrapper = styled(Text)`
     padding-left: 0.8rem;
     font-size: 1.2rem;
     min-height: 16px;
@@ -256,7 +256,7 @@ export const ContractSizeWrapper = styled(Text)`
     }
 `
 
-export const DefaultOptionText = styled(Text)`
+const DefaultOptionText = styled(Text)`
     color: var(--color-grey-5);
 `
 
@@ -294,7 +294,6 @@ export const ItemList = ({ error, handleChange, is_open, nodes, option_list, sel
 }
 
 ItemList.propTypes = {
-    contractSize: PropTypes.any,
     default_option: PropTypes.any,
     error: PropTypes.any,
     handleChange: PropTypes.func,
@@ -321,8 +320,8 @@ export const BottomLabel = ({ error, contract_size }) => {
 }
 
 BottomLabel.propTypes = {
-    contract_size: PropTypes.any,
-    error: PropTypes.any,
+    contract_size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    error: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
 }
 
 const Dropdown = ({
@@ -333,7 +332,7 @@ const Dropdown = ({
     label,
     error,
     selected_option,
-    contractSize,
+    contract_size,
     ...props
 }) => {
     const [is_open, dropdown_ref, nodes, handleChange, toggleListVisibility] = useDropdownHooks(
@@ -376,18 +375,18 @@ const Dropdown = ({
                     selected_option={selected_option}
                 />
             </DropdownContainer>
-            <BottomLabel contract_size={contractSize} error={error} />
+            <BottomLabel contract_size={contract_size} error={error} />
         </>
     )
 }
 
 Dropdown.propTypes = {
-    contractSize: PropTypes.any,
+    contract_size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     default_option: PropTypes.any,
-    error: PropTypes.any,
+    error: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     has_short_name: PropTypes.bool,
-    label: PropTypes.string,
-    onChange: PropTypes.func,
+    label: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+    onChange: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     option_list: PropTypes.array,
     selected_option: PropTypes.any,
 }

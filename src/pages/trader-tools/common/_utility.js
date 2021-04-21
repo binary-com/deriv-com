@@ -65,7 +65,7 @@ const getTakeProfitLevel = (values) => {
     let { assetPrice, takeProfitAmount, volume, contractSize } = values
     assetPrice = Number(assetPrice)
     takeProfitAmount = Number(takeProfitAmount)
-    const take_profit_level_formula = assetPrice + takeProfitAmount / (volume * contractSize)
+    const take_profit_level_formula = assetPrice - takeProfitAmount / (volume * contractSize)
     return toFixed(take_profit_level_formula)
 }
 
@@ -73,7 +73,7 @@ const getStopLossPip = (values) => {
     let { assetPrice, stopLossLevel, pointValue } = values
     assetPrice = Number(assetPrice)
     stopLossLevel = Number(stopLossLevel)
-    const stop_loss_pip_formula = (stopLossLevel - assetPrice) / pointValue
+    const stop_loss_pip_formula = Math.abs(stopLossLevel - assetPrice) / pointValue
     return toFixed(stop_loss_pip_formula)
 }
 
@@ -81,7 +81,7 @@ const getTakeProfitPip = (values) => {
     let { assetPrice, takeProfitLevel, pointValue } = values
     assetPrice = Number(assetPrice)
     takeProfitLevel = Number(takeProfitLevel)
-    const take_profit_pip_formula = (takeProfitLevel - assetPrice) / pointValue
+    const take_profit_pip_formula = Math.abs(takeProfitLevel - assetPrice) / pointValue
     return toFixed(take_profit_pip_formula)
 }
 
@@ -126,21 +126,6 @@ const getContractSize = (symbol) => {
     }
     return contractSize
 }
-
-// const resetValidationCommon = (values) => {
-//     const errors = {}
-
-//     const symbol_error = validation.symbol(values.symbol)
-//     const volume_error = validation.volume(values.volume)
-
-//     if (symbol_error) {
-//         errors.symbol = symbol_error
-//     }
-//     if (volume_error) {
-//         errors.volume = volume_error
-//     }
-//     return errors
-// }
 
 const resetValidationMargin = (values) => {
     const errors = {}

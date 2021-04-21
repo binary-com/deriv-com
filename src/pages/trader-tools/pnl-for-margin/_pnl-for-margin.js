@@ -9,7 +9,6 @@ import {
     getStopLossPip,
     getTakeProfitLevel,
     getTakeProfitPip,
-    // numberSubmitFormatNegative,
     numberSubmitFormat,
     numberWithCommas,
 } from '../common/_utility'

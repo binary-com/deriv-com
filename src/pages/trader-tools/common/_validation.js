@@ -82,7 +82,7 @@ const validation = {
         return numberValidation(input, localize('Take profit amount'), 15)
     },
     stopLossAmount: (input) => {
-        return numberValidation(input, localize('Stop loss amount'), 15)
+        return numberWithNegativeValidation(input, localize('Stop loss amount'), 15)
     },
 }
 

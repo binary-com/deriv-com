@@ -87,6 +87,7 @@ const BackgroundWrapper = styled(Flex)`
 `
 const InputWrapper = styled.div`
     width: 28rem;
+    line-height: 10px;
     @media ${device.tabletL} {
         margin-right: 1rem;
     }
@@ -135,7 +136,7 @@ const MobileSocialWrapper = styled(SocialWrapper)`
 `
 const SocialButton = styled(Button)`
     width: 110px;
-    line-height: 25px;
+    line-height: 27px;
     padding: 5px;
     border-radius: 4px;
     justify-content: center;
@@ -150,6 +151,7 @@ const SocialButton = styled(Button)`
     }
     img {
         padding-right: 5px;
+        object-fit: contain;
     }
     @media ${device.tabletL} {
         width: 114px;

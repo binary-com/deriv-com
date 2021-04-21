@@ -127,9 +127,25 @@ const getContractSize = (symbol) => {
     return contractSize
 }
 
-const resetValidationCommon = (values) => {
-    const errors = {}
+// const resetValidationCommon = (values) => {
+//     const errors = {}
 
+//     const symbol_error = validation.symbol(values.symbol)
+//     const volume_error = validation.volume(values.volume)
+
+//     if (symbol_error) {
+//         errors.symbol = symbol_error
+//     }
+//     if (volume_error) {
+//         errors.volume = volume_error
+//     }
+//     return errors
+// }
+
+const resetValidationMargin = (values) => {
+    const errors = {}
+    const assetPrice_error = validation.assetPrice(values.assetPrice)
+    const leverage_error = validation.leverage(values.leverage)
     const symbol_error = validation.symbol(values.symbol)
     const volume_error = validation.volume(values.volume)
 
@@ -139,16 +155,6 @@ const resetValidationCommon = (values) => {
     if (volume_error) {
         errors.volume = volume_error
     }
-    return errors
-}
-
-const resetValidationMargin = (values) => {
-    const errors = {}
-    const assetPrice_error = validation.assetPrice(values.assetPrice)
-    const leverage_error = validation.leverage(values.leverage)
-
-    resetValidationCommon(values)
-
     if (assetPrice_error) {
         errors.assetPrice = assetPrice_error
     }
@@ -161,25 +167,36 @@ const resetValidationMargin = (values) => {
 const resetValidationPip = (values) => {
     const errors = {}
     const pointValue_error = validation.pointValue(values.pointValue)
+    const symbol_error = validation.symbol(values.symbol)
+    const volume_error = validation.volume(values.volume)
 
-    resetValidationCommon(values)
-
+    if (symbol_error) {
+        errors.symbol = symbol_error
+    }
+    if (volume_error) {
+        errors.volume = volume_error
+    }
     if (pointValue_error) {
         errors.pointValue = pointValue_error
     }
-
     return errors
 }
 
 const resetValidationPnlMargin = (values) => {
     const errors = {}
     const pointValue_error = validation.pointValue(values.pointValue)
-    const assetPrice_error = validation.assetPrice(values.assetPrices)
+    const assetPrice_error = validation.assetPrice(values.assetPrice)
     const takeProfitAmount_error = validation.takeProfitAmount(values.takeProfitAmount)
     const stopLossAmount_error = validation.stopLossAmount(values.stopLossAmount)
+    const symbol_error = validation.symbol(values.symbol)
+    const volume_error = validation.volume(values.volume)
 
-    resetValidationCommon(values)
-
+    if (symbol_error) {
+        errors.symbol = symbol_error
+    }
+    if (volume_error) {
+        errors.volume = volume_error
+    }
     if (pointValue_error) {
         errors.pointValue = pointValue_error
     }
@@ -192,14 +209,22 @@ const resetValidationPnlMargin = (values) => {
     if (stopLossAmount_error) {
         errors.stopLossAmount = stopLossAmount_error
     }
+    return errors
 }
 
 const resetValidationSynthetic = (values) => {
     const errors = {}
     const assetPrice_error = validation.assetPrice(values.assetPrice)
     const swapRate_error = validation.swapRate(values.swapRate)
+    const symbol_error = validation.symbol(values.symbol)
+    const volume_error = validation.volume(values.volume)
 
-    resetValidationCommon(values)
+    if (symbol_error) {
+        errors.symbol = symbol_error
+    }
+    if (volume_error) {
+        errors.volume = volume_error
+    }
     if (assetPrice_error) {
         errors.assetPrice = assetPrice_error
     }
@@ -213,8 +238,15 @@ const resetValidationForex = (values) => {
     const errors = {}
     const pointValue_error = validation.pointValue(values.pointValue)
     const swapRate_error = validation.swapRate(values.swapRate)
+    const symbol_error = validation.symbol(values.symbol)
+    const volume_error = validation.volume(values.volume)
 
-    resetValidationCommon(values)
+    if (symbol_error) {
+        errors.symbol = symbol_error
+    }
+    if (volume_error) {
+        errors.volume = volume_error
+    }
     if (pointValue_error) {
         errors.pointValue = pointValue_error
     }

@@ -89,8 +89,8 @@ const PnlMarginCalculator = () => {
 
     const onTabClick = (tab) => {
         setTab(tab)
-        formik_ref.current?.resetForm({})
-        formik_ref.current?.setErrors({})
+        formik_ref.current?.resetForm()
+        formik_ref.current?.setErrors()
     }
     const onSubTabClick = (tab) => setSubTab(tab)
 
@@ -255,8 +255,8 @@ const PnlMarginCalculator = () => {
                                                 active={sub_tab === 'Synthetic'}
                                                 onClick={() => {
                                                     onSubTabClick('Synthetic')
-                                                    setErrors({})
-                                                    resetForm({})
+                                                    setErrors()
+                                                    resetForm()
                                                 }}
                                             >
                                                 <Text align="center">{localize('Synthetic')}</Text>
@@ -266,8 +266,8 @@ const PnlMarginCalculator = () => {
                                                 disabled={sub_tab === 'Financial'}
                                                 onClick={() => {
                                                     onSubTabClick('Financial')
-                                                    setErrors({})
-                                                    resetForm({})
+                                                    setErrors()
+                                                    resetForm()
                                                     setFieldValue('accountType', 'Financial')
                                                     setFieldValue('optionList', financialItemLists)
                                                 }}
@@ -686,7 +686,7 @@ const PnlMarginCalculator = () => {
                             </LinkWrapper>
                         </RightContent>
                     ) : (
-                        <RightContent>
+                        <RightContent key={tab}>
                             <Header as="h3" type="section-title" mb="8px">
                                 {localize(
                                     'How to calculate stop loss and/or take profit level and pip value',

@@ -15,6 +15,10 @@ export const Hero = styled(Flex)`
     @media ${device.tabletL} {
         height: 210px;
     }
+    @media ${device.mobileL} {
+        height: auto;
+        min-height: 210px;
+    }
 `
 export const BreadCrumbContainer = styled(Container)`
     margin-top: 2.4rem;
@@ -72,6 +76,7 @@ export const SwapTabSelector = styled(Flex)`
 
     @media ${device.mobileL} {
         padding: 12px 24px;
+        min-width: 144px;
     }
 `
 
@@ -88,7 +93,6 @@ export const ContentContainer = styled(Flex)`
 
 export const FormWrapper = styled(Flex)`
     margin-right: 4.8rem;
-    max-height: 700px;
     height: 100%;
     width: unset;
 
@@ -117,11 +121,27 @@ export const CalculatorForm = styled(Form)`
         margin-bottom: 20px;
     }
 `
+export const PnlHeaderOverflow = styled.div`
+    width: 328px;
+    border-radius: 8px 8px 0 0;
+    overflow-x: scroll;
+`
 
 export const CalculatorHeader = styled.div`
     border-radius: 8px 8px 0 0;
     padding: 2.4rem;
     background-color: var(--color-blue-4);
+`
+
+export const PnlCalculatorHeader = styled.div`
+    border-radius: 8px 8px 0 0;
+    padding: 2.4rem;
+    background-color: var(--color-blue-4);
+
+    @media ${device.mobileL} {
+        width: 440px;
+        overflow-x: scroll;
+    }
 `
 
 export const CalculatorLabel = styled.label`
@@ -307,6 +327,44 @@ export const CalculatorTabItem = styled.div`
 
     @media ${device.mobileL} {
         width: 140px;
+    }
+
+    ${Text} {
+        @media ${device.mobileL} {
+            font-size: 14px;
+        }
+    }
+`
+
+export const PnlCalculatorTabItem = styled.div`
+    height: 72px;
+    width: 23.4rem;
+    border-radius: 1rem;
+    padding: 2rem;
+    border: solid 1px rgba(51, 51, 51, 0.1);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    cursor: pointer;
+    ${(props) =>
+        props.active
+            ? css`
+                  pointer-events: none;
+                  border: 1.5px solid var(--color-blue-5);
+                  ${Text} {
+                      font-weight: bold;
+                  }
+              `
+            : css`
+                  box-shadow: unset;
+                  ${Text} {
+                      font-weight: unset;
+                  }
+              `}
+
+    @media ${device.mobileL} {
+        width: 140px;
+        height: 53px;
     }
 
     ${Text} {

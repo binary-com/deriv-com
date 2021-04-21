@@ -24,15 +24,18 @@ import {
     CalculatorDropdown,
     CalculatorForm,
     CalculatorHeader,
+    PnlCalculatorHeader,
+    PnlHeaderOverflow,
     CalculatorLabel,
     PnLCalculatorOutputContainer,
     PnLCalculatorOutputField,
     PnLCalculatorOutputSymbol,
-    CalculatorTabItem,
+    PnlCalculatorTabItem,
     ContentContainer,
     FormulaText,
     header_style,
     PnLInputGroup,
+    InputGroup,
     LinkWrapper,
     RightContent,
     SectionSubtitle,
@@ -179,103 +182,547 @@ const PnlMarginCalculator = () => {
                                 setErrors,
                                 resetForm,
                             }) => (
-                                <CalculatorForm>
-                                    <CalculatorHeader>
-                                        <Flex mb="24px">
-                                            <Flex fd="column" mr="24px">
-                                                <CalculatorLabel htmlFor="message">
-                                                    {localize('Stop loss pips')}
-                                                </CalculatorLabel>
-                                                <PnLCalculatorOutputContainer>
-                                                    <PnLCalculatorOutputField>
-                                                        {numberWithCommas(values.stopLossPips)}
-                                                    </PnLCalculatorOutputField>
-                                                    <PnLCalculatorOutputSymbol>
-                                                        {values.pnlMarginSymbol}
-                                                    </PnLCalculatorOutputSymbol>
-                                                </PnLCalculatorOutputContainer>
-                                            </Flex>
-                                            <Flex fd="column">
-                                                <CalculatorLabel htmlFor="message">
-                                                    {localize('Stop loss level')}
-                                                </CalculatorLabel>
-                                                <PnLCalculatorOutputContainer>
-                                                    <PnLCalculatorOutputField>
-                                                        {numberWithCommas(values.stopLossLevel)}
-                                                    </PnLCalculatorOutputField>
-                                                    <PnLCalculatorOutputSymbol>
-                                                        {values.pnlMarginSymbol}
-                                                    </PnLCalculatorOutputSymbol>
-                                                </PnLCalculatorOutputContainer>
-                                            </Flex>
-                                        </Flex>
+                                <>
+                                    <Show.Desktop max_width="mobileL">
+                                        <CalculatorForm>
+                                            <CalculatorHeader>
+                                                <Flex mb="24px">
+                                                    <Flex fd="column" mr="24px">
+                                                        <CalculatorLabel htmlFor="message">
+                                                            {localize('Stop loss pips')}
+                                                        </CalculatorLabel>
+                                                        <PnLCalculatorOutputContainer>
+                                                            <PnLCalculatorOutputField>
+                                                                {numberWithCommas(
+                                                                    values.stopLossPips,
+                                                                )}
+                                                            </PnLCalculatorOutputField>
+                                                            <PnLCalculatorOutputSymbol>
+                                                                {values.pnlMarginSymbol}
+                                                            </PnLCalculatorOutputSymbol>
+                                                        </PnLCalculatorOutputContainer>
+                                                    </Flex>
+                                                    <Flex fd="column">
+                                                        <CalculatorLabel htmlFor="message">
+                                                            {localize('Stop loss level')}
+                                                        </CalculatorLabel>
+                                                        <PnLCalculatorOutputContainer>
+                                                            <PnLCalculatorOutputField>
+                                                                {numberWithCommas(
+                                                                    values.stopLossLevel,
+                                                                )}
+                                                            </PnLCalculatorOutputField>
+                                                            <PnLCalculatorOutputSymbol>
+                                                                {values.pnlMarginSymbol}
+                                                            </PnLCalculatorOutputSymbol>
+                                                        </PnLCalculatorOutputContainer>
+                                                    </Flex>
+                                                </Flex>
 
-                                        <Flex>
-                                            <Flex fd="column" mr="24px">
-                                                <CalculatorLabel htmlFor="message">
-                                                    {localize('Take profit pips')}
-                                                </CalculatorLabel>
-                                                <PnLCalculatorOutputContainer>
-                                                    <PnLCalculatorOutputField>
-                                                        {numberWithCommas(values.takeProfitPips)}
-                                                    </PnLCalculatorOutputField>
-                                                    <PnLCalculatorOutputSymbol>
-                                                        {values.pnlMarginSymbol}
-                                                    </PnLCalculatorOutputSymbol>
-                                                </PnLCalculatorOutputContainer>
-                                            </Flex>
-                                            <Flex fd="column">
-                                                <CalculatorLabel htmlFor="message">
-                                                    {localize('Take profit level')}
-                                                </CalculatorLabel>
-                                                <PnLCalculatorOutputContainer>
-                                                    <PnLCalculatorOutputField>
-                                                        {numberWithCommas(values.takeProfitLevel)}
-                                                    </PnLCalculatorOutputField>
-                                                    <PnLCalculatorOutputSymbol>
-                                                        {values.pnlMarginSymbol}
-                                                    </PnLCalculatorOutputSymbol>
-                                                </PnLCalculatorOutputContainer>
-                                            </Flex>
-                                        </Flex>
-                                    </CalculatorHeader>
+                                                <Flex>
+                                                    <Flex fd="column" mr="24px">
+                                                        <CalculatorLabel htmlFor="message">
+                                                            {localize('Take profit pips')}
+                                                        </CalculatorLabel>
+                                                        <PnLCalculatorOutputContainer>
+                                                            <PnLCalculatorOutputField>
+                                                                {numberWithCommas(
+                                                                    values.takeProfitPips,
+                                                                )}
+                                                            </PnLCalculatorOutputField>
+                                                            <PnLCalculatorOutputSymbol>
+                                                                {values.pnlMarginSymbol}
+                                                            </PnLCalculatorOutputSymbol>
+                                                        </PnLCalculatorOutputContainer>
+                                                    </Flex>
+                                                    <Flex fd="column">
+                                                        <CalculatorLabel htmlFor="message">
+                                                            {localize('Take profit level')}
+                                                        </CalculatorLabel>
+                                                        <PnLCalculatorOutputContainer>
+                                                            <PnLCalculatorOutputField>
+                                                                {numberWithCommas(
+                                                                    values.takeProfitLevel,
+                                                                )}
+                                                            </PnLCalculatorOutputField>
+                                                            <PnLCalculatorOutputSymbol>
+                                                                {values.pnlMarginSymbol}
+                                                            </PnLCalculatorOutputSymbol>
+                                                        </PnLCalculatorOutputContainer>
+                                                    </Flex>
+                                                </Flex>
+                                            </CalculatorHeader>
 
-                                    <CalculatorBody>
-                                        <CalculatorLabel>
-                                            {localize('Account type')}
-                                        </CalculatorLabel>
-                                        <Flex
-                                            mb="3rem"
-                                            mt="1rem"
-                                            jc="space-between"
-                                            tablet={{ height: 'unset' }}
-                                        >
-                                            <CalculatorTabItem
-                                                active={sub_tab === 'Synthetic'}
-                                                onClick={() => {
-                                                    onSubTabClick('Synthetic')
-                                                    setErrors()
-                                                    resetForm()
-                                                }}
-                                            >
-                                                <Text align="center">{localize('Synthetic')}</Text>
-                                            </CalculatorTabItem>
-                                            <CalculatorTabItem
-                                                active={sub_tab === 'Financial'}
-                                                disabled={sub_tab === 'Financial'}
-                                                onClick={() => {
-                                                    onSubTabClick('Financial')
-                                                    setErrors()
-                                                    resetForm()
-                                                    setFieldValue('accountType', 'Financial')
-                                                    setFieldValue('optionList', financialItemLists)
-                                                }}
-                                            >
-                                                <Text align="center">{localize('Financial')}</Text>
-                                            </CalculatorTabItem>
-                                        </Flex>
-                                        <Flex jc="space-between">
-                                            <Flex fd="column" width="23.4rem">
+                                            <CalculatorBody>
+                                                <CalculatorLabel>
+                                                    {localize('Account type')}
+                                                </CalculatorLabel>
+                                                <Flex
+                                                    mb="3rem"
+                                                    mt="1rem"
+                                                    jc="space-between"
+                                                    tablet={{ height: 'unset' }}
+                                                >
+                                                    <PnlCalculatorTabItem
+                                                        active={sub_tab === 'Synthetic'}
+                                                        onClick={() => {
+                                                            onSubTabClick('Synthetic')
+                                                            setErrors()
+                                                            resetForm()
+                                                        }}
+                                                    >
+                                                        <Text align="center">
+                                                            {localize('Synthetic')}
+                                                        </Text>
+                                                    </PnlCalculatorTabItem>
+                                                    <PnlCalculatorTabItem
+                                                        active={sub_tab === 'Financial'}
+                                                        disabled={sub_tab === 'Financial'}
+                                                        onClick={() => {
+                                                            onSubTabClick('Financial')
+                                                            setErrors()
+                                                            resetForm()
+                                                            setFieldValue(
+                                                                'accountType',
+                                                                'Financial',
+                                                            )
+                                                            setFieldValue(
+                                                                'optionList',
+                                                                financialItemLists,
+                                                            )
+                                                        }}
+                                                    >
+                                                        <Text align="center">
+                                                            {localize('Financial')}
+                                                        </Text>
+                                                    </PnlCalculatorTabItem>
+                                                </Flex>
+                                                <Flex jc="space-between">
+                                                    <Flex fd="column" width="23.4rem">
+                                                        <CalculatorDropdown
+                                                            option_list={values.optionList}
+                                                            label={localize('Symbol')}
+                                                            default_option={optionItemDefault}
+                                                            selected_option={values.symbol}
+                                                            id="symbol"
+                                                            onChange={(value) => {
+                                                                setFieldValue(
+                                                                    'pnlMarginSymbol',
+                                                                    getCurrency(value),
+                                                                )
+
+                                                                setFieldValue(
+                                                                    'contractSize',
+                                                                    getContractSize(value),
+                                                                )
+                                                                setFieldValue('symbol', value)
+                                                            }}
+                                                            contractSize={values.contractSize}
+                                                            error={touched.symbol && errors.symbol}
+                                                            onBlur={handleBlur}
+                                                        />
+                                                    </Flex>
+                                                    <Flex fd="column" width="23.4rem">
+                                                        <PnLInputGroup>
+                                                            <Field
+                                                                name="pointValue"
+                                                                value={values.pointValue}
+                                                                onChange={(value) => {
+                                                                    setFieldValue(
+                                                                        'pointValue',
+                                                                        value,
+                                                                    )
+                                                                }}
+                                                            >
+                                                                {({ field }) => (
+                                                                    <Input
+                                                                        {...field}
+                                                                        id="pointValue"
+                                                                        type="text"
+                                                                        label={localize(
+                                                                            'Point value',
+                                                                        )}
+                                                                        autoComplete="off"
+                                                                        error={
+                                                                            touched.pointValue &&
+                                                                            errors.pointValue
+                                                                        }
+                                                                        onBlur={handleBlur}
+                                                                        data-lpignore="true"
+                                                                        handleError={(
+                                                                            current_input,
+                                                                        ) => {
+                                                                            setFieldValue(
+                                                                                'pointValue',
+                                                                                '',
+                                                                                false,
+                                                                            )
+                                                                            setFieldError(
+                                                                                'pointValue',
+                                                                                '',
+                                                                            )
+                                                                            setFieldTouched(
+                                                                                'pointValue',
+                                                                                false,
+                                                                                false,
+                                                                            )
+                                                                            current_input.focus()
+                                                                        }}
+                                                                        maxLength="8"
+                                                                        background="white"
+                                                                    />
+                                                                )}
+                                                            </Field>
+                                                        </PnLInputGroup>
+                                                    </Flex>
+                                                </Flex>
+
+                                                <Flex jc="space-between" mb="17px">
+                                                    <Flex fd="column" width="23.4rem">
+                                                        <PnLInputGroup>
+                                                            <Field
+                                                                name="volume"
+                                                                value={values.volume}
+                                                                onChange={(value) => {
+                                                                    setFieldValue('volume', value)
+                                                                }}
+                                                            >
+                                                                {({ field }) => (
+                                                                    <Input
+                                                                        {...field}
+                                                                        id="volume"
+                                                                        type="text"
+                                                                        label={localize('Volume')}
+                                                                        autoComplete="off"
+                                                                        error={
+                                                                            touched.volume &&
+                                                                            errors.volume
+                                                                        }
+                                                                        onBlur={handleBlur}
+                                                                        data-lpignore="true"
+                                                                        handleError={(
+                                                                            current_input,
+                                                                        ) => {
+                                                                            setFieldValue(
+                                                                                'volume',
+                                                                                '',
+                                                                                false,
+                                                                            )
+                                                                            setFieldError(
+                                                                                'volume',
+                                                                                '',
+                                                                            )
+                                                                            setFieldTouched(
+                                                                                'volume',
+                                                                                false,
+                                                                                false,
+                                                                            )
+                                                                            current_input.focus()
+                                                                        }}
+                                                                        maxLength="8"
+                                                                        background="white"
+                                                                    />
+                                                                )}
+                                                            </Field>
+                                                        </PnLInputGroup>
+                                                    </Flex>
+                                                    <Flex fd="column" width="23.4rem">
+                                                        <PnLInputGroup>
+                                                            <Field
+                                                                name="takeProfitAmount"
+                                                                value={values.takeProfitAmount}
+                                                                onChange={(value) => {
+                                                                    setFieldValue(
+                                                                        'takeProfitAmount',
+                                                                        value,
+                                                                    )
+                                                                }}
+                                                            >
+                                                                {({ field }) => (
+                                                                    <Input
+                                                                        {...field}
+                                                                        id="takeProfitAmount"
+                                                                        type="text"
+                                                                        label={localize(
+                                                                            'Take profit amount',
+                                                                        )}
+                                                                        autoComplete="off"
+                                                                        error={
+                                                                            touched.takeProfitAmount &&
+                                                                            errors.takeProfitAmount
+                                                                        }
+                                                                        onBlur={handleBlur}
+                                                                        data-lpignore="true"
+                                                                        handleError={(
+                                                                            current_input,
+                                                                        ) => {
+                                                                            setFieldValue(
+                                                                                'takeProfitAmount',
+                                                                                '',
+                                                                                false,
+                                                                            )
+                                                                            setFieldError(
+                                                                                'takeProfitAmount',
+                                                                                '',
+                                                                            )
+                                                                            setFieldTouched(
+                                                                                'takeProfitAmount',
+                                                                                false,
+                                                                                false,
+                                                                            )
+                                                                            current_input.focus()
+                                                                        }}
+                                                                        maxLength="8"
+                                                                        background="white"
+                                                                    />
+                                                                )}
+                                                            </Field>
+                                                        </PnLInputGroup>
+                                                    </Flex>
+                                                </Flex>
+
+                                                <Flex jc="space-between">
+                                                    <Flex fd="column" width="23.4rem">
+                                                        <PnLInputGroup>
+                                                            <Field
+                                                                name="assetPrice"
+                                                                value={values.assetPrice}
+                                                                onChange={(value) => {
+                                                                    setFieldValue(
+                                                                        'assetPrice',
+                                                                        value,
+                                                                    )
+                                                                }}
+                                                            >
+                                                                {({ field }) => (
+                                                                    <Input
+                                                                        {...field}
+                                                                        id="assetPrice"
+                                                                        type="text"
+                                                                        value={values.assetPrice}
+                                                                        label={localize(
+                                                                            'Open price of asset',
+                                                                        )}
+                                                                        autoComplete="off"
+                                                                        error={
+                                                                            touched.assetPrice &&
+                                                                            errors.assetPrice
+                                                                        }
+                                                                        onBlur={handleBlur}
+                                                                        data-lpignore="true"
+                                                                        handleError={(
+                                                                            current_input,
+                                                                        ) => {
+                                                                            setFieldValue(
+                                                                                'assetPrice',
+                                                                                '',
+                                                                                false,
+                                                                            )
+                                                                            setFieldError(
+                                                                                'assetPrice',
+                                                                                '',
+                                                                            )
+                                                                            setFieldTouched(
+                                                                                'assetPrice',
+                                                                                false,
+                                                                                false,
+                                                                            )
+                                                                            current_input.focus()
+                                                                        }}
+                                                                        maxLength="15"
+                                                                        background="white"
+                                                                    />
+                                                                )}
+                                                            </Field>
+                                                        </PnLInputGroup>
+                                                    </Flex>
+                                                    <Flex fd="column" width="23.4rem">
+                                                        <PnLInputGroup>
+                                                            <Field
+                                                                name="stopLossAmount"
+                                                                value={values.stopLossAmount}
+                                                                onChange={(value) => {
+                                                                    setFieldValue(
+                                                                        'stopLossAmount',
+                                                                        value,
+                                                                    )
+                                                                }}
+                                                            >
+                                                                {({ field }) => (
+                                                                    <Input
+                                                                        {...field}
+                                                                        id="assetPrice"
+                                                                        type="text"
+                                                                        value={
+                                                                            values.stopLossAmount
+                                                                        }
+                                                                        label={localize(
+                                                                            'Stop loss amount',
+                                                                        )}
+                                                                        autoComplete="off"
+                                                                        error={
+                                                                            touched.stopLossAmount &&
+                                                                            errors.stopLossAmount
+                                                                        }
+                                                                        onBlur={handleBlur}
+                                                                        data-lpignore="true"
+                                                                        handleError={(
+                                                                            current_input,
+                                                                        ) => {
+                                                                            setFieldValue(
+                                                                                'stopLossAmount',
+                                                                                '',
+                                                                                false,
+                                                                            )
+                                                                            setFieldError(
+                                                                                'stopLossAmount',
+                                                                                '',
+                                                                            )
+                                                                            setFieldTouched(
+                                                                                'stopLossAmount',
+                                                                                false,
+                                                                                false,
+                                                                            )
+                                                                            current_input.focus()
+                                                                        }}
+                                                                        maxLength="15"
+                                                                        background="white"
+                                                                    />
+                                                                )}
+                                                            </Field>
+                                                        </PnLInputGroup>
+                                                    </Flex>
+                                                </Flex>
+
+                                                <Flex mt="1.5rem">
+                                                    <CalculateButton
+                                                        secondary
+                                                        type="submit"
+                                                        disabled={!isValid || !dirty}
+                                                    >
+                                                        {localize('Calculate')}
+                                                    </CalculateButton>
+                                                </Flex>
+                                            </CalculatorBody>
+                                        </CalculatorForm>
+                                    </Show.Desktop>
+
+                                    <Show.Mobile min_width="mobileL">
+                                        <CalculatorForm>
+                                            <PnlHeaderOverflow>
+                                                <PnlCalculatorHeader>
+                                                    <Flex mb="24px">
+                                                        <Flex fd="column" mr="24px">
+                                                            <CalculatorLabel htmlFor="message">
+                                                                {localize('Stop loss pips')}
+                                                            </CalculatorLabel>
+                                                            <PnLCalculatorOutputContainer>
+                                                                <PnLCalculatorOutputField>
+                                                                    {numberWithCommas(
+                                                                        values.stopLossPips,
+                                                                    )}
+                                                                </PnLCalculatorOutputField>
+                                                                <PnLCalculatorOutputSymbol>
+                                                                    {values.pnlMarginSymbol}
+                                                                </PnLCalculatorOutputSymbol>
+                                                            </PnLCalculatorOutputContainer>
+                                                        </Flex>
+                                                        <Flex fd="column">
+                                                            <CalculatorLabel htmlFor="message">
+                                                                {localize('Stop loss level')}
+                                                            </CalculatorLabel>
+                                                            <PnLCalculatorOutputContainer>
+                                                                <PnLCalculatorOutputField>
+                                                                    {numberWithCommas(
+                                                                        values.stopLossLevel,
+                                                                    )}
+                                                                </PnLCalculatorOutputField>
+                                                                <PnLCalculatorOutputSymbol>
+                                                                    {values.pnlMarginSymbol}
+                                                                </PnLCalculatorOutputSymbol>
+                                                            </PnLCalculatorOutputContainer>
+                                                        </Flex>
+                                                    </Flex>
+
+                                                    <Flex>
+                                                        <Flex fd="column" mr="24px">
+                                                            <CalculatorLabel htmlFor="message">
+                                                                {localize('Take profit pips')}
+                                                            </CalculatorLabel>
+                                                            <PnLCalculatorOutputContainer>
+                                                                <PnLCalculatorOutputField>
+                                                                    {numberWithCommas(
+                                                                        values.takeProfitPips,
+                                                                    )}
+                                                                </PnLCalculatorOutputField>
+                                                                <PnLCalculatorOutputSymbol>
+                                                                    {values.pnlMarginSymbol}
+                                                                </PnLCalculatorOutputSymbol>
+                                                            </PnLCalculatorOutputContainer>
+                                                        </Flex>
+                                                        <Flex fd="column">
+                                                            <CalculatorLabel htmlFor="message">
+                                                                {localize('Take profit level')}
+                                                            </CalculatorLabel>
+                                                            <PnLCalculatorOutputContainer>
+                                                                <PnLCalculatorOutputField>
+                                                                    {numberWithCommas(
+                                                                        values.takeProfitLevel,
+                                                                    )}
+                                                                </PnLCalculatorOutputField>
+                                                                <PnLCalculatorOutputSymbol>
+                                                                    {values.pnlMarginSymbol}
+                                                                </PnLCalculatorOutputSymbol>
+                                                            </PnLCalculatorOutputContainer>
+                                                        </Flex>
+                                                    </Flex>
+                                                </PnlCalculatorHeader>
+                                            </PnlHeaderOverflow>
+
+                                            <CalculatorBody>
+                                                <CalculatorLabel>
+                                                    {localize('Account type')}
+                                                </CalculatorLabel>
+                                                <Flex
+                                                    mb="3rem"
+                                                    mt="1rem"
+                                                    jc="space-between"
+                                                    tablet={{ height: 'unset' }}
+                                                >
+                                                    <PnlCalculatorTabItem
+                                                        active={sub_tab === 'Synthetic'}
+                                                        onClick={() => {
+                                                            onSubTabClick('Synthetic')
+                                                            setErrors()
+                                                            resetForm()
+                                                        }}
+                                                    >
+                                                        <Text align="center">
+                                                            {localize('Synthetic')}
+                                                        </Text>
+                                                    </PnlCalculatorTabItem>
+                                                    <PnlCalculatorTabItem
+                                                        active={sub_tab === 'Financial'}
+                                                        disabled={sub_tab === 'Financial'}
+                                                        onClick={() => {
+                                                            onSubTabClick('Financial')
+                                                            setErrors()
+                                                            resetForm()
+                                                            setFieldValue(
+                                                                'accountType',
+                                                                'Financial',
+                                                            )
+                                                            setFieldValue(
+                                                                'optionList',
+                                                                financialItemLists,
+                                                            )
+                                                        }}
+                                                    >
+                                                        <Text align="center">
+                                                            {localize('Financial')}
+                                                        </Text>
+                                                    </PnlCalculatorTabItem>
+                                                </Flex>
                                                 <CalculatorDropdown
                                                     option_list={values.optionList}
                                                     label={localize('Symbol')}
@@ -298,9 +745,7 @@ const PnlMarginCalculator = () => {
                                                     error={touched.symbol && errors.symbol}
                                                     onBlur={handleBlur}
                                                 />
-                                            </Flex>
-                                            <Flex fd="column" width="23.4rem">
-                                                <PnLInputGroup>
+                                                <InputGroup>
                                                     <Field
                                                         name="pointValue"
                                                         value={values.pointValue}
@@ -340,13 +785,9 @@ const PnlMarginCalculator = () => {
                                                             />
                                                         )}
                                                     </Field>
-                                                </PnLInputGroup>
-                                            </Flex>
-                                        </Flex>
+                                                </InputGroup>
 
-                                        <Flex jc="space-between" mb="17px">
-                                            <Flex fd="column" width="23.4rem">
-                                                <PnLInputGroup>
+                                                <InputGroup>
                                                     <Field
                                                         name="volume"
                                                         value={values.volume}
@@ -385,10 +826,8 @@ const PnlMarginCalculator = () => {
                                                             />
                                                         )}
                                                     </Field>
-                                                </PnLInputGroup>
-                                            </Flex>
-                                            <Flex fd="column" width="23.4rem">
-                                                <PnLInputGroup>
+                                                </InputGroup>
+                                                <InputGroup>
                                                     <Field
                                                         name="takeProfitAmount"
                                                         value={values.takeProfitAmount}
@@ -433,13 +872,9 @@ const PnlMarginCalculator = () => {
                                                             />
                                                         )}
                                                     </Field>
-                                                </PnLInputGroup>
-                                            </Flex>
-                                        </Flex>
+                                                </InputGroup>
 
-                                        <Flex jc="space-between">
-                                            <Flex fd="column" width="23.4rem">
-                                                <PnLInputGroup>
+                                                <InputGroup>
                                                     <Field
                                                         name="assetPrice"
                                                         value={values.assetPrice}
@@ -482,10 +917,8 @@ const PnlMarginCalculator = () => {
                                                             />
                                                         )}
                                                     </Field>
-                                                </PnLInputGroup>
-                                            </Flex>
-                                            <Flex fd="column" width="23.4rem">
-                                                <PnLInputGroup>
+                                                </InputGroup>
+                                                <InputGroup>
                                                     <Field
                                                         name="stopLossAmount"
                                                         value={values.stopLossAmount}
@@ -529,21 +962,21 @@ const PnlMarginCalculator = () => {
                                                             />
                                                         )}
                                                     </Field>
-                                                </PnLInputGroup>
-                                            </Flex>
-                                        </Flex>
+                                                </InputGroup>
 
-                                        <Flex mt="1.5rem">
-                                            <CalculateButton
-                                                secondary
-                                                type="submit"
-                                                disabled={!isValid || !dirty}
-                                            >
-                                                {localize('Calculate')}
-                                            </CalculateButton>
-                                        </Flex>
-                                    </CalculatorBody>
-                                </CalculatorForm>
+                                                <Flex mt="1.5rem">
+                                                    <CalculateButton
+                                                        secondary
+                                                        type="submit"
+                                                        disabled={!isValid || !dirty}
+                                                    >
+                                                        {localize('Calculate')}
+                                                    </CalculateButton>
+                                                </Flex>
+                                            </CalculatorBody>
+                                        </CalculatorForm>
+                                    </Show.Mobile>
+                                </>
                             )}
                         </Formik>
                     </FormWrapper>

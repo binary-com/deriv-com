@@ -34,7 +34,7 @@ const TradeTypes = () => {
         description: (
             <Localize translate_text="Trade with leverage and low spreads for better returns on successful trades." />
         ),
-        link: '/trade-types/margin',
+        link: '/trade-types/margin/',
         linkTitle: localize('Margin'),
     }
     const options = {
@@ -43,7 +43,7 @@ const TradeTypes = () => {
         description: (
             <Localize translate_text="Earn fixed payouts by predicting an asset's price movement within a fixed time." />
         ),
-        link: '/trade-types/options',
+        link: '/trade-types/options/',
         linkTitle: localize('Options'),
     }
     const multipliers = {
@@ -52,7 +52,7 @@ const TradeTypes = () => {
         description: (
             <Localize translate_text="Get the best of both - the upside of margin trading with the simplicity of options." />
         ),
-        link: '/trade-types/multiplier',
+        link: '/trade-types/multiplier/',
         linkTitle: localize('Multiplier'),
     }
     

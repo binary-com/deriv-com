@@ -12,7 +12,7 @@ import {
     TextWrapper,
     Title,
 } from './style/footer'
-import { besquare_signup_url } from 'common/utility'
+import { besquare_signup_url } from 'common/constants'
 import { localize, Localize, LocalizedLink } from 'components/localization'
 import Linkedin from 'images/svg/be-square/linkedin.svg'
 import Twitter from 'images/svg/be-square/twitter.svg'

@@ -199,11 +199,20 @@ module.exports = {
                 includeInDevelopment: false,
             },
         },
-        'gatsby-plugin-remove-serviceworker',
         {
             resolve: 'gatsby-plugin-anchor-links',
             options: {
                 offset: -100,
+            },
+        },
+        {
+            resolve: `gatsby-plugin-offline`,
+            options: {
+                workboxConfig: {
+                    importScripts: [
+                        `https://cdn.pushwoosh.com/webpush/v3/pushwoosh-service-worker.js`,
+                    ],
+                },
             },
         },
     ],

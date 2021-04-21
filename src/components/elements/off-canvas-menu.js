@@ -5,7 +5,7 @@ import { Flex } from 'components/containers'
 import { LocalizedLink, localize, Localize } from 'components/localization'
 import { Accordion, AccordionItem, NavCard, Text, Divider } from 'components/elements'
 import { useOutsideClick } from 'components/hooks/outside-click'
-import { cfd_warning_height, deriv_status_page_url } from 'common/utility'
+import { cfd_warning_height, deriv_status_page_url } from 'common/constants'
 // SVG
 import AffiliateIb from 'images/svg/menu/affiliate-ib.svg'
 import Blog from 'images/svg/blog-nav.svg'
@@ -165,7 +165,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                 }
                                 title={<Localize translate_text="DTrader" />}
                                 onClick={handleArrowClick}
-                                to="/dtrader"
+                                to="/dtrader/"
                             />
                         </Flex>
                         <Flex mb="2rem">
@@ -177,7 +177,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                 }
                                 title={<Localize translate_text="DBot" />}
                                 onClick={handleArrowClick}
-                                to="/dbot"
+                                to="/dbot/"
                             />
                         </Flex>
                         <Flex mb="2rem">
@@ -189,7 +189,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                 }
                                 title={<Localize translate_text="DMT5" />}
                                 onClick={handleArrowClick}
-                                to={props.is_ppc_redirect ? '/landing/dmt5' : '/dmt5'}
+                                to={props.is_ppc_redirect ? '/landing/dmt5/' : '/dmt5/'}
                             />
                         </Flex>
                         <Flex>
@@ -257,7 +257,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                             }
                                             title={<Localize translate_text="Options" />}
                                             onClick={handleArrowClick}
-                                            to="/trade-types/options"
+                                            to="/trade-types/options/"
                                         />
                                     </Flex>
                                 )}
@@ -277,7 +277,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                         }
                                         title={<Localize translate_text="Multipliers" />}
                                         onClick={handleArrowClick}
-                                        to="/trade-types/multiplier"
+                                        to="/trade-types/multiplier/"
                                     />
                                 </Flex>
                             </>

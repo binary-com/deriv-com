@@ -1,13 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
 import Loadable from '@loadable/component'
+import { Helmet } from 'react-helmet'
 import Hero from './_hero.js'
+import {faq_schema} from './_faq-schema.js'
 import { Header } from 'components/elements'
 import { LinkButton } from 'components/form'
 import Layout from 'components/layout/layout'
 import { SectionContainer, Container, SEO } from 'components/containers'
 import { localize, Localize, WithIntl } from 'components/localization'
-import { affiliate_signup_url } from 'common/utility'
+import { affiliate_signup_url } from 'common/constants'
 import device from 'themes/device'
 
 const DNumber = Loadable(() => import('components/custom/_dnumbers.js'))
@@ -110,6 +112,9 @@ const AffiliateIb = () => {
                     'Join Deriv’s affiliate and IB programmes and get a chance to be a partner with a trusted online trading provider.',
                 )}
             />
+            <Helmet>
+                    <script type="application/ld+json">{JSON.stringify(faq_schema)}</script>
+            </Helmet>
             <Hero>
                 <StyledHeader as="h1" color="white" align="center" lh="1.25" type="display-title">
                     {localize('Partner with a trusted')}

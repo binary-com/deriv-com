@@ -1,5 +1,6 @@
 import Cookies from 'js-cookie'
-import { deriv_cookie_domain, getPropertyValue, isEmptyObject, isBrowser } from './utility'
+import { deriv_cookie_domain } from 'common/constants'
+import { getPropertyValue, isEmptyObject, isBrowser } from 'common/utility'
 
 const getObject = function (key) {
     return JSON.parse(this.getItem(key) || '{}')

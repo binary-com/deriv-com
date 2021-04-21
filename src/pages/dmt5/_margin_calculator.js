@@ -240,7 +240,7 @@ const MarginCalculator = () => {
                                         color="red"
                                         key={0}
                                         target="_blank"
-                                        href="/trade-types/margin"
+                                        href="/trade-types/margin/"
                                         rel="noopener noreferrer"
                                     />,
                                 ]}

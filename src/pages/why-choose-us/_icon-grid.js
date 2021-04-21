@@ -138,8 +138,18 @@ export const IconGrid = () => (
                 title={localize('Help when you need it')}
                 content={
                     <Localize
-                        translate_text="The Deriv support team is available 24/7 – even on weekends. You can raise issues easily by phone and a customer service ticketing system. We also have a <0>Help centre</0> to answer your most common questions."
-                        components={[<LocalizedLink key={0} to="/help-centre/" />]}
+                        translate_text="The Deriv support team is available via live chat 24/7 – even on weekends. You can also find answers at our <0>Help centre</0> and get help from fellow traders in <1>Community</1>."
+                        components={[
+                            <LocalizedLink key={0} to="/help-centre/" />,
+                            <LocalizedLink
+                                key={1}
+                                to=""
+                                is_community_link
+                                external="true"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            />,
+                        ]}
                     />
                 }
             />

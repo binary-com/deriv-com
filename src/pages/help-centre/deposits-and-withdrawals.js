@@ -1,7 +1,7 @@
 import React from 'react'
 import { Article } from './_article'
 import { ArticleWrapper, ExternalLink, StyledHeader, StyledText } from './_help-centre-style'
-import { deriv_app_url } from 'common/utility'
+import { deriv_app_url } from 'common/constants'
 import { Text } from 'components/elements'
 import { Localize, localize, WithIntl } from 'components/localization'
 

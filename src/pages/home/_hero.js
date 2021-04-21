@@ -88,7 +88,7 @@ const StyledHeroContainer = styled(Flex)`
     }
 `
 const Details = styled(Box)`
-    width: 41.2%;
+    width: 57%;
     max-height: 58.7rem;
     @media ${device.bp1060} {
         max-height: unset;
@@ -103,7 +103,7 @@ const ButtonWrapper = styled(Box)`
     }
 `
 const ImageWrapper = styled(Box)`
-    width: 58.8%;
+    width: 50.8%;
     margin-top: 4rem;
 
     @media ${device.tabletL} {

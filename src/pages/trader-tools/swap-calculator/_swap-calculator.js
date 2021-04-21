@@ -340,7 +340,7 @@ const SwapCalculator = () => {
                                                         )
                                                         setFieldValue('symbol', value)
                                                     }}
-                                                    contractSize={values.contractSize}
+                                                    contract_size={values.contractSize}
                                                     error={touched.symbol && errors.symbol}
                                                     onBlur={handleBlur}
                                                 />

@@ -1,4 +1,4 @@
-import validation from './_validation';
+import validation from './_validation'
 
 const STEPINDEX_VALUE = 100
 const RANGEBREAK100VALUE = 400
@@ -40,7 +40,8 @@ const getPipValue = (values) => {
 
 const getSwapChargeSynthetic = (values) => {
     const { volume, assetPrice, swapRate, contractSize } = values
-    const specialFormula = swap_formula_synthetic = (volume * contractSize * assetPrice * (swapRate / 100)) / 360
+    const specialFormula = (swap_formula_synthetic =
+        (volume * contractSize * assetPrice * (swapRate / 100)) / 360)
     let swap_formula_synthetic = rawCalculation(values, specialFormula)
 
     return toFixed(swap_formula_synthetic)
@@ -52,13 +53,45 @@ const getSwapChargeForex = (values) => {
     return toFixed(swap_formula_forex)
 }
 
+const getStopLossLevel = (values) => {
+    let { assetPrice, stopLossAmount, volume, contractSize } = values
+    assetPrice = Number(assetPrice)
+    stopLossAmount = Number(stopLossAmount)
+    const stop_loss_level_formula = assetPrice + stopLossAmount / (volume * contractSize)
+    return toFixed(stop_loss_level_formula)
+}
+
+const getTakeProfitLevel = (values) => {
+    let { assetPrice, takeProfitAmount, volume, contractSize } = values
+    assetPrice = Number(assetPrice)
+    takeProfitAmount = Number(takeProfitAmount)
+    const take_profit_level_formula = assetPrice + takeProfitAmount / (volume * contractSize)
+    return toFixed(take_profit_level_formula)
+}
+
+const getStopLossPip = (values) => {
+    let { assetPrice, stopLossLevel, pointValue } = values
+    assetPrice = Number(assetPrice)
+    stopLossLevel = Number(stopLossLevel)
+    const stop_loss_pip_formula = (stopLossLevel - assetPrice) / pointValue
+    return toFixed(stop_loss_pip_formula)
+}
+
+const getTakeProfitPip = (values) => {
+    let { assetPrice, takeProfitLevel, pointValue } = values
+    assetPrice = Number(assetPrice)
+    takeProfitLevel = Number(takeProfitLevel)
+    const take_profit_pip_formula = (takeProfitLevel - assetPrice) / pointValue
+    return toFixed(take_profit_pip_formula)
+}
+
 const toFixed = (val) => {
     return parseFloat(val.toFixed(3)).toLocaleString()
 }
 
 const getCurrency = (symbol) => {
     let currency = 'USD'
-    
+
     if (symbol.name === 'DAX_30') {
         currency = 'EUR'
     }
@@ -138,6 +171,29 @@ const resetValidationPip = (values) => {
     return errors
 }
 
+const resetValidationPnlMargin = (values) => {
+    const errors = {}
+    const pointValue_error = validation.pointValue(values.pointValue)
+    const assetPrice_error = validation.assetPrice(values.assetPrices)
+    const takeProfitAmount_error = validation.takeProfitAmount(values.takeProfitAmount)
+    const stopLossAmount_error = validation.stopLossAmount(values.stopLossAmount)
+
+    resetValidationCommon(values)
+
+    if (pointValue_error) {
+        errors.pointValue = pointValue_error
+    }
+    if (assetPrice_error) {
+        errors.assetPrice = assetPrice_error
+    }
+    if (takeProfitAmount_error) {
+        errors.takeProfitAmount = takeProfitAmount_error
+    }
+    if (stopLossAmount_error) {
+        errors.stopLossAmount = stopLossAmount_error
+    }
+}
+
 const resetValidationSynthetic = (values) => {
     const errors = {}
     const assetPrice_error = validation.assetPrice(values.assetPrice)
@@ -191,11 +247,16 @@ export {
     getMargin,
     getSwapChargeSynthetic,
     getPipValue,
+    getStopLossLevel,
+    getStopLossPip,
     getSwapChargeForex,
+    getTakeProfitLevel,
+    getTakeProfitPip,
     resetValidationPip,
     resetValidationSynthetic,
     resetValidationForex,
     resetValidationMargin,
+    resetValidationPnlMargin,
     getCurrency,
     getContractSize,
     numberSubmitFormatNegative,

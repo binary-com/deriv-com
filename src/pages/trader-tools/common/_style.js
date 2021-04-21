@@ -47,7 +47,7 @@ export const SectionSubtitle = styled(Header)`
 `
 
 export const SwapTabSelector = styled(Flex)`
-    padding: 22px 40px;
+    padding: 22px 64px;
     width: auto;
     height: 80px;
     border-radius: 4px;
@@ -88,7 +88,8 @@ export const ContentContainer = styled(Flex)`
 
 export const FormWrapper = styled(Flex)`
     margin-right: 4.8rem;
-    max-height: 705px;
+    max-height: 700px;
+    height: 100%;
     width: unset;
 
     @media ${device.laptopM} {
@@ -109,7 +110,7 @@ export const CalculatorForm = styled(Form)`
     border-radius: 10px;
     box-sizing: border-box;
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.05);
-    width: 48.6rem;
+    width: 54rem;
 
     @media ${device.mobileL} {
         width: 328px;
@@ -140,14 +141,22 @@ export const CalculatorOutputContainer = styled(Flex)`
     box-sizing: border-box;
     height: 7.5rem;
     border: 1.5px solid var(--color-blue-5);
-    background-color: white;
+    background-color: var(--color-white);
+`
+
+export const PnLCalculatorOutputContainer = styled(Flex)`
+    position: relative;
+    border-radius: 8px;
+    box-sizing: border-box;
+    height: 56px;
+    border: 1px solid var(--color-green);
+    background-color: var(--color-white);
 `
 
 export const CalculatorOutputField = styled(Flex)`
     width: 80%;
     white-space: nowrap;
     resize: none;
-    background-color: white;
     justify-content: flex-start;
     height: 95%;
     border: 0;
@@ -158,6 +167,41 @@ export const CalculatorOutputField = styled(Flex)`
     overflow-x: auto;
     overflow-y: hidden;
     -webkit-text-fill-color: var(--color-blue-5);
+    opacity: 1;
+    -webkit-opacity: 1;
+    margin: 1px;
+
+    @media ${device.tabletL} {
+        font-size: 18px;
+    }
+
+    @media ${device.mobileL} {
+        padding-top: 2.4rem;
+        font-size: 16px;
+    }
+
+    &::-webkit-scrollbar {
+        width: 0;
+        background: transparent; /* Chrome/Safari/Webkit */
+    }
+
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE 10+ */
+`
+
+export const PnLCalculatorOutputField = styled(Flex)`
+    width: 80%;
+    white-space: nowrap;
+    resize: none;
+    justify-content: flex-start;
+    height: 95%;
+    padding: 16px;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--color-green);
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-text-fill-color: var(--color-green);
     opacity: 1;
     -webkit-opacity: 1;
     margin: 1px;
@@ -197,6 +241,23 @@ export const CalculatorOutputSymbol = styled.label`
     }
 `
 
+export const PnLCalculatorOutputSymbol = styled.label`
+    margin: 1px;
+    pointer-events: none;
+    color: var(--color-green);
+    font-weight: bold;
+    font-size: 16px;
+    padding: 16px;
+    @media ${device.tabletL} {
+        font-size: 18px;
+    }
+
+    @media ${device.mobileL} {
+        font-size: 16px;
+        padding-top: 2.4rem;
+    }
+`
+
 export const CalculatorBody = styled.div`
     padding: 2.4rem;
     /* stylelint-disable property-no-vendor-prefix */
@@ -220,7 +281,7 @@ export const CalculatorBody = styled.div`
 
 export const CalculatorTabItem = styled.div`
     height: 72px;
-    width: 21rem;
+    width: 23.4rem;
     border-radius: 1rem;
     padding: 2rem;
     border: solid 1px rgba(51, 51, 51, 0.1);
@@ -263,6 +324,11 @@ export const InputGroup = styled.div`
     position: relative;
     width: 100%;
     margin: 2.4rem 0;
+`
+
+export const PnLInputGroup = styled.div`
+    position: relative;
+    width: 100%;
 `
 
 export const CalculateButton = styled(Button)`

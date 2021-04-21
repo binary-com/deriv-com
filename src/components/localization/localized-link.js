@@ -16,9 +16,8 @@ import {
     deriv_bot_app_url,
     smarttrader_url,
     zoho_url,
-    getLocalizedUrl,
-    getDerivAppLocalizedURL,
-} from 'common/utility'
+} from 'common/constants'
+import { getLocalizedUrl, getDerivAppLocalizedURL } from 'common/utility'
 import { DerivStore } from 'store'
 
 const non_localized_links = ['/careers', '/careers/']

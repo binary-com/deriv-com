@@ -9,7 +9,7 @@ import { LinkButton } from 'components/form'
 import Layout from 'components/layout/layout'
 import { SectionContainer, Container, SEO } from 'components/containers'
 import { localize, Localize, WithIntl } from 'components/localization'
-import { affiliate_signup_url } from 'common/utility'
+import { affiliate_signup_url } from 'common/constants'
 import device from 'themes/device'
 
 const DNumber = Loadable(() => import('components/custom/_dnumbers.js'))

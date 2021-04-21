@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Container, SectionContainer } from 'components/containers'
 import { Header, LocalizedLinkText, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
-import { affiliate_signin_url } from 'common/utility'
+import { affiliate_signin_url } from 'common/constants'
 
 const Span = styled(Text).attrs({ as: 'span' })`
     font-size: var(--text-size-m);

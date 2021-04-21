@@ -6,7 +6,7 @@ import device from 'themes/device'
 import { SectionContainer, Flex } from 'components/containers'
 import { Text, LinkText, Header, BackgroundImage, QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
-import { map_api_key, zoho_url } from 'common/utility'
+import { map_api_key, zoho_url } from 'common/constants'
 import { LocalizedLink } from 'components/localization'
 import MapPin from 'images/svg/map.svg'
 

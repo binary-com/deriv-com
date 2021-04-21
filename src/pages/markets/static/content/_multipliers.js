@@ -44,7 +44,7 @@ export const synthetic_multiplier = {
     eu_content: [
         <Localize
             key={0}
-            translate_text="Return to Player (RTP) for multiplier options using multiplier 100 and duration of 1 hour is in the range of 98-99 % on an average. Using a different multiplier or duration may affect the RTP."
+            translate_text="Return to player for mulitplier options is in the range of 95.0-99.9% for all indices on an average. Using a different multiplier or duration may affect the RTP."
         />,
     ],
 }

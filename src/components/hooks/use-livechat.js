@@ -1,12 +1,6 @@
 import React from 'react'
-import {
-    getClientInformation,
-    getDomain,
-    getUTMData,
-    isBrowser,
-    livechat_client_id,
-    livechat_license_id,
-} from 'common/utility'
+import { livechat_client_id, livechat_license_id } from 'common/constants'
+import { getClientInformation, getDomain, getUTMData, isBrowser } from 'common/utility'
 
 export const useLivechat = () => {
     const [is_livechat_interactive, setLiveChatInteractive] = React.useState(false)
@@ -135,8 +129,7 @@ export const useLivechat = () => {
                         if (chat_id) {
                             if (customerSDK) {
                                 customerSDK.on('connected', () => {
-                                    customerSDK?.deactivateChat({ chatId: chat_id }).catch(() => {
-                                    })
+                                    customerSDK?.deactivateChat({ chatId: chat_id }).catch(() => {})
                                 })
                             }
                         }

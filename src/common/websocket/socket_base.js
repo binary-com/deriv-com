@@ -1,5 +1,6 @@
-import { brand_name, getCrowdin, getLanguage } from '../utility'
 import { getAppId, getSocketURL } from './config'
+import { getCrowdin, getLanguage } from 'common/utility'
+import { brand_name } from 'common/constants'
 
 /*
  * An abstraction layer over native javascript WebSocket,

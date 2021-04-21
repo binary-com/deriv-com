@@ -1,6 +1,6 @@
 import React from 'react'
 import { ButtonWrapper, ContentContainer, LogoWrapper, Section, StyledLogoLink } from './style/nav'
-import { besquare_signup_url } from 'common/utility'
+import { besquare_signup_url } from 'common/constants'
 import { localize } from 'components/localization'
 import BeSquareLogo from 'images/svg/be-square/be-square-logo.svg'
 

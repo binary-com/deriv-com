@@ -19,14 +19,8 @@ import { useActiveLinkState } from 'components/hooks/use-active-link-state'
 import { SharedLinkStyle } from 'components/localization/localized-link'
 import Login from 'common/login'
 import device from 'themes/device'
-import {
-    affiliate_signin_url,
-    affiliate_signup_url,
-    deriv_app_url,
-    isLoggedIn,
-    getLanguage,
-    getDerivAppLocalizedURL,
-} from 'common/utility'
+import { affiliate_signin_url, affiliate_signup_url, deriv_app_url } from 'common/constants'
+import { isLoggedIn, getLanguage, getDerivAppLocalizedURL } from 'common/utility'
 // Icons
 import Logo from 'images/svg/logo-deriv.svg'
 import LogoPartner from 'images/svg/logo-partners.svg'

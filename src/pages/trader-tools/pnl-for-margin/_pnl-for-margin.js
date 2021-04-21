@@ -23,7 +23,6 @@ import {
     CalculatorBody,
     CalculatorDropdown,
     CalculatorForm,
-    CalculatorHeader,
     PnlCalculatorHeader,
     PnlHeaderOverflow,
     CalculatorLabel,
@@ -185,7 +184,7 @@ const PnlMarginCalculator = () => {
                                 <>
                                     <Show.Desktop max_width="mobileL">
                                         <CalculatorForm>
-                                            <CalculatorHeader>
+                                            <PnlCalculatorHeader>
                                                 <Flex mb="24px">
                                                     <Flex fd="column" mr="24px">
                                                         <CalculatorLabel htmlFor="message">
@@ -251,7 +250,7 @@ const PnlMarginCalculator = () => {
                                                         </PnLCalculatorOutputContainer>
                                                     </Flex>
                                                 </Flex>
-                                            </CalculatorHeader>
+                                            </PnlCalculatorHeader>
 
                                             <CalculatorBody>
                                                 <CalculatorLabel>

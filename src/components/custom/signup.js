@@ -226,7 +226,7 @@ class Signup extends Component {
                 </EmailLink>
             </ResponseWrapper>
         ) : (
-            <Form onSubmit={this.handleEmailSignup} noValidate bgColor={this.props.bgColor}>
+            <Form onSubmit={this.handleEmailSignup} noValidate pb="30px" bgColor={this.props.bgColor}>
                 {this.renderSwitch(this.props.appearance)}
             </Form>
         )

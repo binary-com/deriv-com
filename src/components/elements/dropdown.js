@@ -351,8 +351,8 @@ const Dropdown = ({
             >
                 <StyledLabel active={is_open || (!is_open && selected_option)}>{label}</StyledLabel>
                 <DropdownSelected
-                    role="button"
                     id="selected_dropdown"
+                    role="button"
                     tabIndex="0"
                     onClick={toggleListVisibility}
                     onKeyDown={toggleListVisibility}
@@ -367,15 +367,15 @@ const Dropdown = ({
                     </Symbol>
                     <Arrow expanded={is_open ? 'true' : 'false'} />
                 </DropdownSelected>
+                <ItemList
+                    error={error}
+                    handleChange={handleChange}
+                    is_open={is_open}
+                    nodes={nodes}
+                    option_list={option_list}
+                    selected_option={selected_option}
+                />
             </DropdownContainer>
-            <ItemList
-                error={error}
-                handleChange={handleChange}
-                is_open={is_open}
-                nodes={nodes}
-                option_list={option_list}
-                selected_option={selected_option}
-            />
             <BottomLabel contract_size={contractSize} error={error} />
         </>
     )

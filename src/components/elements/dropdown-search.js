@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled, { css } from 'styled-components'
 import PropTypes from 'prop-types'
-import { Arrow, BottomLabel, DropdownContainer, ItemList } from './dropdown'
+import { Arrow, BottomLabel, DropdownContainer, ItemList, StyledLabel } from './dropdown'
 import { useDropdownHooks } from 'components/hooks/dropdown-hooks'
 import device from 'themes/device'
 import { Flex } from 'components/containers'
@@ -81,6 +81,9 @@ const DropdownSearch = ({
                 {...props}
             >
                 <Flex>
+                    <StyledLabel active={is_open || (!is_open && selected_item)}>
+                        {label}
+                    </StyledLabel>
                     <DropdownInput
                         id="selected_dropdown"
                         tabIndex="0"

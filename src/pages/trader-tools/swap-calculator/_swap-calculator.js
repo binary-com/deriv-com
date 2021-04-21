@@ -11,7 +11,6 @@ import {
     BreadCrumbContainer,
     CalculateButton,
     CalculatorBody,
-    CalculatorDropdown,
     CalculatorForm,
     CalculatorHeader,
     CalculatorLabel,
@@ -37,6 +36,7 @@ import { localize, Localize } from 'components/localization'
 import {
     Accordion,
     AccordionItem,
+    Dropdown,
     Header,
     LocalizedLinkText,
     QueryImage,
@@ -324,8 +324,8 @@ const SwapCalculator = () => {
                                             </CalculatorHeader>
 
                                             <CalculatorBody>
-                                                <CalculatorDropdown
-                                                    mb="2.4rem"
+                                                <Dropdown
+                                                    mb="3.6rem"
                                                     option_list={values.optionList}
                                                     label={localize('Symbol')}
                                                     default_option={optionItemDefault}
@@ -643,8 +643,7 @@ const SwapCalculator = () => {
                                             </CalculatorHeader>
 
                                             <CalculatorBody>
-                                                <CalculatorDropdown
-                                                    mb="2.4rem"
+                                                <Dropdown
                                                     default_option={optionItemDefault}
                                                     option_list={values.optionList}
                                                     label={localize('Symbol')}

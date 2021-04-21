@@ -25,7 +25,7 @@ const AgreementLabel = ({handleChangeCheckbox, isChecked}) => {
     const url = `/${language_code}/terms-and-conditions/`
 
     return (
-         <label>
+         <label style={{ lineHeight: '1px', marginTop: '5px', marginBottom:'20px' }}>
                 <Checkbox
                     class="signup_agree_tnc"
                     secondary

@@ -20,7 +20,7 @@ import device from 'themes/device.js'
 const Form = styled.form`
     height: 100%;
     background-color: ${(props) => props.bgColor || 'var(--color-white)'};
-
+    padding-bottom: ${(props) => props.pb || '0'};
     @media ${device.mobileL} {
         width: 100%;
     }
@@ -226,7 +226,7 @@ class Signup extends Component {
                 </EmailLink>
             </ResponseWrapper>
         ) : (
-            <Form onSubmit={this.handleEmailSignup} noValidate bgColor={this.props.bgColor}>
+            <Form onSubmit={this.handleEmailSignup} noValidate pb="30px" bgColor={this.props.bgColor}>
                 {this.renderSwitch(this.props.appearance)}
             </Form>
         )

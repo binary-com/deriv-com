@@ -95,7 +95,8 @@ const InputGroup = styled.div`
     display: flex;
     flex-direction: row;
     width: 100%;
-    margin-top: 3.5rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1.5rem;
 `
 const EmailButton = styled(Button)`
     margin-left: 1rem;
@@ -114,7 +115,7 @@ const EmailButton = styled(Button)`
 `
 const SocialWrapper = styled(Flex)`
     width: 100%;
-    margin-top: 1.8rem;
+    margin-top: 4rem;
     flex-wrap: wrap;
 `
 <<<<<<< HEAD
@@ -179,11 +180,12 @@ const StyledHeader = styled(Header)`
 const StyledFormWrapper = styled(Header)`
     background: white;
     max-width: 414px;
-    padding: 20px;
+    padding: 20px 20px 30px;
     margin-left: 30px;
-    border-radius: 10px;
+    border-radius: 8px;
     position: relative;
-    top: 30px;
+    top: 50px;
+    box-shadow: 0 16px 16px 0 rgba(14, 14, 14, 0.04), 0 0 16px 0 rgba(14, 14, 14, 0.04);
 `
 const StyledHeaderText = styled(Text)`
     width: ${(props) => props.width || '41.4rem'};

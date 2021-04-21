@@ -209,6 +209,13 @@ const StyledFormWrapper = styled.div`
     position: absolute;
     bottom: -50px;
     box-shadow: 0 16px 16px 0 rgba(14, 14, 14, 0.04), 0 0 16px 0 rgba(14, 14, 14, 0.04);
+
+    h1 {
+        @media (min-width: 991px) {
+            line-height: 3.5rem;
+        }
+    }
+    
 `
 const StyledHeaderText = styled(Text)`
     width: ${(props) => props.width || '41.4rem'};

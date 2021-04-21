@@ -44,6 +44,7 @@ import {
 } from 'components/elements'
 import { Flex, Show } from 'components/containers'
 import Input from 'components/form/input'
+import { getCommaSeparatedNumber } from 'common/utility'
 import RightArrow from 'images/svg/black-right-arrow.svg'
 
 const StyledInputGroup = styled(InputGroup)`
@@ -207,10 +208,6 @@ const SwapCalculator = () => {
         return contractSize
     }
 
-    const numberWithCommas = (input) => {
-        return input.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
-    }
-
     const numberSubmitFormat = (input) => {
         return input.replace(/^0+(?!\.|$)/, '')
     }
@@ -315,7 +312,7 @@ const SwapCalculator = () => {
                                                 </CalculatorLabel>
                                                 <CalculatorOutputContainer>
                                                     <CalculatorOutputField>
-                                                        {numberWithCommas(values.swapCharge)}
+                                                        {getCommaSeparatedNumber(values.swapCharge)}
                                                     </CalculatorOutputField>
                                                     <CalculatorOutputSymbol>
                                                         {values.swapChargeSymbol}
@@ -634,7 +631,7 @@ const SwapCalculator = () => {
                                                 </CalculatorLabel>
                                                 <CalculatorOutputContainer>
                                                     <CalculatorOutputField>
-                                                        {numberWithCommas(values.swapCharge)}
+                                                        {getCommaSeparatedNumber(values.swapCharge)}
                                                     </CalculatorOutputField>
                                                     <CalculatorOutputSymbol>
                                                         {values.swapChargeSymbol}

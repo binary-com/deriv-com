@@ -474,6 +474,11 @@ const Footer = ({ type, is_ppc, is_ppc_redirect }) => {
                                             {localize('Payment agents')}
                                         </Link>
                                     </LinkWrapper>
+                                    <LinkWrapper>
+                                        <Link to="http://developers.deriv.com/">
+                                            {localize('Developers')}
+                                        </Link>
+                                    </LinkWrapper>
                                 </LinksCol>
                                 <LinksCol>
                                     <LinkWrapper>

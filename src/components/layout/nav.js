@@ -938,6 +938,16 @@ export const NavPartners = ({ no_login_signup }) => {
                                     {localize('Payment agents')}
                                 </StyledLink>
                             </NavLink>
+                            <NavLink>
+                                <StyledLink
+                                    active={current_page === 'developers'}
+                                    activeClassName="active"
+                                    to="https://developers.deriv.com"
+                                    aria-label={localize('Developers')}
+                                >
+                                    {localize('Developers')}
+                                </StyledLink>
+                            </NavLink>
                         </StyledNavCenter>
                         {!no_login_signup && (
                             <StyledNavRight

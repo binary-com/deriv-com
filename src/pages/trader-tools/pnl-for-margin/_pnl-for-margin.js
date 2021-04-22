@@ -111,9 +111,16 @@ const PnlMarginCalculator = () => {
     const [sub_tab, setSubTab] = useState('Synthetic')
 
     const onTabClick = (tab) => {
+        const form = formik_ref.current
         setTab(tab)
-        formik_ref.current?.resetForm()
-        formik_ref.current?.setErrors()
+        form?.resetForm()
+        form?.setErrors()
+        sub_tab === 'Synthetic'
+            ? form?.setFieldValue('accountType', 'Synthetic')
+            : form?.setFieldValue('accountType', 'Financial')
+        sub_tab === 'Synthetic'
+            ? form?.setFieldValue('optionList', syntheticItemLists)
+            : form?.setFieldValue('optionList', financialItemLists)
     }
     const onSubTabClick = (tab) => setSubTab(tab)
 

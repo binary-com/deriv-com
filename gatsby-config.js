@@ -157,7 +157,7 @@ module.exports = {
                 stages: ['develop'],
                 extensions: ['js'],
                 exclude: ['node_modules', '.cache', 'public'],
-              },
+            },
         },
         {
             resolve: 'gatsby-plugin-stylelint',
@@ -174,11 +174,7 @@ module.exports = {
                     {
                         userAgent: '*',
                         allow: '/',
-                        disallow: [
-                            '/404/',
-                            '/homepage/',
-                            '/landing/',
-                        ],
+                        disallow: ['/404/', '/homepage/', '/landing/'],
                     },
                 ],
             },
@@ -199,7 +195,6 @@ module.exports = {
                 includeInDevelopment: false,
             },
         },
-        'gatsby-plugin-remove-serviceworker',
         {
             resolve: 'gatsby-plugin-anchor-links',
             options: {
@@ -213,6 +208,16 @@ module.exports = {
                 disable: !process.env.ANALYZE_BUNDLE_SIZE,
                 generateStatsFile: true,
                 analyzerMode: 'static',
+            },
+        },
+        {
+            resolve: `gatsby-plugin-offline`,
+            options: {
+                workboxConfig: {
+                    importScripts: [
+                        `https://cdn.pushwoosh.com/webpush/v3/pushwoosh-service-worker.js`,
+                    ],
+                },
             },
         },
     ],

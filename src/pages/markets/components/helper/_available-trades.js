@@ -121,7 +121,7 @@ const CardContainer = styled(Flex)`
         width: 100%;
         height: 6rem;
         min-width: unset;
-        padding-right: 0;
+        padding-right: 20px;
     }
 `
 const TabIcon = styled.img`

@@ -12,6 +12,10 @@ import {
     Divider,
 } from 'components/elements'
 import { localize, LocalizedLink, Localize } from 'components/localization'
+<<<<<<< HEAD
+=======
+import { blog_url, community_url } from 'common/constants'
+>>>>>>> e10e7646f7 (fix contant url)
 import device from 'themes/device'
 import { DerivStore } from 'store'
 // icons

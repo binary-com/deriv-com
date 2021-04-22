@@ -5,6 +5,10 @@ import { Text, Header, QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
 import { localize } from 'components/localization'
 import { Container, SectionContainer, Flex } from 'components/containers'
+<<<<<<< HEAD
+=======
+import { community_url } from 'common/constants'
+>>>>>>> e10e7646f7 (fix contant url)
 import device from 'themes/device'
 
 const query = graphql`

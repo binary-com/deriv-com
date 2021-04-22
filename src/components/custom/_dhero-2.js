@@ -189,6 +189,12 @@ const query = graphql`
         dmt5_mobile: file(relativePath: { eq: "dmt5_trade_mobile.png" }) {
             ...fadeIn
         }
+        derivx: file(relativePath: { eq: "derivx/hero-laptop.png" }) {
+            ...backGroundBlur
+        }
+        derivx_mobile: file(relativePath: { eq: "derivx/hero-laptop-mobile.png" }) {
+            ...backGroundBlur
+        }
     }
 `
 

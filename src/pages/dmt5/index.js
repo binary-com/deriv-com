@@ -8,9 +8,9 @@ import {
     DBanner,
     MarginCalculator,
 } from './_lazy-load'
-import DHero from './_dhero'
 import Numbers from './_numbers'
 import WhatIsTrader from './_what-is-trader'
+import DHero from 'components/custom/_dhero-2'
 import BackgroundPatternDMT5 from 'images/svg/bg_banner_dmt5.svg'
 import BackgroundPatternDMT5_mobile from 'images/svg/bg_banner_dmt5_mobile.svg'
 import Layout from 'components/layout/layout'

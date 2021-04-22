@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+    <defs>
+        <linearGradient id="ugsljturia" x1="63.183%" x2="44.398%" y1="-9.799%" y2="101.954%">
+            <stop offset="0%" stop-color="#F26447"/>
+            <stop offset="100%" stop-color="#EF4852"/>
+        </linearGradient>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <g fill-rule="nonzero">
+            <g>
+                <path fill="#1A1A1A" d="M0 6c0-3.314 2.686-6 6-6h20c3.314 0 6 2.686 6 6v20c0 3.314-2.686 6-6 6H6c-3.314 0-6-2.686-6-6V6z" transform="translate(-16 -364) translate(16 364)"/>
+                <path fill="url(#ugsljturia)" d="M6.706 10.5l4.21 5.5-6.75 5.5h6.823c.967 0 1.905-.33 2.662-.932.757-.602 1.287-1.442 1.505-2.384l.565-2.447c.144-.627.146-1.278.004-1.905-.142-.628-.424-1.215-.824-1.719-.4-.503-.91-.91-1.49-1.189-.579-.28-1.214-.424-1.857-.424H6.706z" transform="translate(-16 -364) translate(16 364)"/>
+                <path fill="#CC2F3E" d="M10.917 16L7.917 21.5 4.167 21.5z" transform="translate(-16 -364) translate(16 364)"/>
+                <path fill="#FFF" d="M20.526 10.5L17.27 10.5 19.833 16 15.33 21.5 18.588 21.5 23.089 16zM24.702 10.5L27.997 10.5 24.09 15.226 22.909 12.691zM22.761 21.5L21.741 19.311 23.817 16.776 26.018 21.5z" transform="translate(-16 -364) translate(16 364)"/>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -44,9 +44,14 @@ const DropdownSearch = ({
 }) => {
     const [input_value, setInputValue] = useState('')
     const [dropdown_items, setDropdownItems] = useState([...items])
-    const [is_open, dropdown_ref, nodes, handleChange, toggleListVisibility] = useDropdownHooks(
-        onChange,
-    )
+    const [
+        is_open,
+        dropdown_ref,
+        nodes,
+        handleChange,
+        toggleListVisibility,
+        setOpen,
+    ] = useDropdownHooks(onChange)
 
     const handleInputChange = (e) => {
         setInputValue(e.target.value)
@@ -58,7 +63,7 @@ const DropdownSearch = ({
         handleChange(option, error)
     }
 
-    const handleKeyUp = (e) => {
+    const handleKeyUp = () => {
         const filtered_items =
             input_value === ''
                 ? items
@@ -67,7 +72,7 @@ const DropdownSearch = ({
                       return !!regex.test(i.name)
                   })
         setDropdownItems(filtered_items)
-        toggleListVisibility(e)
+        setOpen(true)
     }
 
     return (
@@ -89,6 +94,7 @@ const DropdownSearch = ({
                         tabIndex="0"
                         onClick={toggleListVisibility}
                         onChange={handleInputChange}
+                        onFocus={toggleListVisibility}
                         onKeyUp={handleKeyUp}
                         has_short_name={has_short_name}
                         value={input_value}

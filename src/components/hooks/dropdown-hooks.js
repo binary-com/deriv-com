@@ -63,5 +63,5 @@ export const useDropdownHooks = (onChange) => {
         closeList()
     }
 
-    return [is_open, dropdown_ref, nodes, handleChange, toggleListVisibility]
+    return [is_open, dropdown_ref, nodes, handleChange, toggleListVisibility, setOpen]
 }

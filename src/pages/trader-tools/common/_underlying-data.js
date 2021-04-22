@@ -479,8 +479,8 @@ export const financialItemLists = [
     },
     {
         name: 'MRNA',
-        display_name: localize('Moderna Inc.'),
-        icon: <img src={MRNA} alt="moderna inc." />,
+        display_name: localize('Moderna Inc'),
+        icon: <img src={MRNA} alt="moderna inc" />,
         market: 'other',
     },
     {

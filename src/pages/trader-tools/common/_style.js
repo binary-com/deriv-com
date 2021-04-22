@@ -87,7 +87,7 @@ export const ContentContainer = styled(Flex)`
         margin: 40px 0;
     }
     @media ${device.laptop} {
-        margin-bottom: 40px;
+        margin-bottom: 0;
         padding: 0 16px;
     }
 `
@@ -110,18 +110,26 @@ export const SwapFormWrapper = styled(FormWrapper)`
     }
 `
 
-export const CalculatorForm = styled(Form)`
+const CalculatorFormStyles = css`
     background-color: var(--color-white);
     border-radius: 10px;
     box-sizing: border-box;
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.05);
-    width: 54rem;
 
     @media ${device.mobileL} {
-        width: 328px;
         margin-bottom: 20px;
     }
 `
+
+export const CalculatorForm = styled(Form)`
+    ${CalculatorFormStyles}
+    width: 54rem;
+`
+export const PnlCalculatorFormMobile = styled(Form)`
+    ${CalculatorFormStyles}
+    width: 328px;
+`
+
 export const PnlHeaderOverflow = styled.div`
     width: 328px;
     border-radius: 8px 8px 0 0;
@@ -140,10 +148,18 @@ export const CalculatorHeader = styled.div`
 export const PnlCalculatorHeader = styled.div`
     ${CalculatorHeaderStyles}
 
-    @media ${device.mobileL} {
+    @media (max-width: 424px) {
         width: 440px;
         overflow-x: scroll;
     }
+`
+
+export const PnlCalculatorHeaderMobile = styled.div`
+    border-radius: 8px 8px 0 0;
+    padding: 2.4rem;
+    background-color: var(--color-blue-4);
+    width: 440px;
+    overflow-x: scroll;
 `
 
 export const CalculatorLabel = styled.label`

@@ -23,7 +23,9 @@ import {
     CalculatorBody,
     CalculatorDropdown,
     CalculatorForm,
-    PnlCalculatorHeader,
+    PnlCalculatorFormMobile,
+    CalculatorHeader,
+    PnlCalculatorHeaderMobile,
     PnlHeaderOverflow,
     CalculatorLabel,
     PnLCalculatorOutputContainer,
@@ -65,8 +67,18 @@ const PnlMarginCalculator = () => {
             ) {
                 ...fadeIn
             }
+            stop_loss_level_formula_mobile: file(
+                relativePath: { eq: "trade-tools/stop-loss-level-formula-mobile.png" }
+            ) {
+                ...fadeIn
+            }
             stop_loss_pip_formula: file(
                 relativePath: { eq: "trade-tools/stop-loss-pip-formula.png" }
+            ) {
+                ...fadeIn
+            }
+            stop_loss_pip_formula_mobile: file(
+                relativePath: { eq: "trade-tools/stop-loss-pip-formula-mobile.png" }
             ) {
                 ...fadeIn
             }
@@ -75,8 +87,18 @@ const PnlMarginCalculator = () => {
             ) {
                 ...fadeIn
             }
+            take_profit_level_formula_mobile: file(
+                relativePath: { eq: "trade-tools/take-profit-level-formula-mobile.png" }
+            ) {
+                ...fadeIn
+            }
             take_profit_pip_formula: file(
                 relativePath: { eq: "trade-tools/take-profit-pip-formula.png" }
+            ) {
+                ...fadeIn
+            }
+            take_profit_pip_formula_mobile: file(
+                relativePath: { eq: "trade-tools/take-profit-pip-formula-mobile.png" }
             ) {
                 ...fadeIn
             }
@@ -184,7 +206,7 @@ const PnlMarginCalculator = () => {
                                 <>
                                     <Show.Desktop max_width="mobileL">
                                         <CalculatorForm>
-                                            <PnlCalculatorHeader>
+                                            <CalculatorHeader>
                                                 <Flex mb="24px">
                                                     <Flex fd="column" mr="24px">
                                                         <CalculatorLabel htmlFor="message">
@@ -250,7 +272,7 @@ const PnlMarginCalculator = () => {
                                                         </PnLCalculatorOutputContainer>
                                                     </Flex>
                                                 </Flex>
-                                            </PnlCalculatorHeader>
+                                            </CalculatorHeader>
 
                                             <CalculatorBody>
                                                 <CalculatorLabel>
@@ -607,9 +629,9 @@ const PnlMarginCalculator = () => {
                                     </Show.Desktop>
 
                                     <Show.Mobile min_width="mobileL">
-                                        <CalculatorForm>
+                                        <PnlCalculatorFormMobile>
                                             <PnlHeaderOverflow>
-                                                <PnlCalculatorHeader>
+                                                <PnlCalculatorHeaderMobile>
                                                     <Flex mb="24px">
                                                         <Flex fd="column" mr="24px">
                                                             <CalculatorLabel htmlFor="message">
@@ -675,7 +697,7 @@ const PnlMarginCalculator = () => {
                                                             </PnLCalculatorOutputContainer>
                                                         </Flex>
                                                     </Flex>
-                                                </PnlCalculatorHeader>
+                                                </PnlCalculatorHeaderMobile>
                                             </PnlHeaderOverflow>
 
                                             <CalculatorBody>
@@ -746,6 +768,90 @@ const PnlMarginCalculator = () => {
                                                 />
                                                 <InputGroup>
                                                     <Field
+                                                        name="volume"
+                                                        value={values.volume}
+                                                        onChange={(value) => {
+                                                            setFieldValue('volume', value)
+                                                        }}
+                                                    >
+                                                        {({ field }) => (
+                                                            <Input
+                                                                {...field}
+                                                                id="volume"
+                                                                type="text"
+                                                                label={localize('Volume')}
+                                                                autoComplete="off"
+                                                                error={
+                                                                    touched.volume && errors.volume
+                                                                }
+                                                                onBlur={handleBlur}
+                                                                data-lpignore="true"
+                                                                handleError={(current_input) => {
+                                                                    setFieldValue(
+                                                                        'volume',
+                                                                        '',
+                                                                        false,
+                                                                    )
+                                                                    setFieldError('volume', '')
+                                                                    setFieldTouched(
+                                                                        'volume',
+                                                                        false,
+                                                                        false,
+                                                                    )
+                                                                    current_input.focus()
+                                                                }}
+                                                                maxLength="8"
+                                                                background="white"
+                                                            />
+                                                        )}
+                                                    </Field>
+                                                </InputGroup>
+                                                <InputGroup>
+                                                    <Field
+                                                        name="assetPrice"
+                                                        value={values.assetPrice}
+                                                        onChange={(value) => {
+                                                            setFieldValue('assetPrice', value)
+                                                        }}
+                                                    >
+                                                        {({ field }) => (
+                                                            <Input
+                                                                {...field}
+                                                                id="assetPrice"
+                                                                type="text"
+                                                                value={values.assetPrice}
+                                                                label={localize(
+                                                                    'Open price of asset',
+                                                                )}
+                                                                autoComplete="off"
+                                                                error={
+                                                                    touched.assetPrice &&
+                                                                    errors.assetPrice
+                                                                }
+                                                                onBlur={handleBlur}
+                                                                data-lpignore="true"
+                                                                handleError={(current_input) => {
+                                                                    setFieldValue(
+                                                                        'assetPrice',
+                                                                        '',
+                                                                        false,
+                                                                    )
+                                                                    setFieldError('assetPrice', '')
+                                                                    setFieldTouched(
+                                                                        'assetPrice',
+                                                                        false,
+                                                                        false,
+                                                                    )
+                                                                    current_input.focus()
+                                                                }}
+                                                                maxLength="15"
+                                                                background="white"
+                                                            />
+                                                        )}
+                                                    </Field>
+                                                </InputGroup>
+                                                <InputGroup>
+                                                    <Field
                                                         name="pointValue"
                                                         value={values.pointValue}
                                                         onChange={(value) => {
@@ -774,47 +880,6 @@ const PnlMarginCalculator = () => {
                                                                     setFieldError('pointValue', '')
                                                                     setFieldTouched(
                                                                         'pointValue',
-                                                                        false,
-                                                                        false,
-                                                                    )
-                                                                    current_input.focus()
-                                                                }}
-                                                                maxLength="8"
-                                                                background="white"
-                                                            />
-                                                        )}
-                                                    </Field>
-                                                </InputGroup>
-
-                                                <InputGroup>
-                                                    <Field
-                                                        name="volume"
-                                                        value={values.volume}
-                                                        onChange={(value) => {
-                                                            setFieldValue('volume', value)
-                                                        }}
-                                                    >
-                                                        {({ field }) => (
-                                                            <Input
-                                                                {...field}
-                                                                id="volume"
-                                                                type="text"
-                                                                label={localize('Volume')}
-                                                                autoComplete="off"
-                                                                error={
-                                                                    touched.volume && errors.volume
-                                                                }
-                                                                onBlur={handleBlur}
-                                                                data-lpignore="true"
-                                                                handleError={(current_input) => {
-                                                                    setFieldValue(
-                                                                        'volume',
-                                                                        '',
-                                                                        false,
-                                                                    )
-                                                                    setFieldError('volume', '')
-                                                                    setFieldTouched(
-                                                                        'volume',
                                                                         false,
                                                                         false,
                                                                     )
@@ -867,51 +932,6 @@ const PnlMarginCalculator = () => {
                                                                     current_input.focus()
                                                                 }}
                                                                 maxLength="8"
-                                                                background="white"
-                                                            />
-                                                        )}
-                                                    </Field>
-                                                </InputGroup>
-
-                                                <InputGroup>
-                                                    <Field
-                                                        name="assetPrice"
-                                                        value={values.assetPrice}
-                                                        onChange={(value) => {
-                                                            setFieldValue('assetPrice', value)
-                                                        }}
-                                                    >
-                                                        {({ field }) => (
-                                                            <Input
-                                                                {...field}
-                                                                id="assetPrice"
-                                                                type="text"
-                                                                value={values.assetPrice}
-                                                                label={localize(
-                                                                    'Open price of asset',
-                                                                )}
-                                                                autoComplete="off"
-                                                                error={
-                                                                    touched.assetPrice &&
-                                                                    errors.assetPrice
-                                                                }
-                                                                onBlur={handleBlur}
-                                                                data-lpignore="true"
-                                                                handleError={(current_input) => {
-                                                                    setFieldValue(
-                                                                        'assetPrice',
-                                                                        '',
-                                                                        false,
-                                                                    )
-                                                                    setFieldError('assetPrice', '')
-                                                                    setFieldTouched(
-                                                                        'assetPrice',
-                                                                        false,
-                                                                        false,
-                                                                    )
-                                                                    current_input.focus()
-                                                                }}
-                                                                maxLength="15"
                                                                 background="white"
                                                             />
                                                         )}
@@ -973,7 +993,7 @@ const PnlMarginCalculator = () => {
                                                     </CalculateButton>
                                                 </Flex>
                                             </CalculatorBody>
-                                        </CalculatorForm>
+                                        </PnlCalculatorFormMobile>
                                     </Show.Mobile>
                                 </>
                             )}
@@ -1040,15 +1060,15 @@ const PnlMarginCalculator = () => {
                                     }}
                                     plus
                                 >
-                                    <Show.Desktop>
+                                    <Show.Desktop max_width="mobileL">
                                         <QueryImage
                                             data={data.stop_loss_level_formula}
                                             alt={localize('stop loss level formula')}
                                         />
                                     </Show.Desktop>
-                                    <Show.Mobile>
+                                    <Show.Mobile min_width="mobileL">
                                         <QueryImage
-                                            data={data.stop_loss_level_formula}
+                                            data={data.stop_loss_level_formula_mobile}
                                             alt={localize('stop loss level formula')}
                                         />
                                     </Show.Mobile>
@@ -1068,15 +1088,15 @@ const PnlMarginCalculator = () => {
                                     header_style={header_style}
                                     plus
                                 >
-                                    <Show.Desktop>
+                                    <Show.Desktop max_width="mobileL">
                                         <QueryImage
                                             data={data.stop_loss_pip_formula}
                                             alt={localize('stop loss pip formula')}
                                         />
                                     </Show.Desktop>
-                                    <Show.Mobile>
+                                    <Show.Mobile min_width="mobileL">
                                         <QueryImage
-                                            data={data.stop_loss_pip_formula}
+                                            data={data.stop_loss_pip_formula_mobile}
                                             alt={localize('stop loss pip formula')}
                                         />
                                     </Show.Mobile>
@@ -1176,15 +1196,15 @@ const PnlMarginCalculator = () => {
                                     }}
                                     plus
                                 >
-                                    <Show.Desktop>
+                                    <Show.Desktop max_width="mobileL">
                                         <QueryImage
                                             data={data.take_profit_level_formula}
                                             alt={localize('take profit level formula')}
                                         />
                                     </Show.Desktop>
-                                    <Show.Mobile>
+                                    <Show.Mobile min_width="mobileL">
                                         <QueryImage
-                                            data={data.take_profit_level_formula}
+                                            data={data.take_profit_level_formula_mobile}
                                             alt={localize('take profit level formula')}
                                         />
                                     </Show.Mobile>
@@ -1204,15 +1224,15 @@ const PnlMarginCalculator = () => {
                                     header_style={header_style}
                                     plus
                                 >
-                                    <Show.Desktop>
+                                    <Show.Desktop max_width="mobileL">
                                         <QueryImage
                                             data={data.take_profit_pip_formula}
                                             alt={localize('take profit pip formula')}
                                         />
                                     </Show.Desktop>
-                                    <Show.Mobile>
+                                    <Show.Mobile min_width="mobileL">
                                         <QueryImage
-                                            data={data.take_profit_level_formula}
+                                            data={data.take_profit_level_formula_mobile}
                                             alt={localize('take profit pip formula')}
                                         />
                                     </Show.Mobile>

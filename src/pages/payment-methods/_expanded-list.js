@@ -16,7 +16,7 @@ const StyledButton = styled(Button)`
 const StyledChevron = styled.img`
     height: 16px;
     width: 16px;
-    margin-left: 40px;
+    margin: 26px 0 32px;
     transform: ${(props) => (props.expanded ? 'inherit' : 'rotate(-180deg)')};
     transition: transform 0.25s ease-out;
 `
@@ -58,6 +58,8 @@ const Td = styled.td`
 const HoverTd = styled(Td)`
     transition: background 0.25s;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
 
     &:hover {
         background: var(--color-grey-8);
@@ -165,7 +167,7 @@ const ExpandList = ({ data, config, is_crypto, is_fiat_onramp, locale }) => {
                         <Text align="center">-</Text>
                     )}
                 </Td>
-                <HoverTd onClick={toggleExpand}>
+                <HoverTd onClick={toggleExpand} >
                     <StyledChevron src={Chevron} alt="chevron" expanded={is_expanded} />
                 </HoverTd>
             </Tr>

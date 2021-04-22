@@ -82,7 +82,22 @@ const validation = {
         return numberValidation(input, localize('Take profit amount'), 15)
     },
     stopLossAmount: (input) => {
-        return numberWithNegativeValidation(input, localize('Stop loss amount'), 15)
+        return numberValidation(input, localize('Stop loss amount'), 15)
+    },
+    takeProfitLevel: (input) => {
+        return numberValidation(input, localize('Take profit level'), 15)
+    },
+    stopLossLevel: (input) => {
+        return numberValidation(input, localize('Stop loss level'), 15)
+    },
+    commission: (input) => {
+        return numberValidation(input, localize('Commission'), 15)
+    },
+    stake: (input) => {
+        return numberValidation(input, localize('Stake'), 15)
+    },
+    multiplier: (input) => {
+        return numberValidation(input, localize('Multiplier'), 4)
     },
 }
 

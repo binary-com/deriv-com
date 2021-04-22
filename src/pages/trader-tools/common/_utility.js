@@ -53,6 +53,7 @@ const getSwapChargeForex = (values) => {
     return toFixed(swap_formula_forex)
 }
 
+// PnL Margin Calculator
 const getStopLossLevel = (values) => {
     let { assetPrice, stopLossAmount, volume, contractSize } = values
     assetPrice = Number(assetPrice)
@@ -85,8 +86,98 @@ const getTakeProfitPip = (values) => {
     return toFixed(take_profit_pip_formula)
 }
 
+// PnL Multipliers Calculator
+const getStopLossLevelUp = (values) => {
+    let { assetPrice, stopLossAmount, commission, stake, multiplier } = values
+    stopLossAmount = Number(stopLossAmount)
+    commission = Number(commission)
+    const middle_portion_formula = (toNegative(stopLossAmount) + commission) / (stake * multiplier)
+    const stop_loss_level_up_formula = assetPrice * (middle_portion_formula + 1)
+    return toFixed(stop_loss_level_up_formula)
+}
+
+const getTakeProfitLevelUp = (values) => {
+    let { assetPrice, takeProfitAmount, commission, stake, multiplier } = values
+    takeProfitAmount = Number(takeProfitAmount)
+    commission = Number(commission)
+    const middle_portion_formula =
+        (toNegative(takeProfitAmount) + commission) / (stake * multiplier)
+    const take_profit_level_up_formula = assetPrice * (middle_portion_formula + 1)
+    return toFixed(take_profit_level_up_formula)
+}
+
+const getStopLossLevelDown = (values) => {
+    let { assetPrice, stopLossAmount, commission, stake, multiplier } = values
+    stopLossAmount = Number(stopLossAmount)
+    commission = Number(commission)
+    const middle_portion_formula = (toNegative(stopLossAmount) - commission) / (stake * multiplier)
+    const stop_loss_level_down_formula = assetPrice * (middle_portion_formula + 1)
+    return toFixed(stop_loss_level_down_formula)
+}
+
+const getTakeProfitLevelDown = (values) => {
+    let { assetPrice, takeProfitAmount, commission, stake, multiplier } = values
+    takeProfitAmount = Number(takeProfitAmount)
+    commission = Number(commission)
+    const middle_portion_formula =
+        (toNegative(takeProfitAmount) - commission) / (stake * multiplier)
+    const take_profit_level_down_formula = assetPrice * (middle_portion_formula + 1)
+    return toFixed(take_profit_level_down_formula)
+}
+
+const getTakeProfitAmountUp = (values) => {
+    let { assetPrice, takeProfitLevel, commission, stake, multiplier } = values
+    takeProfitLevel = Number(takeProfitLevel)
+    assetPrice = Number(assetPrice)
+    commission = Number(commission)
+    const middle_portion_formula = ((takeProfitLevel - assetPrice) / assetPrice) * multiplier
+    const calculation = stake * middle_portion_formula - commission
+    const take_profit_amount_up_formula = Math.max(calculation, toNegative(stake))
+    return toFixed(take_profit_amount_up_formula)
+}
+
+const getStopLossAmountUp = (values) => {
+    let { assetPrice, stopLossLevel, commission, stake, multiplier } = values
+    stopLossLevel = Number(stopLossLevel)
+    assetPrice = Number(assetPrice)
+    commission = Number(commission)
+    const middle_portion_formula = ((stopLossLevel - assetPrice) / assetPrice) * multiplier
+    const calculation = stake * middle_portion_formula - commission
+    const stop_loss_amount_up_formula = Math.max(calculation, toNegative(stake))
+    return toFixed(stop_loss_amount_up_formula)
+}
+
+const getStopLossAmountDown = (values) => {
+    let { assetPrice, stopLossLevel, commission, stake, multiplier } = values
+    stopLossLevel = Number(stopLossLevel)
+    assetPrice = Number(assetPrice)
+    commission = Number(commission)
+    stake = Number(stake)
+    const middle_portion_formula = ((-1 * (stopLossLevel - assetPrice)) / assetPrice) * multiplier
+    const calculation = stake * middle_portion_formula - commission
+    const stop_loss_amount_down_formula = Math.max(calculation, toNegative(stake))
+    return toFixed(stop_loss_amount_down_formula)
+}
+
+const getTakeProfitAmountDown = (values) => {
+    let { assetPrice, takeProfitLevel, commission, stake, multiplier } = values
+    takeProfitLevel = Number(takeProfitLevel)
+    assetPrice = Number(assetPrice)
+    commission = Number(commission)
+    stake = Number(stake)
+    const middle_portion_formula = ((-1 * (takeProfitLevel - assetPrice)) / assetPrice) * multiplier
+    const calculation = stake * middle_portion_formula - commission
+    const stop_loss_amount_down_formula = Math.max(calculation, toNegative(stake))
+    return toFixed(stop_loss_amount_down_formula)
+}
+
+// Utilities
 const toFixed = (val) => {
     return parseFloat(val.toFixed(3)).toLocaleString()
+}
+
+const toNegative = (val) => {
+    return Math.abs(Number(val)) * -1
 }
 
 const getCurrency = (symbol) => {
@@ -197,6 +288,44 @@ const resetValidationPnlMargin = (values) => {
     return errors
 }
 
+const resetValidationPnlMultipliers = (values) => {
+    const errors = {}
+    const assetPrice_error = validation.assetPrice(values.assetPrice)
+    const takeProfitAmount_error = validation.takeProfitAmount(values.takeProfitAmount)
+    const stopLossAmount_error = validation.stopLossAmount(values.stopLossAmount)
+    const takeProfitLevel_error = validation.takeProfitLevel(values.takeProfitLevel)
+    const stopLossLevel_error = validation.stopLossLevel(values.stopLossLevel)
+    const commission_error = validation.commission(values.commission)
+    const stake_error = validation.stake(values.stake)
+    const multiplier_error = validation.multiplier(values.multiplier)
+
+    if (commission_error) {
+        errors.commission = commission_error
+    }
+    if (stake_error) {
+        errors.stake = stake_error
+    }
+    if (multiplier_error) {
+        errors.multiplier = multiplier_error
+    }
+    if (assetPrice_error) {
+        errors.assetPrice = assetPrice_error
+    }
+    if (takeProfitAmount_error) {
+        errors.takeProfitAmount = takeProfitAmount_error
+    }
+    if (stopLossAmount_error) {
+        errors.stopLossAmount = stopLossAmount_error
+    }
+    if (takeProfitLevel_error) {
+        errors.takeProfitLevel = takeProfitLevel_error
+    }
+    if (stopLossLevel_error) {
+        errors.stopLossLevel = stopLossLevel_error
+    }
+    return errors
+}
+
 const resetValidationSynthetic = (values) => {
     const errors = {}
     const assetPrice_error = validation.assetPrice(values.assetPrice)
@@ -261,6 +390,8 @@ const numberSubmitFormatNegative = (input) => {
 }
 
 export {
+    getStopLossAmountUp,
+    getTakeProfitAmountDown,
     getMargin,
     getSwapChargeSynthetic,
     getPipValue,
@@ -269,11 +400,18 @@ export {
     getSwapChargeForex,
     getTakeProfitLevel,
     getTakeProfitPip,
+    getStopLossLevelUp,
+    getTakeProfitLevelUp,
+    getStopLossLevelDown,
+    getTakeProfitLevelDown,
+    getTakeProfitAmountUp,
+    getStopLossAmountDown,
     resetValidationPip,
     resetValidationSynthetic,
     resetValidationForex,
     resetValidationMargin,
     resetValidationPnlMargin,
+    resetValidationPnlMultipliers,
     getCurrency,
     getContractSize,
     numberSubmitFormatNegative,

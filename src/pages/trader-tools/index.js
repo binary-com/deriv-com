@@ -55,19 +55,18 @@ const tools = [
         image_name: 'pnl_margin',
         image_alt: localize('PnL margin'),
     },
-    // TODO: TO ENABLE WHEN THE OTHER PAGES ARE READY
-    // {
-    //     title: <Localize translate_text="PnL for multipliers" />,
-    //     subtitle: (
-    //         <Localize translate_text="Estimate the stop loss and/or take profit level as well as the stop loss and/or take profit amount for your contract to mitigate your risk in case the market price moves against your favour." />
-    //     ),
-    //     link: {
-    //         text: <Localize translate_text="Try PnL for multipliers" />,
-    //         route: '/trader-tools/pnl-for-multipliers',
-    //     },
-    //     image_name: 'pnl_multipliers',
-    //     image_alt: localize('PnL multipliers'),
-    // },
+    {
+        title: <Localize translate_text="PnL for multipliers" />,
+        subtitle: (
+            <Localize translate_text="Estimate the stop loss and/or take profit level as well as the stop loss and/or take profit amount for your contract to mitigate your risk in case the market price moves against your favour." />
+        ),
+        link: {
+            text: <Localize translate_text="Try PnL for multipliers" />,
+            route: '/trader-tools/pnl-for-multipliers',
+        },
+        image_name: 'pnl_multipliers',
+        image_alt: localize('PnL multipliers'),
+    },
 ]
 
 const TraderTools = () => {

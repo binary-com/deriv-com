@@ -27,6 +27,11 @@ const AgreementLabel = ({handleChangeCheckbox, isChecked}) => {
     return (
          <label style={{fontWeight: 'normal', lineHeight: '1px', marginTop: '5px', marginBottom:'20px' }}>
                 <Checkbox
+                    style={{
+                        border: '0',
+                        clip: 'rect(0px, 0px, 0px, 0px)',
+                        position: 'absolute',
+                    }}
                     class="signup_agree_tnc"
                     secondary
                     onChange={handleChange}

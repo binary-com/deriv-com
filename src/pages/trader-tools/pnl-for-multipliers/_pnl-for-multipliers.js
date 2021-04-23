@@ -626,7 +626,7 @@ const PnlMultipliersCalculator = () => {
                                                         <CalculateButton
                                                             secondary
                                                             type="submit"
-                                                            disabled={!dirty}
+                                                            disabled={!isValid || !dirty}
                                                         >
                                                             {localize('Calculate')}
                                                         </CalculateButton>
@@ -1621,7 +1621,7 @@ const PnlMultipliersCalculator = () => {
                                                         <CalculateButton
                                                             secondary
                                                             type="submit"
-                                                            disabled={!dirty}
+                                                            disabled={!isValid || !dirty}
                                                         >
                                                             {localize('Calculate')}
                                                         </CalculateButton>

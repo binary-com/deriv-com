@@ -6,8 +6,8 @@ const deriv_me_url = 'deriv.me'
 const supported_domains = [deriv_com_url, deriv_me_url]
 const domain_url =
     isBrowser() && supported_domains.includes(window.location.hostname)
-    ? window.location.hostname
-    : deriv_com_url
+        ? window.location.hostname
+        : deriv_com_url
 
 export const deriv_app_url = `https://app.${domain_url}`
 export const deriv_bot_app_url = `https://app.${domain_url}/bot`
@@ -55,4 +55,3 @@ export const p2p_playstore_url = 'https://play.google.com/store/apps/details?id=
 export const pushwoosh_app_code = 'DD293-35A19'
 export const sample_rate = 25
 export const zoho_url = 'https://deriv.zohorecruit.com'
-// TODELETE: Testing - For redeployment

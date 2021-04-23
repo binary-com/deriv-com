@@ -62,8 +62,8 @@ const PnlMultipliersCalculator = () => {
             ) {
                 ...fadeIn
             }
-            stop_loss_level_formula_mobile: file(
-                relativePath: { eq: "trade-tools/stop-loss-level-formula-mobile.png" }
+            stop_loss_level_up_formula_mobile: file(
+                relativePath: { eq: "trade-tools/stop-loss-level-up-formula-mobile.png" }
             ) {
                 ...fadeIn
             }
@@ -82,8 +82,8 @@ const PnlMultipliersCalculator = () => {
             ) {
                 ...fadeIn
             }
-            take_profit_level_formula_mobile: file(
-                relativePath: { eq: "trade-tools/take-profit-level-formula-mobile.png" }
+            take_profit_level_down_formula_mobile: file(
+                relativePath: { eq: "trade-tools/take-profit-level-down-formula-mobile.png" }
             ) {
                 ...fadeIn
             }
@@ -1061,8 +1061,8 @@ const PnlMultipliersCalculator = () => {
                                     </Show.Desktop>
                                     <Show.Mobile min_width="mobileL">
                                         <QueryImage
-                                            data={data.stop_loss_level_formula_mobile}
-                                            alt={localize('stop loss level formula')}
+                                            data={data.stop_loss_level_up_formula_mobile}
+                                            alt={localize('stop loss level up formula')}
                                         />
                                     </Show.Mobile>
                                     <FormulaText size="14px">
@@ -1102,8 +1102,8 @@ const PnlMultipliersCalculator = () => {
                                     </Show.Desktop>
                                     <Show.Mobile min_width="mobileL">
                                         <QueryImage
-                                            data={data.stop_loss_pip_formula_mobile}
-                                            alt={localize('stop loss pip formula')}
+                                            data={data.take_profit_level_down_formula_mobile}
+                                            alt={localize('take profit level down formula')}
                                         />
                                     </Show.Mobile>
                                     <FormulaText size="14px">

@@ -63,7 +63,7 @@ const DropdownSearch = ({
         handleChange(option, error)
     }
 
-    const handleKeyUp = () => {
+    const handleKeyUp = (e) => {
         const filtered_items =
             input_value === ''
                 ? items
@@ -72,6 +72,7 @@ const DropdownSearch = ({
                       return !!regex.test(i.name)
                   })
         setDropdownItems(filtered_items)
+        toggleListVisibility(e)
         setOpen(true)
     }
 

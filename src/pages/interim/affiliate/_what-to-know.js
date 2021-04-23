@@ -23,7 +23,8 @@ const WhatToKnow = () => {
                 </Text>
                 <Text align="center" size="var(--text-size-m)">
                     <Localize
-                        translate_text={`The new affiliate login URL will change to <0>${login_url}</0> and you will automatically be redirected to this address on <1>3 June 2020 (Wednesday)</1>.`}
+                        translate_text="The new affiliate login URL will change to <0>${login_url}</0> and you will automatically be redirected to this address on <1>3 June 2020 (Wednesday)</1>."
+                        values={{ login_url }}
                         components={[
                             <LocalizedLinkText
                                 key={1}

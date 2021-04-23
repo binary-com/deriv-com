@@ -88,11 +88,15 @@ const getTakeProfitPip = (values) => {
 
 // PnL Multipliers Calculator
 const getStopLossLevelUp = (values) => {
+    //eslint-disable-next-line
+    console.log(values)
     let { assetPrice, stopLossAmount, commission, stake, multiplier } = values
     stopLossAmount = Number(stopLossAmount)
     commission = Number(commission)
     const middle_portion_formula = (toNegative(stopLossAmount) + commission) / (stake * multiplier)
     const stop_loss_level_up_formula = assetPrice * (middle_portion_formula + 1)
+    //eslint-disable-next-line
+    console.log(stop_loss_level_up_formula)
     return toFixed(stop_loss_level_up_formula)
 }
 
@@ -103,6 +107,8 @@ const getTakeProfitLevelUp = (values) => {
     const middle_portion_formula =
         (toNegative(takeProfitAmount) + commission) / (stake * multiplier)
     const take_profit_level_up_formula = assetPrice * (middle_portion_formula + 1)
+    //eslint-disable-next-line
+    console.log(take_profit_level_up_formula)
     return toFixed(take_profit_level_up_formula)
 }
 
@@ -112,6 +118,8 @@ const getStopLossLevelDown = (values) => {
     commission = Number(commission)
     const middle_portion_formula = (toNegative(stopLossAmount) - commission) / (stake * multiplier)
     const stop_loss_level_down_formula = assetPrice * (middle_portion_formula + 1)
+    //eslint-disable-next-line
+    console.log(stop_loss_level_down_formula)
     return toFixed(stop_loss_level_down_formula)
 }
 
@@ -122,6 +130,8 @@ const getTakeProfitLevelDown = (values) => {
     const middle_portion_formula =
         (toNegative(takeProfitAmount) - commission) / (stake * multiplier)
     const take_profit_level_down_formula = assetPrice * (middle_portion_formula + 1)
+    //eslint-disable-next-line
+    console.log(take_profit_level_down_formula)
     return toFixed(take_profit_level_down_formula)
 }
 
@@ -177,7 +187,7 @@ const toFixed = (val) => {
 }
 
 const toNegative = (val) => {
-    return Math.abs(Number(val)) * -1
+    return Math.abs(val) * -1
 }
 
 const getCurrency = (symbol) => {

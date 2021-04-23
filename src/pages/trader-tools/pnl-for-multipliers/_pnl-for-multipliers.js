@@ -107,10 +107,10 @@ const PnlMultipliersCalculator = () => {
     const [sub_tab, setSubTab] = useState('Up')
 
     const onTabClick = (tab) => {
-        const form = formik_ref.current
+        // const form = formik_ref.current
         setTab(tab)
-        form?.resetForm()
-        form?.setErrors()
+        // form?.resetForm()
+        // form?.setErrors()
     }
     const onSubTabClick = (tab) => setSubTab(tab)
 
@@ -151,106 +151,84 @@ const PnlMultipliersCalculator = () => {
                     </SwapTabSelector>
                 </Flex>
 
-                <ContentContainer mb="4.0rem">
-                    <FormWrapper>
-                        <Formik
-                            innerRef={formik_ref}
-                            enableReinitialize
-                            initialValues={{
-                                direction: 'Up',
-                                pnlMarginSymbol: 'USD',
-                                stopLossLevelOutput: 0,
-                                stopLossAmountOutput: 0,
-                                takeProfitLevelOutput: 0,
-                                takeProfitAmountOutput: 0,
-                                takeProfitAmount: '',
-                                takeProfitLevel: '',
-                                stopLossAmount: '',
-                                stopLossLevel: '',
-                                assetPrice: '',
-                                commission: '',
-                                stake: '',
-                                multiplier: '',
-                            }}
-                            // validate={resetValidationPnlMultipliers}
-                            onSubmit={(values, { setFieldValue }) => {
-                                sub_tab === 'Up'
-                                    ? setFieldValue(
-                                          'takeProfitLevelOutput',
-                                          getTakeProfitLevelUp(values),
-                                      )
-                                    : setFieldValue(
-                                          'takeProfitLevelOutput',
-                                          getTakeProfitLevelDown(values),
-                                      )
-                                sub_tab === 'Up'
-                                    ? setFieldValue(
-                                          'stopLossLevelOutput',
-                                          getStopLossLevelUp(values),
-                                      )
-                                    : setFieldValue(
-                                          'stopLossLevelOutput',
-                                          getStopLossLevelDown(values),
-                                      )
-                                sub_tab === 'Up'
-                                    ? setFieldValue(
-                                          'takeProfitAmountOutput',
-                                          getTakeProfitAmountUp(values),
-                                      )
-                                    : setFieldValue(
-                                          'takeProfitAmountOutput',
-                                          getTakeProfitAmountDown(values),
-                                      )
-                                sub_tab === 'Up'
-                                    ? setFieldValue(
-                                          'stopLossAmountOutput',
-                                          getStopLossAmountUp(values),
-                                      )
-                                    : setFieldValue(
-                                          'stopLossAmountOutput',
-                                          getStopLossAmountDown(values),
-                                      )
-
-                                setFieldValue('assetPrice', numberSubmitFormat(values.assetPrice))
-                                setFieldValue('commission', numberSubmitFormat(values.commission))
-                                setFieldValue('stake', numberSubmitFormat(values.stake))
-                                setFieldValue('multiplier', numberSubmitFormat(values.multiplier))
-                                setFieldValue(
-                                    'takeProfitAmount',
-                                    numberSubmitFormat(values.takeProfitAmount),
-                                )
-                                setFieldValue(
-                                    'takeProfitLevel',
-                                    numberSubmitFormat(values.takeProfitLevel),
-                                )
-                                setFieldValue(
-                                    'stopLossAmount',
-                                    numberSubmitFormat(values.stopLossAmount),
-                                )
-                                setFieldValue(
-                                    'stopLossLevel',
-                                    numberSubmitFormat(values.stopLossLevel),
-                                )
-                            }}
-                        >
-                            {({
-                                values,
-                                setFieldValue,
-                                handleBlur,
-                                errors,
-                                touched,
-                                setFieldError,
-                                setFieldTouched,
-                                isValid,
-                                dirty,
-                                // setErrors,
-                                // resetForm,
-                            }) => (
-                                <>
-                                    <Show.Desktop max_width="mobileL">
-                                        <CalculatorForm>
-                                            <CalculatorHeader>
-                                                {tab === 'Level' ? (
+                {tab === 'Level' ? (
+                    <ContentContainer mb="4.0rem">
+                        <FormWrapper>
+                            <Formik
+                                innerRef={formik_ref}
+                                enableReinitialize
+                                initialValues={{
+                                    direction: 'Up',
+                                    pnlMarginSymbol: 'USD',
+                                    stopLossLevelOutput: 0,
+                                    takeProfitLevelOutput: 0,
+                                    takeProfitAmount: '',
+                                    stopLossAmount: '',
+                                    assetPrice: '',
+                                    commission: '',
+                                    stake: '',
+                                    multiplier: '',
+                                }}
+                                // validate={resetValidationPnlMultipliers}
+                                onSubmit={(values, { setFieldValue }) => {
+                                    sub_tab === 'Up'
+                                        ? setFieldValue(
+                                              'takeProfitLevelOutput',
+                                              getTakeProfitLevelUp(values),
+                                          )
+                                        : setFieldValue(
+                                              'takeProfitLevelOutput',
+                                              getTakeProfitLevelDown(values),
+                                          )
+                                    sub_tab === 'Up'
+                                        ? setFieldValue(
+                                              'stopLossLevelOutput',
+                                              getStopLossLevelUp(values),
+                                          )
+                                        : setFieldValue(
+                                              'stopLossLevelOutput',
+                                              getStopLossLevelDown(values),
+                                          )
+                                    setFieldValue(
+                                        'assetPrice',
+                                        numberSubmitFormat(values.assetPrice),
+                                    )
+                                    setFieldValue(
+                                        'commission',
+                                        numberSubmitFormat(values.commission),
+                                    )
+                                    setFieldValue('stake', numberSubmitFormat(values.stake))
+                                    setFieldValue(
+                                        'multiplier',
+                                        numberSubmitFormat(values.multiplier),
+                                    )
+                                    setFieldValue(
+                                        'takeProfitAmount',
+                                        numberSubmitFormat(values.takeProfitAmount),
+                                    )
+                                    setFieldValue(
+                                        'stopLossAmount',
+                                        numberSubmitFormat(values.stopLossAmount),
+                                    )
+                                }}
+                            >
+                                {({
+                                    values,
+                                    setFieldValue,
+                                    handleBlur,
+                                    errors,
+                                    touched,
+                                    setFieldError,
+                                    setFieldTouched,
+                                    // isValid,
+                                    dirty,
+                                    // setErrors,
+                                    // resetForm,
+                                }) => (
+                                    <>
+                                        <Show.Desktop max_width="mobileL">
+                                            <CalculatorForm>
+                                                <CalculatorHeader>
                                                     <Flex>
                                                         <Flex fd="column" mr="24px">
                                                             <CalculatorLabel htmlFor="message">
@@ -283,233 +261,207 @@ const PnlMultipliersCalculator = () => {
                                                             </PnLCalculatorOutputContainer>
                                                         </Flex>
                                                     </Flex>
-                                                ) : (
-                                                    <Flex>
-                                                        <Flex fd="column" mr="24px">
-                                                            <CalculatorLabel htmlFor="message">
-                                                                {localize('Take profit amount')}
-                                                            </CalculatorLabel>
-                                                            <PnLCalculatorOutputContainer>
-                                                                <PnLCalculatorOutputField>
-                                                                    {numberWithCommas(
-                                                                        values.takeProfitAmountOutput,
+                                                </CalculatorHeader>
+
+                                                <CalculatorBody>
+                                                    <CalculatorLabel>
+                                                        {localize('Direction')}
+                                                    </CalculatorLabel>
+                                                    <Flex
+                                                        mb="3rem"
+                                                        mt="1rem"
+                                                        jc="space-between"
+                                                        tablet={{ height: 'unset' }}
+                                                    >
+                                                        <PnlCalculatorTabItem
+                                                            active={sub_tab === 'Up'}
+                                                            onClick={() => {
+                                                                onSubTabClick('Up')
+                                                                setFieldValue('direction', 'Up')
+                                                            }}
+                                                        >
+                                                            <Text align="center">
+                                                                {localize('Up')}
+                                                            </Text>
+                                                        </PnlCalculatorTabItem>
+                                                        <PnlCalculatorTabItem
+                                                            active={sub_tab === 'Down'}
+                                                            disabled={sub_tab === 'Down'}
+                                                            onClick={() => {
+                                                                onSubTabClick('Down')
+                                                                setFieldValue('direction', 'Down')
+                                                            }}
+                                                        >
+                                                            <Text align="center">
+                                                                {localize('Down')}
+                                                            </Text>
+                                                        </PnlCalculatorTabItem>
+                                                    </Flex>
+                                                    <Flex jc="space-between" mb="17px">
+                                                        <Flex fd="column" width="23.4rem">
+                                                            <PnLInputGroup>
+                                                                <Field
+                                                                    name="assetPrice"
+                                                                    value={values.assetPrice}
+                                                                    onChange={(value) => {
+                                                                        setFieldValue(
+                                                                            'assetPrice',
+                                                                            value,
+                                                                        )
+                                                                    }}
+                                                                >
+                                                                    {({ field }) => (
+                                                                        <Input
+                                                                            {...field}
+                                                                            id="assetPrice"
+                                                                            type="text"
+                                                                            label={localize(
+                                                                                'Asset price',
+                                                                            )}
+                                                                            autoComplete="off"
+                                                                            error={
+                                                                                touched.assetPrice &&
+                                                                                errors.assetPrice
+                                                                            }
+                                                                            onBlur={handleBlur}
+                                                                            data-lpignore="true"
+                                                                            handleError={(
+                                                                                current_input,
+                                                                            ) => {
+                                                                                setFieldValue(
+                                                                                    'assetPrice',
+                                                                                    '',
+                                                                                    false,
+                                                                                )
+                                                                                setFieldError(
+                                                                                    'assetPrice',
+                                                                                    '',
+                                                                                )
+                                                                                setFieldTouched(
+                                                                                    'assetPrice',
+                                                                                    false,
+                                                                                    false,
+                                                                                )
+                                                                                current_input.focus()
+                                                                            }}
+                                                                            maxLength="8"
+                                                                            background="white"
+                                                                        />
                                                                     )}
-                                                                </PnLCalculatorOutputField>
-                                                                <PnLCalculatorOutputSymbol>
-                                                                    {values.pnlMarginSymbol}
-                                                                </PnLCalculatorOutputSymbol>
-                                                            </PnLCalculatorOutputContainer>
+                                                                </Field>
+                                                            </PnLInputGroup>
                                                         </Flex>
-                                                        <Flex fd="column">
-                                                            <CalculatorLabel htmlFor="message">
-                                                                {localize('Stop loss amount')}
-                                                            </CalculatorLabel>
-                                                            <PnLCalculatorOutputContainer>
-                                                                <PnLCalculatorOutputField>
-                                                                    {values.stopLossAmountOutput}
-                                                                </PnLCalculatorOutputField>
-                                                                <PnLCalculatorOutputSymbol>
-                                                                    {values.pnlMarginSymbol}
-                                                                </PnLCalculatorOutputSymbol>
-                                                            </PnLCalculatorOutputContainer>
+                                                        <Flex fd="column" width="23.4rem">
+                                                            <PnLInputGroup>
+                                                                <Field
+                                                                    name="commission"
+                                                                    value={values.commission}
+                                                                    onChange={(value) => {
+                                                                        setFieldValue(
+                                                                            'commission',
+                                                                            value,
+                                                                        )
+                                                                    }}
+                                                                >
+                                                                    {({ field }) => (
+                                                                        <Input
+                                                                            {...field}
+                                                                            id="commission"
+                                                                            type="text"
+                                                                            label={localize(
+                                                                                'Commission',
+                                                                            )}
+                                                                            autoComplete="off"
+                                                                            error={
+                                                                                touched.commission &&
+                                                                                errors.commission
+                                                                            }
+                                                                            onBlur={handleBlur}
+                                                                            data-lpignore="true"
+                                                                            handleError={(
+                                                                                current_input,
+                                                                            ) => {
+                                                                                setFieldValue(
+                                                                                    'commission',
+                                                                                    '',
+                                                                                    false,
+                                                                                )
+                                                                                setFieldError(
+                                                                                    'commission',
+                                                                                    '',
+                                                                                )
+                                                                                setFieldTouched(
+                                                                                    'commission',
+                                                                                    false,
+                                                                                    false,
+                                                                                )
+                                                                                current_input.focus()
+                                                                            }}
+                                                                            maxLength="8"
+                                                                            background="white"
+                                                                        />
+                                                                    )}
+                                                                </Field>
+                                                            </PnLInputGroup>
                                                         </Flex>
                                                     </Flex>
-                                                )}
-                                            </CalculatorHeader>
 
-                                            <CalculatorBody>
-                                                <CalculatorLabel>
-                                                    {localize('Direction')}
-                                                </CalculatorLabel>
-                                                <Flex
-                                                    mb="3rem"
-                                                    mt="1rem"
-                                                    jc="space-between"
-                                                    tablet={{ height: 'unset' }}
-                                                >
-                                                    <PnlCalculatorTabItem
-                                                        active={sub_tab === 'Up'}
-                                                        onClick={() => {
-                                                            onSubTabClick('Up')
-                                                            setFieldValue('direction', 'Up')
-                                                        }}
-                                                    >
-                                                        <Text align="center">{localize('Up')}</Text>
-                                                    </PnlCalculatorTabItem>
-                                                    <PnlCalculatorTabItem
-                                                        active={sub_tab === 'Down'}
-                                                        disabled={sub_tab === 'Down'}
-                                                        onClick={() => {
-                                                            onSubTabClick('Down')
-                                                            setFieldValue('direction', 'Down')
-                                                        }}
-                                                    >
-                                                        <Text align="center">
-                                                            {localize('Down')}
-                                                        </Text>
-                                                    </PnlCalculatorTabItem>
-                                                </Flex>
-                                                <Flex jc="space-between" mb="17px">
-                                                    <Flex fd="column" width="23.4rem">
-                                                        <PnLInputGroup>
-                                                            <Field
-                                                                name="assetPrice"
-                                                                value={values.assetPrice}
-                                                                onChange={(value) => {
-                                                                    setFieldValue(
-                                                                        'assetPrice',
-                                                                        value,
-                                                                    )
-                                                                }}
-                                                            >
-                                                                {({ field }) => (
-                                                                    <Input
-                                                                        {...field}
-                                                                        id="assetPrice"
-                                                                        type="text"
-                                                                        label={localize(
-                                                                            'Asset price',
-                                                                        )}
-                                                                        autoComplete="off"
-                                                                        error={
-                                                                            touched.assetPrice &&
-                                                                            errors.assetPrice
-                                                                        }
-                                                                        onBlur={handleBlur}
-                                                                        data-lpignore="true"
-                                                                        handleError={(
-                                                                            current_input,
-                                                                        ) => {
-                                                                            setFieldValue(
-                                                                                'assetPrice',
-                                                                                '',
-                                                                                false,
-                                                                            )
-                                                                            setFieldError(
-                                                                                'assetPrice',
-                                                                                '',
-                                                                            )
-                                                                            setFieldTouched(
-                                                                                'assetPrice',
-                                                                                false,
-                                                                                false,
-                                                                            )
-                                                                            current_input.focus()
-                                                                        }}
-                                                                        maxLength="8"
-                                                                        background="white"
-                                                                    />
-                                                                )}
-                                                            </Field>
-                                                        </PnLInputGroup>
-                                                    </Flex>
-                                                    <Flex fd="column" width="23.4rem">
-                                                        <PnLInputGroup>
-                                                            <Field
-                                                                name="commission"
-                                                                value={values.commission}
-                                                                onChange={(value) => {
-                                                                    setFieldValue(
-                                                                        'commission',
-                                                                        value,
-                                                                    )
-                                                                }}
-                                                            >
-                                                                {({ field }) => (
-                                                                    <Input
-                                                                        {...field}
-                                                                        id="commission"
-                                                                        type="text"
-                                                                        label={localize(
-                                                                            'Commission',
-                                                                        )}
-                                                                        autoComplete="off"
-                                                                        error={
-                                                                            touched.commission &&
-                                                                            errors.commission
-                                                                        }
-                                                                        onBlur={handleBlur}
-                                                                        data-lpignore="true"
-                                                                        handleError={(
-                                                                            current_input,
-                                                                        ) => {
-                                                                            setFieldValue(
-                                                                                'commission',
-                                                                                '',
-                                                                                false,
-                                                                            )
-                                                                            setFieldError(
-                                                                                'commission',
-                                                                                '',
-                                                                            )
-                                                                            setFieldTouched(
-                                                                                'commission',
-                                                                                false,
-                                                                                false,
-                                                                            )
-                                                                            current_input.focus()
-                                                                        }}
-                                                                        maxLength="8"
-                                                                        background="white"
-                                                                    />
-                                                                )}
-                                                            </Field>
-                                                        </PnLInputGroup>
-                                                    </Flex>
-                                                </Flex>
-
-                                                <Flex jc="space-between" mb="17px">
-                                                    <Flex fd="column" width="23.4rem">
-                                                        <PnLInputGroup>
-                                                            <Field
-                                                                name="stake"
-                                                                value={values.stake}
-                                                                onChange={(value) => {
-                                                                    setFieldValue('stake', value)
-                                                                }}
-                                                            >
-                                                                {({ field }) => (
-                                                                    <Input
-                                                                        {...field}
-                                                                        id="stake"
-                                                                        type="text"
-                                                                        label={localize('Stake')}
-                                                                        autoComplete="off"
-                                                                        error={
-                                                                            touched.stake &&
-                                                                            errors.stake
-                                                                        }
-                                                                        onBlur={handleBlur}
-                                                                        data-lpignore="true"
-                                                                        handleError={(
-                                                                            current_input,
-                                                                        ) => {
-                                                                            setFieldValue(
-                                                                                'stake',
-                                                                                '',
-                                                                                false,
-                                                                            )
-                                                                            setFieldError(
-                                                                                'stake',
-                                                                                '',
-                                                                            )
-                                                                            setFieldTouched(
-                                                                                'stake',
-                                                                                false,
-                                                                                false,
-                                                                            )
-                                                                            current_input.focus()
-                                                                        }}
-                                                                        maxLength="8"
-                                                                        background="white"
-                                                                    />
-                                                                )}
-                                                            </Field>
-                                                        </PnLInputGroup>
-                                                    </Flex>
-                                                    <Flex fd="column" width="23.4rem">
-                                                        <PnLInputGroup>
-                                                            {tab === 'Level' ? (
+                                                    <Flex jc="space-between" mb="17px">
+                                                        <Flex fd="column" width="23.4rem">
+                                                            <PnLInputGroup>
+                                                                <Field
+                                                                    name="stake"
+                                                                    value={values.stake}
+                                                                    onChange={(value) => {
+                                                                        setFieldValue(
+                                                                            'stake',
+                                                                            value,
+                                                                        )
+                                                                    }}
+                                                                >
+                                                                    {({ field }) => (
+                                                                        <Input
+                                                                            {...field}
+                                                                            id="stake"
+                                                                            type="text"
+                                                                            label={localize(
+                                                                                'Stake',
+                                                                            )}
+                                                                            autoComplete="off"
+                                                                            error={
+                                                                                touched.stake &&
+                                                                                errors.stake
+                                                                            }
+                                                                            onBlur={handleBlur}
+                                                                            data-lpignore="true"
+                                                                            handleError={(
+                                                                                current_input,
+                                                                            ) => {
+                                                                                setFieldValue(
+                                                                                    'stake',
+                                                                                    '',
+                                                                                    false,
+                                                                                )
+                                                                                setFieldError(
+                                                                                    'stake',
+                                                                                    '',
+                                                                                )
+                                                                                setFieldTouched(
+                                                                                    'stake',
+                                                                                    false,
+                                                                                    false,
+                                                                                )
+                                                                                current_input.focus()
+                                                                            }}
+                                                                            maxLength="8"
+                                                                            background="white"
+                                                                        />
+                                                                    )}
+                                                                </Field>
+                                                            </PnLInputGroup>
+                                                        </Flex>
+                                                        <Flex fd="column" width="23.4rem">
+                                                            <PnLInputGroup>
                                                                 <Field
                                                                     name="takeProfitAmount"
                                                                     value={values.takeProfitAmount}
@@ -559,13 +511,19 @@ const PnlMultipliersCalculator = () => {
                                                                         />
                                                                     )}
                                                                 </Field>
-                                                            ) : (
+                                                            </PnLInputGroup>
+                                                        </Flex>
+                                                    </Flex>
+
+                                                    <Flex jc="space-between">
+                                                        <Flex fd="column" width="23.4rem">
+                                                            <PnLInputGroup>
                                                                 <Field
-                                                                    name="takeProfitLevel"
-                                                                    value={values.takeProfitLevel}
+                                                                    name="multiplier"
+                                                                    value={values.multiplier}
                                                                     onChange={(value) => {
                                                                         setFieldValue(
-                                                                            'takeProfitLevel',
+                                                                            'multiplier',
                                                                             value,
                                                                         )
                                                                     }}
@@ -573,15 +531,18 @@ const PnlMultipliersCalculator = () => {
                                                                     {({ field }) => (
                                                                         <Input
                                                                             {...field}
-                                                                            id="takeProfitLevel"
+                                                                            id="multiplier"
                                                                             type="text"
+                                                                            value={
+                                                                                values.multiplier
+                                                                            }
                                                                             label={localize(
-                                                                                'Take profit level',
+                                                                                'Multiplier',
                                                                             )}
                                                                             autoComplete="off"
                                                                             error={
-                                                                                touched.takeProfitLevel &&
-                                                                                errors.takeProfitLevel
+                                                                                touched.multiplier &&
+                                                                                errors.multiplier
                                                                             }
                                                                             onBlur={handleBlur}
                                                                             data-lpignore="true"
@@ -589,88 +550,29 @@ const PnlMultipliersCalculator = () => {
                                                                                 current_input,
                                                                             ) => {
                                                                                 setFieldValue(
-                                                                                    'takeProfitLevel',
+                                                                                    'multiplier',
                                                                                     '',
                                                                                     false,
                                                                                 )
                                                                                 setFieldError(
-                                                                                    'takeProfitLevel',
+                                                                                    'multiplier',
                                                                                     '',
                                                                                 )
                                                                                 setFieldTouched(
-                                                                                    'takeProfitLevel',
+                                                                                    'multiplier',
                                                                                     false,
                                                                                     false,
                                                                                 )
                                                                                 current_input.focus()
                                                                             }}
-                                                                            maxLength="8"
+                                                                            maxLength="4"
                                                                             background="white"
                                                                         />
                                                                     )}
                                                                 </Field>
-                                                            )}
-                                                        </PnLInputGroup>
-                                                    </Flex>
-                                                </Flex>
-
-                                                <Flex jc="space-between">
-                                                    <Flex fd="column" width="23.4rem">
-                                                        <PnLInputGroup>
-                                                            <Field
-                                                                name="multiplier"
-                                                                value={values.multiplier}
-                                                                onChange={(value) => {
-                                                                    setFieldValue(
-                                                                        'multiplier',
-                                                                        value,
-                                                                    )
-                                                                }}
-                                                            >
-                                                                {({ field }) => (
-                                                                    <Input
-                                                                        {...field}
-                                                                        id="multiplier"
-                                                                        type="text"
-                                                                        value={values.multiplier}
-                                                                        label={localize(
-                                                                            'Multiplier',
-                                                                        )}
-                                                                        autoComplete="off"
-                                                                        error={
-                                                                            touched.multiplier &&
-                                                                            errors.multiplier
-                                                                        }
-                                                                        onBlur={handleBlur}
-                                                                        data-lpignore="true"
-                                                                        handleError={(
-                                                                            current_input,
-                                                                        ) => {
-                                                                            setFieldValue(
-                                                                                'multiplier',
-                                                                                '',
-                                                                                false,
-                                                                            )
-                                                                            setFieldError(
-                                                                                'multiplier',
-                                                                                '',
-                                                                            )
-                                                                            setFieldTouched(
-                                                                                'multiplier',
-                                                                                false,
-                                                                                false,
-                                                                            )
-                                                                            current_input.focus()
-                                                                        }}
-                                                                        maxLength="4"
-                                                                        background="white"
-                                                                    />
-                                                                )}
-                                                            </Field>
-                                                        </PnLInputGroup>
-                                                    </Flex>
-                                                    <Flex fd="column" width="23.4rem">
-                                                        {tab === 'Level' ? (
+                                                            </PnLInputGroup>
+                                                        </Flex>
+                                                        <Flex fd="column" width="23.4rem">
                                                             <PnLInputGroup>
                                                                 <Field
                                                                     name="stopLossAmount"
@@ -725,446 +627,28 @@ const PnlMultipliersCalculator = () => {
                                                                     )}
                                                                 </Field>
                                                             </PnLInputGroup>
-                                                        ) : (
-                                                            <PnLInputGroup>
-                                                                <Field
-                                                                    name="stopLossLevel"
-                                                                    value={values.stopLossLevel}
-                                                                    onChange={(value) => {
-                                                                        setFieldValue(
-                                                                            'stopLossLevel',
-                                                                            value,
-                                                                        )
-                                                                    }}
-                                                                >
-                                                                    {({ field }) => (
-                                                                        <Input
-                                                                            {...field}
-                                                                            id="stopLossLevel"
-                                                                            type="text"
-                                                                            value={
-                                                                                values.stopLossLevel
-                                                                            }
-                                                                            label={localize(
-                                                                                'Stop loss level',
-                                                                            )}
-                                                                            autoComplete="off"
-                                                                            error={
-                                                                                touched.stopLossLevel &&
-                                                                                errors.stopLossLevel
-                                                                            }
-                                                                            onBlur={handleBlur}
-                                                                            data-lpignore="true"
-                                                                            handleError={(
-                                                                                current_input,
-                                                                            ) => {
-                                                                                setFieldValue(
-                                                                                    'stopLossLevel',
-                                                                                    '',
-                                                                                    false,
-                                                                                )
-                                                                                setFieldError(
-                                                                                    'stopLossLevel',
-                                                                                    '',
-                                                                                )
-                                                                                setFieldTouched(
-                                                                                    'stopLossLevel',
-                                                                                    false,
-                                                                                    false,
-                                                                                )
-                                                                                current_input.focus()
-                                                                            }}
-                                                                            maxLength="15"
-                                                                            background="white"
-                                                                        />
-                                                                    )}
-                                                                </Field>
-                                                            </PnLInputGroup>
-                                                        )}
-                                                    </Flex>
-                                                </Flex>
-
-                                                <Flex mt="1.5rem">
-                                                    <CalculateButton
-                                                        secondary
-                                                        type="submit"
-                                                        disabled={!isValid || !dirty}
-                                                    >
-                                                        {localize('Calculate')}
-                                                    </CalculateButton>
-                                                </Flex>
-                                            </CalculatorBody>
-                                        </CalculatorForm>
-                                    </Show.Desktop>
-
-                                    <Show.Mobile min_width="mobileL">
-                                        {/* <PnlCalculatorFormMobile>
-                                            <PnlHeaderOverflow>
-                                                <PnlCalculatorHeaderMobile>
-                                                    <Flex mb="24px">
-                                                        <Flex fd="column" mr="24px">
-                                                            <CalculatorLabel htmlFor="message">
-                                                                {localize('Stop loss pips')}
-                                                            </CalculatorLabel>
-                                                            <PnLCalculatorOutputContainer>
-                                                                <PnLCalculatorOutputField>
-                                                                    {numberWithCommas(
-                                                                        values.stopLossPips,
-                                                                    )}
-                                                                </PnLCalculatorOutputField>
-                                                                <PnLCalculatorOutputSymbol>
-                                                                    {values.pnlMarginSymbol}
-                                                                </PnLCalculatorOutputSymbol>
-                                                            </PnLCalculatorOutputContainer>
-                                                        </Flex>
-                                                        <Flex fd="column">
-                                                            <CalculatorLabel htmlFor="message">
-                                                                {localize('Stop loss level')}
-                                                            </CalculatorLabel>
-                                                            <PnLCalculatorOutputContainer>
-                                                                <PnLCalculatorOutputField>
-                                                                    {numberWithCommas(
-                                                                        values.stopLossLevel,
-                                                                    )}
-                                                                </PnLCalculatorOutputField>
-                                                                <PnLCalculatorOutputSymbol>
-                                                                    {values.pnlMarginSymbol}
-                                                                </PnLCalculatorOutputSymbol>
-                                                            </PnLCalculatorOutputContainer>
                                                         </Flex>
                                                     </Flex>
 
-                                                    <Flex>
-                                                        <Flex fd="column" mr="24px">
-                                                            <CalculatorLabel htmlFor="message">
-                                                                {localize('Take profit level')}
-                                                            </CalculatorLabel>
-                                                            <PnLCalculatorOutputContainer>
-                                                                <PnLCalculatorOutputField>
-                                                                    {numberWithCommas(
-                                                                        values.takeProfitLevelOutput,
-                                                                    )}
-                                                                </PnLCalculatorOutputField>
-                                                                <PnLCalculatorOutputSymbol>
-                                                                    {values.pnlMarginSymbol}
-                                                                </PnLCalculatorOutputSymbol>
-                                                            </PnLCalculatorOutputContainer>
-                                                        </Flex>
-                                                        <Flex fd="column">
-                                                            <CalculatorLabel htmlFor="message">
-                                                                {localize('Take profit level')}
-                                                            </CalculatorLabel>
-                                                            <PnLCalculatorOutputContainer>
-                                                                <PnLCalculatorOutputField>
-                                                                    {numberWithCommas(
-                                                                        values.takeProfitLevelOutput,
-                                                                    )}
-                                                                </PnLCalculatorOutputField>
-                                                                <PnLCalculatorOutputSymbol>
-                                                                    {values.pnlMarginSymbol}
-                                                                </PnLCalculatorOutputSymbol>
-                                                            </PnLCalculatorOutputContainer>
-                                                        </Flex>
+                                                    <Flex mt="1.5rem">
+                                                        <CalculateButton
+                                                            secondary
+                                                            type="submit"
+                                                            disabled={!dirty}
+                                                        >
+                                                            {localize('Calculate')}
+                                                        </CalculateButton>
                                                     </Flex>
-                                                </PnlCalculatorHeaderMobile>
-                                            </PnlHeaderOverflow>
+                                                </CalculatorBody>
+                                            </CalculatorForm>
+                                        </Show.Desktop>
 
-                                            <CalculatorBody>
-                                                <CalculatorLabel>
-                                                    {localize('Account type')}
-                                                </CalculatorLabel>
-                                                <Flex
-                                                    mb="3rem"
-                                                    mt="1rem"
-                                                    jc="space-between"
-                                                    tablet={{ height: 'unset' }}
-                                                >
-                                                    <PnlCalculatorTabItem
-                                                        active={sub_tab === 'Up'}
-                                                        onClick={() => {
-                                                            onSubTabClick('Up')
-                                                            setErrors()
-                                                            resetForm()
-                                                        }}
-                                                    >
-                                                        <Text align="center">{localize('Up')}</Text>
-                                                    </PnlCalculatorTabItem>
-                                                    <PnlCalculatorTabItem
-                                                        active={sub_tab === 'Down'}
-                                                        disabled={sub_tab === 'Down'}
-                                                        onClick={() => {
-                                                            onSubTabClick('Down')
-                                                            setErrors()
-                                                            resetForm()
-                                                            setFieldValue('direction', 'Down')
-                                                            setFieldValue(
-                                                                'optionList',
-                                                                financialItemLists,
-                                                            )
-                                                        }}
-                                                    >
-                                                        <Text align="center">
-                                                            {localize('Down')}
-                                                        </Text>
-                                                    </PnlCalculatorTabItem>
-                                                </Flex>
-                                                <CalculatorDropdown
-                                                    option_list={values.optionList}
-                                                    label={localize('Symbol')}
-                                                    default_option={optionItemDefault}
-                                                    selected_option={values.symbol}
-                                                    id="symbol"
-                                                    onChange={(value) => {
-                                                        setFieldValue(
-                                                            'pnlMarginSymbol',
-                                                            getCurrency(value),
-                                                        )
+                                        <Show.Mobile min_width="mobileL"></Show.Mobile>
+                                    </>
+                                )}
+                            </Formik>
+                        </FormWrapper>
 
-                                                        setFieldValue(
-                                                            'contractSize',
-                                                            getContractSize(value),
-                                                        )
-                                                        setFieldValue('symbol', value)
-                                                    }}
-                                                    contractSize={values.contractSize}
-                                                    error={touched.symbol && errors.symbol}
-                                                    onBlur={handleBlur}
-                                                />
-                                                <InputGroup>
-                                                    <Field
-                                                        name="volume"
-                                                        value={values.volume}
-                                                        onChange={(value) => {
-                                                            setFieldValue('volume', value)
-                                                        }}
-                                                    >
-                                                        {({ field }) => (
-                                                            <Input
-                                                                {...field}
-                                                                id="volume"
-                                                                type="text"
-                                                                label={localize('Volume')}
-                                                                autoComplete="off"
-                                                                error={
-                                                                    touched.volume && errors.volume
-                                                                }
-                                                                onBlur={handleBlur}
-                                                                data-lpignore="true"
-                                                                handleError={(current_input) => {
-                                                                    setFieldValue(
-                                                                        'volume',
-                                                                        '',
-                                                                        false,
-                                                                    )
-                                                                    setFieldError('volume', '')
-                                                                    setFieldTouched(
-                                                                        'volume',
-                                                                        false,
-                                                                        false,
-                                                                    )
-                                                                    current_input.focus()
-                                                                }}
-                                                                maxLength="8"
-                                                                background="white"
-                                                            />
-                                                        )}
-                                                    </Field>
-                                                </InputGroup>
-                                                <InputGroup>
-                                                    <Field
-                                                        name="assetPrice"
-                                                        value={values.assetPrice}
-                                                        onChange={(value) => {
-                                                            setFieldValue('assetPrice', value)
-                                                        }}
-                                                    >
-                                                        {({ field }) => (
-                                                            <Input
-                                                                {...field}
-                                                                id="assetPrice"
-                                                                type="text"
-                                                                value={values.assetPrice}
-                                                                label={localize(
-                                                                    'Open price of asset',
-                                                                )}
-                                                                autoComplete="off"
-                                                                error={
-                                                                    touched.assetPrice &&
-                                                                    errors.assetPrice
-                                                                }
-                                                                onBlur={handleBlur}
-                                                                data-lpignore="true"
-                                                                handleError={(current_input) => {
-                                                                    setFieldValue(
-                                                                        'assetPrice',
-                                                                        '',
-                                                                        false,
-                                                                    )
-                                                                    setFieldError('assetPrice', '')
-                                                                    setFieldTouched(
-                                                                        'assetPrice',
-                                                                        false,
-                                                                        false,
-                                                                    )
-                                                                    current_input.focus()
-                                                                }}
-                                                                maxLength="15"
-                                                                background="white"
-                                                            />
-                                                        )}
-                                                    </Field>
-                                                </InputGroup>
-                                                <InputGroup>
-                                                    <Field
-                                                        name="pointValue"
-                                                        value={values.pointValue}
-                                                        onChange={(value) => {
-                                                            setFieldValue('pointValue', value)
-                                                        }}
-                                                    >
-                                                        {({ field }) => (
-                                                            <Input
-                                                                {...field}
-                                                                id="pointValue"
-                                                                type="text"
-                                                                label={localize('Point value')}
-                                                                autoComplete="off"
-                                                                error={
-                                                                    touched.pointValue &&
-                                                                    errors.pointValue
-                                                                }
-                                                                onBlur={handleBlur}
-                                                                data-lpignore="true"
-                                                                handleError={(current_input) => {
-                                                                    setFieldValue(
-                                                                        'pointValue',
-                                                                        '',
-                                                                        false,
-                                                                    )
-                                                                    setFieldError('pointValue', '')
-                                                                    setFieldTouched(
-                                                                        'pointValue',
-                                                                        false,
-                                                                        false,
-                                                                    )
-                                                                    current_input.focus()
-                                                                }}
-                                                                maxLength="8"
-                                                                background="white"
-                                                            />
-                                                        )}
-                                                    </Field>
-                                                </InputGroup>
-                                                <InputGroup>
-                                                    <Field
-                                                        name="takeProfitAmount"
-                                                        value={values.takeProfitAmount}
-                                                        onChange={(value) => {
-                                                            setFieldValue('takeProfitAmount', value)
-                                                        }}
-                                                    >
-                                                        {({ field }) => (
-                                                            <Input
-                                                                {...field}
-                                                                id="takeProfitAmount"
-                                                                type="text"
-                                                                label={localize(
-                                                                    'Take profit amount',
-                                                                )}
-                                                                autoComplete="off"
-                                                                error={
-                                                                    touched.takeProfitAmount &&
-                                                                    errors.takeProfitAmount
-                                                                }
-                                                                onBlur={handleBlur}
-                                                                data-lpignore="true"
-                                                                handleError={(current_input) => {
-                                                                    setFieldValue(
-                                                                        'takeProfitAmount',
-                                                                        '',
-                                                                        false,
-                                                                    )
-                                                                    setFieldError(
-                                                                        'takeProfitAmount',
-                                                                        '',
-                                                                    )
-                                                                    setFieldTouched(
-                                                                        'takeProfitAmount',
-                                                                        false,
-                                                                        false,
-                                                                    )
-                                                                    current_input.focus()
-                                                                }}
-                                                                maxLength="8"
-                                                                background="white"
-                                                            />
-                                                        )}
-                                                    </Field>
-                                                </InputGroup>
-                                                <InputGroup>
-                                                    <Field
-                                                        name="stopLossAmount"
-                                                        value={values.stopLossAmount}
-                                                        onChange={(value) => {
-                                                            setFieldValue('stopLossAmount', value)
-                                                        }}
-                                                    >
-                                                        {({ field }) => (
-                                                            <Input
-                                                                {...field}
-                                                                id="assetPrice"
-                                                                type="text"
-                                                                value={values.stopLossAmount}
-                                                                label={localize('Stop loss amount')}
-                                                                autoComplete="off"
-                                                                error={
-                                                                    touched.stopLossAmount &&
-                                                                    errors.stopLossAmount
-                                                                }
-                                                                onBlur={handleBlur}
-                                                                data-lpignore="true"
-                                                                handleError={(current_input) => {
-                                                                    setFieldValue(
-                                                                        'stopLossAmount',
-                                                                        '',
-                                                                        false,
-                                                                    )
-                                                                    setFieldError(
-                                                                        'stopLossAmount',
-                                                                        '',
-                                                                    )
-                                                                    setFieldTouched(
-                                                                        'stopLossAmount',
-                                                                        false,
-                                                                        false,
-                                                                    )
-                                                                    current_input.focus()
-                                                                }}
-                                                                maxLength="15"
-                                                                background="white"
-                                                            />
-                                                        )}
-                                                    </Field>
-                                                </InputGroup>
-
-                                                <Flex mt="1.5rem">
-                                                    <CalculateButton
-                                                        secondary
-                                                        type="submit"
-                                                        disabled={!isValid || !dirty}
-                                                    >
-                                                        {localize('Calculate')}
-                                                    </CalculateButton>
-                                                </Flex>
-                                            </CalculatorBody>
-                                        </PnlCalculatorFormMobile> */}
-                                    </Show.Mobile>
-                                </>
-                            )}
-                        </Formik>
-                    </FormWrapper>
-
-                    {tab === 'Level' ? (
                         <RightContent>
                             <Header as="h3" type="section-title" mb="8px">
                                 {localize('How to calculate stop loss and/or take profit level')}
@@ -1294,8 +778,507 @@ const PnlMultipliersCalculator = () => {
                                 </StyledLinkButton>
                             </LinkWrapper>
                         </RightContent>
-                    ) : (
-                        <RightContent key={tab}>
+                    </ContentContainer>
+                ) : (
+                    <ContentContainer key={tab} mb="4.0rem">
+                        <FormWrapper>
+                            <Formik
+                                innerRef={formik_ref}
+                                enableReinitialize
+                                initialValues={{
+                                    direction: 'Up',
+                                    pnlMarginSymbol: 'USD',
+                                    stopLossAmountOutput: 0,
+                                    takeProfitAmountOutput: 0,
+                                    takeProfitLevel: '',
+                                    stopLossLevel: '',
+                                    assetPrice: '',
+                                    commission: '',
+                                    stake: '',
+                                    multiplier: '',
+                                }}
+                                // validate={resetValidationPnlMultipliers}
+                                onSubmit={(values, { setFieldValue }) => {
+                                    sub_tab === 'Up'
+                                        ? setFieldValue(
+                                              'takeProfitAmountOutput',
+                                              getTakeProfitAmountUp(values),
+                                          )
+                                        : setFieldValue(
+                                              'takeProfitAmountOutput',
+                                              getTakeProfitAmountDown(values),
+                                          )
+                                    sub_tab === 'Up'
+                                        ? setFieldValue(
+                                              'stopLossAmountOutput',
+                                              getStopLossAmountUp(values),
+                                          )
+                                        : setFieldValue(
+                                              'stopLossAmountOutput',
+                                              getStopLossAmountDown(values),
+                                          )
+
+                                    setFieldValue(
+                                        'assetPrice',
+                                        numberSubmitFormat(values.assetPrice),
+                                    )
+                                    setFieldValue(
+                                        'commission',
+                                        numberSubmitFormat(values.commission),
+                                    )
+                                    setFieldValue('stake', numberSubmitFormat(values.stake))
+                                    setFieldValue(
+                                        'multiplier',
+                                        numberSubmitFormat(values.multiplier),
+                                    )
+                                    setFieldValue(
+                                        'takeProfitLevel',
+                                        numberSubmitFormat(values.takeProfitLevel),
+                                    )
+                                    setFieldValue(
+                                        'stopLossLevel',
+                                        numberSubmitFormat(values.stopLossLevel),
+                                    )
+                                }}
+                            >
+                                {({
+                                    values,
+                                    setFieldValue,
+                                    handleBlur,
+                                    errors,
+                                    touched,
+                                    setFieldError,
+                                    setFieldTouched,
+                                    // isValid,
+                                    dirty,
+                                    // setErrors,
+                                    // resetForm,
+                                }) => (
+                                    <>
+                                        <Show.Desktop max_width="mobileL">
+                                            <CalculatorForm>
+                                                <CalculatorHeader>
+                                                    <Flex>
+                                                        <Flex fd="column" mr="24px">
+                                                            <CalculatorLabel htmlFor="message">
+                                                                {localize('Take profit amount')}
+                                                            </CalculatorLabel>
+                                                            <PnLCalculatorOutputContainer>
+                                                                <PnLCalculatorOutputField>
+                                                                    {numberWithCommas(
+                                                                        values.takeProfitAmountOutput,
+                                                                    )}
+                                                                </PnLCalculatorOutputField>
+                                                                <PnLCalculatorOutputSymbol>
+                                                                    {values.pnlMarginSymbol}
+                                                                </PnLCalculatorOutputSymbol>
+                                                            </PnLCalculatorOutputContainer>
+                                                        </Flex>
+                                                        <Flex fd="column">
+                                                            <CalculatorLabel htmlFor="message">
+                                                                {localize('Stop loss amount')}
+                                                            </CalculatorLabel>
+                                                            <PnLCalculatorOutputContainer>
+                                                                <PnLCalculatorOutputField>
+                                                                    {numberWithCommas(
+                                                                        values.stopLossAmountOutput,
+                                                                    )}
+                                                                </PnLCalculatorOutputField>
+                                                                <PnLCalculatorOutputSymbol>
+                                                                    {values.pnlMarginSymbol}
+                                                                </PnLCalculatorOutputSymbol>
+                                                            </PnLCalculatorOutputContainer>
+                                                        </Flex>
+                                                    </Flex>
+                                                </CalculatorHeader>
+
+                                                <CalculatorBody>
+                                                    <CalculatorLabel>
+                                                        {localize('Direction')}
+                                                    </CalculatorLabel>
+                                                    <Flex
+                                                        mb="3rem"
+                                                        mt="1rem"
+                                                        jc="space-between"
+                                                        tablet={{ height: 'unset' }}
+                                                    >
+                                                        <PnlCalculatorTabItem
+                                                            active={sub_tab === 'Up'}
+                                                            onClick={() => {
+                                                                onSubTabClick('Up')
+                                                                setFieldValue('direction', 'Up')
+                                                            }}
+                                                        >
+                                                            <Text align="center">
+                                                                {localize('Up')}
+                                                            </Text>
+                                                        </PnlCalculatorTabItem>
+                                                        <PnlCalculatorTabItem
+                                                            active={sub_tab === 'Down'}
+                                                            disabled={sub_tab === 'Down'}
+                                                            onClick={() => {
+                                                                onSubTabClick('Down')
+                                                                setFieldValue('direction', 'Down')
+                                                            }}
+                                                        >
+                                                            <Text align="center">
+                                                                {localize('Down')}
+                                                            </Text>
+                                                        </PnlCalculatorTabItem>
+                                                    </Flex>
+                                                    <Flex jc="space-between" mb="17px">
+                                                        <Flex fd="column" width="23.4rem">
+                                                            <PnLInputGroup>
+                                                                <Field
+                                                                    name="assetPrice"
+                                                                    value={values.assetPrice}
+                                                                    onChange={(value) => {
+                                                                        setFieldValue(
+                                                                            'assetPrice',
+                                                                            value,
+                                                                        )
+                                                                    }}
+                                                                >
+                                                                    {({ field }) => (
+                                                                        <Input
+                                                                            {...field}
+                                                                            id="assetPrice"
+                                                                            type="text"
+                                                                            label={localize(
+                                                                                'Asset price',
+                                                                            )}
+                                                                            autoComplete="off"
+                                                                            error={
+                                                                                touched.assetPrice &&
+                                                                                errors.assetPrice
+                                                                            }
+                                                                            onBlur={handleBlur}
+                                                                            data-lpignore="true"
+                                                                            handleError={(
+                                                                                current_input,
+                                                                            ) => {
+                                                                                setFieldValue(
+                                                                                    'assetPrice',
+                                                                                    '',
+                                                                                    false,
+                                                                                )
+                                                                                setFieldError(
+                                                                                    'assetPrice',
+                                                                                    '',
+                                                                                )
+                                                                                setFieldTouched(
+                                                                                    'assetPrice',
+                                                                                    false,
+                                                                                    false,
+                                                                                )
+                                                                                current_input.focus()
+                                                                            }}
+                                                                            maxLength="8"
+                                                                            background="white"
+                                                                        />
+                                                                    )}
+                                                                </Field>
+                                                            </PnLInputGroup>
+                                                        </Flex>
+                                                        <Flex fd="column" width="23.4rem">
+                                                            <PnLInputGroup>
+                                                                <Field
+                                                                    name="commission"
+                                                                    value={values.commission}
+                                                                    onChange={(value) => {
+                                                                        setFieldValue(
+                                                                            'commission',
+                                                                            value,
+                                                                        )
+                                                                    }}
+                                                                >
+                                                                    {({ field }) => (
+                                                                        <Input
+                                                                            {...field}
+                                                                            id="commission"
+                                                                            type="text"
+                                                                            label={localize(
+                                                                                'Commission',
+                                                                            )}
+                                                                            autoComplete="off"
+                                                                            error={
+                                                                                touched.commission &&
+                                                                                errors.commission
+                                                                            }
+                                                                            onBlur={handleBlur}
+                                                                            data-lpignore="true"
+                                                                            handleError={(
+                                                                                current_input,
+                                                                            ) => {
+                                                                                setFieldValue(
+                                                                                    'commission',
+                                                                                    '',
+                                                                                    false,
+                                                                                )
+                                                                                setFieldError(
+                                                                                    'commission',
+                                                                                    '',
+                                                                                )
+                                                                                setFieldTouched(
+                                                                                    'commission',
+                                                                                    false,
+                                                                                    false,
+                                                                                )
+                                                                                current_input.focus()
+                                                                            }}
+                                                                            maxLength="8"
+                                                                            background="white"
+                                                                        />
+                                                                    )}
+                                                                </Field>
+                                                            </PnLInputGroup>
+                                                        </Flex>
+                                                    </Flex>
+
+                                                    <Flex jc="space-between" mb="17px">
+                                                        <Flex fd="column" width="23.4rem">
+                                                            <PnLInputGroup>
+                                                                <Field
+                                                                    name="stake"
+                                                                    value={values.stake}
+                                                                    onChange={(value) => {
+                                                                        setFieldValue(
+                                                                            'stake',
+                                                                            value,
+                                                                        )
+                                                                    }}
+                                                                >
+                                                                    {({ field }) => (
+                                                                        <Input
+                                                                            {...field}
+                                                                            id="stake"
+                                                                            type="text"
+                                                                            label={localize(
+                                                                                'Stake',
+                                                                            )}
+                                                                            autoComplete="off"
+                                                                            error={
+                                                                                touched.stake &&
+                                                                                errors.stake
+                                                                            }
+                                                                            onBlur={handleBlur}
+                                                                            data-lpignore="true"
+                                                                            handleError={(
+                                                                                current_input,
+                                                                            ) => {
+                                                                                setFieldValue(
+                                                                                    'stake',
+                                                                                    '',
+                                                                                    false,
+                                                                                )
+                                                                                setFieldError(
+                                                                                    'stake',
+                                                                                    '',
+                                                                                )
+                                                                                setFieldTouched(
+                                                                                    'stake',
+                                                                                    false,
+                                                                                    false,
+                                                                                )
+                                                                                current_input.focus()
+                                                                            }}
+                                                                            maxLength="8"
+                                                                            background="white"
+                                                                        />
+                                                                    )}
+                                                                </Field>
+                                                            </PnLInputGroup>
+                                                        </Flex>
+                                                        <Flex fd="column" width="23.4rem">
+                                                            <PnLInputGroup>
+                                                                <Field
+                                                                    name="takeProfitLevel"
+                                                                    value={values.takeProfitLevel}
+                                                                    onChange={(value) => {
+                                                                        setFieldValue(
+                                                                            'takeProfitLevel',
+                                                                            value,
+                                                                        )
+                                                                    }}
+                                                                >
+                                                                    {({ field }) => (
+                                                                        <Input
+                                                                            {...field}
+                                                                            id="takeProfitLevel"
+                                                                            type="text"
+                                                                            label={localize(
+                                                                                'Take profit level',
+                                                                            )}
+                                                                            autoComplete="off"
+                                                                            error={
+                                                                                touched.takeProfitLevel &&
+                                                                                errors.takeProfitLevel
+                                                                            }
+                                                                            onBlur={handleBlur}
+                                                                            data-lpignore="true"
+                                                                            handleError={(
+                                                                                current_input,
+                                                                            ) => {
+                                                                                setFieldValue(
+                                                                                    'takeProfitLevel',
+                                                                                    '',
+                                                                                    false,
+                                                                                )
+                                                                                setFieldError(
+                                                                                    'takeProfitLevel',
+                                                                                    '',
+                                                                                )
+                                                                                setFieldTouched(
+                                                                                    'takeProfitLevel',
+                                                                                    false,
+                                                                                    false,
+                                                                                )
+                                                                                current_input.focus()
+                                                                            }}
+                                                                            maxLength="8"
+                                                                            background="white"
+                                                                        />
+                                                                    )}
+                                                                </Field>
+                                                            </PnLInputGroup>
+                                                        </Flex>
+                                                    </Flex>
+
+                                                    <Flex jc="space-between">
+                                                        <Flex fd="column" width="23.4rem">
+                                                            <PnLInputGroup>
+                                                                <Field
+                                                                    name="multiplier"
+                                                                    value={values.multiplier}
+                                                                    onChange={(value) => {
+                                                                        setFieldValue(
+                                                                            'multiplier',
+                                                                            value,
+                                                                        )
+                                                                    }}
+                                                                >
+                                                                    {({ field }) => (
+                                                                        <Input
+                                                                            {...field}
+                                                                            id="multiplier"
+                                                                            type="text"
+                                                                            value={
+                                                                                values.multiplier
+                                                                            }
+                                                                            label={localize(
+                                                                                'Multiplier',
+                                                                            )}
+                                                                            autoComplete="off"
+                                                                            error={
+                                                                                touched.multiplier &&
+                                                                                errors.multiplier
+                                                                            }
+                                                                            onBlur={handleBlur}
+                                                                            data-lpignore="true"
+                                                                            handleError={(
+                                                                                current_input,
+                                                                            ) => {
+                                                                                setFieldValue(
+                                                                                    'multiplier',
+                                                                                    '',
+                                                                                    false,
+                                                                                )
+                                                                                setFieldError(
+                                                                                    'multiplier',
+                                                                                    '',
+                                                                                )
+                                                                                setFieldTouched(
+                                                                                    'multiplier',
+                                                                                    false,
+                                                                                    false,
+                                                                                )
+                                                                                current_input.focus()
+                                                                            }}
+                                                                            maxLength="4"
+                                                                            background="white"
+                                                                        />
+                                                                    )}
+                                                                </Field>
+                                                            </PnLInputGroup>
+                                                        </Flex>
+                                                        <Flex fd="column" width="23.4rem">
+                                                            <PnLInputGroup>
+                                                                <Field
+                                                                    name="stopLossLevel"
+                                                                    value={values.stopLossLevel}
+                                                                    onChange={(value) => {
+                                                                        setFieldValue(
+                                                                            'stopLossLevel',
+                                                                            value,
+                                                                        )
+                                                                    }}
+                                                                >
+                                                                    {({ field }) => (
+                                                                        <Input
+                                                                            {...field}
+                                                                            id="stopLossLevel"
+                                                                            type="text"
+                                                                            value={
+                                                                                values.stopLossLevel
+                                                                            }
+                                                                            label={localize(
+                                                                                'Stop loss level',
+                                                                            )}
+                                                                            autoComplete="off"
+                                                                            error={
+                                                                                touched.stopLossLevel &&
+                                                                                errors.stopLossLevel
+                                                                            }
+                                                                            onBlur={handleBlur}
+                                                                            data-lpignore="true"
+                                                                            handleError={(
+                                                                                current_input,
+                                                                            ) => {
+                                                                                setFieldValue(
+                                                                                    'stopLossLevel',
+                                                                                    '',
+                                                                                    false,
+                                                                                )
+                                                                                setFieldError(
+                                                                                    'stopLossLevel',
+                                                                                    '',
+                                                                                )
+                                                                                setFieldTouched(
+                                                                                    'stopLossLevel',
+                                                                                    false,
+                                                                                    false,
+                                                                                )
+                                                                                current_input.focus()
+                                                                            }}
+                                                                            maxLength="15"
+                                                                            background="white"
+                                                                        />
+                                                                    )}
+                                                                </Field>
+                                                            </PnLInputGroup>
+                                                        </Flex>
+                                                    </Flex>
+
+                                                    <Flex mt="1.5rem">
+                                                        <CalculateButton
+                                                            secondary
+                                                            type="submit"
+                                                            disabled={!dirty}
+                                                        >
+                                                            {localize('Calculate')}
+                                                        </CalculateButton>
+                                                    </Flex>
+                                                </CalculatorBody>
+                                            </CalculatorForm>
+                                        </Show.Desktop>
+
+                                        <Show.Mobile min_width="mobileL"></Show.Mobile>
+                                    </>
+                                )}
+                            </Formik>
+                        </FormWrapper>
+
+                        <RightContent>
                             <Header as="h3" type="section-title" mb="8px">
                                 {localize('How to calculate stop loss and/or take profit level')}
                             </Header>
@@ -1424,8 +1407,8 @@ const PnlMultipliersCalculator = () => {
                                 </StyledLinkButton>
                             </LinkWrapper>
                         </RightContent>
-                    )}
-                </ContentContainer>
+                    </ContentContainer>
+                )}
             </StyledSection>
         </>
     )

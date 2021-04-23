@@ -99,7 +99,7 @@ const StyledDiv = styled.div`
 `
 
 const DropdownSelected = styled.li`
-    color: var(--color-black-3);
+    color: var(--color-grey-6);
     list-style-position: inside;
     white-space: nowrap;
     overflow: hidden;
@@ -126,7 +126,7 @@ const ListContainer = styled.li`
 `
 
 const ListItem = styled.li`
-    color: var(--color-black-3);
+    color: var(--color-grey-6);
     padding: 1rem 1.6rem;
     transition: background-color 0.1s linear, color 0.1s linear;
     list-style-position: inside;
@@ -141,7 +141,7 @@ const ListItem = styled.li`
         background-color: var(--color-grey-6);
     }
     &:focus {
-        background-color: var(--color-grey-7);
+        background-color: var(--color-grey-6);
         font-weight: bold;
     }
     &:focus,
@@ -205,7 +205,7 @@ export const Arrow = styled(Chevron)`
 
 export const StyledLabel = styled.label`
     color: grey;
-    background: white;
+    background: var(--color-white);
     font-size: var(--text-size-xs);
     position: absolute;
     pointer-events: none;
@@ -228,6 +228,7 @@ export const StyledLabel = styled.label`
     ${(props) =>
         props.active &&
         css`
+            color: var(--color-green);
             transform: translate(-0.6rem, -2.2rem) scale(0.7);
 
             @media ${device.tabletL} {

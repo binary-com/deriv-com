@@ -118,6 +118,7 @@ const CalculatorFormStyles = css`
 
     @media ${device.mobileL} {
         margin-bottom: 20px;
+        width: 328px;
     }
 `
 

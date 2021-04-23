@@ -88,15 +88,11 @@ const getTakeProfitPip = (values) => {
 
 // PnL Multipliers Calculator
 const getStopLossLevelUp = (values) => {
-    //eslint-disable-next-line
-    console.log(values)
     let { assetPrice, stopLossAmount, commission, stake, multiplier } = values
     stopLossAmount = Number(stopLossAmount)
     commission = Number(commission)
     const middle_portion_formula = (toNegative(stopLossAmount) + commission) / (stake * multiplier)
     const stop_loss_level_up_formula = assetPrice * (middle_portion_formula + 1)
-    //eslint-disable-next-line
-    console.log(stop_loss_level_up_formula)
     return toFixed(stop_loss_level_up_formula)
 }
 
@@ -107,8 +103,6 @@ const getTakeProfitLevelUp = (values) => {
     const middle_portion_formula =
         (toNegative(takeProfitAmount) + commission) / (stake * multiplier)
     const take_profit_level_up_formula = assetPrice * (middle_portion_formula + 1)
-    //eslint-disable-next-line
-    console.log(take_profit_level_up_formula)
     return toFixed(take_profit_level_up_formula)
 }
 
@@ -118,8 +112,6 @@ const getStopLossLevelDown = (values) => {
     commission = Number(commission)
     const middle_portion_formula = (toNegative(stopLossAmount) - commission) / (stake * multiplier)
     const stop_loss_level_down_formula = assetPrice * (middle_portion_formula + 1)
-    //eslint-disable-next-line
-    console.log(stop_loss_level_down_formula)
     return toFixed(stop_loss_level_down_formula)
 }
 
@@ -130,8 +122,6 @@ const getTakeProfitLevelDown = (values) => {
     const middle_portion_formula =
         (toNegative(takeProfitAmount) - commission) / (stake * multiplier)
     const take_profit_level_down_formula = assetPrice * (middle_portion_formula + 1)
-    //eslint-disable-next-line
-    console.log(take_profit_level_down_formula)
     return toFixed(take_profit_level_down_formula)
 }
 
@@ -228,6 +218,7 @@ const getContractSize = (symbol) => {
     return contractSize
 }
 
+// Reset Validations
 const resetValidationMargin = (values) => {
     const errors = {}
     const assetPrice_error = validation.assetPrice(values.assetPrice)
@@ -298,13 +289,11 @@ const resetValidationPnlMargin = (values) => {
     return errors
 }
 
-const resetValidationPnlMultipliers = (values) => {
+const resetValidationPnlMultipliersLevel = (values) => {
     const errors = {}
     const assetPrice_error = validation.assetPrice(values.assetPrice)
     const takeProfitAmount_error = validation.takeProfitAmount(values.takeProfitAmount)
     const stopLossAmount_error = validation.stopLossAmount(values.stopLossAmount)
-    const takeProfitLevel_error = validation.takeProfitLevel(values.takeProfitLevel)
-    const stopLossLevel_error = validation.stopLossLevel(values.stopLossLevel)
     const commission_error = validation.commission(values.commission)
     const stake_error = validation.stake(values.stake)
     const multiplier_error = validation.multiplier(values.multiplier)
@@ -326,6 +315,30 @@ const resetValidationPnlMultipliers = (values) => {
     }
     if (stopLossAmount_error) {
         errors.stopLossAmount = stopLossAmount_error
+    }
+    return errors
+}
+
+const resetValidationPnlMultipliersAmount = (values) => {
+    const errors = {}
+    const assetPrice_error = validation.assetPrice(values.assetPrice)
+    const takeProfitLevel_error = validation.takeProfitLevel(values.takeProfitLevel)
+    const stopLossLevel_error = validation.stopLossLevel(values.stopLossLevel)
+    const commission_error = validation.commission(values.commission)
+    const stake_error = validation.stake(values.stake)
+    const multiplier_error = validation.multiplier(values.multiplier)
+
+    if (commission_error) {
+        errors.commission = commission_error
+    }
+    if (stake_error) {
+        errors.stake = stake_error
+    }
+    if (multiplier_error) {
+        errors.multiplier = multiplier_error
+    }
+    if (assetPrice_error) {
+        errors.assetPrice = assetPrice_error
     }
     if (takeProfitLevel_error) {
         errors.takeProfitLevel = takeProfitLevel_error
@@ -421,7 +434,8 @@ export {
     resetValidationForex,
     resetValidationMargin,
     resetValidationPnlMargin,
-    resetValidationPnlMultipliers,
+    resetValidationPnlMultipliersAmount,
+    resetValidationPnlMultipliersLevel,
     getCurrency,
     getContractSize,
     numberSubmitFormatNegative,

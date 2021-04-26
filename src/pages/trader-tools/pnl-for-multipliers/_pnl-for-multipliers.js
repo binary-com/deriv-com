@@ -4,14 +4,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import {
     resetValidationPnlMultipliersAmount,
     resetValidationPnlMultipliersLevel,
-    getStopLossLevelUp,
-    getTakeProfitLevelUp,
-    getStopLossAmountUp,
-    getStopLossAmountDown,
-    getStopLossLevelDown,
-    getTakeProfitLevelDown,
-    getTakeProfitAmountUp,
-    getTakeProfitAmountDown,
+    getPnlMultiplierCommon,
     numberSubmitFormat,
     numberWithCommas,
 } from '../common/_utility'
@@ -168,20 +161,29 @@ const PnlMultipliersCalculator = () => {
                                     sub_tab === 'Up'
                                         ? setFieldValue(
                                               'takeProfitLevelOutput',
-                                              getTakeProfitLevelUp(values),
+                                              getPnlMultiplierCommon(
+                                                  values,
+                                                  'getTakeProfitLevelUp',
+                                              ),
                                           )
                                         : setFieldValue(
                                               'takeProfitLevelOutput',
-                                              getTakeProfitLevelDown(values),
+                                              getPnlMultiplierCommon(
+                                                  values,
+                                                  'getTakeProfitLevelDown',
+                                              ),
                                           )
                                     sub_tab === 'Up'
                                         ? setFieldValue(
                                               'stopLossLevelOutput',
-                                              getStopLossLevelUp(values),
+                                              getPnlMultiplierCommon(values, 'getStopLossLevelUp'),
                                           )
                                         : setFieldValue(
                                               'stopLossLevelOutput',
-                                              getStopLossLevelDown(values),
+                                              getPnlMultiplierCommon(
+                                                  values,
+                                                  'getStopLossLevelDown',
+                                              ),
                                           )
                                     setFieldValue(
                                         'assetPrice',
@@ -1162,20 +1164,29 @@ const PnlMultipliersCalculator = () => {
                                     sub_tab === 'Up'
                                         ? setFieldValue(
                                               'takeProfitAmountOutput',
-                                              getTakeProfitAmountUp(values),
+                                              getPnlMultiplierCommon(
+                                                  values,
+                                                  'getTakeProfitAmountUp',
+                                              ),
                                           )
                                         : setFieldValue(
                                               'takeProfitAmountOutput',
-                                              getTakeProfitAmountDown(values),
+                                              getPnlMultiplierCommon(
+                                                  values,
+                                                  'getTakeProfitAmountDown',
+                                              ),
                                           )
                                     sub_tab === 'Up'
                                         ? setFieldValue(
                                               'stopLossAmountOutput',
-                                              getStopLossAmountUp(values),
+                                              getPnlMultiplierCommon(values, 'getStopLossAmountUp'),
                                           )
                                         : setFieldValue(
                                               'stopLossAmountOutput',
-                                              getStopLossAmountDown(values),
+                                              getPnlMultiplierCommon(
+                                                  values,
+                                                  'getStopLossAmountDown',
+                                              ),
                                           )
 
                                     setFieldValue(

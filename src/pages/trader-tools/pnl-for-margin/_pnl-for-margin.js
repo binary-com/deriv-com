@@ -3,12 +3,9 @@ import { Formik, Field } from 'formik'
 import { graphql, useStaticQuery } from 'gatsby'
 import {
     resetValidationPnlMargin,
+    getPnlMarginCommon,
     getContractSize,
     getCurrency,
-    getStopLossLevel,
-    getStopLossPip,
-    getTakeProfitLevel,
-    getTakeProfitPip,
     numberSubmitFormat,
     numberWithCommas,
 } from '../common/_utility'
@@ -184,16 +181,32 @@ const PnlMarginCalculator = () => {
                             }}
                             validate={resetValidationPnlMargin}
                             onSubmit={(values, { setFieldValue }) => {
-                                setFieldValue('stopLossPips', getStopLossPip(values))
-                                setFieldValue('stopLossLevel', getStopLossLevel(values))
-                                setFieldValue('takeProfitPips', getTakeProfitPip(values))
-                                setFieldValue('takeProfitLevel', getTakeProfitLevel(values))
+                                setFieldValue(
+                                    'stopLossPips',
+                                    getPnlMarginCommon(values, 'getStopLossPip'),
+                                )
+                                setFieldValue(
+                                    'stopLossLevel',
+                                    getPnlMarginCommon(values, 'getStopLossLevel'),
+                                )
+                                setFieldValue(
+                                    'takeProfitPips',
+                                    getPnlMarginCommon(values, 'getTakeProfitPip'),
+                                )
+                                setFieldValue(
+                                    'takeProfitLevel',
+                                    getPnlMarginCommon(values, 'getTakeProfitLevel'),
+                                )
                                 setFieldValue('pointValue', numberSubmitFormat(values.pointValue))
                                 setFieldValue('volume', numberSubmitFormat(values.volume))
                                 setFieldValue('assetPrice', numberSubmitFormat(values.assetPrice))
                                 setFieldValue(
                                     'stopLossAmount',
                                     numberSubmitFormat(values.stopLossAmount),
+                                )
+                                setFieldValue(
+                                    'takeProfitAmount',
+                                    numberSubmitFormat(values.takeProfitAmount),
                                 )
                             }}
                         >

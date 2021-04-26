@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react"
 import { Localize } from 'components/localization'
 import DHero from 'components/custom/_dhero-2'
 import { size } from 'themes/device'
-import DMT5BG from 'images/svg/dmt5-bg.svg'
-import DMT5BG2 from 'images/svg/dmt5-bg2.svg'
+import DerivXBG from 'images/svg/derivx/triangle-up.svg'
+import DerivXBG2 from 'images/svg/derivx/triangle-down.svg'
 import derivx_logo from 'images/svg/derivx/derivx-logo.svg'
 import { isBrowser } from 'common/utility'
 
@@ -26,8 +26,8 @@ const Hero = () => {
             Logo={derivx_logo}
             image_name="derivx"
             is_mobile={is_mobile}
-            background_svg={DMT5BG}
-            background_svg2={DMT5BG2}
+            background_svg={DerivXBG2}
+            background_svg2={DerivXBG}
             background_alt={<Localize translate_text='DerivX' />}
         />
     )

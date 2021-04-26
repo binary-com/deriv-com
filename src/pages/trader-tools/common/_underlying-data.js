@@ -454,8 +454,8 @@ export const financialItemLists = [
     },
     {
         name: 'JPM',
-        display_name: 'GJP Morgan Chase',
-        icon: <img src={JPM} alt="gjp morgan chase" />,
+        display_name: 'JP Morgan Chase',
+        icon: <img src={JPM} alt="jp morgan chase" />,
         market: 'other',
     },
     {

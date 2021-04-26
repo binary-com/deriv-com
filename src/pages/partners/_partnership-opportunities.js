@@ -1,13 +1,14 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
-import { ReactComponent as DeveloperProgramme } from 'images/svg/developer-programme.svg'
 import { Header, Text, CardStyle } from 'components/elements'
 import { localize, LocalizedLink } from 'components/localization'
 import { Container, SectionContainer, Flex } from 'components/containers'
+import { deriv_developer_url } from 'common/utility'
 // import device from 'themes/device'
 // Icons
 import { ReactComponent as PartnerAffiliate } from 'images/svg/partner-affiliate.svg'
 import { ReactComponent as PartnerPaymentAgent } from 'images/svg/partner-payment-agent.svg'
+import { ReactComponent as DeveloperProgramme } from 'images/svg/developer-programme.svg'
 
 const ClientCard = styled(LocalizedLink)`
     ${CardStyle}
@@ -93,7 +94,7 @@ const PartnershipOpportunities = () => (
                     )}
                 </Text>
             </ClientCard>
-            <ClientCard to="https://developers.deriv.com">
+            <ClientCard to={deriv_developer_url}>
                 <Flex ai="center" height="auto" mb="0.8rem">
                     <Header as="h4" size="var(--text-size-sm)">
                         {localize('Developer programme')}

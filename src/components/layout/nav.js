@@ -23,6 +23,7 @@ import {
     affiliate_signin_url,
     affiliate_signup_url,
     deriv_app_url,
+    deriv_developer_url,
     isLoggedIn,
 } from 'common/utility'
 // Icons
@@ -936,6 +937,16 @@ export const NavPartners = ({ no_login_signup }) => {
                                     aria-label={localize('Payment agents')}
                                 >
                                     {localize('Payment agents')}
+                                </StyledLink>
+                            </NavLink>
+                            <NavLink>
+                                <StyledLink
+                                    active={current_page === 'developers'}
+                                    activeClassName="active"
+                                    to={deriv_developer_url}
+                                    aria-label={localize('Developers')}
+                                >
+                                    {localize('Developers')}
                                 </StyledLink>
                             </NavLink>
                         </StyledNavCenter>

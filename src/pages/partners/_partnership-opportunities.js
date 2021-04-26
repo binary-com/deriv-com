@@ -1,5 +1,6 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
+import { ReactComponent as DeveloperProgramme } from 'images/svg/developer-programme.svg'
 import { Header, Text, CardStyle } from 'components/elements'
 import { localize, LocalizedLink } from 'components/localization'
 import { Container, SectionContainer, Flex } from 'components/containers'
@@ -92,20 +93,19 @@ const PartnershipOpportunities = () => (
                     )}
                 </Text>
             </ClientCard>
-            {/* TODO: add this when developer page is ready */}
-            {/* <ClientCard>
+            <ClientCard to="https://developers.deriv.com">
                 <Flex ai="center" height="auto" mb="0.8rem">
                     <Header as="h4" size="var(--text-size-sm)">
                         {localize('Developer programme')}
                     </Header>
-                    <WithdrawIcon />
+                    <DeveloperProgramme />
                 </Flex>
                 <Text>
                     {localize(
-                        'Develop your own app or interface on top of our trading infrastructure. Earn affiliate commission from new signups, or mark up the price of the contracts traded in your app.',
+                        'Launch your trading app powered by our APIs. Get up to 5% in markup earnings from every trade your clients make on your app.',
                     )}
                 </Text>
-            </ClientCard> */}
+            </ClientCard>
         </Flex>
     </SectionContainer>
 )

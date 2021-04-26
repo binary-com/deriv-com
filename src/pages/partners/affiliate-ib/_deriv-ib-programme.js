@@ -651,7 +651,7 @@ const ib_dmt5_synthetic = {
             <Localize key={10} translate_text="HF Volatility 10 Index" />,
             <Localize key={11} translate_text="HF Volatility 50 Index" />,
             <Localize key={12} translate_text="HF Volatility 100 Index" />,
-            <Localize key={13} translate_text="Step Index" />,
+            <Localize key={13} translate_text="Step index" />,
         ],
         [
             <Localize key={0} translate_text="Commission per round trade (per USD 100k)" />,

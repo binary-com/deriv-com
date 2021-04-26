@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import { smarttrader_url } from '../../../../common/constants'
 import { Flex } from 'components/containers'
 import { Text } from 'components/elements'
 import { localize, LocalizedLink } from 'components/localization'
@@ -99,7 +100,7 @@ const AvailablePlatforms = ({
                 )}
                 {smarttrader && (
                     <a
-                        href="https://smarttrader.deriv.com/"
+                        href= {smarttrader_url}
                         target="_blank"
                         rel="noopener noreferrer"
                     >

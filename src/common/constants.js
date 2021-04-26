@@ -1,22 +1,37 @@
-export const affiliate_signin_url = 'https://login.deriv.com/signin.php'
-export const affiliate_signup_url = 'https://login.deriv.com/signup.php'
+const isBrowser = () => typeof window !== 'undefined'
+
+const deriv_com_url = 'deriv.com'
+const deriv_me_url = 'deriv.me'
+
+const supported_domains = [deriv_com_url, deriv_me_url]
+const domain_url =
+    isBrowser() && supported_domains.includes(window.location.hostname)
+        ? window.location.hostname
+        : deriv_com_url
+
+export const deriv_app_url = `https://app.${domain_url}`
+export const deriv_bot_app_url = `https://app.${domain_url}/bot`
+export const deriv_dp2p_app_url = `https://app.${domain_url}/cashier/p2p`
+export const smarttrader_url = `https://smarttrader.${domain_url}`
+export const blog_url = `https://blog.${deriv_com_url}`
+export const deriv_cookie_domain = domain_url
+export const login_url = `https://login.${domain_url}`
+export const affiliate_signup_url = `https://login.${domain_url}/signup.php`
+export const affiliate_signin_url = `https://login.${domain_url}/signin.php`
+export const community_url = `https://community.${deriv_com_url}`
+export const oauth_url = `https://oauth.${domain_url}`
+
 export const application_id = 'f0aef779-d9ec-4517-807e-a84c683c4265'
 export const besquare_signup_url =
     'https://deriv.zohorecruit.com/jobs/Careers/590522000011882533/BeSquare-Graduate-Trainee?source=CareerSite'
 export const binary_url = 'https://binary.com'
-export const blog_url = 'https://blog.deriv.com'
 export const brand_name = 'Deriv'
 export const cfd_warning_height = {
     desktop: 8,
     tablet: 12,
 }
 export const client_token = 'pubc42fda54523c5fb23c564e3d8bceae88'
-export const community_url = 'https://community.deriv.com'
 export const deriv_app_languages = ['id', 'pt', 'es']
-export const deriv_app_url = 'https://app.deriv.com'
-export const deriv_bot_app_url = 'https://app.deriv.com/bot'
-export const deriv_cookie_domain = 'deriv.com'
-export const deriv_dp2p_app_url = 'https://app.deriv.com/cashier/p2p'
 export const deriv_status_page_url = 'https://deriv.statuspage.io'
 export const dmt5_ios_url =
     'https://download.mql5.com/cdn/mobile/mt5/ios?server=Deriv-Demo,Deriv-Server'
@@ -39,6 +54,4 @@ export const mga_link_url =
 export const p2p_playstore_url = 'https://play.google.com/store/apps/details?id=com.deriv.dp2p'
 export const pushwoosh_app_code = 'DD293-35A19'
 export const sample_rate = 25
-export const smarttrader_url = 'https://smarttrader.deriv.com'
 export const zoho_url = 'https://deriv.zohorecruit.com'
-// TODELETE: Testing - For redeployment

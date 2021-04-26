@@ -1,7 +1,12 @@
 const isBrowser = () => typeof window !== 'undefined'
 
+export const app_id = domain_url === deriv_com_url ?  deriv_com_app_id : deriv_me_app_id
+
 const deriv_com_url = 'deriv.com'
 const deriv_me_url = 'deriv.me'
+
+const deriv_com_app_id = 16929;
+const deriv_me_app_id = 1411;
 
 const supported_domains = [deriv_com_url, deriv_me_url]
 const domain_url =
@@ -48,7 +53,6 @@ export const dp2p_google_play_url =
 export const gtm_test_domain = 'deriv-com.binary.sx'
 export const livechat_client_id = '66aa088aad5a414484c1fd1fa8a5ace7'
 export const livechat_license_id = 12049137
-export const deriv_app_app_id = domain_url === deriv_me_url ? 1411 : 16929
 export const map_api_key = 'AIzaSyAEha6-HeZuI95L9JWmX3m6o-AxQr_oFqU'
 export const mga_link_url =
     'https://authorisation.mga.org.mt/verification.aspx?lang=EN&company=a5fd1edc-d072-4c26-b0cd-ab3fa0f0cc40&details=1'

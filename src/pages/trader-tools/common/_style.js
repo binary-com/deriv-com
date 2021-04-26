@@ -21,6 +21,13 @@ export const Hero = styled(Flex)`
     }
 `
 
+export const StyledHeader = styled(Header)`
+    @media ${device.tabletL} {
+        font-size: 32px;
+        line-height: 40px;
+    }
+`
+
 export const BreadCrumbContainer = styled(Container)`
     margin-top: 2.4rem;
 

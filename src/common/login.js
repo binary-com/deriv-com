@@ -1,13 +1,8 @@
 import Cookies from 'js-cookie'
 import { isStorageSupported } from './storage'
-import {
-    getDataObjFromCookies,
-    getDataLink,
-    getCookiesFields,
-    getCookiesObject,
-} from './cookies'
+import { getDataObjFromCookies, getDataLink, getCookiesFields, getCookiesObject } from './cookies'
 import { getAppId } from './websocket/config'
-import { brand_name, app_id, oauth_url } from 'common/constants'
+import { brand_name, deriv_app_id, oauth_url } from 'common/constants'
 
 const Login = (() => {
     const redirectToLogin = () => {
@@ -33,7 +28,7 @@ const Login = (() => {
 
         return server_url && /qa/.test(server_url)
             ? `https://${server_url}/oauth2/authorize?app_id=${getAppId()}&l=${language}&brand=${brand_name.toLowerCase()}${affiliate_token_link}${cookies_link}`
-            : `${oauth_url}/oauth2/authorize?app_id=${app_id}&l=${language}&brand=${brand_name.toLowerCase()}${affiliate_token_link}${cookies_link}`
+            : `${oauth_url}/oauth2/authorize?app_id=${deriv_app_id}&l=${language}&brand=${brand_name.toLowerCase()}${affiliate_token_link}${cookies_link}`
     }
 
     const initOneAll = (provider) => {

@@ -53,7 +53,7 @@ export const synthetic_multiplier = {
 export const crypto_multiplier = {
     markets_list: {
         col: 4,
-        tablet_col: 3,
+        tablet_col: 4,
         mobile_col: 2,
     },
     has_global_accordion: true,

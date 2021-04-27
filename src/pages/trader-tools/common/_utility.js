@@ -71,21 +71,24 @@ export const getPnlMarginCommon = (values, action) => {
     stopLossLevel = Number(stopLossLevel)
     takeProfitLevel = Number(takeProfitLevel)
 
-    if (action === 'getStopLossLevel') {
-        const stop_loss_level_formula = assetPrice + stopLossAmount / (volume * contractSize)
-        return toFixed(stop_loss_level_formula)
-    }
-    if (action === 'getTakeProfitLevel') {
-        const take_profit_level_formula = assetPrice - takeProfitAmount / (volume * contractSize)
-        return toFixed(take_profit_level_formula)
-    }
-    if (action === 'getStopLossPip') {
-        const stop_loss_pip_formula = Math.abs(stopLossLevel - assetPrice) / pointValue
-        return toFixed(stop_loss_pip_formula)
-    }
-    if (action === 'getTakeProfitPip') {
-        const take_profit_pip_formula = Math.abs(takeProfitLevel - assetPrice) / pointValue
-        return toFixed(take_profit_pip_formula)
+    switch (action) {
+        case 'getStopLossLevel': {
+            const stop_loss_level_formula = assetPrice + stopLossAmount / (volume * contractSize)
+            return toFixed(stop_loss_level_formula)
+        }
+        case 'getTakeProfitLevel': {
+            const take_profit_level_formula =
+                assetPrice - takeProfitAmount / (volume * contractSize)
+            return toFixed(take_profit_level_formula)
+        }
+        case 'getStopLossPip': {
+            const stop_loss_pip_formula = Math.abs(stopLossLevel - assetPrice) / pointValue
+            return toFixed(stop_loss_pip_formula)
+        }
+        case 'getTakeProfitPip': {
+            const take_profit_pip_formula = Math.abs(takeProfitLevel - assetPrice) / pointValue
+            return toFixed(take_profit_pip_formula)
+        }
     }
 }
 
@@ -108,55 +111,58 @@ export const getPnlMultiplierCommon = (values, action) => {
     assetPrice = Number(assetPrice)
     stopLossLevel = Number(stopLossLevel)
 
-    if (action === 'getStopLossLevelUp') {
-        const middle_portion_formula =
-            (toNegative(stopLossAmount) + commission) / (stake * multiplier)
-        const stop_loss_level_up_formula = assetPrice * (middle_portion_formula + 1)
-        return toFixed(stop_loss_level_up_formula)
-    }
-    if (action === 'getTakeProfitLevelUp') {
-        const middle_portion_formula =
-            (toNegative(takeProfitAmount) + commission) / (stake * multiplier)
-        const take_profit_level_up_formula = assetPrice * (middle_portion_formula + 1)
-        return toFixed(take_profit_level_up_formula)
-    }
-    if (action === 'getStopLossLevelDown') {
-        const middle_portion_formula =
-            (toNegative(stopLossAmount) - commission) / (stake * multiplier)
-        const stop_loss_level_down_formula = assetPrice * (middle_portion_formula + 1)
-        return toFixed(stop_loss_level_down_formula)
-    }
-    if (action === 'getTakeProfitLevelDown') {
-        const middle_portion_formula =
-            (toNegative(takeProfitAmount) - commission) / (stake * multiplier)
-        const take_profit_level_down_formula = assetPrice * (middle_portion_formula + 1)
-        return toFixed(take_profit_level_down_formula)
-    }
-    if (action === 'getTakeProfitAmountUp') {
-        const middle_portion_formula = ((takeProfitLevel - assetPrice) / assetPrice) * multiplier
-        const calculation = stake * middle_portion_formula - commission
-        const take_profit_amount_up_formula = Math.max(calculation, toNegative(stake))
-        return toFixed(take_profit_amount_up_formula)
-    }
-    if (action === 'getStopLossAmountUp') {
-        const middle_portion_formula = ((stopLossLevel - assetPrice) / assetPrice) * multiplier
-        const calculation = stake * middle_portion_formula - commission
-        const stop_loss_amount_up_formula = Math.max(calculation, toNegative(stake))
-        return toFixed(stop_loss_amount_up_formula)
-    }
-    if (action === 'getStopLossAmountDown') {
-        const middle_portion_formula =
-            ((-1 * (stopLossLevel - assetPrice)) / assetPrice) * multiplier
-        const calculation = stake * middle_portion_formula - commission
-        const stop_loss_amount_down_formula = Math.max(calculation, toNegative(stake))
-        return toFixed(stop_loss_amount_down_formula)
-    }
-    if (action === 'getTakeProfitAmountDown') {
-        const middle_portion_formula =
-            ((-1 * (takeProfitLevel - assetPrice)) / assetPrice) * multiplier
-        const calculation = stake * middle_portion_formula - commission
-        const stop_loss_amount_down_formula = Math.max(calculation, toNegative(stake))
-        return toFixed(stop_loss_amount_down_formula)
+    switch (action) {
+        case 'getStopLossLevelUp': {
+            const middle_portion_formula =
+                (toNegative(stopLossAmount) + commission) / (stake * multiplier)
+            const stop_loss_level_up_formula = assetPrice * (middle_portion_formula + 1)
+            return toFixed(stop_loss_level_up_formula)
+        }
+        case 'getTakeProfitLevelUp': {
+            const middle_portion_formula =
+                (toNegative(takeProfitAmount) + commission) / (stake * multiplier)
+            const take_profit_level_up_formula = assetPrice * (middle_portion_formula + 1)
+            return toFixed(take_profit_level_up_formula)
+        }
+        case 'getStopLossLevelDown': {
+            const middle_portion_formula =
+                (toNegative(stopLossAmount) - commission) / (stake * multiplier)
+            const stop_loss_level_down_formula = assetPrice * (middle_portion_formula + 1)
+            return toFixed(stop_loss_level_down_formula)
+        }
+        case 'getTakeProfitLevelDown': {
+            const middle_portion_formula =
+                (toNegative(takeProfitAmount) - commission) / (stake * multiplier)
+            const take_profit_level_down_formula = assetPrice * (middle_portion_formula + 1)
+            return toFixed(take_profit_level_down_formula)
+        }
+        case 'getTakeProfitAmountUp': {
+            const middle_portion_formula =
+                ((takeProfitLevel - assetPrice) / assetPrice) * multiplier
+            const calculation = stake * middle_portion_formula - commission
+            const take_profit_amount_up_formula = Math.max(calculation, toNegative(stake))
+            return toFixed(take_profit_amount_up_formula)
+        }
+        case 'getStopLossAmountUp': {
+            const middle_portion_formula = ((stopLossLevel - assetPrice) / assetPrice) * multiplier
+            const calculation = stake * middle_portion_formula - commission
+            const stop_loss_amount_up_formula = Math.max(calculation, toNegative(stake))
+            return toFixed(stop_loss_amount_up_formula)
+        }
+        case 'getStopLossAmountDown': {
+            const middle_portion_formula =
+                ((-1 * (stopLossLevel - assetPrice)) / assetPrice) * multiplier
+            const calculation = stake * middle_portion_formula - commission
+            const stop_loss_amount_down_formula = Math.max(calculation, toNegative(stake))
+            return toFixed(stop_loss_amount_down_formula)
+        }
+        case 'getTakeProfitAmountDown': {
+            const middle_portion_formula =
+                ((-1 * (takeProfitLevel - assetPrice)) / assetPrice) * multiplier
+            const calculation = stake * middle_portion_formula - commission
+            const stop_loss_amount_down_formula = Math.max(calculation, toNegative(stake))
+            return toFixed(stop_loss_amount_down_formula)
+        }
     }
 }
 

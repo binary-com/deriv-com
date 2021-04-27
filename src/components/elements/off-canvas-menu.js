@@ -55,7 +55,7 @@ const OffCanvasMenu = styled.section`
 
     @media ${device.tabletS} {
         top: ${(props) =>
-            props.is_eu_country ? `${cfd_warning_height.tablet + 7.2}rem` : `7.2rem`};
+        props.is_eu_country ? `${cfd_warning_height.tablet + 7.2}rem` : `7.2rem`};
     }
 `
 
@@ -365,13 +365,13 @@ export const OffCanvasMenuWrapper = (props) => {
                         header_style={header_style}
                         style={content_style}
                     >
-                        <StyledLink to="/about/#story" onClick={handleArrowClick}>
+                        <StyledLink to="/about/story" onClick={handleArrowClick}>
                             <div>
                                 <img src={Story} alt="story" width="24" height="24" />
                             </div>
                             <span>{localize('Our story')}</span>
                         </StyledLink>
-                        <StyledLink to="/about/#leadership" onClick={handleArrowClick}>
+                        <StyledLink to="/about/leadership" onClick={handleArrowClick}>
                             <div>
                                 <img src={Leadership} alt="leadership" width="24" height="24" />
                             </div>

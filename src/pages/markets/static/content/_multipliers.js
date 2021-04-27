@@ -4,8 +4,9 @@ import {
     CrashBoom,
     MajorPairs,
     StepIndices,
+    Cryptocurrencies,
 } from '../../instruments/_submarkets'
-import { ContinuousIndicesDetails, CrashBoomDetails, StepIndicesDetails } from './_details'
+import { ContinuousIndicesDetails, CrashBoomDetails, StepIndicesDetails, CryptocurrenciesDetails } from './_details'
 import { Localize } from 'components/localization'
 
 export const forex_multiplier = {
@@ -47,4 +48,20 @@ export const synthetic_multiplier = {
             translate_text="Return to player for mulitplier options is in the range of 95.0-99.9% for all indices on an average. Using a different multiplier or duration may affect the RTP."
         />,
     ],
+}
+
+export const crypto_multiplier = {
+    markets_list: {
+        col: 4,
+        tablet_col: 3,
+        mobile_col: 2,
+    },
+    has_global_accordion: true,
+    content: [
+        {
+            title: <Localize translate_text="Cryptocurrencies" />,
+            component: <Cryptocurrencies />,
+            details: CryptocurrenciesDetails,
+        }
+    ]
 }

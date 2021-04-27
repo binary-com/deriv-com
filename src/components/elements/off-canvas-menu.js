@@ -34,6 +34,7 @@ import SecureTrading from 'images/svg/menu/secure-trading.svg'
 import Smarttrader from 'images/svg/smarttrader.svg'
 import Status from 'images/svg/status.svg'
 import StockIndices from 'images/svg/stock-indices-nav.svg'
+import Cryptocurrencies from 'images/svg/cryptocurrencies-nav.svg'
 import Story from 'images/svg/menu/story.svg'
 import SyntheticIndices from 'images/svg/synthetic-indices-nav.svg'
 import Terms from 'images/svg/menu/terms.svg'
@@ -339,6 +340,25 @@ export const OffCanvasMenuWrapper = (props) => {
                                 title={localize('Stock Indices')}
                                 onClick={handleArrowClick}
                                 to="/markets#stock"
+                            />
+                        </Flex>
+                        <Flex>
+                            <NavCard
+                                aria_label="Cryptocurrencies"
+                                icon={() => (
+                                    <img
+                                        src={Cryptocurrencies}
+                                        alt="Cryptocurrencies"
+                                        width="32"
+                                        height="32"
+                                    />
+                                )}
+                                content={localize(
+                                    "Trade with leverage on the price movement of popular crypto-fiat pairs.",
+                                )}
+                                title={localize('Cryptocurrencies')}
+                                onClick={handleArrowClick}
+                                to="/markets#crypto"
                             />
                         </Flex>
                         <Flex>

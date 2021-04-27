@@ -4,7 +4,7 @@ import { Text } from 'components/elements'
 import device from 'themes/device'
 
 export const Col = styled(Flex)`
-    max-width: 129px;
+    max-width: 138px;
     padding: 0 4px;
 `
 

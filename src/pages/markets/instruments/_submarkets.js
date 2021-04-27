@@ -13,12 +13,16 @@ import RangeBreak from './_range-break'
 import SmartFX from './_smartfx'
 import StepIndices from './_step-indices'
 import VolatilityIndices from './_volatility-indices'
+import Cryptocurrencies from './_cryptocurrencies'
+import CryptocurrenciesMargin from './_cryptocurrencies-margin'
 
 export {
     Americas,
     AsiaOceania,
     ContinuousIndices,
     CrashBoom,
+    Cryptocurrencies,
+    CryptocurrenciesMargin,
     DailyResetIndices,
     Energy,
     Europe,

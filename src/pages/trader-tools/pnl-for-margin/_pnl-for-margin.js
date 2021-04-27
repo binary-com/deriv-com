@@ -1,18 +1,18 @@
 import React, { useState, useRef } from 'react'
-import { Formik, Field } from 'formik'
+import { Field, Formik } from 'formik'
 import { graphql, useStaticQuery } from 'gatsby'
 import {
-    resetValidationPnlMargin,
-    getPnlMarginCommon,
     getContractSize,
     getCurrency,
+    getPnlMarginCommon,
     numberSubmitFormat,
     numberWithCommas,
+    resetValidationPnlMargin,
 } from '../common/_utility'
 import {
+    financialItemLists,
     optionItemDefault,
     syntheticItemLists,
-    financialItemLists,
 } from '../common/_underlying-data'
 import {
     BreadCrumbContainer,
@@ -20,27 +20,27 @@ import {
     CalculatorBody,
     CalculatorDropdown,
     CalculatorForm,
-    PnlCalculatorFormMobile,
     CalculatorHeader,
-    PnlCalculatorHeaderMobile,
-    PnlHeaderOverflow,
     CalculatorLabel,
+    ContentContainer,
+    FormulaText,
+    FormWrapper,
+    header_style,
+    InputGroup,
+    LinkWrapper,
+    PnlCalculatorFormMobile,
+    PnlCalculatorHeaderMobile,
     PnLCalculatorOutputContainer,
     PnLCalculatorOutputField,
     PnLCalculatorOutputSymbol,
     PnlCalculatorTabItem,
-    ContentContainer,
-    FormulaText,
-    header_style,
+    PnlHeaderOverflow,
     PnLInputGroup,
-    InputGroup,
-    LinkWrapper,
     RightContent,
     SectionSubtitle,
     StyledLinkButton,
     StyledOl,
     StyledSection,
-    FormWrapper,
     SwapTabSelector,
 } from '../common/_style'
 import { localize, Localize } from 'components/localization'
@@ -112,12 +112,11 @@ const PnlMarginCalculator = () => {
         setTab(tab)
         form?.resetForm()
         form?.setErrors()
-        sub_tab === 'Synthetic'
-            ? form?.setFieldValue('accountType', 'Synthetic')
-            : form?.setFieldValue('accountType', 'Financial')
-        sub_tab === 'Synthetic'
-            ? form?.setFieldValue('optionList', syntheticItemLists)
-            : form?.setFieldValue('optionList', financialItemLists)
+        form?.setFieldValue('accountType', sub_tab === 'Synthetic' ? 'Synthetic' : 'Financial')
+        form?.setFieldValue(
+            'optionList',
+            sub_tab === 'Synthetic' ? syntheticItemLists : financialItemLists,
+        )
     }
     const onSubTabClick = (tab) => setSubTab(tab)
 

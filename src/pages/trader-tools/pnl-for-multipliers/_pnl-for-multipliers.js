@@ -1,12 +1,12 @@
-import React, { useState, useRef } from 'react'
-import { Formik, Field } from 'formik'
+import React, { useState } from 'react'
+import { Field, Formik } from 'formik'
 import { graphql, useStaticQuery } from 'gatsby'
 import {
-    resetValidationPnlMultipliersAmount,
-    resetValidationPnlMultipliersLevel,
     getPnlMultiplierCommon,
     numberSubmitFormat,
     numberWithCommas,
+    resetValidationPnlMultipliersAmount,
+    resetValidationPnlMultipliersLevel,
 } from '../common/_utility'
 import {
     BreadCrumbContainer,
@@ -15,23 +15,23 @@ import {
     CalculatorForm,
     CalculatorHeader,
     CalculatorLabel,
+    ContentContainer,
+    FormulaText,
+    FormWrapper,
+    header_style,
+    InputGroup,
+    item_style,
+    LinkWrapper,
     PnLCalculatorOutputContainer,
     PnLCalculatorOutputField,
     PnLCalculatorOutputSymbol,
     PnlCalculatorTabItem,
-    ContentContainer,
-    FormulaText,
-    header_style,
-    item_style,
     PnLInputGroup,
-    InputGroup,
-    LinkWrapper,
     RightContent,
     SectionSubtitle,
     StyledLinkButton,
     StyledOl,
     StyledSection,
-    FormWrapper,
     SwapTabSelector,
 } from '../common/_style'
 import { localize, Localize } from 'components/localization'
@@ -93,7 +93,6 @@ const PnlMultipliersCalculator = () => {
         }
     `
     const data = useStaticQuery(query)
-    const formik_ref = useRef()
 
     const [tab, setTab] = useState('Level')
     const [sub_tab, setSubTab] = useState('Up')
@@ -142,7 +141,6 @@ const PnlMultipliersCalculator = () => {
                     <ContentContainer mb="4.0rem">
                         <FormWrapper>
                             <Formik
-                                innerRef={formik_ref}
                                 enableReinitialize
                                 initialValues={{
                                     direction: 'Up',
@@ -158,33 +156,24 @@ const PnlMultipliersCalculator = () => {
                                 }}
                                 validate={resetValidationPnlMultipliersLevel}
                                 onSubmit={(values, { setFieldValue }) => {
-                                    sub_tab === 'Up'
-                                        ? setFieldValue(
-                                              'takeProfitLevelOutput',
-                                              getPnlMultiplierCommon(
-                                                  values,
-                                                  'getTakeProfitLevelUp',
-                                              ),
-                                          )
-                                        : setFieldValue(
-                                              'takeProfitLevelOutput',
-                                              getPnlMultiplierCommon(
+                                    setFieldValue(
+                                        'takeProfitLevelOutput',
+                                        sub_tab === 'Up'
+                                            ? getPnlMultiplierCommon(values, 'getTakeProfitLevelUp')
+                                            : getPnlMultiplierCommon(
                                                   values,
                                                   'getTakeProfitLevelDown',
                                               ),
-                                          )
-                                    sub_tab === 'Up'
-                                        ? setFieldValue(
-                                              'stopLossLevelOutput',
-                                              getPnlMultiplierCommon(values, 'getStopLossLevelUp'),
-                                          )
-                                        : setFieldValue(
-                                              'stopLossLevelOutput',
-                                              getPnlMultiplierCommon(
+                                    )
+                                    setFieldValue(
+                                        'stopLossLevelOutput',
+                                        sub_tab === 'Up'
+                                            ? getPnlMultiplierCommon(values, 'getStopLossLevelUp')
+                                            : getPnlMultiplierCommon(
                                                   values,
                                                   'getStopLossLevelDown',
                                               ),
-                                          )
+                                    )
                                     setFieldValue(
                                         'assetPrice',
                                         numberSubmitFormat(values.assetPrice),
@@ -1145,7 +1134,6 @@ const PnlMultipliersCalculator = () => {
                     <ContentContainer key={tab} mb="4.0rem">
                         <FormWrapper>
                             <Formik
-                                innerRef={formik_ref}
                                 enableReinitialize
                                 initialValues={{
                                     direction: 'Up',
@@ -1161,34 +1149,27 @@ const PnlMultipliersCalculator = () => {
                                 }}
                                 validate={resetValidationPnlMultipliersAmount}
                                 onSubmit={(values, { setFieldValue }) => {
-                                    sub_tab === 'Up'
-                                        ? setFieldValue(
-                                              'takeProfitAmountOutput',
-                                              getPnlMultiplierCommon(
+                                    setFieldValue(
+                                        'takeProfitAmountOutput',
+                                        sub_tab === 'Up'
+                                            ? getPnlMultiplierCommon(
                                                   values,
                                                   'getTakeProfitAmountUp',
-                                              ),
-                                          )
-                                        : setFieldValue(
-                                              'takeProfitAmountOutput',
-                                              getPnlMultiplierCommon(
+                                              )
+                                            : getPnlMultiplierCommon(
                                                   values,
                                                   'getTakeProfitAmountDown',
                                               ),
-                                          )
-                                    sub_tab === 'Up'
-                                        ? setFieldValue(
-                                              'stopLossAmountOutput',
-                                              getPnlMultiplierCommon(values, 'getStopLossAmountUp'),
-                                          )
-                                        : setFieldValue(
-                                              'stopLossAmountOutput',
-                                              getPnlMultiplierCommon(
+                                    )
+                                    setFieldValue(
+                                        'stopLossAmountOutput',
+                                        sub_tab === 'Up'
+                                            ? getPnlMultiplierCommon(values, 'getStopLossAmountUp')
+                                            : getPnlMultiplierCommon(
                                                   values,
                                                   'getStopLossAmountDown',
                                               ),
-                                          )
-
+                                    )
                                     setFieldValue(
                                         'assetPrice',
                                         numberSubmitFormat(values.assetPrice),

@@ -35,6 +35,10 @@ const Column = styled.div`
     @media ${device.tabletL} {
         margin: 24px 0 0;
     }
+
+    .fresnel-container {
+        flex-direction: column;
+    }
 `
 const Content = styled(Flex)`
     max-width: 39rem;
@@ -138,12 +142,10 @@ const TradingTools = ({ tools }) => {
                                     </Show.Desktop>
                                     <Show.Mobile>
                                         <QueryImage
-                                            data={data[item.image_name_mobile]}
+                                            data={data[item.image_name + '_mobile']}
                                             alt={item.image_alt}
                                             height="100%"
                                         />
-                                    </Show.Mobile>
-                                    <Show.Mobile>
                                         <StyledLinkButton tertiary to={item.link.route}>
                                             {item.link.text}
                                         </StyledLinkButton>

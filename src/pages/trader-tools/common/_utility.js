@@ -262,6 +262,10 @@ export const resetValidationPnlMargin = (values) => {
     const stopLossAmount_error = validation.stopLossAmount(values.stopLossAmount)
     const symbol_error = validation.symbol(values.symbol)
     const volume_error = validation.volume(values.volume)
+    const stopLossTakeProfit_error = validation.stopLossTakeProfit(
+        values.stopLossAmount,
+        values.takeProfitAmount,
+    )
 
     if (symbol_error) {
         errors.symbol = symbol_error
@@ -278,8 +282,8 @@ export const resetValidationPnlMargin = (values) => {
     if (takeProfitAmount_error) {
         errors.takeProfitAmount = takeProfitAmount_error
     }
-    if (stopLossAmount_error) {
-        errors.stopLossAmount = stopLossAmount_error
+    if (stopLossAmount_error || stopLossTakeProfit_error) {
+        errors.stopLossAmount = stopLossAmount_error || stopLossTakeProfit_error
     }
     return errors
 }

@@ -23,9 +23,8 @@ import {
     affiliate_signin_url,
     affiliate_signup_url,
     deriv_app_url,
+    deriv_developer_url,
     isLoggedIn,
-    getLanguage,
-    getDerivAppLocalizedURL,
 } from 'common/utility'
 // Icons
 import Logo from 'images/svg/logo-deriv.svg'
@@ -395,8 +394,7 @@ const handleLogin = () => {
 }
 
 const handleGetTrading = () => {
-    let trading_url_localized = getDerivAppLocalizedURL(deriv_app_url, getLanguage())
-    window.location.href = trading_url_localized
+    window.location.href = deriv_app_url
 }
 
 const NavMobile = ({ is_ppc, is_ppc_redirect, is_logged_in }) => {
@@ -465,6 +463,8 @@ const NavDesktop = ({ base, is_ppc, is_ppc_redirect, is_logged_in }) => {
 
     const checkActive = (link_name) => link_name === active_dropdown || link_name === current_page
 
+    const closeDropdown = () => useCallback(setActiveDropdown(''))
+
     const handleLinkClick = (dropdown, target) => {
         setActiveDropdown(dropdown)
         if (!target) return
@@ -475,7 +475,7 @@ const NavDesktop = ({ base, is_ppc, is_ppc_redirect, is_logged_in }) => {
 
     const setDropdownRef = (new_ref) => setActiveDropdownRef(new_ref)
 
-    useOutsideClick(navigation_bar_ref, () => setActiveDropdown(''), active_dropdown_ref)
+    useOutsideClick(navigation_bar_ref, closeDropdown, active_dropdown_ref)
 
     useEffect(() => {
         setMounted(true)
@@ -577,6 +577,9 @@ const NavDesktop = ({ base, is_ppc, is_ppc_redirect, is_logged_in }) => {
     )
 }
 
+const MemoizedNavDesktop = React.memo(NavDesktop)
+const MemoizedNavMobile = React.memo(NavMobile)
+
 export const Nav = ({ base, is_ppc_redirect, is_ppc }) => {
     const [is_logged_in, setLoggedIn] = useState(false)
 
@@ -594,7 +597,7 @@ export const Nav = ({ base, is_ppc_redirect, is_ppc }) => {
             <CFDWarning />
             <StyledNavMain>
                 <Show.Desktop max_width="bp1060">
-                    <NavDesktop
+                    <MemoizedNavDesktop
                         base={base}
                         is_ppc={is_ppc}
                         is_ppc_redirect={is_ppc_redirect}
@@ -602,7 +605,7 @@ export const Nav = ({ base, is_ppc_redirect, is_ppc }) => {
                     />
                 </Show.Desktop>
                 <Show.Mobile min_width="bp1060">
-                    <NavMobile is_ppc={is_ppc} is_logged_in={is_logged_in} />
+                    <MemoizedNavMobile is_ppc={is_ppc} is_logged_in={is_logged_in} />
                 </Show.Mobile>
             </StyledNavMain>
         </NavWrapperMain>
@@ -934,6 +937,16 @@ export const NavPartners = ({ no_login_signup }) => {
                                     aria-label={localize('Payment agents')}
                                 >
                                     {localize('Payment agents')}
+                                </StyledLink>
+                            </NavLink>
+                            <NavLink>
+                                <StyledLink
+                                    active={current_page === 'developers'}
+                                    activeClassName="active"
+                                    to={deriv_developer_url}
+                                    aria-label={localize('Developers')}
+                                >
+                                    {localize('Developers')}
                                 </StyledLink>
                             </NavLink>
                         </StyledNavCenter>

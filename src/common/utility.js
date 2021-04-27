@@ -183,6 +183,7 @@ const deriv_app_url = 'https://app.deriv.com'
 const deriv_bot_app_url = 'https://app.deriv.com/bot'
 const deriv_dp2p_app_url = 'https://app.deriv.com/cashier/p2p'
 const deriv_status_page_url = 'https://deriv.statuspage.io'
+const deriv_developer_url = 'https://developers.deriv.com'
 const smarttrader_url = 'https://smarttrader.deriv.com'
 const binary_url = 'https://binary.com'
 const blog_url = 'https://blog.deriv.com'
@@ -239,6 +240,7 @@ export {
     deriv_cookie_domain,
     deriv_dp2p_app_url,
     deriv_status_page_url,
+    deriv_developer_url,
     dmt5_android_url,
     dmt5_ios_url,
     dmt5_linux_url,

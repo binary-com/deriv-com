@@ -67,6 +67,7 @@ export const routeBack = () => {
 }
 export const checkElemInArray = (tab_list, tab) => tab_list.includes(tab)
 
+// Formats number to comma separated string
 export const getCommaSeparatedNumber = (input) =>
     input.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
 

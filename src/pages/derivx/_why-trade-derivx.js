@@ -4,6 +4,7 @@ import DTrading from 'components/custom/_dtrading'
 import { SectionContainer, Container, Flex } from 'components/containers'
 import { Localize, localize } from 'components/localization'
 import { Header, Text } from 'components/elements/typography'
+import device from 'themes/device'
 import Icon24_7 from 'images/svg/derivx/24-7.svg'
 import IconMultipleMarketing from 'images/svg/derivx/multiple-marketing.svg'
 import IconNewPromising from 'images/svg/derivx/new-promising.svg'
@@ -22,6 +23,10 @@ const Card = styled(Flex)`
 
     :last-child {
         margin-right: 0;
+    }
+
+    @media ${device.tablet}{
+        margin-right: unset;
     }
 `
 

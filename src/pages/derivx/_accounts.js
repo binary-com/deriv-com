@@ -131,7 +131,7 @@ const Accounts = () => {
             <StyledLinkButton
                 external="true"
                 secondary="true"
-                to="/mt5"
+                to="/"
                 is_deriv_app_link
                 target="_blank"
                 rel="nofollow noopener noreferrer"

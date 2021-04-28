@@ -26,6 +26,7 @@ const Wrapper = styled(Flex)`
     }
     @media ${device.tabletL} {
         height: 53rem;
+        align-items:center;
     }
     @media ${device.tablet} {
         padding: 0 0 40px;
@@ -64,6 +65,11 @@ const StyledHeader = styled(Header)`
     @media ${device.tablet} {
         font-size: 20px;
         font-weight: normal;
+        align-items: center;
+        justify-content:center;
+    }
+    @media ${device.mobileL} {
+        justify-content: unset;
     }
 `
 
@@ -74,6 +80,10 @@ const HeroHeader = styled(Header)`
     @media ${device.tablet} {
         font-size: 40px;
         line-height: 50px;
+        text-align: center;
+    }
+    @media ${device.mobileL} {
+        text-align: unset;
     }
 `
 
@@ -160,9 +170,11 @@ const InformationWrapper = styled(Flex)`
         max-width: 450px;
         padding: 0 16px;
         margin-top: 20px;
+        align-items:center;
     }
     @media ${device.mobileL} {
         margin-top: 0;
+        align-items: unset;
     }
     @media ${device.mobileS} {
         padding: 0 12px;

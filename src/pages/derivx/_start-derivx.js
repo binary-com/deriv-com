@@ -182,7 +182,7 @@ const StartDerivX = () => {
     const [is_mobile, setMobile] = useState(false)
     const handleResizeWindow = useCallback(() => {
         setMobile(isBrowser() ? window.screen.width <= size.tabletS : false)
-    }, [handleResizeWindow, setMobile])
+    }, [setMobile])
 
     useEffect(() => {
         setMobile(isBrowser() ? window.screen.width <= size.tabletS : false)

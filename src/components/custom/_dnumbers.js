@@ -10,10 +10,6 @@ const NumberWrapper = styled.div`
     flex-direction: column;
     justify-content: center;
     width: 32.8rem;
-    @media ${device.tabletL} {
-        padding: 10px;
-        width: auto;
-    }
 `
 const StyledText = styled(Text)`
     padding-top: 8px;
@@ -27,22 +23,15 @@ const StyledText = styled(Text)`
 const StyledContainer = styled(Container)`
     display: flex;
     width: 100%;
-    @media ${device.tabletL} {
-        flex-wrap: wrap;
-        margin: 20px 12px 0;
-    }
-`
 
-const SectionContainerWrapper = styled(SectionContainer)`
-    padding: 4rem;
     @media ${device.tabletL} {
-        padding: 0;
+        flex-direction: column;
     }
 `
 
 const DNumbers = ({ items, justify }) => {
     return (
-        <SectionContainerWrapper>
+        <SectionContainer padding="4rem">
             <StyledContainer justify={justify || 'space-between'}>
                 {items.map((item, index) => (
                     <NumberWrapper key={index}>
@@ -53,7 +42,7 @@ const DNumbers = ({ items, justify }) => {
                     </NumberWrapper>
                 ))}
             </StyledContainer>
-        </SectionContainerWrapper>
+        </SectionContainer>
     )
 }
 

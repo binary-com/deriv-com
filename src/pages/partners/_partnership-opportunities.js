@@ -94,7 +94,12 @@ const PartnershipOpportunities = () => (
                     )}
                 </Text>
             </ClientCard>
-            <ClientCard to={deriv_developer_url}>
+            <ClientCard
+                to={deriv_developer_url}
+                target="_blank"
+                external="true"
+                rel="noopener noreferrer"
+            >
                 <Flex ai="center" height="auto" mb="0.8rem">
                     <Header as="h4" size="var(--text-size-sm)">
                         {localize('Developer programme')}

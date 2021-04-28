@@ -2,7 +2,7 @@ import React from 'react'
 import { Localize } from 'components/localization'
 import TightSpread from 'images/svg/tight-spread.svg'
 import CryptoPairs from 'images/svg/crypto-pairs.svg'
-import ZeroCommission from 'images/svg/responsive-website.svg'
+import ZeroCommission from 'images/svg/zero-commission.svg'
 import Leverage from 'images/svg/leverage.svg'
 
 export default [

@@ -32,13 +32,13 @@ const Crypto = ({ simple_step_content }) => {
             </WhyTrade>
             <AvailableTrades
                 Margin={<Margin market_content={crypto_margin} />}
-                Multipliers={<Multipliers market_content={crypto_multiplier} />}
+                Multipliers={<Multipliers market_content={crypto_multiplier} is_crypto={true} />}
                 name="Cryptocurrency"
                 display_title={<Localize translate_text="Cryptocurrency trades available on Deriv" />}
             />
             <SimpleSteps
                 header={
-                    <Localize translate_text="Start trading cryptocurrency on Deriv in 3 simple steps" />
+                    <Localize translate_text="Start trading cryptocurrencies on Deriv in 3 simple steps" />
                 }
                 content={simple_step_content}
                 sign_up

@@ -30,7 +30,7 @@ const markets_type = {
         icon: () => <img src={SyntheticIndices} alt="synthetic" width="64" height="64" />,
         title: <Localize translate_text="Synthetic indices" />,
         content: (
-            <Localize translate_text="Synthetic indices are our proprietary indices that simulate real-world market movements while being free of market and liquidity risks." />
+            <Localize translate_text="Synthetic indices trading lets you benefit from correctly predicting the price movements of our proprietary indices that stimulate real-world market movements." />
         ),
         to: '/markets#synthetic',
         id: 'marketsyntheticothermarkets',
@@ -219,7 +219,7 @@ const MobileCardContainer = styled(Flex)`
 const OtherMarkets = ({ except }) => {
     const markets = ['forex', 'Synthetic_Indices', 'stock_indices', 'commodities', 'cryptocurrencies']
     return (
-        <SectionContainer margin='auto'>
+        <SectionContainer margin='auto' background='white'>
             <Show.Desktop max_width='laptopM'>
                 <MarketsWrapper tablet_jc="center">
                     <StyledHeader as="h3" type="section-title" align="left">
@@ -251,7 +251,7 @@ const OtherMarkets = ({ except }) => {
                     )}
                 </MobileCardContainer>
             </Show.Mobile>
-        </SectionContainer >
+        </SectionContainer>
     )
 }
 OtherMarkets.propTypes = {

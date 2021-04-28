@@ -461,6 +461,10 @@ export const cryptocurrencies_margin = [
         text: <Localize translate_text="Binance coin" />,
     },
     {
+        src: icons.DASH,
+        text: <Localize translate_text="Dash" />,
+    },
+    {
         src: icons.XRP,
         text: <Localize translate_text="Ripple" />,
     },

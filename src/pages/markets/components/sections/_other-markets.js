@@ -120,9 +120,6 @@ const MobileCardWrapper = styled(Flex)`
         }
     }
 `
-const Section = styled(SectionContainer)`
-    margin:auto;
-`
 const StyledFlex = styled(Flex)`
     height: auto;
     border-radius: 1.6rem;
@@ -222,7 +219,7 @@ const MobileCardContainer = styled(Flex)`
 const OtherMarkets = ({ except }) => {
     const markets = ['forex', 'Synthetic_Indices', 'stock_indices', 'commodities', 'cryptocurrencies']
     return (
-        <Section>
+        <SectionContainer margin='auto'>
             <Show.Desktop max_width='laptopM'>
                 <MarketsWrapper tablet_jc="center">
                     <StyledHeader as="h3" type="section-title" align="left">
@@ -254,7 +251,7 @@ const OtherMarkets = ({ except }) => {
                     )}
                 </MobileCardContainer>
             </Show.Mobile>
-        </Section>
+        </SectionContainer >
     )
 }
 OtherMarkets.propTypes = {

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import styled, { css } from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import SideTab from '../dmt5/components/_side-tab'
@@ -180,13 +180,18 @@ const StyledText = styled(Text)`
 
 const StartDerivX = () => {
     const [is_mobile, setMobile] = useState(false)
-    const handleResizeWindow = () => {
+    const handleResizeWindow = useCallback(() => {
         setMobile(isBrowser() ? window.screen.width <= size.tabletS : false)
-    }
+    }, [handleResizeWindow, setMobile])
+
     useEffect(() => {
         setMobile(isBrowser() ? window.screen.width <= size.tabletS : false)
         window.addEventListener('resize', handleResizeWindow)
-    })
+
+        return () => {
+            window.removeEventListener('resize', handleResizeWindow)
+        }
+    }, [handleResizeWindow])
 
     const data = useStaticQuery(query)
     const [tab, setTab] = useState('demo')

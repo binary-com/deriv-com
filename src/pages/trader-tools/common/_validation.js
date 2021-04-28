@@ -52,12 +52,6 @@ const numberWithNegativeValidation = (input, fieldName, maxDigit) => {
     return null
 }
 
-const checkStopLossTakeProfitValidation = (stop_loss, take_profit) => {
-    if (stop_loss >= take_profit) {
-        return localize('Stop loss value should be less than take profit value')
-    }
-}
-
 const validation = {
     symbol: (input) => {
         if (!input || input.name === 'default') {
@@ -104,9 +98,6 @@ const validation = {
     },
     multiplier: (input) => {
         return numberValidation(input, localize('Multiplier'), 4)
-    },
-    stopLossTakeProfit: (stop_loss, take_profit) => {
-        return checkStopLossTakeProfitValidation(stop_loss, take_profit)
     },
 }
 

@@ -56,16 +56,6 @@ const Navigation = styled(Flex)`
     }
 `
 
-// const Separator = styled.span`
-//     width: 2px;
-//     height: 3rem;
-//     background: white;
-
-//     @media ${device.tabletL} {
-//         height: 36px;
-//     }
-// `
-
 const StyledHeader = styled(Header)`
     transition: color 0.25s;
     ${(props) =>
@@ -129,7 +119,7 @@ const Story = () => {
 
                     </NavigationWrapper>
 
-                    <ContentWrapper margin_top={9.1}>
+                    <ContentWrapper margin_top="9.1">
                         <Show.Desktop>
                             <Text mb="1.5rem" size="var(--text-size-s)" secondary color="white">
                                 {localize(

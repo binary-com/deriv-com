@@ -54,6 +54,48 @@ const query = graphql`
         }
     }
 `
+
+const demo = [
+    {
+        description: <Localize translate_text="Sign in to your Deriv account. If you don’t have one, sign up for free." />,
+        image_data: 'demo_step1',
+        image_alt: 'demo_step1',
+    },
+    {
+        description: <Localize translate_text="Add a Deriv X demo account." />,
+        image_data: 'demo_step2',
+        image_alt: 'demo_step2',
+    },
+    {
+        description: <Localize translate_text="Start trading on the mobile app or through your web browser." />,
+        image_data: 'demo_step3',
+        image_alt: 'demo_step3',
+    },
+]
+
+const real = [
+    {
+        description: <Localize translate_text="Sign in to your Deriv account. If you don’t have one, sign up for free." />,
+        image_data: 'real_step1',
+        image_alt: 'real_step1',
+    },
+    {
+        description: <Localize translate_text="Add a Deriv real account." />,
+        image_data: 'real_step2',
+        image_alt: 'real_step2',
+    },
+    {
+        description: <Localize translate_text="Add a Deriv X real account." />,
+        image_data: 'real_step3',
+        image_alt: 'real_step3',
+    },
+    {
+        description: <Localize translate_text="Start trading on the mobile app or through your web browser." />,
+        image_data: 'real_step4',
+        image_alt: 'real_step4',
+    },
+]
+
 const Section = styled(SectionContainer)`
     display: flex;
     flex-direction: column;
@@ -147,7 +189,7 @@ const StartDerivX = () => {
     })
 
     const data = useStaticQuery(query)
-    const [tab, setTab] = useState('Demo')
+    const [tab, setTab] = useState('demo')
 
     const onTabClick = (tab) => {
         setTab(tab)
@@ -161,8 +203,8 @@ const StartDerivX = () => {
             <Flex mb="8rem" p="0 16px" tablet={{ mb: '32px', height: 'unset' }}>
                 <TabItem
                     mobile_padding="21px 12px"
-                    active={tab === 'Demo'}
-                    onClick={() => onTabClick('Demo')}
+                    active={tab === 'demo'}
+                    onClick={() => onTabClick('demo')}
                 >
                     <StyledText size="var(--text-size-m)" align="center">
                         {localize('Demo account')}
@@ -170,8 +212,8 @@ const StartDerivX = () => {
                 </TabItem>
                 <TabItem
                     mobile_padding="12px 24px"
-                    active={tab === 'Real'}
-                    onClick={() => onTabClick('Real')}
+                    active={tab === 'real'}
+                    onClick={() => onTabClick('real')}
                 >
                     <StyledText size="var(--text-size-m)" align="center">
                         {localize('Real money account')}
@@ -180,110 +222,25 @@ const StartDerivX = () => {
             </Flex>
 
             <Flex max_width="1200px">
-                {tab === 'Demo' ? (
-                    <SideTab parent_tab={tab}>
-                        <SideTab.Panel
-                            label=""
-                            description={
-                                <Localize
-                                    translate_text="Sign in to your Deriv account. If you don’t have one, sign up for free."
-                                />
-                            }
-                            mobile_item_width="36rem"
-                        >
-                            <ImageWrapper>
-                                <QueryImage
-                                    data={data[is_mobile ? 'demo_step1_mobile' : 'demo_step1']}
-                                    alt="demo_step1"
-                                />
-                            </ImageWrapper>
-                        </SideTab.Panel>
-                        <SideTab.Panel
-                            label=""
-                            description={
-                                <Localize translate_text="Add a Deriv X demo account." />
-                            }
-                        >
-                            <ImageWrapper>
-                                <QueryImage
-                                    data={data[is_mobile ? 'demo_step2_mobile' : 'demo_step2']}
-                                    alt="demo_step2"
-                                />
-                            </ImageWrapper>
-                        </SideTab.Panel>
-                        <SideTab.Panel
-                            label=""
-                            description={
-                                <Localize translate_text="Start trading on the mobile app or through your web browser." />
-                            }
-                            item_width="36rem"
-                        >
-                            <ImageWrapper>
-                                <QueryImage
-                                    data={data[is_mobile ? 'demo_step3_mobile' : 'demo_step3']}
-                                    alt="demo_step3"
-                                />
-                            </ImageWrapper>
-                        </SideTab.Panel>
-                    </SideTab>
-                ) : (
-                        <SideTab parent_tab={tab}>
+                <SideTab parent_tab={tab}>
+                    {(tab === 'demo' ? demo : real).map((index) => {
+                        return (
                             <SideTab.Panel
+                                key={index}
                                 label=""
-                                description={
-                                    <Localize
-                                        translate_text="Sign in to your Deriv account. If you don’t have one, sign up for free."
-                                    />
-                                }
+                                description={index.description}
+                                mobile_item_width="35rem"
                             >
                                 <ImageWrapper>
                                     <QueryImage
-                                        data={data[is_mobile ? 'real_step1_mobile' : 'real_step1']}
-                                        alt="real_step1"
+                                        data={data[is_mobile ? `${index.image_data}_mobile` : index.image_data]}
+                                        alt={index.image_alt}
                                     />
                                 </ImageWrapper>
                             </SideTab.Panel>
-                            <SideTab.Panel
-                                label=""
-                                description={
-                                    <Localize translate_text="Add a Deriv real account." />
-                                }
-                            >
-                                <ImageWrapper>
-                                    <QueryImage
-                                        data={data[is_mobile ? 'real_step2_mobile' : 'real_step2']}
-                                        alt="real_step2"
-                                    />
-                                </ImageWrapper>
-                            </SideTab.Panel>
-                            <SideTab.Panel
-                                label=""
-                                description={
-                                    <Localize translate_text="Add a Deriv X real account." />
-                                }
-                            >
-                                <ImageWrapper>
-                                    <QueryImage
-                                        data={data[is_mobile ? 'real_step3_mobile' : 'real_step3']}
-                                        alt="real_step3"
-                                    />
-                                </ImageWrapper>
-                            </SideTab.Panel>
-                            <SideTab.Panel
-                                label=""
-                                description={
-                                    <Localize translate_text="Start trading on the mobile app or through your web browser." />
-                                }
-                            >
-                                <ImageWrapper>
-                                    <QueryImage
-                                        data={data[is_mobile ? 'real_step4_mobile' : 'real_step4']}
-                                        alt="real_step4"
-                                    />
-                                </ImageWrapper>
-                            </SideTab.Panel>
-                        </SideTab>
-                    )}
+                        )
+                    })}
+                </SideTab>
             </Flex>
         </Section>
     )

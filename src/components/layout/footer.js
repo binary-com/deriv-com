@@ -481,7 +481,12 @@ const Footer = ({ type, is_ppc, is_ppc_redirect }) => {
                                         </Link>
                                     </LinkWrapper>
                                     <LinkWrapper>
-                                        <Link to={deriv_developer_url}>
+                                        <Link
+                                            to={deriv_developer_url}
+                                            target="_blank"
+                                            external="true"
+                                            rel="noopener noreferrer"
+                                        >
                                             {localize('Developers')}
                                         </Link>
                                     </LinkWrapper>

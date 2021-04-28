@@ -947,6 +947,9 @@ export const NavPartners = ({ no_login_signup }) => {
                                     active={current_page === 'developers'}
                                     activeClassName="active"
                                     to={deriv_developer_url}
+                                    target="_blank"
+                                    external="true"
+                                    rel="noopener noreferrer"
                                     aria-label={localize('Developers')}
                                 >
                                     {localize('Developers')}

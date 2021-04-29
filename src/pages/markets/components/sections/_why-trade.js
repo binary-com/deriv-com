@@ -17,7 +17,7 @@ const Item = styled(Flex)`
     }
     @media ${device.tabletL} {
         max-width: 27rem;
-        margin-top: 5rem;
+        margin-top: 24px;
 
         ${Text} {
             font-size: 2rem;
@@ -34,7 +34,7 @@ const ItemContainer = styled(Box)`
     @media ${device.tabletL} {
         flex-direction: column;
         align-items: center;
-        margin: 1rem 0 5rem 0;
+        margin: 10px 0 32px 0;
     }
 `
 const StyledHeader = styled(Header)`
@@ -55,7 +55,7 @@ const StyledText = styled(Text)`
 `
 const StyledSection = styled(SectionContainer)`
     @media ${device.tabletL} {
-        padding: 5rem 2rem;
+        padding: 40px 16px;
     }
 `
 const StyledButton = styled(LinkButton)`
@@ -67,7 +67,7 @@ const StyledButton = styled(LinkButton)`
 `
 export const WhyTrade = ({ children, header, text }) => {
     return (
-        <StyledSection background="var(--color-grey-23)">
+        <StyledSection background="color-grey-23">
             <Flex direction="column" max_width="99.6rem" m="0 auto" jc="space-between" ai="center">
                 <div>
                     <StyledHeader as="h3" type="section-title" align="center" mb="1.6rem" lh="1.25">

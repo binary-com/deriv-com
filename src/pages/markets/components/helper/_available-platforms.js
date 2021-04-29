@@ -34,7 +34,7 @@ const StyledText = styled(Text)`
     margin-right: 1.6rem;
 
     @media ${device.tabletL} {
-        font-size: 1.75rem;
+        font-size: 16px;
         margin-right: 1rem;
     }
     @media ${device.tablet} {
@@ -42,6 +42,7 @@ const StyledText = styled(Text)`
     }
     @media ${device.mobileL} {
         width: unset;
+        margin-right: 0;
     }
 `
 const StyledFlex = styled(Flex)`
@@ -77,7 +78,7 @@ const AvailablePlatforms = ({
                     <LocalizedLink to="/dmt5/">
                         <StyledFlex direction="row" ai="center">
                             <img src={DMT5} alt="dmt5 icon" width="32" height="32" />
-                            <Text ml="0.4rem">{localize('MetaTrader5 (DMT5)')}</Text>
+                            <Text ml="0.4rem">{localize('Deriv MT5 (DMT5)')}</Text>
                         </StyledFlex>
                     </LocalizedLink>
                 )}

@@ -323,7 +323,7 @@ export const OffCanvasMenuWrapper = (props) => {
                         )}
                         <Flex mb="3.2rem">
                             <NavCard
-                                aria_label="Stock Indices"
+                                aria_label="Stocks & indices"
                                 icon={() => (
                                     <img
                                         src={StockIndices}
@@ -335,7 +335,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                 content={localize(
                                     'Predict broader market trends and diversify your risk with stock indices.',
                                 )}
-                                title={localize('Stock Indices')}
+                                title={localize('Stocks & indices')}
                                 onClick={handleArrowClick}
                                 to="/markets#stock"
                             />

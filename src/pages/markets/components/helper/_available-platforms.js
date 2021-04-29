@@ -43,6 +43,7 @@ const StyledText = styled(Text)`
     @media ${device.mobileL} {
         width: unset;
         margin-right: 0;
+        font-size: 14px;
     }
 `
 const StyledFlex = styled(Flex)`

@@ -137,7 +137,7 @@ export const Wrapper = styled(Container)`
     }
     @media ${device.mobileM} {
         ${({ offset_px_mobile }) =>
-            offset_px_mobile && `width: calc(100% - ${offset_px_mobile}px)`};
+        offset_px_mobile && `width: calc(100% - ${offset_px_mobile}px)`};
     }
 `
 
@@ -213,21 +213,21 @@ const NavRight = styled.div`
     }};
     transform: translateX(
         ${(props) => {
-            if (props.move) {
-                if (props.button_ref.current && props.mounted) {
-                    props.button_ref.current.style.opacity = 1
-                }
-                return 0
-            } else {
-                if (props.button_ref.current && props.mounted) {
-                    props.button_ref.current.style.opacity = 0
-
-                    const calculation = props.button_ref.current.offsetWidth + 2
-                    return `${calculation}px`
-                }
-                return '300px'
+        if (props.move) {
+            if (props.button_ref.current && props.mounted) {
+                props.button_ref.current.style.opacity = 1
             }
-        }}
+            return 0
+        } else {
+            if (props.button_ref.current && props.mounted) {
+                props.button_ref.current.style.opacity = 0
+
+                const calculation = props.button_ref.current.offsetWidth + 2
+                return `${calculation}px`
+            }
+            return '300px'
+        }
+    }}
     );
 
     > a {
@@ -765,21 +765,21 @@ const StyledNavRight = styled(NavRight)`
     margin-left: auto;
     transform: translateX(
         ${(props) => {
-            if (props.move) {
-                if (props.button_ref.current && props.mounted) {
-                    props.button_ref.current.style.opacity = 1
-                }
-                return '50px'
-            } else {
-                if (props.button_ref.current && props.mounted) {
-                    props.button_ref.current.style.opacity = 0
-
-                    const calculation = props.button_ref.current.offsetWidth + 50
-                    return `${calculation}px`
-                }
-                return '300px'
+        if (props.move) {
+            if (props.button_ref.current && props.mounted) {
+                props.button_ref.current.style.opacity = 1
             }
-        }}
+            return '50px'
+        } else {
+            if (props.button_ref.current && props.mounted) {
+                props.button_ref.current.style.opacity = 0
+
+                const calculation = props.button_ref.current.offsetWidth + 50
+                return `${calculation}px`
+            }
+            return '300px'
+        }
+    }}
     );
 
     > a {
@@ -890,7 +890,7 @@ export const NavPartners = ({ no_login_signup }) => {
                                     {localize('Deriv website')}
                                 </Text>
                             </HomeLink>
-                            <HomeLink to="/about">
+                            <HomeLink to="/about/leadership">
                                 <Text color="grey-19" size="var(--text-size-xxs)">
                                     {localize('About us')}
                                 </Text>

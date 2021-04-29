@@ -125,6 +125,7 @@ export const OptionsRow = styled(Flex)`
     @media ${device.tabletL} {
         flex-direction: column;
         align-items: flex-start;
+        margin-top: ${({ is_first_child }) => (is_first_child ? '0' : '24px')};
     }
 
     ${Col} {
@@ -136,6 +137,9 @@ export const StyledText = styled(Text)`
     @media ${device.tabletL} {
         font-size: ${({ font_size }) => font_size ?? '20px'};
         text-align: ${({ align }) => align ?? 'left'};
+    }
+
+    @media ${device.mobileL} {
         max-width: 328px;
     }
 `

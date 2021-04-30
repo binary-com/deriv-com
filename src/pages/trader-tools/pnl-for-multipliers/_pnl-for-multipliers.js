@@ -826,7 +826,7 @@ const PnlMultipliersCalculator = () => {
                                                                         )
                                                                         current_input.focus()
                                                                     }}
-                                                                    maxLength="8"
+                                                                    maxLength="4"
                                                                     background="white"
                                                                 />
                                                             )}
@@ -1822,7 +1822,7 @@ const PnlMultipliersCalculator = () => {
                                                                         )
                                                                         current_input.focus()
                                                                     }}
-                                                                    maxLength="8"
+                                                                    maxLength="4"
                                                                     background="white"
                                                                 />
                                                             )}

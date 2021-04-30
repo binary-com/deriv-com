@@ -73,7 +73,9 @@ const DropdownSearch = ({
                   })
         setDropdownItems(filtered_items)
         toggleListVisibility(e)
-        setOpen(true)
+        if (e.key !== 'Escape') {
+            setOpen(true)
+        }
     }
 
     return (
@@ -96,6 +98,7 @@ const DropdownSearch = ({
                         onClick={toggleListVisibility}
                         onChange={handleInputChange}
                         onFocus={toggleListVisibility}
+                        onKeyDown={toggleListVisibility}
                         onKeyUp={handleKeyUp}
                         has_short_name={has_short_name}
                         value={input_value}

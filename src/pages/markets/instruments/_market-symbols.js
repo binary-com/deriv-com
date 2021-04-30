@@ -419,7 +419,7 @@ export const cryptocurrencies = [
     },
     {
         src: icons.DASH,
-        text: <Localize translate_text="Dash" />,
+        text: <Localize translate_text="DASH" />,
     },
     {
         src: icons.XRP,
@@ -462,7 +462,7 @@ export const cryptocurrencies_margin = [
     },
     {
         src: icons.DASH,
-        text: <Localize translate_text="Dash" />,
+        text: <Localize translate_text="DASH" />,
     },
     {
         src: icons.XRP,

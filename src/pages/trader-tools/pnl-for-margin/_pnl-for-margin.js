@@ -1249,7 +1249,7 @@ const PnlMarginCalculator = () => {
                                     </Show.Desktop>
                                     <Show.Mobile min_width="mobileL">
                                         <QueryImage
-                                            data={data.take_profit_level_formula_mobile}
+                                            data={data.take_profit_pip_formula_mobile}
                                             alt={localize('take profit pip formula')}
                                         />
                                     </Show.Mobile>

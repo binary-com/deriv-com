@@ -34,7 +34,7 @@ const Crypto = ({ simple_step_content }) => {
                 Margin={<Margin market_content={crypto_margin} />}
                 Multipliers={<Multipliers market_content={crypto_multiplier} />}
                 name="Cryptocurrency"
-                display_title={<Localize translate_text="Cyrptocurrency trades available on Deriv" />}
+                display_title={<Localize translate_text="Cryptocurrency trades available on Deriv" />}
             />
             <SimpleSteps
                 header={

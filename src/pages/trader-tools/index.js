@@ -49,7 +49,7 @@ const tools = [
             <Localize translate_text="Estimate the stop loss and/or take profit levels as well as the pip value for your contract to mitigate your risk when buying or selling a position." />
         ),
         link: {
-            text: <Localize translate_text="Try PnL for margin" />,
+            text: <Localize translate_text="Try PnL for margin calculator" />,
             route: '/trader-tools/pnl-for-margin',
         },
         image_name: 'pnl_margin',
@@ -61,7 +61,7 @@ const tools = [
             <Localize translate_text="Estimate the stop loss and/or take profit level as well as the stop loss and/or take profit amount for your contract to mitigate your risk in case the market price moves against your favour." />
         ),
         link: {
-            text: <Localize translate_text="Try PnL for multipliers" />,
+            text: <Localize translate_text="Try PnL for multipliers calculator" />,
             route: '/trader-tools/pnl-for-multipliers',
         },
         image_name: 'pnl_multipliers',

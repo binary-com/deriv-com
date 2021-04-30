@@ -946,7 +946,8 @@ export const NavPartners = ({ no_login_signup }) => {
                                 <StyledLink
                                     active={current_page === 'developers'}
                                     activeClassName="active"
-                                    to={deriv_developer_url}
+                                    to=""
+                                    is_deriv_developer_url
                                     target="_blank"
                                     external="true"
                                     rel="noopener noreferrer"

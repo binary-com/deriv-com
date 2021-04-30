@@ -110,8 +110,8 @@ const PnlMarginCalculator = () => {
     const onTabClick = (tab) => {
         const form = formik_ref.current
         setTab(tab)
-        form?.resetForm()
-        form?.setErrors()
+        form?.resetForm({})
+        form?.setErrors({})
         form?.setFieldValue('accountType', sub_tab === 'Synthetic' ? 'Synthetic' : 'Financial')
         form?.setFieldValue(
             'optionList',

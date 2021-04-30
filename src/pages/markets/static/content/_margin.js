@@ -28,7 +28,6 @@ import {
     AsianIndicesDetails,
     EuropeanIndicesDetails,
 } from './_details'
-// import { OTCGERMAN } from 'components/elements/symbols'
 import { Localize } from 'components/localization'
 
 export const commodities_margin = {

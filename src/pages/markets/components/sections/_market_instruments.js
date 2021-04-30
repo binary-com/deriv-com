@@ -20,7 +20,7 @@ const MarketInstruments = ({ market_content }) => (
                         <Row is_accordion_row={true}>
                             {market_content.template == 2 ? (
                                 <>
-                                    <Col fullwidth={true}>
+                                    <Col full_width={true}>
                                         <Title>{content.title}</Title>
                                     </Col>
                                     <LatestMarketsList

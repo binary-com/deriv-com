@@ -8,7 +8,7 @@ export const Col = styled(Flex)`
     padding: 0 4px;
 
     @media ${device.tabletL} {
-        max-width: ${({ fullwidth }) => (fullwidth ? '80px' : '129px')};
+        max-width: ${({ full_width }) => (full_width ? '80px' : '129px')};
         ${({ mobile_template }) =>
             mobile_template &&
             'padding: 16px 0;max-width: 100%;border-bottom: 1px solid var(--color-grey-22)'};

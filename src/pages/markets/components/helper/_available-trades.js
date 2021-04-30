@@ -106,7 +106,7 @@ const CardContainer = styled(Flex)`
         z-index: -1;
         border-bottom: none;
         border-radius: 8px 8px 0 0;
-        background: #f3f3f3;
+        background: var(--color-grey-36);
         transform: perspective(8px) rotateX(0.8deg);
         transform-origin: bottom left;
         box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.05);
@@ -119,7 +119,6 @@ const CardContainer = styled(Flex)`
         }}
     }
     @media ${device.tabletL} {
-        /* width: 100%; */
         height: 6rem;
         min-width: unset;
         padding-right: 0;

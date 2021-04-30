@@ -116,7 +116,7 @@ export const crypto_margin = {
     markets_list: {
         col: 4,
         tablet_col: 3,
-        mobile_col: 2,
+        mobile_col: 1,
     },
     content: [
         {

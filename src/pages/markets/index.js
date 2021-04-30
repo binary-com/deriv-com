@@ -120,7 +120,7 @@ const simple_step_content_crypto = [
     {
         header: <Localize translate_text="Trade" />,
         text: (
-            <Localize translate_text="Open a real account, make a deposit, and start trading Open a real account, make a deposit, and start trading cryptocurrencies and other markets." />
+            <Localize translate_text="Open a real account, make a deposit, and start trading cryptocurrencies and other markets." />
         ),
         icon: <img src={TradeIcon} alt="trade" width="32" height="28" />,
     },

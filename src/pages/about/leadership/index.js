@@ -8,7 +8,7 @@ import { localize, Localize, WithIntl } from 'components/localization'
 import { Header, Text, QueryImage } from 'components/elements'
 import device from 'themes/device'
 
-const Leaders = Loadable(() => import('./leadership/_leaders'))
+const Leaders = Loadable(() => import('./_leaders'))
 
 const query = graphql`
     query {

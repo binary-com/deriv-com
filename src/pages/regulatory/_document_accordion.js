@@ -154,7 +154,7 @@ const DocumentAccordion = (locale) => {
                     <FlexText_Pillar
                         target="_blank"
                         rel="noopener noreferrer"
-                        href="/regulatory/BIEL_Pillar_3.pdf"
+                        href="/regulatory/DIEL_Pillar_3.pdf"
                         color="red"
                     >
                         <img src={PDFIcon} alt="pdf icon black" />

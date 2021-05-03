@@ -1,34 +1,43 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useCallback } from "react"
 import { Localize } from 'components/localization'
 import DHero from 'components/custom/_dhero-2'
 import { size } from 'themes/device'
-import DerivXBG from 'images/svg/derivx/triangle-up.svg'
-import DerivXBG2 from 'images/svg/derivx/triangle-down.svg'
-import derivx_logo from 'images/svg/derivx/derivx-logo.svg'
+import DerivXBG from 'images/svg/deriv-x/triangle-up.svg'
+import DerivXBG2 from 'images/svg/deriv-x/triangle-down.svg'
+import deriv_x_logo from 'images/svg/deriv-x/derivx-logo.svg'
 import { isBrowser } from 'common/utility'
 
 const Hero = () => {
     const [is_mobile, setMobile] = useState(false)
-    const handleResizeWindow = () => {
+
+    const handleResizeWindow = useCallback(() => {
         setMobile(isBrowser() ? window.screen.width <= size.mobileL : false)
-    }
+    }, [setMobile])
 
     useEffect(() => {
-        setMobile(isBrowser() ? window.screen.width <= size.mobileL : false)
+        handleResizeWindow()
         window.addEventListener('resize', handleResizeWindow)
-    })
+
+        return () => {
+            window.removeEventListener('resize', handleResizeWindow)
+        }
+    }, [handleResizeWindow])
 
     return (
         <DHero
             title={<Localize translate_text='Deriv X' />}
             content={<Localize translate_text="The trading platform to fit your style" />}
             join_us_for_free
-            Logo={derivx_logo}
-            image_name="derivx"
+            Logo={deriv_x_logo}
+            image_name="deriv_x"
             is_mobile={is_mobile}
             background_svg={DerivXBG2}
             background_svg2={DerivXBG}
             background_alt={<Localize translate_text='DerivX' />}
+            d_height='56.7rem'
+            laptopM_height='49.9rem'
+            laptop_height='53.8rem'
+            tabletL_height='50.5rem'
         />
     )
 }

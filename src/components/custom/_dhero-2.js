@@ -13,19 +13,19 @@ const Wrapper = styled(Flex)`
     justify-content: flex-start;
     background-color: var(--color-black);
     height: unset;
-    min-height: 60.2rem;
+    min-height: ${props => props.d_height};
     padding: 2rem 12rem;
 
     @media ${device.laptopM} {
-        height: 52.7rem;
+        height: ${props => props.laptopM_height};
         min-height: unset;
     }
     @media ${device.laptop} {
-        height: 56.8rem;
+        height: ${props => props.laptop_height};
         padding: 2rem 8rem;
     }
     @media ${device.tabletL} {
-        height: 53rem;
+        height: ${props => props.tabletL_height};
         align-items:center;
     }
     @media ${device.tablet} {
@@ -201,10 +201,10 @@ const query = graphql`
         dmt5_mobile: file(relativePath: { eq: "dmt5_trade_mobile.png" }) {
             ...fadeIn
         }
-        derivx: file(relativePath: { eq: "derivx/hero-laptop.png" }) {
+        deriv_x: file(relativePath: { eq: "deriv-x/hero-laptop.png" }) {
             ...backGroundBlur
         }
-        derivx_mobile: file(relativePath: { eq: "derivx/hero-laptop-mobile.png" }) {
+        deriv_x_mobile: file(relativePath: { eq: "deriv-x/hero-laptop-mobile.png" }) {
             ...backGroundBlur
         }
     }
@@ -222,6 +222,10 @@ const DHero = ({
     go_to_live_demo,
     is_ppc,
     Logo,
+    d_height,
+    laptopM_height,
+    laptop_height,
+    tabletL_height,
 }) => {
     const data = useStaticQuery(query)
     const redirectUrl = () => {
@@ -280,7 +284,12 @@ const DHero = ({
     `
 
     return (
-        <Wrapper>
+        <Wrapper
+            d_height={d_height}
+            laptopM_height={laptopM_height}
+            laptop_height={laptop_height}
+            tabletL_height={tabletL_height}
+        >
             {!is_mobile && (
                 <>
                     <BackgroundSVG src={background_svg} alt="background svg" />
@@ -338,12 +347,16 @@ DHero.propTypes = {
     background_svg: PropTypes.func,
     background_svg2: PropTypes.func,
     content: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+    d_height: PropTypes.string,
     go_to_live_demo: PropTypes.bool,
     image_name: PropTypes.string,
     is_mobile: PropTypes.bool,
     is_ppc: PropTypes.bool,
     join_us_for_free: PropTypes.bool,
+    laptop_height: PropTypes.string,
+    laptopM_height: PropTypes.string,
     Logo: PropTypes.any,
+    tabletL_height: PropTypes.string,
     title: PropTypes.string,
 }
 

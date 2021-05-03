@@ -109,16 +109,16 @@ const query = graphql`
         stocks_blue_chip: file(relativePath: { eq: "stocks-blue-chip.png" }) {
             ...fadeIn
         }
-        bespoke: file(relativePath: { eq: "derivx/bespoke.png" }) {
+        bespoke: file(relativePath: { eq: "deriv-x/bespoke.png" }) {
             ...fadeIn
         } 
-        feature_rich: file(relativePath: { eq: "derivx/feature-rich.png" }) {
+        feature_rich: file(relativePath: { eq: "deriv-x/feature-rich.png" }) {
             ...fadeIn
         }
-        intuitive: file(relativePath: { eq: "derivx/intuitive.png" }) {
+        intuitive: file(relativePath: { eq: "deriv-x/intuitive.png" }) {
             ...fadeIn
         }
-        margin: file(relativePath: { eq: "derivx/margin.png" }) {
+        margin: file(relativePath: { eq: "deriv-x/margin.png" }) {
             ...fadeIn
         }
     }

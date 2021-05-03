@@ -12,7 +12,7 @@ import { WithIntl } from 'components/localization'
 const DerivX = () => {
     return (
         <Layout>
-            <SEO title="Deriv X" />
+            <SEO title="Deriv X | Deriv" />
             <Hero />
             <SellingPoints />
             <WhatIsDeriv />

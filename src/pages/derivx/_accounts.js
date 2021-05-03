@@ -4,8 +4,8 @@ import { Flex, SectionContainer } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { LinkButton } from 'components/form'
 import { Localize, localize } from 'components/localization'
-import DxFinancialIcon from 'images/svg/derivx/dxfinancial.svg'
-import DxSyntheticIcon from 'images/svg//derivx/dxsynthetic.svg'
+import DxFinancialIcon from 'images/svg/deriv-x/dxfinancial.svg'
+import DxSyntheticIcon from 'images/svg//deriv-x/dxsynthetic.svg'
 import device from 'themes/device'
 
 const StyledIcon = styled.img`
@@ -128,6 +128,8 @@ const Accounts = () => {
                     )
                 })}
             </Flex>
+
+            {/* TODO: Update link once available in deriv app */}
             <StyledLinkButton
                 external="true"
                 secondary="true"

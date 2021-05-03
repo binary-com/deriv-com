@@ -10,46 +10,46 @@ import { isBrowser } from 'common/utility'
 
 const query = graphql`
     query {
-        demo_step1: file(relativePath: { eq: "derivx/demo-1.png" }) {
+        demo_step1: file(relativePath: { eq: "deriv-x/demo-1.png" }) {
             ...fadeIn
         }
-        demo_step1_mobile: file(relativePath: { eq: "derivx/mobile-demo-1.png" }) {
+        demo_step1_mobile: file(relativePath: { eq: "deriv-x/mobile-demo-1.png" }) {
             ...fadeIn
         }
-        demo_step2: file(relativePath: { eq: "derivx/demo-2.png" }) {
+        demo_step2: file(relativePath: { eq: "deriv-x/demo-2.png" }) {
             ...fadeIn
         }
-        demo_step2_mobile: file(relativePath: { eq: "derivx/mobile-demo-2.png" }) {
+        demo_step2_mobile: file(relativePath: { eq: "deriv-x/mobile-demo-2.png" }) {
             ...fadeIn
         }
-        demo_step3: file(relativePath: { eq: "derivx/start-trading.png" }) {
+        demo_step3: file(relativePath: { eq: "deriv-x/start-trading.png" }) {
             ...fadeIn
         }
-        demo_step3_mobile: file(relativePath: { eq: "derivx/mobile-start-trading.png" }) {
+        demo_step3_mobile: file(relativePath: { eq: "deriv-x/mobile-start-trading.png" }) {
             ...fadeIn
         }
-        real_step1: file(relativePath: { eq: "derivx/real-1.png" }) {
+        real_step1: file(relativePath: { eq: "deriv-x/real-1.png" }) {
             ...fadeIn
         }
-        real_step1_mobile: file(relativePath: { eq: "derivx/mobile-real-1.png" }) {
+        real_step1_mobile: file(relativePath: { eq: "deriv-x/mobile-real-1.png" }) {
             ...fadeIn
         }
-        real_step2: file(relativePath: { eq: "derivx/real-2.png" }) {
+        real_step2: file(relativePath: { eq: "deriv-x/real-2.png" }) {
             ...fadeIn
         }
-        real_step2_mobile: file(relativePath: { eq: "derivx/mobile-real-2.png" }) {
+        real_step2_mobile: file(relativePath: { eq: "deriv-x/mobile-real-2.png" }) {
             ...fadeIn
         }
-        real_step3: file(relativePath: { eq: "derivx/real-3.png" }) {
+        real_step3: file(relativePath: { eq: "deriv-x/real-3.png" }) {
             ...fadeIn
         }
-        real_step3_mobile: file(relativePath: { eq: "derivx/mobile-real-3.png" }) {
+        real_step3_mobile: file(relativePath: { eq: "deriv-x/mobile-real-3.png" }) {
             ...fadeIn
         }
-        real_step4: file(relativePath: { eq: "derivx/start-trading.png" }) {
+        real_step4: file(relativePath: { eq: "deriv-x/start-trading.png" }) {
             ...fadeIn
         }
-        real_step4_mobile: file(relativePath: { eq: "derivx/mobile-start-trading.png" }) {
+        real_step4_mobile: file(relativePath: { eq: "deriv-x/mobile-start-trading.png" }) {
             ...fadeIn
         }
     }

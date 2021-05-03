@@ -60,7 +60,7 @@ const Line = styled.div`
     }
 `
 
-export const NavP2P = ({ nav_type }) => {
+export const NavP2P = () => {
     const data = useStaticQuery(query)
 
     return (
@@ -71,7 +71,7 @@ export const NavP2P = ({ nav_type }) => {
                     <StyledWrapper>
                         <P2PNavLeft>
                             <StyledLogoLink
-                                to={nav_type === 'p2p-v1' ? '/p2p/v1' : '/p2p/v2'}
+                                to='p2p'
                                 aria-label={localize('Home')}
                             >
                                 <QueryImage

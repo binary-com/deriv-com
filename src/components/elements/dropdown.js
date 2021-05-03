@@ -216,13 +216,13 @@ export const StyledLabel = styled.label`
     padding: 0 0.4rem;
 
     @media ${device.tabletL} {
-        font-size: 1.75rem;
+        font-size: 1.6rem;
         top: 1.5rem;
     }
 
     @media ${device.mobileL} {
         font-size: 1.5rem;
-        top: 1.75rem;
+        top: 1.6rem;
     }
 
     ${(props) =>

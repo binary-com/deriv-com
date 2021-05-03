@@ -27,8 +27,12 @@ const DropdownInput = styled.input`
         outline: none;
     }
 
+    @media ${device.tabletL} {
+        font-size: 1.75rem;
+    }
+
     @media ${device.mobileL} {
-        font-size: 14px;
+        font-size: 1.5rem;
     }
 `
 
@@ -68,7 +72,7 @@ const DropdownSearch = ({
             input_value === ''
                 ? items
                 : items.filter((i) => {
-                      let regex = new RegExp(input_value, 'gi')
+                      let regex = new RegExp(`^[a-zA-Z|${input_value}]+$`, 'gi')
                       return !!regex.test(i.name)
                   })
         setDropdownItems(filtered_items)
@@ -102,6 +106,7 @@ const DropdownSearch = ({
                         onKeyUp={handleKeyUp}
                         has_short_name={has_short_name}
                         value={input_value}
+                        is_active={is_open}
                         placeholder={label}
                     />
                     <Arrow onClick={toggleListVisibility} expanded={is_open ? 'true' : 'false'} />

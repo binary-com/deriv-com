@@ -107,6 +107,8 @@ const PnlMarginCalculator = () => {
 
     const [tab, setTab] = useState('Buy')
     const [sub_tab, setSubTab] = useState('Synthetic')
+    // These additional states have been created to track the first output (levels)
+    // from the calculator in order to rerender the second output (pips)
     const [stop_loss_output, setStopLossOutput] = useState(0)
     const [take_profit_output, setTakeProfitOutput] = useState(0)
 
@@ -122,6 +124,8 @@ const PnlMarginCalculator = () => {
     }
     const onSubTabClick = (tab) => setSubTab(tab)
 
+    // Watch the state of the first output, and update the second output upon change
+    // TODO: Find a cleaner solution for this
     React.useEffect(() => {
         if (form?.values.pointValue) {
             form.setFieldValue(

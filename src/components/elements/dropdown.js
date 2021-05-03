@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
-import { getCommaSeparatedNumber } from 'common/utility'
+import { numberWithCommas } from 'common/utility'
 import { useDropdownHooks } from 'components/hooks/dropdown-hooks'
 import { Text } from 'components/elements/typography'
 import { ReactComponent as Chevron } from 'images/svg/chevron-bottom.svg'
@@ -313,7 +313,7 @@ export const BottomLabel = ({ error, contract_size }) => {
 
             {contract_size && (
                 <ContractSizeWrapper lh="1.4" align="left">
-                    Contract size : {getCommaSeparatedNumber(contract_size)}
+                    Contract size : {numberWithCommas(contract_size)}
                 </ContractSizeWrapper>
             )}
         </StyledDiv>

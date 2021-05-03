@@ -436,7 +436,7 @@ const PnlMultipliersCalculator = () => {
                                                                                 )
                                                                                 current_input.focus()
                                                                             }}
-                                                                            maxLength="8"
+                                                                            maxLength="15"
                                                                             background="white"
                                                                         />
                                                                     )}

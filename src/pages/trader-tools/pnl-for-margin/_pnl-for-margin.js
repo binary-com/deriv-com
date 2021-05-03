@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react'
-import { Field, Formik } from 'formik'
+import { Field, Formik, useFormikContext } from 'formik'
 import { graphql, useStaticQuery } from 'gatsby'
 import {
     getContractSize,
@@ -103,6 +103,7 @@ const PnlMarginCalculator = () => {
     `
     const data = useStaticQuery(query)
     const formik_ref = useRef()
+    const { values } = useFormikContext()
 
     const [tab, setTab] = useState('Buy')
     const [sub_tab, setSubTab] = useState('Synthetic')
@@ -119,6 +120,11 @@ const PnlMarginCalculator = () => {
         )
     }
     const onSubTabClick = (tab) => setSubTab(tab)
+
+    React.useEffect(() => {
+        //eslint-disable-next-line
+        console.log(values)
+    }, [])
 
     return (
         <>

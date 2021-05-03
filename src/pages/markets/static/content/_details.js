@@ -118,7 +118,7 @@ export const EuropeDetails = (index) => {
         </Text>,
         <Text key={2}>
             <Localize
-                translate_text="<0>The Euro 50 Index</0> follows the performance of the 50 largest and most liquid stocks in the EU."
+                translate_text="<0>Euro 50</0> Index follows the performance of the 50 largest and most liquid stocks in the EU."
                 components={[<strong key={0} />]}
             />
         </Text>,
@@ -305,7 +305,7 @@ export const EuropeanIndicesDetails = () => (
         </Text>
         <Text>
             <Localize
-                translate_text="<0>The Euro 50</0> Index follows the performance of the 50 largest and most liquid stocks in the EU."
+                translate_text="<0>Euro 50</0> Index follows the performance of the 50 largest and most liquid stocks in the EU."
                 components={[<strong key={0} />]}
             />
         </Text>

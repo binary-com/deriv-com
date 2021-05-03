@@ -44,7 +44,7 @@ import {
 } from 'components/elements'
 import { Flex, Show } from 'components/containers'
 import Input from 'components/form/input'
-import { numberWithCommas } from 'common/utility'
+import { getCommaSeparatedNumber } from 'common/utility'
 import RightArrow from 'images/svg/black-right-arrow.svg'
 
 const StyledInputGroup = styled(InputGroup)`
@@ -312,7 +312,7 @@ const SwapCalculator = () => {
                                                 </CalculatorLabel>
                                                 <CalculatorOutputContainer>
                                                     <CalculatorOutputField>
-                                                        {numberWithCommas(values.swapCharge)}
+                                                        {getCommaSeparatedNumber(values.swapCharge)}
                                                     </CalculatorOutputField>
                                                     <CalculatorOutputSymbol>
                                                         {values.swapChargeSymbol}
@@ -631,7 +631,7 @@ const SwapCalculator = () => {
                                                 </CalculatorLabel>
                                                 <CalculatorOutputContainer>
                                                     <CalculatorOutputField>
-                                                        {numberWithCommas(values.swapCharge)}
+                                                        {getCommaSeparatedNumber(values.swapCharge)}
                                                     </CalculatorOutputField>
                                                     <CalculatorOutputSymbol>
                                                         {values.swapChargeSymbol}

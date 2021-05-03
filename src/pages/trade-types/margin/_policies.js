@@ -242,7 +242,7 @@ const Policies = () => {
                     </Text>
                     <Text mb="1.6rem">
                         {localize(
-                            'You can use our swap calculator to estimate the swap charges required to keep your positions open overnight on DMT5.',
+                            'You can use our swap calculator to estimate the swap changes required to keep your positions open overnight on Deriv MT5 (DMT5) and Deriv X.',
                         )}
                     </Text>
 

@@ -103,12 +103,14 @@ const PnlMarginCalculator = () => {
     `
     const data = useStaticQuery(query)
     const formik_ref = useRef()
+    const form = formik_ref.current
 
     const [tab, setTab] = useState('Buy')
     const [sub_tab, setSubTab] = useState('Synthetic')
+    const [stop_loss_output, setStopLossOutput] = useState(0)
+    const [take_profit_output, setTakeProfitOutput] = useState(0)
 
     const onTabClick = (tab) => {
-        const form = formik_ref.current
         setTab(tab)
         form?.resetForm({})
         form?.setErrors({})
@@ -119,6 +121,19 @@ const PnlMarginCalculator = () => {
         )
     }
     const onSubTabClick = (tab) => setSubTab(tab)
+
+    React.useEffect(() => {
+        if (form?.values.pointValue) {
+            form.setFieldValue(
+                'stopLossPips',
+                getPnlMarginCommon(formik_ref.current.values, 'getStopLossPip'),
+            )
+            form.setFieldValue(
+                'takeProfitPips',
+                getPnlMarginCommon(formik_ref.current.values, 'getTakeProfitPip'),
+            )
+        }
+    }, [stop_loss_output, take_profit_output])
 
     return (
         <>
@@ -186,12 +201,16 @@ const PnlMarginCalculator = () => {
                                     'stopLossLevel',
                                     getPnlMarginCommon(values, 'getStopLossLevel'),
                                 )
+                                setStopLossOutput(getPnlMarginCommon(values, 'getStopLossLevel'))
                                 setFieldValue(
                                     'takeProfitPips',
                                     getPnlMarginCommon(values, 'getTakeProfitPip'),
                                 )
                                 setFieldValue(
                                     'takeProfitLevel',
+                                    getPnlMarginCommon(values, 'getTakeProfitLevel'),
+                                )
+                                setTakeProfitOutput(
                                     getPnlMarginCommon(values, 'getTakeProfitLevel'),
                                 )
                                 setFieldValue('pointValue', numberSubmitFormat(values.pointValue))

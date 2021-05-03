@@ -11,7 +11,6 @@ import {
     BreadCrumbContainer,
     CalculateButton,
     CalculatorBody,
-    CalculatorDropdown,
     CalculatorForm,
     CalculatorHeader,
     CalculatorLabel,
@@ -37,6 +36,7 @@ import { localize, Localize } from 'components/localization'
 import {
     Accordion,
     AccordionItem,
+    Dropdown,
     Header,
     LocalizedLinkText,
     QueryImage,
@@ -44,6 +44,7 @@ import {
 } from 'components/elements'
 import { Flex, Show } from 'components/containers'
 import Input from 'components/form/input'
+import { getCommaSeparatedNumber } from 'common/utility'
 import RightArrow from 'images/svg/black-right-arrow.svg'
 
 const StyledInputGroup = styled(InputGroup)`
@@ -207,10 +208,6 @@ const SwapCalculator = () => {
         return contractSize
     }
 
-    const numberWithCommas = (input) => {
-        return input.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
-    }
-
     const numberSubmitFormat = (input) => {
         return input.replace(/^0+(?!\.|$)/, '')
     }
@@ -315,7 +312,7 @@ const SwapCalculator = () => {
                                                 </CalculatorLabel>
                                                 <CalculatorOutputContainer>
                                                     <CalculatorOutputField>
-                                                        {numberWithCommas(values.swapCharge)}
+                                                        {getCommaSeparatedNumber(values.swapCharge)}
                                                     </CalculatorOutputField>
                                                     <CalculatorOutputSymbol>
                                                         {values.swapChargeSymbol}
@@ -324,8 +321,8 @@ const SwapCalculator = () => {
                                             </CalculatorHeader>
 
                                             <CalculatorBody>
-                                                <CalculatorDropdown
-                                                    mb="2.4rem"
+                                                <Dropdown
+                                                    mb="3.6rem"
                                                     option_list={values.optionList}
                                                     label={localize('Symbol')}
                                                     default_option={optionItemDefault}
@@ -343,7 +340,7 @@ const SwapCalculator = () => {
                                                         )
                                                         setFieldValue('symbol', value)
                                                     }}
-                                                    contractSize={values.contractSize}
+                                                    contract_size={values.contractSize}
                                                     error={touched.symbol && errors.symbol}
                                                     onBlur={handleBlur}
                                                 />
@@ -634,7 +631,7 @@ const SwapCalculator = () => {
                                                 </CalculatorLabel>
                                                 <CalculatorOutputContainer>
                                                     <CalculatorOutputField>
-                                                        {numberWithCommas(values.swapCharge)}
+                                                        {getCommaSeparatedNumber(values.swapCharge)}
                                                     </CalculatorOutputField>
                                                     <CalculatorOutputSymbol>
                                                         {values.swapChargeSymbol}
@@ -643,8 +640,7 @@ const SwapCalculator = () => {
                                             </CalculatorHeader>
 
                                             <CalculatorBody>
-                                                <CalculatorDropdown
-                                                    mb="2.4rem"
+                                                <Dropdown
                                                     default_option={optionItemDefault}
                                                     option_list={values.optionList}
                                                     label={localize('Symbol')}

@@ -11,7 +11,6 @@ import {
     BreadCrumbContainer,
     CalculateButton,
     CalculatorBody,
-    CalculatorDropdown,
     CalculatorForm,
     CalculatorHeader,
     CalculatorLabel,
@@ -39,6 +38,7 @@ import {
     Accordion,
     AccordionItem,
     Dropdown,
+    DropdownSearch,
     Header,
     LocalizedLinkText,
     QueryImage,
@@ -197,7 +197,6 @@ const MarginCalculator = () => {
                         'Our margin calculator helps you to estimate the margin required to keep your positions open overnight on Deriv MetaTrader 5 (DMT5).',
                     )}
                 </SectionSubtitle>
-
                 <ContentContainer mt="8rem" mb="4rem">
                     <FormWrapper>
                         <Formik
@@ -247,7 +246,6 @@ const MarginCalculator = () => {
                                             </CalculatorOutputSymbol>
                                         </CalculatorOutputContainer>
                                     </CalculatorHeader>
-
                                     <CalculatorBody>
                                         <CalculatorLabel>
                                             {localize('Account type')}
@@ -282,13 +280,14 @@ const MarginCalculator = () => {
                                                 <Text align="center">{localize('Financial')}</Text>
                                             </CalculatorTabItem>
                                         </Flex>
-
-                                        <CalculatorDropdown
-                                            option_list={values.optionList}
-                                            label={localize('Symbol')}
-                                            default_option={optionItemDefault}
-                                            selected_option={values.symbol}
+                                        <DropdownSearch
                                             id="symbol"
+                                            key={tab}
+                                            contract_size={values.contractSize}
+                                            default_item={optionItemDefault}
+                                            error={touched.symbol && errors.symbol}
+                                            items={values.optionList}
+                                            label={localize('Symbol')}
                                             onChange={(value) => {
                                                 setFieldValue(
                                                     'marginSymbol',
@@ -300,12 +299,9 @@ const MarginCalculator = () => {
                                                 )
                                                 setFieldValue('symbol', value)
                                             }}
-                                            error={touched.symbol && errors.symbol}
+                                            selected_item={values.symbol}
                                             onBlur={handleBlur}
-                                            autocomplete="off"
-                                            contractSize={values.contractSize}
                                         />
-
                                         <InputGroup>
                                             <Field
                                                 name="volume"
@@ -335,7 +331,6 @@ const MarginCalculator = () => {
                                                 )}
                                             </Field>
                                         </InputGroup>
-
                                         <InputGroup>
                                             <Field
                                                 name="assetPrice"
@@ -399,12 +394,10 @@ const MarginCalculator = () => {
                             )}
                         </Formik>
                     </FormWrapper>
-
                     <RightContent>
                         <Header as="h3" type="section-title" mb="0.8rem">
                             {localize('How to calculate margin')}
                         </Header>
-
                         <Text>
                             <Localize translate_text="The margin required for a contract on DMT5 is calculated based on the formula:" />
                         </Text>
@@ -414,7 +407,6 @@ const MarginCalculator = () => {
                                 components={[<strong key={0} />]}
                             />
                         </Text>
-
                         <Text mb="1.6rem">
                             <Localize translate_text="This gives you the margin requirement in the quote currency for forex pairs, or in the denomination of the underlying asset for other instruments." />
                         </Text>
@@ -423,11 +415,9 @@ const MarginCalculator = () => {
                                 'For instance, if you are trading the USD/CHF forex pair, the margin requirement will be calculated in Swiss Franc (CHF) which is the quote currency. On the other hand, if you are trading Volatility Index 75,  then the margin requirement will be calculated in US Dollar (USD), which is the denomination of the underlying asset – Volatility Index 75.',
                             )}
                         </Text>
-
                         <Header as="h3" type="section-title" mb="0.8rem">
                             {localize('Example calculation')}
                         </Header>
-
                         <Accordion has_single_state>
                             <AccordionItem
                                 header={localize('Margin required')}
@@ -440,21 +430,18 @@ const MarginCalculator = () => {
                                         'Let’s say you want to trade two lots of EUR/USD with an asset price of 1.10 USD and leverage of 100.',
                                     )}
                                 </Text>
-
                                 <Show.Desktop>
                                     <QueryImage
                                         data={data.margin_formula}
                                         alt={localize('Margin formula')}
                                     />
                                 </Show.Desktop>
-
                                 <Show.Mobile>
                                     <QueryImage
                                         data={data.margin_formula_mobile}
                                         alt={localize('Margin formula mobile')}
                                     />
                                 </Show.Mobile>
-
                                 <FormulaText>
                                     <StyledOl>
                                         <li>
@@ -464,7 +451,6 @@ const MarginCalculator = () => {
                                         </li>
                                     </StyledOl>
                                 </FormulaText>
-
                                 <Text mb="1.6rem" mt="1.6rem">
                                     <Localize
                                         translate_text="So you will require a margin rate of <0>2,200 USD</0> to open the above position."
@@ -478,7 +464,6 @@ const MarginCalculator = () => {
                                 </Text>
                             </AccordionItem>
                         </Accordion>
-
                         <LinkWrapper height="auto">
                             <StyledLinkButton
                                 tertiary="true"

@@ -72,7 +72,8 @@ const DropdownSearch = ({
             input_value === ''
                 ? items
                 : items.filter((i) => {
-                      let regex = new RegExp(`^[a-zA-Z|${input_value}]+$`, 'gi')
+                      if (!/^[\w\d\s]/.test(input_value)) return false
+                      let regex = new RegExp(input_value, 'gi')
                       return !!regex.test(i.name)
                   })
         setDropdownItems(filtered_items)

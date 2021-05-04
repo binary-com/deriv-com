@@ -112,7 +112,7 @@ const InternalLink = (props) => {
         return (
             <StyledAnchorLink
                 title={ariaLabel}
-                to={internal_to}
+                href={internal_to}
                 disabled={!has_mounted}
                 {...props}
             />
@@ -188,6 +188,7 @@ const ExternalLink = (props) => {
         <StyledAnchor
             style={style ? style : { cursor: 'pointer' }}
             aria-label={ariaLabel}
+            href={!show_modal ? lang_to : ''}
             onClick={
                 show_modal
                     ? () => {

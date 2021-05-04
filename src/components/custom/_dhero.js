@@ -294,7 +294,7 @@ const DHero = ({
                             tertiary
                             to={getRedirectLink()}
                             external
-                            is_deriv_app_link
+                            type="deriv_app"
                             target="_blank"
                             rel="noopener noreferrer"
                         >

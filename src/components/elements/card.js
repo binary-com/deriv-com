@@ -335,27 +335,10 @@ const SvgWrapper = styled.div`
     }
 `
 
-export const NavCard = ({
-    aria_label,
-    className,
-    content,
-    external,
-    icon: Icon,
-    is_binary_link,
-    is_smarttrader_link,
-    onClick,
-    otherLinkProps,
-    style,
-    target,
-    title,
-    to,
-    ...props
-}) => {
+export const NavCard = ({ aria_label, content, external, icon: Icon, style, title, ...props }) => {
     return (
         <LocalizedLink
             ariaLabel={aria_label}
-            onClick={onClick}
-            to={to}
             style={{
                 textDecoration: 'none',
                 width: '100%',
@@ -363,12 +346,6 @@ export const NavCard = ({
                 position: 'relative',
                 ...style,
             }}
-            external={external}
-            target={target}
-            className={className}
-            is_binary_link={is_binary_link}
-            is_smarttrader_link={is_smarttrader_link}
-            {...otherLinkProps}
             {...props}
         >
             <FlexHover jc="flex-start" direction="row" tablet_direction="row">
@@ -394,18 +371,11 @@ export const NavCard = ({
 
 NavCard.propTypes = {
     aria_label: PropTypes.string,
-    className: PropTypes.string,
     content: PropTypes.oneOfType([PropTypes.string, PropTypes.array, PropTypes.object]),
     external: PropTypes.string,
     icon: PropTypes.func,
-    is_binary_link: PropTypes.bool,
-    is_smarttrader_link: PropTypes.bool,
-    onClick: PropTypes.func,
-    otherLinkProps: PropTypes.object,
     style: PropTypes.object,
-    target: PropTypes.string,
     title: PropTypes.PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-    to: PropTypes.string,
 }
 
 const LinkRightDiagonal = styled.div`

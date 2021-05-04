@@ -298,7 +298,7 @@ const DHero = ({
                             external="true"
                             secondary="true"
                             to={redirectUrl()}
-                            is_deriv_app_link
+                            type="deriv_app"
                             target="_blank"
                             rel="noopener noreferrer"
                         >

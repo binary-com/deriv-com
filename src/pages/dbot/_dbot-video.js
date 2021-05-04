@@ -180,7 +180,7 @@ const DtraderTabs = () => {
                         secondary="true"
                         external="true"
                         to="/bot"
-                        is_deriv_app_link
+                        type="deriv_app"
                         target="_blank"
                         rel="noopener noreferrer"
                     >

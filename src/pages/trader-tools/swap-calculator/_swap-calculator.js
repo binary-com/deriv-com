@@ -562,7 +562,7 @@ const SwapCalculator = () => {
                                     {
                                         <StyledLinkButton
                                             tertiary="true"
-                                            is_deriv_app_link
+                                            type="deriv_app"
                                             to="/mt5"
                                             external="true"
                                             target="_blank"
@@ -885,7 +885,7 @@ const SwapCalculator = () => {
                                 <LinkWrapper height="auto">
                                     <StyledLinkButton
                                         tertiary="true"
-                                        is_deriv_app_link
+                                        type="deriv_app"
                                         to="/mt5"
                                         external="true"
                                         target="_blank"

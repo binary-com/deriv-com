@@ -150,7 +150,7 @@ export const SmarttraderCard = ({ is_selected, word_break_cover }) => (
     <StyledLink
         ariaLabel="SmartTrader"
         to="trading"
-        is_smarttrader_link
+        type="smart_trader"
         external="true"
         target="_blank"
         rel="noopener noreferrer"
@@ -167,7 +167,7 @@ export const SmarttraderCard = ({ is_selected, word_break_cover }) => (
                     key={0}
                     translate_text="Trade the world’s markets on <0>Binary.com</0>’s classic platform."
                     components={[
-                        <LocalizedLinkText key={0} to="home" external="true" is_binary_link />,
+                        <LocalizedLinkText key={0} to="home" external="true" type="binary" />,
                     ]}
                 />,
             ]}
@@ -273,7 +273,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                     }
                     title={<Localize translate_text="SmartTrader" />}
                     to="trading"
-                    is_smarttrader_link
+                    type="smart_trader"
                     external="true"
                     target="_blank"
                     onClick={onClick}
@@ -453,7 +453,7 @@ export const NavResources = ({ onClick }) => (
             title={localize('Community')}
             onClick={onClick}
             to=""
-            is_community_link
+            type="community"
             external="true"
             target="_blank"
             rel="noopener noreferrer"
@@ -481,7 +481,7 @@ export const NavResources = ({ onClick }) => (
             title={localize('Blog')}
             onClick={onClick}
             to=""
-            is_blog_link
+            type="blog"
             external="true"
             target="_blank"
             rel="noopener noreferrer"

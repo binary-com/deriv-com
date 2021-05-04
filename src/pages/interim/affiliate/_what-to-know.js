@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Container, SectionContainer } from 'components/containers'
 import { Header, LocalizedLinkText, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
-import { affiliate_signin_url, login_url} from 'common/constants'
+import { affiliate_signin_url, login_url } from 'common/constants'
 
 const Span = styled(Text).attrs({ as: 'span' })`
     font-size: var(--text-size-m);
@@ -34,7 +34,7 @@ const WhatToKnow = () => {
                                 rel="noopener noreferrer"
                                 color="red"
                                 size="24px"
-                                is_affiliate_sign_in_link
+                                type="affiliate_sign_in"
                             />,
                             <Span key={1} weight="bold" />,
                         ]}

@@ -81,6 +81,8 @@ export const getDerivAppLocalizedURL = (link, locale) => {
     return `${link}?lang=${lang.toUpperCase()}`
 }
 
+export const getThaiExcludedLocale = (locale) => (locale === 'th' ? 'en' : locale)
+
 export const getCrowdin = () =>
     isBrowser() ? localStorage.getItem('jipt_language_code_deriv-com') || navigator.language : null
 

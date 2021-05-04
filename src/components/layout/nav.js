@@ -942,7 +942,7 @@ export const NavPartners = ({ no_login_signup }) => {
                                 <LinkButton
                                     to={affiliate_signin_url}
                                     external="true"
-                                    is_affiliate_sign_in_link
+                                    type="affiliate_sign_in"
                                     target="_blank"
                                     primary
                                     style={{ width: '16rem' }}
@@ -952,7 +952,7 @@ export const NavPartners = ({ no_login_signup }) => {
                                 <LinkSignupButton
                                     to={affiliate_signup_url}
                                     external="true"
-                                    is_affiliate_link
+                                    type="affiliate_sign_up"
                                     target="_blank"
                                     ref={button_ref}
                                     secondary="true"
@@ -990,8 +990,8 @@ export const NavPartners = ({ no_login_signup }) => {
                                 {!no_login_signup && (
                                     <LinkMobileLogin
                                         to={affiliate_signin_url}
+                                        type="affiliate_sign_in"
                                         external="true"
-                                        is_affiliate_link
                                         target="_blank"
                                         primary
                                     >

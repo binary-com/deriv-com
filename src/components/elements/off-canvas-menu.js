@@ -212,7 +212,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                 type="smart_trader"
                                 external="true"
                                 target="_blank"
-                                otherLinkProps={{ rel: 'noopener noreferrer' }}
+                                rel="noopener noreferrer"
                             />
                         </Flex>
                         {!props.is_ppc && (

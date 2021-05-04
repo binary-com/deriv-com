@@ -277,7 +277,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                     external="true"
                     target="_blank"
                     onClick={onClick}
-                    otherLinkProps={{ rel: 'noopener noreferrer' }}
+                    rel="noopener noreferrer"
                 />
             </Flex>
             {!is_ppc && (

@@ -1,25 +1,13 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import styled, { css } from 'styled-components'
-import { graphql, useStaticQuery } from 'gatsby'
-import Loadable from '@loadable/component'
-import { Container, Box, Flex, SEO, Show } from 'components/containers'
+import { OurStory } from './story/_our-story'
+import { Container, Flex, SEO, Show } from 'components/containers'
+import { getWindowWidth, isBrowser } from 'common/utility'
 import Layout from 'components/layout/layout'
-import { localize, Localize, WithIntl } from 'components/localization'
-import { Header, Text, QueryImage } from 'components/elements'
-import device from 'themes/device'
+import { localize, WithIntl } from 'components/localization'
+import { Header, Text } from 'components/elements'
+import device, { size } from 'themes/device'
 
-const Leaders = Loadable(() => import('./leadership/_leaders'))
-
-const query = graphql`
-    query {
-        jean_yves_mobile: file(relativePath: { eq: "leaders/jean-yves-mobile.png" }) {
-            ...fadeIn
-        }
-        jean_yves: file(relativePath: { eq: "leaders/jean-yves.png" }) {
-            ...fadeIn
-        }
-    }
-`
 const Background = styled.div`
     background: var(--color-black);
     width: 100%;
@@ -49,42 +37,6 @@ const ContentWrapper = styled.div`
 
     @media ${device.mobileL} {
         max-width: 42.8rem;
-    }
-`
-
-const LeadershipWrapper = styled(Flex)`
-    @media ${device.tabletL} {
-        flex-direction: column;
-        margin-top: 1.6rem;
-
-        ${Box} {
-            width: 28.2rem;
-            margin-bottom: 4rem;
-        }
-        ${Header} {
-            text-align: left;
-        }
-        ${Text} {
-            text-align: left;
-        }
-    }
-`
-
-const LeadershipTitle = styled(Header)`
-    margin-bottom: 0.8rem;
-
-    @media ${device.tabletL} {
-        font-size: 4rem;
-        margin-top: 1.6rem;
-    }
-`
-
-const LeadershipPosition = styled(Header)`
-    margin-bottom: 1.6rem;
-
-    @media ${device.tabletL} {
-        font-size: 2.4rem;
-        margin-bottom: 2rem;
     }
 `
 
@@ -127,15 +79,14 @@ const StyledHeader = styled(Header)`
         font-size: 1.8rem;
     }
 `
-const StyledText = styled(Text)`
-    max-width: 48.6rem;
-    @media ${device.tabletL} {
-        font-size: var(--text-size-sm);
-    }
-`
-const Leadership = () => {
 
-    const data = useStaticQuery(query)
+const Story = () => {
+    const [is_mobile, setMobile] = useState(false)
+
+    useEffect(() => {
+        setMobile(isBrowser() && getWindowWidth() <= size.tablet)
+    }, [getWindowWidth()])
+
     return (
         <Layout>
             <SEO
@@ -151,9 +102,9 @@ const Leadership = () => {
                     </Header>
                     <NavigationWrapper direction="row">
                         <Navigation
+                            left
                             width="auto"
                             direction="column"
-
                         >
                             <StyledHeader
                                 as="h2"
@@ -161,88 +112,48 @@ const Leadership = () => {
                                 weight="normal"
                                 active={true}
                             >
-                                {localize('Our leadership')}
+                                {localize('Our story')}
                             </StyledHeader>
+
                         </Navigation>
+
                     </NavigationWrapper>
 
-                    <Show.Desktop>
-                        <ContentWrapper>
-                            <LeadershipWrapper mt="4rem" ai="center">
-                                <Box max_width="28.2rem" mr="2.4rem">
-                                    <QueryImage
-                                        data={data['jean_yves']}
-                                        alt={localize('Jean Yves')}
-                                        width="28.2rem"
-                                    />
-                                </Box>
+                    <ContentWrapper margin_top="9.1">
+                        <Show.Desktop>
+                            <Text mb="1.5rem" size="var(--text-size-s)" secondary color="white">
+                                {localize(
+                                    'The story of Deriv starts in 1999. Regent Markets Group, the founding company, was established with a mission to make online trading accessible to the masses. The Group has since rebranded and evolved, but its founding mission remains unchanged.',
+                                )}
+                            </Text>
 
-                                <div>
-                                    <LeadershipTitle
-                                        as="h3"
-                                        type="section-title"
-                                        color="white"
-                                    >
-                                        <Localize translate_text="Jean-Yves Sireau" />
-                                    </LeadershipTitle>
-                                    <LeadershipPosition
-                                        as="h4"
-                                        type="sub-section-title"
-                                        weight="normal"
-                                        color="white"
-                                        lh="3.6rem"
-                                    >
-                                        {localize('Founder and Chief Executive Officer')}
-                                    </LeadershipPosition>
-                                    <StyledText color="white">
-                                        {localize(
-                                            'Jean-Yves has been an entrepreneur since the age of 20. From 1997 to 1999, he developed the algorithms that would become one of the world’s first trading platforms. He was granted a patent for his binary options trading system in 2007, and granted two more patents in 2011 for systems and methods that enable financial market speculation.',
-                                        )}
-                                    </StyledText>
-                                </div>
-                            </LeadershipWrapper>
-                        </ContentWrapper>
-                    </Show.Desktop>
-                    <Show.Mobile>
-                        <ContentWrapper>
-                            <LeadershipWrapper mt="4rem" ai="center">
-                                <QueryImage
-                                    data={data['jean_yves_mobile']}
-                                    alt={localize('Jean Yves')}
-                                    width="100%"
-                                />
-                                <div>
-                                    <LeadershipTitle
-                                        as="h3"
-                                        size="var(--text-size-header-1)"
-                                        color="white"
-                                    >
-                                        <Localize translate_text="Jean-Yves Sireau" />
-                                    </LeadershipTitle>
-                                    <LeadershipPosition
-                                        as="h4"
-                                        weight="normal"
-                                        color="white"
-                                        lh="3.6rem"
-                                    >
-                                        {localize('Founder and Chief Executive Officer')}
-                                    </LeadershipPosition>
-                                    <StyledText color="white">
-                                        {localize(
-                                            'Jean-Yves has been an entrepreneur since the age of 20. From 1997 to 1999, he developed the algorithms that would become one of the world’s first trading platforms. He was granted a patent for his binary options trading system in 2007, and granted two more patents in 2011 for systems and methods that enable financial market speculation.',
-                                        )}
-                                    </StyledText>
-                                </div>
-                            </LeadershipWrapper>
-                        </ContentWrapper>
-                    </Show.Mobile>
+                            <Text secondary color="white">
+                                {localize(
+                                    'Our evolution is powered by over 20 years of customer focus and innovation.',
+                                )}
+                            </Text>
+                        </Show.Desktop>
 
+                        <Show.Mobile>
+                            <Text mb="1.5rem" size="2rem" secondary color="white">
+                                {localize(
+                                    'The story of Deriv starts in 1999. Regent Markets Group, the founding company, was established with a mission to make online trading accessible to the masses. The Group has since rebranded and evolved, but its founding mission remains unchanged.',
+                                )}
+                            </Text>
+
+                            <Text size="2rem" secondary color="white">
+                                {localize(
+                                    'Our evolution is powered by over 20 years of customer focus and innovation.',
+                                )}
+                            </Text>
+                        </Show.Mobile>
+                    </ContentWrapper>
                 </StyledContainer>
             </Background>
+            <OurStory is_mobile_menu={is_mobile} />
 
-            <Leaders />
         </Layout>
     )
 }
 
-export default WithIntl()(Leadership)
+export default WithIntl()(Story)

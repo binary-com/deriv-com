@@ -335,10 +335,9 @@ const SvgWrapper = styled.div`
     }
 `
 
-export const NavCard = ({ aria_label, content, external, icon: Icon, style, title, ...props }) => {
+export const NavCard = ({ content, external, icon: Icon, style, title, ...props }) => {
     return (
         <LocalizedLink
-            ariaLabel={aria_label}
             style={{
                 textDecoration: 'none',
                 width: '100%',
@@ -370,7 +369,6 @@ export const NavCard = ({ aria_label, content, external, icon: Icon, style, titl
 }
 
 NavCard.propTypes = {
-    aria_label: PropTypes.string,
     content: PropTypes.oneOfType([PropTypes.string, PropTypes.array, PropTypes.object]),
     external: PropTypes.string,
     icon: PropTypes.func,

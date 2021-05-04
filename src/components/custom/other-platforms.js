@@ -92,7 +92,7 @@ const StyledFlexGridContainer = styled(FlexGridContainer)`
 `
 
 export const TraderCard = ({ is_selected, word_break_cover }) => (
-    <StyledLink ariaLabel="DTrader" to="/dtrader">
+    <StyledLink aria_label="DTrader" to="/dtrader">
         <Card
             cover_background="var(--color-red)"
             cover_content={localize('Discover DTrader now')}
@@ -109,7 +109,7 @@ export const TraderCard = ({ is_selected, word_break_cover }) => (
 )
 
 export const BotCard = ({ is_selected, word_break_cover }) => (
-    <StyledLink ariaLabel="DBot" to="/dbot">
+    <StyledLink aria_label="DBot" to="/dbot">
         <Card
             cover_background="var(--color-orange)"
             cover_content={localize('Discover DBot now')}
@@ -126,7 +126,7 @@ export const BotCard = ({ is_selected, word_break_cover }) => (
 )
 
 export const DMT5Card = ({ is_selected, is_ppc_redirect, word_break_cover }) => (
-    <StyledLink ariaLabel="DMT5" to={is_ppc_redirect ? '/landing/dmt5' : '/dmt5'}>
+    <StyledLink aria_label="DMT5" to={is_ppc_redirect ? '/landing/dmt5' : '/dmt5'}>
         <Card
             cover_background="var(--color-green)"
             cover_content={localize('Discover DMT5 now')}
@@ -148,7 +148,7 @@ export const DMT5Card = ({ is_selected, is_ppc_redirect, word_break_cover }) => 
 
 export const SmarttraderCard = ({ is_selected, word_break_cover }) => (
     <StyledLink
-        ariaLabel="SmartTrader"
+        aria_label="SmartTrader"
         to="trading"
         type="smart_trader"
         external="true"
@@ -361,7 +361,7 @@ export const NavMarket = ({ onClick, is_ppc }) => (
             />
         )}
         <NavCard
-            ariaLabel="Stock indices"
+            aria_label="Stock indices"
             icon={() => <img src={StockIndices} alt="StockIndices" width="32" height="32" />}
             content={
                 <Localize translate_text="Predict broader market trends and diversify your risk with stock indices." />

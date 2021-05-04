@@ -92,7 +92,7 @@ LocalizedLink.propTypes = {
 const non_localized_links = ['/careers', '/careers/']
 
 const InternalLink = (props) => {
-    const { ariaLabel, children, has_mounted, has_no_end_slash, is_anchor, locale, to } = props
+    const { aria_label, children, has_mounted, has_no_end_slash, is_anchor, locale, to } = props
     // If it's the default language or non localized link, don't do anything
     // If it's another language, add the "path"
     // However, if the homepage/index page is linked don't add the "to"
@@ -111,7 +111,7 @@ const InternalLink = (props) => {
     if (is_anchor) {
         return (
             <StyledAnchorLink
-                title={ariaLabel}
+                title={aria_label}
                 href={internal_to}
                 disabled={!has_mounted}
                 {...props}
@@ -120,7 +120,7 @@ const InternalLink = (props) => {
     }
     return (
         <StyledGatsbyLink
-            aria-label={ariaLabel}
+            aria-label={aria_label}
             to={internal_to}
             disabled={!has_mounted}
             {...props}
@@ -131,7 +131,7 @@ const InternalLink = (props) => {
 }
 
 InternalLink.propTypes = {
-    ariaLabel: PropTypes.string,
+    aria_label: PropTypes.string,
     children: PropTypes.node,
     has_mounted: PropTypes.bool,
     has_no_end_slash: PropTypes.bool,
@@ -147,7 +147,7 @@ const deriv_social_platforms = ['blog', 'community', 'developers', 'zoho']
 
 const ExternalLink = (props) => {
     const {
-        ariaLabel,
+        aria_label,
         children,
         has_mounted,
         is_mail_link,
@@ -187,7 +187,7 @@ const ExternalLink = (props) => {
     return (
         <StyledAnchor
             style={style ? style : { cursor: 'pointer' }}
-            aria-label={ariaLabel}
+            aria-label={aria_label}
             href={!show_modal ? lang_to : ''}
             onClick={
                 show_modal
@@ -197,7 +197,7 @@ const ExternalLink = (props) => {
                               target,
                               rel,
                               ref,
-                              aria_label: ariaLabel,
+                              aria_label: aria_label,
                           })
                           toggleModal()
                           if (typeof onClick === 'function') {
@@ -215,7 +215,7 @@ const ExternalLink = (props) => {
 }
 
 ExternalLink.propTypes = {
-    ariaLabel: PropTypes.string,
+    aria_label: PropTypes.string,
     children: PropTypes.node,
     has_mounted: PropTypes.bool,
     is_mail_link: PropTypes.bool,

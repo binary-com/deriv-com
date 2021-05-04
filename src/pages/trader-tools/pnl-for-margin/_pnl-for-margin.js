@@ -1186,12 +1186,12 @@ const PnlMarginCalculator = () => {
 
                             <Text mb="8px">
                                 {localize(
-                                    'The stop loss and/or take profit level and pip value when buying a contract on Deriv MetaTrader 5 (DMT5) is calculated based on the formula:',
+                                    'The stop loss and/or take profit level and pip value when selling a contract on Deriv MetaTrader 5 (DMT5) is calculated based on the formula:',
                                 )}
                             </Text>
                             <Text mb="8px">
                                 <Localize
-                                    translate_text="<0>Stop loss and/or take profit level = asset price + {stop loss OR take profit amount ÷ (volume × contract size)}</0>"
+                                    translate_text="<0>Stop loss and/or take profit level = asset price - {stop loss OR take profit amount ÷ (volume × contract size)}</0>"
                                     components={[<strong key={0} />]}
                                 />
                             </Text>
@@ -1204,7 +1204,7 @@ const PnlMarginCalculator = () => {
 
                             <Text mb="8px">
                                 {localize(
-                                    'The stop loss and/or take profit level helps you to manage your risk when you are buying a contract.',
+                                    'The stop loss and/or take profit level helps you to manage your risk when you are selling a contract.',
                                 )}
                             </Text>
                             <Text mb="8px">

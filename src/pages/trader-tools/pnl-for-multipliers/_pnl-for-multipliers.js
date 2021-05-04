@@ -1012,13 +1012,13 @@ const PnlMultipliersCalculator = () => {
                             </Text>
                             <Text mb="8px">
                                 <Localize
-                                    translate_text="<0>Stop loss and/or take profit level in the up direction = asset price × {(stop loss OR take profit amount + commission) ÷ (stake × multiplier) + 1}</0>"
+                                    translate_text="<0>Stop loss and/or take profit level in the Up direction = asset price × {(stop loss OR take profit amount + commission) ÷ (stake × multiplier) + 1}</0>"
                                     components={[<strong key={0} />]}
                                 />
                             </Text>
                             <Text mb="16px">
                                 <Localize
-                                    translate_text="<0>Stop loss and/or take profit level in the down direction = asset price × {(-stop loss OR take profit amount - commission) ÷ (stake × multiplier) + 1}</0>"
+                                    translate_text="<0>Stop loss and/or take profit level in the Down direction = asset price × {(-stop loss OR take profit amount - commission) ÷ (stake × multiplier) + 1}</0>"
                                     components={[<strong key={0} />]}
                                 />
                             </Text>
@@ -1998,23 +1998,23 @@ const PnlMultipliersCalculator = () => {
 
                         <RightContent>
                             <Header as="h3" type="section-title" mb="8px">
-                                {localize('How to calculate stop loss and/or take profit level')}
+                                {localize('How to calculate stop loss and/or take profit amount')}
                             </Header>
 
                             <Text mb="8px">
                                 {localize(
-                                    'The stop loss and/or take profit level for a contract on DTrader is calculated based on the formula:',
+                                    'The stop loss and/or take profit amount for a contract on DTrader is calculated based on the formula:',
                                 )}
                             </Text>
                             <Text mb="8px">
                                 <Localize
-                                    translate_text="<0>Stop loss and/or take profit level in the up direction = asset price × {(stop loss OR take profit amount + commission) ÷ (stake × multiplier) + 1}</0>"
+                                    translate_text="<0>Stop loss and/or take profit amount in the Up direction = Max [{stake × ((stop loss OR take profit level - asset price) ÷ asset price × multiplier) - commission}, -stake]</0>"
                                     components={[<strong key={0} />]}
                                 />
                             </Text>
                             <Text mb="16px">
                                 <Localize
-                                    translate_text="<0>Stop loss and/or take profit level in the down direction = asset price × {(-stop loss OR take profit amount - commission) ÷ (stake × multiplier) + 1}</0>"
+                                    translate_text="<0>Stop loss and/or take profit amount in the Down direction = Max [{stake × (-(stop loss OR take profit level - asset price) ÷ asset price × multiplier) - commission}, -stake]</0>"
                                     components={[<strong key={0} />]}
                                 />
                             </Text>

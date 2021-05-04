@@ -120,7 +120,7 @@ const PnlMultipliersCalculator = () => {
             <StyledSection direction="column">
                 <SectionSubtitle as="h3" type="sub-section-title" align="center" weight="normal">
                     {localize(
-                        'Our calculator helps to determine the stop loss and/or take profit level in your trades to minimise losses and maximise gains.',
+                        'Our profit and loss calculator for multipliers helps to determine the stop loss and/or take profit level in your trades to minimise losses and maximise gains.',
                     )}
                 </SectionSubtitle>
 

@@ -136,6 +136,10 @@ const PnlMarginCalculator = () => {
                 'takeProfitPips',
                 getPnlMarginCommon(formik_ref.current.values, 'getTakeProfitPip'),
             )
+            // The 2 calls below is to reset the output state in order
+            // prevent the pip output from displaying NAN
+            setStopLossOutput(0)
+            setTakeProfitOutput(0)
         }
     }, [stop_loss_output, take_profit_output])
 
@@ -158,7 +162,9 @@ const PnlMarginCalculator = () => {
             </BreadCrumbContainer>
             <StyledSection direction="column">
                 <SectionSubtitle as="h3" type="sub-section-title" align="center" weight="normal">
-                    {localize('Our calculator helps you to approximate your losses and/or gains.')}
+                    {localize(
+                        'Our profit and loss calculator for margin helps you to approximate your losses and/or gains.',
+                    )}
                 </SectionSubtitle>
 
                 <Flex mt="80px" mb="40px" tablet={{ mt: '40px', mb: '24px' }}>

@@ -130,7 +130,7 @@ const DerivXArticle = () => {
                 />
                 <DerivXMarkets
                     text={localize('What markets can I trade on Deriv X?')}
-                    label="markets-on-deriv x"
+                    label="markets-on-deriv-x"
                 />
                 <DerivXTrade
                     text={localize('What is the minimum and maximum amount to trade on Deriv X?')}

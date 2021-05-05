@@ -57,7 +57,7 @@ const WhyDeriv = () => {
                 </TextWrapper>
                 <ImageWrapper
                     data={data['bpo_team']}
-                    alt="business process operations team"
+                    alt="diverse and talented teams"
                     grid_area="bpo-image"
                 />
             </ContentContainer>

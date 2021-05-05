@@ -69,7 +69,6 @@ const StyledGatsbyLink = styled(GatsbyLink)`
 `
 
 export const LocalizedLink = React.forwardRef(({ external, ...props }, ref) => {
-    // Use the globally available context to choose the right path
     const { locale } = useContext(LocaleContext)
     const [has_mounted, setMounted] = useState(false)
 
@@ -145,6 +144,20 @@ const deriv_app_links = ['dbot', 'deriv_app', 'mt5']
 const deriv_other_products = ['binary', 'smart_trader']
 const deriv_social_platforms = ['blog', 'community', 'developers', 'zoho']
 
+const getURLFormat = (type, locale, to, affiliate_lang) => {
+    if (deriv_app_links.includes(type)) {
+        return getDerivAppLocalizedURL(localized_link_url[type], locale)
+    } else if (affiliate_links.includes(type)) {
+        return `${localized_link_url[type]}?lang=${affiliate_lang}`
+    } else if (deriv_other_products.includes(type)) {
+        return `${localized_link_url[type]}/${getThaiExcludedLocale(locale)}/${to}.html`
+    } else if (deriv_social_platforms.includes(type)) {
+        return `${localized_link_url[type]}${to}`
+    } else {
+        return to
+    }
+}
+
 const ExternalLink = (props) => {
     const {
         aria_label,
@@ -163,19 +176,7 @@ const ExternalLink = (props) => {
     const { is_eu_country } = useContext(DerivStore)
     const { setModalPayload, toggleModal } = useContext(LocationContext)
     const { affiliate_lang } = language_config[locale]
-
-    let lang_to = ''
-    if (deriv_app_links.includes(type)) {
-        lang_to = getDerivAppLocalizedURL(localized_link_url[type], locale)
-    } else if (affiliate_links.includes(type)) {
-        lang_to = `${localized_link_url[type]}?lang=${affiliate_lang}`
-    } else if (deriv_other_products.includes(type)) {
-        lang_to = `${localized_link_url[type]}/${getThaiExcludedLocale(locale)}/${to}.html`
-    } else if (deriv_social_platforms.includes(type)) {
-        lang_to = `${localized_link_url[type]}${to}`
-    } else {
-        lang_to = to
-    }
+    const url = getURLFormat(type, locale, to, affiliate_lang)
 
     const show_modal =
         is_eu_country &&
@@ -188,12 +189,12 @@ const ExternalLink = (props) => {
         <StyledAnchor
             style={style ? style : { cursor: 'pointer' }}
             aria-label={aria_label}
-            href={!show_modal ? lang_to : ''}
+            href={!show_modal ? url : ''}
             onClick={
                 show_modal
                     ? () => {
                           setModalPayload({
-                              to: lang_to,
+                              to: url,
                               target,
                               rel,
                               ref,

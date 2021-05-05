@@ -269,7 +269,7 @@ export const articles = [
                 title: <Localize translate_text="What is the major difference between DTrader, Deriv MT5(DMT5) and Deriv X?" />,
                 category: 'Deriv x',
                 sub_category: <Localize translate_text="Platforms" />,
-                label: 'differences-of-dtrader-dmt5-deriv x',
+                label: 'differences-of-dtrader-dmt5-deriv-x',
             },
             {
                 title: <Localize translate_text="How do I create a deriv x account?" />,

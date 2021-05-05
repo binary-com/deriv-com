@@ -140,7 +140,7 @@ const DerivXArticle = () => {
                     text={localize(
                         'What is the major difference between DTrader, Deriv MT5(DMT5) and Deriv X?',
                     )}
-                    label="differences-of-dtrader-dmt5-deriv x"
+                    label="differences-of-dtrader-dmt5-deriv-x"
                 />
                 <DerivXAccount
                     text={localize('How do I create a deriv x account?')}

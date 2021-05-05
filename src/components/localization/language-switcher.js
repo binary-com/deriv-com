@@ -41,14 +41,13 @@ const LanguageSwitch = ({ i18n, is_high_nav, short_name }) => {
         const { id } = e.target
         const current_lang = language || 'en'
         const path = id === '/en/' ? '/' : id
-
         if (`/${current_lang}/` !== id) {
             const current_path = window.location.pathname
             const current_hash = window.location.hash
             const destination_path = `${path}${
                 current_lang === 'en'
                     ? current_path.replace(/\//u, '')
-                    : current_path.replace(/\/.+?\//u, '')
+                    : current_path.replace(/\/.+?(\/)|(\/\w+)/u, '')
             }${current_hash}`
 
             if (path === '/ach/') {

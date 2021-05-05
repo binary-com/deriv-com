@@ -239,6 +239,89 @@ export const articles = [
         ],
     },
     {
+        category: <Localize translate_text="Deriv X" />,
+        articles: [
+            {
+                title: <Localize translate_text="What is Deriv X?" />,
+                category: 'Deriv x',
+                sub_category: <Localize translate_text="Platforms" />,
+                label: 'what-is-derivx',
+            },
+            {
+                title: <Localize translate_text="What is  the minimum/maximum I can deposit into my account?" />,
+                category: 'Deriv x',
+                sub_category: <Localize translate_text="Cashier limits" />,
+                label: 'minimum-or-maximum-deposit',
+            },
+            {
+                title: <Localize translate_text="What markets can I trade on Deriv X?" />,
+                category: 'Deriv x',
+                sub_category: <Localize translate_text="Markets" />,
+                label: 'markets-on-deriv x',
+            },
+            {
+                title: <Localize translate_text="What is the minimum and maximum amount to trade on Deriv X?" />,
+                category: 'Deriv x',
+                sub_category: <Localize translate_text="How to trade" />,
+                label: 'minimum-and-maximum-amoount-to-trade',
+            },
+            {
+                title: <Localize translate_text="What is the major difference between DTrader, Deriv MT5(DMT5) and Deriv X?" />,
+                category: 'Deriv x',
+                sub_category: <Localize translate_text="Platforms" />,
+                label: 'differences-of-dtrader-dmt5-deriv x',
+            },
+            {
+                title: <Localize translate_text="How do I create a deriv x account?" />,
+                category: 'Deriv x',
+                sub_category: <Localize translate_text="Accounts" />,
+                label: 'create-account',
+            },
+            {
+                title: <Localize translate_text="What are the differences between Synthetics and Financial accounts?" />,
+                category: 'Deriv x',
+                sub_category: <Localize translate_text="Platforms" />,
+                label: 'differences-of-deriv-x-accounts',
+            },
+            {
+                title: <Localize translate_text="What is trading password?" />,
+                category: 'Deriv x',
+                sub_category: <Localize translate_text="Platforms" />,
+                label: 'trading-password',
+            },
+            {
+                title: <Localize translate_text="Why is my tarding password different from my Deriv password?" />,
+                category: 'Deriv x',
+                sub_category: <Localize translate_text="Platforms" />,
+                label: 'differences-of-trading-and-deriv-password',
+            },
+            {
+                title: <Localize translate_text="How do I reset my Deriv X password?" />,
+                category: 'Deriv x',
+                sub_category: <Localize translate_text="Platforms" />,
+                label: 'reset-deriv-x-password',
+            },
+            {
+                title: <Localize translate_text="Where can I find my deriv X account information?" />,
+                category: 'Deriv x',
+                sub_category: <Localize translate_text="Platforms" />,
+                label: 'deriv-x-account-information',
+            },
+            {
+                title: <Localize translate_text="How can I deposit funds into my Deriv X real money account?" />,
+                category: 'Deriv x',
+                sub_category: <Localize translate_text="Platforms" />,
+                label: 'deposit-funds',
+            },
+            {
+                title: <Localize translate_text="How do I withdraw funds from my Deriv X real money account?" />,
+                category: 'Deriv x',
+                sub_category: <Localize translate_text="Platforms" />,
+                label: 'withdraw-funds-from-deriv-x',
+            },
+        ],
+    },
+    {
         category: <Localize translate_text="DTrader" />,
         articles: [
             {

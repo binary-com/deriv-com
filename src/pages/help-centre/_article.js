@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { DidntFindYourAnswerBanner } from './_didnt-find-answer'
+import { Community } from './_community'
 import Layout from 'components/layout/layout'
 import { localize } from 'components/localization'
 import { SideTab, StyledLink } from 'components/elements'
@@ -56,6 +57,7 @@ export const Article = ({ children, header, title, description }) => {
             </Container>
 
             <ContactContainer>
+                <Community />
                 <DidntFindYourAnswerBanner />
             </ContactContainer>
         </Layout>

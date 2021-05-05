@@ -174,7 +174,7 @@ const DerivXArticle = () => {
                 />
                 <WithdrawDerivX
                     text={localize('How do I withdraw funds from my Deriv X real money account?')}
-                    label="withdraw-fund-from-deriv-x"
+                    label="withdraw-funds-from-deriv-x"
                 />
             </Article>
         </div>

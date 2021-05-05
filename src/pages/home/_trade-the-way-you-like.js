@@ -24,7 +24,7 @@ const ImageWrapper = styled.div`
     margin: 3rem auto 0;
 `
 const StyledSection = styled(SectionContainer)`
-    background: linear-gradient(#efefef, #ffffff);
+    background: linear-gradient(var(--color-grey-11), var(--color-white));
 `
 const TradeTheWayYouLike = ({ is_ppc_redirect }) => {
     const data = useStaticQuery(query)

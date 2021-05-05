@@ -61,7 +61,7 @@ const LearnMore = styled(LocalizedLink)`
     width: 142px;
     height: 40px;
     border-radius: 23px;
-    background-color: #f4f4f6;
+    background-color: var(--color-grey-18);
     position: absolute;
     bottom: -20px;
     margin-left: auto;

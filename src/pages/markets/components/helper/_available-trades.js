@@ -113,7 +113,7 @@ const CardContainer = styled(Flex)`
         ${(props) => {
             if (props.active_tab === props.name)
                 return css`
-                    background-color: #ffffff;
+                    background-color: var(--color-white);
                 `
         }}
     }
@@ -145,7 +145,7 @@ const ContentWrapper = styled.div`
     width: 100%;
     max-width: 99.6rem;
     display: block;
-    background: #ffffff;
+    background: var(--color-white);
     border-radius: 0.15em;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
 

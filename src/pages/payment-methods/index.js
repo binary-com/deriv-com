@@ -23,7 +23,7 @@ const Th = styled.th`
         /* stylelint-disable-next-line value-no-vendor-prefix */
         position: -webkit-sticky;
         left: -5px; /* required */
-        background-color: white;
+        background-color: var(--color-white);
         z-index: 2;
 
         p {

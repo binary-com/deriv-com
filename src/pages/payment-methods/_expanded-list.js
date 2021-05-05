@@ -43,7 +43,7 @@ const Td = styled.td`
         /* stylelint-disable-next-line value-no-vendor-prefix */
         position: -webkit-sticky;
         left: -5px;
-        background-color: white;
+        background-color: var(--color-white);
         z-index: 2;
     }
     & .tooltip {
@@ -167,7 +167,7 @@ const ExpandList = ({ data, config, is_crypto, is_fiat_onramp, locale }) => {
                         <Text align="center">-</Text>
                     )}
                 </Td>
-                <HoverTd onClick={toggleExpand} >
+                <HoverTd onClick={toggleExpand}>
                     <StyledChevron src={Chevron} alt="chevron" expanded={is_expanded} />
                 </HoverTd>
             </Tr>

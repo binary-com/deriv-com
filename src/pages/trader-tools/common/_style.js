@@ -140,14 +140,14 @@ export const CalculatorOutputContainer = styled(Flex)`
     box-sizing: border-box;
     height: 7.5rem;
     border: 1.5px solid var(--color-blue-5);
-    background-color: white;
+    background-color: var(--color-white);
 `
 
 export const CalculatorOutputField = styled(Flex)`
     width: 80%;
     white-space: nowrap;
     resize: none;
-    background-color: white;
+    background-color: var(--color-white);
     justify-content: flex-start;
     height: 95%;
     border: 0;

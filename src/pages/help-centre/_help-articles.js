@@ -245,7 +245,7 @@ export const articles = [
                 title: <Localize translate_text="What is Deriv X?" />,
                 category: 'Deriv x',
                 sub_category: <Localize translate_text="Platforms" />,
-                label: 'what-is-derivx',
+                label: 'what-is-deriv-x',
             },
             {
                 title: <Localize translate_text="What is  the minimum/maximum I can deposit into my account?" />,
@@ -257,7 +257,7 @@ export const articles = [
                 title: <Localize translate_text="What markets can I trade on Deriv X?" />,
                 category: 'Deriv x',
                 sub_category: <Localize translate_text="Markets" />,
-                label: 'markets-on-deriv x',
+                label: 'markets-on-deriv-x',
             },
             {
                 title: <Localize translate_text="What is the minimum and maximum amount to trade on Deriv X?" />,

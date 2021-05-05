@@ -482,7 +482,7 @@ const Footer = ({ type, is_ppc, is_ppc_redirect }) => {
                                             external="true"
                                             rel="noopener noreferrer"
                                         >
-                                            {localize('Developers')}
+                                            {localize('API')}
                                         </Link>
                                     </LinkWrapper>
                                 </LinksCol>

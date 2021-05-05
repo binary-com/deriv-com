@@ -945,9 +945,9 @@ export const NavPartners = ({ no_login_signup }) => {
                                     target="_blank"
                                     external="true"
                                     rel="noopener noreferrer"
-                                    aria-label={localize('Developers')}
+                                    aria-label={localize('API')}
                                 >
-                                    {localize('Developers')}
+                                    {localize('API')}
                                 </StyledLink>
                             </NavLink>
                         </StyledNavCenter>

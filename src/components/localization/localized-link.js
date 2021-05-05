@@ -77,10 +77,10 @@ export const LocalizedLink = React.forwardRef(({ external, ...props }, ref) => {
     }, [])
 
     if (external || external === 'true') {
-        return <ExternalLink has_mounted={has_mounted} locale={locale} {...props} />
+        return <ExternalLink mounted={has_mounted} locale={locale} {...props} />
     }
 
-    return <InternalLink has_mounted={has_mounted} locale={locale} ref={ref} {...props} />
+    return <InternalLink mounted={has_mounted} locale={locale} ref={ref} {...props} />
 })
 
 LocalizedLink.displayName = 'LocalizedLink'
@@ -90,8 +90,16 @@ LocalizedLink.propTypes = {
 
 const non_localized_links = ['/careers', '/careers/']
 
-const InternalLink = (props) => {
-    const { aria_label, children, has_mounted, has_no_end_slash, is_anchor, locale, to } = props
+const InternalLink = ({
+    aria_label,
+    children,
+    mounted,
+    has_no_end_slash,
+    is_anchor,
+    locale,
+    to,
+    ...props
+}) => {
     // If it's the default language or non localized link, don't do anything
     // If it's another language, add the "path"
     // However, if the homepage/index page is linked don't add the "to"
@@ -112,18 +120,13 @@ const InternalLink = (props) => {
             <StyledAnchorLink
                 title={aria_label}
                 href={internal_to}
-                disabled={!has_mounted}
+                disabled={!mounted}
                 {...props}
             />
         )
     }
     return (
-        <StyledGatsbyLink
-            aria-label={aria_label}
-            to={internal_to}
-            disabled={!has_mounted}
-            {...props}
-        >
+        <StyledGatsbyLink aria-label={aria_label} to={internal_to} disabled={!mounted} {...props}>
             {children}
         </StyledGatsbyLink>
     )
@@ -132,10 +135,10 @@ const InternalLink = (props) => {
 InternalLink.propTypes = {
     aria_label: PropTypes.string,
     children: PropTypes.node,
-    has_mounted: PropTypes.bool,
     has_no_end_slash: PropTypes.bool,
     is_anchor: PropTypes.bool,
     locale: PropTypes.any,
+    mounted: PropTypes.bool,
     to: PropTypes.string.isRequired,
 }
 
@@ -158,21 +161,21 @@ const getURLFormat = (type, locale, to, affiliate_lang) => {
     }
 }
 
-const ExternalLink = (props) => {
-    const {
-        aria_label,
-        children,
-        has_mounted,
-        is_mail_link,
-        locale,
-        onClick,
-        ref,
-        rel,
-        style,
-        target,
-        to,
-        type,
-    } = props
+const ExternalLink = ({
+    aria_label,
+    children,
+    mounted,
+    is_mail_link,
+    locale,
+    onClick,
+    ref,
+    rel,
+    style,
+    target,
+    to,
+    type,
+    ...props
+}) => {
     const { is_eu_country } = useContext(DerivStore)
     const { setModalPayload, toggleModal } = useContext(LocationContext)
     const { affiliate_lang } = language_config[locale]
@@ -207,7 +210,7 @@ const ExternalLink = (props) => {
                       }
                     : onClick
             }
-            disabled={!has_mounted}
+            disabled={!mounted}
             {...props}
         >
             {children}
@@ -218,9 +221,9 @@ const ExternalLink = (props) => {
 ExternalLink.propTypes = {
     aria_label: PropTypes.string,
     children: PropTypes.node,
-    has_mounted: PropTypes.bool,
     is_mail_link: PropTypes.bool,
     locale: PropTypes.any,
+    mounted: PropTypes.bool,
     onClick: PropTypes.func,
     ref: PropTypes.string,
     rel: PropTypes.string,

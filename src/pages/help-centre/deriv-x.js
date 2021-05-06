@@ -91,7 +91,7 @@ const ResetDerivXPassowrd = () => (
 const AccountInformation = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">
-            {localize('Where can I find my deriv x account information?')}
+            {localize('Where can I find my Deriv X account information?')}
         </StyledHeader>
         <Text> {/* TODO: add account information text */} </Text>
     </ArticleWrapper>
@@ -143,7 +143,7 @@ const DerivXArticle = () => {
                     label="differences-of-dtrader-dmt5-deriv-x"
                 />
                 <DerivXAccount
-                    text={localize('How do I create a deriv x account?')}
+                    text={localize('How do I create a Deriv X account?')}
                     label="create-account"
                 />
                 <DifferentAccounts
@@ -165,7 +165,7 @@ const DerivXArticle = () => {
                     label="reset-deriv-x-password"
                 />
                 <AccountInformation
-                    text={localize('Where can I find my deriv X account information?')}
+                    text={localize('Where can I find my Deriv X account information?')}
                     label="deriv-x-account-information"
                 />
                 <DerivXRealMoneyAccount

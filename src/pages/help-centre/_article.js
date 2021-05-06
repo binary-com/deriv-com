@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import { Community } from './_community'
 import { DidntFindYourAnswerBanner } from './_didnt-find-answer'
 import Layout from 'components/layout/layout'
 import { localize } from 'components/localization'
@@ -56,6 +57,7 @@ export const Article = ({ children, header, title, description }) => {
             </Container>
 
             <ContactContainer>
+                <Community />
                 <DidntFindYourAnswerBanner />
             </ContactContainer>
         </Layout>

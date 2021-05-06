@@ -46,10 +46,8 @@ const Home = () => {
     return (
         <Layout>
             <SEO
-                title={localize('Online trading platform | Forex, commodities and indices | Deriv')}
-                description={localize(
-                    'Deriv - An online trading platform that offers a wide selection of derivatives to trade on 24/7.',
-                )}
+                title={localize('Online trading with Deriv | Simple. Flexible. Reliable.')}
+                description={localize('Trading platforms designed with you in mind.')}
                 has_organization_schema
             />
             <Hero />

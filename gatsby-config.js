@@ -52,6 +52,8 @@ module.exports = {
                     '/landing/**',
                     '/**/landing',
                     '/**/landing/**',
+                    '/**/careers',
+                    '/**/careers/**',
                 ],
                 serialize: ({ site, allSitePage }) =>
                     allSitePage.edges.map((edge) => {
@@ -156,7 +158,7 @@ module.exports = {
                 stages: ['develop'],
                 extensions: ['js'],
                 exclude: ['node_modules', '.cache', 'public'],
-              },
+            },
         },
         {
             resolve: 'gatsby-plugin-stylelint',

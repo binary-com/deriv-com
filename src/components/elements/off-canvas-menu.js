@@ -16,6 +16,7 @@ import Commodities from 'images/svg/commodities-nav.svg'
 import Community from 'images/svg/menu/community.svg'
 import Contact from 'images/svg/menu/contact.svg'
 import DBot from 'images/svg/dbot-icon.svg'
+import API from 'images/svg/menu/developers.svg'
 import Diagonal from 'images/svg/pink-right-diagonal.svg'
 import DMT5 from 'images/svg/dmt5-icon.svg'
 import DTrader from 'images/svg/dtrader-icon.svg'
@@ -538,6 +539,19 @@ export const OffCanvasMenuWrapper = (props) => {
                             </div>
                             <span>{localize('Payment agents')}</span>
                         </StyledLink>
+                        <StyledLink
+                            to=""
+                            is_deriv_developer_link
+                            target="_blank"
+                            external="true"
+                            rel="noopener noreferrer"
+                            onClick={handleArrowClick}
+                        >
+                            <div>
+                                <img src={API} alt="API" width="32" height="32" />
+                            </div>
+                            <span>{localize('API')}</span>
+                        </StyledLink>
                     </AccordionItem>
                 </Accordion>
             </OffCanvasMenuContainer>
@@ -589,6 +603,19 @@ export const OffCanvasMenuPartner = (props) => {
                         <img src={PaymentAgent} alt="payment agent" width="32" height="32" />
                     </div>
                     <span>{localize('Payment agents')}</span>
+                </StyledLink>
+                <StyledLink
+                    to=""
+                    is_deriv_developer_link
+                    target="_blank"
+                    external="true"
+                    rel="noopener noreferrer"
+                    onClick={handleArrowClick}
+                >
+                    <div>
+                        <img src={API} alt="API" width="32" height="32" />
+                    </div>
+                    <span>{localize('API')}</span>
                 </StyledLink>
             </OffCanvasMenuContainer>
         </OffCanvasMenuSecondary>

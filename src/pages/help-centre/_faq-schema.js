@@ -31,7 +31,16 @@ export const faq_schema =
         },
         {
             '@type': 'Question',
-            name: localize("What are the major differences between DTrader and DMT5?"),
+            name: 'What is Deriv X?',
+            acceptedAnswer: {
+                '@type': 'Answer',
+                text:
+                    "Deriv X is an easy-to-use trading platform where you can trade CFDs on various assets on a platform layout that you can customise according to your preference.",
+            },
+        },
+        {
+            '@type': 'Question',
+            name: 'What are the major differences between DTrader and DMT5?',
             acceptedAnswer: {
                 '@type': 'Answer',
                 text: localize("DTrader allows you to trade more than 50 assets in the form of digitals, multiplier, and lookback options.<br />DMT5 is a multi-asset trading platform that you can use to trade spot forex and contracts for difference (CFDs) with leverage."),

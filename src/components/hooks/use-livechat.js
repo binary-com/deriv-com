@@ -105,10 +105,6 @@ export const useLivechat = () => {
                             )
                         }
                     } else {
-                        // client not logged in
-                        // clear name and email fields
-                        window.LiveChatWidget.call('set_customer_email', ' ');
-                        window.LiveChatWidget.call('set_customer_name', ' ');
                         // clear name and email fields after chat has ended
                         window.LC_API.on_chat_ended = () => {
                             window.LiveChatWidget.call('set_customer_email', ' ');

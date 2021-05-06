@@ -263,7 +263,7 @@ export const articles = [
                 title: <Localize translate_text="What is the minimum and maximum amount to trade on Deriv X?" />,
                 category: 'Deriv x',
                 sub_category: <Localize translate_text="How to trade" />,
-                label: 'minimum-and-maximum-amoount-to-trade',
+                label: 'minimum-and-maximum-amount-to-trade',
             },
             {
                 title: <Localize translate_text="What is the major difference between DTrader, Deriv MT5(DMT5) and Deriv X?" />,
@@ -272,7 +272,7 @@ export const articles = [
                 label: 'differences-of-dtrader-dmt5-deriv-x',
             },
             {
-                title: <Localize translate_text="How do I create a deriv x account?" />,
+                title: <Localize translate_text="How do I create a Deriv X account?" />,
                 category: 'Deriv x',
                 sub_category: <Localize translate_text="Accounts" />,
                 label: 'create-account',
@@ -302,7 +302,7 @@ export const articles = [
                 label: 'reset-deriv-x-password',
             },
             {
-                title: <Localize translate_text="Where can I find my deriv X account information?" />,
+                title: <Localize translate_text="Where can I find my Deriv X account information?" />,
                 category: 'Deriv x',
                 sub_category: <Localize translate_text="Platforms" />,
                 label: 'deriv-x-account-information',

@@ -24,6 +24,15 @@ export const faq_schema =
         },
         {
             '@type': 'Question',
+            name: 'What is DMT5?',
+            acceptedAnswer: {
+                '@type': 'Answer',
+                text:
+                    'DMT5 is the MT5 platform on Deriv. It is a multi-asset online platform designed to give new and experienced traders access to a wide range of financial markets.',
+            },
+        },
+        {
+            '@type': 'Question',
             name: 'What is DTrader?',
             acceptedAnswer: {
                 '@type': 'Answer',
@@ -45,6 +54,15 @@ export const faq_schema =
                 '@type': 'Answer',
                 text:
                     localize("Deriv X is an easy to-use trading platform where you can trade CFDs on various assets on a platform layout that you can customise according to your preference."),
+            },
+        },
+        {
+            '@type': 'Question',
+            name: 'What is Deriv X?',
+            acceptedAnswer: {
+                '@type': 'Answer',
+                text:
+                    "Deriv X is an easy to-use trading platform where you can trade CFDs on various assets on a platform layout that you can customise according to your preference.",
             },
         },
         {

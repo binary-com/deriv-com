@@ -112,7 +112,7 @@ const PartnershipOpportunities = () => (
             >
                 <Flex ai="center" height="auto" mb="0.8rem">
                     <Header as="h4" size="var(--text-size-sm)">
-                        {localize('Developer programme')}
+                        {localize('API')}
                     </Header>
                     <DeveloperProgramme />
                 </Flex>

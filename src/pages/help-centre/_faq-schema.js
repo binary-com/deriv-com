@@ -40,11 +40,11 @@ export const faq_schema =
         },
         {
             '@type': 'Question',
-            name: 'What is Deriv X?',
+            name: localize('What is Deriv X?'),
             acceptedAnswer: {
                 '@type': 'Answer',
                 text:
-                    "Deriv X is an easy to-use trading platform where you can trade CFDs on various assets on a platform layout that you can customise according to your preference.",
+                    localize("Deriv X is an easy to-use trading platform where you can trade CFDs on various assets on a platform layout that you can customise according to your preference."),
             },
         },
         {

@@ -105,7 +105,7 @@ const DMT5TradingSignals = () => {
 
     return (
         <Layout>
-            <SEO description={localize('Deriv MT5 signals')} title={localize('DMT5 Signals')} />
+            <SEO description={localize('Subscribe to Deriv MetaTrader 5 trading signals to copy the trades of experienced traders, or become a signal provider and share your strategies.')} title={localize('Deriv MetaTrader 5 trading signals | Resources | Deriv')} />
             <Hero jc="cneter" ai="center">
                 <SmallContainer>
                     <Header as="h1" type="display-title" color="white" align="center">

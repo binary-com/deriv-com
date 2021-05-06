@@ -5,6 +5,7 @@ import { navigate } from 'gatsby'
 import language_config from '../../../i18n-config'
 import Dropdown from './language-dropdown'
 import { isProduction } from 'common/websocket/config'
+import { nonENLangUrlReplace } from 'common/utility'
 
 const languages = Object.keys(language_config)
 
@@ -48,7 +49,7 @@ const LanguageSwitch = ({ i18n, is_high_nav, short_name }) => {
             const destination_path = `${path}${
                 current_lang === 'en'
                     ? current_path.replace(/\//u, '')
-                    : current_path.replace(/\/.+?(\/)|(\/\w+)/u, '')
+                    : nonENLangUrlReplace(current_path)
             }${current_hash}`
 
             if (path === '/ach/') {

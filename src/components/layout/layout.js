@@ -8,7 +8,6 @@ import { Nav, NavStatic, NavPartners, NavInterim } from './nav'
 import BeSquareNav from './besquare/nav'
 import BeSquareFooter from './besquare/footer'
 import { NavCareers } from './nav-careers'
-import { NavP2P } from './nav-p2p'
 import { LocationProvider } from './location-context'
 import EURedirect, { useModal } from 'components/custom/_eu-redirect-modal.js'
 import CookieBanner from 'components/custom/cookie-banner'
@@ -120,7 +119,6 @@ const Layout = ({
     is_ppc,
     is_ppc_redirect,
     margin_top,
-    nav_type,
     no_live_chat,
     no_login_signup,
     type,
@@ -191,10 +189,6 @@ const Layout = ({
         case 'careers':
             Navigation = <NavCareers />
             FooterNav = <Footer no_language={true} type={type} />
-            break
-        case 'p2p':
-            Navigation = <NavP2P nav_type={nav_type} />
-            FooterNav = <Copyright />
             break
         case 'be-square':
             Navigation = <BeSquareNav />

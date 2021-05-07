@@ -15,13 +15,11 @@ const PaymentAgent = () => {
     return (
         <Layout type="partners" margin_top={10} no_login_signup>
             <SEO
-                title={localize('Payment agents | Partners | Deriv')}
-                description={localize(
-                    'Know all the details about how you can become the payment agent on Deriv. Send us an email to apply!',
-                )}
+                title={localize('Online trading with Deriv | Simple. Flexible. Reliable.')}
+                description={localize('Trading platforms designed with you in mind.')}
             />
             <Helmet>
-                    <script type="application/ld+json">{JSON.stringify(faq_schema)}</script>
+                <script type="application/ld+json">{JSON.stringify(faq_schema)}</script>
             </Helmet>
             <Hero />
             <TapInto />

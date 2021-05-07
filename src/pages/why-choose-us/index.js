@@ -58,9 +58,9 @@ const WhyChooseUs = () => {
     return (
         <Layout>
             <SEO
-                title={localize('Why choose Deriv for your online trading | Deriv')}
+                title={localize('Online trading with Deriv | Simple. Flexible. Reliable.)}
                 description={localize(
-                    'We’re steadfast in our commitment to high ethical standards. Find more reasons to know why Deriv is the choice of online traders.',
+                    'Trading platforms designed with you in mind.',
                 )}
             />
             <Section>

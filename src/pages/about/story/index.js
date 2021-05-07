@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import styled, { css } from 'styled-components'
-import { OurStory } from './story/_our-story'
+import { OurStory } from './_our-story'
 import { Container, Flex, SEO, Show } from 'components/containers'
 import { getWindowWidth, isBrowser } from 'common/utility'
 import Layout from 'components/layout/layout'

@@ -73,10 +73,8 @@ const NewSignup = () => {
     return (
         <Layout type="static" margin_top={'0'}>
             <SEO
-                title={localize('Easy And Free Sign Up | Online Trading | Deriv.com')}
-                description={localize(
-                    'Signup to Deriv.com and trade online with as little as $1 USD on major currencies, stocks, indices, and commodities.',
-                )}
+                title={localize('Online trading with Deriv | Simple. Flexible. Reliable.')}
+                description={localize('Trading platforms designed with you in mind.')}
             />
             <Wrapper>
                 {submit_state !== 'success' && (

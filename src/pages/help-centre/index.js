@@ -320,10 +320,8 @@ class HelpCentre extends Component {
         return (
             <Layout>
                 <SEO
-                    title={localize('Help centre | Frequently asked questions | Deriv')}
-                    description={localize(
-                        'Need help? Have questions about Deriv services and online trading platforms? Read our FAQ or ask us a question.',
-                    )}
+                    title={localize('Online trading with Deriv | Simple. Flexible. Reliable.')}
+                    description={localize('Trading platforms designed with you in mind.')}
                 />
                 <Helmet>
                     <script type="application/ld+json">{JSON.stringify(faq_schema)}</script>

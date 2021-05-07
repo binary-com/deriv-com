@@ -15,10 +15,8 @@ const TermsAndConditions = () => {
     return (
         <Layout>
             <SEO
-                title={localize('Terms and conditions | Legal policies | Deriv')}
-                description={localize(
-                    'Read our terms and conditions to know Deriv manages data feeds, security, privacy, and more.',
-                )}
+                title={localize('Online trading with Deriv | Simple. Flexible. Reliable.')}
+                description={localize('Trading platforms designed with you in mind.')}
             />
             <Section>
                 <Container>

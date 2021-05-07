@@ -34,10 +34,8 @@ const ContactUs = () => {
     return (
         <Layout>
             <SEO
-                title={localize('Contact Us | Online Trading | Deriv.com')}
-                description={localize(
-                    'Have any query or need assistance, check out the details to call our international help desk and our email ID. Feel free to contact us anytime!',
-                )}
+                title={localize('Online trading with Deriv | Simple. Flexible. Reliable.')}
+                description={localize('Trading platforms designed with you in mind.')}
                 has_organization_schema
             />
             <SectionContainer tablet={{ p: '40px 0' }}>

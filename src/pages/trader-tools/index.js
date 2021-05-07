@@ -73,8 +73,8 @@ const TraderTools = () => {
     return (
         <Layout>
             <SEO
-                title={localize("Traders' tools | Deriv")}
-                description={localize("Traders' tools")}
+                title={localize('Online trading with Deriv | Simple. Flexible. Reliable.')}
+                description={localize('Trading platforms designed with you in mind.')}
             />
             <Hero jc="center" ai="center">
                 <Container>

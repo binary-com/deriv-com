@@ -177,10 +177,8 @@ const About = () => {
     return (
         <Layout>
             <SEO
-                title={localize('About Us | An Online Trading Platform | Deriv.com')}
-                description={localize(
-                    'Deriv.com - A Binary.com brand, is a pioneer and award-winning online trading platform in the trading market.',
-                )}
+                title={localize('Online trading with Deriv | Simple. Flexible. Reliable.')}
+                description={localize('Trading platforms designed with you in mind.')}
             />
             <Background>
                 <StyledContainer direction="column">

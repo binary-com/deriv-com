@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet'
 import { useStaticQuery, graphql } from 'gatsby'
 import { LocaleContext } from '../localization'
 import language_config from '../../../i18n-config'
-import TradingImage from 'images/common/practice.png'
+import TradingImage from 'images/common/og_deriv.png'
 
 const non_localized_links = ['/careers', '/careers/']
 

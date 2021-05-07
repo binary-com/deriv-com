@@ -19,14 +19,8 @@ import { useActiveLinkState } from 'components/hooks/use-active-link-state'
 import { SharedLinkStyle } from 'components/localization/localized-link'
 import Login from 'common/login'
 import device from 'themes/device'
-import {
-    affiliate_signin_url,
-    affiliate_signup_url,
-    deriv_app_url,
-    isLoggedIn,
-    getLanguage,
-    getDerivAppLocalizedURL,
-} from 'common/utility'
+import { affiliate_signin_url, affiliate_signup_url, deriv_app_url } from 'common/constants'
+import { isLoggedIn, getLanguage, getDerivAppLocalizedURL } from 'common/utility'
 // Icons
 import Logo from 'images/svg/logo-deriv.svg'
 import LogoPartner from 'images/svg/logo-partners.svg'
@@ -368,6 +362,7 @@ const LinkMobileLogin = styled(LinkButton)`
     }
     @media ${device.mobileL} {
         font-size: var(--text-size-xxs);
+        margin-left: 10px;
     }
 `
 const handleScroll = (show, hide) => {
@@ -936,6 +931,20 @@ export const NavPartners = ({ no_login_signup }) => {
                                     {localize('Payment agents')}
                                 </StyledLink>
                             </NavLink>
+                            <NavLink>
+                                <StyledLink
+                                    active={current_page === 'developers'}
+                                    activeClassName="active"
+                                    to=""
+                                    is_deriv_developer_link
+                                    target="_blank"
+                                    external="true"
+                                    rel="noopener noreferrer"
+                                    aria-label={localize('API')}
+                                >
+                                    {localize('API')}
+                                </StyledLink>
+                            </NavLink>
                         </StyledNavCenter>
                         {!no_login_signup && (
                             <StyledNavRight
@@ -986,7 +995,7 @@ export const NavPartners = ({ no_login_signup }) => {
 
                         <Mobile>
                             <Flex ai="center">
-                                <LogoLinkMobile to="/" aria-label={localize('Home')}>
+                                <LogoLinkMobile to="/partners" aria-label={localize('Home')}>
                                     <ResLogo src={LogoOnly} alt="reslogo" />
                                 </LogoLinkMobile>
                                 <Flex ml="auto" ai="center" width="auto">

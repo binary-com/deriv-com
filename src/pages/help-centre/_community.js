@@ -5,7 +5,6 @@ import { Text, Header, QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
 import { localize } from 'components/localization'
 import { Container, SectionContainer, Flex } from 'components/containers'
-import { community_url } from 'common/utility'
 import device from 'themes/device'
 
 const query = graphql`
@@ -56,7 +55,9 @@ export const Community = () => {
                         </Text>
                         <StyledLinkButton
                             secondary="true"
-                            to={community_url}
+                            to=""
+                            is_community_link
+                            external="true"
                             target="_blank"
                             rel="noopener noreferrer"
                         >

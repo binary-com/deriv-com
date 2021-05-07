@@ -6,7 +6,7 @@ import { LocalizedLink, localize, Localize } from 'components/localization'
 import { Accordion, AccordionItem, NavCard, Text, Divider } from 'components/elements'
 import Signals from 'components/svgs/signals'
 import { useOutsideClick } from 'components/hooks/outside-click'
-import { blog_url, cfd_warning_height, community_url, deriv_status_page_url } from 'common/utility'
+import { cfd_warning_height, deriv_status_page_url } from 'common/constants'
 // SVG
 import AffiliateIb from 'images/svg/menu/affiliate-ib.svg'
 import Blog from 'images/svg/blog-nav.svg'
@@ -16,6 +16,7 @@ import Commodities from 'images/svg/commodities-nav.svg'
 import Community from 'images/svg/menu/community.svg'
 import Contact from 'images/svg/menu/contact.svg'
 import DBot from 'images/svg/dbot-icon.svg'
+import API from 'images/svg/menu/developers.svg'
 import Diagonal from 'images/svg/pink-right-diagonal.svg'
 import DMT5 from 'images/svg/dmt5-icon.svg'
 import DTrader from 'images/svg/dtrader-icon.svg'
@@ -417,7 +418,9 @@ export const OffCanvasMenuWrapper = (props) => {
                             <span>{localize('Help centre')}</span>
                         </StyledLink>
                         <StyledLink
-                            to={community_url}
+                            to=""
+                            is_community_link
+                            external="true"
                             target="_blank"
                             rel="noopener noreferrer"
                             onClick={handleArrowClick}
@@ -469,7 +472,9 @@ export const OffCanvasMenuWrapper = (props) => {
                             </SpanSvg>
                         </StyledLink>
                         <StyledLink
-                            to={blog_url}
+                            to=""
+                            is_blog_link
+                            external="true"
                             target="_blank"
                             rel="noopener noreferrer"
                             onClick={handleArrowClick}
@@ -534,6 +539,19 @@ export const OffCanvasMenuWrapper = (props) => {
                             </div>
                             <span>{localize('Payment agents')}</span>
                         </StyledLink>
+                        <StyledLink
+                            to=""
+                            is_deriv_developer_link
+                            target="_blank"
+                            external="true"
+                            rel="noopener noreferrer"
+                            onClick={handleArrowClick}
+                        >
+                            <div>
+                                <img src={API} alt="API" width="32" height="32" />
+                            </div>
+                            <span>{localize('API')}</span>
+                        </StyledLink>
                     </AccordionItem>
                 </Accordion>
             </OffCanvasMenuContainer>
@@ -585,6 +603,19 @@ export const OffCanvasMenuPartner = (props) => {
                         <img src={PaymentAgent} alt="payment agent" width="32" height="32" />
                     </div>
                     <span>{localize('Payment agents')}</span>
+                </StyledLink>
+                <StyledLink
+                    to=""
+                    is_deriv_developer_link
+                    target="_blank"
+                    external="true"
+                    rel="noopener noreferrer"
+                    onClick={handleArrowClick}
+                >
+                    <div>
+                        <img src={API} alt="API" width="32" height="32" />
+                    </div>
+                    <span>{localize('API')}</span>
                 </StyledLink>
             </OffCanvasMenuContainer>
         </OffCanvasMenuSecondary>

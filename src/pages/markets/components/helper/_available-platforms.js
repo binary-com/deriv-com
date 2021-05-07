@@ -99,11 +99,7 @@ const AvailablePlatforms = ({
                     </LocalizedLink>
                 )}
                 {smarttrader && (
-                    <a
-                        href= {smarttrader_url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
+                    <a href={smarttrader_url} target="_blank" rel="noopener noreferrer">
                         <StyledFlex direction="row" ai="center">
                             <img src={SmartTrader} alt="smarttrader" width="32" height="32" />
                             <Text ml="0.4rem">{localize('SmartTrader')}</Text>

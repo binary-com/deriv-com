@@ -145,8 +145,10 @@ const AffiliateIb = () => {
     return (
         <Layout type="partners" margin_top={10}>
             <SEO
-                title={localize('Online trading with Deriv | Simple. Flexible. Reliable.')}
-                description={localize('Trading platforms designed with you in mind.')}
+                title={localize('Affiliate and IB programme | Deriv')}
+                description={localize(
+                    'Join Deriv’s affiliate and IB programmes and get a chance to be a partner with a trusted online trading provider.',
+                )}
             />
             <Helmet>
                 <script type="application/ld+json">{JSON.stringify(faq_schema)}</script>

@@ -20,14 +20,12 @@ const DepositDerivX = () => (
         <StyledHeader as="h4">
             {localize('What is  the minimum/maximum I can deposit into my account?')}
         </StyledHeader>
-        <Text> {/* TODO: replace text here */} </Text>
     </ArticleWrapper>
 )
 
 const DerivXMarkets = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('What markets can I trade on Deriv X?')}</StyledHeader>
-        <Text>{/* TODO: add text here */} </Text>
     </ArticleWrapper>
 )
 
@@ -36,7 +34,6 @@ const DerivXTrade = () => (
         <StyledHeader as="h4">
             {localize('What is the minimum and maximum amount to trade on Deriv X?')}
         </StyledHeader>
-        <Text> {/* TODO: add trade text */} </Text>
     </ArticleWrapper>
 )
 
@@ -45,14 +42,12 @@ const DifferenceDMT5DTraderDerivX = () => (
         <StyledHeader as="h4">
             {localize('What is the major difference between DTrader, Deriv MT5(DMT5) and Deriv X?')}
         </StyledHeader>
-        <Text> {/* TODO: add differences text */} </Text>
     </ArticleWrapper>
 )
 
 const DerivXAccount = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('How do I create a deriv x account?')}</StyledHeader>
-        <Text> {/* TODO: add deriv x account text */} </Text>
     </ArticleWrapper>
 )
 
@@ -61,14 +56,12 @@ const DifferentAccounts = () => (
         <StyledHeader as="h4">
             {localize('What are the differences between Synthetics and Financial accounts?')}
         </StyledHeader>
-        <Text> {/* TODO: add account differences text */} </Text>
     </ArticleWrapper>
 )
 
 const TradingPassword = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('What is trading password?')}</StyledHeader>
-        <Text> {/* TODO: add trading password text */} </Text>
     </ArticleWrapper>
 )
 
@@ -77,14 +70,12 @@ const DifferentPassword = () => (
         <StyledHeader as="h4">
             {localize('Why is my tarding password different from my Deriv password?')}
         </StyledHeader>
-        <Text> {/* TODO: add password differences text */} </Text>
     </ArticleWrapper>
 )
 
 const ResetDerivXPassowrd = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('How do I rest my Deriv X Password?')}</StyledHeader>
-        <Text> {/* TODO: add password reset text */} </Text>
     </ArticleWrapper>
 )
 
@@ -93,7 +84,6 @@ const AccountInformation = () => (
         <StyledHeader as="h4">
             {localize('Where can I find my Deriv X account information?')}
         </StyledHeader>
-        <Text> {/* TODO: add account information text */} </Text>
     </ArticleWrapper>
 )
 
@@ -102,7 +92,6 @@ const DerivXRealMoneyAccount = () => (
         <StyledHeader as="h4">
             {localize('How can I deposit funds into my Deriv X real money account?')}
         </StyledHeader>
-        <Text> {/* TODO: add funds deposit text */} </Text>
     </ArticleWrapper>
 )
 
@@ -111,7 +100,6 @@ const WithdrawDerivX = () => (
         <StyledHeader as="h4">
             {localize('How do I withdraw funds from my Deriv X real money account?')}
         </StyledHeader>
-        <Text> {/* TODO: add withdraw funds text */} </Text>
     </ArticleWrapper>
 )
 

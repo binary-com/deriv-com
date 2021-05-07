@@ -58,10 +58,8 @@ const WhyChooseUs = () => {
     return (
         <Layout>
             <SEO
-                title={localize('Online trading with Deriv | Simple. Flexible. Reliable.)}
-                description={localize(
-                    'Trading platforms designed with you in mind.',
-                )}
+                title={localize('Online trading with Deriv | Simple. Flexible. Reliable.')}
+                description={localize('Trading platforms designed with you in mind.')}
             />
             <Section>
                 <GridContainer>

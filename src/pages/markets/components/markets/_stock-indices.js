@@ -14,7 +14,7 @@ const OtherMarkets = Loadable(() => import('../sections/_other-markets.js'))
 
 const StockIndices = ({ simple_step_content }) => {
     simple_step_content[1].text = localize(
-        'Open a real account, make a deposit, and start trading stock indices and other markets.',
+        'Open a real account, make a deposit, and start trading stocks, indices and other markets.',
     )
     return (
         <div>
@@ -35,16 +35,16 @@ const StockIndices = ({ simple_step_content }) => {
             <AvailableTrades
                 Margin={<Margin market_content={stock_margin} />}
                 DigitalOptions={
-                    <DigitalOptions market_name={'stock indices'} options_list={stock_options} />
+                    <DigitalOptions market_name={'stocks & indices'} options_list={stock_options} />
                 }
-                name="Stock indices"
+                name="Stocks & indices"
                 display_title={
                     <Localize translate_text="Stocks & indices trades available on Deriv" />
                 }
             />
             <SimpleSteps
                 header={
-                    <Localize translate_text="Start trading stock indices on Deriv in 3 simple steps" />
+                    <Localize translate_text="Start trading stocks & indices on Deriv in 3 simple steps" />
                 }
                 content={simple_step_content}
                 sign_up

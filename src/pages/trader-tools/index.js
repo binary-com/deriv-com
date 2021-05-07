@@ -31,19 +31,19 @@ const tools = [
         image_name: 'swap',
         image_alt: localize('swap calculator'),
     },
+    {
+        title: <Localize translate_text="Pip calculator" />,
+        subtitle: (
+            <Localize translate_text="Find the value of the pips in your trades to manage your risk efficiently." />
+        ),
+        link: {
+            text: <Localize translate_text="Try pip calculator" />,
+            route: '/trader-tools/pip-calculator',
+        },
+        image_name: 'pip',
+        image_alt: localize('pip calculator'),
+    },
     // TODO: TO ENABLE WHEN THE OTHER PAGES ARE READY
-    // {
-    //     title: <Localize translate_text="Pip calculator" />,
-    //     subtitle: (
-    //         <Localize translate_text="Find the value of the pips in your trades to manage your risk efficiently." />
-    //     ),
-    //     link: {
-    //         text: <Localize translate_text="Try pip calculator" />,
-    //         route: '/trader-tools/pip-calculator',
-    //     },
-    //     image_name: 'pip',
-    //     image_alt: localize('pip calculator'),
-    // },
     // {
     //     title: <Localize translate_text="PnL for margin" />,
     //     subtitle: (

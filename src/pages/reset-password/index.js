@@ -123,7 +123,7 @@ const ResetPassword = () => (
                                 type="text"
                                 label={localize('Email')}
                                 background="white"
-                                placeholder={'example@mail.com'}
+                                placeholder={'example@email.com'}
                                 data-lpignore="true"
                                 required
                             />

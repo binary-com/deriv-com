@@ -86,12 +86,17 @@ const CardContainer = styled(Flex)`
             width: 100%;
             height: 100%;
             justify-content: flex-start;
-            padding: 10px 44px 0 0;
+            padding: 10px 0 0 0;
 
             img {
                 width: 16px;
                 height: 16px;
                 margin-right: 1rem;
+            }
+        }
+        @media ${device.mobileL} {
+            img {
+                margin-right: 5px;
             }
         }
     }
@@ -114,43 +119,32 @@ const CardContainer = styled(Flex)`
             if (props.active_tab === props.name)
                 return css`
                     background-color: #ffffff;
-                    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.05);
                 `
         }}
     }
     @media ${device.tabletL} {
         height: 6rem;
         min-width: unset;
-        padding-right: 0;
+        padding-right: 25px;
+
+        &:last-child {
+            padding-right: 40px;
+        }
     }
 `
-const TabMarginIcon = styled.img`
+const TabIcon = styled.img`
     min-width: 16px;
     ${(props) => {
         if (props.active_tab === props.name)
             return css`
                 margin-left: 16px;
+                @media ${device.mobileL} {
+                    margin-left: 5px;
+                }
             `
     }}
 `
-const TabOptionIcon = styled.img`
-    min-width: 16px;
-    ${(props) => {
-        if (props.active_tab === props.name)
-            return css`
-                margin-left: 16px;
-            `
-    }}
-`
-const TabMultiplierIcon = styled.img`
-    min-width: 16px;
-    ${(props) => {
-        if (props.active_tab === props.name)
-            return css`
-                margin-left: 16px;
-            `
-    }}
-`
+
 const ContentWrapper = styled.div`
     width: 100%;
     max-width: 99.6rem;
@@ -173,7 +167,7 @@ const Card = ({ display_name, active_tab, onTabChange, name }) => {
         <CardContainer name={name} active_tab={active_tab} onClick={() => onTabChange(name)}>
             <Flex height="fit-content" jc="flex-start" ai="center">
                 {active_tab === 'Margin' && (
-                    <TabMarginIcon
+                    <TabIcon
                         src={MarginIcon}
                         alt="margin icon"
                         name={name}
@@ -181,7 +175,7 @@ const Card = ({ display_name, active_tab, onTabChange, name }) => {
                     />
                 )}
                 {active_tab === 'Options' && (
-                    <TabOptionIcon
+                    <TabIcon
                         src={OptionsIcon}
                         alt="option icon"
                         name={name}
@@ -189,7 +183,7 @@ const Card = ({ display_name, active_tab, onTabChange, name }) => {
                     />
                 )}
                 {active_tab === 'Multipliers' && (
-                    <TabMultiplierIcon
+                    <TabIcon
                         src={MultipliersIcon}
                         alt="multiplier icon"
                         name={name}

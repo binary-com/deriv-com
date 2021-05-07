@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
 import { Form } from 'formik'
 import { Flex, SectionContainer, Container } from 'components/containers'
-import { Text, Header, Dropdown } from 'components/elements'
+import { Dropdown, Header, Text } from 'components/elements'
 import { Button, LinkButton } from 'components/form'
 import device from 'themes/device'
 import Patterns from 'images/common/dmt5-signals/dmt5-signals-patterns.png'
@@ -342,6 +342,7 @@ export const item_style = {
     padding: '16px 0',
 }
 export const header_style = {
+    marginTop: '15px',
     padding: '16px 24px',
     border: 'none',
     borderRadius: '8px',

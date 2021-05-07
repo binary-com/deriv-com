@@ -1,14 +1,14 @@
 import React from 'react'
 import Loadable from '@loadable/component'
-import Hero from '../components/_hero'
-import DP2P from '../components/_dp2p'
+import Hero from './components/_hero'
+import DP2P from './components/_dp2p'
 import { localize, Localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { SEO } from 'components/containers'
-const ExchangeSteps = Loadable(() => import('../components/_exchange-steps'))
-const P2PBanner = Loadable(() => import('../components/_p2pbanner'))
-const Numbers = Loadable(() => import('../components/_numbers'))
-const Availability = Loadable(() => import('../components/_availability'))
+const ExchangeSteps = Loadable(() => import('./components/_exchange-steps'))
+const P2PBanner = Loadable(() => import('./components/_p2pbanner'))
+const Numbers = Loadable(() => import('./components/_numbers'))
+const Availability = Loadable(() => import('./components/_availability'))
 
 const DP2P_CONTENT = [
     {
@@ -48,9 +48,9 @@ const DP2P_CONTENT = [
     },
 ]
 
-const DP2P_v1 = () => {
+const DP2PHome = () => {
     return (
-        <Layout type="p2p" nav_type="p2p-v1" no_live_chat>
+        <Layout>
             <SEO
                 title={localize('DP2P')}
                 description={localize('Hassle-free deposits and withdrawals')}
@@ -74,4 +74,4 @@ const DP2P_v1 = () => {
     )
 }
 
-export default WithIntl()(DP2P_v1)
+export default WithIntl()(DP2PHome)

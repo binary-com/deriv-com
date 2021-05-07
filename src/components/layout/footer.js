@@ -264,7 +264,9 @@ const SocialWrapperComponent = ({ is_career_page }) => {
             image_alt: `instagram ${alt_string}`,
         },
         {
-            link: 'https://www.linkedin.com/company/derivdotcom/',
+            link: is_career_page
+                ? 'https://www.linkedin.com/company/derivdotcom/life/'
+                : 'https://www.linkedin.com/company/derivdotcom/',
             image: Linkedin,
             image_alt: `linkedin ${alt_string}`,
         },

@@ -145,8 +145,8 @@ const DMT5Article = () => {
         <div>
             <Article
                 header="DMT5"
-                title={localize('Help centre | Frequently asked questions | DMT5 | Deriv')}
-                description={localize('Frequently asked questions - DMT5')}
+                title={localize('Online trading with Deriv | Simple. Flexible. Reliable.')}
+                description={localize('Trading platforms designed with you in mind.')}
             >
                 <WhatIsDMT5 text={localize('What is DMT5?')} label="what-is-dmt5" />
                 <DifferenceDMT5DTrader

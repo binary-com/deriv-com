@@ -46,8 +46,8 @@ const SecurityArticle = () => {
         <div>
             <Article
                 header={localize('Security')}
-                title={localize('Help centre | Frequently asked questions | Security | Deriv')}
-                description={localize('Frequently asked questions - Security')}
+                title={localize('Online trading with Deriv | Simple. Flexible. Reliable.')}
+                description={localize('Trading platforms designed with you in mind.')}
             >
                 <VerifyAccount
                     text={localize('Do I need to verify my Deriv account?')}

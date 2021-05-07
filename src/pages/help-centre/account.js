@@ -149,8 +149,8 @@ const AccountArticle = () => {
         <div>
             <Article
                 header={localize('Account')}
-                title={localize('Help centre | Frequently asked questions | Account | Deriv')}
-                description={localize('Frequently asked questions - Account')}
+                title={localize('Online trading with Deriv | Simple. Flexible. Reliable.')}
+                description={localize('Trading platforms designed with you in mind.')}
             >
                 <WhoCanOpenAnAccount
                     text={localize("Why can't I create an account?")}

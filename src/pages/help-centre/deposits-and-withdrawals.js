@@ -126,10 +126,8 @@ const DepositsAndWithdrawalArticle = () => {
         <div>
             <Article
                 header={localize('Deposits and withdrawals')}
-                title={localize(
-                    'Help centre | Frequently asked questions | Deposits and withdrawals | Deriv',
-                )}
-                description={localize('Frequently asked questions - Deposits and withdrawals')}
+                title={localize('Online trading with Deriv | Simple. Flexible. Reliable.')}
+                description={localize('Trading platforms designed with you in mind.')}
             >
                 <PaymentMethods
                     text={localize('What payment methods do you support?')}

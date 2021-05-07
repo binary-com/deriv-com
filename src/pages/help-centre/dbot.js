@@ -705,8 +705,8 @@ const DBotArticle = () => {
         <div>
             <Article
                 header="DBot"
-                title={localize('Help centre | Frequently asked questions | DBot | Deriv')}
-                description={localize('Frequently asked questions - DBot')}
+                title={localize('Online trading with Deriv | Simple. Flexible. Reliable.')}
+                description={localize('Trading platforms designed with you in mind.')}
             >
                 <WhatIsDBot text={localize('What is DBot?')} label="what-is-dbot" />
                 <FindBlocks

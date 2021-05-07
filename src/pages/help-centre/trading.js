@@ -118,8 +118,8 @@ const TradingArticle = () => {
         <div>
             <Article
                 header={localize('Trading')}
-                title={localize('Help centre | Frequently asked questions | Trading | Deriv')}
-                description={localize('Frequently asked questions - Trading')}
+                title={localize('Online trading with Deriv | Simple. Flexible. Reliable.')}
+                description={localize('Trading platforms designed with you in mind.')}
             >
                 <Forex text={localize('What is forex?')} label="what-is-forex" />
                 <Commodities

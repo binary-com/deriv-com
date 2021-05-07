@@ -40,8 +40,8 @@ const DTraderArticle = () => {
         <div>
             <Article
                 header="DTrader"
-                title={localize('Help centre | Frequently asked questions | DTrader | Deriv')}
-                description={localize('Frequently asked questions - DTrader')}
+                title={localize('Online trading with Deriv | Simple. Flexible. Reliable.')}
+                description={localize('Trading platforms designed with you in mind.')}
             >
                 <WhatIsDMT5 text={localize('What is DTrader?')} label="what-is-dtrader" />
                 <DTraderMarkets

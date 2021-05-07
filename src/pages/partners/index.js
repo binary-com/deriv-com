@@ -13,8 +13,10 @@ const Partner = () => {
     return (
         <Layout type="partners" margin_top={10} no_login_signup>
             <SEO
-                title={localize('Online trading with Deriv | Simple. Flexible. Reliable.')}
-                description={localize('Trading platforms designed with you in mind.')}
+                title={localize('Partnership Programme | Deriv')}
+                description={localize(
+                    'Explore Deriv’s partnership programme and get a chance to be a partner with a trusted pioneer. All our programmes are free of charge with no hidden fees.',
+                )}
             />
             <Hero />
             <AboutDeriv />

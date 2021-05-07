@@ -8,7 +8,7 @@ import { Header, LocalizedLinkText, SpanLinkText, Text, QueryImage } from 'compo
 import { Flex, SectionContainer, Show } from 'components/containers'
 import Login from 'common/login'
 import device from 'themes/device'
-import { p2p_playstore_url } from 'common/utility'
+import { p2p_playstore_url } from 'common/constants'
 
 const Row = styled.div`
     display: flex;

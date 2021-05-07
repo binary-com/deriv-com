@@ -12,7 +12,7 @@ import {
     numberSubmitFormatNegative,
     numberSubmitFormat,
     numberWithCommas,
-} from '../common/_utility';
+} from '../common/_utility'
 import {
     optionItemDefault,
     syntheticItemLists,
@@ -22,7 +22,6 @@ import {
     BreadCrumbContainer,
     CalculateButton,
     CalculatorBody,
-    CalculatorDropdown,
     CalculatorForm,
     CalculatorHeader,
     CalculatorLabel,
@@ -47,6 +46,7 @@ import { localize, Localize } from 'components/localization'
 import {
     Accordion,
     AccordionItem,
+    Dropdown,
     Header,
     LocalizedLinkText,
     QueryImage,
@@ -188,8 +188,8 @@ const SwapCalculator = () => {
                                             </CalculatorHeader>
 
                                             <CalculatorBody>
-                                                <CalculatorDropdown
-                                                    mb="2.4rem"
+                                                <Dropdown
+                                                    mb="3.6rem"
                                                     option_list={values.optionList}
                                                     label={localize('Symbol')}
                                                     default_option={optionItemDefault}
@@ -207,7 +207,7 @@ const SwapCalculator = () => {
                                                         )
                                                         setFieldValue('symbol', value)
                                                     }}
-                                                    contractSize={values.contractSize}
+                                                    contract_size={values.contractSize}
                                                     error={touched.symbol && errors.symbol}
                                                     onBlur={handleBlur}
                                                 />
@@ -425,7 +425,7 @@ const SwapCalculator = () => {
                                     </AccordionItem>
                                 </Accordion>
 
-                                <LinkWrapper>
+                                <LinkWrapper height="auto">
                                     {
                                         <StyledLinkButton
                                             tertiary="true"
@@ -507,8 +507,7 @@ const SwapCalculator = () => {
                                             </CalculatorHeader>
 
                                             <CalculatorBody>
-                                                <CalculatorDropdown
-                                                    mb="2.4rem"
+                                                <Dropdown
                                                     default_option={optionItemDefault}
                                                     option_list={values.optionList}
                                                     label={localize('Symbol')}
@@ -750,7 +749,7 @@ const SwapCalculator = () => {
                                         </Text>
                                     </AccordionItem>
                                 </Accordion>
-                                <LinkWrapper>
+                                <LinkWrapper height="auto">
                                     <StyledLinkButton
                                         tertiary="true"
                                         is_deriv_app_link

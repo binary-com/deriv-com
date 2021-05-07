@@ -1,7 +1,7 @@
 import React from 'react'
 import { Article } from './_article'
 import { ArticleWrapper, ExternalLink, StyledHeader, StyledText } from './_help-centre-style'
-import { deriv_app_url } from 'common/utility'
+import { deriv_app_url } from 'common/constants'
 import { Text } from 'components/elements'
 import { localize, Localize, WithIntl } from 'components/localization'
 
@@ -110,7 +110,9 @@ const WithdrawDMT5 = () => (
 )
 const LoginCredentials = () => (
     <ArticleWrapper>
-        <StyledHeader as="h4">{localize('Why are my DMT5 login details different from my Deriv login details?')}</StyledHeader>
+        <StyledHeader as="h4">
+            {localize('Why are my DMT5 login details different from my Deriv login details?')}
+        </StyledHeader>
         <Text>
             {localize(
                 'MT5 on Deriv is a standalone trading platform that isn’t hosted on our website. Your DMT5 login details give you access to the MT5 platform while your Deriv login details give you access to the platforms hosted on our website, such as DTrader and DBot.',
@@ -162,7 +164,9 @@ const DMT5Article = () => {
                     label="withdraw-funds-from-DMT5"
                 />
                 <LoginCredentials
-                    text={localize('Why are my DMT5 login details different from my Deriv login details?')}
+                    text={localize(
+                        'Why are my DMT5 login details different from my Deriv login details?',
+                    )}
                     label="login-credentials"
                 />
                 <ResetDMT5Password

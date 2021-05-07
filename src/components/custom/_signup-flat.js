@@ -6,7 +6,7 @@ import { Header, Text } from 'components/elements'
 import { localize } from 'components/localization'
 import { Container } from 'components/containers'
 import device from 'themes/device.js'
-import { deriv_app_url } from 'common/utility'
+import { deriv_app_url } from 'common/constants'
 // SVG
 import Facebook from 'images/svg/facebook-blue.svg'
 import Google from 'images/svg/google.svg'

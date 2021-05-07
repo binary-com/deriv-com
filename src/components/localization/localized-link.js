@@ -10,13 +10,15 @@ import {
     affiliate_signin_url,
     affiliate_signup_url,
     binary_url,
+    blog_url,
+    community_url,
     deriv_app_url,
     deriv_bot_app_url,
     smarttrader_url,
+    deriv_developer_url,
     zoho_url,
-    getLocalizedUrl,
-    getDerivAppLocalizedURL,
-} from 'common/utility'
+} from 'common/constants'
+import { getLocalizedUrl, getDerivAppLocalizedURL } from 'common/utility'
 import { DerivStore } from 'store'
 
 const non_localized_links = ['/careers', '/careers/']
@@ -93,8 +95,11 @@ export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
         is_affiliate_link,
         is_affiliate_sign_in_link,
         is_binary_link,
+        is_blog_link,
+        is_community_link,
         is_dbot_link,
         is_deriv_app_link,
+        is_deriv_developer_link,
         is_mail_link,
         is_mt5_link,
         is_smarttrader_link,
@@ -132,8 +137,14 @@ export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
             lang_to = `${smarttrader_url}/${thai_excluded_locale}/${to}.html`
         } else if (is_deriv_app_link) {
             lang_to = `${deriv_app_url}${to}`
+        } else if (is_blog_link) {
+            lang_to = `${blog_url}${to}`
+        } else if (is_community_link) {
+            lang_to = `${community_url}${to}`
         } else if (is_zoho_link) {
             lang_to = `${zoho_url}${to}`
+        } else if (is_deriv_developer_link) {
+            lang_to = `${deriv_developer_url}${to}`
         } else if (is_dbot_link) {
             lang_to = getDerivAppLocalizedURL(deriv_bot_app_url, locale)
         } else if (is_mt5_link) {
@@ -148,7 +159,8 @@ export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
             !is_deriv_app_link &&
             !is_affiliate_link &&
             !is_affiliate_sign_in_link &&
-            !is_zoho_link
+            !is_zoho_link &&
+            !is_deriv_developer_link
         ) {
             return (
                 <StyledAnchor
@@ -250,8 +262,11 @@ LocalizedLink.propTypes = {
     is_affiliate_link: PropTypes.bool,
     is_affiliate_sign_in_link: PropTypes.bool,
     is_binary_link: PropTypes.bool,
+    is_blog_link: PropTypes.bool,
+    is_community_link: PropTypes.bool,
     is_dbot_link: PropTypes.bool,
     is_deriv_app_link: PropTypes.bool,
+    is_deriv_developer_link: PropTypes.bool,
     is_mail_link: PropTypes.bool,
     is_mt5_link: PropTypes.bool,
     is_smarttrader_link: PropTypes.bool,

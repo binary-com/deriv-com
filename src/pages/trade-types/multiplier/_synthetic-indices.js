@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { CrashBoom, ContinuousIndices } from '../../markets/instruments/_submarkets.js'
 import MarketsAccordion from '../../markets/components/helper/_markets_accordion.js'
 import AvailablePlatforms from '../../markets/components/helper/_available-platforms.js'
+import { synthetic_multiplier } from '../../markets/static/content/_multipliers'
 import { Text } from 'components/elements'
 import { SectionContainer, Flex, CssGrid, Show } from 'components/containers'
 import { localize, Localize } from 'components/localization'
@@ -147,7 +148,6 @@ const SyntheticIndices = () => {
                     />
                 </MarketsWrapper>
                 <AvailablePlatforms dtrader />
-
                 <MarketsWrapper direction="column">
                     <MarketsAccordion
                         renderTitle={() => (
@@ -166,6 +166,13 @@ const SyntheticIndices = () => {
                     />
                 </MarketsWrapper>
                 <AvailablePlatforms dtrader />
+                <Show.Eu>
+                    {synthetic_multiplier.eu_content.map((text, index) => (
+                        <Text key={index} mt="2.5rem" color="grey-5" size="var(--text-size-xs)">
+                            {text}
+                        </Text>
+                    ))}
+                </Show.Eu>
             </Flex>
         </SectionContainer>
     )

@@ -3,7 +3,8 @@ import styled from 'styled-components'
 import { SectionContainer } from 'components/containers'
 import { localize, Localize, LocalizedLink } from 'components/localization'
 import { Header, Text, LinkText } from 'components/elements'
-import { isBrowser, affiliate_signup_url } from 'common/utility'
+import { affiliate_signup_url } from 'common/constants'
+import { isBrowser } from 'common/utility'
 
 const ItemContainer = styled(SectionContainer)`
     padding: 0;

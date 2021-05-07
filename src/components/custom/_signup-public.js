@@ -6,7 +6,7 @@ import { Input, Button } from 'components/form'
 import { Header, Text, QueryImage, LinkText } from 'components/elements'
 import { localize } from 'components/localization'
 import { Flex, Show } from 'components/containers'
-import { deriv_app_url } from 'common/utility'
+import { deriv_app_url } from 'common/constants'
 import device from 'themes/device.js'
 // SVG
 import Apple from 'images/svg/apple.svg'
@@ -118,8 +118,8 @@ const SocialWrapper = styled(Flex)`
     margin-top: 1.8rem;
 `
 
-const MobileSocialWrapper = styled(SocialWrapper) `
-    @media ${device.tabletL}{
+const MobileSocialWrapper = styled(SocialWrapper)`
+    @media ${device.tabletL} {
         flex-direction: column;
     }
 `
@@ -177,7 +177,7 @@ const SignInText = styled(Text)`
     }
 `
 
-const MobileSignInText = styled (SignInText)`
+const MobileSignInText = styled(SignInText)`
     @media ${device.tabletL} {
         width: unset;
         margin: 0 auto 0.8rem 0.8rem;
@@ -448,7 +448,12 @@ const SignupPublic = ({
                                         social
                                     >
                                         <span>
-                                            <img src={Facebook} alt="facebook" width="24" height="24" />
+                                            <img
+                                                src={Facebook}
+                                                alt="facebook"
+                                                width="24"
+                                                height="24"
+                                            />
                                         </span>
                                     </SocialButton>
                                     <SocialButton

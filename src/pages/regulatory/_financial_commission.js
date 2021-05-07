@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Text, LinkText } from 'components/elements'
-import { deriv_app_url } from 'common/utility'
+import { deriv_app_url } from 'common/constants'
 import { Show } from 'components/containers'
 import { useLivechat } from 'components/hooks/use-livechat'
 import { Localize } from 'components/localization'

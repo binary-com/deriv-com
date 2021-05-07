@@ -13,6 +13,10 @@ import RangeBreak from './_range-break'
 import SmartFX from './_smartfx'
 import StepIndices from './_step-indices'
 import VolatilityIndices from './_volatility-indices'
+import AmericanIndices from './_american-indices'
+import AmericanStocks from './_american-stocks'
+import AsianIndices from './_asian-indices'
+import EuropeanIndices from './_european-indices'
 
 export {
     Americas,
@@ -30,4 +34,8 @@ export {
     SmartFX,
     StepIndices,
     VolatilityIndices,
+    AmericanIndices,
+    AmericanStocks,
+    AsianIndices,
+    EuropeanIndices,
 }

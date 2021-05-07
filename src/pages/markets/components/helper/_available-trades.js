@@ -11,17 +11,22 @@ import MultipliersIcon from 'images/svg/multipliers.svg'
 import OptionsIcon from 'images/svg/options.svg'
 
 const StyledSection = styled(SectionContainer)`
-    padding: 5rem 0;
+    padding: 8rem 0;
+    background-color: var(--color-white);
+
+    @media ${device.tabletL} {
+        padding: 48px 0 40px;
+    }
 `
 const StyledHeader = styled(Header)`
     @media ${device.tabletL} {
-        max-width: 35.75rem;
+        max-width: 280px;
         font-size: 4rem;
         margin: 0 auto;
     }
 `
 const StyledContainer = styled(Container)`
-    margin-top: 2.8rem;
+    margin-top: 4rem;
 
     @media ${device.tabletL} {
         width: 100%;
@@ -105,9 +110,9 @@ const CardContainer = styled(Flex)`
         left: 0;
         z-index: -1;
         border-bottom: none;
-        border-radius: 10px 30px 0 0;
-        background: #f3f3f3;
-        transform: perspective(14px) rotateX(1.4deg);
+        border-radius: 8px 8px 0 0;
+        background: var(--color-grey-36);
+        transform: perspective(8px) rotateX(0.8deg);
         transform-origin: bottom left;
         box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.05);
         ${(props) => {
@@ -118,7 +123,6 @@ const CardContainer = styled(Flex)`
         }}
     }
     @media ${device.tabletL} {
-        width: 100%;
         height: 6rem;
         min-width: unset;
         padding-right: 25px;

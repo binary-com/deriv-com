@@ -19,9 +19,9 @@ const StockIndices = ({ simple_step_content }) => {
     return (
         <div>
             <WhyTrade
-                header={<Localize translate_text='Why trade stock & indices on Deriv' />}
+                header={<Localize translate_text="Why trade stocks & indices on Deriv" />}
                 text={
-                    <Localize translate_text="Profit from the price movements in a broad market or sector without owning underlying assets. Sourced from over-the-counter (OTC) markets, our stock indices offer competitively priced asset baskets and allow you to trade outside the regular hours of major stock markets." />
+                    <Localize translate_text="Trade global stocks of your favourite household brands and international stock market indices on Deriv. Our stocks & indices offer competitively priced equities and asset baskets that you can trade outside the regular hours of major stock markets." />
                 }
             >
                 {stock_content.map((content, index) => (
@@ -54,6 +54,6 @@ const StockIndices = ({ simple_step_content }) => {
     )
 }
 StockIndices.propTypes = {
-    simple_step_content: PropTypes.array,
+    simple_step_content: PropTypes.objects,
 }
 export default StockIndices

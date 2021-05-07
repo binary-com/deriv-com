@@ -70,7 +70,6 @@ const Variables = css`
         --color-orange: #ff6544;
         --color-green-1: #bccdce;
         --color-green-2: #e2ebec;
-        --color-white: white;
 
         /* sizes */
         --text-size-xxs: 1.2rem;

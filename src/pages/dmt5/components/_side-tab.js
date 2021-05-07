@@ -5,6 +5,20 @@ import { Flex, Show } from 'components/containers'
 import { Text } from 'components/elements'
 import device from 'themes/device'
 
+const StyledFlex = styled(Flex)`
+    @media ${device.tablet}{
+        width:unset;
+    }
+`
+
+const StyledText = styled(Text)`
+    max-width: ${props => props.max_width};
+
+    @media ${device.tablet} {
+        max-width: unset;
+    }
+`
+
 const TabContent = styled.div`
     width: 100%;
 `
@@ -56,8 +70,9 @@ const TabList = styled.div`
             : css`
                   margin-right: 2.4rem;
               `}
-    @media ${device.tabletL} {
-        max-width: 30rem;
+    @media ${device.tablet} {
+        max-width: 50rem;
+        margin-right:unset;
     }
     @media ${device.tabletS} {
         max-width: 576px;
@@ -108,8 +123,8 @@ const Tabs = ({ children, is_reverse, parent_tab }) => {
     }
 
     return (
-        <Flex ai="flex-start" direction={is_reverse ? 'row-reverse' : 'row'}>
-            <Desktop max_width={'tabletS'}>
+        <StyledFlex ai="flex-start" direction={is_reverse ? 'row-reverse' : 'row'}>
+            <Desktop max_width={'tablet'}>
                 {React.Children.map(children, (el, index) => {
                     return (
                         <Content selected={selected_tab === index}>
@@ -132,16 +147,16 @@ const Tabs = ({ children, is_reverse, parent_tab }) => {
                                 onClick={() => selectTab(index)}
                             >
                                 <Text weight="bold">{label}</Text>
-                                <Text
+                                <StyledText
                                     max_width={item_width || '36.4rem'}
                                     mobile_max_width={mobile_item_width || item_width}
                                     size="var(--text-size-m)"
                                     mt="0.8rem"
                                 >
                                     {description}
-                                </Text>
+                                </StyledText>
                             </TabButton>
-                            <Mobile min_width={'tabletS'}>
+                            <Mobile min_width={'tablet'}>
                                 <Content selected={selected_tab === index}>
                                     {selected_tab === index ? child : undefined}
                                 </Content>
@@ -150,7 +165,7 @@ const Tabs = ({ children, is_reverse, parent_tab }) => {
                     )
                 })}
             </TabList>
-        </Flex>
+        </StyledFlex>
     )
 }
 

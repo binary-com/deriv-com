@@ -181,11 +181,11 @@ const StyledText = styled(Text)`
 const StartDerivX = () => {
     const [is_mobile, setMobile] = useState(false)
     const handleResizeWindow = useCallback(() => {
-        setMobile(isBrowser() ? window.screen.width <= size.tabletS : false)
+        setMobile(isBrowser() ? window.screen.width <= size.tablet : false)
     }, [setMobile])
 
     useEffect(() => {
-        setMobile(isBrowser() ? window.screen.width <= size.tabletS : false)
+        handleResizeWindow()
         window.addEventListener('resize', handleResizeWindow)
 
         return () => {

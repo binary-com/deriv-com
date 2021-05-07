@@ -91,7 +91,7 @@ const blueChips = [
     {
         title: <Localize translate_text="Blue chip, blue skies" />,
         subtitle: (
-            <Localize translate_text="Diversify your portfolio with commission-free trading on the biggest international stock market indices. Trade on world renowned indices such as the Wall Street Index, US Tech Index, UK Index, plus many more. Get trading from as low as $5." />
+            <Localize translate_text="Diversify your portfolio with commission-free trading on the biggest international stock market indices. Trade on world renowned indices such as the Wall Street 30, US Tech 100, UK 100, plus many more. Get trading from as low as $5." />
         ),
 
         image_name: 'stocks_blue_chip',

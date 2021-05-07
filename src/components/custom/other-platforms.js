@@ -12,6 +12,7 @@ import {
     Divider,
 } from 'components/elements'
 import { localize, LocalizedLink, Localize } from 'components/localization'
+import { blog_url, community_url } from 'common/constants'
 import device from 'themes/device'
 import { DerivStore } from 'store'
 // icons
@@ -21,6 +22,7 @@ import Choose from 'images/svg/menu/choose.svg'
 import Commodities from 'images/svg/commodities-nav.svg'
 import Community from 'images/svg/menu/community.svg'
 import Contact from 'images/svg/menu/contact.svg'
+import DerivX from 'images/svg/deriv-x.svg'
 import DBot from 'images/svg/dbot-icon.svg'
 import DMT5 from 'images/svg/dmt5-icon.svg'
 import DTrader from 'images/svg/dtrader-icon.svg'
@@ -51,12 +53,20 @@ const StyledText = styled(Text)`
     margin-left: 1.6rem;
 `
 
+const EmptySpace = styled.div`
+    margin-bottom: 2.9rem;
+    margin-left: 1.6rem;
+`
+
 const HeaderWrapper = styled.div`
     margin-bottom: 4rem;
 `
 const icon72 = css`
     width: 72px;
     height: 72px;
+`
+const StyledDerivX = styled.img`
+    ${icon72}
 `
 const StyledDbot = styled.img`
     ${icon72}
@@ -146,6 +156,20 @@ export const DMT5Card = ({ is_selected, is_ppc_redirect, word_break_cover }) => 
     </StyledLink>
 )
 
+export const DerivXCard = ({ is_selected, is_ppc_redirect, word_break_cover }) => (
+    <StyledLink ariaLabel="Deriv X" to={is_ppc_redirect ? 'URL' : '/derivx'}>
+        <Card
+            Icon={() => <StyledDerivX src={DBot} alt="Deriv X" width="72" height="72" />}
+            content={[localize('CFD trading on a customisable multi-asset platform.')]}
+            is_inline_icon
+            min_height="12.4rem"
+            is_selected={is_selected}
+            width="100%"
+            word_break_cover={word_break_cover}
+        />
+    </StyledLink>
+)
+
 export const SmarttraderCard = ({ is_selected, word_break_cover }) => (
     <StyledLink
         ariaLabel="SmartTrader"
@@ -207,6 +231,7 @@ export const OtherPlatform = ({ header, subHeader, exclude, is_nav, is_ppc_redir
             {exclude.toLowerCase() !== 'dtrader' && <TraderCard />}
             {exclude.toLowerCase() !== 'dbot' && <BotCard />}
             {exclude.toLowerCase() !== 'dmt5' && <DMT5Card is_ppc_redirect={is_ppc_redirect} />}
+            {exclude.toLowerCase() !== 'Derivx' && <DerivXCard is_ppc_redirect={is_ppc_redirect} />}
         </StyledFlexGridContainer>
     </SectionContainer>
 )
@@ -216,6 +241,7 @@ const cardProptypes = {
     word_break_cover: PropTypes.bool,
 }
 BotCard.propTypes = { ...cardProptypes }
+DerivXCard.propTypes = { ...cardProptypes }
 DMT5Card.propTypes = { ...cardProptypes }
 SmarttraderCard.propTypes = { ...cardProptypes }
 TraderCard.propTypes = { ...cardProptypes }
@@ -233,65 +259,17 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
 
     return (
         <Flex>
-            <Flex direction="column" wrap="wrap" jc="flex-start">
-                <StyledText>{localize('Trading platforms')}</StyledText>
-                <NavCard
-                    aria_label="Dtrader"
-                    icon={() => <img src={DTrader} alt="Dtrader" width="32" height="32" />}
-                    content={
-                        <Localize translate_text="A whole new trading experience on a powerful yet easy to use platform." />
-                    }
-                    title={<Localize translate_text="DTrader" />}
-                    onClick={onClick}
-                    to="/dtrader/"
-                />
-                <NavCard
-                    aria_label="DBot"
-                    icon={() => <img src={DBot} alt="DBot" width="32" height="32" />}
-                    content={
-                        <Localize translate_text="Automated trading at your fingertips. No coding needed." />
-                    }
-                    title={<Localize translate_text="DBot" />}
-                    onClick={onClick}
-                    to="/dbot/"
-                />
-                <NavCard
-                    aria_label="DMT5"
-                    icon={() => <img src={DMT5} alt="DMT5" width="32" height="32" />}
-                    content={
-                        <Localize translate_text="Trade on Deriv MetaTrader 5 (DMT5), the all-in-one FX and CFD trading platform." />
-                    }
-                    title={<Localize translate_text="DMT5" />}
-                    onClick={onClick}
-                    to={is_ppc_redirect ? '/landing/dmt5/' : '/dmt5/'}
-                />
-                <NavCard
-                    aria_label="SmartTrader"
-                    icon={() => <img src={Smarttrader} alt="Smarttrader" width="32" height="32" />}
-                    content={
-                        <Localize translate_text="Trade the world’s markets with our popular user-friendly platform." />
-                    }
-                    title={<Localize translate_text="SmartTrader" />}
-                    to="trading"
-                    is_smarttrader_link
-                    external="true"
-                    target="_blank"
-                    onClick={onClick}
-                    otherLinkProps={{ rel: 'noopener noreferrer' }}
-                />
-            </Flex>
             {!is_ppc && (
                 <>
-                    <MarginDivider width="2px" height="100%" color="grey-8" />
                     <Flex direction="column" wrap="wrap" jc="flex-start">
                         <StyledText>{localize('Trade types')}</StyledText>
                         <NavCard
-                            aria_label="Margin trading"
+                            aria_label="CFDs"
                             icon={() => <img src={Margin} alt="Margin" width="32" height="32" />}
                             content={
                                 <Localize translate_text="Trade with leverage and low spreads for better returns on successful trades." />
                             }
-                            title={<Localize translate_text="Margin trading" />}
+                            title={<Localize translate_text="CFDs" />}
                             onClick={onClick}
                             to="/trade-types/margin/"
                         />
@@ -324,6 +302,68 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                     </Flex>
                 </>
             )}
+            <MarginDivider width="2px" height="100%" color="grey-8" />
+            <Flex direction="column" wrap="wrap" jc="flex-start">
+
+                <StyledText>{localize('Trading platforms')}</StyledText>
+                <NavCard
+                    aria_label="DMT5"
+                    icon={() => <img src={DMT5} alt="DMT5" width="32" height="32" />}
+                    content={
+                        <Localize translate_text="Trade on Deriv MetaTrader 5 (DMT5), the all-in-one FX and CFD trading platform." />
+                    }
+                    title={<Localize translate_text="DMT5" />}
+                    onClick={onClick}
+                    to={is_ppc_redirect ? '/landing/dmt5/' : '/dmt5/'}
+                />
+                <NavCard
+                    aria_label="Derivx"
+                    icon={() => <img src={DerivX} alt="Deriv X" width="32" height="32" />}
+                    content={
+                        <Localize translate_text="CFD trading on a customisable multi-asset platform." />
+                    }
+                    title={<Localize translate_text="Deriv X" />}
+                    onClick={onClick}
+                    to={is_ppc_redirect ? '/landing/dmt5/' : '/dmt5/'}
+                />
+                <NavCard
+                    aria_label="SmartTrader"
+                    icon={() => <img src={Smarttrader} alt="Smarttrader" width="32" height="32" />}
+                    content={
+                        <Localize translate_text="Trade the world’s markets with our popular user-friendly platform." />
+                    }
+                    title={<Localize translate_text="SmartTrader" />}
+                    to="trading"
+                    is_smarttrader_link
+                    external="true"
+                    target="_blank"
+                    onClick={onClick}
+                    otherLinkProps={{ rel: 'noopener noreferrer' }}
+                />
+            </Flex>
+            <Flex direction="column" wrap="wrap" jc="flex-start">
+                <EmptySpace />
+                <NavCard
+                    aria_label="Dtrader"
+                    icon={() => <img src={DTrader} alt="Dtrader" width="32" height="32" />}
+                    content={
+                        <Localize translate_text="A whole new trading experience on a powerful yet easy to use platform." />
+                    }
+                    title={<Localize translate_text="DTrader" />}
+                    onClick={onClick}
+                    to="/dtrader/"
+                />
+                <NavCard
+                    aria_label="DBot"
+                    icon={() => <img src={DBot} alt="DBot" width="32" height="32" />}
+                    content={
+                        <Localize translate_text="Automated trading at your fingertips. No coding needed." />
+                    }
+                    title={<Localize translate_text="DBot" />}
+                    onClick={onClick}
+                    to="/dbot/"
+                />
+            </Flex>
         </Flex>
     )
 }
@@ -452,9 +492,7 @@ export const NavResources = ({ onClick }) => (
             icon={() => <img src={Community} alt="community" width="24" height="24" />}
             title={localize('Community')}
             onClick={onClick}
-            to=""
-            is_community_link
-            external="true"
+            to={community_url}
             target="_blank"
             rel="noopener noreferrer"
         />
@@ -480,9 +518,7 @@ export const NavResources = ({ onClick }) => (
             icon={() => <img src={Blog} alt="blog" width="24" height="24" />}
             title={localize('Blog')}
             onClick={onClick}
-            to=""
-            is_blog_link
-            external="true"
+            to={blog_url}
             target="_blank"
             rel="noopener noreferrer"
         />

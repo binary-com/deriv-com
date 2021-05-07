@@ -109,10 +109,8 @@ const Regulatory = (locale) => {
     return (
         <Layout>
             <SEO
-                title={localize('License and regulation information | Deriv')}
-                description={localize(
-                    'Deriv operates under the jurisdiction of Binary.com which holds multiple licences to comply with regulatory requirements around the world.',
-                )}
+                title={localize('Online trading with Deriv | Simple. Flexible. Reliable.')}
+                description={localize('Trading platforms designed with you in mind.')}
             />
             <SectionContainer>
                 <GridContainer>

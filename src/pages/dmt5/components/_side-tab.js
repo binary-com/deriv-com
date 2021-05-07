@@ -54,7 +54,7 @@ const TabButton = styled.div`
     }
 
     @media ${device.tabletS} {
-        margin-left: 16px;
+        margin: 0 16px;
     }
 `
 

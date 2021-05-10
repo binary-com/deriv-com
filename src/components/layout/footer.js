@@ -345,7 +345,7 @@ const Footer = ({ type, is_ppc, is_ppc_redirect }) => {
                                         <Link to="/about/story/">{localize('Our story')}</Link>
                                     </LinkWrapper>
                                     <LinkWrapper>
-                                        <Link to="/about/leadership">
+                                        <Link to="/about/leadership/">
                                             {localize('Our leadership')}
                                         </Link>
                                     </LinkWrapper>

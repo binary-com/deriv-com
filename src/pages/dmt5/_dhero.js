@@ -46,12 +46,6 @@ const HeroContent = styled(Flex)`
         line-height: 1.25;
     }
 
-    @media ${device.laptopM} {
-        ${Header} {
-            font-size: 32px;
-        }
-    }
-
     @media ${device.mobileM} {
         ${Header} {
             font-size: ${({ is_ppc }) => is_ppc && '27.5px'};
@@ -69,6 +63,7 @@ const StyledHeader = styled(Header)`
     }
     @media ${device.tablet} {
         font-size: 20px;
+        font-weight: normal;
     }
 `
 
@@ -77,7 +72,8 @@ const HeroHeader = styled(Header)`
         font-size: 4.8rem;
     }
     @media ${device.tablet} {
-        font-size: 36px;
+        font-size: 40px;
+        line-height: 50px;
     }
 `
 

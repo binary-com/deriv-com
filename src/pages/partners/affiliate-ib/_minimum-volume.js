@@ -142,17 +142,17 @@ const firstCalculatedFormula = {
             formula: [
                 {
                     item: '(0.01',
-                    description: 'Min. commission',
+                    description: <Localize translate_text='Min. commission' />,
                     next_operator: '✕',
                 },
                 {
                     item: 'USD 100,000)',
-                    description: 'Adjusted volume',
+                    description: <Localize translate_text='Adjusted volume' />,
                     next_operator: '÷',
                 },
                 {
                     item: '20',
-                    description: 'Commission rate',
+                    description: <Localize translate_text='Commission rate' />,
                 },
             ],
             result: {
@@ -169,12 +169,12 @@ const firstCalculatedFormula = {
             formula: [
                 {
                     item: 'USD 50',
-                    description: 'Volume',
+                    description: <Localize translate_text='Volume' />,
                     next_operator: '÷',
                 },
                 {
                     item: 'USD 50,000',
-                    description: 'Spot price',
+                    description: <Localize translate_text='Spot price' />,
                 },
             ],
             result: {
@@ -184,7 +184,7 @@ const firstCalculatedFormula = {
                         components={[<ResultStrong key={0} />]}
                     />
                 ),
-                description: 'Volume in lots',
+                description: <Localize translate_text='Volume in lots' />,
             },
         },
     ],
@@ -197,17 +197,17 @@ const secondCalculatedFormula = {
             formula: [
                 {
                     item: '(0.01',
-                    description: 'Min. commission',
+                    description: <Localize translate_text='Min. commission' />,
                     next_operator: '✕',
                 },
                 {
                     item: 'USD 100,000)',
-                    description: 'Adjusted volume',
+                    description: <Localize translate_text='Adjusted volume' />,
                     next_operator: '÷',
                 },
                 {
                     item: '5',
-                    description: 'Commission rate',
+                    description: <Localize translate_text='Commission rate' />,
                 },
             ],
             result: {
@@ -224,12 +224,12 @@ const secondCalculatedFormula = {
             formula: [
                 {
                     item: 'USD 200',
-                    description: 'volume',
+                    description: <Localize translate_text='Volume' />,
                     next_operator: '÷',
                 },
                 {
                     item: 'USD 500,000',
-                    description: 'Spot price',
+                    description: <Localize translate_text='Spot price' />,
                 },
             ],
             result: {
@@ -239,7 +239,7 @@ const secondCalculatedFormula = {
                         components={[<ResultStrong key={0} />]}
                     />
                 ),
-                description: 'Volume in lots',
+                description: <Localize translate_text='Volume in lots' />,
             },
         },
     ],

@@ -14,7 +14,7 @@ const domain_url =
 
 export const deriv_app_id = domain_url === deriv_com_url ? deriv_com_app_id : deriv_me_app_id
 export const deriv_app_url = `https://app.${domain_url}`
-export const deriv_developer_url = `https://developers.${deriv_com_url}`
+export const deriv_developer_url = `https://developers.${domain_url}`
 export const deriv_bot_app_url = `${deriv_app_url}/bot`
 export const deriv_dp2p_app_url = `${deriv_app_url}/cashier/p2p`
 export const deriv_mt5_app_url = `${deriv_app_url}/mt5`

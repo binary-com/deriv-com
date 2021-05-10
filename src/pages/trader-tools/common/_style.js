@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
 import { Form } from 'formik'
 import { Flex, SectionContainer, Container } from 'components/containers'
-import { Text, Header } from 'components/elements'
+import { Dropdown, Header, Text } from 'components/elements'
 import { Button, LinkButton } from 'components/form'
 import device from 'themes/device'
 import Patterns from 'images/common/dmt5-signals/dmt5-signals-patterns.png'
@@ -255,6 +255,10 @@ export const CalculatorTabItem = styled.div`
     }
 `
 
+export const CalculatorDropdown = styled(Dropdown)`
+    margin-bottom: 3.6rem;
+`
+
 export const InputGroup = styled.div`
     position: relative;
     width: 100%;
@@ -338,6 +342,7 @@ export const item_style = {
     padding: '16px 0',
 }
 export const header_style = {
+    marginTop: '15px',
     padding: '16px 24px',
     border: 'none',
     borderRadius: '8px',

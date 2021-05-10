@@ -11,8 +11,8 @@ import device from 'themes/device'
 
 const BaseIconStyle = css`
     @media ${device.mobileL} {
-        width: 32px;
-        height: 32px;
+        width: 24px;
+        height: 24px;
     }
 `
 const StyledFinancialStpIcon = styled.img`
@@ -36,7 +36,7 @@ const content = [
     {
         header: <Localize translate_text="Financial" />,
         text: (
-            <Localize translate_text="Trade forex, commodities, cryptocurrencies, major (standard and micro-lots), and minor currency pairs on high leverage." />
+            <Localize translate_text="Trade major (standard and micro-lots) and minor currency pairs, commodities, cryptocurrencies, and stocks & indices with high leverage." />
         ),
         icon: <StyledFinancialIcon src={FinancialIcon} alt="financial icon" />,
     },
@@ -77,8 +77,9 @@ const ClientCard = styled.article`
     @media ${device.tablet} {
         margin: 0 0 24px 0;
         max-height: unset;
-        padding: 24px 24px 24px;
+        padding: 24px;
         max-width: 328px;
+        width: 100%;
 
         :first-child {
             margin: 0 0 24px 0;
@@ -106,6 +107,7 @@ const StyledText = styled(Text)`
     @media ${device.mobileL} {
         font-size: 16px;
         line-height: 24px;
+        margin-top: 0;
     }
 `
 

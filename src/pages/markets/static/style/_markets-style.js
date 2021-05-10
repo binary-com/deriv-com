@@ -6,6 +6,13 @@ import device from 'themes/device'
 export const Col = styled(Flex)`
     max-width: 129px;
     padding: 0 4px;
+
+    @media ${device.tabletL} {
+        max-width: ${({ full_width }) => (full_width ? '80px' : '129px')};
+        ${({ mobile_template }) =>
+            mobile_template &&
+            'padding: 16px 0;max-width: 100%;border-bottom: 1px solid var(--color-grey-22)'};
+    }
 `
 
 export const ContentWrapper = styled(Flex)`
@@ -35,7 +42,9 @@ export const DetailsContainer = styled(Flex)`
         margin-top: 16px;
 
         @media ${device.tabletL} {
-            margin-top: 10px;
+            margin-top: 8px;
+            font-size: 12px;
+            line-height: 18px;
         }
     }
 `
@@ -50,8 +59,14 @@ export const Row = styled(Flex)`
             `
         }
     }}
+
     justify-content: flex-start;
     align-items: center;
+
+    @media ${device.tabletL} {
+        ${({ mobile_template }) => mobile_template && 'flex-direction:column'};
+        min-height: 76px;
+    }
 `
 
 export const MarketsList = styled(CssGrid)`
@@ -71,7 +86,29 @@ export const MarketsList = styled(CssGrid)`
         grid-template-columns: ${({ mobile_col }) => `repeat(${mobile_col ?? 1}, 1fr)`};
     }
 `
+export const LatestMarketsList = styled(CssGrid)`
+    ${({ flex }) => flex && 'display:flex;'};
+    border-left: 1px solid var(--color-grey-22);
+    border-right: ${({ has_right_border }) =>
+        has_right_border ? '1px solid var(--color-grey-22)' : 'unset'};
+    grid-template-columns: ${({ col }) => `repeat(${col ?? 3}, 1fr)`};
+    width: 100%;
+    padding: ${({ padding }) => (padding ? padding : '24px')};
+    gap: ${({ gap }) => (gap ? gap : '10px')};
 
+    @media ${device.tabletL} {
+        grid-template-columns: ${({ tablet_col }) => `repeat(${tablet_col ?? 2}, 1fr)`};
+        display: grid;
+        min-height: 76px;
+    }
+
+    @media ${device.mobileL} {
+        grid-template-columns: ${({ mobile_col }) => `repeat(${mobile_col ?? 1}, 1fr)`};
+        ${({ mobile_template }) => mobile_template && 'border-left: unset;'};
+        padding: 16px 8px;
+        gap: ${({ gap_mobile }) => (gap_mobile ? gap_mobile : '8px 0')};
+    }
+`
 export const MarketsWrapper = styled(Flex)`
     flex-direction: column;
 
@@ -88,6 +125,7 @@ export const OptionsRow = styled(Flex)`
     @media ${device.tabletL} {
         flex-direction: column;
         align-items: flex-start;
+        margin-top: ${({ is_first_child }) => (is_first_child ? '0' : '24px')};
     }
 
     ${Col} {
@@ -98,7 +136,11 @@ export const OptionsRow = styled(Flex)`
 export const StyledText = styled(Text)`
     @media ${device.tabletL} {
         font-size: ${({ font_size }) => font_size ?? '20px'};
-        text-align: left;
+        text-align: ${({ align }) => align ?? 'left'};
+    }
+
+    @media ${device.mobileL} {
+        max-width: 328px;
     }
 `
 
@@ -114,15 +156,15 @@ export const SymbolContainer = styled(Flex)`
     }
     ${Text} {
         font-weight: normal;
-        font-size: 13.5px;
-        line-height: 1.14;
+        font-size: 14px;
+        line-height: 21px;
     }
 
     @media ${device.mobileL} {
         > img {
-            width: 16px;
-            height: 16px;
-            margin-right: 4px;
+            width: 24px;
+            height: 24px;
+            margin-right: 8px;
         }
         ${Text} {
             font-size: 12px;

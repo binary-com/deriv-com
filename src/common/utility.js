@@ -177,3 +177,8 @@ export const getDomain = () =>
         : 'binary.sx'
 
 export const getLocalizedUrl = (path, is_index, to) => `/${path}${is_index ? `` : to}`
+
+export const nonENLangUrlReplace = (current_path) => {
+    const path_with_or_without_slash = /\/.+?(\/)|(\/\w+)/u
+    return current_path.replace(path_with_or_without_slash, '')
+}

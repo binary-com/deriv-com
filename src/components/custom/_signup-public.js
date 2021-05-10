@@ -107,7 +107,7 @@ const InputGroup = styled.div`
 `
 const EmailButton = styled(Button)`
     margin-left: 1rem;
-    min-width: 105px;
+    min-width: 125px;
     height: 40px;
     padding: 10px;
     border-radius: 4px;
@@ -358,7 +358,7 @@ const SignupPublic = ({
                                             id="gtm-signup-email"
                                             type="submit"
                                             secondary="true"
-                                            disabled={is_submitting || !is_checked || email_error_msg}
+                                            disabled={is_submitting || !is_checked || email_error_msg || !email}
                                         >
                                             {localize('Sign up')}
                                         </EmailButton>
@@ -501,7 +501,7 @@ const SignupPublic = ({
                                             id="gtm-signup-email"
                                             type="submit"
                                             secondary="true"
-                                            disabled={is_submitting || !is_checked || email_error_msg}
+                                            disabled={is_submitting || !is_checked || email_error_msg || !email}
                                         >
                                             {localize('Sign up')}
                                         </EmailButton>

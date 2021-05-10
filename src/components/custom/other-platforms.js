@@ -324,7 +324,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                     }
                     title={<Localize translate_text="Deriv X" />}
                     onClick={onClick}
-                    to={is_ppc_redirect ? '/landing/dmt5/' : '/dmt5/'}
+                    to="https://deriv-app-git-fork-zaki-binary-dxtraderoutes.binary.sx/derivx"
                 />
                 <NavCard
                     aria_label="SmartTrader"

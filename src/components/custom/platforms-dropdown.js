@@ -29,7 +29,7 @@ const NavDropdown = styled.div`
     z-index: -1;
     height: auto;
     transform: translateY(7.2rem);
-    background-color: #ffffff;
+    background-color: var(--color-white);
     opacity: 0;
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.1);
     border-radius: 0.4rem;

@@ -43,7 +43,7 @@ const Td = styled.td`
         /* stylelint-disable-next-line value-no-vendor-prefix */
         position: -webkit-sticky;
         left: -5px;
-        background-color: white;
+        background-color: var(--color-white);
         z-index: 2;
     }
     & .tooltip {

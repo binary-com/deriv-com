@@ -477,7 +477,7 @@ const Footer = ({ type, is_ppc, is_ppc_redirect }) => {
                                     <LinkWrapper>
                                         <Link
                                             to=""
-                                            is_deriv_developer_link
+                                            type="developers"
                                             target="_blank"
                                             external="true"
                                             rel="noopener noreferrer"

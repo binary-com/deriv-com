@@ -67,7 +67,7 @@ export const localized_link_url = {
     binary: binary_url,
     blog: blog_url,
     community: community_url,
-    developer: deriv_developer_url,
+    developers: deriv_developer_url,
     dbot: deriv_bot_app_url,
     deriv_app: deriv_app_url,
     mt5: deriv_mt5_app_url,

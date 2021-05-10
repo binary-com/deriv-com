@@ -936,7 +936,7 @@ export const NavPartners = ({ no_login_signup }) => {
                                     active={current_page === 'developers'}
                                     activeClassName="active"
                                     to=""
-                                    is_deriv_developer_link
+                                    type="developers"
                                     target="_blank"
                                     external="true"
                                     rel="noopener noreferrer"

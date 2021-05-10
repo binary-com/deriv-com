@@ -119,7 +119,7 @@ const InternalLink = ({
         return (
             <StyledAnchorLink
                 title={aria_label}
-                href={internal_to}
+                to={internal_to}
                 disabled={!mounted}
                 {...props}
             />

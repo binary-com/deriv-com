@@ -12,6 +12,7 @@ const domain_url =
         ? window.location.hostname
         : deriv_com_url
 
+// URL
 export const deriv_app_id = domain_url === deriv_com_url ? deriv_com_app_id : deriv_me_app_id
 export const deriv_app_url = `https://app.${domain_url}`
 export const deriv_bot_app_url = `https://app.${domain_url}/bot`
@@ -60,7 +61,7 @@ export const p2p_playstore_url = 'https://play.google.com/store/apps/details?id=
 export const pushwoosh_app_code = 'DD293-35A19'
 export const sample_rate = 25
 export const zoho_url = 'https://deriv.zohorecruit.com'
-
+export const default_server_url = 'green.binaryws.com'
 export const fb_url = 'https://www.facebook.com/derivdotcom'
 export const fb_url_career = 'https://www.facebook.com/derivcareers'
 export const instagram_url = 'https://www.instagram.com/deriv_official/'

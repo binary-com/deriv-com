@@ -15,6 +15,13 @@ const validation = {
             return null
         }
     },
+    text: (input) => {
+        if (!input) {
+            return localize('This field is required')
+        } else {
+            return null
+        }
+    },
 }
 
 export default validation

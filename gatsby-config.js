@@ -9,6 +9,7 @@ module.exports = {
         author: 'Deriv.com',
         siteUrl: 'https://deriv.com',
     },
+    flags: { PRESERVE_WEBPACK_CACHE: true },
     plugins: [
         'gatsby-plugin-react-helmet',
         'gatsby-plugin-styled-components',
@@ -156,7 +157,7 @@ module.exports = {
                 stages: ['develop'],
                 extensions: ['js'],
                 exclude: ['node_modules', '.cache', 'public'],
-              },
+            },
         },
         {
             resolve: 'gatsby-plugin-stylelint',
@@ -173,11 +174,7 @@ module.exports = {
                     {
                         userAgent: '*',
                         allow: '/',
-                        disallow: [
-                            '/404/',
-                            '/homepage/',
-                            '/landing/',
-                        ],
+                        disallow: ['/404/', '/homepage/', '/landing/'],
                     },
                 ],
             },

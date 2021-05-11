@@ -94,8 +94,8 @@ const PlatformsDropdown = ({ current_ref, is_ppc, is_ppc_redirect, parent, setAc
         <Show.Desktop>
             <NavDropdown
                 ref={dropdownContainerRef}
-                offset={current_ref.ariaLabel === "Trade" ? 300 : left_offset}
-                offset_arrow={current_ref.ariaLabel === "Trade" ? 193.5 : left_arrow_offset}
+                offset={left_offset}
+                offset_arrow={left_arrow_offset}
             >
                 <StyledContainer>
                     {getNavigationContents(parent, is_ppc, is_ppc_redirect)}

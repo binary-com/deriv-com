@@ -159,7 +159,7 @@ export const DMT5Card = ({ is_selected, is_ppc_redirect, word_break_cover }) => 
 export const DerivXCard = ({ is_selected, is_ppc_redirect, word_break_cover }) => (
     <StyledLink ariaLabel="Deriv X" to={is_ppc_redirect ? 'URL' : '/derivx'}>
         <Card
-            Icon={() => <StyledDerivX src={DBot} alt="Deriv X" width="72" height="72" />}
+            Icon={() => <StyledDerivX src={DerivX} alt="Deriv X" width="72" height="72" />}
             content={[localize('CFD trading on a customisable multi-asset platform.')]}
             is_inline_icon
             min_height="12.4rem"

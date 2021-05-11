@@ -15,6 +15,7 @@ import {
     deriv_app_url,
     deriv_bot_app_url,
     smarttrader_url,
+    deriv_developer_url,
     zoho_url,
 } from 'common/constants'
 import { getLocalizedUrl, getDerivAppLocalizedURL } from 'common/utility'
@@ -98,6 +99,7 @@ export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
         is_community_link,
         is_dbot_link,
         is_deriv_app_link,
+        is_deriv_developer_link,
         is_mail_link,
         is_mt5_link,
         is_smarttrader_link,
@@ -141,6 +143,8 @@ export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
             lang_to = `${community_url}${to}`
         } else if (is_zoho_link) {
             lang_to = `${zoho_url}${to}`
+        } else if (is_deriv_developer_link) {
+            lang_to = `${deriv_developer_url}${to}`
         } else if (is_dbot_link) {
             lang_to = getDerivAppLocalizedURL(deriv_bot_app_url, locale)
         } else if (is_mt5_link) {
@@ -155,7 +159,8 @@ export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
             !is_deriv_app_link &&
             !is_affiliate_link &&
             !is_affiliate_sign_in_link &&
-            !is_zoho_link
+            !is_zoho_link &&
+            !is_deriv_developer_link
         ) {
             return (
                 <StyledAnchor
@@ -261,6 +266,7 @@ LocalizedLink.propTypes = {
     is_community_link: PropTypes.bool,
     is_dbot_link: PropTypes.bool,
     is_deriv_app_link: PropTypes.bool,
+    is_deriv_developer_link: PropTypes.bool,
     is_mail_link: PropTypes.bool,
     is_mt5_link: PropTypes.bool,
     is_smarttrader_link: PropTypes.bool,

@@ -11,18 +11,23 @@ import {
     SmartFX,
     StepIndices,
     VolatilityIndices,
+    AmericanIndices,
+    AmericanStocks,
+    AsianIndices,
+    EuropeanIndices,
 } from '../../instruments/_submarkets'
 import { smart_gold_index } from '../../instruments/_market-symbols'
 import {
     CrashBoomDetails,
-    EuropeDetails,
     RangeBreakIndicesDetails,
     SmartFXDetails,
     SmartGoldIndexDetails,
     StepIndicesDetails,
     VolatilityIndicesDetails,
+    AmericanIndicesDetails,
+    AsianIndicesDetails,
+    EuropeanIndicesDetails,
 } from './_details'
-import { OTCGERMAN } from 'components/elements/symbols'
 import { Localize } from 'components/localization'
 
 export const commodities_margin = {
@@ -73,18 +78,6 @@ export const forex_margin = {
     ],
 }
 
-export const stock_margin = {
-    has_global_accordion: true,
-    content: [
-        {
-            title: <Localize translate_text="Europe" />,
-            component: <Symbol src={OTCGERMAN} text={<Localize translate_text="German Index" />} />,
-            details: EuropeDetails,
-            custom_index: 4,
-        },
-    ],
-}
-
 export const synthetic_margin = {
     has_global_accordion: true,
     content: [
@@ -107,6 +100,57 @@ export const synthetic_margin = {
             title: <Localize translate_text="Range break indices" />,
             component: <RangeBreak />,
             details: RangeBreakIndicesDetails,
+        },
+    ],
+}
+
+export const stock_margin = {
+    template: 2,
+    content: [
+        {
+            title: (
+                <Localize translate_text="American<0></0>indices" components={[<br key={0} />]} />
+            ),
+            component: <AmericanIndices />,
+            details: AmericanIndicesDetails,
+            tablet_col: 2,
+            mobile_col: 2,
+            padding: '32px 16px',
+            flex: true,
+            gap: '16px',
+        },
+        {
+            title: <Localize translate_text="Asian<0></0>indices" components={[<br key={0} />]} />,
+            component: <AsianIndices />,
+            details: AsianIndicesDetails,
+            tablet_col: 2,
+            mobile_col: 2,
+            padding: '32px 16px',
+            flex: true,
+            gap: '16px',
+        },
+        {
+            title: (
+                <Localize translate_text="European<0></0>indices" components={[<br key={0} />]} />
+            ),
+            component: <EuropeanIndices />,
+            details: EuropeanIndicesDetails,
+            col: 4,
+            tablet_col: 2,
+            mobile_col: 2,
+            padding: '32px 16px',
+            gap: '16px',
+        },
+        {
+            title: <Localize translate_text="American stocks" />,
+            component: <AmericanStocks />,
+            col: 3,
+            tablet_col: 2,
+            mobile_col: 2,
+            padding: '24px 16px',
+            gap: '0',
+            gap_mobile: '0',
+            mobile_template: true,
         },
     ],
 }

@@ -37,9 +37,9 @@ const markets_type = {
     stock_indices: {
         // eslint-disable-next-line react/display-name
         icon: () => <img src={StockIndices} alt="stock" width="64" height="64" />,
-        title: <Localize translate_text="Stock indices" />,
+        title: <Localize translate_text="Stocks & indices" />,
         content: (
-            <Localize translate_text="Stock indices trading allows you to profit from the price movements in a market without buying the underlying assets." />
+            <Localize translate_text="Stocks & indices trading allows you to profit from the price movements in a market without buying the underlying assets." />
         ),
         to: '/markets#stock',
         id: 'marketstockothermarkets',
@@ -61,7 +61,7 @@ const LearnMore = styled(LocalizedLink)`
     width: 142px;
     height: 40px;
     border-radius: 23px;
-    background-color: #f4f4f6;
+    background-color: var(--color-grey-18);
     position: absolute;
     bottom: -20px;
     margin-left: auto;

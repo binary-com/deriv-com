@@ -2,6 +2,14 @@ import React, { useState } from 'react'
 import { Formik, Field } from 'formik'
 import { graphql, useStaticQuery } from 'gatsby'
 import {
+    getMargin,
+    numberWithCommas,
+    numberSubmitFormat,
+    getContractSize,
+    getCurrency,
+    resetValidationMargin,
+} from '../common/_utility'
+import {
     optionItemDefault,
     leverageItemLists,
     syntheticItemLists,
@@ -31,7 +39,6 @@ import {
     StyledOl,
     StyledSection,
 } from '../common/_style'
-import validation from '../common/_validation'
 import { localize, Localize } from 'components/localization'
 import { Flex, Show } from 'components/containers'
 import {
@@ -69,109 +76,6 @@ const MarginCalculator = () => {
 
     const onTabClick = (tab) => {
         setTab(tab)
-    }
-
-    const getMargin = (values) => {
-        const { symbol, volume, assetPrice, leverage, contractSize } = values
-        let margin_formula
-        const STEPINDEX_VALUE = 100
-        const RANGEBREAK100VALUE = 400
-        const RANGEBREAK200VALUE = 800
-
-        if (symbol.name === 'Step Index') {
-            margin_formula = volume * STEPINDEX_VALUE
-        } else if (symbol.name === 'Range Break 100 Index') {
-            margin_formula = volume * RANGEBREAK100VALUE
-        } else if (symbol.name === 'Range Break 200 Index') {
-            margin_formula = volume * RANGEBREAK200VALUE
-        } else {
-            margin_formula = (volume * contractSize * assetPrice) / leverage.name
-        }
-
-        return toFixed(margin_formula)
-    }
-
-    const toFixed = (val) => {
-        return parseFloat(val.toFixed(3)).toLocaleString()
-    }
-
-    const resetValidation = (values) => {
-        const errors = {}
-        const symbol_error = validation.symbol(values.symbol)
-        const volume_error = validation.volume(values.volume)
-        const assetPrice_error = validation.assetPrice(values.assetPrice)
-        const leverage_error = validation.leverage(values.leverage)
-
-        if (symbol_error) {
-            errors.symbol = symbol_error
-        }
-        if (volume_error) {
-            errors.volume = volume_error
-        }
-        if (assetPrice_error) {
-            errors.assetPrice = assetPrice_error
-        }
-        if (leverage_error) {
-            errors.leverage = leverage_error
-        }
-
-        return errors
-    }
-
-    const getMarginCurrency = (symbol) => {
-        let currency = 'USD'
-        if (symbol.market === 'synthetic_indices' || symbol.market === 'commodities') {
-            currency = 'USD'
-        }
-
-        if (symbol.name === 'DAX_30') {
-            currency = 'EUR'
-        }
-
-        if (symbol.market === 'forex' && symbol.name !== 'default' && symbol.name !== 'CL_BRENT') {
-            currency = symbol.display_name.slice(-3)
-        }
-
-        return currency
-    }
-
-    const getContractSize = (symbol) => {
-        let contractSize = 1 //crypto falls into this contract size
-
-        if (symbol.market === 'forex') {
-            contractSize = 100000
-        }
-
-        if (symbol.market === 'commodities') {
-            switch (symbol.name) {
-                case 'XAGUSD':
-                    contractSize = 5000
-                    break
-                case 'XAUUSD':
-                case 'XPDUSD':
-                case 'XPTUSD':
-                    contractSize = 100
-                    break
-            }
-        }
-
-        if (symbol.name === 'Step Index') {
-            contractSize = 10
-        }
-
-        if (symbol.market === 'smartfx') {
-            contractSize = 100
-        }
-
-        return contractSize
-    }
-
-    const numberWithCommas = (input) => {
-        return input.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
-    }
-
-    const numberSubmitFormat = (input) => {
-        return input.replace(/^0+(?!\.|$)/, '')
     }
 
     return (
@@ -212,7 +116,7 @@ const MarginCalculator = () => {
                                 optionList: syntheticItemLists,
                                 contractSize: '',
                             }}
-                            validate={resetValidation}
+                            validate={resetValidationMargin}
                             onSubmit={(values, { setFieldValue }) => {
                                 setFieldValue('margin', getMargin(values))
                                 setFieldValue('volume', numberSubmitFormat(values.volume))
@@ -289,10 +193,7 @@ const MarginCalculator = () => {
                                             items={values.optionList}
                                             label={localize('Symbol')}
                                             onChange={(value) => {
-                                                setFieldValue(
-                                                    'marginSymbol',
-                                                    getMarginCurrency(value),
-                                                )
+                                                setFieldValue('marginSymbol', getCurrency(value))
                                                 setFieldValue(
                                                     'contractSize',
                                                     getContractSize(value),

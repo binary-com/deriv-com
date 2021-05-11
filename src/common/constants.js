@@ -16,6 +16,7 @@ export const deriv_app_id = domain_url === deriv_com_url ? deriv_com_app_id : de
 export const deriv_app_url = `https://app.${domain_url}`
 export const deriv_bot_app_url = `https://app.${domain_url}/bot`
 export const deriv_dp2p_app_url = `https://app.${domain_url}/cashier/p2p`
+export const deriv_developer_url = `https://developers.${domain_url}`
 export const smarttrader_url = `https://smarttrader.${domain_url}`
 export const blog_url = `https://blog.${deriv_com_url}`
 export const deriv_cookie_domain = domain_url
@@ -60,3 +61,11 @@ export const pushwoosh_app_code = 'DD293-35A19'
 export const sample_rate = 25
 export const zoho_url = 'https://deriv.zohorecruit.com'
 export const derivx_url = 'https://deriv.com/derivx/'
+
+export const fb_url = 'https://www.facebook.com/derivdotcom'
+export const fb_url_career = 'https://www.facebook.com/derivcareers'
+export const instagram_url = 'https://www.instagram.com/deriv_official/'
+export const instagram_url_career = 'https://www.instagram.com/derivcareers/'
+export const linkedin_url = 'https://www.linkedin.com/company/derivdotcom/'
+export const linkedin_url_career = 'https://www.linkedin.com/company/derivdotcom/life/'
+export const twitter_url = 'https://twitter.com/derivdotcom/'

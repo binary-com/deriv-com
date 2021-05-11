@@ -62,11 +62,7 @@ export const useLivechat = () => {
                     const utm_data = getUTMData(domain)
                     const client_information = getClientInformation(domain)
 
-                    const {
-                        utm_source,
-                        utm_medium,
-                        utm_campaign,
-                    } = (utm_data) || {};
+                    const { utm_source, utm_medium, utm_campaign } = utm_data || {}
 
                     const {
                         loginid,
@@ -76,7 +72,7 @@ export const useLivechat = () => {
                         residence,
                         first_name,
                         last_name,
-                    } = (client_information) || {};
+                    } = client_information || {}
 
                     /* the session variables are sent to CS team dashboard to notify user has logged in
                     and also acts as custom variables to trigger targeted engagement */
@@ -105,15 +101,11 @@ export const useLivechat = () => {
                             )
                         }
                     } else {
-                        // client not logged in
-                        // clear name and email fields
-                        window.LiveChatWidget.call('set_customer_email', ' ');
-                        window.LiveChatWidget.call('set_customer_name', ' ');
                         // clear name and email fields after chat has ended
                         window.LC_API.on_chat_ended = () => {
-                            window.LiveChatWidget.call('set_customer_email', ' ');
-                            window.LiveChatWidget.call('set_customer_name', ' ');
-                        };
+                            window.LiveChatWidget.call('set_customer_email', ' ')
+                            window.LiveChatWidget.call('set_customer_name', ' ')
+                        }
                     }
 
                     const url_params = new URLSearchParams(window.location.search)

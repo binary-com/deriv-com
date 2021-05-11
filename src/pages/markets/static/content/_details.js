@@ -12,19 +12,19 @@ export const AmericasDetails = () => (
         </Text>
         <Text>
             <Localize
-                translate_text="<0>The US Index</0> follows the stock performance of the 500 largest publicly-traded companies in the US."
+                translate_text="<0>US 500</0> follows the stock performance of the 500 largest publicly traded companies in the US."
                 components={[<strong key={0} />]}
             />
         </Text>
         <Text>
             <Localize
-                translate_text="<0>The US Tech Index</0> follows the stock performance of the 100 largest non-financial companies in the US."
+                translate_text="<0>US Tech 100</0> follows the stock performance of the 100 largest non-financial companies in the US."
                 components={[<strong key={0} />]}
             />
         </Text>
         <Text>
             <Localize
-                translate_text="<0>The Wall Street Index</0> follows the stock performance of 30 large listed companies in the US."
+                translate_text="<0>Wall Street 30</0> follows the stock performance of the top 30 listed companies in the US."
                 components={[<strong key={0} />]}
             />
         </Text>
@@ -40,19 +40,19 @@ export const AsiaOceaniaDetails = () => (
         </Text>
         <Text>
             <Localize
-                translate_text="<0>The Australian Index</0> tracks the stock performance of the 200 largest listed companies in Australia. "
+                translate_text="<0>Australia 200</0> tracks the stock performance of the 200 largest listed companies in Australia. "
                 components={[<strong key={0} />]}
             />
         </Text>
         <Text>
             <Localize
-                translate_text="<0>The Hong Kong Index</0> tracks the stock performance of the 50 largest listed companies in Hong Kong."
+                translate_text="<0>Hong Kong 50</0> tracks the stock performance of the 50 largest listed companies in Hong Kong."
                 components={[<strong key={0} />]}
             />
         </Text>
         <Text>
             <Localize
-                translate_text="<0>The Japanese Index</0> tracks the stock performance of 225 large, publicly owned companies in Japan."
+                translate_text="<0>Japan 225</0> tracks the stock performance of 225 large, publicly owned companies in Japan."
                 components={[<strong key={0} />]}
             />
         </Text>
@@ -107,42 +107,42 @@ export const EuropeDetails = (index) => {
     const children = [
         <Text key={0}>
             {localize(
-                'Each of these indices replicates the performance of top publicly traded companies in a financial market in Europe.',
+                'Each of these indices replicates the performance of top publicly traded companies in financial markets in Europe.',
             )}
         </Text>,
         <Text key={1}>
             <Localize
-                translate_text="<0>The Dutch Index</0> follows the stock performance of the 25 most traded companies in the Netherlands."
+                translate_text="<0>Netherland 25</0> follows the stock performance of the 25 most traded companies in the Netherlands."
                 components={[<strong key={0} />]}
             />
         </Text>,
         <Text key={2}>
             <Localize
-                translate_text="<0>The Euro 50 Index</0> follows the performance of the 50 largest and most liquid stocks in the EU."
+                translate_text="<0>Euro 50</0> Index follows the performance of the 50 largest and most liquid stocks in the EU."
                 components={[<strong key={0} />]}
             />
         </Text>,
         <Text key={3}>
             <Localize
-                translate_text="<0>The French Index</0> tracks the performance of the 40 most traded stocks among the top 100 listed companies in France."
+                translate_text="<0>France 40</0> tracks the performance of the 40 most traded stocks among the top 100 listed companies in France."
                 components={[<strong key={0} />]}
             />
         </Text>,
         <Text key={4}>
             <Localize
-                translate_text="<0>The German Index</0> follows the stock performance of the 30 major listed companies in Germany."
+                translate_text="<0>German 30</0> follows the stock performance of the 30 major listed companies in Germany."
                 components={[<strong key={0} />]}
             />
         </Text>,
         <Text key={5}>
             <Localize
-                translate_text="<0>The Swiss Index</0> follows the performance of the 20 largest and most liquid stocks in Switzerland."
+                translate_text="<0>Swiss 20</0> follows the performance of the 20 largest and most liquid stocks in Switzerland."
                 components={[<strong key={0} />]}
             />
         </Text>,
         <Text key={6}>
             <Localize
-                translate_text="<0>The UK Index</0> follows the stock performance of the top 100 listed companies in the UK."
+                translate_text="<0>UK 100</0> follows the stock performance of the top 100 listed companies in the UK."
                 components={[<strong key={0} />]}
             />
         </Text>,
@@ -234,6 +234,102 @@ export const VolatilityIndicesDetails = () => (
         <Text>
             <Localize
                 translate_text="<0>One tick</0> is generated <0>every second</0> for volatility indices <0>10 (1s), 25 (1s), 50 (1s), 75 (1s), and 100 (1s)</0>."
+                components={[<strong key={0} />]}
+            />
+        </Text>
+    </DetailsContainer>
+)
+
+export const AmericanIndicesDetails = () => (
+    <DetailsContainer>
+        <Text>
+            {localize(
+                'Each of these indices replicates the performance of top publicly traded companies in a segment of the US economy.',
+            )}
+        </Text>
+        <Text>
+            <Localize
+                translate_text="<0>US 500</0> follows the stock performance of the 500 largest publicly traded companies in the US."
+                components={[<strong key={0} />]}
+            />
+        </Text>
+        <Text>
+            <Localize
+                translate_text="<0>US Tech 100</0> follows the stock performance of the 100 largest non-financial companies in the US."
+                components={[<strong key={0} />]}
+            />
+        </Text>
+        <Text>
+            <Localize
+                translate_text="<0>Wall Street 30</0> follows the stock performance of the top 30 listed companies in the US."
+                components={[<strong key={0} />]}
+            />
+        </Text>
+    </DetailsContainer>
+)
+
+export const AsianIndicesDetails = () => (
+    <DetailsContainer>
+        <Text>
+            {localize(
+                'Each of these indices replicates the performance of top publicly traded companies in a financial market in the Asia/Oceania region.',
+            )}
+        </Text>
+        <Text>
+            <Localize
+                translate_text="<0>Australia 200</0> tracks the stock performance of the 200 largest listed companies in Australia."
+                components={[<strong key={0} />]}
+            />
+        </Text>
+        <Text>
+            <Localize
+                translate_text="<0>Japan 225</0> tracks the stock performance of 225 large, publicly owned companies in Japan."
+                components={[<strong key={0} />]}
+            />
+        </Text>
+    </DetailsContainer>
+)
+
+export const EuropeanIndicesDetails = () => (
+    <DetailsContainer>
+        <Text>
+            {localize(
+                'Each of these indices replicates the performance of top publicly traded companies in financial markets in Europe.',
+            )}
+        </Text>
+        <Text>
+            <Localize
+                translate_text="<0>Netherland 25</0> follows the stock performance of the 25 most traded companies in the Netherlands."
+                components={[<strong key={0} />]}
+            />
+        </Text>
+        <Text>
+            <Localize
+                translate_text="<0>Euro 50</0> Index follows the performance of the 50 largest and most liquid stocks in the EU."
+                components={[<strong key={0} />]}
+            />
+        </Text>
+        <Text>
+            <Localize
+                translate_text="<0>France 40</0> tracks the performance of the 40 most traded stocks among the top 100 listed companies in France."
+                components={[<strong key={0} />]}
+            />
+        </Text>
+        <Text>
+            <Localize
+                translate_text="<0>German 30</0> follows the stock performance of the 30 major listed companies in Germany."
+                components={[<strong key={0} />]}
+            />
+        </Text>
+        <Text>
+            <Localize
+                translate_text="<0>UK 100</0> follows the stock performance of the top 100 listed companies in the UK."
+                components={[<strong key={0} />]}
+            />
+        </Text>
+        <Text>
+            <Localize
+                translate_text="<0>Spain 35</0> follows the stock performance of the top 35 companies in Spain."
                 components={[<strong key={0} />]}
             />
         </Text>

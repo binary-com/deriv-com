@@ -44,6 +44,7 @@ const MobileWrapper = styled.div`
     flex-direction: column;
     align-items: center;
     width: 100%;
+    max-width: 600px;
 `
 const SignupFormWrapper = styled(Flex)`
     width: 50%;

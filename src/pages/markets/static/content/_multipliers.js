@@ -6,7 +6,12 @@ import {
     StepIndices,
     Cryptocurrencies,
 } from '../../instruments/_submarkets'
-import { ContinuousIndicesDetails, CrashBoomDetails, StepIndicesDetails, CryptocurrenciesDetails } from './_details'
+import {
+    ContinuousIndicesDetails,
+    CrashBoomDetails,
+    StepIndicesDetails,
+    CryptocurrenciesDetails,
+} from './_details'
 import { Localize } from 'components/localization'
 
 export const forex_multiplier = {
@@ -45,7 +50,7 @@ export const synthetic_multiplier = {
     eu_content: [
         <Localize
             key={0}
-            translate_text="Return to player for mulitplier options is in the range of 95.0-99.9% for all indices on an average. Using a different multiplier or duration may affect the RTP."
+            translate_text="Return to player for multiplier options is in the range of 95.0-99.9% for all indices on an average. Using a different multiplier or duration may affect the RTP."
         />,
     ],
 }
@@ -62,6 +67,6 @@ export const crypto_multiplier = {
             title: <Localize translate_text="Cryptocurrencies" />,
             component: <Cryptocurrencies />,
             details: CryptocurrenciesDetails,
-        }
-    ]
+        },
+    ],
 }

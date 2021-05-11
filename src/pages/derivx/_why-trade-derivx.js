@@ -94,7 +94,7 @@ const WhyTradeDerivX = () => {
                     <Header type='page-title' align="center">
                         {localize('Why trade with Deriv X')}
                     </Header>
-                    <Flex tablet_direction='column' tablet_ai='center' ai='flex-start' mt="40px">
+                    <Flex tablet_direction='column' tablet_ai='center' mt="40px">
                         {card_data.map((index) => {
                             return (
                                 <Card key={index}>
@@ -113,9 +113,7 @@ const WhyTradeDerivX = () => {
                     </Flex>
                 </Container>
             </SectionContainer>
-            <SectionContainer>
-                <DTrading trading={trading} />
-            </SectionContainer>
+            <DTrading trading={trading} />
         </div>
     )
 }

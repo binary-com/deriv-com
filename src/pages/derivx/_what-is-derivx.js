@@ -3,9 +3,14 @@ import styled from 'styled-components'
 import { Localize } from 'components/localization'
 import { SectionContainer, Container, Flex } from 'components/containers'
 import { Header, Text } from 'components/elements/typography'
+import device from 'themes/device'
 
 const StyledSectionContainer = styled(SectionContainer)`
-    border-bottom: 3px solid var(--color-grey-25);
+    border-bottom: solid 1px var(--color-grey-2);
+
+    @media ${device.tablet}{
+        border-bottom: unset;
+    }
 `
 
 const WhatIsDeriv = () => {

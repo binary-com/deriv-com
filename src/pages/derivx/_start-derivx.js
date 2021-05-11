@@ -227,7 +227,7 @@ const StartDerivX = () => {
             </Flex>
 
             <Flex max_width="1200px">
-                <SideTab parent_tab={tab}>
+                <SideTab parent_tab={tab} has_download_button>
                     {(tab === 'demo' ? demo : real).map((index) => {
                         return (
                             <SideTab.Panel

@@ -8,10 +8,11 @@ import { Header, Text, QueryImage } from 'components/elements'
 
 const StyledSection = styled(SectionContainer)`
     background-color: var(--color-white);
-    box-shadow: inset 1px 0 0 1px var(--color-grey-2);
-
+    border-top: solid 1px var(--color-grey-2);
     @media ${device.tabletL} {
         padding: 1.74rem 0 4rem 0;
+        border-top: unset;
+        border-bottom: unset;
     }
 `
 const StyledContainer = styled(Container)`

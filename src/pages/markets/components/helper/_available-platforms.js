@@ -10,6 +10,7 @@ import DBot from 'images/svg/dbot-icon.svg'
 import DMT5 from 'images/svg/dmt5-icon.svg'
 import DTrader from 'images/svg/dtrader-icon.svg'
 import SmartTrader from 'images/svg/smarttrader.svg'
+import DerivX from 'images/svg/deriv-x.svg'
 
 const PlatformsContainer = styled(Flex)`
     justify-content: space-around;
@@ -60,6 +61,7 @@ const AvailablePlatforms = ({
     dtrader,
     dbot,
     smarttrader,
+    derivX,
     flex_direction,
     tablet_direction,
 }) => {
@@ -108,6 +110,18 @@ const AvailablePlatforms = ({
                         </StyledFlex>
                     </a>
                 )}
+                {derivX && (
+                    <a
+                        href="https://smarttrader.deriv.com/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <StyledFlex direction="row" ai="center">
+                            <img src={DerivX} alt="DerivX" width="32" height="32" />
+                            <Text ml="0.4rem">{localize('DerivX')}</Text>
+                        </StyledFlex>
+                    </a>
+                )}
             </PlatformsContainer>
         </Flex>
     )
@@ -115,6 +129,7 @@ const AvailablePlatforms = ({
 
 AvailablePlatforms.propTypes = {
     dbot: PropTypes.bool,
+    derivX: PropTypes.bool,
     dmt5: PropTypes.bool,
     dtrader: PropTypes.bool,
     flex_direction: PropTypes.string,

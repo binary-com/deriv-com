@@ -6,7 +6,7 @@ import { LocalizedLink, localize, Localize } from 'components/localization'
 import { Accordion, AccordionItem, NavCard, Text, Divider } from 'components/elements'
 import Signals from 'components/svgs/signals'
 import { useOutsideClick } from 'components/hooks/outside-click'
-import { cfd_warning_height, deriv_status_page_url } from 'common/constants'
+import { cfd_warning_height, deriv_status_page_url, derivx_url } from 'common/constants'
 // SVG
 import AffiliateIb from 'images/svg/menu/affiliate-ib.svg'
 import Blog from 'images/svg/blog-nav.svg'
@@ -246,7 +246,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                 }
                                 title={<Localize translate_text="Deriv X" />}
                                 onClick={handleArrowClick}
-                                to="https://deriv-app-git-fork-zaki-binary-dxtraderoutes.binary.sx/derivx"
+                                to={derivx_url}
                             />
                         </Flex>
                         <Flex mb="2rem">

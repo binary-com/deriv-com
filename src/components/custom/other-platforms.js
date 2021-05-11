@@ -12,7 +12,7 @@ import {
     Divider,
 } from 'components/elements'
 import { localize, LocalizedLink, Localize } from 'components/localization'
-import { blog_url, community_url } from 'common/constants'
+import { blog_url, community_url, derivx_url } from 'common/constants'
 import device from 'themes/device'
 import { DerivStore } from 'store'
 // icons
@@ -324,7 +324,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                     }
                     title={<Localize translate_text="Deriv X" />}
                     onClick={onClick}
-                    to="https://deriv-app-git-fork-zaki-binary-dxtraderoutes.binary.sx/derivx"
+                    to={derivx_url}
                 />
                 <NavCard
                     aria_label="SmartTrader"

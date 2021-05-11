@@ -14,7 +14,6 @@ import Apple from 'images/svg/apple.svg'
 import Facebook from 'images/svg/facebook-blue.svg'
 import Google from 'images/svg/google.svg'
 import Arrow from 'images/svg/chevron-right.svg'
-import BackgroundPattern from 'images/common/sign-up-banner-bg.png'
 
 const query = graphql`
     query {
@@ -24,7 +23,7 @@ const query = graphql`
     }
 `
 const Wrapper = styled.div`
-    background-image: url(${BackgroundPattern});
+    background-image: linear-gradient(73deg, #ff6444, #ff444f);
     background-repeat: round;
     position: relative;
     display: flex;
@@ -261,7 +260,7 @@ const LinkFlex = styled(LinkText)`
     }
 `
 const MobileBackground = styled.div`
-    background-image: url(${BackgroundPattern});
+    background-image: linear-gradient(73deg, #ff6444, #ff444f);
     background-size: cover;
     background-repeat:no-repeat;
     width: 100%;

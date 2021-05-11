@@ -264,14 +264,14 @@ const SocialWrapperComponent = ({ is_career_page }) => {
             image_alt: `instagram ${alt_string}`,
         },
         {
-            link: 'https://www.linkedin.com/company/derivdotcom/',
+            to:'https://www.linkedin.com/company/derivdotcom/',
             image: Linkedin,
             image_alt: `linkedin ${alt_string}`,
         },
     ]
 
     const twitter = {
-        link: 'https://twitter.com/derivdotcom/',
+        to:'https://twitter.com/derivdotcom/',
         image: Twitter,
         image_alt: `twitter ${alt_string}`,
     }
@@ -322,6 +322,201 @@ const Footer = ({ type, is_ppc, is_ppc_redirect }) => {
     mobile_accordion_header_about.borderTop = 'none'
     const current_year = new Date().getFullYear()
 
+    const about_links = {
+        title:'ABOUT',
+        links: [
+            {
+                text:localize('Our story'),
+                to:'/about#story/'
+            },
+            {
+                text: localize('Our leadership'),
+                to:'/about#leadership/'
+            },
+            {
+                text: localize('Why choose us?'),
+                to:'/why-choose-us/'
+            },
+            {
+                text:localize('Partnership programmes'),
+                to:'/partners/'
+            },
+            {
+                text: localize('Contact us'),
+                to:'/contact_us/'
+            },
+            {
+                text: localize('Careers'),
+                to:'/careers/'
+            }
+        ]
+    }
+
+    const trade_links = {
+        hide_ppc: true,
+        title: localize('TRADE'),
+        links: [
+            {
+                text:localize('Dtrader'),
+                to:'/dtrader/'
+            },
+            {
+                text: localize('DBot'),
+                to:'/dbot/'
+            },
+            {
+                text:localize('DMT5'),
+                link: is_ppc_redirect ? '/landing/dmt5/' : '/dmt5/'
+            },
+            {
+                text:localize('SmartTrader'),
+                to:'trading',
+                is_smarttrader_link: true,
+                is_external:true,
+            }
+        ]
+    }
+
+    const trade_types_links = {
+        title: localize('TRADE TYPES'),
+        links: [
+            {
+                text:localize('Margin trading'),
+                to:'/trade-types/margin/'
+            },
+            {
+                text: localize('Options'),
+                to:'/trade-types/options/',
+                hide_eu: true
+            },
+            {
+                text:localize('Multipliers'),
+                to:'/trade-types/multiplier/'
+            },
+        ]
+    }
+
+    const markets_links = {
+        title: localize('MARKETS'),
+        hide_ppc: true,
+        links: [
+            {
+                text:localize('Forex'),
+                to:'/markets#forex'
+            },
+            {
+                text: localize('Synthetic indices'),
+                to:'/markets#synthetic',
+                hide_eu: true
+            },
+            {
+                text:localize('Stock indices'),
+                to:'/markets#stock'
+            },
+            {
+                text:localize('Commodities'),
+                to:'/markets#commodities'
+            }
+        ]
+    }
+
+    const legal_links = {
+        title: localize('LEGAL'),
+        links: [
+            {
+                text:localize('Regulatory information'),
+                to:'/regulatory/'
+            },
+            {
+                text: localize('Terms and conditions'),
+                to:'/terms-and-conditions/'
+            },
+            {
+                text:localize('Secure and responsible trading'),
+                to:'/responsible/'
+            },
+        ]
+    }
+
+    const partner_links = {
+        title: localize('PARTNER'),
+        links: [
+            {
+                text:localize('Affiliates and IBs'),
+                to:'/partners/affiliate-ib/'
+            },
+            {
+                text: localize('Payment agents'),
+                to:'/partners/payment-agent/'
+            },
+        ]
+    }
+
+    const resources_links = {
+        title: localize('RESOURCES'),
+        links: [
+            {
+                text:localize('Help centre'),
+                to:'/help-centre/'
+            },
+            {
+                text: localize('Community'),
+                to:'',
+                is_external: true,
+                is_community_link: true,
+            },
+            {
+                text:localize(`Traders' tools`),
+                to:'/trader-tools/'
+            },
+            {
+                text: localize('Payment methods'),
+                to:'/payment-methods/'
+            },
+            {
+                text: localize('Status page'),
+                link: deriv_status_page_url,
+                is_external: true
+            },
+            {
+                text: localize('Blog'),
+                to:'',
+                is_external: true,
+                is_blog_link: true,
+            },
+        ]
+    }
+
+    const footer_links = [about_links, trade_links, trade_types_links, markets_links, legal_links, partner_links, resources_links ] ;
+
+    const FooterElement = (elements) => {
+
+        const items = elements.elements;
+        return (
+            <>
+                <LinksCol>
+                    <LinkWrapper>
+                        <Title>{items.title}</Title>
+                    </LinkWrapper>
+                    {items.links.map((item,idx) => (
+                        <LinkWrapper key={idx}>
+                            {
+                                // eslint-disable-next-line no-console
+                                console.log(item.text)
+                            }
+                            {
+                                // eslint-disable-next-line no-console
+                                console.log(item.is_community_link)
+                            }
+                            <Link {...item}>{item.text} </Link> :
+                        </LinkWrapper>
+                    ))
+                    }
+                </LinksCol>
+            </>
+             )
+    }
+
     return (
         <StyledFooter has_banner_cookie={show_cookie_banner}>
             <Container>
@@ -337,36 +532,11 @@ const Footer = ({ type, is_ppc, is_ppc_redirect }) => {
                     <LinksWrapper>
                         <Show.Desktop>
                             <Flex jc="space-between">
-                                <LinksCol>
-                                    <LinkWrapper>
-                                        <Title>{localize('ABOUT')}</Title>
-                                    </LinkWrapper>
-                                    <LinkWrapper first_child="true">
-                                        <Link to="/about#story">{localize('Our story')}</Link>
-                                    </LinkWrapper>
-                                    <LinkWrapper>
-                                        <Link to="/about#leadership">
-                                            {localize('Our leadership')}
-                                        </Link>
-                                    </LinkWrapper>
-                                    <LinkWrapper>
-                                        <Link to="/why-choose-us/">
-                                            {localize('Why choose us?')}
-                                        </Link>
-                                    </LinkWrapper>
-                                    <LinkWrapper>
-                                        <Link to="/partners/">
-                                            {localize('Partnership programmes')}
-                                        </Link>
-                                    </LinkWrapper>
-                                    <LinkWrapper>
-                                        <Link to="/contact_us/">{localize('Contact us')}</Link>
-                                    </LinkWrapper>
-                                    <LinkWrapper>
-                                        <Link to="/careers/">{localize('Careers')}</Link>
-                                    </LinkWrapper>
-                                </LinksCol>
-                                <LinksCol>
+                                {footer_links.map((footer_links,idx) => (
+                                    <FooterElement key={idx} elements={footer_links} is_ppc = {is_ppc}/>
+                                ))}
+                
+                                {/* <LinksCol>
                                     <LinkWrapper>
                                         <Title>{localize('TRADE')}</Title>
                                     </LinkWrapper>
@@ -392,8 +562,8 @@ const Footer = ({ type, is_ppc, is_ppc_redirect }) => {
                                             {localize('SmartTrader')}
                                         </Link>
                                     </LinkWrapper>
-                                </LinksCol>
-                                {!is_ppc && (
+                                </LinksCol> */}
+                                {/* {!is_ppc && (
                                     <LinksCol>
                                         <LinkWrapper>
                                             <Title>{localize('TRADE TYPES')}</Title>
@@ -416,8 +586,9 @@ const Footer = ({ type, is_ppc, is_ppc_redirect }) => {
                                             </Link>
                                         </LinkWrapper>
                                     </LinksCol>
-                                )}
-                                <LinksCol>
+                                )} */}
+
+                                {/* <LinksCol>
                                     <LinkWrapper>
                                         <Title>{localize('MARKETS')}</Title>
                                     </LinkWrapper>
@@ -440,7 +611,9 @@ const Footer = ({ type, is_ppc, is_ppc_redirect }) => {
                                         </Link>
                                     </LinkWrapper>
                                 </LinksCol>
-                                <LinksCol>
+                                 */}
+
+                                {/* <LinksCol>
                                     <LinkWrapper>
                                         <Title>{localize('LEGAL')}</Title>
                                     </LinkWrapper>
@@ -459,8 +632,8 @@ const Footer = ({ type, is_ppc, is_ppc_redirect }) => {
                                             {localize('Secure and responsible trading')}
                                         </Link>
                                     </LinkWrapper>
-                                </LinksCol>
-                                <LinksCol>
+                                </LinksCol> */}
+                                {/* <LinksCol>
                                     <LinkWrapper>
                                         <Title>{localize('PARTNER')}</Title>
                                     </LinkWrapper>
@@ -474,8 +647,8 @@ const Footer = ({ type, is_ppc, is_ppc_redirect }) => {
                                             {localize('Payment agents')}
                                         </Link>
                                     </LinkWrapper>
-                                </LinksCol>
-                                <LinksCol>
+                                </LinksCol> */}
+                                {/* <LinksCol>
                                     <LinkWrapper>
                                         <Title>{localize('RESOURCES')}</Title>
                                     </LinkWrapper>
@@ -524,7 +697,7 @@ const Footer = ({ type, is_ppc, is_ppc_redirect }) => {
                                             {localize('Blog')}
                                         </Link>
                                     </LinkWrapper>
-                                </LinksCol>
+                                </LinksCol> */}
                             </Flex>
                         </Show.Desktop>
                     </LinksWrapper>
@@ -675,6 +848,7 @@ const Footer = ({ type, is_ppc, is_ppc_redirect }) => {
                                                 />,
                                                 <BoldLink
                                                     external="true"
+                                                    
                                                     key={1}
                                                     target="_blank"
                                                     to="https://www.begambleaware.org/"

@@ -156,6 +156,11 @@ const SocialButton = styled(Button)`
         padding: 0;
         justify-content: center;
         align-items: center;
+
+        img {
+            margin-top: 12px;
+            width: 30px;
+        }
     }
     @media (max-width: 500px) {
         width: 100%;
@@ -164,6 +169,7 @@ const SocialButton = styled(Button)`
         line-height: 14px;
         
         img {
+            margin-top: 3px;
             padding-right: 0;
         }
     }

@@ -5,7 +5,17 @@ import PropTypes from 'prop-types'
 import { Container, CssGrid, Flex, Show } from '../containers'
 import { StyledLink, Text, QueryImage } from '../elements'
 import { LocationContext } from './location-context'
-import { deriv_status_page_url, mga_link_url } from 'common/constants'
+import {
+    deriv_status_page_url,
+    mga_link_url,
+    fb_url,
+    fb_url_career,
+    instagram_url,
+    instagram_url_career,
+    linkedin_url,
+    linkedin_url_career,
+    twitter_url,
+} from 'common/constants'
 // TODO: (discussion) make footer pure component, and move usage of footer to custom
 import device from 'themes/device'
 import { localize, Localize, LocalizedLink } from 'components/localization'
@@ -251,27 +261,29 @@ const SocialWrapperComponent = ({ is_career_page }) => {
     const accounts = [
         {
             link: is_career_page
-                ? 'https://www.facebook.com/derivcareers'
-                : 'https://www.facebook.com/derivdotcom/',
+                ? fb_url_career
+                : fb_url,
             image: Facebook,
             image_alt: `facebook ${alt_string}`,
         },
         {
             link: is_career_page
-                ? 'https://www.instagram.com/derivcareers/'
-                : 'https://www.instagram.com/deriv_official/',
+                ? instagram_url_career
+                : instagram_url,
             image: Instagram,
             image_alt: `instagram ${alt_string}`,
         },
         {
-            link: 'https://www.linkedin.com/company/derivdotcom/',
+            link: is_career_page
+                ? linkedin_url_career
+                : linkedin_url,
             image: Linkedin,
             image_alt: `linkedin ${alt_string}`,
         },
     ]
 
     const twitter = {
-        link: 'https://twitter.com/derivdotcom/',
+        link: twitter_url,
         image: Twitter,
         image_alt: `twitter ${alt_string}`,
     }

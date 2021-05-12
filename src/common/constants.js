@@ -74,3 +74,11 @@ export const localized_link_url = {
     smart_trader: smarttrader_url,
     zoho: zoho_url,
 }
+
+export const fb_url = 'https://www.facebook.com/derivdotcom'
+export const fb_url_career = 'https://www.facebook.com/derivcareers'
+export const instagram_url = 'https://www.instagram.com/deriv_official/'
+export const instagram_url_career = 'https://www.instagram.com/derivcareers/'
+export const linkedin_url = 'https://www.linkedin.com/company/derivdotcom/'
+export const linkedin_url_career = 'https://www.linkedin.com/company/derivdotcom/life/'
+export const twitter_url = 'https://twitter.com/derivdotcom/'

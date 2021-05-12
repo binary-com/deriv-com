@@ -42,7 +42,7 @@ const StyledCard = styled(LocalizedLink)`
     text-decoration: none;
 
     &:hover {
-        border-color: white;
+        border-color: var(--color-white);
         box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.05);
 
         ${CustomWrap} {

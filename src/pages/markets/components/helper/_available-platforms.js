@@ -61,7 +61,7 @@ const AvailablePlatforms = ({
     dtrader,
     dbot,
     smarttrader,
-    derivX,
+    derivx,
     flex_direction,
     tablet_direction,
 }) => {
@@ -110,7 +110,7 @@ const AvailablePlatforms = ({
                         </StyledFlex>
                     </a>
                 )}
-                {derivX && (
+                {derivx && (
                     <a
                         href="/derivx"
                         target="_blank"
@@ -129,7 +129,7 @@ const AvailablePlatforms = ({
 
 AvailablePlatforms.propTypes = {
     dbot: PropTypes.bool,
-    derivX: PropTypes.bool,
+    derivx: PropTypes.bool,
     dmt5: PropTypes.bool,
     dtrader: PropTypes.bool,
     flex_direction: PropTypes.string,

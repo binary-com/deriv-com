@@ -61,7 +61,7 @@ export const p2p_playstore_url = 'https://play.google.com/store/apps/details?id=
 export const pushwoosh_app_code = 'DD293-35A19'
 export const sample_rate = 25
 export const zoho_url = 'https://deriv.zohorecruit.com'
-export const localized_link_url = {
+export const localized_link_url = Object.freeze({
     affiliate_sign_in: affiliate_signin_url,
     affiliate_sign_up: affiliate_signup_url,
     binary: binary_url,
@@ -73,7 +73,7 @@ export const localized_link_url = {
     mt5: deriv_mt5_app_url,
     smart_trader: smarttrader_url,
     zoho: zoho_url,
-}
+})
 
 export const fb_url = 'https://www.facebook.com/derivdotcom'
 export const fb_url_career = 'https://www.facebook.com/derivcareers'

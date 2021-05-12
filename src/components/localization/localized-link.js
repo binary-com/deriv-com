@@ -88,7 +88,7 @@ LocalizedLink.propTypes = {
     external: PropTypes.string,
 }
 
-const non_localized_links = ['/careers', '/careers/']
+const non_localized_links = ['careers']
 
 const InternalLink = ({
     aria_label,
@@ -105,7 +105,7 @@ const InternalLink = ({
     // However, if the homepage/index page is linked don't add the "to"
     // Because otherwise this would add a trailing slash
     const { is_default, path } = language_config[locale]
-    const is_non_localized = non_localized_links.includes(to)
+    const is_non_localized = non_localized_links.includes(to.replace(/\/$/, ''))
     const is_index = to === `/`
     const localized_url = getLocalizedUrl(path, is_index, to)
 
@@ -117,12 +117,7 @@ const InternalLink = ({
 
     if (is_anchor) {
         return (
-            <StyledAnchorLink
-                title={aria_label}
-                to={internal_to}
-                disabled={!mounted}
-                {...props}
-            />
+            <StyledAnchorLink title={aria_label} to={internal_to} disabled={!mounted} {...props} />
         )
     }
     return (
@@ -137,7 +132,7 @@ InternalLink.propTypes = {
     children: PropTypes.node,
     has_no_end_slash: PropTypes.bool,
     is_anchor: PropTypes.bool,
-    locale: PropTypes.any,
+    locale: PropTypes.object,
     mounted: PropTypes.bool,
     to: PropTypes.string.isRequired,
 }
@@ -188,9 +183,11 @@ const ExternalLink = ({
         !deriv_app_links.includes(type) &&
         !deriv_social_platforms.includes(type)
 
+    const default_style = { cursor: 'pointer' }
+
     return (
         <StyledAnchor
-            style={style ? style : { cursor: 'pointer' }}
+            style={style ? style : default_style}
             aria-label={aria_label}
             href={!show_modal ? url : ''}
             onClick={

@@ -9,6 +9,15 @@ import Icon24_7 from 'images/svg/deriv-x/24-7.svg'
 import IconMultipleMarketing from 'images/svg/deriv-x/multiple-marketing.svg'
 import IconNewPromising from 'images/svg/deriv-x/new-promising.svg'
 
+const StyledHeader = styled(Header)`
+    @media ${device.mobileL} {
+        padding: 0 35px;
+    }
+    @media ${device.mobileM} {
+        padding: 0 20px;
+    }
+`
+
 const Card = styled(Flex)`
     flex-direction: column;
     min-width: 200px;
@@ -91,9 +100,9 @@ const WhyTradeDerivX = () => {
         <div>
             <SectionContainer>
                 <Container fd='column'>
-                    <Header type='page-title' align="center">
+                    <StyledHeader type='page-title' align="center">
                         {localize('Why trade with Deriv X')}
-                    </Header>
+                    </StyledHeader>
                     <Flex tablet_direction='column' tablet_ai='center' mt="40px">
                         {card_data.map((index) => {
                             return (

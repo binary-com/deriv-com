@@ -68,14 +68,14 @@ const TradingPassword = () => (
 const DifferentPassword = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">
-            {localize('Why is my tarding password different from my Deriv password?')}
+            {localize('Why is my trading password different from my Deriv password?')}
         </StyledHeader>
     </ArticleWrapper>
 )
 
 const ResetDerivXPassowrd = () => (
     <ArticleWrapper>
-        <StyledHeader as="h4">{localize('How do I rest my Deriv X Password?')}</StyledHeader>
+        <StyledHeader as="h4">{localize('How do I reset my Deriv X Password?')}</StyledHeader>
     </ArticleWrapper>
 )
 
@@ -145,7 +145,7 @@ const DerivXArticle = () => {
                     label="trading-password"
                 />
                 <DifferentPassword
-                    text={localize('Why is my tarding password different from my Deriv password?')}
+                    text={localize('Why is my trading password different from my Deriv password?')}
                     label="differences-of-trading-and-deriv-password"
                 />
                 <ResetDerivXPassowrd

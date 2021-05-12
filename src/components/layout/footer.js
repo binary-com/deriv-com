@@ -315,7 +315,7 @@ const query = graphql`
     }
 `
 
-const Footer = ({ type, is_ppc, is_ppc_redirect }) => {
+const Footer = ({ type, is_ppc, is_ppc_redirect}) => {
     const image_query = useStaticQuery(query)
     const { show_cookie_banner } = React.useContext(LocationContext)
 
@@ -372,7 +372,7 @@ const Footer = ({ type, is_ppc, is_ppc_redirect }) => {
                 text:localize('SmartTrader'),
                 to:'trading',
                 is_smarttrader_link: true,
-                is_external:true,
+                external:true,
             }
         ]
     }
@@ -461,8 +461,8 @@ const Footer = ({ type, is_ppc, is_ppc_redirect }) => {
             },
             {
                 text: localize('Community'),
-                to:'',
-                is_external: true,
+                to:'/',
+                external: true,
                 is_community_link: true,
             },
             {
@@ -475,46 +475,41 @@ const Footer = ({ type, is_ppc, is_ppc_redirect }) => {
             },
             {
                 text: localize('Status page'),
-                link: deriv_status_page_url,
-                is_external: true
+                external: true,
+                to:deriv_status_page_url
             },
             {
                 text: localize('Blog'),
-                to:'',
-                is_external: true,
+                to:'/',
+                external: true,
                 is_blog_link: true,
             },
         ]
     }
 
-    const footer_links = [about_links, trade_links, trade_types_links, markets_links, legal_links, partner_links, resources_links ] ;
+    const footer_categories = [about_links, trade_links, trade_types_links, markets_links, legal_links, partner_links, resources_links] ;
 
-    const FooterElement = (elements) => {
+    const FooterElement = ({footer_category}) => {
 
-        const items = elements.elements;
         return (
             <>
                 <LinksCol>
                     <LinkWrapper>
-                        <Title>{items.title}</Title>
+                        <Title>{footer_category.title}</Title>
                     </LinkWrapper>
-                    {items.links.map((item,idx) => (
+                    {footer_category.links.map((link,idx) => (
                         <LinkWrapper key={idx}>
-                            {
-                                // eslint-disable-next-line no-console
-                                console.log(item.text)
-                            }
-                            {
-                                // eslint-disable-next-line no-console
-                                console.log(item.is_community_link)
-                            }
-                            <Link {...item}>{item.text} </Link> :
+                            <Link {...link}>{link.text}</Link>
                         </LinkWrapper>
                     ))
                     }
                 </LinksCol>
             </>
              )
+    }
+
+    FooterElement.propTypes = {
+        footer_category: PropTypes.any
     }
 
     return (
@@ -532,8 +527,8 @@ const Footer = ({ type, is_ppc, is_ppc_redirect }) => {
                     <LinksWrapper>
                         <Show.Desktop>
                             <Flex jc="space-between">
-                                {footer_links.map((footer_links,idx) => (
-                                    <FooterElement key={idx} elements={footer_links} is_ppc = {is_ppc}/>
+                                {footer_categories.map((footer_category,idx) => (
+                                    <FooterElement key={idx} footer_category={footer_category} is_ppc = {is_ppc}/>
                                 ))}
                 
                                 {/* <LinksCol>

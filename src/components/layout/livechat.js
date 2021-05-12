@@ -16,7 +16,7 @@ const StyledLiveChat = styled.div`
     display: flex;
     cursor: pointer;
     border-radius: 50%;
-    z-index: 9999;
+    z-index: 999;
 
     @media (max-width: 1269px) {
         bottom: 11rem;

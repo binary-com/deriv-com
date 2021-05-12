@@ -117,7 +117,7 @@ const AvailablePlatforms = ({
                         rel="noopener noreferrer"
                     >
                         <StyledFlex direction="row" ai="center">
-                            <img src={DerivX} alt="DerivX" width="32" height="32" />
+                            <img src={DerivX} alt="Deriv X" width="32" height="32" />
                             <Text ml="0.4rem">{localize('DerivX')}</Text>
                         </StyledFlex>
                     </a>

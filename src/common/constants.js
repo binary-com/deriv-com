@@ -60,7 +60,6 @@ export const p2p_playstore_url = 'https://play.google.com/store/apps/details?id=
 export const pushwoosh_app_code = 'DD293-35A19'
 export const sample_rate = 25
 export const zoho_url = 'https://deriv.zohorecruit.com'
-export const derivx_url = 'https://deriv.com/derivx/'
 
 export const fb_url = 'https://www.facebook.com/derivdotcom'
 export const fb_url_career = 'https://www.facebook.com/derivcareers'

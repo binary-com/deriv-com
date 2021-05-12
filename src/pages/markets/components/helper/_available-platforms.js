@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { smarttrader_url, derivx_url } from '../../../../common/constants'
+import { smarttrader_url } from '../../../../common/constants'
 import { Flex } from 'components/containers'
 import { Text } from 'components/elements'
 import { localize, LocalizedLink } from 'components/localization'
@@ -112,7 +112,7 @@ const AvailablePlatforms = ({
                 )}
                 {derivX && (
                     <a
-                        href={derivx_url}
+                        href="/derivx"
                         target="_blank"
                         rel="noopener noreferrer"
                     >

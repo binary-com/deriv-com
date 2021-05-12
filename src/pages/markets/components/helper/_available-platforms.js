@@ -111,16 +111,12 @@ const AvailablePlatforms = ({
                     </a>
                 )}
                 {derivx && (
-                    <a
-                        href="/derivx"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
+                    <LocalizedLink to="/derivx/">
                         <StyledFlex direction="row" ai="center">
                             <img src={DerivX} alt="Deriv X" width="32" height="32" />
                             <Text ml="0.4rem">{localize('Deriv X')}</Text>
                         </StyledFlex>
-                    </a>
+                    </LocalizedLink>
                 )}
             </PlatformsContainer>
         </Flex>

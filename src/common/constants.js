@@ -31,10 +31,6 @@ export const besquare_signup_url =
     'https://deriv.zohorecruit.com/jobs/Careers/590522000011882533/BeSquare-Graduate-Trainee?source=CareerSite'
 export const binary_url = 'https://binary.com'
 export const brand_name = 'Deriv'
-export const cfd_warning_height = {
-    desktop: 8,
-    tablet: 12,
-}
 export const client_token = 'pubc42fda54523c5fb23c564e3d8bceae88'
 export const deriv_app_languages = ['id', 'pt', 'es']
 export const deriv_status_page_url = 'https://deriv.statuspage.io'

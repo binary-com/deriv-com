@@ -6,7 +6,7 @@ import { localize, WithIntl } from 'components/localization'
 
 const WhatisDerivX = () => (
     <ArticleWrapper>
-        <StyledHeader as="h4">{localize('What is Deriv X')}</StyledHeader>
+        <StyledHeader as="h4">{localize('What is Deriv X?')}</StyledHeader>
         <Text>
             {localize(
                 'Deriv X is an-easy-to-use trading platform where you can trade CFDs on various assets on a platform layout that you can customise according to your preference.',
@@ -109,7 +109,7 @@ const DerivXArticle = () => {
             <Article
                 header="Deriv X"
                 title={localize('Help Center | Frequently asked questions | Deriv X | Deriv')}
-                description={localize('Frequently asked questions - Deriv x')}
+                description={localize('Frequently asked questions - Deriv X')}
             >
                 <WhatisDerivX text={localize('What is Deriv X?')} label="what-is-deriv-x" />
                 <DepositDerivX
@@ -141,7 +141,7 @@ const DerivXArticle = () => {
                     label="differences-of-synthetic-and-financial"
                 />
                 <TradingPassword
-                    text={localize('What is trading password')}
+                    text={localize('What is trading password?')}
                     label="trading-password"
                 />
                 <DifferentPassword

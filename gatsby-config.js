@@ -55,7 +55,7 @@ module.exports = {
                 ],
                 serialize: ({ site, allSitePage }) =>
                     allSitePage.edges.map((edge) => {
-                        const ignore_localized_regex = /career/;
+                        const ignore_localized_regex = /careers/;
                         const path = edge.node.path
                         let priority = 0.7
                         const languages = Object.keys(language_config)
@@ -84,13 +84,19 @@ module.exports = {
                         languages.push('x-default')
                         languages.splice(languages.indexOf('ach'), 1)
                         const ignore_localized = current_page.match(ignore_localized_regex);
-                        const links = languages.map((locale) => {
+                        let links;
+
+                        links = languages.map((locale) => {
                             if (locale !== 'ach' && locale) {
                                 const replaced_locale = locale.replace('_', '-')
                                 const is_default = locale === 'en' || locale === 'x-default'
                                 const href_locale = (is_default || ignore_localized) ? '' : `/${replaced_locale}`
                                 const href = `${site.siteMetadata.siteUrl}${href_locale}${current_page}`
-                                return { lang: replaced_locale, url: href }
+                                if (!ignore_localized) {
+                                    return { lang: replaced_locale, url: href }
+                                } else {
+                                    return
+                                }
                             }
                         })
 

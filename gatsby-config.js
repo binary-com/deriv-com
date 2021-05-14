@@ -90,13 +90,9 @@ module.exports = {
                             if (locale !== 'ach' && locale) {
                                 const replaced_locale = locale.replace('_', '-')
                                 const is_default = locale === 'en' || locale === 'x-default'
-                                const href_locale = (is_default || ignore_localized) ? '' : `/${replaced_locale}`
+                                const href_locale = (is_default) ? '' : `/${replaced_locale}`
                                 const href = `${site.siteMetadata.siteUrl}${href_locale}${current_page}`
-                                if (!ignore_localized) {
-                                    return { lang: replaced_locale, url: href }
-                                } else {
-                                    return
-                                }
+                                return { lang: replaced_locale, url: href }
                             }
                         })
 
@@ -104,7 +100,7 @@ module.exports = {
                             url: site.siteMetadata.siteUrl + edge.node.path,
                             changefreq: `monthly`,
                             priority,
-                            links,
+                            links: !ignore_localized ? links : null,
                         }
                     }),
             },

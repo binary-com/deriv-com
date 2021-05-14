@@ -215,7 +215,8 @@ const StartDerivX = () => {
                         {localize('Demo account')}
                     </StyledText>
                 </TabItem>
-                <TabItem
+                {/* TODO: Enable once real money account is available */}
+                {/* <TabItem
                     mobile_padding="12px 24px"
                     active={tab === 'real'}
                     onClick={() => onTabClick('real')}
@@ -223,7 +224,7 @@ const StartDerivX = () => {
                     <StyledText size="var(--text-size-m)" align="center">
                         {localize('Real money account')}
                     </StyledText>
-                </TabItem>
+                </TabItem> */}
             </Flex>
 
             <Flex max_width="1200px">

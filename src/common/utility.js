@@ -2,7 +2,7 @@ import Cookies from 'js-cookie'
 import extend from 'extend'
 import { deriv_cookie_domain, deriv_app_languages } from './constants'
 
-export const trimSpaces = (value) => value.trim()
+export const trimSpaces = (value) => value?.trim()
 
 export const toISOFormat = (date) => {
     if (date instanceof Date) {
@@ -179,4 +179,27 @@ export const getLocalizedUrl = (path, is_index, to) => `/${path}${is_index ? `` 
 export const nonENLangUrlReplace = (current_path) => {
     const path_with_or_without_slash = /\/.+?(\/)|(\/[a-zA-Z'-]+)/u
     return current_path.replace(path_with_or_without_slash, '')
+}
+
+export const getDateFromToday = (num_of_days) => {
+    const today = new Date()
+    const next_week_date = new Date(
+        today.getFullYear(),
+        today.getMonth(),
+        today.getDate() + num_of_days,
+    )
+
+    return next_week_date
+}
+
+export const isNullUndefined = (value) => value === null || value === undefined
+
+export const isObject = (value) => typeof value === 'object'
+
+export const isJSONString = (value) => {
+    try {
+        return JSON.parse(value) && !!value
+    } catch (e) {
+        return false
+    }
 }

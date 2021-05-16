@@ -9,7 +9,6 @@ module.exports = {
         author: 'Deriv.com',
         siteUrl: 'https://deriv.com',
     },
-    flags: { PRESERVE_WEBPACK_CACHE: true },
     plugins: [
         'gatsby-plugin-react-helmet',
         'gatsby-plugin-styled-components',

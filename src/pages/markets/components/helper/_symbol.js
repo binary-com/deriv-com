@@ -25,7 +25,7 @@ const Symbol = ({ instruments_type, src, text }) => (
 )
 
 Symbol.propTypes = {
-    instruments_type: PropTypes.object,
+    instruments_type: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
     src: PropTypes.string,
     text: PropTypes.string,
 }

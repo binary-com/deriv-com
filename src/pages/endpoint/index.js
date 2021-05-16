@@ -1,6 +1,7 @@
-import React from 'react'
+import * as React from 'react'
 import styled from 'styled-components'
 import { Formik, Form } from 'formik'
+import { WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { Container, SEO } from 'components/containers'
 import { Header, Text } from 'components/elements'
@@ -9,7 +10,8 @@ import validation from 'common/validation'
 import { trimSpaces } from 'common/utility'
 import { default_server_url } from 'common/constants'
 import { getAppId } from 'common/websocket/config'
-import { useStickyState } from 'components/hooks/use-sticky-state'
+import { DerivStore } from 'store'
+import { useLocalStorageState } from 'components/hooks/use-localstorage-state'
 
 const StyledContainer = styled(Container)`
     text-align: center;
@@ -34,8 +36,10 @@ const StyledButton = styled(Button)`
 const endpointValidation = (values) => {
     let errors = {}
 
-    const server_url_error = validation.text(trimSpaces(values.server_url))
-    const app_id_error = validation.text(trimSpaces(values.app_id))
+    const server_url = trimSpaces(values ? values.server_url : '')
+    const app_id = trimSpaces(values ? values.app_id.toString() : '')
+    const server_url_error = validation.text(server_url)
+    const app_id_error = validation.text(app_id)
 
     if (server_url_error) {
         errors.server_url = server_url_error
@@ -48,15 +52,42 @@ const endpointValidation = (values) => {
     return errors
 }
 
-const endpointSubmission = (values, actions) => {
-    console.log(values)
-}
-
 const Endpoint = () => {
-    const [server_url, setServerUrl] = useStickyState(default_server_url, 'config.server_url')
-    const [app_id, setAppId] = useStickyState(getAppId(), 'config.app_id')
+    const [server_url, setServerUrl] = useLocalStorageState(default_server_url, 'config.server_url')
+    const [app_id, setAppId] = useLocalStorageState(getAppId(), 'config.app_id')
+    const { website_status, setWebsiteStatus, website_status_loading } = React.useContext(
+        DerivStore,
+    )
+    const TIMOUT_DELAY = 1500
 
-    const resetEndpointSettings = (setValue) => {}
+    const handleStatus = (setStatus, message) => {
+        setStatus({ message })
+        setTimeout(() => {
+            setStatus({})
+        }, TIMOUT_DELAY)
+    }
+    const resetEndpointSettings = (setStatus) => {
+        setServerUrl(default_server_url)
+        setAppId(getAppId())
+        setWebsiteStatus()
+        handleStatus(setStatus, 'Config has been reset successfully')
+        // TODO: if there is a change requires reload in the future
+        // window.location.reload()
+    }
+    const endpointSubmission = (values, actions) => {
+        actions.setSubmitting(true)
+        setServerUrl(values.server_url)
+        setAppId(values.app_id)
+
+        // handle website status changes
+        const new_website_status = { ...website_status, clients_country: values.clients_country }
+        setWebsiteStatus(new_website_status)
+        actions.setSubmitting(false)
+        handleStatus(actions.setStatus, 'Config has been updated')
+        // TODO: if there is a change requires reload in the future
+        // window.location.reload()
+    }
+
     return (
         <Layout type="static" margin_top={'0'}>
             <SEO title="Endpoint" description="Change deriv API endpoint." no_index />
@@ -72,16 +103,18 @@ const Endpoint = () => {
                     mt="0.5rem"
                     mb="3.8rem"
                 >
-                    Update configuration for API endpoint and other settings
+                    Update configuration for API endpoint or other settings
                 </Header>
                 <Formik
                     initialValues={{
-                        server_url: '',
-                        app_id: '',
-                        enable_eu: false,
-                        enable_uk: false,
-                        enable_p2p: false,
+                        server_url: server_url,
+                        app_id: app_id,
+                        // this implicit check is required by formik for `enableReinitialize` to work
+                        clients_country: website_status?.clients_country
+                            ? website_status?.clients_country
+                            : '',
                     }}
+                    enableReinitialize={true}
                     validate={endpointValidation}
                     onSubmit={endpointSubmission}
                 >
@@ -91,45 +124,66 @@ const Endpoint = () => {
                         handleChange,
                         handleBlur,
                         isSubmitting,
-                        resetForm,
+                        setStatus,
+                        setFieldValue,
+                        dirty,
+                        touched,
                         status,
                     }) => (
                         <Form noValidate>
                             <InputGroup>
                                 <Input
-                                    id="email"
-                                    name="email"
-                                    error={errors.email}
-                                    value={trimSpaces(values.email)}
-                                    handleError={resetForm}
+                                    name="server_url"
+                                    error={errors.server_url}
+                                    value={values.server_url}
+                                    handleError={() => setFieldValue('server_url', '')}
                                     onChange={handleChange}
                                     onBlur={handleBlur}
-                                    autoComplete="off"
                                     type="text"
-                                    label="Email"
+                                    label="Server URL"
                                     background="white"
-                                    placeholder={'example@email.com'}
-                                    data-lpignore="true"
-                                    required
+                                    placeholder={'qa10.deriv.dev'}
+                                />
+                                <Input
+                                    name="app_id"
+                                    error={errors.app_id}
+                                    value={values.app_id}
+                                    handleError={() => setFieldValue('app_id', '')}
+                                    onChange={handleChange}
+                                    onBlur={handleBlur}
+                                    type="text"
+                                    label="App ID"
+                                    background="white"
+                                    placeholder={'9999'}
+                                />
+                                <Input
+                                    name="clients_country"
+                                    error={errors.clients_country}
+                                    value={values.clients_country}
+                                    disabled={website_status_loading}
+                                    handleError={() => setFieldValue('clients_country', '')}
+                                    onChange={handleChange}
+                                    onBlur={handleBlur}
+                                    type="text"
+                                    label="Clients country"
+                                    background="white"
+                                    placeholder={'mt (for EU) or gb (for UK) or za (for P2P)'}
                                 />
                             </InputGroup>
-                            <Text align="center" color="red">
-                                {status.error && status.error}
-                            </Text>
                             <Text align="center" color="green">
-                                {status.success && status.success}
+                                {status?.message && status.message}
                             </Text>
                             <ButtonContainer>
                                 <StyledButton
                                     tertiary
-                                    onClick={resetEndpointSettings}
+                                    onClick={() => resetEndpointSettings(setStatus)}
                                     type="button"
                                 >
                                     Reset to original settings
                                 </StyledButton>
                                 <StyledButton
                                     secondary="true"
-                                    disabled={isSubmitting}
+                                    disabled={isSubmitting || !dirty || !touched}
                                     type="submit"
                                 >
                                     Submit changes
@@ -143,4 +197,4 @@ const Endpoint = () => {
     )
 }
 
-export default Endpoint
+export default WithIntl()(Endpoint)

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styled, { css } from 'styled-components'
 import PropTypes from 'prop-types'
 import { Arrow, BottomLabel, DropdownContainer, ItemList, StyledLabel } from './dropdown'
-import { useDropdownHooks } from 'components/hooks/dropdown-hooks'
+import { useDropdown } from 'components/hooks/use-dropdown'
 import device from 'themes/device'
 import { Flex } from 'components/containers'
 
@@ -48,14 +48,9 @@ const DropdownSearch = ({
 }) => {
     const [input_value, setInputValue] = useState('')
     const [dropdown_items, setDropdownItems] = useState([...items])
-    const [
-        is_open,
-        dropdown_ref,
-        nodes,
-        handleChange,
-        toggleListVisibility,
-        setOpen,
-    ] = useDropdownHooks(onChange)
+    const [is_open, dropdown_ref, nodes, handleChange, toggleListVisibility, setOpen] = useDropdown(
+        onChange,
+    )
 
     const handleInputChange = (e) => {
         setInputValue(e.target.value)

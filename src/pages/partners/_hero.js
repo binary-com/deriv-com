@@ -4,7 +4,7 @@ import PartnerVideo from './partner-video.mp4'
 import { localize } from 'components/localization'
 import { Container } from 'components/containers'
 import { Header } from 'components/elements'
-import { useLazyVideo } from 'components/hooks/lazy-video'
+import { useLazyVideo } from 'components/hooks/use-lazy-video'
 
 const StyledHero = styled.div`
     width: 100%;

@@ -231,7 +231,7 @@ export const OtherPlatform = ({ header, subHeader, exclude, is_nav, is_ppc_redir
             {exclude.toLowerCase() !== 'dtrader' && <TraderCard />}
             {exclude.toLowerCase() !== 'dbot' && <BotCard />}
             {exclude.toLowerCase() !== 'dmt5' && <DMT5Card is_ppc_redirect={is_ppc_redirect} />}
-            {exclude.toLowerCase() !== 'Derivx' && <DerivXCard is_ppc_redirect={is_ppc_redirect} />}
+            {exclude.toLowerCase() !== 'derivx' && <DerivXCard is_ppc_redirect={is_ppc_redirect} />}
         </StyledFlexGridContainer>
     </SectionContainer>
 )

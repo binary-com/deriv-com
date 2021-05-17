@@ -18,7 +18,10 @@ const WhatisDerivX = () => (
 const DepositDerivX = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">
-            {localize('What is  the minimum/ maximum I can deposit into my Deriv X account?')}
+            {<Localize
+                translate_text="What is  the minimum/ maximum I can deposit into my <0/>Deriv X account?<0/>"
+                components={[<br key={0} />]}
+            />}
         </StyledHeader>
         <Text>
             {localize(

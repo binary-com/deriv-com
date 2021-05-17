@@ -264,7 +264,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                 to="/dtrader/"
                             />
                         </Flex>
-                        <Flex>
+                        <Flex mb="2rem">
                             <NavCard
                                 aria_label="SmartTrader"
                                 icon={() => (

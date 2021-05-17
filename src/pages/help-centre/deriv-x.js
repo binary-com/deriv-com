@@ -1,8 +1,8 @@
 import React from 'react'
 import { Article } from './_article'
-import { ArticleWrapper, StyledHeader } from './_help-centre-style'
-import { Text } from 'components/elements'
-import { localize, WithIntl } from 'components/localization'
+import { ArticleWrapper, StyledHeader, StyledText } from './_help-centre-style'
+import { Text, LocalizedLinkText } from 'components/elements'
+import { localize, Localize, WithIntl } from 'components/localization'
 
 const WhatisDerivX = () => (
     <ArticleWrapper>
@@ -20,12 +20,22 @@ const DepositDerivX = () => (
         <StyledHeader as="h4">
             {localize('What is  the minimum/ maximum I can deposit into my Deriv X account?')}
         </StyledHeader>
+        <Text>
+            {localize(
+                'There is no minimum deposit. You can make a maximum deposit of USD2,500 twelve times a day.',
+            )}
+        </Text>
     </ArticleWrapper>
 )
 
 const DerivXMarkets = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('What markets can I trade on Deriv X?')}</StyledHeader>
+        <Text>
+            {localize(
+                'You can trade CFDs on forex, cryptocurrencies, commodities, and our proprietary synthetic indices on Deriv X.',
+            )}
+        </Text>
     </ArticleWrapper>
 )
 
@@ -34,20 +44,43 @@ const DerivXTrade = () => (
         <StyledHeader as="h4">
             {localize('What is the minimum and maximum amount to trade on Deriv X?')}
         </StyledHeader>
+        <Text>
+            {localize(
+                'This depends on the trade type. To find out, right click on the specific asset and select “Instrument info”.',
+            )}
+        </Text>
     </ArticleWrapper>
 )
 
 const DifferenceDMT5DTraderDerivX = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">
-            {localize('What are the major differences between DTrader, Deriv MT5 (DMT5) and Deriv X?')}
+            {localize(
+                'What are the major differences between DTrader, Deriv MT5 (DMT5) and Deriv X?',
+            )}
         </StyledHeader>
+        <Text>
+            {localize(
+                'DTrader allows you to trade more than 50 assets in the form of digital options, multipliers, and lookbacks.',
+            )}
+        </Text>
+        <StyledText>
+            {localize(
+                'Deriv MT5 (DMT5) and Deriv X are both multi-asset trading platforms where you can trade spot forex and CFDs with leverage on multiple asset classes. The major difference between them is platform layout — MT5 has a simple all-in-one view, while on Deriv X you can customise the layout according to your preference.',
+            )}
+        </StyledText>
     </ArticleWrapper>
 )
 
 const DerivXAccount = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('How do I create a deriv x account?')}</StyledHeader>
+        <Text>
+            <Localize
+                translate_text="On the <0>Deriv X dashboard</0>, select the account type you want to open (Real or Demo) and click “Add account”. Follow the instructions on the screen to create a new Deriv X account."
+                components={[<LocalizedLinkText color="red" key={0} />]}
+            />
+        </Text>
     </ArticleWrapper>
 )
 
@@ -56,12 +89,27 @@ const DifferentAccounts = () => (
         <StyledHeader as="h4">
             {localize('What are the differences between Synthetics and Financial accounts?')}
         </StyledHeader>
+        <Text>
+            {localize(
+                'The Synthetics account allows you to trade on Deriv’s proprietary synthetic indices that are available 24/7 and simulate real-world market movements.',
+            )}
+        </Text>
+        <StyledText>
+            {localize(
+                'The Financial account is where you trade contracts for difference (CFDs) on financial markets such as forex, cryptocurrencies, and commodities.',
+            )}
+        </StyledText>
     </ArticleWrapper>
 )
 
 const TradingPassword = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('What is a trading password?')}</StyledHeader>
+        <Text>
+            {localize(
+                'It is a password that gives you access to the standalone trading platforms Deriv MT5 (DMT5) and Deriv X.',
+            )}
+        </Text>
     </ArticleWrapper>
 )
 
@@ -70,12 +118,28 @@ const DifferentPassword = () => (
         <StyledHeader as="h4">
             {localize('Why is my trading password different from my Deriv password?')}
         </StyledHeader>
+        <Text>
+            {localize(
+                'Your trading password is linked to the standalone trading platforms Deriv MT5 (DMT5) and Deriv X, while your Deriv password gives you access to platforms hosted on our website such as DTrader and DBot.',
+            )}
+        </Text>
     </ArticleWrapper>
 )
 
 const ResetDerivXPassowrd = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('How do I reset my Deriv X Password?')}</StyledHeader>
+        <Text>
+            <Localize
+                translate_text="Go to your <0>Account settings</0>. Under “Security and safety”, select “Passwords”. You can reset your Deriv X password under “Trading password”."
+                components={[<LocalizedLinkText color="red" key={0} />]}
+            />
+        </Text>
+        <StyledText>
+            {localize(
+                'Note: Remember that your trading password is also linked to your Deriv MT5 (DMT5) account.',
+            )}
+        </StyledText>
     </ArticleWrapper>
 )
 
@@ -84,6 +148,12 @@ const AccountInformation = () => (
         <StyledHeader as="h4">
             {localize('Where can I find my Deriv X account information?')}
         </StyledHeader>
+        <Text>
+            <Localize
+                translate_text="You can view your account information (account type and login numbers) on the <0>Deriv X dashboard</0>. "
+                components={[<LocalizedLinkText color="red" key={0} />]}
+            />
+        </Text>
     </ArticleWrapper>
 )
 
@@ -92,6 +162,17 @@ const DerivXRealMoneyAccount = () => (
         <StyledHeader as="h4">
             {localize('How can I deposit funds into my Deriv X real money account?')}
         </StyledHeader>
+        <Text>
+            <Localize
+                translate_text="To deposit funds into your Deriv X account on Deriv, you’ll need to use the funds in your Deriv account. Go to Cashier > <0>Transfer between accounts</0> and follow the instructions on the screen."
+                components={[<LocalizedLinkText color="red" key={0} />]}
+            />
+        </Text>
+        <StyledText>
+            {localize(
+                'Transfers are instant. Once you’ve completed all the steps, your Deriv X account balance will be updated immediately.',
+            )}
+        </StyledText>
     </ArticleWrapper>
 )
 
@@ -100,6 +181,22 @@ const WithdrawDerivX = () => (
         <StyledHeader as="h4">
             {localize('How do I withdraw funds from my Deriv X real money account?')}
         </StyledHeader>
+        <Text>
+            {localize(
+                'To withdraw funds from your Deriv X account on Deriv, you’ll first need to transfer the funds to your Deriv account. Go to Cashier > Transfer between accounts and follow the instructions on the screen.',
+            )}
+        </Text>
+        <StyledText>
+            {localize(
+                'To withdraw from your Deriv account into your personal account, go to Cashier -> Withdrawal and follow the instructions on the screen. You’ll need to verify your identity and confirm your withdrawal amount.',
+            )}
+        </StyledText>
+        <Text mt="1.7rem">
+            <Localize
+                translate_text="After the required processing time of your selected payment method, your funds will be deposited into your personal account. You can check processing times on our <0>Payment methods</0> page."
+                components={[<LocalizedLinkText color="red" key={0} />]}
+            />
+        </Text>
     </ArticleWrapper>
 )
 
@@ -113,7 +210,9 @@ const DerivXArticle = () => {
             >
                 <WhatisDerivX text={localize('What is Deriv X?')} label="what-is-deriv-x" />
                 <DepositDerivX
-                    text={localize('What is the minimum/ maximum I can deposit into my Deriv X account?')}
+                    text={localize(
+                        'What is the minimum/ maximum I can deposit into my Deriv X account?',
+                    )}
                     label="minimum-or-maximum-deposit"
                 />
                 <DerivXMarkets
@@ -126,7 +225,7 @@ const DerivXArticle = () => {
                 />
                 <DifferenceDMT5DTraderDerivX
                     text={localize(
-                        'What are the major differences between DTrader, Deriv MT5 (DMT5) and Deriv X?'
+                        'What are the major differences between DTrader, Deriv MT5 (DMT5) and Deriv X?',
                     )}
                     label="differences-of-dtrader-dmt5-deriv-x"
                 />
@@ -136,7 +235,7 @@ const DerivXArticle = () => {
                 />
                 <DifferentAccounts
                     text={localize(
-                        'What are the differences between Synthetics and Financial accounts?'
+                        'What are the differences between Synthetics and Financial accounts?',
                     )}
                     label="differences-of-synthetic-and-financial"
                 />

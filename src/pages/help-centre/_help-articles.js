@@ -284,13 +284,13 @@ export const articles = [
                 label: 'differences-of-synthetic-and-financial',
             },
             {
-                title: <Localize translate_text="What is trading password?" />,
+                title: <Localize translate_text="What is a trading password?" />,
                 category: 'Deriv X',
                 sub_category: <Localize translate_text="Platforms" />,
                 label: 'trading-password',
             },
             {
-                title: <Localize translate_text="Why is my tarding password different from my Deriv password?" />,
+                title: <Localize translate_text="Why is my trading password different from my Deriv password?" />,
                 category: 'Deriv X',
                 sub_category: <Localize translate_text="Platforms" />,
                 label: 'differences-of-trading-and-deriv-password',

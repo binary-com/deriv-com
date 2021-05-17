@@ -61,7 +61,7 @@ const DifferentAccounts = () => (
 
 const TradingPassword = () => (
     <ArticleWrapper>
-        <StyledHeader as="h4">{localize('What is trading password?')}</StyledHeader>
+        <StyledHeader as="h4">{localize('What is a trading password?')}</StyledHeader>
     </ArticleWrapper>
 )
 
@@ -141,7 +141,7 @@ const DerivXArticle = () => {
                     label="differences-of-synthetic-and-financial"
                 />
                 <TradingPassword
-                    text={localize('What is trading password?')}
+                    text={localize('What is a trading password?')}
                     label="trading-password"
                 />
                 <DifferentPassword

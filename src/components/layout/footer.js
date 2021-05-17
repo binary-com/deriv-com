@@ -394,6 +394,9 @@ const Footer = ({ type, is_ppc, is_ppc_redirect }) => {
                                         </Link>
                                     </LinkWrapper>
                                     <LinkWrapper>
+                                        <Link to="/derivx/">{localize('Deriv X')}</Link>
+                                    </LinkWrapper>
+                                    <LinkWrapper>
                                         <Link
                                             to="trading"
                                             is_smarttrader_link

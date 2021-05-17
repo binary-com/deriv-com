@@ -4,10 +4,11 @@ import { BinarySocketBase } from 'common/websocket/socket_base'
 import { getDateFromToday } from 'common/utility'
 
 const WEBSITE_STATUS_COUNTRY_KEY = 'website_status'
+const COOKIE_EXPIRY_DAYS = 7
 
 export const useWebsiteStatus = () => {
     const [website_status, setWebsiteStatus] = useCookieState(null, WEBSITE_STATUS_COUNTRY_KEY, {
-        expires: getDateFromToday(7),
+        expires: getDateFromToday(COOKIE_EXPIRY_DAYS),
     })
     const [is_loading, setLoading] = useState(true)
 

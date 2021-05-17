@@ -183,13 +183,9 @@ export const nonENLangUrlReplace = (current_path) => {
 
 export const getDateFromToday = (num_of_days) => {
     const today = new Date()
-    const next_week_date = new Date(
-        today.getFullYear(),
-        today.getMonth(),
-        today.getDate() + num_of_days,
-    )
+    const end_date = new Date(today.getFullYear(), today.getMonth(), today.getDate() + num_of_days)
 
-    return next_week_date
+    return end_date
 }
 
 export const isNullUndefined = (value) => value === null || value === undefined

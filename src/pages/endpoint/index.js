@@ -58,13 +58,13 @@ const Endpoint = () => {
     const { website_status, setWebsiteStatus, website_status_loading } = React.useContext(
         DerivStore,
     )
-    const TIMOUT_DELAY = 1500
+    const TIMEOUT_DELAY = 1500
 
     const handleStatus = (setStatus, message) => {
         setStatus({ message })
         setTimeout(() => {
             setStatus({})
-        }, TIMOUT_DELAY)
+        }, TIMEOUT_DELAY)
     }
     const resetEndpointSettings = (setStatus) => {
         setServerUrl(default_server_url)

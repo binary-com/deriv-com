@@ -12,7 +12,6 @@ import {
     Divider,
 } from 'components/elements'
 import { localize, LocalizedLink, Localize } from 'components/localization'
-import { blog_url, community_url, derivx_url } from 'common/constants'
 import device from 'themes/device'
 import { DerivStore } from 'store'
 // icons
@@ -156,8 +155,8 @@ export const DMT5Card = ({ is_selected, is_ppc_redirect, word_break_cover }) => 
     </StyledLink>
 )
 
-export const DerivXCard = ({ is_selected, is_ppc_redirect, word_break_cover }) => (
-    <StyledLink ariaLabel="Deriv X" to={is_ppc_redirect ? 'URL' : '/derivx'}>
+export const DerivXCard = ({ is_selected, word_break_cover }) => (
+    <StyledLink ariaLabel="Deriv X" to="/derivx">
         <Card
             Icon={() => <StyledDerivX src={DerivX} alt="Deriv X" width="72" height="72" />}
             content={[localize('CFD trading on a customisable multi-asset platform.')]}
@@ -231,7 +230,7 @@ export const OtherPlatform = ({ header, subHeader, exclude, is_nav, is_ppc_redir
             {exclude.toLowerCase() !== 'dtrader' && <TraderCard />}
             {exclude.toLowerCase() !== 'dbot' && <BotCard />}
             {exclude.toLowerCase() !== 'dmt5' && <DMT5Card is_ppc_redirect={is_ppc_redirect} />}
-            {exclude.toLowerCase() !== 'Derivx' && <DerivXCard is_ppc_redirect={is_ppc_redirect} />}
+            {exclude.toLowerCase() !== 'Derivx' && <DerivXCard />}
         </StyledFlexGridContainer>
     </SectionContainer>
 )
@@ -264,12 +263,12 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                     <Flex direction="column" wrap="wrap" jc="flex-start">
                         <StyledText>{localize('Trade types')}</StyledText>
                         <NavCard
-                            aria_label="CFDs"
+                            aria_label="Margin trading"
                             icon={() => <img src={Margin} alt="Margin" width="32" height="32" />}
                             content={
                                 <Localize translate_text="Trade with leverage and low spreads for better returns on successful trades." />
                             }
-                            title={<Localize translate_text="CFDs" />}
+                            title={<Localize translate_text="Margin trading" />}
                             onClick={onClick}
                             to="/trade-types/margin/"
                         />
@@ -324,7 +323,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                     }
                     title={<Localize translate_text="Deriv X" />}
                     onClick={onClick}
-                    to={derivx_url}
+                    to="/derivx/"
                 />
                 <NavCard
                     aria_label="SmartTrader"
@@ -492,7 +491,9 @@ export const NavResources = ({ onClick }) => (
             icon={() => <img src={Community} alt="community" width="24" height="24" />}
             title={localize('Community')}
             onClick={onClick}
-            to={community_url}
+            to=""
+            is_community_link
+            external="true"
             target="_blank"
             rel="noopener noreferrer"
         />
@@ -518,7 +519,9 @@ export const NavResources = ({ onClick }) => (
             icon={() => <img src={Blog} alt="blog" width="24" height="24" />}
             title={localize('Blog')}
             onClick={onClick}
-            to={blog_url}
+            to=""
+            is_blog_link
+            external="true"
             target="_blank"
             rel="noopener noreferrer"
         />

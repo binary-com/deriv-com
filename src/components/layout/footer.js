@@ -265,6 +265,7 @@ export const FooterElement = ({footer_category, is_ppc_redirect } ) => {
                     <Title>{footer_category.title}</Title>
                 </LinkWrapper>
                 {footer_category.links.map((link,idx) => (
+                    link.hide_ppc && is_ppc_redirect === true? <> </> :
                     link.hide_eu ?
                     <Show.NonEU key={idx}>
                         <LinkWrapper>
@@ -399,7 +400,6 @@ const Footer = ({ type, is_ppc_redirect }) => {
     }
 
     const trade_links = {
-        hide_ppc: true,
         title: localize('TRADE'),
         links: [
             {
@@ -424,6 +424,7 @@ const Footer = ({ type, is_ppc_redirect }) => {
     }
 
     const trade_types_links = {
+        hide_ppc: true,
         title: localize('TRADE TYPES'),
         links: [
             {
@@ -444,7 +445,6 @@ const Footer = ({ type, is_ppc_redirect }) => {
 
     const markets_links = {
         title: localize('MARKETS'),
-        hide_ppc: true,
         links: [
             {
                 text:localize('Forex'),
@@ -453,6 +453,7 @@ const Footer = ({ type, is_ppc_redirect }) => {
             {
                 text: localize('Synthetic indices'),
                 to:'/markets#synthetic',
+                hide_ppc: true,
                 hide_eu: true
             },
             {
@@ -534,8 +535,6 @@ const Footer = ({ type, is_ppc_redirect }) => {
     }
 
     const footer_categories = [about_links, trade_links, trade_types_links, markets_links, legal_links, partner_links, resources_links] ;
-
-    console.log(is_ppc_redirect);
     return (
         <StyledFooter has_banner_cookie={show_cookie_banner}>
             <Container>

@@ -27,6 +27,7 @@ const PlatformsContainer = styled(Flex)`
     }
     a:last-child {
         margin-right: 0;
+        min-width: 91px;
     }
     @media ${device.tablet} {
         width: ${(props) => props.width};

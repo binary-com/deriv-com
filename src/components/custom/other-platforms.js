@@ -156,7 +156,7 @@ export const DMT5Card = ({ is_selected, is_ppc_redirect, word_break_cover }) => 
 )
 
 export const DerivXCard = ({ is_selected, word_break_cover }) => (
-    <StyledLink ariaLabel="Deriv X" to="/derivx">
+    <StyledLink ariaLabel="Deriv X" to="/derivx/">
         <Card
             Icon={() => <StyledDerivX src={DerivX} alt="Deriv X" width="72" height="72" />}
             content={[localize('CFD trading on a customisable multi-asset platform.')]}
@@ -230,7 +230,7 @@ export const OtherPlatform = ({ header, subHeader, exclude, is_nav, is_ppc_redir
             {exclude.toLowerCase() !== 'dtrader' && <TraderCard />}
             {exclude.toLowerCase() !== 'dbot' && <BotCard />}
             {exclude.toLowerCase() !== 'dmt5' && <DMT5Card is_ppc_redirect={is_ppc_redirect} />}
-            {exclude.toLowerCase() !== 'Derivx' && <DerivXCard />}
+            {exclude.toLowerCase() !== 'derivx' && <DerivXCard />}
         </StyledFlexGridContainer>
     </SectionContainer>
 )

@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React from 'react'
 import styled, { css } from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
@@ -18,7 +19,7 @@ import {
 } from 'common/constants'
 // TODO: (discussion) make footer pure component, and move usage of footer to custom
 import device from 'themes/device'
-import { localize, Localize, LocalizedLink, WithIntl } from 'components/localization'
+import { localize, Localize, LocalizedLink } from 'components/localization'
 // Icons
 import CopyrightIc from 'images/svg/copyright.svg'
 import Logo from 'images/svg/deriv-footer.svg'
@@ -254,11 +255,11 @@ const mobile_accordion_header = {
     boxShadow: 'none',
 }
 
-export const FooterElement = ({footer_category}, is_ppc ) => {
+export const FooterElement = ({footer_category, is_ppc_redirect } ) => {
 
     return (
         <>
-            {footer_category.hide_ppc && is_ppc === true ? <> </> :
+            {footer_category.hide_ppc && is_ppc_redirect === true ? <> </> :
                 <LinksCol>
                 <LinkWrapper>
                     <Title>{footer_category.title}</Title>
@@ -283,7 +284,8 @@ export const FooterElement = ({footer_category}, is_ppc ) => {
 
 FooterElement.propTypes = {
     footer_category: PropTypes.any,
-    is_ppc: PropTypes.any
+    is_ppc: PropTypes.bool,
+    is_ppc_redirect: PropTypes.bool
 }
 
 const mobile_accordion_header_about = Object.assign({}, mobile_accordion_header)
@@ -359,7 +361,7 @@ const query = graphql`
     }
 `
 
-const Footer = ({ type, is_ppc, is_ppc_redirect }) => {
+const Footer = ({ type, is_ppc_redirect }) => {
     const image_query = useStaticQuery(query)
     const { show_cookie_banner } = React.useContext(LocationContext)
 
@@ -533,6 +535,7 @@ const Footer = ({ type, is_ppc, is_ppc_redirect }) => {
 
     const footer_categories = [about_links, trade_links, trade_types_links, markets_links, legal_links, partner_links, resources_links] ;
 
+    console.log(is_ppc_redirect);
     return (
         <StyledFooter has_banner_cookie={show_cookie_banner}>
             <Container>
@@ -549,7 +552,7 @@ const Footer = ({ type, is_ppc, is_ppc_redirect }) => {
                         <Show.Desktop>
                             <Flex jc="space-between">
                                 {footer_categories.map((footer_category,idx) => (
-                                    <FooterElement key={idx} footer_category={footer_category} is_ppc = {is_ppc}/>
+                                    <FooterElement key={idx} footer_category={footer_category} is_ppc_redirect = {is_ppc_redirect}/>
                                 ))}
                             </Flex>
                         </Show.Desktop>
@@ -866,4 +869,4 @@ Footer.propTypes = {
     type: PropTypes.string,
 }
 
-export default WithIntl()(Footer)
+export default Footer

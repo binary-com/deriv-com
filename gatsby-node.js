@@ -12,6 +12,7 @@ exports.onCreatePage = ({ page, actions }) => {
     const is_responsible_trading = /responsible/g.test(page.path)
     const is_contact_us = /contact_us/g.test(page.path)
     const is_p2p = /responsible/g.test(page.path)
+    const is_about = /about/g.test(page.path)
 
     if (is_responsible_trading) {
         createRedirect({
@@ -59,6 +60,21 @@ exports.onCreatePage = ({ page, actions }) => {
         createRedirect({
             fromPath: `/p2p/v2`,
             toPath: `/p2p`,
+            redirectInBrowser: true,
+            isPermanent: true,
+        })
+    }
+
+    if (is_about) {
+        createRedirect({
+            fromPath: `/about/`,
+            toPath: `/about/story/`,
+            redirectInBrowser: true,
+            isPermanent: true,
+        })
+        createRedirect({
+            fromPath: `/about`,
+            toPath: `/about/story/`,
             redirectInBrowser: true,
             isPermanent: true,
         })
@@ -168,6 +184,21 @@ exports.onCreatePage = ({ page, actions }) => {
             createRedirect({
                 fromPath: `/${lang}/p2p/v2`,
                 toPath: `/${lang}/p2p`,
+                redirectInBrowser: true,
+                isPermanent: true,
+            })
+        }
+
+        if (is_about) {
+            createRedirect({
+                fromPath: `/${lang}/about/`,
+                toPath: `/${lang}/about/story/`,
+                redirectInBrowser: true,
+                isPermanent: true,
+            })
+            createRedirect({
+                fromPath: `/${lang}/about`,
+                toPath: `/${lang}/about/story/`,
                 redirectInBrowser: true,
                 isPermanent: true,
             })

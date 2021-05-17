@@ -18,7 +18,7 @@ const WhatisDerivX = () => (
 const DepositDerivX = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">
-            {localize('What is  the minimum/maximum I can deposit into my account?')}
+            {localize('What is  the minimum/ maximum I can deposit into my Deriv X account?')}
         </StyledHeader>
     </ArticleWrapper>
 )
@@ -40,7 +40,7 @@ const DerivXTrade = () => (
 const DifferenceDMT5DTraderDerivX = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">
-            {localize('What is the major difference between DTrader, Deriv MT5(DMT5) and Deriv X?')}
+            {localize('What are the major differences between DTrader, Deriv MT5 (DMT5) and Deriv X?')}
         </StyledHeader>
     </ArticleWrapper>
 )
@@ -113,7 +113,7 @@ const DerivXArticle = () => {
             >
                 <WhatisDerivX text={localize('What is Deriv X?')} label="what-is-deriv-x" />
                 <DepositDerivX
-                    text={localize('What is  the minimum/maximum I can deposit into my account?')}
+                    text={localize('What is the minimum/ maximum I can deposit into my Deriv X account?')}
                     label="minimum-or-maximum-deposit"
                 />
                 <DerivXMarkets
@@ -126,7 +126,7 @@ const DerivXArticle = () => {
                 />
                 <DifferenceDMT5DTraderDerivX
                     text={localize(
-                        'What is the major difference between DTrader, Deriv MT5(DMT5) and Deriv X?'
+                        'What are the major differences between DTrader, Deriv MT5 (DMT5) and Deriv X?'
                     )}
                     label="differences-of-dtrader-dmt5-deriv-x"
                 />

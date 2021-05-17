@@ -248,7 +248,7 @@ export const articles = [
                 label: 'what-is-deriv-x',
             },
             {
-                title: <Localize translate_text="What is  the minimum/maximum I can deposit into my account?" />,
+                title: <Localize translate_text="What is  the minimum/ maximum I can deposit into my Deriv X account?" />,
                 category: 'Deriv X',
                 sub_category: <Localize translate_text="Cashier limits" />,
                 label: 'minimum-or-maximum-deposit',
@@ -266,7 +266,7 @@ export const articles = [
                 label: 'minimum-and-maximum-amount-to-trade',
             },
             {
-                title: <Localize translate_text="What is the major difference between DTrader, Deriv MT5(DMT5) and Deriv X?" />,
+                title: <Localize translate_text="What are the major differences between DTrader, Deriv MT5 (DMT5) and Deriv X?" />,
                 category: 'Deriv X',
                 sub_category: <Localize translate_text="Platforms" />,
                 label: 'differences-of-dtrader-dmt5-deriv-x',

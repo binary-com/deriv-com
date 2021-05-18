@@ -54,7 +54,6 @@ const Wrapper = styled.div`
         bottom: -4rem;
     }
     @media ${device.tablet} {
-        position: fixed;
         width: 100%;
         height: 14.6rem;
         padding: 16px;
@@ -86,9 +85,6 @@ const StyledText = styled(Text)`
     font-size: 14px;
     margin-bottom: 16px;
 
-    @media ${device.bp1060} {
-        font-size: 14px;
-    }
     @media ${device.tablet} {
         font-size: 12px;
         margin-bottom: 8px;
@@ -105,9 +101,6 @@ const StyledText = styled(Text)`
 const LinkText = styled(LocalizedLinkText)`
     font-size: 14px;
 
-    @media ${device.bp1060} {
-        font-size: 14px;
-    }
     @media ${device.tablet} {
         font-size: 12px;
     }

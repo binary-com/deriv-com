@@ -38,7 +38,6 @@ import Story from 'images/svg/menu/story.svg'
 import SyntheticIndices from 'images/svg/synthetic-indices-nav.svg'
 import Terms from 'images/svg/menu/terms.svg'
 import { DerivStore } from 'store'
-import device from 'themes/device'
 import Trade from 'images/svg/trader-tool-nav.svg'
 
 const OffCanvasMenu = styled.section`
@@ -53,18 +52,10 @@ const OffCanvasMenu = styled.section`
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.1);
     left: -254px;
     ${({ is_canvas_menu_open }) => is_canvas_menu_open && 'transform: translateX(254px)'};
-
-    @media ${device.tabletS} {
-        top: 7.2rem;
-    }
 `
 
 const OffCanvasMenuSecondary = styled(OffCanvasMenu)`
     top: 10rem;
-
-    @media ${device.tabletS} {
-        top: 10rem;
-    }
 `
 
 const Span = styled.span`

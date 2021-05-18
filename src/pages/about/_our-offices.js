@@ -48,7 +48,7 @@ const MapImage = styled(BackgroundImage)`
     width: 100%;
     height: 639px;
     background-color: transparent;
-    background-size: contain;
+    background-size: cover;
 
     @media ${device.tabletS} {
         height: 340px;
@@ -193,7 +193,7 @@ export const OurOffices = () => {
                     <NumberWrapper fd="column" width="auto">
                         <Flex fd="column" ai="center" mb="8rem" tabletS={{ mb: '0' }}>
                             <Text color="red" size="4.8rem" align="center" weight="bold">
-                                400+
+                                500+
                             </Text>
                             <Text align="center">{localize('Team members')}</Text>
                         </Flex>

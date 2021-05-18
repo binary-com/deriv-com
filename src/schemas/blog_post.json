@@ -1,86 +1,93 @@
 {
-    "Main" : {
-      "uid" : {
-        "type" : "UID",
-        "config" : {
-          "label" : "id"
-        }
-      },
-      "post_date" : {
-        "type" : "Date",
-        "config" : {
-          "label" : "post date"
-        }
-      },
-      "title" : {
-        "type" : "StructuredText",
-        "config" : {
-          "single" : "heading2",
-          "label" : "title",
-          "placeholder" : "Blog post title"
-        }
-      },
-      "excerpt" : {
-        "type" : "StructuredText",
-        "config" : {
-          "multi" : "paragraph, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
-          "label" : "excerpt",
-          "placeholder" : "Post excerpt"
-        }
-      },
-      "featured_image" : {
-        "type" : "Image",
-        "config" : {
-          "constraint" : { },
-          "thumbnails" : [ ],
-          "label" : "featured image"
-        }
-      },
-      "body" : {
-        "type" : "Slices",
-        "fieldset" : "Slice zone",
-        "config" : {
-          "labels" : {
-            "main_content" : [ ]
-          },
-          "choices" : {
-            "main_content" : {
-              "type" : "Slice",
-              "fieldset" : "Main content",
-              "description" : "Main content section",
-              "icon" : "face",
-              "display" : "list",
-              "non-repeat" : {
-                "post_content" : {
-                  "type" : "StructuredText",
-                  "config" : {
-                    "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
-                    "allowTargetBlank" : true,
-                    "label" : "post content",
-                    "placeholder" : "Post content"
-                  }
-                },
-                "post_image" : {
-                  "type" : "Image",
-                  "config" : {
-                    "constraint" : { },
-                    "thumbnails" : [ ],
-                    "label" : "post image"
-                  }
-                },
-                "links" : {
-                  "type" : "Link",
-                  "config" : {
-                    "allowTargetBlank" : true,
-                    "label" : "links",
-                    "placeholder" : "Links"
-                  }
+  "Main" : {
+    "uid" : {
+      "type" : "UID",
+      "config" : {
+        "label" : "id"
+      }
+    },
+    "slug" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "slug",
+        "placeholder" : "slug url"
+      }
+    },
+    "post_date" : {
+      "type" : "Date",
+      "config" : {
+        "label" : "post date"
+      }
+    },
+    "title" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading2",
+        "label" : "title",
+        "placeholder" : "Blog post title"
+      }
+    },
+    "excerpt" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "label" : "excerpt",
+        "placeholder" : "Post excerpt"
+      }
+    },
+    "featured_image" : {
+      "type" : "Image",
+      "config" : {
+        "constraint" : { },
+        "thumbnails" : [ ],
+        "label" : "featured image"
+      }
+    },
+    "body" : {
+      "type" : "Slices",
+      "fieldset" : "Slice zone",
+      "config" : {
+        "labels" : {
+          "main_content" : [ ]
+        },
+        "choices" : {
+          "main_content" : {
+            "type" : "Slice",
+            "fieldset" : "Main content",
+            "description" : "Main content section",
+            "icon" : "face",
+            "display" : "list",
+            "non-repeat" : {
+              "post_content" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                  "allowTargetBlank" : true,
+                  "label" : "post content",
+                  "placeholder" : "Post content"
                 }
               },
-              "repeat" : { }
-            }
+              "post_image" : {
+                "type" : "Image",
+                "config" : {
+                  "constraint" : { },
+                  "thumbnails" : [ ],
+                  "label" : "post image"
+                }
+              },
+              "links" : {
+                "type" : "Link",
+                "config" : {
+                  "allowTargetBlank" : true,
+                  "label" : "links",
+                  "placeholder" : "Links"
+                }
+              }
+            },
+            "repeat" : { }
           }
         }
       }
     }
   }
+}

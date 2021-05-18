@@ -1,6 +1,39 @@
 const language_config = require(`./i18n-config.js`)
 const path = require('path')
 
+exports.createPages = async ({ reporter, actions, graphql }) => {
+    const { createPage } = actions
+    const blogTemplate = path.resolve(__dirname, 'src/pages/templates/blog-post.js')
+
+    // Query our blog posts
+    const result = await graphql(`
+        query MyQuery {
+            allPrismicTitle {
+                nodes {
+                    uid
+                    type
+                    data {
+                        slug
+                    }
+                }
+            }
+        }
+    `)
+
+    if (result.errors) {
+        reporter.panic(result.errors)
+    }
+    const articles = result.data.allPrismicTitle.nodes
+
+    articles.forEach((node) => {
+        createPage({
+            path: node.data.slug,
+            component: blogTemplate,
+            context: {},
+        })
+    })
+}
+
 const translations_cache = {}
 // Based upon https://github.com/gatsbyjs/gatsby/tree/master/examples/using-i18n
 exports.onCreatePage = ({ page, actions }) => {

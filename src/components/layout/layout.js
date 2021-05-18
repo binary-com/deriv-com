@@ -104,20 +104,10 @@ export const CFDWarning = ({ is_ppc }) => {
 }
 
 const Main = styled.main`
-    margin-top: ${(props) =>
-        props.use_eu_margin
-            ? (props.margin_top && `${props.margin_top}rem`) || '7rem'
-            : (props.margin_top && `${props.margin_top}rem`) || '7rem'};
+    margin-top: ${(props) => (props.margin_top && `${props.margin_top}rem`) || '7rem'};
     background: var(--color-white);
     height: 100%;
     position: relative;
-
-    @media ${device.tabletS} {
-        margin-top: ${(props) =>
-            props.use_eu_margin
-                ? (props.margin_top && `${props.margin_top}rem`) || '7rem'
-                : (props.margin_top && `${props.margin_top}rem`) || '7rem'};
-    }
 `
 
 const Layout = ({
@@ -138,10 +128,6 @@ const Layout = ({
     const [gtm_data, setGTMData] = useGTMData()
 
     const is_static = type === 'static'
-    //this pages do not show a banner (cfd) on top of nav. so no need to adjust top margin of main for these pages
-    const no_warning_pages = ['static', 'careers']
-    //cfd warning should be shown for pay per click even if the client is not from eu
-    const should_use_eu_margin = !no_warning_pages.includes(type) && (is_eu_country || is_ppc)
 
     // Every layout change will trigger scroll to top
     React.useEffect(() => {
@@ -215,11 +201,7 @@ const Layout = ({
             setModalPayload={setModalPayload}
         >
             {Navigation}
-            <Main
-                margin_top={margin_top}
-                is_static={is_static}
-                use_eu_margin={should_use_eu_margin}
-            >
+            <Main margin_top={margin_top} is_static={is_static}>
                 {children}
             </Main>
             {show_cookie_banner && (

@@ -17,6 +17,7 @@ export const deriv_app_url = `https://app.${domain_url}`
 export const deriv_bot_app_url = `https://app.${domain_url}/bot`
 export const deriv_dp2p_app_url = `https://app.${domain_url}/cashier/p2p`
 export const deriv_developer_url = `https://developers.${domain_url}`
+export const deriv_x_app_url = `https://app.${domain_url}/derivx#real`
 export const smarttrader_url = `https://smarttrader.${domain_url}`
 export const blog_url = `https://blog.${deriv_com_url}`
 export const deriv_cookie_domain = domain_url

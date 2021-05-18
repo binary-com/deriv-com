@@ -17,6 +17,7 @@ import {
     smarttrader_url,
     deriv_developer_url,
     zoho_url,
+    deriv_x_app_url,
 } from 'common/constants'
 import { getLocalizedUrl, getDerivAppLocalizedURL } from 'common/utility'
 import { DerivStore } from 'store'
@@ -104,6 +105,7 @@ export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
         is_mt5_link,
         is_smarttrader_link,
         is_zoho_link,
+        is_derivx_link,
         onClick,
         rel,
         style,
@@ -149,6 +151,8 @@ export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
             lang_to = getDerivAppLocalizedURL(deriv_bot_app_url, locale)
         } else if (is_mt5_link) {
             lang_to = getDerivAppLocalizedURL(`${deriv_app_url}/mt5`, locale)
+        } else if (is_derivx_link) {
+            lang_to = getDerivAppLocalizedURL(deriv_x_app_url, locale)
         } else {
             lang_to = to
         }
@@ -267,6 +271,7 @@ LocalizedLink.propTypes = {
     is_dbot_link: PropTypes.bool,
     is_deriv_app_link: PropTypes.bool,
     is_deriv_developer_link: PropTypes.bool,
+    is_derivx_link: PropTypes.bool,
     is_mail_link: PropTypes.bool,
     is_mt5_link: PropTypes.bool,
     is_smarttrader_link: PropTypes.bool,

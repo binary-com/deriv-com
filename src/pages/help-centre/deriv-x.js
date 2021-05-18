@@ -1,8 +1,20 @@
 import React from 'react'
+import styled from 'styled-components'
 import { Article } from './_article'
 import { ArticleWrapper, StyledHeader, StyledText } from './_help-centre-style'
-import { Text, LocalizedLinkText } from 'components/elements'
+import { deriv_x_app_url } from 'common/constants'
+import { Text } from 'components/elements'
 import { localize, Localize, WithIntl } from 'components/localization'
+
+const ExternalLink = styled.a`
+    text-decoration: none;
+    font-size: var(--text-size-s);
+    color: var(--color-red);
+
+    :hover {
+        text-decoration: underline;
+    }
+`
 
 const WhatisDerivX = () => (
     <ArticleWrapper>
@@ -18,10 +30,12 @@ const WhatisDerivX = () => (
 const DepositDerivX = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">
-            {<Localize
-                translate_text="What is  the minimum / maximum I can deposit into my <0/>Deriv X account?<0/>"
-                components={[<br key={0} />]}
-            />}
+            {
+                <Localize
+                    translate_text="What is  the minimum / maximum I can deposit into my <0/>Deriv X account?<0/>"
+                    components={[<br key={0} />]}
+                />
+            }
         </StyledHeader>
         <Text>
             {localize(
@@ -81,7 +95,14 @@ const DerivXAccount = () => (
         <Text>
             <Localize
                 translate_text="On the <0>Deriv X dashboard</0>, select the account type you want to open (Real or Demo) and click “Add account”. Follow the instructions on the screen to create a new Deriv X account."
-                components={[<LocalizedLinkText color="red" key={0} />]}
+                components={[
+                    <ExternalLink
+                        href={deriv_x_app_url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        key={0}
+                    />,
+                ]}
             />
         </Text>
     </ArticleWrapper>
@@ -135,7 +156,14 @@ const ResetDerivXPassowrd = () => (
         <Text>
             <Localize
                 translate_text="Go to your <0>Account settings</0>. Under “Security and safety”, select “Passwords”. You can reset your Deriv X password under “Trading password”."
-                components={[<LocalizedLinkText color="red" key={0} />]}
+                components={[
+                    <ExternalLink
+                        href={`${deriv_x_app_url}/account-settings`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        key={0}
+                    />,
+                ]}
             />
         </Text>
         <StyledText>
@@ -154,7 +182,14 @@ const AccountInformation = () => (
         <Text>
             <Localize
                 translate_text="You can view your account information (account type and login numbers) on the <0>Deriv X dashboard</0>. "
-                components={[<LocalizedLinkText  color="red" key={0} />]}
+                components={[
+                    <ExternalLink
+                        href={deriv_x_app_url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        key={0}
+                    />,
+                ]}
             />
         </Text>
     </ArticleWrapper>
@@ -168,7 +203,14 @@ const DerivXRealMoneyAccount = () => (
         <Text>
             <Localize
                 translate_text="To deposit funds into your Deriv X account on Deriv, you’ll need to use the funds in your Deriv account. Go to Cashier > <0>Transfer between accounts</0> and follow the instructions on the screen."
-                components={[<LocalizedLinkText color="red" key={0} />]}
+                components={[
+                    <ExternalLink
+                        href={`${deriv_x_app_url}/account-transfer`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        key={0}
+                    />,
+                ]}
             />
         </Text>
         <StyledText>
@@ -197,7 +239,14 @@ const WithdrawDerivX = () => (
         <Text mt="1.7rem">
             <Localize
                 translate_text="After the required processing time of your selected payment method, your funds will be deposited into your personal account. You can check processing times on our <0>Payment methods</0> page."
-                components={[<LocalizedLinkText color="red" to="/payment-methods/" key={0} />]}
+                components={[
+                    <ExternalLink
+                        href={`${deriv_x_app_url}/payments-methods`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        key={0}
+                    />,
+                ]}
             />
         </Text>
     </ArticleWrapper>

@@ -188,7 +188,7 @@ export const getDateFromToday = (num_of_days) => {
     return end_date
 }
 
-export const isNullUndefined = (value) => value === null || value === undefined
+export const isNullUndefined = (value) => value === null || typeof value === 'undefined'
 
 export const isObject = (value) => typeof value === 'object'
 
@@ -199,3 +199,5 @@ export const isJSONString = (value) => {
         return false
     }
 }
+
+export const parseJSONString = (value) => (isJSONString(value) ? JSON.parse(value) : value)

@@ -1,16 +1,12 @@
 import { useState, useEffect } from 'react'
 import { CookieStorage } from 'common/storage'
-import { isNullUndefined, isJSONString } from 'common/utility'
+import { isNullUndefined, parseJSONString } from 'common/utility'
 
 export const useCookieState = (defaultValue, key, options) => {
     const cookie_state = new CookieStorage(key)
     const [value, setValue] = useState(() => {
         const sticky_value = cookie_state.get(key)
-        const result = sticky_value
-            ? isJSONString(sticky_value)
-                ? JSON.parse(sticky_value)
-                : sticky_value
-            : defaultValue
+        const result = sticky_value ? parseJSONString(sticky_value) : defaultValue
 
         return result
     })

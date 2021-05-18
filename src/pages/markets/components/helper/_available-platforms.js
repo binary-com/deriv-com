@@ -27,7 +27,7 @@ const PlatformsContainer = styled(Flex)`
     }
     a:last-child {
         margin-right: 0;
-        min-width: 91px;
+        min-width: 95px;
     }
     @media ${device.tablet} {
         width: ${(props) => props.width};
@@ -38,13 +38,11 @@ const StyledText = styled(Text)`
 
     @media ${device.tabletL} {
         font-size: 16px;
-        margin-right: 1rem;
-    }
-    @media ${device.tablet} {
-        margin-bottom: ${(props) => (props.tablet_direction === 'column' ? '1.6rem' : 'unset')};
+        margin-bottom: 10px;
+        width: 100%;
+        text-align: center;
     }
     @media ${device.mobileL} {
-        width: unset;
         margin-right: 0;
         font-size: 14px;
     }
@@ -68,6 +66,7 @@ const AvailablePlatforms = ({
 }) => {
     return (
         <Flex
+            style={{'flexWrap': 'wrap'}}
             fd={flex_direction}
             mobileL={{ mt: '16px' }}
             mt="2.4rem"

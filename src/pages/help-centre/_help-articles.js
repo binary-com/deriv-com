@@ -248,7 +248,7 @@ export const articles = [
                 label: 'what-is-deriv-x',
             },
             {
-                title: <Localize translate_text="What is  the minimum/ maximum I can deposit into my Deriv X account?" />,
+                title: <Localize translate_text="What is  the minimum / maximum I can deposit into my Deriv X account?" />,
                 category: 'Deriv X',
                 sub_category: <Localize translate_text="Cashier limits" />,
                 label: 'minimum-or-maximum-deposit',

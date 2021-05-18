@@ -30,7 +30,7 @@ const markets_type = {
         icon: () => <img src={SyntheticIndices} alt="synthetic" width="64" height="64" />,
         title: <Localize translate_text="Synthetic indices" />,
         content: (
-            <Localize translate_text="Synthetic indices trading lets you benefit from correctly predicting the price movements of our proprietary indices that stimulate real-world market movements." />
+            <Localize translate_text="Synthetic indices trading lets you benefit from correctly predicting the price movements of our proprietary indices that simulate real-world market movements." />
         ),
         to: '/markets#synthetic',
         id: 'marketsyntheticothermarkets',

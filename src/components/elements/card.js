@@ -345,6 +345,7 @@ export const NavCard = ({ content, external, icon: Icon, style, title, ...props 
                 position: 'relative',
                 ...style,
             }}
+            external={external}
             {...props}
         >
             <FlexHover jc="flex-start" direction="row" tablet_direction="row">

@@ -132,7 +132,7 @@ InternalLink.propTypes = {
     children: PropTypes.node,
     has_no_end_slash: PropTypes.bool,
     is_anchor: PropTypes.bool,
-    locale: PropTypes.object,
+    locale: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     mounted: PropTypes.bool,
     to: PropTypes.string.isRequired,
 }
@@ -219,7 +219,7 @@ ExternalLink.propTypes = {
     aria_label: PropTypes.string,
     children: PropTypes.node,
     is_mail_link: PropTypes.bool,
-    locale: PropTypes.any,
+    locale: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     mounted: PropTypes.bool,
     onClick: PropTypes.func,
     ref: PropTypes.string,

@@ -89,9 +89,6 @@ const StyledText = styled(Text)`
         font-size: 12px;
         margin-bottom: 8px;
     }
-    @media (max-width: 512px) {
-        margin-bottom: unset;
-    }
     @media ${device.mobileL} {
         font-size: 10px;
         margin-bottom: 8px;

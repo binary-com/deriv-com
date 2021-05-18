@@ -247,7 +247,6 @@ class DtraderTabs extends React.Component {
                         <GoToLiveDemo
                             secondary="true"
                             external="true"
-                            to="/"
                             type="deriv_app"
                             target="_blank"
                             rel="noopener noreferrer"

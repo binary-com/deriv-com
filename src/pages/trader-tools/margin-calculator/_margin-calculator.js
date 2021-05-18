@@ -368,8 +368,7 @@ const MarginCalculator = () => {
                         <LinkWrapper height="auto">
                             <StyledLinkButton
                                 tertiary="true"
-                                type="deriv_app"
-                                to="/mt5"
+                                type="mt5"
                                 external="true"
                                 target="_blank"
                                 rel="noopener noreferrer"

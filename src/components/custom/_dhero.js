@@ -229,10 +229,8 @@ const DHero = ({
     Logo,
 }) => {
     const data = useStaticQuery(query)
-    const getRedirectLink = () => {
-        const path = image_name === 'dbot' ? '/bot' : '/'
-        return path
-    }
+    const getLinkType = () => (image_name === 'dbot' ? 'dbot' : 'deriv_app')
+
     const DLogo = styled.img`
         width: 32px !important;
         height: 32px !important;
@@ -292,9 +290,8 @@ const DHero = ({
                     {go_to_live_demo && (
                         <GoToLiveDemo
                             tertiary
-                            to={getRedirectLink()}
                             external
-                            type="deriv_app"
+                            type={getLinkType()}
                             target="_blank"
                             rel="noopener noreferrer"
                         >

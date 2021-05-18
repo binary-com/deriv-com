@@ -179,8 +179,7 @@ const DtraderTabs = () => {
                     <GoToLiveDemo
                         secondary="true"
                         external="true"
-                        to="/bot"
-                        type="deriv_app"
+                        type="dbot"
                         target="_blank"
                         rel="noopener noreferrer"
                     >

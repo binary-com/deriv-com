@@ -77,7 +77,7 @@ const DifferenceDMT5DTraderDerivX = () => (
 
 const DerivXAccount = () => (
     <ArticleWrapper>
-        <StyledHeader as="h4">{localize('How do I create a deriv x account?')}</StyledHeader>
+        <StyledHeader as="h4">{localize('How do I create a Deriv X account?')}</StyledHeader>
         <Text>
             <Localize
                 translate_text="On the <0>Deriv X dashboard</0>, select the account type you want to open (Real or Demo) and click “Add account”. Follow the instructions on the screen to create a new Deriv X account."
@@ -154,7 +154,7 @@ const AccountInformation = () => (
         <Text>
             <Localize
                 translate_text="You can view your account information (account type and login numbers) on the <0>Deriv X dashboard</0>. "
-                components={[<LocalizedLinkText color="red" key={0} />]}
+                components={[<LocalizedLinkText  color="red" key={0} />]}
             />
         </Text>
     </ArticleWrapper>
@@ -197,7 +197,7 @@ const WithdrawDerivX = () => (
         <Text mt="1.7rem">
             <Localize
                 translate_text="After the required processing time of your selected payment method, your funds will be deposited into your personal account. You can check processing times on our <0>Payment methods</0> page."
-                components={[<LocalizedLinkText color="red" key={0} />]}
+                components={[<LocalizedLinkText color="red" to="/payment-methods/" key={0} />]}
             />
         </Text>
     </ArticleWrapper>

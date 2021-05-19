@@ -85,7 +85,7 @@ export const LocalizedLink = React.forwardRef(({ external, ...props }, ref) => {
 
 LocalizedLink.displayName = 'LocalizedLink'
 LocalizedLink.propTypes = {
-    external: PropTypes.string,
+    external: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
 }
 
 const non_localized_links = ['careers']

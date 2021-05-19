@@ -11,6 +11,7 @@ import {
 } from './home/_lazy-load'
 import Hero from './home/_hero'
 import TradeTheWayYouLike from './home/_trade-the-way-you-like'
+import TradingImage from 'images/common/og_deriv.png'
 import { SEO, Show } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl, Localize } from 'components/localization'
@@ -42,6 +43,14 @@ const simple_step_content = [
         icon: <img src={WithdrawIcon} alt="withdraw" width="32" height="32" />,
     },
 ]
+const meta_attributes = {
+    og_title: 'Online trading with Deriv | Simple. Flexible. Reliable.',
+    og_description: 'Trading platforms designed with you in mind.',
+    og_type: 'website',
+    og_img_width: '600',
+    og_img_height: '315',
+    og_img: TradingImage,
+}
 const Home = () => {
     return (
         <Layout>
@@ -50,6 +59,7 @@ const Home = () => {
                 description={localize(
                     'Deriv - An online trading platform that offers a wide selection of derivatives to trade on 24/7.',
                 )}
+                meta_attributes={meta_attributes}
                 has_organization_schema
             />
             <Hero />

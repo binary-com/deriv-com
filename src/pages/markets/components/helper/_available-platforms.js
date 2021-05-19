@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import { DerivStore } from 'store'
+const { is_eu_country } = React.useContext(DerivStore)
 import { smarttrader_url } from 'common/constants'
 import { Flex } from 'components/containers'
 import { Text } from 'components/elements'
@@ -110,7 +112,7 @@ const AvailablePlatforms = ({
                         </StyledFlex>
                     </a>
                 )}
-                {derivx && (
+                {derivx && is_eu_country && (
                     <LocalizedLink to="/derivx/">
                         <StyledFlex direction="row" ai="center">
                             <img src={DerivX} alt="Deriv X" width="32" height="32" />

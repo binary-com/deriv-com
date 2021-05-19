@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { DerivStore } from 'store'
-const { is_eu_country } = React.useContext(DerivStore)
 import { smarttrader_url } from 'common/constants'
 import { Flex } from 'components/containers'
 import { Text } from 'components/elements'
@@ -65,7 +64,9 @@ const AvailablePlatforms = ({
     derivx,
     flex_direction,
     tablet_direction,
-}) => {
+    }) => {
+    const { is_eu_country } = React.useContext(DerivStore)
+
     return (
         <Flex
             style={{'flexWrap': 'wrap'}}

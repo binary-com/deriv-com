@@ -112,7 +112,7 @@ const AvailablePlatforms = ({
                         </StyledFlex>
                     </a>
                 )}
-                {derivx && is_eu_country && (
+                {derivx && !is_eu_country && (
                     <LocalizedLink to="/derivx/">
                         <StyledFlex direction="row" ai="center">
                             <img src={DerivX} alt="Deriv X" width="32" height="32" />

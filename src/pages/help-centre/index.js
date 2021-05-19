@@ -192,6 +192,7 @@ const RowDiv = styled.div`
     width: 100%;
     display: flex;
     flex-direction: row;
+    flex-wrap: ${(props) => props.wrap};
 
     @media ${device.tabletS} {
         flex-direction: column;
@@ -372,8 +373,10 @@ class HelpCentre extends Component {
                 <Container align="left" justify="flex-start" direction="column">
                     <ArticleSection>
                         {splittedArticles.map((article, id) => {
+                            const FirstCategory = article[0]?.articles[0]?.category;
                             return (
-                                <RowDiv key={id}>
+                                <RowDiv wrap={FirstCategory === 'DBot' ? 'wrap': 'nowrap'} key={id}>
+                                {/* <RowDiv key={id}> */}
                                     {article.map((item, idx) => {
                                         {
                                             return (

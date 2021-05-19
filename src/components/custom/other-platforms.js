@@ -344,7 +344,7 @@ export const NavMarket = ({ onClick, is_ppc }) => (
             }
             title={<Localize translate_text="Forex" />}
             onClick={onClick}
-            to="/markets#forex"
+            to="/markets/forex"
         />
         {!is_ppc && (
             <NavCard
@@ -357,7 +357,7 @@ export const NavMarket = ({ onClick, is_ppc }) => (
                 }
                 title={<Localize translate_text="Synthetic indices" />}
                 onClick={onClick}
-                to="/markets#synthetic"
+                to="/markets/synthetic"
             />
         )}
         <NavCard
@@ -368,7 +368,7 @@ export const NavMarket = ({ onClick, is_ppc }) => (
             }
             title={<Localize translate_text="Stocks & indices" />}
             onClick={onClick}
-            to="/markets#stock"
+            to="/markets/stock"
         />
         <NavCard
             aria_label="Commodities"
@@ -378,7 +378,7 @@ export const NavMarket = ({ onClick, is_ppc }) => (
             }
             title={<Localize translate_text="Commodities" />}
             onClick={onClick}
-            to="/markets#commodities"
+            to="/markets/commodities"
         />
     </Flex>
 )

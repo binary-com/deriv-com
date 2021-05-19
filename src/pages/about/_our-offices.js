@@ -46,9 +46,15 @@ const ChevronRight = styled(Chevron)`
 const MapImage = styled(BackgroundImage)`
     position: relative;
     width: 100%;
+    overflow: auto;
     height: 639px;
     background-color: transparent;
     background-size: cover;
+
+    @media screen and (min-width: 992px) {
+        min-width: 1177px;
+        overflow: auto;
+    }
 
     @media ${device.tabletS} {
         height: 340px;

@@ -152,7 +152,7 @@ export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
         } else if (is_mt5_link) {
             lang_to = getDerivAppLocalizedURL(`${deriv_app_url}/mt5`, locale)
         } else if (is_derivx_link) {
-            lang_to = getDerivAppLocalizedURL(deriv_x_app_url, locale)
+            lang_to = `${deriv_x_app_url}${to}`
         } else {
             lang_to = to
         }

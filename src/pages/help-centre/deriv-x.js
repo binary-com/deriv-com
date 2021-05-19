@@ -2,8 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import { Article } from './_article'
 import { ArticleWrapper, StyledHeader, StyledText } from './_help-centre-style'
-import { deriv_x_app_url } from 'common/constants'
-import { Text } from 'components/elements'
+import { deriv_x_app_url, deriv_app_url } from 'common/constants'
+import { Text, LocalizedLinkText } from 'components/elements'
 import { localize, Localize, WithIntl } from 'components/localization'
 
 const ExternalLink = styled.a`
@@ -158,7 +158,7 @@ const ResetDerivXPassowrd = () => (
                 translate_text="Go to your <0>Account settings</0>. Under “Security and safety”, select “Passwords”. You can reset your Deriv X password under “Trading password”."
                 components={[
                     <ExternalLink
-                        href={`${deriv_x_app_url}/account-settings`}
+                        href={`${deriv_app_url}/account/personal-details`}
                         target="_blank"
                         rel="noopener noreferrer"
                         key={0}
@@ -205,7 +205,7 @@ const DerivXRealMoneyAccount = () => (
                 translate_text="To deposit funds into your Deriv X account on Deriv, you’ll need to use the funds in your Deriv account. Go to Cashier > <0>Transfer between accounts</0> and follow the instructions on the screen."
                 components={[
                     <ExternalLink
-                        href={`${deriv_x_app_url}/account-transfer`}
+                        href={`${deriv_app_url}/cashier/account-transfer`}
                         target="_blank"
                         rel="noopener noreferrer"
                         key={0}
@@ -240,10 +240,9 @@ const WithdrawDerivX = () => (
             <Localize
                 translate_text="After the required processing time of your selected payment method, your funds will be deposited into your personal account. You can check processing times on our <0>Payment methods</0> page."
                 components={[
-                    <ExternalLink
-                        href={`${deriv_x_app_url}/payments-methods`}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                    <LocalizedLinkText
+                        to="/payment-methods"
+                        color="red"
                         key={0}
                     />,
                 ]}

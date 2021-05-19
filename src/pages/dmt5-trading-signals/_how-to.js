@@ -74,8 +74,8 @@ const HowTo = ({ Steps, active_tab }) => {
                     <DMT5Button
                         secondary="true"
                         external="true"
-                        type="deriv_app"
-                        to="/mt5"
+                        type="mt5"
+                        to=""
                         target="_blank"
                         rel="noopener noreferrer"
                     >

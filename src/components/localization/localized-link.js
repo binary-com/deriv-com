@@ -144,7 +144,7 @@ const deriv_social_platforms = ['blog', 'community', 'developers', 'zoho']
 
 const getURLFormat = (type, locale, to, affiliate_lang) => {
     if (deriv_app_links.includes(type)) {
-        return getDerivAppLocalizedURL(localized_link_url[type], locale)
+        return getDerivAppLocalizedURL(localized_link_url[type], locale, to)
     } else if (affiliate_links.includes(type)) {
         return `${localized_link_url[type]}?lang=${affiliate_lang}`
     } else if (deriv_other_products.includes(type)) {

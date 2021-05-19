@@ -76,9 +76,9 @@ export const getWindowWidth = () => (isBrowser() && window.screen ? window.scree
 export const getLanguage = () =>
     isBrowser() ? localStorage.getItem('i18n') || navigator.language : null
 
-export const getDerivAppLocalizedURL = (link, locale) => {
+export const getDerivAppLocalizedURL = (link, locale, to = '') => {
     const lang = deriv_app_languages.includes(locale) ? locale : 'en'
-    return `${link}?lang=${lang.toUpperCase()}`
+    return `${link}${to}?lang=${lang.toUpperCase()}`
 }
 
 export const getThaiExcludedLocale = (locale) => (locale === 'th' ? 'en' : locale)

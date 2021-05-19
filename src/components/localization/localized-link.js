@@ -36,7 +36,6 @@ export const SharedLinkStyle = css`
     &.active {
         text-shadow: 0 0 0.8px var(--color-white), 0 0 0.8px var(--color-white);
     }
-
     ${(props) =>
         props.active &&
         css`
@@ -208,6 +207,8 @@ const ExternalLink = ({
                     : onClick
             }
             disabled={!mounted}
+            target={target}
+            rel={rel}
             {...props}
         >
             {children}

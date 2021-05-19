@@ -238,18 +238,21 @@ export const OffCanvasMenuWrapper = (props) => {
                                 to={props.is_ppc_redirect ? '/landing/dmt5/' : '/dmt5/'}
                             />
                         </Flex>
-                        <Flex mb="2rem">
-                            <NavCard
-                                aria_label="Derivx"
-                                icon={() => <img src={DerivX} alt="Derivx" width="32" height="32" />}
-                                content={
-                                    <Localize translate_text="CFD trading on a customisable multi-asset platform." />
-                                }
-                                title={<Localize translate_text="Deriv X" />}
-                                onClick={handleArrowClick}
-                                to="/derivx/"
-                            />
-                        </Flex>
+                        {!is_eu_country && (
+                            <Flex mb="2rem">
+                                <NavCard
+                                    aria_label="Derivx"
+                                    icon={() => <img src={DerivX} alt="Derivx" width="32" height="32" />}
+                                    content={
+                                        <Localize translate_text="CFD trading on a customisable multi-asset platform." />
+                                    }
+                                    title={<Localize translate_text="Deriv X" />}
+                                    onClick={handleArrowClick}
+                                    to="/derivx/"
+                                />
+                            </Flex>
+                        )}
+
                         <Flex mb="2rem">
                             <NavCard
                                 aria_label="DTrader"

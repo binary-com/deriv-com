@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 import { Container, CssGrid, Flex, Show } from '../containers'
 import { StyledLink, Text, QueryImage } from '../elements'
 import { LocationContext } from './location-context'
+import { DerivStore } from 'store'
 import {
     deriv_status_page_url,
     mga_link_url,
@@ -330,6 +331,7 @@ const query = graphql`
 const Footer = ({ type, is_ppc, is_ppc_redirect }) => {
     const image_query = useStaticQuery(query)
     const { show_cookie_banner } = React.useContext(LocationContext)
+    const { is_eu_country } = React.useContext(DerivStore)
 
     mobile_accordion_header_about.borderTop = 'none'
     const current_year = new Date().getFullYear()
@@ -393,9 +395,11 @@ const Footer = ({ type, is_ppc, is_ppc_redirect }) => {
                                             {localize('DMT5')}
                                         </Link>
                                     </LinkWrapper>
-                                    <LinkWrapper>
-                                        <Link to="/derivx/">{localize('Deriv X')}</Link>
-                                    </LinkWrapper>
+                                    {!is_eu_country && (
+                                        <LinkWrapper>
+                                            <Link to="/derivx/">{localize('Deriv X')}</Link>
+                                        </LinkWrapper>
+                                    )}
                                     <LinkWrapper>
                                         <Link
                                             to="trading"

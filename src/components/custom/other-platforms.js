@@ -315,16 +315,19 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                     onClick={onClick}
                     to={is_ppc_redirect ? '/landing/dmt5/' : '/dmt5/'}
                 />
-                <NavCard
-                    aria_label="Derivx"
-                    icon={() => <img src={DerivX} alt="Deriv X" width="32" height="32" />}
-                    content={
-                        <Localize translate_text="CFD trading on a customisable multi-asset platform." />
-                    }
-                    title={<Localize translate_text="Deriv X" />}
-                    onClick={onClick}
-                    to="/derivx/"
-                />
+                {!is_eu_country && (
+                    <NavCard
+                        aria_label="Derivx"
+                        icon={() => <img src={DerivX} alt="Deriv X" width="32" height="32" />}
+                        content={
+                            <Localize translate_text="CFD trading on a customisable multi-asset platform." />
+                        }
+                        title={<Localize translate_text="Deriv X" />}
+                        onClick={onClick}
+                        to="/derivx/"
+                    />
+                )}
+
                 <NavCard
                     aria_label="SmartTrader"
                     icon={() => <img src={Smarttrader} alt="Smarttrader" width="32" height="32" />}

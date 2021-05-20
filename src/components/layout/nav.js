@@ -277,9 +277,10 @@ const SignupButton = styled(Button)`
     opacity: 0;
 `
 
-const LinkSignupButton = styled(LinkButton)`
+const LinkSignupButton = styled(Button)`
     opacity: 0;
     margin-left: 1.6rem;
+    padding: 8px 12px;
 `
 
 const HamburgerMenu = styled.img`

@@ -68,13 +68,13 @@ exports.onCreatePage = ({ page, actions }) => {
     if (is_about) {
         createRedirect({
             fromPath: `/about/`,
-            toPath: `/about/story/`,
+            toPath: `/story/`,
             redirectInBrowser: true,
             isPermanent: true,
         })
         createRedirect({
             fromPath: `/about`,
-            toPath: `/about/story/`,
+            toPath: `/story/`,
             redirectInBrowser: true,
             isPermanent: true,
         })
@@ -192,13 +192,13 @@ exports.onCreatePage = ({ page, actions }) => {
         if (is_about) {
             createRedirect({
                 fromPath: `/${lang}/about/`,
-                toPath: `/${lang}/about/story/`,
+                toPath: `/${lang}/story/`,
                 redirectInBrowser: true,
                 isPermanent: true,
             })
             createRedirect({
                 fromPath: `/${lang}/about`,
-                toPath: `/${lang}/about/story/`,
+                toPath: `/${lang}/story/`,
                 redirectInBrowser: true,
                 isPermanent: true,
             })

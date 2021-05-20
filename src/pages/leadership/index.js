@@ -1,5 +1,5 @@
 import React from 'react'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import Loadable from '@loadable/component'
 import { Container, Box, Flex, SEO, Show } from 'components/containers'
@@ -88,44 +88,6 @@ const LeadershipPosition = styled(Header)`
     }
 `
 
-const NavigationWrapper = styled(Flex)`
-    margin: 1.6rem 0;
-`
-
-const Navigation = styled(Flex)`
-    margin: 0 2.4rem;
-
-    @media ${device.tablet} {
-        margin: ${(props) => (props.left ? '0 3rem 0 0' : '0 0 0 3rem')};
-    }
-    @media ${device.mobileS} {
-        margin: ${(props) => (props.left ? '0 2rem 0 0' : '0 0 0 2rem')};
-    }
-`
-
-const StyledHeader = styled(Header)`
-    transition: color 0.25s;
-    ${(props) =>
-        props.active
-            ? css`
-                  color: var(--color-white);
-              `
-            : css`
-                  color: rgba(255, 255, 255, 0.32);
-                  &:hover {
-                      color: rgba(255, 255, 255, 0.5);
-                  }
-              `}
-    @media ${device.tabletL} {
-        font-size: 3rem;
-    }
-    @media ${device.mobileL} {
-        font-size: 2rem;
-    }
-    @media ${device.mobileM} {
-        font-size: 1.8rem;
-    }
-`
 const StyledText = styled(Text)`
     max-width: 48.6rem;
     @media ${device.tabletL} {
@@ -146,24 +108,8 @@ const Leadership = () => {
             <Background>
                 <StyledContainer direction="column">
                     <Header as="h1" type="display-title" color="white" align="center">
-                        {localize('About us')}
+                        {localize('Our Leadership')}
                     </Header>
-                    <NavigationWrapper direction="row">
-                        <Navigation
-                            width="auto"
-                            direction="column"
-
-                        >
-                            <StyledHeader
-                                as="h2"
-                                type="sub-section-title"
-                                weight="normal"
-                                active={true}
-                            >
-                                {localize('Our leadership')}
-                            </StyledHeader>
-                        </Navigation>
-                    </NavigationWrapper>
 
                     <Show.Desktop>
                         <ContentWrapper>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import { OurStory } from './_our-story'
-import { Container, Flex, SEO, Show } from 'components/containers'
+import { Container, SEO, Show } from 'components/containers'
 import { getWindowWidth, isBrowser } from 'common/utility'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
@@ -40,45 +40,6 @@ const ContentWrapper = styled.div`
     }
 `
 
-const NavigationWrapper = styled(Flex)`
-    margin: 1.6rem 0;
-`
-
-const Navigation = styled(Flex)`
-    margin: 0 2.4rem;
-
-    @media ${device.tablet} {
-        margin: ${(props) => (props.left ? '0 3rem 0 0' : '0 0 0 3rem')};
-    }
-    @media ${device.mobileS} {
-        margin: ${(props) => (props.left ? '0 2rem 0 0' : '0 0 0 2rem')};
-    }
-`
-
-const StyledHeader = styled(Header)`
-    transition: color 0.25s;
-    ${(props) =>
-        props.active
-            ? css`
-                  color: var(--color-white);
-              `
-            : css`
-                  color: rgba(255, 255, 255, 0.32);
-                  &:hover {
-                      color: rgba(255, 255, 255, 0.5);
-                  }
-              `}
-    @media ${device.tabletL} {
-        font-size: 3rem;
-    }
-    @media ${device.mobileL} {
-        font-size: 2rem;
-    }
-    @media ${device.mobileM} {
-        font-size: 1.8rem;
-    }
-`
-
 const Story = () => {
     const [is_mobile, setMobile] = useState(false)
 
@@ -97,28 +58,10 @@ const Story = () => {
             <Background>
                 <StyledContainer direction="column">
                     <Header as="h1" type="display-title" color="white" align="center">
-                        {localize('About us')}
+                        {localize('Our Story')}
                     </Header>
-                    <NavigationWrapper direction="row">
-                        <Navigation
-                            left
-                            width="auto"
-                            direction="column"
-                        >
-                            <StyledHeader
-                                as="h2"
-                                type="sub-section-title"
-                                weight="normal"
-                                active={true}
-                            >
-                                {localize('Our story')}
-                            </StyledHeader>
 
-                        </Navigation>
-
-                    </NavigationWrapper>
-
-                    <ContentWrapper margin_top="9.1">
+                    <ContentWrapper margin_top="5rem">
                         <Show.Desktop>
                             <Text mb="1.5rem" size="var(--text-size-s)" secondary color="white">
                                 {localize(

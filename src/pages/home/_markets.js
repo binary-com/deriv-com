@@ -93,7 +93,7 @@ const Markets = ({ is_ppc }) => (
                         </Text>
                         <Localize
                             translate_text="<0>Learn more</0>"
-                            components={[<MarketLink key={0} to="/markets/forex" color="red" />]}
+                            components={[<MarketLink key={0} to="/markets/forex/" color="red" />]}
                         />
                     </div>
                 </MarketCard>
@@ -110,7 +110,7 @@ const Markets = ({ is_ppc }) => (
                         </Text>
                         <Localize
                             translate_text="<0>Learn more</0>"
-                            components={[<MarketLink key={0} to="/markets/stock" color="red" />]}
+                            components={[<MarketLink key={0} to="/markets/stock/" color="red" />]}
                         />
                     </div>
                 </MarketCard>
@@ -129,7 +129,7 @@ const Markets = ({ is_ppc }) => (
                             <Localize
                                 translate_text="<0>Learn more</0>"
                                 components={[
-                                    <MarketLink key={0} to="/markets/synthetic" color="red" />,
+                                    <MarketLink key={0} to="/markets/synthetic/" color="red" />,
                                 ]}
                             />
                         </div>
@@ -149,7 +149,7 @@ const Markets = ({ is_ppc }) => (
                         <Localize
                             translate_text="<0>Learn more</0>"
                             components={[
-                                <MarketLink key={0} to="/markets/commodities" color="red" />,
+                                <MarketLink key={0} to="/markets/commodities/" color="red" />,
                             ]}
                         />
                     </div>

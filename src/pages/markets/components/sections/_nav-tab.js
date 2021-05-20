@@ -85,22 +85,22 @@ const tabList = [
     {
         title: <Localize translate_text="Forex" />,
         tab_name: 'forex',
-        route_to: '/markets/forex',
+        route_to: '/markets/forex/',
     },
     {
         title: <Localize translate_text="Synthetic indices" />,
         tab_name: 'synthetic',
-        route_to: '/markets/synthetic',
+        route_to: '/markets/synthetic/',
     },
     {
         title: <Localize translate_text="Stock indices" />,
         tab_name: 'stock',
-        route_to: '/markets/stock',
+        route_to: '/markets/stock/',
     },
     {
         title: <Localize translate_text="Commodities" />,
         tab_name: 'commodities',
-        route_to: '/markets/commodities',
+        route_to: '/markets/commodities/',
     },
 ]
 

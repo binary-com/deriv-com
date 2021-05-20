@@ -298,7 +298,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                 )}
                                 title={localize('Forex')}
                                 onClick={handleArrowClick}
-                                to="/markets/forex"
+                                to="/markets/forex/"
                             />
                         </Flex>
                         {!props.is_ppc && (
@@ -318,7 +318,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                     )}
                                     title={localize('Synthetic indices')}
                                     onClick={handleArrowClick}
-                                    to="/markets/synthetic"
+                                    to="/markets/synthetic/"
                                 />
                             </Flex>
                         )}
@@ -338,7 +338,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                 )}
                                 title={localize('Stocks & indices')}
                                 onClick={handleArrowClick}
-                                to="/markets/stock"
+                                to="/markets/stock/"
                             />
                         </Flex>
                         <Flex>
@@ -357,7 +357,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                 )}
                                 title={localize('Commodities')}
                                 onClick={handleArrowClick}
-                                to="/markets/commodities"
+                                to="/markets/commodities/"
                             />
                         </Flex>
                     </AccordionItem>

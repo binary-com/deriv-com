@@ -68,13 +68,13 @@ exports.onCreatePage = ({ page, actions }) => {
     if (is_market) {
         createRedirect({
             fromPath: `/markets`,
-            toPath: `/markets/forex`,
+            toPath: `/markets/forex/`,
             redirectInBrowser: true,
             isPermanent: true,
         })
         createRedirect({
             fromPath: `/markets/`,
-            toPath: `/markets/forex`,
+            toPath: `/markets/forex/`,
             redirectInBrowser: true,
             isPermanent: true,
         })
@@ -192,13 +192,13 @@ exports.onCreatePage = ({ page, actions }) => {
         if (is_market) {
             createRedirect({
                 fromPath: `/${lang}/markets`,
-                toPath: `/${lang}/markets/forex`,
+                toPath: `/${lang}/markets/forex/`,
                 redirectInBrowser: true,
                 isPermanent: true,
             })
             createRedirect({
                 fromPath: `/${lang}/markets/`,
-                toPath: `/${lang}/markets/forex`,
+                toPath: `/${lang}/markets/forex/`,
                 redirectInBrowser: true,
                 isPermanent: true,
             })

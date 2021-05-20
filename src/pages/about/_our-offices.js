@@ -56,15 +56,18 @@ const MapImage = styled(BackgroundImage)`
         overflow: auto;
     }
 
+    @media screen and (max-width: 992px) and (min-width: 575px) {
+        width: 100%;
+        height: calc(100vw / 2.6);
+    }
+
+    @media screen and (max-width: 575px) {
+        width: 100%;
+        height: calc(100vw / 1.84);
+    }
+
     @media ${device.tabletS} {
-        height: 340px;
         margin-bottom: 25px;
-    }
-    @media ${device.mobileL} {
-        height: 266px;
-    }
-    @media ${device.mobileM} {
-        height: 228px;
     }
 `
 

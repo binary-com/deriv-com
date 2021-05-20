@@ -32,6 +32,6 @@ const DHowItWorks = ({ Video, title }) => {
 
 DHowItWorks.propTypes = {
     title: PropTypes.object,
-    Video: PropTypes.func,
+    Video: PropTypes.object,
 }
 export default DHowItWorks

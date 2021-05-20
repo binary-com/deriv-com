@@ -10,6 +10,8 @@ const non_localized_links = ['/careers', '/careers/']
 
 const languages = Object.keys(language_config)
 languages.push('x-default')
+const default_og_title = 'Online trading with Deriv | Simple. Flexible. Reliable.'
+const default_og_description = 'Trading platforms designed with you in mind.'
 const SEO = ({ description, meta, title, no_index, has_organization_schema, meta_attributes }) => {
     let queries = []
     queries = useStaticQuery(
@@ -88,9 +90,7 @@ const SEO = ({ description, meta, title, no_index, has_organization_schema, meta
                 },
                 {
                     property: 'og:title',
-                    content:
-                        meta_attributes?.default_og_title ||
-                        'Online trading with Deriv | Simple. Flexible. Reliable.',
+                    content: meta_attributes?.default_og_title,
                 },
                 {
                     property: 'og:site_name',
@@ -98,9 +98,7 @@ const SEO = ({ description, meta, title, no_index, has_organization_schema, meta
                 },
                 {
                     property: 'og:description',
-                    content:
-                        meta_attributes?.default_og_description ||
-                        'Trading platforms designed with you in mind.',
+                    content: meta_attributes?.default_og_description,
                 },
                 {
                     property: 'og:type',

@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet'
 import { useStaticQuery, graphql } from 'gatsby'
 import { LocaleContext } from '../localization'
 import language_config from '../../../i18n-config'
-import TradingImage from 'images/common/practice.png'
+import TradingImage from 'images/common/og_deriv.png'
 
 const non_localized_links = ['/careers', '/careers/']
 
@@ -88,7 +88,9 @@ const SEO = ({ description, meta, title, no_index, has_organization_schema, meta
                 },
                 {
                     property: 'og:title',
-                    content: meta_attributes?.og_title || title,
+                    content:
+                        meta_attributes?.og_title ||
+                        'Online trading with Deriv | Simple. Flexible. Reliable.',
                 },
                 {
                     property: 'og:site_name',
@@ -96,7 +98,9 @@ const SEO = ({ description, meta, title, no_index, has_organization_schema, meta
                 },
                 {
                     property: 'og:description',
-                    content: meta_attributes?.og_description || metaDescription,
+                    content:
+                        meta_attributes?.og_description ||
+                        'Trading platforms designed with you in mind.',
                 },
                 {
                     property: 'og:type',

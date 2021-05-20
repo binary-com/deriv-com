@@ -5,6 +5,7 @@ import { SectionContainer } from 'components/containers'
 import { localize, Localize } from 'components/localization'
 import { LinkButton } from 'components/form'
 import { Header } from 'components/elements'
+import { deriv_mt5_demo_app_url } from 'common/constants'
 
 const StartTrading = () => {
     return (
@@ -32,7 +33,7 @@ const StartTrading = () => {
                             )}
                         </Timeline.Item>
                     </Timeline>
-                    <LinkButton mt="4rem" to="/dmt5/" secondary="true">
+                    <LinkButton mt="4rem" to={deriv_mt5_demo_app_url} secondary="true">
                         {localize('Create a demo DMT5 account')}
                     </LinkButton>
                 </SmallContainer>

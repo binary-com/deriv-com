@@ -373,9 +373,9 @@ class HelpCentre extends Component {
                 <Container align="left" justify="flex-start" direction="column">
                     <ArticleSection>
                         {splittedArticles.map((article, id) => {
-                            const is_dbot = article[0]?.articles[0]?.category;
+                            const first_category = article[0]?.articles[0]?.category;
                             return (
-                                <RowDiv wrap={is_dbot === 'DBot' ? 'wrap': 'nowrap'} key={id}>
+                                <RowDiv wrap={ first_category === 'DBot' ? 'wrap': 'nowrap'} key={id}>
                                     {article.map((item, idx) => {
                                         {
                                             return (

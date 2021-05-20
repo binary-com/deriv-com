@@ -139,6 +139,8 @@ const MapPin = ({ top, left, title, link }) => {
 }
 
 const OfficeWrapper = styled(Flex)`
+    overflow: hidden;
+
     @media ${device.tabletS} {
         flex-direction: column-reverse;
     }

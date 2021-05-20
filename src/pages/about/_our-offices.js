@@ -52,8 +52,7 @@ const MapImage = styled(BackgroundImage)`
     background-size: cover;
 
     @media screen and (min-width: 992px) {
-        width: 100%;
-        height: calc(100vw / 2.6);
+        min-width: 1177px;
         overflow: hidden;
     }
 

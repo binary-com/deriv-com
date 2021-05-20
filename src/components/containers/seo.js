@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Helmet } from 'react-helmet'
 import { useStaticQuery, graphql } from 'gatsby'
-import { LocaleContext } from '../localization'
+import { LocaleContext, Localize } from '../localization'
 import language_config from '../../../i18n-config'
 import TradingImage from 'images/common/og_deriv.png'
 
@@ -10,8 +10,6 @@ const non_localized_links = ['/careers', '/careers/']
 
 const languages = Object.keys(language_config)
 languages.push('x-default')
-const default_og_title = 'Online trading with Deriv | Simple. Flexible. Reliable.'
-const default_og_description = 'Trading platforms designed with you in mind.'
 const SEO = ({ description, meta, title, no_index, has_organization_schema, meta_attributes }) => {
     let queries = []
     queries = useStaticQuery(
@@ -33,6 +31,8 @@ const SEO = ({ description, meta, title, no_index, has_organization_schema, meta
     const site_url = queries.site.siteMetadata.siteUrl
     const { locale: lang, pathname } = React.useContext(LocaleContext)
     const locale_pathname = pathname.charAt(0) === '/' ? pathname : `/${pathname}`
+    const default_og_title = 'Online trading with Deriv | Simple. Flexible. Reliable.'
+    const default_og_description = 'Trading platforms designed with you in mind.'
 
     let is_ach_page = false
     let current_page = ''
@@ -90,7 +90,7 @@ const SEO = ({ description, meta, title, no_index, has_organization_schema, meta
                 },
                 {
                     property: 'og:title',
-                    content: meta_attributes?.og_title || default_og_title,
+                    content: meta_attributes?.og_title || Localize(default_og_title),
                 },
                 {
                     property: 'og:site_name',
@@ -98,7 +98,7 @@ const SEO = ({ description, meta, title, no_index, has_organization_schema, meta
                 },
                 {
                     property: 'og:description',
-                    content: meta_attributes?.og_description || default_og_description,
+                    content: meta_attributes?.og_description || Localize(default_og_description),
                 },
                 {
                     property: 'og:type',

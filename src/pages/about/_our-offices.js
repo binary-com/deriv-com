@@ -47,9 +47,20 @@ const MapImage = styled(BackgroundImage)`
     position: relative;
     width: 100%;
     overflow: auto;
-    height: calc(100vw / 2.6);
+    height: 639px;
     background-color: transparent;
     background-size: cover;
+
+    @media screen and (min-width: 992px) {
+        width: 100%;
+        height: calc(100vw / 2.6);
+        overflow: hidden;
+    }
+
+    @media screen and (max-width: 992px) and (min-width: 575px) {
+        width: 100%;
+        height: calc(100vw / 2.6);
+    }
 
     @media screen and (max-width: 575px) {
         width: 100%;

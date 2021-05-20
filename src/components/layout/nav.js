@@ -585,22 +585,24 @@ export const Nav = ({ base, is_ppc_redirect, is_ppc }) => {
     }, [])
 
     return (
-        <NavWrapperMain>
+        <>
+            <NavWrapperMain>
+                <StyledNavMain>
+                    <Show.Desktop max_width="bp1060">
+                        <NavDesktop
+                            base={base}
+                            is_ppc={is_ppc}
+                            is_ppc_redirect={is_ppc_redirect}
+                            is_logged_in={is_logged_in}
+                        />
+                    </Show.Desktop>
+                    <Show.Mobile min_width="bp1060">
+                        <NavMobile is_ppc={is_ppc} is_logged_in={is_logged_in} />
+                    </Show.Mobile>
+                </StyledNavMain>
+            </NavWrapperMain>
             <CFDWarning />
-            <StyledNavMain>
-                <Show.Desktop max_width="bp1060">
-                    <NavDesktop
-                        base={base}
-                        is_ppc={is_ppc}
-                        is_ppc_redirect={is_ppc_redirect}
-                        is_logged_in={is_logged_in}
-                    />
-                </Show.Desktop>
-                <Show.Mobile min_width="bp1060">
-                    <NavMobile is_ppc={is_ppc} is_logged_in={is_logged_in} />
-                </Show.Mobile>
-            </StyledNavMain>
-        </NavWrapperMain>
+        </>
     )
 }
 
@@ -656,7 +658,6 @@ const NavInterimContainer = styled.div`
 
 export const NavInterim = ({ interim_type }) => (
     <InterimNav>
-        <CFDWarning />
         <NavInterimContainer>
             <Container jc="space-between" p="2.4rem 0">
                 <Flex ai="center" jc="flex-start">
@@ -701,12 +702,12 @@ export const NavInterim = ({ interim_type }) => (
                 </Auto>
             </Container>
         </NavInterimContainer>
+        <CFDWarning />
     </InterimNav>
 )
 
 export const NavStatic = ({ is_ppc }) => (
     <>
-        <CFDWarning is_ppc={is_ppc} />
         <StaticWrapper>
             <LogoLink mw="31rem" to="/" aria-label={localize('Home')}>
                 <Flex ai="center">
@@ -721,6 +722,7 @@ export const NavStatic = ({ is_ppc }) => (
                 </Flex>
             </LogoLink>
         </StaticWrapper>
+        <CFDWarning is_ppc={is_ppc} />
     </>
 )
 
@@ -876,7 +878,6 @@ export const NavPartners = ({ no_login_signup }) => {
     return (
         <>
             <NavWrapperPartners ref={nav_ref}>
-                <CFDWarning />
                 <DerivHomeWrapper>
                     <HomeContainer justify="space-between">
                         <StyledContainer justify="flex-start">
@@ -1026,6 +1027,7 @@ export const NavPartners = ({ no_login_signup }) => {
                     </StyledNavWrapper>
                 </StyledNavPartners>
             </NavWrapperPartners>
+            <CFDWarning />
         </>
     )
 }

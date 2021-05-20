@@ -131,10 +131,9 @@ const Accounts = () => {
 
             {/* TODO: Update link once available in deriv app */}
             <StyledLinkButton
-                external="true"
+                external
+                type="derivx"
                 secondary="true"
-                to="/"
-                is_deriv_app_link
                 target="_blank"
                 rel="nofollow noopener noreferrer"
             >

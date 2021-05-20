@@ -138,7 +138,7 @@ InternalLink.propTypes = {
 }
 
 const affiliate_links = ['affiliate_sign_in', 'affiliate_sign_up']
-const deriv_app_links = ['dbot', 'deriv_app', 'mt5']
+const deriv_app_links = ['dbot', 'deriv_app', 'mt5', 'derivx']
 const deriv_other_products = ['binary', 'smart_trader']
 const deriv_social_platforms = ['blog', 'community', 'developers', 'zoho']
 
@@ -193,18 +193,18 @@ const ExternalLink = ({
             onClick={
                 show_modal
                     ? () => {
-                          setModalPayload({
-                              to: url,
-                              target,
-                              rel,
-                              ref,
-                              aria_label: aria_label,
-                          })
-                          toggleModal()
-                          if (typeof onClick === 'function') {
-                              onClick()
-                          }
-                      }
+                        setModalPayload({
+                            to: url,
+                            target,
+                            rel,
+                            ref,
+                            aria_label: aria_label,
+                        })
+                        toggleModal()
+                        if (typeof onClick === 'function') {
+                            onClick()
+                        }
+                    }
                     : onClick
             }
             disabled={!mounted}

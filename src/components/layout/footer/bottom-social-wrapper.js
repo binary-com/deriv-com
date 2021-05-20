@@ -2,7 +2,7 @@ import React from 'react'
 import SocialWrapperComponent  from './social-wrapper'
 import { Show } from 'components/containers'
 
-const BottomSocialWrapper = (type) => {
+const BottomSocialSection = (type) => {
 
     return (
         <>
@@ -19,4 +19,4 @@ const BottomSocialWrapper = (type) => {
     )
 }
 
-export default BottomSocialWrapper;
+export default BottomSocialSection;

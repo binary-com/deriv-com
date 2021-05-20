@@ -7,7 +7,7 @@ import {
     deriv_status_page_url,
 } from 'common/constants'
 
-const MainLinks = ({is_ppc, is_ppc_redirect }) => {
+const MainLinksSection = ({is_ppc, is_ppc_redirect }) => {
 
     return (
         <LinksWrapper>
@@ -218,9 +218,9 @@ const MainLinks = ({is_ppc, is_ppc_redirect }) => {
     )
 }
 
-export default MainLinks;
+export default MainLinksSection;
 
-MainLinks.propTypes = {
+MainLinksSection.propTypes = {
     is_ppc: PropTypes.bool,
     is_ppc_redirect: PropTypes.bool,
     type: PropTypes.string,

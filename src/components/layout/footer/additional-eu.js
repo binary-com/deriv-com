@@ -19,7 +19,7 @@ query {
     }
 }
 `
-const EuContent = () => {
+const AdditionalEUSection = () => {
 
     const image_query = useStaticQuery(query)
 
@@ -104,4 +104,4 @@ const EuContent = () => {
     )
 }
 
-export default EuContent;
+export default AdditionalEUSection;

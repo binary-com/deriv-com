@@ -3,7 +3,7 @@ import { DisclaimerWrapper, DisclaimerParagraph, StaticAsset, StaticAssetLink, R
 import { Show } from 'components/containers'
 import { Localize, localize } from 'components/localization'
 
-const Disclaimer = () => {
+const DisclaimerSection = () => {
     return (
         <>
         <DisclaimerWrapper>
@@ -216,4 +216,4 @@ const Disclaimer = () => {
     )
 }
 
-export default Disclaimer;
+export default DisclaimerSection;

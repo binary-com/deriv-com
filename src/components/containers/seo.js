@@ -89,7 +89,7 @@ const SEO = ({ description, meta, title, no_index, has_organization_schema, meta
                 {
                     property: 'og:title',
                     content:
-                        meta_attributes?.og_title ||
+                        meta_attributes?.default_og_title ||
                         'Online trading with Deriv | Simple. Flexible. Reliable.',
                 },
                 {
@@ -99,7 +99,7 @@ const SEO = ({ description, meta, title, no_index, has_organization_schema, meta
                 {
                     property: 'og:description',
                     content:
-                        meta_attributes?.og_description ||
+                        meta_attributes?.default_og_description ||
                         'Trading platforms designed with you in mind.',
                 },
                 {

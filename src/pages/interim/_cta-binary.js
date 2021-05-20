@@ -32,7 +32,7 @@ const CtaBinary = ({ is_white }) => {
                             key={0}
                             external="true"
                             to="home"
-                            is_binary_link
+                            type="binary"
                             target="_blank"
                             rel="noopener noreferrer"
                             color={color}

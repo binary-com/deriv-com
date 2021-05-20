@@ -12,7 +12,6 @@ import { LocationProvider } from './location-context'
 import EURedirect, { useModal } from 'components/custom/_eu-redirect-modal.js'
 import CookieBanner from 'components/custom/cookie-banner'
 import { CookieStorage } from 'common/storage'
-import { cfd_warning_height } from 'common/constants'
 import { isBrowser } from 'common/utility'
 import { DerivStore } from 'store'
 import { Localize } from 'components/localization'
@@ -31,16 +30,27 @@ const tracking_status_cookie = new CookieStorage(TRACKING_STATUS_KEY)
 const CFDWrapper = styled.section`
     background-color: var(--color-grey-25);
     background-size: cover;
-    height: ${cfd_warning_height.desktop}rem;
     display: flex;
     align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 7.4rem;
+    height: fit-content;
+    padding: 1.7rem 0 1.5rem;
+    position: fixed;
+    bottom: 0;
+    box-shadow: inset 0 1px 0 0 var(--color-grey-21);
+    z-index: 100;
 
-    @media ${device.tabletL} {
-        overflow-y: scroll;
-        display: block;
+    @media (max-width: 826px) {
+        padding: 0.8rem 0;
+        height: 12.4rem;
     }
-    @media ${device.tabletS} {
-        height: ${cfd_warning_height.tablet}rem;
+    @media (max-width: 710px) {
+        height: 10.8rem;
+    }
+    @media (max-width: 538px) {
+        height: 14rem;
     }
 `
 
@@ -66,11 +76,9 @@ const CFDText = styled(Text)`
     @media ${device.bp1060} {
         font-size: 14px;
     }
-
     @media ${device.tablet} {
         font-size: 12px;
     }
-
     @media ${device.mobileL} {
         font-size: 10px;
     }
@@ -78,39 +86,28 @@ const CFDText = styled(Text)`
 
 export const CFDWarning = ({ is_ppc }) => {
     const { is_eu_country } = React.useContext(DerivStore)
-    return is_ppc || is_eu_country ? (
-        <CFDWrapper>
-            <CFDContainer>
-                <CFDText>
-                    <Localize
-                        translate_text="CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. <0>68% of retail investor accounts lose money when trading CFDs with this provider.</0> You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money."
-                        components={[<strong key={0} />]}
-                    />
-                </CFDText>
-            </CFDContainer>
-        </CFDWrapper>
-    ) : (
-        <></>
-    )
+    if (is_ppc || is_eu_country) {
+        return (
+            <CFDWrapper>
+                <CFDContainer>
+                    <CFDText>
+                        <Localize
+                            translate_text="CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. <0>68% of retail investor accounts lose money when trading CFDs with this provider.</0> You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money."
+                            components={[<strong key={0} />]}
+                        />
+                    </CFDText>
+                </CFDContainer>
+            </CFDWrapper>
+        )
+    }
+    return <></>
 }
 
 const Main = styled.main`
-    margin-top: ${(props) =>
-        props.use_eu_margin
-            ? (props.margin_top && `${props.margin_top + cfd_warning_height.desktop}rem`) ||
-              `${7 + cfd_warning_height.desktop}rem`
-            : (props.margin_top && `${props.margin_top}rem`) || `7rem`};
+    margin-top: ${(props) => (props.margin_top && `${props.margin_top}rem`) || '7rem'};
     background: var(--color-white);
     height: 100%;
     position: relative;
-
-    @media ${device.tabletS} {
-        margin-top: ${(props) =>
-            props.use_eu_margin
-                ? (props.margin_top && `${props.margin_top + cfd_warning_height.tablet}rem`) ||
-                  `${7 + cfd_warning_height.tablet}rem`
-                : (props.margin_top && `${props.margin_top}rem`) || `7rem`};
-    }
 `
 
 const Layout = ({
@@ -131,10 +128,6 @@ const Layout = ({
     const [gtm_data, setGTMData] = useGTMData()
 
     const is_static = type === 'static'
-    //this pages do not show a banner (cfd) on top of nav. so no need to adjust top margin of main for these pages
-    const no_warning_pages = ['static', 'careers']
-    //cfd warning should be shown for pay per click even if the client is not from eu
-    const should_use_eu_margin = !no_warning_pages.includes(type) && (is_eu_country || is_ppc)
 
     // Every layout change will trigger scroll to top
     React.useEffect(() => {
@@ -208,11 +201,7 @@ const Layout = ({
             setModalPayload={setModalPayload}
         >
             {Navigation}
-            <Main
-                margin_top={margin_top}
-                is_static={is_static}
-                use_eu_margin={should_use_eu_margin}
-            >
+            <Main margin_top={margin_top} is_static={is_static}>
                 {children}
             </Main>
             {show_cookie_banner && (
@@ -222,7 +211,7 @@ const Layout = ({
                     is_open={show_cookie_banner}
                 />
             )}
-            {!no_live_chat && <LiveChat />}
+            {!no_live_chat && <LiveChat is_banner_shown={show_cookie_banner} />}
             {FooterNav}
             <EURedirect
                 toggle={toggleModal}

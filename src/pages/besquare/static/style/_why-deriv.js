@@ -21,7 +21,7 @@ export const ContentContainer = styled(Container)`
 
     @media ${device.tabletL} {
         grid-template-columns: auto;
-        grid-template-areas: 'title' 'text-1' 'employee-image' 'text-2' 'quil5-image';
+        grid-template-areas: 'title' 'text-1' 'employee-image' 'text-2' 'bpo-image';
         grid-row-gap: 20px;
     }
 

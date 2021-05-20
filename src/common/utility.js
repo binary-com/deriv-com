@@ -76,10 +76,12 @@ export const getWindowWidth = () => (isBrowser() && window.screen ? window.scree
 export const getLanguage = () =>
     isBrowser() ? localStorage.getItem('i18n') || navigator.language : null
 
-export const getDerivAppLocalizedURL = (link, locale) => {
+export const getDerivAppLocalizedURL = (link, locale, to = '') => {
     const lang = deriv_app_languages.includes(locale) ? locale : 'en'
-    return `${link}?lang=${lang.toUpperCase()}`
+    return `${link}${to}?lang=${lang.toUpperCase()}`
 }
+
+export const getThaiExcludedLocale = (locale) => (locale === 'th' ? 'en' : locale)
 
 export const getCrowdin = () =>
     isBrowser() ? localStorage.getItem('jipt_language_code_deriv-com') || navigator.language : null
@@ -177,6 +179,6 @@ export const getDomain = () =>
 export const getLocalizedUrl = (path, is_index, to) => `/${path}${is_index ? `` : to}`
 
 export const nonENLangUrlReplace = (current_path) => {
-    const path_with_or_without_slash = /\/.+?(\/)|(\/\w+)/u
+    const path_with_or_without_slash = /\/.+?(\/)|(\/[a-zA-Z'-]+)/u
     return current_path.replace(path_with_or_without_slash, '')
 }

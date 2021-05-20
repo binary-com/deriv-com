@@ -2,13 +2,13 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Container } from '../containers'
 import { LocationContext } from './location-context'
-import MainLinksSection from './footer/main-links'
-import AdditionalEUSection from './footer/additional-eu'
-import DisclaimerSection from './footer/disclaimer'
+import { DefaultFooter, FooterGrid } from './footer/common/style.js'
 import LogoSection from './footer/logo'
-import { StyledFooter, StyledGrid } from './footer/common/style.js'
+import MainLinksSection from './footer/main-links'
+import DisclaimerSection from './footer/disclaimer'
 import CopyrightSection from './footer/copyright'
 import BottomSocialSection from './footer/bottom-social-wrapper'
+import AdditionalEUSection from './footer/additional-eu'
 // TODO: (discussion) make footer pure component, and move usage of footer to custom
 
 const mobile_accordion_header = {
@@ -28,18 +28,18 @@ const Footer = ({ type, is_ppc, is_ppc_redirect }) => {
     mobile_accordion_header_about.borderTop = 'none'
     
     return (
-        <StyledFooter has_banner_cookie={show_cookie_banner}>
+        <DefaultFooter has_banner_cookie={show_cookie_banner}>
             <Container>
-                <StyledGrid>
+                <FooterGrid>
                     <LogoSection type={type}/>
                     <MainLinksSection is_ppc={is_ppc} is_ppc_redirect={is_ppc_redirect}/>
                     <DisclaimerSection/>
                     <CopyrightSection/>
                     <BottomSocialSection type={type} />
                     <AdditionalEUSection/>
-                </StyledGrid>
+                </FooterGrid>
             </Container>
-        </StyledFooter>
+        </DefaultFooter>
     )
 }
 

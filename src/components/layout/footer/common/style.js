@@ -4,7 +4,7 @@ import { StyledLink, Text } from '../../../elements'
 import { LocalizedLink } from '../../../localization'
 import device from '../../../../themes/device'
 
-export const StyledFooter = styled.footer`
+export const DefaultFooter = styled.footer`
     background-color: var(--color-grey-25);
     width: 100%;
     margin: 0 auto;
@@ -21,7 +21,7 @@ export const StyledFooter = styled.footer`
         padding-bottom: 6rem;
     }
 `
-export const StyledGrid = styled(CssGrid)`
+export const FooterGrid = styled(CssGrid)`
     width: 100%;
     grid-template-columns: 2fr;
     grid-template-areas:

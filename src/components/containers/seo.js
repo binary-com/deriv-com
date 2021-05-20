@@ -79,7 +79,7 @@ const SEO = ({ description, meta, title, no_index, has_organization_schema, meta
             }}
             title={title}
             defer={false}
-            meta={[
+            meta={Localize([
                 {
                     name: 'description',
                     content: metaDescription,
@@ -90,7 +90,7 @@ const SEO = ({ description, meta, title, no_index, has_organization_schema, meta
                 },
                 {
                     property: 'og:title',
-                    content: meta_attributes?.og_title || Localize(default_og_title),
+                    content: meta_attributes?.og_title || default_og_title,
                 },
                 {
                     property: 'og:site_name',
@@ -98,7 +98,7 @@ const SEO = ({ description, meta, title, no_index, has_organization_schema, meta
                 },
                 {
                     property: 'og:description',
-                    content: meta_attributes?.og_description || Localize(default_og_description),
+                    content: meta_attributes?.og_description || default_og_description,
                 },
                 {
                     property: 'og:type',
@@ -156,7 +156,7 @@ const SEO = ({ description, meta, title, no_index, has_organization_schema, meta
                           },
                       ]
                     : []),
-            ].concat(meta)}
+            ]).concat(meta)}
         >
             {has_organization_schema && (
                 <script type="application/ld+json">{JSON.stringify(organization_schema)}</script>

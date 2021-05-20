@@ -171,7 +171,7 @@ const HeroComponent = ({ title, content, background_data, img_data }) => {
                         secondary="true"
                         to="/cashier/p2p"
                         external="true"
-                        is_deriv_app_link
+                        type="deriv_app"
                         target="_blank"
                         rel="noopener noreferrer"
                     >

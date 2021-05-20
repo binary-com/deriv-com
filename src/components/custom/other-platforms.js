@@ -101,7 +101,7 @@ const StyledFlexGridContainer = styled(FlexGridContainer)`
 `
 
 export const TraderCard = ({ is_selected, word_break_cover }) => (
-    <StyledLink ariaLabel="DTrader" to="/dtrader">
+    <StyledLink aria_label="DTrader" to="/dtrader">
         <Card
             cover_background="var(--color-red)"
             cover_content={localize('Discover DTrader now')}
@@ -118,7 +118,7 @@ export const TraderCard = ({ is_selected, word_break_cover }) => (
 )
 
 export const BotCard = ({ is_selected, word_break_cover }) => (
-    <StyledLink ariaLabel="DBot" to="/dbot">
+    <StyledLink aria_label="DBot" to="/dbot">
         <Card
             cover_background="var(--color-orange)"
             cover_content={localize('Discover DBot now')}
@@ -135,7 +135,7 @@ export const BotCard = ({ is_selected, word_break_cover }) => (
 )
 
 export const DMT5Card = ({ is_selected, is_ppc_redirect, word_break_cover }) => (
-    <StyledLink ariaLabel="DMT5" to={is_ppc_redirect ? '/landing/dmt5' : '/dmt5'}>
+    <StyledLink aria_label="DMT5" to={is_ppc_redirect ? '/landing/dmt5' : '/dmt5'}>
         <Card
             cover_background="var(--color-green)"
             cover_content={localize('Discover DMT5 now')}
@@ -171,9 +171,9 @@ export const DerivXCard = ({ is_selected, word_break_cover }) => (
 
 export const SmarttraderCard = ({ is_selected, word_break_cover }) => (
     <StyledLink
-        ariaLabel="SmartTrader"
+        aria_label="SmartTrader"
         to="trading"
-        is_smarttrader_link
+        type="smart_trader"
         external="true"
         target="_blank"
         rel="noopener noreferrer"
@@ -190,7 +190,7 @@ export const SmarttraderCard = ({ is_selected, word_break_cover }) => (
                     key={0}
                     translate_text="Trade the world’s markets on <0>Binary.com</0>’s classic platform."
                     components={[
-                        <LocalizedLinkText key={0} to="home" external="true" is_binary_link />,
+                        <LocalizedLinkText key={0} to="home" external="true" type="binary" />,
                     ]}
                 />,
             ]}
@@ -495,7 +495,7 @@ export const NavResources = ({ onClick }) => (
             title={localize('Community')}
             onClick={onClick}
             to=""
-            is_community_link
+            type="community"
             external="true"
             target="_blank"
             rel="noopener noreferrer"
@@ -523,7 +523,7 @@ export const NavResources = ({ onClick }) => (
             title={localize('Blog')}
             onClick={onClick}
             to=""
-            is_blog_link
+            type="blog"
             external="true"
             target="_blank"
             rel="noopener noreferrer"

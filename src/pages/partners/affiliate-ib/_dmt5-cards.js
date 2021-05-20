@@ -317,7 +317,7 @@ const DERIVIBDMT5Cards = ({ data }) => {
                                     to={affiliate_signup_url}
                                     external="true"
                                     target="_blank"
-                                    is_affiliate_link
+                                    type="affiliate_sign_up"
                                 >
                                     {localize('Become an affiliate')}
                                 </StyledLinkButton>

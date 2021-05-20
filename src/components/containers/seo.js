@@ -90,7 +90,7 @@ const SEO = ({ description, meta, title, no_index, has_organization_schema, meta
                 },
                 {
                     property: 'og:title',
-                    content: meta_attributes?.default_og_title,
+                    content: meta_attributes?.og_title || default_og_title,
                 },
                 {
                     property: 'og:site_name',
@@ -98,7 +98,7 @@ const SEO = ({ description, meta, title, no_index, has_organization_schema, meta
                 },
                 {
                     property: 'og:description',
-                    content: meta_attributes?.default_og_description,
+                    content: meta_attributes?.og_description || default_og_description,
                 },
                 {
                     property: 'og:type',

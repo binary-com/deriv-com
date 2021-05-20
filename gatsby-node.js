@@ -12,7 +12,7 @@ exports.onCreatePage = ({ page, actions }) => {
     const is_responsible_trading = /responsible/g.test(page.path)
     const is_contact_us = /contact_us/g.test(page.path)
     const is_p2p = /responsible/g.test(page.path)
-    const is_about = /about/g.test(page.path)
+    const is_story = /story/g.test(page.path)
 
     if (is_responsible_trading) {
         createRedirect({
@@ -65,7 +65,7 @@ exports.onCreatePage = ({ page, actions }) => {
         })
     }
 
-    if (is_about) {
+    if (is_story) {
         createRedirect({
             fromPath: `/about/`,
             toPath: `/story/`,
@@ -189,7 +189,7 @@ exports.onCreatePage = ({ page, actions }) => {
             })
         }
 
-        if (is_about) {
+        if (is_story) {
             createRedirect({
                 fromPath: `/${lang}/about/`,
                 toPath: `/${lang}/story/`,

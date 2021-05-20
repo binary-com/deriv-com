@@ -58,7 +58,7 @@ const Story = () => {
             <Background>
                 <StyledContainer direction="column">
                     <Header as="h1" type="display-title" color="white" align="center">
-                        {localize('Our Story')}
+                        {localize('Our story')}
                     </Header>
 
                     <ContentWrapper margin_top="5rem">

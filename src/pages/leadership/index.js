@@ -108,7 +108,7 @@ const Leadership = () => {
             <Background>
                 <StyledContainer direction="column">
                     <Header as="h1" type="display-title" color="white" align="center">
-                        {localize('Our Leadership')}
+                        {localize('Our leadership')}
                     </Header>
 
                     <Show.Desktop>

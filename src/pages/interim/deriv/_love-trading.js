@@ -13,7 +13,7 @@ const content = {
         header: <Localize translate_text="Love trading on Binary.com’s signature platform?" />,
         button_text: <Localize translate_text="Try SmartTrader on Deriv.com" />,
         button_url: 'trading',
-        button_props: { is_smarttrader_link: true },
+        button_props: { type: 'smart_trader' },
         cta_props: { is_white: true },
     },
 }

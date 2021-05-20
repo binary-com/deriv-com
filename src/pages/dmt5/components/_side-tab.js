@@ -181,6 +181,7 @@ const Tabs = ({ children, is_reverse, parent_tab, has_download_button }) => {
                         )
                     })}
                 </TabList>
+                {/* TODO: replace app download link once app is available */}
                 {has_download_button && (
                     <DownloadFlex mt="1rem" jc="flex-start">
                         <Box mr="1.2rem">

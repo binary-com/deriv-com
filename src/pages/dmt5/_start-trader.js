@@ -190,7 +190,7 @@ const StartTrader = () => {
             </Flex>
 
             <Flex max_width="1200px">
-                {tab === 'Demo' ? (
+                {tab === 'Demo' ?
                     <SideTab parent_tab={tab}>
                         <SideTab.Panel
                             label=""
@@ -238,72 +238,72 @@ const StartTrader = () => {
                             </ImageWrapper>
                         </SideTab.Panel>
                     </SideTab>
-                ) : (
-                        <SideTab parent_tab={tab}>
-                            <SideTab.Panel
-                                label=""
-                                description={
-                                    <Localize
-                                        translate_text="Create or <0>sign in</0> to your Deriv account"
-                                        components={[
-                                            <StyledLocalizedLink
-                                                external="true"
-                                                key={0}
-                                                to={handleLogin()}
-                                            />,
-                                        ]}
-                                    />
-                                }
-                                item_width="27rem"
-                            >
-                                <ImageWrapper>
-                                    <QueryImage
-                                        data={data[is_mobile ? 'real_step1_mobile' : 'real_step1']}
-                                        alt="real_step1"
-                                    />
-                                </ImageWrapper>
-                            </SideTab.Panel>
-                            <SideTab.Panel
-                                label=""
-                                description={
-                                    <Localize translate_text="Create a Deriv real money account" />
-                                }
-                            >
-                                <ImageWrapper>
-                                    <QueryImage
-                                        data={data[is_mobile ? 'real_step2_mobile' : 'real_step2']}
-                                        alt="real_step2"
-                                    />
-                                </ImageWrapper>
-                            </SideTab.Panel>
-                            <SideTab.Panel
-                                label=""
-                                description={
-                                    <Localize translate_text="Create a DMT5 real money account based on your trade preference" />
-                                }
-                            >
-                                <ImageWrapper>
-                                    <QueryImage
-                                        data={data[is_mobile ? 'real_step3_mobile' : 'real_step3']}
-                                        alt="real_step3"
-                                    />
-                                </ImageWrapper>
-                            </SideTab.Panel>
-                            <SideTab.Panel
-                                label=""
-                                description={
-                                    <Localize translate_text="Fund your account. Start trading on the mobile app, desktop app, or web browser" />
-                                }
-                            >
-                                <ImageWrapper>
-                                    <QueryImage
-                                        data={data[is_mobile ? 'real_step4_mobile' : 'real_step4']}
-                                        alt="real_step4"
-                                    />
-                                </ImageWrapper>
-                            </SideTab.Panel>
-                        </SideTab>
-                    )}
+                    :
+                    <SideTab parent_tab={tab}>
+                        <SideTab.Panel
+                            label=""
+                            description={
+                                <Localize
+                                    translate_text="Create or <0>sign in</0> to your Deriv account"
+                                    components={[
+                                        <StyledLocalizedLink
+                                            external="true"
+                                            key={0}
+                                            to={handleLogin()}
+                                        />,
+                                    ]}
+                                />
+                            }
+                            item_width="27rem"
+                        >
+                            <ImageWrapper>
+                                <QueryImage
+                                    data={data[is_mobile ? 'real_step1_mobile' : 'real_step1']}
+                                    alt="real_step1"
+                                />
+                            </ImageWrapper>
+                        </SideTab.Panel>
+                        <SideTab.Panel
+                            label=""
+                            description={
+                                <Localize translate_text="Create a Deriv real money account" />
+                            }
+                        >
+                            <ImageWrapper>
+                                <QueryImage
+                                    data={data[is_mobile ? 'real_step2_mobile' : 'real_step2']}
+                                    alt="real_step2"
+                                />
+                            </ImageWrapper>
+                        </SideTab.Panel>
+                        <SideTab.Panel
+                            label=""
+                            description={
+                                <Localize translate_text="Create a DMT5 real money account based on your trade preference" />
+                            }
+                        >
+                            <ImageWrapper>
+                                <QueryImage
+                                    data={data[is_mobile ? 'real_step3_mobile' : 'real_step3']}
+                                    alt="real_step3"
+                                />
+                            </ImageWrapper>
+                        </SideTab.Panel>
+                        <SideTab.Panel
+                            label=""
+                            description={
+                                <Localize translate_text="Fund your account. Start trading on the mobile app, desktop app, or web browser" />
+                            }
+                        >
+                            <ImageWrapper>
+                                <QueryImage
+                                    data={data[is_mobile ? 'real_step4_mobile' : 'real_step4']}
+                                    alt="real_step4"
+                                />
+                            </ImageWrapper>
+                        </SideTab.Panel>
+                    </SideTab>
+                }
             </Flex>
         </Section>
     )

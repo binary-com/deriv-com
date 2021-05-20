@@ -106,7 +106,7 @@ const WhyTradeDerivX = () => {
                     <Flex tablet_direction='column' tablet_ai='center' mt="40px">
                         {card_data.map((index) => {
                             return (
-                                <Card key={index}>
+                                <Card key={index.title}>
                                     <div>
                                         <img src={index.icon} alt={index.icon_alt} />
                                     </div>

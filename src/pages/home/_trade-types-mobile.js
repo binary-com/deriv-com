@@ -49,7 +49,7 @@ const CustomLinkWrap = styled.div`
 const TradeTypeSlide = ({ description, icon, link, linkTitle, title }) => {
     return (
         <Flex ai="center">
-            <StyledLink ariaLabel={linkTitle} to={link}>
+            <StyledLink aria_label={linkTitle} to={link}>
                 <TradeTypeCard>
                     <Flex ai="center" fd="column">
                         {icon}
@@ -87,7 +87,6 @@ TradeTypeSlide.propTypes = {
 }
 
 const TradeTypesMobile = () => {
-
     const margin = {
         icon: <img src={MarginLogo} alt="margin" width="48" height="49" />,
         title: <Localize translate_text="Margin trading" />,
@@ -115,11 +114,11 @@ const TradeTypesMobile = () => {
         link: '/trade-types/multiplier/',
         linkTitle: localize('Multiplier'),
     }
-    
+
     const { is_eu_country } = React.useContext(DerivStore)
-        
+
     const trade_types = is_eu_country ? [margin, multipliers] : [margin, options, multipliers]
-    
+
     const settings = {
         options: {
             align: 'center',

@@ -144,7 +144,7 @@ export const IconGrid = () => (
                             <LocalizedLink
                                 key={1}
                                 to=""
-                                is_community_link
+                                type="community"
                                 external="true"
                                 target="_blank"
                                 rel="noopener noreferrer"

@@ -6,7 +6,7 @@ import { LocalizedLink, localize, Localize } from 'components/localization'
 import { Accordion, AccordionItem, NavCard, Text, Divider } from 'components/elements'
 import Signals from 'components/svgs/signals'
 import { useOutsideClick } from 'components/hooks/outside-click'
-import { cfd_warning_height, deriv_status_page_url } from 'common/constants'
+import { deriv_status_page_url } from 'common/constants'
 // SVG
 import AffiliateIb from 'images/svg/menu/affiliate-ib.svg'
 import Blog from 'images/svg/blog-nav.svg'
@@ -38,13 +38,12 @@ import Story from 'images/svg/menu/story.svg'
 import SyntheticIndices from 'images/svg/synthetic-indices-nav.svg'
 import Terms from 'images/svg/menu/terms.svg'
 import { DerivStore } from 'store'
-import device from 'themes/device'
 import Trade from 'images/svg/trader-tool-nav.svg'
 
 const OffCanvasMenu = styled.section`
     position: fixed;
     background-color: var(--color-white);
-    top: ${(props) => (props.is_eu_country ? `${cfd_warning_height.desktop + 7.2}rem` : `7.2rem`)};
+    top: 7.2rem;
     height: 100vh;
     width: 253px;
     opacity: 1;
@@ -53,19 +52,10 @@ const OffCanvasMenu = styled.section`
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.1);
     left: -254px;
     ${({ is_canvas_menu_open }) => is_canvas_menu_open && 'transform: translateX(254px)'};
-
-    @media ${device.tabletS} {
-        top: ${(props) =>
-            props.is_eu_country ? `${cfd_warning_height.tablet + 7.2}rem` : `7.2rem`};
-    }
 `
 
 const OffCanvasMenuSecondary = styled(OffCanvasMenu)`
-    top: ${(props) => (props.is_eu_country ? `${cfd_warning_height.desktop + 10}rem` : `10rem`)};
-
-    @media ${device.tabletS} {
-        top: ${(props) => (props.is_eu_country ? `${cfd_warning_height.tablet + 10}rem` : `10rem`)};
-    }
+    top: 10rem;
 `
 
 const Span = styled.span`
@@ -210,10 +200,10 @@ export const OffCanvasMenuWrapper = (props) => {
                                 title={<Localize translate_text="SmartTrader" />}
                                 onClick={handleArrowClick}
                                 to="trading"
-                                is_smarttrader_link
+                                type="smart_trader"
                                 external="true"
                                 target="_blank"
-                                otherLinkProps={{ rel: 'noopener noreferrer' }}
+                                rel="noopener noreferrer"
                             />
                         </Flex>
                         {!props.is_ppc && (
@@ -419,7 +409,7 @@ export const OffCanvasMenuWrapper = (props) => {
                         </StyledLink>
                         <StyledLink
                             to=""
-                            is_community_link
+                            type="community"
                             external="true"
                             target="_blank"
                             rel="noopener noreferrer"
@@ -473,7 +463,7 @@ export const OffCanvasMenuWrapper = (props) => {
                         </StyledLink>
                         <StyledLink
                             to=""
-                            is_blog_link
+                            type="blog"
                             external="true"
                             target="_blank"
                             rel="noopener noreferrer"
@@ -541,7 +531,7 @@ export const OffCanvasMenuWrapper = (props) => {
                         </StyledLink>
                         <StyledLink
                             to=""
-                            is_deriv_developer_link
+                            type="developers"
                             target="_blank"
                             external="true"
                             rel="noopener noreferrer"
@@ -606,7 +596,7 @@ export const OffCanvasMenuPartner = (props) => {
                 </StyledLink>
                 <StyledLink
                     to=""
-                    is_deriv_developer_link
+                    type="developers"
                     target="_blank"
                     external="true"
                     rel="noopener noreferrer"

@@ -69,7 +69,7 @@ const StyledCard = styled(LocalizedLink)`
 
 const TradeTypesCard = ({ icon, title, description, link, linkTitle }) => {
     return (
-        <StyledCard ariaLabel={linkTitle} to={link}>
+        <StyledCard aria_label={linkTitle} to={link}>
             <CustomWrap>
                 <LogoDiv>{icon}</LogoDiv>
                 <Header>{title}</Header>

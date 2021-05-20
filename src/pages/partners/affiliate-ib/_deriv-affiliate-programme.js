@@ -238,7 +238,7 @@ const DerivAffiliateProgramme = () => {
                                     to={affiliate_signup_url}
                                     external="true"
                                     target="_blank"
-                                    is_affiliate_link
+                                    type="affiliate_sign_up"
                                     mt_mobile="40px"
                                 >
                                     {localize('Sign up')}
@@ -288,7 +288,7 @@ const DerivAffiliateProgramme = () => {
                                     to={affiliate_signup_url}
                                     external="true"
                                     target="_blank"
-                                    is_affiliate_link
+                                    type="affiliate_sign_up"
                                     mt_mobile="24px"
                                 >
                                     {localize('Sign up')}
@@ -322,7 +322,7 @@ const DerivAffiliateProgramme = () => {
                                     to={affiliate_signup_url}
                                     external="true"
                                     target="_blank"
-                                    is_affiliate_link
+                                    type="affiliate_sign_up"
                                     mt_mobile="32px"
                                 >
                                     {localize('Sign up')}

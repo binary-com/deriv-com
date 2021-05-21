@@ -77,7 +77,7 @@ export const LocalizedLink = React.forwardRef(({ external, ...props }, ref) => {
     }, [])
 
     if (external || external === 'true') {
-        return <ExternalLink mounted={has_mounted} locale={locale} {...props} />
+        return <ExternalLink mounted={has_mounted} locale={locale} ref={ref} {...props}  />
     }
 
     return <InternalLink mounted={has_mounted} locale={locale} ref={ref} {...props} />

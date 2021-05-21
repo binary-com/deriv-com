@@ -280,6 +280,7 @@ const SignupButton = styled(Button)`
 const LinkSignupButton = styled(LinkButton)`
     opacity: 0;
     margin-left: 1.6rem;
+    margin-right: 10px;
 `
 
 const HamburgerMenu = styled.img`

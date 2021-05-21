@@ -774,7 +774,7 @@ const StyledNavRight = styled(NavRight)`
                     const calculation = props.button_ref.current.offsetWidth + 50
                     return `${calculation}px`
                 }
-                return '235px'
+                return '225px'
             }
         }}
     );

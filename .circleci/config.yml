@@ -154,7 +154,7 @@ commands:
           name: Deploying to k8s cluster for service << parameters.k8s_svc_name >>
           command: |
             echo $CA_CRT | base64 --decode > ca.crt
-            docker build -t ${DOCKHUB_ORGANISATION}/deriv-com:${CIRCLE_SHA1} -t ${DOCKHUB_ORGANISATION}/deriv-com:<< parameters.docker_image_tag >> .
+            kubectl --server=${KUBE_SERVER} --certificate-authority=ca.crt --token=$SERVICEACCOUNT_TOKEN set image deployment/<< parameters.k8s_svc_name >> << parameters.k8s_svc_name >>=${DOCKHUB_ORGANISATION}/deriv-com:${CIRCLE_SHA1}
 
             git clone https://github.com/binary-com/devops-ci-scripts
             cd devops-ci-scripts/k8s-build_tools

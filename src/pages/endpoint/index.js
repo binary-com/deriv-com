@@ -27,6 +27,13 @@ const ButtonContainer = styled.div`
 const InputGroup = styled.div`
     width: 40rem;
     margin: 0 auto 3.4rem;
+
+    & > div {
+        margin-bottom: 1rem;
+    }
+    & > div:last-child {
+        margin-bottom: 0;
+    }
 `
 
 const StyledButton = styled(Button)`
@@ -38,8 +45,11 @@ const endpointValidation = (values) => {
 
     const server_url = trimSpaces(values ? values.server_url : '')
     const app_id = trimSpaces(values ? values.app_id.toString() : '')
-    const server_url_error = validation.text(server_url)
-    const app_id_error = validation.text(app_id)
+    const clients_country = trimSpaces(values ? values.clients_country.toString() : '')
+    const server_url_error = validation.text(server_url) || validation.url(server_url)
+    const app_id_error = validation.text(app_id) || validation.number(app_id)
+    const clients_country_error =
+        validation.text(clients_country) || validation.alphabetic(clients_country)
 
     if (server_url_error) {
         errors.server_url = server_url_error
@@ -49,26 +59,41 @@ const endpointValidation = (values) => {
         errors.app_id = app_id_error
     }
 
+    if (clients_country_error) {
+        errors.clients_country = clients_country_error
+    }
+
     return errors
 }
 
 const Endpoint = () => {
     const [server_url, setServerUrl] = useLocalStorageState(default_server_url, 'config.server_url')
     const [app_id, setAppId] = useLocalStorageState(getAppId(), 'config.app_id')
+    const [reset_loading, setResetLoading] = React.useState(false)
     const { website_status, setWebsiteStatus, website_status_loading } = React.useContext(
         DerivStore,
     )
-    const TIMEOUT_DELAY = 1500
+    const STATUS_TIMEOUT_DELAY = 1500
+    const RESET_TIMEOUT_DELAY = 500
 
     const handleStatus = (setStatus, message) => {
         setStatus({ message })
         setTimeout(() => {
             setStatus({})
-        }, TIMEOUT_DELAY)
+        }, STATUS_TIMEOUT_DELAY)
     }
     const resetEndpointSettings = (setStatus) => {
-        setServerUrl(default_server_url)
-        setAppId(getAppId())
+        // reset local storage values
+        setResetLoading(true)
+        setServerUrl()
+        setAppId()
+        // adding the default storage values
+        setTimeout(() => {
+            setServerUrl(default_server_url)
+            setAppId(getAppId())
+            setResetLoading(false)
+        }, RESET_TIMEOUT_DELAY)
+        // reset website status values
         setWebsiteStatus()
         handleStatus(setStatus, 'Config has been reset successfully')
         // TODO: if there is a change requires reload in the future
@@ -107,8 +132,8 @@ const Endpoint = () => {
                 </Header>
                 <Formik
                     initialValues={{
-                        server_url: server_url,
-                        app_id: app_id,
+                        server_url: server_url ? server_url : '',
+                        app_id: app_id ? app_id : '',
                         // this implicit check is required by formik for `enableReinitialize` to work
                         clients_country: website_status?.clients_country
                             ? website_status?.clients_country
@@ -136,6 +161,7 @@ const Endpoint = () => {
                                     name="server_url"
                                     error={errors.server_url}
                                     value={values.server_url}
+                                    disabled={reset_loading}
                                     handleError={() => setFieldValue('server_url', '')}
                                     onChange={handleChange}
                                     onBlur={handleBlur}
@@ -148,6 +174,7 @@ const Endpoint = () => {
                                     name="app_id"
                                     error={errors.app_id}
                                     value={values.app_id}
+                                    disabled={reset_loading}
                                     handleError={() => setFieldValue('app_id', '')}
                                     onChange={handleChange}
                                     onBlur={handleBlur}

@@ -114,11 +114,11 @@ const SEO = ({ description, meta, title, no_index, has_organization_schema, meta
                 },
                 {
                     property: 'og:image:width',
-                    content: meta_attributes?.og_img_width || '723',
+                    content: meta_attributes?.og_img_width || '722',
                 },
                 {
                     property: 'og:image:height',
-                    content: meta_attributes?.og_img_height || '423',
+                    content: meta_attributes?.og_img_height || '422',
                 },
                 {
                     name: 'twitter:card',

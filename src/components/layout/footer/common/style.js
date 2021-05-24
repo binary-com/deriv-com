@@ -1,8 +1,8 @@
 import styled, { css } from 'styled-components'
-import { Container, CssGrid, Flex } from '../../../containers'
-import { StyledLink, Text } from '../../../elements'
-import { LocalizedLink } from '../../../localization'
-import device from '../../../../themes/device'
+import { Container, CssGrid, Flex } from 'components/containers'
+import { StyledLink, Text } from 'components/elements'
+import { LocalizedLink } from 'components/localization'
+import device from 'themes/device'
 
 export const DefaultFooter = styled.footer`
     background-color: var(--color-grey-25);

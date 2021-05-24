@@ -151,6 +151,7 @@ const Endpoint = () => {
                         isSubmitting,
                         setStatus,
                         setFieldValue,
+                        isValid,
                         dirty,
                         touched,
                         status,
@@ -168,7 +169,7 @@ const Endpoint = () => {
                                     type="text"
                                     label="Server URL"
                                     background="white"
-                                    placeholder={'qa10.deriv.dev'}
+                                    placeholder={'e.g. green.binaryws.com'}
                                 />
                                 <Input
                                     name="app_id"
@@ -181,7 +182,7 @@ const Endpoint = () => {
                                     type="text"
                                     label="App ID"
                                     background="white"
-                                    placeholder={'9999'}
+                                    placeholder={'e.g. 9999'}
                                 />
                                 <Input
                                     name="clients_country"
@@ -194,7 +195,7 @@ const Endpoint = () => {
                                     type="text"
                                     label="Clients country"
                                     background="white"
-                                    placeholder={'mt (for EU) or gb (for UK) or za (for P2P)'}
+                                    placeholder={'e.g. mt (for EU) or gb (for UK) or za (for P2P)'}
                                 />
                             </InputGroup>
                             <Text align="center" color="green">
@@ -210,7 +211,7 @@ const Endpoint = () => {
                                 </StyledButton>
                                 <StyledButton
                                     secondary="true"
-                                    disabled={isSubmitting || !dirty || !touched}
+                                    disabled={isSubmitting || !dirty || !touched || !isValid}
                                     type="submit"
                                 >
                                     Submit changes

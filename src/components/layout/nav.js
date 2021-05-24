@@ -280,6 +280,7 @@ const SignupButton = styled(Button)`
 const LinkSignupButton = styled(LinkButton)`
     opacity: 0;
     margin-left: 1.6rem;
+    margin-right: 10px;
 `
 
 const HamburgerMenu = styled.img`
@@ -786,6 +787,7 @@ const StyledNavRight = styled(NavRight)`
     > a:last-child {
         pointer-events: ${(props) => (props.move ? 'visible' : 'none')};
         cursor: ${(props) => (props.move ? 'pointer' : 'default')};
+        opacity: ${(props) => (props.move ? 1 : 0)};
     }
 `
 

@@ -13,7 +13,7 @@ import { Header, Text } from 'components/elements'
 import Layout from 'components/layout/layout'
 import { localize, LocalizedLink, WithIntl, Localize } from 'components/localization'
 import { getLocationHash, sanitize } from 'common/utility'
-import {  DerivStore} from 'store';
+// import {  DerivStore} from 'store';
 import device from 'themes/device'
 // Icons
 import SearchIcon from 'images/svg/search.svg'
@@ -228,7 +228,7 @@ const Platforms = styled(Text)`
     }
 `
 
-const { is_eu_country } = React.useContext(DerivStore)
+// const { is_eu_country } = React.useContext(DerivStore)
 class HelpCentre extends Component {
     constructor(props) {
         super(props)
@@ -378,7 +378,7 @@ class HelpCentre extends Component {
                     <ArticleSection>
                         {splittedArticles.map((article, id) => {
                             const first_category = article[0]?.articles[0]?.category
-                            if(!is_eu_country && !article.hide_eu)
+                            // if(!is_eu_country && !article.hide_eu)
                             return (
                                 <RowDiv
                                     wrap={first_category === 'DBot' ? 'wrap' : 'nowrap'}

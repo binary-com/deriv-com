@@ -84,9 +84,7 @@ module.exports = {
                         languages.push('x-default')
                         languages.splice(languages.indexOf('ach'), 1)
                         const ignore_localized = current_page.match(ignore_localized_regex);
-                        let links;
-
-                        links = languages.map((locale) => {
+                        const links = languages.map((locale) => {
                             if (locale !== 'ach' && locale) {
                                 const replaced_locale = locale.replace('_', '-')
                                 const is_default = locale === 'en' || locale === 'x-default'

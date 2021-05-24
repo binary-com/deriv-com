@@ -156,6 +156,12 @@ commands:
             echo $CA_CRT | base64 --decode > ca.crt
             kubectl --server=${KUBE_SERVER} --certificate-authority=ca.crt --token=$SERVICEACCOUNT_TOKEN set image deployment/<< parameters.k8s_svc_name >> << parameters.k8s_svc_name >>=${DOCKHUB_ORGANISATION}/deriv-com:${CIRCLE_SHA1}
 
+            export NAMESPACE=deriv-com-staging
+            git clone https://github.com/binary-com/devops-ci-scripts
+            cd devops-ci-scripts/k8s-build_tools
+            echo $CA_CRT | base64 --decode > ca.crt
+            ./release.sh deriv-com ${CIRCLE_SHA1}
+
 jobs:
   test:
     docker:

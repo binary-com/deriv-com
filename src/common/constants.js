@@ -18,7 +18,6 @@ export const deriv_developer_url = `https://developers.${domain_url}`
 export const deriv_bot_app_url = `${deriv_app_url}/bot`
 export const deriv_dp2p_app_url = `${deriv_app_url}/cashier/p2p`
 export const deriv_mt5_app_url = `${deriv_app_url}/mt5`
-export const deriv_mt5_demo_app_url = `${deriv_app_url}/mt5#demo`
 export const smarttrader_url = `https://smarttrader.${domain_url}`
 export const blog_url = `https://blog.${deriv_com_url}`
 export const deriv_cookie_domain = domain_url

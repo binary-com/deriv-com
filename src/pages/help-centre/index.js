@@ -13,6 +13,7 @@ import { Header, Text } from 'components/elements'
 import Layout from 'components/layout/layout'
 import { localize, LocalizedLink, WithIntl, Localize } from 'components/localization'
 import { getLocationHash, sanitize } from 'common/utility'
+import {  DerivStore} from 'store';
 import device from 'themes/device'
 // Icons
 import SearchIcon from 'images/svg/search.svg'
@@ -227,6 +228,7 @@ const Platforms = styled(Text)`
     }
 `
 
+const { is_eu_country } = React.useContext(DerivStore)
 class HelpCentre extends Component {
     constructor(props) {
         super(props)
@@ -303,7 +305,7 @@ class HelpCentre extends Component {
             all_articles: translated_articles,
         })
     }
-
+    
     render() {
         const {
             all_articles,
@@ -317,7 +319,9 @@ class HelpCentre extends Component {
             keys: ['title', 'sub_category'],
         })
         const splittedArticles = splitArticles(articles, 3)
+            
         const has_results = !!filtered_articles.length
+        
         return (
             <Layout>
                 <SEO
@@ -373,9 +377,13 @@ class HelpCentre extends Component {
                 <Container align="left" justify="flex-start" direction="column">
                     <ArticleSection>
                         {splittedArticles.map((article, id) => {
-                            const first_category = article[0]?.articles[0]?.category;
+                            const first_category = article[0]?.articles[0]?.category
+                            if(!is_eu_country && !article.hide_eu)
                             return (
-                                <RowDiv wrap={ first_category === 'DBot' ? 'wrap': 'nowrap'} key={id}>
+                                <RowDiv
+                                    wrap={first_category === 'DBot' ? 'wrap' : 'nowrap'}
+                                    key={id}
+                                >
                                     {article.map((item, idx) => {
                                         {
                                             return (

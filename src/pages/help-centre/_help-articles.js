@@ -240,6 +240,7 @@ export const articles = [
     },
     {
         category: <Localize translate_text="Deriv X" />,
+        hide_eu: true,
         articles: [
             {
                 title: <Localize translate_text="What is Deriv X?" />,

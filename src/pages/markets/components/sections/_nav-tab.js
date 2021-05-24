@@ -4,7 +4,6 @@ import styled, { css } from 'styled-components'
 import { Text } from 'components/elements'
 import { Flex } from 'components/containers'
 import { Localize, LocalizedLink } from 'components/localization'
-// import { useActiveLinkState } from 'components/hooks/use-active-link-state'
 import device from 'themes/device'
 
 const TabsContainer = styled(Flex)`

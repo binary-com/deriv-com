@@ -12,7 +12,7 @@ const content = {
     right: {
         header: <Localize translate_text="Love Binary Bot?" />,
         button_text: <Localize translate_text="Try DBot on Deriv.com" />,
-        button_props: { is_dbot_link: true },
+        button_props: { type: 'dbot' },
         cta_props: { is_white: true },
         hide_cta: true,
     },

@@ -229,10 +229,8 @@ const DHero = ({
     Logo,
 }) => {
     const data = useStaticQuery(query)
-    const getRedirectLink = () => {
-        const path = image_name === 'dbot' ? '/bot' : '/'
-        return path
-    }
+    const getLinkType = () => (image_name === 'dbot' ? 'dbot' : 'deriv_app')
+
     const DLogo = styled.img`
         width: 32px !important;
         height: 32px !important;
@@ -292,9 +290,8 @@ const DHero = ({
                     {go_to_live_demo && (
                         <GoToLiveDemo
                             tertiary
-                            to={getRedirectLink()}
                             external
-                            is_deriv_app_link
+                            type={getLinkType()}
                             target="_blank"
                             rel="noopener noreferrer"
                         >
@@ -319,15 +316,15 @@ const DHero = ({
 }
 
 DHero.propTypes = {
-    background_alt: PropTypes.string,
+    background_alt: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     background_image_name: PropTypes.string,
-    background_svg: PropTypes.func,
+    background_svg: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     content: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     go_to_live_demo: PropTypes.bool,
     image_name: PropTypes.string,
     is_mobile: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
     join_us_for_free: PropTypes.bool,
-    Logo: PropTypes.func,
+    Logo: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     title: PropTypes.string,
 }
 

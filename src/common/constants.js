@@ -14,9 +14,10 @@ const domain_url =
 
 export const deriv_app_id = domain_url === deriv_com_url ? deriv_com_app_id : deriv_me_app_id
 export const deriv_app_url = `https://app.${domain_url}`
-export const deriv_bot_app_url = `https://app.${domain_url}/bot`
-export const deriv_dp2p_app_url = `https://app.${domain_url}/cashier/p2p`
 export const deriv_developer_url = `https://developers.${domain_url}`
+export const deriv_bot_app_url = `${deriv_app_url}/bot`
+export const deriv_dp2p_app_url = `${deriv_app_url}/cashier/p2p`
+export const deriv_mt5_app_url = `${deriv_app_url}/mt5`
 export const smarttrader_url = `https://smarttrader.${domain_url}`
 export const blog_url = `https://blog.${deriv_com_url}`
 export const deriv_cookie_domain = domain_url
@@ -31,10 +32,6 @@ export const besquare_signup_url =
     'https://deriv.zohorecruit.com/jobs/Careers/590522000011882533/BeSquare-Graduate-Trainee?source=CareerSite'
 export const binary_url = 'https://binary.com'
 export const brand_name = 'Deriv'
-export const cfd_warning_height = {
-    desktop: 8,
-    tablet: 12,
-}
 export const client_token = 'pubc42fda54523c5fb23c564e3d8bceae88'
 export const deriv_app_languages = ['id', 'pt', 'es']
 export const deriv_status_page_url = 'https://deriv.statuspage.io'
@@ -60,6 +57,19 @@ export const p2p_playstore_url = 'https://play.google.com/store/apps/details?id=
 export const pushwoosh_app_code = 'DD293-35A19'
 export const sample_rate = 25
 export const zoho_url = 'https://deriv.zohorecruit.com'
+export const localized_link_url = Object.freeze({
+    affiliate_sign_in: affiliate_signin_url,
+    affiliate_sign_up: affiliate_signup_url,
+    binary: binary_url,
+    blog: blog_url,
+    community: community_url,
+    developers: deriv_developer_url,
+    dbot: deriv_bot_app_url,
+    deriv_app: deriv_app_url,
+    mt5: deriv_mt5_app_url,
+    smart_trader: smarttrader_url,
+    zoho: zoho_url,
+})
 
 export const fb_url = 'https://www.facebook.com/derivdotcom'
 export const fb_url_career = 'https://www.facebook.com/derivcareers'

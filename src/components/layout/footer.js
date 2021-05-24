@@ -396,7 +396,7 @@ const Footer = ({ type, is_ppc, is_ppc_redirect }) => {
                                     <LinkWrapper>
                                         <Link
                                             to="trading"
-                                            is_smarttrader_link
+                                            type="smart_trader"
                                             external="true"
                                             target="_blank"
                                             rel="noopener noreferrer"
@@ -489,7 +489,7 @@ const Footer = ({ type, is_ppc, is_ppc_redirect }) => {
                                     <LinkWrapper>
                                         <Link
                                             to=""
-                                            is_deriv_developer_link
+                                            type="developers"
                                             target="_blank"
                                             external="true"
                                             rel="noopener noreferrer"
@@ -508,7 +508,7 @@ const Footer = ({ type, is_ppc, is_ppc_redirect }) => {
                                     <LinkWrapper>
                                         <Link
                                             to=""
-                                            is_community_link
+                                            type="community"
                                             external="true"
                                             target="_blank"
                                             rel="noopener noreferrer"
@@ -539,7 +539,7 @@ const Footer = ({ type, is_ppc, is_ppc_redirect }) => {
                                     <LinkWrapper>
                                         <Link
                                             to=""
-                                            is_blog_link
+                                            type="blog"
                                             external="true"
                                             target="_blank"
                                             rel="noopener noreferrer"

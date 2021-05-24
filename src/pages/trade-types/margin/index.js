@@ -6,13 +6,13 @@ import { SEO } from 'components/containers'
 import { Header } from 'components/elements'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
+import TradingImage from 'images/common/og_deriv.png'
 const WhyTradeMargin = Loadable(() => import('./_why-trade-margin'))
 const Contracts = Loadable(() => import('./_contracts'))
 const Policies = Loadable(() => import('./_policies'))
 const StartTrading = Loadable(() => import('./_start-trading'))
 const RelationshipWithLeverge = Loadable(() => import('./_relationship-with-leverge'))
 const AvailableMarkets = Loadable(() => import('./_available-markets'))
-import TradingImage from 'images/common/og_deriv.png'
 
 const meta_attributes = {
     og_title: 'Margin trading | Trade types | Deriv',

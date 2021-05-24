@@ -8,10 +8,21 @@ import { Header } from 'components/elements'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
 import { DerivStore } from 'store'
+import TradingImage from 'images/common/og_deriv.png'
 const HowOptionsWorks = Loadable(() => import('./_how-options-works'))
 const OptionsToTrade = Loadable(() => import('./_options-to-trade'))
 const StartTrading = Loadable(() => import('./_start-trading'))
 const MarketsAvailable = Loadable(() => import('./_markets-available'))
+
+const meta_attributes = {
+    og_title: 'Options trading | Trading types | Deriv',
+    og_description:
+        'Learn about options trading on Deriv. Earn payouts by correctly predicting price movements without needing to buy the underlying assets.',
+    og_type: 'website',
+    og_img_width: '600',
+    og_img_height: '315',
+    og_img: TradingImage,
+}
 
 const Options = () => {
     const { is_eu_country } = React.useContext(DerivStore)
@@ -23,6 +34,7 @@ const Options = () => {
                 description={localize(
                     'Learn about options trading on Deriv. Earn payouts by correctly predicting price movements without needing to buy the underlying assets.',
                 )}
+                meta_attributes={meta_attributes}
             />
             <Hero jc="cneter" ai="center">
                 <SmallContainer>

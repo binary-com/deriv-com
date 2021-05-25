@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { matchSorter } from 'match-sorter'
 import styled, { css } from 'styled-components'
 import { Helmet } from 'react-helmet'
@@ -13,7 +14,7 @@ import { Header, Text } from 'components/elements'
 import Layout from 'components/layout/layout'
 import { localize, LocalizedLink, WithIntl, Localize } from 'components/localization'
 import { getLocationHash, sanitize } from 'common/utility'
-// import {  DerivStore} from 'store';
+import { DerivStore } from 'store'
 import device from 'themes/device'
 // Icons
 import SearchIcon from 'images/svg/search.svg'
@@ -228,7 +229,14 @@ const Platforms = styled(Text)`
     }
 `
 
-// const { is_eu_country } = React.useContext(DerivStore)
+// Since useContext can only be used in functional components
+// Wrap HelpCenter class component in a function plug in the context
+// TODO - Refactor Help Center to function component and move this inside
+const HelpCenterHOC = () => {
+    const { is_eu_country } = React.useContext(DerivStore)
+    return <HelpCentre is_eu_country={is_eu_country} />
+}
+
 class HelpCentre extends Component {
     constructor(props) {
         super(props)
@@ -305,7 +313,7 @@ class HelpCentre extends Component {
             all_articles: translated_articles,
         })
     }
-    
+
     render() {
         const {
             all_articles,
@@ -318,10 +326,11 @@ class HelpCentre extends Component {
         const filtered_articles = matchSorter(all_articles, search.trim(), {
             keys: ['title', 'sub_category'],
         })
-        const splittedArticles = splitArticles(articles, 3)
-            
+
+        const splitted_articles = splitArticles(articles, 3)
+
         const has_results = !!filtered_articles.length
-        
+
         return (
             <Layout>
                 <SEO
@@ -376,9 +385,11 @@ class HelpCentre extends Component {
                 </SearchSection>
                 <Container align="left" justify="flex-start" direction="column">
                     <ArticleSection>
-                        {splittedArticles.map((article, id) => {
+                        {splitted_articles.map((article, id) => {
+                            if (this.props.is_eu_country && article.hide_eu) {
+                                return <></>
+                            }
                             const first_category = article[0]?.articles[0]?.category
-                            // if(!is_eu_country && !article.hide_eu)
                             return (
                                 <RowDiv
                                     wrap={first_category === 'DBot' ? 'wrap' : 'nowrap'}
@@ -489,4 +500,8 @@ class HelpCentre extends Component {
     }
 }
 
-export default WithIntl()(HelpCentre)
+HelpCentre.propTypes = {
+    is_eu_country: PropTypes.bool,
+}
+
+export default WithIntl()(HelpCenterHOC)

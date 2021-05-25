@@ -9,16 +9,11 @@ import { Text, Header, Divider, Accordion, AccordionItem } from 'components/elem
 import { SEO, SectionContainer, Container } from 'components/containers'
 import { localize, WithIntl, Localize } from 'components/localization'
 import { DerivStore } from 'store'
-import TradingImage from 'images/common/og_deriv.png'
 
 const meta_attributes = {
-    og_title: 'Payment Methods | Deposits and withdrawals | Deriv',
+    og_title: <Localize translate_text="Payment Methods | Deposits and withdrawals | Deriv" />,
     og_description:
-        'We offer various payment methods - Bank wires, debit/credit cards, e-wallets and cryptocurrencies to make your transactions more convenient!',
-    og_type: 'website',
-    og_img_width: '600',
-    og_img_height: '315',
-    og_img: TradingImage,
+    <Localize translate_text="We offer various payment methods - Bank wires, debit/credit cards, e-wallets and cryptocurrencies to make your transactions more convenient!" />,
 }
 
 const AccordionContainer = styled.div`

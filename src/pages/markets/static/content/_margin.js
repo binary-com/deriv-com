@@ -152,6 +152,10 @@ export const stock_margin = {
             gap: '0',
             gap_mobile: '0',
             mobile_template: true,
+        },
+    ],
+}
+
 export const crypto_margin = {
     markets_list: {
         col: 4,

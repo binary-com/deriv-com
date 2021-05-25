@@ -8,10 +8,9 @@ import { Header, Text } from 'components/elements'
 import { LinkButton } from 'components/form'
 import Layout from 'components/layout/layout'
 import { SectionContainer, Container, SEO } from 'components/containers'
-import { localize, Localize, WithIntl } from 'components/localization'
+import { localize, WithIntl, Localize } from 'components/localization'
 import { affiliate_signup_url } from 'common/constants'
 import device from 'themes/device'
-
 const WhyUs = Loadable(() => import('./_why-us.js'))
 const WhoCanAplly = Loadable(() => import('./_who-can-apply.js'))
 const DerivAffiliateProgramme = Loadable(() => import('./_deriv-affiliate-programme'))
@@ -20,6 +19,12 @@ const MinimumVolume = Loadable(() => import('./_minimum-volume.js'))
 const MoreReason = Loadable(() => import('./_more-reason.js'))
 const Faq = Loadable(() => import('./_faq'))
 const CTA = Loadable(() => import('./_partner-cta'))
+
+const meta_attributes = {
+    og_title: <Localize translate_text="Affiliate and IB programme | Deriv" />,
+    og_description:
+    <Localize translate_text="Join Deriv’s affiliate and IB programmes and get a chance to be a partner with a trusted online trading provider." />,
+}
 
 const StyledHeader = styled(Header)`
     width: 100%;
@@ -149,6 +154,7 @@ const AffiliateIb = () => {
                 description={localize(
                     'Join Deriv’s affiliate and IB programmes and get a chance to be a partner with a trusted online trading provider.',
                 )}
+                meta_attributes={meta_attributes}
             />
             <Helmet>
                 <script type="application/ld+json">{JSON.stringify(faq_schema)}</script>

@@ -147,10 +147,10 @@ const StyledLocalizedLink = styled(LocalizedLink)`
 const StartTrader = () => {
     const [is_mobile, setMobile] = useState(false)
     const handleResizeWindow = () => {
-        setMobile(isBrowser() ? window.screen.width <= size.tabletS : false)
+        setMobile(isBrowser() ? window.screen.width <= size.tablet : false)
     }
     useEffect(() => {
-        setMobile(isBrowser() ? window.screen.width <= size.tabletS : false)
+        handleResizeWindow()
         window.addEventListener('resize', handleResizeWindow)
     })
 
@@ -190,7 +190,7 @@ const StartTrader = () => {
             </Flex>
 
             <Flex max_width="1200px">
-                {tab === 'Demo' ? (
+                {tab === 'Demo' ?
                     <SideTab parent_tab={tab}>
                         <SideTab.Panel
                             label=""
@@ -238,7 +238,7 @@ const StartTrader = () => {
                             </ImageWrapper>
                         </SideTab.Panel>
                     </SideTab>
-                ) : (
+                    :
                     <SideTab parent_tab={tab}>
                         <SideTab.Panel
                             label=""
@@ -303,7 +303,7 @@ const StartTrader = () => {
                             </ImageWrapper>
                         </SideTab.Panel>
                     </SideTab>
-                )}
+                }
             </Flex>
         </Section>
     )

@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Article } from './_article'
 import { ArticleWrapper, StyledHeader, StyledText } from './_help-centre-style'
-import { deriv_x_app_url, deriv_app_url } from 'common/constants'
+import { derivx_app_url, deriv_app_url } from 'common/constants'
 import { Text, LocalizedLinkText } from 'components/elements'
 import { localize, Localize, WithIntl } from 'components/localization'
 
@@ -97,7 +97,7 @@ const DerivXAccount = () => (
                 translate_text="On the <0>Deriv X dashboard</0>, select the account type you want to open (Real or Demo) and click “Add account”. Follow the instructions on the screen to create a new Deriv X account."
                 components={[
                     <ExternalLink
-                        href={deriv_x_app_url}
+                        href={derivx_app_url}
                         target="_blank"
                         rel="noopener noreferrer"
                         key={0}
@@ -163,7 +163,7 @@ const ResetDerivXPassowrd = () => (
                         rel="noopener noreferrer"
                         key={0}
                     />,
-                ]}
+                ]}deriv_x_app_url
             />
         </Text>
         <StyledText>
@@ -184,7 +184,7 @@ const AccountInformation = () => (
                 translate_text="You can view your account information (account type and login numbers) on the <0>Deriv X dashboard</0>. "
                 components={[
                     <ExternalLink
-                        href={deriv_x_app_url}
+                        href={derivx_app_url}
                         target="_blank"
                         rel="noopener noreferrer"
                         key={0}

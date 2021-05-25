@@ -240,7 +240,6 @@ export const articles = [
     },
     {
         category: <Localize translate_text="Deriv X" />,
-        hide_eu: true,
         articles: [
             {
                 title: <Localize translate_text="What is Deriv X?" />,
@@ -249,7 +248,9 @@ export const articles = [
                 label: 'what-is-deriv-x',
             },
             {
-                title: <Localize translate_text="What is  the minimum / maximum I can deposit into my Deriv X account?" />,
+                title: (
+                    <Localize translate_text="What is  the minimum / maximum I can deposit into my Deriv X account?" />
+                ),
                 category: 'Deriv X',
                 sub_category: <Localize translate_text="Cashier limits" />,
                 label: 'minimum-or-maximum-deposit',
@@ -261,13 +262,17 @@ export const articles = [
                 label: 'markets-on-deriv-x',
             },
             {
-                title: <Localize translate_text="What is the minimum and maximum amount to trade on Deriv X?" />,
+                title: (
+                    <Localize translate_text="What is the minimum and maximum amount to trade on Deriv X?" />
+                ),
                 category: 'Deriv X',
                 sub_category: <Localize translate_text="How to trade" />,
                 label: 'minimum-and-maximum-amount-to-trade',
             },
             {
-                title: <Localize translate_text="What are the major differences between DTrader, Deriv MT5 (DMT5) and Deriv X?" />,
+                title: (
+                    <Localize translate_text="What are the major differences between DTrader, Deriv MT5 (DMT5) and Deriv X?" />
+                ),
                 category: 'Deriv X',
                 sub_category: <Localize translate_text="Platforms" />,
                 label: 'differences-of-dtrader-dmt5-deriv-x',
@@ -279,7 +284,9 @@ export const articles = [
                 label: 'create-account',
             },
             {
-                title: <Localize translate_text="What are the differences between Synthetics and Financial accounts?" />,
+                title: (
+                    <Localize translate_text="What are the differences between Synthetics and Financial accounts?" />
+                ),
                 category: 'Deriv X',
                 sub_category: <Localize translate_text="Platforms" />,
                 label: 'differences-of-synthetic-and-financial',
@@ -291,7 +298,9 @@ export const articles = [
                 label: 'trading-password',
             },
             {
-                title: <Localize translate_text="Why is my trading password different from my Deriv password?" />,
+                title: (
+                    <Localize translate_text="Why is my trading password different from my Deriv password?" />
+                ),
                 category: 'Deriv X',
                 sub_category: <Localize translate_text="Platforms" />,
                 label: 'differences-of-trading-and-deriv-password',
@@ -303,19 +312,25 @@ export const articles = [
                 label: 'reset-deriv-x-password',
             },
             {
-                title: <Localize translate_text="Where can I find my Deriv X account information?" />,
+                title: (
+                    <Localize translate_text="Where can I find my Deriv X account information?" />
+                ),
                 category: 'Deriv X',
                 sub_category: <Localize translate_text="Platforms" />,
                 label: 'deriv-x-account-information',
             },
             {
-                title: <Localize translate_text="How can I deposit funds into my Deriv X real money account?" />,
+                title: (
+                    <Localize translate_text="How can I deposit funds into my Deriv X real money account?" />
+                ),
                 category: 'Deriv X',
                 sub_category: <Localize translate_text="Platforms" />,
                 label: 'deposit-funds',
             },
             {
-                title: <Localize translate_text="How do I withdraw funds from my Deriv X real money account?" />,
+                title: (
+                    <Localize translate_text="How do I withdraw funds from my Deriv X real money account?" />
+                ),
                 category: 'Deriv X',
                 sub_category: <Localize translate_text="Platforms" />,
                 label: 'withdraw-funds-from-deriv-x',

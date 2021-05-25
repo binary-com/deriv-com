@@ -637,3 +637,108 @@ export const american_stocks = [
         text: <Localize translate_text="Moderna Inc" />,
     },
 ]
+export const cryptocurrencies = [
+    {
+        src: icons.BTC,
+        text: <Localize translate_text="Bitcoin" />,
+    },
+    {
+        src: icons.BCH,
+        text: <Localize translate_text="Bitcoin Cash" />,
+    },
+    {
+        src: icons.ETH,
+        text: <Localize translate_text="Ethereum" />,
+    },
+    {
+        src: icons.LTC,
+        text: <Localize translate_text="Litecoin" />,
+    },
+    {
+        src: icons.EOS,
+        text: <Localize translate_text="EOS" />,
+    },
+    {
+        src: icons.BNB,
+        text: <Localize translate_text="Binance Coin" />,
+    },
+    {
+        src: icons.DASH,
+        text: <Localize translate_text="DASH" />,
+    },
+    {
+        src: icons.XRP,
+        text: <Localize translate_text="Ripple" />,
+    },
+    {
+        src: icons.MNR,
+        text: <Localize translate_text="Monero" />,
+    },
+    {
+        src: icons.ZEC,
+        text: <Localize translate_text="ZCash" />,
+    },
+]
+
+export const cryptocurrencies_margin = [
+    {
+        src: icons.BTC,
+        text: <Localize translate_text="Bitcoin" />,
+    },
+    {
+        src: icons.BCH,
+        text: <Localize translate_text="Bitcoin Cash" />,
+    },
+    {
+        src: icons.ETH,
+        text: <Localize translate_text="Ethereum" />,
+    },
+    {
+        src: icons.LTC,
+        text: <Localize translate_text="Litecoin" />,
+    },
+    {
+        src: icons.TRX,
+        text: <Localize translate_text="Tron" />,
+    },
+    {
+        src: icons.BNB,
+        text: <Localize translate_text="Binance coin" />,
+    },
+    {
+        src: icons.DASH,
+        text: <Localize translate_text="DASH" />,
+    },
+    {
+        src: icons.XRP,
+        text: <Localize translate_text="Ripple" />,
+    },
+    {
+        src: icons.MNR,
+        text: <Localize translate_text="Monero" />,
+    },
+    {
+        src: icons.ZEC,
+        text: <Localize translate_text="ZCash" />,
+    },
+    {
+        src: icons.EOS,
+        text: <Localize translate_text="EOS" />,
+    },
+    {
+        src: icons.IOTA,
+        text: <Localize translate_text="IOTA" />,
+    },
+    {
+        src: icons.OMG,
+        text: <Localize translate_text="OMG network" />,
+    },
+    {
+        src: icons.XLM,
+        text: <Localize translate_text="Stellar Lumens" />,
+    },
+    {
+        src: icons.NEO,
+        text: <Localize translate_text="Neo" />,
+    },
+]

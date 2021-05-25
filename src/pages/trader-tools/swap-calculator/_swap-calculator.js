@@ -440,7 +440,7 @@ const SwapCalculator = () => {
                                     {
                                         <StyledLinkButton
                                             secondary="true"
-                                            to="/trade-types/margin#swap-policy"
+                                            to="/trade-types/margin#swap-policy/"
                                         >
                                             {localize('Learn more about swap')}
                                         </StyledLinkButton>
@@ -760,7 +760,7 @@ const SwapCalculator = () => {
                                     </StyledLinkButton>
                                     <StyledLinkButton
                                         secondary="true"
-                                        to="/trade-types/margin#swap-policy"
+                                        to="/trade-types/margin#swap-policy/"
                                     >
                                         {localize('Learn more about swap')}
                                     </StyledLinkButton>

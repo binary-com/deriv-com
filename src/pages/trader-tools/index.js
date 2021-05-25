@@ -14,7 +14,7 @@ const tools = [
         ),
         link: {
             text: <Localize translate_text="Try margin calculator" />,
-            route: '/trader-tools/margin-calculator',
+            route: '/trader-tools/margin-calculator/',
         },
         image_name: 'margin',
         image_alt: localize('margin calculator'),
@@ -26,7 +26,7 @@ const tools = [
         ),
         link: {
             text: <Localize translate_text="Try swap calculator" />,
-            route: '/trader-tools/swap-calculator',
+            route: '/trader-tools/swap-calculator/',
         },
         image_name: 'swap',
         image_alt: localize('swap calculator'),
@@ -38,7 +38,7 @@ const tools = [
         ),
         link: {
             text: <Localize translate_text="Try pip calculator" />,
-            route: '/trader-tools/pip-calculator',
+            route: '/trader-tools/pip-calculator/',
         },
         image_name: 'pip',
         image_alt: localize('pip calculator'),

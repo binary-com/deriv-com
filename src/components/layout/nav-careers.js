@@ -109,7 +109,7 @@ export const NavCareers = () => {
                             </CareerLink>
                             <CareerLink
                                 activeClassName="active"
-                                to="/besquare"
+                                to="/besquare/"
                                 aria-label={'BeSquare'}
                             >
                                 BESQUARE

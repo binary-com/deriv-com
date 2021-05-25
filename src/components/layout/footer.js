@@ -467,7 +467,7 @@ const Footer = ({ type, is_ppc, is_ppc_redirect }) => {
                                         </Link>
                                     </LinkWrapper>
                                     <LinkWrapper>
-                                        <Link to="/responsible">
+                                        <Link to="/responsible/">
                                             {localize('Secure and responsible trading')}
                                         </Link>
                                     </LinkWrapper>

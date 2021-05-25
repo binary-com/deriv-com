@@ -280,6 +280,7 @@ const SignupButton = styled(Button)`
 const LinkSignupButton = styled(LinkButton)`
     opacity: 0;
     margin-left: 1.6rem;
+    margin-right: 10px;
 `
 
 const HamburgerMenu = styled.img`
@@ -774,7 +775,7 @@ const StyledNavRight = styled(NavRight)`
                     const calculation = props.button_ref.current.offsetWidth + 50
                     return `${calculation}px`
                 }
-                return '300px'
+                return '225px'
             }
         }}
     );
@@ -786,6 +787,7 @@ const StyledNavRight = styled(NavRight)`
     > a:last-child {
         pointer-events: ${(props) => (props.move ? 'visible' : 'none')};
         cursor: ${(props) => (props.move ? 'pointer' : 'default')};
+        opacity: ${(props) => (props.move ? 1 : 0)};
     }
 `
 

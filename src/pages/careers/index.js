@@ -9,7 +9,14 @@ import {
 } from './_lazy-load'
 import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
-import { localize, WithIntl } from 'components/localization'
+import { localize, WithIntl, Localize } from 'components/localization'
+
+const meta_attributes = {
+    og_title: <Localize translate_text="Careers | Join and grow with us | Deriv" />,
+    og_description: (
+        <Localize translate_text="Looking for a great place to work? Deriv is looking for smart, talented, and dedicated people who are up for a challenging and rewarding career." />
+    ),
+}
 
 const Careers = () => (
     <Layout type="careers" margin_top={7}>
@@ -18,6 +25,7 @@ const Careers = () => (
             description={localize(
                 'Looking for a great place to work? Deriv is looking for smart, talented, and dedicated people who are up for a challenging and rewarding career.',
             )}
+            meta_attributes={meta_attributes}
         />
         <Hero />
         <WhoWeLookFor />

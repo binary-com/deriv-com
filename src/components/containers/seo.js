@@ -2,9 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Helmet } from 'react-helmet'
 import { useStaticQuery, graphql } from 'gatsby'
-import { LocaleContext } from '../localization'
+import { LocaleContext, localize } from '../localization'
 import language_config from '../../../i18n-config'
-import TradingImage from 'images/common/practice.png'
+import TradingImage from 'images/common/og_deriv.png'
 
 const non_localized_links = ['/careers', '/careers/']
 
@@ -31,7 +31,8 @@ const SEO = ({ description, meta, title, no_index, has_organization_schema, meta
     const site_url = queries.site.siteMetadata.siteUrl
     const { locale: lang, pathname } = React.useContext(LocaleContext)
     const locale_pathname = pathname.charAt(0) === '/' ? pathname : `/${pathname}`
-
+    const default_og_title = localize('Online trading with Deriv | Simple. Flexible. Reliable.')
+    const default_og_description = localize('Trading platforms designed with you in mind.')
     let is_ach_page = false
     let current_page = ''
     let organization_schema = {}
@@ -88,7 +89,7 @@ const SEO = ({ description, meta, title, no_index, has_organization_schema, meta
                 },
                 {
                     property: 'og:title',
-                    content: meta_attributes?.og_title || title,
+                    content: meta_attributes?.og_title || default_og_title,
                 },
                 {
                     property: 'og:site_name',
@@ -96,7 +97,7 @@ const SEO = ({ description, meta, title, no_index, has_organization_schema, meta
                 },
                 {
                     property: 'og:description',
-                    content: meta_attributes?.og_description || metaDescription,
+                    content: meta_attributes?.og_description || default_og_description,
                 },
                 {
                     property: 'og:type',
@@ -112,11 +113,11 @@ const SEO = ({ description, meta, title, no_index, has_organization_schema, meta
                 },
                 {
                     property: 'og:image:width',
-                    content: meta_attributes?.og_img_width || '723',
+                    content: meta_attributes?.og_img_width || '600',
                 },
                 {
                     property: 'og:image:height',
-                    content: meta_attributes?.og_img_height || '423',
+                    content: meta_attributes?.og_img_height || '315',
                 },
                 {
                     name: 'twitter:card',

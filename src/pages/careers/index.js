@@ -9,7 +9,7 @@ import {
 } from './_lazy-load'
 import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
-import { localize, WithIntl, Localize } from 'components/localization'
+import { localize, WithIntl } from 'components/localization'
 
 const meta_attributes = {
     og_title: localize('Careers | Join and grow with us | Deriv'),

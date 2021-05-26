@@ -228,6 +228,13 @@ const Platforms = styled(Text)`
         margin: 32px auto -32px;
     }
 `
+const HeaderPlatforms = styled.div`
+    margin: 6.2rem 0 -3.2rem;
+
+    @media ${device.tablet} {
+        margin: 32px auto -32px;
+    }
+`
 
 // Since useContext can only be used in functional components
 // Wrap HelpCenter class component in a function plug in the context
@@ -407,6 +414,10 @@ class HelpCentreClass extends Component {
                                                 {id === 1 && idx == 0 && (
                                                     <Platforms>Platforms</Platforms>
                                                 )}
+                                                {id === 1 && idx !== 0 && (
+                                                    <HeaderPlatforms />
+                                                )}
+                                                
                                                 <ListWrapper>
                                                     <StyledHeader
                                                         is_first_row={!!id}

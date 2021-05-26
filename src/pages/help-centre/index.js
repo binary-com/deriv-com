@@ -7,7 +7,7 @@ import Loadable from '@loadable/component'
 import { articles } from './_help-articles'
 import { SearchSuccess, SearchError } from './_search-results'
 // TODO: active this line after having mail service
-import { convertToHash, getAllArticles, splitArticles } from './_utility'
+import { convertToHash, euArticles, getAllArticles, splitArticles } from './_utility'
 import { faq_schema } from './_faq-schema'
 import { SEO, Show, Container } from 'components/containers'
 import { Header, Text } from 'components/elements'
@@ -329,6 +329,8 @@ class HelpCentreClass extends Component {
 
         const splitted_articles = splitArticles(articles, 3)
 
+        const eu_articles = this.props.is_eu_country ? euArticles(splitted_articles): splitted_articles
+
         const has_results = !!filtered_articles.length
 
         return (
@@ -385,7 +387,7 @@ class HelpCentreClass extends Component {
                 </SearchSection>
                 <Container align="left" justify="flex-start" direction="column">
                     <ArticleSection>
-                        {splitted_articles.map((article, id) => {
+                        {eu_articles.map((article, id) => {
                             const first_category = article[0]?.articles[0]?.category
                             return (
                                 <RowDiv

@@ -278,8 +278,8 @@ const Subscription = () => {
                 <DMT5Button
                     secondary="true"
                     external="true"
-                    is_deriv_app_link
-                    to="/mt5"
+                    type="mt5"
+                    to=""
                     target="_blank"
                     rel="noopener noreferrer"
                 >

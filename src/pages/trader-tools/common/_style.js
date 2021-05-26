@@ -203,6 +203,7 @@ const CalculatorOutputFieldStyles = css`
     width: 80%;
     white-space: nowrap;
     resize: none;
+    background-color: var(--color-white);
     justify-content: flex-start;
     height: 95%;
     font-weight: 500;

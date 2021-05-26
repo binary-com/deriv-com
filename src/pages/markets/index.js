@@ -73,7 +73,7 @@ const simple_step_content_stock = [
     {
         header: <Localize translate_text="Trade" />,
         text: (
-            <Localize translate_text="Open a real account, make a deposit, and start trading stock indices and other markets." />
+            <Localize translate_text="Open a real account, make a deposit, and start trading stock indices and other markets. " />
         ),
         icon: <img src={TradeIcon} alt="trade" width="32" height="28" />,
     },
@@ -159,7 +159,7 @@ const Markets = () => (
                 <Tabs.Panel label={localize('Synthetic indices')}>
                     <SyntheticIndices simple_step_content={simple_step_content_synthetic} />
                 </Tabs.Panel>
-                <Tabs.Panel label={localize('Stock indices')}>
+                <Tabs.Panel label={localize('Stocks & indices')}>
                     <StockIndices simple_step_content={simple_step_content_stock} />
                 </Tabs.Panel>
                 <Tabs.Panel label={localize('Commodities')}>

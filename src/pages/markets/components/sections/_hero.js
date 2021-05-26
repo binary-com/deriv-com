@@ -61,6 +61,8 @@ const MarketSubHeader = styled(Header)`
     font-size: 24px;
     @media ${device.tabletL} {
         font-size: 18px;
+        margin-top: 16px;
+        line-height: 28px;
     }
 `
 export const Hero = () => {
@@ -87,7 +89,7 @@ export const Hero = () => {
                     mt="1.6rem"
                 >
                     {localize(
-                        'Get the guidance you need to start trading on our platform. Browse through all the markets that we offer, learn about our trade types, and gain insight on how to make smarter trading decisions.',
+                        'Learn about the markets that you can trade online with Deriv, including forex, commodities, synthetic indices, and stocks & indices.',
                     )}
                 </MarketSubHeader>
             </StyledContainer>

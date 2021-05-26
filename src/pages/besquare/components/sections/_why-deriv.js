@@ -8,7 +8,7 @@ const query = graphql`
         why_deriv: file(relativePath: { eq: "be-square/why-deriv.png" }) {
             ...fadeIn
         }
-        quil5: file(relativePath: { eq: "be-square/quil5.png" }) {
+        bpo_team: file(relativePath: { eq: "be-square/bpo-team.png" }){
             ...fadeIn
         }
     }
@@ -50,18 +50,15 @@ const WhyDeriv = () => {
                     grid_area={['unset', 'text-2']}
                     margin={['auto 0', '40px 0 24px']}
                 >
-                    At Deriv, you can learn from our talented IT teams of dedicated innovators and
-                    receive international exposure by collaborating with the overseas offices on
-                    challenging and exciting projects. Work with
-                    <br />
-                    state-of-the-art technologies and enjoy the facilities of Deriv’s prestigious
-                    new headquarters at Quill 5 in Cyberjaya, where a floor has been dedicated to
-                    our BeSquare programme.
+                     At Deriv, you can learn from talented IT teams and receive
+                    international exposure by collaborating with our overseas offices.
+                    You&apos;ll get the chance to work on exciting projects with
+                    state-of-the-art technologies in an inspiring environment.
                 </TextWrapper>
                 <ImageWrapper
-                    data={data['quil5']}
-                    alt="Quill-5 Deriv's new headquarter in Malaysia"
-                    grid_area="quil5-image"
+                    data={data['bpo_team']}
+                    alt="diverse and talented teams"
+                    grid_area="bpo-image"
                 />
             </ContentContainer>
         </Section>

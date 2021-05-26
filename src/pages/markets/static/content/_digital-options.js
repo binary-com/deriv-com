@@ -254,22 +254,50 @@ export const forex_options = {
 export const stock_options = {
     market_instruments: {
         has_global_accordion: true,
+        template: 2,
         content: [
             {
-                title: <Localize translate_text="Americas" />,
+                title: (
+                    <Localize
+                        translate_text="American<0></0>indices"
+                        components={[<br key={0} />]}
+                    />
+                ),
                 component: <Americas />,
                 details: AmericasDetails,
+                tablet_col: 2,
+                mobile_col: 2,
+                padding: '32px 16px',
+                flex: true,
+                gap: '16px',
             },
             {
-                title: <Localize translate_text="Asia/ Oceania" />,
+                title: (
+                    <Localize translate_text="Asian<0></0>indices" components={[<br key={0} />]} />
+                ),
                 component: <AsiaOceania />,
                 details: AsiaOceaniaDetails,
+                tablet_col: 2,
+                mobile_col: 2,
+                padding: '32px 16px',
+                flex: true,
+                gap: '16px',
             },
             {
-                title: <Localize translate_text="Europe" />,
+                title: (
+                    <Localize
+                        translate_text="European<0></0>indices"
+                        components={[<br key={0} />]}
+                    />
+                ),
                 component: <Europe />,
                 details: EuropeDetails,
                 custom_index: -1,
+                col: 4,
+                tablet_col: 2,
+                mobile_col: 2,
+                padding: '32px 16px',
+                gap: '16px',
             },
         ],
     },

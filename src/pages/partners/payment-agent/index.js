@@ -6,15 +6,15 @@ import TapInto from './_tap-into'
 import { faq_schema } from './_faq-schema.js'
 import Layout from 'components/layout/layout'
 import { SEO } from 'components/containers'
-import { localize, WithIntl, Localize } from 'components/localization'
+import { localize, WithIntl } from 'components/localization'
 const YourControl = Loadable(() => import('./_your-control'))
 const WhoCanApply = Loadable(() => import('./_who-can-apply'))
 const Faq = Loadable(() => import('./_faq'))
 
 const meta_attributes = {
-    og_title: <Localize translate_text="Payment agents | Partners | Deriv" />,
-    og_description: (
-        <Localize translate_text="Know all the details about how you can become the payment agent on Deriv. Send us an email to apply!" />
+    og_title: localize('Payment agents | Partners | Deriv'),
+    og_description: localize(
+        'Know all the details about how you can become the payment agent on Deriv. Send us an email to apply!',
     ),
 }
 

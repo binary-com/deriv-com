@@ -20,9 +20,9 @@ const DBanner = Loadable(() => import('components/custom/_dbanner.js'))
 const DHowItWorks = Loadable(() => import('components/custom/_dhow-it-works.js'))
 
 const meta_attributes = {
-    og_title: <Localize translate_text="DTrader | Online Trading Platform | Deriv.com" />,
-    og_description: (
-        <Localize translate_text="DTrader keeps online trading simple, allowing you to trade forex, indices, commodities and synthetic indices." />
+    og_title: localize('DTrader | Online Trading Platform | Deriv.com'),
+    og_description: localize(
+        'DTrader keeps online trading simple, allowing you to trade forex, indices, commodities and synthetic indices.',
     ),
 }
 

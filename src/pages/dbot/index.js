@@ -20,9 +20,9 @@ const DBanner = Loadable(() => import('components/custom/_dbanner.js'))
 const OtherPlatform = Loadable(() => import('components/custom/other-platforms.js'))
 
 const meta_attributes = {
-    og_title: <Localize translate_text="DBot Trading | Auto Trading Robot | Deriv" />,
-    og_description: (
-        <Localize translate_text="Deriv’s easy and free setup of DBot trader can automate your trading without writing codes. Create your own bot trader using our tutorials and guides!" />
+    og_title: localize('DBot Trading | Auto Trading Robot | Deriv'),
+    og_description: localize(
+        'Deriv’s easy and free setup of DBot trader can automate your trading without writing codes. Create your own bot trader using our tutorials and guides!',
     ),
 }
 

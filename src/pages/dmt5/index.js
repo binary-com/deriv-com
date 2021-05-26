@@ -23,9 +23,9 @@ import { size } from 'themes/device'
 import { isBrowser } from 'common/utility'
 
 const meta_attributes = {
-    og_title: <Localize translate_text="DMT5 | MetaTrader 5 | Deriv" />,
-    og_description: (
-        <Localize translate_text="DMT5 is developed to give you the best CFD trading experience. You can access our MT5 trader through desktop and even mobile." />
+    og_title: localize('DMT5 | MetaTrader 5 | Deriv'),
+    og_description: localize(
+        'DMT5 is developed to give you the best CFD trading experience. You can access our MT5 trader through desktop and even mobile.',
     ),
 }
 

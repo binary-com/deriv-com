@@ -22,9 +22,9 @@ const Faq = Loadable(() => import('./_faq'))
 const CTA = Loadable(() => import('./_partner-cta'))
 
 const meta_attributes = {
-    og_title: <Localize translate_text="Affiliate and IB programme | Deriv" />,
-    og_description: (
-        <Localize translate_text="Join Deriv’s affiliate and IB programmes and get a chance to be a partner with a trusted online trading provider." />
+    og_title: localize('Affiliate and IB programme | Deriv'),
+    og_description: localize(
+        'Join Deriv’s affiliate and IB programmes and get a chance to be a partner with a trusted online trading provider.',
     ),
 }
 

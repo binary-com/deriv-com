@@ -7,14 +7,14 @@ import SignalSteps from './_signal-steps'
 import Subscription from './_subscription'
 import { SEO, Flex, Box } from 'components/containers'
 import Layout from 'components/layout/layout'
-import { localize, Localize, WithIntl } from 'components/localization'
+import { localize, WithIntl, Localize } from 'components/localization'
 import { Header } from 'components/elements'
 import { useTabState } from 'components/hooks/use-tab-state'
 import device from 'themes/device'
 
 const meta_attributes = {
-    og_title: <Localize translate_text="DMT5 Signals" />,
-    og_description: <Localize translate_text="Deriv MT5 signals" />,
+    og_title: localize('DMT5 Signals'),
+    og_description: localize('Deriv MT5 signals'),
 }
 
 const signal_content_subscriber = {

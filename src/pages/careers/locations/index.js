@@ -17,7 +17,7 @@ import {
 } from '../_model/_locations/_locations'
 import { SEO, SectionContainer, Container, Flex, CssGrid } from 'components/containers'
 import Layout from 'components/layout/layout'
-import { WithIntl, localize, Localize } from 'components/localization'
+import { WithIntl, localize } from 'components/localization'
 import { Header, Text, QueryImage } from 'components/elements'
 import MalaysiaFlagIcon from 'images/svg/flag_malaysia.svg'
 import ParaguayFlagIcon from 'images/svg/flag_paraguay.svg'
@@ -29,9 +29,9 @@ import BelarusFlagIcon from 'images/svg/flag_belarus.svg'
 import { ReactComponent as Chevron } from 'images/svg/carousel-chevron.svg'
 
 const meta_attributes = {
-    og_title: <Localize translate_text="Explore our office locations | Deriv" />,
-    og_description: (
-        <Localize translate_text="Discover career opportunities at Deriv across our office locations around the globe." />
+    og_title: localize('Explore our office locations | Deriv'),
+    og_description: localize(
+        'Discover career opportunities at Deriv across our office locations around the globe.',
     ),
 }
 

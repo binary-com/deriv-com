@@ -5,7 +5,7 @@ import WhatIsMargin from './_what_is_margin'
 import { SEO } from 'components/containers'
 import { Header } from 'components/elements'
 import Layout from 'components/layout/layout'
-import { localize, WithIntl, Localize } from 'components/localization'
+import { localize, WithIntl } from 'components/localization'
 const WhyTradeMargin = Loadable(() => import('./_why-trade-margin'))
 const Contracts = Loadable(() => import('./_contracts'))
 const Policies = Loadable(() => import('./_policies'))
@@ -14,9 +14,9 @@ const RelationshipWithLeverge = Loadable(() => import('./_relationship-with-leve
 const AvailableMarkets = Loadable(() => import('./_available-markets'))
 
 const meta_attributes = {
-    og_title: <Localize translate_text="Margin trading | Trade types | Deriv" />,
-    og_description: (
-        <Localize translate_text="Learn about margin trading on Deriv MT5 (DMT5). Enjoy 24/7 trading, high leverage, and zero commissions on forex, synthetic indices, and other assets." />
+    og_title: localize('Margin trading | Trade types | Deriv'),
+    og_description: localize(
+        'Learn about margin trading on Deriv MT5 (DMT5). Enjoy 24/7 trading, high leverage, and zero commissions on forex, synthetic indices, and other assets.',
     ),
 }
 

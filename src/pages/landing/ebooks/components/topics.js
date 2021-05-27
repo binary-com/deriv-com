@@ -31,7 +31,6 @@ const Wrapper = styled.div`
     max-width: 1022px;
     margin: 100px auto 0;
     padding: 0 10px;
-    background-image: linear-gradient(to bottom, #eaf4f5 1%, rgba(242, 245, 248, 0) 99%);
 
     img.ebook-forex{
         width: 650px;
@@ -74,7 +73,7 @@ const Topics = () => {
                     </li>
                         <li>
                             <img src={checkIcon} alt="Check Icon" />
-                        Why trade forex on Deriv
+                        Why trade forex on Deriv?
                     </li>
                         <li>
                             <img src={checkIcon} alt="Check Icon" />

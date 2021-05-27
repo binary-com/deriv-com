@@ -12,7 +12,7 @@ const MediaWapper = styled.div`
     display: flex;
     align-items: flex-start;
     max-width: 1022px;
-    margin: 100px auto 0;
+    margin: 200px auto 0;
     padding: 0 10px;
 
     > img {

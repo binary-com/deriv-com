@@ -3,6 +3,7 @@ import React from 'react'
 // import styled from 'styled-components'
 // import { graphql, useStaticQuery } from 'gatsby'
 import Introduction from './components/introduction';
+import Topics from './components/topics';
 import HeaderSection from 'components/layout/ebooks/header'
 import Layout from 'components/layout/layout'
 import { SEO } from 'components/containers'
@@ -22,7 +23,7 @@ const ForexEbook = () => {
             <HeaderSection mainHeaderImage={forexEbook} />
 
             <Introduction />
-
+            <Topics />
         </Layout>
     )
 }

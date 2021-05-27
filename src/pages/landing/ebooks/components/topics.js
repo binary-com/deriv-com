@@ -27,6 +27,7 @@ const ItemList = styled.ul`
 const Wrapper = styled.div`
     display: flex;
     align-items: center;
+    justify-content: space-between;
     max-width: 1022px;
     margin: 100px auto 0;
     padding: 0 10px;

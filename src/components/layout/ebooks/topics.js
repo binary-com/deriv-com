@@ -3,9 +3,7 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 // import { graphql, useStaticQuery } from 'gatsby'
-import ebookForex from 'images/common/ebooks/ebook-forex.png'
 import checkIcon from 'images/common/ebooks/check-icon.png'
-import { WithIntl } from 'components/localization'
 // import { size } from 'themes/device'
 // import { isBrowser } from 'common/utility'
 
@@ -53,7 +51,7 @@ const FullWidth = styled.div`
     }
 `
 
-const Topics = () => {
+const Topics = ({ topicsImage }) => {
     return (
         <FullWidth>
             <Wrapper>
@@ -62,46 +60,46 @@ const Topics = () => {
                     <ItemList>
                         <li>
                             <img src={checkIcon} alt="Check Icon" />
-                        The basics of forex
-                    </li>
+                            The basics of forex
+                        </li>
                         <li>
                             <img src={checkIcon} alt="Check Icon" />
-                        Who uses the forex market?
-                    </li>
+                            Who uses the forex market?
+                        </li>
                         <li>
                             <img src={checkIcon} alt="Check Icon" />
-                        Which currencies are on the forex market?
-                    </li>
+                            Which currencies are on the forex market?
+                        </li>
                         <li>
                             <img src={checkIcon} alt="Check Icon" />
-                        Why trade forex on Deriv?
-                    </li>
+                            Why trade forex on Deriv?
+                        </li>
                         <li>
                             <img src={checkIcon} alt="Check Icon" />
-                        Advantages of trading forex on DTrader
-                    </li>
+                            Advantages of trading forex on DTrader
+                        </li>
                         <li>
                             <img src={checkIcon} alt="Check Icon" />
-                        Advantages of trading forex on DMT5
-                    </li>
+                            Advantages of trading forex on DMT5
+                        </li>
                         <li>
                             <img src={checkIcon} alt="Check Icon" />
-                        Currency pairs you can trade on Deriv
-                    </li>
+                            Currency pairs you can trade on Deriv
+                        </li>
                         <li>
                             <img src={checkIcon} alt="Check Icon" />
-                        Forex in more detail
-                    </li>
+                            Forex in more detail
+                        </li>
                     </ItemList>
                 </div>
-                <Image src={ebookForex} alt="Forex Topics" />
+                <Image src={topicsImage} alt="Forex Topics" />
             </Wrapper>
         </FullWidth>
     )
 }
 
 Topics.propTypes = {
-    ebookForex: PropTypes.any,
+    topicsImage: PropTypes.any,
 }
 
-export default WithIntl()(Topics)
+export default Topics

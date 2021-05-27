@@ -1,10 +1,9 @@
 // import React, { useState, useEffect } from 'react'
 import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 // import { graphql, useStaticQuery } from 'gatsby'
-import introForexEbook from 'images/common/ebooks/introduction-forex-ebook.png'
 import checkIcon from 'images/common/ebooks/check-icon.png'
-import { WithIntl } from 'components/localization'
 // import { size } from 'themes/device'
 // import { isBrowser } from 'common/utility'
 
@@ -37,7 +36,8 @@ const MediaBody = styled.div`
     p.intro-desc {
         margin-bottom: 20px;
     }
-    p.intro-desc, li {
+    p.intro-desc,
+    li {
         font-size: 16px;
         font-weight: normal;
         line-height: 1.5;
@@ -55,7 +55,10 @@ const MediaBody = styled.div`
         margin-bottom: 20px;
     }
     img {
-        width: 16px;
+        height: 476px;
+    }
+    li > img {
+        height: 16px;
         margin-right: 10px;
         object-fit: contain;
     }
@@ -65,14 +68,18 @@ const MediaItemList = styled.ul`
     font-size: 20px;
 `
 
-const Introduction = () => {
+const Introduction = ({ introImage }) => {
     return (
         <MediaWapper>
-            <img src={introForexEbook} alt="Generic placeholder image" />
+            <img src={introImage} alt="Generic placeholder image" />
             <MediaBody>
                 <h3 className="mt-0 intro-text">Introduction</h3>
                 <p className="intro-desc">
-                    Foreign exchange – forex or the FX market, as it iscommonly known – is one of the biggestmarketplaces in the world, offering endless tradingopportunities. In this 75-page book, experttrader Vince Stanzione will teach you how to spotand take advantage of trading opportunities inthe forex markets, using Deriv’s DTrader and MetaTrader5 platforms.
+                    Foreign exchange – forex or the FX market, as it iscommonly known – is one of
+                    the biggestmarketplaces in the world, offering endless tradingopportunities. In
+                    this 75-page book, experttrader Vince Stanzione will teach you how to spotand
+                    take advantage of trading opportunities inthe forex markets, using Deriv’s
+                    DTrader and MetaTrader5 platforms.
                 </p>
                 <h5>In this book you’ll learn:</h5>
                 <MediaItemList>
@@ -90,7 +97,8 @@ const Introduction = () => {
                     </li>
                     <li>
                         <img src={checkIcon} alt="Check Icon" />
-                        How to trade like professionals without spending hourseach day analysing the worldmarket
+                        How to trade like professionals without spending hourseach day analysing the
+                        worldmarket
                     </li>
                 </MediaItemList>
             </MediaBody>
@@ -98,4 +106,9 @@ const Introduction = () => {
     )
 }
 
-export default WithIntl()(Introduction)
+Introduction.propTypes = {
+    imageHeight: PropTypes.number,
+    introImage: PropTypes.any,
+}
+
+export default Introduction

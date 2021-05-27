@@ -2,16 +2,17 @@
 import React from 'react'
 // import styled from 'styled-components'
 // import { graphql, useStaticQuery } from 'gatsby'
-import Introduction from 'components/layout/ebooks/introduction';
+import Introduction from 'components/layout/ebooks/introduction'
 import HeaderSection from 'components/layout/ebooks/header'
-import Topics from 'components/layout/ebooks/topics';
+import Topics from 'components/layout/ebooks/topics'
 import Layout from 'components/layout/layout'
 import { SEO } from 'components/containers'
 import { localize, WithIntl } from 'components/localization'
-import forexEbook from 'images/common/ebooks/forex-ebook.png'
+import introForexEbook from 'images/common/ebooks/introduction-forex-ebook.png'
+import forexEbookImage from 'images/common/ebooks/forex-ebook.png'
+import forexEbookInside from 'images/common/ebooks/forex-ebook-inside.png'
 // import { size } from 'themes/device'
 // import { isBrowser } from 'common/utility'
-import ebookForex from 'images/common/ebooks/ebook-forex.png'
 
 const ForexEbook = () => {
     return (
@@ -21,10 +22,9 @@ const ForexEbook = () => {
                 description={localize('Trade Forex CFDs on our Deriv platform.')}
                 no_index
             />
-            <HeaderSection mainHeaderImage={forexEbook} />
-
-            <Introduction />
-            <Topics ebookForex={ebookForex} />
+            <HeaderSection mainHeaderImage={forexEbookImage} />
+            <Introduction introImage={introForexEbook} imageHeight={462} />
+            <Topics topicsImage={forexEbookInside} />
         </Layout>
     )
 }

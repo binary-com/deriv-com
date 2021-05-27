@@ -2,15 +2,16 @@
 import React from 'react'
 // import styled from 'styled-components'
 // import { graphql, useStaticQuery } from 'gatsby'
-import Introduction from './components/introduction';
-import Topics from './components/topics';
+import Introduction from 'components/layout/ebooks/introduction';
 import HeaderSection from 'components/layout/ebooks/header'
+import Topics from 'components/layout/ebooks/topics';
 import Layout from 'components/layout/layout'
 import { SEO } from 'components/containers'
 import { localize, WithIntl } from 'components/localization'
 import forexEbook from 'images/common/ebooks/forex-ebook.png'
 // import { size } from 'themes/device'
 // import { isBrowser } from 'common/utility'
+import ebookForex from 'images/common/ebooks/ebook-forex.png'
 
 const ForexEbook = () => {
     return (
@@ -23,7 +24,7 @@ const ForexEbook = () => {
             <HeaderSection mainHeaderImage={forexEbook} />
 
             <Introduction />
-            <Topics />
+            <Topics ebookForex={ebookForex} />
         </Layout>
     )
 }

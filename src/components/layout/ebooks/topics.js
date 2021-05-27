@@ -1,6 +1,7 @@
 // import React, { useState, useEffect } from 'react'
 import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 // import { graphql, useStaticQuery } from 'gatsby'
 import ebookForex from 'images/common/ebooks/ebook-forex.png'
 import checkIcon from 'images/common/ebooks/check-icon.png'
@@ -31,12 +32,12 @@ const Wrapper = styled.div`
     max-width: 1200px;
     margin: 100px auto 0;
     padding: 0 50px;
+`
 
-    img.ebook-forex{
-        width: 650px;
-        position: relative;
-        top: -57px;
-    }
+const Image = styled.img`
+    width: 650px;
+    position: relative;
+    top: -57px;
 `
 
 const FullWidth = styled.div`
@@ -93,10 +94,14 @@ const Topics = () => {
                     </li>
                     </ItemList>
                 </div>
-                <img className="ebook-forex" src={ebookForex} alt="Generic placeholder image" />
+                <Image src={ebookForex} alt="Forex Topics" />
             </Wrapper>
         </FullWidth>
     )
+}
+
+Topics.propTypes = {
+    ebookForex: PropTypes.any,
 }
 
 export default WithIntl()(Topics)

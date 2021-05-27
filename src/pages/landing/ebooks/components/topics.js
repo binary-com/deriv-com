@@ -28,9 +28,9 @@ const Wrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    max-width: 1022px;
+    max-width: 1200px;
     margin: 100px auto 0;
-    padding: 0 10px;
+    padding: 0 50px;
 
     img.ebook-forex{
         width: 650px;

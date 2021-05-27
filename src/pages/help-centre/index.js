@@ -334,9 +334,7 @@ class HelpCentreClass extends Component {
             keys: ['title', 'sub_category'],
         })
 
-        const splitted_articles = splitArticles(articles, 3)
-
-        const eu_articles = this.props.is_eu_country ? euArticles(splitted_articles): splitted_articles
+        const splitted_articles = this.props.is_eu_country ? euArticles(splitArticles(articles, 3)): splitArticles(articles, 3)
 
         const has_results = !!filtered_articles.length
 
@@ -394,7 +392,7 @@ class HelpCentreClass extends Component {
                 </SearchSection>
                 <Container align="left" justify="flex-start" direction="column">
                     <ArticleSection>
-                        {eu_articles.map((article, id) => {
+                        {splitted_articles.map((article, id) => {
                             const first_category = article[0]?.articles[0]?.category
                             return (
                                 <RowDiv

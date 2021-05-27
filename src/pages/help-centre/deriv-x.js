@@ -8,12 +8,12 @@ import { localize, Localize, WithIntl } from 'components/localization'
 
 const ExternalLink = styled.a`
     text-decoration: none;
-    font-size: var(--text-size-s);
     color: var(--color-red);
 
     :hover {
         text-decoration: underline;
     }
+
 `
 
 const WhatisDerivX = () => (

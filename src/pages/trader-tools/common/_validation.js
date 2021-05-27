@@ -75,9 +75,29 @@ const validation = {
     swapRate: (input) => {
         return numberWithNegativeValidation(input, localize('Swap rate'), 15)
     },
-
     pointValue: (input) => {
         return numberValidation(input, localize('Point value'), 15)
+    },
+    takeProfitAmount: (input) => {
+        return numberValidation(input, localize('Take profit amount'), 15)
+    },
+    stopLossAmount: (input) => {
+        return numberValidation(input, localize('Stop loss amount'), 15)
+    },
+    takeProfitLevel: (input) => {
+        return numberValidation(input, localize('Take profit level'), 15)
+    },
+    stopLossLevel: (input) => {
+        return numberValidation(input, localize('Stop loss level'), 15)
+    },
+    commission: (input) => {
+        return numberValidation(input, localize('Commission'), 15)
+    },
+    stake: (input) => {
+        return numberValidation(input, localize('Stake'), 15)
+    },
+    multiplier: (input) => {
+        return numberValidation(input, localize('Multiplier'), 4)
     },
 }
 

@@ -13,6 +13,7 @@ const MediaWapper = styled.div`
     align-items: flex-start;
     max-width: 1022px;
     margin: 100px auto 0;
+    padding: 0 10px;
 
     > img {
         align-self: center;
@@ -44,6 +45,7 @@ const MediaBody = styled.div`
     }
     li {
         margin-bottom: 10px;
+        display: flex;
     }
     h5 {
         font-size: 24px;
@@ -55,8 +57,7 @@ const MediaBody = styled.div`
     img {
         width: 16px;
         margin-right: 10px;
-        position: relative;
-        top: 3px;
+        object-fit: contain;
     }
 `
 

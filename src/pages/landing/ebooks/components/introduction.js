@@ -11,9 +11,9 @@ import { WithIntl } from 'components/localization'
 const MediaWapper = styled.div`
     display: flex;
     align-items: flex-start;
-    max-width: 1022px;
+    max-width: 1200px;
     margin: 200px auto 0;
-    padding: 0 10px;
+    padding: 0 50px;
 
     > img {
         align-self: center;

@@ -18,6 +18,7 @@ import { DerivStore } from 'store'
 import Blog from 'images/svg/blog-nav.svg'
 import Career from 'images/svg/menu/careers.svg'
 import Choose from 'images/svg/menu/choose.svg'
+import Cryptocurrencies from 'images/svg/cryptocurrencies-nav.svg'
 import Commodities from 'images/svg/commodities-nav.svg'
 import Community from 'images/svg/menu/community.svg'
 import Contact from 'images/svg/menu/contact.svg'
@@ -369,6 +370,16 @@ export const NavMarket = ({ onClick, is_ppc }) => (
             title={<Localize translate_text="Stocks & indices" />}
             onClick={onClick}
             to="/markets#stock"
+        />
+        <NavCard
+            aria_label="Cryptocurrencies"
+            icon={() => <img src={Cryptocurrencies} alt="Cryptocurrencies" width="32" height="32" />}
+            content={
+                <Localize translate_text="Trade with leverage on the price movement of popular crypto-fiat pairs." />
+            }
+            title={<Localize translate_text="Cryptocurrencies" />}
+            onClick={onClick}
+            to="/markets#crypto"
         />
         <NavCard
             aria_label="Commodities"

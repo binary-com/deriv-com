@@ -335,3 +335,12 @@ export const EuropeanIndicesDetails = () => (
         </Text>
     </DetailsContainer>
 )
+export const CryptocurrenciesDetails = () => (
+    <DetailsContainer>
+        <Text>
+            {localize(
+                'Cryptocurrency contracts traded with multipliers have a time limit. It depends on the asset you are trading and appears on the DTrader dashboard before you place a trade.',
+            )}
+        </Text>
+    </DetailsContainer>
+)

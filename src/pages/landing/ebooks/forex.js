@@ -16,7 +16,7 @@ const ForexEbook = () => {
     return (
         <Layout is_ppc_redirect={true}>
             <SEO
-                title={localize('Stocks Ebook')}
+                title={localize('Forex Ebook')}
                 description={localize('Trade Forex CFDs on our Deriv platform.')}
                 no_index
             />

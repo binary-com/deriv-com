@@ -1,11 +1,8 @@
-// import React, { useState, useEffect } from 'react'
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-// import { graphql, useStaticQuery } from 'gatsby'
+import { Header, Text, Li } from 'components/elements'
 import checkIcon from 'images/common/ebooks/check-icon.png'
-// import { size } from 'themes/device'
-// import { isBrowser } from 'common/utility'
 
 const MediaWapper = styled.div`
     display: flex;
@@ -16,7 +13,6 @@ const MediaWapper = styled.div`
 
     > img {
         align-self: center;
-        width: 142px;
         margin-right: 82px;
         object-fit: contain;
     }
@@ -68,47 +64,42 @@ const MediaItemList = styled.ul`
     font-size: 20px;
 `
 
-const Introduction = ({ introImage }) => {
+const Introduction = ({ introImage, imageWidth, introPara, subPara, introList }) => {
     return (
         <MediaWapper>
-            <img src={introImage} alt="Generic placeholder image" />
+            <img width={`${imageWidth}px`} src={introImage} alt="Generic placeholder image" />
             <MediaBody>
-                <h3 className="mt-0 intro-text">Introduction</h3>
-                <p className="intro-desc">
-                    Foreign exchange – forex or the FX market, as it iscommonly known – is one of
-                    the biggestmarketplaces in the world, offering endless tradingopportunities. In
-                    this 75-page book, experttrader Vince Stanzione will teach you how to spotand
-                    take advantage of trading opportunities inthe forex markets, using Deriv’s
-                    DTrader and MetaTrader5 platforms.
-                </p>
-                <h5>In this book you’ll learn:</h5>
-                <MediaItemList>
-                    <li>
-                        <img src={checkIcon} alt="Check Icon" />
-                        The simple basics of forex
-                    </li>
-                    <li>
-                        <img src={checkIcon} alt="Check Icon" />
-                        How to make more profitable forex trades and loweryour trading risks
-                    </li>
-                    <li>
-                        <img src={checkIcon} alt="Check Icon" />
-                        How to use digital options to profit from up, down,and even sideways moves
-                    </li>
-                    <li>
-                        <img src={checkIcon} alt="Check Icon" />
-                        How to trade like professionals without spending hourseach day analysing the
-                        worldmarket
-                    </li>
-                </MediaItemList>
+                <Header as="h3" className="mt-0 intro-text">
+                    Introduction
+                </Header>
+                <Text className="intro-desc">{introPara}</Text>
+                {subPara && <Text className="intro-desc">{subPara}</Text>}
+                {introList && (
+                    <>
+                        <Header as="h5">In this book you’ll learn:</Header>
+                        <MediaItemList>
+                            {introList.map((point, index) => {
+                                return (
+                                    <Li key={index}>
+                                        <img src={checkIcon} alt="Check Icon" />
+                                        {point}
+                                    </Li>
+                                )
+                            })}
+                        </MediaItemList>
+                    </>
+                )}
             </MediaBody>
         </MediaWapper>
     )
 }
 
 Introduction.propTypes = {
-    imageHeight: PropTypes.number,
+    imageWidth: PropTypes.number,
     introImage: PropTypes.any,
+    introList: PropTypes.array,
+    introPara: PropTypes.string,
+    subPara: PropTypes.string,
 }
 
 export default Introduction

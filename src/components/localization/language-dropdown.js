@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import PropTypes from 'prop-types'
 import styled, { keyframes } from 'styled-components'
+import Cookies from 'js-cookie'
 import { useOutsideClick } from 'components/hooks/outside-click'
 import { QueryImage, Text } from 'components/elements'
 import { ReactComponent as Chevron } from 'images/svg/chevron-bottom.svg'
@@ -216,7 +217,10 @@ const Dropdown = ({ default_option, onChange, option_list, is_high_nav }) => {
                                 <Item
                                     disabled={current_option}
                                     id={option.value}
-                                    onClick={() => handleSelect(option.value)}
+                                    onClick={() => {
+                                        handleSelect(option.value)
+                                        Cookies.set('lang_is_fixed', 'true')
+                                    }}
                                     key={idx}
                                 >
                                     <QueryImage

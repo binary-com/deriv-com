@@ -164,7 +164,7 @@ const AffiliateIb = () => {
                     to={affiliate_signup_url}
                     external="true"
                     target="_blank"
-                    is_affiliate_link
+                    type="affiliate_sign_up"
                     secondary
                 >
                     {localize('Sign up as our affiliate and IB')}

@@ -4,7 +4,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import PropTypes from 'prop-types'
 import { Container, CssGrid, Flex, Show } from '../containers'
 import { StyledLink, Text, QueryImage } from '../elements'
-import { LocationContext } from './location-context'
+import { DerivStore } from 'store'
 import {
     deriv_status_page_url,
     mga_link_url,
@@ -35,8 +35,24 @@ const StyledFooter = styled.footer`
     background-color: var(--color-grey-25);
     width: 100%;
     margin: 0 auto;
-    margin-bottom: ${(props) => (props.has_banner_cookie ? '18.4rem' : '0')};
+    margin-bottom: ${(props) => props.is_eu_country && '7.3rem'};
     padding-bottom: 1.6rem;
+
+    @media (max-width: 1090px) {
+        margin-bottom: ${(props) => props.is_eu_country && '9rem'};
+    }
+    @media (max-width: 991px) {
+        margin-bottom: ${(props) => props.is_eu_country && '11rem'};
+    }
+    @media (max-width: 826px) {
+        margin-bottom: ${(props) => props.is_eu_country && '12.2rem'};
+    }
+    @media (max-width: 710px) {
+        margin-bottom: ${(props) => props.is_eu_country && '10.6rem'};
+    }
+    @media (max-width: 538px) {
+        margin-bottom: ${(props) => props.is_eu_country && '13.8rem'};
+    }
 
     ${Container} {
         @media ${device.tabletL} {
@@ -323,13 +339,13 @@ const query = graphql`
 
 const Footer = ({ type, is_ppc, is_ppc_redirect }) => {
     const image_query = useStaticQuery(query)
-    const { show_cookie_banner } = React.useContext(LocationContext)
+    const { is_eu_country } = React.useContext(DerivStore)
 
     mobile_accordion_header_about.borderTop = 'none'
     const current_year = new Date().getFullYear()
 
     return (
-        <StyledFooter has_banner_cookie={show_cookie_banner}>
+        <StyledFooter is_eu_country={is_eu_country}>
             <Container>
                 <StyledGrid>
                     <DerivLogoWrapper>
@@ -390,7 +406,7 @@ const Footer = ({ type, is_ppc, is_ppc_redirect }) => {
                                     <LinkWrapper>
                                         <Link
                                             to="trading"
-                                            is_smarttrader_link
+                                            type="smart_trader"
                                             external="true"
                                             target="_blank"
                                             rel="noopener noreferrer"
@@ -485,7 +501,7 @@ const Footer = ({ type, is_ppc, is_ppc_redirect }) => {
                                     <LinkWrapper>
                                         <Link
                                             to=""
-                                            is_deriv_developer_link
+                                            type="developers"
                                             target="_blank"
                                             external="true"
                                             rel="noopener noreferrer"
@@ -504,7 +520,7 @@ const Footer = ({ type, is_ppc, is_ppc_redirect }) => {
                                     <LinkWrapper>
                                         <Link
                                             to=""
-                                            is_community_link
+                                            type="community"
                                             external="true"
                                             target="_blank"
                                             rel="noopener noreferrer"
@@ -535,7 +551,7 @@ const Footer = ({ type, is_ppc, is_ppc_redirect }) => {
                                     <LinkWrapper>
                                         <Link
                                             to=""
-                                            is_blog_link
+                                            type="blog"
                                             external="true"
                                             target="_blank"
                                             rel="noopener noreferrer"

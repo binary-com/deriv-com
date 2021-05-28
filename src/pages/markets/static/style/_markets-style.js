@@ -4,7 +4,7 @@ import { Text } from 'components/elements'
 import device from 'themes/device'
 
 export const Col = styled(Flex)`
-    max-width: 129px;
+    max-width: 162px;
     padding: 0 4px;
 
     @media ${device.tabletL} {
@@ -73,7 +73,7 @@ export const MarketsList = styled(CssGrid)`
     border-left: 1px solid var(--color-grey-22);
     border-right: ${({ has_right_border }) =>
         has_right_border ? '1px solid var(--color-grey-22)' : 'unset'};
-    grid-template-columns: ${({ col }) => `repeat(${col ?? 3}, 1fr)`};
+    grid-template-columns: ${({ col }) => `repeat(${col ?? 4}, 1fr)`};
     width: 100%;
     padding: 24px;
     gap: 10px;

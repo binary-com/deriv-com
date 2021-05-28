@@ -9,7 +9,7 @@ const SectionContainer = styled(Box).attrs({
     position: ${(props) => props.position || 'static'};
 
     /* prettier-ignore */
-    background-color: var(--color-${(props) => props.background || ''});
+    background-color: var(--color-${(props) => props.background || 'white'});
 `
 
 export default SectionContainer

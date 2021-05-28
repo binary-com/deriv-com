@@ -296,7 +296,7 @@ const WhoCanApply = () => {
                     to={affiliate_signup_url}
                     external="true"
                     target="_blank"
-                    is_affiliate_link
+                    type="affiliate_sign_up"
                 >
                     {localize('Sign up')}
                 </StyledLinkButton>

@@ -123,7 +123,7 @@ const P2PBanner = ({ title }) => {
                                 secondary="true"
                                 to="/cashier/p2p"
                                 external="true"
-                                is_deriv_app_link
+                                type="deriv_app"
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
@@ -147,7 +147,7 @@ const P2PBanner = ({ title }) => {
                                 secondary="true"
                                 to="/cashier/p2p"
                                 external="true"
-                                is_deriv_app_link
+                                type="deriv_app"
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >

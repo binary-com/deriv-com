@@ -200,7 +200,7 @@ export const OurOffices = () => {
                 <HeaderOffice as="h3" size="3.2rem" mb="4rem" align="center">
                     {localize('Our offices')}
                 </HeaderOffice>
-                <OfficeWrapper ai="center" jc="center">
+                <OfficeWrapper ai="center" jc="normal">
                     <NumberWrapper fd="column" width="auto">
                         <Flex fd="column" ai="center" mb="8rem" tabletS={{ mb: '0' }}>
                             <Text color="red" size="4.8rem" align="center" weight="bold">

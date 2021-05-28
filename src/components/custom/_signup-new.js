@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import AgreementLabel from './_agreement-label'
 import { Input, Button } from 'components/form'
-import { Header, Text, LinkText, Checkbox } from 'components/elements'
+import { Header, Text, LinkText } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device.js'
 // SVG
@@ -175,13 +176,6 @@ const SocialText = styled(Text)`
         font-size: 14px;
     }
 `
-const CheckboxSpan = styled.span`
-    font-size: var(--text-size-xs);
-
-    @media ${device.tabletL} {
-        font-size: 1.75rem;
-    }
-`
 const StyledLinkText = styled(LinkText)`
     font-size: ${(props) => props.size || '14px'};
 `
@@ -209,18 +203,11 @@ const SignupNew = ({
     is_ppc,
     is_submitting,
 }) => {
-    const [checkBoxState, setCheckBoxState] = useState(false)
-    const [language_code, setLanguageCode] = useState('en')
-
-    useEffect(() => {
-        setLanguageCode(localStorage.getItem('i18n'))
-    }, [])
+    const [is_checked, setChecked] = useState(false)
 
     const handleChange = (event) => {
-        setCheckBoxState(event.currentTarget.checked)
+        setChecked(event.currentTarget.checked)
     }
-
-    const url = `/${language_code}/terms-and-conditions/`
 
     return (
         <SignupContent>
@@ -282,34 +269,15 @@ const SignupNew = ({
                     required
                 />
             </InputGroup>
-            <label>
-                <Checkbox
-                    id="signup_agree_tnc"
-                    secondary
-                    onChange={handleChange}
-                    checked={checkBoxState}
-                />
-                <CheckboxSpan>
-                    <Localize
-                        fontSize="var(--text-size-xs)"
-                        translate_text="I agree to the <0>terms and conditions</0>"
-                        components={[
-                            <StyledLinkText
-                                href={url}
-                                target="_blank"
-                                color="red"
-                                rel="noopener noreferrer"
-                                key={0}
-                            />,
-                        ]}
-                    />
-                </CheckboxSpan>
-            </label>
+            <AgreementLabel
+                isChecked={is_checked}
+                handleChangeCheckbox={handleChange}
+            />
             <EmailButton
-                checkBoxState={checkBoxState}
+                isChecked={is_checked}
                 type="submit"
                 secondary="true"
-                disabled={is_submitting || !checkBoxState || email_error_msg}
+                disabled={is_submitting || !is_checked || email_error_msg || !email}
                 id="gtm-signup-email"
             >
                 {localize('Create demo account')}

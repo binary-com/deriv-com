@@ -31,9 +31,8 @@ const TopHeaderImgWrapper = styled(Flex)`
 `
 const DesktopImage = styled.img`
     width: 606px;
-    position: absolute;
+    position: relative;
     top: 58px;
-    left: 0;
     @media ${device.tabletL} {
         display: none;
     }

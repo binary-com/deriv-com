@@ -19,6 +19,7 @@ import Google from 'images/svg/google.svg'
 const SignupFormWrapper = styled(Flex)`
     width: 50%;
     align-items: center;
+    justify-content: initial;
     @media ${device.tablet} {
         padding: 0 2rem;
     }
@@ -75,7 +76,7 @@ const InputGroup = styled.div`
 `
 const EmailButton = styled(Button)`
     margin-left: 1rem;
-    min-width: 105px;
+    min-width: 110px;
     height: 40px;
     padding: 10px 28px;
     border-radius: 4px;

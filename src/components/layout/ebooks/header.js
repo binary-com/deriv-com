@@ -1,8 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import GetEbook from './get-ebook'
 // import { graphql, useStaticQuery } from 'gatsby'
 import { Flex } from 'components/containers'
+import { Header } from 'components/elements'
+import { localize } from 'components/localization'
 import device from 'themes/device.js'
 // import { localize } from 'components/localization'
 // import { QueryImage } from 'components/elements'
@@ -19,10 +22,10 @@ const HeaderBody = styled(Flex)`
     width: 100%;
     height: 627px;
     margin: 0;
-    padding: 117px 120px 61px 734px;
     background-image: linear-gradient(281deg, #0e0e0e, #1b1b1b);
     flex-direction: row;
 `
+
 const TopHeaderImgWrapper = styled(Flex)`
     margin: 0;
 `
@@ -36,15 +39,62 @@ const DesktopImage = styled.img`
     }
 `
 
-const HeaderSection = ({ mainHeaderImage }) => {
-    // const data = useStaticQuery(query)
+const ContentWrapper = styled.div`
+    float: right;
+    width: 100%;
+    margin: 0;
+    padding: 45px 120px 0 45px;
 
+    h1 {
+        color: white;
+    }
+    .title {
+        margin-bottom: 30px;
+    }
+`
+
+const AuthorText = styled.p`
+    font-style: italic;
+    margin: 16px 0 24px 0;
+    font-size: 1.4rem;
+    color: white;
+`
+
+const AuthorNameText = styled.span`
+    font-weight: bold;
+`
+
+const SignupWrapper = styled.div`
+    margin-bottom: 10px;
+`
+
+const HeaderSection = ({ mainHeaderImage }) => {
     return (
         <MainWrapper>
             <HeaderBody>
                 <TopHeaderImgWrapper>
                     <DesktopImage src={mainHeaderImage} alt="stocks ebook" />
                 </TopHeaderImgWrapper>
+                <ContentWrapper>
+                    <Header type="page-title" className="title">
+                        {localize('Learn to trade Stock derivatives the smart way')}
+                    </Header>
+                    <Header type="main-paragraph" weight="normal">
+                        {localize('Claim a FREE e-book now!')}
+                    </Header>
+                    <Header type="main-paragraph" weight="normal">
+                        {localize('Plus a free demo account to practice.')}
+                    </Header>
+                    <AuthorText>
+                        {localize(
+                            'This e-book has been brought to you by a veteran online trader and New York Times bestselling author, ',
+                        )}
+                        <AuthorNameText>{localize('Vince Stanzione.')}</AuthorNameText>
+                    </AuthorText>
+                    <SignupWrapper>
+                        <GetEbook />
+                    </SignupWrapper>
+                </ContentWrapper>
             </HeaderBody>
         </MainWrapper>
     )

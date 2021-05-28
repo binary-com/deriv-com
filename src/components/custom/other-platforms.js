@@ -372,6 +372,16 @@ export const NavMarket = ({ onClick, is_ppc }) => (
             to="/markets/stock/"
         />
         <NavCard
+            aria_label="Commodities"
+            icon={() => <img src={Commodities} alt="Commodities" width="32" height="32" />}
+            content={
+                <Localize translate_text="Trade natural resources that are central to the world's economy." />
+            }
+            title={<Localize translate_text="Commodities" />}
+            onClick={onClick}
+            to="/markets/commodities/"
+        />
+        <NavCard
             aria_label="Cryptocurrencies"
             icon={() => (
                 <img src={Cryptocurrencies} alt="Cryptocurrencies" width="32" height="32" />
@@ -381,17 +391,7 @@ export const NavMarket = ({ onClick, is_ppc }) => (
             }
             title={<Localize translate_text="Cryptocurrencies" />}
             onClick={onClick}
-            to="/markets#crypto"
-        />
-        <NavCard
-            aria_label="Commodities"
-            icon={() => <img src={Commodities} alt="Commodities" width="32" height="32" />}
-            content={
-                <Localize translate_text="Trade natural resources that are central to the world's economy." />
-            }
-            title={<Localize translate_text="Commodities" />}
-            onClick={onClick}
-            to="/markets/commodities/"
+            to="/markets/cryptocurrencies"
         />
     </Flex>
 )

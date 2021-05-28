@@ -334,25 +334,6 @@ export const OffCanvasMenuWrapper = (props) => {
                         </Flex>
                         <Flex>
                             <NavCard
-                                aria_label="Cryptocurrencies"
-                                icon={() => (
-                                    <img
-                                        src={Cryptocurrencies}
-                                        alt="Cryptocurrencies"
-                                        width="32"
-                                        height="32"
-                                    />
-                                )}
-                                content={localize(
-                                    'Trade with leverage on the price movement of popular crypto-fiat pairs.',
-                                )}
-                                title={localize('Cryptocurrencies')}
-                                onClick={handleArrowClick}
-                                to="/markets#crypto"
-                            />
-                        </Flex>
-                        <Flex>
-                            <NavCard
                                 aria_label="Commodities"
                                 icon={() => (
                                     <img
@@ -368,6 +349,25 @@ export const OffCanvasMenuWrapper = (props) => {
                                 title={localize('Commodities')}
                                 onClick={handleArrowClick}
                                 to="/markets/commodities/"
+                            />
+                        </Flex>
+                        <Flex>
+                            <NavCard
+                                aria_label="Cryptocurrencies"
+                                icon={() => (
+                                    <img
+                                        src={Cryptocurrencies}
+                                        alt="Cryptocurrencies"
+                                        width="32"
+                                        height="32"
+                                    />
+                                )}
+                                content={localize(
+                                    'Trade with leverage on the price movement of popular crypto-fiat pairs.',
+                                )}
+                                title={localize('Cryptocurrencies')}
+                                onClick={handleArrowClick}
+                                to="/markets/cryptocurrencies"
                             />
                         </Flex>
                     </AccordionItem>

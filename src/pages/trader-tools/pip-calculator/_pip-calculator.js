@@ -8,7 +8,7 @@ import {
     getContractSize,
     numberWithCommas,
     numberSubmitFormat,
-} from '../common/_utility'
+} from '../common/_utility';
 import {
     optionItemDefault,
     syntheticItemLists,
@@ -58,9 +58,7 @@ const PipCalculator = () => {
             pip_value_formula: file(relativePath: { eq: "trade-tools/pip-value-formula.png" }) {
                 ...fadeIn
             }
-            pip_value_forex_formula: file(
-                relativePath: { eq: "trade-tools/pip-value-forex-formula.png" }
-            ) {
+            pip_value_forex_formula: file(relativePath: { eq: "trade-tools/pip-value-forex-formula.png" }) {
                 ...fadeIn
             }
             pip_value_formula_mobile: file(
@@ -68,9 +66,7 @@ const PipCalculator = () => {
             ) {
                 ...fadeIn
             }
-            pip_value_forex_formula_mobile: file(
-                relativePath: { eq: "trade-tools/pip-value-forex-formula-mobile.png" }
-            ) {
+            pip_value_forex_formula_mobile: file(relativePath: { eq: "trade-tools/pip-value-forex-formula-mobile.png" }) {
                 ...fadeIn
             }
         }
@@ -198,7 +194,10 @@ const PipCalculator = () => {
                                             selected_option={values.symbol}
                                             id="symbol"
                                             onChange={(value) => {
-                                                setFieldValue('marginSymbol', getCurrency(value))
+                                                setFieldValue(
+                                                    'marginSymbol',
+                                                    getCurrency(value),
+                                                )
                                                 setFieldValue(
                                                     'contractSize',
                                                     getContractSize(value),
@@ -297,9 +296,7 @@ const PipCalculator = () => {
                         </Header>
 
                         <Text>
-                            {localize(
-                                'The pip value for a contract on DMT5 is calculated based on this formula:',
-                            )}
+                            {localize('The pip value for a contract on DMT5 is calculated based on this formula:')}
                         </Text>
                         <Text mb="1.6rem">
                             <Localize
@@ -309,9 +306,7 @@ const PipCalculator = () => {
                         </Text>
 
                         <Text mb="1.6rem">
-                            {localize(
-                                'For synthetic accounts, the pip value is calculated in USD.',
-                            )}
+                            {localize('For synthetic accounts, the pip value is calculated in USD.')}
                         </Text>
                         <Text mb="40px">
                             {localize(
@@ -341,7 +336,10 @@ const PipCalculator = () => {
                                         data={data.pip_value_formula}
                                         alt={localize('Margin formula')}
                                     />
-                                    <QueryImage data={data.pip_info} alt={localize('Pip Info')} />
+                                    <QueryImage
+                                        data={data.pip_info}
+                                        alt={localize('Pip Info')}
+                                    />
                                 </Show.Desktop>
 
                                 <Show.Mobile>
@@ -358,16 +356,12 @@ const PipCalculator = () => {
                                     <StyledOl>
                                         <li>
                                             <span>
-                                                {localize(
-                                                    'The point value is derived from the current digits of the assets. In the example, the digit is 2, so the point value is 0.01.',
-                                                )}
+                                                {localize('The point value is derived from the current digits of the assets. In the example, the digit is 2, so the point value is 0.01.')}
                                             </span>
                                         </li>
                                         <li>
                                             <span>
-                                                {localize(
-                                                    'The contract size is one standard lot of Volatility 75 index = 1',
-                                                )}
+                                                {localize('The contract size is one standard lot of Volatility 75 index = 1')}
                                             </span>
                                         </li>
                                     </StyledOl>
@@ -386,7 +380,9 @@ const PipCalculator = () => {
                                 plus
                             >
                                 <Text mb="16px">
-                                    {localize('Let’s say you want to trade 2 lots of EUR/USD.')}
+                                    {localize(
+                                        'Let’s say you want to trade 2 lots of EUR/USD.',
+                                    )}
                                 </Text>
 
                                 <Show.Desktop>
@@ -407,16 +403,12 @@ const PipCalculator = () => {
                                     <StyledOl>
                                         <li>
                                             <span>
-                                                {localize(
-                                                    'The point value is derived from the current digits of the assets. In the example, the digit is 5, so the point value is 0.00001.',
-                                                )}
+                                                {localize('The point value is derived from the current digits of the assets. In the example, the digit is 5, so the point value is 0.00001.')}
                                             </span>
                                         </li>
                                         <li>
                                             <span>
-                                                {localize(
-                                                    'One standard lot of forex = 100,000 units',
-                                                )}
+                                                {localize('One standard lot of forex = 100,000 units')}
                                             </span>
                                         </li>
                                     </StyledOl>
@@ -434,7 +426,8 @@ const PipCalculator = () => {
                         <LinkWrapper>
                             <StyledLinkButton
                                 secondary="true"
-                                type="mt5"
+                                is_deriv_app_link
+                                to="/mt5"
                                 external="true"
                                 target="_blank"
                                 rel="noopener noreferrer"

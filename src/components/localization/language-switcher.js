@@ -25,8 +25,6 @@ const LanguageSwitch = ({ i18n, is_high_nav, short_name }) => {
         if (!Cookies.get('lang_is_fixed')) {
             if (client_information.preferred_language) {
                 const lang = client_information.preferred_language.toLowerCase()
-                console.log(`/${lang}/`) //eslint-disable-line
-                console.log(language) //eslint-disable-line
                 if (lang !== language) {
                     handleSelect({ target: { id: `/${lang}/` } })
                 }

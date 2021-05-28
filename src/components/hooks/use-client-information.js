@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { getClientInformation } from 'common/utility'
+import { getClientInformation, getDomain } from 'common/utility'
 
 export const useClientInformation = () => {
 
@@ -8,7 +8,7 @@ export const useClientInformation = () => {
 
     useEffect(() => {
         const cookie_interval = setInterval(() => {
-            setCurrentClientInformation(getClientInformation("localhost"))
+            setCurrentClientInformation(getClientInformation(getDomain()))
         }, 1000)
         return () => clearInterval(cookie_interval)
     }, [])

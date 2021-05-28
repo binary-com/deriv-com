@@ -13,6 +13,8 @@ exports.onCreatePage = ({ page, actions }) => {
     const is_responsible_trading = /responsible/g.test(page.path)
     const is_contact_us = /contact_us/g.test(page.path)
     const is_p2p = /responsible/g.test(page.path)
+    const is_story = /story/g.test(page.path)
+    const is_market = /markets/g.test(page.path)
 
     if (is_responsible_trading) {
         createRedirect({
@@ -65,17 +67,31 @@ exports.onCreatePage = ({ page, actions }) => {
         })
     }
 
-    //TODO: Remove redirects once page is officially ready for launch
-    if (is_deriv_x) {
+    if (is_story) {
         createRedirect({
-            fromPath: `/derivx/`,
-            toPath: `/`,
+            fromPath: `/about/`,
+            toPath: `/story/`,
             redirectInBrowser: true,
             isPermanent: true,
         })
         createRedirect({
-            fromPath: `/derivx`,
-            toPath: `/`,
+            fromPath: `/about`,
+            toPath: `/story/`,
+            redirectInBrowser: true,
+            isPermanent: true,
+        })
+    }
+
+    if (is_market) {
+        createRedirect({
+            fromPath: `/markets/`,
+            toPath: `/markets/forex/`,
+            redirectInBrowser: true,
+            isPermanent: true,
+        })
+        createRedirect({
+            fromPath: `/markets`,
+            toPath: `/markets/forex/`,
             redirectInBrowser: true,
             isPermanent: true,
         })
@@ -190,17 +206,31 @@ exports.onCreatePage = ({ page, actions }) => {
             })
         }
 
-        //TODO: Remove redirects once page is officially ready for launch
-        if (is_deriv_x) {
+        if (is_story) {
             createRedirect({
-                fromPath: `/${lang}/derivx/`,
-                toPath: `/${lang}/`,
+                fromPath: `/${lang}/about/`,
+                toPath: `/${lang}/story/`,
                 redirectInBrowser: true,
                 isPermanent: true,
             })
             createRedirect({
-                fromPath: `/${lang}/derivx`,
-                toPath: `/${lang}/`,
+                fromPath: `/${lang}/about`,
+                toPath: `/${lang}/story/`,
+                redirectInBrowser: true,
+                isPermanent: true,
+            })
+        }
+
+        if (is_market) {
+            createRedirect({
+                fromPath: `/${lang}/markets/`,
+                toPath: `/${lang}/markets/forex/`,
+                redirectInBrowser: true,
+                isPermanent: true,
+            })
+            createRedirect({
+                fromPath: `/${lang}/markets`,
+                toPath: `/${lang}/markets/forex/`,
                 redirectInBrowser: true,
                 isPermanent: true,
             })

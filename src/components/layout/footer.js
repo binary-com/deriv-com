@@ -35,23 +35,23 @@ const StyledFooter = styled.footer`
     background-color: var(--color-grey-25);
     width: 100%;
     margin: 0 auto;
-    margin-bottom: ${(props) => (props.is_eu_country && '7.3rem')};
+    margin-bottom: ${(props) => props.is_eu_country && '7.3rem'};
     padding-bottom: 1.6rem;
 
     @media (max-width: 1090px) {
-        margin-bottom: ${(props) => (props.is_eu_country && '9rem')};
+        margin-bottom: ${(props) => props.is_eu_country && '9rem'};
     }
     @media (max-width: 991px) {
-        margin-bottom: ${(props) => (props.is_eu_country && '11rem')};
+        margin-bottom: ${(props) => props.is_eu_country && '11rem'};
     }
     @media (max-width: 826px) {
-        margin-bottom: ${(props) => (props.is_eu_country && '12.2rem')};
+        margin-bottom: ${(props) => props.is_eu_country && '12.2rem'};
     }
     @media (max-width: 710px) {
-        margin-bottom: ${(props) => (props.is_eu_country && '10.6rem')};
+        margin-bottom: ${(props) => props.is_eu_country && '10.6rem'};
     }
     @media (max-width: 538px) {
-        margin-bottom: ${(props) => (props.is_eu_country && '13.8rem')};
+        margin-bottom: ${(props) => props.is_eu_country && '13.8rem'};
     }
 
     ${Container} {
@@ -276,23 +276,17 @@ const SocialWrapperComponent = ({ is_career_page }) => {
     const alt_string = (is_career_page ? 'career' : '') + ' icon link'
     const accounts = [
         {
-            link: is_career_page
-                ? fb_url_career
-                : fb_url,
+            link: is_career_page ? fb_url_career : fb_url,
             image: Facebook,
             image_alt: `facebook ${alt_string}`,
         },
         {
-            link: is_career_page
-                ? instagram_url_career
-                : instagram_url,
+            link: is_career_page ? instagram_url_career : instagram_url,
             image: Instagram,
             image_alt: `instagram ${alt_string}`,
         },
         {
-            link: is_career_page
-                ? linkedin_url_career
-                : linkedin_url,
+            link: is_career_page ? linkedin_url_career : linkedin_url,
             image: Linkedin,
             image_alt: `linkedin ${alt_string}`,
         },
@@ -370,12 +364,10 @@ const Footer = ({ type, is_ppc, is_ppc_redirect }) => {
                                         <Title>{localize('ABOUT')}</Title>
                                     </LinkWrapper>
                                     <LinkWrapper first_child="true">
-                                        <Link to="/about#story">{localize('Our story')}</Link>
+                                        <Link to="/story/">{localize('Our story')}</Link>
                                     </LinkWrapper>
                                     <LinkWrapper>
-                                        <Link to="/about#leadership">
-                                            {localize('Our leadership')}
-                                        </Link>
+                                        <Link to="/leadership/">{localize('Our leadership')}</Link>
                                     </LinkWrapper>
                                     <LinkWrapper>
                                         <Link to="/why-choose-us/">
@@ -450,20 +442,22 @@ const Footer = ({ type, is_ppc, is_ppc_redirect }) => {
                                         <Title>{localize('MARKETS')}</Title>
                                     </LinkWrapper>
                                     <LinkWrapper first_child="true">
-                                        <Link to="/markets#forex">{localize('Forex')}</Link>
+                                        <Link to="/markets/forex/">{localize('Forex')}</Link>
                                     </LinkWrapper>
                                     {!is_ppc && (
                                         <LinkWrapper>
-                                            <Link to="/markets#synthetic">
+                                            <Link to="/markets/synthetic/">
                                                 {localize('Synthetic indices')}
                                             </Link>
                                         </LinkWrapper>
                                     )}
                                     <LinkWrapper>
-                                        <Link to="/markets#stock">{localize('Stock indices')}</Link>
+                                        <Link to="/markets/stock/">
+                                            {localize('Stock indices')}
+                                        </Link>
                                     </LinkWrapper>
                                     <LinkWrapper>
-                                        <Link to="/markets#commodities">
+                                        <Link to="/markets/commodities/">
                                             {localize('Commodities')}
                                         </Link>
                                     </LinkWrapper>

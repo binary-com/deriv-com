@@ -6,27 +6,24 @@ import { Text } from 'components/elements'
 import device from 'themes/device'
 import AppStore from 'images/svg/app-store.svg'
 import GooglePlay from 'images/svg/google-play.svg'
-import {
-    dmt5_android_url,
-    dmt5_ios_url,
-} from 'common/constants'
+import { dmt5_android_url, dmt5_ios_url } from 'common/constants'
 import { LocalizedLink } from 'components/localization'
 
 const DownloadFlex = styled(Flex)`
-    @media ${device.tabletS}{
+    @media ${device.tabletS} {
         justify-content: center;
     }
 `
 
 const StyledFlex = styled(Flex)`
-    @media ${device.tablet}{
-        width:unset;
-        margin:auto;
+    @media ${device.tablet} {
+        width: unset;
+        margin: auto;
     }
 `
 
 const StyledText = styled(Text)`
-    max-width: ${props => props.max_width};
+    max-width: ${(props) => props.max_width};
 
     @media ${device.tablet} {
         max-width: unset;
@@ -69,7 +66,6 @@ const TabButton = styled.div`
 
     @media ${device.tabletS} {
         margin: 0 16px 16px;
-        
     }
 `
 
@@ -87,7 +83,7 @@ const TabList = styled.div`
               `}
     @media ${device.tablet} {
         max-width: 50rem;
-        margin-right:unset;
+        margin-right: unset;
     }
     @media ${device.tabletS} {
         max-width: 576px;

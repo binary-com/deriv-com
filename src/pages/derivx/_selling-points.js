@@ -11,10 +11,10 @@ const HeadingText = styled(Text)`
     border-right: 1px solid var(--color-grey-21);
     padding-right: 24px;
 
-    @media ${device.tablet}{
+    @media ${device.tablet} {
         border-right: unset;
         padding-right: unset;
-        text-align: center; 
+        text-align: center;
         font-size: 24px;
     }
 `
@@ -22,30 +22,29 @@ const HeadingText = styled(Text)`
 const SubText = styled(Text)`
     padding-left: 24px;
     margin: auto 0;
-    @media ${device.tablet}{
+    @media ${device.tablet} {
         padding-left: unset;
-        text-align: center; 
+        text-align: center;
     }
 `
 
 const StyledFlex = styled(Flex)`
-    @media ${device.tablet}{
+    @media ${device.tablet} {
         margin-bottom: 16px;
 
         &:last-child {
             margin-bottom: unset;
         }
     }
-
 `
 
 const selling_points = [
     {
-        title: "100+",
+        title: '100+',
         subtitle: <Localize translate_text="tradable assets" />,
     },
     {
-        title: "24/7",
+        title: '24/7',
         subtitle: <Localize translate_text="trading" />,
     },
     {
@@ -62,12 +61,8 @@ const SellingPoints = () => {
                     {selling_points.map((index) => {
                         return (
                             <StyledFlex tablet_direction="column" key={index}>
-                                <HeadingText>
-                                    {index.title}
-                                </HeadingText>
-                                <SubText>
-                                    {index.subtitle}
-                                </SubText>
+                                <HeadingText>{index.title}</HeadingText>
+                                <SubText>{index.subtitle}</SubText>
                             </StyledFlex>
                         )
                     })}

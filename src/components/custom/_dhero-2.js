@@ -13,20 +13,20 @@ const Wrapper = styled(Flex)`
     justify-content: flex-start;
     background-color: var(--color-black);
     height: unset;
-    min-height: ${props => props.d_height};
+    min-height: ${(props) => props.d_height};
     padding: 2rem 12rem;
 
     @media ${device.laptopM} {
-        height: ${props => props.laptopM_height};
+        height: ${(props) => props.laptopM_height};
         min-height: unset;
     }
     @media ${device.laptop} {
-        height: ${props => props.laptop_height};
+        height: ${(props) => props.laptop_height};
         padding: 2rem 8rem;
     }
     @media ${device.tabletL} {
-        height: ${props => props.tabletL_height};
-        align-items:center;
+        height: ${(props) => props.tabletL_height};
+        align-items: center;
     }
     @media ${device.tablet} {
         padding: 0 0 40px;
@@ -66,7 +66,7 @@ const StyledHeader = styled(Header)`
         font-size: 20px;
         font-weight: normal;
         align-items: center;
-        justify-content:center;
+        justify-content: center;
     }
     @media ${device.mobileL} {
         justify-content: unset;
@@ -170,7 +170,7 @@ const InformationWrapper = styled(Flex)`
         max-width: 450px;
         padding: 0 16px;
         margin-top: 20px;
-        align-items:center;
+        align-items: center;
     }
     @media ${device.mobileL} {
         margin-top: 0;

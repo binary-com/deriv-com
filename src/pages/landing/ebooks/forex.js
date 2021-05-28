@@ -35,7 +35,10 @@ const ForexEbook = () => {
                 description={localize('Trade Forex CFDs on our Deriv platform.')}
                 no_index
             />
-            <HeaderSection mainHeaderImage={forexEbookImage} />
+            <HeaderSection
+                mainHeaderImage={forexEbookImage}
+                bg="linear-gradient(293deg, #b51a31, #ff4d47);"
+            />
             <Introduction
                 introImage={introForexEbook}
                 imageWidth={142}

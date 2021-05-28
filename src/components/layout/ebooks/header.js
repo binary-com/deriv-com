@@ -22,7 +22,7 @@ const HeaderBody = styled(Flex)`
     width: 100%;
     height: 627px;
     margin: 0;
-    background-image: linear-gradient(281deg, #0e0e0e, #1b1b1b);
+    background-image: ${(props) => (props.bg ? props.bg : 'linear-gradient(281deg, #0e0e0e, #1b1b1b)')};
     flex-direction: row;
 `
 
@@ -67,10 +67,10 @@ const SignupWrapper = styled.div`
     margin-bottom: 10px;
 `
 
-const HeaderSection = ({ mainHeaderImage }) => {
+const HeaderSection = ({ mainHeaderImage, bg }) => {
     return (
         <MainWrapper>
-            <HeaderBody>
+            <HeaderBody bg={bg}>
                 <TopHeaderImgWrapper>
                     <DesktopImage src={mainHeaderImage} alt="stocks ebook" />
                 </TopHeaderImgWrapper>
@@ -100,6 +100,7 @@ const HeaderSection = ({ mainHeaderImage }) => {
 }
 
 HeaderSection.propTypes = {
+    bg: PropTypes.any,
     mainHeaderImage: PropTypes.any,
 }
 

@@ -85,7 +85,7 @@ const Introduction = ({ introImage, imageWidth, introPara, subPara, introList })
                     <>
                         <Header as="h5">In this book you’ll learn:</Header>
                         <MediaItemList>
-                            {introList.map((point, index) => {
+                            {introList?.map((point, index) => {
                                 return (
                                     <Li key={index}>
                                         <img src={checkIcon} alt="Check Icon" />

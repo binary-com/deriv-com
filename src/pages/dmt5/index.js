@@ -8,9 +8,9 @@ import {
     DBanner,
     MarginCalculator,
 } from './_lazy-load'
-import DHero from './_dhero'
 import Numbers from './_numbers'
 import WhatIsTrader from './_what-is-trader'
+import DHero from 'components/custom/_dhero-2'
 import BackgroundPatternDMT5 from 'images/svg/bg_banner_dmt5.svg'
 import BackgroundPatternDMT5_mobile from 'images/svg/bg_banner_dmt5_mobile.svg'
 import Layout from 'components/layout/layout'
@@ -74,6 +74,10 @@ const DMT5 = () => {
                 background_svg={DMT5BG}
                 background_svg2={DMT5BG2}
                 background_alt={localize('DMT5')}
+                d_height="60.2rem"
+                laptopM_height="52.7rem"
+                laptop_height="56.8rem"
+                tabletL_height="53rem"
             />
             <Numbers numbers_content={numbers_content} />
             <WhatIsTrader />

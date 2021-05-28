@@ -93,31 +93,19 @@ commands:
   docker_build:
     description: "Build Docker image"
     parameters:
-      docker_image_tag:
+      docker_latest_image_tag:
         type: string
         default: "latest-staging"
+      docker_image_tag:
+        type: string
+        default: ${CIRCLE_SHA1}
     steps:
       - setup_remote_docker:
           docker_layer_caching: true
       - run:
           name: Building docker image
           command: |
-            docker build -t ${DOCKHUB_ORGANISATION}/deriv-com:${CIRCLE_TAG} -t ${DOCKHUB_ORGANISATION}/deriv-com:<< parameters.docker_image_tag >> .
-
-
-  docker_build_staging:
-    description: "Build Docker image"
-    parameters:
-      docker_image_tag:
-        type: string
-        default: "latest-staging"
-    steps:
-      - setup_remote_docker:
-          docker_layer_caching: true
-      - run:
-          name: Building docker image
-          command: |
-            docker build -t ${DOCKHUB_ORGANISATION}/deriv-com:${CIRCLE_SHA1} -t ${DOCKHUB_ORGANISATION}/deriv-com:<< parameters.docker_image_tag >> .
+            docker build -t ${DOCKHUB_ORGANISATION}/deriv-com:<< parameters.docker_image_tag >> -t ${DOCKHUB_ORGANISATION}/deriv-com:<< parameters.docker_latest_image_tag >> .
 
   docker_push:
     description: "Push image to docker hub"
@@ -131,42 +119,22 @@ commands:
   k8s_deploy:
     description: "Deploy to k8s cluster"
     parameters:
-      k8s_svc_name:
+      k8s_version:
         type: string
-        default: "staging-deriv-com"
+        default: ${CIRCLE_SHA1}
+      k8s_namespace:
+        type: string
+        default: "deriv-com-staging"
     steps:
       - k8s/install-kubectl
       - run:
-          name: Deploying to k8s cluster for service << parameters.k8s_svc_name >>
+          name: Deploying to k8s cluster for service << parameters.k8s_namespace >>
           command: |
-            echo $CA_CRT | base64 --decode > ca.crt
-            kubectl --server=${KUBE_SERVER} --certificate-authority=ca.crt --token=$SERVICEACCOUNT_TOKEN set image deployment/<< parameters.k8s_svc_name >> << parameters.k8s_svc_name >>=${DOCKHUB_ORGANISATION}/deriv-com:${CIRCLE_TAG}
-
-            export NAMESPACE=deriv-com-production
+            export NAMESPACE=<< parameters.k8s_namespace >>
             git clone https://github.com/binary-com/devops-ci-scripts
             cd devops-ci-scripts/k8s-build_tools
             echo $CA_CRT | base64 --decode > ca.crt
-            ./release.sh deriv-com ${CIRCLE_TAG}
-
-  k8s_deploy_staging:
-    description: "Deploy to k8s cluster"
-    parameters:
-      k8s_svc_name:
-        type: string
-        default: "staging-deriv-com"
-    steps:
-      - k8s/install-kubectl
-      - run:
-          name: Deploying to k8s cluster for service << parameters.k8s_svc_name >>
-          command: |
-            echo $CA_CRT | base64 --decode > ca.crt
-            kubectl --server=${KUBE_SERVER} --certificate-authority=ca.crt --token=$SERVICEACCOUNT_TOKEN set image deployment/<< parameters.k8s_svc_name >> << parameters.k8s_svc_name >>=${DOCKHUB_ORGANISATION}/deriv-com:${CIRCLE_SHA1}
-
-            export NAMESPACE=deriv-com-staging
-            git clone https://github.com/binary-com/devops-ci-scripts
-            cd devops-ci-scripts/k8s-build_tools
-            echo $CA_CRT | base64 --decode > ca.crt
-            ./release.sh deriv-com ${CIRCLE_SHA1}
+            ./release.sh deriv-com << parameters.k8s_version >>
 
 jobs:
   test:
@@ -196,9 +164,9 @@ jobs:
       - build
       - deploy:
           target_branch: "staging"
-      - docker_build_staging
+      - docker_build
       - docker_push
-      - k8s_deploy_staging
+      - k8s_deploy
       - notify_slack
 
   release_production:
@@ -216,10 +184,12 @@ jobs:
       - deploy:
           target_branch: "production"
       - docker_build:
-          docker_image_tag: latest
+          docker_latest_image_tag: latest
+          docker_image_tag: ${CIRCLE_TAG}
       - docker_push
       - k8s_deploy:
-          k8s_svc_name: "production-deriv-com"
+          k8s_namespace: "deriv-com-production"
+          k8s_version: ${CIRCLE_TAG}
       - notify_slack
 
 workflows:

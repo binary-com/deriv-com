@@ -77,7 +77,7 @@ export const LocalizedLink = React.forwardRef(({ external, ...props }, ref) => {
     }, [])
 
     if (external || external === 'true') {
-        return <ExternalLink mounted={has_mounted} locale={locale} ref={ref} {...props}  />
+        return <ExternalLink mounted={has_mounted} locale={locale} ref={ref} {...props} />
     }
 
     return <InternalLink mounted={has_mounted} locale={locale} ref={ref} {...props} />
@@ -138,7 +138,7 @@ InternalLink.propTypes = {
 }
 
 const affiliate_links = ['affiliate_sign_in', 'affiliate_sign_up']
-const deriv_app_links = ['dbot', 'deriv_app', 'mt5']
+const deriv_app_links = ['dbot', 'deriv_app', 'mt5', 'derivx']
 const deriv_other_products = ['binary', 'smart_trader']
 const deriv_social_platforms = ['blog', 'community', 'developers', 'zoho']
 

@@ -46,7 +46,7 @@ const ContactUs = () => {
                         {localize('Contact us')}
                     </Header>
                     <StyledText align="center" size="var(--text-size-sm)">
-                        {localize("Got questions? Here's how to get answers")}
+                        {localize("Got questions? Here's how to get answers.")}
                     </StyledText>
                 </HeroWrapper>
             </SectionContainer>

@@ -322,7 +322,12 @@ export const OurOffices = () => {
                                 link="/contact_us#cyberjaya"
                             />
                             <MapPin left="83%" top="55%" title="Melaka" link="/contact_us#melaka" />
-                            <MapPin left="88.5%" top="51%" title="Labuan" link="/contact_us#labuan" />
+                            <MapPin
+                                left="88.5%"
+                                top="51%"
+                                title="Labuan"
+                                link="/contact_us#labuan"
+                            />
                         </MapImage>
                     </Show.Mobile>
                 </OfficeWrapper>

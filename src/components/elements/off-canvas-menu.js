@@ -376,13 +376,13 @@ export const OffCanvasMenuWrapper = (props) => {
                         header_style={header_style}
                         style={content_style}
                     >
-                        <StyledLink to="/about/#story" onClick={handleArrowClick}>
+                        <StyledLink to="/story/" onClick={handleArrowClick}>
                             <div>
                                 <img src={Story} alt="story" width="24" height="24" />
                             </div>
                             <span>{localize('Our story')}</span>
                         </StyledLink>
-                        <StyledLink to="/about/#leadership" onClick={handleArrowClick}>
+                        <StyledLink to="/leadership/" onClick={handleArrowClick}>
                             <div>
                                 <img src={Leadership} alt="leadership" width="24" height="24" />
                             </div>

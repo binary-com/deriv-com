@@ -1171,8 +1171,7 @@ const PnlMarginCalculator = () => {
                                 {
                                     <StyledLinkButton
                                         secondary="true"
-                                        is_deriv_app_link
-                                        to="/mt5"
+                                        type="mt5"
                                         external="true"
                                         target="_blank"
                                         rel="noopener noreferrer"
@@ -1307,8 +1306,7 @@ const PnlMarginCalculator = () => {
                                 {
                                     <StyledLinkButton
                                         secondary="true"
-                                        is_deriv_app_link
-                                        to="/mt5"
+                                        type="mt5"
                                         external="true"
                                         target="_blank"
                                         rel="noopener noreferrer"

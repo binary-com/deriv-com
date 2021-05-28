@@ -57,7 +57,7 @@ const Topics = ({ topicsImage, topicsList }) => {
                     <Header as="h5" className="header">
                         Topics covered
                     </Header>
-                    {topicsList.map((topic, index) => {
+                    {topicsList?.map((topic, index) => {
                         return (
                             <Li key={index} className="topic-item">
                                 <img src={checkIcon} alt="Check Icon" />

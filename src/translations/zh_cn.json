@@ -731,10 +731,14 @@
     "1285517993": "不须编写程序代码，将您的交易构思自动化",
     "1286094280": "提款",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "1286648079": "所有指数返回投注者的乘数期权平均值范围为95.0-99.9％。使用其他乘数或持续时间可能会影响RTP。",
 =======
     "1286648079": "Return to player for mulitplier options is in the range of 95.0-99.9% for all indices on an average. Using a different multiplier or duration may affect the RTP.",
 >>>>>>> ad3346cef9 (changed stimulate to simulate (#1725))
+=======
+    "1286648079": "所有指数返回投注者的乘数期权平均值范围为95.0-99.9％。使用其他乘数或持续时间可能会影响RTP。",
+>>>>>>> d01dd4461f (downloaded latest translations (#1738))
     "1289363035": "使用我们的模拟账户，了解使用无风险虚拟资金交易的方法。",
     "1289646209": "追加保证金通知",
     "1291658124": "这很简单。只需前往 Deriv.com 并输入现有的 Binary.com 凭据。您将立即能够探索 Deriv.com 的新外观、感受和新添功能。",
@@ -870,10 +874,14 @@
     "1553836855": "开立模拟账户",
     "1553995374": "1美元",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "1556304768": "综合指数交易让您通过正确预测我们能模拟真实世界市场走势的专有指数的价格变动而受益。",
 =======
     "1556304768": "Synthetic indices trading lets you benefit from correctly predicting the price movements of our proprietary indices that simulate real-world market movements.",
 >>>>>>> ad3346cef9 (changed stimulate to simulate (#1725))
+=======
+    "1556304768": "综合指数交易让您通过正确预测我们能模拟真实世界市场走势的专有指数的价格变动而受益。",
+>>>>>>> d01dd4461f (downloaded latest translations (#1738))
     "1556866509": "如果您购买了有取消交易功能的合约，则可以使用‘取消’按钮终止合约并取回全部投注额。另一方面，使用‘关闭’按钮可让您以当前价格终止头寸。但如果您关闭的是失利交易，则可能导致亏损。",
     "1556922066": "轻松与其他交易者兑换，以将资金移入或移出您的Deriv账户。",
     "1559712313": "可通过 Deriv 进行的大宗商品交易",

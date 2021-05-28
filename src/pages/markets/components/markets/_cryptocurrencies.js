@@ -50,7 +50,7 @@ const Cryptocurrencies = ({ simple_step_content }) => {
     )
 }
 
-Crypto.propTypes = {
+Cryptocurrencies.propTypes = {
     simple_step_content: PropTypes.array,
 }
 

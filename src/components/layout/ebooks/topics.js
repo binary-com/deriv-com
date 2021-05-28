@@ -3,6 +3,29 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { Header, Li } from 'components/elements'
 import checkIcon from 'images/common/ebooks/check-icon.png'
+// import device from 'themes/device'
+
+const FullWidth = styled.div`
+    background-image: linear-gradient(to bottom, #eaf4f5 1%, rgba(242, 245, 248, 0) 99%);
+
+    h5 {
+        margin-top: 25px;
+        font-size: 24px;
+        font-weight: bold;
+        line-height: 1.5;
+        color: #333333;
+        margin-bottom: 20px;
+    }
+`
+
+const Wrapper = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 100px auto 0;
+    padding: 0 50px;
+`
 
 const ItemList = styled.ul`
     font-size: 20px;
@@ -20,34 +43,12 @@ const ItemList = styled.ul`
         object-fit: contain;
     }
 `
-const Wrapper = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    max-width: 1200px;
-    margin: 100px auto 0;
-    padding: 0 50px;
-`
 
 const Image = styled.img`
     width: 650px;
     position: relative;
     top: -57px;
 `
-
-const FullWidth = styled.div`
-    background-image: linear-gradient(to bottom, #eaf4f5 1%, rgba(242, 245, 248, 0) 99%);
-
-    .header {
-        margin-top: 25px;
-        font-size: 24px;
-        font-weight: bold;
-        line-height: 1.5;
-        color: #333333;
-        margin-bottom: 20px;
-    }
-`
-
 const Topics = ({ topicsImage, topicsList }) => {
     return (
         <FullWidth>

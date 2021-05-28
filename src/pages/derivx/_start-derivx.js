@@ -57,7 +57,9 @@ const query = graphql`
 
 const demo = [
     {
-        description: <Localize translate_text="Sign in to your Deriv account. If you don’t have one, sign up for free." />,
+        description: (
+            <Localize translate_text="Sign in to your Deriv account. If you don’t have one, sign up for free." />
+        ),
         image_data: 'demo_step1',
         image_alt: 'demo_step1',
     },
@@ -67,7 +69,9 @@ const demo = [
         image_alt: 'demo_step2',
     },
     {
-        description: <Localize translate_text="Start trading on the mobile app or through your web browser." />,
+        description: (
+            <Localize translate_text="Start trading on the mobile app or through your web browser." />
+        ),
         image_data: 'demo_step3',
         image_alt: 'demo_step3',
     },
@@ -75,7 +79,9 @@ const demo = [
 
 const real = [
     {
-        description: <Localize translate_text="Sign in to your Deriv account. If you don’t have one, sign up for free." />,
+        description: (
+            <Localize translate_text="Sign in to your Deriv account. If you don’t have one, sign up for free." />
+        ),
         image_data: 'real_step1',
         image_alt: 'real_step1',
     },
@@ -90,7 +96,9 @@ const real = [
         image_alt: 'real_step3',
     },
     {
-        description: <Localize translate_text="Start trading on the mobile app or through your web browser." />,
+        description: (
+            <Localize translate_text="Start trading on the mobile app or through your web browser." />
+        ),
         image_data: 'real_step4',
         image_alt: 'real_step4',
     },
@@ -239,7 +247,13 @@ const StartDerivX = () => {
                             >
                                 <ImageWrapper>
                                     <QueryImage
-                                        data={data[is_mobile ? `${index.image_data}_mobile` : index.image_data]}
+                                        data={
+                                            data[
+                                                is_mobile
+                                                    ? `${index.image_data}_mobile`
+                                                    : index.image_data
+                                            ]
+                                        }
                                         alt={index.image_alt}
                                     />
                                 </ImageWrapper>

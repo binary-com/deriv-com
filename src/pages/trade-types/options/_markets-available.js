@@ -61,7 +61,7 @@ const MarketsAvailable = () => {
                                 </Text>
                                 <LearnMore
                                     text={<Localize translate_text="Learn more" />}
-                                    to="/markets#forex"
+                                    to="/markets/forex/"
                                 />
                             </Card>
                         </MarketsItem>
@@ -88,7 +88,7 @@ const MarketsAvailable = () => {
                                 </Text>
                                 <LearnMore
                                     text={<Localize translate_text="Learn more" />}
-                                    to="/markets#synthetic"
+                                    to="/markets/synthetic/"
                                 />
                             </Card>
                         </MarketsItem>
@@ -113,7 +113,7 @@ const MarketsAvailable = () => {
                                 </Text>
                                 <LearnMore
                                     text={<Localize translate_text="Learn more" />}
-                                    to="/markets#commodities"
+                                    to="/markets/commodities/"
                                 />
                             </Card>
                         </MarketsItem>
@@ -140,7 +140,7 @@ const MarketsAvailable = () => {
                                 </Text>
                                 <LearnMore
                                     text={<Localize translate_text="Learn more" />}
-                                    to="/markets#stock"
+                                    to="/markets/stock/"
                                 />
                             </Card>
                         </MarketsItem>

@@ -469,5 +469,5 @@ export {
     XLM,
     TRX,
     ZEC,
-    MNR
+    MNR,
 }

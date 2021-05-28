@@ -8,7 +8,7 @@ import device from 'themes/device'
 const StyledSectionContainer = styled(SectionContainer)`
     border-bottom: solid 1px var(--color-grey-2);
 
-    @media ${device.tablet}{
+    @media ${device.tablet} {
         border-bottom: unset;
     }
 `

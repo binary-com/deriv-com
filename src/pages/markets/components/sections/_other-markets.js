@@ -22,7 +22,7 @@ const markets_type = {
         content: (
             <Localize translate_text="Forex trading gives you the chance to profit from changes in the relative values of currencies on the forex market." />
         ),
-        to: '/markets#forex',
+        to: '/markets/forex/',
         id: 'marketforexothermarkets',
     },
     Synthetic_Indices: {
@@ -32,7 +32,7 @@ const markets_type = {
         content: (
             <Localize translate_text="Synthetic indices trading lets you benefit from correctly predicting the price movements of our proprietary indices that simulate real-world market movements." />
         ),
-        to: '/markets#synthetic',
+        to: '/markets/synthetic/',
         id: 'marketsyntheticothermarkets',
     },
     stock_indices: {
@@ -42,7 +42,7 @@ const markets_type = {
         content: (
             <Localize translate_text="Stocks & indices trading allows you to profit from the price movements in a market without buying the underlying assets." />
         ),
-        to: '/markets#stock',
+        to: '/markets/stock/',
         id: 'marketstockothermarkets',
     },
 
@@ -53,7 +53,7 @@ const markets_type = {
         content: (
             <Localize translate_text="Commodities trading on Deriv lets you profit from correctly predicting the market movement on precious metals and crude oil." />
         ),
-        to: '/markets#commodities',
+        to: '/markets/commodities/',
         id: 'marketcommoditiesothermarket',
     },
 
@@ -199,12 +199,12 @@ const CardWrapper = styled(Flex)`
     top: 4rem;
 `
 const StyledHeader = styled(Header)`
-    margin-left:2rem;
+    margin-left: 2rem;
 
     @media ${device.laptopM} {
         margin: auto;
-        text-align:center;
-        margin-bottom:2rem;
+        text-align: center;
+        margin-bottom: 2rem;
     }
 
     @media ${device.laptop} {
@@ -217,10 +217,16 @@ const MobileCardContainer = styled(Flex)`
     }
 `
 const OtherMarkets = ({ except }) => {
-    const markets = ['forex', 'Synthetic_Indices', 'stock_indices', 'commodities', 'cryptocurrencies']
+    const markets = [
+        'forex',
+        'Synthetic_Indices',
+        'stock_indices',
+        'commodities',
+        'cryptocurrencies',
+    ]
     return (
-        <SectionContainer margin='auto' background='white'>
-            <Show.Desktop max_width='laptopM'>
+        <SectionContainer margin="auto" background="white">
+            <Show.Desktop max_width="laptopM">
                 <MarketsWrapper tablet_jc="center">
                     <StyledHeader as="h3" type="section-title" align="left">
                         {localize('Other markets you might be interested in')}
@@ -241,7 +247,7 @@ const OtherMarkets = ({ except }) => {
                     </Box>
                 </MarketsWrapper>
             </Show.Desktop>
-            <Show.Mobile min_width='laptopM'>
+            <Show.Mobile min_width="laptopM">
                 <StyledHeader as="h3" type="section-title" align="left">
                     {localize('Other markets you might be interested in')}
                 </StyledHeader>

@@ -152,7 +152,10 @@ const Markets = () => (
         />
         <Hero />
         <TabsContainer>
-            <Tabs tab_list={['forex', 'synthetic', 'stock', 'commodities','crypto']} route_from="markets">
+            <Tabs
+                tab_list={['forex', 'synthetic', 'stock', 'commodities', 'crypto']}
+                route_from="markets"
+            >
                 <Tabs.Panel label={localize('Forex')}>
                     <Forex simple_step_content={simple_step_content_forex} />
                 </Tabs.Panel>

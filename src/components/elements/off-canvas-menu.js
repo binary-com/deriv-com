@@ -332,7 +332,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                 to="/markets/stock/"
                             />
                         </Flex>
-                        <Flex>
+                        <Flex mb="3.2rem">
                             <NavCard
                                 aria_label="Cryptocurrencies"
                                 icon={() => (
@@ -348,7 +348,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                 )}
                                 title={localize('Cryptocurrencies')}
                                 onClick={handleArrowClick}
-                                to="/markets#crypto"
+                                to="/markets/cryptocurrencies/"
                             />
                         </Flex>
                         <Flex>

@@ -11,9 +11,9 @@ import forexEbookInside from 'images/common/ebooks/forex-ebook-inside.png'
 
 const introPoints = [
     'The simple basics of forex',
-    'How to make more profitable forex trades and loweryour trading risks',
-    'How to use digital options to profit from up, down,and even sideways moves',
-    'How to trade like professionals without spending hourseach day analysing the worldmarket',
+    'How to make more profitable forex trades and lower your trading risks',
+    'How to use digital options to profit from up, down, and even sideways moves',
+    'How to trade like professionals without spending hours each day analysing the world market',
 ]
 
 const topicsCovered = [

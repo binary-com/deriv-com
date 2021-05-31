@@ -17,7 +17,7 @@ const Crypto = ({ simple_step_content }) => {
     return (
         <>
             <WhyTrade
-                header={<Localize translate_text="Why trade cryptocurrency on Deriv" />}
+                header={<Localize translate_text="Why trade cryptocurrencies on Deriv" />}
                 text={
                     <Localize translate_text="Take advantage of a highly liquid market with round-the-clock trading. Profit from correctly predicting the movement of world's most popular cryptocurrencies." />
                 }

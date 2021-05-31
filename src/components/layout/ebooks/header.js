@@ -17,17 +17,21 @@ const HeaderBody = styled(Flex)`
     width: 100%;
     height: 627px;
     margin: 0;
-    background-image: ${(props) => (props.bg ? props.bg : 'linear-gradient(281deg, #0e0e0e, #1b1b1b)')};
+    background-image: ${(props) =>
+        props.bg ? props.bg : 'linear-gradient(281deg, #0e0e0e, #1b1b1b)'};
     flex-direction: row;
 `
 
 const TopHeaderImgWrapper = styled(Flex)`
+    justify-content: flex-start;
     margin: 0;
+    padding: 0;
 `
 const DesktopImage = styled.img`
     width: 606px;
     position: relative;
     top: 58px;
+    margin: 0;
     @media ${device.tabletL} {
         display: none;
     }

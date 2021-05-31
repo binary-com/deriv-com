@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Commodities from './components/markets/_commodities.js'
 import Forex from './components/markets/_forex'
-import Crypto from './components/markets/_crypto'
+import Crypto from './components/markets/_cryptocurrencies'
 import StockIndices from './components/markets/_stock-indices.js'
 import SyntheticIndices from './components/markets/_synthetic-indices.js'
 import { Hero } from './components/sections/_hero'
@@ -153,7 +153,7 @@ const Markets = () => (
         <Hero />
         <TabsContainer>
             <Tabs
-                tab_list={['forex', 'synthetic', 'stock', 'commodities', 'crypto']}
+                tab_list={['forex', 'synthetic', 'stock', 'commodities', 'cryptocurrencies']}
                 route_from="markets"
             >
                 <Tabs.Panel label={localize('Forex')}>

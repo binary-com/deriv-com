@@ -381,7 +381,7 @@ export const NavMarket = ({ onClick, is_ppc }) => (
             }
             title={<Localize translate_text="Cryptocurrencies" />}
             onClick={onClick}
-            to="/markets#crypto"
+            to="/markets/cryptocurrencies/"
         />
         <NavCard
             aria_label="Commodities"

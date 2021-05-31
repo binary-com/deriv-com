@@ -43,7 +43,7 @@ const CryptocurrenciesPage = () => (
             title={localize('Markets | Markets to trade | Deriv')}
         />
         <Hero />
-        <NavTab route_from={'cryptocurrencies'} route_offset={360} />
+        <NavTab route_from={'cryptocurrencies'} route_offset={480} />
         <Cryptocurrencies simple_step_content={simple_step_content_cryptocurrencies} />
         <Signup appearance={Appearances.public} />
     </Layout>

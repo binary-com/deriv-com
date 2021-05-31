@@ -61,6 +61,10 @@ const MediaBody = styled.div`
         margin-bottom: 15px;
         display: flex;
     }
+    li {
+        line-height: 18px;
+        margin-bottom: 20px;
+    }
     h5 {
         font-size: 24px;
         font-weight: bold;

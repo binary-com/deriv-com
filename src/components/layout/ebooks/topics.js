@@ -37,7 +37,7 @@ const Wrapper = styled.div`
     @media ${device.tabletL} {
         width: 100%;
         flex-direction: column;
-        padding: 0 30px;
+        padding: 0 15px;
     }
 `
 
@@ -52,7 +52,7 @@ const ItemList = styled.ul`
     }
 
     li {
-        margin-bottom: 10px;
+        margin-bottom: 15px;
         display: flex;
         font-size: 16px;
         line-height: 1.5;
@@ -67,16 +67,16 @@ const ItemList = styled.ul`
 
 const TopicImgWrapper = styled.div`
     width: 60%;
+    margin-top: -57px;
+    margin-bottom: 20px;
 
     @media ${device.tabletL} {
-        width: 100%
+        width: 100%;
     }
 `
 
 const Image = styled.img`
     width: 100%;
-    position: relative;
-    top: -57px;
 `
 const Topics = ({ topicsImage, topicsList }) => {
     return (

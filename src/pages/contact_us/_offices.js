@@ -326,7 +326,7 @@ export const Offices = () => {
                                             target="_blank"
                                             rel="noopener noreferrer"
                                         >
-                                            F16, 1st Floor, Paragon Labuan,
+                                            F16, Level 1, Paragon Labuan,
                                             <br></br>
                                             Jalan Tun Mustapha,
                                             <br></br>

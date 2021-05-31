@@ -27,15 +27,17 @@ const MediaWapper = styled.div`
 
     @media ${device.tabletL} {
         margin: 20px auto 0;
+        padding: 0 15px;
 
         h3.intro-text {
             font-size: 30px;
+            text-align: center;
         }
     }
 
     @media ${device.tabletS} {
         img.intro-forex {
-            display:none;
+            display: none;
         }
         h3.intro-text {
             font-size: 30px;
@@ -56,10 +58,12 @@ const MediaBody = styled.div`
         font-weight: normal;
         line-height: 1.5;
         color: #333333;
+        margin-bottom: 15px;
+        display: flex;
     }
     li {
-        margin-bottom: 10px;
-        display: flex;
+        line-height: 18px;
+        margin-bottom: 20px;
     }
     h5 {
         font-size: 24px;
@@ -67,6 +71,7 @@ const MediaBody = styled.div`
         line-height: 1.5;
         color: #333333;
         margin-bottom: 20px;
+        margin-top: 30px;
     }
     img {
         height: 476px;
@@ -85,7 +90,12 @@ const MediaItemList = styled.ul`
 const Introduction = ({ introImage, imageWidth, introPara, subPara, introList }) => {
     return (
         <MediaWapper>
-            <img className="intro-forex" width={`${imageWidth}px`} src={introImage} alt="Generic placeholder image" />
+            <img
+                className="intro-forex"
+                width={`${imageWidth}px`}
+                src={introImage}
+                alt="Generic placeholder image"
+            />
             <MediaBody>
                 <Header as="h3" className="mt-0 intro-text">
                     Introduction

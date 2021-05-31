@@ -46,6 +46,10 @@ const ImageWrapper = styled.img`
     height: 48px;
 `
 
+const LineSeparator = styled(Separator)`
+    height: 572px;
+`
+
 const WhoCanApplyWrapper = styled(Col)`
     width: 100%;
     max-width: 42.8rem;
@@ -106,7 +110,7 @@ const WhoCanApply = () => {
                         </Wrapper>
                     </WhoCanApplyWrapper>
                 </Flex>
-                <Separator />
+                <LineSeparator />
                 <Flex>
                     <HowToApply>
                         <HeaderHowToApply mb="4rem" size="3.6rem">

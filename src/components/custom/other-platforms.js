@@ -18,6 +18,7 @@ import { DerivStore } from 'store'
 import Blog from 'images/svg/blog-nav.svg'
 import Career from 'images/svg/menu/careers.svg'
 import Choose from 'images/svg/menu/choose.svg'
+import Cryptocurrencies from 'images/svg/cryptocurrencies-nav.svg'
 import Commodities from 'images/svg/commodities-nav.svg'
 import Community from 'images/svg/menu/community.svg'
 import Contact from 'images/svg/menu/contact.svg'
@@ -344,7 +345,7 @@ export const NavMarket = ({ onClick, is_ppc }) => (
             }
             title={<Localize translate_text="Forex" />}
             onClick={onClick}
-            to="/markets#forex"
+            to="/markets/forex/"
         />
         {!is_ppc && (
             <NavCard
@@ -357,7 +358,7 @@ export const NavMarket = ({ onClick, is_ppc }) => (
                 }
                 title={<Localize translate_text="Synthetic indices" />}
                 onClick={onClick}
-                to="/markets#synthetic"
+                to="/markets/synthetic/"
             />
         )}
         <NavCard
@@ -368,7 +369,19 @@ export const NavMarket = ({ onClick, is_ppc }) => (
             }
             title={<Localize translate_text="Stocks & indices" />}
             onClick={onClick}
-            to="/markets#stock"
+            to="/markets/stock/"
+        />
+        <NavCard
+            aria_label="Cryptocurrencies"
+            icon={() => (
+                <img src={Cryptocurrencies} alt="Cryptocurrencies" width="32" height="32" />
+            )}
+            content={
+                <Localize translate_text="Trade with leverage on the price movement of popular crypto-fiat pairs." />
+            }
+            title={<Localize translate_text="Cryptocurrencies" />}
+            onClick={onClick}
+            to="/markets/cryptocurrencies/"
         />
         <NavCard
             aria_label="Commodities"
@@ -378,7 +391,7 @@ export const NavMarket = ({ onClick, is_ppc }) => (
             }
             title={<Localize translate_text="Commodities" />}
             onClick={onClick}
-            to="/markets#commodities"
+            to="/markets/commodities/"
         />
     </Flex>
 )
@@ -394,13 +407,13 @@ export const NavCompany = ({ onClick }) => (
             icon={() => <img src={Story} alt="story" width="24" height="24" />}
             title={localize('Our story')}
             onClick={onClick}
-            to="/about/#story"
+            to="/story/"
         />
         <CardLink
             icon={() => <img src={Leadership} alt="leadership" width="24" height="24" />}
             title={localize('Our leadership')}
             onClick={onClick}
-            to="/about/#leadership"
+            to="/leadership/"
         />
         <CardLink
             icon={() => <img src={RegulatoryInfo} alt="regulatory" width="24" height="24" />}

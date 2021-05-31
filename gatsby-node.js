@@ -9,9 +9,12 @@ exports.onCreatePage = ({ page, actions }) => {
     // First delete the incoming page that was automatically created by Gatsby
     // So everything in src/pages/
     deletePage(page)
+    const is_deriv_x = /derivx/g.test(page.path)
     const is_responsible_trading = /responsible/g.test(page.path)
     const is_contact_us = /contact_us/g.test(page.path)
     const is_p2p = /responsible/g.test(page.path)
+    const is_story = /story/g.test(page.path)
+    const is_market = /markets/g.test(page.path)
 
     if (is_responsible_trading) {
         createRedirect({
@@ -59,6 +62,36 @@ exports.onCreatePage = ({ page, actions }) => {
         createRedirect({
             fromPath: `/p2p/v2`,
             toPath: `/p2p`,
+            redirectInBrowser: true,
+            isPermanent: true,
+        })
+    }
+
+    if (is_story) {
+        createRedirect({
+            fromPath: `/about/`,
+            toPath: `/story/`,
+            redirectInBrowser: true,
+            isPermanent: true,
+        })
+        createRedirect({
+            fromPath: `/about`,
+            toPath: `/story/`,
+            redirectInBrowser: true,
+            isPermanent: true,
+        })
+    }
+
+    if (is_market) {
+        createRedirect({
+            fromPath: `/markets/`,
+            toPath: `/markets/forex/`,
+            redirectInBrowser: true,
+            isPermanent: true,
+        })
+        createRedirect({
+            fromPath: `/markets`,
+            toPath: `/markets/forex/`,
             redirectInBrowser: true,
             isPermanent: true,
         })
@@ -168,6 +201,36 @@ exports.onCreatePage = ({ page, actions }) => {
             createRedirect({
                 fromPath: `/${lang}/p2p/v2`,
                 toPath: `/${lang}/p2p`,
+                redirectInBrowser: true,
+                isPermanent: true,
+            })
+        }
+
+        if (is_story) {
+            createRedirect({
+                fromPath: `/${lang}/about/`,
+                toPath: `/${lang}/story/`,
+                redirectInBrowser: true,
+                isPermanent: true,
+            })
+            createRedirect({
+                fromPath: `/${lang}/about`,
+                toPath: `/${lang}/story/`,
+                redirectInBrowser: true,
+                isPermanent: true,
+            })
+        }
+
+        if (is_market) {
+            createRedirect({
+                fromPath: `/${lang}/markets/`,
+                toPath: `/${lang}/markets/forex/`,
+                redirectInBrowser: true,
+                isPermanent: true,
+            })
+            createRedirect({
+                fromPath: `/${lang}/markets`,
+                toPath: `/${lang}/markets/forex/`,
                 redirectInBrowser: true,
                 isPermanent: true,
             })

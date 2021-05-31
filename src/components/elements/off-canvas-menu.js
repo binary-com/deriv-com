@@ -34,6 +34,7 @@ import SecureTrading from 'images/svg/menu/secure-trading.svg'
 import Smarttrader from 'images/svg/smarttrader.svg'
 import Status from 'images/svg/status.svg'
 import StockIndices from 'images/svg/stock-indices-nav.svg'
+import Cryptocurrencies from 'images/svg/cryptocurrencies-nav.svg'
 import Story from 'images/svg/menu/story.svg'
 import SyntheticIndices from 'images/svg/synthetic-indices-nav.svg'
 import Terms from 'images/svg/menu/terms.svg'
@@ -288,7 +289,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                 )}
                                 title={localize('Forex')}
                                 onClick={handleArrowClick}
-                                to="/markets#forex"
+                                to="/markets/forex/"
                             />
                         </Flex>
                         {!props.is_ppc && (
@@ -308,7 +309,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                     )}
                                     title={localize('Synthetic indices')}
                                     onClick={handleArrowClick}
-                                    to="/markets#synthetic"
+                                    to="/markets/synthetic/"
                                 />
                             </Flex>
                         )}
@@ -328,7 +329,26 @@ export const OffCanvasMenuWrapper = (props) => {
                                 )}
                                 title={localize('Stocks & indices')}
                                 onClick={handleArrowClick}
-                                to="/markets#stock"
+                                to="/markets/stock/"
+                            />
+                        </Flex>
+                        <Flex mb="3.2rem">
+                            <NavCard
+                                aria_label="Cryptocurrencies"
+                                icon={() => (
+                                    <img
+                                        src={Cryptocurrencies}
+                                        alt="Cryptocurrencies"
+                                        width="32"
+                                        height="32"
+                                    />
+                                )}
+                                content={localize(
+                                    'Trade with leverage on the price movement of popular crypto-fiat pairs.',
+                                )}
+                                title={localize('Cryptocurrencies')}
+                                onClick={handleArrowClick}
+                                to="/markets/cryptocurrencies/"
                             />
                         </Flex>
                         <Flex>
@@ -347,7 +367,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                 )}
                                 title={localize('Commodities')}
                                 onClick={handleArrowClick}
-                                to="/markets#commodities"
+                                to="/markets/commodities/"
                             />
                         </Flex>
                     </AccordionItem>
@@ -356,13 +376,13 @@ export const OffCanvasMenuWrapper = (props) => {
                         header_style={header_style}
                         style={content_style}
                     >
-                        <StyledLink to="/about/#story" onClick={handleArrowClick}>
+                        <StyledLink to="/story/" onClick={handleArrowClick}>
                             <div>
                                 <img src={Story} alt="story" width="24" height="24" />
                             </div>
                             <span>{localize('Our story')}</span>
                         </StyledLink>
-                        <StyledLink to="/about/#leadership" onClick={handleArrowClick}>
+                        <StyledLink to="/leadership/" onClick={handleArrowClick}>
                             <div>
                                 <img src={Leadership} alt="leadership" width="24" height="24" />
                             </div>

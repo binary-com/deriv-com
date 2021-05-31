@@ -8,8 +8,24 @@ export const DefaultFooter = styled.footer`
     background-color: var(--color-grey-25);
     width: 100%;
     margin: 0 auto;
-    margin-bottom: ${(props) => (props.has_banner_cookie ? '18.4rem' : '0')};
+    margin-bottom: ${(props) => props.is_eu_country && '7.3rem'};
     padding-bottom: 1.6rem;
+
+    @media (max-width: 1090px) {
+        margin-bottom: ${(props) => props.is_eu_country && '9rem'};
+    }
+    @media (max-width: 991px) {
+        margin-bottom: ${(props) => props.is_eu_country && '11rem'};
+    }
+    @media (max-width: 826px) {
+        margin-bottom: ${(props) => props.is_eu_country && '12.2rem'};
+    }
+    @media (max-width: 710px) {
+        margin-bottom: ${(props) => props.is_eu_country && '10.6rem'};
+    }
+    @media (max-width: 538px) {
+        margin-bottom: ${(props) => props.is_eu_country && '13.8rem'};
+    }
 
     ${Container} {
         @media ${device.tabletL} {

@@ -15,7 +15,19 @@ export const Hero = styled(Flex)`
     @media ${device.tabletL} {
         height: 210px;
     }
+    @media ${device.mobileL} {
+        height: auto;
+        min-height: 210px;
+    }
 `
+
+export const StyledHeader = styled(Header)`
+    @media ${device.tabletL} {
+        font-size: 32px;
+        line-height: 40px;
+    }
+`
+
 export const BreadCrumbContainer = styled(Container)`
     margin-top: 2.4rem;
 
@@ -47,7 +59,7 @@ export const SectionSubtitle = styled(Header)`
 `
 
 export const SwapTabSelector = styled(Flex)`
-    padding: 22px 40px;
+    padding: 22px 64px;
     width: auto;
     height: 80px;
     border-radius: 4px;
@@ -72,6 +84,7 @@ export const SwapTabSelector = styled(Flex)`
 
     @media ${device.mobileL} {
         padding: 12px 24px;
+        min-width: 144px;
     }
 `
 
@@ -81,14 +94,14 @@ export const ContentContainer = styled(Flex)`
         margin: 40px 0;
     }
     @media ${device.laptop} {
-        margin-bottom: 40px;
+        margin-bottom: 0;
         padding: 0 16px;
     }
 `
 
 export const FormWrapper = styled(Flex)`
     margin-right: 4.8rem;
-    max-height: 705px;
+    height: 100%;
     width: unset;
 
     @media ${device.laptopM} {
@@ -104,23 +117,57 @@ export const SwapFormWrapper = styled(FormWrapper)`
     }
 `
 
-export const CalculatorForm = styled(Form)`
+const CalculatorFormStyles = css`
     background-color: var(--color-white);
     border-radius: 10px;
     box-sizing: border-box;
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.05);
-    width: 48.6rem;
 
     @media ${device.mobileL} {
-        width: 328px;
         margin-bottom: 20px;
+        width: 328px;
     }
 `
 
-export const CalculatorHeader = styled.div`
+export const CalculatorForm = styled(Form)`
+    ${CalculatorFormStyles}
+    width: 54rem;
+`
+export const PnlCalculatorFormMobile = styled(Form)`
+    ${CalculatorFormStyles}
+    width: 328px;
+`
+
+export const PnlHeaderOverflow = styled.div`
+    width: 328px;
+    border-radius: 8px 8px 0 0;
+    overflow-x: scroll;
+`
+const CalculatorHeaderStyles = css`
     border-radius: 8px 8px 0 0;
     padding: 2.4rem;
     background-color: var(--color-blue-4);
+`
+
+export const CalculatorHeader = styled.div`
+    ${CalculatorHeaderStyles}
+`
+
+export const PnlCalculatorHeader = styled.div`
+    ${CalculatorHeaderStyles}
+
+    @media (max-width: 424px) {
+        width: 440px;
+        overflow-x: scroll;
+    }
+`
+
+export const PnlCalculatorHeaderMobile = styled.div`
+    border-radius: 8px 8px 0 0;
+    padding: 2.4rem;
+    background-color: var(--color-blue-4);
+    width: 440px;
+    overflow-x: scroll;
 `
 
 export const CalculatorLabel = styled.label`
@@ -143,21 +190,25 @@ export const CalculatorOutputContainer = styled(Flex)`
     background-color: var(--color-white);
 `
 
-export const CalculatorOutputField = styled(Flex)`
+export const PnLCalculatorOutputContainer = styled(Flex)`
+    position: relative;
+    border-radius: 8px;
+    box-sizing: border-box;
+    height: 56px;
+    border: 1px solid var(--color-green);
+    background-color: var(--color-white);
+`
+
+const CalculatorOutputFieldStyles = css`
     width: 80%;
     white-space: nowrap;
     resize: none;
     background-color: var(--color-white);
     justify-content: flex-start;
     height: 95%;
-    border: 0;
-    padding: 2.2rem;
-    font-size: 2.4rem;
     font-weight: 500;
-    color: var(--color-blue-5);
     overflow-x: auto;
     overflow-y: hidden;
-    -webkit-text-fill-color: var(--color-blue-5);
     opacity: 1;
     -webkit-opacity: 1;
     margin: 1px;
@@ -180,13 +231,26 @@ export const CalculatorOutputField = styled(Flex)`
     -ms-overflow-style: none; /* IE 10+ */
 `
 
-export const CalculatorOutputSymbol = styled.label`
+export const CalculatorOutputField = styled(Flex)`
+    padding: 2.2rem;
+    font-size: 2.4rem;
+    color: var(--color-blue-5);
+    -webkit-text-fill-color: var(--color-blue-5);
+    ${CalculatorOutputFieldStyles}
+`
+
+export const PnLCalculatorOutputField = styled(Flex)`
+    padding: 16px;
+    font-size: 16px;
+    color: var(--color-green);
+    -webkit-text-fill-color: var(--color-green);
+    ${CalculatorOutputFieldStyles}
+`
+
+const CalculatorOutputSymbolStyles = css`
     margin: 1px;
     pointer-events: none;
-    color: var(--color-blue-5);
     font-weight: bold;
-    font-size: 2.4rem;
-    padding: 2.2rem;
     @media ${device.tabletL} {
         font-size: 18px;
     }
@@ -195,6 +259,20 @@ export const CalculatorOutputSymbol = styled.label`
         font-size: 16px;
         padding-top: 2.4rem;
     }
+`
+
+export const CalculatorOutputSymbol = styled.label`
+    color: var(--color-blue-5);
+    font-size: 2.4rem;
+    padding: 2.2rem;
+    ${CalculatorOutputSymbolStyles}
+`
+
+export const PnLCalculatorOutputSymbol = styled.label`
+    color: var(--color-green);
+    font-size: 16px;
+    padding: 16px;
+    ${CalculatorOutputSymbolStyles}
 `
 
 export const CalculatorBody = styled.div`
@@ -218,9 +296,9 @@ export const CalculatorBody = styled.div`
     }
 `
 
-export const CalculatorTabItem = styled.div`
+const CalculatorTabItemStyles = css`
     height: 72px;
-    width: 21rem;
+    width: 23.4rem;
     border-radius: 1rem;
     padding: 2rem;
     border: solid 1px rgba(51, 51, 51, 0.1);
@@ -244,14 +322,27 @@ export const CalculatorTabItem = styled.div`
                   }
               `}
 
-    @media ${device.mobileL} {
-        width: 140px;
-    }
-
     ${Text} {
         @media ${device.mobileL} {
             font-size: 14px;
         }
+    }
+`
+
+export const CalculatorTabItem = styled.div`
+    ${CalculatorTabItemStyles}
+
+    @media ${device.mobileL} {
+        width: 140px;
+    }
+`
+
+export const PnlCalculatorTabItem = styled.div`
+    ${CalculatorTabItemStyles}
+
+    @media ${device.mobileL} {
+        width: 140px;
+        height: 53px;
     }
 `
 
@@ -263,6 +354,11 @@ export const InputGroup = styled.div`
     position: relative;
     width: 100%;
     margin: 2.4rem 0;
+`
+
+export const PnLInputGroup = styled.div`
+    position: relative;
+    width: 100%;
 `
 
 export const CalculateButton = styled(Button)`
@@ -338,9 +434,11 @@ export const StyledLinkButton = styled(LinkButton)`
         outline: 0;
     }
 `
+
 export const item_style = {
     padding: '16px 0',
 }
+
 export const header_style = {
     marginTop: '15px',
     padding: '16px 24px',

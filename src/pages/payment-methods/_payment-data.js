@@ -82,14 +82,14 @@ const payment_data = [
                 deposit_time: <Localize translate_text="1 working day" />,
                 withdrawal_time: <Localize translate_text="Not applicable" />,
                 description: (
-                    <Localize translate_text="Deposit easily with your bank account on any device. Supports major banks in China, Indonesia, South Korea, Thailand, and Vietnam. " />
+                    <Localize translate_text="Deposit easily with your bank account on any device. Supports major banks in China, Indonesia, South Korea, Thailand, and Vietnam." />
                 ),
                 name: 'paytrust88',
             },
             {
                 method: <StyledIcon src={DragonPhoenix} alt="dragon phoenix" />,
                 currencies: 'USD',
-                min_max_deposit: '10 - 10,000 ',
+                min_max_deposit: '10 - 10,000',
                 min_max_withdrawal: <Localize translate_text="Not applicable" />,
                 deposit_time: <Localize translate_text="Instant" />,
                 withdrawal_time: <Localize translate_text="Not applicable" />,
@@ -129,7 +129,7 @@ const payment_data = [
             {
                 method: <StyledIcon src={Help2Pay} alt="help2pay" />,
                 currencies: 'USD',
-                min_max_deposit: '11 - 10,500 ',
+                min_max_deposit: '11 - 10,500',
                 min_max_withdrawal: 'Not applicable',
                 deposit_time: <Localize translate_text="Instant" />,
                 withdrawal_time: <Localize translate_text="Not applicable" />,
@@ -252,7 +252,7 @@ const payment_data = [
                 deposit_time: <Localize translate_text="Instant" />,
                 withdrawal_time: <Localize translate_text="1 working day" />,
                 description: (
-                    <Localize translate_text="Deposit and withdraw using your JCB credit card. " />
+                    <Localize translate_text="Deposit and withdraw using your JCB credit card." />
                 ),
             },
         ],
@@ -425,7 +425,7 @@ const payment_data = [
                 deposit_time: <Localize translate_text="2 - 3 working days" />,
                 withdrawal_time: <Localize translate_text="Not applicable" />,
                 description: (
-                    <Localize translate_text="Use this popular invoice-based payment method to deposit if you don’t have a bank account or credit card. This option is accessible through Skrill. " />
+                    <Localize translate_text="Use this popular invoice-based payment method to deposit if you don’t have a bank account or credit card. This option is accessible through Skrill." />
                 ),
                 name: 'boleto-bancário',
             },
@@ -465,7 +465,7 @@ const payment_data = [
                 deposit_time: <Localize translate_text="Instant" />,
                 withdrawal_time: <Localize translate_text="Will be available soon" />,
                 description: (
-                    <Localize translate_text="Enjoy fast, smooth, and secure deposits and withdrawals with Trustly. " />
+                    <Localize translate_text="Enjoy fast, smooth, and secure deposits and withdrawals with Trustly." />
                 ),
                 url: 'https://www.trustly.net/',
                 name: 'trustly',
@@ -504,7 +504,7 @@ const payment_data = [
             //     deposit_time: <Localize translate_text="Instant" />,
             //     withdrawal_time: <Localize translate_text="Not applicable" />,
             //     description: (
-            //         <Localize translate_text="Make deposits easily using your mobile. For clients in Ghana and Uganda. " />
+            //         <Localize translate_text="Make deposits easily using your mobile. For clients in Ghana and Uganda." />
             //     ),
             //     url:'https://www.airtel.in/',
             //     name: 'airtel',
@@ -517,7 +517,7 @@ const payment_data = [
             //     deposit_time: <Localize translate_text="Instant" />,
             //     withdrawal_time: <Localize translate_text="Not applicable" />,
             //     description: (
-            //         <Localize translate_text="Make deposits directly from your mobile with this popular payment solution for clients in Ghana. No bank account needed. " />
+            //         <Localize translate_text="Make deposits directly from your mobile with this popular payment solution for clients in Ghana. No bank account needed." />
             //     ),
             //     name: 'vodafone',
             // },
@@ -542,7 +542,7 @@ const payment_data = [
             //     deposit_time: <Localize translate_text="Instant" />,
             //     withdrawal_time: <Localize translate_text="Not applicable" />,
             //     description: (
-            //         <Localize translate_text="Enjoy fast, smooth, and secure deposits and withdrawals with Trustly. " />
+            //         <Localize translate_text="Enjoy fast, smooth, and secure deposits and withdrawals with Trustly." />
             //     ),
             //     url:'https://www.trustly.net/',
             //     name: 'trustly',

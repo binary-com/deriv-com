@@ -112,7 +112,7 @@ const query = graphql`
         }
         bespoke: file(relativePath: { eq: "deriv-x/bespoke.png" }) {
             ...fadeIn
-        } 
+        }
         feature_rich: file(relativePath: { eq: "deriv-x/feature-rich.png" }) {
             ...fadeIn
         }

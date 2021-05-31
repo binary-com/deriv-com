@@ -22,7 +22,7 @@ export default [
         text: <Localize translate_text="10 crypto pairs" />,
     },
     {
-        src: ZeroCommission ,
+        src: ZeroCommission,
         alt: 'deposit and withdrawal',
         text: <Localize translate_text="Zero commission" />,
     },

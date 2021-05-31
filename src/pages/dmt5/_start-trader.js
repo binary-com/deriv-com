@@ -190,7 +190,7 @@ const StartTrader = () => {
             </Flex>
 
             <Flex max_width="1200px">
-                {tab === 'Demo' ?
+                {tab === 'Demo' ? (
                     <SideTab parent_tab={tab}>
                         <SideTab.Panel
                             label=""
@@ -238,7 +238,7 @@ const StartTrader = () => {
                             </ImageWrapper>
                         </SideTab.Panel>
                     </SideTab>
-                    :
+                ) : (
                     <SideTab parent_tab={tab}>
                         <SideTab.Panel
                             label=""
@@ -303,7 +303,7 @@ const StartTrader = () => {
                             </ImageWrapper>
                         </SideTab.Panel>
                     </SideTab>
-                }
+                )}
             </Flex>
         </Section>
     )

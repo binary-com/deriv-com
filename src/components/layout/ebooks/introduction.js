@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { Header, Text, Li } from 'components/elements'
 import checkIcon from 'images/common/ebooks/check-icon.png'
+import device from 'themes/device'
 
 const MediaWapper = styled.div`
     display: flex;
@@ -11,7 +12,7 @@ const MediaWapper = styled.div`
     margin: 200px auto 0;
     padding: 0 50px;
 
-    > img {
+    img.intro-forex {
         align-self: center;
         margin-right: 82px;
         object-fit: contain;
@@ -22,6 +23,23 @@ const MediaWapper = styled.div`
         line-height: 1.25;
         color: #333333;
         margin-bottom: 20px;
+    }
+
+    @media ${device.tabletL} {
+        margin: 20px auto 0;
+
+        h3.intro-text {
+            font-size: 30px;
+        }
+    }
+
+    @media ${device.tabletS} {
+        img.intro-forex {
+            display:none;
+        }
+        h3.intro-text {
+            font-size: 30px;
+        }
     }
 `
 const MediaBody = styled.div`
@@ -67,7 +85,7 @@ const MediaItemList = styled.ul`
 const Introduction = ({ introImage, imageWidth, introPara, subPara, introList }) => {
     return (
         <MediaWapper>
-            <img width={`${imageWidth}px`} src={introImage} alt="Generic placeholder image" />
+            <img className="intro-forex" width={`${imageWidth}px`} src={introImage} alt="Generic placeholder image" />
             <MediaBody>
                 <Header as="h3" className="mt-0 intro-text">
                     Introduction
@@ -78,7 +96,7 @@ const Introduction = ({ introImage, imageWidth, introPara, subPara, introList })
                     <>
                         <Header as="h5">In this book you’ll learn:</Header>
                         <MediaItemList>
-                            {introList.map((point, index) => {
+                            {introList?.map((point, index) => {
                                 return (
                                     <Li key={index}>
                                         <img src={checkIcon} alt="Check Icon" />

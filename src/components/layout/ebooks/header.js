@@ -2,15 +2,10 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import GetEbook from './get-ebook'
-// import { graphql, useStaticQuery } from 'gatsby'
 import { Flex } from 'components/containers'
 import { Header } from 'components/elements'
 import { localize } from 'components/localization'
 import device from 'themes/device.js'
-// import { localize } from 'components/localization'
-// import { QueryImage } from 'components/elements'
-// import { LinkButton } from 'components/form'
-// import mainHeaderImage from 'images/common/ebooks/minimal-cover-book-mockup.png'
 
 const MainWrapper = styled(Flex)`
     background-color: var(--color-white);
@@ -22,7 +17,7 @@ const HeaderBody = styled(Flex)`
     width: 100%;
     height: 627px;
     margin: 0;
-    background-image: linear-gradient(281deg, #0e0e0e, #1b1b1b);
+    background-image: ${(props) => (props.bg ? props.bg : 'linear-gradient(281deg, #0e0e0e, #1b1b1b)')};
     flex-direction: row;
 `
 
@@ -31,9 +26,8 @@ const TopHeaderImgWrapper = styled(Flex)`
 `
 const DesktopImage = styled.img`
     width: 606px;
-    position: absolute;
+    position: relative;
     top: 58px;
-    left: 0;
     @media ${device.tabletL} {
         display: none;
     }
@@ -68,16 +62,19 @@ const SignupWrapper = styled.div`
     margin-bottom: 10px;
 `
 
-const HeaderSection = ({ mainHeaderImage }) => {
+const HeaderSection = ({ mainHeaderImage, introSub, introMain, bg }) => {
     return (
         <MainWrapper>
-            <HeaderBody>
+            <HeaderBody bg={bg}>
                 <TopHeaderImgWrapper>
                     <DesktopImage src={mainHeaderImage} alt="stocks ebook" />
                 </TopHeaderImgWrapper>
                 <ContentWrapper>
+                    <Header type="sub-section-title" className="sub-title">
+                        {introSub || ''}
+                    </Header>
                     <Header type="page-title" className="title">
-                        {localize('Learn to trade Stock derivatives the smart way')}
+                        {introMain || localize('Learn to trade Stock derivatives the smart way')}
                     </Header>
                     <Header type="main-paragraph" weight="normal">
                         {localize('Claim a FREE e-book now!')}
@@ -101,6 +98,9 @@ const HeaderSection = ({ mainHeaderImage }) => {
 }
 
 HeaderSection.propTypes = {
+    bg: PropTypes.any,
+    introMain: PropTypes.any,
+    introSub: PropTypes.any,
     mainHeaderImage: PropTypes.any,
 }
 

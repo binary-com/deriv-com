@@ -183,7 +183,7 @@ const payment_data = [
                     <Localize translate_text="Deposit and withdraw using your Visa Electron card." />
                 ),
                 name: 'VisaElectron',
-                reference: 'visa-payment-method.pdf',
+                // reference: 'visa-payment-method.pdf',
             },
             {
                 method: <StyledIcon src={MasterCard} alt="Mastercard" />,
@@ -455,6 +455,7 @@ const payment_data = [
                 ),
                 url: 'https://www.onlinenaira.com/',
                 name: 'onlinenaira',
+                // reference: 'paylivre-payment-method.pdf',
             },
             {
                 method: <StyledIcon src={Trustly} alt="Trustly" />,

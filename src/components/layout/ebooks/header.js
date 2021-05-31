@@ -2,15 +2,10 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import GetEbook from './get-ebook'
-// import { graphql, useStaticQuery } from 'gatsby'
 import { Flex } from 'components/containers'
 import { Header } from 'components/elements'
 import { localize } from 'components/localization'
 import device from 'themes/device.js'
-// import { localize } from 'components/localization'
-// import { QueryImage } from 'components/elements'
-// import { LinkButton } from 'components/form'
-// import mainHeaderImage from 'images/common/ebooks/minimal-cover-book-mockup.png'
 
 const MainWrapper = styled(Flex)`
     background-color: var(--color-white);
@@ -67,7 +62,7 @@ const SignupWrapper = styled.div`
     margin-bottom: 10px;
 `
 
-const HeaderSection = ({ mainHeaderImage, bg }) => {
+const HeaderSection = ({ mainHeaderImage, introSub, introMain, bg }) => {
     return (
         <MainWrapper>
             <HeaderBody bg={bg}>
@@ -75,8 +70,11 @@ const HeaderSection = ({ mainHeaderImage, bg }) => {
                     <DesktopImage src={mainHeaderImage} alt="stocks ebook" />
                 </TopHeaderImgWrapper>
                 <ContentWrapper>
+                    <Header type="sub-section-title" className="sub-title">
+                        {introSub || ''}
+                    </Header>
                     <Header type="page-title" className="title">
-                        {localize('Learn to trade Stock derivatives the smart way')}
+                        {introMain || localize('Learn to trade Stock derivatives the smart way')}
                     </Header>
                     <Header type="main-paragraph" weight="normal">
                         {localize('Claim a FREE e-book now!')}
@@ -101,6 +99,8 @@ const HeaderSection = ({ mainHeaderImage, bg }) => {
 
 HeaderSection.propTypes = {
     bg: PropTypes.any,
+    introMain: PropTypes.any,
+    introSub: PropTypes.any,
     mainHeaderImage: PropTypes.any,
 }
 

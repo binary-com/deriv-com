@@ -38,6 +38,12 @@ const ForexEbook = () => {
             <HeaderSection
                 mainHeaderImage={forexEbookImage}
                 bg="linear-gradient(293deg, #b51a31, #ff4d47);"
+                introSub={localize(
+                    'Your free guide on'
+                )}
+                introMain={localize(
+                    'How to trade the forex market'
+                )}
             />
             <Introduction
                 introImage={introForexEbook}

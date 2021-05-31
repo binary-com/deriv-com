@@ -64,7 +64,7 @@ const markets_type = {
         content: (
             <Localize translate_text="Crypto trading gives you an opportunity to benefit from correctly predicting the price movements of cryptocurrencies without buying them." />
         ),
-        to: '/markets/cryptocurrencies',
+        to: '/markets/cryptocurrencies/',
         id: 'marketcryptocurrenciesothermarket',
     },
 }

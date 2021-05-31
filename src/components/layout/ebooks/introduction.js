@@ -25,9 +25,20 @@ const MediaWapper = styled.div`
         margin-bottom: 20px;
     }
 
+    @media ${device.tabletL} {
+        margin: 20px auto 0;
+
+        h3.intro-text {
+            font-size: 30px;
+        }
+    }
+
     @media ${device.tabletS} {
         img.intro-forex {
             display:none;
+        }
+        h3.intro-text {
+            font-size: 30px;
         }
     }
 `

@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { Header, Li } from 'components/elements'
 import checkIcon from 'images/common/ebooks/check-icon.png'
-// import device from 'themes/device'
 
 const FullWidth = styled.div`
     background-image: linear-gradient(to bottom, #eaf4f5 1%, rgba(242, 245, 248, 0) 99%);
@@ -29,6 +28,7 @@ const Wrapper = styled.div`
 
 const ItemList = styled.ul`
     font-size: 20px;
+    width: 40%;
 
     li {
         margin-bottom: 10px;
@@ -44,8 +44,12 @@ const ItemList = styled.ul`
     }
 `
 
+const TopicWrapper = styled.div`
+    width: 60%;
+`
+
 const Image = styled.img`
-    width: 650px;
+    width: 100%;
     position: relative;
     top: -57px;
 `
@@ -66,7 +70,9 @@ const Topics = ({ topicsImage, topicsList }) => {
                         )
                     })}
                 </ItemList>
-                <Image src={topicsImage} alt="Forex Topics" />
+                <TopicWrapper className="topic-wrapper">
+                    <Image src={topicsImage} alt="Forex Topics" />
+                </TopicWrapper>
             </Wrapper>
         </FullWidth>
     )

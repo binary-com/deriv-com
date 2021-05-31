@@ -46,10 +46,13 @@ const endpointValidation = (values) => {
     const server_url = trimSpaces(values ? values.server_url : '')
     const app_id = trimSpaces(values ? values.app_id.toString() : '')
     const clients_country = trimSpaces(values ? values.clients_country.toString() : '')
-    const server_url_error = validation.text(server_url) || validation.url(server_url)
-    const app_id_error = validation.text(app_id) || validation.number(app_id)
+    const server_url_error =
+        validation.required(server_url) ||
+        validation.url(server_url, 'Please enter a valid server URL')
+    const app_id_error =
+        validation.required(app_id) || validation.number(app_id, 'Please enter a valid app ID')
     const clients_country_error =
-        validation.text(clients_country) || validation.alphabetic(clients_country)
+        validation.required(clients_country) || validation.alphabetic(clients_country)
 
     if (server_url_error) {
         errors.server_url = server_url_error

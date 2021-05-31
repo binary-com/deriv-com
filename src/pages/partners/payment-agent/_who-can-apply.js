@@ -30,6 +30,7 @@ const HeaderHowToApply = styled(SecondaryHeader)`
     }
 `
 const HowToApply = styled(Col)`
+    max-width: 46.2rem;
     @media ${device.laptop} {
         padding-left: 4rem;
     }
@@ -50,20 +51,6 @@ const WhoCanApplyWrapper = styled(Col)`
     max-width: 42.8rem;
     display: flex;
     flex-direction: column;
-`
-
-const StyledUl = styled.ul`
-    list-style-type: disc;
-    font-size: var(--text-size-s);
-    padding-left: 1.8rem;
-`
-
-const Li = styled.li`
-    margin-top: 0.8rem;
-`
-
-const SecondaryText = styled(Text)`
-    max-width: 32.4rem;
 `
 
 const ButtonWrapper = styled(CenteredSection)`
@@ -128,59 +115,63 @@ const WhoCanApply = () => {
                         <Timeline>
                             <Timeline.Item>
                                 <HowToApplyContent>
+                                    {/* TODO: replace iimage */}
                                     <ImageWrapper src={Email} alt="email" />
                                     <Content margin-top="0 px" max_width="36.4rem">
                                         <Header as="h4" type="sub-section-title">
-                                            {localize('Drop us an email')}
+                                            {localize('Log in or sign up')}
                                         </Header>
                                         <Text>
-                                            {localize('Send us an email with the following:')}
+                                            {localize('Log in if you have an account. Haven’t joined us yet? Go ahead and sign up')}
                                         </Text>
-                                        <StyledUl>
-                                            <Li>
-                                                <Text>
-                                                    {localize(
-                                                        'Your name, email address, and contact number',
-                                                    )}
-                                                </Text>
-                                            </Li>
-                                            <Li>
-                                                <Text>
-                                                    {localize(
-                                                        'Your website address (if you have one)',
-                                                    )}
-                                                </Text>
-                                            </Li>
-                                            <Li>
-                                                <Text>
-                                                    {localize(
-                                                        'Payment methods you will accept from clients',
-                                                    )}
-                                                </Text>
-                                            </Li>
-                                            <Li>
-                                                <Text>
-                                                    {localize(
-                                                        'The commission you will charge clients on deposits and withdrawals',
-                                                    )}
-                                                </Text>
-                                            </Li>
-                                        </StyledUl>
                                     </Content>
                                 </HowToApplyContent>
                             </Timeline.Item>
                             <Timeline.Item>
                                 <HowToApplyContent>
+                                    {/* TODO: replace iimage */}
                                     <ImageWrapper src={Reply} alt="reply" />
                                     <Content max_width="36.4rem">
                                         <Header as="h4" type="sub-section-title">
-                                            {localize('Wait for our reply')}
+                                            {localize('Go to cashier > Payment agents')}
                                         </Header>
-                                        <SecondaryText>
+                                        <Text>
                                             {localize(
-                                                'We’ll review your application and get in touch for further information and next steps.',
+                                                'Click on the sign up button to start the process.',
                                             )}
-                                        </SecondaryText>
+                                        </Text>
+                                    </Content>
+                                </HowToApplyContent>
+                            </Timeline.Item>
+                            <Timeline.Item>
+                                <HowToApplyContent>
+                                    {/* TODO: replace iimage */}
+                                    <ImageWrapper src={Reply} alt="reply" />
+                                    <Content max_width="37.4rem">
+                                        <Header as="h4" type="sub-section-title">
+                                            {localize('Fill out the application form')}
+                                        </Header>
+                                        <Text>
+                                            {localize(
+                                                'Enter your details and attach proofs of your identity and address.',
+                                            )}
+                                        </Text>
+                                    </Content>
+                                </HowToApplyContent>
+                            </Timeline.Item>
+                            <Timeline.Item>
+                                <HowToApplyContent>
+                                {/* TODO: replace iimage */}
+                                    <ImageWrapper src={Reply} alt="reply" />
+                                    <Content max_width="36.4rem">
+                                        <Header as="h4" type="sub-section-title">
+                                            {localize('Choose your payment methods')}
+                                        </Header>
+                                        <Text>
+                                            {localize(
+                                                'Select payment methods that you’ll accept from clients.',
+                                            )}
+                                        </Text>
                                     </Content>
                                 </HowToApplyContent>
                             </Timeline.Item>
@@ -191,11 +182,11 @@ const WhoCanApply = () => {
                                         <Header as="h4" type="sub-section-title">
                                             {localize('Get listed')}
                                         </Header>
-                                        <SecondaryText>
+                                        <Text>
                                             {localize(
-                                                'After final approval from our compliance team, we’ll publish your details on our payment agent list.',
+                                                'After the final approval from our compliance team, we’ll publish your details on our payment agent listing.',
                                             )}
-                                        </SecondaryText>
+                                        </Text>
                                     </Content>
                                 </HowToApplyContent>
                             </Timeline.Item>

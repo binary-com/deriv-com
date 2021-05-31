@@ -461,6 +461,11 @@ const Footer = ({ type, is_ppc, is_ppc_redirect }) => {
                                             {localize('Commodities')}
                                         </Link>
                                     </LinkWrapper>
+                                    <LinkWrapper>
+                                        <Link to="/markets/cryptocurrencies/">
+                                            {localize('Cryptocurrencies')}
+                                        </Link>
+                                    </LinkWrapper>
                                 </LinksCol>
                                 <LinksCol>
                                     <LinkWrapper>

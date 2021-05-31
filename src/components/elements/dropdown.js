@@ -1,9 +1,9 @@
-import React, { useRef, useState } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
+import { getCommaSeparatedNumber } from 'common/utility'
+import { useDropdownHooks } from 'components/hooks/dropdown-hooks'
 import { Text } from 'components/elements/typography'
-import Keycodes from 'common/keycodes'
-import { useOutsideClick } from 'components/hooks/outside-click'
 import { ReactComponent as Chevron } from 'images/svg/chevron-bottom.svg'
 import device from 'themes/device'
 import { Flex } from 'components/containers'
@@ -24,8 +24,8 @@ const Symbol = styled(Flex)`
 
         @media ${device.tabletM} {
             width: unset;
-            margin-top: 4px;
             height: 24px;
+            margin-top: 4px;
         }
     }
     ${Text} {
@@ -40,7 +40,7 @@ const Symbol = styled(Flex)`
     }
 `
 
-const DropdownContainer = styled.ul`
+export const DropdownContainer = styled.ul`
     list-style: none;
     position: relative;
     border: 1px solid var(--color-grey-7);
@@ -48,10 +48,14 @@ const DropdownContainer = styled.ul`
     padding: 0;
     border-radius: 4px;
     height: 40px;
-    margin-bottom: 0;
+    margin-bottom: ${(props) => props.mb ?? '0'};
 
     /* ul has no focus attributes, it needs to pass on active props instead */
-    ${(props) => props.active && 'border-color: var(--color-green) !important;'}
+    ${(props) =>
+        props.active &&
+        css`
+            border-color: var(--color-green) !important;
+        `}
 
     &:hover {
         border-color: var(--color-grey-5);
@@ -95,7 +99,7 @@ const StyledDiv = styled.div`
 `
 
 const DropdownSelected = styled.li`
-    color: var(--color-black-3);
+    color: var(--color-grey-6);
     list-style-position: inside;
     white-space: nowrap;
     overflow: hidden;
@@ -118,10 +122,11 @@ const DropdownSelected = styled.li`
 
 const ListContainer = styled.li`
     position: relative;
+    list-style: none;
 `
 
 const ListItem = styled.li`
-    color: var(--color-black-3);
+    color: var(--color-grey-6);
     padding: 1rem 1.6rem;
     transition: background-color 0.1s linear, color 0.1s linear;
     list-style-position: inside;
@@ -136,7 +141,7 @@ const ListItem = styled.li`
         background-color: var(--color-grey-6);
     }
     &:focus {
-        background-color: var(--color-grey-7);
+        background-color: var(--color-grey-6);
         font-weight: bold;
     }
     &:focus,
@@ -186,7 +191,7 @@ const UnorderedList = styled.ul`
         `}
 `
 
-const Arrow = styled(Chevron)`
+export const Arrow = styled(Chevron)`
     position: absolute;
     right: 8px;
     top: 25%;
@@ -198,10 +203,9 @@ const Arrow = styled(Chevron)`
     }
 `
 
-const StyledLabel = styled.label`
-    /* prettier-ignore */
-    color: var(--color-${(props) => props.labelColor || 'grey'});
-    background: var(--color-${(props) => props.labelColor || 'white'});
+export const StyledLabel = styled.label`
+    color: grey;
+    background: var(--color-white);
     font-size: var(--text-size-xs);
     position: absolute;
     pointer-events: none;
@@ -212,18 +216,19 @@ const StyledLabel = styled.label`
     padding: 0 0.4rem;
 
     @media ${device.tabletL} {
-        font-size: 1.75rem;
+        font-size: 1.6rem;
         top: 1.5rem;
     }
 
     @media ${device.mobileL} {
         font-size: 1.5rem;
-        top: 1.75rem;
+        top: 1.6rem;
     }
 
     ${(props) =>
         props.active &&
         css`
+            color: var(--color-green);
             transform: translate(-0.6rem, -2.2rem) scale(0.7);
 
             @media ${device.tabletL} {
@@ -256,6 +261,70 @@ const DefaultOptionText = styled(Text)`
     color: var(--color-grey-5);
 `
 
+export const ItemList = ({ error, handleChange, is_open, nodes, option_list, selected_option }) => {
+    return (
+        <ListContainer aria-expanded={is_open ? 'true' : 'false'} role="list">
+            <UnorderedList open={is_open}>
+                {option_list &&
+                    option_list.map(
+                        (option) =>
+                            option && (
+                                <ListItem
+                                    tabIndex="0"
+                                    id={option?.name}
+                                    key={option?.name}
+                                    ref={(c) => nodes.set(option?.display_name, c)}
+                                    onClick={() => handleChange(option, error)}
+                                    onKeyDown={(e) => {
+                                        if (e.key === 'Tab' || e.key === 'Enter') {
+                                            handleChange(option, error)
+                                        }
+                                    }}
+                                    is_selected={option?.name === selected_option?.name}
+                                >
+                                    <Symbol>
+                                        {option?.icon}
+                                        <Text>{option?.display_name}</Text>
+                                    </Symbol>
+                                </ListItem>
+                            ),
+                    )}
+            </UnorderedList>
+        </ListContainer>
+    )
+}
+
+ItemList.propTypes = {
+    default_option: PropTypes.any,
+    error: PropTypes.any,
+    handleChange: PropTypes.func,
+    is_open: PropTypes.bool,
+    nodes: PropTypes.object,
+    option_list: PropTypes.array,
+    selected_option: PropTypes.any,
+}
+
+export const BottomLabel = ({ error, contract_size }) => {
+    return (
+        <StyledDiv>
+            <ErrorMessages lh="1.4" align="left" color="red-1">
+                {error}
+            </ErrorMessages>
+
+            {contract_size && (
+                <ContractSizeWrapper lh="1.4" align="left">
+                    Contract size : {getCommaSeparatedNumber(contract_size)}
+                </ContractSizeWrapper>
+            )}
+        </StyledDiv>
+    )
+}
+
+BottomLabel.propTypes = {
+    contract_size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    error: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+}
+
 const Dropdown = ({
     default_option,
     onChange,
@@ -264,90 +333,12 @@ const Dropdown = ({
     label,
     error,
     selected_option,
-    contractSize,
+    contract_size,
     ...props
 }) => {
-    const [is_open, setOpen] = useState(false)
-    const nodes = new Map()
-    const dropdown_ref = useRef(null)
-
-    useOutsideClick(dropdown_ref, () => setOpen(false))
-
-    const toggleListVisibility = (e) => {
-        e.preventDefault()
-        const open_dropdown =
-            e.keyCode === Keycodes.SPACE ||
-            e.keyCode === Keycodes.ENTER ||
-            e.keyCode === Keycodes.TAB
-
-        // adding each item nodes a listener (click and keys)
-        // and filter if there is null nodes in the array
-        Array.from(nodes.values())
-            .filter((node) => node !== null)
-            .forEach((node) => addItemListener(node))
-
-        if (e.keyCode === Keycodes.ESCAPE) {
-            closeList()
-        }
-        if (e.type === 'click' || open_dropdown) {
-            setOpen(!is_open)
-        }
-        if (e.keyCode === Keycodes.DOWN_ARROW) {
-            focusNextListItem(Keycodes.DOWN_ARROW)
-        }
-        if (e.keyCode === Keycodes.UP_ARROW) {
-            focusNextListItem(Keycodes.UP_ARROW)
-        }
-    }
-
-    const closeList = () => {
-        setOpen(false)
-    }
-
-    const focusNextListItem = (direction) => {
-        const activeElement = document.activeElement
-
-        if (activeElement.id === 'selected_dropdown') {
-            Array.from(nodes.values())[0].focus()
-        } else {
-            const active_nodes = nodes.get(activeElement.id)
-            if (active_nodes) {
-                if (direction === Keycodes.DOWN_ARROW) {
-                    active_nodes.nextSibling && active_nodes.nextSibling.focus()
-                } else if (direction === Keycodes.UP_ARROW) {
-                    active_nodes.previousSibling && active_nodes.previousSibling.focus()
-                }
-            }
-        }
-    }
-
-    const addItemListener = (node) => {
-        node.addEventListener('keydown', (e) => {
-            e.preventDefault()
-            switch (e.keyCode) {
-                case Keycodes.DOWN_ARROW:
-                    focusNextListItem(Keycodes.DOWN_ARROW)
-                    break
-                case Keycodes.UP_ARROW:
-                    focusNextListItem(Keycodes.UP_ARROW)
-                    break
-                case Keycodes.escape:
-                    closeList()
-                    break
-                default:
-                    break
-            }
-        })
-    }
-
-    const handleChange = (option) => {
-        onChange(option)
-        closeList()
-    }
-
-    const numberWithCommas = (input) => {
-        return input.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
-    }
+    const [is_open, dropdown_ref, nodes, handleChange, toggleListVisibility] = useDropdownHooks(
+        onChange,
+    )
 
     return (
         <>
@@ -360,8 +351,8 @@ const Dropdown = ({
             >
                 <StyledLabel active={is_open || (!is_open && selected_option)}>{label}</StyledLabel>
                 <DropdownSelected
-                    role="button"
                     id="selected_dropdown"
+                    role="button"
                     tabIndex="0"
                     onClick={toggleListVisibility}
                     onKeyDown={toggleListVisibility}
@@ -369,73 +360,34 @@ const Dropdown = ({
                 >
                     <Symbol>
                         {selected_option ? (
-                            <>
-                                <Text>{selected_option.display_name}</Text>
-                            </>
+                            <Text>{selected_option.display_name}</Text>
                         ) : (
-                            <>
-                                <DefaultOptionText>{default_option.display_name}</DefaultOptionText>
-                            </>
+                            <DefaultOptionText>{default_option.display_name}</DefaultOptionText>
                         )}
                     </Symbol>
-                    <Arrow expanded={`${is_open ? 'true' : 'false'}`} />
+                    <Arrow expanded={is_open ? 'true' : 'false'} />
                 </DropdownSelected>
-                <ListContainer aria-expanded={`${is_open ? 'true' : 'false'}`} role="list">
-                    <UnorderedList open={is_open}>
-                        {option_list &&
-                            option_list.map(
-                                (option) =>
-                                    option && (
-                                        <ListItem
-                                            tabIndex="0"
-                                            id={option?.name}
-                                            key={option?.name}
-                                            ref={(c) => nodes.set(option?.display_name, c)}
-                                            onClick={() => handleChange(option, error)}
-                                            onKeyDown={(e) => {
-                                                switch (e.keyCode) {
-                                                    case Keycodes.TAB:
-                                                    case Keycodes.ENTER:
-                                                        handleChange(option, error)
-                                                        break
-                                                    default:
-                                                        break
-                                                }
-                                            }}
-                                            is_selected={option?.name === selected_option?.name}
-                                        >
-                                            <Symbol>
-                                                {option?.icon}
-                                                <Text>{option?.display_name}</Text>
-                                            </Symbol>
-                                        </ListItem>
-                                    ),
-                            )}
-                    </UnorderedList>
-                </ListContainer>
+                <ItemList
+                    error={error}
+                    handleChange={handleChange}
+                    is_open={is_open}
+                    nodes={nodes}
+                    option_list={option_list}
+                    selected_option={selected_option}
+                />
             </DropdownContainer>
-            <StyledDiv>
-                <ErrorMessages lh="1.4" align="left" color="red-1">
-                    {error}
-                </ErrorMessages>
-
-                {contractSize && (
-                    <ContractSizeWrapper lh="1.4" align="left">
-                        Contract size : {numberWithCommas(contractSize)}
-                    </ContractSizeWrapper>
-                )}
-            </StyledDiv>
+            <BottomLabel contract_size={contract_size} error={error} />
         </>
     )
 }
 
 Dropdown.propTypes = {
-    contractSize: PropTypes.any,
+    contract_size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     default_option: PropTypes.any,
-    error: PropTypes.any,
+    error: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     has_short_name: PropTypes.bool,
-    label: PropTypes.string,
-    onChange: PropTypes.func,
+    label: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+    onChange: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     option_list: PropTypes.array,
     selected_option: PropTypes.any,
 }

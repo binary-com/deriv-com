@@ -280,6 +280,7 @@ const SignupButton = styled(Button)`
 const LinkSignupButton = styled(LinkButton)`
     opacity: 0;
     margin-left: 1.6rem;
+    margin-right: 10px;
 `
 
 const HamburgerMenu = styled.img`
@@ -585,22 +586,24 @@ export const Nav = ({ base, is_ppc_redirect, is_ppc }) => {
     }, [])
 
     return (
-        <NavWrapperMain>
+        <>
+            <NavWrapperMain>
+                <StyledNavMain>
+                    <Show.Desktop max_width="bp1060">
+                        <NavDesktop
+                            base={base}
+                            is_ppc={is_ppc}
+                            is_ppc_redirect={is_ppc_redirect}
+                            is_logged_in={is_logged_in}
+                        />
+                    </Show.Desktop>
+                    <Show.Mobile min_width="bp1060">
+                        <NavMobile is_ppc={is_ppc} is_logged_in={is_logged_in} />
+                    </Show.Mobile>
+                </StyledNavMain>
+            </NavWrapperMain>
             <CFDWarning />
-            <StyledNavMain>
-                <Show.Desktop max_width="bp1060">
-                    <NavDesktop
-                        base={base}
-                        is_ppc={is_ppc}
-                        is_ppc_redirect={is_ppc_redirect}
-                        is_logged_in={is_logged_in}
-                    />
-                </Show.Desktop>
-                <Show.Mobile min_width="bp1060">
-                    <NavMobile is_ppc={is_ppc} is_logged_in={is_logged_in} />
-                </Show.Mobile>
-            </StyledNavMain>
-        </NavWrapperMain>
+        </>
     )
 }
 
@@ -656,7 +659,6 @@ const NavInterimContainer = styled.div`
 
 export const NavInterim = ({ interim_type }) => (
     <InterimNav>
-        <CFDWarning />
         <NavInterimContainer>
             <Container jc="space-between" p="2.4rem 0">
                 <Flex ai="center" jc="flex-start">
@@ -701,12 +703,12 @@ export const NavInterim = ({ interim_type }) => (
                 </Auto>
             </Container>
         </NavInterimContainer>
+        <CFDWarning />
     </InterimNav>
 )
 
 export const NavStatic = ({ is_ppc }) => (
     <>
-        <CFDWarning is_ppc={is_ppc} />
         <StaticWrapper>
             <LogoLink mw="31rem" to="/" aria-label={localize('Home')}>
                 <Flex ai="center">
@@ -721,6 +723,7 @@ export const NavStatic = ({ is_ppc }) => (
                 </Flex>
             </LogoLink>
         </StaticWrapper>
+        <CFDWarning is_ppc={is_ppc} />
     </>
 )
 
@@ -772,7 +775,7 @@ const StyledNavRight = styled(NavRight)`
                     const calculation = props.button_ref.current.offsetWidth + 50
                     return `${calculation}px`
                 }
-                return '300px'
+                return '225px'
             }
         }}
     );
@@ -784,6 +787,7 @@ const StyledNavRight = styled(NavRight)`
     > a:last-child {
         pointer-events: ${(props) => (props.move ? 'visible' : 'none')};
         cursor: ${(props) => (props.move ? 'pointer' : 'default')};
+        opacity: ${(props) => (props.move ? 1 : 0)};
     }
 `
 
@@ -876,7 +880,6 @@ export const NavPartners = ({ no_login_signup }) => {
     return (
         <>
             <NavWrapperPartners ref={nav_ref}>
-                <CFDWarning />
                 <DerivHomeWrapper>
                     <HomeContainer justify="space-between">
                         <StyledContainer justify="flex-start">
@@ -931,6 +934,20 @@ export const NavPartners = ({ no_login_signup }) => {
                                     {localize('Payment agents')}
                                 </StyledLink>
                             </NavLink>
+                            <NavLink>
+                                <StyledLink
+                                    active={current_page === 'developers'}
+                                    activeClassName="active"
+                                    to=""
+                                    type="developers"
+                                    target="_blank"
+                                    external="true"
+                                    rel="noopener noreferrer"
+                                    aria-label={localize('API')}
+                                >
+                                    {localize('API')}
+                                </StyledLink>
+                            </NavLink>
                         </StyledNavCenter>
                         {!no_login_signup && (
                             <StyledNavRight
@@ -942,7 +959,7 @@ export const NavPartners = ({ no_login_signup }) => {
                                 <LinkButton
                                     to={affiliate_signin_url}
                                     external="true"
-                                    is_affiliate_sign_in_link
+                                    type="affiliate_sign_in"
                                     target="_blank"
                                     primary
                                     style={{ width: '16rem' }}
@@ -952,7 +969,7 @@ export const NavPartners = ({ no_login_signup }) => {
                                 <LinkSignupButton
                                     to={affiliate_signup_url}
                                     external="true"
-                                    is_affiliate_link
+                                    type="affiliate_sign_up"
                                     target="_blank"
                                     ref={button_ref}
                                     secondary="true"
@@ -990,8 +1007,8 @@ export const NavPartners = ({ no_login_signup }) => {
                                 {!no_login_signup && (
                                     <LinkMobileLogin
                                         to={affiliate_signin_url}
+                                        type="affiliate_sign_in"
                                         external="true"
-                                        is_affiliate_link
                                         target="_blank"
                                         primary
                                     >
@@ -1012,6 +1029,7 @@ export const NavPartners = ({ no_login_signup }) => {
                     </StyledNavWrapper>
                 </StyledNavPartners>
             </NavWrapperPartners>
+            <CFDWarning />
         </>
     )
 }

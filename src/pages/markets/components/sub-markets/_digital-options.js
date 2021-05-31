@@ -18,7 +18,7 @@ const DigitalOptions = ({ market_name, options_list }) => (
     <SectionContainer padding="4rem 0 8rem">
         <ContentWrapper>
             <Descriptions>
-                <StyledText align="center">
+                <StyledText font_size="16px" align="center">
                     <Localize
                         translate_text="Options trading allows for payouts from predicting market movements, without needing to buy an underlying asset. Trade digital options on {{market_name}}."
                         values={{ market_name }}
@@ -26,13 +26,13 @@ const DigitalOptions = ({ market_name, options_list }) => (
                 </StyledText>
                 <AvailablePlatforms dtrader dbot smarttrader tablet_direction="column" />
             </Descriptions>
-            <StyledText font_size={'16px'} weight="bold" mt="2.4rem">
+            <StyledText font_size="16px" weight="bold" mt="4.0rem">
                 <Localize
                     translate_text="Option trades available on {{market_name}}"
                     values={{ market_name }}
                 />
             </StyledText>
-            <Descriptions margin_top={'24px'}>
+            <Descriptions margin_top="24px">
                 {options_list.options.map((option, index) => (
                     <OptionsRow wrap={option[0].wrap} key={index} is_first_child={!index}>
                         {option.map((content, idx) => (
@@ -50,7 +50,7 @@ const DigitalOptions = ({ market_name, options_list }) => (
                     ))}
                 </Show.Eu>
             </Descriptions>
-            <Text weight="bold" mt="2.4rem">
+            <Text weight="bold" mt="4.0rem">
                 {localize('Instruments available for options trading')}
             </Text>
             <MarketInstruments market_content={options_list.market_instruments} />

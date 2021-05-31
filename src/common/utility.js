@@ -67,15 +67,21 @@ export const routeBack = () => {
 }
 export const checkElemInArray = (tab_list, tab) => tab_list.includes(tab)
 
+// Formats number to comma separated string
+export const getCommaSeparatedNumber = (input) =>
+    input.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+
 export const getWindowWidth = () => (isBrowser() && window.screen ? window.screen.width : '')
 
 export const getLanguage = () =>
     isBrowser() ? localStorage.getItem('i18n') || navigator.language : null
 
-export const getDerivAppLocalizedURL = (link, locale) => {
+export const getDerivAppLocalizedURL = (link, locale, to = '') => {
     const lang = deriv_app_languages.includes(locale) ? locale : 'en'
-    return `${link}?lang=${lang.toUpperCase()}`
+    return `${link}${to}?lang=${lang.toUpperCase()}`
 }
+
+export const getThaiExcludedLocale = (locale) => (locale === 'th' ? 'en' : locale)
 
 export const getCrowdin = () =>
     isBrowser() ? localStorage.getItem('jipt_language_code_deriv-com') || navigator.language : null
@@ -171,3 +177,8 @@ export const getDomain = () =>
         : 'binary.sx'
 
 export const getLocalizedUrl = (path, is_index, to) => `/${path}${is_index ? `` : to}`
+
+export const nonENLangUrlReplace = (current_path) => {
+    const path_with_or_without_slash = /\/.+?(\/)|(\/[a-zA-Z'-]+)/u
+    return current_path.replace(path_with_or_without_slash, '')
+}

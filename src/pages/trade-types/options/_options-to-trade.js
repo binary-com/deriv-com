@@ -22,8 +22,6 @@ import OuOd from 'images/svg/options/ou-od.svg'
 import HighClose from 'images/svg/options/high-close.svg'
 import CloseLow from 'images/svg/options/close-low.svg'
 import HighLow from 'images/svg/options/high-low.svg'
-import CallSpread from 'images/svg/options/call-spread.svg'
-import PutSpread from 'images/svg/options/put-spread.svg'
 
 const MiddleText = styled(Text)`
     margin-bottom: 0.8rem;
@@ -77,15 +75,6 @@ const WhatAreOptions = () => {
                         )}
                     </Text>
                 </Show.Eu>
-                <Header as="h4" type="sub-section-title" mt="4rem" mb="1.6rem">
-                    {localize('Call/Put Spreads')}
-                </Header>
-                <SpreadGrid />
-                <Notes
-                    text={
-                        <Localize translate_text="Call/Put Spreads are available on forex and synthetic indices." />
-                    }
-                />
             </SmallContainer>
         </SectionContainer>
     )
@@ -462,49 +451,6 @@ const LookbacksGrid = () => {
                         'When you purchase a ‘High-Low’ contract, your win or loss will be equal to the multiplier times the difference between the high and the low over the duration of the contract.',
                     )}
                 </Text>
-            </Flex>
-        </OptionGrid>
-    )
-}
-
-const SpreadGrid = () => {
-    return (
-        <OptionGrid>
-            <Flex fd="column" jc="flex-start" height="auto">
-                <div>
-                    <img src={CallSpread} alt="call spread" />
-                </div>
-                <Text weight="bold" mt="1.6rem" mb="0.8rem">
-                    {localize('Call Spread')}
-                </Text>
-                <MiddleText>
-                    {localize(
-                        'With Call Spread, you win the maximum payout if your exit spot is equal to or higher than the upper barrier and no payout if your exit spot is below or equal to the lower barrier. If your exit spot is between the upper and lower barriers, your payout changes linearly from zero at the lower barrier to the maximum at the upper barrier.',
-                    )}
-                </MiddleText>
-                <MiddleText>
-                    {localize(
-                        'The Call Spread trade type on Deriv.com is based on the bull call spread strategy, which involves buying a call option with a lower barrier and selling a call option of the same duration with a higher barrier.',
-                    )}
-                </MiddleText>
-            </Flex>
-            <Flex fd="column" jc="flex-start" height="auto">
-                <div>
-                    <img src={PutSpread} alt="put spread" />
-                </div>
-                <Text weight="bold" mt="1.6rem" mb="0.8rem">
-                    {localize('Put Spread')}
-                </Text>
-                <MiddleText>
-                    {localize(
-                        'With Put Spread, you can win up to the maximum payout if your exit spot is lower than or equal to the lower barrier and no payout if your exit spot is above or equal to the upper barrier. If your exit spot is between the upper and lower barriers, your payout changes linearly from zero at the upper barrier to the maximum at the lower barrier.',
-                    )}
-                </MiddleText>
-                <MiddleText>
-                    {localize(
-                        'The Put Spread trade type on Deriv.com is based on the bear put spread strategy, which involves buying a put option with a higher barrier and selling a put option of the same duration with a lower barrier.',
-                    )}
-                </MiddleText>
             </Flex>
         </OptionGrid>
     )

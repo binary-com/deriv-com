@@ -32,9 +32,11 @@ const domain_config = {
 }
 
 const isProduction = () =>
-    isBrowser() && domain_config.production.some((prod) => prod.hostname === window.location.hostname)
-const production_app_id_array = isBrowser() && domain_config.production
-    .filter((prod) => prod.hostname === window.location.hostname)
+    isBrowser() &&
+    domain_config.production.some((prod) => prod.hostname === window.location.hostname)
+const production_app_id_array =
+    isBrowser() &&
+    domain_config.production.filter((prod) => prod.hostname === window.location.hostname)
 const prod_app_id = production_app_id_array[0]?.app_id
 const isStaging = () => isBrowser() && domain_config.staging.hostname === window.location.hostname
 const isLive = () => isProduction() || isStaging()

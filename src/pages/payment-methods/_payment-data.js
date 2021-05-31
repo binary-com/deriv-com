@@ -651,6 +651,16 @@ const payment_data = [
                 name: 'Changelly',
                 reference: 'changelly-payment-method.pdf',
             },
+            {
+                method: <StyledIcon src={Banxa} alt="Banxa" />,
+                currencies: 'USD EUR GBP AUD BTC LTC USDT USDC',
+                min_max_deposit: '50-5,000',
+                deposit_time: <Localize translate_text="5-30 minutes" />,
+                description: (
+                    <Localize translate_text="Make fast, easy, and secure deposits with this internationally compliant fiat-to-crypto exchange using your credit or debit card. Registrations are hassle-free." />
+                ),
+                name: 'Banxa',
+            },
             // {
             //     method: <StyledIcon src={Wyre} alt="Wyre" />,
             //     currencies: 'USD EUR GBP AUD MXN BTC ETH WETH DAI',
@@ -663,23 +673,13 @@ const payment_data = [
             // },
             {
                 method: <StyledIcon src={Xanpool} alt="Xanpool" />,
-                currencies: 'HKD SGD MYR PHP THB INR VND IDR BTC ETH LTC USDT',
+                currencies: 'USD EUR GBP AUD BTC ETH LTC USDT',
                 min_max_deposit: <Localize translate_text="50-5,000" />,
                 deposit_time: <Localize translate_text="5-30 minutes" />,
                 description: (
                     <Localize translate_text="Make a deposit into your Deriv crypto account via local bank wire with this fiat-to-crypto exchange for clients in Southeast Asia." />
                 ),
                 name: 'Xanpool',
-            },
-            {
-                method: <StyledIcon src={Banxa} alt="Banxa" />,
-                currencies: 'USD EUR GBP AUD CAD BTC LTC USDT USDC',
-                min_max_deposit: '50-5,000',
-                deposit_time: <Localize translate_text="5-30 minutes" />,
-                description: (
-                    <Localize translate_text="Make fast, easy, and secure deposits with this internationally compliant fiat-to-crypto exchange using your credit or debit card. Registrations are hassle-free." />
-                ),
-                name: 'Banxa',
             },
         ],
     },

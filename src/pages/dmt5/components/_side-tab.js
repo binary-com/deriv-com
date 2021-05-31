@@ -1,9 +1,34 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
-import { Flex, Show } from 'components/containers'
+import { Flex, Show, Box } from 'components/containers'
 import { Text } from 'components/elements'
 import device from 'themes/device'
+import AppStore from 'images/svg/app-store.svg'
+import GooglePlay from 'images/svg/google-play.svg'
+import { dmt5_android_url, dmt5_ios_url } from 'common/constants'
+import { LocalizedLink } from 'components/localization'
+
+const DownloadFlex = styled(Flex)`
+    @media ${device.tabletS} {
+        justify-content: center;
+    }
+`
+
+const StyledFlex = styled(Flex)`
+    @media ${device.tablet} {
+        width: unset;
+        margin: auto;
+    }
+`
+
+const StyledText = styled(Text)`
+    max-width: ${(props) => props.max_width};
+
+    @media ${device.tablet} {
+        max-width: unset;
+    }
+`
 
 const TabContent = styled.div`
     width: 100%;
@@ -40,7 +65,7 @@ const TabButton = styled.div`
     }
 
     @media ${device.tabletS} {
-        margin-left: 16px;
+        margin: 0 16px 16px;
     }
 `
 
@@ -56,8 +81,9 @@ const TabList = styled.div`
             : css`
                   margin-right: 2.4rem;
               `}
-    @media ${device.tabletL} {
-        max-width: 30rem;
+    @media ${device.tablet} {
+        max-width: 50rem;
+        margin-right: unset;
     }
     @media ${device.tabletS} {
         max-width: 576px;
@@ -93,7 +119,7 @@ const TabPanel = ({ children }) => (
 TabPanel.propTypes = {
     children: PropTypes.node,
 }
-const Tabs = ({ children, is_reverse, parent_tab }) => {
+const Tabs = ({ children, is_reverse, parent_tab, has_download_button }) => {
     const [selected_tab, setSelectedTab] = React.useState(0)
     const [old_parent_tab, setOldParentTab] = React.useState(parent_tab)
     const prevParentRef = React.useRef()
@@ -108,8 +134,8 @@ const Tabs = ({ children, is_reverse, parent_tab }) => {
     }
 
     return (
-        <Flex ai="flex-start" direction={is_reverse ? 'row-reverse' : 'row'}>
-            <Desktop max_width={'tabletS'}>
+        <StyledFlex ai="flex-start" direction={is_reverse ? 'row-reverse' : 'row'}>
+            <Desktop max_width={'tablet'}>
                 {React.Children.map(children, (el, index) => {
                     return (
                         <Content selected={selected_tab === index}>
@@ -118,45 +144,72 @@ const Tabs = ({ children, is_reverse, parent_tab }) => {
                     )
                 })}
             </Desktop>
-            <TabList role="tablist" is_reverse={is_reverse}>
-                {React.Children.map(children, (child, index) => {
-                    const {
-                        props: { label, description, item_width, mobile_item_width },
-                    } = child
-                    return (
-                        <>
-                            <TabButton
-                                role="tab"
-                                selected={selected_tab === index}
-                                aria-selected={selected_tab === index ? 'true' : 'false'}
-                                onClick={() => selectTab(index)}
-                            >
-                                <Text weight="bold">{label}</Text>
-                                <Text
-                                    max_width={item_width || '36.4rem'}
-                                    mobile_max_width={mobile_item_width || item_width}
-                                    size="var(--text-size-m)"
-                                    mt="0.8rem"
+            <div>
+                <TabList role="tablist" is_reverse={is_reverse}>
+                    {React.Children.map(children, (child, index) => {
+                        const {
+                            props: { label, description, item_width, mobile_item_width },
+                        } = child
+                        return (
+                            <>
+                                <TabButton
+                                    role="tab"
+                                    selected={selected_tab === index}
+                                    aria-selected={selected_tab === index ? 'true' : 'false'}
+                                    onClick={() => selectTab(index)}
                                 >
-                                    {description}
-                                </Text>
-                            </TabButton>
-                            <Mobile min_width={'tabletS'}>
-                                <Content selected={selected_tab === index}>
-                                    {selected_tab === index ? child : undefined}
-                                </Content>
-                            </Mobile>
-                        </>
-                    )
-                })}
-            </TabList>
-        </Flex>
+                                    <Text weight="bold">{label}</Text>
+                                    <StyledText
+                                        max_width={item_width || '36.4rem'}
+                                        mobile_max_width={mobile_item_width || item_width}
+                                        size="var(--text-size-m)"
+                                        mt="0.8rem"
+                                    >
+                                        {description}
+                                    </StyledText>
+                                </TabButton>
+                                <Mobile min_width={'tablet'}>
+                                    <Content selected={selected_tab === index}>
+                                        {selected_tab === index ? child : undefined}
+                                    </Content>
+                                </Mobile>
+                            </>
+                        )
+                    })}
+                </TabList>
+                {/* TODO: replace app download link once app is available */}
+                {has_download_button && (
+                    <DownloadFlex mt="1rem" jc="flex-start">
+                        <Box mr="1.2rem">
+                            <LocalizedLink
+                                external="true"
+                                to={dmt5_ios_url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <img src={AppStore} alt="app store" />
+                            </LocalizedLink>
+                        </Box>
+
+                        <LocalizedLink
+                            external="true"
+                            to={dmt5_android_url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <img src={GooglePlay} alt="google play" width="138" height="40" />
+                        </LocalizedLink>
+                    </DownloadFlex>
+                )}
+            </div>
+        </StyledFlex>
     )
 }
 
 Tabs.Panel = TabPanel
 Tabs.propTypes = {
     children: PropTypes.node,
+    has_download_button: PropTypes.bool,
     is_reverse: PropTypes.bool,
     parent_tab: PropTypes.string,
     tab_break: PropTypes.string,

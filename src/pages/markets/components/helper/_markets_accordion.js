@@ -17,6 +17,8 @@ const Button = styled(Flex)`
     @media ${device.tabletL} {
         max-width: unset;
         border-top: 1px solid var(--color-grey-22);
+        min-height: 32px;
+        align-items: center;
     }
 `
 const Title = styled(Flex)`

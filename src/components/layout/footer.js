@@ -5,16 +5,24 @@ import PropTypes from 'prop-types'
 import { Container, CssGrid, Flex, Show } from '../containers'
 import { StyledLink, Text, QueryImage } from '../elements'
 import { DerivStore } from 'store'
+import { isUK } from 'common/country-base'
+import { useWebsiteStatus } from 'components/hooks/website-status-hooks'
 import {
     deriv_status_page_url,
     mga_link_url,
-    fb_url,
+    fb_non_eu_url,
+    fb_uk_url,
+    fb_eu_url,
     fb_url_career,
-    instagram_url,
+    instagram_non_eu_url,
+    instagram_uk_url,
+    instagram_eu_url,
     instagram_url_career,
     linkedin_url,
     linkedin_url_career,
-    twitter_url,
+    twitter_non_eu_url,
+    twitter_uk_url,
+    twitter_eu_url,
 } from 'common/constants'
 // TODO: (discussion) make footer pure component, and move usage of footer to custom
 import device from 'themes/device'
@@ -272,7 +280,7 @@ const mobile_accordion_header = {
 
 const mobile_accordion_header_about = Object.assign({}, mobile_accordion_header)
 
-const SocialWrapperComponent = ({ is_career_page }) => {
+const SocialWrapperComponent = ({ is_career_page, fb_url, instagram_url, twitter_url }) => {
     const alt_string = (is_career_page ? 'career' : '') + ' icon link'
     const accounts = [
         {
@@ -306,7 +314,10 @@ const SocialWrapperComponent = ({ is_career_page }) => {
 }
 
 SocialWrapperComponent.propTypes = {
+    fb_url: PropTypes.string,
+    instagram_url: PropTypes.string,
     is_career_page: PropTypes.bool,
+    twitter_url: PropTypes.string,
 }
 
 const SocialMediaComponent = ({ social_accounts }) => (
@@ -344,6 +355,9 @@ const Footer = ({ type, is_ppc, is_ppc_redirect }) => {
     mobile_accordion_header_about.borderTop = 'none'
     const current_year = new Date().getFullYear()
 
+    const [website_status] = useWebsiteStatus()
+    const current_client_country = website_status?.clients_country || ''
+
     return (
         <StyledFooter is_eu_country={is_eu_country}>
             <Container>
@@ -352,7 +366,12 @@ const Footer = ({ type, is_ppc, is_ppc_redirect }) => {
                         <StyledLogo src={Logo} alt="logo" width="147" height="25" />
                         <Show.Eu>
                             <Show.Desktop>
-                                <SocialWrapperComponent is_career_page={type === 'careers'} />
+                                <SocialWrapperComponent
+                                    is_career_page={type === 'careers'}
+                                    fb_url={isUK(current_client_country) ? fb_uk_url : fb_eu_url}
+                                    instagram_url={isUK(current_client_country) ? instagram_uk_url : instagram_eu_url}
+                                    twitter_url={isUK(current_client_country) ? twitter_uk_url : twitter_eu_url}
+                                />
                             </Show.Desktop>
                         </Show.Eu>
                     </DerivLogoWrapper>
@@ -777,11 +796,21 @@ const Footer = ({ type, is_ppc, is_ppc_redirect }) => {
                         </Text>
                     </Copyright>
                     <Show.NonEU>
-                        <SocialWrapperComponent is_career_page={type === 'careers'} />
+                        <SocialWrapperComponent
+                            is_career_page={type === 'careers'}
+                            fb_url={fb_non_eu_url}
+                            instagram_url={instagram_non_eu_url}
+                            twitter_url={twitter_non_eu_url}
+                        />
                     </Show.NonEU>
                     <Show.Eu>
                         <Show.Mobile>
-                            <SocialWrapperComponent is_career_page={type === 'careers'} />
+                            <SocialWrapperComponent
+                                is_career_page={type === 'careers'}
+                                fb_url={isUK(current_client_country) ? fb_uk_url : fb_eu_url}
+                                instagram_url={isUK(current_client_country) ? instagram_uk_url : instagram_eu_url}
+                                twitter_url={isUK(current_client_country) ? twitter_uk_url : twitter_eu_url}
+                            />
                         </Show.Mobile>
                     </Show.Eu>
                     <Show.Eu>

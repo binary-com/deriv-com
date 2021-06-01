@@ -73,10 +73,16 @@ export const localized_link_url = Object.freeze({
     zoho: zoho_url,
 })
 
-export const fb_url = 'https://www.facebook.com/derivdotcom'
+export const fb_non_eu_url = 'https://www.facebook.com/derivdotcom'
+export const fb_uk_url = 'https://www.facebook.com/derivUK/'
+export const fb_eu_url = 'https://www.facebook.com/derivEU/'
 export const fb_url_career = 'https://www.facebook.com/derivcareers'
-export const instagram_url = 'https://www.instagram.com/deriv_official/'
+export const instagram_non_eu_url = 'https://www.instagram.com/deriv_official/'
+export const instagram_uk_url = 'https://www.instagram.com/deriv_uk/'
+export const instagram_eu_url = 'https://www.instagram.com/deriv_eu/'
 export const instagram_url_career = 'https://www.instagram.com/derivcareers/'
 export const linkedin_url = 'https://www.linkedin.com/company/derivdotcom/'
 export const linkedin_url_career = 'https://www.linkedin.com/company/derivdotcom/life/'
-export const twitter_url = 'https://twitter.com/derivdotcom/'
+export const twitter_non_eu_url = 'https://twitter.com/derivdotcom/'
+export const twitter_uk_url = 'https://www.twitter.com/deriv_uk/'
+export const twitter_eu_url = 'https://www.twitter.com/deriv_eu/'

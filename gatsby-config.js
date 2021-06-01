@@ -175,7 +175,7 @@ module.exports = {
                     {
                         userAgent: '*',
                         allow: '/',
-                        disallow: ['/404/', '/homepage/', '/landing/', '/endpoint/'],
+                        disallow: ['/404/', '/homepage/', '/landing/'],
                     },
                 ],
             },

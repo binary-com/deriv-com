@@ -50,6 +50,7 @@ const ImageWrapper = styled.img`
 
 const LineSeparator = styled(Separator)`
     height: 600px;
+    margin: 0 0;
 `
 
 const WhoCanApplyWrapper = styled(Col)`

@@ -66,7 +66,7 @@ const SignupWrapper = styled.div`
     margin-bottom: 10px;
 `
 
-const HeaderSection = ({ mainHeaderImage, introSub, introMain, bg }) => {
+const HeaderSection = ({ mainHeaderImage, introSub, introMain, bg, ebook_utm_code }) => {
     return (
         <MainWrapper>
             <HeaderBody bg={bg}>
@@ -93,7 +93,7 @@ const HeaderSection = ({ mainHeaderImage, introSub, introMain, bg }) => {
                         <AuthorNameText>{localize('Vince Stanzione.')}</AuthorNameText>
                     </AuthorText>
                     <SignupWrapper>
-                        <GetEbook />
+                        <GetEbook ebook_utm_code={ebook_utm_code} />
                     </SignupWrapper>
                 </ContentWrapper>
             </HeaderBody>
@@ -103,6 +103,7 @@ const HeaderSection = ({ mainHeaderImage, introSub, introMain, bg }) => {
 
 HeaderSection.propTypes = {
     bg: PropTypes.any,
+    ebook_utm_code: PropTypes.string,
     introMain: PropTypes.any,
     introSub: PropTypes.any,
     mainHeaderImage: PropTypes.any,

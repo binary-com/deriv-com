@@ -1,7 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-// import { graphql, useStaticQuery } from 'gatsby'
+import Cookies from 'js-cookie'
+import { getCookiesObject, getCookiesFields, getDataObjFromCookies } from 'common/cookies'
+import validation from 'common/validation'
+import { BinarySocketBase } from 'common/websocket/socket_base'
 import { Input, Button } from 'components/form'
 import { Text } from 'components/elements' //QueryImage, LinkText
 import { localize } from 'components/localization'
@@ -69,7 +72,7 @@ const InputWrapper = styled.div`
         margin-right: 1rem;
     }
 `
-const InputGroup = styled.div`
+const InputGroupForm = styled.form`
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -360,24 +363,108 @@ const StyledText = styled(Text)`
 //     z-index: 10;
 // `
 
-const GetEbook = ({
-    email_error_msg,
-    email,
-    clearEmail,
-    handleInputChange,
-    handleValidation,
-    autofocus,
-    handleSocialSignup,
-    is_submitting,
-}) => {
+const GetEbook = ({ onSubmit, ebook_utm_code }) => {
     const [is_checked, setChecked] = React.useState(false)
+    const [email, setEmail] = React.useState('')
+    const [is_submitting, setIsSubmitting] = React.useState(false)
+    const [submit_status, setSubmitStatus] = React.useState(false)
+    const [email_error_msg, setEmailErrorMsg] = React.useState('')
+    const [submit_error_msg, setSubmitErrorMsg] = React.useState('')
+
     const handleChange = (event) => {
         setChecked(event.currentTarget.checked)
     }
+
+    const handleInputChange = (e) => {
+        const { value } = e.target
+
+        setEmail(value)
+        handleValidation(value)
+    }
+
+    const handleValidation = (param) => {
+        const message = typeof param === 'object' ? param.target.value : param
+
+        setEmailErrorMsg(validateEmail(message.replace(/\s/g, '')))
+    }
+
+    const validateEmail = (email) => {
+        const error_message = validation.email(email) || submit_error_msg
+
+        if (submit_error_msg) {
+            setSubmitErrorMsg('')
+            setSubmitStatus('')
+        }
+
+        return error_message
+    }
+
+    const clearEmail = () => {
+        setEmail('')
+        setEmailErrorMsg('')
+    }
+
+    const getVerifyEmailRequest = (email) => {
+        const affiliate_token = Cookies.getJSON('affiliate_tracking')
+
+        const cookies = getCookiesFields()
+        const cookies_objects = getCookiesObject(cookies)
+        const cookies_value = getDataObjFromCookies(cookies_objects, cookies)
+
+        return {
+            verify_email: email,
+            type: 'account_opening',
+            url_parameters: {
+                ...(affiliate_token && { affiliate_token: affiliate_token }),
+                ...(cookies_value && { ...cookies_value }),
+                ...(ebook_utm_code && { utm_content: ebook_utm_code }),
+            },
+        }
+    }
+
+    const handleSocialSignup = (e) => {
+        e.preventDefault()
+    }
+
+    const handleEmailSignup = (e) => {
+        e.preventDefault()
+        setIsSubmitting(true)
+        const formattedEmail = email.replace(/\s/g, '')
+        handleValidation(email)
+        const has_error_email = validateEmail(formattedEmail)
+
+        if (has_error_email || email_error_msg) {
+            return setIsSubmitting(false)
+        }
+
+        const verify_email_req = getVerifyEmailRequest(formattedEmail)
+        const binary_socket = BinarySocketBase.init()
+
+        binary_socket.onopen = () => {
+            binary_socket.send(JSON.stringify(verify_email_req))
+        }
+        binary_socket.onmessage = (msg) => {
+            const response = JSON.parse(msg.data)
+            if (response.error) {
+                binary_socket.close()
+                setIsSubmitting(false)
+                setSubmitStatus('error')
+                setSubmitErrorMsg(response.error.message)
+                handleValidation(formattedEmail)
+            } else {
+                setIsSubmitting(false)
+                setSubmitStatus('success')
+                if (onSubmit) onSubmit(submit_status, email)
+            }
+
+            binary_socket.close()
+        }
+    }
+
     return (
         <SignupFormWrapper>
             <div>
-                <InputGroup>
+                <InputGroupForm onSubmit={handleEmailSignup} noValidate>
                     <InputWrapper>
                         <Input
                             id="email"
@@ -398,7 +485,7 @@ const GetEbook = ({
                             handleError={clearEmail}
                             onChange={handleInputChange}
                             onBlur={handleValidation}
-                            autoFocus={autofocus}
+                            autoFocus={true}
                             autoComplete="off"
                             required
                             border="unset"
@@ -420,7 +507,7 @@ const GetEbook = ({
                     >
                         {localize('Get your free ebook now!')}
                     </EmailButton>
-                </InputGroup>
+                </InputGroupForm>
                 <SignupWithContainer>
                     <Line />
                     <StyledText color="grey-5" align="center" tabletFontSize="12px">
@@ -475,15 +562,8 @@ const GetEbook = ({
 }
 
 GetEbook.propTypes = {
-    autofocus: PropTypes.bool,
-    clearEmail: PropTypes.func,
-    email: PropTypes.string,
-    email_error_msg: PropTypes.string,
-    handleInputChange: PropTypes.func,
-    handleLogin: PropTypes.func,
-    handleSocialSignup: PropTypes.func,
-    handleValidation: PropTypes.func,
-    is_submitting: PropTypes.bool,
+    ebook_utm_code: PropTypes.string,
+    onSubmit: PropTypes.func,
 }
 
 export default GetEbook

@@ -67,11 +67,12 @@ const ItemList = styled.ul`
 
 const TopicImgWrapper = styled.div`
     width: 60%;
-    margin-top: -57px;
+    margin-top: -120px;
     margin-bottom: 20px;
 
     @media ${device.tabletL} {
         width: 100%;
+        margin-top: -60px;
     }
 `
 

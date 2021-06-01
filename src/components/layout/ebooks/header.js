@@ -19,7 +19,7 @@ const MainWrapper = styled(Flex)`
 `
 const HeaderBody = styled(Flex)`
     width: 100%;
-    height: 627px;
+    height: 640px;
     margin: 0;
     background-image: ${(props) =>
         props.bg ? props.bg : 'linear-gradient(281deg, #0e0e0e, #1b1b1b)'};
@@ -28,6 +28,8 @@ const HeaderBody = styled(Flex)`
         flex-direction: column;
         height: auto;
         padding: 40px 15px;
+        background-image: ${(props) =>
+            props.bgMobile ? props.bgMobile : 'linear-gradient(281deg, #1b1b1b, #0e0e0e)'};
     }
 `
 
@@ -51,10 +53,17 @@ const HeaderImage = styled.img`
     top: 58px;
     margin: 0;
 
-    @media ${device.tablet} {
+    @media screen and (min-width: 767px) and (max-width: 1024px) {
         height: 390px;
         margin: 0 auto;
-        width: auto;
+        width: 100% !important;
+    }
+
+    @media ${device.mobile} {
+        top: 110px;
+        height: auto;
+        margin: 0 auto;
+        width: 70%;
     }
 
     @media ${device.mobile} {
@@ -92,6 +101,7 @@ const AuthorText = styled.p`
     margin: 16px 0 24px 0;
     font-size: 1.4rem;
     color: white;
+    line-height: 16px;
 `
 
 const AuthorNameText = styled.span`
@@ -102,10 +112,10 @@ const SignupWrapper = styled.div`
     margin-bottom: 10px;
 `
 
-const HeaderSection = ({ mainHeaderImage, introSub, introMain, bg, ebook_utm_code }) => {
+const HeaderSection = ({ mainHeaderImage, introSub, introMain, bg, bgMobile, ebook_utm_code }) => {
     return (
         <MainWrapper>
-            <HeaderBody bg={bg}>
+            <HeaderBody bg={bg} bgMobile={bgMobile}>
                 <TopHeaderImgWrapper>
                     <HeaderImage src={mainHeaderImage} alt="stocks ebook" />
                 </TopHeaderImgWrapper>
@@ -139,6 +149,7 @@ const HeaderSection = ({ mainHeaderImage, introSub, introMain, bg, ebook_utm_cod
 
 HeaderSection.propTypes = {
     bg: PropTypes.any,
+    bgMobile: PropTypes.any,
     ebook_utm_code: PropTypes.string,
     introMain: PropTypes.any,
     introSub: PropTypes.any,

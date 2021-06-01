@@ -45,7 +45,7 @@ const TopHeaderImgWrapper = styled(Flex)`
         margin-top: -70px;
     }
 `
-const DesktopImage = styled.img`
+const HeaderImage = styled.img`
     width: 606px;
     position: relative;
     top: 58px;
@@ -107,7 +107,7 @@ const HeaderSection = ({ mainHeaderImage, introSub, introMain, bg, ebook_utm_cod
         <MainWrapper>
             <HeaderBody bg={bg}>
                 <TopHeaderImgWrapper>
-                    <DesktopImage src={mainHeaderImage} alt="stocks ebook" />
+                    <HeaderImage src={mainHeaderImage} alt="stocks ebook" />
                 </TopHeaderImgWrapper>
                 <ContentWrapper>
                     <Header type="sub-section-title" className="sub-title">

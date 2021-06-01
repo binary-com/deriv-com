@@ -17,9 +17,7 @@ const SignupFormWrapper = styled(Flex)`
     width: 50%;
     align-items: center;
     justify-content: initial;
-    @media ${device.tablet} {
-        padding: 0 2rem;
-    }
+    
     @media ${device.mobileM} {
         width: 100%;
 
@@ -31,8 +29,14 @@ const SignupFormWrapper = styled(Flex)`
 
 const InputWrapper = styled.div`
     width: 40rem;
+
     @media ${device.tabletL} {
         margin-right: 1rem;
+    }
+
+    @media ${device.tablet} {
+        margin-right: 0;
+        width: 100%;
     }
 `
 const InputGroup = styled.div`

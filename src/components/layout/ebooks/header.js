@@ -50,7 +50,7 @@ const TopHeaderImgWrapper = styled(Flex)`
 const HeaderImage = styled.img`
     width: 606px;
     position: relative;
-    top: 58px;
+    top: 150px;
     margin: 0;
 
     @media screen and (min-width: 767px) and (max-width: 1024px) {
@@ -59,7 +59,7 @@ const HeaderImage = styled.img`
         width: 100% !important;
     }
 
-    @media ${device.mobile} {
+    @media screen and (max-width: 425px){
         top: 110px;
         height: auto;
         margin: initial;

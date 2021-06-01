@@ -194,7 +194,7 @@ const calculators = [
         ),
         image_name: 'swap_calculator',
         button_text: <Localize translate_text="Try our swap calculator" />,
-        link: '/trader-tools/#swapCalculator',
+        link: '/trader-tools/swap-calculator/',
     },
 ]
 

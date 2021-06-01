@@ -334,7 +334,7 @@ const Leaders = () => {
                                     <QueryImage data={data[`${leader.image}`]} alt={leader.name} />
                                 </AbsoluteImageWrapper>
                             </RelativeImageWrapper>
-                            <Header size="24px" align="center" m="16px 0 0">
+                            <Header as="h4" size="24px" align="center" m="16px 0 0">
                                 {leader.name}
                             </Header>
                             <StyledMobileText align="center" m="0 auto" size="2rem">

@@ -12,18 +12,18 @@ const StartTrading = () => {
             <SectionContainer background="white" padding="8rem 0 4rem">
                 <SmallContainer direction="column" ai="flex-start">
                     <Header as="h3" type="section-title" mb="4rem">
-                        {localize('Start trading on margin with Deriv')}
+                        {localize('Start trading CFDs on Deriv')}
                     </Header>
 
                     <Timeline>
                         <Timeline.Item title={<Localize translate_text="Practise" />}>
                             {localize(
-                                'Open a demo MetaTrader 5 account on Deriv and practise with an unlimited amount of virtual funds.',
+                                'Open a demo Deriv MT5 (DMT5) or demo Deriv X account and practise with an unlimited amount of virtual funds.',
                             )}
                         </Timeline.Item>
                         <Timeline.Item title={<Localize translate_text="Trade" />}>
                             {localize(
-                                'Trade with a real Deriv MT5 (DMT5) account and get access to high leverage to trade positions larger than your existing capital.',
+                                'Trade with a real Deriv MT5 (DMT5) or real Deriv X account. Get access to high leverage and trade positions larger than your existing capital.',
                             )}
                         </Timeline.Item>
                         <Timeline.Item title={<Localize translate_text="Withdraw" />}>
@@ -33,7 +33,7 @@ const StartTrading = () => {
                         </Timeline.Item>
                     </Timeline>
                     <LinkButton mt="4rem" to="/dmt5/" secondary="true">
-                        {localize('Create a demo DMT5 account')}
+                        {localize('Create free demo account')}
                     </LinkButton>
                 </SmallContainer>
             </SectionContainer>

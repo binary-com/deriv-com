@@ -2,17 +2,20 @@ import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { SmallContainer } from '../components/_style'
+import { StyledLinkButton } from './_trading-cfd-increases'
 import { SectionContainer, Show } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
 import { localize } from 'components/localization'
 
 const query = graphql`
     query {
-        margin_piechart: file(relativePath: { eq: "trade-types/margin-piechart.png" }) {
+        margin_relationship_piechart: file(
+            relativePath: { eq: "trade-types/margin-relationship-piechart.png" }
+        ) {
             ...fadeIn
         }
-        margin_mobile_piechart: file(
-            relativePath: { eq: "trade-types/margin-mobile-piechart.png" }
+        margin_mobile_relationship_piechart: file(
+            relativePath: { eq: "trade-types/margin-mobile-relationship-piechart.png" }
         ) {
             ...fadeIn
         }
@@ -20,21 +23,25 @@ const query = graphql`
 `
 const ImageWrapper = styled.div`
     width: 100%;
-    margin-bottom: 3.2rem;
 `
-const WhatIsMargin = () => {
+const MindWhenTrading = () => {
     const data = useStaticQuery(query)
 
     return (
         <>
-            <SectionContainer background="white" padding="8rem 0 4rem">
+            <SectionContainer background="white" padding="0 0 4rem">
                 <SmallContainer direction="column" ai="flex-start">
-                    <Header as="h2" type="page-title" mb="1.2rem">
-                        {localize('What is margin trading?')}
+                    <Header as="h3" type="section-title" mb="1.2rem">
+                        {localize('Things to keep in mind when trading CFDs')}
                     </Header>
+                    <Text size="var(--text-size-m)" weight="bold" mb="0.8rem">
+                        {localize(
+                            'CFDs are traded on margin',
+                        )}
+                    </Text>
                     <Text mb="3.2rem">
                         {localize(
-                            'Firstly, margin is a deposit required to open a leveraged position – that is a position larger than your capital investment. So margin trading allows you to purchase larger units of an asset at a fraction of the cost in order to increase your market exposure even if you are trading with limited capital.',
+                            'The term ‘margin’ refers to the deposit needed to open a leveraged position, which is a position larger than your capital investment and leads to increased market exposure. ',
                         )}
                     </Text>
                 </SmallContainer>
@@ -42,9 +49,8 @@ const WhatIsMargin = () => {
                     <SmallContainer direction="column" ai="flex-start">
                         <ImageWrapper>
                             <QueryImage
-                                data={data['margin_piechart']}
+                                data={data['margin_relationship_piechart']}
                                 alt="Trade types margin market"
-                                width="100%"
                             />
                         </ImageWrapper>
                     </SmallContainer>
@@ -52,22 +58,25 @@ const WhatIsMargin = () => {
                 <Show.Mobile min_width={'bp680'}>
                     <ImageWrapper>
                         <QueryImage
-                            data={data['margin_mobile_piechart']}
+                            data={data['margin_mobile_relationship_piechart']}
                             alt="Trade types margin market"
-                            width="100%"
                         />
                     </ImageWrapper>
                 </Show.Mobile>
                 <SmallContainer direction="column" ai="flex-start">
-                    <Text>
+                    <Text mt="3.2rem">
                         {localize(
-                            'This means that with the same capital, you will be able to buy more of an asset. The result is a more substantial profit when you win a trade and of course, a more significant loss when you lose.',
+                            'Use our margin calculator to calculate the margin required to increase your market exposure (the market value of your position) on Deriv’s CFD trading platforms.',
                         )}
                     </Text>
+
+                    <StyledLinkButton mt="4rem" secondary="true" to="/trader-tools#marginCalculator">
+                        {localize('margin calculator')}
+                    </StyledLinkButton>
                 </SmallContainer>
             </SectionContainer>
         </>
     )
 }
 
-export default WhatIsMargin
+export default MindWhenTrading

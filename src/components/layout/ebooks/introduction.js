@@ -9,7 +9,7 @@ const MediaWapper = styled.div`
     display: flex;
     align-items: flex-start;
     max-width: 1200px;
-    margin: 200px auto 0;
+    margin: 120px auto 0;
     padding: 0 50px;
 
     img.intro-forex {

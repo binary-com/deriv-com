@@ -257,14 +257,14 @@ const LeaderMobile = styled.div`
     }
 `
 
-const ImageWrapperMobile = styled.div`
+const RelativeImageWrapper = styled.div`
     position: relative;
     width: 100%;
     padding-top: 100%;
     overflow: hidden;
 `
 
-const ImageMobileQueryImgWrapper = styled.div`
+const AbsoluteImageWrapper = styled.div`
     position: absolute;
     top: 0;
     width: 100%;
@@ -329,11 +329,11 @@ const Leaders = () => {
                 <Carousel {...settings}>
                     {leaders_data.map((leader, idx) => (
                         <LeaderMobile key={idx}>
-                            <ImageWrapperMobile>
-                                <ImageMobileQueryImgWrapper>
+                            <RelativeImageWrapper>
+                                <AbsoluteImageWrapper>
                                     <QueryImage data={data[`${leader.image}`]} alt={leader.name} />
-                                </ImageMobileQueryImgWrapper>
-                            </ImageWrapperMobile>
+                                </AbsoluteImageWrapper>
+                            </RelativeImageWrapper>
                             <Header size="24px" align="center" m="16px 0 0">
                                 {leader.name}
                             </Header>

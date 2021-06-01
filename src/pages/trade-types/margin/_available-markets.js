@@ -42,7 +42,7 @@ const AvailableMarkets = () => {
             <SectionContainer background="white" padding="8rem 0" position="relative">
                 <SmallContainer direction="column" ai="flex-start">
                     <Header as="h3" type="section-title" mb="2.4rem">
-                        {localize('Markets available for margin trading')}
+                        {localize('Markets available for CFD trading')}
                     </Header>
                 </SmallContainer>
                 <MarketsCarousel>
@@ -56,7 +56,7 @@ const AvailableMarkets = () => {
                                 </MobileCardHeader>
                                 <Text>
                                     {localize(
-                                        'Access over 50 assets and also trade with up to 1000:1 leverage and zero commission on trades.',
+                                        'Access over 50 currency pairs and trade with leverage up to 1:1000 to increase your market exposure.',
                                     )}
                                 </Text>
                                 <LearnMore

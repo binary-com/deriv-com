@@ -64,6 +64,11 @@ const StyledLinkButton = styled(LinkButton)`
         }
     }
 
+    @media ${device.mobileM} {
+        display: flex;
+        align-items: center;
+    }
+
     :active {
         outline: none;
         border: none;

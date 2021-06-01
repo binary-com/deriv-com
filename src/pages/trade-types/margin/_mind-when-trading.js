@@ -35,9 +35,7 @@ const MindWhenTrading = () => {
                         {localize('Things to keep in mind when trading CFDs')}
                     </Header>
                     <Text size="var(--text-size-m)" weight="bold" mb="0.8rem">
-                        {localize(
-                            'CFDs are traded on margin',
-                        )}
+                        {localize('CFDs are traded on margin')}
                     </Text>
                     <Text mb="3.2rem">
                         {localize(
@@ -70,7 +68,11 @@ const MindWhenTrading = () => {
                         )}
                     </Text>
 
-                    <StyledLinkButton mt="4rem" secondary="true" to="/trader-tools#marginCalculator">
+                    <StyledLinkButton
+                        mt="4rem"
+                        secondary="true"
+                        to="/trader-tools#marginCalculator"
+                    >
                         {localize('margin calculator')}
                     </StyledLinkButton>
                 </SmallContainer>

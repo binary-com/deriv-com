@@ -102,13 +102,11 @@ exports.onCreatePage = ({ page, actions }) => {
             fromPath: `/derivx/`,
             toPath: `/`,
             redirectInBrowser: true,
-            isPermanent: true,
         })
         createRedirect({
             fromPath: `/derivx`,
             toPath: `/`,
             redirectInBrowser: true,
-            isPermanent: true,
         })
     }
 
@@ -256,13 +254,11 @@ exports.onCreatePage = ({ page, actions }) => {
                 fromPath: `/${lang}/derivx/`,
                 toPath: `/${lang}/`,
                 redirectInBrowser: true,
-                isPermanent: true,
             })
             createRedirect({
                 fromPath: `/${lang}/derivx`,
                 toPath: `/${lang}`,
                 redirectInBrowser: true,
-                isPermanent: true,
             })
         }
 

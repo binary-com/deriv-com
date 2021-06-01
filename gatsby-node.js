@@ -97,6 +97,19 @@ exports.onCreatePage = ({ page, actions }) => {
         })
     }
 
+    if (is_deriv_x) {
+        createRedirect({
+            fromPath: `/derivx/`,
+            toPath: `/`,
+            redirectInBrowser: true,
+        })
+        createRedirect({
+            fromPath: `/derivx`,
+            toPath: `/`,
+            redirectInBrowser: true,
+        })
+    }
+
     Object.keys(language_config).map((lang) => {
         // Use the values defined in "locales" to construct the path
         const { path, is_default } = language_config[lang]
@@ -233,6 +246,19 @@ exports.onCreatePage = ({ page, actions }) => {
                 toPath: `/${lang}/markets/forex/`,
                 redirectInBrowser: true,
                 isPermanent: true,
+            })
+        }
+
+        if (is_deriv_x) {
+            createRedirect({
+                fromPath: `/${lang}/derivx/`,
+                toPath: `/${lang}/`,
+                redirectInBrowser: true,
+            })
+            createRedirect({
+                fromPath: `/${lang}/derivx`,
+                toPath: `/${lang}`,
+                redirectInBrowser: true,
             })
         }
 

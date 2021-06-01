@@ -62,8 +62,9 @@ const HeaderImage = styled.img`
     @media ${device.mobile} {
         top: 110px;
         height: auto;
-        margin: 0 auto;
-        width: 70%;
+        margin: initial;
+        width: 100%;
+        margin-left: -15px;
     }
 
     @media ${device.mobile} {

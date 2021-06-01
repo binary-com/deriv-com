@@ -20,7 +20,6 @@ query {
 }
 `
 const AdditionalEUSection = () => {
-
     const image_query = useStaticQuery(query)
 
     return (
@@ -35,7 +34,6 @@ const AdditionalEUSection = () => {
                     >
                         <StyledGamstop src={Gamstop} alt="gamstop desktop" />
                     </LocalizedLink>
-
                     <LocalizedLink
                         external="true"
                         to="https://www.gov.im/categories/business-and-industries/gambling-and-e-gaming/"

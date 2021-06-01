@@ -53,13 +53,12 @@ const HeaderImage = styled.img`
     top: 150px;
     margin: 0;
 
-    @media screen and (min-width: 767px) and (max-width: 1024px) {
-        height: 390px;
+    @media screen and (min-width: 769px) and (max-width: 1024px) {
         margin: 0 auto;
         width: 100% !important;
     }
 
-    @media screen and (max-width: 425px){
+    @media screen and (max-width: 768px){
         top: 110px;
         height: auto;
         margin: initial;

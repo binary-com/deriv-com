@@ -18,8 +18,10 @@ import { LinkButton } from 'components/form'
 import TradingExperts from 'images/svg/trading-experts.svg'
 import Affiliates from 'images/svg/affiliates.svg'
 import CommunityManagers from 'images/svg/community-managers.svg'
-import Email from 'images/svg/pa-email.svg'
-import Reply from 'images/svg/pa-reply.svg'
+import Login from 'images/svg/open-account.svg'
+import Cashier from 'images/svg/pa-cashier.svg'
+import ApplicationForm from 'images/svg/pa-app-form.svg'
+import PaymentMethod from 'images/svg/pa-payment-methods.svg'
 import Listed from 'images/svg/pa-listed.svg'
 import device from 'themes/device'
 
@@ -47,7 +49,7 @@ const ImageWrapper = styled.img`
 `
 
 const LineSeparator = styled(Separator)`
-    height: 572px;
+    height: 600px;
 `
 
 const WhoCanApplyWrapper = styled(Col)`
@@ -119,8 +121,7 @@ const WhoCanApply = () => {
                         <Timeline>
                             <Timeline.Item>
                                 <HowToApplyContent>
-                                    {/* TODO: replace iimage */}
-                                    <ImageWrapper src={Email} alt="email" />
+                                    <ImageWrapper src={Login} alt="account creation" />
                                     <Content margin-top="0 px" max_width="36.4rem">
                                         <Header as="h4" type="sub-section-title">
                                             {localize('Log in or sign up')}
@@ -133,8 +134,7 @@ const WhoCanApply = () => {
                             </Timeline.Item>
                             <Timeline.Item>
                                 <HowToApplyContent>
-                                    {/* TODO: replace iimage */}
-                                    <ImageWrapper src={Reply} alt="reply" />
+                                    <ImageWrapper src={Cashier} alt="cashier" />
                                     <Content max_width="36.4rem">
                                         <Header as="h4" type="sub-section-title">
                                             {localize('Go to cashier > Payment agents')}
@@ -149,8 +149,7 @@ const WhoCanApply = () => {
                             </Timeline.Item>
                             <Timeline.Item>
                                 <HowToApplyContent>
-                                    {/* TODO: replace iimage */}
-                                    <ImageWrapper src={Reply} alt="reply" />
+                                    <ImageWrapper src={ApplicationForm} alt="application form" />
                                     <Content max_width="37.4rem">
                                         <Header as="h4" type="sub-section-title">
                                             {localize('Fill out the application form')}
@@ -165,8 +164,7 @@ const WhoCanApply = () => {
                             </Timeline.Item>
                             <Timeline.Item>
                                 <HowToApplyContent>
-                                {/* TODO: replace iimage */}
-                                    <ImageWrapper src={Reply} alt="reply" />
+                                    <ImageWrapper src={PaymentMethod} alt="payment methods" />
                                     <Content max_width="36.4rem">
                                         <Header as="h4" type="sub-section-title">
                                             {localize('Choose your payment methods')}
@@ -200,7 +198,7 @@ const WhoCanApply = () => {
             </StyledSection>
             <ButtonWrapper padding="3.4rem 0 0">
                 <LinkButton secondary external="true" to="mailto:partners@deriv.com" is_mail_link>
-                    {localize('Send us an email to apply')}
+                    {localize('Submit an application')}
                 </LinkButton>
             </ButtonWrapper>
         </SectionWrapper>

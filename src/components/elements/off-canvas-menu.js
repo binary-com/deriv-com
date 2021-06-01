@@ -215,11 +215,11 @@ export const OffCanvasMenuWrapper = (props) => {
                                 </Text>
                                 <Flex mb="2rem">
                                     <NavCard
-                                        aria_label="Margin trading"
+                                        aria_label="CFDs"
                                         icon={() => (
                                             <img
                                                 src={MarginTrading}
-                                                alt="MarginTrading"
+                                                alt="CFDs"
                                                 width="32"
                                                 height="32"
                                             />
@@ -227,7 +227,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                         content={
                                             <Localize translate_text="Trade with leverage and low spreads for better returns on successful trades." />
                                         }
-                                        title={<Localize translate_text="Margin trading" />}
+                                        title={<Localize translate_text="CFDs" />}
                                         onClick={handleArrowClick}
                                         to="/trade-types/margin/"
                                     />
@@ -265,7 +265,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                             />
                                         )}
                                         content={
-                                            <Localize translate_text="Combine the upside of margin trading with the simplicity of options." />
+                                            <Localize translate_text="Combine the upside of CFDs with the simplicity of options." />
                                         }
                                         title={<Localize translate_text="Multipliers" />}
                                         onClick={handleArrowClick}
@@ -344,7 +344,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                     />
                                 )}
                                 content={localize(
-                                    "Trade with leverage on the price movement of popular crypto-fiat pairs.",
+                                    'Trade with leverage on the price movement of popular crypto-fiat pairs.',
                                 )}
                                 title={localize('Cryptocurrencies')}
                                 onClick={handleArrowClick}

@@ -88,13 +88,13 @@ TradeTypeSlide.propTypes = {
 
 const TradeTypesMobile = () => {
     const margin = {
-        icon: <img src={MarginLogo} alt="margin" width="48" height="49" />,
-        title: <Localize translate_text="Margin trading" />,
+        icon: <img src={MarginLogo} alt="cfds" width="48" height="49" />,
+        title: <Localize translate_text="CFDs" />,
         description: (
-            <Localize translate_text="Trade with leverage and low spreads for better returns on successful trades." />
+            <Localize translate_text="Trade with leverage and tight spreads for better returns on successful trades." />
         ),
         link: '/trade-types/margin/',
-        linkTitle: localize('Margin'),
+        linkTitle: localize('CFDs'),
     }
     const options = {
         icon: <img src={OptionsLogo} alt="options" width="48" height="49" />,
@@ -109,7 +109,7 @@ const TradeTypesMobile = () => {
         icon: <img src={MultipliersLogo} alt="multipliers" width="48" height="49" />,
         title: <Localize translate_text="Multipliers" />,
         description: (
-            <Localize translate_text="Get the best of both - the upside of margin trading with the simplicity of options." />
+            <Localize translate_text="Get the best of both - the upside of CFDs with the simplicity of options." />
         ),
         link: '/trade-types/multiplier/',
         linkTitle: localize('Multiplier'),

@@ -287,12 +287,12 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                     <Flex direction="column" wrap="wrap" jc="flex-start">
                         <StyledText>{localize('Trade types')}</StyledText>
                         <NavCard
-                            aria_label="Margin trading"
-                            icon={() => <img src={Margin} alt="Margin" width="32" height="32" />}
+                            aria_label="CFDs"
+                            icon={() => <img src={Margin} alt="cfds" width="32" height="32" />}
                             content={
-                                <Localize translate_text="Trade with leverage and low spreads for better returns on successful trades." />
+                                <Localize translate_text="Trade with leverage and tight spreads for better returns on successful trades." />
                             }
-                            title={<Localize translate_text="Margin trading" />}
+                            title={<Localize translate_text="CFDs" />}
                             onClick={onClick}
                             to="/trade-types/margin/"
                         />
@@ -316,7 +316,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                                 <img src={Multipliers} alt="Multipliers" width="32" height="32" />
                             )}
                             content={
-                                <Localize translate_text="Combine the upside of margin trading with the simplicity of options." />
+                                <Localize translate_text="Combine the upside of CFDs with the simplicity of options." />
                             }
                             title={<Localize translate_text="Multipliers" />}
                             onClick={onClick}
@@ -373,7 +373,9 @@ export const NavMarket = ({ onClick, is_ppc }) => (
         />
         <NavCard
             aria_label="Cryptocurrencies"
-            icon={() => <img src={Cryptocurrencies} alt="Cryptocurrencies" width="32" height="32" />}
+            icon={() => (
+                <img src={Cryptocurrencies} alt="Cryptocurrencies" width="32" height="32" />
+            )}
             content={
                 <Localize translate_text="Trade with leverage on the price movement of popular crypto-fiat pairs." />
             }

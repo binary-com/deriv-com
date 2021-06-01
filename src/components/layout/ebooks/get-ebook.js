@@ -1,20 +1,22 @@
 import React from 'react'
-import styled from 'styled-components'
 import PropTypes from 'prop-types'
+// import { graphql, StaticQuery } from 'gatsby'
+import styled from 'styled-components'
 import Cookies from 'js-cookie'
+import Login from 'common/login'
 import { getCookiesObject, getCookiesFields, getDataObjFromCookies } from 'common/cookies'
 import validation from 'common/validation'
 import { BinarySocketBase } from 'common/websocket/socket_base'
 import { Input, Button } from 'components/form'
-import { Text } from 'components/elements' //QueryImage, LinkText
-import { localize } from 'components/localization'
+import { Header, Text } from 'components/elements' //QueryImage, LinkText
+import { Localize, localize } from 'components/localization'
 import { Flex } from 'components/containers' //Show
 import AgreementLabel from 'components/custom/_agreement-label'
 import device from 'themes/device.js'
-// SVG
 import Apple from 'images/svg/apple.svg'
 import Facebook from 'images/svg/facebook-blue.svg'
 import Google from 'images/svg/google.svg'
+import ViewEmailImage from 'images/common/view-email.png'
 
 const SignupFormWrapper = styled(Flex)`
     width: 50%;
@@ -160,11 +162,30 @@ const StyledText = styled(Text)`
     }
 `
 
+const ResponseWrapper = styled.div`
+    justify-content: center;
+    max-width: 33rem;
+    margin: 0 auto;
+    flex-direction: column;
+    text-align: center;
+
+    h3,
+    p {
+        margin: 2rem 0;
+        color: white;
+    }
+`
+
+const EmailImage = styled.img`
+    margin: 0 auto;
+    width: 20rem;
+`
+
 const GetEbook = ({ onSubmit, ebook_utm_code }) => {
     const [is_checked, setChecked] = React.useState(false)
     const [email, setEmail] = React.useState('')
     const [is_submitting, setIsSubmitting] = React.useState(false)
-    const [submit_status, setSubmitStatus] = React.useState(false)
+    const [submit_status, setSubmitStatus] = React.useState('')
     const [email_error_msg, setEmailErrorMsg] = React.useState('')
     const [submit_error_msg, setSubmitErrorMsg] = React.useState('')
 
@@ -221,6 +242,9 @@ const GetEbook = ({ onSubmit, ebook_utm_code }) => {
 
     const handleSocialSignup = (e) => {
         e.preventDefault()
+
+        const data_provider = e.currentTarget.getAttribute('data-provider')
+        Login.initOneAll(`${data_provider}&utm_content=${ebook_utm_code}`)
     }
 
     const handleEmailSignup = (e) => {
@@ -258,7 +282,20 @@ const GetEbook = ({ onSubmit, ebook_utm_code }) => {
         }
     }
 
-    return (
+    return submit_status === 'success' ? (
+        <ResponseWrapper>
+            <Header as="h3" type="section-title" align="center" weight="normal">
+                {localize('Check your email')}
+            </Header>
+            <EmailImage src={ViewEmailImage} alt="Email image" />
+            <Text align="center">
+                <Localize
+                    translate_text="We've sent a message to {{email}} with a link to activate your account."
+                    values={{ email: email }}
+                />
+            </Text>
+        </ResponseWrapper>
+    ) : (
         <SignupFormWrapper>
             <div>
                 <InputGroupForm onSubmit={handleEmailSignup} noValidate>

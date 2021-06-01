@@ -24,6 +24,10 @@ const HeaderBody = styled(Flex)`
     background-image: ${(props) =>
         props.bg ? props.bg : 'linear-gradient(281deg, #0e0e0e, #1b1b1b)'};
 
+    @media screen and (min-width: 1600px) {
+        max-width: 1600px;
+        height: 720px;
+    }    
     @media ${device.tablet} {
         flex-direction: column;
         height: auto;

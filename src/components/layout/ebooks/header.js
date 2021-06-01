@@ -94,6 +94,7 @@ const AuthorText = styled.p`
     margin: 16px 0 24px 0;
     font-size: 1.4rem;
     color: white;
+    line-height: 16px;
 `
 
 const AuthorNameText = styled.span`

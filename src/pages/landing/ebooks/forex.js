@@ -49,7 +49,7 @@ const ForexEbook = () => {
                 introImage={introForexEbook}
                 imageWidth={142}
                 introPara={localize(
-                    'Foreign exchange – forex or the FX market, as it iscommonly known – is one of the biggestmarketplaces in the world, offering endless tradingopportunities. In this 75-page book, experttrader Vince Stanzione will teach you how to spotand take advantage of trading opportunities inthe forex markets, using Deriv’s DTrader and MetaTrader5 platforms.',
+                    'Foreign exchange – forex or the FX market, as it is commonly known – is one of the biggest marketplaces in the world, offering endless trading opportunities. In this 75-page book, expert trader Vince Stanzione will teach you how to spot and take advantage of trading opportunities in the forex markets, using Deriv’s DTrader and MetaTrader5 platforms.',
                 )}
                 introList={introPoints}
             />

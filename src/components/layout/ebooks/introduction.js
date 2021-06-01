@@ -26,7 +26,7 @@ const MediaWapper = styled.div`
     }
 
     @media ${device.tabletL} {
-        margin: 20px auto 0;
+        margin: 100px auto 0;
         padding: 0 15px;
 
         h3.intro-text {

@@ -11,9 +11,9 @@ import forexEbookInside from 'images/common/ebooks/forex-ebook-inside.png'
 
 const introPoints = [
     'The simple basics of forex',
-    'How to make more profitable forex trades and loweryour trading risks',
-    'How to use digital options to profit from up, down,and even sideways moves',
-    'How to trade like professionals without spending hourseach day analysing the worldmarket',
+    'How to make more profitable forex trades and lower your trading risks',
+    'How to use digital options to profit from up, down, and even sideways moves',
+    'How to trade like professionals without spending hours each day analysing the world market',
 ]
 
 const topicsCovered = [
@@ -46,7 +46,7 @@ const ForexEbook = () => {
                 introImage={introForexEbook}
                 imageWidth={142}
                 introPara={localize(
-                    'Foreign exchange – forex or the FX market, as it iscommonly known – is one of the biggestmarketplaces in the world, offering endless tradingopportunities. In this 75-page book, experttrader Vince Stanzione will teach you how to spotand take advantage of trading opportunities inthe forex markets, using Deriv’s DTrader and MetaTrader5 platforms.',
+                    'Foreign exchange – forex or the FX market, as it is commonly known – is one of the biggest marketplaces in the world, offering endless trading opportunities. In this 75-page book, expert trader Vince Stanzione will teach you how to spot and take advantage of trading opportunities in the forex markets, using Deriv’s DTrader and MetaTrader5 platforms.',
                 )}
                 introList={introPoints}
             />

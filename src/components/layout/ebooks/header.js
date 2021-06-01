@@ -12,6 +12,10 @@ const MainWrapper = styled(Flex)`
     flex-direction: row;
     width: 100%;
     height: 664px;
+
+    @media ${device.tablet} {
+        height: 100%;
+    }
 `
 const HeaderBody = styled(Flex)`
     width: 100%;
@@ -19,21 +23,32 @@ const HeaderBody = styled(Flex)`
     margin: 0;
     background-image: ${(props) =>
         props.bg ? props.bg : 'linear-gradient(281deg, #0e0e0e, #1b1b1b)'};
-    flex-direction: row;
+
+    @media ${device.tablet} {
+        flex-direction: column;
+        height: 100%;
+    }
 `
 
 const TopHeaderImgWrapper = styled(Flex)`
     justify-content: flex-start;
     margin: 0;
     padding: 0;
+
+    @media ${device.tablet} {
+        order: 2;
+    }
 `
 const DesktopImage = styled.img`
     width: 606px;
     position: relative;
     top: 58px;
     margin: 0;
-    @media ${device.tabletL} {
-        display: none;
+
+    @media ${device.tablet} {
+        height: 390px;
+        margin: 0 auto;
+        width: auto;
     }
 `
 
@@ -48,6 +63,14 @@ const ContentWrapper = styled.div`
     }
     .title {
         margin-bottom: 30px;
+    }
+
+    @media ${device.tablet} {
+        float: none;
+        max-width: 360px;
+        padding: 0;
+        margin: 0 auto;
+        justify-content: center !important;
     }
 `
 

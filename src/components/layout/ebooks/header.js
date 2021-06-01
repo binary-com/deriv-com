@@ -53,10 +53,10 @@ const HeaderImage = styled.img`
     top: 58px;
     margin: 0;
 
-    @media ${device.tablet} {
+    @media screen and (min-width: 767px) and (max-width: 1024px) {
         height: 390px;
         margin: 0 auto;
-        width: auto;
+        width: 100% !important;
     }
 
     @media ${device.mobile} {

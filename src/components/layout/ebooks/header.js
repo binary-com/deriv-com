@@ -28,6 +28,8 @@ const HeaderBody = styled(Flex)`
         flex-direction: column;
         height: auto;
         padding: 40px 15px;
+        background-image: ${(props) =>
+            props.bgMobile ? props.bgMobile : 'linear-gradient(281deg, #1b1b1b, #0e0e0e)'};        
     }
 `
 
@@ -102,10 +104,10 @@ const SignupWrapper = styled.div`
     margin-bottom: 10px;
 `
 
-const HeaderSection = ({ mainHeaderImage, introSub, introMain, bg, ebook_utm_code }) => {
+const HeaderSection = ({ mainHeaderImage, introSub, introMain, bg, bgMobile, ebook_utm_code }) => {
     return (
         <MainWrapper>
-            <HeaderBody bg={bg}>
+            <HeaderBody bg={bg} bgMobile={bgMobile}>
                 <TopHeaderImgWrapper>
                     <HeaderImage src={mainHeaderImage} alt="stocks ebook" />
                 </TopHeaderImgWrapper>
@@ -139,6 +141,7 @@ const HeaderSection = ({ mainHeaderImage, introSub, introMain, bg, ebook_utm_cod
 
 HeaderSection.propTypes = {
     bg: PropTypes.any,
+    bgMobile: PropTypes.any,
     ebook_utm_code: PropTypes.string,
     introMain: PropTypes.any,
     introSub: PropTypes.any,

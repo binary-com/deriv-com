@@ -76,7 +76,7 @@ const pushwooshInit = (push_woosh) => {
             applicationCode: pushwoosh_app_code,
             safariWebsitePushID: 'web.com.deriv',
             defaultNotificationTitle: 'Deriv.com',
-            defaultNotificationImage: 'https://deriv.com/favicons/favicon-192x192.ico',
+            defaultNotificationImage: 'https://deriv.com/favicons/favicon-192x192.png',
             autoSubscribe: true,
         },
     ])

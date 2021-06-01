@@ -116,16 +116,16 @@ module.exports = {
                 background_color: '#0e0e0e',
                 theme_color: '#ff444f',
                 display: 'standalone',
-                icon: './favicons/favicon-512x512.ico',
+                icon: './favicons/favicon-512x512.png',
                 icons: [
                     {
-                        src: `./favicons/favicon-192x192.ico`,
+                        src: `./favicons/favicon-192x192.png`,
                         sizes: `192x192`,
                         type: `image/png`,
                         purpose: 'any maskable',
                     },
                     {
-                        src: `./favicons/favicon-512x512.ico`,
+                        src: `./favicons/favicon-512x512.png`,
                         sizes: `512x512`,
                         type: `image/png`,
                     },

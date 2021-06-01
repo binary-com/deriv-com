@@ -26,7 +26,8 @@ const HeaderBody = styled(Flex)`
 
     @media ${device.tablet} {
         flex-direction: column;
-        height: 100%;
+        height: auto;
+        padding: 40px 15px;
     }
 `
 
@@ -34,12 +35,17 @@ const TopHeaderImgWrapper = styled(Flex)`
     justify-content: flex-start;
     margin: 0;
     padding: 0;
+    position: relative;
 
     @media ${device.tablet} {
         order: 2;
     }
+
+    @media ${device.mobile} {
+        margin-top: -70px;
+    }
 `
-const DesktopImage = styled.img`
+const HeaderImage = styled.img`
     width: 606px;
     position: relative;
     top: 58px;
@@ -49,6 +55,13 @@ const DesktopImage = styled.img`
         height: 390px;
         margin: 0 auto;
         width: auto;
+    }
+
+    @media ${device.mobile} {
+        top: 110px;
+        height: auto;
+        margin: 0 auto;
+        width: 70%;
     }
 `
 
@@ -94,7 +107,7 @@ const HeaderSection = ({ mainHeaderImage, introSub, introMain, bg, ebook_utm_cod
         <MainWrapper>
             <HeaderBody bg={bg}>
                 <TopHeaderImgWrapper>
-                    <DesktopImage src={mainHeaderImage} alt="stocks ebook" />
+                    <HeaderImage src={mainHeaderImage} alt="stocks ebook" />
                 </TopHeaderImgWrapper>
                 <ContentWrapper>
                     <Header type="sub-section-title" className="sub-title">

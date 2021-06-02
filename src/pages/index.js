@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { navigate } from 'gatsby'
 // import Ticker from './home/_ticker'
 import {
     TradeTypesMobile,
@@ -15,6 +16,8 @@ import { SEO, Show } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl, Localize } from 'components/localization'
 import { Appearances } from 'components/custom/signup'
+import { CookieStorage } from 'common/storage'
+import { getLanguage } from 'common/utility'
 import PractiseIcon from 'images/svg/aim.svg'
 import TradeIcon from 'images/svg/trade.svg'
 import WithdrawIcon from 'images/svg/withdraw.svg'
@@ -43,6 +46,22 @@ const simple_step_content = [
     },
 ]
 const Home = () => {
+    useEffect(() => {
+        //only redirect if the lang is en
+        //used timeout because the lang is not captured
+        setTimeout(() => {
+            const lang = getLanguage()
+            const LIVE_CHAT_REDIRECTION = 'live_chat_redirection'
+            const live_chat_redirection = new CookieStorage(LIVE_CHAT_REDIRECTION)
+            const live_chat_redirection_status = live_chat_redirection.get(LIVE_CHAT_REDIRECTION)
+
+            if (live_chat_redirection_status && lang == 'en') {
+                live_chat_redirection.remove(LIVE_CHAT_REDIRECTION)
+                navigate('/?is_livechat_open=true')
+            }
+        }, 1300)
+    }, [])
+
     return (
         <Layout>
             <SEO

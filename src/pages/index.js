@@ -49,7 +49,8 @@ const Home = () => {
     useEffect(() => {
         //only redirect if the lang is en
         //used timeout function because the lang is not captured
-        setTimeout(() => {
+        let script_timeout = null
+        script_timeout = setTimeout(() => {
             const lang = getLanguage()
             const LIVE_CHAT_REDIRECTION = 'live_chat_redirection'
             const live_chat_redirection = new CookieStorage(LIVE_CHAT_REDIRECTION)
@@ -59,7 +60,11 @@ const Home = () => {
                 live_chat_redirection.remove(LIVE_CHAT_REDIRECTION)
                 navigate('/?is_livechat_open=true')
             }
-        }, 2300)
+        }, 2000)
+
+        return () => {
+            clearTimeout(script_timeout)
+        }
     }, [])
 
     return (

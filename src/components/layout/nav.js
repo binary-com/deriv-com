@@ -106,10 +106,6 @@ export const StyledNavMain = styled.nav`
     @media (max-width: 1060px) {
         height: auto;
     }
-
-    a[href='/signup/']{
-        display: ${(props) => (props.hide_sigup_login ? 'none' : 'initial')};
-    }
 `
 
 export const StyledNavPartners = styled.nav`

@@ -135,10 +135,10 @@ const SignupWithContainer = styled.div`
     justify-content: space-around;
     flex-direction: row;
     align-items: center;
-    margin-top: 2.4rem;
+    margin-top: 10px;
 
     @media ${device.tabletL} {
-        margin-top: 4rem;
+        margin-top: 2rem;
     }
 `
 

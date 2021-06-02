@@ -25,7 +25,12 @@ const StocksEbook = () => {
                 description={localize('Trade Forex CFDs on our Deriv platform.')}
                 no_index
             />
-            <HeaderSection mainHeaderImage={stocksEbookImage} ebook_utm_code="stock-ebook" />
+            <HeaderSection
+                mainHeaderImage={stocksEbookImage}
+                imgWidth={557}
+                imgHeight={703}
+                ebook_utm_code="stock-ebook"
+            />
             <Introduction
                 introImage={StocksIntroImage}
                 imageWidth={282}

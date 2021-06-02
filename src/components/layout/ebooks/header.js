@@ -19,11 +19,15 @@ const MainWrapper = styled(Flex)`
 `
 const HeaderBody = styled(Flex)`
     width: 100%;
-    height: 640px;
+    height: 627px;
     margin: 0;
     background-image: ${(props) =>
         props.bg ? props.bg : 'linear-gradient(281deg, #0e0e0e, #1b1b1b)'};
 
+    @media screen and (min-width: 1600px) {
+        max-width: 1600px;
+        height: 720px;
+    }
     @media ${device.tablet} {
         flex-direction: column;
         height: auto;
@@ -48,22 +52,29 @@ const TopHeaderImgWrapper = styled(Flex)`
     }
 `
 const HeaderImage = styled.img`
-    width: 606px;
+    width: ${(props) => (props.width ? `${props.width}px` : '557px')};
+    height: ${(props) => (props.height ? `${props.height}px` : '703px')};
     position: relative;
-    top: 150px;
+    top: 100px;
     margin: 0;
 
-    @media screen and (min-width: 769px) and (max-width: 1024px) {
+    @media ${device.laptop} {
         margin: 0 auto;
-        width: 100% !important;
+        width: 100%;
+        height: 100%;
     }
 
-    @media screen and (max-width: 768px) {
+    @media ${device.tablet} {
         top: 110px;
         height: auto;
         margin: initial;
+        width: 80%;
+        margin-left: ${(props) => (props.width < 600 ? '-50px' : '0')};
+    }
+
+    @media ${device.tabletS} {
         width: 100%;
-        margin-left: -15px;
+        margin-left: ${(props) => (props.width < 600 ? '-70px' : '-20px')};
     }
 
     @media ${device.mobile} {
@@ -84,7 +95,17 @@ const ContentWrapper = styled.div`
         color: white;
     }
     .title {
-        margin-bottom: 30px;
+        margin-bottom: 10px;
+        line-height: 1.2;
+    }
+
+    @media ${device.laptopL} {
+        padding: 45px 0 0 45px;
+        margin-right: 30px;
+    }
+
+    @media ${device.laptop} {
+        padding: 45px 120px 0 45px;
     }
 
     @media ${device.tablet} {
@@ -92,13 +113,14 @@ const ContentWrapper = styled.div`
         max-width: 360px;
         padding: 0;
         margin: 0 auto;
-        justify-content: center !important;
+        justify-content: center;
     }
 `
 
 const AuthorText = styled.p`
     font-style: italic;
-    margin: 16px 0 24px 0;
+    margin: 0;
+    margin-top: 10px;
     font-size: 1.4rem;
     color: white;
     line-height: 16px;
@@ -112,12 +134,26 @@ const SignupWrapper = styled.div`
     margin-bottom: 10px;
 `
 
-const HeaderSection = ({ mainHeaderImage, introSub, introMain, bg, bgMobile, ebook_utm_code }) => {
+const HeaderSection = ({
+    mainHeaderImage,
+    imgWidth,
+    imgHeight,
+    introSub,
+    introMain,
+    bg,
+    bgMobile,
+    ebook_utm_code,
+}) => {
     return (
         <MainWrapper>
             <HeaderBody bg={bg} bgMobile={bgMobile}>
                 <TopHeaderImgWrapper>
-                    <HeaderImage src={mainHeaderImage} alt="stocks ebook" />
+                    <HeaderImage
+                        src={mainHeaderImage}
+                        alt="stocks ebook"
+                        width={imgWidth}
+                        height={imgHeight}
+                    />
                 </TopHeaderImgWrapper>
                 <ContentWrapper>
                     <Header type="sub-section-title" className="sub-title">
@@ -151,6 +187,8 @@ HeaderSection.propTypes = {
     bg: PropTypes.any,
     bgMobile: PropTypes.any,
     ebook_utm_code: PropTypes.string,
+    imgHeight: PropTypes.string,
+    imgWidth: PropTypes.string,
     introMain: PropTypes.any,
     introSub: PropTypes.any,
     mainHeaderImage: PropTypes.any,

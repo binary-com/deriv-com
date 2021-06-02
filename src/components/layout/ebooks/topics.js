@@ -71,6 +71,13 @@ const TopicImgWrapper = styled.div`
     margin-bottom: 20px;
 
     @media ${device.tabletL} {
+        width: 60%;
+        margin-top: -60px;
+    }
+    @media ${device.tablet} {
+        width: 70%;
+    }
+    @media ${device.mobileL} {
         width: 100%;
         margin-top: -60px;
     }

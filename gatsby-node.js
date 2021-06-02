@@ -9,7 +9,7 @@ exports.onCreatePage = ({ page, actions }) => {
     // First delete the incoming page that was automatically created by Gatsby
     // So everything in src/pages/
     deletePage(page)
-    // const is_deriv_x = /derivx/g.test(page.path)
+    const is_deriv_x = /derivx/g.test(page.path)
     const is_responsible_trading = /responsible/g.test(page.path)
     const is_contact_us = /contact_us/g.test(page.path)
     const is_p2p = /responsible/g.test(page.path)

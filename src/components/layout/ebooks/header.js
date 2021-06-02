@@ -76,13 +76,6 @@ const HeaderImage = styled.img`
         width: 100%;
         margin-left: ${(props) => (props.width < 600 ? '-70px' : '-20px')};
     }
-
-    @media ${device.mobile} {
-        top: 110px;
-        height: auto;
-        margin: 0 auto;
-        width: 70%;
-    }
 `
 
 const ContentWrapper = styled.div`

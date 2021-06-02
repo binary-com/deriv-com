@@ -24,6 +24,9 @@ const MediaWapper = styled.div`
         color: #333333;
         margin-bottom: 20px;
     }
+    @media screen and (min-width: 1600px) {
+        margin: 150px auto 0;
+    }
 
     @media ${device.tabletL} {
         margin: 100px auto 0;

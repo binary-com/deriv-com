@@ -61,12 +61,12 @@ const demo = [
             <Localize translate_text="Sign in to your Deriv account. If you don’t have one, sign up for free." />
         ),
         image_data: 'demo_step1',
-        image_alt: 'demo_step1',
+        image_alt: 'Deriv X demo account signup page',
     },
     {
         description: <Localize translate_text="Add a Deriv X demo account." />,
         image_data: 'demo_step2',
-        image_alt: 'demo_step2',
+        image_alt: 'Deriv X demo account',
     },
     {
         description: (
@@ -83,17 +83,17 @@ const real = [
             <Localize translate_text="Sign in to your Deriv account. If you don’t have one, sign up for free." />
         ),
         image_data: 'real_step1',
-        image_alt: 'real_step1',
+        image_alt: 'Deriv X real account signup page',
     },
     {
         description: <Localize translate_text="Add a Deriv real account." />,
         image_data: 'real_step2',
-        image_alt: 'real_step2',
+        image_alt: 'Deriv real account',
     },
     {
         description: <Localize translate_text="Add a Deriv X real account." />,
         image_data: 'real_step3',
-        image_alt: 'real_step3',
+        image_alt: 'Deriv X real account',
     },
     {
         description: (

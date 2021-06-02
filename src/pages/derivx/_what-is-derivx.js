@@ -18,7 +18,7 @@ const WhatIsDeriv = () => {
         <StyledSectionContainer>
             <Container>
                 <Flex width="792px" fd="column" ai="center" jc="center">
-                    <Header type="page-title" align="center">
+                    <Header as="h2" type="page-title" align="center">
                         <Localize translate_text="What is Deriv X" />
                     </Header>
                     <Text size="16px" align="center" mt="12px">

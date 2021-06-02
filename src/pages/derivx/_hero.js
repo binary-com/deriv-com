@@ -33,7 +33,7 @@ const Hero = () => {
             is_mobile={is_mobile}
             background_svg={DerivXBG2}
             background_svg2={DerivXBG}
-            background_alt={<Localize translate_text="DerivX" />}
+            background_alt="Deriv X online trading platform"
             d_height="56.7rem"
             laptopM_height="49.9rem"
             laptop_height="53.8rem"

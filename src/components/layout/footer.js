@@ -412,7 +412,7 @@ const Footer = ({ type, is_ppc, is_ppc_redirect }) => {
                                         </LinkWrapper>
                                         <LinkWrapper first_child="true">
                                             <Link to="/trade-types/margin/">
-                                                {localize('Margin trading')}
+                                                {localize('CFDs')}
                                             </Link>
                                         </LinkWrapper>
                                         <Show.NonEU>

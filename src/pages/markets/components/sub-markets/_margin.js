@@ -5,7 +5,7 @@ import AvailablePlatforms from '../helper/_available-platforms.js'
 import { ContentWrapper, Descriptions, StyledText } from '../../static/style/_markets-style'
 import MarketInstruments from '../sections/_market_instruments.js'
 import { SectionContainer } from 'components/containers'
-import { localize } from 'components/localization'
+import { Localize, localize } from 'components/localization'
 import device from 'themes/device'
 
 const StyledSection = styled(SectionContainer)`
@@ -19,14 +19,20 @@ const Margin = ({ market_content }) => (
         <ContentWrapper>
             <Descriptions>
                 <StyledText align="center" font_size="16px">
+                    <Localize
+                        translate_text="CFD trading allows you to bet on the price movement of the underlying asset without <0/>purchasing it.<0/>"
+                        components={[<br key={0} />]}
+                    />
+                </StyledText>
+                <StyledText align="center" font_size="16px">
                     {localize(
-                        'Margin trading allows you to purchase larger units of an asset at a fraction of the cost while amplifying your potential profit, but similarly increasing your potential loss.',
+                        'On Deriv, trading CFDs with high leverage lets you pay only a small fraction of the contract’s value and amplify your potential profit, similarly increasing your potential loss.',
                     )}
                 </StyledText>
                 <AvailablePlatforms dmt5 />
             </Descriptions>
             <StyledText font_size={'16px'} weight="bold" mt="4rem">
-                {localize('Instruments available for margin trading')}
+                {localize('Instruments available for CFD trading')}
             </StyledText>
             <MarketInstruments market_content={market_content} />
         </ContentWrapper>

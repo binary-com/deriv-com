@@ -59,7 +59,7 @@ const Home = () => {
                 live_chat_redirection.remove(LIVE_CHAT_REDIRECTION)
                 navigate('/?is_livechat_open=true')
             }
-        }, 2000)
+        }, 2300)
     }, [])
 
     return (

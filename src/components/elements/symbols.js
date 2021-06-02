@@ -16,12 +16,12 @@ import BA from 'images/svg/symbols/ba.svg'
 import BABA from 'images/svg/symbols/baba.svg'
 import BAC from 'images/svg/symbols/bac.svg'
 import BAY from 'images/svg/symbols/bay.svg'
-import BCHUSD from 'images/svg/symbols/bch-usd.svg'
+import BCHBIG from 'images/svg/symbols/bch.svg'
 import BIIB from 'images/svg/symbols/biib.svg'
 import BMW from 'images/svg/symbols/bmw.svg'
 import BOOM1000 from 'images/svg/symbols/boom-indices-1000.svg'
 import BOOM500 from 'images/svg/symbols/boom-indices-500.svg'
-import BTCUSD from 'images/svg/symbols/btc-usd.svg'
+import BTCBIG from 'images/svg/symbols/btc.svg'
 import C from 'images/svg/symbols/c.svg'
 import CADCHF from 'images/svg/symbols/cad-chf.svg'
 import CADJPY from 'images/svg/symbols/cad-jpy.svg'
@@ -37,7 +37,7 @@ import DBK from 'images/svg/symbols/dbk.svg'
 import DIS from 'images/svg/symbols/dis.svg'
 import DSHUSD from 'images/svg/symbols/dsh-usd.svg'
 import EBAY from 'images/svg/symbols/ebay.svg'
-import EOSUSD from 'images/svg/symbols/eos-usd.svg'
+import EOSBIG from 'images/svg/symbols/eos-usd.svg'
 import ESP35 from 'images/svg/symbols/esp-35.svg'
 import EUR50 from 'images/svg/symbols/eur-50.svg'
 import EURAUD from 'images/svg/symbols/eur-aud.svg'
@@ -69,7 +69,7 @@ import GBPSGD from 'images/svg/symbols/gbp-sgd.svg'
 import GBPTRY from 'images/svg/symbols/gbp-try.svg'
 import GBPUSD from 'images/svg/symbols/gbp-usd.svg'
 import GM from 'images/svg/symbols/gm.svg'
-import GOLDUSD from 'images/svg/symbols/gold-usd.svg'
+import GOLD from 'images/svg/symbols/gold.svg'
 import GOOGL from 'images/svg/symbols/googl.svg'
 import GS from 'images/svg/symbols/gs.svg'
 import HFVOL10 from 'images/svg/symbols/hf-volatility-10.svg'
@@ -93,7 +93,7 @@ import JNJ from 'images/svg/symbols/jnj.svg'
 import JP225 from 'images/svg/symbols/jp-225.svg'
 import JPM from 'images/svg/symbols/jpm.svg'
 import KO from 'images/svg/symbols/ko.svg'
-import LTCUSD from 'images/svg/symbols/lct-usd.svg'
+import LTCBIG from 'images/svg/symbols/ltc.svg'
 import MA from 'images/svg/symbols/ma.svg'
 import MARKETBEAR from 'images/svg/symbols/marketbear.svg'
 import MARKETBULL from 'images/svg/symbols/marketbull.svg'
@@ -121,15 +121,15 @@ import OTCUK from 'images/svg/symbols/otcuk.svg'
 import OTCUS from 'images/svg/symbols/otcus.svg'
 import OTCUSTECH from 'images/svg/symbols/otcustech.svg'
 import OTCWALLSTREET from 'images/svg/symbols/otcwallstreet.svg'
-import PALLADIUMUSD from 'images/svg/symbols/palladium-usd.svg'
+import PALLADIUM from 'images/svg/symbols/palladium.svg'
 import PFE from 'images/svg/symbols/pfe.svg'
 import PG from 'images/svg/symbols/pg.svg'
-import PLATINUMUSD from 'images/svg/symbols/platinum-usd.svg'
+import PLATINUM from 'images/svg/symbols/platinum.svg'
 import PYPL from 'images/svg/symbols/pypl.svg'
 import RANGEBREAK100 from 'images/svg/symbols/rb-100.svg'
 import RANGEBREAK200 from 'images/svg/symbols/rb-200.svg'
 import SGDJPY from 'images/svg/symbols/sgd-jpy.svg'
-import SILVERUSD from 'images/svg/symbols/silver-usd.svg'
+import SILVER from 'images/svg/symbols/silver.svg'
 import STEPINDICES from 'images/svg/symbols/step-indices.svg'
 import TEVA from 'images/svg/symbols/teva.svg'
 import TSLA from 'images/svg/symbols/tsla.svg'
@@ -156,7 +156,7 @@ import USDTRY from 'images/svg/symbols/usd-try.svg'
 import USDZAR from 'images/svg/symbols/usd-zar.svg'
 import V from 'images/svg/symbols/v.svg'
 import WMT from 'images/svg/symbols/wmt.svg'
-import XRPUSD from 'images/svg/symbols/xrp-usd.svg'
+import XRPBIG from 'images/svg/symbols/xrp.svg'
 import STOCKSUS500 from 'images/svg/symbols/markets-stocks-and-indices/american-indices/us-500.svg'
 import STOCKSUSTECH100 from 'images/svg/symbols/markets-stocks-and-indices/american-indices/us-tech-100.svg'
 import STOCKSWALLSTREET30 from 'images/svg/symbols/markets-stocks-and-indices/american-indices/wall-street-30.svg'
@@ -233,6 +233,36 @@ import XLM from 'images/svg/symbols/stellar_flag.svg'
 import TRX from 'images/svg/symbols/tron_flag.svg'
 import ZEC from 'images/svg/symbols/z_cash_flag.svg'
 import MNR from 'images/svg/symbols/monero_flag.svg'
+import NATURALGAS from 'images/svg/symbols/natural-gas.svg'
+//Jump Indices
+import JUMP10 from 'images/svg/symbols/markets-stocks-and-indices/jump-indices/jump10.svg'
+import JUMP25 from 'images/svg/symbols/markets-stocks-and-indices/jump-indices/jump25.svg'
+import JUMP50 from 'images/svg/symbols/markets-stocks-and-indices/jump-indices/jump50.svg'
+import JUMP75 from 'images/svg/symbols/markets-stocks-and-indices/jump-indices/jump75.svg'
+import JUMP100 from 'images/svg/symbols/markets-stocks-and-indices/jump-indices/jump100.svg'
+//Metals-fiat pairs
+import ALUMINIUMUSD from 'images/svg/symbols/metals-pair/aluminium-usd.svg'
+import COPPERUSD from 'images/svg/symbols/metals-pair/copper-usd.svg'
+import GOLDUSD from 'images/svg/symbols/metals-pair/gold-usd.svg'
+import GOLDEUR from 'images/svg/symbols/metals-pair/gold-eur.svg'
+import LEADUSD from 'images/svg/symbols/metals-pair/lead-usd.svg'
+import NICKELUSD from 'images/svg/symbols/metals-pair/nickel-usd.svg'
+import PALLADIUMUSD from 'images/svg/symbols/metals-pair/palladium-usd.svg'
+import PLATINUMUSD from 'images/svg/symbols/metals-pair/platinum-usd.svg'
+import SILVEREUR from 'images/svg/symbols/metals-pair/silver-eur.svg'
+import SILVERUSD from 'images/svg/symbols/metals-pair/silver-usd.svg'
+import ZINCUSD from 'images/svg/symbols/metals-pair/zinc-usd.svg'
+//Crypto-fiat pairs
+import BCHUSD from 'images/svg/symbols/cryptocurrencies-pair/bch-usd.svg'
+import BNBUSD from 'images/svg/symbols/cryptocurrencies-pair/bnb-usd.svg'
+import BTCUSD from 'images/svg/symbols/cryptocurrencies-pair/btc-usd.svg'
+import DASHUSD from 'images/svg/symbols/cryptocurrencies-pair/dash-usd.svg'
+import EOSUSD from 'images/svg/symbols/cryptocurrencies-pair/eos-usd.svg'
+import ETHUSD from 'images/svg/symbols/cryptocurrencies-pair/eth-usd.svg'
+import LTCUSD from 'images/svg/symbols/cryptocurrencies-pair/ltc-usd.svg'
+import XMRUSD from 'images/svg/symbols/cryptocurrencies-pair/xmr-usd.svg'
+import XRPUSD from 'images/svg/symbols/cryptocurrencies-pair/xrp-usd.svg'
+import ZECUSD from 'images/svg/symbols/cryptocurrencies-pair/zec-usd.svg'
 
 export {
     AAL,
@@ -253,12 +283,12 @@ export {
     BABA,
     BAC,
     BAY,
-    BCHUSD,
+    BCHBIG,
     BIIB,
     BMW,
     BOOM1000,
     BOOM500,
-    BTCUSD,
+    BTCBIG,
     C,
     CADCHF,
     CADJPY,
@@ -274,7 +304,7 @@ export {
     DIS,
     DSHUSD,
     EBAY,
-    EOSUSD,
+    EOSBIG,
     ESP35,
     EUR50,
     EURAUD,
@@ -306,7 +336,7 @@ export {
     GBPTRY,
     GBPUSD,
     GM,
-    GOLDUSD,
+    GOLD,
     GOOGL,
     GS,
     HFVOL10,
@@ -330,7 +360,7 @@ export {
     JP225,
     JPM,
     KO,
-    LTCUSD,
+    LTCBIG,
     MA,
     MARKETBEAR,
     MARKETBULL,
@@ -358,15 +388,15 @@ export {
     OTCUS,
     OTCUSTECH,
     OTCWALLSTREET,
-    PALLADIUMUSD,
+    PALLADIUM,
     PFE,
     PG,
-    PLATINUMUSD,
+    PLATINUM,
     PYPL,
     RANGEBREAK100,
     RANGEBREAK200,
     SGDJPY,
-    SILVERUSD,
+    SILVER,
     STEPINDICES,
     TEVA,
     TSLA,
@@ -393,7 +423,7 @@ export {
     USDZAR,
     V,
     WMT,
-    XRPUSD,
+    XRPBIG,
     STOCKSUS500,
     STOCKSUSTECH100,
     STOCKSWALLSTREET30,
@@ -470,4 +500,31 @@ export {
     TRX,
     ZEC,
     MNR,
+    NATURALGAS,
+    JUMP10,
+    JUMP25,
+    JUMP50,
+    JUMP75,
+    JUMP100,
+    ALUMINIUMUSD,
+    COPPERUSD,
+    GOLDUSD,
+    GOLDEUR,
+    LEADUSD,
+    NICKELUSD,
+    PALLADIUMUSD,
+    PLATINUMUSD,
+    SILVEREUR,
+    SILVERUSD,
+    ZINCUSD,
+    BCHUSD,
+    BNBUSD,
+    BTCUSD,
+    DASHUSD,
+    EOSUSD,
+    ETHUSD,
+    LTCUSD,
+    XMRUSD,
+    XRPUSD,
+    ZECUSD
 }

@@ -188,7 +188,7 @@ export const getCurrency = (symbol) => {
 }
 
 export const getContractSize = (symbol) => {
-    let contractSize = 1 //crypto falls into this contract size
+    let contractSize = 1 //crypto & indices falls into this contract size
     if (symbol.market === 'forex') {
         contractSize = 100000
     }
@@ -210,6 +210,10 @@ export const getContractSize = (symbol) => {
     if (symbol.market === 'smartfx') {
         contractSize = 100
     }
+    if (symbol.market === 'energies') {
+        contractSize = 10000
+    }
+
     return contractSize
 }
 

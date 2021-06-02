@@ -279,19 +279,19 @@ export const major_pairs = [
 
 export const metals = [
     {
-        src: icons.GOLDUSD,
+        src: icons.GOLD,
         text: <Localize translate_text="Gold/USD" />,
     },
     {
-        src: icons.PALLADIUMUSD,
+        src: icons.PALLADIUM,
         text: <Localize translate_text="Palladium/USD" />,
     },
     {
-        src: icons.PLATINUMUSD,
+        src: icons.PLATINUM,
         text: <Localize translate_text="Platinum/USD" />,
     },
     {
-        src: icons.SILVERUSD,
+        src: icons.SILVER,
         text: <Localize translate_text="Silver/USD" />,
     },
 ]
@@ -328,7 +328,7 @@ export const smart_fx = [
 
 export const smart_gold_index = [
     {
-        src: icons.GOLDUSD,
+        src: icons.GOLD,
         text: <Localize translate_text="Smart Gold Index" />,
     },
 ]

@@ -50,7 +50,7 @@ const ImageWrapper = styled.img`
 
 const LineSeparator = styled(Separator)`
     height: 600px;
-    margin: 0 0;
+    margin: auto;
 `
 
 const WhoCanApplyWrapper = styled(Col)`
@@ -128,7 +128,7 @@ const WhoCanApply = () => {
                                             {localize('Log in or sign up')}
                                         </Header>
                                         <Text>
-                                            {localize('Log in if you have an account. Haven’t joined us yet? Go ahead and sign up')}
+                                            {localize('Log in if you have an account. Haven’t joined us yet? Go ahead and sign up.')}
                                         </Text>
                                     </Content>
                                 </HowToApplyContent>

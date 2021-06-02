@@ -48,7 +48,7 @@ const simple_step_content = [
 const Home = () => {
     useEffect(() => {
         //only redirect if the lang is en
-        //used timeout because the lang is not captured
+        //used timeout function because the lang is not captured
         setTimeout(() => {
             const lang = getLanguage()
             const LIVE_CHAT_REDIRECTION = 'live_chat_redirection'

@@ -1,7 +1,7 @@
 import React from 'react'
 import { CopyrightWrapper } from './common/style.js'
 import { Localize } from 'components/localization'
-import CopyrightIc from 'images/svg/copyright-white.svg'
+import CopyrightIc from 'images/svg/copyright.svg'
 import { Text } from 'components/elements'
 const CopyrightSection = () => {
     const current_year = new Date().getFullYear()

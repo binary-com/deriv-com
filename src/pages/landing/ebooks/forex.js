@@ -37,6 +37,8 @@ const ForexEbook = () => {
             />
             <HeaderSection
                 mainHeaderImage={forexEbookImage}
+                imgWidth={601}
+                imgHeight={682}
                 bg="linear-gradient(293deg, #b51a31, #ff4d47);"
                 introSub={localize('Your free guide on')}
                 introMain={localize('How to trade the forex market')}
@@ -45,8 +47,7 @@ const ForexEbook = () => {
             />
             <Introduction
                 introImage={introForexEbook}
-                imgWidth={601}
-                imgHeight={682}
+                imageWidth={142}
                 introPara={localize(
                     'Foreign exchange – forex or the FX market, as it is commonly known – is one of the biggest marketplaces in the world, offering endless trading opportunities. In this 75-page book, expert trader Vince Stanzione will teach you how to spot and take advantage of trading opportunities in the forex markets, using Deriv’s DTrader and MetaTrader5 platforms.',
                 )}

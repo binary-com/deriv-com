@@ -39,7 +39,7 @@ const ForexEbook = () => {
                 mainHeaderImage={forexEbookImage}
                 imgWidth={601}
                 imgHeight={682}
-                bg="linear-gradient(293deg, #b51a31, #ff4d47);"
+                bg="linear-gradient(to left, #661b20 39%, #cc363f);"
                 introSub={localize('Your free guide on')}
                 introMain={localize('How to trade the forex market')}
                 ebook_utm_code="forex-ebook"

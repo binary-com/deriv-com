@@ -63,10 +63,8 @@ const StyledLinkButton = styled(LinkButton)`
             margin-bottom: 16px;
         }
     }
-
-    @media ${device.mobileM} {
-        display: flex;
-        align-items: center;
+    @media ${device.tabletL} {
+        margin: 4rem auto;
     }
 
     :active {

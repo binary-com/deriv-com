@@ -19,7 +19,7 @@ const topicsCovered = [
 
 const StocksEbook = () => {
     return (
-        <Layout is_ppc_redirect={true}>
+        <Layout type="ebook" is_ppc_redirect={true}>
             <SEO
                 title={localize('Stocks Ebook')}
                 description={localize('Trade Forex CFDs on our Deriv platform.')}

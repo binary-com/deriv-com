@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { navigate } from 'gatsby'
 // import Ticker from './home/_ticker'
 import {
@@ -47,6 +47,8 @@ const simple_step_content = [
     },
 ]
 const Home = () => {
+    const [is_mounted, setMounted] = useState(false)
+
     const checkLiveChatRedirection = () => {
         const lang = getLanguage()
         const LIVE_CHAT_REDIRECTION = 'live_chat_redirection'
@@ -58,7 +60,20 @@ const Home = () => {
         }
     }
 
-    window.addEventListener('load', () => checkLiveChatRedirection())
+    useEffect(() => {
+        let script_timeout = null
+        script_timeout = setTimeout(() => {
+            setMounted(true)
+        }, 1500)
+
+        if (is_mounted) {
+            checkLiveChatRedirection()
+        }
+
+        return () => {
+            clearTimeout(script_timeout)
+        }
+    }, [is_mounted])
 
     return (
         <Layout>

@@ -49,6 +49,7 @@ const simple_step_content = [
 const Home = () => {
     const [is_mounted, setMounted] = useState(false)
     let script_timeout = null
+    let function_timeout = null
     const checkLiveChatRedirection = () => {
         /* eslint-disable*/
         console.log('im here')
@@ -58,13 +59,16 @@ const Home = () => {
         const LIVE_CHAT_REDIRECTION = 'live_chat_redirection'
         const live_chat_redirection = new CookieStorage(LIVE_CHAT_REDIRECTION)
         const live_chat_redirection_status = live_chat_redirection.get(LIVE_CHAT_REDIRECTION)
-        if (live_chat_redirection_status && lang == 'en') {
-            /* eslint-disable*/
-            console.log('inside live chat redirection here')
-            /* eslint-enable */
-            live_chat_redirection.remove(LIVE_CHAT_REDIRECTION)
-            navigate(live_chat_redirection_link)
-        }
+
+        function_timeout = setTimeout(() => {
+            if (live_chat_redirection_status && lang == 'en') {
+                /* eslint-disable*/
+                console.log('inside live chat redirection here')
+                /* eslint-enable */
+                live_chat_redirection.remove(LIVE_CHAT_REDIRECTION)
+                navigate(live_chat_redirection_link)
+            }
+        }, 2000)
     }
 
     script_timeout = setTimeout(() => {
@@ -78,6 +82,7 @@ const Home = () => {
 
         return () => {
             clearTimeout(script_timeout)
+            clearTimeout(function_timeout)
         }
     }, [is_mounted])
 

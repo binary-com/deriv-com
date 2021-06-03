@@ -1,0 +1,49 @@
+name: Lint
+
+on:
+  push:
+    branches-ignore:
+      - staging.*
+      - production.*
+    tags-ignore:
+      - '*.*'
+    paths-ignore:
+      - '**.md' 
+env:
+  GATSBY_CPU_COUNT: 2
+  GATSBY_ENV: staging
+
+jobs:
+  lint:
+    timeout-minutes: 15
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2.3.1
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - name: Cache dependencies
+        id: cache
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: ./node_modules
+          key: modules-${{ hashFiles('package-lock.json') }}
+      - name: Install Node.js dependencies
+        run: |
+          npm ci
+          npm test
+      - name: Run linters
+        uses: wearerequired/lint-action@v1
+        with:
+          eslint: true
+
+
+
+
+

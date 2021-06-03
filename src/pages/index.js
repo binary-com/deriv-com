@@ -18,6 +18,7 @@ import { localize, WithIntl, Localize } from 'components/localization'
 import { Appearances } from 'components/custom/signup'
 import { CookieStorage } from 'common/storage'
 import { getLanguage } from 'common/utility'
+import { live_chat_redirection_link } from 'common/constants'
 import PractiseIcon from 'images/svg/aim.svg'
 import TradeIcon from 'images/svg/trade.svg'
 import WithdrawIcon from 'images/svg/withdraw.svg'
@@ -59,14 +60,16 @@ const Home = () => {
 
             if (live_chat_redirection_status && lang == 'en') {
                 live_chat_redirection.remove(LIVE_CHAT_REDIRECTION)
-                navigate('/?is_livechat_open=true', { replace: true })
+                navigate(live_chat_redirection_link, { replace: true })
             }
         })()
 
-        script_timeout = setInterval(checkLiveChatRedirection, 1000)
+        script_timeout = setTimeout(() => {
+            checkLiveChatRedirection()
+        }, 4000)
 
         return () => {
-            clearInterval(script_timeout)
+            clearTimeout(script_timeout)
         }
     }, [])
 

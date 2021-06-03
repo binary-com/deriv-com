@@ -26,7 +26,8 @@ const LanguageSwitch = ({ i18n, is_high_nav, short_name }) => {
             if (client_information.preferred_language) {
                 const lang = client_information.preferred_language.toLowerCase()
                 if (lang !== language) {
-                    handleSelect({ target: { id: `/${lang}/` } })
+                    const replaced_lang = lang.replace('_', '-')
+                    handleSelect({ target: { id: `/${replaced_lang}/` } })
                 }
             }
         }

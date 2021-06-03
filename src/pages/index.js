@@ -63,10 +63,10 @@ const Home = () => {
             }
         })()
 
-        script_timeout = setInterval(checkLiveChatRedirection, 1000)
+        script_timeout = setInterval(checkLiveChatRedirection, 2000)
 
         return () => {
-            clearTimeout(script_timeout)
+            clearInterval(script_timeout)
         }
     }, [])
 

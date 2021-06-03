@@ -192,19 +192,20 @@ const ExternalLink = ({
             href={!show_modal ? url : ''}
             onClick={
                 show_modal
-                    ? () => {
-                          setModalPayload({
-                              to: url,
-                              target,
-                              rel,
-                              ref,
-                              aria_label: aria_label,
-                          })
-                          toggleModal()
-                          if (typeof onClick === 'function') {
-                              onClick()
-                          }
-                      }
+                    ? (e) => {
+                        e.preventDefault()
+                        setModalPayload({
+                            to: url,
+                            target,
+                            rel,
+                            ref,
+                            aria_label: aria_label,
+                        })
+                        toggleModal()
+                        if (typeof onClick === 'function') {
+                            onClick()
+                        }
+                    }
                     : onClick
             }
             disabled={!mounted}

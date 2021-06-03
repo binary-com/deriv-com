@@ -8,32 +8,25 @@ import { localize } from 'components/localization'
 import device from 'themes/device.js'
 
 const MainWrapper = styled(Flex)`
-    background-color: var(--color-white);
-    flex-direction: row;
     width: 100%;
-    height: 664px;
-
-    @media ${device.tablet} {
-        height: 100%;
-    }
-`
-const HeaderBody = styled(Flex)`
-    width: 100%;
-    height: 627px;
-    margin: 0;
     background-image: ${(props) =>
         props.bg ? props.bg : 'linear-gradient(281deg, #0e0e0e, #1b1b1b)'};
 
     @media screen and (min-width: 1600px) {
-        max-width: 1600px;
         height: 720px;
     }
+    @media ${device.tablet} {
+        background-image: ${(props) =>
+            props.bgMobile ? props.bgMobile : 'linear-gradient(281deg, #1b1b1b, #0e0e0e)'};
+    }
+`
+const HeaderBody = styled(Flex)`
+    max-width: 1440px;
+    margin: 0;
     @media ${device.tablet} {
         flex-direction: column;
         height: auto;
         padding: 40px 15px;
-        background-image: ${(props) =>
-            props.bgMobile ? props.bgMobile : 'linear-gradient(281deg, #1b1b1b, #0e0e0e)'};
     }
 `
 
@@ -47,7 +40,11 @@ const TopHeaderImgWrapper = styled(Flex)`
         order: 2;
     }
 
-    @media ${device.mobile} {
+    @media screen and (max-width: 991px) {
+        margin-top: 110px;
+    }
+
+    @media screen and (max-width: 768px) {
         margin-top: -70px;
     }
 `
@@ -55,7 +52,7 @@ const HeaderImage = styled.img`
     width: ${(props) => (props.width ? `${props.width}px` : '557px')};
     height: ${(props) => (props.height ? `${props.height}px` : '703px')};
     position: relative;
-    top: 100px;
+    top: 75px;
     margin: 0;
 
     @media ${device.laptop} {
@@ -69,7 +66,7 @@ const HeaderImage = styled.img`
         height: auto;
         margin: initial;
         width: 80%;
-        margin-left: ${(props) => (props.width < 600 ? '-50px' : '0')};
+        margin-left: ${(props) => (props.width < 600 ? '-50px' : '-15px')};
     }
 
     @media ${device.tabletS} {
@@ -138,8 +135,8 @@ const HeaderSection = ({
     ebook_utm_code,
 }) => {
     return (
-        <MainWrapper>
-            <HeaderBody bg={bg} bgMobile={bgMobile}>
+        <MainWrapper bg={bg} bgMobile={bgMobile}>
+            <HeaderBody>
                 <TopHeaderImgWrapper>
                     <HeaderImage
                         src={mainHeaderImage}

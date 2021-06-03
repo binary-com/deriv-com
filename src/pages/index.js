@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { navigate } from 'gatsby'
 // import Ticker from './home/_ticker'
 import {
@@ -47,31 +47,18 @@ const simple_step_content = [
     },
 ]
 const Home = () => {
-    useEffect(() => {
-        //only redirect if the lang is en
-        //used timeout function because the lang is not captured
-        let script_timeout = null
-
-        const checkLiveChatRedirection = (() => {
-            const lang = getLanguage()
-            const LIVE_CHAT_REDIRECTION = 'live_chat_redirection'
-            const live_chat_redirection = new CookieStorage(LIVE_CHAT_REDIRECTION)
-            const live_chat_redirection_status = live_chat_redirection.get(LIVE_CHAT_REDIRECTION)
-
-            if (live_chat_redirection_status && lang == 'en') {
-                live_chat_redirection.remove(LIVE_CHAT_REDIRECTION)
-                navigate(live_chat_redirection_link, { replace: true })
-            }
-        })()
-
-        script_timeout = setTimeout(() => {
-            checkLiveChatRedirection()
-        }, 4000)
-
-        return () => {
-            clearTimeout(script_timeout)
+    const checkLiveChatRedirection = () => {
+        const lang = getLanguage()
+        const LIVE_CHAT_REDIRECTION = 'live_chat_redirection'
+        const live_chat_redirection = new CookieStorage(LIVE_CHAT_REDIRECTION)
+        const live_chat_redirection_status = live_chat_redirection.get(LIVE_CHAT_REDIRECTION)
+        if (live_chat_redirection_status && lang == 'en') {
+            live_chat_redirection.remove(LIVE_CHAT_REDIRECTION)
+            navigate(live_chat_redirection_link, { replace: true })
         }
-    }, [])
+    }
+
+    window.addEventListener('load', () => checkLiveChatRedirection())
 
     return (
         <Layout>

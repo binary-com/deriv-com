@@ -50,7 +50,8 @@ const Home = () => {
         //only redirect if the lang is en
         //used timeout function because the lang is not captured
         let script_timeout = null
-        script_timeout = setTimeout(() => {
+
+        const checkLiveChatRedirection = (() => {
             const lang = getLanguage()
             const LIVE_CHAT_REDIRECTION = 'live_chat_redirection'
             const live_chat_redirection = new CookieStorage(LIVE_CHAT_REDIRECTION)
@@ -60,7 +61,9 @@ const Home = () => {
                 live_chat_redirection.remove(LIVE_CHAT_REDIRECTION)
                 navigate('/?is_livechat_open=true')
             }
-        }, 2000)
+        })()
+
+        script_timeout = setInterval(checkLiveChatRedirection, 1000)
 
         return () => {
             clearTimeout(script_timeout)

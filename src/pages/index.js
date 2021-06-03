@@ -59,14 +59,17 @@ const Home = () => {
         const live_chat_redirection = new CookieStorage(LIVE_CHAT_REDIRECTION)
         const live_chat_redirection_status = live_chat_redirection.get(LIVE_CHAT_REDIRECTION)
         if (live_chat_redirection_status && lang == 'en') {
+            /* eslint-disable*/
+            console.log('inside live chat redirection here')
+            /* eslint-enable */
             live_chat_redirection.remove(LIVE_CHAT_REDIRECTION)
-            navigate(live_chat_redirection_link, { replace: true })
+            navigate(live_chat_redirection_link)
         }
     }
 
     script_timeout = setTimeout(() => {
         setMounted(true)
-    }, 1000)
+    }, 2000)
 
     useEffect(() => {
         if (is_mounted) {

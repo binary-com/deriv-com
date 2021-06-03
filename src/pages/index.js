@@ -48,8 +48,12 @@ const simple_step_content = [
 ]
 const Home = () => {
     const [is_mounted, setMounted] = useState(false)
-
+    let script_timeout = null
     const checkLiveChatRedirection = () => {
+        /* eslint-disable*/
+        console.log('im here')
+        /* eslint-enable */
+
         const lang = getLanguage()
         const LIVE_CHAT_REDIRECTION = 'live_chat_redirection'
         const live_chat_redirection = new CookieStorage(LIVE_CHAT_REDIRECTION)
@@ -60,12 +64,11 @@ const Home = () => {
         }
     }
 
-    useEffect(() => {
-        let script_timeout = null
-        script_timeout = setTimeout(() => {
-            setMounted(true)
-        }, 1500)
+    script_timeout = setTimeout(() => {
+        setMounted(true)
+    }, 1000)
 
+    useEffect(() => {
         if (is_mounted) {
             checkLiveChatRedirection()
         }

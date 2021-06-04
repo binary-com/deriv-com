@@ -202,3 +202,8 @@ export const isJSONString = (value) => {
 }
 
 export const parseJSONString = (value) => (isJSONString(value) ? JSON.parse(value) : value)
+
+export const getLiveChatStorage = () =>
+    isBrowser() ? localStorage.getItem('live_chat_redirection') : null
+
+export const removeLocalStorage = (prop) => localStorage.removeItem(prop)

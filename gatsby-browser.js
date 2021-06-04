@@ -7,6 +7,7 @@ import { isProduction, isLive, isLocalHost } from './src/common/websocket/config
 import { LocalStore } from './src/common/storage'
 import { MediaContextProvider } from './src/themes/media'
 import { DerivProvider } from './src/store'
+import { checkLiveChatRedirection } from './src/common/live-chat-redirection-checking.js'
 import { getClientInformation, getDomain, getLanguage } from 'common/utility'
 import {
     application_id,
@@ -168,6 +169,8 @@ export const onClientEntry = () => {
             sampleRate: sample_rate,
         })
     }
+
+    checkLiveChatRedirection()
 }
 
 export const onPreRouteUpdate = () => {

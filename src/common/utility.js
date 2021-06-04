@@ -182,3 +182,6 @@ export const nonENLangUrlReplace = (current_path) => {
     const path_with_or_without_slash = /\/.+?(\/)|(\/[a-zA-Z'-]+)/u
     return current_path.replace(path_with_or_without_slash, '')
 }
+
+export const getLiveChatStorage = () =>
+    isBrowser() ? localStorage.getItem('live_chat_redirection') : null

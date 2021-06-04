@@ -111,7 +111,7 @@ const LinksCol = styled(Flex)`
     flex-direction: column;
     width: fit-content;
     min-width: 100px;
-    margin-right: 20px;
+    margin-right: 40px;
 
     :last-child {
         margin-right: 0;

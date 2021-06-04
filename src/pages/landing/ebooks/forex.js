@@ -43,7 +43,7 @@ const ForexEbook = () => {
                 introSub={localize('Your free guide on')}
                 introMain={localize('How to trade the forex market')}
                 ebook_utm_code="forex-ebook"
-                bgMobile="linear-gradient(293deg, #ff4d47, #b51a31);"
+                bgMobile="linear-gradient(0deg, #cc363f, #661b20);"
             />
             <Introduction
                 introImage={introForexEbook}

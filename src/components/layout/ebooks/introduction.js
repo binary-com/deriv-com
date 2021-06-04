@@ -19,7 +19,7 @@ const MediaWapper = styled.div`
     display: flex;
     align-items: flex-start;
     max-width: 1200px;
-    margin: 0 auto 0;
+    margin: 0 auto;
     padding: 120px 50px;
 
     img.intro-forex {
@@ -33,9 +33,6 @@ const MediaWapper = styled.div`
         line-height: 1.25;
         color: #333333;
         margin-bottom: 20px;
-    }
-    @media screen and (min-width: 1600px) {
-        margin: 150px auto 0;
     }
 
     @media ${device.tabletL} {

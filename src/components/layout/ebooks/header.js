@@ -87,6 +87,7 @@ const ContentWrapper = styled.div`
     .title {
         margin-bottom: 10px;
         line-height: 1.2;
+        max-width: 400px;
     }
 
     @media ${device.laptopL} {
@@ -114,6 +115,7 @@ const AuthorText = styled.p`
     font-size: 1.4rem;
     color: white;
     line-height: 16px;
+    max-width: 586px;
 `
 
 const AuthorNameText = styled.span`
@@ -146,7 +148,7 @@ const HeaderSection = ({
                     />
                 </TopHeaderImgWrapper>
                 <ContentWrapper>
-                    <Header type="sub-section-title" className="sub-title">
+                    <Header type="sub-section-title" className="sub-title" weight="500">
                         {introSub || ''}
                     </Header>
                     <Header type="page-title" className="title">

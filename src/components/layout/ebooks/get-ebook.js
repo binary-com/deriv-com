@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-// import { graphql, StaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import Cookies from 'js-cookie'
 import Login from 'common/login'
@@ -8,9 +7,9 @@ import { getCookiesObject, getCookiesFields, getDataObjFromCookies } from 'commo
 import validation from 'common/validation'
 import { BinarySocketBase } from 'common/websocket/socket_base'
 import { Input, Button } from 'components/form'
-import { Header, Text } from 'components/elements' //QueryImage, LinkText
+import { Header, Text } from 'components/elements'
 import { Localize, localize } from 'components/localization'
-import { Flex } from 'components/containers' //Show
+import { Flex } from 'components/containers'
 import AgreementLabel from 'components/custom/_agreement-label'
 import device from 'themes/device.js'
 import Apple from 'images/svg/apple.svg'
@@ -84,6 +83,7 @@ const SocialButton = styled(Button)`
     border: solid 1px var(--color-grey-7);
     min-height: 4rem;
     height: 40px;
+    font-weight: normal;
 
     /* margin-left: 0.8rem; */
 
@@ -308,13 +308,11 @@ const GetEbook = ({ onSubmit, ebook_utm_code }) => {
                             value={email}
                             background="white"
                             tabletBackground="green-1"
-                            inputColor="grey-5"
                             inputBackground="grey-8"
                             labelFocusColor="grey-7"
                             labelColor="black-3"
                             labelSize="16px"
                             labelTop="1.2rem"
-                            label={localize('Email')}
                             placeholder={'email address'}
                             handleError={clearEmail}
                             onChange={handleInputChange}

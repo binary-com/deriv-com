@@ -11,7 +11,7 @@ const MainWrapper = styled(Flex)`
     background-color: var(--color-white);
     flex-direction: row;
     width: 100%;
-    height: 664px;
+    height: 80%;
 
     @media ${device.tablet} {
         height: 100%;
@@ -19,7 +19,7 @@ const MainWrapper = styled(Flex)`
 `
 const HeaderBody = styled(Flex)`
     width: 100%;
-    height: 627px;
+    height: 80%;
     margin: 0;
     background-image: ${(props) =>
         props.bg ? props.bg : 'linear-gradient(281deg, #0e0e0e, #1b1b1b)'};

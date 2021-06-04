@@ -31,7 +31,7 @@ const Wrapper = styled.div`
     align-items: center;
     justify-content: space-between;
     max-width: 1200px;
-    margin: 100px auto 0;
+    margin: 0 auto;
     padding: 0 50px;
 
     @media ${device.tabletL} {

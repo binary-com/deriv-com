@@ -58,9 +58,10 @@ const Home = () => {
     const checkLiveChatRedirection = () => {
         /* eslint-disable*/
         console.log('im here')
+        console.log('lang - ', lang)
         /* eslint-enable */
         function_timeout = setTimeout(() => {
-            if (live_chat_redirection_status && (lang == 'en' || lang == null)) {
+            if (live_chat_redirection_status && (lang == 'en' || !lang)) {
                 /* eslint-disable*/
                 console.log('inside live chat redirection here')
                 /* eslint-enable */

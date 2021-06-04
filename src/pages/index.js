@@ -47,12 +47,10 @@ const simple_step_content = [
 ]
 const Home = () => {
     /* redirect livechat for en to open live chat popup */
+    let script_timeout = null
+    const live_chat_key = 'live_chat_redirection'
     const [is_mounted, setMounted] = useState(false)
     const lang = getLanguage()
-    const live_chat_key = 'live_chat_redirection'
-    let script_timeout = null
-    let function_timeout = null
-
     const live_chat_enable = getLiveChatStorage()
 
     const checkLiveChatRedirection = () => {
@@ -79,7 +77,6 @@ const Home = () => {
 
         return () => {
             clearTimeout(script_timeout)
-            clearTimeout(function_timeout)
         }
     }, [is_mounted])
 

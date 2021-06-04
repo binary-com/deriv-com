@@ -28,7 +28,7 @@
 
 Before running or contribute to this project, you need to have the following packages setup in your environment
 
--   nodenpm
+-   node
 -   npm
 -   git (for `contribution`)
 -   gatsby-cli (npm install -g gatsby-cli)

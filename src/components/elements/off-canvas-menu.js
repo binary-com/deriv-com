@@ -23,7 +23,7 @@ import DTrader from 'images/svg/dtrader-icon.svg'
 import Forex from 'images/svg/forex-nav.svg'
 import Help from 'images/svg/menu/help-center.svg'
 import Leadership from 'images/svg/menu/leadership.svg'
-import MarginTrading from 'images/svg/margin-trading-nav.svg'
+import CFDs from 'images/svg/margin-trading-nav.svg'
 import Multipliers from 'images/svg/multipliers-nav.svg'
 import Options from 'images/svg/options-nav.svg'
 import Partner from 'images/svg/menu/partner.svg'
@@ -215,11 +215,11 @@ export const OffCanvasMenuWrapper = (props) => {
                                 </Text>
                                 <Flex mb="2rem">
                                     <NavCard
-                                        aria_label="Margin trading"
+                                        aria_label="CFDs"
                                         icon={() => (
                                             <img
-                                                src={MarginTrading}
-                                                alt="MarginTrading"
+                                                src={CFDs}
+                                                alt="CFDs"
                                                 width="32"
                                                 height="32"
                                             />
@@ -227,9 +227,9 @@ export const OffCanvasMenuWrapper = (props) => {
                                         content={
                                             <Localize translate_text="Trade with leverage and low spreads for better returns on successful trades." />
                                         }
-                                        title={<Localize translate_text="Margin trading" />}
+                                        title={<Localize translate_text="CFDs" />}
                                         onClick={handleArrowClick}
-                                        to="/trade-types/margin/"
+                                        to="/trade-types/cfds/"
                                     />
                                 </Flex>
                                 {!is_eu_country && (
@@ -265,7 +265,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                             />
                                         )}
                                         content={
-                                            <Localize translate_text="Combine the upside of margin trading with the simplicity of options." />
+                                            <Localize translate_text="Combine the upside of CFDs trading with the simplicity of options." />
                                         }
                                         title={<Localize translate_text="Multipliers" />}
                                         onClick={handleArrowClick}

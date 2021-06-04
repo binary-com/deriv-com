@@ -411,7 +411,7 @@ const Footer = ({ type, is_ppc, is_ppc_redirect }) => {
                                             <Title>{localize('TRADE TYPES')}</Title>
                                         </LinkWrapper>
                                         <LinkWrapper first_child="true">
-                                            <Link to="/trade-types/margin/">
+                                            <Link to="/trade-types/cfds/">
                                                 {localize('CFDs')}
                                             </Link>
                                         </LinkWrapper>

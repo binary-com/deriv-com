@@ -8,7 +8,6 @@ export const HeroContainer = styled.div`
     grid-column-gap: 13%;
     background-color: var(--color-black);
     justify-content: center;
-
     @media ${device.laptop} {
         grid-template-columns: auto;
     }
@@ -22,6 +21,9 @@ export const HeaderContainer = styled(Container)`
     @media ${device.laptop} {
         padding: 40px 0 0;
     }
+    @media ${device.tablet} {
+        padding: 5px 0 0;
+    }
 `
 
 export const ImageWrapper = styled.img`
@@ -34,6 +36,6 @@ export const ImageWrapper = styled.img`
         max-width: 328px;
         margin-right: 15px;
         overflow: unset;
-        top: 40px;
+        top: 15px;
     }
 `

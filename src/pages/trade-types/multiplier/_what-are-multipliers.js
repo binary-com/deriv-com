@@ -113,7 +113,7 @@ const query = graphql`
             ...fadeIn
         }
         multiplier_no_multi_loss: file(
-            relativePath: { eq: "multiplier/multipliers-no-multiplier-loss@3x.png" }
+            relativePath: { eq: "multiplier/multipliers-no-multiplier-loss@2x.png" }
         ) {
             ...fadeIn
         }
@@ -131,6 +131,7 @@ const query = graphql`
             relativePath: { eq: "multiplier/multipliers-with-multiplier-win@3x.png" }
         ) {
             ...fadeIn
+            
         }
     }
 `

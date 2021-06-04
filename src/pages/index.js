@@ -16,7 +16,7 @@ import { SEO, Show } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl, Localize } from 'components/localization'
 import { Appearances } from 'components/custom/signup'
-import { getLanguage, getLiveChatStorage } from 'common/utility'
+import { getLanguage, getLiveChatStorage, removeLocalStorage } from 'common/utility'
 import { live_chat_redirection_link } from 'common/constants'
 import PractiseIcon from 'images/svg/aim.svg'
 import TradeIcon from 'images/svg/trade.svg'
@@ -46,6 +46,7 @@ const simple_step_content = [
     },
 ]
 const Home = () => {
+    /* redirect livechat for en to open live chat popup */
     const [is_mounted, setMounted] = useState(false)
     const lang = getLanguage()
     const live_chat_key = 'live_chat_redirection'
@@ -55,35 +56,16 @@ const Home = () => {
     const live_chat_enable = getLiveChatStorage()
 
     const checkLiveChatRedirection = () => {
-        /* eslint-disable*/
-        console.log('im here')
-        console.log('lang - ', lang)
-        console.log('live_chat_enable - ', live_chat_enable)
-        /* eslint-enable */
-
         if (lang == 'en') {
             if (live_chat_enable) {
-                /* eslint-disable*/
-                console.log('inside live chat redirection here')
-                /* eslint-enable */
-                localStorage.removeItem(live_chat_key)
+                removeLocalStorage(live_chat_key)
                 navigate(live_chat_redirection_link, { replace: true })
             } else {
-                localStorage.removeItem(live_chat_key)
+                removeLocalStorage(live_chat_key)
             }
         } else {
-            localStorage.removeItem(live_chat_key)
+            removeLocalStorage(live_chat_key)
         }
-
-        function_timeout = setTimeout(() => {
-            if (live_chat_enable && lang == 'en') {
-                /* eslint-disable*/
-                console.log('inside live chat redirection here')
-                /* eslint-enable */
-                localStorage.removeItem('live_chat_redirection')
-                navigate(live_chat_redirection_link, { replace: true })
-            }
-        }, 2000)
     }
 
     script_timeout = setTimeout(() => {

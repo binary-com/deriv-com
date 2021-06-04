@@ -185,3 +185,5 @@ export const nonENLangUrlReplace = (current_path) => {
 
 export const getLiveChatStorage = () =>
     isBrowser() ? localStorage.getItem('live_chat_redirection') : null
+
+export const removeLocalStorage = (prop) => localStorage.removeItem(prop)

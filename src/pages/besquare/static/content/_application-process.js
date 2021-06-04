@@ -7,7 +7,7 @@ export default {
     content: [
         {
             src: List01,
-            alt: 'List item 1',
+            alt: 'List item 123',
             text: 'Complete the online application form.',
         },
         {

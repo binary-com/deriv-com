@@ -160,7 +160,9 @@ export const DerivXCard = ({ is_selected, word_break_cover }) => (
     <StyledLink ariaLabel="Deriv X" to="/derivx/">
         <Card
             Icon={() => <StyledDerivX src={DerivX} alt="Deriv X" width="72" height="72" />}
-            content={[localize('CFD trading on a customisable multi-asset platform.')]}
+            content={[
+                localize('Trade FX and CFDs on a customisable, easy-to-use trading platform.'),
+            ]}
             is_inline_icon
             min_height="12.4rem"
             is_selected={is_selected}

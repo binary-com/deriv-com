@@ -236,7 +236,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                         <img src={DerivX} alt="Derivx" width="32" height="32" />
                                     )}
                                     content={
-                                        <Localize translate_text="CFD trading on a customisable multi-asset platform." />
+                                        <Localize translate_text="Trade FX and CFDs on a customisable, easy-to-use trading platform." />
                                     }
                                     title={<Localize translate_text="Deriv X" />}
                                     onClick={handleArrowClick}

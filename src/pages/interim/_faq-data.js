@@ -20,7 +20,7 @@ const NeedSignUp = () => (
                         target="_blank"
                         rel="noopener noreferrer"
                         weight="bold"
-                        is_binary_link
+                        type="binary"
                     />,
                     <LocalizedLinkText key={1} to="/" weight="bold" />,
                 ]}
@@ -41,7 +41,7 @@ const BinaryRemoved = () => (
                         target="_blank"
                         rel="noopener noreferrer"
                         weight="bold"
-                        is_binary_link
+                        type="binary"
                     />,
                     <LocalizedLinkText key={1} to="/" weight="bold" />,
                 ]}
@@ -63,7 +63,7 @@ const DerivSecure = () => (
                         target="_blank"
                         rel="noopener noreferrer"
                         weight="bold"
-                        is_binary_link
+                        type="binary"
                     />,
                     <LocalizedLinkText key={1} to="/" weight="bold" />,
                 ]}
@@ -86,7 +86,7 @@ const OtherChanges = () => (
                         target="_blank"
                         rel="noopener noreferrer"
                         weight="bold"
-                        is_binary_link
+                        type="binary"
                     />,
                 ]}
             />

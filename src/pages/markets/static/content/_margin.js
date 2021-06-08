@@ -2,6 +2,7 @@ import React from 'react'
 import Symbol from '../../components/helper/_symbol'
 import {
     CrashBoom,
+    CryptocurrenciesMargin,
     Energy,
     ExoticPairs,
     MajorPairs,
@@ -151,6 +152,20 @@ export const stock_margin = {
             gap: '0',
             gap_mobile: '0',
             mobile_template: true,
+        },
+    ],
+}
+
+export const crypto_margin = {
+    markets_list: {
+        col: 4,
+        tablet_col: 3,
+        mobile_col: 1,
+    },
+    content: [
+        {
+            title: <Localize translate_text="Cryptocurrencies" />,
+            component: <CryptocurrenciesMargin />,
         },
     ],
 }

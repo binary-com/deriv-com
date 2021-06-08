@@ -280,6 +280,7 @@ const SignupButton = styled(Button)`
 const LinkSignupButton = styled(LinkButton)`
     opacity: 0;
     margin-left: 1.6rem;
+    margin-right: 10px;
 `
 
 const HamburgerMenu = styled.img`
@@ -441,7 +442,7 @@ const NavMobile = ({ is_ppc, is_ppc_redirect, is_logged_in }) => {
     )
 }
 
-const NavDesktop = ({ base, is_ppc, is_ppc_redirect, is_logged_in }) => {
+const NavDesktop = ({ base, is_ppc, is_ppc_redirect, is_logged_in, hide_sigup_login }) => {
     const data = useStaticQuery(query)
     const button_ref = useRef(null)
     const navigation_bar_ref = useRef(null)
@@ -557,13 +558,17 @@ const NavDesktop = ({ base, is_ppc, is_ppc_redirect, is_logged_in }) => {
                         has_scrolled={has_scrolled}
                     >
                         <LanguageSwitcherNavDesktop />
-                        <NowrapButton onClick={handleLogin} primary>
-                            <span>{localize('Log in')}</span>
-                        </NowrapButton>
+                        {!hide_sigup_login && (
+                            <NowrapButton onClick={handleLogin} primary>
+                                <span>{localize('Log in')}</span>
+                            </NowrapButton>
+                        )}
                         <LocalizedLink to={is_ppc_redirect ? '/landing/signup/' : '/signup/'}>
-                            <SignupButton ref={button_ref} secondary="true">
-                                <span>{localize('Create free demo account')}</span>
-                            </SignupButton>
+                            {!hide_sigup_login && (
+                                <SignupButton ref={button_ref} secondary="true">
+                                    <span>{localize('Create free demo account')}</span>
+                                </SignupButton>
+                            )}
                         </LocalizedLink>
                     </NavRight>
                 )}
@@ -572,7 +577,7 @@ const NavDesktop = ({ base, is_ppc, is_ppc_redirect, is_logged_in }) => {
     )
 }
 
-export const Nav = ({ base, is_ppc_redirect, is_ppc }) => {
+export const Nav = ({ base, is_ppc_redirect, is_ppc, hide_sigup_login }) => {
     const [is_logged_in, setLoggedIn] = useState(false)
 
     useEffect(() => {
@@ -585,33 +590,38 @@ export const Nav = ({ base, is_ppc_redirect, is_ppc }) => {
     }, [])
 
     return (
-        <NavWrapperMain>
+        <>
+            <NavWrapperMain>
+                <StyledNavMain>
+                    <Show.Desktop max_width="bp1060">
+                        <NavDesktop
+                            base={base}
+                            is_ppc={is_ppc}
+                            is_ppc_redirect={is_ppc_redirect}
+                            is_logged_in={is_logged_in}
+                            hide_sigup_login={hide_sigup_login}
+                        />
+                    </Show.Desktop>
+                    <Show.Mobile min_width="bp1060">
+                        <NavMobile is_ppc={is_ppc} is_logged_in={is_logged_in} />
+                    </Show.Mobile>
+                </StyledNavMain>
+            </NavWrapperMain>
             <CFDWarning />
-            <StyledNavMain>
-                <Show.Desktop max_width="bp1060">
-                    <NavDesktop
-                        base={base}
-                        is_ppc={is_ppc}
-                        is_ppc_redirect={is_ppc_redirect}
-                        is_logged_in={is_logged_in}
-                    />
-                </Show.Desktop>
-                <Show.Mobile min_width="bp1060">
-                    <NavMobile is_ppc={is_ppc} is_logged_in={is_logged_in} />
-                </Show.Mobile>
-            </StyledNavMain>
-        </NavWrapperMain>
+        </>
     )
 }
 
 Nav.propTypes = {
     base: PropTypes.string,
+    hide_sigup_login: PropTypes.bool,
     is_ppc: PropTypes.bool,
     is_ppc_redirect: PropTypes.bool,
 }
 
 NavDesktop.propTypes = {
     base: PropTypes.string,
+    hide_sigup_login: PropTypes.bool,
     is_logged_in: PropTypes.bool,
     is_ppc: PropTypes.bool,
     is_ppc_redirect: PropTypes.bool,
@@ -656,7 +666,6 @@ const NavInterimContainer = styled.div`
 
 export const NavInterim = ({ interim_type }) => (
     <InterimNav>
-        <CFDWarning />
         <NavInterimContainer>
             <Container jc="space-between" p="2.4rem 0">
                 <Flex ai="center" jc="flex-start">
@@ -701,12 +710,12 @@ export const NavInterim = ({ interim_type }) => (
                 </Auto>
             </Container>
         </NavInterimContainer>
+        <CFDWarning />
     </InterimNav>
 )
 
 export const NavStatic = ({ is_ppc }) => (
     <>
-        <CFDWarning is_ppc={is_ppc} />
         <StaticWrapper>
             <LogoLink mw="31rem" to="/" aria-label={localize('Home')}>
                 <Flex ai="center">
@@ -721,6 +730,7 @@ export const NavStatic = ({ is_ppc }) => (
                 </Flex>
             </LogoLink>
         </StaticWrapper>
+        <CFDWarning is_ppc={is_ppc} />
     </>
 )
 
@@ -772,7 +782,7 @@ const StyledNavRight = styled(NavRight)`
                     const calculation = props.button_ref.current.offsetWidth + 50
                     return `${calculation}px`
                 }
-                return '300px'
+                return '225px'
             }
         }}
     );
@@ -784,6 +794,7 @@ const StyledNavRight = styled(NavRight)`
     > a:last-child {
         pointer-events: ${(props) => (props.move ? 'visible' : 'none')};
         cursor: ${(props) => (props.move ? 'pointer' : 'default')};
+        opacity: ${(props) => (props.move ? 1 : 0)};
     }
 `
 
@@ -876,7 +887,6 @@ export const NavPartners = ({ no_login_signup }) => {
     return (
         <>
             <NavWrapperPartners ref={nav_ref}>
-                <CFDWarning />
                 <DerivHomeWrapper>
                     <HomeContainer justify="space-between">
                         <StyledContainer justify="flex-start">
@@ -936,7 +946,7 @@ export const NavPartners = ({ no_login_signup }) => {
                                     active={current_page === 'developers'}
                                     activeClassName="active"
                                     to=""
-                                    is_deriv_developer_link
+                                    type="developers"
                                     target="_blank"
                                     external="true"
                                     rel="noopener noreferrer"
@@ -956,7 +966,7 @@ export const NavPartners = ({ no_login_signup }) => {
                                 <LinkButton
                                     to={affiliate_signin_url}
                                     external="true"
-                                    is_affiliate_sign_in_link
+                                    type="affiliate_sign_in"
                                     target="_blank"
                                     primary
                                     style={{ width: '16rem' }}
@@ -966,7 +976,7 @@ export const NavPartners = ({ no_login_signup }) => {
                                 <LinkSignupButton
                                     to={affiliate_signup_url}
                                     external="true"
-                                    is_affiliate_link
+                                    type="affiliate_sign_up"
                                     target="_blank"
                                     ref={button_ref}
                                     secondary="true"
@@ -1004,8 +1014,8 @@ export const NavPartners = ({ no_login_signup }) => {
                                 {!no_login_signup && (
                                     <LinkMobileLogin
                                         to={affiliate_signin_url}
+                                        type="affiliate_sign_in"
                                         external="true"
-                                        is_affiliate_link
                                         target="_blank"
                                         primary
                                     >
@@ -1026,6 +1036,7 @@ export const NavPartners = ({ no_login_signup }) => {
                     </StyledNavWrapper>
                 </StyledNavPartners>
             </NavWrapperPartners>
+            <CFDWarning />
         </>
     )
 }

@@ -8,6 +8,7 @@ import { localize, Localize, LocalizedLink } from 'components/localization'
 //TODO: using temp svg as a function for having dynamic id
 import Arrow from 'images/svg/arrow-right.svg'
 import Commodities from 'images/svg/markets/commodities.svg'
+import Cryptocurrencies from 'images/svg/markets/cryptocurrencies.svg'
 import Forex from 'images/svg/markets/forex.svg'
 import StockIndices from 'images/svg/markets/stock.svg'
 import SyntheticIndices from 'images/svg/markets/synthetic.svg'
@@ -21,7 +22,7 @@ const markets_type = {
         content: (
             <Localize translate_text="Forex trading gives you the chance to profit from changes in the relative values of currencies on the forex market." />
         ),
-        to: '/markets#forex',
+        to: '/markets/forex/',
         id: 'marketforexothermarkets',
     },
     Synthetic_Indices: {
@@ -29,9 +30,9 @@ const markets_type = {
         icon: () => <img src={SyntheticIndices} alt="synthetic" width="64" height="64" />,
         title: <Localize translate_text="Synthetic indices" />,
         content: (
-            <Localize translate_text="Synthetic indices are our proprietary indices that simulate real-world market movements while being free of market and liquidity risks." />
+            <Localize translate_text="Synthetic indices trading lets you benefit from correctly predicting the price movements of our proprietary indices that simulate real-world market movements." />
         ),
-        to: '/markets#synthetic',
+        to: '/markets/synthetic/',
         id: 'marketsyntheticothermarkets',
     },
     stock_indices: {
@@ -41,7 +42,7 @@ const markets_type = {
         content: (
             <Localize translate_text="Stocks & indices trading allows you to profit from the price movements in a market without buying the underlying assets." />
         ),
-        to: '/markets#stock',
+        to: '/markets/stock/',
         id: 'marketstockothermarkets',
     },
 
@@ -52,8 +53,19 @@ const markets_type = {
         content: (
             <Localize translate_text="Commodities trading on Deriv lets you profit from correctly predicting the market movement on precious metals and crude oil." />
         ),
-        to: '/markets#commodities',
+        to: '/markets/commodities/',
         id: 'marketcommoditiesothermarket',
+    },
+
+    cryptocurrencies: {
+        // eslint-disable-next-line react/display-name
+        icon: () => <img src={Cryptocurrencies} alt="cryptocurrencies" width="64" height="64" />,
+        title: <Localize translate_text="Cryptocurrencies" />,
+        content: (
+            <Localize translate_text="Crypto trading gives you an opportunity to benefit from correctly predicting the price movements of cryptocurrencies without buying them." />
+        ),
+        to: '/markets/cryptocurrencies/',
+        id: 'marketcryptocurrenciesothermarket',
     },
 }
 const LearnMore = styled(LocalizedLink)`
@@ -106,16 +118,6 @@ const MobileCardWrapper = styled(Flex)`
             width: 16px;
             height: 16px;
         }
-    }
-`
-const Section = styled(SectionContainer)`
-    padding: 8rem 0 12rem 12rem;
-
-    @media ${device.laptopM} {
-        padding: 8rem 0 8.8rem 0;
-    }
-    @media ${device.tabletL} {
-        padding: 5rem 0;
     }
 `
 const StyledFlex = styled(Flex)`
@@ -183,17 +185,13 @@ const MobileCard = ({ name }) => {
     )
 }
 const MarketsWrapper = styled(Flex)`
-    @media ${device.laptopM} {
-        flex-direction: column;
-        margin: auto;
-    }
+    flex-direction: column;
+    margin: auto;
+    max-width: 120rem;
 `
 const Wrapper = styled(Box)`
-    position: relative;
-    max-width: 103rem;
     width: 100%;
     height: 19.2rem;
-    background: rgba(133, 172, 176, 0.24);
     border-radius: 16px;
 `
 const CardWrapper = styled(Flex)`
@@ -201,18 +199,16 @@ const CardWrapper = styled(Flex)`
     top: 4rem;
 `
 const StyledHeader = styled(Header)`
-    max-width: 25.8rem;
-    margin-right: 1rem;
+    margin-left: 2rem;
 
     @media ${device.laptopM} {
+        margin: auto;
         text-align: center;
-        max-width: unset;
-    }
-    @media ${device.tabletL} {
-        max-width: 32rem;
-        margin: 0 auto;
-        font-size: 24px;
         margin-bottom: 2rem;
+    }
+
+    @media ${device.laptop} {
+        max-width: 300px;
     }
 `
 const MobileCardContainer = styled(Flex)`
@@ -221,21 +217,27 @@ const MobileCardContainer = styled(Flex)`
     }
 `
 const OtherMarkets = ({ except }) => {
-    const markets = ['forex', 'Synthetic_Indices', 'stock_indices', 'commodities']
+    const markets = [
+        'forex',
+        'Synthetic_Indices',
+        'stock_indices',
+        'commodities',
+        'cryptocurrencies',
+    ]
     return (
-        <Section>
-            <Show.Desktop>
+        <SectionContainer margin="auto" background="white">
+            <Show.Desktop max_width="laptopM">
                 <MarketsWrapper tablet_jc="center">
                     <StyledHeader as="h3" type="section-title" align="left">
                         {localize('Other markets you might be interested in')}
                     </StyledHeader>
-                    <Box position="relative" width="100%" max_width="103rem" height="32rem">
+                    <Box position="relative" width="100%" max_width="120rem" height="32rem">
                         <Wrapper>
                             <CardWrapper
-                                max_width="93rem"
+                                max_width="120rem"
                                 jc="space-around"
                                 position="absolute"
-                                height="fit-content"
+                                max_height="320rem"
                             >
                                 {markets.map((market) =>
                                     market !== except ? <Card name={market} key={market} /> : null,
@@ -245,7 +247,7 @@ const OtherMarkets = ({ except }) => {
                     </Box>
                 </MarketsWrapper>
             </Show.Desktop>
-            <Show.Mobile>
+            <Show.Mobile min_width="laptopM">
                 <StyledHeader as="h3" type="section-title" align="left">
                     {localize('Other markets you might be interested in')}
                 </StyledHeader>
@@ -255,7 +257,7 @@ const OtherMarkets = ({ except }) => {
                     )}
                 </MobileCardContainer>
             </Show.Mobile>
-        </Section>
+        </SectionContainer>
     )
 }
 OtherMarkets.propTypes = {

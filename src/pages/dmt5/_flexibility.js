@@ -147,8 +147,7 @@ const Flexibility = () => {
             <StyledLinkButton
                 external="true"
                 secondary="true"
-                to="/mt5"
-                is_deriv_app_link
+                type="mt5"
                 target="_blank"
                 rel="noopener noreferrer"
             >

@@ -14,3 +14,8 @@ export const splitArticles = (array, length) =>
         result[Math.floor(index / length)].push(item)
         return result
     }, [])
+
+export const euArticles = (array) => {
+    const second_array = [...array[1], array[2][0]]
+    return [array[0], second_array, [array[2][1]]]
+}

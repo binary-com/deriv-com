@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { matchSorter } from 'match-sorter'
 import styled, { css } from 'styled-components'
 import { Helmet } from 'react-helmet'
@@ -6,13 +7,14 @@ import Loadable from '@loadable/component'
 import { articles } from './_help-articles'
 import { SearchSuccess, SearchError } from './_search-results'
 // TODO: active this line after having mail service
-import { convertToHash, getAllArticles, splitArticles } from './_utility'
+import { convertToHash, euArticles, getAllArticles, splitArticles } from './_utility'
 import { faq_schema } from './_faq-schema'
 import { SEO, Show, Container } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import Layout from 'components/layout/layout'
 import { localize, LocalizedLink, WithIntl, Localize } from 'components/localization'
 import { getLocationHash, sanitize } from 'common/utility'
+import { DerivStore } from 'store'
 import device from 'themes/device'
 // Icons
 import SearchIcon from 'images/svg/search.svg'
@@ -192,6 +194,7 @@ const RowDiv = styled.div`
     width: 100%;
     display: flex;
     flex-direction: row;
+    flex-wrap: ${(props) => props.wrap};
 
     @media ${device.tabletS} {
         flex-direction: column;
@@ -225,8 +228,23 @@ const Platforms = styled(Text)`
         margin: 32px auto -32px;
     }
 `
+const HeaderPlatforms = styled.div`
+    margin: 6.2rem 0 -3.2rem;
 
-class HelpCentre extends Component {
+    @media ${device.tablet} {
+        margin: 32px auto -32px;
+    }
+`
+
+// Since useContext can only be used in functional components
+// Wrap HelpCenter class component in a function plug in the context
+// TODO - Refactor Help Center to function component and move this inside
+const HelpCenter = () => {
+    const { is_eu_country } = React.useContext(DerivStore)
+    return <HelpCentreClass is_eu_country={is_eu_country} />
+}
+
+class HelpCentreClass extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -315,8 +333,11 @@ class HelpCentre extends Component {
         const filtered_articles = matchSorter(all_articles, search.trim(), {
             keys: ['title', 'sub_category'],
         })
-        const splittedArticles = splitArticles(articles, 3)
+
+        const splitted_articles = this.props.is_eu_country ? euArticles(splitArticles(articles, 3)): splitArticles(articles, 3)
+
         const has_results = !!filtered_articles.length
+
         return (
             <Layout>
                 <SEO
@@ -371,99 +392,105 @@ class HelpCentre extends Component {
                 </SearchSection>
                 <Container align="left" justify="flex-start" direction="column">
                     <ArticleSection>
-                        {splittedArticles.map((article, id) => {
+                        {splitted_articles.map((article, id) => {
+                            const first_category = article[0]?.articles[0]?.category
                             return (
-                                <RowDiv key={id}>
+                                <RowDiv
+                                    wrap={first_category === 'DBot' ? 'wrap' : 'nowrap'}
+                                    key={id}
+                                >
                                     {article.map((item, idx) => {
-                                        {
-                                            return (
-                                                <ArticleDiv key={idx}>
-                                                    {id === 1 && idx == 0 && (
-                                                        <Platforms>Platforms</Platforms>
-                                                    )}
-                                                    <ListWrapper>
-                                                        <StyledHeader
-                                                            is_first_row={!!id}
-                                                            type="section-title"
-                                                        >
-                                                            {item.category}
-                                                        </StyledHeader>
-                                                        {item.articles.map((ar, idxb) => {
-                                                            const category_is_expanded =
-                                                                ar.category in all_categories &&
-                                                                all_categories[ar.category]
-                                                                    .is_expanded
-                                                            const should_show_item =
-                                                                idxb < 3 || category_is_expanded
-                                                            const can_expand =
-                                                                item.articles.length > 3
-                                                            const should_show_expand =
-                                                                !category_is_expanded &&
-                                                                can_expand &&
-                                                                idxb === 3
-                                                            const should_show_collapse =
-                                                                category_is_expanded &&
-                                                                can_expand &&
-                                                                idxb === item.articles.length - 1
-                                                            return (
-                                                                <ListNoBullets key={idxb}>
-                                                                    {should_show_item && (
-                                                                        <li>
-                                                                            <StyledLink
-                                                                                to={convertToHash(
-                                                                                    item.category
-                                                                                        .props
-                                                                                        .translate_text,
-                                                                                    ar.label,
-                                                                                )}
-                                                                            >
-                                                                                {ar.title}
-                                                                            </StyledLink>
-                                                                        </li>
-                                                                    )}
-                                                                    {(should_show_expand ||
-                                                                        should_show_collapse) && (
-                                                                        <li>
-                                                                            <StyledView
-                                                                                onClick={() =>
-                                                                                    this.toggleArticle(
-                                                                                        ar.category,
-                                                                                    )
-                                                                                }
-                                                                            >
-                                                                                {should_show_expand ? (
-                                                                                    <Localize
-                                                                                        translate_text="<0>View all questions</0>"
-                                                                                        components={[
-                                                                                            <p
-                                                                                                key={
-                                                                                                    0
-                                                                                                }
-                                                                                            />,
-                                                                                        ]}
-                                                                                    />
-                                                                                ) : (
-                                                                                    <Localize
-                                                                                        translate_text="<0>View fewer questions</0>"
-                                                                                        components={[
-                                                                                            <p
-                                                                                                key={
-                                                                                                    0
-                                                                                                }
-                                                                                            />,
-                                                                                        ]}
-                                                                                    />
-                                                                                )}
-                                                                            </StyledView>
-                                                                        </li>
-                                                                    )}
-                                                                </ListNoBullets>
-                                                            )
-                                                        })}
-                                                    </ListWrapper>
-                                                </ArticleDiv>
-                                            )
+                                        if (
+                                            this.props.is_eu_country &&
+                                            item.category.props.translate_text === 'Deriv X'
+                                        ) {
+                                            return <React.Fragment key={idx}></React.Fragment>
                                         }
+
+                                        return (
+                                            <ArticleDiv key={idx}>
+                                                {id === 1 && idx == 0 && (
+                                                    <Platforms>Platforms</Platforms>
+                                                )}
+                                                {id === 1 && idx !== 0 && (
+                                                    <HeaderPlatforms />
+                                                )}
+                                                
+                                                <ListWrapper>
+                                                    <StyledHeader
+                                                        is_first_row={!!id}
+                                                        type="section-title"
+                                                    >
+                                                        {item.category}
+                                                    </StyledHeader>
+                                                    {item.articles.map((ar, idxb) => {
+                                                        const category_is_expanded =
+                                                            ar.category in all_categories &&
+                                                            all_categories[ar.category].is_expanded
+                                                        const should_show_item =
+                                                            idxb < 3 || category_is_expanded
+                                                        const can_expand = item.articles.length > 3
+                                                        const should_show_expand =
+                                                            !category_is_expanded &&
+                                                            can_expand &&
+                                                            idxb === 3
+                                                        const should_show_collapse =
+                                                            category_is_expanded &&
+                                                            can_expand &&
+                                                            idxb === item.articles.length - 1
+                                                        return (
+                                                            <ListNoBullets key={idxb}>
+                                                                {should_show_item && (
+                                                                    <li>
+                                                                        <StyledLink
+                                                                            to={convertToHash(
+                                                                                item.category.props
+                                                                                    .translate_text,
+                                                                                ar.label,
+                                                                            )}
+                                                                        >
+                                                                            {ar.title}
+                                                                        </StyledLink>
+                                                                    </li>
+                                                                )}
+                                                                {(should_show_expand ||
+                                                                    should_show_collapse) && (
+                                                                    <li>
+                                                                        <StyledView
+                                                                            onClick={() =>
+                                                                                this.toggleArticle(
+                                                                                    ar.category,
+                                                                                )
+                                                                            }
+                                                                        >
+                                                                            {should_show_expand ? (
+                                                                                <Localize
+                                                                                    translate_text="<0>View all questions</0>"
+                                                                                    components={[
+                                                                                        <p
+                                                                                            key={0}
+                                                                                        />,
+                                                                                    ]}
+                                                                                />
+                                                                            ) : (
+                                                                                <Localize
+                                                                                    translate_text="<0>View fewer questions</0>"
+                                                                                    components={[
+                                                                                        <p
+                                                                                            key={0}
+                                                                                        />,
+                                                                                    ]}
+                                                                                />
+                                                                            )}
+                                                                        </StyledView>
+                                                                    </li>
+                                                                )}
+                                                            </ListNoBullets>
+                                                        )
+                                                    })}
+                                                </ListWrapper>
+                                            </ArticleDiv>
+                                        )
                                     })}
                                 </RowDiv>
                             )
@@ -479,4 +506,8 @@ class HelpCentre extends Component {
     }
 }
 
-export default WithIntl()(HelpCentre)
+HelpCentreClass.propTypes = {
+    is_eu_country: PropTypes.bool,
+}
+
+export default WithIntl()(HelpCenter)

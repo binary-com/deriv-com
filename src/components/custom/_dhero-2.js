@@ -65,11 +65,6 @@ const StyledHeader = styled(Header)`
     @media ${device.tablet} {
         font-size: 20px;
         font-weight: normal;
-        align-items: center;
-        justify-content: center;
-    }
-    @media ${device.mobileL} {
-        justify-content: unset;
     }
 `
 
@@ -80,10 +75,6 @@ const HeroHeader = styled(Header)`
     @media ${device.tablet} {
         font-size: 40px;
         line-height: 50px;
-        text-align: center;
-    }
-    @media ${device.mobileL} {
-        text-align: unset;
     }
 `
 

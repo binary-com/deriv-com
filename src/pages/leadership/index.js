@@ -95,7 +95,6 @@ const StyledText = styled(Text)`
     }
 `
 const Leadership = () => {
-
     const data = useStaticQuery(query)
     return (
         <Layout>
@@ -123,11 +122,7 @@ const Leadership = () => {
                                 </Box>
 
                                 <div>
-                                    <LeadershipTitle
-                                        as="h3"
-                                        type="section-title"
-                                        color="white"
-                                    >
+                                    <LeadershipTitle as="h3" type="section-title" color="white">
                                         <Localize translate_text="Jean-Yves Sireau" />
                                     </LeadershipTitle>
                                     <LeadershipPosition
@@ -181,7 +176,6 @@ const Leadership = () => {
                             </LeadershipWrapper>
                         </ContentWrapper>
                     </Show.Mobile>
-
                 </StyledContainer>
             </Background>
 

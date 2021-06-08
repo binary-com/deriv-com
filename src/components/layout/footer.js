@@ -401,6 +401,11 @@ const Footer = ({ type, is_ppc, is_ppc_redirect }) => {
                                             {localize('DMT5')}
                                         </Link>
                                     </LinkWrapper>
+                                    {!is_eu_country && (
+                                        <LinkWrapper>
+                                            <Link to="/derivx/">{localize('Deriv X')}</Link>
+                                        </LinkWrapper>
+                                    )}
                                     <LinkWrapper>
                                         <Link
                                             to="trading"

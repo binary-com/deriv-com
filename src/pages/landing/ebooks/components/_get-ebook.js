@@ -164,10 +164,16 @@ const StyledText = styled(Text)`
 
 const ResponseWrapper = styled.div`
     justify-content: center;
-    max-width: 33rem;
-    margin: 0 auto;
+    max-width: 330px;
+    margin-left: 0;
     flex-direction: column;
     text-align: center;
+    border: 1px solid white;
+    padding: 20px;
+    position: relative;
+    border-radius: 10px;
+    margin-top: 30px;
+    margin-bottom: 30px;
 
     h3,
     p {
@@ -284,10 +290,12 @@ const GetEbook = ({ onSubmit, ebook_utm_code }) => {
 
     return submit_status === 'success' ? (
         <ResponseWrapper>
+            <div className="email-image-wrapper">
+                <EmailImage src={ViewEmailImage} alt="Email image" />
+            </div>
             <Header as="h3" type="section-title" align="center" weight="normal">
                 {localize('Check your email')}
             </Header>
-            <EmailImage src={ViewEmailImage} alt="Email image" />
             <Text align="center">
                 <Localize
                     translate_text="We've sent a message to {{email}} with a link to activate your account."

@@ -1,0 +1,111 @@
+name: Release Production
+
+on:
+  push:
+    tags:
+      - 'production*'
+    paths-ignore:
+      - '**.md' 
+
+env:
+  GATSBY_CPU_COUNT: 2
+  GATSBY_ENV: production
+
+jobs:
+  lint:
+    timeout-minutes: 10
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2.3.1
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - name: Cache dependencies
+        id: cache
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: ./node_modules
+          key: modules-${{ hashFiles('package-lock.json') }}
+      - name: Install Node.js dependencies
+        run: |
+          npm ci
+          npm test
+      - name: Run linters
+        uses: wearerequired/lint-action@v1
+        with:
+          eslint: true
+
+  release-production:
+    needs: lint
+    timeout-minutes: 30
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2.3.1
+      
+      - name: Setup Node
+        uses: actions/setup-node@v2.1.2
+        with:
+          node-version: '12.x'
+
+      - name: Cache dependencies
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+          
+      - run: npm ci
+      - run: npm run format
+      - run: npm run test
+      - run: npm run build
+      - uses: olegtarasov/get-tag@v2.1
+        id: tagName
+        # For using same tag for staging and production we need to uncomment these two below lines:
+        # with:
+        #   tagRegex: "production(.*)"
+      - name: Building docker image 🐳
+        run: docker build -t ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:latest -t ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:$GIT_TAG_NAME . 
+
+      - name: Pushing Image to docker hub 🐳
+        run: |
+          echo ${{ secrets.DOCKERHUB_PASSWORD }}| docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
+          docker push  ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:latest
+          docker push  ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:$GIT_TAG_NAME
+
+      - name: Deploy 🚀
+        run: |
+          export NAMESPACE="deriv-com-production"
+          export SERVICEACCOUNT_TOKEN=${{ secrets.SERVICEACCOUNT_TOKEN }}
+          export DOCKERHUB_ORGANISATION=${{ secrets.DOCKERHUB_ORGANISATION }}
+          export KUBE_SERVER=${{ secrets.KUBE_SERVER }}
+          export CA=${{ secrets.CA }}
+          git clone https://github.com/binary-com/devops-ci-scripts
+          cd devops-ci-scripts/k8s-build_tools
+          echo ${{ secrets.CA_CRT}} | base64 --decode > ca.crt
+          ./release.sh deriv-com $GIT_TAG_NAME
+
+      - name: Slack Notification 📣
+        uses: 8398a7/action-slack@v3
+        with:
+          status: ${{ job.status }}
+          fields: workflow,repo
+          if_mention: failure,cancelled
+          custom_payload: |
+            {
+              attachments: [{
+                color: '${{ job.status }}' === 'success' ? 'good' : '${{ job.status }}' === 'failure' ? 'danger' : 'warning',
+                text: `Release for *Deriv.com* with version *$GIT_TAG_NAME*`
+              }]
+            }
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
+        if: always()
+

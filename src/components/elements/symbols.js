@@ -218,6 +218,21 @@ import STOCKSWALMART from 'images/svg/symbols/markets-stocks-and-indices/america
 import STOCKSWALTDISNEY from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-walt-disney-company.svg'
 import STOCKSZOOM from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-zoom-video-communications-inc.svg'
 import ZM from 'images/svg/symbols/zm.svg'
+import BNB from 'images/svg/symbols/binance_coin_flag.svg'
+import BTC from 'images/svg/symbols/bitcoin_flag.svg'
+import BCH from 'images/svg/symbols/btc_cash_flag.svg'
+import DASH from 'images/svg/symbols/dash_flag.svg'
+import EOS from 'images/svg/symbols/eos_flag.svg'
+import ETH from 'images/svg/symbols/eth_flag.svg'
+import IOTA from 'images/svg/symbols/iota_flag.png'
+import LTC from 'images/svg/symbols/ltc_flag.svg'
+import NEO from 'images/svg/symbols/neo_flag.svg'
+import OMG from 'images/svg/symbols/omg_flag.svg'
+import XRP from 'images/svg/symbols/ripple_flag.svg'
+import XLM from 'images/svg/symbols/stellar_flag.svg'
+import TRX from 'images/svg/symbols/tron_flag.svg'
+import ZEC from 'images/svg/symbols/z_cash_flag.svg'
+import MNR from 'images/svg/symbols/monero_flag.svg'
 
 export {
     AAL,
@@ -440,4 +455,19 @@ export {
     STOCKSSWISS20,
     STOCKSHONGKONG50,
     ZM,
+    BNB,
+    BTC,
+    BCH,
+    DASH,
+    EOS,
+    ETH,
+    IOTA,
+    LTC,
+    NEO,
+    OMG,
+    XRP,
+    XLM,
+    TRX,
+    ZEC,
+    MNR,
 }

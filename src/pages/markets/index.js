@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Commodities from './components/markets/_commodities.js'
 import Forex from './components/markets/_forex'
+import Crypto from './components/markets/_cryptocurrencies'
 import StockIndices from './components/markets/_stock-indices.js'
 import SyntheticIndices from './components/markets/_synthetic-indices.js'
 import { Hero } from './components/sections/_hero'
@@ -108,6 +109,29 @@ const simple_step_content_commodities = [
     },
 ]
 
+const simple_step_content_crypto = [
+    {
+        header: <Localize translate_text="Practise" />,
+        text: (
+            <Localize translate_text="Open a demo account and practise with an unlimited amount of virtual funds." />
+        ),
+        icon: <img src={PractiseIcon} alt="aim" width="32" height="32" />,
+    },
+    {
+        header: <Localize translate_text="Trade" />,
+        text: (
+            <Localize translate_text="Open a real account, make a deposit, and start trading cryptocurrencies and other markets." />
+        ),
+        icon: <img src={TradeIcon} alt="trade" width="32" height="28" />,
+    },
+    {
+        header: <Localize translate_text="Withdraw" />,
+        text: (
+            <Localize translate_text="Conveniently withdraw your funds through any of our supported withdrawal methods." />
+        ),
+        icon: <img src={WithdrawIcon} alt="withdraw" width="32" height="32" />,
+    },
+]
 const TabsContainer = styled(Flex)`
     background-color: var(--color-grey-23);
     padding-top: 2rem;
@@ -128,7 +152,10 @@ const Markets = () => (
         />
         <Hero />
         <TabsContainer>
-            <Tabs tab_list={['forex', 'synthetic', 'stock', 'commodities']} route_from="markets">
+            <Tabs
+                tab_list={['forex', 'synthetic', 'stock', 'commodities', 'cryptocurrencies']}
+                route_from="markets"
+            >
                 <Tabs.Panel label={localize('Forex')}>
                     <Forex simple_step_content={simple_step_content_forex} />
                 </Tabs.Panel>
@@ -140,6 +167,9 @@ const Markets = () => (
                 </Tabs.Panel>
                 <Tabs.Panel label={localize('Commodities')}>
                     <Commodities simple_step_content={simple_step_content_commodities} />
+                </Tabs.Panel>
+                <Tabs.Panel label={localize('Cryptocurrencies')}>
+                    <Crypto simple_step_content={simple_step_content_crypto} />
                 </Tabs.Panel>
             </Tabs>
         </TabsContainer>

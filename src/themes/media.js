@@ -6,6 +6,7 @@ const AppMedia = createMedia({
         start: 0,
         mobileS: size.mobileS,
         mobileM: size.mobileM,
+        mobileL: size.mobileL,
         tabletS: size.tabletS,
         bp680: size.bp680,
         tablet: size.tablet,

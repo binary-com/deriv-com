@@ -179,6 +179,10 @@ const Layout = ({
             Navigation = <NavPartners no_login_signup={no_login_signup} />
             FooterNav = <Footer />
             break
+        case 'ebook':
+            Navigation = <Nav hide_sigup_login={true} />
+            FooterNav = <Footer />
+            break
         case 'careers':
             Navigation = <NavCareers />
             FooterNav = <Footer no_language={true} type={type} />

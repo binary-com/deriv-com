@@ -33,7 +33,7 @@ const StockIndices = ({ simple_step_content }) => {
                 ))}
             </WhyTrade>
             <AvailableTrades
-                Margin={<Margin market_content={stock_margin} />}
+                Margin={<Margin market_tab_name={'stock-indices'} market_content={stock_margin} />}
                 DigitalOptions={
                     <DigitalOptions market_name={'stocks & indices'} options_list={stock_options} />
                 }

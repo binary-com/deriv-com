@@ -180,7 +180,7 @@ const Layout = ({
             FooterNav = <Footer />
             break
         case 'ebook':
-            Navigation = <Nav hide_sigup_login={true} />
+            Navigation = <Nav hide_signup_login={true} />
             FooterNav = <Footer />
             break
         case 'careers':

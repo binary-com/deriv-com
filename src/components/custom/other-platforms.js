@@ -341,9 +341,10 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                     }
                     title={<Localize translate_text="SmartTrader" />}
                     to="trading"
-                    is_smarttrader_link
+                    type="smart_trader"
                     external="true"
                     target="_blank"
+                    rel="noopener noreferrer"
                     onClick={onClick}
                     otherLinkProps={{ rel: 'noopener noreferrer' }}
                 />

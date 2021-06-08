@@ -276,7 +276,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                 title={<Localize translate_text="SmartTrader" />}
                                 onClick={handleArrowClick}
                                 to="trading"
-                                is_smarttrader_link
+                                type="smart_trader"
                                 external="true"
                                 target="_blank"
                                 otherLinkProps={{ rel: 'noopener noreferrer' }}

@@ -344,7 +344,6 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                     type="smart_trader"
                     external="true"
                     target="_blank"
-                    rel="noopener noreferrer"
                     onClick={onClick}
                     otherLinkProps={{ rel: 'noopener noreferrer' }}
                 />

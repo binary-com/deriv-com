@@ -36,6 +36,8 @@ export const brand_name = 'Deriv'
 export const client_token = 'pubc42fda54523c5fb23c564e3d8bceae88'
 export const deriv_app_languages = ['id', 'pt', 'es']
 export const deriv_status_page_url = 'https://deriv.statuspage.io'
+export const derivx_ios_url = 'https://apps.apple.com/us/app/deriv-x/id1563337503'
+export const derivx_android_url = 'https://play.google.com/store/apps/details?id=com.deriv.dx'
 export const dmt5_ios_url =
     'https://download.mql5.com/cdn/mobile/mt5/ios?server=Deriv-Demo,Deriv-Server'
 export const dmt5_android_url =

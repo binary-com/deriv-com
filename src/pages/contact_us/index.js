@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import Loadable from '@loadable/component'
 import ContactWays from './_contact-ways'
@@ -7,6 +7,7 @@ import { Header, Text } from 'components/elements'
 import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { SEO, SectionContainer, Container } from 'components/containers'
+import { redirectOpenLiveChatBox } from 'common/utility'
 const Offices = Loadable(() => import('./_offices'))
 const Affiliates = Loadable(() => import('./_affiliates'))
 
@@ -31,6 +32,23 @@ const StyledText = styled(Text)`
 `
 
 const ContactUs = () => {
+    /* redirect livechat for en to open live chat popup */
+    let script_timeout = null
+    const [is_mounted, setMounted] = useState(false)
+    useEffect(() => {
+        if (is_mounted) {
+            redirectOpenLiveChatBox()
+        }
+
+        script_timeout = setTimeout(() => {
+            setMounted(true)
+        }, 2000)
+
+        return () => {
+            clearTimeout(script_timeout)
+        }
+    }, [is_mounted])
+
     return (
         <Layout>
             <SEO

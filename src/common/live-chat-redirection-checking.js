@@ -5,7 +5,9 @@ export const checkLiveChatRedirection = () => {
         const query_string = window.location.search
         const url_params = new URLSearchParams(query_string)
         const live_chat_opened = url_params.get('is_livechat_open')
-
+        /* eslint-disable */
+        console.log('live_chat_opened', live_chat_opened)
+        /* eslint-enable */
         if (live_chat_opened) {
             localStorage.setItem(live_chat_key, live_chat_opened)
         }

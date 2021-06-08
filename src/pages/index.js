@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { navigate } from 'gatsby'
 // import Ticker from './home/_ticker'
 import {
     TradeTypesMobile,
@@ -16,8 +15,7 @@ import { SEO, Show } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl, Localize } from 'components/localization'
 import { Appearances } from 'components/custom/signup'
-import { getLanguage, getLiveChatStorage, removeLocalStorage } from 'common/utility'
-import { live_chat_key, live_chat_redirection_link } from 'common/constants'
+import { redirectOpenLiveChatBox } from 'common/utility'
 import PractiseIcon from 'images/svg/aim.svg'
 import TradeIcon from 'images/svg/trade.svg'
 import WithdrawIcon from 'images/svg/withdraw.svg'
@@ -49,19 +47,9 @@ const Home = () => {
     /* redirect livechat for en to open live chat popup */
     let script_timeout = null
     const [is_mounted, setMounted] = useState(false)
-    const lang = getLanguage()
-    const live_chat_enable = getLiveChatStorage()
-
-    const checkLiveChatRedirection = () => {
-        if (lang == 'en' && live_chat_enable) {
-            navigate(live_chat_redirection_link, { replace: true })
-        }
-        removeLocalStorage(live_chat_key)
-    }
-
     useEffect(() => {
         if (is_mounted) {
-            checkLiveChatRedirection()
+            redirectOpenLiveChatBox()
         }
 
         script_timeout = setTimeout(() => {

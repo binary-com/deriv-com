@@ -1,6 +1,12 @@
+import { navigate } from 'gatsby'
 import Cookies from 'js-cookie'
 import extend from 'extend'
-import { deriv_cookie_domain, deriv_app_languages } from './constants'
+import {
+    deriv_cookie_domain,
+    deriv_app_languages,
+    live_chat_redirection_link,
+    live_chat_key,
+} from './constants'
 
 export const trimSpaces = (value) => value?.trim()
 
@@ -207,3 +213,21 @@ export const getLiveChatStorage = () =>
     isBrowser() ? localStorage.getItem('live_chat_redirection') : null
 
 export const removeLocalStorage = (prop) => localStorage.removeItem(prop)
+
+export const getLiveChatRedirectStatus = () => {
+    const lang = getLanguage()
+    const live_chat_enable = getLiveChatStorage()
+
+    if (lang == 'en' && live_chat_enable) {
+        return true
+    }
+}
+
+export const redirectOpenLiveChatBox = () => {
+    const live_chat_status = getLiveChatRedirectStatus()
+
+    removeLocalStorage(live_chat_key)
+    if (live_chat_status) {
+        navigate(live_chat_redirection_link, { replace: true })
+    }
+}

@@ -33,7 +33,7 @@ const Footer = ({ type, is_ppc, is_ppc_redirect }) => {
             <Container>
                 <FooterGrid>
                     <LogoSection type={type}/>
-                    <MainLinksSection is_ppc={is_ppc} is_ppc_redirect={is_ppc_redirect}/>
+                    <MainLinksSection is_ppc={is_ppc} is_ppc_redirect={is_ppc_redirect} is_eu_country={is_eu_country}/>
                     <DisclaimerSection/>
                     <CopyrightSection/>
                     <BottomSocialSection type={type} />

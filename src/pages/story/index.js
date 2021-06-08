@@ -93,7 +93,6 @@ const Story = () => {
                 </StyledContainer>
             </Background>
             <OurStory is_mobile_menu={is_mobile} />
-
         </Layout>
     )
 }

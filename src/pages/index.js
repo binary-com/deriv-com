@@ -17,7 +17,7 @@ import Layout from 'components/layout/layout'
 import { localize, WithIntl, Localize } from 'components/localization'
 import { Appearances } from 'components/custom/signup'
 import { getLanguage, getLiveChatStorage, removeLocalStorage } from 'common/utility'
-import { live_chat_redirection_link } from 'common/constants'
+import { live_chat_key, live_chat_redirection_link } from 'common/constants'
 import PractiseIcon from 'images/svg/aim.svg'
 import TradeIcon from 'images/svg/trade.svg'
 import WithdrawIcon from 'images/svg/withdraw.svg'
@@ -48,32 +48,25 @@ const simple_step_content = [
 const Home = () => {
     /* redirect livechat for en to open live chat popup */
     let script_timeout = null
-    const live_chat_key = 'live_chat_redirection'
     const [is_mounted, setMounted] = useState(false)
     const lang = getLanguage()
     const live_chat_enable = getLiveChatStorage()
 
     const checkLiveChatRedirection = () => {
-        if (lang == 'en') {
-            if (live_chat_enable) {
-                removeLocalStorage(live_chat_key)
-                navigate(live_chat_redirection_link, { replace: true })
-            } else {
-                removeLocalStorage(live_chat_key)
-            }
-        } else {
-            removeLocalStorage(live_chat_key)
+        if (lang == 'en' && live_chat_enable) {
+            navigate(live_chat_redirection_link, { replace: true })
         }
+        removeLocalStorage(live_chat_key)
     }
-
-    script_timeout = setTimeout(() => {
-        setMounted(true)
-    }, 2000)
 
     useEffect(() => {
         if (is_mounted) {
             checkLiveChatRedirection()
         }
+
+        script_timeout = setTimeout(() => {
+            setMounted(true)
+        }, 2000)
 
         return () => {
             clearTimeout(script_timeout)

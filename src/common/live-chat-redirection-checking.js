@@ -1,12 +1,13 @@
+import { live_chat_key } from './constants'
+
 export const checkLiveChatRedirection = () => {
     if (typeof window !== 'undefined') {
-        const live_chat_key = 'live_chat_redirection'
-        const queryString = window.location.search
-        const urlParams = new URLSearchParams(queryString)
-        const liveChatOpened = urlParams.get('is_livechat_open')
+        const query_string = window.location.search
+        const url_params = new URLSearchParams(query_string)
+        const live_chat_opened = url_params.get('is_livechat_open')
 
-        if (liveChatOpened) {
-            localStorage.setItem(live_chat_key, liveChatOpened)
+        if (live_chat_opened) {
+            localStorage.setItem(live_chat_key, live_chat_opened)
         }
     }
 }

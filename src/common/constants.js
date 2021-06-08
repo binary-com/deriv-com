@@ -78,6 +78,8 @@ export const localized_link_url = Object.freeze({
 })
 export const default_server_url = 'green.binaryws.com'
 
+export const live_chat_key = 'live_chat_redirection'
+
 export const fb_url = 'https://www.facebook.com/derivdotcom'
 export const fb_url_career = 'https://www.facebook.com/derivcareers'
 export const instagram_url = 'https://www.instagram.com/deriv_official/'

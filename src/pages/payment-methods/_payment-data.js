@@ -129,7 +129,7 @@ const payment_data = [
             {
                 method: <StyledIcon src={Help2Pay} alt="help2pay" />,
                 currencies: 'USD',
-                min_max_deposit: '11 - 10,500',
+                min_max_deposit: '11 - 10,000',
                 min_max_withdrawal: 'Not applicable',
                 deposit_time: <Localize translate_text="Instant" />,
                 withdrawal_time: <Localize translate_text="Not applicable" />,
@@ -282,7 +282,7 @@ const payment_data = [
                 deposit_time: <Localize translate_text="Instant" />,
                 withdrawal_time: <Localize translate_text="1 working day" />,
                 description: (
-                    <Localize translate_text="A cheap and easy method for deposits and withdrawals. Features auto payments, annual interest, and real-time statements" />
+                    <Localize translate_text="A cheap and easy method for deposits and withdrawals. Features auto payments, annual interest, and real-time statements." />
                 ),
                 url: 'https://perfectmoney.is/',
                 name: 'perfect money',

@@ -65,9 +65,9 @@ const icon72 = css`
     width: 72px;
     height: 72px;
 `
-const StyledDerivX = styled.img`
-    ${icon72}
-`
+// const StyledDerivX = styled.img`
+//     ${icon72}
+// `
 const StyledDbot = styled.img`
     ${icon72}
 `
@@ -155,22 +155,25 @@ export const DMT5Card = ({ is_selected, is_ppc_redirect, word_break_cover }) => 
         />
     </StyledLink>
 )
-
-export const DerivXCard = ({ is_selected, word_break_cover }) => (
-    <StyledLink ariaLabel="Deriv X" to="/derivx/">
-        <Card
-            Icon={() => <StyledDerivX src={DerivX} alt="Deriv X" width="72" height="72" />}
-            content={[
-                localize('Trade FX and CFDs on a customisable, easy-to-use trading platform.'),
-            ]}
-            is_inline_icon
-            min_height="12.4rem"
-            is_selected={is_selected}
-            width="100%"
-            word_break_cover={word_break_cover}
-        />
-    </StyledLink>
-)
+// TODO: Enable when ready for real account released
+// export const DerivXCard = ({ is_selected, word_break_cover }) => (
+//     <StyledLink ariaLabel="Deriv X" to="/derivx/">
+//         <Card
+//             Icon={() => <StyledDerivX src={DerivX} alt="Deriv X" width="72" height="72" />}
+//             content={[
+//                 localize('Trade FX and CFDs on a customisable, easy-to-use trading platform.'),
+//             ]}
+//             cover_background="var(--color-black)"
+//             cover_content={localize('Discover Deriv X now')}
+//             title={localize('Deriv X')}
+//             is_inline_icon
+//             min_height="12.4rem"
+//             is_selected={is_selected}
+//             width="100%"
+//             word_break_cover={word_break_cover}
+//         />
+//     </StyledLink>
+// )
 
 export const SmarttraderCard = ({ is_selected, word_break_cover }) => (
     <StyledLink
@@ -233,7 +236,7 @@ export const OtherPlatform = ({ header, subHeader, exclude, is_nav, is_ppc_redir
             {exclude.toLowerCase() !== 'dtrader' && <TraderCard />}
             {exclude.toLowerCase() !== 'dbot' && <BotCard />}
             {exclude.toLowerCase() !== 'dmt5' && <DMT5Card is_ppc_redirect={is_ppc_redirect} />}
-            {exclude.toLowerCase() !== 'derivx' && <DerivXCard />}
+            {/* {exclude.toLowerCase() !== 'derivx' && <DerivXCard />} */}
         </StyledFlexGridContainer>
     </SectionContainer>
 )
@@ -243,7 +246,7 @@ const cardProptypes = {
     word_break_cover: PropTypes.bool,
 }
 BotCard.propTypes = { ...cardProptypes }
-DerivXCard.propTypes = { ...cardProptypes }
+// DerivXCard.propTypes = { ...cardProptypes }
 DMT5Card.propTypes = { ...cardProptypes }
 SmarttraderCard.propTypes = { ...cardProptypes }
 TraderCard.propTypes = { ...cardProptypes }

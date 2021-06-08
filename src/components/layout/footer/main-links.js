@@ -226,6 +226,7 @@ const MainLinksSection = ({is_ppc, is_ppc_redirect, is_eu_country }) => {
 export default MainLinksSection;
 
 MainLinksSection.propTypes = {
+    is_eu_country: PropTypes.bool,
     is_ppc: PropTypes.bool,
     is_ppc_redirect: PropTypes.bool,
     type: PropTypes.string,

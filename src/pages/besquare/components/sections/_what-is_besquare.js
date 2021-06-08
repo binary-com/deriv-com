@@ -8,7 +8,7 @@ import Card from '../helper/_card'
 const WhatIsBeSquare = () => {
     const style = {
         card_wrapper: {
-            max_width: ['486px', '292px'],
+            max_width: ['486px', '298px'],
             width: ['max-content'],
             grid_template_columns: ['auto auto'],
             grid_column_gap: ['8px'],
@@ -25,7 +25,7 @@ const WhatIsBeSquare = () => {
             margin: ['12px 0 0 16px', '14px 0 0 12px'],
         },
         text_wrapper: {
-            max_width: ['446px', '328px'],
+            max_width: ['446px','256px'],
             padding: ['8px 8px 8px 0', '12px 12px 12px 0'],
         },
     }

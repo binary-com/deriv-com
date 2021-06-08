@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import GetEbook from './get-ebook'
 import { Flex } from 'components/containers'
-import { Header } from 'components/elements'
+import { Header, Text } from 'components/elements'
 import { localize } from 'components/localization'
 import device from 'themes/device.js'
 
@@ -81,15 +81,6 @@ const ContentWrapper = styled.div`
     margin: 0;
     padding: 45px 120px 0 45px;
 
-    h1 {
-        color: white;
-    }
-    .title {
-        margin-bottom: 10px;
-        line-height: 1.2;
-        max-width: 400px;
-    }
-
     @media ${device.laptopL} {
         padding: 45px 0 0 45px;
         margin-right: 30px;
@@ -108,19 +99,11 @@ const ContentWrapper = styled.div`
     }
 `
 
-const AuthorText = styled.p`
+const AuthorText = styled(Text)`
     font-style: italic;
-    margin: 0;
-    margin-top: 10px;
-    font-size: 1.4rem;
-    color: white;
-    line-height: 16px;
-    max-width: 586px;
 `
 
-const AuthorNameText = styled.span`
-    font-weight: bold;
-`
+const AuthorNameText = styled(Text).attrs({ as: 'span' })``
 
 const SignupWrapper = styled.div`
     margin-bottom: 10px;
@@ -132,6 +115,8 @@ const HeaderSection = ({
     imgHeight,
     introSub,
     introMain,
+    authorDesc,
+    authorName,
     bg,
     bgMobile,
     ebook_utm_code,
@@ -148,23 +133,44 @@ const HeaderSection = ({
                     />
                 </TopHeaderImgWrapper>
                 <ContentWrapper>
-                    <Header type="sub-section-title" className="sub-title" weight="500">
-                        {introSub || ''}
+                    <Header
+                        className="sub-title"
+                        as="h1"
+                        type="sub-section-title"
+                        weight="500"
+                        color="white"
+                    >
+                        {introSub}
                     </Header>
-                    <Header type="page-title" className="title">
-                        {introMain || localize('Learn to trade Stock derivatives the smart way')}
+                    <Header
+                        className="title"
+                        as="h1"
+                        type="page-title"
+                        mb="10px"
+                        lh={1.2}
+                        max_width="400px"
+                        color="white"
+                    >
+                        {introMain}
                     </Header>
-                    <Header type="main-paragraph" weight="normal">
+                    <Header as="h1" type="main-paragraph" weight="normal" color="white">
                         {localize('Claim a FREE e-book now!')}
                     </Header>
-                    <Header type="main-paragraph" weight="normal">
+                    <Header as="h1" type="main-paragraph" weight="normal" color="white">
                         {localize('Plus a free demo account to practice.')}
                     </Header>
-                    <AuthorText>
-                        {localize(
-                            'This e-book has been brought to you by a veteran online trader and New York Times bestselling author, ',
-                        )}
-                        <AuthorNameText>{localize('Vince Stanzione.')}</AuthorNameText>
+                    <AuthorText
+                        m={0}
+                        mt="10px"
+                        size="1.4rem"
+                        color="white"
+                        lh="16px"
+                        max_width="586px"
+                    >
+                        {authorDesc}
+                        <AuthorNameText color="white" weight="bold">
+                            {authorName}
+                        </AuthorNameText>
                     </AuthorText>
                     <SignupWrapper>
                         <GetEbook ebook_utm_code={ebook_utm_code} />
@@ -176,11 +182,13 @@ const HeaderSection = ({
 }
 
 HeaderSection.propTypes = {
+    authorDesc: PropTypes.string,
+    authorName: PropTypes.string,
     bg: PropTypes.any,
     bgMobile: PropTypes.any,
     ebook_utm_code: PropTypes.string,
-    imgHeight: PropTypes.string,
-    imgWidth: PropTypes.string,
+    imgHeight: PropTypes.number,
+    imgWidth: PropTypes.number,
     introMain: PropTypes.any,
     introSub: PropTypes.any,
     mainHeaderImage: PropTypes.any,

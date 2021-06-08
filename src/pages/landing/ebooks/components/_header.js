@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import GetEbook from './get-ebook'
+import GetEbook from './_get-ebook'
 import { Flex } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { localize } from 'components/localization'

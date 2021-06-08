@@ -37,7 +37,7 @@ const ContactUs = () => {
     const [is_mounted, setMounted] = useState(false)
     useEffect(() => {
         if (is_mounted) {
-            redirectOpenLiveChatBox()
+            redirectOpenLiveChatBox(true)
         }
 
         script_timeout = setTimeout(() => {

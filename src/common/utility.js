@@ -214,17 +214,21 @@ export const getLiveChatStorage = () =>
 
 export const removeLocalStorage = (prop) => localStorage.removeItem(prop)
 
-export const getLiveChatRedirectStatus = () => {
+export const getLiveChatRedirectStatus = (lang_status) => {
     const lang = getLanguage()
     const live_chat_enable = getLiveChatStorage()
 
-    if (lang == 'en' && live_chat_enable) {
+    if (lang_status && live_chat_enable) {
+        return true
+    } else if (lang == 'en' && live_chat_enable) {
         return true
     }
 }
 
-export const redirectOpenLiveChatBox = () => {
-    const live_chat_status = getLiveChatRedirectStatus()
+// set lang to true to allow all lang to redirect, default is en,
+// and pass to getLiveChatRedirectStatus
+export const redirectOpenLiveChatBox = (is_redirect) => {
+    const live_chat_status = getLiveChatRedirectStatus(is_redirect)
 
     removeLocalStorage(live_chat_key)
     if (live_chat_status) {

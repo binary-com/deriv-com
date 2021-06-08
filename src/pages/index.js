@@ -47,6 +47,7 @@ const Home = () => {
     /* redirect livechat for en to open live chat popup */
     let script_timeout = null
     const [is_mounted, setMounted] = useState(false)
+
     useEffect(() => {
         if (is_mounted) {
             redirectOpenLiveChatBox()

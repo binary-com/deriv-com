@@ -130,8 +130,7 @@ const query = graphql`
         multiplier_with_multi_win: file(
             relativePath: { eq: "multiplier/multipliers-with-multiplier-win@3x.png" }
         ) {
-            ...fadeIn
-            
+            ...fadeIn   
         }
     }
 `

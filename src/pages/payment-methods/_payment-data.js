@@ -60,7 +60,7 @@ const NoIconText = styled.div`
 
 const payment_data = [
     {
-        name: <Localize translate_text="Online Banking" />,
+        name: <Localize translate_text="Online banking" />,
         data: [
             {
                 method: <StyledIcon src={BankTransfer} alt="bank transfer" />,

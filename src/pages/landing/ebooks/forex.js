@@ -10,21 +10,23 @@ import forexEbookImage from 'images/common/ebooks/forex-ebook.png'
 import forexEbookInside from 'images/common/ebooks/forex-ebook-inside.png'
 
 const introPoints = [
-    'The simple basics of forex',
-    'How to make more profitable forex trades and lower your trading risks',
-    'How to use digital options to profit from up, down, and even sideways moves',
-    'How to trade like professionals without spending hours each day analysing the world market',
+    localize('The simple basics of forex'),
+    localize('How to make more profitable forex trades and lower your trading risks'),
+    localize('How to use digital options to profit from up, down, and even sideways moves'),
+    localize(
+        'How to trade like professionals without spending hours each day analysing the world market',
+    ),
 ]
 
 const topicsCovered = [
-    'The basics of forex',
-    'Who uses the forex market?',
-    'Which currencies are on the forex market?',
-    'Why trade forex on Deriv?',
-    'Advantages of trading forex on DTrader',
-    'Advantages of trading forex on DMT5',
-    'Currency pairs you can trade on Deriv',
-    'Forex in more detail',
+    localize('The basics of forex'),
+    localize('Who uses the forex market?'),
+    localize('Which currencies are on the forex market?'),
+    localize('Why trade forex on Deriv?'),
+    localize('Advantages of trading forex on DTrader'),
+    localize('Advantages of trading forex on DMT5'),
+    localize('Currency pairs you can trade on Deriv'),
+    localize('Forex in more detail'),
 ]
 
 const ForexEbook = () => {
@@ -40,10 +42,14 @@ const ForexEbook = () => {
                 imgWidth={601}
                 imgHeight={682}
                 bg="linear-gradient(to left, #661b20 39%, #cc363f);"
-                introSub={localize('Your free guide on')}
-                introMain={localize('How to trade the forex market')}
                 ebook_utm_code="forex-ebook"
                 bgMobile="linear-gradient(0deg, #cc363f, #661b20);"
+                introSub={localize('Your free guide on')}
+                introMain={localize('How to trade the forex market')}
+                authorDesc={localize(
+                    'This e-book has been brought to you by a veteran online trader and New York Times bestselling author, ',
+                )}
+                authorName={localize('Vince Stanzione.')}
             />
             <Introduction
                 introImage={introForexEbook}

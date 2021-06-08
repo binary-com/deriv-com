@@ -10,11 +10,11 @@ import stocksEbookInside from 'images/common/ebooks/stocks-ebook-inside.png'
 import StocksIntroImage from 'images/svg/stock-indices/stocksHeaderBelowSection.svg'
 
 const topicsCovered = [
-    'The basics of CFD trading',
-    'Stocks and stock indices: the basics',
-    'CFD trading: order types',
-    'Rise or fall? Assessing stocks',
-    'Stock market seasonality',
+    localize('The basics of CFD trading'),
+    localize('Stocks and stock indices: the basics'),
+    localize('CFD trading: order types'),
+    localize('Rise or fall? Assessing stocks'),
+    localize('Stock market seasonality'),
 ]
 
 const StocksEbook = () => {
@@ -30,6 +30,12 @@ const StocksEbook = () => {
                 imgWidth={557}
                 imgHeight={703}
                 ebook_utm_code="stock-ebook"
+                introSub=""
+                introMain={localize('Learn to trade Stock derivatives the smart way')}
+                authorDesc={localize(
+                    'This e-book has been brought to you by a veteran online trader and New York Times bestselling author, ',
+                )}
+                authorName={localize('Vince Stanzione.')}
             />
             <Introduction
                 introImage={StocksIntroImage}

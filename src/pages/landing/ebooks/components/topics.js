@@ -2,20 +2,12 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { Header, Li } from 'components/elements'
+import { localize } from 'components/localization'
 import checkIcon from 'images/common/ebooks/check-icon.png'
 import device from 'themes/device'
 
 const FullWidth = styled.div`
     background-image: linear-gradient(to bottom, #eaf4f5 1%, rgba(242, 245, 248, 0) 99%);
-
-    h5 {
-        margin-top: 25px;
-        font-size: 24px;
-        font-weight: bold;
-        line-height: 1.5;
-        color: #333333;
-        margin-bottom: 20px;
-    }
 
     @media ${device.tabletL} {
         margin-top: 0;
@@ -91,8 +83,17 @@ const Topics = ({ topicsImage, topicsList }) => {
         <FullWidth>
             <Wrapper>
                 <ItemList>
-                    <Header as="h5" className="header">
-                        Topics covered
+                    <Header
+                        as="h5"
+                        className="header"
+                        mt="25px"
+                        size="24px"
+                        weight="bold"
+                        lh={1.5}
+                        color="#333333"
+                        mb="20px"
+                    >
+                        {localize('Topics covered')}
                     </Header>
                     {topicsList?.map((topic, index) => {
                         return (

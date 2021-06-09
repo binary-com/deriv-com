@@ -45,7 +45,7 @@ const StyledLiveChat = styled.div`
     }}
 `
 
-const LiveChat = () => {
+const LiveChat = ({ is_banner_shown }) => {
     const [is_livechat_hover, setLivechatHover] = useState(false)
     const [is_livechat_interactive, LC_API] = useLivechat()
     const { is_eu_country } = React.useContext(DerivStore)

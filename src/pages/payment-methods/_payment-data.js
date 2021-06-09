@@ -388,7 +388,6 @@ const payment_data = [
                 ),
                 url: 'https://www.onlinenaira.com/',
                 name: 'onlinenaira',
-                reference: 'paylivre-payment-method.pdf',
             },
             // {
             //     method: <NoIconText> MTN Mobile Money</NoIconText>,

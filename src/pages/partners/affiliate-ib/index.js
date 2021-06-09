@@ -3,8 +3,8 @@ import styled from 'styled-components'
 import Loadable from '@loadable/component'
 import { Helmet } from 'react-helmet'
 import Hero from './_hero.js'
-import {faq_schema} from './_faq-schema.js'
-import { Header } from 'components/elements'
+import { faq_schema } from './_faq-schema.js'
+import { Header, Text } from 'components/elements'
 import { LinkButton } from 'components/form'
 import Layout from 'components/layout/layout'
 import { SectionContainer, Container, SEO } from 'components/containers'
@@ -12,7 +12,6 @@ import { localize, Localize, WithIntl } from 'components/localization'
 import { affiliate_signup_url } from 'common/constants'
 import device from 'themes/device'
 
-const DNumber = Loadable(() => import('components/custom/_dnumbers.js'))
 const WhyUs = Loadable(() => import('./_why-us.js'))
 const WhoCanAplly = Loadable(() => import('./_who-can-apply.js'))
 const DerivAffiliateProgramme = Loadable(() => import('./_deriv-affiliate-programme'))
@@ -67,6 +66,45 @@ const SubtitleHeader = styled(Header)`
         text-align: justify;
     }
 `
+const SectionContainerWrapper = styled(SectionContainer)`
+    padding: 4rem;
+    @media ${device.tabletL} {
+        padding: 0;
+    }
+`
+
+const StyledContainer = styled(Container)`
+    display: flex;
+    width: 100%;
+    @media ${device.tabletL} {
+        flex-wrap: wrap;
+        margin: 20px 0;
+    }
+`
+
+const NumberWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 32.8rem;
+    @media ${device.tabletL} {
+        padding: 15px;
+        width: auto;
+    }
+    @media ${device.mobileS} {
+        padding: 10px;
+        width: auto;
+    }
+`
+
+const StyledText = styled(Text)`
+    padding-top: 8px;
+
+    @media ${device.tabletL} {
+        padding-top: 0;
+        margin: 12px 0;
+    }
+`
 
 const items = [
     { title: '47K+', subtitle: <Localize translate_text="members" /> },
@@ -113,7 +151,7 @@ const AffiliateIb = () => {
                 )}
             />
             <Helmet>
-                    <script type="application/ld+json">{JSON.stringify(faq_schema)}</script>
+                <script type="application/ld+json">{JSON.stringify(faq_schema)}</script>
             </Helmet>
             <Hero>
                 <StyledHeader as="h1" color="white" align="center" lh="1.25" type="display-title">
@@ -126,7 +164,7 @@ const AffiliateIb = () => {
                     to={affiliate_signup_url}
                     external="true"
                     target="_blank"
-                    is_affiliate_link
+                    type="affiliate_sign_up"
                     secondary
                 >
                     {localize('Sign up as our affiliate and IB')}
@@ -139,7 +177,18 @@ const AffiliateIb = () => {
                             'Earn up to 45% lifetime commission with an online trading provider that enables anyone to trade on popular financial markets with the utmost convenience. Deriv Group Ltd – the owner of Binary.com and Deriv.com – has a proven track record of running successful referral programmes with prompt payouts.',
                         )}
                     </SubtitleHeader>
-                    <DNumber items={items} justify="space-around" />
+                    <SectionContainerWrapper>
+                        <StyledContainer justify="space-around">
+                            {items.map((item, index) => (
+                                <NumberWrapper key={index}>
+                                    <Header as="h2" type="page-title" align="center">
+                                        {item.title}
+                                    </Header>
+                                    <StyledText align="center">{item.subtitle}</StyledText>
+                                </NumberWrapper>
+                            ))}
+                        </StyledContainer>
+                    </SectionContainerWrapper>
                 </Container>
             </StyledSectionContainer>
             <DerivAffiliateProgramme />

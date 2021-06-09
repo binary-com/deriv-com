@@ -16,6 +16,7 @@ const StyledButton = styled(Button)`
 const StyledChevron = styled.img`
     height: 16px;
     width: 16px;
+    margin: 26px 0 32px;
     transform: ${(props) => (props.expanded ? 'inherit' : 'rotate(-180deg)')};
     transition: transform 0.25s ease-out;
 `
@@ -42,7 +43,7 @@ const Td = styled.td`
         /* stylelint-disable-next-line value-no-vendor-prefix */
         position: -webkit-sticky;
         left: -5px;
-        background-color: white;
+        background-color: var(--color-white);
         z-index: 2;
     }
     & .tooltip {
@@ -57,6 +58,8 @@ const Td = styled.td`
 const HoverTd = styled(Td)`
     transition: background 0.25s;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
 
     &:hover {
         background: var(--color-grey-8);

@@ -35,6 +35,10 @@ const Column = styled.div`
     @media ${device.tabletL} {
         margin: 24px 0 0;
     }
+
+    .fresnel-container {
+        flex-direction: column;
+    }
 `
 const Content = styled(Flex)`
     max-width: 39rem;
@@ -91,11 +95,30 @@ const query = graphql`
         pnl_multipliers: file(relativePath: { eq: "trade-tools/landing/pnl-multipliers.png" }) {
             ...fadeIn
         }
+        margin_mobile: file(
+            relativePath: { eq: "trade-tools/landing/margin-calculator-mobile.png" }
+        ) {
+            ...fadeIn
+        }
+        swap_mobile: file(relativePath: { eq: "trade-tools/landing/swap-calculator-mobile.png" }) {
+            ...fadeIn
+        }
+        pip_mobile: file(relativePath: { eq: "trade-tools/landing/pip-calculator-mobile.png" }) {
+            ...fadeIn
+        }
+        pnl_margin_mobile: file(relativePath: { eq: "trade-tools/landing/pnl-margin-mobile.png" }) {
+            ...fadeIn
+        }
+        pnl_multipliers_mobile: file(
+            relativePath: { eq: "trade-tools/landing/pnl-multipliers-mobile.png" }
+        ) {
+            ...fadeIn
+        }
     }
 `
 
 const TradingTools = ({ tools }) => {
-    const inner_margin = '126px'
+    const inner_margin = '24px'
     const outer_margin = '102px'
     const data = useStaticQuery(query)
     return (
@@ -109,16 +132,20 @@ const TradingTools = ({ tools }) => {
                                 flex_direction={is_even ? 'row-reverse' : 'row'}
                                 key={index}
                             >
-                                <Column
-                                    margin_right={is_even ? outer_margin : '0'}
-                                    margin_left={is_even ? '0' : outer_margin}
-                                >
-                                    <QueryImage
-                                        data={data[item.image_name]}
-                                        alt={item.image_alt}
-                                        height="100%"
-                                    />
+                                <Column>
+                                    <Show.Desktop>
+                                        <QueryImage
+                                            data={data[item.image_name]}
+                                            alt={item.image_alt}
+                                            height="100%"
+                                        />
+                                    </Show.Desktop>
                                     <Show.Mobile>
+                                        <QueryImage
+                                            data={data[item.image_name + '_mobile']}
+                                            alt={item.image_alt}
+                                            height="100%"
+                                        />
                                         <StyledLinkButton tertiary to={item.link.route}>
                                             {item.link.text}
                                         </StyledLinkButton>

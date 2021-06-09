@@ -16,7 +16,7 @@ const content = {
     right: {
         header: <Localize translate_text="Love MT5 on Binary.com?" />,
         button_text: <Localize translate_text="Try MT5 on Deriv.com" />,
-        button_props: { is_mt5_link: true },
+        button_props: { type: 'mt5' },
         hide_cta: true,
     },
 }

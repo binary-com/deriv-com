@@ -147,10 +147,10 @@ const StyledLocalizedLink = styled(LocalizedLink)`
 const StartTrader = () => {
     const [is_mobile, setMobile] = useState(false)
     const handleResizeWindow = () => {
-        setMobile(isBrowser() ? window.screen.width <= size.tabletS : false)
+        setMobile(isBrowser() ? window.screen.width <= size.tablet : false)
     }
     useEffect(() => {
-        setMobile(isBrowser() ? window.screen.width <= size.tabletS : false)
+        handleResizeWindow()
         window.addEventListener('resize', handleResizeWindow)
     })
 

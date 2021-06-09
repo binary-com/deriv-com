@@ -13,7 +13,7 @@ const ImageWrapper = styled.div`
 `
 
 const StyledSection = styled(SectionContainer)`
-    background: linear-gradient(#efefef, #ffffff);
+    background: linear-gradient(var(--color-grey-11), var(--color-white));
 `
 
 const query = graphql`

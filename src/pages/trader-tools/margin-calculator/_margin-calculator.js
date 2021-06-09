@@ -2,6 +2,14 @@ import React, { useState } from 'react'
 import { Formik, Field } from 'formik'
 import { graphql, useStaticQuery } from 'gatsby'
 import {
+    getMargin,
+    numberWithCommas,
+    numberSubmitFormat,
+    getContractSize,
+    getCurrency,
+    resetValidationMargin,
+} from '../common/_utility'
+import {
     optionItemDefault,
     leverageItemLists,
     syntheticItemLists,
@@ -11,7 +19,6 @@ import {
     BreadCrumbContainer,
     CalculateButton,
     CalculatorBody,
-    CalculatorDropdown,
     CalculatorForm,
     CalculatorHeader,
     CalculatorLabel,
@@ -32,13 +39,13 @@ import {
     StyledOl,
     StyledSection,
 } from '../common/_style'
-import validation from '../common/_validation'
 import { localize, Localize } from 'components/localization'
 import { Flex, Show } from 'components/containers'
 import {
     Accordion,
     AccordionItem,
     Dropdown,
+    DropdownSearch,
     Header,
     LocalizedLinkText,
     QueryImage,
@@ -71,109 +78,6 @@ const MarginCalculator = () => {
         setTab(tab)
     }
 
-    const getMargin = (values) => {
-        const { symbol, volume, assetPrice, leverage, contractSize } = values
-        let margin_formula
-        const STEPINDEX_VALUE = 100
-        const RANGEBREAK100VALUE = 400
-        const RANGEBREAK200VALUE = 800
-
-        if (symbol.name === 'Step Index') {
-            margin_formula = volume * STEPINDEX_VALUE
-        } else if (symbol.name === 'Range Break 100 Index') {
-            margin_formula = volume * RANGEBREAK100VALUE
-        } else if (symbol.name === 'Range Break 200 Index') {
-            margin_formula = volume * RANGEBREAK200VALUE
-        } else {
-            margin_formula = (volume * contractSize * assetPrice) / leverage.name
-        }
-
-        return toFixed(margin_formula)
-    }
-
-    const toFixed = (val) => {
-        return parseFloat(val.toFixed(3)).toLocaleString()
-    }
-
-    const resetValidation = (values) => {
-        const errors = {}
-        const symbol_error = validation.symbol(values.symbol)
-        const volume_error = validation.volume(values.volume)
-        const assetPrice_error = validation.assetPrice(values.assetPrice)
-        const leverage_error = validation.leverage(values.leverage)
-
-        if (symbol_error) {
-            errors.symbol = symbol_error
-        }
-        if (volume_error) {
-            errors.volume = volume_error
-        }
-        if (assetPrice_error) {
-            errors.assetPrice = assetPrice_error
-        }
-        if (leverage_error) {
-            errors.leverage = leverage_error
-        }
-
-        return errors
-    }
-
-    const getMarginCurrency = (symbol) => {
-        let currency = 'USD'
-        if (symbol.market === 'synthetic_indices' || symbol.market === 'commodities') {
-            currency = 'USD'
-        }
-
-        if (symbol.name === 'DAX_30') {
-            currency = 'EUR'
-        }
-
-        if (symbol.market === 'forex' && symbol.name !== 'default' && symbol.name !== 'CL_BRENT') {
-            currency = symbol.display_name.slice(-3)
-        }
-
-        return currency
-    }
-
-    const getContractSize = (symbol) => {
-        let contractSize = 1 //crypto falls into this contract size
-
-        if (symbol.market === 'forex') {
-            contractSize = 100000
-        }
-
-        if (symbol.market === 'commodities') {
-            switch (symbol.name) {
-                case 'XAGUSD':
-                    contractSize = 5000
-                    break
-                case 'XAUUSD':
-                case 'XPDUSD':
-                case 'XPTUSD':
-                    contractSize = 100
-                    break
-            }
-        }
-
-        if (symbol.name === 'Step Index') {
-            contractSize = 10
-        }
-
-        if (symbol.market === 'smartfx') {
-            contractSize = 100
-        }
-
-        return contractSize
-    }
-
-    const numberWithCommas = (input) => {
-        return input.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
-    }
-
-    const numberSubmitFormat = (input) => {
-        return input.replace(/^0+(?!\.|$)/, '')
-    }
-
     return (
         <>
             <BreadCrumbContainer>
@@ -197,7 +101,6 @@ const MarginCalculator = () => {
                         'Our margin calculator helps you to estimate the margin required to keep your positions open overnight on Deriv MetaTrader 5 (DMT5).',
                     )}
                 </SectionSubtitle>
-
                 <ContentContainer mt="8rem" mb="4rem">
                     <FormWrapper>
                         <Formik
@@ -213,7 +116,7 @@ const MarginCalculator = () => {
                                 optionList: syntheticItemLists,
                                 contractSize: '',
                             }}
-                            validate={resetValidation}
+                            validate={resetValidationMargin}
                             onSubmit={(values, { setFieldValue }) => {
                                 setFieldValue('margin', getMargin(values))
                                 setFieldValue('volume', numberSubmitFormat(values.volume))
@@ -247,7 +150,6 @@ const MarginCalculator = () => {
                                             </CalculatorOutputSymbol>
                                         </CalculatorOutputContainer>
                                     </CalculatorHeader>
-
                                     <CalculatorBody>
                                         <CalculatorLabel>
                                             {localize('Account type')}
@@ -282,30 +184,25 @@ const MarginCalculator = () => {
                                                 <Text align="center">{localize('Financial')}</Text>
                                             </CalculatorTabItem>
                                         </Flex>
-
-                                        <CalculatorDropdown
-                                            option_list={values.optionList}
-                                            label={localize('Symbol')}
-                                            default_option={optionItemDefault}
-                                            selected_option={values.symbol}
+                                        <DropdownSearch
                                             id="symbol"
+                                            key={tab}
+                                            contract_size={values.contractSize}
+                                            default_item={optionItemDefault}
+                                            error={touched.symbol && errors.symbol}
+                                            items={values.optionList}
+                                            label={localize('Symbol')}
                                             onChange={(value) => {
-                                                setFieldValue(
-                                                    'marginSymbol',
-                                                    getMarginCurrency(value),
-                                                )
+                                                setFieldValue('marginSymbol', getCurrency(value))
                                                 setFieldValue(
                                                     'contractSize',
                                                     getContractSize(value),
                                                 )
                                                 setFieldValue('symbol', value)
                                             }}
-                                            error={touched.symbol && errors.symbol}
+                                            selected_item={values.symbol}
                                             onBlur={handleBlur}
-                                            autocomplete="off"
-                                            contractSize={values.contractSize}
                                         />
-
                                         <InputGroup>
                                             <Field
                                                 name="volume"
@@ -335,7 +232,6 @@ const MarginCalculator = () => {
                                                 )}
                                             </Field>
                                         </InputGroup>
-
                                         <InputGroup>
                                             <Field
                                                 name="assetPrice"
@@ -399,12 +295,10 @@ const MarginCalculator = () => {
                             )}
                         </Formik>
                     </FormWrapper>
-
                     <RightContent>
                         <Header as="h3" type="section-title" mb="0.8rem">
                             {localize('How to calculate margin')}
                         </Header>
-
                         <Text>
                             <Localize translate_text="The margin required for a contract on DMT5 is calculated based on the formula:" />
                         </Text>
@@ -414,7 +308,6 @@ const MarginCalculator = () => {
                                 components={[<strong key={0} />]}
                             />
                         </Text>
-
                         <Text mb="1.6rem">
                             <Localize translate_text="This gives you the margin requirement in the quote currency for forex pairs, or in the denomination of the underlying asset for other instruments." />
                         </Text>
@@ -423,11 +316,9 @@ const MarginCalculator = () => {
                                 'For instance, if you are trading the USD/CHF forex pair, the margin requirement will be calculated in Swiss Franc (CHF) which is the quote currency. On the other hand, if you are trading Volatility Index 75,  then the margin requirement will be calculated in US Dollar (USD), which is the denomination of the underlying asset – Volatility Index 75.',
                             )}
                         </Text>
-
                         <Header as="h3" type="section-title" mb="0.8rem">
                             {localize('Example calculation')}
                         </Header>
-
                         <Accordion has_single_state>
                             <AccordionItem
                                 header={localize('Margin required')}
@@ -440,21 +331,18 @@ const MarginCalculator = () => {
                                         'Let’s say you want to trade two lots of EUR/USD with an asset price of 1.10 USD and leverage of 100.',
                                     )}
                                 </Text>
-
                                 <Show.Desktop>
                                     <QueryImage
                                         data={data.margin_formula}
                                         alt={localize('Margin formula')}
                                     />
                                 </Show.Desktop>
-
                                 <Show.Mobile>
                                     <QueryImage
                                         data={data.margin_formula_mobile}
                                         alt={localize('Margin formula mobile')}
                                     />
                                 </Show.Mobile>
-
                                 <FormulaText>
                                     <StyledOl>
                                         <li>
@@ -464,7 +352,6 @@ const MarginCalculator = () => {
                                         </li>
                                     </StyledOl>
                                 </FormulaText>
-
                                 <Text mb="1.6rem" mt="1.6rem">
                                     <Localize
                                         translate_text="So you will require a margin rate of <0>2,200 USD</0> to open the above position."
@@ -478,12 +365,10 @@ const MarginCalculator = () => {
                                 </Text>
                             </AccordionItem>
                         </Accordion>
-
                         <LinkWrapper height="auto">
                             <StyledLinkButton
                                 tertiary="true"
-                                is_deriv_app_link
-                                to="/mt5"
+                                type="mt5"
                                 external="true"
                                 target="_blank"
                                 rel="noopener noreferrer"

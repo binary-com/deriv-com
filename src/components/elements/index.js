@@ -5,6 +5,7 @@ import { Card, CardChildren, CardStyle, NavCard, CardLink } from './card'
 import Divider from './divider'
 import DotLoader from './dot-loader'
 import Dropdown from './dropdown'
+import DropdownSearch from './dropdown-search'
 import Checkbox from './checkbox'
 import QueryImage, { ImageWrapper } from './query-image'
 import { StyledLink } from './link'
@@ -35,6 +36,7 @@ export {
     Divider,
     DotLoader,
     Dropdown,
+    DropdownSearch,
     Header,
     ImageWrapper,
     Li,

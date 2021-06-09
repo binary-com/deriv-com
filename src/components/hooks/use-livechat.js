@@ -1,12 +1,10 @@
 import React from 'react'
-import { livechat_client_id, livechat_license_id } from 'common/constants'
 import { getClientInformation, getDomain, getUTMData, isBrowser } from 'common/utility'
 
 export const useLivechat = () => {
     const [is_livechat_interactive, setLiveChatInteractive] = React.useState(false)
     const LC_API = (isBrowser() && window.LC_API) || {}
     const [is_logged_in, setLoggedIn] = React.useState(false)
-    const CustomerSdk = React.useRef(null)
 
     const url_params = new URLSearchParams((isBrowser() && window.location.search) || '')
     const is_livechat_query = url_params.get('is_livechat_open')
@@ -27,13 +25,6 @@ export const useLivechat = () => {
         let script_timeout = null
         if (isBrowser()) {
             const domain = getDomain()
-            try {
-                import('@livechat/customer-sdk').then((CSDK) => {
-                    CustomerSdk.current = CSDK
-                })
-            } catch (e) {
-                //eslint-disable-no-empty
-            }
 
             /* this function runs every second to determine logged in status*/
             const checkCookie = (() => {
@@ -65,18 +56,7 @@ export const useLivechat = () => {
 
     React.useEffect(() => {
         if (isBrowser()) {
-            let customerSDK = null
             const domain = getDomain()
-            if (CustomerSdk.current) {
-                try {
-                    customerSDK = CustomerSdk.current.init({
-                        licenseId: livechat_license_id,
-                        clientId: livechat_client_id,
-                    })
-                } catch (e) {
-                    // eslint-disable-no-empty
-                }
-            }
             if (is_livechat_interactive) {
                 window.LiveChatWidget.on('ready', () => {
                     const utm_data = getUTMData(domain)
@@ -121,17 +101,11 @@ export const useLivechat = () => {
                             )
                         }
                     } else {
-                        const chat_id = window.LiveChatWidget.get('chat_data').chatId
-                        if (chat_id) {
-                            if (customerSDK) {
-                                customerSDK.on('connected', () => {
-                                    customerSDK?.deactivateChat({ chatId: chat_id }).catch(() => {})
-                                })
-                            }
+                        // clear name and email fields after chat has ended
+                        window.LC_API.on_chat_ended = () => {
+                            window.LiveChatWidget.call('set_customer_email', ' ')
+                            window.LiveChatWidget.call('set_customer_name', ' ')
                         }
-
-                        window.LiveChatWidget.call('set_customer_email', ' ')
-                        window.LiveChatWidget.call('set_customer_name', ' ')
                     }
 
                     const url_params = new URLSearchParams(window.location.search)
@@ -142,7 +116,7 @@ export const useLivechat = () => {
                 })
             }
         }
-    }, [is_logged_in, CustomerSdk, is_livechat_interactive])
+    }, [is_logged_in, is_livechat_interactive])
 
     return [is_livechat_interactive, LC_API]
 }

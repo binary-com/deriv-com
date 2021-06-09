@@ -73,21 +73,21 @@ const RTS27_28 = () => (
                 color="red"
                 target="_blank"
                 rel="noopener noreferrer"
-                href="/regulatory/RTS28-2019.pdf"
+                href="/regulatory/RTS28-2020.pdf"
                 m="1.6rem 2.4rem"
             >
                 <img src={PDFIcon} alt="pdf icon black" />
-                <span>{localize('RTS28 2019')}</span>
+                <span>{localize('RTS28 2020')}</span>
             </FlexText>
             <FlexText
                 color="red"
                 target="_blank"
                 rel="noopener noreferrer"
-                href="/regulatory/RTS28-2018.pdf"
+                href="/regulatory/RTS28-2019.pdf"
                 m="1.6rem 2.4rem"
             >
                 <img src={PDFIcon} alt="pdf icon black" />
-                <span>{localize('RTS28 2018')}</span>
+                <span>{localize('RTS28 2019')}</span>
             </FlexText>
             <FlexText
                 color="red"
@@ -108,16 +108,6 @@ const RTS27_28 = () => (
             >
                 <img src={XLSXIcon} alt="excel" />
                 <span>{localize('RTS27 2019')}</span>
-            </FlexText>
-            <FlexText
-                color="red"
-                target="_blank"
-                rel="noopener noreferrer"
-                href="/regulatory/RTS27-2018.xlsx"
-                m="1.6rem 2.4rem"
-            >
-                <img src={XLSXIcon} alt="excel" />
-                <span>{localize('RTS27 2018')}</span>
             </FlexText>
         </EdgeFlex>
     </>
@@ -164,7 +154,7 @@ const DocumentAccordion = (locale) => {
                     <FlexText_Pillar
                         target="_blank"
                         rel="noopener noreferrer"
-                        href="/regulatory/BIEL_Pillar_3.pdf"
+                        href="/regulatory/DIEL_Pillar_3.pdf"
                         color="red"
                     >
                         <img src={PDFIcon} alt="pdf icon black" />

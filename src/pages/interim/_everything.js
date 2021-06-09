@@ -64,7 +64,7 @@ const Everything = () => {
                                             external="true"
                                             weight="bold"
                                             to="home"
-                                            is_binary_link
+                                            type="binary"
                                             target="_blank"
                                             rel="noopener noreferrer"
                                         />,

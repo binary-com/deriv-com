@@ -65,7 +65,7 @@ const Hero = () => {
                                         weight="bold"
                                         to="home"
                                         size="2.4rem"
-                                        is_binary_link
+                                        type="binary"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                     />,

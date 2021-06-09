@@ -7,6 +7,7 @@ import { Container, SectionContainer, Flex } from 'components/containers'
 // Icons
 import { ReactComponent as PartnerAffiliate } from 'images/svg/partner-affiliate.svg'
 import { ReactComponent as PartnerPaymentAgent } from 'images/svg/partner-payment-agent.svg'
+import { ReactComponent as DeveloperProgramme } from 'images/svg/developer-programme.svg'
 
 const ClientCard = styled(LocalizedLink)`
     ${CardStyle}
@@ -32,26 +33,35 @@ const ClientCard = styled(LocalizedLink)`
     }
     &:hover {
         transform: translateY(-1.5rem);
-        ${(props) =>
-            props.first
-                ? css`
-                      svg > g > path:first-child {
-                          fill: var(--color-red);
-                      }
-                  `
-                : css`
-                      svg > g > path:nth-child(2) {
-                          fill: var(--color-red);
-                      }
-
-                      svg > g > path:nth-child(3) {
-                          fill: var(--color-red);
-                      }
-
-                      svg > g > g > path:last-child {
-                          fill: var(--color-red);
-                      }
-                  `}
+        ${(props) => {
+            if (props.first) {
+                return css`
+                    svg > g > path:first-child {
+                        fill: var(--color-red);
+                    }
+                `
+            }
+            if (props.second) {
+                return css`
+                    svg > g > path:nth-child(2) {
+                        fill: var(--color-red);
+                    }
+                    svg > g > path:nth-child(3) {
+                        fill: var(--color-red);
+                    }
+                    svg > g > g > path:last-child {
+                        fill: var(--color-red);
+                    }
+                `
+            }
+            if (props.third) {
+                return css`
+                    svg > g > g {
+                        fill: var(--color-red);
+                    }
+                `
+            }
+        }}
     }
     @media (max-width: 633px) {
         margin: 1.2rem 0;
@@ -79,7 +89,7 @@ const PartnershipOpportunities = () => (
                     )}
                 </Text>
             </ClientCard>
-            <ClientCard to="/partners/payment-agent/">
+            <ClientCard to="/partners/payment-agent/" second>
                 <Flex ai="center" height="auto" mb="0.8rem">
                     <Header as="h4" size="var(--text-size-sm)">
                         {localize('Payment agent programme')}
@@ -92,20 +102,26 @@ const PartnershipOpportunities = () => (
                     )}
                 </Text>
             </ClientCard>
-            {/* TODO: add this when developer page is ready */}
-            {/* <ClientCard>
+            <ClientCard
+                to=""
+                type="developers"
+                target="_blank"
+                external="true"
+                rel="noopener noreferrer"
+                third
+            >
                 <Flex ai="center" height="auto" mb="0.8rem">
                     <Header as="h4" size="var(--text-size-sm)">
-                        {localize('Developer programme')}
+                        {localize('API')}
                     </Header>
-                    <WithdrawIcon />
+                    <DeveloperProgramme />
                 </Flex>
                 <Text>
                     {localize(
-                        'Develop your own app or interface on top of our trading infrastructure. Earn affiliate commission from new signups, or mark up the price of the contracts traded in your app.',
+                        'Launch your trading app powered by our APIs. Get up to 5% in markup earnings from every trade your clients make on your app.',
                     )}
                 </Text>
-            </ClientCard> */}
+            </ClientCard>
         </Flex>
     </SectionContainer>
 )

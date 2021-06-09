@@ -11,17 +11,22 @@ import MultipliersIcon from 'images/svg/multipliers.svg'
 import OptionsIcon from 'images/svg/options.svg'
 
 const StyledSection = styled(SectionContainer)`
-    padding: 5rem 0;
+    padding: 8rem 0;
+    background-color: var(--color-white);
+
+    @media ${device.tabletL} {
+        padding: 48px 0 40px;
+    }
 `
 const StyledHeader = styled(Header)`
     @media ${device.tabletL} {
-        max-width: 35.75rem;
+        max-width: 280px;
         font-size: 4rem;
         margin: 0 auto;
     }
 `
 const StyledContainer = styled(Container)`
-    margin-top: 2.8rem;
+    margin-top: 4rem;
 
     @media ${device.tabletL} {
         width: 100%;
@@ -81,12 +86,17 @@ const CardContainer = styled(Flex)`
             width: 100%;
             height: 100%;
             justify-content: flex-start;
-            padding: 10px 44px 0 0;
+            padding: 10px 0 0 0;
 
             img {
                 width: 16px;
                 height: 16px;
                 margin-right: 1rem;
+            }
+        }
+        @media ${device.mobileL} {
+            img {
+                margin-right: 5px;
             }
         }
     }
@@ -100,58 +110,46 @@ const CardContainer = styled(Flex)`
         left: 0;
         z-index: -1;
         border-bottom: none;
-        border-radius: 10px 30px 0 0;
-        background: #f3f3f3;
-        transform: perspective(14px) rotateX(1.4deg);
+        border-radius: 8px 8px 0 0;
+        background: var(--color-grey-36);
+        transform: perspective(8px) rotateX(0.8deg);
         transform-origin: bottom left;
         box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.05);
         ${(props) => {
             if (props.active_tab === props.name)
                 return css`
-                    background-color: #ffffff;
-                    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.05);
+                    background-color: var(--color-white);
                 `
         }}
     }
     @media ${device.tabletL} {
-        width: 100%;
         height: 6rem;
         min-width: unset;
-        padding-right: 0;
+        padding-right: 25px;
+
+        &:last-child {
+            padding-right: 40px;
+        }
     }
 `
-const TabMarginIcon = styled.img`
+const TabIcon = styled.img`
     min-width: 16px;
     ${(props) => {
         if (props.active_tab === props.name)
             return css`
                 margin-left: 16px;
+                @media ${device.mobileL} {
+                    margin-left: 5px;
+                }
             `
     }}
 `
-const TabOptionIcon = styled.img`
-    min-width: 16px;
-    ${(props) => {
-        if (props.active_tab === props.name)
-            return css`
-                margin-left: 16px;
-            `
-    }}
-`
-const TabMultiplierIcon = styled.img`
-    min-width: 16px;
-    ${(props) => {
-        if (props.active_tab === props.name)
-            return css`
-                margin-left: 16px;
-            `
-    }}
-`
+
 const ContentWrapper = styled.div`
     width: 100%;
     max-width: 99.6rem;
     display: block;
-    background: #ffffff;
+    background: var(--color-white);
     border-radius: 0.15em;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
 
@@ -169,7 +167,7 @@ const Card = ({ display_name, active_tab, onTabChange, name }) => {
         <CardContainer name={name} active_tab={active_tab} onClick={() => onTabChange(name)}>
             <Flex height="fit-content" jc="flex-start" ai="center">
                 {active_tab === 'Margin' && (
-                    <TabMarginIcon
+                    <TabIcon
                         src={MarginIcon}
                         alt="margin icon"
                         name={name}
@@ -177,7 +175,7 @@ const Card = ({ display_name, active_tab, onTabChange, name }) => {
                     />
                 )}
                 {active_tab === 'Options' && (
-                    <TabOptionIcon
+                    <TabIcon
                         src={OptionsIcon}
                         alt="option icon"
                         name={name}
@@ -185,7 +183,7 @@ const Card = ({ display_name, active_tab, onTabChange, name }) => {
                     />
                 )}
                 {active_tab === 'Multipliers' && (
-                    <TabMultiplierIcon
+                    <TabIcon
                         src={MultipliersIcon}
                         alt="multiplier icon"
                         name={name}

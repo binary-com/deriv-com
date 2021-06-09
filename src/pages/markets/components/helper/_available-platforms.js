@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import { DerivStore } from 'store'
+import { smarttrader_url } from 'common/constants'
 import { Flex } from 'components/containers'
 import { Text } from 'components/elements'
 import { localize, LocalizedLink } from 'components/localization'
@@ -9,6 +11,7 @@ import DBot from 'images/svg/dbot-icon.svg'
 import DMT5 from 'images/svg/dmt5-icon.svg'
 import DTrader from 'images/svg/dtrader-icon.svg'
 import SmartTrader from 'images/svg/smarttrader.svg'
+import DerivX from 'images/svg/deriv-x.svg'
 
 const PlatformsContainer = styled(Flex)`
     justify-content: space-around;
@@ -25,6 +28,7 @@ const PlatformsContainer = styled(Flex)`
     }
     a:last-child {
         margin-right: 0;
+        min-width: 95px;
     }
     @media ${device.tablet} {
         width: ${(props) => props.width};
@@ -34,14 +38,14 @@ const StyledText = styled(Text)`
     margin-right: 1.6rem;
 
     @media ${device.tabletL} {
-        font-size: 1.75rem;
-        margin-right: 1rem;
-    }
-    @media ${device.tablet} {
-        margin-bottom: ${(props) => (props.tablet_direction === 'column' ? '1.6rem' : 'unset')};
+        font-size: 16px;
+        margin-bottom: 10px;
+        width: 100%;
+        text-align: center;
     }
     @media ${device.mobileL} {
-        width: unset;
+        margin-right: 0;
+        font-size: 14px;
     }
 `
 const StyledFlex = styled(Flex)`
@@ -57,11 +61,15 @@ const AvailablePlatforms = ({
     dtrader,
     dbot,
     smarttrader,
+    derivx,
     flex_direction,
     tablet_direction,
-}) => {
+    }) => {
+    const { is_eu_country } = React.useContext(DerivStore)
+
     return (
         <Flex
+            style={{'flexWrap': 'wrap'}}
             fd={flex_direction}
             mobileL={{ mt: '16px' }}
             mt="2.4rem"
@@ -77,7 +85,7 @@ const AvailablePlatforms = ({
                     <LocalizedLink to="/dmt5/">
                         <StyledFlex direction="row" ai="center">
                             <img src={DMT5} alt="dmt5 icon" width="32" height="32" />
-                            <Text ml="0.4rem">{localize('MetaTrader5 (DMT5)')}</Text>
+                            <Text ml="0.4rem">{localize('Deriv MT5 (DMT5)')}</Text>
                         </StyledFlex>
                     </LocalizedLink>
                 )}
@@ -98,16 +106,20 @@ const AvailablePlatforms = ({
                     </LocalizedLink>
                 )}
                 {smarttrader && (
-                    <a
-                        href="https://smarttrader.deriv.com/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
+                    <a href={smarttrader_url} target="_blank" rel="noopener noreferrer">
                         <StyledFlex direction="row" ai="center">
                             <img src={SmartTrader} alt="smarttrader" width="32" height="32" />
                             <Text ml="0.4rem">{localize('SmartTrader')}</Text>
                         </StyledFlex>
                     </a>
+                )}
+                {derivx && !is_eu_country && (
+                    <LocalizedLink to="/derivx/">
+                        <StyledFlex direction="row" ai="center">
+                            <img src={DerivX} alt="Deriv X" width="32" height="32" />
+                            <Text ml="0.4rem">{localize('Deriv X')}</Text>
+                        </StyledFlex>
+                    </LocalizedLink>
                 )}
             </PlatformsContainer>
         </Flex>
@@ -116,6 +128,7 @@ const AvailablePlatforms = ({
 
 AvailablePlatforms.propTypes = {
     dbot: PropTypes.bool,
+    derivx: PropTypes.bool,
     dmt5: PropTypes.bool,
     dtrader: PropTypes.bool,
     flex_direction: PropTypes.string,

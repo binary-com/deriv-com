@@ -27,17 +27,17 @@ const Footer = ({ type, is_ppc, is_ppc_redirect }) => {
     const { show_cookie_banner } = React.useContext(LocationContext)
     const { is_eu_country } = React.useContext(DerivStore)
     mobile_accordion_header_about.borderTop = 'none'
-    
+
     return (
         <DefaultFooter has_banner_cookie={show_cookie_banner} is_eu_country={is_eu_country}>
             <Container>
                 <FooterGrid>
-                    <LogoSection type={type}/>
-                    <MainLinksSection is_ppc={is_ppc} is_ppc_redirect={is_ppc_redirect} is_eu_country={is_eu_country}/>
-                    <DisclaimerSection/>
-                    <CopyrightSection/>
+                    <LogoSection type={type} />
+                    <MainLinksSection is_ppc={is_ppc} is_ppc_redirect={is_ppc_redirect} is_eu_country={is_eu_country} />
+                    <DisclaimerSection />
+                    <CopyrightSection />
                     <BottomSocialSection type={type} />
-                    <AdditionalEUSection/>
+                    <AdditionalEUSection />
                 </FooterGrid>
             </Container>
         </DefaultFooter>

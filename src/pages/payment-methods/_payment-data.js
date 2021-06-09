@@ -726,7 +726,7 @@ const payment_data = [
         data: [
             {
                 method: <StyledIcon src={Changelly} alt="Changelly" />,
-                currencies: 'USD EUR AUD GBP',
+                currencies: 'USD EUR GBP BTC',
                 min_max_deposit: '50 - 5,000',
                 deposit_time: <Localize translate_text="5 - 30 minutes" />,
                 description: (
@@ -737,7 +737,12 @@ const payment_data = [
             },
             {
                 method: <StyledIcon src={Banxa} alt="Banxa" />,
-                currencies: 'USD EUR AUD GBP',
+                currencies: (
+                    <Localize
+                        translate_text="USD EUR GBP AUD<0></0>BTC LTC USDT USDC"
+                        components={[<br key={0} />]}
+                    />
+                ),
                 min_max_deposit: '50 - 5,000',
                 deposit_time: <Localize translate_text="5 - 30 minutes" />,
                 description: (
@@ -747,7 +752,12 @@ const payment_data = [
             },
             {
                 method: <StyledIcon src={Wyre} alt="Wyre" />,
-                currencies: 'USD EUR AUD GBP',
+                currencies: (
+                    <Localize
+                        translate_text="USD EUR GBP AUD<0></0>BTC ETH USDC"
+                        components={[<br key={0} />]}
+                    />
+                ),
                 min_max_deposit: <Localize translate_text="50 - 5,000" />,
                 deposit_time: <Localize translate_text="5 - 30 minutes" />,
                 description: (
@@ -757,7 +767,12 @@ const payment_data = [
             },
             {
                 method: <StyledIcon src={Xanpool} alt="Xanpool" />,
-                currencies: 'USD EUR AUD GBP',
+                currencies: (
+                    <Localize
+                        translate_text="USD EUR GBP AUD<0></0>BTC ETH LTC USDT"
+                        components={[<br key={0} />]}
+                    />
+                ),
                 min_max_deposit: <Localize translate_text="50 - 5,000" />,
                 deposit_time: <Localize translate_text="5 - 30 minutes" />,
                 description: (

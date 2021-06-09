@@ -58,7 +58,7 @@ const ImageContainer = styled.div`
     width: 100%;
 `
 const StyledSection = styled(SectionContainer)`
-    background-image: linear-gradient(to bottom, var(--color-grey-11), rgba(238, 238, 238, 0));
+    background-image: linear-gradient(to bottom, var(--color-grey-30), rgba(238, 238, 238, 0));
 `
 
 const Trade = ({ is_ppc_redirect }) => {

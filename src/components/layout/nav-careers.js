@@ -120,7 +120,7 @@ export const NavCareers = () => {
                                 <CareerButton
                                     external="true"
                                     secondary
-                                    is_zoho_link
+                                    type="zoho"
                                     to="/"
                                     target="_blank"
                                     rel="noopener noreferrer"

@@ -68,7 +68,7 @@ const BeSquareFooter = () => {
                             line_height={['30px', '24px']}
                         >
                             <Localize
-                                translate_text="Submit your application before 31 May 2021<0/><1>If you have any questions, email us at </1><2>info@besquare.my</2>"
+                                translate_text="<1>If you have any questions, email us at </1><2>info@besquare.my</2>"
                                 components={[
                                     <br key={0} />,
                                     <TextWrapper

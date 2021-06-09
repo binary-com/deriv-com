@@ -14,7 +14,7 @@ const StyledSection = styled(SectionContainer)`
     }
 `
 
-const Margin = ({ market_content }) => (
+const Margin = ({ market_content, market_tab_name }) => (
     <StyledSection padding="4rem 0 8rem">
         <ContentWrapper>
             <Descriptions>
@@ -23,7 +23,11 @@ const Margin = ({ market_content }) => (
                         'Margin trading allows you to purchase larger units of an asset at a fraction of the cost while amplifying your potential profit, but similarly increasing your potential loss.',
                     )}
                 </StyledText>
-                <AvailablePlatforms dmt5 />
+                {
+                    market_tab_name === 'stock-indices'
+                    ? <AvailablePlatforms dmt5 />
+                    : <AvailablePlatforms dmt5 derivx />
+                }
             </Descriptions>
             <StyledText font_size={'16px'} weight="bold" mt="4rem">
                 {localize('Instruments available for margin trading')}
@@ -35,6 +39,7 @@ const Margin = ({ market_content }) => (
 
 Margin.propTypes = {
     market_content: PropTypes.object,
+    market_tab_name: PropTypes.String,
 }
 
 export default Margin

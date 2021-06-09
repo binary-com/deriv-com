@@ -8,10 +8,11 @@ import { Header, Text, QueryImage } from 'components/elements'
 
 const StyledSection = styled(SectionContainer)`
     background-color: var(--color-white);
-    box-shadow: inset 1px 0 0 1px var(--color-grey-2);
-
+    border-top: solid 1px var(--color-grey-2);
     @media ${device.tabletL} {
         padding: 1.74rem 0 4rem 0;
+        border-top: unset;
+        border-bottom: unset;
     }
 `
 const StyledContainer = styled(Container)`
@@ -107,6 +108,18 @@ const query = graphql`
             ...fadeIn
         }
         stocks_blue_chip: file(relativePath: { eq: "stocks-blue-chip.png" }) {
+            ...fadeIn
+        }
+        bespoke: file(relativePath: { eq: "deriv-x/bespoke.png" }) {
+            ...fadeIn
+        }
+        feature_rich: file(relativePath: { eq: "deriv-x/feature-rich.png" }) {
+            ...fadeIn
+        }
+        intuitive: file(relativePath: { eq: "deriv-x/intuitive.png" }) {
+            ...fadeIn
+        }
+        margin: file(relativePath: { eq: "deriv-x/margin.png" }) {
             ...fadeIn
         }
     }

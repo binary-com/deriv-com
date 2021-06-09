@@ -68,10 +68,10 @@ module.exports = {
                     '/endpoint',
                     '/**/endpoint',
                 ],
-                serialize: ({ site, allPages }) =>
-                    allPages.map((page) => {
+                serialize: ({ site, allSitePage }) =>
+                    allSitePage.nodes.map((node) => {
                         const ignore_localized_regex = /careers/
-                        const path = page.node.path
+                        const path = node.node.path
                         let priority = 0.7
                         const languages = Object.keys(language_config)
                         if (path === '/') {
@@ -110,7 +110,7 @@ module.exports = {
                         })
 
                         return {
-                            url: site.siteMetadata.siteUrl + page.node.path,
+                            url: site.siteMetadata.siteUrl + node.node.path,
                             changefreq: `monthly`,
                             priority,
                             links: !ignore_localized ? links : null,

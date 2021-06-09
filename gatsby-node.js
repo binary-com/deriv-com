@@ -9,7 +9,6 @@ exports.onCreatePage = ({ page, actions }) => {
     // First delete the incoming page that was automatically created by Gatsby
     // So everything in src/pages/
     deletePage(page)
-    const is_deriv_x = /derivx/g.test(page.path)
     const is_responsible_trading = /responsible/g.test(page.path)
     const is_contact_us = /contact_us/g.test(page.path)
     const is_p2p = /responsible/g.test(page.path)
@@ -94,19 +93,6 @@ exports.onCreatePage = ({ page, actions }) => {
             toPath: `/markets/forex/`,
             redirectInBrowser: true,
             isPermanent: true,
-        })
-    }
-
-    if (is_deriv_x) {
-        createRedirect({
-            fromPath: `/derivx/`,
-            toPath: `/`,
-            redirectInBrowser: true,
-        })
-        createRedirect({
-            fromPath: `/derivx`,
-            toPath: `/`,
-            redirectInBrowser: true,
         })
     }
 
@@ -246,19 +232,6 @@ exports.onCreatePage = ({ page, actions }) => {
                 toPath: `/${lang}/markets/forex/`,
                 redirectInBrowser: true,
                 isPermanent: true,
-            })
-        }
-
-        if (is_deriv_x) {
-            createRedirect({
-                fromPath: `/${lang}/derivx/`,
-                toPath: `/${lang}/`,
-                redirectInBrowser: true,
-            })
-            createRedirect({
-                fromPath: `/${lang}/derivx`,
-                toPath: `/${lang}`,
-                redirectInBrowser: true,
             })
         }
 

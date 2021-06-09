@@ -5,8 +5,10 @@ import { SectionContainer } from 'components/containers'
 import { localize, Localize } from 'components/localization'
 import { LinkButton } from 'components/form'
 import { Header } from 'components/elements'
+import { DerivStore } from 'store'
 
 const StartTrading = () => {
+    const { is_eu_country } = React.useContext(DerivStore)
     return (
         <>
             <SectionContainer background="white" padding="8rem 0 4rem">
@@ -17,14 +19,22 @@ const StartTrading = () => {
 
                     <Timeline>
                         <Timeline.Item title={<Localize translate_text="Practise" />}>
-                            {localize(
-                                'Open a demo MetaTrader 5 account on Deriv and practise with an unlimited amount of virtual funds.',
-                            )}
+                            {is_eu_country
+                                ? localize(
+                                      'Open a demo MetaTrader 5 account on Deriv and practise with an unlimited amount of virtual funds.',
+                                  )
+                                : localize(
+                                      'Open a demo Deriv MT5 (DMT5) or demo Deriv X account and practise with an unlimited amount of virtual funds.',
+                                  )}
                         </Timeline.Item>
                         <Timeline.Item title={<Localize translate_text="Trade" />}>
-                            {localize(
-                                'Trade with a real Deriv MT5 (DMT5) account and get access to high leverage to trade positions larger than your existing capital.',
-                            )}
+                            {is_eu_country
+                                ? localize(
+                                      'Trade with a real Deriv MT5 (DMT5) account and get access to high leverage to trade positions larger than your existing capital.',
+                                  )
+                                : localize(
+                                      'Trade with a real Deriv MT5 (DMT5) or real Deriv X account and get access to high leverage to trade positions larger than your existing capital.',
+                                  )}
                         </Timeline.Item>
                         <Timeline.Item title={<Localize translate_text="Withdraw" />}>
                             {localize(

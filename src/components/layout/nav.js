@@ -442,7 +442,7 @@ const NavMobile = ({ is_ppc, is_ppc_redirect, is_logged_in }) => {
     )
 }
 
-const NavDesktop = ({ base, is_ppc, is_ppc_redirect, is_logged_in }) => {
+const NavDesktop = ({ base, is_ppc, is_ppc_redirect, is_logged_in, hide_sigup_login }) => {
     const data = useStaticQuery(query)
     const button_ref = useRef(null)
     const navigation_bar_ref = useRef(null)
@@ -558,13 +558,17 @@ const NavDesktop = ({ base, is_ppc, is_ppc_redirect, is_logged_in }) => {
                         has_scrolled={has_scrolled}
                     >
                         <LanguageSwitcherNavDesktop />
-                        <NowrapButton onClick={handleLogin} primary>
-                            <span>{localize('Log in')}</span>
-                        </NowrapButton>
+                        {!hide_sigup_login && (
+                            <NowrapButton onClick={handleLogin} primary>
+                                <span>{localize('Log in')}</span>
+                            </NowrapButton>
+                        )}
                         <LocalizedLink to={is_ppc_redirect ? '/landing/signup/' : '/signup/'}>
-                            <SignupButton ref={button_ref} secondary="true">
-                                <span>{localize('Create free demo account')}</span>
-                            </SignupButton>
+                            {!hide_sigup_login && (
+                                <SignupButton ref={button_ref} secondary="true">
+                                    <span>{localize('Create free demo account')}</span>
+                                </SignupButton>
+                            )}
                         </LocalizedLink>
                     </NavRight>
                 )}
@@ -573,7 +577,7 @@ const NavDesktop = ({ base, is_ppc, is_ppc_redirect, is_logged_in }) => {
     )
 }
 
-export const Nav = ({ base, is_ppc_redirect, is_ppc }) => {
+export const Nav = ({ base, is_ppc_redirect, is_ppc, hide_sigup_login }) => {
     const [is_logged_in, setLoggedIn] = useState(false)
 
     useEffect(() => {
@@ -595,6 +599,7 @@ export const Nav = ({ base, is_ppc_redirect, is_ppc }) => {
                             is_ppc={is_ppc}
                             is_ppc_redirect={is_ppc_redirect}
                             is_logged_in={is_logged_in}
+                            hide_sigup_login={hide_sigup_login}
                         />
                     </Show.Desktop>
                     <Show.Mobile min_width="bp1060">
@@ -609,12 +614,14 @@ export const Nav = ({ base, is_ppc_redirect, is_ppc }) => {
 
 Nav.propTypes = {
     base: PropTypes.string,
+    hide_sigup_login: PropTypes.bool,
     is_ppc: PropTypes.bool,
     is_ppc_redirect: PropTypes.bool,
 }
 
 NavDesktop.propTypes = {
     base: PropTypes.string,
+    hide_sigup_login: PropTypes.bool,
     is_logged_in: PropTypes.bool,
     is_ppc: PropTypes.bool,
     is_ppc_redirect: PropTypes.bool,

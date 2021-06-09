@@ -6,7 +6,7 @@ import { isUK } from 'common/country-base'
 import { Localize, localize } from 'components/localization'
 import { TimelineTick } from 'components/elements/timeline'
 import device from 'themes/device'
-import { useWebsiteStatus } from 'components/hooks/website-status-hooks'
+import { useWebsiteStatus } from 'components/hooks/use-website-status'
 
 const ContentWrapper = styled(Flex)`
     justify-content: center;

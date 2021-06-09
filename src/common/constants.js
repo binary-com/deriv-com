@@ -12,6 +12,7 @@ const domain_url =
         ? window.location.hostname
         : deriv_com_url
 
+// URL
 export const deriv_app_id = domain_url === deriv_com_url ? deriv_com_app_id : deriv_me_app_id
 export const deriv_app_url = `https://app.${domain_url}`
 export const deriv_developer_url = `https://developers.${domain_url}`
@@ -74,6 +75,7 @@ export const localized_link_url = Object.freeze({
     smart_trader: smarttrader_url,
     zoho: zoho_url,
 })
+export const default_server_url = 'green.binaryws.com'
 
 export const fb_url = 'https://www.facebook.com/derivdotcom'
 export const fb_url_career = 'https://www.facebook.com/derivcareers'

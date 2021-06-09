@@ -184,7 +184,7 @@ const calculators = [
         ),
         image_name: 'margin_calculator',
         button_text: <Localize translate_text="Try our margin calculator" />,
-        link: '/trader-tools#marginCalculator',
+        link: '/trader-tools/margin-calculator/',
     },
     {
         index: 1,
@@ -194,7 +194,7 @@ const calculators = [
         ),
         image_name: 'swap_calculator',
         button_text: <Localize translate_text="Try our swap calculator" />,
-        link: '/trader-tools/#swapCalculator',
+        link: '/trader-tools/swap-calculator/',
     },
 ]
 

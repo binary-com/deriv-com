@@ -134,7 +134,7 @@ const Tabs = ({ children, is_reverse, parent_tab, has_download_button, download_
 
     return (
         <StyledFlex ai="flex-start" direction={is_reverse ? 'row-reverse' : 'row'}>
-            <Desktop max_width={'tablet'}>
+            <Desktop max_width={'bp769'}>
                 {React.Children.map(children, (el, index) => {
                     return (
                         <Content selected={selected_tab === index}>
@@ -167,7 +167,7 @@ const Tabs = ({ children, is_reverse, parent_tab, has_download_button, download_
                                         {description}
                                     </StyledText>
                                 </TabButton>
-                                <Mobile min_width={'tablet'}>
+                                <Mobile min_width={'bp769'}>
                                     <Content selected={selected_tab === index}>
                                         {selected_tab === index ? child : undefined}
                                     </Content>

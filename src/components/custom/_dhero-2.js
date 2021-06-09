@@ -56,6 +56,7 @@ const HeroContent = styled(Flex)`
 const StyledHeader = styled(Header)`
     color: var(--color-white);
     display: flex;
+    align-items: center;
     margin-top: 0;
     font-size: 2.4rem;
 

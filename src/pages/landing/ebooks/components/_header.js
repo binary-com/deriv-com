@@ -49,6 +49,8 @@ const TopHeaderImgWrapper = styled(Flex)`
     }
 `
 const HeaderImage = styled(QueryImage)`
+    width: ${(props) => (props.imgWidth ? `${props.imgWidth}px` : '557px')};
+    height: ${(props) => (props.imgHeight ? `${props.imgHeight}px` : '703px')};
     position: relative;
     top: 75px;
     margin: 0;
@@ -64,28 +66,36 @@ const HeaderImage = styled(QueryImage)`
         height: auto;
         margin: initial;
         width: 80%;
-        margin-left: ${(props) => (props.width < 600 ? '-50px' : '-15px')};
+        margin-left: ${(props) => (props.imgWidth < 600 ? '-50px' : '-15px')};
     }
 
     @media ${device.tabletS} {
         width: 100%;
-        margin-left: ${(props) => (props.width < 600 ? '-70px' : '-20px')};
+        margin-left: ${(props) => (props.imgWidth < 600 ? '-70px' : '-20px')};
     }
 `
 
 const ContentWrapper = styled.div`
+    width: 100%;
     float: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+`
+
+const Content = styled.div`
     width: 100%;
     margin: 0;
-    padding: 45px 120px 0 45px;
+    padding: 0 30px 0 45px;
 
     @media ${device.laptopL} {
-        padding: 45px 0 0 45px;
+        padding-left: 45px;
         margin-right: 30px;
     }
 
     @media ${device.laptop} {
-        padding: 45px 120px 0 45px;
+        padding: 0 60px 0 25px;
+        max-width: 600px;
     }
 
     @media ${device.tablet} {
@@ -94,6 +104,18 @@ const ContentWrapper = styled.div`
         padding: 0;
         margin: 0 auto;
         justify-content: center;
+    }
+
+    .title {
+        @media screen and (min-width: 1200px) {
+            max-width: 600px;
+        }
+        @media ${device.laptopL} {
+            max-width: 400px;
+        }
+        @media ${device.tablet} {
+            max-width: 300px;
+        }
     }
 `
 
@@ -126,53 +148,56 @@ const HeaderSection = ({
                     <HeaderImage
                         data={mainHeaderImage}
                         alt="ebook"
-                        width={imgWidth ? `${imgWidth}px` : '557px'}
-                        height={imgHeight ? `${imgHeight}px` : '703px'}
+                        imgWidth={imgWidth}
+                        imgHeight={imgHeight}
+                        height="100%"
                     />
                 </TopHeaderImgWrapper>
                 <ContentWrapper>
-                    <Header
-                        className="sub-title"
-                        as="h1"
-                        type="sub-section-title"
-                        weight="500"
-                        color="white"
-                    >
-                        {introSub}
-                    </Header>
-                    <Header
-                        className="title"
-                        as="h1"
-                        type="page-title"
-                        mb="10px"
-                        lh={1.2}
-                        max_width="400px"
-                        color="white"
-                    >
-                        {introMain}
-                    </Header>
-                    <Header as="h1" type="main-paragraph" weight="normal" color="white">
-                        {localize('Claim a FREE e-book now!')}
-                    </Header>
-                    <Header as="h1" type="main-paragraph" weight="normal" color="white">
-                        {localize('Plus a free demo account to practice.')}
-                    </Header>
-                    <AuthorText
-                        m={0}
-                        mt="10px"
-                        size="1.4rem"
-                        color="white"
-                        lh="16px"
-                        max_width="586px"
-                    >
-                        {authorDesc}
-                        <AuthorNameText color="white" weight="bold">
-                            {authorName}
-                        </AuthorNameText>
-                    </AuthorText>
-                    <SignupWrapper>
-                        <GetEbook ebook_utm_code={ebook_utm_code} />
-                    </SignupWrapper>
+                    <Content>
+                        <Header
+                            className="sub-title"
+                            as="h1"
+                            type="sub-section-title"
+                            weight="500"
+                            color="white"
+                        >
+                            {introSub}
+                        </Header>
+                        <Header
+                            className="title"
+                            as="h1"
+                            type="page-title"
+                            mb="10px"
+                            lh={1.2}
+                            max_width="800px"
+                            color="white"
+                        >
+                            {introMain}
+                        </Header>
+                        <Header as="h1" type="main-paragraph" weight="normal" color="white">
+                            {localize('Claim a FREE e-book now!')}
+                        </Header>
+                        <Header as="h1" type="main-paragraph" weight="normal" color="white">
+                            {localize('Plus a free demo account to practice.')}
+                        </Header>
+                        <AuthorText
+                            m={0}
+                            mt="10px"
+                            size="1.4rem"
+                            color="white"
+                            lh="16px"
+                            max_width="586px"
+                        >
+                            {authorDesc}
+                            <AuthorNameText color="white" weight="bold">
+                                {authorName}
+                            </AuthorNameText>
+                        </AuthorText>
+                        <SignupWrapper>
+                            <GetEbook ebook_utm_code={ebook_utm_code} />
+                        </SignupWrapper>
+                    </Content>
                 </ContentWrapper>
             </HeaderBody>
         </MainWrapper>

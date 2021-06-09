@@ -30,6 +30,7 @@ const StyledCheckbox = styled.div`
     height: 1.6rem;
     background: ${(props) => {
         if (props.secondary && props.checked) return 'var(--color-red)'
+        else if (props.background) return props.background
         return 'var(--color-white)'
     }};
     border: ${(props) => {
@@ -48,10 +49,10 @@ const StyledCheckbox = styled.div`
     }
 `
 
-const Checkbox = ({ checked, secondary, id, ...props }) => (
+const Checkbox = ({ checked, secondary, id, bg, ...props }) => (
     <CheckboxContainer id={id}>
         <HiddenCheckbox checked={checked} {...props} />
-        <StyledCheckbox checked={checked} secondary={secondary}>
+        <StyledCheckbox checked={checked} secondary={secondary} background={bg}>
             <Icon viewBox="0 0 24 24" secondary={secondary}>
                 <polyline points="20 6 9 17 4 12" />
             </Icon>
@@ -60,6 +61,7 @@ const Checkbox = ({ checked, secondary, id, ...props }) => (
 )
 
 Checkbox.propTypes = {
+    bg: PropTypes.string,
     checked: PropTypes.bool,
     id: PropTypes.string,
     secondary: PropTypes.bool,

@@ -397,7 +397,7 @@ const handleGetTrading = () => {
     window.location.href = trading_url_localized
 }
 
-const NavMobile = ({ is_ppc, is_ppc_redirect, is_logged_in }) => {
+const NavMobile = ({ is_ppc, is_ppc_redirect, is_logged_in, hide_signup_login }) => {
     const [is_canvas_menu_open, openOffCanvasMenu, closeOffCanvasMenu] = moveOffCanvasMenu()
 
     return (
@@ -424,14 +424,18 @@ const NavMobile = ({ is_ppc, is_ppc_redirect, is_logged_in }) => {
             </LogoLinkMobileMain>
             <MobileRightMain>
                 <LanguageSwitcher short_name="true" is_high_nav />
-                {is_logged_in ? (
-                    <MobileButton margin_left="0.8rem" onClick={handleGetTrading} primary>
-                        <span>{localize('Get Trading')}</span>
-                    </MobileButton>
-                ) : (
-                    <MobileButton margin_left="0.8rem" onClick={handleLogin} primary>
-                        <span>{localize('Log in')}</span>
-                    </MobileButton>
+                {!hide_signup_login && (
+                    <>
+                        {is_logged_in ? (
+                            <MobileButton margin_left="0.8rem" onClick={handleGetTrading} primary>
+                                <span>{localize('Get Trading')}</span>
+                            </MobileButton>
+                        ) : (
+                            <MobileButton margin_left="0.8rem" onClick={handleLogin} primary>
+                                <span>{localize('Log in')}</span>
+                            </MobileButton>
+                        )}
+                    </>
                 )}
             </MobileRightMain>
             <OffCanvasMenu
@@ -606,7 +610,11 @@ export const Nav = ({ base, is_ppc_redirect, is_ppc, hide_signup_login }) => {
                         />
                     </Show.Desktop>
                     <Show.Mobile min_width="bp1060">
-                        <NavMobile is_ppc={is_ppc} is_logged_in={is_logged_in} />
+                        <NavMobile
+                            is_ppc={is_ppc}
+                            is_logged_in={is_logged_in}
+                            hide_signup_login={hide_signup_login}
+                        />
                     </Show.Mobile>
                 </StyledNavMain>
             </NavWrapperMain>
@@ -631,6 +639,7 @@ NavDesktop.propTypes = {
 }
 
 NavMobile.propTypes = {
+    hide_signup_login: PropTypes.bool,
     is_logged_in: PropTypes.bool,
     is_ppc: PropTypes.bool,
     is_ppc_redirect: PropTypes.bool,

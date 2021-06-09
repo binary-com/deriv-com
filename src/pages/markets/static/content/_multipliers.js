@@ -4,7 +4,7 @@ import {
     CrashBoom,
     MajorPairs,
     StepIndices,
-    Cryptocurrencies,
+    CryptocurrenciesMultipliers,
 } from '../../instruments/_submarkets'
 import {
     ContinuousIndicesDetails,
@@ -65,7 +65,7 @@ export const crypto_multiplier = {
     content: [
         {
             title: <Localize translate_text="Cryptocurrencies" />,
-            component: <Cryptocurrencies />,
+            component: <CryptocurrenciesMultipliers />,
             details: CryptocurrenciesDetails,
         },
     ],

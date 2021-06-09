@@ -3,8 +3,8 @@ import { getClientInformation, getDomain } from 'common/utility'
 
 export const useClientInformation = () => {
 
-    const [client_information, setClientInformation] = useState({})
-    const [current_client_information, setCurrentClientInformation] = useState({})
+    const [client_information, setClientInformation] = useState(null)
+    const [current_client_information, setCurrentClientInformation] = useState(null)
 
     useEffect(() => {
         const cookie_interval = setInterval(() => {

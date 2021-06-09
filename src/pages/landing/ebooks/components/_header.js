@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import GetEbook from './_get-ebook'
 import { Flex } from 'components/containers'
-import { Header, Text } from 'components/elements'
+import { Header, QueryImage, Text } from 'components/elements'
 import { localize } from 'components/localization'
 import device from 'themes/device.js'
 
@@ -48,9 +48,7 @@ const TopHeaderImgWrapper = styled(Flex)`
         margin-top: -70px;
     }
 `
-const HeaderImage = styled.img`
-    width: ${(props) => (props.width ? `${props.width}px` : '557px')};
-    height: ${(props) => (props.height ? `${props.height}px` : '703px')};
+const HeaderImage = styled(QueryImage)`
     position: relative;
     top: 75px;
     margin: 0;
@@ -126,10 +124,10 @@ const HeaderSection = ({
             <HeaderBody>
                 <TopHeaderImgWrapper>
                     <HeaderImage
-                        src={mainHeaderImage}
-                        alt="stocks ebook"
-                        width={imgWidth}
-                        height={imgHeight}
+                        data={mainHeaderImage}
+                        alt="ebook"
+                        width={imgWidth ? `${imgWidth}px` : '557px'}
+                        height={imgHeight ? `${imgHeight}px` : '703px'}
                     />
                 </TopHeaderImgWrapper>
                 <ContentWrapper>

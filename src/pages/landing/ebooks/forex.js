@@ -1,4 +1,5 @@
 import React from 'react'
+import { graphql, useStaticQuery } from 'gatsby'
 import Introduction from './components/_introduction'
 import HeaderSection from './components/_header'
 import Topics from './components/_topics'
@@ -6,8 +7,6 @@ import Layout from 'components/layout/layout'
 import { SEO } from 'components/containers'
 import { localize, WithIntl } from 'components/localization'
 import introForexEbook from 'images/common/ebooks/introduction-forex-ebook.png'
-import forexEbookImage from 'images/common/ebooks/forex-ebook.png'
-import forexEbookInside from 'images/common/ebooks/forex-ebook-inside.png'
 
 const introPoints = [
     localize('The simple basics of forex'),
@@ -29,7 +28,19 @@ const topicsCovered = [
     localize('Forex in more detail'),
 ]
 
+const query = graphql`
+    query {
+        forex_ebook_img: file(relativePath: { eq: "ebooks/forex-ebook.png" }) {
+            ...backGroundBlur
+        }
+        forex_ebook_inside: file(relativePath: { eq: "ebooks/forex-ebook-inside.png" }) {
+            ...fadeIn
+        }
+    }
+`
+
 const ForexEbook = () => {
+    const data = useStaticQuery(query)
     return (
         <Layout type="ebook" is_ppc_redirect={true}>
             <SEO
@@ -38,7 +49,7 @@ const ForexEbook = () => {
                 no_index
             />
             <HeaderSection
-                mainHeaderImage={forexEbookImage}
+                mainHeaderImage={data['forex_ebook_img']}
                 imgWidth={601}
                 imgHeight={682}
                 bg="linear-gradient(to left, #661b20 39%, #cc363f);"
@@ -59,7 +70,7 @@ const ForexEbook = () => {
                 )}
                 introList={introPoints}
             />
-            <Topics topicsImage={forexEbookInside} topicsList={topicsCovered} />
+            <Topics topicsImage={data['forex_ebook_inside']} topicsList={topicsCovered} />
         </Layout>
     )
 }

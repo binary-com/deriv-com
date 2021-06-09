@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { Header, Li } from 'components/elements'
+import { Header, Li, QueryImage } from 'components/elements'
 import { localize } from 'components/localization'
 import checkIcon from 'images/common/ebooks/check-icon.png'
 import device from 'themes/device'
@@ -75,9 +75,6 @@ const TopicImgWrapper = styled.div`
     }
 `
 
-const Image = styled.img`
-    width: 100%;
-`
 const Topics = ({ topicsImage, topicsList }) => {
     return (
         <FullWidth>
@@ -105,7 +102,7 @@ const Topics = ({ topicsImage, topicsList }) => {
                     })}
                 </ItemList>
                 <TopicImgWrapper className="topic-wrapper">
-                    <Image src={topicsImage} alt="Forex Topics" />
+                    <QueryImage data={topicsImage} alt="Forex Topics" />
                 </TopicImgWrapper>
             </Wrapper>
         </FullWidth>

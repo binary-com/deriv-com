@@ -34,6 +34,6 @@ export const ImageWrapper = styled.img`
         max-width: 328px;
         margin-right: 15px;
         overflow: unset;
-        top: 40px;
+        top: 24px;
     }
 `

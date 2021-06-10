@@ -165,7 +165,6 @@ const StyledText = styled(Text)`
 const ResponseWrapper = styled.div`
     justify-content: center;
     max-width: 330px;
-    margin-left: 0;
     flex-direction: column;
     text-align: center;
     border: 1px solid white;

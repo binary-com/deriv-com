@@ -37,6 +37,23 @@ module.exports = {
         {
             resolve: 'gatsby-plugin-sitemap',
             options: {
+                query: `
+                    allSitePage {
+                        edges {
+                            node {
+                                path
+                            }
+                        }
+                    }
+                    site {
+                        siteMetadata {
+                            title
+                            description
+                            author
+                            siteUrl
+                        }
+                    }
+                `,
                 excludes: [
                     '/404',
                     '/**/404.html',

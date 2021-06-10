@@ -26,7 +26,7 @@ const WhatIsBeSquare = () => {
         },
         text_wrapper: {
             max_width: ['446px', '282px'],
-            padding: ['8px 8px 8px 0', '12px 0px 12px 0'],
+            padding: ['8px 8px 8px 0', '12px 12px 12px 0'],
         },
     }
 

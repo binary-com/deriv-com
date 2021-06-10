@@ -290,9 +290,7 @@ const GetEbook = ({ onSubmit, ebook_utm_code }) => {
 
     return submit_status === 'success' ? (
         <ResponseWrapper>
-            <div className="email-image-wrapper">
-                <EmailImage src={ViewEmailImage} alt="Email image" />
-            </div>
+            <EmailImage src={ViewEmailImage} alt="Email" />
             <Header as="h3" type="section-title" align="center" weight="normal">
                 {localize('Check your email')}
             </Header>

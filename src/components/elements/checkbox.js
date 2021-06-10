@@ -16,6 +16,7 @@ const Icon = styled.svg`
     }};
     stroke-width: 4px;
     background-color: var(--color-red);
+    visibility: ${(props) => (props.checked ? 'visible' : 'hidden')};
 `
 
 const HiddenCheckbox = styled.input.attrs({ type: 'checkbox' })`
@@ -33,15 +34,11 @@ const StyledCheckbox = styled.div`
         else if (props.background) return props.background
         return 'var(--color-white)'
     }};
-    border: ${(props) => {
-        if (props.secondary && props.checked) return '2px solid var(--color-red)'
-        return '2px solid var(--color-grey-5)'
-    }};
+    border: ${(props) =>
+        props.secondary && props.checked
+            ? '2px solid var(--color-red)'
+            : '2px solid var(--color-grey-5)'};
     margin-right: 0.8rem;
-
-    ${Icon} {
-        visibility: ${(props) => (props.checked ? 'visible' : 'hidden')};
-    }
 
     @media ${device.mobileL} {
         width: 2rem;
@@ -53,7 +50,7 @@ const Checkbox = ({ checked, secondary, id, bg, ...props }) => (
     <CheckboxContainer id={id}>
         <HiddenCheckbox checked={checked} {...props} />
         <StyledCheckbox checked={checked} secondary={secondary} background={bg}>
-            <Icon viewBox="0 0 24 24" secondary={secondary}>
+            <Icon viewBox="0 0 24 24" checked={checked} secondary={secondary}>
                 <polyline points="20 6 9 17 4 12" />
             </Icon>
         </StyledCheckbox>

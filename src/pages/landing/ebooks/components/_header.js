@@ -105,17 +105,18 @@ const Content = styled.div`
         margin: 0 auto;
         justify-content: center;
     }
+`
+const Title = styled(Header)``
 
-    .title {
-        @media screen and (min-width: 1200px) {
-            max-width: 600px;
-        }
-        @media ${device.laptopL} {
-            max-width: 400px;
-        }
-        @media ${device.tablet} {
-            max-width: 300px;
-        }
+const SubTitle = styled(Header)`
+    @media screen and (min-width: 1200px) {
+        max-width: 600px;
+    }
+    @media ${device.laptopL} {
+        max-width: 400px;
+    }
+    @media ${device.tablet} {
+        max-width: 300px;
     }
 `
 
@@ -155,44 +156,57 @@ const HeaderSection = ({
                 </TopHeaderImgWrapper>
                 <ContentWrapper>
                     <Content>
-                        <Header
-                            className="sub-title"
-                            as="h1"
+                        <SubTitle
+                            as="h2"
                             type="sub-section-title"
+                            size="36px"
                             weight="400"
                             color="white"
+                            mb="7px"
                         >
                             {introSub}
-                        </Header>
-                        <Header
-                            className="title"
+                        </SubTitle>
+                        <Title
                             as="h1"
                             type="page-title"
+                            size="48px"
                             mb="10px"
-                            lh={1.2}
+                            lh={1.1}
                             weight="600"
                             max_width="800px"
                             color="white"
                         >
                             {introMain}
-                        </Header>
-                        <Header as="h1" type="main-paragraph" weight="normal" color="white">
+                        </Title>
+                        <Header
+                            as="h3"
+                            type="main-paragraph"
+                            size="16px"
+                            weight={300}
+                            color="white"
+                        >
                             {localize('Claim a FREE e-book now!')}
                         </Header>
-                        <Header as="h1" type="main-paragraph" weight="normal" color="white">
+                        <Header
+                            as="h4"
+                            type="main-paragraph"
+                            size="16px"
+                            weight={300}
+                            color="white"
+                        >
                             {localize('Plus a free demo account to practice.')}
                         </Header>
                         <AuthorText
                             m={0}
                             mt="10px"
-                            size="1.4rem"
+                            size="14px"
                             color="white"
                             lh="16px"
-                            weight={300}
+                            weight={200}
                             max_width="586px"
                         >
                             {authorDesc}
-                            <AuthorNameText color="white" weight="bold">
+                            <AuthorNameText size="14px" color="white" weight="bold">
                                 {authorName}
                             </AuthorNameText>
                         </AuthorText>

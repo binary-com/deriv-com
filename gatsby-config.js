@@ -4,6 +4,7 @@ module.exports = {
     // pathPrefix: process.env.PATH_PREFIX || '/deriv-com/', // For non CNAME GH-pages deployment
     flags: {
         FAST_DEV: true,
+        PRESERVE_WEBPACK_CACHE: true,
     },
     siteMetadata: {
         title: 'Deriv',
@@ -220,16 +221,6 @@ module.exports = {
             resolve: 'gatsby-plugin-anchor-links',
             options: {
                 offset: -100,
-            },
-        },
-        {
-            resolve: `gatsby-plugin-offline`,
-            options: {
-                workboxConfig: {
-                    importScripts: [
-                        `https://cdn.pushwoosh.com/webpush/v3/pushwoosh-service-worker.js`,
-                    ],
-                },
             },
         },
     ],

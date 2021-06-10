@@ -167,7 +167,7 @@ const ResponseWrapper = styled.div`
     max-width: 330px;
     flex-direction: column;
     text-align: center;
-    border: 1px solid white;
+    border: 1px solid var(--color-white);
     padding: 20px;
     position: relative;
     border-radius: 10px;

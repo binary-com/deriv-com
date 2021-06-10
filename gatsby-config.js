@@ -45,14 +45,6 @@ module.exports = {
                             path
                         }
                     }
-                    site {
-                        siteMetadata {
-                            title
-                            description
-                            author
-                            siteUrl
-                        }
-                    }
                 }
                 `,
                 excludes: [
@@ -86,6 +78,12 @@ module.exports = {
                     '/endpoint',
                     '/**/endpoint',
                 ],
+                resolveSiteUrl: () => 'https://deriv.com',
+                resolvePages: ({ allSitePage: { nodes: allPages } }) => {
+                    return allPages.map((page) => {
+                        return { ...page }
+                    })
+                },
                 serialize: ({ path }) => {
                     const ignore_localized_regex = /careers/
                     let priority = 0.7

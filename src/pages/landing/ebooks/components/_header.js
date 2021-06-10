@@ -159,7 +159,7 @@ const HeaderSection = ({
                             className="sub-title"
                             as="h1"
                             type="sub-section-title"
-                            weight="500"
+                            weight="400"
                             color="white"
                         >
                             {introSub}
@@ -170,6 +170,7 @@ const HeaderSection = ({
                             type="page-title"
                             mb="10px"
                             lh={1.2}
+                            weight="600"
                             max_width="800px"
                             color="white"
                         >
@@ -187,6 +188,7 @@ const HeaderSection = ({
                             size="1.4rem"
                             color="white"
                             lh="16px"
+                            weight={300}
                             max_width="586px"
                         >
                             {authorDesc}

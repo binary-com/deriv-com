@@ -83,9 +83,7 @@ const SocialButton = styled(Button)`
     border: solid 1px var(--color-grey-7);
     min-height: 4rem;
     height: 40px;
-    font-weight: bold;
-
-    /* margin-left: 0.8rem; */
+    font-weight: 500;
 
     &:nth-of-type(1) {
         margin-left: 0;
@@ -147,11 +145,11 @@ const SignupWithContainer = styled.div`
 const Line = styled.div`
     width: 130px;
     height: 1px;
-    background-color: white;
+    background-color: var(--color-grey-6);
 `
 
 const StyledText = styled(Text)`
-    color: white;
+    color: var(--color-grey-6);
 
     @media ${(props) => device.tabletL && props.notedBox} {
         width: 13rem;

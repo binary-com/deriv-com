@@ -38,7 +38,11 @@ module.exports = {
             resolve: 'gatsby-plugin-sitemap',
             options: {
                 query: `
+                {
                     allSitePage {
+                        nodes {
+                            path
+                        }
                         edges {
                             node {
                                 path
@@ -53,6 +57,7 @@ module.exports = {
                             siteUrl
                         }
                     }
+                }
                 `,
                 excludes: [
                     '/404',

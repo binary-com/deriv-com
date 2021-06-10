@@ -1,4 +1,5 @@
 const language_config = require(`./i18n-config.js`)
+const site_url = process.env.URL || 'https://deriv.com'
 
 module.exports = {
     // pathPrefix: process.env.PATH_PREFIX || '/deriv-com/', // For non CNAME GH-pages deployment
@@ -38,6 +39,7 @@ module.exports = {
         {
             resolve: 'gatsby-plugin-sitemap',
             options: {
+                output: '/',
                 query: `
                 {
                     allSitePage {
@@ -78,7 +80,7 @@ module.exports = {
                     '/endpoint',
                     '/**/endpoint',
                 ],
-                resolveSiteUrl: () => 'https://deriv.com',
+                resolveSiteUrl: () => site_url,
                 resolvePages: ({ allSitePage: { nodes: allPages } }) => {
                     return allPages.map((page) => {
                         return { ...page }
@@ -118,15 +120,15 @@ module.exports = {
                             const replaced_locale = locale.replace('_', '-')
                             const is_default = locale === 'en' || locale === 'x-default'
                             const href_locale = is_default ? '' : `/${replaced_locale}`
-                            const href = `https://deriv.com${href_locale}${current_page}`
+                            const href = `${site_url}${href_locale}${current_page}`
                             return { lang: replaced_locale, url: href }
                         }
                     })
 
                     return {
-                        url: 'https://deriv.com' + path,
-                        changefreq: `monthly`,
-                        priority,
+                        url: site_url + path,
+                        changefreq: 'monthly',
+                        priority: priority,
                         links: !ignore_localized ? links : null,
                     }
                 },

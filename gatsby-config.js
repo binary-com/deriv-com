@@ -69,7 +69,7 @@ module.exports = {
                     '/**/endpoint',
                 ],
                 serialize: ({ site, allSitePage }) =>
-                    allSitePage.nodes.map((node) => {
+                    allSitePage.edges.map((node) => {
                         const ignore_localized_regex = /careers/
                         const path = node.node.path
                         let priority = 0.7

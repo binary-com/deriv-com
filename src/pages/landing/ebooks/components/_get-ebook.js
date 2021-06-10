@@ -171,8 +171,7 @@ const ResponseWrapper = styled.div`
     padding: 20px;
     position: relative;
     border-radius: 10px;
-    margin-top: 30px;
-    margin-bottom: 30px;
+    margin: 30px 0;
 
     h3,
     p {

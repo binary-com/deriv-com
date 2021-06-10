@@ -1,11 +1,11 @@
 import React, { useState, useRef, useEffect } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import { useOutsideClick } from 'components/hooks/use-outside-click'
 import { Flex } from 'components/containers'
 import { LocalizedLink, localize, Localize } from 'components/localization'
 import { Accordion, AccordionItem, NavCard, Text, Divider } from 'components/elements'
 import Signals from 'components/svgs/signals'
-import { useOutsideClick } from 'components/hooks/outside-click'
 import { deriv_status_page_url } from 'common/constants'
 // SVG
 import AffiliateIb from 'images/svg/menu/affiliate-ib.svg'
@@ -19,6 +19,7 @@ import DBot from 'images/svg/dbot-icon.svg'
 import API from 'images/svg/menu/developers.svg'
 import Diagonal from 'images/svg/pink-right-diagonal.svg'
 import DMT5 from 'images/svg/dmt5-icon.svg'
+import DerivX from 'images/svg/deriv-x.svg'
 import DTrader from 'images/svg/dtrader-icon.svg'
 import Forex from 'images/svg/forex-nav.svg'
 import Help from 'images/svg/menu/help-center.svg'
@@ -143,73 +144,8 @@ export const OffCanvasMenuWrapper = (props) => {
                         header_style={header_style}
                         style={content_style}
                     >
-                        <Text color="grey-5" mb="8px" size="14px">
-                            {localize('Trading platforms')}
-                        </Text>
-                        <Flex mb="2rem">
-                            <NavCard
-                                aria_label="DTrader"
-                                icon={() => (
-                                    <img src={DTrader} alt="DTrader" width="32" height="32" />
-                                )}
-                                content={
-                                    <Localize translate_text="A whole new trading experience on a powerful yet easy to use platform." />
-                                }
-                                title={<Localize translate_text="DTrader" />}
-                                onClick={handleArrowClick}
-                                to="/dtrader/"
-                            />
-                        </Flex>
-                        <Flex mb="2rem">
-                            <NavCard
-                                aria_label="DBot"
-                                icon={() => <img src={DBot} alt="DBot" width="32" height="32" />}
-                                content={
-                                    <Localize translate_text="Automated trading at your fingertips. No coding needed." />
-                                }
-                                title={<Localize translate_text="DBot" />}
-                                onClick={handleArrowClick}
-                                to="/dbot/"
-                            />
-                        </Flex>
-                        <Flex mb="2rem">
-                            <NavCard
-                                aria_label="DMT5"
-                                icon={() => <img src={DMT5} alt="DMT5" width="32" height="32" />}
-                                content={
-                                    <Localize translate_text="Trade on Deriv MetaTrader 5 (DMT5), the all-in-one FX and CFD trading platform." />
-                                }
-                                title={<Localize translate_text="DMT5" />}
-                                onClick={handleArrowClick}
-                                to={props.is_ppc_redirect ? '/landing/dmt5/' : '/dmt5/'}
-                            />
-                        </Flex>
-                        <Flex>
-                            <NavCard
-                                aria_label="SmartTrader"
-                                icon={() => (
-                                    <img
-                                        src={Smarttrader}
-                                        alt="Smarttrader"
-                                        width="32"
-                                        height="32"
-                                    />
-                                )}
-                                content={
-                                    <Localize translate_text="Trade the world’s markets with our popular user-friendly platform." />
-                                }
-                                title={<Localize translate_text="SmartTrader" />}
-                                onClick={handleArrowClick}
-                                to="trading"
-                                type="smart_trader"
-                                external="true"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            />
-                        </Flex>
                         {!props.is_ppc && (
                             <>
-                                <Divider m="16px 0" width="100%" height="1px" color="grey-8" />
                                 <Text color="grey-5" mb="8px" size="14px">
                                     {localize('Trade types')}
                                 </Text>
@@ -274,6 +210,90 @@ export const OffCanvasMenuWrapper = (props) => {
                                 </Flex>
                             </>
                         )}
+
+                        <Divider m="16px 0" width="100%" height="1px" color="grey-8" />
+
+                        <Text color="grey-5" mb="8px" size="14px">
+                            {localize('Trading platforms')}
+                        </Text>
+                        <Flex mb="2rem">
+                            <NavCard
+                                aria_label="DMT5"
+                                icon={() => <img src={DMT5} alt="DMT5" width="32" height="32" />}
+                                content={
+                                    <Localize translate_text="Trade on Deriv MetaTrader 5 (DMT5), the all-in-one FX and CFD trading platform." />
+                                }
+                                title={<Localize translate_text="DMT5" />}
+                                onClick={handleArrowClick}
+                                to={props.is_ppc_redirect ? '/landing/dmt5/' : '/dmt5/'}
+                            />
+                        </Flex>
+                        {!is_eu_country && (
+                            <Flex mb="2rem">
+                                <NavCard
+                                    aria_label="Derivx"
+                                    icon={() => (
+                                        <img src={DerivX} alt="Derivx" width="32" height="32" />
+                                    )}
+                                    content={
+                                        <Localize translate_text="Trade FX and CFDs on a customisable, easy-to-use trading platform." />
+                                    }
+                                    title={<Localize translate_text="Deriv X" />}
+                                    onClick={handleArrowClick}
+                                    to="/derivx/"
+                                />
+                            </Flex>
+                        )}
+
+                        <Flex mb="2rem">
+                            <NavCard
+                                aria_label="DTrader"
+                                icon={() => (
+                                    <img src={DTrader} alt="DTrader" width="32" height="32" />
+                                )}
+                                content={
+                                    <Localize translate_text="A whole new trading experience on a powerful yet easy to use platform." />
+                                }
+                                title={<Localize translate_text="DTrader" />}
+                                onClick={handleArrowClick}
+                                to="/dtrader/"
+                            />
+                        </Flex>
+                        <Flex mb="2rem">
+                            <NavCard
+                                aria_label="SmartTrader"
+                                icon={() => (
+                                    <img
+                                        src={Smarttrader}
+                                        alt="Smarttrader"
+                                        width="32"
+                                        height="32"
+                                    />
+                                )}
+                                content={
+                                    <Localize translate_text="Trade the world’s markets with our popular user-friendly platform." />
+                                }
+                                title={<Localize translate_text="SmartTrader" />}
+                                onClick={handleArrowClick}
+                                to="trading"
+                                type="smart_trader"
+                                external="true"
+                                target="_blank"
+                                otherLinkProps={{ rel: 'noopener noreferrer' }}
+                            />
+                        </Flex>
+                        <Flex mb="2rem">
+                            <NavCard
+                                aria_label="DBot"
+                                icon={() => <img src={DBot} alt="DBot" width="32" height="32" />}
+                                content={
+                                    <Localize translate_text="Automated trading at your fingertips. No coding needed." />
+                                }
+                                title={<Localize translate_text="DBot" />}
+                                onClick={handleArrowClick}
+                                to="/dbot/"
+                            />
+                        </Flex>
                     </AccordionItem>
                     <AccordionItem
                         header="Markets"

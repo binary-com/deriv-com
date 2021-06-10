@@ -4,7 +4,7 @@ import Globe from '../../static/video/globe.mp4'
 import Globe2 from '../../static/video/globe.webm'
 import { Container } from 'components/containers'
 import { Header } from 'components/elements'
-import { useLazyVideo } from 'components/hooks/lazy-video'
+import { useLazyVideo } from 'components/hooks/use-lazy-video'
 import { localize } from 'components/localization'
 import device from 'themes/device'
 

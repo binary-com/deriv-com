@@ -42,6 +42,12 @@ const InputWrapper = styled.div`
                 color: var(--color-red-1) !important;
             }
         `}
+    ${(props) =>
+        props.disabled &&
+        css`
+            opacity: 0.32;
+            pointer-events: none;
+        `}
 `
 
 const StyledError = styled.img`
@@ -155,6 +161,7 @@ const Input = ({
     focusBorder,
     labelHoverColor,
     labelColor,
+    disabled,
     id,
     error,
     background,
@@ -171,6 +178,7 @@ const Input = ({
                 border={border}
                 focusBorder={focusBorder}
                 labelHoverColor={labelHoverColor}
+                disabled={disabled}
                 error={error}
                 className="input-wrapper"
             >
@@ -179,6 +187,7 @@ const Input = ({
                     background={background}
                     maxLength={maxLength}
                     error={error}
+                    disabled={disabled}
                     height={height}
                     {...props}
                     ref={(ip) => (current_input = ip)}
@@ -212,6 +221,7 @@ Input.propTypes = {
     background: PropTypes.string,
     border: PropTypes.string,
     children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
+    disabled: PropTypes.bool,
     error: PropTypes.string,
     focusBorder: PropTypes.string,
     handleError: PropTypes.func,

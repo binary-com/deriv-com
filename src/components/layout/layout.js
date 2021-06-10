@@ -2,7 +2,7 @@ import React from 'react'
 import Loadable from '@loadable/component'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import useGTMData from '../hooks/gtm-data-hooks'
+import useGTMData from '../hooks/use-gtm-data'
 import Copyright from './copyright'
 import { Nav, NavStatic, NavPartners, NavInterim } from './nav'
 import BeSquareNav from './besquare/nav'
@@ -177,6 +177,10 @@ const Layout = ({
             break
         case 'partners':
             Navigation = <NavPartners no_login_signup={no_login_signup} />
+            FooterNav = <Footer />
+            break
+        case 'ebook':
+            Navigation = <Nav hide_sigup_login={true} />
             FooterNav = <Footer />
             break
         case 'careers':

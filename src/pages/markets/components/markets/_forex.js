@@ -10,7 +10,7 @@ import { forex_options } from '../../static/content/_digital-options'
 import Margin from '../sub-markets/_margin'
 import Multipliers from '../sub-markets/_multipliers'
 import DigitalOptions from '../sub-markets/_digital-options'
-import { Localize } from 'components/localization'
+import { Localize, localize } from 'components/localization'
 //Lazy-load
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
 const OtherMarkets = Loadable(() => import('../sections/_other-markets.js'))
@@ -35,7 +35,7 @@ const Forex = ({ simple_step_content }) => {
             <AvailableTrades
                 Margin={<Margin market_content={forex_margin} />}
                 DigitalOptions={
-                    <DigitalOptions market_name={'forex'} options_list={forex_options} />
+                    <DigitalOptions market_name={localize('forex')} options_list={forex_options} />
                 }
                 Multipliers={<Multipliers market_content={forex_multiplier} />}
                 name="Forex"

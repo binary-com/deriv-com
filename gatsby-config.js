@@ -47,8 +47,7 @@ module.exports = {
                             path
                         }
                     }
-                }
-                `,
+                }`,
                 excludes: [
                     '/404',
                     '/**/404.html',
@@ -126,7 +125,7 @@ module.exports = {
                     })
 
                     return {
-                        url: site_url + path,
+                        url: `${site_url}${path}`,
                         changefreq: 'monthly',
                         priority: priority,
                         links: !ignore_localized ? links : null,

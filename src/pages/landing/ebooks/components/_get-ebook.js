@@ -165,15 +165,13 @@ const StyledText = styled(Text)`
 const ResponseWrapper = styled.div`
     justify-content: center;
     max-width: 330px;
-    margin-left: 0;
     flex-direction: column;
     text-align: center;
-    border: 1px solid white;
+    border: 1px solid var(--color-white);
     padding: 20px;
     position: relative;
     border-radius: 10px;
-    margin-top: 30px;
-    margin-bottom: 30px;
+    margin: 30px 0;
 
     h3,
     p {

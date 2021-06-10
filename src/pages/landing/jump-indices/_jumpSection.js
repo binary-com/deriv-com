@@ -17,6 +17,7 @@ const MainWrapper = styled(Flex)`
 
 const ParentWrapper = styled(Flex)`
     flex-direction: row;
+    justify-content: space-between;
     align-items: center;
     max-width: 1200px;
     @media ${device.tabletL} {
@@ -24,17 +25,17 @@ const ParentWrapper = styled(Flex)`
     }
 `
 const LeftWrapper = styled(Flex)`
-    width: 50%;
-    max-width: 48.6rem;
+    width: auto;
     height: 100%;
     justify-content: flex-end;
     align-items: center;
     flex-direction: column;
     margin-right: 126px;
+    margin-left: 102px;
 
     @media ${device.tabletL} {
-        max-width: 100%;
-        margin-right: 0;
+        max-width: 58.8rem;
+        margin: 0 auto 24px;
     }
 `
 const RightWrapper = styled(Flex)`
@@ -42,23 +43,37 @@ const RightWrapper = styled(Flex)`
     max-width: 486px;
     height: 100%;
     align-items: center;
+    @media ${device.tabletL} {
+        width: 100%;
+        max-width: 58.8rem;
+        padding: 0 16px;
+    }
 `
 
 const StyledHeader = styled(Header)`
     margin-bottom: 8px;
-    background: blue;
     @media ${device.tabletL} {
         text-align: center;
     }
 `
 const StyledHeaderSmall = styled(Header)`
-    background: yellow;
+    line-height: 36px;
     @media ${device.tabletL} {
         text-align: center;
+        font-size: 18px;
+        line-height: 26px;
+        max-width: 328px;
     }
 `
-const ImgWrapper = styled.img`
+const ImgWrapper = styled(Flex)`
+    flex-direction: flex-end;
+`
+const ImgDiv = styled.img`
     height: 100%;
+    @media ${device.tabletL} {
+        height: unset;
+        max-width: 100%;
+    }
 `
 
 const JumpSection = () => {
@@ -74,7 +89,9 @@ const JumpSection = () => {
                     </StyledHeaderSmall>
                 </LeftWrapper>
                 <RightWrapper>
-                    <ImgWrapper src={JumpSVG} />
+                    <ImgWrapper>
+                        <ImgDiv src={JumpSVG} />
+                    </ImgWrapper>
                 </RightWrapper>
             </ParentWrapper>
         </MainWrapper>

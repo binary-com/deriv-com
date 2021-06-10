@@ -38,6 +38,7 @@
         "react-dom": "^17.0.1",
         "react-helmet": "^6.1.0",
         "react-i18next": "^11.8.7",
+        "react-lottie": "^1.2.3",
         "react-perfect-scrollbar": "^1.5.8",
         "web-push-notifications": "^3.18.2"
     },

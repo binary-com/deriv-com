@@ -9,14 +9,14 @@ const SectionWrapper = styled(SectionContainer)`
     background: white;
     padding: 80px 120px;
     @media ${device.tabletL} {
-        padding: 0 0 98px;
+        padding: 40px 16px;
     }
 `
 const StyledHeader = styled(Header)`
     text-align: center;
     max-width: 1200px;
     @media ${device.tabletL} {
-        max-width: 328px;
+        max-width: 58.8rem;
     }
 `
 

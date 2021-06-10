@@ -7,6 +7,8 @@ import Copyright from './copyright'
 import { Nav, NavStatic, NavPartners, NavInterim } from './nav'
 import BeSquareNav from './besquare/nav'
 import BeSquareFooter from './besquare/footer'
+import JumpIndicesNav from './jump-indices/nav'
+import JumpIndicesFooter from './jump-indices/footer'
 import { NavCareers } from './nav-careers'
 import { LocationProvider } from './location-context'
 import EURedirect, { useModal } from 'components/custom/_eu-redirect-modal.js'
@@ -182,6 +184,10 @@ const Layout = ({
         case 'ebook':
             Navigation = <Nav hide_sigup_login={true} />
             FooterNav = <Footer />
+            break
+        case 'jump-indices':
+            Navigation = <JumpIndicesNav />
+            FooterNav = <JumpIndicesFooter />
             break
         case 'careers':
             Navigation = <NavCareers />

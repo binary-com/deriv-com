@@ -74,7 +74,7 @@ const SocialWrapper = styled(Flex)`
 const SocialButton = styled(Button)`
     width: 12.5rem;
     min-width: 116px;
-    line-height: 27px;
+    line-height: 30px;
     padding: 5px;
     border-radius: 4px;
     display: flex;
@@ -83,7 +83,7 @@ const SocialButton = styled(Button)`
     border: solid 1px var(--color-grey-7);
     min-height: 4rem;
     height: 40px;
-    font-weight: normal;
+    font-weight: bold;
 
     /* margin-left: 0.8rem; */
 
@@ -93,6 +93,8 @@ const SocialButton = styled(Button)`
     img {
         padding-right: 5px;
         object-fit: contain;
+        position: relative;
+        top: 2px;
     }
 
     @media (max-width: 500px) {

@@ -237,7 +237,7 @@ const WhatOurClientsSay = () => {
                         {localize('What our clients say about Deriv')}
                     </Header>
                 </Container>
-                <Carousel has_autoplay autoplay_interval={4000} {...settings}>
+                <Carousel has_autoplay autoplay_interval={6000} {...settings}>
                     {our_client_slides.map((trader, idx) => (
                         <div key={idx}>
                             <ClientSlide

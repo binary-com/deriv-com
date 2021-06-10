@@ -42,6 +42,12 @@ const InputWrapper = styled.div`
                 color: var(--color-red-1) !important;
             }
         `}
+    ${(props) =>
+        props.disabled &&
+        css`
+            opacity: 0.32;
+            pointer-events: none;
+        `}
 `
 
 const StyledError = styled.img`
@@ -116,20 +122,32 @@ const StyledInput = styled.input`
         }
     }
     &:valid {
-        ${(props) =>
-            props.value &&
-            css`
-                & ~ label {
-                    transform: translate(-0.6rem, -2rem) scale(0.7);
-                    color: var(--color-black-3);
-                    @media ${device.tabletL} {
-                        top: 9px;
-                    }
-                    /* prettier-ignore */
-                    background-color: var(--color-${(props) => props.background || 'grey-1'});
-                }
-            `}
+        & ~ label {
+            transform: translate(-0.6rem, -2rem) scale(0.7);
+            color: var(--color-black-3);
+            @media ${device.tabletL} {
+                top: 9px;
+            }
+
+            /* prettier-ignore */
+            background-color: var(--color-${(props) => props.background || 'grey-1'});
+        }
     }
+
+    ${(props) =>
+        !!props.value &&
+        css`
+            & ~ label {
+                transform: translate(-0.6rem, -2rem) scale(0.7);
+                color: var(--color-black-3);
+                @media ${device.tabletL} {
+                    top: 9px;
+                }
+
+                /* prettier-ignore */
+                background-color: var(--color-${(props) => props.background || 'grey-1'});
+            }
+        `}
 `
 
 const ErrorMessages = styled(Text)`
@@ -159,6 +177,7 @@ const Input = ({
     focusBorder,
     labelHoverColor,
     labelColor,
+    disabled,
     id,
     error,
     background,
@@ -175,6 +194,7 @@ const Input = ({
                 border={border}
                 focusBorder={focusBorder}
                 labelHoverColor={labelHoverColor}
+                disabled={disabled}
                 error={error}
                 className="input-wrapper"
             >
@@ -183,6 +203,7 @@ const Input = ({
                     background={background}
                     maxLength={maxLength}
                     error={error}
+                    disabled={disabled}
                     height={height}
                     showLabel={label}
                     {...props}
@@ -219,6 +240,7 @@ Input.propTypes = {
     background: PropTypes.string,
     border: PropTypes.string,
     children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
+    disabled: PropTypes.bool,
     error: PropTypes.string,
     focusBorder: PropTypes.string,
     handleError: PropTypes.func,

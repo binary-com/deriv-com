@@ -231,24 +231,3 @@ export const redirectOpenLiveChatBox = (is_redirect) => {
         navigate(live_chat_redirection_link, { replace: true })
     }
 }
-
-export const getDateFromToday = (num_of_days) => {
-    const today = new Date()
-    const end_date = new Date(today.getFullYear(), today.getMonth(), today.getDate() + num_of_days)
-
-    return end_date
-}
-
-export const isNullUndefined = (value) => value === null || typeof value === 'undefined'
-
-export const isObject = (value) => typeof value === 'object'
-
-export const isJSONString = (value) => {
-    try {
-        return JSON.parse(value) && !!value
-    } catch (e) {
-        return false
-    }
-}
-
-export const parseJSONString = (value) => (isJSONString(value) ? JSON.parse(value) : value)

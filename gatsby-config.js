@@ -52,6 +52,8 @@ module.exports = {
                     '/landing/**',
                     '/**/landing',
                     '/**/landing/**',
+                    '/endpoint',
+                    '/**/endpoint',
                 ],
                 serialize: ({ site, allSitePage }) =>
                     allSitePage.edges.map((edge) => {
@@ -173,11 +175,7 @@ module.exports = {
                     {
                         userAgent: '*',
                         allow: '/',
-                        disallow: [
-                            '/404/',
-                            '/homepage/',
-                            '/landing/',
-                        ],
+                        disallow: ['/404/', '/homepage/', '/landing/', '/endpoint/'],
                     },
                 ],
             },

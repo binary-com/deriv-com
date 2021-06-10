@@ -45,10 +45,6 @@ export default [
                 subtitle: 'You may resubmit your application through the BeSquare website.',
             },
             {
-                title: 'When is the application deadline?',
-                subtitle: 'The application closing date is 31 May 2021.',
-            },
-            {
                 title: 'I still have questions about this programme. How can I contact you?',
                 subtitle: (
                     <p>

@@ -106,7 +106,6 @@ const Content = styled.div`
         justify-content: center;
     }
 `
-const Title = styled(Header)``
 
 const SubTitle = styled(Header)`
     @media screen and (min-width: 1200px) {
@@ -166,7 +165,7 @@ const HeaderSection = ({
                         >
                             {introSub}
                         </SubTitle>
-                        <Title
+                        <Header
                             as="h1"
                             type="page-title"
                             size="48px"
@@ -177,7 +176,7 @@ const HeaderSection = ({
                             color="white"
                         >
                             {introMain}
-                        </Title>
+                        </Header>
                         <Header
                             as="h3"
                             type="main-paragraph"

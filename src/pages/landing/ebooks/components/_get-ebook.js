@@ -77,8 +77,6 @@ const SocialButton = styled(Button)`
     line-height: 30px;
     padding: 5px;
     border-radius: 4px;
-    display: flex;
-    justify-content: center;
     background-color: var(--color-white);
     border: solid 1px var(--color-grey-7);
     min-height: 4rem;
@@ -89,10 +87,9 @@ const SocialButton = styled(Button)`
         margin-left: 0;
     }
     img {
-        padding-right: 5px;
+        padding-right: 0;
         object-fit: contain;
         position: relative;
-        top: 2px;
     }
 
     @media (max-width: 500px) {
@@ -101,31 +98,30 @@ const SocialButton = styled(Button)`
         padding: 0;
         line-height: 14px;
         margin-bottom: 10px;
-
-        img {
-            margin-top: 3px;
-            padding-right: 0;
-        }
     }
 `
 const SocialButtonText = styled.div`
     display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
 
     span {
         display: block;
-        width: 100%;
         text-align: left;
+        padding-left: 5px;
+        font-weight: bold;
     }
-
-    @media (max-width: 500px) {
-        width: 100px;
+    @media ${device.tablet} {
+        width: 100%;
 
         span {
-            padding-left: 10px;
-            line-height: 40px;
+            width: 50px;
         }
         img {
-            margin-top: 8px;
+            width: 30px;
+            height: 30px;
         }
     }
 `

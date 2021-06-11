@@ -101,13 +101,11 @@ const RigthWrapper = styled(Flex)`
 `
 const StyledLinkButton = styled(LinkButton)`
     border: unset;
-    padding: 17px 24px;
     font-size: 20px;
     line-height: 30px;
     @media ${device.tabletL} {
         font-size: 14px;
         line-height: 20px;
-        padding: 10px 16px;
     }
 `
 const StyledAnimationWrapper = styled(Flex)`
@@ -157,6 +155,7 @@ const DHero = () => {
                             target="_blank"
                             rel="noopener noreferrer"
                             secondary="true"
+                            hero
                         >
                             {localize('Start trading')}
                         </StyledLinkButton>

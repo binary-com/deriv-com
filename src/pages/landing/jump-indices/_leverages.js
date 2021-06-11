@@ -11,7 +11,7 @@ import LeverageIcon from 'images/svg/jump-indices/jump-indices-high-leverage.svg
 const MainWrapper = styled(Flex)`
     background: var(--color-white);
     margin: 0 auto;
-    padding: 0 120px 32px;
+    padding: 0 120px;
     flex-direction: column;
 
     @media ${device.tabletL} {
@@ -78,15 +78,7 @@ const BtnWrapper = styled(Flex)`
     }
 `
 const StyledLinkButton = styled(LinkButton)`
-    border: unset;
-    padding: 17px 24px;
-    font-size: 20px;
-    line-height: 30px;
-    @media ${device.tabletL} {
-        font-size: 14px;
-        line-height: 20px;
-        padding: 10px 16px;
-    }
+    padding: 11px 16px;
 `
 
 const Leverages = () => {

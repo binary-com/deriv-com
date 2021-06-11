@@ -172,7 +172,7 @@ const TradingCFDIncreases = () => {
                         )}
                     </Text>
 
-                    <StyledLinkButton mb="4rem" secondary="true" to="/trader-tools#swapCalculator">
+                    <StyledLinkButton mb="4rem" secondary="true" to="/trader-tools#swap-calculator">
                         {localize('Swap calculator')}
                     </StyledLinkButton>
 

@@ -16,9 +16,9 @@ export const Section = styled(SectionContainer)`
     padding: 22px 1%;
     height: 72px;
 
-    @media ${device.tablet} {
+    @media ${device.tabletL} {
         padding: 16px;
-        height: unset;
+        height: 48px;
     }
 
     @media ${device.mobileL} {
@@ -39,6 +39,19 @@ const LogoWrapper = styled(Flex)`
     flex-direction: row;
     align-items: center;
     width: 293px;
+    @media ${device.tabletL} {
+        width: 176px;
+    }
+`
+
+const ImgWrapper = styled.img`
+    width: 120px;
+    height: 16px;
+
+    @media ${device.tabletL} {
+        width: 75px;
+        height: 10px;
+    }
 `
 const Line = styled.div`
     width: 1px;
@@ -46,6 +59,10 @@ const Line = styled.div`
     margin-right: 8px;
     margin-left: 8px;
     background-color: var(--color-white);
+
+    @media ${device.tabletL} {
+        height: 16px;
+    }
 `
 const query = graphql`
     query {
@@ -68,12 +85,7 @@ const JumpIndiceNav = () => {
                         height="auto"
                     />
                     <Line />
-                    <img
-                        src={LogoCombinedShape}
-                        alt="logo combined shape"
-                        width="120"
-                        height="16"
-                    />
+                    <ImgWrapper src={LogoCombinedShape} />
                 </LogoWrapper>
             </ContentContainer>
         </Section>

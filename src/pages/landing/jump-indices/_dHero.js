@@ -17,6 +17,7 @@ const MainWrapper = styled(Flex)`
 
     @media ${device.tabletL} {
         background: linear-gradient(179deg, #0e0e0e 34.11%, #003b81 115.35%);
+        margin-top: -8px;
     }
 `
 const ParentWrapperBackground = styled.img`
@@ -58,6 +59,7 @@ const LeftWrapper = styled(Flex)`
     @media ${device.tabletL} {
         width: 100%;
         max-width: 58.8rem;
+        margin-top: 16px;
     }
 `
 
@@ -133,7 +135,7 @@ const DHero = () => {
             autoplay: true,
             animationData: JumpIndicesAnimation,
         })
-        return () => anim.destroy() // optional clean up for unmounting
+        return () => anim.destroy()
     }, [])
 
     return (

@@ -9,7 +9,7 @@ import TradingIcon from 'images/svg/jump-indices/jump-indices-24-7-trading.svg'
 import LeverageIcon from 'images/svg/jump-indices/jump-indices-high-leverage.svg'
 
 const MainWrapper = styled(Flex)`
-    background: white;
+    background: var(--color-white);
     margin: 32px auto 0;
     padding: 0 120px 32px;
     flex-direction: column;
@@ -19,14 +19,14 @@ const MainWrapper = styled(Flex)`
         padding: 0 16px;
     }
 `
-
 const ParentWrapper = styled(Flex)`
     flex-direction: row;
-    align-items: center;
+    align-items: flex-start;
     max-width: 1200px;
     padding-bottom: 80px;
     @media ${device.tabletL} {
         flex-direction: column;
+        align-items: center;
         padding-bottom: 40px;
     }
 `
@@ -42,7 +42,6 @@ const EachWrapper = styled(Flex)`
     @media ${device.tabletL} {
         max-width: 58.8rem;
         width: 100%;
-        padding: 0 16px;
 
         :first-child {
             margin-right: 0;
@@ -64,10 +63,11 @@ const StyledHeaderSmall = styled(Header)`
     }
 `
 const ImgWrapper = styled.img`
-    height: 100%;
-    padding-bottom: 24px;
+    width: 80px;
+    height: 80px;
+    margin-bottom: 24px;
     @media ${device.tabletL} {
-        padding-bottom: 16px;
+        margin-bottom: 16px;
     }
 `
 const BtnWrapper = styled(Flex)`

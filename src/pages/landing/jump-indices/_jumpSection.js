@@ -7,7 +7,7 @@ import device from 'themes/device.js'
 import JumpSVG from 'images/svg/jump-indices/jump-indices-imagery.svg'
 
 const MainWrapper = styled(Flex)`
-    background: white;
+    background: var(--color-white);
     margin: 0 auto;
     padding: 0 120px 32px;
     @media ${device.tabletL} {
@@ -26,7 +26,6 @@ const ParentWrapper = styled(Flex)`
 `
 const LeftWrapper = styled(Flex)`
     width: auto;
-    height: 100%;
     justify-content: flex-end;
     align-items: center;
     flex-direction: column;
@@ -44,12 +43,10 @@ const LeftWrapper = styled(Flex)`
 const RightWrapper = styled(Flex)`
     width: 50%;
     max-width: 486px;
-    height: 100%;
     align-items: center;
     @media ${device.tabletL} {
         width: 100%;
         max-width: 58.8rem;
-        padding: 0 16px;
     }
 `
 

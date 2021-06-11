@@ -6,7 +6,7 @@ import { localize } from 'components/localization'
 import device from 'themes/device.js'
 
 const SectionWrapper = styled(SectionContainer)`
-    background: white;
+    background: var(--color-white);
     padding: 80px 120px;
     @media ${device.tabletL} {
         padding: 40px 16px;

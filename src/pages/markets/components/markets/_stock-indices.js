@@ -35,7 +35,7 @@ const StockIndices = ({ simple_step_content }) => {
             <AvailableTrades
                 Margin={<Margin market_tab_name={'stock-indices'} market_content={stock_margin} />}
                 DigitalOptions={
-                    <DigitalOptions market_name={'stocks & indices'} options_list={stock_options} />
+                    <DigitalOptions market_name={localize('stocks & indices')} options_list={stock_options} />
                 }
                 name="Stocks & indices"
                 display_title={

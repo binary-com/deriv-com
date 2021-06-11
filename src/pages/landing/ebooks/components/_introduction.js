@@ -109,7 +109,7 @@ const Introduction = ({ introImage, imageWidth, introPara, subPara, introList })
                                 type="sub-section-title"
                                 weight="bold"
                                 lh={1.5}
-                                color="#333333"
+                                color="var(--color-black-3)"
                                 mb="20px"
                                 mt="30px"
                             >

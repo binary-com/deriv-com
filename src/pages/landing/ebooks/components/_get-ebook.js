@@ -22,7 +22,7 @@ const SignupFormWrapper = styled(Flex)`
     align-items: center;
     justify-content: initial;
 
-    @media ${device.mobileM} {
+    @media ${device.tabletS} {
         width: 100%;
 
         & > div {
@@ -32,10 +32,10 @@ const SignupFormWrapper = styled(Flex)`
 `
 
 const InputWrapper = styled.div`
-    width: 40rem;
+    width: 400px;
 
     @media ${device.tabletL} {
-        margin-right: 1rem;
+        margin-right: 10px;
     }
 
     @media ${device.tablet} {
@@ -47,10 +47,10 @@ const InputGroupForm = styled.form`
     display: flex;
     flex-direction: column;
     width: 100%;
-    margin-top: 2.4rem;
+    margin-top: 24px;
 `
 const EmailButton = styled(Button)`
-    min-width: 40rem;
+    min-width: 400px;
     height: 4rem;
     padding: 10px 28px;
     border-radius: 4px;

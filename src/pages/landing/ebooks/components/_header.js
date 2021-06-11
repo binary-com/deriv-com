@@ -85,6 +85,10 @@ const ContentWrapper = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
+
+    @media ${device.tablet} {
+        float: none;
+    }
 `
 
 const Content = styled.div`
@@ -130,6 +134,7 @@ const AuthorText = styled(Text)`
 const AuthorNameText = styled(Text).attrs({ as: 'span' })``
 
 const SignupWrapper = styled.div`
+    margin: 0;
     margin-bottom: 10px;
 `
 

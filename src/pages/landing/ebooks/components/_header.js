@@ -71,7 +71,7 @@ const HeaderImage = styled(QueryImage)`
 
     @media ${device.tabletS} {
         width: 100%;
-        margin-left: ${(props) => (props.imgWidth < 600 ? '-70px' : '-20px')};
+        margin-left: ${(props) => (props.imgWidth < 600 ? '-55px' : '-32px')};
     }
 `
 

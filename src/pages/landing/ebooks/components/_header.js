@@ -70,8 +70,12 @@ const HeaderImage = styled(QueryImage)`
     }
 
     @media ${device.tabletS} {
-        width: 100%;
-        margin-left: ${(props) => (props.imgWidth < 600 ? '-55px' : '-32px')};
+        width: ${(props) => (props.imgWidth < 600 ? '115%' : '105%')};
+        height: ${(props) => (props.imgWidth < 600 ? '105%' : '105%')};
+        margin-left: ${(props) => (props.imgWidth < 600 ? '-110px' : '-50px')};
+    }
+    @media ${device.mobileS} {
+        margin-left: ${(props) => (props.imgWidth < 600 ? '-85px' : '-50px')};
     }
 `
 

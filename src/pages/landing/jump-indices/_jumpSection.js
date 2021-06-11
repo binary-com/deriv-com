@@ -8,10 +8,10 @@ import JumpSVG from 'images/svg/jump-indices/jump-indices-imagery.svg'
 
 const MainWrapper = styled(Flex)`
     background: white;
-    padding-bottom: 32px;
-    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 120px 32px;
     @media ${device.tabletL} {
-        padding-bottom: 40px;
+        padding: 0 16px 40px;
     }
 `
 
@@ -33,9 +33,12 @@ const LeftWrapper = styled(Flex)`
     margin-right: 126px;
     margin-left: 102px;
 
+    @media ${device.laptopM} {
+        margin: 0 auto 24px;
+    }
+
     @media ${device.tabletL} {
         max-width: 58.8rem;
-        margin: 0 auto 24px;
     }
 `
 const RightWrapper = styled(Flex)`

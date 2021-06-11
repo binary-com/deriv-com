@@ -10,12 +10,13 @@ import LeverageIcon from 'images/svg/jump-indices/jump-indices-high-leverage.svg
 
 const MainWrapper = styled(Flex)`
     background: white;
-    max-width: 1200px;
-    flex-direction: column;
     margin: 32px auto 0;
+    padding: 0 120px 32px;
+    flex-direction: column;
 
     @media ${device.tabletL} {
         margin: 0 auto;
+        padding: 0 16px;
     }
 `
 

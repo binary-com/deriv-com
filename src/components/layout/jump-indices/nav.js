@@ -13,10 +13,12 @@ export const Section = styled(SectionContainer)`
     position: fixed;
     z-index: 3;
     top: 0;
-    padding: 16px 1%;
+    padding: 22px 1%;
+    height: 72px;
 
     @media ${device.tablet} {
         padding: 16px;
+        height: unset;
     }
 
     @media ${device.mobileL} {

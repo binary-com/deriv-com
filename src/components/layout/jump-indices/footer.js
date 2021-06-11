@@ -36,6 +36,7 @@ const StyledFooter = styled.footer`
     }
     @media (max-width: 991px) {
         margin-bottom: ${(props) => props.is_eu_country && '11rem'};
+        padding-bottom: 0;
     }
     @media (max-width: 826px) {
         margin-bottom: ${(props) => props.is_eu_country && '12.2rem'};
@@ -51,10 +52,6 @@ const StyledFooter = styled.footer`
         @media ${device.tabletL} {
             width: 100%;
         }
-    }
-
-    @media ${device.mobileL} {
-        padding-bottom: 6rem;
     }
 `
 const StyledGrid = styled(CssGrid)`
@@ -88,7 +85,8 @@ const DerivLogoWrapper = styled.div`
 
     @media ${device.tabletL} {
         width: 90%;
-        margin: 2rem auto 0;
+        margin: 0 auto;
+        padding: 32px 0 16px;
     }
 `
 const Disclaimer = styled.div`
@@ -152,10 +150,21 @@ const BoldLink = styled(StyledLink)`
         font-size: var(--text-size-sm);
     }
 `
+const NormalLink = styled(StyledLink)`
+    color: var(--color-black-3);
+    font-size: var(--text-size-xs);
+    margin-right: ${(props) => (props.margin_right ? '40px' : '0px')};
+    @media ${device.tabletL} {
+        font-size: 14px;
+        line-height: 20px;
+        margin-right: ${(props) => (props.margin_right ? '33px' : '0px')};
+    }
+`
+
 const Copyright = styled(Flex)`
     grid-area: copyright;
     background: var(--color-grey-25);
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
     padding-top: 16px;
 
@@ -165,6 +174,7 @@ const Copyright = styled(Flex)`
     }
 
     @media ${device.tabletL} {
+        flex-direction: column;
         width: 90%;
         margin: 0 auto;
         padding: 2rem 0;
@@ -174,6 +184,23 @@ const Copyright = styled(Flex)`
             font-size: 1.75rem;
             line-height: 1.5;
         }
+    }
+`
+
+const CopyrightLeftWrapper = styled(Flex)`
+    justify-content: start;
+
+    @media ${device.tabletL} {
+        justify-content: center;
+        margin-bottom: 16px;
+    }
+`
+const CopyrightRightWrapper = styled(Flex)`
+    flex-direction: row;
+    justify-content: flex-end;
+
+    @media ${device.tabletL} {
+        justify-content: center;
     }
 `
 const SocialWrapper = styled.div`
@@ -407,13 +434,38 @@ const Footer = ({ type }) => {
                         </RiskWarning>
                     </Disclaimer>
                     <Copyright>
-                        <img src={CopyrightIc} alt="copyright ic" width="16" height="16" />
-                        <Text ml="0.4rem">
+                        <CopyrightLeftWrapper>
+                            <img src={CopyrightIc} alt="copyright ic" width="16" height="16" />
+                            <Text ml="0.4rem">
+                                <Localize
+                                    translate_text="{{current_year}} Deriv | All rights reserved"
+                                    values={{ current_year }}
+                                />
+                            </Text>
+                        </CopyrightLeftWrapper>
+                        <CopyrightRightWrapper>
                             <Localize
-                                translate_text="{{current_year}} Deriv | All rights reserved"
-                                values={{ current_year }}
+                                translate_text="<0>Terms and conditions</0>"
+                                components={[
+                                    <NormalLink
+                                        key={0}
+                                        target="_blank"
+                                        to="/terms-and-conditions#clients"
+                                        margin_right
+                                    />,
+                                ]}
                             />
-                        </Text>
+                            <Localize
+                                translate_text="<0>Privacy policy</0>"
+                                components={[
+                                    <NormalLink
+                                        key={0}
+                                        target="_blank"
+                                        to="/tnc/security-and-privacy.pdf"
+                                    />,
+                                ]}
+                            />
+                        </CopyrightRightWrapper>
                     </Copyright>
                 </StyledGrid>
             </Container>

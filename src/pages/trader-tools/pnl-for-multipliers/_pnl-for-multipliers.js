@@ -1119,8 +1119,7 @@ const PnlMultipliersCalculator = () => {
                             <LinkWrapper height="auto">
                                 <StyledLinkButton
                                     secondary="true"
-                                    is_deriv_app_link
-                                    to="/"
+                                    type="deriv_app"
                                     external="true"
                                     target="_blank"
                                     rel="noopener noreferrer"
@@ -2115,8 +2114,7 @@ const PnlMultipliersCalculator = () => {
                             <LinkWrapper height="auto">
                                 <StyledLinkButton
                                     secondary="true"
-                                    is_deriv_app_link
-                                    to="/"
+                                    type="deriv_app"
                                     external="true"
                                     target="_blank"
                                     rel="noopener noreferrer"

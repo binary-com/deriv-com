@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { getCommaSeparatedNumber } from 'common/utility'
-import { useDropdownHooks } from 'components/hooks/dropdown-hooks'
+import { useDropdown } from 'components/hooks/use-dropdown'
 import { Text } from 'components/elements/typography'
 import { ReactComponent as Chevron } from 'images/svg/chevron-bottom.svg'
 import device from 'themes/device'
@@ -336,9 +336,7 @@ const Dropdown = ({
     contract_size,
     ...props
 }) => {
-    const [is_open, dropdown_ref, nodes, handleChange, toggleListVisibility] = useDropdownHooks(
-        onChange,
-    )
+    const [is_open, dropdown_ref, nodes, handleChange, toggleListVisibility] = useDropdown(onChange)
 
     return (
         <>

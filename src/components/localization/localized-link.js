@@ -77,7 +77,7 @@ export const LocalizedLink = React.forwardRef(({ external, ...props }, ref) => {
     }, [])
 
     if (external || external === 'true') {
-        return <ExternalLink mounted={has_mounted} locale={locale} ref={ref} {...props}  />
+        return <ExternalLink mounted={has_mounted} locale={locale} ref={ref} {...props} />
     }
 
     return <InternalLink mounted={has_mounted} locale={locale} ref={ref} {...props} />
@@ -193,18 +193,18 @@ const ExternalLink = ({
             onClick={
                 show_modal
                     ? () => {
-                        setModalPayload({
-                            to: url,
-                            target,
-                            rel,
-                            ref,
-                            aria_label: aria_label,
-                        })
-                        toggleModal()
-                        if (typeof onClick === 'function') {
-                            onClick()
-                        }
-                    }
+                          setModalPayload({
+                              to: url,
+                              target,
+                              rel,
+                              ref,
+                              aria_label: aria_label,
+                          })
+                          toggleModal()
+                          if (typeof onClick === 'function') {
+                              onClick()
+                          }
+                      }
                     : onClick
             }
             disabled={!mounted}

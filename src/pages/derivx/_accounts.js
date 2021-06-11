@@ -9,8 +9,8 @@ import DxSyntheticIcon from 'images/svg//deriv-x/dxsynthetic.svg'
 import device from 'themes/device'
 
 const StyledIcon = styled.img`
-    width:48px;
-    height:48px;
+    width: 48px;
+    height: 48px;
 
     @media ${device.mobileL} {
         width: 24px;

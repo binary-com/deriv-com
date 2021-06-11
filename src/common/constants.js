@@ -12,6 +12,7 @@ const domain_url =
         ? window.location.hostname
         : deriv_com_url
 
+// URL
 export const deriv_app_id = domain_url === deriv_com_url ? deriv_com_app_id : deriv_me_app_id
 export const deriv_app_url = `https://app.${domain_url}`
 export const deriv_developer_url = `https://developers.${domain_url}`
@@ -36,6 +37,8 @@ export const brand_name = 'Deriv'
 export const client_token = 'pubc42fda54523c5fb23c564e3d8bceae88'
 export const deriv_app_languages = ['id', 'pt', 'es']
 export const deriv_status_page_url = 'https://deriv.statuspage.io'
+export const derivx_ios_url = 'https://apps.apple.com/us/app/deriv-x/id1563337503'
+export const derivx_android_url = 'https://play.google.com/store/apps/details?id=com.deriv.dx'
 export const dmt5_ios_url =
     'https://download.mql5.com/cdn/mobile/mt5/ios?server=Deriv-Demo,Deriv-Server'
 export const dmt5_android_url =
@@ -72,6 +75,7 @@ export const localized_link_url = Object.freeze({
     smart_trader: smarttrader_url,
     zoho: zoho_url,
 })
+export const default_server_url = 'green.binaryws.com'
 
 export const fb_url = 'https://www.facebook.com/derivdotcom'
 export const fb_url_career = 'https://www.facebook.com/derivcareers'

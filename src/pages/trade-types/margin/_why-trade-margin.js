@@ -9,8 +9,11 @@ import MaximizePotentialProfit from 'images/svg/trade-types/maximize-potential-p
 import InstantAccess from 'images/svg/trade-types/instant-access.svg'
 import SyntheticIndices from 'images/svg/trade-types/synthetic-indices.svg'
 import { LinkButton } from 'components/form'
+import { DerivStore } from 'store'
 
 const WhyTradeMargin = () => {
+    const { is_eu_country } = React.useContext(DerivStore)
+
     return (
         <>
             <SectionContainer background="rgba(242, 243, 244, 0.3)" padding="4rem 0 4rem">
@@ -25,9 +28,13 @@ const WhyTradeMargin = () => {
                                 {localize('High leverage, low spreads')}
                             </Text>
                             <Text mb="4rem">
-                                {localize(
-                                    'Take advantage of high leverage and low spreads on Deriv MT5 (DMT5).',
-                                )}
+                                {is_eu_country
+                                    ? localize(
+                                          'Take advantage of high leverage and low spreads on Deriv MT5 (DMT5).',
+                                      )
+                                    : localize(
+                                          'Take advantage of high leverage and low spreads on Deriv MT5 (DMT5) and Deriv X.',
+                                      )}
                             </Text>
                         </WhyTradeItem>
                         <WhyTradeItem>

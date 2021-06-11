@@ -75,7 +75,7 @@ const MobileSignupFormWrapper = styled(Flex)`
         padding-left: 20px;
 
         & > div {
-            width: 100%;
+            width: auto;
         }
     }
 `

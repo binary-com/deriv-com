@@ -10,7 +10,7 @@ import LeverageIcon from 'images/svg/jump-indices/jump-indices-high-leverage.svg
 
 const MainWrapper = styled(Flex)`
     background: var(--color-white);
-    margin: 32px auto 0;
+    margin: 0 auto;
     padding: 0 120px 32px;
     flex-direction: column;
 

@@ -9,7 +9,7 @@ import JumpSVG from 'images/svg/jump-indices/jump-indices-imagery.svg'
 const MainWrapper = styled(Flex)`
     background: var(--color-white);
     margin: 0 auto;
-    padding: 0 120px 32px;
+    padding: 0 120px 80px;
     @media ${device.tabletL} {
         padding: 0 16px 40px;
     }

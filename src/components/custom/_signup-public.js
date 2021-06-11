@@ -72,6 +72,7 @@ const MobileSignupFormWrapper = styled(Flex)`
         border-radius: 8px;
         position: relative;
         top: -10px;
+        padding-left: 20px;
 
         & > div {
             width: 100%;
@@ -83,6 +84,11 @@ const BackgroundWrapper = styled(Flex)`
     min-height: 35.3rem;
     height: 100%;
     width: 50%;
+
+    @media screen and (max-width: 1040px) and (min-width: 992px) {
+        width: 47%;
+        margin-left: 3%;
+    }
 
     & > div {
         position: absolute;
@@ -127,6 +133,10 @@ const SocialWrapper = styled(Flex)`
     flex-wrap: wrap;
 `
 const MobileSocialWrapper = styled(SocialWrapper)`
+    > div {
+        justify-content: left;
+    }
+
     @media ${device.tabletL}{
         flex-direction: column;
     }

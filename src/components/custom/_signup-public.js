@@ -310,6 +310,12 @@ const MobilePlatform = styled.div`
     width: 100%;
     max-width: 35.7rem;
     z-index: 10;
+
+    @media screen and (max-width: 991px) {
+        img {
+            left: 20px !important;
+        }
+    }
 `
 const SignupPublic = ({
     email_error_msg,

@@ -10,7 +10,7 @@ import { synthetic_options } from '../../static/content/_digital-options'
 import Margin from '../sub-markets/_margin'
 import Multipliers from '../sub-markets/_multipliers'
 import DigitalOptions from '../sub-markets/_digital-options'
-import { Localize } from 'components/localization'
+import { Localize, localize } from 'components/localization'
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
 const OtherMarkets = Loadable(() => import('../sections/_other-markets.js'))
 
@@ -34,7 +34,7 @@ const StockIndices = ({ simple_step_content }) => (
             Margin={<Margin market_content={synthetic_margin} />}
             DigitalOptions={
                 <DigitalOptions
-                    market_name={'synthetic indices'}
+                    market_name={localize('synthetic indices')}
                     options_list={synthetic_options}
                 />
             }

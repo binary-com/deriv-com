@@ -8,7 +8,7 @@ import { commodities_margin } from '../../static/content/_margin'
 import { commodities_options } from '../../static/content/_digital-options'
 import Margin from '../sub-markets/_margin'
 import DigitalOptions from '../sub-markets/_digital-options'
-import { Localize } from 'components/localization'
+import { Localize, localize } from 'components/localization'
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
 const OtherMarkets = Loadable(() => import('../sections/_other-markets.js'))
 
@@ -36,7 +36,7 @@ const Commodities = ({ simple_step_content }) => {
                 Margin={<Margin market_content={commodities_margin} />}
                 DigitalOptions={
                     <DigitalOptions
-                        market_name={'commodities'}
+                        market_name={localize('commodities')}
                         options_list={commodities_options}
                     />
                 }

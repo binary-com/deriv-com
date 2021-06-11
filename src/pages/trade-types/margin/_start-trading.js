@@ -42,16 +42,8 @@ const StartTrading = () => {
                             )}
                         </Timeline.Item>
                     </Timeline>
-                    <LinkButton
-                        mt="4rem"
-                        external="true"
-                        type="mt5"
-                        to="#demo"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        secondary="true"
-                    >
-                        {localize('Create a demo DMT5 account')}
+                    <LinkButton mt="4rem" to="/signup/" secondary="true">
+                        {localize('Create free demo account')}
                     </LinkButton>
                 </SmallContainer>
             </SectionContainer>

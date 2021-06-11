@@ -24,6 +24,7 @@ const ParentWrapper = styled(Flex)`
     align-items: flex-start;
     max-width: 1200px;
     padding-bottom: 80px;
+    margin: 0 auto;
     @media ${device.tabletL} {
         flex-direction: column;
         align-items: center;

@@ -72,9 +72,10 @@ const MobileSignupFormWrapper = styled(Flex)`
         border-radius: 8px;
         position: relative;
         top: -10px;
+        padding-left: 20px;
 
         & > div {
-            width: 100%;
+            width: auto;
         }
     }
 `
@@ -83,6 +84,11 @@ const BackgroundWrapper = styled(Flex)`
     min-height: 35.3rem;
     height: 100%;
     width: 50%;
+
+    @media screen and (max-width: 1040px) and (min-width: 992px) {
+        width: 47%;
+        margin-left: 3%;
+    }
 
     & > div {
         position: absolute;
@@ -127,6 +133,10 @@ const SocialWrapper = styled(Flex)`
     flex-wrap: wrap;
 `
 const MobileSocialWrapper = styled(SocialWrapper)`
+    > div {
+        justify-content: left;
+    }
+
     @media ${device.tabletL} {
         flex-direction: column;
     }
@@ -210,6 +220,10 @@ const StyledFormWrapper = styled.div`
         @media (min-width: 991px) {
             line-height: 3.5rem;
         }
+    }
+
+    @media (min-width: 1600px) {
+        min-width: 430px;
     }
 `
 const StyledHeaderText = styled(Text)`
@@ -299,6 +313,12 @@ const MobilePlatform = styled.div`
     width: 100%;
     max-width: 35.7rem;
     z-index: 10;
+
+    @media screen and (max-width: 991px) {
+        img {
+            left: 20px !important;
+        }
+    }
 `
 const SignupPublic = ({
     email_error_msg,
@@ -318,8 +338,8 @@ const SignupPublic = ({
     return (
         <SectionContainer>
             <Show.Desktop>
-                <Container>
-                    <Wrapper>
+                <Wrapper>
+                    <Container>
                         <SignupFormWrapper>
                             <StyledFormWrapper>
                                 <StyledHeader type="section-title" width="100%">
@@ -453,8 +473,8 @@ const SignupPublic = ({
                                 <img src={Arrow} alt="arrow desktop" />
                             </LinkFlex>
                         </BackgroundWrapper>
-                    </Wrapper>
-                </Container>
+                    </Container>
+                </Wrapper>
             </Show.Desktop>
             <Show.Mobile>
                 <Container>

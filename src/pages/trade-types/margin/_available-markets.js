@@ -130,7 +130,7 @@ const AvailableMarkets = () => {
                                     />
 
                                     <StyledText weight="bold">
-                                        {localize('Stock indices')}
+                                        {localize('Stocks & indices')}
                                     </StyledText>
                                 </MobileCardHeader>
                                 <Text>

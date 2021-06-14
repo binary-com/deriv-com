@@ -108,6 +108,7 @@ const Leverages = () => {
                 <StyledLinkButton
                     external="true"
                     type="deriv_app"
+                    to="/mt5"
                     target="_blank"
                     rel="noopener noreferrer"
                     secondary="true"

@@ -339,8 +339,8 @@ const SignupPublic = ({
     return (
         <SectionContainer>
             <Show.Desktop>
-                <Wrapper>
-                    <Container>
+                <Container>
+                    <Wrapper>
                         <SignupFormWrapper>
                             <StyledFormWrapper>
                                 <StyledHeader type="section-title" width="100%">
@@ -466,8 +466,8 @@ const SignupPublic = ({
                                 <img src={Arrow} alt="arrow desktop" />
                             </LinkFlex>
                         </BackgroundWrapper>
-                    </Container>
-                </Wrapper>
+                    </Wrapper>
+                </Container>
             </Show.Desktop>
             <Show.Mobile>
                 <Container>

@@ -60,7 +60,8 @@ class Signup extends Component {
     }
 
     validateEmail = (email) => {
-        const error_message = validation.email(email) || this.state.submit_error_msg
+        const error_message =
+            validation.required(email) || validation.email(email) || this.state.submit_error_msg
 
         if (this.state.submit_error_msg) {
             this.setState({

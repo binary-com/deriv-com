@@ -33,8 +33,8 @@ const StyledButton = styled(Button)`
 
 const resetValidation = (values) => {
     let errors = {}
-
-    const email_error = validation.email(trimSpaces(values.email))
+    const email = trimSpaces(values.email)
+    const email_error = validation.required(email) || validation.email(email)
 
     if (email_error) {
         errors.email = email_error

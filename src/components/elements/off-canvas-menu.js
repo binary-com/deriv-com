@@ -1,11 +1,11 @@
 import React, { useState, useRef, useEffect } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import { useOutsideClick } from 'components/hooks/use-outside-click'
 import { Flex } from 'components/containers'
 import { LocalizedLink, localize, Localize } from 'components/localization'
 import { Accordion, AccordionItem, NavCard, Text, Divider } from 'components/elements'
 import Signals from 'components/svgs/signals'
-import { useOutsideClick } from 'components/hooks/outside-click'
 import { deriv_status_page_url } from 'common/constants'
 // SVG
 import AffiliateIb from 'images/svg/menu/affiliate-ib.svg'
@@ -236,7 +236,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                         <img src={DerivX} alt="Derivx" width="32" height="32" />
                                     )}
                                     content={
-                                        <Localize translate_text="CFD trading on a customisable multi-asset platform." />
+                                        <Localize translate_text="Trade FX and CFDs on a customisable, easy-to-use trading platform." />
                                     }
                                     title={<Localize translate_text="Deriv X" />}
                                     onClick={handleArrowClick}
@@ -276,7 +276,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                 title={<Localize translate_text="SmartTrader" />}
                                 onClick={handleArrowClick}
                                 to="trading"
-                                is_smarttrader_link
+                                type="smart_trader"
                                 external="true"
                                 target="_blank"
                                 otherLinkProps={{ rel: 'noopener noreferrer' }}

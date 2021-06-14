@@ -102,10 +102,7 @@ exports.onCreatePage = ({ page, actions }) => {
         const localized_path = is_default ? page.path : `${path}${page.path}`
         const is_production = process.env.GATSBY_ENV === 'production'
         const careers_regex = /^[a-z-]+\/careers\//g
-        // TODO: this is a temporary workaround to remove a/b testing page
-        const homepage_regex = /homepage/g
-        // TODO: this is a temporary workaround to remove a/b testing page
-        const amp_regex = /amp/g
+        const endpoint_regex = /^[a-z-]+\/endpoint\//g
         const offline_plugin_regex = /^[a-z-]+\/offline-plugin-app-shell-fallback/g
 
         if (is_production) {
@@ -113,8 +110,7 @@ exports.onCreatePage = ({ page, actions }) => {
         }
         if (
             careers_regex.test(localized_path) ||
-            homepage_regex.test(localized_path) ||
-            amp_regex.test(localized_path) ||
+            endpoint_regex.test(localized_path) ||
             offline_plugin_regex.test(localized_path)
         )
             return

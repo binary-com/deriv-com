@@ -61,6 +61,7 @@ export const p2p_playstore_url = 'https://play.google.com/store/apps/details?id=
 export const pushwoosh_app_code = 'DD293-35A19'
 export const sample_rate = 25
 export const zoho_url = 'https://deriv.zohorecruit.com'
+export const live_chat_redirection_link = `?is_livechat_open=true`
 export const localized_link_url = Object.freeze({
     affiliate_sign_in: affiliate_signin_url,
     affiliate_sign_up: affiliate_signup_url,
@@ -77,9 +78,12 @@ export const localized_link_url = Object.freeze({
 })
 export const default_server_url = 'green.binaryws.com'
 
+export const live_chat_key = 'live_chat_redirection'
+
 export const fb_non_eu_url = 'https://www.facebook.com/derivdotcom'
 export const fb_uk_url = 'https://www.facebook.com/derivUK/'
 export const fb_eu_url = 'https://www.facebook.com/derivEU/'
+export const fb_url = 'https://www.facebook.com/derivdotcom'
 export const fb_url_career = 'https://www.facebook.com/derivcareers'
 export const instagram_non_eu_url = 'https://www.instagram.com/deriv_official/'
 export const instagram_uk_url = 'https://www.instagram.com/deriv_uk/'

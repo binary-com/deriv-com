@@ -185,28 +185,31 @@ const ExternalLink = ({
 
     const default_style = { cursor: 'pointer' }
 
+    const handleClick = (e) => {
+        e.preventDefault()
+        if (show_modal) {
+            setModalPayload({
+                to: url,
+                target,
+                rel,
+                ref,
+                aria_label: aria_label,
+            })
+            toggleModal()
+            if (typeof onClick === 'function') {
+                onClick(e)
+            }
+        } else {
+            onClick(e)
+        }
+    }
+
     return (
         <StyledAnchor
             style={style ? style : default_style}
             aria-label={aria_label}
             href={!show_modal ? url : ''}
-            onClick={
-                show_modal
-                    ? () => {
-                          setModalPayload({
-                              to: url,
-                              target,
-                              rel,
-                              ref,
-                              aria_label: aria_label,
-                          })
-                          toggleModal()
-                          if (typeof onClick === 'function') {
-                              onClick()
-                          }
-                      }
-                    : onClick
-            }
+            onClick={handleClick}
             disabled={!mounted}
             target={target}
             rel={rel}

@@ -11,6 +11,7 @@ import {
 } from './home/_lazy-load'
 import Hero from './home/_hero'
 import TradeTheWayYouLike from './home/_trade-the-way-you-like'
+import { useOpenLiveChat } from 'components/hooks/use-open-live-chat-redirection'
 import { SEO, Show } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl, Localize } from 'components/localization'
@@ -43,6 +44,9 @@ const simple_step_content = [
     },
 ]
 const Home = () => {
+    /* redirect livechat for en to open live chat popup */
+    useOpenLiveChat()
+
     return (
         <Layout>
             <SEO

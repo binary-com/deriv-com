@@ -23,6 +23,7 @@ const query = graphql`
     }
 `
 const Wrapper = styled.div`
+    border-radius: 8px;
     background-image: linear-gradient(73deg, #ff6444, #ff444f);
     background-repeat: round;
     position: relative;
@@ -283,6 +284,7 @@ const MobileBackground = styled.div`
     align-items: center;
     position: relative;
     border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
     border-bottom-right-radius: 10px;
 `
 const DerivExperience = styled.div`

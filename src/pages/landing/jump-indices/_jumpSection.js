@@ -28,8 +28,7 @@ const LeftWrapper = styled(Flex)`
     justify-content: flex-end;
     align-items: center;
     flex-direction: column;
-    margin-right: 126px;
-    margin-left: 102px;
+    margin: 0 126px 0 102px;
     word-break: break-word;
 
     @media (max-width: 1300px) {

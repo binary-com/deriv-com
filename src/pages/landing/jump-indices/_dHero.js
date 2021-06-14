@@ -10,13 +10,13 @@ import GridSVG from 'images/svg/jump-indices/jump-indices-grid.svg'
 import JumpIndicesAnimation from 'lotties/JumpIndicesChart.json'
 
 const MainWrapper = styled(Flex)`
-    background: linear-gradient(120.16deg, #0e0e0e 34.11%, #003b81 115.35%);
+    background: linear-gradient(120.16deg, var(--color-black) 34.11%, var(--color-blue-8) 115.35%);
     flex-direction: column;
     overflow: hidden;
     position: relative;
 
     @media ${device.tabletL} {
-        background: linear-gradient(179deg, #0e0e0e 34.11%, #003b81 115.35%);
+        background: linear-gradient(179deg, var(--color-black) 34.11%, var(--color-blue-8) 115.35%);
         margin-top: -8px;
     }
 `

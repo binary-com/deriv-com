@@ -2,8 +2,8 @@ name: Release Staging
 
 on:
   push:
-    tags:
-      - 'staging*'
+    branches:
+      - master
     paths-ignore:
       - '**.md' 
 

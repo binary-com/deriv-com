@@ -20,7 +20,6 @@ const MainWrapper = styled(Flex)`
     }
 `
 const ParentWrapper = styled(Flex)`
-    flex-direction: row;
     align-items: flex-start;
     max-width: 1200px;
     padding-bottom: 80px;

@@ -36,7 +36,6 @@ const ContentContainer = styled(Container)`
 `
 
 const LogoWrapper = styled(Flex)`
-    flex-direction: row;
     align-items: center;
     width: 293px;
     @media ${device.tabletL} {

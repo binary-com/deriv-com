@@ -16,7 +16,6 @@ const MainWrapper = styled(Flex)`
 `
 
 const ParentWrapper = styled(Flex)`
-    flex-direction: row;
     justify-content: space-between;
     align-items: center;
     max-width: 1200px;
@@ -31,12 +30,15 @@ const LeftWrapper = styled(Flex)`
     flex-direction: column;
     margin-right: 126px;
     margin-left: 102px;
+    word-break: break-word;
 
-    @media ${device.laptopM} {
-        margin: 0 auto 24px;
+    @media (max-width: 1300px) {
+        margin: 0 16px 24px 0;
+        width: 50%;
     }
 
     @media ${device.tabletL} {
+        width: 100%;
         max-width: 58.8rem;
     }
 `
@@ -70,8 +72,13 @@ const ImgWrapper = styled(Flex)`
 `
 const ImgDiv = styled.img`
     height: 100%;
-    @media ${device.tabletL} {
+
+    @media (max-width: 1300px) {
         height: unset;
+        width: 100%;
+    }
+
+    @media ${device.tabletL} {
         max-width: 100%;
     }
 `

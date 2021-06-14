@@ -7,7 +7,7 @@ import { localize } from 'components/localization'
 import { LinkButton } from 'components/form'
 import device from 'themes/device.js'
 import GridSVG from 'images/svg/jump-indices/jump-indices-grid.svg'
-import JumpIndicesAnimation from 'images/animation/JumpIndicesChart.json'
+import JumpIndicesAnimation from 'lotties/JumpIndicesChart.json'
 
 const MainWrapper = styled(Flex)`
     background: linear-gradient(120.16deg, #0e0e0e 34.11%, #003b81 115.35%);
@@ -123,11 +123,10 @@ const StyledAnimationWrapper = styled(Flex)`
 `
 
 const DHero = () => {
-    let animationContainer = createRef()
-    let anim = null
+    const animation_container = createRef()
     useEffect(() => {
-        anim = lottie.loadAnimation({
-            container: animationContainer.current,
+        const anim = lottie.loadAnimation({
+            container: animation_container.current,
             renderer: 'svg',
             loop: true,
             autoplay: true,
@@ -163,7 +162,7 @@ const DHero = () => {
                     </BtnDiv>
                 </LeftWrapper>
                 <RigthWrapper>
-                    <StyledAnimationWrapper ref={animationContainer} />
+                    <StyledAnimationWrapper ref={animation_container} />
                 </RigthWrapper>
             </ParentWrapper>
 

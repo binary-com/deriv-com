@@ -1,6 +1,12 @@
+import { navigate } from 'gatsby'
 import Cookies from 'js-cookie'
 import extend from 'extend'
-import { deriv_cookie_domain, deriv_app_languages } from './constants'
+import {
+    deriv_cookie_domain,
+    deriv_app_languages,
+    live_chat_redirection_link,
+    live_chat_key,
+} from './constants'
 
 export const trimSpaces = (value) => value?.trim()
 
@@ -202,3 +208,26 @@ export const isJSONString = (value) => {
 }
 
 export const parseJSONString = (value) => (isJSONString(value) ? JSON.parse(value) : value)
+
+export const getLiveChatStorage = () =>
+    isBrowser() ? localStorage.getItem('live_chat_redirection') : null
+
+export const removeLocalStorage = (prop) => localStorage.removeItem(prop)
+
+export const getLiveChatRedirectStatus = (lang_status) => {
+    const lang = getLanguage()
+    const live_chat_enable = getLiveChatStorage()
+
+    return (lang_status && live_chat_enable) || (lang == 'en' && live_chat_enable)
+}
+
+// set lang to true to allow all lang to redirect, default is en,
+// and pass to getLiveChatRedirectStatus
+export const redirectOpenLiveChatBox = (is_redirect) => {
+    const live_chat_status = getLiveChatRedirectStatus(is_redirect)
+
+    removeLocalStorage(live_chat_key)
+    if (live_chat_status) {
+        navigate(live_chat_redirection_link, { replace: true })
+    }
+}

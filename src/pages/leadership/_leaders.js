@@ -248,11 +248,31 @@ const LeaderMobile = styled.div`
     max-width: 304px;
     box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.2);
     border-radius: 4px;
-    height: 532px;
+    height: auto;
     margin-bottom: 30px;
+    padding-bottom: 8px;
 
     > p {
         max-width: 273px;
+    }
+`
+
+const RelativeImageWrapper = styled.div`
+    position: relative;
+    width: 100%;
+    padding-top: 100%;
+    overflow: hidden;
+`
+
+const AbsoluteImageWrapper = styled.div`
+    position: absolute;
+    top: 0;
+    width: 100%;
+`
+
+const StyledMobileText = styled(Text)`
+    @media ${device.tabletL} {
+        padding: 0 8px;
     }
 `
 
@@ -309,13 +329,17 @@ const Leaders = () => {
                 <Carousel {...settings}>
                     {leaders_data.map((leader, idx) => (
                         <LeaderMobile key={idx}>
-                            <QueryImage data={data[`${leader.image}_mobile`]} alt={leader.name} />
-                            <Header size="24px" align="center" m="16px 0 0">
+                            <RelativeImageWrapper>
+                                <AbsoluteImageWrapper>
+                                    <QueryImage data={data[`${leader.image}`]} alt={leader.name} />
+                                </AbsoluteImageWrapper>
+                            </RelativeImageWrapper>
+                            <Header as="h4" size="24px" align="center" m="16px 0 0">
                                 {leader.name}
                             </Header>
-                            <Text align="center" m="0 auto" size="2rem">
+                            <StyledMobileText align="center" m="0 auto" size="2rem">
                                 {leader.position}
-                            </Text>
+                            </StyledMobileText>
                             <Text m="16px 16px 32px 16px" size="1.6rem">
                                 {leader.description}
                             </Text>

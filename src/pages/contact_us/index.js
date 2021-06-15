@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import Loadable from '@loadable/component'
 import ContactWays from './_contact-ways'
 import device from 'themes/device'
+import { useOpenLiveChat } from 'components/hooks/use-open-live-chat-redirection'
 import { Header, Text } from 'components/elements'
 import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
@@ -31,6 +32,10 @@ const StyledText = styled(Text)`
 `
 
 const ContactUs = () => {
+    /* redirect livechat for en to open live chat popup */
+    /* set true to allow redirection for other lang also*/
+    useOpenLiveChat(true)
+
     return (
         <Layout>
             <SEO
@@ -46,7 +51,7 @@ const ContactUs = () => {
                         {localize('Contact us')}
                     </Header>
                     <StyledText align="center" size="var(--text-size-sm)">
-                        {localize("Got questions? Here's how to get answers")}
+                        {localize("Got questions? Here's how to get answers.")}
                     </StyledText>
                 </HeroWrapper>
             </SectionContainer>

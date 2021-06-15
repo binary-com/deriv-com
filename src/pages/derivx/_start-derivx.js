@@ -7,6 +7,7 @@ import { Header, QueryImage, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import device, { size } from 'themes/device'
 import { isBrowser } from 'common/utility'
+import { derivx_android_url, derivx_ios_url } from 'common/constants'
 
 const query = graphql`
     query {
@@ -104,6 +105,11 @@ const real = [
     },
 ]
 
+const download_links = {
+    android: derivx_android_url,
+    ios: derivx_ios_url,
+}
+
 const Section = styled(SectionContainer)`
     display: flex;
     flex-direction: column;
@@ -175,7 +181,7 @@ const TabItem = styled.div`
 `
 const StyledHeader = styled(Header)`
     @media ${device.mobileL} {
-        font-size: 32px;
+        font-size: 24px;
         margin-bottom: 24px;
         padding: 0 16px;
     }
@@ -236,7 +242,7 @@ const StartDerivX = () => {
             </Flex>
 
             <Flex max_width="1200px">
-                <SideTab parent_tab={tab} has_download_button>
+                <SideTab parent_tab={tab} has_download_button download_links={download_links}>
                     {(tab === 'demo' ? demo : real).map((index) => {
                         return (
                             <SideTab.Panel

@@ -1,8 +1,14 @@
+import { navigate } from 'gatsby'
 import Cookies from 'js-cookie'
 import extend from 'extend'
-import { deriv_cookie_domain, deriv_app_languages } from './constants'
+import {
+    deriv_cookie_domain,
+    deriv_app_languages,
+    live_chat_redirection_link,
+    live_chat_key,
+} from './constants'
 
-export const trimSpaces = (value) => value.trim()
+export const trimSpaces = (value) => value?.trim()
 
 export const toISOFormat = (date) => {
     if (date instanceof Date) {
@@ -181,4 +187,47 @@ export const getLocalizedUrl = (path, is_index, to) => `/${path}${is_index ? `` 
 export const nonENLangUrlReplace = (current_path) => {
     const path_with_or_without_slash = /\/.+?(\/)|(\/[a-zA-Z'-]+)/u
     return current_path.replace(path_with_or_without_slash, '')
+}
+export const getDateFromToday = (num_of_days) => {
+    const today = new Date()
+    const end_date = new Date(today.getFullYear(), today.getMonth(), today.getDate() + num_of_days)
+
+    return end_date
+}
+
+export const isNullUndefined = (value) => value === null || typeof value === 'undefined'
+
+export const isObject = (value) => typeof value === 'object'
+
+export const isJSONString = (value) => {
+    try {
+        return JSON.parse(value) && !!value
+    } catch (e) {
+        return false
+    }
+}
+
+export const parseJSONString = (value) => (isJSONString(value) ? JSON.parse(value) : value)
+
+export const getLiveChatStorage = () =>
+    isBrowser() ? localStorage.getItem('live_chat_redirection') : null
+
+export const removeLocalStorage = (prop) => localStorage.removeItem(prop)
+
+export const getLiveChatRedirectStatus = (lang_status) => {
+    const lang = getLanguage()
+    const live_chat_enable = getLiveChatStorage()
+
+    return (lang_status && live_chat_enable) || (lang == 'en' && live_chat_enable)
+}
+
+// set lang to true to allow all lang to redirect, default is en,
+// and pass to getLiveChatRedirectStatus
+export const redirectOpenLiveChatBox = (is_redirect) => {
+    const live_chat_status = getLiveChatRedirectStatus(is_redirect)
+
+    removeLocalStorage(live_chat_key)
+    if (live_chat_status) {
+        navigate(live_chat_redirection_link, { replace: true })
+    }
 }

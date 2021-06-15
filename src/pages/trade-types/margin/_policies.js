@@ -6,6 +6,7 @@ import { SectionContainer, Show } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
 import { localize } from 'components/localization'
+import { DerivStore } from 'store'
 import device from 'themes/device'
 
 const query = graphql`
@@ -75,6 +76,8 @@ const StyledLinkButton = styled(LinkButton)`
 
 const Policies = () => {
     const data = useStaticQuery(query)
+    const { is_eu_country } = React.useContext(DerivStore)
+
     return (
         <>
             <SectionContainer background="white" padding="4rem 0 0">
@@ -241,12 +244,16 @@ const Policies = () => {
                         )}
                     </Text>
                     <Text mb="1.6rem">
-                        {localize(
-                            'You can use our swap calculator to estimate the swap charges required to keep your positions open overnight on DMT5.',
-                        )}
+                        {is_eu_country
+                            ? localize(
+                                  'You can use our swap calculator to estimate the swap charges required to keep your positions open overnight on DMT5.',
+                              )
+                            : localize(
+                                  'You can use our swap calculator to estimate the swap changes required to keep your positions open overnight on Deriv MT5 (DMT5) and Deriv X.',
+                              )}
                     </Text>
 
-                    <StyledLinkButton secondary="true" to="/trader-tools#swapCalculator">
+                    <StyledLinkButton secondary="true" to="/trader-tools/swap-calculator/">
                         {localize('Swap calculator')}
                     </StyledLinkButton>
 

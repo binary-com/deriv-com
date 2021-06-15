@@ -68,7 +68,7 @@ const MarketCard = styled.article`
     }
 `
 
-const MarketLink = styled(LocalizedLinkText) `
+const MarketLink = styled(LocalizedLinkText)`
     display: block;
     margin-top: 0.8rem;
 `
@@ -93,13 +93,7 @@ const Markets = ({ is_ppc }) => (
                         </Text>
                         <Localize
                             translate_text="<0>Learn more</0>"
-                            components={[
-                                <MarketLink
-                                    key={0}
-                                    to="/markets#forex"
-                                    color="red"
-                                />,
-                            ]}
+                            components={[<MarketLink key={0} to="/markets/forex/" color="red" />]}
                         />
                     </div>
                 </MarketCard>
@@ -116,13 +110,7 @@ const Markets = ({ is_ppc }) => (
                         </Text>
                         <Localize
                             translate_text="<0>Learn more</0>"
-                            components={[
-                                <MarketLink
-                                    key={0}
-                                    to="/markets#stock"
-                                    color="red"
-                                />,
-                            ]}
+                            components={[<MarketLink key={0} to="/markets/stock/" color="red" />]}
                         />
                     </div>
                 </MarketCard>
@@ -139,15 +127,11 @@ const Markets = ({ is_ppc }) => (
                                 )}
                             </Text>
                             <Localize
-                            translate_text="<0>Learn more</0>"
-                            components={[
-                                <MarketLink
-                                    key={0}
-                                    to="/markets#synthetic"
-                                    color="red"
-                                />,
-                            ]}
-                        />
+                                translate_text="<0>Learn more</0>"
+                                components={[
+                                    <MarketLink key={0} to="/markets/synthetic/" color="red" />,
+                                ]}
+                            />
                         </div>
                     </MarketCard>
                 )}
@@ -165,11 +149,7 @@ const Markets = ({ is_ppc }) => (
                         <Localize
                             translate_text="<0>Learn more</0>"
                             components={[
-                                <MarketLink
-                                    key={0}
-                                    to="/markets#commodities"
-                                    color="red"
-                                />,
+                                <MarketLink key={0} to="/markets/commodities/" color="red" />,
                             ]}
                         />
                     </div>

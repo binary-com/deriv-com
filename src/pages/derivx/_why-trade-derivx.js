@@ -11,6 +11,7 @@ import IconNewPromising from 'images/svg/deriv-x/new-promising.svg'
 
 const StyledHeader = styled(Header)`
     @media ${device.mobileL} {
+        font-size: 24px;
         padding: 0 35px;
     }
     @media ${device.mobileM} {
@@ -34,7 +35,7 @@ const Card = styled(Flex)`
         margin-right: 0;
     }
 
-    @media ${device.tablet}{
+    @media ${device.tablet} {
         margin-right: unset;
     }
 `
@@ -78,20 +79,26 @@ const card_data = [
     {
         icon: IconNewPromising,
         icon_alt: 'New and promising',
-        title: <Localize translate_text='New and promising' />,
-        subtitle: <Localize translate_text='Deriv X is our second CFD platform, after MT5. It’s packed with features and built to fit your trading style.' />,
+        title: <Localize translate_text="New and promising" />,
+        subtitle: (
+            <Localize translate_text="Deriv X is our second CFD platform, after MT5. It’s packed with features and built to fit your trading style." />
+        ),
     },
     {
         icon: IconMultipleMarketing,
         icon_alt: 'Multiple markets on a single platform',
-        title: <Localize translate_text='Multiple markets on a single platform' />,
-        subtitle: <Localize translate_text='Trade various assets in multiple markets simultaneously.' />,
+        title: <Localize translate_text="Multiple markets on a single platform" />,
+        subtitle: (
+            <Localize translate_text="Trade various assets in multiple markets simultaneously." />
+        ),
     },
     {
         icon: Icon24_7,
         icon_alt: '24/7 trading',
-        title: <Localize translate_text='24/7 trading' />,
-        subtitle: <Localize translate_text='Trade cryptocurrencies and synthetic indices anytime, even on weekends and holidays.' />,
+        title: <Localize translate_text="24/7 trading" />,
+        subtitle: (
+            <Localize translate_text="Trade cryptocurrencies and synthetic indices anytime, even on weekends and holidays." />
+        ),
     },
 ]
 
@@ -99,23 +106,26 @@ const WhyTradeDerivX = () => {
     return (
         <div>
             <SectionContainer>
-                <Container fd='column'>
-                    <StyledHeader type='page-title' align="center">
+                <Container fd="column">
+                    <StyledHeader type="page-title" align="center">
                         {localize('Why trade with Deriv X')}
                     </StyledHeader>
-                    <Flex tablet_direction='column' tablet_ai='center' mt="40px">
+                    <Flex tablet_direction="column" tablet_ai="center" mt="40px">
                         {card_data.map((index) => {
                             return (
                                 <Card key={index.title}>
                                     <div>
                                         <img src={index.icon} alt={index.icon_alt} />
                                     </div>
-                                    <Header width='240px' type='sub-section-title' mt='7px' mb='8px'>
+                                    <Header
+                                        width="240px"
+                                        type="sub-section-title"
+                                        mt="7px"
+                                        mb="8px"
+                                    >
                                         {index.title}
                                     </Header>
-                                    <Text>
-                                        {index.subtitle}
-                                    </Text>
+                                    <Text>{index.subtitle}</Text>
                                 </Card>
                             )
                         })}

@@ -9,8 +9,8 @@ import DxSyntheticIcon from 'images/svg//deriv-x/dxsynthetic.svg'
 import device from 'themes/device'
 
 const StyledIcon = styled.img`
-    width:48px;
-    height:48px;
+    width: 48px;
+    height: 48px;
 
     @media ${device.mobileL} {
         width: 24px;
@@ -29,7 +29,7 @@ const content = [
     {
         header: <Localize translate_text="Financial" />,
         text: (
-            <Localize translate_text="Trade forex, commodities, cryptocurrencies, major (standard and micro-lots), and minor currency pairs on high leverage." />
+            <Localize translate_text="Trade forex, commodities and cryptocurrencies at high leverage." />
         ),
         icon: <StyledIcon src={DxFinancialIcon} alt="financial icon" />,
     },
@@ -99,7 +99,7 @@ const Accounts = () => {
     return (
         <Section>
             <StyledHeader
-                mobile_font_size="32px"
+                mobile_font_size="24px"
                 mobile_margin="0 0 24px"
                 align="center"
                 as="h2"

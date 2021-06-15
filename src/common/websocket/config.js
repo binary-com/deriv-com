@@ -7,7 +7,9 @@
  *
  */
 import { isBrowser } from '../utility'
-const domain_config = {
+import { default_server_url } from '../constants'
+
+export const domain_config = {
     production: [
         {
             hostname: 'deriv.com',
@@ -72,7 +74,7 @@ const getSocketURL = () => {
         server_url = window.localStorage.getItem('config.server_url')
     }
     if (!server_url) {
-        server_url = 'green.binaryws.com'
+        server_url = default_server_url
     }
     return `wss://${server_url}/websockets/v3`
 }

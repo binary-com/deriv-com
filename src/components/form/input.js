@@ -42,6 +42,12 @@ const InputWrapper = styled.div`
                 color: var(--color-red-1) !important;
             }
         `}
+    ${(props) =>
+        props.disabled &&
+        css`
+            opacity: 0.32;
+            pointer-events: none;
+        `}
 `
 
 const StyledError = styled.img`
@@ -86,7 +92,7 @@ const StyledInput = styled.input`
     }
 
     &::placeholder {
-        opacity: 0;
+        opacity: ${(props) => (props.showLabel ? 0 : 1)};
         transition: opacity 0.25s;
         padding-left: 0.3rem;
     }
@@ -108,7 +114,11 @@ const StyledInput = styled.input`
         &::placeholder {
             opacity: 1;
             color: var(--color-grey-5);
-            font-size: 14px;
+            ${(props) =>
+                props.label &&
+                css`
+                    font-size: 14px;
+                `}
         }
     }
     &:valid {
@@ -155,6 +165,7 @@ const Input = ({
     focusBorder,
     labelHoverColor,
     labelColor,
+    disabled,
     id,
     error,
     background,
@@ -171,6 +182,7 @@ const Input = ({
                 border={border}
                 focusBorder={focusBorder}
                 labelHoverColor={labelHoverColor}
+                disabled={disabled}
                 error={error}
                 className="input-wrapper"
             >
@@ -179,18 +191,22 @@ const Input = ({
                     background={background}
                     maxLength={maxLength}
                     error={error}
+                    disabled={disabled}
                     height={height}
+                    showLabel={label}
                     {...props}
                     ref={(ip) => (current_input = ip)}
                 />
-                <StyledLabel
-                    tabletBackground={tabletBackground}
-                    error={error}
-                    htmlFor={id}
-                    labelColor={labelColor}
-                >
-                    {label}
-                </StyledLabel>
+                {label && (
+                    <StyledLabel
+                        tabletBackground={tabletBackground}
+                        error={error}
+                        htmlFor={id}
+                        labelColor={labelColor}
+                    >
+                        {label}
+                    </StyledLabel>
+                )}
             </InputWrapper>
             <ErrorMessages lh="1.4" align="left" color="red-1">
                 {error}
@@ -212,6 +228,7 @@ Input.propTypes = {
     background: PropTypes.string,
     border: PropTypes.string,
     children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
+    disabled: PropTypes.bool,
     error: PropTypes.string,
     focusBorder: PropTypes.string,
     handleError: PropTypes.func,

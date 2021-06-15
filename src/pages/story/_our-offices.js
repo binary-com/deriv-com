@@ -46,19 +46,28 @@ const ChevronRight = styled(Chevron)`
 const MapImage = styled(BackgroundImage)`
     position: relative;
     width: 100%;
+    overflow: auto;
     height: 639px;
     background-color: transparent;
-    background-size: contain;
+    background-size: cover;
+
+    @media screen and (min-width: 992px) {
+        min-width: 1177px;
+        overflow: hidden;
+    }
+
+    @media screen and (max-width: 992px) and (min-width: 575px) {
+        width: 100%;
+        height: calc(100vw / 2.6);
+    }
+
+    @media screen and (max-width: 575px) {
+        width: 100%;
+        height: calc(100vw / 1.84);
+    }
 
     @media ${device.tabletS} {
-        height: 340px;
         margin-bottom: 25px;
-    }
-    @media ${device.mobileL} {
-        height: 266px;
-    }
-    @media ${device.mobileM} {
-        height: 228px;
     }
 `
 
@@ -130,6 +139,8 @@ const MapPin = ({ top, left, title, link }) => {
 }
 
 const OfficeWrapper = styled(Flex)`
+    overflow: hidden;
+
     @media ${device.tabletS} {
         flex-direction: column-reverse;
     }
@@ -189,11 +200,11 @@ export const OurOffices = () => {
                 <HeaderOffice as="h3" size="3.2rem" mb="4rem" align="center">
                     {localize('Our offices')}
                 </HeaderOffice>
-                <OfficeWrapper ai="center" jc="center">
+                <OfficeWrapper ai="center" jc="normal">
                     <NumberWrapper fd="column" width="auto">
                         <Flex fd="column" ai="center" mb="8rem" tabletS={{ mb: '0' }}>
                             <Text color="red" size="4.8rem" align="center" weight="bold">
-                                400+
+                                500+
                             </Text>
                             <Text align="center">{localize('Team members')}</Text>
                         </Flex>
@@ -311,7 +322,12 @@ export const OurOffices = () => {
                                 link="/contact_us#cyberjaya"
                             />
                             <MapPin left="83%" top="55%" title="Melaka" link="/contact_us#melaka" />
-                            <MapPin left="88.5%" top="51%" title="Labuan" link="/contact_us#labuan" />
+                            <MapPin
+                                left="88.5%"
+                                top="51%"
+                                title="Labuan"
+                                link="/contact_us#labuan"
+                            />
                         </MapImage>
                     </Show.Mobile>
                 </OfficeWrapper>

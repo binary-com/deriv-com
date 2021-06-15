@@ -24,7 +24,6 @@ const query = graphql`
 `
 
 const DerivX = () => {
-
     const [is_mobile, setMobile] = useState(false)
     const handleResizeWindow = useCallback(() => {
         setMobile(isBrowser() ? window.screen.width <= size.tablet : false)

@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
-import { useWebsiteStatus } from 'components/hooks/website-status-hooks'
+import { useWebsiteStatus } from 'components/hooks/use-website-status'
 import { isEuCountry, isP2PAllowedCountry } from 'common/country-base'
 
 export const DerivStore = React.createContext()
 
 export const DerivProvider = ({ children }) => {
-    const [website_status] = useWebsiteStatus()
+    const [website_status, setWebsiteStatus, website_status_loading] = useWebsiteStatus()
     const [is_eu_country, setEuCountry] = useState(null)
     const [is_p2p_allowed_country, setP2PAllowedCountry] = useState(false)
     const [crypto_config, setCryptoConfig] = useState(null)
@@ -27,6 +27,9 @@ export const DerivProvider = ({ children }) => {
                 is_eu_country,
                 is_p2p_allowed_country,
                 crypto_config,
+                website_status,
+                website_status_loading,
+                setWebsiteStatus,
             }}
         >
             {children}

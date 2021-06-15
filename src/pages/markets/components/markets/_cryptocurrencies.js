@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import Loadable from '@loadable/component'
 import { WhyTrade } from '../sections/_why-trade'
 import AvailableTrades from '../helper/_available-trades.js'
-import crypto_content from '../../static/content/_crypto'
+import crypto_content from '../../static/content/_cryptocurrencies'
 import { crypto_margin } from '../../static/content/_margin'
 import { crypto_multiplier } from '../../static/content/_multipliers'
 import Margin from '../sub-markets/_margin'
@@ -13,7 +13,7 @@ import { Localize } from 'components/localization'
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
 const OtherMarkets = Loadable(() => import('../sections/_other-markets.js'))
 
-const Crypto = ({ simple_step_content }) => {
+const Cryptocurrencies = ({ simple_step_content }) => {
     return (
         <>
             <WhyTrade
@@ -34,7 +34,9 @@ const Crypto = ({ simple_step_content }) => {
                 Margin={<Margin market_content={crypto_margin} />}
                 Multipliers={<Multipliers market_content={crypto_multiplier} is_crypto={true} />}
                 name="Cryptocurrency"
-                display_title={<Localize translate_text="Cryptocurrency trades available on Deriv" />}
+                display_title={
+                    <Localize translate_text="Cryptocurrency trades available on Deriv" />
+                }
             />
             <SimpleSteps
                 header={
@@ -43,13 +45,13 @@ const Crypto = ({ simple_step_content }) => {
                 content={simple_step_content}
                 sign_up
             />
-            <OtherMarkets except='cryptocurrencies' />
+            <OtherMarkets except="cryptocurrencies" />
         </>
     )
 }
 
-Crypto.propTypes = {
+Cryptocurrencies.propTypes = {
     simple_step_content: PropTypes.array,
 }
-export default Crypto
-    
+
+export default Cryptocurrencies

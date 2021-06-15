@@ -15,6 +15,7 @@ import { LinkButton } from 'components/form'
 import { LocationContext } from 'components/layout/location-context.js'
 import { useActiveLinkState } from 'components/hooks/use-active-link-state'
 import device from 'themes/device'
+import { CFDWarning } from 'components/layout'
 
 const query = graphql`
     query {
@@ -133,6 +134,7 @@ export const NavCareers = () => {
                     </Wrapper>
                 </StyledNav>
             </NavWrapper>
+            <CFDWarning />
         </>
     )
 }

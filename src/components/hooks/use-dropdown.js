@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react'
-import { useOutsideClick } from 'components/hooks/outside-click'
+import { useOutsideClick } from 'components/hooks/use-outside-click'
 
-export const useDropdownHooks = (onChange) => {
+export const useDropdown = (onChange) => {
     const [is_open, setOpen] = useState(false)
     const dropdown_ref = useRef(null)
     const nodes = new Map()

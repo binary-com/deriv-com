@@ -9,10 +9,11 @@ exports.onCreatePage = ({ page, actions }) => {
     // First delete the incoming page that was automatically created by Gatsby
     // So everything in src/pages/
     deletePage(page)
-    const is_deriv_x = /derivx/g.test(page.path)
     const is_responsible_trading = /responsible/g.test(page.path)
     const is_contact_us = /contact_us/g.test(page.path)
     const is_p2p = /responsible/g.test(page.path)
+    const is_story = /story/g.test(page.path)
+    const is_market = /markets/g.test(page.path)
 
     if (is_responsible_trading) {
         createRedirect({
@@ -65,17 +66,31 @@ exports.onCreatePage = ({ page, actions }) => {
         })
     }
 
-    //TODO: Remove redirects once page is officially ready for launch
-    if (is_deriv_x) {
+    if (is_story) {
         createRedirect({
-            fromPath: `/derivx/`,
-            toPath: `/`,
+            fromPath: `/about/`,
+            toPath: `/story/`,
             redirectInBrowser: true,
             isPermanent: true,
         })
         createRedirect({
-            fromPath: `/derivx`,
-            toPath: `/`,
+            fromPath: `/about`,
+            toPath: `/story/`,
+            redirectInBrowser: true,
+            isPermanent: true,
+        })
+    }
+
+    if (is_market) {
+        createRedirect({
+            fromPath: `/markets/`,
+            toPath: `/markets/forex/`,
+            redirectInBrowser: true,
+            isPermanent: true,
+        })
+        createRedirect({
+            fromPath: `/markets`,
+            toPath: `/markets/forex/`,
             redirectInBrowser: true,
             isPermanent: true,
         })
@@ -87,10 +102,7 @@ exports.onCreatePage = ({ page, actions }) => {
         const localized_path = is_default ? page.path : `${path}${page.path}`
         const is_production = process.env.GATSBY_ENV === 'production'
         const careers_regex = /^[a-z-]+\/careers\//g
-        // TODO: this is a temporary workaround to remove a/b testing page
-        const homepage_regex = /homepage/g
-        // TODO: this is a temporary workaround to remove a/b testing page
-        const amp_regex = /amp/g
+        const endpoint_regex = /^[a-z-]+\/endpoint\//g
         const offline_plugin_regex = /^[a-z-]+\/offline-plugin-app-shell-fallback/g
 
         if (is_production) {
@@ -98,8 +110,7 @@ exports.onCreatePage = ({ page, actions }) => {
         }
         if (
             careers_regex.test(localized_path) ||
-            homepage_regex.test(localized_path) ||
-            amp_regex.test(localized_path) ||
+            endpoint_regex.test(localized_path) ||
             offline_plugin_regex.test(localized_path)
         )
             return
@@ -190,17 +201,31 @@ exports.onCreatePage = ({ page, actions }) => {
             })
         }
 
-        //TODO: Remove redirects once page is officially ready for launch
-        if (is_deriv_x) {
+        if (is_story) {
             createRedirect({
-                fromPath: `/${lang}/derivx/`,
-                toPath: `/${lang}/`,
+                fromPath: `/${lang}/about/`,
+                toPath: `/${lang}/story/`,
                 redirectInBrowser: true,
                 isPermanent: true,
             })
             createRedirect({
-                fromPath: `/${lang}/derivx`,
-                toPath: `/${lang}/`,
+                fromPath: `/${lang}/about`,
+                toPath: `/${lang}/story/`,
+                redirectInBrowser: true,
+                isPermanent: true,
+            })
+        }
+
+        if (is_market) {
+            createRedirect({
+                fromPath: `/${lang}/markets/`,
+                toPath: `/${lang}/markets/forex/`,
+                redirectInBrowser: true,
+                isPermanent: true,
+            })
+            createRedirect({
+                fromPath: `/${lang}/markets`,
+                toPath: `/${lang}/markets/forex/`,
                 redirectInBrowser: true,
                 isPermanent: true,
             })

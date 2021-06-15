@@ -186,8 +186,8 @@ const ExternalLink = ({
     const default_style = { cursor: 'pointer' }
 
     const handleClick = (e) => {
-        e.preventDefault()
         if (show_modal) {
+            e.preventDefault()
             setModalPayload({
                 to: url,
                 target,

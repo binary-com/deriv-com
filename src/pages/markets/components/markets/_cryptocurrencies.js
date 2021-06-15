@@ -17,7 +17,7 @@ const Cryptocurrencies = ({ simple_step_content }) => {
     return (
         <>
             <WhyTrade
-                header={<Localize translate_text="Why trade cryptocurrency on Deriv" />}
+                header={<Localize translate_text="Why trade cryptocurrencies on Deriv" />}
                 text={
                     <Localize translate_text="Take advantage of a highly liquid market with round-the-clock trading. Profit from correctly predicting the movement of world's most popular cryptocurrencies." />
                 }
@@ -33,9 +33,9 @@ const Cryptocurrencies = ({ simple_step_content }) => {
             <AvailableTrades
                 Margin={<Margin market_content={crypto_margin} />}
                 Multipliers={<Multipliers market_content={crypto_multiplier} is_crypto={true} />}
-                name="Cryptocurrency"
+                name="Cryptocurrencies"
                 display_title={
-                    <Localize translate_text="Cryptocurrency trades available on Deriv" />
+                    <Localize translate_text="Cryptocurrencies trades available on Deriv" />
                 }
             />
             <SimpleSteps

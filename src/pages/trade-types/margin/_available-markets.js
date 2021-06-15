@@ -10,6 +10,7 @@ import Forex from 'images/svg/trade-types/forex.svg'
 import Commodities from 'images/svg/trade-types/commodities.svg'
 import SyntheticIndices from 'images/svg/trade-types/synthetic-indices.svg'
 import StockIndices from 'images/svg/trade-types/stock-indices.svg'
+import Cryptocurrencies from 'images/svg/trade-types/cryptocurrencies.svg'
 
 const MobileCardHeader = styled(Flex)`
     margin-bottom: 0.8rem;
@@ -42,7 +43,7 @@ const AvailableMarkets = () => {
             <SectionContainer background="white" padding="8rem 0" position="relative">
                 <SmallContainer direction="column" ai="flex-start">
                     <Header as="h3" type="section-title" mb="2.4rem">
-                        {localize('Markets available for margin trading')}
+                        {localize('Markets available for CFD trading')}
                     </Header>
                 </SmallContainer>
                 <MarketsCarousel>
@@ -56,7 +57,7 @@ const AvailableMarkets = () => {
                                 </MobileCardHeader>
                                 <Text>
                                     {localize(
-                                        'Access over 50 assets and also trade with up to 1000:1 leverage and zero commission on trades.',
+                                        'Access over 50 currency pairs and trade with leverage up to 1:1000 to increase your market exposure.',
                                     )}
                                 </Text>
                                 <LearnMore
@@ -108,7 +109,7 @@ const AvailableMarkets = () => {
                                 </MobileCardHeader>
                                 <Text>
                                     {localize(
-                                        'Speculate on the price movements of silver, gold, oil, and more and use margin to amplify your possible profits.',
+                                        'Predict the price movements of commodities like silver, gold, and oil, and use margin to amplify your possible profits.',
                                     )}
                                 </Text>
                                 <LearnMore
@@ -141,6 +142,33 @@ const AvailableMarkets = () => {
                                 <LearnMore
                                     text={<Localize translate_text="Learn more" />}
                                     to="/markets/stock/"
+                                />
+                            </Card>
+                        </MarketsItem>
+                    </MarketsCarousel.Item>
+                    <MarketsCarousel.Item>
+                        <MarketsItem>
+                            <Card>
+                                <MobileCardHeader>
+                                    <img
+                                        src={Cryptocurrencies}
+                                        alt="cryptocurrencies"
+                                        width="64"
+                                        height="64"
+                                    />
+
+                                    <StyledText weight="bold">
+                                        {localize('Cryptocurrencies')}
+                                    </StyledText>
+                                </MobileCardHeader>
+                                <Text>
+                                    {localize(
+                                        'Trade on the world’s most popular cryptocurrencies and potentially profit from correctly anticipating price movements.',
+                                    )}
+                                </Text>
+                                <LearnMore
+                                    text={<Localize translate_text="Learn more" />}
+                                    to="/markets/cryptocurrencies/"
                                 />
                             </Card>
                         </MarketsItem>

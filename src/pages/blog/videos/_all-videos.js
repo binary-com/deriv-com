@@ -13,21 +13,10 @@ const VideoGrid = styled.div`
     width: 100%;
     height: 100%;
     margin: 8rem 0;
-    grid-template-columns: repeat(3, 384px);
+    grid-template-columns: repeat(auto-fit, minmax(288px, 384px));
     grid-row-gap: 60px;
     grid-column-gap: 24px;
     grid-template-rows: auto;
-
-    @media (max-width: 1240px) {
-        grid-template-columns: repeat(2, 384px);
-    }
-    @media (max-width: 815px) {
-        grid-template-columns: 384px;
-        grid-row-gap: 40px;
-    }
-    @media ${device.mobileL} {
-        grid-template-columns: 100%;
-    }
 `
 
 const VideoCardWrapper = styled.div`

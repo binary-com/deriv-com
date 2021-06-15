@@ -6,12 +6,19 @@ import WhatAreMultiplier from './_what-are-multipliers'
 import { SEO } from 'components/containers'
 import { Header } from 'components/elements'
 import Layout from 'components/layout/layout'
-import { localize, WithIntl } from 'components/localization'
+import { localize, WithIntl, Localize } from 'components/localization'
 import device from 'themes/device'
 const HowMultiplierWorks = Loadable(() => import('./_how-multiplier-works'))
 const ThingsInMind = Loadable(() => import('./_things-in-mind'))
 const StartTrading = Loadable(() => import('./_start-trading'))
 const MarketsAvailable = Loadable(() => import('./_markets-available'))
+
+const meta_attributes = {
+    og_title: <Localize translate_text="Multipliers trading | Trade types | Deriv" />,
+    og_description: (
+        <Localize translate_text="Learn about multipliers trading on Deriv. Enjoy a new way to trade with leverage without risking more than your stake — more profit potential, no swap charges." />
+    ),
+}
 
 const StyledHeader = styled(Header)`
     @media ${device.tablet} {
@@ -27,6 +34,7 @@ const Multipliers = () => {
                 description={localize(
                     'Learn about multipliers trading on Deriv. Enjoy a new way to trade with leverage without risking more than your stake — more profit potential, no swap charges.',
                 )}
+                meta_attributes={meta_attributes}
             />
             <Hero jc="cneter" ai="center">
                 <SmallContainer>

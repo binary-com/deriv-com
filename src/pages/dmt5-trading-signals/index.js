@@ -12,6 +12,11 @@ import { Header } from 'components/elements'
 import { useTabState } from 'components/hooks/use-tab-state'
 import device from 'themes/device'
 
+const meta_attributes = {
+    og_title: <Localize translate_text="DMT5 Signals" />,
+    og_description: <Localize translate_text="Deriv MT5 signals" />,
+}
+
 const signal_content_subscriber = {
     header: (
         <Localize
@@ -105,7 +110,11 @@ const DMT5TradingSignals = () => {
 
     return (
         <Layout>
-            <SEO description={localize('Subscribe to Deriv MetaTrader 5 trading signals to copy the trades of experienced traders, or become a signal provider and share your strategies.')} title={localize('Deriv MetaTrader 5 trading signals | Resources | Deriv')} />
+            <SEO
+                description={localize('Deriv MT5 signals')}
+                title={localize('DMT5 Signals')}
+                meta_attributes={meta_attributes}
+            />
             <Hero jc="cneter" ai="center">
                 <SmallContainer>
                     <Header as="h1" type="display-title" color="white" align="center">

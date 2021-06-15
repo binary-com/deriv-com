@@ -31,10 +31,10 @@ const topicsCovered = [
 const query = graphql`
     query {
         forex_ebook_img: file(relativePath: { eq: "ebooks/forex-ebook.png" }) {
-            ...backGroundBlur
+            ...heroImage
         }
         forex_ebook_inside: file(relativePath: { eq: "ebooks/forex-ebook-inside.png" }) {
-            ...fadeIn
+            ...heroImage
         }
     }
 `

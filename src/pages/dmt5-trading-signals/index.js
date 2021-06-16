@@ -104,9 +104,7 @@ const Separator = styled.div`
 const DMT5TradingSignals = () => {
     const [active_tab, setActiveTab] = useTabState(['signal-subscriber', 'signal-provider'])
     useEffect(() => {
-        if (window.location.hash==='#signal-provider'){
-            // eslint-disable-next-line no-console
-            console.log('WEE')
+        if (window.location.hash==='#signal-provider' && active_tab!=='signal-provider'){
             setActiveTab('signal-provider');
         }
     },[]);

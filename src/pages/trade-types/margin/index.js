@@ -1,19 +1,18 @@
 import React from 'react'
 import Loadable from '@loadable/component'
 import { SmallContainer, Hero } from '../components/_style'
-import WhatIsMargin from './_what_is_margin'
+import WhatIsCFD from './_what_is_cfd'
 import { SEO } from 'components/containers'
 import { Header } from 'components/elements'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
-const WhyTradeMargin = Loadable(() => import('./_why-trade-margin'))
-const Contracts = Loadable(() => import('./_contracts'))
-const Policies = Loadable(() => import('./_policies'))
+const WhyTradeCFD = Loadable(() => import('./_why-trade-cfd'))
+const TradingCFDIncreases = Loadable(() => import('./_trading-cfd-increases'))
 const StartTrading = Loadable(() => import('./_start-trading'))
-const RelationshipWithLeverge = Loadable(() => import('./_relationship-with-leverge'))
+const ThingsToKeep = Loadable(() => import('./_things-to-keep'))
 const AvailableMarkets = Loadable(() => import('./_available-markets'))
 
-const Margin = () => {
+const CFD = () => {
     return (
         <Layout>
             <SEO
@@ -25,19 +24,18 @@ const Margin = () => {
             <Hero jc="cneter" ai="center">
                 <SmallContainer>
                     <Header as="h1" type="display-title" color="white" align="center">
-                        {localize('Margin trading')}
+                        {localize('CFD trading')}
                     </Header>
                 </SmallContainer>
             </Hero>
-            <WhatIsMargin />
-            <RelationshipWithLeverge />
-            <Contracts />
-            <Policies />
-            <WhyTradeMargin />
+            <WhatIsCFD />
+            <ThingsToKeep />
+            <TradingCFDIncreases />
+            <WhyTradeCFD />
             <StartTrading />
             <AvailableMarkets />
         </Layout>
     )
 }
 
-export default WithIntl()(Margin)
+export default WithIntl()(CFD)

@@ -10,7 +10,7 @@ import InstantAccess from 'images/svg/trade-types/instant-access.svg'
 import SyntheticIndices from 'images/svg/trade-types/synthetic-indices.svg'
 import { LinkButton } from 'components/form'
 
-const WhyTradeMargin = () => {
+const WhyTradeCFD = () => {
 
     return (
         <>
@@ -84,4 +84,4 @@ const WhyTradeMargin = () => {
     )
 }
 
-export default WhyTradeMargin
+export default WhyTradeCFD

@@ -15,7 +15,7 @@ const VideoWrapper = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    z-index: 200;
+    z-index: 1000;
 `
 const CloseButton = styled.img`
     cursor: pointer;

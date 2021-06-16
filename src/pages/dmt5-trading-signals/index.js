@@ -60,7 +60,7 @@ const TabsContainer = styled(Flex)`
     }
 `
 
-const Item = React.memo(styled.div`
+const Item = styled.div`
     margin-top: 4rem;
     padding: 1.2rem 1.6rem;
     border-bottom: ${(props) =>
@@ -92,7 +92,6 @@ const Item = React.memo(styled.div`
         text-align: center;
     }
 `
-)
 
 const Separator = styled.div`
     position: absolute;
@@ -106,9 +105,11 @@ const DMT5TradingSignals = () => {
     const [active_tab, setActiveTab] = useTabState(['signal-subscriber', 'signal-provider'])
     useEffect(() => {
         if (window.location.hash==='#signal-provider'){
+            // eslint-disable-next-line no-console
+            console.log('WEE')
             setActiveTab('signal-provider');
         }
-    });
+    },[]);
 
     return (
         <Layout>

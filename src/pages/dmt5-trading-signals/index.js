@@ -107,7 +107,7 @@ const DMT5TradingSignals = () => {
         if (window.location.hash==='#signal-provider'){
             setActiveTab('signal-provider');
         }
-    },[])
+    })
 
     return (
         <Layout>

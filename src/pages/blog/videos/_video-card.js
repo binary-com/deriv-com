@@ -14,8 +14,8 @@ const VideoCardWrapper = styled.div`
     position: relative;
     height: ${(props) => (props.height ? props.height : 'auto')};
     width: 100%;
-    box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.05);
     border-radius: 8px;
+    border: 1px solid var(--color-grey-8);
     background: var(--color-white);
     transition: transform 0.3s;
     overflow: hidden;
@@ -58,8 +58,8 @@ const StyledCategories = styled(Text)`
     left: 8px;
     z-index: 3;
     border-radius: 8px;
-    background-color: #33140e;
-    color: #ff7457;
+    background-color: var(--color-brown);
+    color: var(--color-orange-2);
     padding: 1px 8px;
 `
 

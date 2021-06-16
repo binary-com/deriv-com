@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Layout from 'components/layout/layout'
 import { Flex } from 'components/containers'
+import { WithIntl } from 'components/localization'
 
 const MainWrapper = styled(Flex)`
     background-color: var(--color-white);
@@ -11,10 +12,10 @@ const MainWrapper = styled(Flex)`
 
 const DerivBlog = () => {
     return (
-        <Layout is_ppc_redirect={true}>
+        <Layout>
             <MainWrapper>Testing</MainWrapper>
         </Layout>
     )
 }
 
-export default DerivBlog
+export default WithIntl()(DerivBlog)

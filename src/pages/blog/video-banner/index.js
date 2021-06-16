@@ -1,22 +1,26 @@
 import React from 'react'
-import styled from 'styled-components'
+import Dbanner from './_DBanner'
 import Layout from 'components/layout/layout'
 import { Flex } from 'components/containers'
 import { WithIntl } from 'components/localization'
 
-const MainWrapper = styled(Flex)`
-    /* background-color: var(--color-white); */
-
-    background-color: red;
-    flex-direction: column;
-    overflow: hidden;
-    height: 400px;
-`
+const MainVidDetails = [
+    {
+        type: 'Trade types',
+        title: 'What’s multipliers',
+        description:
+            'Combine the higher returns of margin trading with the simplicity of options. With multipliers, you can leverage your trades to maximise returns for correctly predicting market movements, without risking more than your initial stake.',
+        published_date: '21 Apr 2021',
+        duration: '2:40',
+    },
+]
 
 const DVideoBanner = () => {
     return (
         <Layout>
-            <MainWrapper></MainWrapper>
+            <Flex>
+                <Dbanner video_data={MainVidDetails} />
+            </Flex>
         </Layout>
     )
 }

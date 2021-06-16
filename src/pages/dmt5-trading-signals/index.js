@@ -104,7 +104,7 @@ const DMT5TradingSignals = () => {
     const [active_tab, setActiveTab] = useTabState(['signal-subscriber', 'signal-provider'])
 
     useEffect(() => {
-        if (window.location.hash=='#signal-provider'){
+        if (window.location.hash==='#signal-provider'){
             setActiveTab('signal-provider');
         }
     },[])

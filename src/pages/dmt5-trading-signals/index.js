@@ -60,7 +60,7 @@ const TabsContainer = styled(Flex)`
     }
 `
 
-const Item = styled.div`
+const Item = React.memo(styled.div`
     margin-top: 4rem;
     padding: 1.2rem 1.6rem;
     border-bottom: ${(props) =>
@@ -92,6 +92,8 @@ const Item = styled.div`
         text-align: center;
     }
 `
+)
+
 const Separator = styled.div`
     position: absolute;
     width: 100%;
@@ -102,12 +104,11 @@ const Separator = styled.div`
 
 const DMT5TradingSignals = () => {
     const [active_tab, setActiveTab] = useTabState(['signal-subscriber', 'signal-provider'])
-
     useEffect(() => {
         if (window.location.hash==='#signal-provider'){
             setActiveTab('signal-provider');
         }
-    })
+    });
 
     return (
         <Layout>
@@ -123,14 +124,14 @@ const DMT5TradingSignals = () => {
                 <Item
                     onClick={() => setActiveTab('signal-subscriber')}
                     active_tab={active_tab}
-                    name="signal-subscriber"
+                    name='signal-subscriber'
                 >
                     <Header as="h4">{localize('Signal subscriber')}</Header>
                 </Item>
                 <Item
                     onClick={() => setActiveTab('signal-provider')}
                     active_tab={active_tab}
-                    name="signal-provider"
+                    name='signal-provider'
                 >
                     <Header as="h4">{localize('Signal provider')}</Header>
                 </Item>

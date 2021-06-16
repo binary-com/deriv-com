@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import { Flex } from 'components/containers'
+import CloseIcon from 'images/svg/close.svg'
 
 const VideoWrapper = styled.div`
     position: fixed;
@@ -10,9 +12,13 @@ const VideoWrapper = styled.div`
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.9);
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     z-index: 200;
+`
+const CloseButton = styled.img`
+    cursor: pointer;
 `
 
 const VidePlayer = styled.video`
@@ -39,6 +45,15 @@ const VideoPlayer = ({ video_src, closeVideo }) => {
 
     return (
         <VideoWrapper onClick={closeVideo}>
+            <Flex jc="flex-end" height="auto" width="80%" mr="-32px">
+                <CloseButton
+                    src={CloseIcon}
+                    alt="close"
+                    width={24}
+                    height={24}
+                    onClick={closeVideo}
+                />
+            </Flex>
             <VidePlayer
                 width="80%"
                 height="480"

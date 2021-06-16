@@ -113,6 +113,11 @@ export const useLivechat = () => {
                     if (is_livechat_query?.toLowerCase() === 'true') {
                         window.LC_API.open_chat_window()
                     }
+
+                    // open chat widget when there is an incoming greeting/announcement
+                    window.LiveChatWidget.on('greeting_displayed', () => {
+                        window.LC_API.open_chat_window()
+                    })
                 })
             }
         }

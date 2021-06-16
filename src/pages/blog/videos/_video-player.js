@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { Flex } from 'components/containers'
 import CloseIcon from 'images/svg/close.svg'
+import device from 'themes/device'
 
 const VideoWrapper = styled.div`
     position: fixed;
@@ -17,15 +18,29 @@ const VideoWrapper = styled.div`
     align-items: center;
     z-index: 1000;
 `
+
+const StyledFlex = styled(Flex)`
+    width: 80%;
+    margin-right: -36px;
+
+    @media ${device.tablet} {
+        width: 90%;
+        margin-right: -10px;
+    }
+`
+
 const CloseButton = styled.img`
     cursor: pointer;
 `
 
 const VidePlayer = styled.video`
+    width: 80%;
     position: relative;
     background-color: var(--color-black);
-    border-radius: 20px;
-    border: solid 2px var(--color-white);
+
+    @media ${device.tablet} {
+        width: 90%;
+    }
 `
 
 const VideoPlayer = ({ video_src, closeVideo }) => {
@@ -45,7 +60,7 @@ const VideoPlayer = ({ video_src, closeVideo }) => {
 
     return (
         <VideoWrapper onClick={closeVideo}>
-            <Flex jc="flex-end" height="auto" width="80%" mr="-32px">
+            <StyledFlex jc="flex-end" height="auto">
                 <CloseButton
                     src={CloseIcon}
                     alt="close"
@@ -53,7 +68,7 @@ const VideoPlayer = ({ video_src, closeVideo }) => {
                     height={24}
                     onClick={closeVideo}
                 />
-            </Flex>
+            </StyledFlex>
             <VidePlayer
                 width="80%"
                 height="480"

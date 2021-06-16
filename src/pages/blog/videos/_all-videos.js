@@ -15,7 +15,7 @@ const VideoGrid = styled.div`
     height: 100%;
     margin: 8rem 0;
     grid-template-columns: repeat(auto-fit, minmax(288px, 384px));
-    grid-row-gap: 60px;
+    grid-row-gap: 40px;
     grid-column-gap: 24px;
     grid-template-rows: auto;
 `

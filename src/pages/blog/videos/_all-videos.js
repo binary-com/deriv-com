@@ -43,16 +43,7 @@ const AllVideos = ({ video_data }) => {
             </Flex>
             <VideoGrid style={{ justifyContent: 'center' }}>
                 {video_data.map((item) => {
-                    return (
-                        <VideoCard
-                            title={item.title}
-                            image={item.image}
-                            category={item.category}
-                            key={item.id}
-                            item={item}
-                            openVideo={handleOpenVideo}
-                        />
-                    )
+                    return <VideoCard key={item.id} item={item} openVideo={handleOpenVideo} />
                 })}
             </VideoGrid>
             {show && <VideoPlayer video_src={VideoSrc} closeVideo={handleCloseVideo} />}

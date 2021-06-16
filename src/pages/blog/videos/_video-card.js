@@ -12,7 +12,7 @@ const VideoCardWrapper = styled.div`
     flex-direction: column;
     text-decoration: none;
     position: relative;
-    height: ${(props) => (props.height ? props.height : 'auto')};
+    height: auto;
     width: 100%;
     border-radius: 8px;
     border: 1px solid var(--color-grey-8);

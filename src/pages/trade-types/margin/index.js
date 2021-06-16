@@ -39,9 +39,9 @@ const Margin = () => {
             </Hero>
             <WhatIsMargin />
             <RelationshipWithLeverge />
-            <WhyTradeMargin />
             <Contracts />
             <Policies />
+            <WhyTradeMargin />
             <StartTrading />
             <AvailableMarkets />
         </Layout>

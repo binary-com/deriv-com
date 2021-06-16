@@ -1,7 +1,6 @@
 import React from 'react'
 import Timeline from '../components/_timeline'
-import { SmallContainer } from '../components/_style'
-import { SectionContainer } from 'components/containers'
+import { SmallContainer, StartTradingBg } from '../components/_style'
 import { localize, Localize } from 'components/localization'
 import { LinkButton } from 'components/form'
 import { Header } from 'components/elements'
@@ -11,7 +10,7 @@ const StartTrading = () => {
     const { is_eu_country } = React.useContext(DerivStore)
     return (
         <>
-            <SectionContainer background="white" padding="8rem 0 4rem">
+                <StartTradingBg>
                 <SmallContainer direction="column" ai="flex-start">
                     <Header as="h3" type="section-title" mb="4rem">
                         {localize('Start trading CFDs on Deriv')}
@@ -54,7 +53,7 @@ const StartTrading = () => {
                         {localize('Create free demo account')}
                     </LinkButton>
                 </SmallContainer>
-            </SectionContainer>
+                </StartTradingBg>
         </>
     )
 }

@@ -64,7 +64,7 @@ const Item = styled.div`
     margin-top: 4rem;
     padding: 1.2rem 1.6rem;
     border-bottom: ${(props) =>
-        props.name === props.active_tab ? '2px solid var(--color-red)' : ''};
+        props.itemName === props.active_tab ? '2px solid var(--color-red)' : ''};
     cursor: pointer;
     z-index: 10;
     white-space: nowrap;
@@ -76,7 +76,7 @@ const Item = styled.div`
     }
     h4 {
         color: var(--color-black-3);
-        font-weight: ${(props) => (props.name === props.active_tab ? 'bold' : 'normal')};
+        font-weight: ${(props) => (props.itemName === props.active_tab ? 'bold' : 'normal')};
     }
     @media ${device.tabletL} {
         padding: 12px 8px 12px 7px;
@@ -103,11 +103,13 @@ const Separator = styled.div`
 
 const DMT5TradingSignals = () => {
     const [active_tab, setActiveTab] = useTabState(['signal-subscriber', 'signal-provider'])
+    
     useEffect(() => {
-        if (window.location.hash==='#signal-provider' && active_tab!=='signal-provider'){
+        if (window.location.hash === '#signal-provider') {
             setActiveTab('signal-provider');
         }
-    },[]);
+    }
+    , [])
 
     return (
         <Layout>
@@ -123,14 +125,14 @@ const DMT5TradingSignals = () => {
                 <Item
                     onClick={() => setActiveTab('signal-subscriber')}
                     active_tab={active_tab}
-                    name='signal-subscriber'
+                    itemName='signal-subscriber'
                 >
                     <Header as="h4">{localize('Signal subscriber')}</Header>
                 </Item>
                 <Item
                     onClick={() => setActiveTab('signal-provider')}
                     active_tab={active_tab}
-                    name='signal-provider'
+                    itemName='signal-provider'
                 >
                     <Header as="h4">{localize('Signal provider')}</Header>
                 </Item>

@@ -1,7 +1,9 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { localize } from 'components/localization'
+import { CFDWarning } from 'components/layout'
 import LogoCombinedShape from 'images/svg/logo-combined-shape.svg'
 import { QueryImage } from 'components/elements'
 import { Container, Flex, SectionContainer } from 'components/containers'
@@ -70,24 +72,32 @@ const query = graphql`
         }
     }
 `
-const JumpIndiceNav = () => {
+const JumpIndiceNav = ({ is_ppc }) => {
     const data = useStaticQuery(query)
     return (
-        <Section>
-            <ContentContainer>
-                <LogoWrapper>
-                    <QueryImage
-                        data={data['deriv']}
-                        alt={localize('Deriv')}
-                        max_width="16.4rem"
-                        width="100%"
-                        height="auto"
-                    />
-                    <Line />
-                    <ImgWrapper src={LogoCombinedShape} />
-                </LogoWrapper>
-            </ContentContainer>
-        </Section>
+        <>
+            <Section>
+                <ContentContainer>
+                    <LogoWrapper>
+                        <QueryImage
+                            data={data['deriv']}
+                            alt={localize('Deriv')}
+                            max_width="16.4rem"
+                            width="100%"
+                            height="auto"
+                        />
+                        <Line />
+                        <ImgWrapper src={LogoCombinedShape} />
+                    </LogoWrapper>
+                </ContentContainer>
+            </Section>
+            <CFDWarning is_ppc={is_ppc} />
+        </>
     )
 }
+
+JumpIndiceNav.propTypes = {
+    is_ppc: PropTypes.bool,
+}
+
 export default JumpIndiceNav

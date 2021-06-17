@@ -158,7 +158,7 @@ export const onClientEntry = () => {
     }
 
     addScript({
-        src: './src/cookiescode.js',
+        src: 'https://cdn.jsdelivr.net/gh/khalidxx/deriv-static-content@ed0fc8358931c998fa814dc8f3109b19a6807a03/scripts/cookie.js',
         async: true,
     })
 

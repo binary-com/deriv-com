@@ -59,6 +59,11 @@ export const useLivechat = () => {
             const domain = getDomain()
             if (is_livechat_interactive) {
                 window.LiveChatWidget.on('ready', () => {
+
+                    // we open and close the window to trigger the widget to listen for new events
+                    window.LC_API.open_chat_window()
+                    window.LC_API.hide_chat_window()
+
                     const utm_data = getUTMData(domain)
                     const client_information = getClientInformation(domain)
 

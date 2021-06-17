@@ -181,7 +181,7 @@ const TabItem = styled.div`
 `
 const StyledHeader = styled(Header)`
     @media ${device.mobileL} {
-        font-size: 32px;
+        font-size: 24px;
         margin-bottom: 24px;
         padding: 0 16px;
     }

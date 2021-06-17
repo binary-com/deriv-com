@@ -114,7 +114,7 @@ const DMT5TradingSignals = () => {
         console.log(active_tab)
     }
         , [])
-
+ let newObj={active:active_tab}
     return (
         <Layout>
             <SEO description={localize('Subscribe to Deriv MetaTrader 5 trading signals to copy the trades of experienced traders, or become a signal provider and share your strategies.')} title={localize('Deriv MetaTrader 5 trading signals | Resources | Deriv')} />
@@ -128,14 +128,14 @@ const DMT5TradingSignals = () => {
             <TabsContainer>
                 <Item
                     onClick={() => setActiveTab('signal-subscriber')}
-                    active_tab={active_tab}
+                    active_tab={newObj.active}
                     itemName='signal-subscriber'
                 >
                     <Header as="h4">{localize('Signal subscriber')}</Header>
                 </Item>
                 <Item
                     onClick={() => setActiveTab('signal-provider')}
-                    active_tab={active_tab}
+                    active_tab={newObj.active}
                     itemName='signal-provider'
                 >
                     <Header as="h4">{localize('Signal provider')}</Header>

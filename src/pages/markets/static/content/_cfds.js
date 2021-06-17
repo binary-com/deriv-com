@@ -2,7 +2,7 @@ import React from 'react'
 import Symbol from '../../components/helper/_symbol'
 import {
     CrashBoom,
-    CryptocurrenciesMargin,
+    CryptocurrenciesCFDs,
     Energy,
     ExoticPairs,
     MajorPairs,
@@ -31,7 +31,7 @@ import {
 } from './_details'
 import { Localize } from 'components/localization'
 
-export const commodities_margin = {
+export const commodities_cfds = {
     markets_list: {
         col: 4,
     },
@@ -47,7 +47,7 @@ export const commodities_margin = {
     ],
 }
 
-export const forex_margin = {
+export const forex_cfds = {
     markets_list: {
         col: 4,
         tablet_col: 3,
@@ -79,7 +79,7 @@ export const forex_margin = {
     ],
 }
 
-export const synthetic_margin = {
+export const synthetic_cfds = {
     has_global_accordion: true,
     content: [
         {
@@ -105,7 +105,7 @@ export const synthetic_margin = {
     ],
 }
 
-export const stock_margin = {
+export const stock_cfds = {
     template: 2,
     content: [
         {
@@ -156,7 +156,7 @@ export const stock_margin = {
     ],
 }
 
-export const crypto_margin = {
+export const crypto_cfds = {
     markets_list: {
         col: 4,
         tablet_col: 3,
@@ -165,7 +165,7 @@ export const crypto_margin = {
     content: [
         {
             title: <Localize translate_text="Cryptocurrencies" />,
-            component: <CryptocurrenciesMargin />,
+            component: <CryptocurrenciesCFDs />,
         },
     ],
 }

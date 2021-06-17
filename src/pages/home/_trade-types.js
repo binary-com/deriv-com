@@ -4,7 +4,7 @@ import TradeTypesCard from './_trade-types-card'
 import { Header, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import { Container, Flex } from 'components/containers'
-import CFDLogo from 'images/svg/trade-types/margin.svg'
+import CFDLogo from 'images/svg/trade-types/cfds.svg'
 import OptionsLogo from 'images/svg/trade-types/options.svg'
 import MultipliersLogo from 'images/svg/trade-types/multipliers.svg'
 import { LinkButton } from 'components/form'
@@ -28,7 +28,7 @@ const StyledContainer = styled(Container)`
 
 const TradeTypes = () => {
     
-    const margin = {
+    const cfds = {
         icon: <img src={CFDLogo} alt="cfd" width="48" height="49" />,
         title: <Localize translate_text="CFDs" />,
         description: (
@@ -58,7 +58,7 @@ const TradeTypes = () => {
     
     const { is_eu_country } = React.useContext(DerivStore)
     
-    const trade_types = is_eu_country ? [margin, multipliers] : [margin, options, multipliers]
+    const trade_types = is_eu_country ? [cfds, multipliers] : [cfds, options, multipliers]
 
     return (
         <div>

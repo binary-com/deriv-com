@@ -4,7 +4,7 @@ import Loadable from '@loadable/component'
 import { WhyTrade } from '../sections/_why-trade'
 import AvailableTrades from '../helper/_available-trades.js'
 import crypto_content from '../../static/content/_cryptocurrencies'
-import { crypto_margin } from '../../static/content/_margin'
+import { crypto_cfds } from '../../static/content/_cfds'
 import { crypto_multiplier } from '../../static/content/_multipliers'
 import CFDs from '../sub-markets/_cfds'
 import Multipliers from '../sub-markets/_multipliers'
@@ -31,7 +31,7 @@ const Cryptocurrencies = ({ simple_step_content }) => {
                 ))}
             </WhyTrade>
             <AvailableTrades
-                Margin={<CFDs market_content={crypto_margin} />}
+                CFDs={<CFDs market_content={crypto_cfds} />}
                 Multipliers={<Multipliers market_content={crypto_multiplier} is_crypto={true} />}
                 name="Cryptocurrency"
                 display_title={

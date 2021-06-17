@@ -29,7 +29,7 @@ import DTrader from 'images/svg/dtrader-icon.svg'
 import Forex from 'images/svg/forex-nav.svg'
 import Help from 'images/svg/menu/help-center.svg'
 import Leadership from 'images/svg/menu/leadership.svg'
-import Margin from 'images/svg/margin-trading-nav.svg'
+import CFD from 'images/svg/margin-trading-nav.svg'
 import Multipliers from 'images/svg/multipliers-nav.svg'
 import Options from 'images/svg/options-nav.svg'
 import Partner from 'images/svg/menu/partner.svg'
@@ -269,14 +269,14 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                     <Flex direction="column" wrap="wrap" jc="flex-start">
                         <StyledText>{localize('Trade types')}</StyledText>
                         <NavCard
-                            aria_label="Margin trading"
-                            icon={() => <img src={Margin} alt="Margin" width="32" height="32" />}
+                            aria_label="CFDs"
+                            icon={() => <img src={CFD} alt="CFDs" width="32" height="32" />}
                             content={
-                                <Localize translate_text="Trade with leverage and low spreads for better returns on successful trades." />
+                                <Localize translate_text="Trade with leverage and tight spreads for better returns on successful trades." />
                             }
-                            title={<Localize translate_text="Margin trading" />}
+                            title={<Localize translate_text="CFDs" />}
                             onClick={onClick}
-                            to="/trade-types/margin/"
+                            to="/trade-types/cfds/"
                         />
                         {!is_eu_country && (
                             <NavCard
@@ -298,7 +298,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                                 <img src={Multipliers} alt="Multipliers" width="32" height="32" />
                             )}
                             content={
-                                <Localize translate_text="Combine the upside of margin trading with the simplicity of options." />
+                                <Localize translate_text="Combine the upside of CFDs with the simplicity of options." />
                             }
                             title={<Localize translate_text="Multipliers" />}
                             onClick={onClick}

@@ -6,7 +6,7 @@ import AvailableTrades from '../helper/_available-trades'
 import stock_content from '../../static/content/_stock'
 import { stock_margin } from '../../static/content/_margin'
 import { stock_options } from '../../static/content/_digital-options'
-import Margin from '../sub-markets/_margin'
+import CFDs from '../sub-markets/_cfds'
 import DigitalOptions from '../sub-markets/_digital-options'
 import { localize, Localize } from 'components/localization'
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
@@ -33,7 +33,7 @@ const StockIndices = ({ simple_step_content }) => {
                 ))}
             </WhyTrade>
             <AvailableTrades
-                Margin={<Margin market_tab_name={'stock-indices'} market_content={stock_margin} />}
+                Margin={<CFDs market_tab_name={'stock-indices'} market_content={stock_margin} />}
                 DigitalOptions={
                     <DigitalOptions market_name={localize('stocks & indices')} options_list={stock_options} />
                 }

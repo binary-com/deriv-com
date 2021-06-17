@@ -6,7 +6,7 @@ import AvailableTrades from '../helper/_available-trades.js'
 import crypto_content from '../../static/content/_cryptocurrencies'
 import { crypto_margin } from '../../static/content/_margin'
 import { crypto_multiplier } from '../../static/content/_multipliers'
-import Margin from '../sub-markets/_margin'
+import CFDs from '../sub-markets/_cfds'
 import Multipliers from '../sub-markets/_multipliers'
 import { Localize } from 'components/localization'
 //Lazy-load
@@ -31,7 +31,7 @@ const Cryptocurrencies = ({ simple_step_content }) => {
                 ))}
             </WhyTrade>
             <AvailableTrades
-                Margin={<Margin market_content={crypto_margin} />}
+                Margin={<CFDs market_content={crypto_margin} />}
                 Multipliers={<Multipliers market_content={crypto_multiplier} is_crypto={true} />}
                 name="Cryptocurrency"
                 display_title={

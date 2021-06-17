@@ -17,16 +17,16 @@ import AmericanIndices from './_american-indices'
 import AmericanStocks from './_american-stocks'
 import AsianIndices from './_asian-indices'
 import EuropeanIndices from './_european-indices'
-import CryptocurrenciesMargin from './_cryptocurrencies-margin'
 import CryptocurrenciesMultipliers from './_cryptocurrencies-multipliers'
+import CryptocurrenciesCFDs from './_cryptocurrencies-cfds'
 
 export {
     Americas,
     AsiaOceania,
     ContinuousIndices,
     CrashBoom,
-    CryptocurrenciesMargin,
     CryptocurrenciesMultipliers,
+    CryptocurrenciesCFDs,
     DailyResetIndices,
     Energy,
     Europe,

@@ -682,7 +682,7 @@ export const american_stocks = [
 //     },
 // ]
 
-export const cryptocurrencies_margin = [
+export const cryptocurrencies_cfds = [
     {
         src: icons.BTC,
         text: <Localize translate_text="Bitcoin" />,

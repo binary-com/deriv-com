@@ -4,7 +4,7 @@ import Loadable from '@loadable/component'
 import { WhyTrade } from '../sections/_why-trade'
 import AvailableTrades from '../helper/_available-trades.js'
 import forex_content from '../../static/content/_forex'
-import { forex_margin } from '../../static/content/_margin'
+import { forex_cfds } from '../../static/content/_cfds'
 import { forex_multiplier } from '../../static/content/_multipliers'
 import { forex_options } from '../../static/content/_digital-options'
 import CFDs from '../sub-markets/_cfds'
@@ -33,7 +33,7 @@ const Forex = ({ simple_step_content }) => {
                 ))}
             </WhyTrade>
             <AvailableTrades
-                Margin={<CFDs market_content={forex_margin} />}
+                CFDs={<CFDs market_content={forex_cfds} />}
                 DigitalOptions={
                     <DigitalOptions market_name={localize('forex')} options_list={forex_options} />
                 }

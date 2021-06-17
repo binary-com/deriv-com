@@ -115,8 +115,10 @@ export const useLivechat = () => {
                     }
 
                     // open chat widget when there is an incoming greeting/announcement
-                    window.LiveChatWidget.on('greeting_displayed', () => {
-                        window.LC_API.open_chat_window()
+                    window.LiveChatWidget.on('new_event', (event) => {
+                        if (event.greeting) {
+                            window.LC_API.open_chat_window()
+                        }
                     })
                 })
             }

@@ -4,6 +4,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import PropTypes from 'prop-types'
 import { Flex } from 'components/containers'
 import { Carousel, Header, QueryImage } from 'components/elements'
+import { NextButton, PrevButton } from 'components/elements/carousel'
 import device from 'themes/device'
 
 const query = graphql`
@@ -28,11 +29,12 @@ const query = graphql`
 
 const MainWrapper = styled(Flex)`
     flex-direction: column;
-    max-width: 1200px;
+    justify-content: flex-start;
 `
 const DetailsWrapper = styled(Flex)`
     flex-direction: column;
     margin-left: 8px;
+    max-width: 180px;
 `
 const StyledHeader = styled(Header)`
     margin-bottom: 4px;
@@ -81,6 +83,29 @@ const StyledDuration = styled(Header)`
 const ItemsMainWrapper = styled(Flex)`
     min-width: 327px;
 `
+const NavigationWrapper = styled(Flex)`
+    align-items: center;
+    margin: 41.5px 0 31.5px;
+`
+const Divider = styled(Flex)`
+    width: 1120px;
+    height: 1px;
+    border-top: 1px solid rgba(230, 233, 233, 0.6);
+`
+const NavIconWrapper = styled(Flex)`
+    width: auto;
+`
+const IconWrapper = styled.div`
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 2px solid var(--color-white);
+    position: relative;
+
+    &:first-child {
+        margin-right: 16px;
+    }
+`
 
 const VideoCarousel = ({ carousel_items }) => {
     const data = useStaticQuery(query)
@@ -101,16 +126,49 @@ const VideoCarousel = ({ carousel_items }) => {
             marginRight: '20px',
             marginLeft: '20px',
         },
+        vertical_container: {
+            marginLeft: '-21px',
+        },
+        chevron_style: {
+            chevron_color: 'white',
+        },
+    }
+
+    const prev_btn_style = {
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        bottom: 'unset',
+        right: 'unset',
+    }
+
+    const next_btn_style = {
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        bottom: 'unset',
+        right: 'unset',
     }
 
     return (
         <MainWrapper>
+            <NavigationWrapper>
+                <Divider />
+                <NavIconWrapper>
+                    <IconWrapper>
+                        <PrevButton enabled={true} is_reviews={true} style={prev_btn_style} />
+                    </IconWrapper>
+                    <IconWrapper>
+                        <NextButton enabled={true} is_reviews={true} style={next_btn_style} />
+                    </IconWrapper>
+                </NavIconWrapper>
+            </NavigationWrapper>
             <CarouselWrapper>
-                <Carousel {...settings}>
+                <Carousel {...settings} has_autoplay autoplay_interval={6000}>
                     {carousel_items.map((item, index) => {
                         return (
                             <ItemsMainWrapper key={index}>
-                                <QueryImage data={data[item['image']]} />
+                                <QueryImage data={data[item['image']]} width="145px" />
                                 <DetailsWrapper>
                                     <StyledHeader type="main-paragraph">{item.title}</StyledHeader>
                                     <SmallDetailsWrapper>

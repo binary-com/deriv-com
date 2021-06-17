@@ -1,45 +1,39 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { graphql, useStaticQuery } from 'gatsby'
+// import { graphql, useStaticQuery } from 'gatsby'
 import VideoCarousel from './_VideoCarousel'
-import { Flex } from 'components/containers'
-import { Header, LinkText, QueryImage } from 'components/elements'
+import { Flex, Container } from 'components/containers'
+import { Header, LinkText } from 'components/elements'
 import device from 'themes/device'
 import PlayIcon from 'images/svg/blog/video/Triangle.svg'
+import VideoBG from 'images/common/blog/video/bg-dummy.png'
 
-const query = graphql`
-    query {
-        video_bg: file(relativePath: { eq: "blog/video/bg-dummy.png" }) {
-            ...fadeIn
-        }
-    }
-`
+// const query = graphql`
+//     query {
+//         video_bg: file(relativePath: { eq: "blog/video/bg-dummy.png" }) {
+//             ...fadeIn
+//         }
+//     }
+// `
 const ParentWrapper = styled(Flex)`
-    background-color: var(--color-white);
+    /* prettier-ignore */
+    background: linear-gradient(251.14deg,rgba(14, 14, 14, 0.5632) 29.18%,rgba(7, 6, 6, 0.88) 85.14%),url(${VideoBG}) no-repeat top left;
     flex-direction: column;
     overflow: hidden;
     margin: 80px 0;
     position: relative;
+    background-size: cover;
+    height: 726px;
 `
-const BgWrapper = styled(Flex)`
+const BgWrapper = styled(Container)`
     flex-direction: column;
     justify-content: flex-start;
-    position: absolute;
-    padding: 160px 0 0 122px;
-    top: 0;
-    left: 0;
-    background: linear-gradient(
-        251.14deg,
-        rgba(14, 14, 14, 0.5632) 29.18%,
-        rgba(7, 6, 6, 0.88) 85.14%
-    );
 `
 const VideoDetailsWrapper = styled(Flex)`
     height: auto;
     flex-direction: column;
     justify-content: flex-start;
-    max-width: 894px;
 `
 const PlayerIconWrapper = styled(Flex)`
     width: 64px;
@@ -70,6 +64,7 @@ const Tag = styled(LinkText)`
 `
 const StyledHeader = styled(Header)`
     margin-bottom: 8px;
+    max-width: 894px;
     color: var(--color-white);
     @media ${device.tabletL} {
         font-size: 40px;
@@ -77,6 +72,7 @@ const StyledHeader = styled(Header)`
 `
 const StyledHeaderSmall = styled(Header)`
     color: var(--color-white);
+    max-width: 894px;
     font-size: 20px;
     font-weight: normal;
     line-height: 30px;
@@ -157,13 +153,13 @@ const carouselItem = [
 ]
 
 const Dbanner = ({ video_data }) => {
-    const data = useStaticQuery(query)
+    // const data = useStaticQuery(query)
 
     // eslint-disable-next-line
     console.log(JSON.stringify(video_data.title, null, 2))
     return (
         <ParentWrapper>
-            <QueryImage data={data['video_bg']} />
+            {/* <QueryImage data={data['video_bg']} /> */}
             <BgWrapper>
                 <VideoDetailsWrapper>
                     <PlayerIconWrapper>

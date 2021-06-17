@@ -6,7 +6,7 @@ import Layout from 'components/layout/layout'
 import { SEO, Container, Flex } from 'components/containers'
 import { Header } from 'components/elements'
 import { localize, WithIntl } from 'components/localization'
-import Patterns from 'images/common/dmt5-signals/dmt5-signals-patterns.png'
+import HeroImage from 'images/common/blog/video-tutorials.png'
 import device from 'themes/device'
 
 const SmallContainer = styled(Container)`
@@ -33,8 +33,9 @@ const SmallContainer = styled(Container)`
 const Hero = styled(Flex)`
     height: 40rem;
     background: var(--color-black);
-    background-image: url(${Patterns});
+    background-image: url(${HeroImage});
     background-size: cover;
+    background-position: center;
 `
 
 const StyledHeader = styled(Header)`

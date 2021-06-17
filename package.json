@@ -5,7 +5,7 @@
     "author": "Deriv",
     "dependencies": {
         "@artsy/fresnel": "^1.7.0",
-        "@datadog/browser-rum": "^2.13.0",
+        "@datadog/browser-rum": "^2.14.0",
         "@livechat/customer-sdk": "^3.0.0",
         "@loadable/component": "^5.15.0",
         "@svgr/webpack": "^5.5.0",
@@ -15,7 +15,7 @@
         "eslint-import-resolver-node": "^0.3.4",
         "extend": "^3.0.2",
         "formik": "^2.2.9",
-        "gatsby": "^3.7.1",
+        "gatsby": "^3.7.2",
         "gatsby-background-image": "^1.5.3",
         "gatsby-plugin-anchor-links": "^1.2.1",
         "gatsby-plugin-google-tagmanager": "^3.7.1",
@@ -38,11 +38,11 @@
         "react": "^17.0.2",
         "react-dom": "^17.0.2",
         "react-helmet": "^6.1.0",
-        "react-i18next": "^11.10.0",
+        "react-i18next": "^11.11.0",
         "react-is": "^17.0.2",
         "react-perfect-scrollbar": "^1.5.8",
-        "web-push-notifications": "^3.19.2",
-        "webpack": "^5.38.1"
+        "web-push-notifications": "^3.19.3",
+        "webpack": "^5.39.0"
     },
     "devDependencies": {
         "babel-eslint": "10.1.0",
@@ -54,7 +54,7 @@
         "eslint-webpack-plugin": "^2.5.4",
         "gatsby-plugin-eslint": "^3.0.0",
         "gatsby-plugin-styled-components": "^4.7.1",
-        "gh-pages": "^3.2.0",
+        "gh-pages": "^3.2.1",
         "husky": "^6.0.0",
         "lint-staged": "^11.0.0",
         "npm-force-resolutions": "0.0.10",
@@ -66,7 +66,7 @@
         "stylelint-config-standard": "^22.0.0",
         "stylelint-config-styled-components": "^0.1.1",
         "stylelint-processor-styled-components": "^1.10.0",
-        "stylelint-webpack-plugin": "^2.1.1"
+        "stylelint-webpack-plugin": "^2.2.0"
     },
     "keywords": [
         "deriv",

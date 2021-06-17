@@ -32,7 +32,7 @@ module.exports = {
                 base64Width: 20,
                 forceBase64Format: 'webp',
                 stripMetadata: true,
-                defaultQuality: 40,
+                defaultQuality: 50,
             },
         },
         `gatsby-plugin-image`,

@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { localize } from 'components/localization'
+import { LocalizedLink, localize } from 'components/localization'
 import { CFDWarning } from 'components/layout'
 import LogoCombinedShape from 'images/svg/logo-combined-shape.svg'
 import { QueryImage } from 'components/elements'
@@ -65,6 +65,11 @@ const Line = styled.div`
         height: 16px;
     }
 `
+export const LogoLink = styled(LocalizedLink)`
+    text-decoration: none;
+    width: 100%;
+`
+
 const query = graphql`
     query {
         deriv: file(relativePath: { eq: "logo.png" }) {
@@ -79,13 +84,15 @@ const JumpIndiceNav = ({ is_ppc }) => {
             <Section>
                 <ContentContainer>
                     <LogoWrapper>
-                        <QueryImage
-                            data={data['deriv']}
-                            alt={localize('Deriv')}
-                            max_width="16.4rem"
-                            width="100%"
-                            height="auto"
-                        />
+                        <LogoLink to="/" aria-label={localize('Home')}>
+                            <QueryImage
+                                data={data['deriv']}
+                                alt={localize('Deriv')}
+                                max_width="16.4rem"
+                                width="100%"
+                                height="auto"
+                            />
+                        </LogoLink>
                         <Line />
                         <ImgWrapper src={LogoCombinedShape} />
                     </LogoWrapper>

@@ -14,13 +14,18 @@ const StyledSection = styled(SectionContainer)`
     }
 `
 
-const Margin = ({ market_content, market_tab_name }) => (
+const CFDs = ({ market_content, market_tab_name }) => (
     <StyledSection padding="4rem 0 8rem">
         <ContentWrapper>
             <Descriptions>
                 <StyledText align="center" font_size="16px">
                     {localize(
-                        'Margin trading allows you to purchase larger units of an asset at a fraction of the cost while amplifying your potential profit, but similarly increasing your potential loss.',
+                        'CFD trading allows you to bet on the price movement of the underlying asset without purchasing it.',
+                    )}
+                </StyledText>
+                <StyledText align="center" mt="16px" font_size="16px">
+                {localize(
+                        'On Deriv, trading CFDs with high leverage lets you pay only a small fraction of the contract’s value and amplify your potential profit, similarly increasing your potential loss.',
                     )}
                 </StyledText>
                 {
@@ -30,16 +35,16 @@ const Margin = ({ market_content, market_tab_name }) => (
                 }
             </Descriptions>
             <StyledText font_size={'16px'} weight="bold" mt="4rem">
-                {localize('Instruments available for margin trading')}
+                {localize('Instruments available for CFD trading')}
             </StyledText>
             <MarketInstruments market_content={market_content} />
         </ContentWrapper>
     </StyledSection>
 )
 
-Margin.propTypes = {
+CFDs.propTypes = {
     market_content: PropTypes.object,
     market_tab_name: PropTypes.String,
 }
 
-export default Margin
+export default CFDs

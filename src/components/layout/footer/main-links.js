@@ -78,8 +78,8 @@ const MainLinksSection = ({is_ppc, is_ppc_redirect, is_eu_country }) => {
                                 <Title>{localize('TRADE TYPES')}</Title>
                             </LinkWrapper>
                             <LinkWrapper first_child="true">
-                                <Link to="/trade-types/margin/">
-                                    {localize('Margin trading')}
+                                <Link to="/trade-types/cfds/">
+                                    {localize('CFDs')}
                                 </Link>
                             </LinkWrapper>
                             <Show.NonEU>

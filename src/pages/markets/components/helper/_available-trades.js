@@ -225,7 +225,7 @@ class AvailableTrades extends React.Component {
                         {Margin && (
                             <Card
                                 name="Margin"
-                                display_name={<Localize translate_text="Margin" />}
+                                display_name={<Localize translate_text="CFDs" />}
                                 onTabChange={() => this.handleTabChange('Margin')}
                                 active_tab={this.state.active_tab}
                             />

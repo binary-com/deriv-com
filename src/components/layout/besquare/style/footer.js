@@ -76,7 +76,7 @@ export const TextContainer = styled.div`
 `
 
 export const Title = styled(Header)`
-    max-width: 508px;
+    max-width: 400px;
     width: fit-content;
     font-size: 48px;
     font-weight: 700;
@@ -84,7 +84,7 @@ export const Title = styled(Header)`
     color: var(--color-white);
 
     @media ${device.tablet} {
-        max-width: 328px;
+        max-width: 250px;
         font-size: 28px;
         line-height: 34px;
     }

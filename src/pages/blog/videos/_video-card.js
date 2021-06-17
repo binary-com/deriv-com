@@ -35,6 +35,7 @@ const ImageWrapper = styled.div`
     width: 384px;
     position: relative;
     z-index: 1;
+    overflow: hidden;
 
     @media ${device.mobileL} {
         width: 100%;
@@ -109,7 +110,12 @@ const VideoCard = ({ item, openVideo }) => {
                 <VideoDuration size="14px" lh="20px">
                     {item.video_duration}
                 </VideoDuration>
-                <img src={item.image} alt={localize('Office')} height={200} width={384} />
+                <img
+                    src={item.image}
+                    alt={localize('Video card')}
+                    width="100%"
+                    style={{ objectFit: 'contain' }}
+                />
             </ImageWrapper>
             <div style={{ padding: '16px 24px' }}>
                 <Header as="h3" size="20px">

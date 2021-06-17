@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import { Hero, SmallContainer } from './_style'
 import HowTo from './_how-to'
@@ -103,13 +103,17 @@ const Separator = styled.div`
 
 const DMT5TradingSignals = () => {
     const [active_tab, setActiveTab] = useTabState(['signal-subscriber', 'signal-provider'])
-    
+
     useEffect(() => {
         if (window.location.hash === '#signal-provider') {
             setActiveTab('signal-provider');
+        } else if (window.location.hash === '#signal-subscriber') {
+            setActiveTab('signal-subscriber');
         }
+        //eslint-disable-next-line no-console
+        console.log(active_tab)
     }
-    , [])
+        , [])
 
     return (
         <Layout>

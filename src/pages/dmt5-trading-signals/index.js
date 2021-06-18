@@ -107,8 +107,6 @@ const DMT5TradingSignals = () => {
     useEffect(() => {
         if (window.location.hash === '#signal-provider') {
             setActiveTab('signal-provider');
-            //eslint-disable-next-line no-console
-            console.log(active_tab)
         }
     }, [])
     let newActive = active_tab

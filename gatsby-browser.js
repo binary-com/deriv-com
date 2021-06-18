@@ -78,18 +78,21 @@ const pushwooshInit = (push_woosh) => {
             safariWebsitePushID: 'web.com.deriv',
             defaultNotificationTitle: 'Deriv.com',
             defaultNotificationImage: 'https://deriv.com/favicons/favicon-192x192.png',
-            autoSubscribe: true,
         },
     ])
 
     push_woosh.push([
         'onReady',
         function (api) {
-            push_woosh.isSubscribed().then((is_subscribed) => {
-                if (!is_subscribed) {
-                    push_woosh.subscribe()
-                }
-            })
+            try {
+                push_woosh.isSubscribed().then((is_subscribed) => {
+                    if (!is_subscribed) {
+                        push_woosh.subscribe()
+                    }
+                })
+                // eslint-disable-next-line no-empty
+            } catch {}
+
             sendTags(api)
         },
     ])

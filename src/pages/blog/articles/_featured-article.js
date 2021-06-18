@@ -18,12 +18,9 @@ const StyledFlex = styled(Flex)`
         transform: translateY(-1.1rem) scale(1.02);
     }
 
-    @media ${device.tabletL} {
+    @media (max-width: 894px) {
         flex-direction: column;
         height: auto;
-        max-width: 790px;
-    }
-    @media (max-width: 879px) {
         max-width: 384px;
     }
 `
@@ -52,7 +49,7 @@ const FeaturedContentWrapper = styled(Flex)`
     @media ${device.tabletL} {
         width: 100%;
     }
-    @media (max-width: 879px) {
+    @media (max-width: 894px) {
         padding: 16px 24px;
     }
 `

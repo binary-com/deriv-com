@@ -114,7 +114,7 @@ const ImageWrapper = styled(Box)`
 const Hero = ({ is_ppc }) => {
     const data = useStaticQuery(query)
     const typewriter_text = !is_ppc
-        ? localize('Trade forex, commodities, synthetic and stocks & indices')
+        ? localize('Trade forex, commodities, synthetic indices and stocks & indices')
         : localize('Trade forex, commodities, and stocks & indices')
     const [type_writer, setTypeWriter] = React.useState('')
     const [check_first_load, setFirstLoad] = React.useState(false)

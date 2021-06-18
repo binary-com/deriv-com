@@ -1,21 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-// import { graphql, useStaticQuery } from 'gatsby'
+import VideoSrc from '../../markets/static/video/globe.mp4'
 import VideoCarousel from './_VideoCarousel'
+import VideoPlayer from './_video-player'
 import { Flex, Container } from 'components/containers'
 import { Header, LinkText } from 'components/elements'
 import device from 'themes/device'
 import PlayIcon from 'images/svg/blog/video/Triangle.svg'
 import VideoBG from 'images/common/blog/video/bg-dummy.png'
 
-// const query = graphql`
-//     query {
-//         video_bg: file(relativePath: { eq: "blog/video/bg-dummy.png" }) {
-//             ...fadeIn
-//         }
-//     }
-// `
 const ParentWrapper = styled(Flex)`
     /* prettier-ignore */
     background: linear-gradient(251.14deg,rgba(14, 14, 14, 0.5632) 29.18%,rgba(7, 6, 6, 0.88) 85.14%),url(${VideoBG}) no-repeat top left;
@@ -25,6 +19,7 @@ const ParentWrapper = styled(Flex)`
     position: relative;
     background-size: cover;
     height: 726px;
+    max-width: 1440px;
 `
 const BgWrapper = styled(Container)`
     flex-direction: column;
@@ -42,6 +37,7 @@ const PlayerIconWrapper = styled(Flex)`
     background: rgba(255, 255, 255, 0.32);
     margin-bottom: 25px;
     align-items: center;
+    cursor: pointer;
 `
 const PlayerIcon = styled.img`
     width: 20px;
@@ -153,39 +149,45 @@ const carouselItem = [
 ]
 
 const Dbanner = ({ video_data }) => {
-    // const data = useStaticQuery(query)
+    const [show, setShow] = useState(false)
 
-    // eslint-disable-next-line
-    console.log(JSON.stringify(video_data.title, null, 2))
+    const handleCloseVideo = () => setShow(false)
+    const handleOpenVideo = (event) => {
+        if (event.defaultPrevented) return
+        setShow(true)
+    }
+
     return (
-        <ParentWrapper>
-            {/* <QueryImage data={data['video_bg']} /> */}
-            <BgWrapper>
-                <VideoDetailsWrapper>
-                    <PlayerIconWrapper>
-                        <PlayerIcon src={PlayIcon} />
-                    </PlayerIconWrapper>
-                    <TagParentWrapper>
-                        <TagWrapper>
-                            <Tag>{video_data[0].type}</Tag>
-                        </TagWrapper>
-                    </TagParentWrapper>
+        <>
+            <ParentWrapper>
+                <BgWrapper>
+                    <VideoDetailsWrapper>
+                        <PlayerIconWrapper onClick={handleOpenVideo}>
+                            <PlayerIcon src={PlayIcon} />
+                        </PlayerIconWrapper>
+                        <TagParentWrapper>
+                            <TagWrapper>
+                                <Tag>{video_data[0].type}</Tag>
+                            </TagWrapper>
+                        </TagParentWrapper>
 
-                    <StyledHeader type="page-title">{video_data[0].title}</StyledHeader>
-                    <StyledHeaderSmall>{video_data[0].description}</StyledHeaderSmall>
-                    <SmallDetailsWrapper>
-                        <StyledPublishedDate type="main-paragraph">
-                            {video_data[0].published_date}
-                        </StyledPublishedDate>
-                        <StyledDot />
-                        <StyledDuration type="main-paragraph">
-                            {video_data[0].duration}
-                        </StyledDuration>
-                    </SmallDetailsWrapper>
-                </VideoDetailsWrapper>
-                <VideoCarousel carousel_items={carouselItem} />
-            </BgWrapper>
-        </ParentWrapper>
+                        <StyledHeader type="page-title">{video_data[0].title}</StyledHeader>
+                        <StyledHeaderSmall>{video_data[0].description}</StyledHeaderSmall>
+                        <SmallDetailsWrapper>
+                            <StyledPublishedDate type="main-paragraph">
+                                {video_data[0].published_date}
+                            </StyledPublishedDate>
+                            <StyledDot />
+                            <StyledDuration type="main-paragraph">
+                                {video_data[0].duration}
+                            </StyledDuration>
+                        </SmallDetailsWrapper>
+                    </VideoDetailsWrapper>
+                    <VideoCarousel carousel_items={carouselItem} />
+                </BgWrapper>
+            </ParentWrapper>
+            {show && <VideoPlayer video_src={VideoSrc} closeVideo={handleCloseVideo} />}
+        </>
     )
 }
 

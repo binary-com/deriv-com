@@ -98,6 +98,11 @@ export const StyledChevron = styled(Chevron)`
                 width: 16px;
                 height: 16px;
             `
+        } else if (props.custom) {
+            return css`
+                width: 10px;
+                height: 18px;
+            `
         }
     }}
 
@@ -145,4 +150,28 @@ export const ChevronRight = styled(StyledChevron)`
 `
 export const ChevronLeft = styled(StyledChevron)`
     left: 0;
+`
+export const NavigationWrapper = styled(Flex)`
+    align-items: center;
+    margin: 41.5px 0 31.5px;
+    height: auto;
+`
+export const Divider = styled(Flex)`
+    width: 1120px;
+    height: 1px;
+    border-top: 1px solid rgba(230, 233, 233, 0.6);
+`
+export const NavIconWrapper = styled(Flex)`
+    width: auto;
+`
+export const IconWrapper = styled.div`
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 2px solid var(--color-white);
+    position: relative;
+
+    &:first-child {
+        margin-right: 16px;
+    }
 `

@@ -47,6 +47,10 @@ const Wrapper = styled(Flex)`
     flex-direction: column;
     height: 100%;
 
+    h1 {
+        margin-bottom: 20px;
+    }
+
     @media ${device.laptopM} {
         height: ${(props) => props.laptopM_height};
         min-height: unset;

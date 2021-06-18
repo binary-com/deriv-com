@@ -1,5 +1,4 @@
 const language_config = require(`./i18n-config.js`)
-const site_url = process.env.URL || 'https://deriv.com'
 
 module.exports = {
     // pathPrefix: process.env.PATH_PREFIX || '/deriv-com/', // For non CNAME GH-pages deployment

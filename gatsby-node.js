@@ -1,3 +1,4 @@
+/* eslint-disable import/order */
 const language_config = require(`./i18n-config.js`)
 const path = require('path')
 

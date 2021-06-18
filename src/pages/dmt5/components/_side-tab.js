@@ -25,6 +25,7 @@ const StyledText = styled(Text)`
     max-width: ${(props) => props.max_width};
 
     @media ${device.tablet} {
+        font-size: 16px;
         max-width: unset;
     }
 `

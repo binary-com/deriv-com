@@ -235,10 +235,21 @@ exports.onCreatePage = ({ page, actions }) => {
     })
 }
 
-exports.onCreateWebpackConfig = ({ actions, getConfig }) => {
+const StylelintPlugin = require('stylelint-webpack-plugin')
+const TerserPlugin = require('terser-webpack-plugin')
+const style_lint_options = {
+    files: 'src/**/*.js',
+    emitErrors: false,
+    lintDirtyModulesOnly: true,
+}
+
+exports.onCreateWebpackConfig = ({ actions, getConfig }, { ...options }) => {
     const config = getConfig()
-    if (config.optimization) config.optimization.minimizer[0].options.parallel = 2
+    if (config.optimization) {
+        config.optimization.minimizer = [new TerserPlugin()]
+    }
     actions.setWebpackConfig({
+        plugins: [new StylelintPlugin({ ...style_lint_options, ...options })],
         resolve: {
             modules: [path.resolve(__dirname, 'src'), 'node_modules'],
         },

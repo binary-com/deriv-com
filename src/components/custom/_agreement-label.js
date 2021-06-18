@@ -40,6 +40,7 @@ const AgreementLabel = ({ handleChangeCheckbox, isChecked, color }) => {
                     clip: 'rect(0px, 0px, 0px, 0px)',
                     position: 'absolute',
                 }}
+                bg="rgba(255, 255, 255, 0)"
                 className="signup_agree_tnc"
                 secondary
                 onChange={handleChange}

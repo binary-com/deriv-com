@@ -11,6 +11,7 @@ import IconNewPromising from 'images/svg/deriv-x/new-promising.svg'
 
 const StyledHeader = styled(Header)`
     @media ${device.mobileL} {
+        font-size: 24px;
         padding: 0 35px;
     }
     @media ${device.mobileM} {

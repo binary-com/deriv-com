@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { useLivechat } from 'components/hooks/use-livechat'
@@ -46,7 +46,7 @@ const StyledLiveChat = styled.div`
 `
 
 const LiveChat = ({ is_banner_shown }) => {
-    const [is_livechat_hover, setLivechatHover] = React.useState(false)
+    const [is_livechat_hover, setLivechatHover] = useState(false)
     const [is_livechat_interactive, LC_API] = useLivechat()
     const { is_eu_country } = React.useContext(DerivStore)
 
@@ -64,9 +64,9 @@ const LiveChat = ({ is_banner_shown }) => {
                     onMouseLeave={() => setLivechatHover(false)}
                 >
                     {is_livechat_hover ? (
-                        <img src={LiveChatHover} alt="livechat icon" />
+                        <img src={LiveChatHover} width="32" height="32" alt="livechat icon" />
                     ) : (
-                        <img src={LiveChatIC} alt="livechat icon" />
+                        <img src={LiveChatIC} width="32" height="32" alt="livechat icon" />
                     )}
                 </StyledLiveChat>
             )}

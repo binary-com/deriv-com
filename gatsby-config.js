@@ -1,7 +1,12 @@
 const language_config = require(`./i18n-config.js`)
+const site_url = process.env.URL || 'https://deriv.com'
 
 module.exports = {
     // pathPrefix: process.env.PATH_PREFIX || '/deriv-com/', // For non CNAME GH-pages deployment
+    flags: {
+        FAST_DEV: true,
+        PRESERVE_WEBPACK_CACHE: true,
+    },
     siteMetadata: {
         title: 'Deriv',
         description:
@@ -20,7 +25,17 @@ module.exports = {
             },
         },
         'gatsby-transformer-sharp',
-        'gatsby-plugin-sharp',
+        {
+            resolve: `gatsby-plugin-sharp`,
+            options: {
+                failOnError: true,
+                base64Width: 20,
+                forceBase64Format: 'webp',
+                stripMetadata: true,
+                defaultQuality: 50,
+            },
+        },
+        `gatsby-plugin-image`,
         {
             resolve: 'gatsby-plugin-sitemap',
             options: {
@@ -57,7 +72,7 @@ module.exports = {
                 ],
                 serialize: ({ site, allSitePage }) =>
                     allSitePage.edges.map((edge) => {
-                        const ignore_localized_regex = /careers/;
+                        const ignore_localized_regex = /careers/
                         const path = edge.node.path
                         let priority = 0.7
                         const languages = Object.keys(language_config)
@@ -85,12 +100,12 @@ module.exports = {
 
                         languages.push('x-default')
                         languages.splice(languages.indexOf('ach'), 1)
-                        const ignore_localized = current_page.match(ignore_localized_regex);
+                        const ignore_localized = current_page.match(ignore_localized_regex)
                         const links = languages.map((locale) => {
                             if (locale !== 'ach' && locale) {
                                 const replaced_locale = locale.replace('_', '-')
                                 const is_default = locale === 'en' || locale === 'x-default'
-                                const href_locale = (is_default) ? '' : `/${replaced_locale}`
+                                const href_locale = is_default ? '' : `/${replaced_locale}`
                                 const href = `${site.siteMetadata.siteUrl}${href_locale}${current_page}`
                                 return { lang: replaced_locale, url: href }
                             }
@@ -161,14 +176,6 @@ module.exports = {
             },
         },
         {
-            resolve: 'gatsby-plugin-stylelint',
-            options: {
-                emitErrors: false,
-                files: ['src/**/*.js'],
-                lintDirtyModulesOnly: true,
-            },
-        },
-        {
             resolve: 'gatsby-plugin-robots-txt',
             options: {
                 policy: [
@@ -196,20 +203,10 @@ module.exports = {
                 includeInDevelopment: false,
             },
         },
-        'gatsby-plugin-remove-serviceworker',
         {
             resolve: 'gatsby-plugin-anchor-links',
             options: {
                 offset: -100,
-            },
-        },
-        {
-            resolve: 'gatsby-plugin-webpack-bundle-analyser-v2',
-            options: {
-                production: true,
-                disable: !process.env.ANALYZE_BUNDLE_SIZE,
-                generateStatsFile: true,
-                analyzerMode: 'static',
             },
         },
     ],

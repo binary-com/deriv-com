@@ -58,7 +58,6 @@ export const ImageWrapper = styled(QueryImage)`
 
 export const TextContainer = styled.div`
     display: grid;
-    max-width:400px;
     justify-content: start;
     padding: 80px 0 72px;
     grid-row-gap: 24px;

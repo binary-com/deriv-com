@@ -32,6 +32,7 @@
         "gbimage-bridge": "^0.1.4",
         "i18next": "^20.3.1",
         "js-cookie": "^2.2.1",
+        "lottie-web": "^5.7.11",
         "match-sorter": "^6.3.0",
         "nprogress": "^0.2.0",
         "prop-types": "^15.7.2",

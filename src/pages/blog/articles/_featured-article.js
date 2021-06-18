@@ -38,7 +38,7 @@ const ImageWrapper = styled.div`
 const StyledCategories = styled(Text)`
     width: fit-content;
     border-radius: 8px;
-    background-color: var(--color-blue-8);
+    background-color: var(--color-blue-10);
     color: var(--color-blue-9);
     padding: 1px 8px;
     line-height: 20px;

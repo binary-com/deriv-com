@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import { graphql, useStaticQuery } from 'gatsby'
 import AgreementLabel from './_agreement-label'
 import { Input, Button } from 'components/form'
-import { Header, Text, QueryImage, LinkText } from 'components/elements'
+import { Header, LinkText, QueryImage, Text } from 'components/elements'
 import { localize } from 'components/localization'
 import { Flex, Show, SectionContainer, Container } from 'components/containers'
 import { deriv_app_url } from 'common/constants'
@@ -68,7 +68,7 @@ const MobileSignupFormWrapper = styled(Flex)`
     @media (max-width: 991px) {
         width: 100%;
         box-shadow: 0 16px 16px 0 rgba(14, 14, 14, 0.04), 0 0 16px 0 rgba(14, 14, 14, 0.04);
-        background:white;
+        background: white;
         padding-bottom: 30px;
         border-radius: 8px;
         position: relative;
@@ -138,7 +138,7 @@ const MobileSocialWrapper = styled(SocialWrapper)`
         justify-content: left;
     }
 
-    @media ${device.tabletL}{
+    @media ${device.tabletL} {
         flex-direction: column;
     }
 `
@@ -153,7 +153,7 @@ const SocialButton = styled(Button)`
     border: solid 1px var(--color-grey-7);
     height: 4rem;
     margin: 0 0.8rem;
-    
+
     &:nth-of-type(1) {
         margin-left: 0;
     }
@@ -178,7 +178,7 @@ const SocialButton = styled(Button)`
         height: 40px;
         padding: 0;
         line-height: 14px;
-        
+
         img {
             margin-top: 3px;
             padding-right: 0;
@@ -226,7 +226,6 @@ const StyledFormWrapper = styled.div`
     @media (min-width: 1600px) {
         min-width: 430px;
     }
-    
 `
 const StyledHeaderText = styled(Text)`
     width: ${(props) => props.width || '41.4rem'};
@@ -240,7 +239,7 @@ const StyledHeaderText = styled(Text)`
     }
 `
 const SignInText = styled(Text)`
-    display:block;
+    display: block;
     width: auto;
     margin-right: 2rem;
     flex-basis: 100%;
@@ -278,7 +277,7 @@ const LinkFlex = styled(LinkText)`
 const MobileBackground = styled.div`
     background-image: linear-gradient(73deg, #ff6444, #ff444f);
     background-size: cover;
-    background-repeat:no-repeat;
+    background-repeat: no-repeat;
     width: 100%;
     flex-direction: column;
     align-items: center;
@@ -302,7 +301,7 @@ const DerivExperience = styled.div`
         margin: 0 auto 0.8rem 0.8rem;
         max-width: 230px;
     }
-    
+
     img {
         z-index: 10;
     }
@@ -386,7 +385,12 @@ const SignupPublic = ({
                                         id="gtm-signup-email"
                                         type="submit"
                                         secondary="true"
-                                        disabled={is_submitting || !is_checked || email_error_msg || !email}
+                                        disabled={
+                                            is_submitting ||
+                                            !is_checked ||
+                                            email_error_msg ||
+                                            !email
+                                        }
                                     >
                                         {localize('Sign up')}
                                     </EmailButton>
@@ -419,7 +423,12 @@ const SignupPublic = ({
                                         social
                                     >
                                         <SocialButtonText>
-                                            <img src={Facebook} alt="facebook" width="24" height="24" />
+                                            <img
+                                                src={Facebook}
+                                                alt="facebook"
+                                                width="24"
+                                                height="24"
+                                            />
                                             <span>Facebook</span>
                                         </SocialButtonText>
                                     </SocialButton>
@@ -439,9 +448,7 @@ const SignupPublic = ({
                                 </SocialWrapper>
                             </StyledFormWrapper>
                         </SignupFormWrapper>
-                        <BackgroundWrapper
-                            direction="row"
-                            ai="center">
+                        <BackgroundWrapper direction="row" ai="center">
                             <QueryImage
                                 data={data['deriv_platform']}
                                 alt="deriv platform"
@@ -529,7 +536,12 @@ const SignupPublic = ({
                                         id="gtm-signup-email"
                                         type="submit"
                                         secondary="true"
-                                        disabled={is_submitting || !is_checked || email_error_msg || !email}
+                                        disabled={
+                                            is_submitting ||
+                                            !is_checked ||
+                                            email_error_msg ||
+                                            !email
+                                        }
                                     >
                                         {localize('Sign up')}
                                     </EmailButton>
@@ -539,7 +551,9 @@ const SignupPublic = ({
                                     handleChangeCheckbox={handleChange}
                                 />
                                 <MobileSocialWrapper jc="unset" ai="center">
-                                    <MobileSignInText>{localize('Or sign in with')}</MobileSignInText>
+                                    <MobileSignInText>
+                                        {localize('Or sign in with')}
+                                    </MobileSignInText>
                                     <Flex>
                                         <SocialButton
                                             onClick={handleSocialSignup}
@@ -550,7 +564,12 @@ const SignupPublic = ({
                                             social
                                         >
                                             <span>
-                                                <img src={Google} alt="google" width="24" height="24" />
+                                                <img
+                                                    src={Google}
+                                                    alt="google"
+                                                    width="24"
+                                                    height="24"
+                                                />
                                             </span>
                                         </SocialButton>
                                         <SocialButton
@@ -579,7 +598,12 @@ const SignupPublic = ({
                                             social
                                         >
                                             <span>
-                                                <img src={Apple} alt="apple" width="24" height="24" />
+                                                <img
+                                                    src={Apple}
+                                                    alt="apple"
+                                                    width="24"
+                                                    height="24"
+                                                />
                                             </span>
                                         </SocialButton>
                                     </Flex>

@@ -194,10 +194,10 @@ const query = graphql`
             ...fadeIn
         }
         deriv_x: file(relativePath: { eq: "deriv-x/hero-laptop.png" }) {
-            ...backGroundBlur
+            ...heroImage
         }
         deriv_x_mobile: file(relativePath: { eq: "deriv-x/hero-laptop-mobile.png" }) {
-            ...backGroundBlur
+            ...heroImage
         }
     }
 `

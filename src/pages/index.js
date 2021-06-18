@@ -1,13 +1,13 @@
 import React from 'react'
 // import Ticker from './home/_ticker'
 import {
-    TradeTypesMobile,
-    TradeTypes,
     Markets,
-    Trade,
-    WhatOurClientsSay,
-    SimpleSteps,
     Signup,
+    SimpleSteps,
+    Trade,
+    TradeTypes,
+    TradeTypesMobile,
+    WhatOurClientsSay,
 } from './home/_lazy-load'
 import Hero from './home/_hero'
 import TradeTheWayYouLike from './home/_trade-the-way-you-like'
@@ -43,6 +43,7 @@ const simple_step_content = [
         icon: <img src={WithdrawIcon} alt="withdraw" width="32" height="32" />,
     },
 ]
+
 const Home = () => {
     /* redirect livechat for en to open live chat popup */
     useOpenLiveChat()
@@ -57,7 +58,6 @@ const Home = () => {
                 has_organization_schema
             />
             <Hero />
-
             <Show.Mobile>
                 <TradeTheWayYouLike />
             </Show.Mobile>

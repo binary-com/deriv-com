@@ -19,7 +19,7 @@ const topicsCovered = [
 const query = graphql`
     query {
         stocks_ebook_img: file(relativePath: { eq: "ebooks/stocks-ebook.png" }) {
-            ...backGroundBlur
+            ...heroImage
         }
         stocks_ebook_inside: file(relativePath: { eq: "ebooks/stocks-ebook-inside.png" }) {
             ...fadeIn

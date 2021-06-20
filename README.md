@@ -41,19 +41,35 @@ Moreover, having these extensions will help you to speed up the development proc
 
 ## Quick start
 
-1.  **Install your dependencies:**
+1.  **Fork the project**
+
+    In order to work on your own version of the Deriv application, please fork the project to your own repo.
+
+2. **Clone using SSH**
+
+    ```sh
+    git clone git@github.com:your-github-username/deriv-com.git
+    ```
+
+3. **Enter project directory**
+
+    ```sh
+    cd deriv-com
+    ```
+
+4.  **Install your dependencies:**
 
     ```sh
     npm ci
     ```
 
-2.  **To start developing:**
+5.  **To start developing:**
 
     ```sh
     npm start
     ```
 
-3.  **Open the source code and start editing!**
+6.  **Open the source code and start editing!**
 
     Your site is now running at `http://localhost:8000`!
 

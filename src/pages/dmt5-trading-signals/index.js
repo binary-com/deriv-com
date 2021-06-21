@@ -104,8 +104,8 @@ const Separator = styled.div`
 
 const DMT5TradingSignals = () => {
     const [active_tab, setActiveTab] = useTabState(['signal-subscriber', 'signal-provider'])
+    const is_location = getLocationHash()
     useEffect(() => {
-        const is_location = getLocationHash()
         if (is_location === '#signal-provider') {
             setActiveTab('signal-provider')
         }

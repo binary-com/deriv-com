@@ -243,7 +243,7 @@ const WhatOurClientsSay = () => {
                                 quote={trader.quote}
                                 name={trader.name}
                                 location={trader.location}
-                                img={data[trader.name]}
+                                img={data[trader.id]}
                                 img_alt={trader.name + localize(" - Deriv's Client")}
                             />
                         </div>

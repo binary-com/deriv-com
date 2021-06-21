@@ -98,9 +98,6 @@ export const Carousel = ({
     const { play, stop } = useRecursiveTimeout(autoplay, autoplay_interval)
 
     const scrollPrev = useCallback(() => {
-        /* eslint-disable */
-        console.log('in scrollprev')
-
         if (!embla) return
         embla && embla.scrollPrev()
         stop()

@@ -76,7 +76,7 @@ const StyledDot = styled.img`
     width: 4px;
     height: 4px;
     background: var(--color-grey-17);
-    margin: 0 10px;
+    margin: 0 10px 4px;
 `
 const StyledDuration = styled(Header)`
     color: var(--color-grey-17);
@@ -92,12 +92,16 @@ const ItemsMainWrapper = styled(Flex)`
     cursor: pointer;
     justify-content: flex-start;
     @media ${device.tabletL} {
-        min-width: 104px;
+        min-width: 293px;
+        height: 104px;
     }
 `
 const ImgWrapper = styled(Flex)`
     width: 139px;
     position: relative;
+    @media ${device.tabletL} {
+        object-fit: cover;
+    }
 `
 const PlayerIconWrapper = styled(Flex)`
     width: 48px;
@@ -155,13 +159,13 @@ const VideoCarousel = ({ carousel_items }) => {
         },
         slide_style: {
             width: '340px',
-            paddingRight: '23px',
+            marginRight: '23px',
             position: 'relative',
         },
         slide_mobile_style: {
             width: '100%',
             position: 'relative',
-            paddingRight: '8px',
+            paddingRight: '16px',
         },
         custom_blog_video_nav: 'true',
         custom_blog_video_nav_style: {
@@ -181,10 +185,6 @@ const VideoCarousel = ({ carousel_items }) => {
                 <CarouselWrapper>
                     <CustomCarousel {...settings} custom_blog_video_nav>
                         {carousel_items.map((item, index) => {
-                            const show_see_all_videos = carousel_items.length
-                            /* eslint-disable */
-                            console.log(show_see_all_videos)
-                            /* eslint-enable */
                             return (
                                 <ItemsMainWrapper key={index} onClick={handleOpenVideo}>
                                     <ImgWrapper>

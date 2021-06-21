@@ -176,7 +176,7 @@ export const CustomCarousel = ({
                 <NavigationWrapper>
                     <Divider />
                     <NavIconWrapper>
-                        <IconWrapper>
+                        <IconWrapper disabled={!prevBtnEnabled}>
                             <PrevButton
                                 color={custom_chevron_color}
                                 enabled={prevBtnEnabled}
@@ -185,7 +185,7 @@ export const CustomCarousel = ({
                                 style={custom_blog_video_nav_style}
                             />
                         </IconWrapper>
-                        <IconWrapper>
+                        <IconWrapper disabled={!nextBtnEnabled}>
                             <NextButton
                                 color={custom_chevron_color}
                                 enabled={nextBtnEnabled}

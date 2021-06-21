@@ -38,7 +38,7 @@ export const EmblaSlideInner = styled.div`
 export const StyledButtonWrapper = styled.div`
     position: absolute;
     bottom: 50%;
-    opacity: ${(props) => (props.disabled ? '0.32' : '1')};
+    opacity: ${(props) => (props.disabled ? '0.92' : '1')};
     ${(props) => {
         if (props.left)
             return css`
@@ -154,7 +154,7 @@ export const ChevronLeft = styled(StyledChevron)`
 `
 export const NavigationWrapper = styled(Flex)`
     align-items: center;
-    margin: 41.5px 0 31.5px;
+    margin: 34px 0 16px;
     height: auto;
     @media ${device.tabletL} {
         margin: 21px 0 16px;
@@ -174,6 +174,7 @@ export const IconWrapper = styled.div`
     border-radius: 50%;
     border: 2px solid var(--color-white);
     position: relative;
+    opacity: ${(props) => (props.disabled ? '0.32' : '1')};
 
     &:first-child {
         margin-right: 16px;

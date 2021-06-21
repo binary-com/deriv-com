@@ -19,7 +19,7 @@ import {
     NavIconWrapper,
     IconWrapper,
     StyledHeader,
-} from './carousel-style'
+} from './_carousel-style'
 import PlayIcon from 'images/svg/blog/video/Triangle.svg'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import { useRecursiveTimeout } from 'components/hooks/use-recursive-timeout'

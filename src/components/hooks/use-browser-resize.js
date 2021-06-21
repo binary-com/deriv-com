@@ -4,10 +4,10 @@ import { size } from 'themes/device'
 
 export const useBrowserResize = () => {
     const [is_mobile, setMobile] = useState(false)
-    const [width, setWidth] = useState(isBrowser ? window.innerWidth : 0)
+    const [width, setWidth] = useState(isBrowser() ? window.innerWidth : 0)
 
     useEffect(() => {
-        if (!isBrowser) return false
+        if (!isBrowser()) return false
         const handleResize = () => setWidth(window.innerWidth)
         handleResizeWindow()
         window.addEventListener('resize', handleResize)

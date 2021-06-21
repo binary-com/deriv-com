@@ -61,7 +61,7 @@ const TabsContainer = styled(Flex)`
     }
 `
 
-const Item = styled.div`
+const Item = React.memo(styled.div`
     margin-top: 4rem;
     padding: 1.2rem 1.6rem;
     border-bottom: ${(props) =>
@@ -93,6 +93,7 @@ const Item = styled.div`
         text-align: center;
     }
 `
+)
 
 const Separator = styled.div`
     position: absolute;
@@ -109,7 +110,7 @@ const DMT5TradingSignals = () => {
         if (is_location === '#signal-provider') {
             setActiveTab('signal-provider')
         }
-    }, [is_location])
+    }, [])
     let newActive = active_tab
 
     return (

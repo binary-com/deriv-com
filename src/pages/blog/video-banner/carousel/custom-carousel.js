@@ -9,13 +9,19 @@ import {
     StyledButtonWrapper,
     ChevronRight,
     ChevronLeft,
+    LastChildWrapper,
     NavigationContainer,
+    PlayerIconWrapper,
+    PlayerIcon,
     StyledDot,
     NavigationWrapper,
     Divider,
     NavIconWrapper,
     IconWrapper,
-} from './carousel/carousel-style'
+    StyledHeader,
+} from './carousel-style'
+import PlayIcon from 'images/svg/blog/video/Triangle.svg'
+import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import { useRecursiveTimeout } from 'components/hooks/use-recursive-timeout'
 
 export const PrevButton = ({ color, enabled, is_reviews, onClick, style }) => (
@@ -84,6 +90,7 @@ export const CustomCarousel = ({
     navigation_style,
     options,
     slide_style,
+    slide_mobile_style,
     vertical_container,
     view_port,
     custom_blog_video_nav,
@@ -93,6 +100,7 @@ export const CustomCarousel = ({
     const [prevBtnEnabled, setPrevBtnEnabled] = useState(false)
     const [nextBtnEnabled, setNextBtnEnabled] = useState(false)
     const [selectedIndex, setSelectedIndex] = useState(0)
+    const [is_mobile] = useBrowserResize()
 
     const autoplay = useCallback(() => {
         if (has_autoplay) {
@@ -108,9 +116,6 @@ export const CustomCarousel = ({
     const { play, stop } = useRecursiveTimeout(autoplay, autoplay_interval)
 
     const scrollPrev = useCallback(() => {
-        /* eslint-disable */
-        console.log('in scrollprev')
-
         if (!embla) return
         embla && embla.scrollPrev()
         stop()
@@ -196,10 +201,24 @@ export const CustomCarousel = ({
                 <ViewPort style={view_port} ref={emblaRef}>
                     <EmblaContainer style={vertical_container ? vertical_container : null}>
                         {children.map((child, idx) => (
-                            <div key={idx} style={slide_style} onClick={() => onSlideClick(idx)}>
+                            <div
+                                key={idx}
+                                style={is_mobile ? slide_mobile_style : slide_style}
+                                onClick={() => onSlideClick(idx)}
+                            >
                                 <EmblaSlideInner>{child}</EmblaSlideInner>
                             </div>
                         ))}
+                        {!is_mobile && (
+                            <LastChildWrapper key={'lastchild of carousel'} to="/">
+                                <PlayerIconWrapper>
+                                    <PlayerIcon src={PlayIcon} />
+                                </PlayerIconWrapper>
+                                <StyledHeader type="main-paragraph" mt="8px" mb="0" align="center">
+                                    See all videos
+                                </StyledHeader>
+                            </LastChildWrapper>
+                        )}
                     </EmblaContainer>
                 </ViewPort>
                 {chevron_color && is_arrow && (
@@ -242,12 +261,13 @@ CustomCarousel.propTypes = {
     chevron_style: PropTypes.object,
     children: PropTypes.array,
     container_style: PropTypes.object,
+    custom_blog_video_nav: PropTypes.bool,
+    custom_blog_video_nav_style: PropTypes.object,
     has_autoplay: PropTypes.bool,
     navigation_style: PropTypes.object,
     options: PropTypes.object,
+    slide_mobile_style: PropTypes.object,
     slide_style: PropTypes.object,
     vertical_container: PropTypes.object,
     view_port: PropTypes.object,
-    custom_blog_video_nav: PropTypes.object,
-    custom_blog_video_nav_style: PropTypes.object,
 }

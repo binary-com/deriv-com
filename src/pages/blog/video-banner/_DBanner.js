@@ -18,8 +18,16 @@ const ParentWrapper = styled(Flex)`
     margin: 80px 0;
     position: relative;
     background-size: cover;
-    height: 726px;
+    height: auto;
+    padding: 16rem 0 8rem;
     max-width: 1440px;
+
+    @media ${device.tabletL} {
+        /* prettier-ignore */
+        background: linear-gradient(251.14deg,rgba(14,14,14,0.5632) 29.18%,rgba(7,6,6,0.88) 85.14%),url(${VideoBG}) no-repeat top right 45%;
+        background-size: cover;
+        padding: 73px 0 40px;
+    }
 `
 const BgWrapper = styled(Container)`
     flex-direction: column;
@@ -63,7 +71,8 @@ const StyledHeader = styled(Header)`
     max-width: 894px;
     color: var(--color-white);
     @media ${device.tabletL} {
-        font-size: 40px;
+        font-size: 24px;
+        line-height: 30px;
     }
 `
 const StyledHeaderSmall = styled(Header)`
@@ -74,7 +83,8 @@ const StyledHeaderSmall = styled(Header)`
     line-height: 30px;
     margin-bottom: 8px;
     @media ${device.tabletL} {
-        font-size: 20px;
+        font-size: 16px;
+        line-height: 24px;
         max-width: 100%;
     }
 `
@@ -84,6 +94,10 @@ const SmallDetailsWrapper = styled(Flex)`
     font-weight: normal;
     justify-content: flex-start;
     align-items: center;
+    @media ${device.tabletL} {
+        font-size: 14px;
+        line-height: 20px;
+    }
 `
 const StyledPublishedDate = styled(Header)`
     color: var(--color-grey-17);

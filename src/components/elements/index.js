@@ -20,7 +20,6 @@ import { Text, LinkText, LocalizedLinkText, Header, BaseElement, SpanLinkText } 
 import Timeline from './timeline'
 import { Ul, Li } from './lists'
 import { Carousel } from './carousel'
-import { CustomCarousel } from './custom-carousel'
 
 export {
     Accordion,
@@ -34,7 +33,6 @@ export {
     CardStyle,
     Carousel,
     Checkbox,
-    CustomCarousel,
     Divider,
     DotLoader,
     Dropdown,

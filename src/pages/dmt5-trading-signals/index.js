@@ -65,7 +65,7 @@ const Item = styled.div`
     margin-top: 4rem;
     padding: 1.2rem 1.6rem;
     border-bottom: ${(props) =>
-        props.itemName === props.active_tab ? '2px solid var(--color-red)' : ''};
+        props.name === props.active_tab ? '2px solid var(--color-red)' : ''};
     cursor: pointer;
     z-index: 10;
     white-space: nowrap;
@@ -77,7 +77,7 @@ const Item = styled.div`
     }
     h4 {
         color: var(--color-black-3);
-        font-weight: ${(props) => (props.itemName === props.active_tab ? 'bold' : 'normal')};
+        font-weight: ${(props) => (props.name === props.active_tab ? 'bold' : 'normal')};
     }
     @media ${device.tabletL} {
         padding: 12px 8px 12px 7px;
@@ -126,14 +126,14 @@ const DMT5TradingSignals = () => {
                 <Item
                     onClick={() => setActiveTab('signal-subscriber')}
                     active_tab={newActive}
-                    itemName='signal-subscriber'
+                    name='signal-subscriber'
                 >
                     <Header as="h4">{localize('Signal subscriber')}</Header>
                 </Item>
                 <Item
                     onClick={() => setActiveTab('signal-provider')}
                     active_tab={newActive}
-                    itemName='signal-provider'
+                    name='signal-provider'
                 >
                     <Header as="h4">{localize('Signal provider')}</Header>
                 </Item>

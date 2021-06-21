@@ -126,14 +126,14 @@ const DMT5TradingSignals = () => {
                 <Item
                     onClick={() => setActiveTab('signal-subscriber')}
                     active_tab={newActive}
-                    name='signal-subscriber'
+                    name="signal-subscriber"
                 >
                     <Header as="h4">{localize('Signal subscriber')}</Header>
                 </Item>
                 <Item
                     onClick={() => setActiveTab('signal-provider')}
                     active_tab={newActive}
-                    name='signal-provider'
+                    name="signal-provider"
                 >
                     <Header as="h4">{localize('Signal provider')}</Header>
                 </Item>

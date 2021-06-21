@@ -110,7 +110,7 @@ const DMT5TradingSignals = () => {
         if (is_location === '#signal-provider') {
             setActiveTab('signal-provider')
         }
-    }, [])
+    })
     let newActive = active_tab
 
     return (

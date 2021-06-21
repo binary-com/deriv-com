@@ -11,6 +11,7 @@ import { localize, Localize, WithIntl } from 'components/localization'
 import { Header } from 'components/elements'
 import { useTabState } from 'components/hooks/use-tab-state'
 import device from 'themes/device'
+import { getLocationHash } from 'common/utility'
 
 const signal_content_subscriber = {
     header: (
@@ -103,10 +104,10 @@ const Separator = styled.div`
 
 const DMT5TradingSignals = () => {
     const [active_tab, setActiveTab] = useTabState(['signal-subscriber', 'signal-provider'])
-
+    const is_location = getLocationHash()
     useEffect(() => {
-        if (window.location.hash === '#signal-provider') {
-            setActiveTab('signal-provider');
+        if (is_location === '#signal-provider') {
+            setActiveTab('signal-provider')
         }
     }, [])
     let newActive = active_tab

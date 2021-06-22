@@ -7,7 +7,7 @@ import { Header } from 'components/elements'
 const PreviewPage = () => {
     const [id, setId] = useState(null)
     const [data, setData] = useState(null)
-    const end_point_url = 'http://178.128.101.81:8055/items/articles/'
+    const end_point_url = 'https://amammustofa.com/items/articles/'
 
     useEffect(() => {
         const getPreviewId = () => {
@@ -18,11 +18,10 @@ const PreviewPage = () => {
                 if (preview_id) {
                     setId(preview_id)
                 }
-                console.log('useEffect: ', preview_id)
             }
         }
         const fetchPhotos = async () => {
-            const res = await fetch(`${end_point_url}${id}`)
+            const res = await fetch(`${end_point_url}${id}`, { cache: 'no-store' })
             const data = await res.json()
 
             return data

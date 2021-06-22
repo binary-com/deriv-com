@@ -18,7 +18,6 @@ const PreviewPage = () => {
                 if (preview_id) {
                     setId(preview_id)
                 }
-                console.log('useEffect: ', preview_id)
             }
         }
         const fetchPhotos = async () => {

@@ -61,11 +61,11 @@ const TabsContainer = styled(Flex)`
     }
 `
 
-const Item = React.memo(styled.div`
+const Item = styled.div`
     margin-top: 4rem;
     padding: 1.2rem 1.6rem;
-    border-bottom: ${(props) =>
-        props.name === props.active_tab ? '2px solid var(--color-red)' : ''};
+    border-bottom: ${() =>
+        getLocationHash()=== 'signal-subscriber' ? '2px solid var(--color-red)' : ''};
     cursor: pointer;
     z-index: 10;
     white-space: nowrap;
@@ -75,7 +75,7 @@ const Item = React.memo(styled.div`
         width: max-content;
         text-align: center;
         color: var(--color-black-3);
-        font-weight: ${(props) => (props.name === props.active_tab ? 'bold' : 'normal')};
+        font-weight: ${() => getLocationHash()=== 'signal-subscriber' ? 'bold' : 'normal'};
     }
    
     @media ${device.tabletL} {
@@ -91,8 +91,38 @@ const Item = React.memo(styled.div`
         width: 100%;
         text-align: center;
     }
-`, (previos_props, next_props) => previos_props === next_props ? true : false)
+`
+const Item21 = styled.div`
+    margin-top: 4rem;
+    padding: 1.2rem 1.6rem;
+    border-bottom: ${() =>
+        getLocationHash()=== 'signal-provider' ? '2px solid var(--color-red)' : ''};
+    cursor: pointer;
+    z-index: 10;
+    white-space: nowrap;
 
+    ${Header} {
+        font-size: 2.4rem;
+        width: max-content;
+        text-align: center;
+        color: var(--color-black-3);
+        font-weight: ${() => getLocationHash()=== 'signal-provider' ? 'bold' : 'normal'};
+    }
+   
+    @media ${device.tabletL} {
+        padding: 12px 8px 12px 7px;
+        margin-top: 24px;
+
+        ${Header} {
+            font-size: 20px;
+            width: 100%;
+        }
+    }
+    @media ${device.mobileL} {
+        width: 100%;
+        text-align: center;
+    }
+`
 const Separator = styled.div`
     position: absolute;
     width: 100%;
@@ -129,13 +159,13 @@ const DMT5TradingSignals = () => {
                 >
                     <Header>{localize('Signal subscriber')}</Header>
                 </Item>
-                <Item
+                <Item21
                     onClick={() => setActiveTab('signal-provider')}
                     active_tab={new_active}
                     name="signal-provider"
                 >
                     <Header >{localize('Signal provider')}</Header>
-                </Item>
+                </Item21>
             </TabsContainer>
             <Box position="relative">
                 <Separator />

@@ -108,7 +108,7 @@ const DMT5TradingSignals = () => {
         if (is_location == '#signal-provider') {
             setActiveTab('signal-provider')
         }
-    },[])
+    }, [])
     let newActive = active_tab
 
     return (
@@ -127,14 +127,14 @@ const DMT5TradingSignals = () => {
                     active_tab={newActive}
                     name="signal-subscriber"
                 >
-                    <Header as="h4">{localize('Signal subscriber')}</Header>
+                    <Header>{localize('Signal subscriber')}</Header>
                 </Item>
                 <Item
                     onClick={() => setActiveTab('signal-provider')}
                     active_tab={newActive}
                     name="signal-provider"
                 >
-                    <Header as="h4">{localize('Signal provider')}</Header>
+                    <Header >{localize('Signal provider')}</Header>
                 </Item>
             </TabsContainer>
             <Box position="relative">

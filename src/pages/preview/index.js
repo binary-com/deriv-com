@@ -51,6 +51,27 @@ const PreviewContainer = styled.div`
             text-decoration: underline;
         }
     }
+    & img {
+        max-width: 100%;
+        height: auto;
+    }
+    & img[width='full'] {
+        margin-left: calc(50% - 50vw);
+        margin-right: calc(50% - 50vw);
+        max-width: 100vw;
+    }
+    & h1 {
+        font-size: 48px;
+        line-height: 32px;
+        margin-top: 32px;
+        font-weight: bold;
+    }
+    & h2 {
+        font-size: 32px;
+        line-height: 32px;
+        margin-top: 32px;
+        font-weight: bold;
+    }
 `
 
 const PreviewPage = () => {

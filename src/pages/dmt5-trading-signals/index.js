@@ -107,7 +107,7 @@ const DMT5TradingSignals = () => {
     const [active_tab, setActiveTab] = useTabState(['signal-subscriber', 'signal-provider'])
     const is_location = getLocationHash()
     useEffect(() => {
-        if (is_location === '#signal-provider'&& isBrowser()) {
+        if (is_location == '#signal-provider') {
             setActiveTab('signal-provider')
         }
     })

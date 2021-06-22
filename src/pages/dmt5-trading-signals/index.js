@@ -91,7 +91,7 @@ const Item = React.memo(styled.div`
         width: 100%;
         text-align: center;
     }
-`, (previos_props, next_props) => previos_props.active_tab === next_props.active_tab ? true : false)
+`, (previos_props, next_props) => previos_props.active_tab !== next_props.active_tab ? true : false)
 
 const Separator = styled.div`
     position: absolute;

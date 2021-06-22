@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, {useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { Hero, SmallContainer } from './_style'
 import HowTo from './_how-to'
@@ -9,9 +9,15 @@ import { SEO, Flex, Box } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { localize, Localize, WithIntl } from 'components/localization'
 import { Header } from 'components/elements'
-import { useTabState } from 'components/hooks/use-tab-state'
 import device from 'themes/device'
-import { getLocationHash } from 'common/utility'
+import {
+    checkElemInArray,
+    getLocationHash,
+    isBrowser,
+    routeBack,
+    scrollTop,
+    setLocationHash,
+} from 'common/utility'
 
 const signal_content_subscriber = {
     header: (
@@ -64,7 +70,7 @@ const TabsContainer = styled(Flex)`
 const Item = styled.div`
     margin-top: 4rem;
     padding: 1.2rem 1.6rem;
-    border-bottom: ${(props) =>props.active ? '2px solid var(--color-red)' : ''};
+    border-bottom: ${(props) => props.active ? '2px solid var(--color-red)' : ''};
     cursor: pointer;
     z-index: 10;
     white-space: nowrap;
@@ -101,17 +107,40 @@ const Separator = styled.div`
 `
 
 const DMT5TradingSignals = () => {
-    const [active_tab, setActiveTab] = useTabState(['signal-subscriber', 'signal-provider'])
+    const tab_list = ['signal-subscriber', 'signal-provider']
+    const location_hash = getLocationHash()
+    const [active_tab, setActiveTab] = useState(
+        location_hash && checkElemInArray(tab_list, location_hash)
+            ? location_hash
+            : tab_list[0],
+    )
+
     useEffect(() => {
-        if (getLocationHash() === 'signal-provider') {
-            setActiveTab('signal-provider')
-            // eslint-disable-next-line
-            console.log({ active_tab });
+        if ((location_hash==='signal-subscriber'||location_hash==='signal-provider')&&(!checkElemInArray(tab_list, location_hash))) {
+            setLocationHash(active_tab)
+        } else {
+            setActiveTab(location_hash)
+            scrollTop()
         }
+
     }, [])
-    let new_active = active_tab
- // eslint-disable-next-line
- console.log("rerender of  the parent component");
+
+    useEffect(() => {
+        if (location_hash !== active_tab && isBrowser()) {
+            setLocationHash(active_tab)
+        }
+    }, [active_tab])
+
+    useEffect(() => {
+        if (location_hash !== active_tab && checkElemInArray(tab_list, location_hash)) {
+            setActiveTab(location_hash)
+            scrollTop()
+        } else if (!checkElemInArray(tab_list, location_hash)) {
+            routeBack()
+        }
+    }, [location_hash])
+    // eslint-disable-next-line
+    console.log("rerender of  the parent component");
 
     return (
         <Layout>
@@ -124,7 +153,7 @@ const DMT5TradingSignals = () => {
                 </SmallContainer>
             </Hero>
             <TabsContainer>
-                {new_active === 'signal-subscriber'
+                {active_tab === 'signal-subscriber'
                     ?
                     <Item
                         onClick={() => setActiveTab('signal-subscriber')}
@@ -140,7 +169,7 @@ const DMT5TradingSignals = () => {
                         <Header>{localize('Signal subscriber')}</Header>
                     </Item>}
 
-                {new_active === 'signal-provider'
+                {active_tab === 'signal-provider'
                     ?
                     <Item
                         onClick={() => setActiveTab('signal-provider')}

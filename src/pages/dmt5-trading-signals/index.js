@@ -106,6 +106,8 @@ const DMT5TradingSignals = () => {
     useEffect(() => {
         if (getLocationHash() == 'signal-provider') {
             setActiveTab('signal-provider')
+            // eslint-disable-next-line
+            console.log({ active_tab });
         }
     }, [])
     let new_active = active_tab
@@ -121,20 +123,41 @@ const DMT5TradingSignals = () => {
                 </SmallContainer>
             </Hero>
             <TabsContainer>
-                <Item
-                    onClick={() => setActiveTab('signal-subscriber')}
-                    active_tab={new_active}
-                    name="signal-subscriber"
-                >
-                    <Header>{localize('Signal subscriber')}</Header>
-                </Item>
-                <Item
-                    onClick={() => setActiveTab('signal-provider')}
-                    active_tab={new_active}
-                    name="signal-provider"
-                >
-                    <Header >{localize('Signal provider')}</Header>
-                </Item>
+                {new_active === 'signal-subscriber'
+                    ?
+                    <Item
+                        onClick={() => setActiveTab('signal-subscriber')}
+                        active_tab='signal-subscriber'
+                        name="signal-subscriber"
+                    >
+                        <Header>{localize('Signal subscriber')}</Header>
+                    </Item>
+                    :
+                    <Item
+                        onClick={() => setActiveTab('signal-subscriber')}
+                        active_tab="signal-provider"
+                        name="signal-subscriber"
+                    >
+                        <Header>{localize('Signal subscriber')}</Header>
+                    </Item>}
+
+                {new_active === 'signal-provider'
+                    ?
+                    <Item
+                        onClick={() => setActiveTab('signal-provider')}
+                        active_tab='signal-provider'
+                        name="signal-provider"
+                    >
+                        <Header >{localize('Signal provider')}</Header>
+                    </Item> :
+                    <Item
+                        onClick={() => setActiveTab('signal-provider')}
+                        active_tab='signal-subscriber'
+                        name="signal-provider"
+                    >
+                        <Header >{localize('Signal provider')}</Header>
+                    </Item>
+                }
             </TabsContainer>
             <Box position="relative">
                 <Separator />

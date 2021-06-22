@@ -5,7 +5,7 @@ import { DerivLogoWrapper, StyledLogo, } from './common/style.js'
 import { Show } from 'components/containers'
 import { useWebsiteStatus } from 'components/hooks/use-website-status'
 import DerivLogo from 'images/svg/deriv-footer.svg'
-import { isUK } from 'common/country-base'
+import { isUKOrMXAccount } from 'common/utility'
 import {
     fb_uk_url,
     fb_eu_url,
@@ -25,9 +25,9 @@ const LogoSection = ({ type }) => {
             <Show.Eu>
                 <Show.Desktop>
                     <SocialWrapperComponent is_career_page={type === 'careers'}
-                        fb_url={isUK(current_client_country) ? fb_uk_url : fb_eu_url}
-                        instagram_url={isUK(current_client_country) ? instagram_uk_url : instagram_eu_url}
-                        twitter_url={isUK(current_client_country) ? twitter_uk_url : twitter_eu_url}
+                        fb_url={isUKOrMXAccount(current_client_country) ? fb_uk_url : fb_eu_url}
+                        instagram_url={isUKOrMXAccount(current_client_country) ? instagram_uk_url : instagram_eu_url}
+                        twitter_url={isUKOrMXAccount(current_client_country) ? twitter_uk_url : twitter_eu_url}
                     />
                 </Show.Desktop>
             </Show.Eu>

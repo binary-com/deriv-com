@@ -129,8 +129,10 @@ export const Signal = ({ content }) => {
 }
 Signal.propTypes = {
     content: PropTypes.shape({
-        header: PropTypes.object,
-        list: PropTypes.array,
-        text: PropTypes.object,
+        header: PropTypes.string,
+        list: PropTypes.shape({
+            map: PropTypes.func,
+        }),
+        text: PropTypes.string,
     }),
 }

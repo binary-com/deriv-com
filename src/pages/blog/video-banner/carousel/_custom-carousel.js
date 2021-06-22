@@ -204,7 +204,7 @@ export const CustomCarousel = ({
                             <div
                                 key={idx}
                                 style={is_mobile ? slide_mobile_style : slide_style}
-                                onClick={() => onSlideClick(idx)}
+                                onClick={() => onSlideClick.bind(idx, this)}
                             >
                                 <EmblaSlideInner>{child}</EmblaSlideInner>
                             </div>

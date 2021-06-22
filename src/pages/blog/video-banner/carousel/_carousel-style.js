@@ -208,7 +208,7 @@ export const PlayerIconWrapper = styled(Flex)`
 `
 export const StyledHeader = styled(Header)`
     margin-bottom: 4px;
-    color: var(--color-white);
+    color: var(--color-grey-21);
     text-decoration: none;
     @media ${device.tabletL} {
         font-size: 14px;

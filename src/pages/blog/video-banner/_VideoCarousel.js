@@ -32,7 +32,6 @@ const CarouselWrapper = styled(Flex)`
     height: auto;
 `
 const SmallDetailsWrapper = styled(Flex)`
-    padding-top: 8px;
     height: 24px;
     font-weight: normal;
     justify-content: flex-start;
@@ -41,10 +40,12 @@ const SmallDetailsWrapper = styled(Flex)`
         padding-top: 0;
     }
 `
-const StyledPublishedDate = styled(Header)`
+const StyledSmallText = styled(Header)`
     color: var(--color-grey-17);
     font-weight: normal;
     width: auto;
+    font-size: 14px;
+    line-height: 20px;
     @media ${device.tabletL} {
         font-size: 10px;
         line-height: 14px;
@@ -56,15 +57,6 @@ const StyledDot = styled.img`
     height: 4px;
     background: var(--color-grey-17);
     margin: 0 10px 4px;
-`
-const StyledDuration = styled(Header)`
-    color: var(--color-grey-17);
-    width: auto;
-    font-weight: normal;
-    @media ${device.tabletL} {
-        font-size: 10px;
-        line-height: 14px;
-    }
 `
 const ItemsMainWrapper = styled(Flex)`
     min-width: 327px;
@@ -78,6 +70,9 @@ const ItemsMainWrapper = styled(Flex)`
 const ImgWrapper = styled(Flex)`
     width: 139px;
     position: relative;
+    @media ${device.tabletL} {
+        width: 104px;
+    }
 `
 const ImgDiv = styled.img`
     width: 100%;
@@ -185,16 +180,12 @@ const VideoCarousel = ({ carousel_items }) => {
                                     </ImgWrapper>
                                     <DetailsWrapper>
                                         <StyledHeader type="main-paragraph">
-                                            {item.title} - {index}
+                                            {item.title}
                                         </StyledHeader>
                                         <SmallDetailsWrapper>
-                                            <StyledPublishedDate type="main-paragraph">
-                                                {item.date}
-                                            </StyledPublishedDate>
+                                            <StyledSmallText>{item.date}</StyledSmallText>
                                             <StyledDot />
-                                            <StyledDuration type="main-paragraph">
-                                                {item.duration}
-                                            </StyledDuration>
+                                            <StyledSmallText>{item.duration}</StyledSmallText>
                                         </SmallDetailsWrapper>
                                     </DetailsWrapper>
                                 </ItemsMainWrapper>

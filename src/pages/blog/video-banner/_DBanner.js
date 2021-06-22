@@ -125,7 +125,7 @@ const StyledDot = styled.img`
 const carouselItem = [
     {
         image: 'video_banner_1',
-        title: 'DBot 1- your automated trading partner',
+        title: 'The weekly market report, 07.06.2021 - 13.06.2021',
         date: 'April 7, 2021',
         duration: '14:09',
         img_url:
@@ -133,7 +133,7 @@ const carouselItem = [
     },
     {
         image: 'video_banner_2',
-        title: 'DBot 2- your automated trading partner',
+        title: 'Open a new DMT5 Real Synthetic account on our new servers',
         date: 'April 7, 2021',
         duration: '14:09',
         img_url:
@@ -141,7 +141,7 @@ const carouselItem = [
     },
     {
         image: 'video_banner_3',
-        title: 'DBot 3- your automated trading partner',
+        title: '7 traits of successful financial traders',
         date: 'April 7, 2021',
         duration: '14:09',
         img_url:
@@ -149,7 +149,7 @@ const carouselItem = [
     },
     {
         image: 'video_banner_4',
-        title: 'DBot 4 - your automated trading partner',
+        title: 'How To Trade Forex',
         date: 'April 7, 2021',
         duration: '14:09',
         img_url:
@@ -157,7 +157,7 @@ const carouselItem = [
     },
     {
         image: 'video_banner_5',
-        title: 'DBot 5 - your automated trading partner',
+        title: '5 Golden Rules to Follow When Trading Stock CFDs',
         date: 'April 7, 2021',
         duration: '14:09',
         img_url:
@@ -165,14 +165,14 @@ const carouselItem = [
     },
     {
         image: 'video_banner_1',
-        title: 'DBot 6 - your automated trading partner',
+        title: 'Strategies to Trade Synthetic Indices',
         date: 'April 7, 2021',
         duration: '14:09',
         img_url: 'https://blog.deriv.com/content/images/size/w1000/2021/05/BeSquare-by-Deriv.png',
     },
     {
         image: 'video_banner_3',
-        title: 'DBot 7 - your automated trading partner',
+        title: 'Multipliers: Leverage without losing your shirt',
         date: 'April 7, 2021',
         duration: '14:09',
         img_url: 'https://blog.deriv.com/content/images/size/w1000/2021/04/Changelly2-1.jpg',
@@ -193,7 +193,7 @@ const Dbanner = ({ video_data }) => {
             <ParentWrapper>
                 <BgWrapper>
                     <VideoDetailsWrapper>
-                        <PlayerIconWrapper onClick={handleOpenVideo}>
+                        <PlayerIconWrapper onClick={handleOpenVideo.bind(this)}>
                             <PlayerIcon src={PlayIcon} />
                         </PlayerIconWrapper>
                         <TagParentWrapper>

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, {useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { Hero, SmallContainer } from './_style'
 import HowTo from './_how-to'
@@ -9,9 +9,14 @@ import { SEO, Flex, Box } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { localize, Localize, WithIntl } from 'components/localization'
 import { Header } from 'components/elements'
-import { useTabState } from 'components/hooks/use-tab-state'
+// import { useTabState } from 'components/hooks/use-tab-state'
 import device from 'themes/device'
-import { getLocationHash, isBrowser } from 'common/utility'
+import { checkElemInArray,
+    getLocationHash,
+    isBrowser,
+    routeBack,
+    scrollTop,
+    setLocationHash, } from 'common/utility'
 
 const signal_content_subscriber = {
     header: (
@@ -104,10 +109,40 @@ const Separator = styled.div`
 `
 
 const DMT5TradingSignals = () => {
-    const [active_tab, setActiveTab] = useTabState(['signal-subscriber', 'signal-provider'])
-    const is_location = getLocationHash()
+    // const [active_tab, setActiveTab] = useTabState(['signal-subscriber', 'signal-provider'])
+    const tab_list = ['signal-subscriber', 'signal-provider']
+    const [active_tab, setActiveTab] = useState(
+        getLocationHash() && checkElemInArray(tab_list, getLocationHash())
+            ? getLocationHash()
+            : tab_list[0],
+    )
+
     useEffect(() => {
-        if (is_location == '#signal-provider') {
+        if (!getLocationHash() || !checkElemInArray(tab_list, getLocationHash())) {
+            setLocationHash(active_tab)
+        } else {
+            setActiveTab(getLocationHash())
+            scrollTop()
+        }
+    }, [])
+
+    useEffect(() => {
+        if (getLocationHash() !== active_tab && isBrowser()) {
+            setLocationHash(active_tab)
+        }
+    }, [active_tab])
+
+    useEffect(() => {
+        if (getLocationHash() !== active_tab && checkElemInArray(tab_list, getLocationHash())) {
+            setActiveTab(getLocationHash())
+            scrollTop()
+        } else if (!checkElemInArray(tab_list, getLocationHash())) {
+            routeBack()
+        }
+    }, [getLocationHash()])
+    
+    useEffect(() => {
+        if (getLocationHash() == '#signal-provider') {
             setActiveTab('signal-provider')
         }
     })

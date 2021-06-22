@@ -3,7 +3,7 @@ import {
     checkElemInArray,
     getLocationHash,
     isBrowser,
-// routeBack,
+    //routeBack,
     scrollTop,
     setLocationHash,
 } from 'common/utility'

@@ -64,8 +64,7 @@ const TabsContainer = styled(Flex)`
 const Item = styled.div`
     margin-top: 4rem;
     padding: 1.2rem 1.6rem;
-    border-bottom: ${(props) =>
-        props.name === props.active_tab ? '2px solid var(--color-red)' : ''};
+    border-bottom: ${(props) =>props.active ? '2px solid var(--color-red)' : ''};
     cursor: pointer;
     z-index: 10;
     white-space: nowrap;
@@ -75,7 +74,7 @@ const Item = styled.div`
         width: max-content;
         text-align: center;
         color: var(--color-black-3);
-        font-weight: ${(props) => (props.name === props.active_tab ? 'bold' : 'normal')};
+        font-weight: ${(props) => (props.active ? 'bold' : 'normal')};
     }
    
     @media ${device.tabletL} {
@@ -104,13 +103,15 @@ const Separator = styled.div`
 const DMT5TradingSignals = () => {
     const [active_tab, setActiveTab] = useTabState(['signal-subscriber', 'signal-provider'])
     useEffect(() => {
-        if (getLocationHash() == 'signal-provider') {
+        if (getLocationHash() === 'signal-provider') {
             setActiveTab('signal-provider')
             // eslint-disable-next-line
             console.log({ active_tab });
         }
     }, [])
     let new_active = active_tab
+ // eslint-disable-next-line
+ console.log("rerender of  the parent component");
 
     return (
         <Layout>
@@ -127,16 +128,14 @@ const DMT5TradingSignals = () => {
                     ?
                     <Item
                         onClick={() => setActiveTab('signal-subscriber')}
-                        active_tab='signal-subscriber'
-                        name="signal-subscriber"
+                        active={true}
                     >
                         <Header>{localize('Signal subscriber')}</Header>
                     </Item>
                     :
                     <Item
                         onClick={() => setActiveTab('signal-subscriber')}
-                        active_tab="signal-provider"
-                        name="signal-subscriber"
+                        active={false}
                     >
                         <Header>{localize('Signal subscriber')}</Header>
                     </Item>}
@@ -145,15 +144,13 @@ const DMT5TradingSignals = () => {
                     ?
                     <Item
                         onClick={() => setActiveTab('signal-provider')}
-                        active_tab='signal-provider'
-                        name="signal-provider"
+                        active={true}
                     >
                         <Header >{localize('Signal provider')}</Header>
                     </Item> :
                     <Item
                         onClick={() => setActiveTab('signal-provider')}
-                        active_tab='signal-subscriber'
-                        name="signal-provider"
+                        active={false}
                     >
                         <Header >{localize('Signal provider')}</Header>
                     </Item>

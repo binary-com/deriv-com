@@ -61,7 +61,7 @@ const TabsContainer = styled(Flex)`
     }
 `
 
-const Item = React.memo(styled.div`
+const Item = styled.div`
     margin-top: 4rem;
     padding: 1.2rem 1.6rem;
     border-bottom: ${(props) =>
@@ -74,11 +74,10 @@ const Item = React.memo(styled.div`
         font-size: 2.4rem;
         width: max-content;
         text-align: center;
-    }
-    h4 {
         color: var(--color-black-3);
         font-weight: ${(props) => (props.name === props.active_tab ? 'bold' : 'normal')};
     }
+   
     @media ${device.tabletL} {
         padding: 12px 8px 12px 7px;
         margin-top: 24px;
@@ -93,7 +92,6 @@ const Item = React.memo(styled.div`
         text-align: center;
     }
 `
-)
 
 const Separator = styled.div`
     position: absolute;

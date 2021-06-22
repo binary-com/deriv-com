@@ -61,7 +61,7 @@ const TabsContainer = styled(Flex)`
     }
 `
 
-const Item = React.memo(styled.div`
+const Item = styled.div`
     margin-top: 4rem;
     padding: 1.2rem 1.6rem;
     border-bottom: ${(props) =>
@@ -91,7 +91,7 @@ const Item = React.memo(styled.div`
         width: 100%;
         text-align: center;
     }
-`, (previos_props, next_props) => previos_props.active_tab !== next_props.active_tab ? true : false)
+`
 
 const Separator = styled.div`
     position: absolute;

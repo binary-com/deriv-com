@@ -11,7 +11,7 @@ import { localize, Localize, WithIntl } from 'components/localization'
 import { Header } from 'components/elements'
 import { useTabState } from 'components/hooks/use-tab-state'
 import device from 'themes/device'
-import { getLocationHash } from 'common/utility'
+import { getLocationHash, isBrowser } from 'common/utility'
 
 const signal_content_subscriber = {
     header: (
@@ -107,7 +107,7 @@ const DMT5TradingSignals = () => {
     const [active_tab, setActiveTab] = useTabState(['signal-subscriber', 'signal-provider'])
     const is_location = getLocationHash()
     useEffect(() => {
-        if (is_location === '#signal-provider') {
+        if (is_location === '#signal-provider'&& isBrowser()) {
             setActiveTab('signal-provider')
         }
     })

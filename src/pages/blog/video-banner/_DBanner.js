@@ -103,16 +103,16 @@ const SmallDetailsWrapper = styled(Flex)`
     font-weight: normal;
     justify-content: flex-start;
     align-items: center;
-    @media ${device.tabletL} {
-        font-size: 14px;
-        line-height: 20px;
-    }
 `
-const StyledPublishedDate = styled(Header)`
+const StyledSmallText = styled(Header)`
     line-height: 24px;
     color: var(--color-grey-17);
     font-weight: normal;
     width: auto;
+    @media ${device.tabletL} {
+        font-size: 14px;
+        line-height: 20px;
+    }
 `
 const StyledDot = styled.img`
     border-radius: 50%;
@@ -121,12 +121,6 @@ const StyledDot = styled.img`
     background: var(--color-grey-17);
     margin: 0 10px 4px;
 `
-const StyledDuration = styled(Header)`
-    line-height: 24px;
-    color: var(--color-grey-17);
-    width: auto;
-    font-weight: normal;
-`
 
 const carouselItem = [
     {
@@ -134,42 +128,54 @@ const carouselItem = [
         title: 'DBot 1- your automated trading partner',
         date: 'April 7, 2021',
         duration: '14:09',
+        img_url:
+            'https://blog.deriv.com/content/images/size/w1000/2021/06/shutterstock_1220527444.jpg',
     },
     {
         image: 'video_banner_2',
         title: 'DBot 2- your automated trading partner',
         date: 'April 7, 2021',
         duration: '14:09',
+        img_url:
+            'https://blog.deriv.com/content/images/size/w1000/2021/05/Weekly-market-report-with-Deriv.jpg',
     },
     {
         image: 'video_banner_3',
         title: 'DBot 3- your automated trading partner',
         date: 'April 7, 2021',
         duration: '14:09',
+        img_url:
+            'https://blog.deriv.com/content/images/size/w1000/2021/05/Market-report-with-Deriv.jpg',
     },
     {
         image: 'video_banner_4',
         title: 'DBot 4 - your automated trading partner',
         date: 'April 7, 2021',
         duration: '14:09',
+        img_url:
+            'https://blog.deriv.com/content/images/size/w1000/2021/05/Deriv-weekly-market-report.jpg',
     },
     {
         image: 'video_banner_5',
         title: 'DBot 5 - your automated trading partner',
         date: 'April 7, 2021',
         duration: '14:09',
+        img_url:
+            'https://blog.deriv.com/content/images/size/w1000/2021/05/Deriv-weekly-market-report.jpg',
     },
     {
         image: 'video_banner_1',
         title: 'DBot 6 - your automated trading partner',
         date: 'April 7, 2021',
         duration: '14:09',
+        img_url: 'https://blog.deriv.com/content/images/size/w1000/2021/05/BeSquare-by-Deriv.png',
     },
     {
         image: 'video_banner_3',
         title: 'DBot 7 - your automated trading partner',
         date: 'April 7, 2021',
         duration: '14:09',
+        img_url: 'https://blog.deriv.com/content/images/size/w1000/2021/04/Changelly2-1.jpg',
     },
 ]
 
@@ -199,13 +205,13 @@ const Dbanner = ({ video_data }) => {
                         <StyledHeader type="page-title">{video_data[0].title}</StyledHeader>
                         <StyledHeaderSmall>{video_data[0].description}</StyledHeaderSmall>
                         <SmallDetailsWrapper>
-                            <StyledPublishedDate type="main-paragraph">
+                            <StyledSmallText type="main-paragraph">
                                 {video_data[0].published_date}
-                            </StyledPublishedDate>
+                            </StyledSmallText>
                             <StyledDot />
-                            <StyledDuration type="main-paragraph">
+                            <StyledSmallText type="main-paragraph">
                                 {video_data[0].duration}
-                            </StyledDuration>
+                            </StyledSmallText>
                         </SmallDetailsWrapper>
                     </VideoDetailsWrapper>
                     <VideoCarousel carousel_items={carouselItem} />

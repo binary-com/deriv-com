@@ -1,36 +1,15 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { graphql, useStaticQuery } from 'gatsby'
 import PropTypes from 'prop-types'
 import VideoSrc from '../../markets/static/video/globe.mp4'
 import VideoPlayer from './_video-player'
 import { CustomCarousel } from './carousel/_custom-carousel'
 import { Flex } from 'components/containers'
-import { Header, QueryImage } from 'components/elements'
+import { Header } from 'components/elements'
 import { LinkButton } from 'components/form'
 import device from 'themes/device'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import PlayIcon from 'images/svg/blog/video/Triangle.svg'
-
-const query = graphql`
-    query {
-        video_banner_1: file(relativePath: { eq: "blog/video/img-thumbnail-1.png" }) {
-            ...fadeIn
-        }
-        video_banner_2: file(relativePath: { eq: "blog/video/img-thumbnail-2.png" }) {
-            ...fadeIn
-        }
-        video_banner_3: file(relativePath: { eq: "blog/video/img-thumbnail-3.png" }) {
-            ...fadeIn
-        }
-        video_banner_4: file(relativePath: { eq: "blog/video/img-thumbnail.png" }) {
-            ...fadeIn
-        }
-        video_banner_5: file(relativePath: { eq: "blog/video/img-thumbnail-1.png" }) {
-            ...fadeIn
-        }
-    }
-`
 
 const MainWrapper = styled(Flex)`
     flex-direction: column;
@@ -99,10 +78,18 @@ const ItemsMainWrapper = styled(Flex)`
 const ImgWrapper = styled(Flex)`
     width: 139px;
     position: relative;
-    @media ${device.tabletL} {
-        object-fit: cover;
-    }
 `
+const ImgDiv = styled.img`
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    object-fit: cover;
+`
+
 const PlayerIconWrapper = styled(Flex)`
     width: 48px;
     height: 48px;
@@ -147,7 +134,6 @@ const VideoCarousel = ({ carousel_items }) => {
         setShow(true)
     }
 
-    const data = useStaticQuery(query)
     const settings = {
         options: {
             align: 'start',
@@ -156,6 +142,7 @@ const VideoCarousel = ({ carousel_items }) => {
         container_style: {
             maxWidth: '100%',
             margin: '0 auto',
+            overflow: 'hidden',
         },
         slide_style: {
             width: '340px',
@@ -166,6 +153,9 @@ const VideoCarousel = ({ carousel_items }) => {
             width: '100%',
             position: 'relative',
             paddingRight: '16px',
+        },
+        view_port: {
+            overflow: 'hidden',
         },
         custom_blog_video_nav: 'true',
         custom_blog_video_nav_style: {
@@ -188,7 +178,7 @@ const VideoCarousel = ({ carousel_items }) => {
                             return (
                                 <ItemsMainWrapper key={index} onClick={handleOpenVideo}>
                                     <ImgWrapper>
-                                        <QueryImage data={data[item['image']]} />
+                                        <ImgDiv src={item.img_url} alt={item.image} />
                                         <PlayerIconWrapper absolute>
                                             <PlayerIcon src={PlayIcon} />
                                         </PlayerIconWrapper>

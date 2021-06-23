@@ -1,4 +1,4 @@
-import React, {useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { Hero, SmallContainer } from './_style'
 import HowTo from './_how-to'
@@ -14,8 +14,7 @@ import {
     checkElemInArray,
     getLocationHash,
     isBrowser,
-    // routeBack,
-    // scrollTop,
+    routeBack,
     setLocationHash,
 } from 'common/utility'
 
@@ -115,12 +114,17 @@ const DMT5TradingSignals = () => {
             : tab_list[0],
     )
 
+    const [state, setstate] = useState(1)
     useEffect(() => {
         if (!location_hash || !checkElemInArray(tab_list, location_hash)) {
             setLocationHash(active_tab)
         } else {
             setActiveTab(location_hash)
-            // scrollTop()
+            setstate((x) => x + 1)
+            // eslint-disable-next-line
+            console.log(" setActiveTab(location_hash)");
+            // eslint-disable-next-line
+            console.log(state);
         }
 
     }, [])
@@ -131,14 +135,13 @@ const DMT5TradingSignals = () => {
         }
     }, [active_tab])
 
-    // useEffect(() => {
-    //     if (location_hash !== active_tab && checkElemInArray(tab_list, location_hash)) {
-    //         setActiveTab(location_hash)
-    //         scrollTop()
-    //     } else if (!checkElemInArray(tab_list, location_hash)) {
-    //         routeBack()
-    //     }
-    // }, [location_hash])
+    useEffect(() => {
+        if (getLocationHash() !== active_tab && checkElemInArray(tab_list, getLocationHash())) {
+            setActiveTab(getLocationHash())
+        } else if (!checkElemInArray(tab_list, getLocationHash())) {
+            routeBack()
+        }
+    }, [getLocationHash()])
     // eslint-disable-next-line
     console.log("rerender of  the parent component");
 

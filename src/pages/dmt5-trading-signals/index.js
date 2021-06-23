@@ -15,8 +15,8 @@ import {
     getLocationHash,
     checkElemInArray,
     // isBrowser,
-  //  routeBack,
-  //  scrollTop,
+    routeBack,
+    scrollTop,
     setLocationHash,
 } from 'common/utility'
 
@@ -68,7 +68,7 @@ const TabsContainer = styled(Flex)`
     }
 `
 
-const Item = React.memo(styled.div`
+const Item = styled.div`
     margin-top: 4rem;
     padding: 1.2rem 1.6rem;
     border-bottom: ${(props) =>
@@ -100,8 +100,6 @@ const Item = React.memo(styled.div`
         text-align: center;
     }
 `
-, function(){return true})
-
 const Separator = styled.div`
     position: absolute;
     width: 100%;
@@ -112,39 +110,35 @@ const Separator = styled.div`
 
 const DMT5TradingSignals = () => {
     const tab_list = ['signal-subscriber', 'signal-provider']
-    const [active_tab, setActiveTab] = useState(
-        getLocationHash() && checkElemInArray(tab_list, getLocationHash())
-            ? getLocationHash()
-            : tab_list[0],
-    )
+    const initial_tab = ()=>(getLocationHash() && checkElemInArray(tab_list, getLocationHash())
+    )? getLocationHash()
+        : tab_list[0]
+    const [active_tab, setActiveTab] = useState(initial_tab)
 
     useEffect(() => {
         if (!getLocationHash() || !checkElemInArray(tab_list, getLocationHash())) {
             setLocationHash(active_tab)
         } else {
             setActiveTab(getLocationHash())
+            scrollTop()
         }
     }, [])
 
     useEffect(() => {
-        if (getLocationHash() !== active_tab ) {
+        if (getLocationHash() !== active_tab) {
             setLocationHash(active_tab)
-            // eslint-disable-next-line no-console
-console.log("parent render")
         }
     }, [active_tab])
 
     useEffect(() => {
         if (getLocationHash() !== active_tab && checkElemInArray(tab_list, getLocationHash())) {
             setActiveTab(getLocationHash())
-            // scrollTop()
+            scrollTop()
         } else if (!checkElemInArray(tab_list, getLocationHash())) {
-            //routeBack()
+            routeBack()
         }
-    }, [getLocationHash(),active_tab])
+    }, [getLocationHash()])
 
-// eslint-disable-next-line no-console
-console.log("parent render")
     return (
         <Layout>
             <SEO description={localize('Subscribe to Deriv MetaTrader 5 trading signals to copy the trades of experienced traders, or become a signal provider and share your strategies.')} title={localize('Deriv MetaTrader 5 trading signals | Resources | Deriv')} />

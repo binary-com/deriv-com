@@ -14,8 +14,8 @@ import {
     checkElemInArray,
     getLocationHash,
     isBrowser,
-    routeBack,
-    scrollTop,
+    // routeBack,
+    // scrollTop,
     setLocationHash,
 } from 'common/utility'
 
@@ -110,17 +110,17 @@ const DMT5TradingSignals = () => {
     const tab_list = ['signal-subscriber', 'signal-provider']
     const location_hash = getLocationHash()
     const [active_tab, setActiveTab] = useState(
-        location_hash && checkElemInArray(tab_list, location_hash)
+        getLocationHash() && checkElemInArray(tab_list, location_hash)
             ? location_hash
             : tab_list[0],
     )
 
     useEffect(() => {
-        if ((location_hash==='signal-subscriber'||location_hash==='signal-provider')&&(!checkElemInArray(tab_list, location_hash))) {
+        if (!location_hash || !checkElemInArray(tab_list, location_hash)) {
             setLocationHash(active_tab)
         } else {
             setActiveTab(location_hash)
-            scrollTop()
+            // scrollTop()
         }
 
     }, [])
@@ -131,14 +131,14 @@ const DMT5TradingSignals = () => {
         }
     }, [active_tab])
 
-    useEffect(() => {
-        if (location_hash !== active_tab && checkElemInArray(tab_list, location_hash)) {
-            setActiveTab(location_hash)
-            scrollTop()
-        } else if (!checkElemInArray(tab_list, location_hash)) {
-            routeBack()
-        }
-    }, [location_hash])
+    // useEffect(() => {
+    //     if (location_hash !== active_tab && checkElemInArray(tab_list, location_hash)) {
+    //         setActiveTab(location_hash)
+    //         scrollTop()
+    //     } else if (!checkElemInArray(tab_list, location_hash)) {
+    //         routeBack()
+    //     }
+    // }, [location_hash])
     // eslint-disable-next-line
     console.log("rerender of  the parent component");
 

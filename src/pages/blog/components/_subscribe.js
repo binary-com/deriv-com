@@ -54,12 +54,12 @@ const InputWrapper = styled.div`
 
     input#name {
         width: 212px;
-        margin-right: 10px;
     }
     input#email {
         width: 300px;
         border-top-right-radius: 0;
         border-bottom-right-radius: 0;
+        margin-left: 10px;
     }
     @media ${device.tabletL} {
         margin-right: 10px;

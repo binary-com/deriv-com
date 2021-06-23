@@ -9,14 +9,9 @@ import { SEO, Flex, Box } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { localize, Localize, WithIntl } from 'components/localization'
 import { Header } from 'components/elements'
+import { useTabState } from 'components/hooks/use-tab-state'
 import device from 'themes/device'
-import {
-    checkElemInArray,
-    getLocationHash,
-    isBrowser,
-    routeBack,
-    setLocationHash,
-} from 'common/utility'
+import { getLocationHash } from 'common/utility'
 
 const signal_content_subscriber = {
     header: (
@@ -69,7 +64,8 @@ const TabsContainer = styled(Flex)`
 const Item = styled.div`
     margin-top: 4rem;
     padding: 1.2rem 1.6rem;
-    border-bottom: ${(props) => props.active ? '2px solid var(--color-red)' : ''};
+    border-bottom: ${(props) =>
+        props.name === props.active_tab ? '2px solid var(--color-red)' : ''};
     cursor: pointer;
     z-index: 10;
     white-space: nowrap;
@@ -78,10 +74,11 @@ const Item = styled.div`
         font-size: 2.4rem;
         width: max-content;
         text-align: center;
-        color: var(--color-black-3);
-        font-weight: ${(props) => (props.active ? 'bold' : 'normal')};
     }
-   
+    h4 {
+        color: var(--color-black-3);
+        font-weight: ${(props) => (props.name === props.active_tab ? 'bold' : 'normal')};
+    }
     @media ${device.tabletL} {
         padding: 12px 8px 12px 7px;
         margin-top: 24px;
@@ -96,7 +93,6 @@ const Item = styled.div`
         text-align: center;
     }
 `
-
 const Separator = styled.div`
     position: absolute;
     width: 100%;
@@ -106,45 +102,17 @@ const Separator = styled.div`
 `
 
 const DMT5TradingSignals = () => {
-    const tab_list = ['signal-subscriber', 'signal-provider']
-    const location_hash = getLocationHash()
-    const [active_tab, setActiveTab] = useState(
-        getLocationHash() && checkElemInArray(tab_list, location_hash)
-            ? location_hash
-            : tab_list[0],
-    )
-
-    const [state, setstate] = useState(1)
+    const [active_tab, setActiveTab] = useTabState(['signal-subscriber', 'signal-provider'])
+    const [, setJust_for_update] = useState()
+    // google chrome has a bug, so i need to use just_for_update for rerender, because setActiveTab doesnt do it
     useEffect(() => {
-        if (!location_hash || !checkElemInArray(tab_list, location_hash)) {
-            setLocationHash(active_tab)
-        } else {
-            setActiveTab(location_hash)
-            setstate((x) => x + 1)
-            // eslint-disable-next-line
-            console.log(" setActiveTab(location_hash)");
-            // eslint-disable-next-line
-            console.log(state);
-        }
-
-    }, [])
-
-    useEffect(() => {
-        if (location_hash !== active_tab && isBrowser()) {
-            setLocationHash(active_tab)
-        }
-    }, [active_tab])
-
-    useEffect(() => {
-        if (getLocationHash() !== active_tab && checkElemInArray(tab_list, getLocationHash())) {
+        if (getLocationHash() !== "signal-provider") {
             setActiveTab(getLocationHash())
-        } else if (!checkElemInArray(tab_list, getLocationHash())) {
-            routeBack()
+            setJust_for_update()
         }
-    }, [getLocationHash()])
-    // eslint-disable-next-line
-    console.log("rerender of  the parent component");
-
+    }, [])
+    // eslint-disable-next-line no-console
+    console.log('rerender!!!')
     return (
         <Layout>
             <SEO description={localize('Subscribe to Deriv MetaTrader 5 trading signals to copy the trades of experienced traders, or become a signal provider and share your strategies.')} title={localize('Deriv MetaTrader 5 trading signals | Resources | Deriv')} />
@@ -156,37 +124,20 @@ const DMT5TradingSignals = () => {
                 </SmallContainer>
             </Hero>
             <TabsContainer>
-                {active_tab === 'signal-subscriber'
-                    ?
-                    <Item
-                        onClick={() => setActiveTab('signal-subscriber')}
-                        active={true}
-                    >
-                        <Header>{localize('Signal subscriber')}</Header>
-                    </Item>
-                    :
-                    <Item
-                        onClick={() => setActiveTab('signal-subscriber')}
-                        active={false}
-                    >
-                        <Header>{localize('Signal subscriber')}</Header>
-                    </Item>}
-
-                {active_tab === 'signal-provider'
-                    ?
-                    <Item
-                        onClick={() => setActiveTab('signal-provider')}
-                        active={true}
-                    >
-                        <Header >{localize('Signal provider')}</Header>
-                    </Item> :
-                    <Item
-                        onClick={() => setActiveTab('signal-provider')}
-                        active={false}
-                    >
-                        <Header >{localize('Signal provider')}</Header>
-                    </Item>
-                }
+                <Item
+                    onClick={() => setActiveTab('signal-subscriber')}
+                    active_tab={active_tab}
+                    name="signal-subscriber"
+                >
+                    <Header as="h4">{localize('Signal subscriber')}</Header>
+                </Item>
+                <Item
+                    onClick={() => setActiveTab('signal-provider')}
+                    active_tab={active_tab}
+                    name="signal-provider"
+                >
+                    <Header as="h4">{localize('Signal provider')}</Header>
+                </Item>
             </TabsContainer>
             <Box position="relative">
                 <Separator />

@@ -14,9 +14,9 @@ import device from 'themes/device'
 import {
     getLocationHash,
     checkElemInArray,
-    isBrowser,
-    routeBack,
-    scrollTop,
+    // isBrowser,
+  //  routeBack,
+  //  scrollTop,
     setLocationHash,
 } from 'common/utility'
 
@@ -68,7 +68,7 @@ const TabsContainer = styled(Flex)`
     }
 `
 
-const Item = styled.div`
+const Item = React.memo(styled.div`
     margin-top: 4rem;
     padding: 1.2rem 1.6rem;
     border-bottom: ${(props) =>
@@ -100,6 +100,8 @@ const Item = styled.div`
         text-align: center;
     }
 `
+, function(){return true})
+
 const Separator = styled.div`
     position: absolute;
     width: 100%;
@@ -121,31 +123,28 @@ const DMT5TradingSignals = () => {
             setLocationHash(active_tab)
         } else {
             setActiveTab(getLocationHash())
-            scrollTop()
         }
     }, [])
 
     useEffect(() => {
-        if (getLocationHash() !== active_tab && isBrowser()) {
+        if (getLocationHash() !== active_tab ) {
             setLocationHash(active_tab)
+            // eslint-disable-next-line no-console
+console.log("parent render")
         }
     }, [active_tab])
 
     useEffect(() => {
         if (getLocationHash() !== active_tab && checkElemInArray(tab_list, getLocationHash())) {
             setActiveTab(getLocationHash())
-            // eslint-disable-next-line no-console
-            console.log({active_tab})
-            scrollTop()
+            // scrollTop()
         } else if (!checkElemInArray(tab_list, getLocationHash())) {
-            routeBack()
+            //routeBack()
         }
     }, [getLocationHash(),active_tab])
 
 // eslint-disable-next-line no-console
-console.log({active_tab})
-// eslint-disable-next-line no-console
-console.log(getLocationHash())
+console.log("parent render")
     return (
         <Layout>
             <SEO description={localize('Subscribe to Deriv MetaTrader 5 trading signals to copy the trades of experienced traders, or become a signal provider and share your strategies.')} title={localize('Deriv MetaTrader 5 trading signals | Resources | Deriv')} />

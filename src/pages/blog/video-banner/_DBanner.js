@@ -24,7 +24,7 @@ const ParentWrapper = styled(Flex)`
 
     @media ${device.tabletL} {
         /* prettier-ignore */
-        background: linear-gradient(251.14deg, rgba(14, 14, 14, 0.5632) 29.18%, rgba(7, 6, 6, 0.88) 85.14%),url(${VideoBG}) no-repeat top right 46.8%;
+        background: linear-gradient(251.14deg, rgba(14, 14, 14, 0.5632) 29.18%, rgba(7, 6, 6, 0.88) 85.14%),url(${VideoBG}) no-repeat top right 46.5%;
         background-size: cover;
         padding: 73px 0 40px;
     }
@@ -49,7 +49,11 @@ const PlayerIconWrapper = styled(Flex)`
 `
 const PlayerIcon = styled.img`
     width: 20px;
-    height: 16px;
+    height: 20px;
+    @media ${device.tabletL} {
+        width: 20px;
+        height: 20px;
+    }
 `
 const TagParentWrapper = styled(Flex)`
     height: 22px;
@@ -89,7 +93,6 @@ const StyledHeaderSmall = styled(Header)`
     color: var(--color-white);
     max-width: 894px;
     font-size: 20px;
-    font-weight: normal;
     line-height: 30px;
     margin-bottom: 8px;
     @media ${device.tabletL} {
@@ -100,7 +103,6 @@ const StyledHeaderSmall = styled(Header)`
 `
 const SmallDetailsWrapper = styled(Flex)`
     height: 24px;
-    font-weight: normal;
     justify-content: flex-start;
     align-items: center;
 `
@@ -122,66 +124,8 @@ const StyledDot = styled.img`
     margin: 0 10px 4px;
 `
 
-const carouselItem = [
-    {
-        image: 'video_banner_1',
-        title: 'The weekly market report, 07.06.2021 - 13.06.2021',
-        date: 'April 7, 2021',
-        duration: '14:09',
-        img_url:
-            'https://blog.deriv.com/content/images/size/w1000/2021/06/shutterstock_1220527444.jpg',
-    },
-    {
-        image: 'video_banner_2',
-        title: 'Open a new DMT5 Real Synthetic account on our new servers',
-        date: 'April 7, 2021',
-        duration: '14:09',
-        img_url:
-            'https://blog.deriv.com/content/images/size/w1000/2021/05/Weekly-market-report-with-Deriv.jpg',
-    },
-    {
-        image: 'video_banner_3',
-        title: '7 traits of successful financial traders',
-        date: 'April 7, 2021',
-        duration: '14:09',
-        img_url:
-            'https://blog.deriv.com/content/images/size/w1000/2021/05/Market-report-with-Deriv.jpg',
-    },
-    {
-        image: 'video_banner_4',
-        title: 'How To Trade Forex',
-        date: 'April 7, 2021',
-        duration: '14:09',
-        img_url:
-            'https://blog.deriv.com/content/images/size/w1000/2021/05/Deriv-weekly-market-report.jpg',
-    },
-    {
-        image: 'video_banner_5',
-        title: '5 Golden Rules to Follow When Trading Stock CFDs',
-        date: 'April 7, 2021',
-        duration: '14:09',
-        img_url:
-            'https://blog.deriv.com/content/images/size/w1000/2021/05/Deriv-weekly-market-report.jpg',
-    },
-    {
-        image: 'video_banner_1',
-        title: 'Strategies to Trade Synthetic Indices',
-        date: 'April 7, 2021',
-        duration: '14:09',
-        img_url: 'https://blog.deriv.com/content/images/size/w1000/2021/05/BeSquare-by-Deriv.png',
-    },
-    {
-        image: 'video_banner_3',
-        title: 'Multipliers: Leverage without losing your shirt',
-        date: 'April 7, 2021',
-        duration: '14:09',
-        img_url: 'https://blog.deriv.com/content/images/size/w1000/2021/04/Changelly2-1.jpg',
-    },
-]
-
-const Dbanner = ({ video_data }) => {
+const Dbanner = ({ video_details, video_list }) => {
     const [show, setShow] = useState(false)
-
     const handleCloseVideo = () => setShow(false)
     const handleOpenVideo = (event) => {
         if (event.defaultPrevented) return
@@ -198,23 +142,25 @@ const Dbanner = ({ video_data }) => {
                         </PlayerIconWrapper>
                         <TagParentWrapper>
                             <TagWrapper>
-                                <Tag>{video_data[0].type}</Tag>
+                                <Tag>{video_details[0].type}</Tag>
                             </TagWrapper>
                         </TagParentWrapper>
 
-                        <StyledHeader type="page-title">{video_data[0].title}</StyledHeader>
-                        <StyledHeaderSmall>{video_data[0].description}</StyledHeaderSmall>
+                        <StyledHeader type="page-title">{video_details[0].title}</StyledHeader>
+                        <StyledHeaderSmall weight="normal">
+                            {video_details[0].description}
+                        </StyledHeaderSmall>
                         <SmallDetailsWrapper>
-                            <StyledSmallText type="main-paragraph">
-                                {video_data[0].published_date}
+                            <StyledSmallText weight="normal" type="main-paragraph">
+                                {video_details[0].published_date}
                             </StyledSmallText>
                             <StyledDot />
-                            <StyledSmallText type="main-paragraph">
-                                {video_data[0].duration}
+                            <StyledSmallText weight="normal" type="main-paragraph">
+                                {video_details[0].duration}
                             </StyledSmallText>
                         </SmallDetailsWrapper>
                     </VideoDetailsWrapper>
-                    <VideoCarousel carousel_items={carouselItem} />
+                    <VideoCarousel carousel_items={video_list} />
                 </BgWrapper>
             </ParentWrapper>
             {show && <VideoPlayer video_src={VideoSrc} closeVideo={handleCloseVideo} />}
@@ -223,7 +169,8 @@ const Dbanner = ({ video_data }) => {
 }
 
 Dbanner.propTypes = {
-    video_data: PropTypes.array,
+    video_details: PropTypes.array,
+    video_list: PropTypes.array,
 }
 
 export default Dbanner

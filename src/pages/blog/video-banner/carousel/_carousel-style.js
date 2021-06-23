@@ -216,6 +216,10 @@ export const StyledHeader = styled(Header)`
     }
 `
 export const PlayerIcon = styled.img`
-    width: 20px;
+    width: 16px;
     height: 16px;
+    @media ${device.tabletL} {
+        width: 10px;
+        height: 10px;
+    }
 `

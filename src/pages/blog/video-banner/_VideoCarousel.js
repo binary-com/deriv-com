@@ -96,10 +96,18 @@ const PlayerIconWrapper = styled(Flex)`
     top: ${(props) => (props.absolute ? '50%' : 'unset')};
     left: 50%;
     transform: ${(props) => (props.absolute ? 'translate(-50%, -50%)' : 'translate(-50%, 0)')};
+    @media ${device.tabletL} {
+        width: 32px;
+        height: 32px;
+    }
 `
 const PlayerIcon = styled.img`
-    width: 20px;
+    width: 16px;
     height: 16px;
+    @media ${device.tabletL} {
+        width: 10px;
+        height: 10px;
+    }
 `
 
 const SeeMoreBtnMobile = styled(LinkButton)`

@@ -12,6 +12,10 @@ const MainVidDetails = [
             'Combine the higher returns of margin trading with the simplicity of options. With multipliers, you can leverage your trades to maximise returns for correctly predicting market movements, without risking more than your initial stake.',
         published_date: '21 Apr 2021',
         duration: '2:40',
+        img_url_desktop:
+            'https://blog.deriv.com/content/images/size/w1000/2021/04/deriv-weekly-market-report-06042021.jpg',
+        img_url_mobile:
+            'https://blog.deriv.com/content/images/size/w1000/2021/04/deriv-weekly-market-report-06042021.jpg',
     },
 ]
 

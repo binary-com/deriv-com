@@ -8,11 +8,15 @@ import { Flex, Container } from 'components/containers'
 import { Header, LinkText } from 'components/elements'
 import device from 'themes/device'
 import PlayIcon from 'images/svg/blog/video/Triangle.svg'
-import VideoBG from 'images/common/blog/video/bg-dummy.png'
 
 const ParentWrapper = styled(Flex)`
     /* prettier-ignore */
-    background: linear-gradient(251.14deg,rgba(14, 14, 14, 0.5632) 29.18%,rgba(7, 6, 6, 0.88) 85.14%),url(${VideoBG}) no-repeat top left;
+    background: ${(props) =>
+        props.bg_desktop
+            ? 'linear-gradient(251.14deg,rgba(14, 14, 14, 0.5632) 29.18%,rgba(7, 6, 6, 0.88) 85.14%),url(' +
+              props.bg_desktop +
+              ') no-repeat top left'
+            : 'linear-gradient(251.14deg, rgba(14, 14, 14, 0.5632) 29.18%, rgba(7, 6, 6, 0.88) 85.14%)'};
     flex-direction: column;
     overflow: hidden;
     margin: 80px 0;
@@ -24,11 +28,17 @@ const ParentWrapper = styled(Flex)`
 
     @media ${device.tabletL} {
         /* prettier-ignore */
-        background: linear-gradient(251.14deg, rgba(14, 14, 14, 0.5632) 29.18%, rgba(7, 6, 6, 0.88) 85.14%),url(${VideoBG}) no-repeat top right 46.5%;
+        background: ${(props) =>
+            props.bg_mobile
+                ? 'linear-gradient(251.14deg, rgba(14, 14, 14, 0.5632) 29.18%, rgba(7, 6, 6, 0.88) 85.14%),url(' +
+                  props.bg_mobile +
+                  ') no-repeat top right 46.5%'
+                : 'linear-gradient(251.14deg, rgba(14, 14, 14, 0.5632) 29.18%, rgba(7, 6, 6, 0.88) 85.14%)'};
         background-size: cover;
         padding: 73px 0 40px;
     }
 `
+
 const BgWrapper = styled(Container)`
     flex-direction: column;
     justify-content: flex-start;
@@ -134,7 +144,10 @@ const Dbanner = ({ video_details, video_list }) => {
 
     return (
         <>
-            <ParentWrapper>
+            <ParentWrapper
+                bg_desktop={video_details[0].img_url_desktop}
+                bg_mobile={video_details[0].img_url_mobile}
+            >
                 <BgWrapper>
                     <VideoDetailsWrapper>
                         <PlayerIconWrapper onClick={handleOpenVideo.bind(this)}>

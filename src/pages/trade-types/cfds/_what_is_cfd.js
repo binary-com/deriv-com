@@ -8,7 +8,7 @@ const WhatIsCFD = () => {
 
     return (
         <>
-            <SectionContainer background="white" padding="8rem 0 4rem">
+            <SectionContainer background="white" padding="8rem 0 1.2rem">
                 <SmallContainer direction="column" ai="flex-start">
                     <Header as="h2" type="page-title" mb="1.2rem">
                         {localize('What is CFD trading?')}

@@ -31,7 +31,7 @@ const MindWhenTrading = () => {
         <>
             <SectionContainer background="white" padding="0 0 4rem">
                 <SmallContainer direction="column" ai="flex-start">
-                    <Header as="h3" type="section-title" mb="1.2rem">
+                    <Header as="h3" type="section-title" mb="2rem">
                         {localize('Things to keep in mind when trading CFDs')}
                     </Header>
                     <Text size="var(--text-size-m)" weight="bold" mb="0.8rem">

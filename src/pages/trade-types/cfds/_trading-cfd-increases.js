@@ -92,7 +92,7 @@ const TradingCFDIncreases = () => {
                     </Text>
 
                     <Text size="var(--text-size-m)" weight="bold" mb="0.8rem">
-                        {localize('CFD trading features on Deriv')}
+                        {localize('CFDs trading features on Deriv')}
                     </Text>
         
                     <Text weight="bold" mb="0.8rem">
@@ -118,7 +118,7 @@ const TradingCFDIncreases = () => {
                     </Text>
                     <Text mb="1.6rem">
                         {localize(
-                            'When the market price climbs to 8,700, you decide to set the stop loss level at 8,200. After a few ticks, the price dives to 8,100, surpassing your stop loss level. Your trade will automatically close at 8,100 USD.',
+                            'When the market price climbs to 8,700 USD, you decide to set the stop loss level at 8,200 USD. After a few ticks, the price dives to 8,100 USD, surpassing your stop loss level. Your trade will automatically close at 8,100 USD.',
                         )}
                     </Text>
                     <Show.Desktop>

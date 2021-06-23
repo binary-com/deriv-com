@@ -97,6 +97,10 @@ const VideoDuration = styled(Text)`
     padding: 0 4px;
 `
 
+const ContentWrapper = styled.div`
+    padding: 16px 24px;
+`
+
 const VideoCard = ({ item, openVideo }) => {
     return (
         <VideoCardWrapper onClick={openVideo}>
@@ -117,14 +121,14 @@ const VideoCard = ({ item, openVideo }) => {
                     style={{ objectFit: 'contain' }}
                 />
             </ImageWrapper>
-            <div style={{ padding: '16px 24px' }}>
+            <ContentWrapper>
                 <Header as="h3" size="20px">
                     {item.title}
                 </Header>
                 <Text size="12px" mt="8px" color="grey-40">
                     {item.date}
                 </Text>
-            </div>
+            </ContentWrapper>
         </VideoCardWrapper>
     )
 }

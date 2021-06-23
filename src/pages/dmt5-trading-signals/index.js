@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { Hero, SmallContainer } from './_style'
 import HowTo from './_how-to'
@@ -9,16 +9,8 @@ import { SEO, Flex, Box } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { localize, Localize, WithIntl } from 'components/localization'
 import { Header } from 'components/elements'
-// import { useTabState } from 'components/hooks/use-tab-state'
+import { useTabState } from 'components/hooks/use-tab-state'
 import device from 'themes/device'
-import {
-    getLocationHash,
-    checkElemInArray,
-    // isBrowser,
-    routeBack,
-    scrollTop,
-    setLocationHash,
-} from 'common/utility'
 
 const signal_content_subscriber = {
     header: (
@@ -109,27 +101,9 @@ const Separator = styled.div`
 `
 
 const DMT5TradingSignals = () => {
-    const tab_list = ['signal-subscriber', 'signal-provider']
-    const initial_tab = ()=>(getLocationHash() && checkElemInArray(tab_list, getLocationHash())
-    )? getLocationHash()
-        : tab_list[0]
-    const [active_tab, setActiveTab] = useState(initial_tab)
-
-    useEffect(() => {
-        if (getLocationHash() !== active_tab) {
-            setLocationHash(active_tab)
-        }
-    }, [active_tab])
-
-    useEffect(() => {
-        if (getLocationHash() !== active_tab && checkElemInArray(tab_list, getLocationHash())) {
-            setActiveTab(getLocationHash())
-            scrollTop()
-        } else if (!checkElemInArray(tab_list, getLocationHash())) {
-            routeBack()
-        }
-    }, [getLocationHash()])
-
+    const [active_tab, setActiveTab] = useTabState(['signal-subscriber', 'signal-provider'])
+// eslint-disable-next-line no-console
+console.log('WEE')
     return (
         <Layout>
             <SEO description={localize('Subscribe to Deriv MetaTrader 5 trading signals to copy the trades of experienced traders, or become a signal provider and share your strategies.')} title={localize('Deriv MetaTrader 5 trading signals | Resources | Deriv')} />

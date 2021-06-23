@@ -42,7 +42,7 @@ const StyledCategories = styled(Text)`
     color: var(--color-blue-9);
     padding: 1px 8px;
     line-height: 20px;
-    margin-bottom: 8px;
+    margin: 0 8px 8px 0;
 `
 
 const FeaturedContentWrapper = styled(Flex)`
@@ -66,11 +66,18 @@ const FeaturedArticle = ({ article_data }) => {
                 />
             </ImageWrapper>
             <FeaturedContentWrapper fd="column" p="35px 40px" width="45%">
-                <Flex jc="flex-start" height="auto">
-                    <StyledCategories weight="bold" size="14px">
-                        {article_data[0].category}
-                    </StyledCategories>
-                    <Text color="grey-5" ml="8px" size="14px">
+                <Flex jc="flex-start" height="auto" fw="wrap">
+                    {article_data[0].category.slice(0, 2).map((item_category) => (
+                        <StyledCategories weight="bold" size="14px" key={item_category}>
+                            {item_category}
+                        </StyledCategories>
+                    ))}
+                    {article_data[0].category.length > 2 && (
+                        <StyledCategories weight="bold" size="14px">
+                            {`+${article_data[0].category.slice(2).length.toString()}`}
+                        </StyledCategories>
+                    )}
+                    <Text color="grey-5" size="14px">
                         {`• ${article_data[0].reading_time} min read`}
                     </Text>
                 </Flex>

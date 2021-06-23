@@ -49,7 +49,11 @@ const StyledCategories = styled(Text)`
     color: var(--color-blue-9);
     padding: 1px 8px;
     line-height: 20px;
-    margin-bottom: 8px;
+    margin: 0 8px 8px 0;
+`
+
+const ContentWrapper = styled.div`
+    padding: 16px 24px;
 `
 
 const ArticleCard = ({ item }) => {
@@ -63,12 +67,19 @@ const ArticleCard = ({ item }) => {
                     style={{ objectFit: 'contain' }}
                 />
             </ImageWrapper>
-            <div style={{ padding: '16px 24px' }}>
-                <Flex jc="flex-start">
-                    <StyledCategories weight="bold" size="14px">
-                        {item.category}
-                    </StyledCategories>
-                    <Text color="grey-5" ml="8px" size="14px">
+            <ContentWrapper>
+                <Flex jc="flex-start" fw="wrap">
+                    {item.category.slice(0, 2).map((item_category) => (
+                        <StyledCategories weight="bold" size="14px" key={item_category}>
+                            {item_category}
+                        </StyledCategories>
+                    ))}
+                    {item.category.length > 2 && (
+                        <StyledCategories weight="bold" size="14px">
+                            {`+${item.category.slice(2).length.toString()}`}
+                        </StyledCategories>
+                    )}
+                    <Text color="grey-5" size="14px">
                         {`• ${item.reading_time} min read`}
                     </Text>
                 </Flex>
@@ -78,7 +89,7 @@ const ArticleCard = ({ item }) => {
                 <Text size="14px" mt="8px" color="grey-5">
                     {item.description}
                 </Text>
-            </div>
+            </ContentWrapper>
         </VideoCardWrapper>
     )
 }

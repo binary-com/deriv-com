@@ -33,7 +33,7 @@ const CloseButton = styled.img`
     cursor: pointer;
 `
 
-const VidePlayer = styled.video`
+const StyledVideoPlayer = styled.video`
     width: 80%;
     position: relative;
     background-color: var(--color-black);
@@ -69,7 +69,7 @@ const VideoPlayer = ({ video_src, closeVideo }) => {
                     onClick={closeVideo}
                 />
             </StyledFlex>
-            <VidePlayer
+            <StyledVideoPlayer
                 width="80%"
                 height="480"
                 controls
@@ -78,7 +78,7 @@ const VideoPlayer = ({ video_src, closeVideo }) => {
             >
                 <source src={video_src} type="video/mp4" />
                 Your browser does not support the video tag.
-            </VidePlayer>
+            </StyledVideoPlayer>
         </VideoWrapper>
     )
 }

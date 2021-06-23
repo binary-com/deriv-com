@@ -116,15 +116,6 @@ const DMT5TradingSignals = () => {
     const [active_tab, setActiveTab] = useState(initial_tab)
 
     useEffect(() => {
-        if (!getLocationHash() || !checkElemInArray(tab_list, getLocationHash())) {
-            setLocationHash(active_tab)
-        } else {
-            setActiveTab(getLocationHash())
-            scrollTop()
-        }
-    }, [])
-
-    useEffect(() => {
         if (getLocationHash() !== active_tab) {
             setLocationHash(active_tab)
         }

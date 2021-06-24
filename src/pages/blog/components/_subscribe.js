@@ -161,9 +161,8 @@ const GetEbook = ({ onSubmit, ebook_utm_code }) => {
 
     const handleValidation = (param) => {
         const message = typeof param === 'object' ? param.target.value : param
-
-        setEmailErrorMsg(validateEmail(message.replace(/\s/g, '')))
         setNameErrorMsg(validateName(message.replace(/\s/g, '')))
+        setEmailErrorMsg(validateEmail(message.replace(/\s/g, '')))
     }
 
     const validateEmail = (email) => {

@@ -1,32 +1,157 @@
-import React, { useState, useEffect } from 'react'
-// import video_src from '../../markets/static/video/globe.mp4'
-import ReactPlayer from 'react-player/lazy'
+import React, { useState, useEffect, useRef } from 'react'
+import styled, { css } from 'styled-components'
 import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { SEO } from 'components/containers'
+import CloseIcon from 'images/svg/close.svg'
+
+const VideoSection = styled.div`
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    padding: 4rem 0;
+`
+
+const VideoWrapper = styled.div`
+    position: relative;
+    width: 720px;
+    height: 400px;
+    margin-bottom: 50px;
+    background: var(--color-black);
+`
+
+const StyledVideo = styled.video`
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    ${(props) => {
+        if (props.sticky)
+            return css`
+                position: fixed;
+                left: 3px;
+                bottom: 3px;
+                top: auto;
+                right: auto;
+                max-width: 450px;
+                max-height: 300px;
+                width: 450px;
+                height: 300px;
+                animation-name: fadeInUp;
+                animation-duration: 1s;
+                animation-fill-mode: both;
+            `
+    }}
+
+    @keyframes fadeInUp {
+        0% {
+            opacity: 0;
+            transform: translate3d(0, 100%, 0);
+        }
+        100% {
+            opacity: 1;
+            transform: none;
+        }
+    }
+`
+
+const GradientOverlay = styled.div`
+    position: fixed;
+    left: 3px;
+    bottom: 3px;
+    top: auto;
+    right: auto;
+    max-width: 280px;
+    max-height: 158px;
+    width: 280px;
+    height: 158px;
+    opacity: 0.01;
+    background: var(--color-black);
+    z-index: 1;
+    display: block;
+`
+
+const CloseButton = styled.img`
+    cursor: pointer;
+    position: fixed;
+    box-sizing: border-box;
+    display: ${(props) => (props.sticky ? 'block' : 'none')};
+    left: 450px;
+    bottom: 300px;
+    top: auto;
+    right: auto;
+    animation-name: fadeInUp;
+    animation-duration: 1.5s;
+    animation-fill-mode: both;
+
+    @keyframes fadeInUp {
+        0% {
+            opacity: 0;
+            transform: translate3d(0, 100%, 0);
+        }
+        100% {
+            opacity: 1;
+            transform: none;
+        }
+    }
+`
+
 const FloatingVideoPage = () => {
-    const [pip, setPip] = useState(false)
+    const [sticky, setSticky] = useState(false)
+    const VideoRef = useRef()
 
     useEffect(() => {
-        window.addEventListener('scroll', enablePip)
+        document.addEventListener('scroll', handleSticky)
 
-        return () => window.removeEventListener('scroll', enablePip)
+        return () => document.removeEventListener('scroll', handleSticky)
     }, [])
 
-    const enablePip = () => setPip(true)
+    function isInViewport(element) {
+        const rect = element.getBoundingClientRect()
+        return (
+            rect.top >= 0 &&
+            rect.left >= 0 &&
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+        )
+    }
+
+    const handleSticky = () => (isInViewport(VideoRef.current) ? setSticky(false) : setSticky(true))
+
     return (
         <Layout>
             <SEO
                 title={localize('Floating Video')}
                 description={localize('Floating video component!')}
             />
-            <ReactPlayer
-                url="https://amammustofa.com/assets/3cc88b20-07d5-44d4-9c21-73f544a9658e"
-                pip={pip}
-                onEnablePIP={() => setPip(true)}
-                controls="true"
-            />
-            <div style={{ height: '120rem' }}>Test</div>
+            <VideoSection>
+                <VideoWrapper ref={VideoRef}>
+                    <StyledVideo sticky={sticky} controls>
+                        <source
+                            src="https://amammustofa.com/assets/3cc88b20-07d5-44d4-9c21-73f544a9658e"
+                            type="video/mp4"
+                        />
+                    </StyledVideo>
+                </VideoWrapper>
+            </VideoSection>
+            <CloseButton src={CloseIcon} alt="close" width={24} height={24} sticky={sticky} />
+            <GradientOverlay></GradientOverlay>
+            <div
+                style={{
+                    height: '120rem',
+                    padding: '4rem',
+                    fontSize: '4rem',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    textAlign: 'center',
+                }}
+            >
+                Scroll Down
+                <br />
+                <br />
+                &darr;
+            </div>
         </Layout>
     )
 }

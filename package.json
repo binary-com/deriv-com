@@ -42,7 +42,6 @@
         "react-i18next": "^11.11.0",
         "react-is": "^17.0.2",
         "react-perfect-scrollbar": "^1.5.8",
-        "react-player": "^2.9.0",
         "web-push-notifications": "^3.19.3",
         "webpack": "^5.39.0"
     },

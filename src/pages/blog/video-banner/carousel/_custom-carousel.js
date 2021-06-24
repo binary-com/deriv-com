@@ -18,11 +18,11 @@ import {
     Divider,
     NavIconWrapper,
     IconWrapper,
-    StyledHeader,
 } from './_carousel-style'
 import PlayIcon from 'images/svg/blog/video/Triangle.svg'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import { useRecursiveTimeout } from 'components/hooks/use-recursive-timeout'
+import { Header } from 'components/elements'
 
 export const PrevButton = ({ color, enabled, is_reviews, onClick, style }) => (
     <StyledButtonWrapper
@@ -50,6 +50,7 @@ PrevButton.propTypes = {
     onClick: PropTypes.func,
 }
 
+// TODO: will remove later,not using this for now
 export const NavigationButton = ({ color, is_enabled, onClick }) => (
     <StyledDot onClick={onClick} color={is_enabled ? color : null} />
 )
@@ -214,9 +215,16 @@ export const CustomCarousel = ({
                                 <PlayerIconWrapper>
                                     <PlayerIcon src={PlayIcon} />
                                 </PlayerIconWrapper>
-                                <StyledHeader type="main-paragraph" mt="8px" mb="0" align="center">
+                                <Header
+                                    as="p"
+                                    type="paragraph-2"
+                                    color="white"
+                                    mt="8px"
+                                    mb="0"
+                                    align="center"
+                                >
                                     See all videos
-                                </StyledHeader>
+                                </Header>
                             </LastChildWrapper>
                         )}
                     </EmblaContainer>
@@ -239,6 +247,7 @@ export const CustomCarousel = ({
                         is_reviews={is_displayed_on_mobile}
                     />
                 )}
+                {/*  TODO: will remove later,not using this for now */}
                 {nav_color && (
                     <NavigationContainer bottom_offset={bottom_offset}>
                         {children.map((child, idx) => (

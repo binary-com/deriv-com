@@ -12,9 +12,9 @@ import PlayIcon from 'images/svg/blog/video/Triangle.svg'
 const ParentWrapper = styled(Flex)`
     /* prettier-ignore */
     background: ${(props) =>
-        props.bg_desktop
+        props.bg_image
             ? 'linear-gradient(251.14deg,rgba(14, 14, 14, 0.5632) 29.18%,rgba(7, 6, 6, 0.88) 85.14%),url(' +
-              props.bg_desktop +
+              props.bg_image +
               ') no-repeat top left'
             : 'linear-gradient(251.14deg, rgba(14, 14, 14, 0.5632) 29.18%, rgba(7, 6, 6, 0.88) 85.14%)'};
     flex-direction: column;
@@ -24,14 +24,14 @@ const ParentWrapper = styled(Flex)`
     background-size: cover;
     height: auto;
     padding: 160px 0 80px;
-    max-width: 1440px;
+    max-width: 1600px;
 
     @media ${device.tabletL} {
         /* prettier-ignore */
         background: ${(props) =>
-            props.bg_mobile
+            props.bg_image
                 ? 'linear-gradient(251.14deg, rgba(14, 14, 14, 0.5632) 29.18%, rgba(7, 6, 6, 0.88) 85.14%),url(' +
-                  props.bg_mobile +
+                  props.bg_image +
                   ') no-repeat top right 46.5%'
                 : 'linear-gradient(251.14deg, rgba(14, 14, 14, 0.5632) 29.18%, rgba(7, 6, 6, 0.88) 85.14%)'};
         background-size: cover;
@@ -58,12 +58,8 @@ const PlayerIconWrapper = styled(Flex)`
     cursor: pointer;
 `
 const PlayerIcon = styled.img`
-    width: 20px;
-    height: 20px;
-    @media ${device.tabletL} {
-        width: 20px;
-        height: 20px;
-    }
+    width: ${(props) => props.width};
+    height: ${(props) => props.height};
 `
 const TagParentWrapper = styled(Flex)`
     height: 22px;
@@ -89,43 +85,6 @@ const Tag = styled(LinkText)`
         line-height: 18px;
     }
 `
-const StyledHeader = styled(Header)`
-    margin-bottom: 8px;
-    max-width: 894px;
-    line-height: 60px;
-    color: var(--color-white);
-    @media ${device.tabletL} {
-        font-size: 24px;
-        line-height: 30px;
-    }
-`
-const StyledHeaderSmall = styled(Header)`
-    color: var(--color-white);
-    max-width: 894px;
-    font-size: 20px;
-    line-height: 30px;
-    margin-bottom: 8px;
-    @media ${device.tabletL} {
-        font-size: 16px;
-        line-height: 24px;
-        max-width: 100%;
-    }
-`
-const SmallDetailsWrapper = styled(Flex)`
-    height: 24px;
-    justify-content: flex-start;
-    align-items: center;
-`
-const StyledSmallText = styled(Header)`
-    line-height: 24px;
-    color: var(--color-grey-17);
-    font-weight: normal;
-    width: auto;
-    @media ${device.tabletL} {
-        font-size: 14px;
-        line-height: 20px;
-    }
-`
 const StyledDot = styled.img`
     border-radius: 50%;
     width: 4px;
@@ -144,14 +103,11 @@ const Dbanner = ({ video_details, video_list }) => {
 
     return (
         <>
-            <ParentWrapper
-                bg_desktop={video_details[0].img_url_desktop}
-                bg_mobile={video_details[0].img_url_mobile}
-            >
+            <ParentWrapper bg_image={video_details[0].bg_img_url}>
                 <BgWrapper>
                     <VideoDetailsWrapper>
                         <PlayerIconWrapper onClick={handleOpenVideo.bind(this)}>
-                            <PlayerIcon src={PlayIcon} />
+                            <PlayerIcon width="20px" height="20px" src={PlayIcon} />
                         </PlayerIconWrapper>
                         <TagParentWrapper>
                             <TagWrapper>
@@ -159,19 +115,41 @@ const Dbanner = ({ video_details, video_list }) => {
                             </TagWrapper>
                         </TagParentWrapper>
 
-                        <StyledHeader type="page-title">{video_details[0].title}</StyledHeader>
-                        <StyledHeaderSmall weight="normal">
+                        <Header as="h2" type="heading-2" color="white" mb="8px">
+                            {video_details[0].title}
+                        </Header>
+                        <Header
+                            as="p"
+                            weight="normal"
+                            type="subtitle-2"
+                            mb="8px"
+                            color="white"
+                            max_width="894px"
+                            mobile_max_width="100%"
+                        >
                             {video_details[0].description}
-                        </StyledHeaderSmall>
-                        <SmallDetailsWrapper>
-                            <StyledSmallText weight="normal" type="main-paragraph">
+                        </Header>
+                        <Flex ai="center" jc="flex-start" height="24px">
+                            <Header
+                                as="p"
+                                weight="normal"
+                                type="paragraph-1"
+                                color="grey-17"
+                                width="auto"
+                            >
                                 {video_details[0].published_date}
-                            </StyledSmallText>
+                            </Header>
                             <StyledDot />
-                            <StyledSmallText weight="normal" type="main-paragraph">
+                            <Header
+                                as="p"
+                                weight="normal"
+                                type="paragraph-1"
+                                color="grey-17"
+                                width="auto"
+                            >
                                 {video_details[0].duration}
-                            </StyledSmallText>
-                        </SmallDetailsWrapper>
+                            </Header>
+                        </Flex>
                     </VideoDetailsWrapper>
                     <VideoCarousel carousel_items={video_list} />
                 </BgWrapper>

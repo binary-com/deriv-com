@@ -20,14 +20,6 @@ const DetailsWrapper = styled(Flex)`
     margin-left: 8px;
     width: 180px;
 `
-const StyledHeader = styled(Header)`
-    margin-bottom: 4px;
-    color: var(--color-white);
-    @media ${device.tabletL} {
-        font-size: 14px;
-        line-height: 20px;
-    }
-`
 const CarouselWrapper = styled(Flex)`
     height: auto;
 `
@@ -38,17 +30,6 @@ const SmallDetailsWrapper = styled(Flex)`
     align-items: center;
     @media ${device.tabletL} {
         padding-top: 0;
-    }
-`
-const StyledSmallText = styled(Header)`
-    color: var(--color-grey-17);
-    font-weight: normal;
-    width: auto;
-    font-size: 14px;
-    line-height: 20px;
-    @media ${device.tabletL} {
-        font-size: 10px;
-        line-height: 14px;
     }
 `
 const StyledDot = styled.img`
@@ -113,7 +94,7 @@ const PlayerIcon = styled.img`
 const SeeMoreBtnMobile = styled(LinkButton)`
     width: 100%;
     max-width: 360px;
-    border: 1px solid #999999;
+    border: 1px solid var(--color-grey-5);
     border-radius: 4px;
     background-color: transparent;
     padding: 6px 0;
@@ -187,13 +168,29 @@ const VideoCarousel = ({ carousel_items }) => {
                                         </PlayerIconWrapper>
                                     </ImgWrapper>
                                     <DetailsWrapper>
-                                        <StyledHeader type="main-paragraph">
+                                        <Header as="p" type="paragraph-1" color="white" mb="4px">
                                             {item.title}
-                                        </StyledHeader>
+                                        </Header>
                                         <SmallDetailsWrapper>
-                                            <StyledSmallText>{item.date}</StyledSmallText>
+                                            <Header
+                                                as="p"
+                                                type="paragraph-2"
+                                                weight="normal"
+                                                color="grey-17"
+                                                width="auto"
+                                            >
+                                                {item.date}
+                                            </Header>
                                             <StyledDot />
-                                            <StyledSmallText>{item.duration}</StyledSmallText>
+                                            <Header
+                                                as="p"
+                                                type="paragraph-2"
+                                                weight="normal"
+                                                color="grey-17"
+                                                width="auto"
+                                            >
+                                                {item.duration}
+                                            </Header>
                                         </SmallDetailsWrapper>
                                     </DetailsWrapper>
                                 </ItemsMainWrapper>

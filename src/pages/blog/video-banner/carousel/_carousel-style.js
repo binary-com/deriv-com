@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
 import { Flex } from 'components/containers'
 import device from 'themes/device'
-import { Header, LocalizedLinkText } from 'components/elements'
+import { LocalizedLinkText } from 'components/elements'
 import { ReactComponent as Chevron } from 'images/svg/carousel-chevron.svg'
 
 export const Embla = styled.div`
@@ -205,15 +205,6 @@ export const PlayerIconWrapper = styled(Flex)`
     top: ${(props) => (props.absolute ? '50%' : 'unset')};
     left: 50%;
     transform: ${(props) => (props.absolute ? 'translate(-50%, -50%)' : 'translate(-50%, 0)')};
-`
-export const StyledHeader = styled(Header)`
-    margin-bottom: 4px;
-    color: var(--color-grey-21);
-    text-decoration: none;
-    @media ${device.tabletL} {
-        font-size: 14px;
-        line-height: 20px;
-    }
 `
 export const PlayerIcon = styled.img`
     width: 16px;

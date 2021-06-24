@@ -56,10 +56,15 @@ const PlayerIconWrapper = styled(Flex)`
     margin-bottom: 24px;
     align-items: center;
     cursor: pointer;
+    position: relative;
 `
 const PlayerIcon = styled.img`
     width: ${(props) => props.width};
     height: ${(props) => props.height};
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-40%, -50%);
 `
 const TagParentWrapper = styled(Flex)`
     height: 22px;

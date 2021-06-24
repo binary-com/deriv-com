@@ -82,7 +82,15 @@ const PlayerIconWrapper = styled(Flex)`
         height: 32px;
     }
 `
+const IconDiv = styled.div`
+    position: relative;
+    width: 100%;
+`
 const PlayerIcon = styled.img`
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-40%, -50%);
     width: 16px;
     height: 16px;
     @media ${device.tabletL} {
@@ -164,7 +172,9 @@ const VideoCarousel = ({ carousel_items }) => {
                                     <ImgWrapper>
                                         <ImgDiv src={item.img_url} alt={item.image} />
                                         <PlayerIconWrapper absolute>
-                                            <PlayerIcon src={PlayIcon} />
+                                            <IconDiv>
+                                                <PlayerIcon src={PlayIcon} />
+                                            </IconDiv>
                                         </PlayerIconWrapper>
                                     </ImgWrapper>
                                     <DetailsWrapper>

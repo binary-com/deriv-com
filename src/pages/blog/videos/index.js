@@ -50,8 +50,10 @@ const StyledHeader = styled(Header)`
 const VideosPage = () => (
     <Layout>
         <SEO
-            title={localize('Videos Page | Blog by Deriv')}
-            description={localize('All videos page.')}
+            title={localize('Latest videos, tutorials, webinars for trading | Deriv')}
+            description={localize(
+                "Learn how to trade using our trading videos and tutorials at Deriv's online trading academy.",
+            )}
         />
         <Hero jc="center" ai="center">
             <SmallContainer>

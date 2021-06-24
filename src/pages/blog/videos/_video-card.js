@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Header, Text } from 'components/elements'
+import { Flex } from 'components/containers'
 import { localize } from 'components/localization'
 import device from 'themes/device'
 import Triangle from 'images/svg/triangle.svg'
@@ -52,16 +53,23 @@ const ImageOverlay = styled.div`
     background-color: rgba(14, 14, 14, 0.5);
 `
 
-const StyledCategories = styled(Text)`
-    width: auto;
+const CategoriesContainer = styled(Flex)`
     position: absolute;
-    top: 8px;
-    left: 8px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    height: fit-content;
+    padding: 8px;
     z-index: 3;
+`
+
+const StyledCategories = styled(Text)`
+    width: fit-content;
+    padding: 1px 8px;
+    line-height: 20px;
     border-radius: 8px;
     background-color: var(--color-brown);
     color: var(--color-orange-2);
-    padding: 1px 8px;
+    margin: 0 8px 8px 0;
 `
 
 const PlayButtonOval = styled.div`
@@ -82,7 +90,7 @@ const StyledTriangle = styled.img`
     z-index: 4;
     top: 50%;
     left: 50%;
-    transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-40%) translateY(-50%);
 `
 
 const VideoDuration = styled(Text)`
@@ -106,9 +114,18 @@ const VideoCard = ({ item, openVideo }) => {
         <VideoCardWrapper onClick={openVideo}>
             <ImageWrapper>
                 <ImageOverlay />
-                <StyledCategories weight="bold" size="14px">
-                    {item.category}
-                </StyledCategories>
+                <CategoriesContainer jc="flex-start" fw="wrap">
+                    {item.category.slice(0, 2).map((item_category) => (
+                        <StyledCategories weight="bold" size="14px" key={item_category}>
+                            {item_category}
+                        </StyledCategories>
+                    ))}
+                    {item.category.length > 2 && (
+                        <StyledCategories weight="bold" size="14px">
+                            {`+${item.category.slice(2).length.toString()}`}
+                        </StyledCategories>
+                    )}
+                </CategoriesContainer>
                 <PlayButtonOval />
                 <StyledTriangle src={Triangle} alt="play button" height={25} width={20} />
                 <VideoDuration size="14px" lh="20px">

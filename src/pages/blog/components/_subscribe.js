@@ -31,12 +31,16 @@ const SignupFormWrapper = styled(Flex)`
     }
 
     @media ${device.tabletL} {
-        padding: 50% 20px 40px;
+        padding: 200px 20px 40px;
 
         .paperplane-img{
             position: absolute;
             top: 20px;
             left: 20px;
+        }
+        .form-content, .form-content h3, .form-content p {
+            width: 100%;
+            max-width: 100%;
         }
     }
 
@@ -66,6 +70,7 @@ const InputWrapper = styled.div`
         flex-direction: column;
 
         input {
+            margin-left: 0 !important;
             width: 100% !important;
         }
     }
@@ -157,8 +162,8 @@ const GetEbook = ({ onSubmit, ebook_utm_code }) => {
     const handleValidation = (param) => {
         const message = typeof param === 'object' ? param.target.value : param
 
-        param === email && setEmailErrorMsg(validateEmail(message.replace(/\s/g, '')))
-        param === name && setNameErrorMsg(validateName(message.replace(/\s/g, '')))
+        setEmailErrorMsg(validateEmail(message.replace(/\s/g, '')))
+        setNameErrorMsg(validateName(message.replace(/\s/g, '')))
     }
 
     const validateEmail = (email) => {
@@ -172,8 +177,8 @@ const GetEbook = ({ onSubmit, ebook_utm_code }) => {
         return error_message
     }
 
-    const validateName = () => {
-        const error_message = validation.name() || submit_error_msg
+    const validateName = (name) => {
+        const error_message = validation.name(name) || submit_error_msg
 
         if (submit_error_msg) {
             setSubmitErrorMsg('')
@@ -264,7 +269,7 @@ const GetEbook = ({ onSubmit, ebook_utm_code }) => {
     ) : (
         <SignupFormWrapper>
             <img className="paperplane-img" src={paperPlane} alt="Paper Plane" />
-            <div>
+            <div className="form-content">
                 <Title
                     as="h3"
                     color={'white'}

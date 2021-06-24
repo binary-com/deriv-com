@@ -111,10 +111,9 @@ const PreviewPage = () => {
     return (
         <Layout>
             <SEO
-                description={localize(
-                    'Learn about the markets that you can trade online with Deriv, including forex, commodities, synthetic indices, and stock indices.',
-                )}
-                title={localize('Markets | Markets to trade | Deriv')}
+                description={localize('Single Article Post Preview | Deriv')}
+                title={localize('Preview Your Posts Here.')}
+                no_index
             />
             {id && (
                 <SectionContainer>

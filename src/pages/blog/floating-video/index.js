@@ -97,18 +97,38 @@ const CloseButton = styled.img`
     }
 `
 
+const ButtonSection = styled.div`
+    display: flex;
+    justify-content: center;
+    padding: 4rem 0;
+`
+
+const ButtonCard = styled.div`
+    height: 300px;
+    width: 450px;
+    background-color: var(--color-grey-6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`
+
 const FloatingVideoPage = () => {
     const [sticky, setSticky] = useState(false)
+    const [play, setPlay] = useState(false)
     const VideoRef = useRef()
 
     useEffect(() => {
-        document.addEventListener('scroll', handleSticky)
+        if (play) {
+            document.addEventListener('scroll', handleSticky)
+        } else {
+            document.removeEventListener('scroll', handleSticky)
+        }
 
         return () => document.removeEventListener('scroll', handleSticky)
-    }, [])
+    }, [play])
 
     function isInViewport(element) {
-        const rect = element.getBoundingClientRect()
+        const rect = element?.getBoundingClientRect()
         return (
             rect.top >= 0 &&
             rect.left >= 0 &&
@@ -119,23 +139,44 @@ const FloatingVideoPage = () => {
 
     const handleSticky = () => (isInViewport(VideoRef.current) ? setSticky(false) : setSticky(true))
 
+    const handleClose = () => {
+        setSticky(false)
+        setPlay(false)
+    }
+
     return (
         <Layout>
             <SEO
                 title={localize('Floating Video')}
                 description={localize('Floating video component!')}
             />
-            <VideoSection>
-                <VideoWrapper ref={VideoRef}>
-                    <StyledVideo sticky={sticky} controls>
-                        <source
-                            src="https://amammustofa.com/assets/3cc88b20-07d5-44d4-9c21-73f544a9658e"
-                            type="video/mp4"
-                        />
-                    </StyledVideo>
-                </VideoWrapper>
-            </VideoSection>
-            <CloseButton src={CloseIcon} alt="close" width={24} height={24} sticky={sticky} />
+            {!play && (
+                <ButtonSection>
+                    <ButtonCard>
+                        <button onClick={() => setPlay(true)}>Play Video</button>
+                    </ButtonCard>
+                </ButtonSection>
+            )}
+            {play && (
+                <VideoSection>
+                    <VideoWrapper ref={VideoRef}>
+                        <StyledVideo sticky={sticky} controls autoPlay>
+                            <source
+                                src="https://amammustofa.com/assets/3cc88b20-07d5-44d4-9c21-73f544a9658e"
+                                type="video/mp4"
+                            />
+                        </StyledVideo>
+                    </VideoWrapper>
+                </VideoSection>
+            )}
+            <CloseButton
+                src={CloseIcon}
+                alt="close"
+                width={24}
+                height={24}
+                sticky={sticky}
+                onClick={handleClose}
+            />
             <GradientOverlay></GradientOverlay>
             <div
                 style={{
@@ -147,6 +188,9 @@ const FloatingVideoPage = () => {
                     textAlign: 'center',
                 }}
             >
+                Press &
+                <br />
+                <br />
                 Scroll Down
                 <br />
                 <br />

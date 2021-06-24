@@ -92,7 +92,7 @@ const TradingCFDIncreases = () => {
                     </Text>
 
                     <Text size="var(--text-size-m)" weight="bold" mb="0.8rem">
-                        {localize('CFDs trading features on Deriv')}
+                        {localize('CFD trading features on Deriv')}
                     </Text>
         
                     <Text weight="bold" mb="0.8rem">
@@ -157,7 +157,7 @@ const TradingCFDIncreases = () => {
                             'If your margin level drops below Deriv’s margin call level, you’ll get a margin call, which is a warning that your account is approaching the stop out level. ',
                         )}
                     </Text>
-                    <Header as="h4" type="sub-section-title" id="swap-policy">
+                    <Header as="h4" type="sub-section-title" id="swap-policy" mb="0.8rem">
                         {localize('Swap rates (overnight funding)')}
                     </Header>
 

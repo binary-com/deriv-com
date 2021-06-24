@@ -13,8 +13,6 @@ const DFYAWrapper = styled.section`
 `
 const DFYASection = styled(Container)`
     padding: 3.5rem 0;
-    justify-content: center;
-    align-items: center;
     @media ${device.mobileL} {
         flex-wrap: wrap;
         justify-content: center;

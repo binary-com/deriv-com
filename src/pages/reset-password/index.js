@@ -12,7 +12,6 @@ import { BinarySocketBase } from 'common/websocket/socket_base'
 import Login from 'common/login'
 
 const StyledContainer = styled(Container)`
-    text-align: center;
     height: 100vh;
     padding: auto 0;
     justify-content: start;

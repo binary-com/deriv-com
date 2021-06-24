@@ -16,10 +16,7 @@ export const Section = styled(SectionContainer)`
 
 export const ContentContainer = styled(Container)`
     max-width: 1440px;
-    margin: 0 auto;
     flex-direction: row-reverse;
-    align-items: center;
-    justify-content: center;
 
     @media ${device.laptop} {
         flex-direction: column;

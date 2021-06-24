@@ -11,7 +11,7 @@ const Container = styled(Box)`
     flex-direction: ${(props) =>
         props.direction || props.fd ? props.direction || props.fd : 'row'};
     flex-wrap: ${(props) => (props.wrap || props.fw ? props.wrap || props.fw : '')};
-    width: 80%;
+    width: ${(props) => (props.width ? props.width : '80%')};
 
     @media ${device.desktop} {
         max-width: 1200px;

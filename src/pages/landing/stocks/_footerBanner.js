@@ -67,7 +67,6 @@ const TextDiv = styled(Flex)`
     }
 `
 const DesktopImageWrapper = styled(Container)`
-    width: 100%;
     @media ${device.tabletL} {
         display: none;
     }
@@ -171,7 +170,7 @@ const FooterBanner = ({ background_pattern, data, is_ppc, small_title, title }) 
                 </TextWrapper>
                 <ImageWrapper>
                     <Flex>
-                        <DesktopImageWrapper>
+                        <DesktopImageWrapper width='100%'>
                             <QueryImage
                                 data={data['stocks_banner']}
                                 alt="deriv platform"

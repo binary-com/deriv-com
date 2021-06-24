@@ -15,8 +15,6 @@ const DFYASection = styled(Container)`
     padding: 3.5rem 0;
     @media ${device.mobileL} {
         flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
 
         ${Button} {
             font-size: 14px;

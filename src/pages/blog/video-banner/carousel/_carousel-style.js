@@ -157,7 +157,7 @@ export const NavigationWrapper = styled(Flex)`
     margin: 34px 0 16px;
     height: auto;
     @media ${device.tabletL} {
-        margin: 21px 0 16px;
+        margin: 17px 0 16px;
     }
 `
 export const Divider = styled(Flex)`

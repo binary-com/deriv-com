@@ -12,6 +12,9 @@ const SectionWrapper = styled(SectionContainer)`
         padding: 0 0 98px;
     }
 `
+const MainContainer = styled(Container)`
+    width: 100%;
+`
 const Wrapper = styled(Flex)`
     flex-wrap: wrap;
     flex-direction: row;
@@ -81,7 +84,7 @@ const WhyTradeWithUs = ({ itemsArr, mainTitle, columnPerRow }) => {
 
     return (
         <SectionWrapper>
-            <Container width='100%' direction="column">
+            <MainContainer direction="column">
                 <StyledHeader as="h2" type="page-title" align="center">
                     {mainTitle}
                 </StyledHeader>
@@ -103,7 +106,7 @@ const WhyTradeWithUs = ({ itemsArr, mainTitle, columnPerRow }) => {
                         )
                     })}
                 </Wrapper>
-            </Container>
+            </MainContainer>
         </SectionWrapper>
     )
 }

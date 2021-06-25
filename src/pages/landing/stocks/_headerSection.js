@@ -137,6 +137,7 @@ const TopHeaderImgWrapper = styled(Flex)`
     align-items: flex-end;
 `
 const DesktopImageWrapper = styled(Container)`
+    width: 100%;
     @media ${device.tabletL} {
         display: none;
     }
@@ -267,7 +268,7 @@ const HeaderSection = () => {
                     </TopHeaderTextDiv>
                     <TopHeaderBgDiv>
                         <TopHeaderImgWrapper>
-                            <DesktopImageWrapper width='100%'>
+                            <DesktopImageWrapper>
                                 <QueryImage
                                     data={data['mainHeaderImage']}
                                     alt="deriv platform"

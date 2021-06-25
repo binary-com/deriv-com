@@ -74,6 +74,7 @@ const SectionContainerWrapper = styled(SectionContainer)`
 `
 
 const StyledContainer = styled(Container)`
+    width: 100%;
     @media ${device.tabletL} {
         flex-wrap: wrap;
         margin: 20px 0;
@@ -176,7 +177,7 @@ const AffiliateIb = () => {
                         )}
                     </SubtitleHeader>
                     <SectionContainerWrapper>
-                        <StyledContainer width='100%' justify="space-around">
+                        <StyledContainer justify="space-around">
                             {items.map((item, index) => (
                                 <NumberWrapper key={index}>
                                     <Header as="h2" type="page-title" align="center">

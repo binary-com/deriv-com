@@ -13,6 +13,9 @@ const StyledSection = styled(SectionContainer)`
         padding: 40px 16px 32px;
     }
 `
+const Wrapper = styled(Container)`
+    width: 100%;
+`
 const Content = styled.div`
     width: 689px;
     display: flex;
@@ -38,6 +41,7 @@ const Content = styled.div`
     }
 `
 const DesktopImageWrapper = styled(Container)`
+    width: 100%;
     @media ${device.tabletL} {
         display: none;
     }
@@ -142,7 +146,7 @@ const DTrading = ({ contentMargin, trading, reverse, setWidth, two_title }) => {
 
     return (
         <StyledSection>
-            <Container width='100%' fd="column" ai="center">
+            <Wrapper fd="column" ai="center">
                 {trading.map((item, index) => {
                     let is_even = reverse ? (index + 1) % 2 : index % 2
                     return (
@@ -168,7 +172,7 @@ const DTrading = ({ contentMargin, trading, reverse, setWidth, two_title }) => {
                             </Content>
                             {item.image_name_mobile && (
                                 <ImageWrapper width={setWidth ? setWidth : '448px;'} ai="center">
-                                    <DesktopImageWrapper width='100%'>
+                                    <DesktopImageWrapper>
                                         <QueryImage
                                             data={data[item.image_name]}
                                             alt={item.image_alt}
@@ -196,7 +200,7 @@ const DTrading = ({ contentMargin, trading, reverse, setWidth, two_title }) => {
                         </Row>
                     )
                 })}
-            </Container>
+            </Wrapper>
         </StyledSection>
     )
 }

@@ -5,7 +5,7 @@ import VideoSrc from '../../markets/static/video/globe.mp4'
 import VideoCarousel from './_VideoCarousel'
 import VideoPlayer from './_video-player'
 import { Flex, Container } from 'components/containers'
-import { Header, LinkText } from 'components/elements'
+import { Header } from 'components/elements'
 import device from 'themes/device'
 import PlayIcon from 'images/svg/blog/video/Triangle.svg'
 
@@ -13,11 +13,8 @@ const ParentWrapper = styled(Flex)`
     /* prettier-ignore */
     background: ${(props) =>
         props.bg_image
-            ? 'linear-gradient(251.14deg,rgba(14, 14, 14, 0.5632) 29.18%,rgba(7, 6, 6, 0.88) 85.14%),url(' +
-              props.bg_image +
-              ') no-repeat top left'
+            ? `linear-gradient(251.14deg,rgba(14, 14, 14, 0.5632) 29.18%,rgba(7, 6, 6, 0.88) 85.14%),url(${props.bg_image}) no-repeat top left`
             : 'linear-gradient(251.14deg, rgba(14, 14, 14, 0.5632) 29.18%, rgba(7, 6, 6, 0.88) 85.14%)'};
-    flex-direction: column;
     overflow: hidden;
     margin: 80px 0;
     position: relative;
@@ -30,31 +27,15 @@ const ParentWrapper = styled(Flex)`
         /* prettier-ignore */
         background: ${(props) =>
             props.bg_image
-                ? 'linear-gradient(251.14deg, rgba(14, 14, 14, 0.5632) 29.18%, rgba(7, 6, 6, 0.88) 85.14%),url(' +
-                  props.bg_image +
-                  ') no-repeat top right 46.5%'
+                ? `linear-gradient(251.14deg, rgba(14, 14, 14, 0.5632) 29.18%, rgba(7, 6, 6, 0.88) 85.14%),url(${props.bg_image}) no-repeat top right 46.5%`
                 : 'linear-gradient(251.14deg, rgba(14, 14, 14, 0.5632) 29.18%, rgba(7, 6, 6, 0.88) 85.14%)'};
         background-size: cover;
         padding: 73px 0 40px;
     }
 `
-
-const BgWrapper = styled(Container)`
-    flex-direction: column;
-    justify-content: flex-start;
-`
-const VideoDetailsWrapper = styled(Flex)`
-    height: auto;
-    flex-direction: column;
-    justify-content: flex-start;
-`
 const PlayerIconWrapper = styled(Flex)`
-    width: 64px;
-    height: 64px;
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.32);
-    margin-bottom: 24px;
-    align-items: center;
     cursor: pointer;
     position: relative;
 `
@@ -67,28 +48,13 @@ const PlayerIcon = styled.img`
     transform: translate(-40%, -50%);
 `
 const TagParentWrapper = styled(Flex)`
-    height: 22px;
-    justify-content: flex-start;
     @media ${device.tabletL} {
         margin-bottom: 8px;
     }
 `
 const TagWrapper = styled(Flex)`
-    width: auto;
-    padding: 1px 8px;
     background: var(--color-orange-3);
     border-radius: 8px;
-    align-items: center;
-`
-const Tag = styled(LinkText)`
-    font-size: 14px;
-    line-height: 20px;
-    font-weight: bold;
-    color: var(--color-orange-2);
-    @media ${device.tabletL} {
-        font-size: 12px;
-        line-height: 18px;
-    }
 `
 const StyledDot = styled.img`
     border-radius: 50%;
@@ -101,22 +67,27 @@ const StyledDot = styled.img`
 const Dbanner = ({ video_details, video_list }) => {
     const [show, setShow] = useState(false)
     const handleCloseVideo = () => setShow(false)
-    const handleOpenVideo = (event) => {
-        if (event.defaultPrevented) return
-        setShow(true)
-    }
+    const handleOpenVideo = () => setShow(true)
 
     return (
         <>
-            <ParentWrapper bg_image={video_details[0].bg_img_url}>
-                <BgWrapper>
-                    <VideoDetailsWrapper>
-                        <PlayerIconWrapper onClick={handleOpenVideo.bind(this)}>
+            <ParentWrapper direction="column" bg_image={video_details[0].bg_img_url}>
+                <Container direction="column" jc="flex-start">
+                    <Flex direction="column" jc="flex-start" height="auto">
+                        <PlayerIconWrapper
+                            ai="center"
+                            width="64px"
+                            height="64px"
+                            mb="24px"
+                            onClick={handleOpenVideo}
+                        >
                             <PlayerIcon width="20px" height="20px" src={PlayIcon} />
                         </PlayerIconWrapper>
-                        <TagParentWrapper>
-                            <TagWrapper>
-                                <Tag>{video_details[0].type}</Tag>
+                        <TagParentWrapper height="22px" jc="flex-start">
+                            <TagWrapper ai="center" width="auto" p="1px 8px">
+                                <Header type="paragraph-2" color="orange-2">
+                                    {video_details[0].type}
+                                </Header>
                             </TagWrapper>
                         </TagParentWrapper>
 
@@ -155,9 +126,9 @@ const Dbanner = ({ video_details, video_list }) => {
                                 {video_details[0].duration}
                             </Header>
                         </Flex>
-                    </VideoDetailsWrapper>
+                    </Flex>
                     <VideoCarousel carousel_items={video_list} />
-                </BgWrapper>
+                </Container>
             </ParentWrapper>
             {show && <VideoPlayer video_src={VideoSrc} closeVideo={handleCloseVideo} />}
         </>

@@ -7,10 +7,7 @@ import device from 'themes/device'
 
 const VideoWrapper = styled.div`
     position: fixed;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
+    inset: 0;
     background-color: rgba(0, 0, 0, 0.9);
     display: flex;
     flex-direction: column;
@@ -43,7 +40,7 @@ const VidePlayer = styled.video`
 
 const VideoPlayer = ({ video_src, closeVideo }) => {
     const handleEscape = (e) => {
-        if (e.keyCode === 27) {
+        if (e.key === 'Escape') {
             closeVideo()
         }
     }

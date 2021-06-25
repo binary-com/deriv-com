@@ -11,23 +11,7 @@ import device from 'themes/device'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import PlayIcon from 'images/svg/blog/video/Triangle.svg'
 
-const MainWrapper = styled(Flex)`
-    flex-direction: column;
-    justify-content: flex-start;
-`
-const DetailsWrapper = styled(Flex)`
-    flex-direction: column;
-    margin-left: 8px;
-    width: 180px;
-`
-const CarouselWrapper = styled(Flex)`
-    height: auto;
-`
 const SmallDetailsWrapper = styled(Flex)`
-    height: 24px;
-    font-weight: normal;
-    justify-content: flex-start;
-    align-items: center;
     @media ${device.tabletL} {
         padding-top: 0;
     }
@@ -42,14 +26,12 @@ const StyledDot = styled.img`
 const ItemsMainWrapper = styled(Flex)`
     min-width: 327px;
     cursor: pointer;
-    justify-content: flex-start;
     @media ${device.tabletL} {
         min-width: 293px;
         height: 104px;
     }
 `
 const ImgWrapper = styled(Flex)`
-    width: 139px;
     position: relative;
     @media ${device.tabletL} {
         width: 104px;
@@ -71,7 +53,6 @@ const PlayerIconWrapper = styled(Flex)`
     height: 48px;
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.32);
-    align-items: center;
     cursor: pointer;
     position: ${(props) => (props.absolute ? 'absolute' : 'relative')};
     top: ${(props) => (props.absolute ? '50%' : 'unset')};
@@ -109,12 +90,6 @@ const SeeMoreBtnMobile = styled(LinkButton)`
     margin: 24px auto 0;
     height: auto;
     align-items: center;
-`
-const StyledMoreBtnMobile = styled(Header)`
-    font-size: 14px;
-    line-height: 20px;
-    color: var(--color-white);
-    text-align: center;
 `
 
 const VideoCarousel = ({ carousel_items }) => {
@@ -163,25 +138,33 @@ const VideoCarousel = ({ carousel_items }) => {
 
     return (
         <>
-            <MainWrapper>
-                <CarouselWrapper>
+            <Flex direction="column" jc="flex-start">
+                <Flex height="auto">
                     <CustomCarousel {...settings} custom_blog_video_nav>
                         {carousel_items.map((item, index) => {
                             return (
-                                <ItemsMainWrapper key={index} onClick={handleOpenVideo}>
-                                    <ImgWrapper>
+                                <ItemsMainWrapper
+                                    jc="flex-start"
+                                    key={index}
+                                    onClick={handleOpenVideo}
+                                >
+                                    <ImgWrapper width="139px">
                                         <ImgDiv src={item.img_url} alt={item.image} />
-                                        <PlayerIconWrapper absolute>
+                                        <PlayerIconWrapper absolute ai="center">
                                             <IconDiv>
                                                 <PlayerIcon src={PlayIcon} />
                                             </IconDiv>
                                         </PlayerIconWrapper>
                                     </ImgWrapper>
-                                    <DetailsWrapper>
+                                    <Flex direction="column" ml="8px" width="180px">
                                         <Header as="p" type="paragraph-1" color="white" mb="4px">
                                             {item.title}
                                         </Header>
-                                        <SmallDetailsWrapper>
+                                        <SmallDetailsWrapper
+                                            height="24px"
+                                            jc="flex-start"
+                                            ai="center"
+                                        >
                                             <Header
                                                 as="p"
                                                 type="paragraph-2"
@@ -202,18 +185,20 @@ const VideoCarousel = ({ carousel_items }) => {
                                                 {item.duration}
                                             </Header>
                                         </SmallDetailsWrapper>
-                                    </DetailsWrapper>
+                                    </Flex>
                                 </ItemsMainWrapper>
                             )
                         })}
                     </CustomCarousel>
-                </CarouselWrapper>
+                </Flex>
                 {is_mobile && (
                     <SeeMoreBtnMobile to="/">
-                        <StyledMoreBtnMobile>See all videos</StyledMoreBtnMobile>
+                        <Header type="paragraph-2" color="white" align="center">
+                            See all videos
+                        </Header>
                     </SeeMoreBtnMobile>
                 )}
-            </MainWrapper>
+            </Flex>
             {show && <VideoPlayer video_src={VideoSrc} closeVideo={handleCloseVideo} />}
         </>
     )

@@ -32,15 +32,7 @@ export const PrevButton = ({ color, enabled, is_reviews, onClick, style }) => (
         style={style}
         is_reviews={is_reviews}
     >
-        {color === 'black' ? (
-            <ChevronLeft black="true" />
-        ) : color === 'red' ? (
-            <ChevronLeft red="true" />
-        ) : color == 'custom' ? (
-            <ChevronLeft custom="true" />
-        ) : (
-            <ChevronLeft />
-        )}
+        <ChevronLeft black={color === 'black'} red={color === 'red'} custom={color === 'custom'} />
     </StyledButtonWrapper>
 )
 
@@ -68,15 +60,7 @@ export const NextButton = ({ color, enabled, is_reviews, onClick, style }) => (
         style={style}
         is_reviews={is_reviews}
     >
-        {color === 'black' ? (
-            <ChevronRight black="true" />
-        ) : color === 'red' ? (
-            <ChevronRight red="true" />
-        ) : color == 'custom' ? (
-            <ChevronRight custom="true" />
-        ) : (
-            <ChevronRight />
-        )}
+        <ChevronRight black={color === 'black'} red={color === 'red'} custom={color === 'custom'} />
     </StyledButtonWrapper>
 )
 
@@ -230,22 +214,22 @@ export const CustomCarousel = ({
                     </EmblaContainer>
                 </ViewPort>
                 {chevron_color && is_arrow && (
-                    <PrevButton
-                        color={chevron_color}
-                        onClick={scrollPrev}
-                        enabled={prevBtnEnabled}
-                        style={chevron_left}
-                        is_reviews={is_displayed_on_mobile}
-                    />
-                )}
-                {chevron_color && is_arrow && (
-                    <NextButton
-                        color={chevron_color}
-                        onClick={scrollNext}
-                        enabled={nextBtnEnabled}
-                        style={chevron_right}
-                        is_reviews={is_displayed_on_mobile}
-                    />
+                    <>
+                        <PrevButton
+                            color={chevron_color}
+                            onClick={scrollPrev}
+                            enabled={prevBtnEnabled}
+                            style={chevron_left}
+                            is_reviews={is_displayed_on_mobile}
+                        />
+                        <NextButton
+                            color={chevron_color}
+                            onClick={scrollNext}
+                            enabled={nextBtnEnabled}
+                            style={chevron_right}
+                            is_reviews={is_displayed_on_mobile}
+                        />
+                    </>
                 )}
                 {/*  TODO: will remove later,not using this for now */}
                 {nav_color && (

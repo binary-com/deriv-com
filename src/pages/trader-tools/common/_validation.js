@@ -9,8 +9,10 @@ const validation_regex = {
 
 const validation_is_exceed_number = (input, maxDigit) => {
     const max_digit = maxDigit || 15
-
-    if (input.length > max_digit) {
+    if (input.length > max_digit + 1 && input.includes(".")) {
+        return false
+    }
+    if (input.length > max_digit && !input.includes(".")) {
         return false
     }
 
@@ -61,7 +63,7 @@ const validation = {
         return null
     },
     volume: (input) => {
-        return numberValidation(input, localize('Volume'), 8)
+        return numberValidation(input, localize('Volume'), 18)
     },
     assetPrice: (input) => {
         return numberValidation(input, localize('Asset price'), 15)

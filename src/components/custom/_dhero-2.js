@@ -263,7 +263,7 @@ const DHero = ({
         right: 0;
 
         @media (max-width: 1979px){
-            top:171px;
+            top: 171px;
         }
     `
     const BackgroundSVG2 = styled.img`

@@ -11,7 +11,12 @@ exports.createPages = async ({ reporter, actions, graphql }) => {
         query MyQuery {
             directus {
                 articles(filter: { status: { _eq: "published" } }) {
+                    article_title
                     article_url
+                    translations {
+                        article_title
+                        languages_id
+                    }
                 }
             }
         }
@@ -24,9 +29,28 @@ exports.createPages = async ({ reporter, actions, graphql }) => {
 
     articles.forEach((article) => {
         createPage({
-            path: `/blog/articles/${article.article_url}`,
+            path: `/blog/article/${article.article_url}`,
             component: articleTemplate,
-            context: {},
+            context: {
+                locale: 'en',
+                localeResources: {},
+                blog_data: article,
+                pathname: `/blog/article/${article.article_url}`
+            },
+        })
+
+        // other languages
+        article.translations.forEach((translation) => {
+            createPage({
+                path: `/blog/article/${translation.languages_id}/${article.article_url}`,
+                component: articleTemplate,
+                context: {
+                    locale: translation.languages_id,
+                    localeResources: {},
+                    blog_data: translation,
+                    pathname: `/blog/article/${translation.languages_id}/${article.article_url}`
+                },
+            })
         })
     })
 }

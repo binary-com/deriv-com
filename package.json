@@ -6,6 +6,7 @@
     "dependencies": {
         "@artsy/fresnel": "^1.7.0",
         "@datadog/browser-rum": "^2.14.0",
+        "@directus/gatsby-source-directus": "^9.0.0-rc.80",
         "@livechat/customer-sdk": "^3.0.0",
         "@loadable/component": "^5.15.0",
         "@svgr/webpack": "^5.5.0",

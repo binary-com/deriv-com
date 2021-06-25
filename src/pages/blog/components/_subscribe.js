@@ -36,7 +36,9 @@ const SignupFormWrapper = styled(Flex)`
         .paperplane-img{
             position: absolute;
             top: 20px;
-            left: 20px;
+            width: 280px;
+            left: 50%;
+            transform: translateX(-50%);        
         }
         .form-content, .form-content h3, .form-content p {
             width: 100%;

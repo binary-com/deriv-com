@@ -12,6 +12,7 @@
         "@svgr/webpack": "^5.5.0",
         "commander": "^7.2.0",
         "crc-32": "^1.2.0",
+        "customerio-node": "^2.1.1",
         "embla-carousel": "^4.5.3",
         "eslint-import-resolver-node": "^0.3.4",
         "extend": "^3.0.2",

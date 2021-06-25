@@ -63,7 +63,7 @@ const validation = {
         return null
     },
     volume: (input) => {
-        return numberValidation(input, localize('Volume'), 18)
+        return numberValidation(input, localize('Volume'), 8)
     },
     assetPrice: (input) => {
         return numberValidation(input, localize('Asset price'), 15)

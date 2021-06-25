@@ -50,11 +50,20 @@ const Wrapper = styled(Flex)`
     z-index: 1;
     flex-direction: column;
     height: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
 
     h1 {
         margin-bottom: 20px;
     }
-
+    @media screen and (min-width: 1600px) {
+        max-width: 1440px;
+        margin: 0 auto;
+    }
+    @media screen and (min-width: 1900px) {
+        max-width: 1900px;
+        margin: 0 auto;
+    }
     @media ${device.laptopM} {
         height: ${(props) => props.laptopM_height};
         min-height: unset;

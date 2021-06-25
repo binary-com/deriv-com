@@ -259,8 +259,12 @@ const DHero = ({
     const BackgroundSVG = styled.img`
         ${HeroBackground}
         position: absolute;
-        top: 170px;
+        top: 295px;
         right: 0;
+
+        @media (max-width: 1979px){
+            top:171px;
+        }
     `
     const BackgroundSVG2 = styled.img`
         ${HeroBackground}

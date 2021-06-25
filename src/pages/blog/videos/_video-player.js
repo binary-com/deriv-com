@@ -44,8 +44,8 @@ const StyledVideoPlayer = styled.video`
 `
 
 const VideoPlayer = ({ video_src, closeVideo }) => {
-    const handleEscape = (e) => {
-        if (e.keyCode === 27) {
+    const handleEscape = (event) => {
+        if (event.key === 'Escape') {
             closeVideo()
         }
     }

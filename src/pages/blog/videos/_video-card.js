@@ -77,7 +77,7 @@ const PlayButtonOval = styled.div`
     z-index: 2;
     top: 50%;
     left: 50%;
-    transform: translateX(-50%) translateY(-50%);
+    transform: translate(-50%, -50%);
     height: 80px;
     width: 80px;
     background-color: var(--color-white);
@@ -90,7 +90,7 @@ const StyledTriangle = styled.img`
     z-index: 4;
     top: 50%;
     left: 50%;
-    transform: translateX(-40%) translateY(-50%);
+    transform: translate(-40%, -50%);
 `
 
 const VideoDuration = styled(Text)`

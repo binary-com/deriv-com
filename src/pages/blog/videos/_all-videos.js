@@ -23,9 +23,6 @@ const VideoGrid = styled.div`
 const AllVideos = ({ video_data }) => {
     const [show, setShow] = useState(false)
 
-    const handleCloseVideo = () => setShow(false)
-    const handleOpenVideo = () => setShow(true)
-
     return (
         <Container fd="column">
             <Flex jc="flex-start" ai="center" mt="4rem">
@@ -43,10 +40,10 @@ const AllVideos = ({ video_data }) => {
             </Flex>
             <VideoGrid style={{ justifyContent: 'center' }}>
                 {video_data.map((item) => {
-                    return <VideoCard key={item.id} item={item} openVideo={handleOpenVideo} />
+                    return <VideoCard key={item.id} item={item} openVideo={() => setShow(true)} />
                 })}
             </VideoGrid>
-            {show && <VideoPlayer video_src={VideoSrc} closeVideo={handleCloseVideo} />}
+            {show && <VideoPlayer video_src={VideoSrc} closeVideo={() => setShow(false)} />}
         </Container>
     )
 }

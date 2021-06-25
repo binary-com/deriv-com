@@ -16,6 +16,9 @@ const Wrapper = styled(Flex)`
     min-height: ${(props) => props.d_height};
     padding: 2rem 12rem;
 
+    @media ${device.desktopS} {
+        padding-left: 18%;
+    }
     @media ${device.laptopM} {
         height: ${(props) => props.laptopM_height};
         min-height: unset;
@@ -259,11 +262,11 @@ const DHero = ({
     const BackgroundSVG = styled.img`
         ${HeroBackground}
         position: absolute;
-        top: 295px;
+        bottom: 0;
         right: 0;
 
-        @media (max-width: 1979px){
-            top: 171px;
+        @media ${device.tablet} {
+            top: 170px;
         }
     `
     const BackgroundSVG2 = styled.img`

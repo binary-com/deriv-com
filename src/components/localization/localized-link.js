@@ -200,7 +200,9 @@ const ExternalLink = ({
                 onClick(e)
             }
         } else {
-            onClick(e)
+            if (typeof onClick === 'function') {
+                onClick(e)
+            }
         }
     }
 

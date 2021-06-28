@@ -212,6 +212,9 @@ module.exports = {
             resolve: '@directus/gatsby-source-directus',
             options: {
                 url: `https://amammustofa.com`,
+                auth: {
+                    token: 'token123456789',
+                },
                 dev: {
                     refresh: '5s',
                 },

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import ArticleCard from './_article-card'
 import FeaturedArticle from './_featured-article'
-import { Container, Flex } from 'components/containers'
+import { Flex } from 'components/containers'
 import { Text, LocalizedLinkText } from 'components/elements'
 import device from 'themes/device'
 import RightArrow from 'images/svg/black-right-arrow.svg'
@@ -19,9 +19,12 @@ const VideoGrid = styled.div`
     grid-template-rows: auto;
 `
 
-const StyledContainer = styled(Container)`
-    @media ${device.laptopL} {
-        width: 90%;
+const Container = styled(Flex)`
+    width: 90%;
+    max-width: 1200px;
+
+    @media ${device.desktopL} {
+        max-width: 1600px;
     }
     @media ${device.tabletL} {
         width: 100%;
@@ -31,7 +34,7 @@ const StyledContainer = styled(Container)`
 
 const AllArticles = ({ article_data }) => {
     return (
-        <StyledContainer fd="column">
+        <Container m="0 auto" fd="column" ai="center">
             <Flex jc="flex-start" ai="center" mt="40px">
                 <LocalizedLinkText to="/blog/" color="grey-5">
                     Home
@@ -51,7 +54,7 @@ const AllArticles = ({ article_data }) => {
                     return <ArticleCard key={item.id} item={item} />
                 })}
             </VideoGrid>
-        </StyledContainer>
+        </Container>
     )
 }
 

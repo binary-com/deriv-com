@@ -54,6 +54,7 @@ const FeaturedContentWrapper = styled(Flex)`
 
 const RedirectLink = styled(LocalizedLink)`
     text-decoration: none;
+    max-width: 1200px;
 `
 
 const FeaturedArticle = ({ article_data }) => {

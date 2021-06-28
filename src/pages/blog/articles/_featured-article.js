@@ -18,10 +18,11 @@ const StyledFlex = styled(Flex)`
         transform: translateY(-1.1rem) scale(1.02);
     }
 
-    @media (max-width: 879px) {
+    @media (max-width: 823px) {
         flex-direction: column;
         height: auto;
         max-width: 384px;
+        margin-top: 40px;
     }
 `
 
@@ -32,6 +33,7 @@ const ImageWrapper = styled.div`
 
     @media ${device.tabletL} {
         width: 100%;
+        max-height: 328px;
     }
 `
 
@@ -50,7 +52,7 @@ const FeaturedContentWrapper = styled(Flex)`
         width: 100%;
     }
 
-    @media (max-width: 879px) {
+    @media (max-width: 823px) {
         padding: 16px 24px;
     }
 `
@@ -87,7 +89,7 @@ const FeaturedArticle = ({ article_data }) => {
                             {`• ${article_data[0].reading_time} min read`}
                         </Text>
                     </Flex>
-                    <Header as="h3" size="32px">
+                    <Header as="h3" type="heading-3" size="32px">
                         {article_data[0].title}
                     </Header>
                     <Text size="14px" mt="8px" color="grey-5">

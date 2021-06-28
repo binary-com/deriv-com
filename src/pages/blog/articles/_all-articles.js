@@ -24,12 +24,16 @@ const StyledContainer = styled(Container)`
     @media ${device.laptopL} {
         width: 90%;
     }
+    @media ${device.tabletL} {
+        width: 100%;
+        padding: 0 16px;
+    }
 `
 
 const AllArticles = ({ article_data }) => {
     return (
         <StyledContainer fd="column">
-            <Flex jc="flex-start" ai="center" mt="4rem">
+            <Flex jc="flex-start" ai="center" mt="40px">
                 <LocalizedLinkText to="/blog/" color="grey-5">
                     {localize('Home')}
                 </LocalizedLinkText>

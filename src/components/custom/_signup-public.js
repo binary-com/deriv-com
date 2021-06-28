@@ -459,7 +459,7 @@ const SignupPublic = ({
                                 external="true"
                                 href={deriv_app_url}
                                 target="_blank"
-                                rel="noopener noreferrer"
+                                rel="noopener noreferrer nofollow"
                             >
                                 <StyledHeader
                                     size="4rem"

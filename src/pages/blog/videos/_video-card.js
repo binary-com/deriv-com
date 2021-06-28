@@ -9,6 +9,7 @@ import Triangle from 'images/svg/triangle.svg'
 const VideoCardWrapper = styled.div`
     max-width: 384px;
     display: flex;
+    justify-content: flex-start;
     flex-direction: column;
     text-decoration: none;
     position: relative;
@@ -63,7 +64,7 @@ const CategoriesContainer = styled(Flex)`
 
 const StyledCategories = styled(Header)`
     width: fit-content;
-    padding: 3px 8px 1px;
+    padding: 2px 8px 0;
     border-radius: 8px;
     background-color: var(--color-brown);
     color: var(--color-orange-2);
@@ -109,42 +110,46 @@ const ContentWrapper = styled.div`
 
 const VideoCard = ({ item, openVideo }) => {
     return (
-        <VideoCardWrapper onClick={openVideo}>
-            <ImageWrapper>
-                <ImageOverlay />
-                <CategoriesContainer jc="flex-start" fw="wrap">
-                    {item.category.slice(0, 2).map((item_category) => (
-                        <StyledCategories as="h4" type="paragraph-2" key={item_category}>
-                            {item_category}
-                        </StyledCategories>
-                    ))}
-                    {item.category.length > 2 && (
-                        <StyledCategories as="h4" type="paragraph-2">
-                            {`+${item.category.slice(2).length.toString()}`}
-                        </StyledCategories>
-                    )}
-                </CategoriesContainer>
-                <PlayButtonOval />
-                <StyledTriangle src={Triangle} alt="play button" height={25} width={20} />
-                <VideoDuration as="h5" type="paragraph-2" weight="bold">
-                    {item.video_duration}
-                </VideoDuration>
-                <img
-                    src={item.image}
-                    alt="Video card"
-                    width="100%"
-                    style={{ objectFit: 'contain' }}
-                />
-            </ImageWrapper>
-            <ContentWrapper>
-                <Header as="h3" type="subtitle-2">
-                    {item.title}
-                </Header>
-                <Header as="h4" type="paragraph-2" weight="normal" mt="8px" color="grey-40">
-                    {item.date}
-                </Header>
-            </ContentWrapper>
-        </VideoCardWrapper>
+        // the extra div surrounding the videocard is to get around Safari's different
+        // interpretation of height: 100%
+        <div>
+            <VideoCardWrapper onClick={openVideo}>
+                <ImageWrapper>
+                    <ImageOverlay />
+                    <CategoriesContainer jc="flex-start" fw="wrap">
+                        {item.category.slice(0, 2).map((item_category) => (
+                            <StyledCategories as="h4" type="paragraph-2" key={item_category}>
+                                {item_category}
+                            </StyledCategories>
+                        ))}
+                        {item.category.length > 2 && (
+                            <StyledCategories as="h4" type="paragraph-2">
+                                {`+${item.category.slice(2).length.toString()}`}
+                            </StyledCategories>
+                        )}
+                    </CategoriesContainer>
+                    <PlayButtonOval />
+                    <StyledTriangle src={Triangle} alt="play button" height={25} width={20} />
+                    <VideoDuration as="h5" type="paragraph-2" weight="bold">
+                        {item.video_duration}
+                    </VideoDuration>
+                    <img
+                        src={item.image}
+                        alt="Video card"
+                        width="100%"
+                        style={{ objectFit: 'contain' }}
+                    />
+                </ImageWrapper>
+                <ContentWrapper>
+                    <Header as="h3" type="subtitle-2">
+                        {item.title}
+                    </Header>
+                    <Header as="h4" type="paragraph-2" weight="normal" mt="8px" color="grey-40">
+                        {item.date}
+                    </Header>
+                </ContentWrapper>
+            </VideoCardWrapper>
+        </div>
     )
 }
 

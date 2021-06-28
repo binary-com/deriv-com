@@ -13,7 +13,7 @@ export const video_data = [
         image: 'https://source.unsplash.com/random/2',
         video_duration: '1:20',
         category: ['Multipliers'],
-        title: 'How to trade multipliers on Deriv this is for testing longer titles',
+        title: 'How to trade multipliers on Deriv this is for testing much much longer titles',
         description:
             'To help you begin, we will look at the basics of cryptocurrency: what it is, how it works, and how to start trading cryptos on Deriv.com.',
         date: '12 June 2021',

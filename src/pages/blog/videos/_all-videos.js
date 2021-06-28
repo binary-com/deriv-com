@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import VideoSrc from '../../markets/static/video/globe.mp4'
 import VideoCard from './_video-card'
 import VideoPlayer from './_video-player'
-import { Container, Flex } from 'components/containers'
+import { Flex } from 'components/containers'
 import { Text, LocalizedLinkText } from 'components/elements'
 import device from 'themes/device'
 import RightArrow from 'images/svg/black-right-arrow.svg'
@@ -20,9 +20,12 @@ const VideoGrid = styled.div`
     grid-template-rows: auto;
 `
 
-const StyledContainer = styled(Container)`
-    @media ${device.laptopL} {
-        width: 90%;
+const Container = styled(Flex)`
+    width: 90%;
+    max-width: 1200px;
+
+    @media ${device.desktopL} {
+        max-width: 1600px;
     }
     @media ${device.tabletL} {
         width: 100%;
@@ -34,7 +37,7 @@ const AllVideos = ({ video_data }) => {
     const [show, setShow] = useState(false)
 
     return (
-        <StyledContainer fd="column">
+        <Container m="0 auto" fd="column">
             <Flex jc="flex-start" ai="center" mt="4rem">
                 <LocalizedLinkText to="/blog" color="grey-5">
                     Home
@@ -54,7 +57,7 @@ const AllVideos = ({ video_data }) => {
                 })}
             </VideoGrid>
             {show && <VideoPlayer video_src={VideoSrc} closeVideo={() => setShow(false)} />}
-        </StyledContainer>
+        </Container>
     )
 }
 

@@ -6,7 +6,7 @@ import VideoCard from './_video-card'
 import VideoPlayer from './_video-player'
 import { Container, Flex } from 'components/containers'
 import { Text, LocalizedLinkText } from 'components/elements'
-import { localize } from 'components/localization'
+import device from 'themes/device'
 import RightArrow from 'images/svg/black-right-arrow.svg'
 
 const VideoGrid = styled.div`
@@ -20,23 +20,33 @@ const VideoGrid = styled.div`
     grid-template-rows: auto;
 `
 
+const StyledContainer = styled(Container)`
+    @media ${device.laptopL} {
+        width: 90%;
+    }
+    @media ${device.tabletL} {
+        width: 100%;
+        padding: 0 16px;
+    }
+`
+
 const AllVideos = ({ video_data }) => {
     const [show, setShow] = useState(false)
 
     return (
-        <Container fd="column">
+        <StyledContainer fd="column">
             <Flex jc="flex-start" ai="center" mt="4rem">
                 <LocalizedLinkText to="/blog" color="grey-5">
-                    {localize('Home')}
+                    Home
                 </LocalizedLinkText>
                 <img
                     src={RightArrow}
-                    alt={localize('right arrow')}
-                    height="16"
-                    width="16"
+                    alt="Right arrow"
+                    height={16}
+                    width={16}
                     style={{ margin: '0 8px' }}
                 />
-                <Text>{localize('All videos')}</Text>
+                <Text>All videos</Text>
             </Flex>
             <VideoGrid style={{ justifyContent: 'center' }}>
                 {video_data.map((item) => {
@@ -44,7 +54,7 @@ const AllVideos = ({ video_data }) => {
                 })}
             </VideoGrid>
             {show && <VideoPlayer video_src={VideoSrc} closeVideo={() => setShow(false)} />}
-        </Container>
+        </StyledContainer>
     )
 }
 

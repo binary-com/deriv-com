@@ -36,14 +36,15 @@ const Hero = styled(Flex)`
     background-image: url(${HeroImage});
     background-size: cover;
     background-position: center;
+
+    @media ${device.tabletL} {
+        height: 348px;
+    }
 `
 
 const StyledHeader = styled(Header)`
     @media ${device.tabletL} {
         margin-top: 16px;
-    }
-    @media ${device.mobileL} {
-        font-size: 28px;
     }
 `
 
@@ -57,11 +58,11 @@ const VideosPage = () => (
         />
         <Hero jc="center" ai="center">
             <SmallContainer>
-                <Header as="h2" type="section-title" color="white" weight="400" align="left">
-                    {localize('Video tutorials')}
+                <Header as="h2" type="heading-3" color="white" weight="400" align="left">
+                    Video tutorials
                 </Header>
-                <StyledHeader as="h2" type="page-title" color="white" align="left">
-                    {localize('Our latest videos and webinars')}
+                <StyledHeader as="h2" type="heading-2" color="white" align="left">
+                    Our latest videos and webinars
                 </StyledHeader>
             </SmallContainer>
         </Hero>

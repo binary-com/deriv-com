@@ -1,9 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { Header, Text } from 'components/elements'
+import { Header } from 'components/elements'
 import { Flex } from 'components/containers'
-import { localize } from 'components/localization'
 import device from 'themes/device'
 import Triangle from 'images/svg/triangle.svg'
 
@@ -62,10 +61,9 @@ const CategoriesContainer = styled(Flex)`
     z-index: 3;
 `
 
-const StyledCategories = styled(Text)`
+const StyledCategories = styled(Header)`
     width: fit-content;
     padding: 1px 8px;
-    line-height: 20px;
     border-radius: 8px;
     background-color: var(--color-brown);
     color: var(--color-orange-2);
@@ -93,7 +91,7 @@ const StyledTriangle = styled.img`
     transform: translate(-40%, -50%);
 `
 
-const VideoDuration = styled(Text)`
+const VideoDuration = styled(Header)`
     width: auto;
     position: absolute;
     bottom: 8px;
@@ -116,35 +114,35 @@ const VideoCard = ({ item, openVideo }) => {
                 <ImageOverlay />
                 <CategoriesContainer jc="flex-start" fw="wrap">
                     {item.category.slice(0, 2).map((item_category) => (
-                        <StyledCategories weight="bold" size="14px" key={item_category}>
+                        <StyledCategories as="h4" type="paragraph-2" key={item_category}>
                             {item_category}
                         </StyledCategories>
                     ))}
                     {item.category.length > 2 && (
-                        <StyledCategories weight="bold" size="14px">
+                        <StyledCategories as="h4" type="paragraph-2">
                             {`+${item.category.slice(2).length.toString()}`}
                         </StyledCategories>
                     )}
                 </CategoriesContainer>
                 <PlayButtonOval />
                 <StyledTriangle src={Triangle} alt="play button" height={25} width={20} />
-                <VideoDuration size="14px" lh="20px">
+                <VideoDuration as="h5" type="paragraph-2" weight="bold">
                     {item.video_duration}
                 </VideoDuration>
                 <img
                     src={item.image}
-                    alt={localize('Video card')}
+                    alt="Video card"
                     width="100%"
                     style={{ objectFit: 'contain' }}
                 />
             </ImageWrapper>
             <ContentWrapper>
-                <Header as="h3" size="20px">
+                <Header as="h3" type="subtitle-2">
                     {item.title}
                 </Header>
-                <Text size="12px" mt="8px" color="grey-40">
+                <Header as="h4" type="paragraph-2" weight="normal" mt="8px" color="grey-40">
                     {item.date}
-                </Text>
+                </Header>
             </ContentWrapper>
         </VideoCardWrapper>
     )

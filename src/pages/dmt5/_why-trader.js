@@ -109,7 +109,7 @@ const WhyTrader = () => {
                 {localize('Why trade with DMT5')}
             </StyledHeader>
             <CardContainer>
-                {cardContent.map((card, index) => {
+                {card_content.map(card => {
                     return (
                         <Card key={index}>
                             <div>

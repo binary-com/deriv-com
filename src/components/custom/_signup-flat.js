@@ -1,12 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { Input, Button } from 'components/form'
+import { Input, Button, LinkButton } from 'components/form'
 import { Header, Text } from 'components/elements'
 import { localize } from 'components/localization'
 import { Container } from 'components/containers'
 import device from 'themes/device.js'
-import { deriv_app_url } from 'common/constants'
 // SVG
 import Facebook from 'images/svg/facebook-blue.svg'
 import Google from 'images/svg/google.svg'
@@ -86,7 +85,7 @@ const StyledText = styled(Text)`
     width: auto;
     margin-right: 4rem;
 `
-const DemoButton = styled(Button)`
+const DemoButton = styled(LinkButton)`
     margin-top: 2.2rem;
     width: auto;
 `
@@ -100,10 +99,6 @@ const Splitter = styled.div`
         display: none;
     }
 `
-const handleExternalLink = () => {
-    window.open(deriv_app_url, '_blank')
-}
-
 const SignupFlat = ({
     email_error_msg,
     email,
@@ -202,7 +197,13 @@ const SignupFlat = ({
                     >
                         {localize('Get a taste of the Deriv experience')}
                     </Text>
-                    <DemoButton secondary="true" onClick={handleExternalLink}>
+                    <DemoButton
+                        secondary
+                        external
+                        type="deriv_app"
+                        target="_blank"
+                        rel="noopener noreferrer nofollow"
+                    >
                         {localize('See live demo')}
                     </DemoButton>
                 </RightWrapper>

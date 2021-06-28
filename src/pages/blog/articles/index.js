@@ -42,9 +42,6 @@ const StyledHeader = styled(Header)`
     @media ${device.tabletL} {
         margin-top: 16px;
     }
-    @media ${device.mobileL} {
-        font-size: 28px;
-    }
 `
 
 const ArticlesPage = () => (
@@ -57,10 +54,10 @@ const ArticlesPage = () => (
         />
         <Hero jc="center" ai="center">
             <SmallContainer>
-                <Header as="h2" type="section-title" color="white" weight="400" align="left">
-                    {localize('Deriv blog')}
+                <Header as="h2" type="heading-3" color="white" weight="400" align="left">
+                    {localize('Deriv Blog')}
                 </Header>
-                <StyledHeader as="h2" type="page-title" color="white" align="left">
+                <StyledHeader as="h2" type="heading-2" color="white" align="left">
                     {localize('The latest articles and resources')}
                 </StyledHeader>
             </SmallContainer>

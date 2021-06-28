@@ -5,7 +5,6 @@ import ArticleCard from './_article-card'
 import FeaturedArticle from './_featured-article'
 import { Container, Flex } from 'components/containers'
 import { Text, LocalizedLinkText } from 'components/elements'
-import { localize } from 'components/localization'
 import device from 'themes/device'
 import RightArrow from 'images/svg/black-right-arrow.svg'
 
@@ -35,16 +34,16 @@ const AllArticles = ({ article_data }) => {
         <StyledContainer fd="column">
             <Flex jc="flex-start" ai="center" mt="40px">
                 <LocalizedLinkText to="/blog/" color="grey-5">
-                    {localize('Home')}
+                    Home
                 </LocalizedLinkText>
                 <img
                     src={RightArrow}
-                    alt={localize('right arrow')}
+                    alt="Right arrow"
                     height="16"
                     width="16"
                     style={{ margin: '0 8px' }}
                 />
-                <Text>{localize('All articles')}</Text>
+                <Text>All articles</Text>
             </Flex>
             <FeaturedArticle article_data={article_data} />
             <VideoGrid style={{ justifyContent: 'center' }}>

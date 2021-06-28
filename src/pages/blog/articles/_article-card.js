@@ -2,8 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Flex } from 'components/containers'
-import { Header, Text } from 'components/elements'
-import { localize, LocalizedLink } from 'components/localization'
+import { Header } from 'components/elements'
+import { LocalizedLink } from 'components/localization'
 import device from 'themes/device'
 
 const ArticleCardWrapper = styled(Flex)`
@@ -33,21 +33,25 @@ const ImageWrapper = styled.div`
 
     @media ${device.mobileL} {
         width: 100%;
+        height: 184px;
     }
 `
 
-const StyledCategories = styled(Text)`
+const StyledCategories = styled(Header)`
     width: fit-content;
     border-radius: 8px;
     background-color: var(--color-blue-10);
     color: var(--color-blue-9);
     padding: 1px 8px;
-    line-height: 20px;
     margin: 0 8px 8px 0;
 `
 
 const ContentWrapper = styled.div`
     padding: 16px 24px;
+
+    @media ${device.mobileL} {
+        padding: 16px;
+    }
 `
 
 const RedirectLink = styled(LocalizedLink)`
@@ -61,7 +65,7 @@ const ArticleCard = ({ item }) => {
                 <ImageWrapper>
                     <img
                         src={item.image}
-                        alt={localize('Video card')}
+                        alt="Video card"
                         width="100%"
                         style={{ objectFit: 'contain' }}
                     />
@@ -69,25 +73,31 @@ const ArticleCard = ({ item }) => {
                 <ContentWrapper>
                     <Flex jc="flex-start" fw="wrap">
                         {item.category.slice(0, 2).map((item_category) => (
-                            <StyledCategories weight="bold" size="14px" key={item_category}>
+                            <StyledCategories as="h4" type="paragraph-2" key={item_category}>
                                 {item_category}
                             </StyledCategories>
                         ))}
                         {item.category.length > 2 && (
-                            <StyledCategories weight="bold" size="14px">
+                            <StyledCategories as="h4" type="paragraph-2">
                                 {`+${item.category.slice(2).length.toString()}`}
                             </StyledCategories>
                         )}
-                        <Text color="grey-5" size="14px">
+                        <Header
+                            as="h5"
+                            type="paragraph-2"
+                            weight="normal"
+                            color="grey-5"
+                            width="auto"
+                        >
                             {`• ${item.reading_time} min read`}
-                        </Text>
+                        </Header>
                     </Flex>
-                    <Header as="h3" size="20px">
+                    <Header as="h3" type="subtitle-2">
                         {item.title}
                     </Header>
-                    <Text size="14px" mt="8px" color="grey-5">
+                    <Header as="p" type="paragraph-2" weight="normal" mt="8px" color="grey-5">
                         {item.description}
-                    </Text>
+                    </Header>
                 </ContentWrapper>
             </ArticleCardWrapper>
         </RedirectLink>

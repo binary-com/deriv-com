@@ -2,9 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Flex } from 'components/containers'
-import { Text, Header } from 'components/elements'
-import { localize, LocalizedLink } from 'components/localization'
-import device from 'themes/device'
+import { Header } from 'components/elements'
+import { LocalizedLink } from 'components/localization'
 
 const StyledFlex = styled(Flex)`
     border-radius: 8px;
@@ -31,29 +30,25 @@ const ImageWrapper = styled.div`
     height: 300px;
     width: 55%;
 
-    @media ${device.tabletL} {
+    @media (max-width: 823px) {
         width: 100%;
         max-height: 328px;
     }
 `
 
-const StyledCategories = styled(Text)`
+const StyledCategories = styled(Header)`
     width: fit-content;
     border-radius: 8px;
     background-color: var(--color-blue-10);
     color: var(--color-blue-9);
     padding: 1px 8px;
-    line-height: 20px;
     margin: 0 8px 8px 0;
 `
 
 const FeaturedContentWrapper = styled(Flex)`
-    @media ${device.tabletL} {
-        width: 100%;
-    }
-
     @media (max-width: 823px) {
-        padding: 16px 24px;
+        width: 100%;
+        padding: 24px 16px;
     }
 `
 
@@ -68,7 +63,7 @@ const FeaturedArticle = ({ article_data }) => {
                 <ImageWrapper>
                     <img
                         src="https://source.unsplash.com/random/10"
-                        alt={localize('Video card')}
+                        alt="Video card"
                         width="100%"
                         style={{ objectFit: 'cover' }}
                     />
@@ -76,25 +71,31 @@ const FeaturedArticle = ({ article_data }) => {
                 <FeaturedContentWrapper fd="column" p="35px 40px" width="45%">
                     <Flex jc="flex-start" height="auto" fw="wrap">
                         {article_data[0].category.slice(0, 2).map((item_category) => (
-                            <StyledCategories weight="bold" size="14px" key={item_category}>
+                            <StyledCategories as="h4" type="paragraph-2" key={item_category}>
                                 {item_category}
                             </StyledCategories>
                         ))}
                         {article_data[0].category.length > 2 && (
-                            <StyledCategories weight="bold" size="14px">
+                            <StyledCategories as="h4" type="paragraph-2">
                                 {`+${article_data[0].category.slice(2).length.toString()}`}
                             </StyledCategories>
                         )}
-                        <Text color="grey-5" size="14px">
+                        <Header
+                            color="grey-5"
+                            as="h5"
+                            weight="normal"
+                            type="paragraph-2"
+                            width="auto"
+                        >
                             {`• ${article_data[0].reading_time} min read`}
-                        </Text>
+                        </Header>
                     </Flex>
-                    <Header as="h3" type="heading-3" size="32px">
+                    <Header as="h3" type="heading-3">
                         {article_data[0].title}
                     </Header>
-                    <Text size="14px" mt="8px" color="grey-5">
+                    <Header as="p" type="paragraph-1" weight="normal" mt="8px" color="grey-5">
                         {article_data[0].description}
-                    </Text>
+                    </Header>
                 </FeaturedContentWrapper>
             </StyledFlex>
         </RedirectLink>

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Flex } from 'components/containers'
 import { Text, Header } from 'components/elements'
-import { localize } from 'components/localization'
+import { localize, LocalizedLink } from 'components/localization'
 import device from 'themes/device'
 
 const StyledFlex = styled(Flex)`
@@ -54,46 +54,52 @@ const FeaturedContentWrapper = styled(Flex)`
     }
 `
 
+const RedirectLink = styled(LocalizedLink)`
+    text-decoration: none;
+`
+
 const FeaturedArticle = ({ article_data }) => {
     return (
-        <StyledFlex jc="flex-start" mt="96px">
-            <ImageWrapper>
-                <img
-                    src="https://source.unsplash.com/random/10"
-                    alt={localize('Video card')}
-                    width="100%"
-                    style={{ objectFit: 'cover' }}
-                />
-            </ImageWrapper>
-            <FeaturedContentWrapper fd="column" p="35px 40px" width="45%">
-                <Flex jc="flex-start" height="auto" fw="wrap">
-                    {article_data[0].category.slice(0, 2).map((item_category) => (
-                        <StyledCategories weight="bold" size="14px" key={item_category}>
-                            {item_category}
-                        </StyledCategories>
-                    ))}
-                    {article_data[0].category.length > 2 && (
-                        <StyledCategories weight="bold" size="14px">
-                            {`+${article_data[0].category.slice(2).length.toString()}`}
-                        </StyledCategories>
-                    )}
-                    <Text color="grey-5" size="14px">
-                        {`• ${article_data[0].reading_time} min read`}
+        <RedirectLink to={`/blog/articles/${article_data[0].slug}`}>
+            <StyledFlex jc="flex-start" mt="96px">
+                <ImageWrapper>
+                    <img
+                        src="https://source.unsplash.com/random/10"
+                        alt={localize('Video card')}
+                        width="100%"
+                        style={{ objectFit: 'cover' }}
+                    />
+                </ImageWrapper>
+                <FeaturedContentWrapper fd="column" p="35px 40px" width="45%">
+                    <Flex jc="flex-start" height="auto" fw="wrap">
+                        {article_data[0].category.slice(0, 2).map((item_category) => (
+                            <StyledCategories weight="bold" size="14px" key={item_category}>
+                                {item_category}
+                            </StyledCategories>
+                        ))}
+                        {article_data[0].category.length > 2 && (
+                            <StyledCategories weight="bold" size="14px">
+                                {`+${article_data[0].category.slice(2).length.toString()}`}
+                            </StyledCategories>
+                        )}
+                        <Text color="grey-5" size="14px">
+                            {`• ${article_data[0].reading_time} min read`}
+                        </Text>
+                    </Flex>
+                    <Header as="h3" size="32px">
+                        {article_data[0].title}
+                    </Header>
+                    <Text size="14px" mt="8px" color="grey-5">
+                        {article_data[0].description}
                     </Text>
-                </Flex>
-                <Header as="h3" size="32px">
-                    {article_data[0].title}
-                </Header>
-                <Text size="14px" mt="8px" color="grey-5">
-                    {article_data[0].description}
-                </Text>
-            </FeaturedContentWrapper>
-        </StyledFlex>
+                </FeaturedContentWrapper>
+            </StyledFlex>
+        </RedirectLink>
     )
 }
 
 FeaturedArticle.propTypes = {
-    article_data: PropTypes.arrayOf(Object),
+    article_data: PropTypes.arrayOf(PropTypes.object),
 }
 
 export default FeaturedArticle

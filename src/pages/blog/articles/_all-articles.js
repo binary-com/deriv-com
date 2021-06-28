@@ -46,7 +46,7 @@ const AllArticles = ({ article_data }) => {
 }
 
 AllArticles.propTypes = {
-    article_data: PropTypes.arrayOf(Object),
+    article_data: PropTypes.arrayOf(PropTypes.object),
 }
 
 export default AllArticles

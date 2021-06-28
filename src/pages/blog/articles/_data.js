@@ -7,6 +7,7 @@ export const article_data = [
         description:
             'To help you begin, we will look at the basics of cryptocurrency: what it is, how it works, and how to start trading cryptos on Deriv.com.',
         date: '12 June 2021',
+        slug: 'how-to-trade-multipliers-on-deriv',
         id: 1,
     },
     {
@@ -17,6 +18,7 @@ export const article_data = [
         description:
             'To help you begin, we will look at the basics of cryptocurrency: what it is, how it works, and how to start trading cryptos on Deriv.com.',
         date: '12 June 2021',
+        slug: 'how-to-trade-multipliers-on-deriv',
         id: 2,
     },
     {
@@ -27,6 +29,7 @@ export const article_data = [
         description:
             'To help you begin, we will look at the basics of cryptocurrency: what it is, how it works, and how to start trading cryptos on Deriv.com.',
         date: '12 June 2021',
+        slug: 'how-to-trade-multipliers-on-deriv',
         id: 3,
     },
     {
@@ -37,6 +40,7 @@ export const article_data = [
         description:
             'To help you begin, we will look at the basics of cryptocurrency: what it is, how it works, and how to start trading cryptos on Deriv.com.',
         date: '12 June 2021',
+        slug: 'how-to-trade-multipliers-on-deriv',
         id: 4,
     },
     {
@@ -47,6 +51,7 @@ export const article_data = [
         description:
             'To help you begin, we will look at the basics of cryptocurrency: what it is, how it works, and how to start trading cryptos on Deriv.com.',
         date: '12 June 2021',
+        slug: 'how-to-trade-multipliers-on-deriv',
         id: 5,
     },
     {
@@ -57,6 +62,7 @@ export const article_data = [
         description:
             'To help you begin, we will look at the basics of cryptocurrency: what it is, how it works, and how to start trading cryptos on Deriv.com.',
         date: '12 June 2021',
+        slug: 'how-to-trade-multipliers-on-deriv',
         id: 6,
     },
     {
@@ -67,6 +73,7 @@ export const article_data = [
         description:
             'To help you begin, we will look at the basics of cryptocurrency: what it is, how it works, and how to start trading cryptos on Deriv.com.',
         date: '12 June 2021',
+        slug: 'how-to-trade-multipliers-on-deriv',
         id: 7,
     },
     {
@@ -77,6 +84,7 @@ export const article_data = [
         description:
             'To help you begin, we will look at the basics of cryptocurrency: what it is, how it works, and how to start trading cryptos on Deriv.com.',
         date: '12 June 2021',
+        slug: 'how-to-trade-multipliers-on-deriv',
         id: 8,
     },
     {
@@ -87,6 +95,7 @@ export const article_data = [
         description:
             'To help you begin, we will look at the basics of cryptocurrency: what it is, how it works, and how to start trading cryptos on Deriv.com.',
         date: '12 June 2021',
+        slug: 'how-to-trade-multipliers-on-deriv',
         id: 9,
     },
 ]

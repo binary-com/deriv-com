@@ -111,7 +111,7 @@ const WhyTrader = () => {
             <CardContainer>
                 {card_content.map(card => {
                     return (
-                        <Card key={index}>
+                        <Card key={card.alt}>
                             <div>
                                 <img src={card.image} alt={card.alt} />
                             </div>

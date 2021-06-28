@@ -6,6 +6,7 @@ import FeaturedArticle from './_featured-article'
 import { Container, Flex } from 'components/containers'
 import { Text, LocalizedLinkText } from 'components/elements'
 import { localize } from 'components/localization'
+import device from 'themes/device'
 import RightArrow from 'images/svg/black-right-arrow.svg'
 
 const VideoGrid = styled.div`
@@ -19,9 +20,15 @@ const VideoGrid = styled.div`
     grid-template-rows: auto;
 `
 
+const StyledContainer = styled(Container)`
+    @media ${device.laptopL} {
+        width: 90%;
+    }
+`
+
 const AllArticles = ({ article_data }) => {
     return (
-        <Container fd="column">
+        <StyledContainer fd="column">
             <Flex jc="flex-start" ai="center" mt="4rem">
                 <LocalizedLinkText to="/blog/" color="grey-5">
                     {localize('Home')}
@@ -41,7 +48,7 @@ const AllArticles = ({ article_data }) => {
                     return <ArticleCard key={item.id} item={item} />
                 })}
             </VideoGrid>
-        </Container>
+        </StyledContainer>
     )
 }
 

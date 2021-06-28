@@ -18,7 +18,7 @@ const StyledFlex = styled(Flex)`
         transform: translateY(-1.1rem) scale(1.02);
     }
 
-    @media (max-width: 894px) {
+    @media (max-width: 879px) {
         flex-direction: column;
         height: auto;
         max-width: 384px;
@@ -46,9 +46,11 @@ const StyledCategories = styled(Text)`
 `
 
 const FeaturedContentWrapper = styled(Flex)`
-    width: 100%;
+    @media ${device.tabletL} {
+        width: 100%;
+    }
 
-    @media (max-width: 894px) {
+    @media (max-width: 879px) {
         padding: 16px 24px;
     }
 `

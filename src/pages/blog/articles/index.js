@@ -36,6 +36,10 @@ const Hero = styled(Flex)`
     background-image: url(${HeroImage});
     background-size: cover;
     background-position: center;
+
+    @media ${device.tabletL} {
+        height: 348px;
+    }
 `
 
 const StyledHeader = styled(Header)`

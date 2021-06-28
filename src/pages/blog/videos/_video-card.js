@@ -12,7 +12,7 @@ const VideoCardWrapper = styled.div`
     flex-direction: column;
     text-decoration: none;
     position: relative;
-    height: auto;
+    height: 100%;
     width: 100%;
     border-radius: 8px;
     border: 1px solid var(--color-grey-8);
@@ -63,7 +63,7 @@ const CategoriesContainer = styled(Flex)`
 
 const StyledCategories = styled(Header)`
     width: fit-content;
-    padding: 1px 8px;
+    padding: 3px 8px 1px;
     border-radius: 8px;
     background-color: var(--color-brown);
     color: var(--color-orange-2);

@@ -10,6 +10,13 @@ import device from 'themes/device'
 
 const Leaders = Loadable(() => import('./_leaders'))
 
+const meta_attributes = {
+    og_title: localize('Our leadership | Deriv'),
+    og_description: localize(
+        'Meet our leaders, dedicated to making Deriv an innovative and reliable broker that provides a simple and flexible trading experience.',
+    ),
+}
+
 const query = graphql`
     query {
         jean_yves_mobile: file(relativePath: { eq: "leaders/jean-yves-mobile.png" }) {
@@ -103,6 +110,7 @@ const Leadership = () => {
                 description={localize(
                     'Deriv.com - A Binary.com brand, is a pioneer and award-winning online trading platform in the trading market.',
                 )}
+                meta_attributes={meta_attributes}
             />
             <Background>
                 <StyledContainer direction="column">

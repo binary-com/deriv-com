@@ -9,7 +9,7 @@ import { Header, Text } from 'components/elements'
 import { Flex, SectionContainer } from 'components/containers'
 import device from 'themes/device'
 
-const cardContent = [
+const card_content = [
     {
         header: localize('Quick demo account sign-up'),
         text: localize('Practise with a demo account preloaded with unlimited virtual funds.'),

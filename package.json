@@ -6,6 +6,7 @@
     "dependencies": {
         "@artsy/fresnel": "^1.7.0",
         "@datadog/browser-rum": "^2.14.0",
+        "@deriv/web-push-notifications": "^3.19.3",
         "@directus/gatsby-source-directus": "^9.0.0-rc.80",
         "@livechat/customer-sdk": "^3.0.0",
         "@loadable/component": "^5.15.0",
@@ -43,7 +44,6 @@
         "react-i18next": "^11.11.0",
         "react-is": "^17.0.2",
         "react-perfect-scrollbar": "^1.5.8",
-        "web-push-notifications": "^3.19.3",
         "webpack": "^5.39.0"
     },
     "devDependencies": {

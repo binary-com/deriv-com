@@ -9,9 +9,10 @@ import device from 'themes/device'
 const ArticleCardWrapper = styled(Flex)`
     max-width: 384px;
     flex-direction: column;
+    justify-content: flex-start;
     text-decoration: none;
     position: relative;
-    height: auto;
+    height: 100%;
     border-radius: 8px;
     border: 1px solid var(--color-grey-8);
     background: var(--color-white);
@@ -42,7 +43,7 @@ const StyledCategories = styled(Header)`
     border-radius: 8px;
     background-color: var(--color-blue-10);
     color: var(--color-blue-9);
-    padding: 1px 8px;
+    padding: 2px 8px 0;
     margin: 0 8px 8px 0;
 `
 
@@ -71,7 +72,7 @@ const ArticleCard = ({ item }) => {
                     />
                 </ImageWrapper>
                 <ContentWrapper>
-                    <Flex jc="flex-start" fw="wrap">
+                    <Flex jc="flex-start" height="auto" fw="wrap">
                         {item.category.slice(0, 2).map((item_category) => (
                             <StyledCategories as="h4" type="paragraph-2" key={item_category}>
                                 {item_category}

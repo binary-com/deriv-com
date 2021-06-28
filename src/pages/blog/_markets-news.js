@@ -12,7 +12,7 @@ const MarketsNewsWrapper = styled.div`
     grid-gap: 30px;
     padding: 10px;
 
-    @media ${device.tablet} {
+    @media ${device.tabletL} {
         grid-template-columns: auto auto;
     }
 

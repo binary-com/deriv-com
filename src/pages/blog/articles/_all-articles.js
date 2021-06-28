@@ -23,7 +23,7 @@ const AllArticles = ({ article_data }) => {
     return (
         <Container fd="column">
             <Flex jc="flex-start" ai="center" mt="4rem">
-                <LocalizedLinkText to="/blog" color="grey-5">
+                <LocalizedLinkText to="/blog/" color="grey-5">
                     {localize('Home')}
                 </LocalizedLinkText>
                 <img

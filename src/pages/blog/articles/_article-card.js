@@ -6,14 +6,12 @@ import { Header, Text } from 'components/elements'
 import { localize, LocalizedLink } from 'components/localization'
 import device from 'themes/device'
 
-const VideoCardWrapper = styled.div`
+const ArticleCardWrapper = styled(Flex)`
     max-width: 384px;
-    display: flex;
     flex-direction: column;
     text-decoration: none;
     position: relative;
     height: auto;
-    width: 100%;
     border-radius: 8px;
     border: 1px solid var(--color-grey-8);
     background: var(--color-white);
@@ -23,10 +21,6 @@ const VideoCardWrapper = styled.div`
 
     &:hover {
         transform: translateY(-1.1rem) scale(1.02);
-    }
-
-    @media ${device.mobileL} {
-        width: 100%;
     }
 `
 
@@ -63,7 +57,7 @@ const RedirectLink = styled(LocalizedLink)`
 const ArticleCard = ({ item }) => {
     return (
         <RedirectLink to={`/blog/articles/${item.slug}`}>
-            <VideoCardWrapper>
+            <ArticleCardWrapper>
                 <ImageWrapper>
                     <img
                         src={item.image}
@@ -95,7 +89,7 @@ const ArticleCard = ({ item }) => {
                         {item.description}
                     </Text>
                 </ContentWrapper>
-            </VideoCardWrapper>
+            </ArticleCardWrapper>
         </RedirectLink>
     )
 }

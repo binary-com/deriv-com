@@ -46,9 +46,8 @@ const StyledCategories = styled(Text)`
 `
 
 const FeaturedContentWrapper = styled(Flex)`
-    @media ${device.tabletL} {
-        width: 100%;
-    }
+    width: 100%;
+
     @media (max-width: 894px) {
         padding: 16px 24px;
     }
@@ -60,7 +59,7 @@ const RedirectLink = styled(LocalizedLink)`
 
 const FeaturedArticle = ({ article_data }) => {
     return (
-        <RedirectLink to={`/blog/articles/${article_data[0].slug}`}>
+        <RedirectLink to={`/blog/articles/${article_data[0].slug}/`}>
             <StyledFlex jc="flex-start" mt="96px">
                 <ImageWrapper>
                     <img

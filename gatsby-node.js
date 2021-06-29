@@ -14,7 +14,7 @@ exports.onCreatePage = ({ page, actions }) => {
     const is_p2p = /responsible/g.test(page.path)
     const is_story = /story/g.test(page.path)
     const is_market = /markets/g.test(page.path)
-    const is_margin = /margin/g.test(page.path)
+    const is_cfds = /cfds/g.test(page.path)
 
     if (is_responsible_trading) {
         createRedirect({
@@ -97,15 +97,15 @@ exports.onCreatePage = ({ page, actions }) => {
         })
     }
 
-    if (is_margin) {
+    if (is_cfds) {
         createRedirect({
-            fromPath: `/trade-types/`,
+            fromPath: `/trade-types/margin/`,
             toPath: `/trade-types/cfds/`,
             redirectInBrowser: true,
             isPermanent: true,
         })
         createRedirect({
-            fromPath: `/trade-types`,
+            fromPath: `/trade-types/margin`,
             toPath: `/trade-types/cfds/`,
             redirectInBrowser: true,
             isPermanent: true,
@@ -247,15 +247,15 @@ exports.onCreatePage = ({ page, actions }) => {
             })
         }
 
-        if (is_margin) {
+        if (is_cfds) {
             createRedirect({
-                fromPath: `/${lang}/trade-types/`,
+                fromPath: `/${lang}/trade-types/margin/`,
                 toPath: `/${lang}/trade-types/cfds/`,
                 redirectInBrowser: true,
                 isPermanent: true,
             })
             createRedirect({
-                fromPath: `/${lang}/trade-types`,
+                fromPath: `/${lang}/trade-types/margin`,
                 toPath: `/${lang}/trade-types/cfds/`,
                 redirectInBrowser: true,
                 isPermanent: true,

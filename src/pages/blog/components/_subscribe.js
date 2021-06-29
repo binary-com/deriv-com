@@ -137,7 +137,7 @@ const EmailImage = styled.img`
     width: 20rem;
 `
 
-const GetEbook = ({ onSubmit, ebook_utm_code }) => {
+const Subscribe = ({ onSubmit, ebook_utm_code }) => {
     const [is_checked, setChecked] = React.useState(false)
     const [email, setEmail] = React.useState('')
     const [name, setName] = React.useState('')
@@ -376,9 +376,9 @@ const GetEbook = ({ onSubmit, ebook_utm_code }) => {
     )
 }
 
-GetEbook.propTypes = {
+Subscribe.propTypes = {
     ebook_utm_code: PropTypes.string,
     onSubmit: PropTypes.func,
 }
 
-export default GetEbook
+export default Subscribe

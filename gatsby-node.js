@@ -101,13 +101,13 @@ exports.onCreatePage = ({ page, actions }) => {
     if (is_margin) {
         createRedirect({
             fromPath: `/trade-types/`,
-            toPath: `/trade-types/margin/`,
+            toPath: `/trade-types/cfds/`,
             redirectInBrowser: true,
             isPermanent: true,
         })
         createRedirect({
             fromPath: `/trade-types`,
-            toPath: `/trade-types/margin/`,
+            toPath: `/trade-types/cfds/`,
             redirectInBrowser: true,
             isPermanent: true,
         })
@@ -251,13 +251,13 @@ exports.onCreatePage = ({ page, actions }) => {
         if (is_margin) {
             createRedirect({
                 fromPath: `/${lang}/trade-types/`,
-                toPath: `/${lang}/trade-types/margin/`,
+                toPath: `/${lang}/trade-types/cfds/`,
                 redirectInBrowser: true,
                 isPermanent: true,
             })
             createRedirect({
                 fromPath: `/${lang}/trade-types`,
-                toPath: `/${lang}/trade-types/margin/`,
+                toPath: `/${lang}/trade-types/cfds/`,
                 redirectInBrowser: true,
                 isPermanent: true,
             })

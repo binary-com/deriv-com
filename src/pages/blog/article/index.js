@@ -13,11 +13,10 @@ import mcBookPro from 'images/common/blog/article/mcbook-pro.png'
 // remove this during merge
 const ParentWrapper = styled(SectionContainer)`
     background: var(--color-white);
-    margin: 120px 0 80px;
+    padding: 40px 16px;
     display: flex;
     justify-content: center;
     @media ${device.tabletL} {
-        padding: 20px 16px;
         margin: 0;
     }
 `

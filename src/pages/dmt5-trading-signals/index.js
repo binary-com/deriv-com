@@ -11,6 +11,7 @@ import { localize, Localize, WithIntl } from 'components/localization'
 import { Header } from 'components/elements'
 import { useTabState } from 'components/hooks/use-tab-state'
 import device from 'themes/device'
+
 const signal_content_subscriber = {
     header: (
         <Localize
@@ -71,11 +72,11 @@ const Item = styled.div`
     ${Header} {
         font-size: 2.4rem;
         width: max-content;
-        text-align: center;
-        font-weight: ${(props) => (props.name === props.active_tab ? 'bold' : 'normal')};
+        text-align: center;   
     }
     h4 {
         color: var(--color-black-3);
+        font-weight: ${(props) => (props.name === props.active_tab ? 'bold' : 'normal')};
     }
     @media ${device.tabletL} {
         padding: 12px 8px 12px 7px;

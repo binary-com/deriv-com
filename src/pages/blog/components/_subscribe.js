@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Cookies from 'js-cookie'
+import CIO from 'customerio-node';
 import { Title, TextWrapper } from './_common';
 import paperPlane from 'images/common/blog/paperplanes.png';
 import { getCookiesObject, getCookiesFields, getDataObjFromCookies } from 'common/cookies'
@@ -14,6 +15,9 @@ import { Flex } from 'components/containers'
 import AgreementLabel from 'components/custom/_agreement-label'
 import device from 'themes/device.js'
 import ViewEmailImage from 'images/common/view-email.png'
+// import { siteId, apiKey, customerId } from './config';
+// In actual use, specify your specific region and import the node module: const { RegionUS, RegionEU } from 'customerio-node/regions)
+// import { RegionUS, RegionEU } from '../regions';
 
 const SignupFormWrapper = styled(Flex)`
     width: 100%;
@@ -229,6 +233,16 @@ const GetEbook = ({ onSubmit, ebook_utm_code }) => {
         if (has_error_email || has_error_name || email_error_msg || name_error_msg) {
             return setIsSubmitting(false)
         }
+        const siteId = process.env.GATSBY_ENV_CIO_KEY
+        const apiKey = process.env.GATSBY_ENV_CIO_SITE_ID
+
+        const cio = new CIO(siteId, apiKey, { region: 'US' });
+        cio.identify(1005, {
+            email: 'customer@example.com',
+            created_at: 1361205308,
+            first_name: 'Bob-node-example',
+            plan: 'basic',
+          });
 
         const verify_email_req = getVerifyEmailRequest(formattedEmail)
         const binary_socket = BinarySocketBase.init()

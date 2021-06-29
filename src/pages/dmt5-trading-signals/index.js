@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { Hero, SmallContainer } from './_style'
 import HowTo from './_how-to'
@@ -11,7 +11,6 @@ import { localize, Localize, WithIntl } from 'components/localization'
 import { Header } from 'components/elements'
 import { useTabState } from 'components/hooks/use-tab-state'
 import device from 'themes/device'
-
 const signal_content_subscriber = {
     header: (
         <Localize
@@ -73,10 +72,10 @@ const Item = styled.div`
         font-size: 2.4rem;
         width: max-content;
         text-align: center;
+        font-weight: ${(props) => (props.name === props.active_tab ? 'bold' : 'normal')};
     }
     h4 {
         color: var(--color-black-3);
-        font-weight: ${(props) => (props.name === props.active_tab ? 'bold' : 'normal')};
     }
     @media ${device.tabletL} {
         padding: 12px 8px 12px 7px;
@@ -102,6 +101,10 @@ const Separator = styled.div`
 
 const DMT5TradingSignals = () => {
     const [active_tab, setActiveTab] = useTabState(['signal-subscriber', 'signal-provider'])
+    const [not_first_loading, setNotFirstLoading] = useState(false) //needs to fix bug with hightlight of the 1st loading
+    useEffect(() => {
+        setNotFirstLoading(true)
+    }, [])
 
     return (
         <Layout>
@@ -114,20 +117,20 @@ const DMT5TradingSignals = () => {
                 </SmallContainer>
             </Hero>
             <TabsContainer>
-                <Item
+                {not_first_loading && <Item
                     onClick={() => setActiveTab('signal-subscriber')}
                     active_tab={active_tab}
                     name="signal-subscriber"
                 >
                     <Header as="h4">{localize('Signal subscriber')}</Header>
-                </Item>
-                <Item
+                </Item>}
+                {not_first_loading && <Item
                     onClick={() => setActiveTab('signal-provider')}
                     active_tab={active_tab}
                     name="signal-provider"
                 >
                     <Header as="h4">{localize('Signal provider')}</Header>
-                </Item>
+                </Item>}
             </TabsContainer>
             <Box position="relative">
                 <Separator />

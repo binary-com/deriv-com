@@ -72,7 +72,7 @@ const Item = styled.div`
     ${Header} {
         font-size: 2.4rem;
         width: max-content;
-        text-align: center;   
+        text-align: center;
     }
     h4 {
         color: var(--color-black-3);

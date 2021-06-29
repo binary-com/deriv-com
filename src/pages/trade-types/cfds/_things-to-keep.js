@@ -28,56 +28,50 @@ const MindWhenTrading = () => {
     const data = useStaticQuery(query)
 
     return (
-        <>
-            <SectionContainer background="white" padding="0 0 4rem">
+        <SectionContainer background="white" padding="0 0 4rem">
+            <SmallContainer direction="column" ai="flex-start">
+                <Header as="h3" type="section-title" mb="2rem">
+                    {localize('Things to keep in mind when trading CFDs')}
+                </Header>
+                <Text size="var(--text-size-m)" weight="bold" mb="0.8rem">
+                    {localize('CFDs are traded on margin')}
+                </Text>
+                <Text mb="3.2rem">
+                    {localize(
+                        'The term ‘margin’ refers to the deposit needed to open a leveraged position, which is a position larger than your capital investment and leads to increased market exposure. ',
+                    )}
+                </Text>
+            </SmallContainer>
+            <Show.Desktop max_width={'bp680'}>
                 <SmallContainer direction="column" ai="flex-start">
-                    <Header as="h3" type="section-title" mb="2rem">
-                        {localize('Things to keep in mind when trading CFDs')}
-                    </Header>
-                    <Text size="var(--text-size-m)" weight="bold" mb="0.8rem">
-                        {localize('CFDs are traded on margin')}
-                    </Text>
-                    <Text mb="3.2rem">
-                        {localize(
-                            'The term ‘margin’ refers to the deposit needed to open a leveraged position, which is a position larger than your capital investment and leads to increased market exposure. ',
-                        )}
-                    </Text>
-                </SmallContainer>
-                <Show.Desktop max_width={'bp680'}>
-                    <SmallContainer direction="column" ai="flex-start">
-                        <ImageWrapper>
-                            <QueryImage
-                                data={data['margin_relationship_piechart']}
-                                alt="Trade types margin market"
-                            />
-                        </ImageWrapper>
-                    </SmallContainer>
-                </Show.Desktop>
-                <Show.Mobile min_width={'bp680'}>
                     <ImageWrapper>
                         <QueryImage
-                            data={data['margin_mobile_relationship_piechart']}
+                            data={data['margin_relationship_piechart']}
                             alt="Trade types margin market"
                         />
                     </ImageWrapper>
-                </Show.Mobile>
-                <SmallContainer direction="column" ai="flex-start">
-                    <Text mt="3.2rem">
-                        {localize(
-                            'Use our margin calculator to calculate the margin required to increase your market exposure (the market value of your position) on Deriv’s CFD trading platforms.',
-                        )}
-                    </Text>
-
-                    <StyledLinkButton
-                        mt="4rem"
-                        secondary="true"
-                        to="/trader-tools#margin-calculator"
-                    >
-                        {localize('Margin calculator')}
-                    </StyledLinkButton>
                 </SmallContainer>
-            </SectionContainer>
-        </>
+            </Show.Desktop>
+            <Show.Mobile min_width={'bp680'}>
+                <ImageWrapper>
+                    <QueryImage
+                        data={data['margin_mobile_relationship_piechart']}
+                        alt="Trade types margin market"
+                    />
+                </ImageWrapper>
+            </Show.Mobile>
+            <SmallContainer direction="column" ai="flex-start">
+                <Text mt="3.2rem">
+                    {localize(
+                        'Use our margin calculator to calculate the margin required to increase your market exposure (the market value of your position) on Deriv’s CFD trading platforms.',
+                    )}
+                </Text>
+
+                <StyledLinkButton mt="4rem" secondary="true" to="/trader-tools/margin-calculator/">
+                    {localize('Margin calculator')}
+                </StyledLinkButton>
+            </SmallContainer>
+        </SectionContainer>
     )
 }
 

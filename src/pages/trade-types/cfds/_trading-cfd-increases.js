@@ -21,10 +21,6 @@ const query = graphql`
     }
 `
 
-const ShowWrapper = styled.div`
-    width: 100%;
-`
-
 const ExampleImage = styled(QueryImage)`
     margin: ${(props) => (props.center ? '0 auto' : 'unset')};
     width: 792px;
@@ -46,33 +42,8 @@ const ExampleImage = styled(QueryImage)`
     }
 `
 export const StyledLinkButton = styled(LinkButton)`
-    padding: 1.2rem 1.5rem;
-    font-size: 14px;
-    max-height: 4rem;
-    height: 100%;
-    margin-right: 0.8rem;
-
-    @media ${device.laptop} {
-        padding: 1.5rem 1.6rem;
-        height: 42px;
-        white-space: nowrap;
-        display: block;
-        max-height: 40px;
-
-        :nth-child(2) {
-            margin-bottom: 16px;
-        }
-    }
     @media ${device.tabletL} {
         margin: 4rem auto;
-    }
-
-    :active {
-        outline: none;
-        border: none;
-    }
-    :focus {
-        outline: 0;
     }
 `
 
@@ -123,11 +94,9 @@ const TradingCFDIncreases = () => {
                 <Show.Desktop>
                     <ExampleImage data={data['example']} />
                 </Show.Desktop>
-                <ShowWrapper>
                     <Show.Mobile width="100%">
                         <ExampleImage data={data['example_mobile']} />
                     </Show.Mobile>
-                </ShowWrapper>
 
                 <Header mt="3.2rem" as="h5" type="main-paragraph" mb="0.8rem">
                     {localize('Stop out')}
@@ -156,7 +125,7 @@ const TradingCFDIncreases = () => {
                         'If your margin level drops below Deriv’s margin call level, you’ll get a margin call, which is a warning that your account is approaching the stop out level. ',
                     )}
                 </Text>
-                <Header as="h4" type="sub-section-title" id="swap-policy" mb="0.8rem">
+                <Header as="h4" type="sub-section-title" mb="0.8rem">
                     {localize('Swap rates (overnight funding)')}
                 </Header>
 

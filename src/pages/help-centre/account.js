@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Article } from './_article'
 import { ArticleWrapper, ExternalLink, StyledHeader, StyledText } from './_help-centre-style'
@@ -35,9 +36,9 @@ const WhoCanOpenAnAccount = () => (
         </StyledList>
     </ArticleWrapper>
 )
-const ChangingPersonalDetails = () => (
+const ChangingPersonalDetails = (props) => (
     <ArticleWrapper>
-        <StyledHeader as="h4">{localize('How can I change my personal details?')}</StyledHeader>
+        {props.not_first_loading && <StyledHeader as="h4">{localize('How can I change my personal details?')}</StyledHeader>}
         <Text>
             <Localize
                 translate_text="If your account is not authenticated, you can change your name, date of birth, or citizenship by going to <0>Settings ></0> <1>Personal details</1>."
@@ -61,6 +62,11 @@ const ChangingPersonalDetails = () => (
         </StyledText>
     </ArticleWrapper>
 )
+ChangingPersonalDetails.propTypes = {
+    children: PropTypes.any,
+    not_first_loading: PropTypes.bool
+};
+
 const ChangeAccountCurrency = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize("How can I change my account's currency?")}</StyledHeader>
@@ -71,13 +77,13 @@ const ChangeAccountCurrency = () => (
         </Text>
     </ArticleWrapper>
 )
-const RecoveringPassword = () => (
+const RecoveringPassword = (props) => (
     <ArticleWrapper>
-        <StyledHeader as="h4">
+        {props.not_first_loading && <StyledHeader as="h4">
             {localize(
                 'I forgot my Google/Facebook account password. How can I log in to my Deriv account?',
             )}
-        </StyledHeader>
+        </StyledHeader>}
         <Text>
             <Localize
                 translate_text="If you’ve forgotten your Google/Facebook account password, you can <0>reset your Deriv account password</0> to log in to Deriv."
@@ -93,11 +99,16 @@ const RecoveringPassword = () => (
                 ]}
             />
         </Text>
-    </ArticleWrapper>
-)
-const CloseAccount = () => (
+    </ArticleWrapper>)
+
+RecoveringPassword.propTypes = {
+    children: PropTypes.any,
+    not_first_loading: PropTypes.bool,
+};
+
+const CloseAccount = (props) => (
     <ArticleWrapper>
-        <StyledHeader as="h4">{localize('How can I close my account?')}</StyledHeader>
+        {props.not_first_loading && <StyledHeader as="h4">{localize('How can I close my account?')}</StyledHeader>}
         <Text>
             {localize(
                 'Before closing your account, please close all your open positions and withdraw all the funds in your account. After that, you may contact us with your request.',
@@ -105,11 +116,17 @@ const CloseAccount = () => (
         </Text>
     </ArticleWrapper>
 )
-const UnsubscribeEmail = () => (
+
+CloseAccount.propTypes = {
+    children: PropTypes.any,
+    not_first_loading: PropTypes.bool,
+};
+
+const UnsubscribeEmail = (props) => (
     <ArticleWrapper>
-        <StyledHeader as="h4">
+        {props.not_first_loading && <StyledHeader as="h4">
             {localize('How do I unsubscribe from marketing emails?')}
-        </StyledHeader>
+        </StyledHeader>}
         <Text>
             <Localize
                 translate_text="You can do this easily by going to <0>Settings > Profile ></0> <1>Personal details</1>. Uncheck the email preference box, and click the ‘Submit’ button to unsubscribe."
@@ -128,9 +145,15 @@ const UnsubscribeEmail = () => (
         </Text>
     </ArticleWrapper>
 )
-const DormantFee = () => (
+
+UnsubscribeEmail.propTypes = {
+    children: PropTypes.any,
+    not_first_loading: PropTypes.bool,
+};
+
+const DormantFee = (props) => (
     <ArticleWrapper>
-        <StyledHeader as="h4">{localize('What is a dormant fee?')}</StyledHeader>
+        {props.not_first_loading && <StyledHeader as="h4">{localize('What is a dormant fee?')}</StyledHeader>}
         <Text>
             {localize(
                 'A dormant fee is an amount charged to any account that has not placed a transaction over a continuous period of 12 months.',
@@ -144,7 +167,16 @@ const DormantFee = () => (
     </ArticleWrapper>
 )
 
+DormantFee.propTypes = {
+    children: PropTypes.any,
+    not_first_loading: PropTypes.bool,
+};
+
 const AccountArticle = () => {
+    const [not_first_loading, setNotFirstLoading] = useState(false) //needs to fix bug with hightlight of the 1st loading
+    useEffect(() => {
+        setNotFirstLoading(true)
+    }, [])
     return (
         <div>
             <Article
@@ -159,26 +191,35 @@ const AccountArticle = () => {
                 <ChangingPersonalDetails
                     text={localize('How can I change my personal details?')}
                     label="changing-your-personal-details"
+                    not_first_loading={not_first_loading}
                 />
                 <ChangeAccountCurrency
                     text={localize("How can I change my account's currency?")}
                     label="change-account-currency"
+                    not_first_loading={not_first_loading}
                 />
                 <RecoveringPassword
                     text={localize(
                         'I forgot my Google/Facebook account password. How can I log in to my Deriv account?',
                     )}
                     label="recovering-your-password"
+                    not_first_loading={not_first_loading}
                 />
                 <CloseAccount
                     text={localize('How can I close my account?')}
                     label="close-your-account"
+                    not_first_loading={not_first_loading}
                 />
                 <UnsubscribeEmail
                     text={localize('How do I unsubscribe from marketing emails?')}
                     label="unsubscribe-marketing-emails"
+                    not_first_loading={not_first_loading}
                 />
-                <DormantFee text={localize('What is a dormant fee?')} label="what-is-dormant-fee" />
+                <DormantFee
+                    text={localize('What is a dormant fee?')}
+                    label="what-is-dormant-fee"
+                    not_first_loading={not_first_loading}
+                />
             </Article>
         </div>
     )

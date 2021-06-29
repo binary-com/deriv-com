@@ -7,8 +7,8 @@ const ArticleTemplate = () => {
     return (
         <Layout>
             <SEO
-                description={localize('Single Article Post Preview | Deriv')}
-                title={localize('Preview Your Posts Here.')}
+                description={localize('Single Article Post | Deriv')}
+                title={localize('Single Post Here.')}
                 no_index
             />
         </Layout>

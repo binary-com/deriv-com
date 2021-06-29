@@ -35,23 +35,23 @@ exports.createPages = async ({ reporter, actions, graphql }) => {
                 locale: 'en',
                 localeResources: {},
                 blog_data: article,
-                pathname: `/blog/article/${article.article_url}`
+                pathname: `/blog/article/${article.article_url}`,
             },
         })
 
         // other languages
-        article.translations.forEach((translation) => {
-            createPage({
-                path: `/blog/article/${translation.languages_id}/${article.article_url}`,
-                component: articleTemplate,
-                context: {
-                    locale: translation.languages_id,
-                    localeResources: {},
-                    blog_data: translation,
-                    pathname: `/blog/article/${translation.languages_id}/${article.article_url}`
-                },
-            })
-        })
+        // article.translations.forEach((translation) => {
+        //     createPage({
+        //         path: `/blog/article/${translation.languages_id}/${article.article_url}`,
+        //         component: articleTemplate,
+        //         context: {
+        //             locale: translation.languages_id,
+        //             localeResources: {},
+        //             blog_data: translation,
+        //             pathname: `/blog/article/${translation.languages_id}/${article.article_url}`
+        //         },
+        //     })
+        // })
     })
 }
 

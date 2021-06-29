@@ -12,7 +12,25 @@ export const market_news_data = [
         img_source: "https://source.unsplash.com/random/104x78"
     },
     {
+        report_type: "Daily report",
+        date: "17 May 2021 - 24 May 2021",
+        read_time: 4,
+        img_source: "https://source.unsplash.com/random/104x78"
+    },
+    {
+        report_type: "Monthly report",
+        date: "17 May 2021 - 24 May 2021",
+        read_time: 4,
+        img_source: "https://source.unsplash.com/random/104x78"
+    },
+    {
         report_type: "Weekly report",
+        date: "10 May 2021 - 17 May 2021",
+        read_time: 3,
+        img_source: "https://source.unsplash.com/random/104x78"
+    },
+    {
+        report_type: "Yearly report",
         date: "10 May 2021 - 17 May 2021",
         read_time: 3,
         img_source: "https://source.unsplash.com/random/104x78"

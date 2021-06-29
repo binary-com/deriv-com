@@ -37,7 +37,7 @@ const MarketNews = () => {
                         Market News
                     </Header>
                     <MarketsNewsWrapper>
-                        {market_news_data.slice(0, 6).map((data, index) => {
+                        {market_news_data.filter((data) => data.report_type === "Weekly report").slice(0, 6).map((data, index) => {
                             return (
                                 <Flex key={index}>
                                     <img src={data.img_source} width="104px" height="78px" />

@@ -38,7 +38,7 @@ const WhoCanOpenAnAccount = () => (
 )
 const ChangingPersonalDetails = (props) => (
     <ArticleWrapper>
-        {props.not_first_loading && <StyledHeader as="h4">{localize('How can I change my personal details?')}</StyledHeader>}
+        {props.is_mounted && <StyledHeader as="h4">{localize('How can I change my personal details?')}</StyledHeader>}
         <Text>
             <Localize
                 translate_text="If your account is not authenticated, you can change your name, date of birth, or citizenship by going to <0>Settings ></0> <1>Personal details</1>."
@@ -64,7 +64,7 @@ const ChangingPersonalDetails = (props) => (
 )
 ChangingPersonalDetails.propTypes = {
     children: PropTypes.any,
-    not_first_loading: PropTypes.bool
+    is_mounted: PropTypes.bool
 };
 
 const ChangeAccountCurrency = () => (
@@ -79,7 +79,7 @@ const ChangeAccountCurrency = () => (
 )
 const RecoveringPassword = (props) => (
     <ArticleWrapper>
-        {props.not_first_loading && <StyledHeader as="h4">
+        {props.is_mounted && <StyledHeader as="h4">
             {localize(
                 'I forgot my Google/Facebook account password. How can I log in to my Deriv account?',
             )}
@@ -103,12 +103,12 @@ const RecoveringPassword = (props) => (
 
 RecoveringPassword.propTypes = {
     children: PropTypes.any,
-    not_first_loading: PropTypes.bool,
+    is_mounted: PropTypes.bool,
 };
 
 const CloseAccount = (props) => (
     <ArticleWrapper>
-        {props.not_first_loading && <StyledHeader as="h4">{localize('How can I close my account?')}</StyledHeader>}
+        {props.is_mounted && <StyledHeader as="h4">{localize('How can I close my account?')}</StyledHeader>}
         <Text>
             {localize(
                 'Before closing your account, please close all your open positions and withdraw all the funds in your account. After that, you may contact us with your request.',
@@ -119,12 +119,12 @@ const CloseAccount = (props) => (
 
 CloseAccount.propTypes = {
     children: PropTypes.any,
-    not_first_loading: PropTypes.bool,
+    is_mounted: PropTypes.bool,
 };
 
 const UnsubscribeEmail = (props) => (
     <ArticleWrapper>
-        {props.not_first_loading && <StyledHeader as="h4">
+        {props.is_mounted && <StyledHeader as="h4">
             {localize('How do I unsubscribe from marketing emails?')}
         </StyledHeader>}
         <Text>
@@ -148,12 +148,12 @@ const UnsubscribeEmail = (props) => (
 
 UnsubscribeEmail.propTypes = {
     children: PropTypes.any,
-    not_first_loading: PropTypes.bool,
+    is_mounted: PropTypes.bool,
 };
 
 const DormantFee = (props) => (
     <ArticleWrapper>
-        {props.not_first_loading && <StyledHeader as="h4">{localize('What is a dormant fee?')}</StyledHeader>}
+        {props.is_mounted && <StyledHeader as="h4">{localize('What is a dormant fee?')}</StyledHeader>}
         <Text>
             {localize(
                 'A dormant fee is an amount charged to any account that has not placed a transaction over a continuous period of 12 months.',
@@ -169,13 +169,13 @@ const DormantFee = (props) => (
 
 DormantFee.propTypes = {
     children: PropTypes.any,
-    not_first_loading: PropTypes.bool,
+    is_mounted: PropTypes.bool,
 };
 
 const AccountArticle = () => {
-    const [not_first_loading, setNotFirstLoading] = useState(false) //needs to fix bug with hightlight of the 1st loading
+    const [is_mounted, setMounted] = useState(false) // needed to fix tab highlighting not being rerendered during first load
     useEffect(() => {
-        setNotFirstLoading(true)
+        setMounted(true)
     }, [])
     return (
         <div>
@@ -191,34 +191,34 @@ const AccountArticle = () => {
                 <ChangingPersonalDetails
                     text={localize('How can I change my personal details?')}
                     label="changing-your-personal-details"
-                    not_first_loading={not_first_loading}
+                    is_mounted={is_mounted}
                 />
                 <ChangeAccountCurrency
                     text={localize("How can I change my account's currency?")}
                     label="change-account-currency"
-                    not_first_loading={not_first_loading}
+                    is_mounted={is_mounted}
                 />
                 <RecoveringPassword
                     text={localize(
                         'I forgot my Google/Facebook account password. How can I log in to my Deriv account?',
                     )}
                     label="recovering-your-password"
-                    not_first_loading={not_first_loading}
+                    is_mounted={is_mounted}
                 />
                 <CloseAccount
                     text={localize('How can I close my account?')}
                     label="close-your-account"
-                    not_first_loading={not_first_loading}
+                    is_mounted={is_mounted}
                 />
                 <UnsubscribeEmail
                     text={localize('How do I unsubscribe from marketing emails?')}
                     label="unsubscribe-marketing-emails"
-                    not_first_loading={not_first_loading}
+                    is_mounted={is_mounted}
                 />
                 <DormantFee
                     text={localize('What is a dormant fee?')}
                     label="what-is-dormant-fee"
-                    not_first_loading={not_first_loading}
+                    is_mounted={is_mounted}
                 />
             </Article>
         </div>

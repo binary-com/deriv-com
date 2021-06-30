@@ -78,7 +78,7 @@
     "scripts": {
         "build": "gatsby clean && gatsby build",
         "build:inc": "gatsby clean && export GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES=true && gatsby build",
-        "develop": "gatsby develop -o -p 9001",
+        "develop": "gatsby develop -o",
         "format": "prettier --write '**/*.js' '*.js'",
         "stylelint": "stylelint 'src/**/*.js' --formatter verbose",
         "eslint": "DEBUG=eslint:cli-engine eslint {'src/**/*.js','./*js'} --fix",

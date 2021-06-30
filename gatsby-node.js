@@ -4,7 +4,7 @@ const path = require('path')
 
 exports.createPages = async ({ reporter, actions, graphql }) => {
     const { createPage } = actions
-    const articleTemplate = path.resolve(__dirname, 'src/pages/blog/template/article.js')
+    const articleTemplate = path.resolve(__dirname, 'src/templates/article.js')
 
     // Query our published articles
     const result = await graphql(`
@@ -33,6 +33,7 @@ exports.createPages = async ({ reporter, actions, graphql }) => {
             component: articleTemplate,
             context: {
                 locale: 'en',
+                article_url: article.article_url,
                 localeResources: {},
                 blog_data: article,
                 pathname: `/blog/article/${article.article_url}`,

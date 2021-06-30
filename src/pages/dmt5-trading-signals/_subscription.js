@@ -26,7 +26,6 @@ const StyledSectionContainer = styled(SectionContainer)`
 `
 const StyledContainer = styled(Container)`
     flex-direction: column;
-    justify-content: center;
     padding: 8rem 0;
 
     @media ${device.tabletL} {

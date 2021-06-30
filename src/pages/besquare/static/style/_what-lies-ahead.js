@@ -13,8 +13,6 @@ export const Section = styled(SectionContainer)`
 
 export const ContentContainer = styled(Container)`
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
 `
 
 export const TitleWrapper = styled(Flex)`

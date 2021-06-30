@@ -21,7 +21,6 @@ const StyledText = styled(Text)`
 `
 
 const StyledContainer = styled(Container)`
-    display: flex;
     width: 100%;
 
     @media ${device.tabletL} {

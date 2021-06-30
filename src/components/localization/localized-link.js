@@ -196,13 +196,9 @@ const ExternalLink = ({
                 aria_label: aria_label,
             })
             toggleModal()
-            if (typeof onClick === 'function') {
-                onClick(e)
-            }
-        } else {
-            if (typeof onClick === 'function') {
-                onClick(e)
-            }
+        }
+        if (typeof onClick === 'function') {
+            onClick(e)
         }
     }
 

@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { useLocation } from '@gatsbyjs/reach-router'
 import { SectionContainer, Container, Flex } from 'components/containers'
 import { LocalizedLink } from 'components/localization'
 import { Header } from 'components/elements/typography'
@@ -28,9 +29,10 @@ const StyledFlex = styled(Flex)`
     }
 `
 
-const url = typeof window !== 'undefined' ? window.location.href : '';
-
 const SocialSharing = () => {
+    const url = useLocation().href
+    console.log(url) //eslint-disable-line
+
     return (
         <SectionContainer>
             <Container>
@@ -42,7 +44,7 @@ const SocialSharing = () => {
                     </HeaderWrapper>
                     <IconWrapper>
                         <Flex jc="space-between">
-                            <LocalizedLink external to={`https://www.facebook.com/sharer/sharer.php?u=${url}`} target="_blank" rel="noopener noreferrer">
+                            <LocalizedLink external to={"https://www.facebook.com/sharer/sharer.php?u=" + url} target="_blank" rel="noopener noreferrer">
                                 <img src={FacebookIcon} width="24px" height="24px" />
                             </LocalizedLink>
                             <LocalizedLink external to="" target="_blank" rel="noopener noreferrer">

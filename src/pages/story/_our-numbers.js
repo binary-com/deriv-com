@@ -28,8 +28,6 @@ const NumberHeader = styled(Text)`
     margin-bottom: 0.8rem;
 `
 const OurNumbersContainer = styled(Container)`
-    flex-direction: row;
-    justify-content: center;
     padding: 8rem 0;
     flex-wrap: wrap;
 

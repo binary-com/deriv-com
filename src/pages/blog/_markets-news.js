@@ -24,7 +24,7 @@ const MarketsNewsWrapper = styled.div`
 
 const StyledSpan = styled.span`
     background-color: var(--color-blue-9); 
-    padding: 3px 8px;
+    padding: 3px 8px 1px;
     border-radius: 8px;
 `
 
@@ -45,7 +45,7 @@ const MarketNews = () => {
                                         <Header type="paragraph-2" color="blue-10">
                                             <StyledSpan>{data.report_type}</StyledSpan>
                                         </Header>
-                                        <Header lh="1 !important" mt="8px" type="paragraph-1" weight="bold">
+                                        <Header mt="8px" type="paragraph-1" weight="bold">
                                             {data.date}
                                         </Header>
                                         <Flex mt="auto" height="fit-content" jc="center" ai="center">

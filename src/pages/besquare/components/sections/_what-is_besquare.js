@@ -38,10 +38,15 @@ const WhatIsBeSquare = () => {
         <Section>
             <ContentContainer>
                 <ContentWrapper>
-                    <Title as="h2" text_align={'left'} max_width={['450px']} margin={['0', '0 auto']}>
+                    <Title
+                        as="h2"
+                        text_align={'left'}
+                        max_width={['450px']}
+                        margin={['0', '0 auto']}
+                    >
                         {what_is_be_square.title}
                     </Title>
-                    <TextWrapper max_width={['486px', '328px']} margin={['8px 0 0', '16px 0']} >
+                    <TextWrapper max_width={['486px', '328px']} margin={['8px 0 0', '16px 0']}>
                         {what_is_be_square.subtitle}
                     </TextWrapper>
                 </ContentWrapper>

@@ -11,14 +11,17 @@ const MarketsNewsWrapper = styled.div`
     grid-template-columns: auto auto auto;
     grid-gap: 30px;
     padding: 10px;
+    max-height: 211px;
 
     @media ${device.tabletL} {
         grid-template-columns: auto auto;
+        max-height: 330px;
     }
 
     @media ${device.tabletS} {
         grid-template-columns: auto;
         margin:0 auto;
+        max-height: 668px;
     }
 `
 
@@ -26,6 +29,10 @@ const StyledSpan = styled.span`
     background-color: var(--color-blue-9); 
     padding: 3px 8px 1px;
     border-radius: 8px;
+`
+
+const StyledFlex = styled(Flex)`
+    max-height: 83px;
 `
 
 const MarketNews = () => {
@@ -39,7 +46,7 @@ const MarketNews = () => {
                     <MarketsNewsWrapper>
                         {market_news_data.filter((data) => data.report_type === "Weekly report").slice(0, 6).map((data, index) => {
                             return (
-                                <Flex key={index}>
+                                <StyledFlex key={index}>
                                     <img src={data.img_source} width="104px" height="78px" />
                                     <Flex ml="8px" fd="column">
                                         <Header type="paragraph-2" color="blue-10">
@@ -55,7 +62,7 @@ const MarketNews = () => {
                                             </Header>
                                         </Flex>
                                     </Flex>
-                                </Flex>
+                                </StyledFlex>
                             )
                         })}
                     </MarketsNewsWrapper>

@@ -57,7 +57,7 @@ const RedirectLink = styled(LocalizedLink)`
     max-width: 1200px;
 `
 
-const ContainedImg = styled.img`
+const CoverImg = styled.img`
     object-fit: cover;
 `
 
@@ -66,7 +66,7 @@ const FeaturedArticle = ({ article_data }) => {
         <RedirectLink to={`/blog/articles/${article_data[0].slug}/`}>
             <StyledFlex jc="flex-start" mt="96px">
                 <ImageWrapper>
-                    <ContainedImg
+                    <CoverImg
                         src="https://source.unsplash.com/random/10"
                         alt="Video card"
                         width="100%"

@@ -2,60 +2,6 @@
 const language_config = require(`./i18n-config.js`)
 const path = require('path')
 
-exports.createPages = async ({ reporter, actions, graphql }) => {
-    const { createPage } = actions
-    const articleTemplate = path.resolve(__dirname, 'src/templates/article.js')
-
-    // Query our published articles
-    const result = await graphql(`
-        query MyQuery {
-            directus {
-                articles(filter: { status: { _eq: "published" } }) {
-                    article_title
-                    article_url
-                    translations {
-                        article_title
-                        languages_id
-                    }
-                }
-            }
-        }
-    `)
-
-    if (result.errors) {
-        reporter.panic(result.errors)
-    }
-    const articles = result.data.directus.articles
-
-    articles.forEach((article) => {
-        createPage({
-            path: `/blog/article/${article.article_url}`,
-            component: articleTemplate,
-            context: {
-                locale: 'en',
-                article_url: article.article_url,
-                localeResources: {},
-                blog_data: article,
-                pathname: `/blog/article/${article.article_url}`,
-            },
-        })
-
-        // other languages
-        // article.translations.forEach((translation) => {
-        //     createPage({
-        //         path: `/blog/article/${translation.languages_id}/${article.article_url}`,
-        //         component: articleTemplate,
-        //         context: {
-        //             locale: translation.languages_id,
-        //             localeResources: {},
-        //             blog_data: translation,
-        //             pathname: `/blog/article/${translation.languages_id}/${article.article_url}`
-        //         },
-        //     })
-        // })
-    })
-}
-
 const translations_cache = {}
 // Based upon https://github.com/gatsbyjs/gatsby/tree/master/examples/using-i18n
 exports.onCreatePage = ({ page, actions }) => {
@@ -310,5 +256,59 @@ exports.onCreateWebpackConfig = ({ actions, getConfig }, { ...options }) => {
         resolve: {
             modules: [path.resolve(__dirname, 'src'), 'node_modules'],
         },
+    })
+}
+
+exports.createPages = async ({ reporter, actions, graphql }) => {
+    const { createPage } = actions
+    const articleTemplate = path.resolve(__dirname, 'src/pages/templates/article.js')
+
+    // Query our published articles
+    const result = await graphql(`
+        query MyQuery {
+            directus {
+                articles(filter: { status: { _eq: "published" } }) {
+                    article_title
+                    article_url
+                    translations {
+                        article_title
+                        languages_id
+                    }
+                }
+            }
+        }
+    `)
+
+    if (result.errors) {
+        reporter.panic(result.errors)
+    }
+    const articles = result.data.directus.articles
+
+    articles.forEach((article) => {
+        createPage({
+            path: `/blog/articles/${article.article_url}`,
+            component: articleTemplate,
+            context: {
+                locale: 'en',
+                pathname: `/blog/articles/${article.article_url}`,
+                slug: article.article_url,
+                blog_data: article,
+                // // localeResources: {},
+            },
+        })
+
+        // other languages
+        // article.translations.forEach((translation) => {
+        //     createPage({
+        //         path: `/blog/article/${translation.languages_id}/${article.article_url}`,
+        //         component: articleTemplate,
+        //         context: {
+        //             locale: translation.languages_id,
+        //             localeResources: {},
+        //             blog_data: translation,
+        //             pathname: `/blog/article/${translation.languages_id}/${article.article_url}`
+        //         },
+        //     })
+        // })
     })
 }

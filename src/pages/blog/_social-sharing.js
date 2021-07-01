@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { useLocation } from '@gatsbyjs/reach-router'
+import { getLocationPathname } from 'common/utility'
 import { SectionContainer, Container, Flex } from 'components/containers'
 import { LocalizedLink } from 'components/localization'
 import { Header } from 'components/elements/typography'
@@ -29,10 +29,7 @@ const StyledFlex = styled(Flex)`
     }
 `
 
-const SocialSharing = () => {
-    const url = useLocation().href
-    console.log(url) //eslint-disable-line
-
+const SocialSharing = (siteUrl) => {
     return (
         <SectionContainer>
             <Container>
@@ -44,16 +41,16 @@ const SocialSharing = () => {
                     </HeaderWrapper>
                     <IconWrapper>
                         <Flex jc="space-between">
-                            <LocalizedLink external to={"https://www.facebook.com/sharer/sharer.php?u=" + url} target="_blank" rel="noopener noreferrer">
+                            <LocalizedLink external to={"https://www.facebook.com/sharer/sharer.php?u=" + siteUrl + getLocationPathname()} target="_blank" rel="noopener noreferrer">
                                 <img src={FacebookIcon} width="24px" height="24px" />
                             </LocalizedLink>
                             <LocalizedLink external to="" target="_blank" rel="noopener noreferrer">
                                 <img src={InstagramIcon} width="24px" height="24px" />
                             </LocalizedLink>
-                            <LocalizedLink external to={`https://www.twitter.com/share?url=${url}`} target="_blank" rel="noopener noreferrer">
+                            <LocalizedLink external to={`https://www.twitter.com/share?url=` + getLocationPathname()} target="_blank" rel="noopener noreferrer">
                                 <img src={TwitterIcon} width="24px" height="24px" />
                             </LocalizedLink>
-                            <LocalizedLink external to={`https://pinterest.com/pin/create/button/?url=${url}`} target="_blank" rel="noopener noreferrer">
+                            <LocalizedLink external to={`https://pinterest.com/pin/create/button/?url=`} target="_blank" rel="noopener noreferrer">
                                 <img src={PinterestIcon} width="24px" height="24px" />
                             </LocalizedLink>
                         </Flex>

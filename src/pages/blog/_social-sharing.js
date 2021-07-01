@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { getLocationPathname } from 'common/utility'
+import PropTypes from 'prop-types'
 import { SectionContainer, Container, Flex } from 'components/containers'
 import { LocalizedLink } from 'components/localization'
 import { Header } from 'components/elements/typography'
@@ -29,7 +29,7 @@ const StyledFlex = styled(Flex)`
     }
 `
 
-const SocialSharing = (siteUrl) => {
+const SocialSharing = ({ pathname }) => {
     return (
         <SectionContainer>
             <Container>
@@ -41,16 +41,16 @@ const SocialSharing = (siteUrl) => {
                     </HeaderWrapper>
                     <IconWrapper>
                         <Flex jc="space-between">
-                            <LocalizedLink external to={"https://www.facebook.com/sharer/sharer.php?u=" + siteUrl + getLocationPathname()} target="_blank" rel="noopener noreferrer">
+                            <LocalizedLink external to={"https://www.facebook.com/sharer/sharer.php?u=https://deriv.com" + pathname} target="_blank" rel="noopener noreferrer">
                                 <img src={FacebookIcon} width="24px" height="24px" />
                             </LocalizedLink>
                             <LocalizedLink external to="" target="_blank" rel="noopener noreferrer">
                                 <img src={InstagramIcon} width="24px" height="24px" />
                             </LocalizedLink>
-                            <LocalizedLink external to={`https://www.twitter.com/share?url=` + getLocationPathname()} target="_blank" rel="noopener noreferrer">
+                            <LocalizedLink external to={"https://www.twitter.com/share?url=https://deriv.com" + pathname} target="_blank" rel="noopener noreferrer">
                                 <img src={TwitterIcon} width="24px" height="24px" />
                             </LocalizedLink>
-                            <LocalizedLink external to={`https://pinterest.com/pin/create/button/?url=`} target="_blank" rel="noopener noreferrer">
+                            <LocalizedLink external to={"https://pinterest.com/pin/create/button/?url=https://deriv.com" + pathname} target="_blank" rel="noopener noreferrer">
                                 <img src={PinterestIcon} width="24px" height="24px" />
                             </LocalizedLink>
                         </Flex>
@@ -59,6 +59,10 @@ const SocialSharing = (siteUrl) => {
             </Container>
         </SectionContainer>
     )
+}
+
+SocialSharing.propTypes = {
+    pathname: PropTypes.string,
 }
 
 export default SocialSharing

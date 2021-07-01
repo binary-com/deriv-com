@@ -4,7 +4,7 @@ import { usePageLoaded } from '../../components/hooks/use-page-loaded'
 import { Article } from './_article'
 import { ArticleWrapper, ExternalLink, StyledHeader } from './_help-centre-style'
 import { deriv_app_url } from 'common/constants'
-import { Text } from 'components/elements'
+import { Text, Header } from 'components/elements'
 import { localize, Localize, WithIntl } from 'components/localization'
 
 const Forex = (props) => (
@@ -22,9 +22,9 @@ Forex.propTypes = {
     is_mounted: PropTypes.bool
 };
 
-const Commodities = (props) => (
+const Commodities = () => (
     <ArticleWrapper>
-        {props.is_mounted && <StyledHeader as="h4">{localize('What are commodities?')}</StyledHeader>}
+        <Header as="h4">{localize('What are commodities?')}</Header>
         <Text>
             {localize(
                 'A commodity is either grown or produced naturally in the environment. Examples include crude oil, metals, gold, and silver.',
@@ -32,14 +32,14 @@ const Commodities = (props) => (
         </Text>
     </ArticleWrapper>
 )
-Commodities.propTypes = {
-    children: PropTypes.any,
-    is_mounted: PropTypes.bool
-};
+// Commodities.propTypes = {
+//     children: PropTypes.any,
+//     is_mounted: PropTypes.bool
+// };
 
 const StockIndices = (props) => (
     <ArticleWrapper>
-       {props.is_mounted && <StyledHeader as="h4">{localize('What are stock indices?')}</StyledHeader>}
+        {props.is_mounted && <StyledHeader as="h4">{localize('What are stock indices?')}</StyledHeader>}
         <Text>
             {localize(
                 'Stock indices measure the value of a selection of companies in the stock market. This allows investors to see how a particular set of assets is performing.',
@@ -54,7 +54,7 @@ StockIndices.propTypes = {
 
 const SyntheticIndices = (props) => (
     <ArticleWrapper>
-        {props.is_mounted &&<StyledHeader as="h4">{localize('What are synthetic indices?')}</StyledHeader>}
+        {props.is_mounted && <StyledHeader as="h4">{localize('What are synthetic indices?')}</StyledHeader>}
         <Text>
             {localize(
                 'Exclusive to Deriv, synthetic indices are our very own set of synthetic markets engineered to simulate real-world market movements, unaffected by the sways of actual events and other outside disruptions.',
@@ -84,7 +84,7 @@ CFD.propTypes = {
 
 const DigitalOptions = (props) => (
     <ArticleWrapper>
-       {props.is_mounted && <StyledHeader as="h4">{localize('What are digital options?')}</StyledHeader>}
+        {props.is_mounted && <StyledHeader as="h4">{localize('What are digital options?')}</StyledHeader>}
         <Text>
             {localize(
                 'A digital option is a financial instrument with a fixed payout where you predict the outcome from only two possible results.',
@@ -114,7 +114,7 @@ TradingPlatforms.propTypes = {
 
 const AutomateTradingStrategy = (props) => (
     <ArticleWrapper>
-        {props.is_mounted &&<StyledHeader as="h4">{localize('How can I automate my trading strategy?')}</StyledHeader>}
+        {props.is_mounted && <StyledHeader as="h4">{localize('How can I automate my trading strategy?')}</StyledHeader>}
         <Text>
             {localize(
                 'You can create and run your own automated trading strategies with DBot. You can also download ready-made trading robots (also known as Expert Advisors) for DMT5 by going to the ‘Market’ tab in the DMT5 platform.',
@@ -129,7 +129,7 @@ AutomateTradingStrategy.propTypes = {
 
 const TradingLimits = (props) => (
     <ArticleWrapper>
-       {props.is_mounted && <StyledHeader as="h4">{localize('What are my trading limits?')}</StyledHeader>}
+        {props.is_mounted && <StyledHeader as="h4">{localize('What are my trading limits?')}</StyledHeader>}
         <Text>
             <Localize
                 translate_text="You can see your account’s trading limits by going to <0>Settings > Security and safety ></0> <1>Account limits</1>. Please note that if your account balance exceeds the maximum account cash balance, you must withdraw funds from your account to bring your account balance below the maximum limit."
@@ -153,7 +153,7 @@ TradingLimits.propTypes = {
 
 const WeekendContracts = (props) => (
     <ArticleWrapper>
-        {props.is_mounted &&<StyledHeader as="h4">
+        {props.is_mounted && <StyledHeader as="h4">
             {localize('What contracts are available for trading on weekends?')}
         </StyledHeader>}
         <Text>{localize('Synthetic indices are available for trading 24/7.')}</Text>

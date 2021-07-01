@@ -1,0 +1,476 @@
+import React from 'react'
+import styled from 'styled-components'
+import { recent_article_data, featured_article_data, article_data }  from './_data'
+import Layout from 'components/layout/layout'
+import { SEO, Container, Flex, } from 'components/containers'
+import { Header, Text, Tabs } from 'components/elements'
+import { localize, WithIntl } from 'components/localization'
+import HeroImage from 'images/common/blog/deriv-blog.png'
+import device from 'themes/device'
+import { LinkButton } from 'components/form'
+
+const SmallContainer = styled(Container)`
+    width: 60%;
+    max-width: 62.5rem;
+    flex-direction: column;
+
+    @media ${device.desktop} {
+        max-width: 800px;
+    }
+    @media ${device.laptopL} {
+        width: 60%;
+    }
+    @media ${device.desktopL} {
+        max-width: 1000px;
+    }
+    @media ${device.tabletL} {
+        width: 90%;
+        padding-left: 0;
+        padding-right: 0;
+    }
+`
+
+const Hero = styled(Flex)`
+    height: 40rem;
+    background: var(--color-black);
+    background-image: url(${HeroImage});
+    background-size: cover;
+    background-position: center;
+
+    @media ${device.tabletL} {
+        height: 348px;
+    }
+`
+
+const StyledHeader = styled(Header)`
+    @media ${device.tabletL} {
+        margin-top: 16px;
+    }
+`
+
+const StyledContainer = styled(Flex)`
+    width: 90%;
+    max-width: 1200px;
+
+    @media ${device.desktopL} {
+        max-width: 1600px;
+    }
+    @media ${device.tabletL} {
+        width: 100%;
+        padding: 0 16px;
+    }
+`
+
+const TagParentWrapper = styled(Flex)`
+    height: 22px;
+    justify-content: flex-start;
+    @media ${device.tabletL} {
+        margin-bottom: 8px;
+    }
+`
+const TagWrapper = styled(Flex)`
+    width: auto;
+    padding: 1px 8px;
+    background: var(--color-orange-3);
+    border-radius: 8px;
+    align-items: center;
+`
+
+const ArticleContentWrapper = styled(Container)`
+    margin-top: 40px;
+    color:white;
+    @media ${device.tabletL} {
+        flex-flow: column;
+    }
+`
+
+const LeftContent= styled(Flex)`
+    display:flex;
+    justify-content:start;
+    margin-right:10px;
+    @media ${device.tabletL} {
+        margin-right:0;
+        margin-bottom:20px;
+    }
+`
+
+const RightContent= styled(Flex)`
+    display:flex;
+    justify-content:start;
+    @media ${device.tabletL} {
+        flex-flow: column;
+    }
+`
+
+const MainArticle = styled(Flex)`
+    /* prettier-ignore */
+    background: ${(props) =>
+        props.image
+            ? `linear-gradient(251.14deg,rgba(14, 14, 14, 0.5632) 29.18%,rgba(7, 6, 6, 0.88) 85.14%),url(${props.image}) no-repeat top left`
+            : 'linear-gradient(251.14deg, rgba(14, 14, 14, 0.5632) 29.18%, rgba(7, 6, 6, 0.88) 85.14%)'};
+    margin-top: 8px;
+    position: relative;
+    background-size: cover;
+    min-height: 464px;
+    width: 792px;
+    max-height:300px;
+    max-width: 1440px;
+    align-items: flex-end;
+    padding-bottom:80px;
+
+    @media ${device.tabletL} {
+        /* prettier-ignore */
+        min-width: 328px;
+        padding: 0;
+        background: ${(props) =>
+            props.image
+                ? `linear-gradient(251.14deg, rgba(14, 14, 14, 0.5632) 29.18%, rgba(7, 6, 6, 0.88) 85.14%),url(${props.image}) no-repeat top right 46.5%`
+                : 'linear-gradient(251.14deg, rgba(14, 14, 14, 0.5632) 29.18%, rgba(7, 6, 6, 0.88) 85.14%)'};
+        background-size: cover;
+        justify-content:flex-end;
+    }
+`
+
+const Description = styled.div`
+    padding:24px 40px 0 40px;
+
+    @media ${device.tabletL} {
+        padding:30px;
+    }
+`
+
+const StyledCategories = styled(Text)`
+    width: fit-content;
+    border-radius: 8px;
+    background-color: var(--color-yellow-2);
+    color: var(--color-yellow-3);
+    padding: 1px 8px;
+    line-height: 20px;
+    margin-left: -10px;
+`
+
+const ArticleTitle = styled.div`
+    position: static;
+    left: 0%;
+    right: 0%;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 40px;
+    color: #FFFFFF;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: 8px 0;
+
+    @media ${device.tabletL} {
+        font-size:24px
+    }
+`
+
+const ArticleSubtitle = styled.div`
+    position: static;
+    width: 712px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 20px;
+    color: #F2F3F4;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    margin: 8px 0;
+
+    @media ${device.tabletL} {
+        width: 100%;
+        font-size:12px;
+    }
+
+`
+
+const BottomDescription = styled.div`
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 24px 40px;
+    height: 66px;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    background: rgba(14, 14, 14, 0.6);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    color: white;
+
+    @media ${device.tabletL} {
+        display:none;
+    }
+`
+
+const DateDescription = styled.div`
+    margin-right:20px;
+`
+
+const ReadingTimeDescription = styled.div`
+    margin-left:20px;
+`
+
+const ScrollContent = styled.div`
+    margin-top: 8px;
+    width: 384px;
+    height: 464px;
+    overflow-y:scroll;
+    overflow-x:hidden;
+
+            
+    ::-webkit-scrollbar {
+        display: none;
+    }
+
+    @media ${device.tabletL} {
+        width:100%;
+    }
+
+`
+
+const SmallArticle = styled(Flex)`
+    font-size: 16px;
+    height: 110px;
+    margin-bottom:22px;
+    place-content: flex-start;
+
+`
+
+const ImageWrapper = styled.div`
+    height: 102px;
+    width: 104px;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    
+`
+
+const StyledImage = styled.img`
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    object-fit: cover;
+`
+
+const SmallArticleCategories = styled(Text)`
+    margin-top:4px;
+    width: fit-content;
+    border-radius: 8px;
+    background-color: var(--color-blue-10);
+    color: var(--color-blue-9);
+    padding: 1px 8px;
+    line-height: 20px;
+    margin-left: -4px;
+    font-size:14px;
+    font-weight: 700;
+`
+
+const SmallArticleTitle = styled.div`
+    margin-top:10px;
+    font-size: 16px;
+    width:100%;
+    line-height:18px;
+    color:black;
+    font-weight: 700;
+`
+
+const SmallArticleBottomContent= styled.div`
+    color: #999999;
+    margin-top:18px;
+    width:100%;
+    font-size:12px;
+`
+
+const SmallArticleLeftContent = styled(Flex)`
+    margin-left: 15px;
+    margin-right: 10px;
+    width:unset;
+
+    @media ${device.tabletL} {
+        margin-left:0;
+    }
+
+`
+
+const SmallArticleRightContent = styled(Flex)`
+    margin-top: -4px;
+    margin-left: 10px;
+    flex-direction: column;
+`
+const StyledLinkButton = styled(LinkButton)`
+    margin-top: 40px;
+    margin-bottom: 80px;
+    width: fit-content;
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    @media ${device.tabletL} {
+        width: 100%;
+    }
+`
+
+const StyledTabs = styled(Tabs)`
+    width:unset;
+`
+
+const RecentFeaturedPosts= () => {
+    const recent = recent_article_data;
+    const featured = featured_article_data;
+    const articles = article_data;
+    return(
+    <Layout>
+        <SEO
+            title={localize('Articles, trading guide and resources | Deriv')}
+            description={localize(
+                "If you are looking for trading guide or tutorials, visit Deriv's trading academy and learn how to trade online.",
+            )}
+        />
+        <Hero jc="center" ai="center">
+            <SmallContainer>
+                <Header as="h2" type="heading-3" color="white" weight="400" align="left">
+                    {localize('Deriv Blog')}
+                </Header>
+                <StyledHeader as="h2" type="heading-2" color="white" align="left">
+                    {localize('The latest articles and resources')}
+                </StyledHeader>
+            </SmallContainer>
+        </Hero>
+
+        <StyledContainer m="20px auto 0" fd="column" ai="center">
+             <StyledTabs
+                    tab_list={['recent_posts', 'featured_posts']}
+                    route_from="recent_featured_posts"
+                    is_left_aligned
+                >
+                    <Tabs.Panel label={localize('Recent posts')}>
+
+                        <ArticleContentWrapper>
+                            <LeftContent>
+                                <MainArticle image={recent.image} >
+                                    <Description>
+                                        <TagParentWrapper>
+                                            <TagWrapper>
+                                                <StyledCategories>
+                                                    {recent.category}
+                                                </StyledCategories>
+                                            </TagWrapper>
+                                        </TagParentWrapper>
+                                            <ArticleTitle>
+                                                {recent.title}
+                                            </ArticleTitle>
+                                            <ArticleSubtitle>
+                                                {recent.description}
+                                            </ArticleSubtitle>
+                                    </Description>
+
+                                    <BottomDescription>
+                                        {recent.date} * {recent.reading_time} mins read
+                                    </BottomDescription>
+                                </MainArticle>
+                            </LeftContent>
+                            <RightContent>
+                                <ScrollContent>
+                                    {
+                                     articles.map((article,idx) => {
+                                            return (
+                                                <SmallArticle key={idx}>
+                                                    <SmallArticleLeftContent>
+                                                        <ImageWrapper>
+                                                            <StyledImage
+                                                                src={article.image}
+                                                                alt={idx}
+                                                            />
+                                                        </ImageWrapper>
+                                                    </SmallArticleLeftContent>
+                                                    <SmallArticleRightContent>
+                                                        <SmallArticleCategories>{article.category}</SmallArticleCategories>
+                                                        <SmallArticleTitle>{article.title}</SmallArticleTitle>
+                                                        <SmallArticleBottomContent>{article.date} * {article.reading_time} mins read</SmallArticleBottomContent>
+                                                    </SmallArticleRightContent>
+                                                </SmallArticle>
+                                            )})
+                                    }
+                                </ScrollContent>
+                            </RightContent>
+                        </ArticleContentWrapper>
+                    </Tabs.Panel>
+                    
+                    <Tabs.Panel label={localize('Featured posts')}>
+                    <ArticleContentWrapper>
+                        <LeftContent>
+                            <MainArticle image={featured.image} >
+                                <Description>
+                                    <TagParentWrapper>
+                                        <TagWrapper>
+                                            <StyledCategories>
+                                                {featured.category}
+                                            </StyledCategories>
+                                        </TagWrapper>
+                                    </TagParentWrapper>
+                                        <ArticleTitle>
+                                            {featured.title}
+                                        </ArticleTitle>
+                                        <ArticleSubtitle>
+                                            {featured.description}
+                                        </ArticleSubtitle>
+                                </Description>
+
+                                <BottomDescription>
+                                    <DateDescription>{featured.date}</DateDescription>
+                                    <ReadingTimeDescription>{featured.reading_time} mins</ReadingTimeDescription>
+                                </BottomDescription>
+                            </MainArticle>
+                        </LeftContent>
+
+                        <RightContent>
+                                <ScrollContent>
+                                    {
+                                     articles.map((article,idx) => {
+                                            return (
+                                                <SmallArticle key={idx}>
+                                                    <SmallArticleLeftContent>
+                                                        <ImageWrapper>
+                                                            <StyledImage
+                                                                src={article.image}
+                                                                alt={idx}
+                                                            />
+                                                        </ImageWrapper>
+                                                    </SmallArticleLeftContent>
+                                                    <SmallArticleRightContent>
+                                                        <SmallArticleCategories>{article.category}</SmallArticleCategories>
+                                                        <SmallArticleTitle>{article.title}</SmallArticleTitle>
+                                                        <SmallArticleBottomContent>{article.date} * {article.reading_time} mins read</SmallArticleBottomContent>
+                                                    </SmallArticleRightContent>
+                                                </SmallArticle>
+                                            )})
+                                    }
+                                </ScrollContent>
+                            </RightContent>
+                        </ArticleContentWrapper>
+                    </Tabs.Panel>
+                </StyledTabs>
+                <StyledLinkButton tertiary to='/'>
+                    See all blog articles
+                 </StyledLinkButton>
+        </StyledContainer>
+
+    </Layout>
+)
+        }
+
+export default WithIntl()(RecentFeaturedPosts)

@@ -45,12 +45,12 @@ const TabButton = styled.button`
 const TabList = styled.div`
     display: flex;
     width: 100%;
-    justify-content: center;
+    justify-content: ${props => props.is_left_aligned ? 'left': 'center'};
     position: relative;
     overflow: auto;
 
     @media ${device.mobileL} {
-        justify-content: space-between;
+        justify-content:${props => props.is_left_aligned ? 'left' : 'space-between'};
     }
 `
 
@@ -58,7 +58,7 @@ const LineDivider = styled.div`
     bottom: 0;
     position: absolute;
     height: 2px;
-    width: 100%;
+    width: ${props => props.is_left_aligned ? 'unset': '100%'};
     background: var(--color-grey-2);
     z-index: 1;
 `
@@ -91,7 +91,7 @@ TabPanel.propTypes = {
     children: PropTypes.node,
 }
 
-const Tabs = ({ children, route_from, tab_list }) => {
+const Tabs = ({ children, route_from, tab_list , is_left_aligned}) => {
     const [selected_tab, setSelectedTab] = useState(0)
     const [active_tab, setActiveTab] = useTabState(tab_list)
 
@@ -101,7 +101,7 @@ const Tabs = ({ children, route_from, tab_list }) => {
 
     return (
         <Flex direction="column">
-            <TabList role="tablist">
+            <TabList role="tablist" is_left_aligned={is_left_aligned}>
                 {React.Children.map(children, ({ props: { label } }, index) => (
                     <TabButton
                         role="tab"
@@ -114,7 +114,7 @@ const Tabs = ({ children, route_from, tab_list }) => {
                         </TextWrapper>
                     </TabButton>
                 ))}
-                <LineDivider />
+                <LineDivider is_left_aligned={is_left_aligned}/>
             </TabList>
 
             <Content>
@@ -130,6 +130,7 @@ Tabs.Panel = TabPanel
 
 Tabs.propTypes = {
     children: PropTypes.node,
+    is_left_aligned: PropTypes.bool,
     route_from: PropTypes.string,
     tab_list: PropTypes.array,
 }

@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { usePageLoaded } from '../../components/hooks/use-page-loaded'
 import { Article } from './_article'
 import { ArticleWrapper, ExternalLink, StyledHeader, StyledText } from './_help-centre-style'
 import { deriv_app_url } from 'common/constants'
@@ -16,9 +17,9 @@ const StyledListItem = styled.li`
     margin-top: 1.6rem;
 `
 
-const WhoCanOpenAnAccount = () => (
+const WhoCanOpenAnAccount = (props) => (
     <ArticleWrapper>
-        <StyledHeader as="h4">{localize("Why can't I create an account?")}</StyledHeader>
+        {props.is_mounted &&<StyledHeader as="h4">{localize("Why can't I create an account?")}</StyledHeader>}
         <Text>
             {localize(
                 'In line with our Group practice, we set the following criteria for client sign ups:',
@@ -36,6 +37,11 @@ const WhoCanOpenAnAccount = () => (
         </StyledList>
     </ArticleWrapper>
 )
+WhoCanOpenAnAccount.propTypes = {
+    children: PropTypes.any,
+    is_mounted: PropTypes.bool
+};
+
 const ChangingPersonalDetails = (props) => (
     <ArticleWrapper>
         {props.is_mounted && <StyledHeader as="h4">{localize('How can I change my personal details?')}</StyledHeader>}
@@ -173,10 +179,8 @@ DormantFee.propTypes = {
 };
 
 const AccountArticle = () => {
-    const [is_mounted, setMounted] = useState(false) // needed to fix tab highlighting not being rerendered during first load
-    useEffect(() => {
-        setMounted(true)
-    }, [])
+    const [is_mounted, ] = usePageLoaded(false) // needed to fix tab highlighting not being rerendered during first load
+   
     return (
         <div>
             <Article

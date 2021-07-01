@@ -5,7 +5,8 @@ on:
     branches:
       - master
     paths-ignore:
-      - '**.md' 
+      - '**.md'
+  repository_dispatch:
 
 env:
   GATSBY_CPU_COUNT: 2

@@ -1,9 +1,8 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { usePageLoaded } from '../../components/hooks/use-page-loaded'
 import { Article } from './_article'
 import { ArticleWrapper, ExternalLink, StyledHeader, StyledText } from './_help-centre-style'
+import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import { deriv_app_url } from 'common/constants'
 import { Text } from 'components/elements'
 import { localize, Localize, WithIntl } from 'components/localization'
@@ -17,9 +16,9 @@ const StyledListItem = styled.li`
     margin-top: 1.6rem;
 `
 
-const WhoCanOpenAnAccount = (props) => (
+const WhoCanOpenAnAccount = () => (
     <ArticleWrapper>
-        {props.is_mounted &&<StyledHeader as="h4">{localize("Why can't I create an account?")}</StyledHeader>}
+        <StyledHeader as="h4">{localize("Why can't I create an account?")}</StyledHeader>
         <Text>
             {localize(
                 'In line with our Group practice, we set the following criteria for client sign ups:',
@@ -37,14 +36,10 @@ const WhoCanOpenAnAccount = (props) => (
         </StyledList>
     </ArticleWrapper>
 )
-WhoCanOpenAnAccount.propTypes = {
-    children: PropTypes.any,
-    is_mounted: PropTypes.bool
-};
 
-const ChangingPersonalDetails = (props) => (
+const ChangingPersonalDetails = () => (
     <ArticleWrapper>
-        {props.is_mounted && <StyledHeader as="h4">{localize('How can I change my personal details?')}</StyledHeader>}
+        <StyledHeader as="h4">{localize('How can I change my personal details?')}</StyledHeader>
         <Text>
             <Localize
                 translate_text="If your account is not authenticated, you can change your name, date of birth, or citizenship by going to <0>Settings ></0> <1>Personal details</1>."
@@ -68,10 +63,6 @@ const ChangingPersonalDetails = (props) => (
         </StyledText>
     </ArticleWrapper>
 )
-ChangingPersonalDetails.propTypes = {
-    children: PropTypes.any,
-    is_mounted: PropTypes.bool
-};
 
 const ChangeAccountCurrency = () => (
     <ArticleWrapper>
@@ -83,13 +74,14 @@ const ChangeAccountCurrency = () => (
         </Text>
     </ArticleWrapper>
 )
-const RecoveringPassword = (props) => (
+
+const RecoveringPassword = () => (
     <ArticleWrapper>
-        {props.is_mounted && <StyledHeader as="h4">
+        <StyledHeader as="h4">
             {localize(
                 'I forgot my Google/Facebook account password. How can I log in to my Deriv account?',
             )}
-        </StyledHeader>}
+        </StyledHeader>
         <Text>
             <Localize
                 translate_text="If you’ve forgotten your Google/Facebook account password, you can <0>reset your Deriv account password</0> to log in to Deriv."
@@ -107,14 +99,9 @@ const RecoveringPassword = (props) => (
         </Text>
     </ArticleWrapper>)
 
-RecoveringPassword.propTypes = {
-    children: PropTypes.any,
-    is_mounted: PropTypes.bool,
-};
-
-const CloseAccount = (props) => (
+const CloseAccount = () => (
     <ArticleWrapper>
-        {props.is_mounted && <StyledHeader as="h4">{localize('How can I close my account?')}</StyledHeader>}
+        <StyledHeader as="h4">{localize('How can I close my account?')}</StyledHeader>
         <Text>
             {localize(
                 'Before closing your account, please close all your open positions and withdraw all the funds in your account. After that, you may contact us with your request.',
@@ -123,16 +110,11 @@ const CloseAccount = (props) => (
     </ArticleWrapper>
 )
 
-CloseAccount.propTypes = {
-    children: PropTypes.any,
-    is_mounted: PropTypes.bool,
-};
-
-const UnsubscribeEmail = (props) => (
+const UnsubscribeEmail = () => (
     <ArticleWrapper>
-        {props.is_mounted && <StyledHeader as="h4">
+        <StyledHeader as="h4">
             {localize('How do I unsubscribe from marketing emails?')}
-        </StyledHeader>}
+        </StyledHeader>
         <Text>
             <Localize
                 translate_text="You can do this easily by going to <0>Settings > Profile ></0> <1>Personal details</1>. Uncheck the email preference box, and click the ‘Submit’ button to unsubscribe."
@@ -152,14 +134,9 @@ const UnsubscribeEmail = (props) => (
     </ArticleWrapper>
 )
 
-UnsubscribeEmail.propTypes = {
-    children: PropTypes.any,
-    is_mounted: PropTypes.bool,
-};
-
-const DormantFee = (props) => (
+const DormantFee = () => (
     <ArticleWrapper>
-        {props.is_mounted && <StyledHeader as="h4">{localize('What is a dormant fee?')}</StyledHeader>}
+        <StyledHeader as="h4">{localize('What is a dormant fee?')}</StyledHeader>
         <Text>
             {localize(
                 'A dormant fee is an amount charged to any account that has not placed a transaction over a continuous period of 12 months.',
@@ -173,14 +150,9 @@ const DormantFee = (props) => (
     </ArticleWrapper>
 )
 
-DormantFee.propTypes = {
-    children: PropTypes.any,
-    is_mounted: PropTypes.bool,
-};
-
 const AccountArticle = () => {
-    const [is_mounted, ] = usePageLoaded(false) // needed to fix tab highlighting not being rerendered during first load
-   
+    const [is_mounted,] = usePageLoaded(false) // needed to fix tab highlighting not being rerendered during first load
+
     return (
         <div>
             <Article
@@ -191,6 +163,7 @@ const AccountArticle = () => {
                 <WhoCanOpenAnAccount
                     text={localize("Why can't I create an account?")}
                     label="who-can-open-an-account"
+                    is_mounted={is_mounted}
                 />
                 <ChangingPersonalDetails
                     text={localize('How can I change my personal details?')}

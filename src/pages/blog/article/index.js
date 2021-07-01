@@ -128,7 +128,7 @@ const BottomCta = () => {
                         </ImageWrapper>
                         <TextWrapper direction="column">
                             <Header
-                                as="p"
+                                as="h3"
                                 type="subtitle-2"
                                 max_width="35rem"
                                 mobile_max_width="100%"

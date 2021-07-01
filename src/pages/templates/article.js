@@ -35,7 +35,7 @@ export default WithIntl()(ArticleTemplate)
 
 // Query our published articles
 export const query = graphql`
-    query ($slug: String!) {
+    query MyQuery($slug: String!) {
         directus {
             articles(filter: { article_url: { _eq: $slug } }) {
                 article_title

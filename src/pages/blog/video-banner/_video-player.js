@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { Flex } from 'components/containers'
@@ -7,73 +7,127 @@ import device from 'themes/device'
 
 const VideoWrapper = styled.div`
     position: fixed;
-    inset: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
     background-color: rgba(0, 0, 0, 0.9);
-    display: flex;
+    display: ${(props) => (props.show ? 'flex' : 'none')};
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    z-index: 1000;
+    z-index: 10000;
+    width: 100%;
+    height: 100vh;
+`
+const VidPlayerWrapper = styled.div`
+    position: relative;
+    padding-bottom: 56.25%;
+    width: 90%;
+    max-width: 992px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @media ${device.desktopS} {
+        max-width: 1600px;
+    }
+`
+const VidDivWrapper = styled.div`
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 `
 
 const StyledFlex = styled(Flex)`
-    width: 80%;
-    margin-right: -36px;
-    @media ${device.tablet} {
-        width: 90%;
-        margin-right: -10px;
+    margin-left: 20px;
+    @media ${device.tabletS} {
+        margin-left: 0;
     }
 `
 
 const CloseButton = styled.img`
     cursor: pointer;
 `
-
-const VidePlayer = styled.video`
-    width: 80%;
-    position: relative;
+const VidPlayer = styled.video`
+    width: 100%;
+    max-height: 558px;
     background-color: var(--color-black);
-    @media ${device.tablet} {
-        width: 90%;
-    }
 `
 
 const VideoPlayer = ({ video_src, closeVideo }) => {
-    const handleEscape = (e) => {
-        if (e.key === 'Escape') {
-            closeVideo()
-        }
-    }
+    const vidRef = useRef()
+    const [is_show, setIsShow] = useState(true)
+    const [scroll, setScroll] = useState(true)
+    let vidElement
 
     useEffect(() => {
         document.addEventListener('keydown', handleEscape, false)
+
+        vidElement = vidRef.current
+        vidElement.addEventListener('enterpictureinpicture', () => {
+            setIsShow(!is_show)
+            setScroll(!scroll)
+            document.body.style.overflow = 'unset'
+        })
+
+        vidElement.onleavepictureinpicture = () => {
+            document.body.style.overflow = 'hidden'
+            const was_playing = !vidElement.paused
+            if (!vidElement.paused) {
+                setIsShow(is_show)
+            } else if (was_playing) {
+                closeVideo()
+            } else if (vidElement.paused) {
+                setIsShow(is_show)
+            } else if (!was_playing) {
+                setIsShow(is_show)
+            } else {
+                setIsShow(!is_show)
+            }
+        }
 
         return () => {
             document.removeEventListener('keydown', handleEscape, false)
         }
     }, [])
 
+    const handleEscape = (e) => {
+        setIsShow(!is_show)
+        if (e.key === 'Escape') {
+            closeVideo()
+        }
+    }
+
     return (
-        <VideoWrapper onClick={closeVideo}>
-            <StyledFlex jc="flex-end" height="auto">
-                <CloseButton
-                    src={CloseIcon}
-                    alt="close"
-                    width={24}
-                    height={24}
-                    onClick={closeVideo}
-                />
-            </StyledFlex>
-            <VidePlayer
-                width="80%"
-                height="480"
-                controls
-                autoPlay
-                onClick={(event) => event.stopPropagation()}
-            >
-                <source src={video_src} type="video/mp4" />
-                Your browser does not support the video tag.
-            </VidePlayer>
+        <VideoWrapper onClick={() => closeVideo()} show={is_show}>
+            <VidPlayerWrapper>
+                <VidDivWrapper>
+                    <Flex direction="column">
+                        <StyledFlex jc="flex-end" height="auto">
+                            <CloseButton
+                                src={CloseIcon}
+                                alt="close"
+                                width={24}
+                                height={24}
+                                onClick={() => closeVideo()}
+                            />
+                        </StyledFlex>
+                        <VidPlayer
+                            controls
+                            disablePictureInPicture
+                            controlsList="nodownload"
+                            autoPlay
+                            onClick={(event) => event.stopPropagation()}
+                            ref={vidRef}
+                        >
+                            <source src={video_src} type="video/mp4" />
+                            Your browser does not support the video tag.
+                        </VidPlayer>
+                    </Flex>
+                </VidDivWrapper>
+            </VidPlayerWrapper>
         </VideoWrapper>
     )
 }

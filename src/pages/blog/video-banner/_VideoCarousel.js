@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import VideoSrc from '../../markets/static/video/globe.mp4'
+// import VideoSrc from '../../markets/static/video/globe.mp4'
 import VideoPlayer from './_video-player'
 import { CustomCarousel } from './carousel/_custom-carousel'
 import { Flex } from 'components/containers'
@@ -101,6 +101,10 @@ const VideoCarousel = ({ carousel_items }) => {
         setShow(true)
     }
 
+    useEffect(() => {
+        show ? (document.body.style.overflow = 'hidden') : (document.body.style.overflow = 'unset')
+    }, [show])
+
     const settings = {
         options: {
             align: 'start',
@@ -199,7 +203,12 @@ const VideoCarousel = ({ carousel_items }) => {
                     </SeeMoreBtnMobile>
                 )}
             </Flex>
-            {show && <VideoPlayer video_src={VideoSrc} closeVideo={handleCloseVideo} />}
+            {show && (
+                <VideoPlayer
+                    video_src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4"
+                    closeVideo={handleCloseVideo}
+                />
+            )}
         </>
     )
 }

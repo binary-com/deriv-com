@@ -1,7 +1,6 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import VideoSrc from '../../markets/static/video/globe.mp4'
 import VideoCarousel from './_VideoCarousel'
 import VideoPlayer from './_video-player'
 import { Flex, Container } from 'components/containers'
@@ -69,6 +68,10 @@ const Dbanner = ({ video_details, video_list }) => {
     const handleCloseVideo = () => setShow(false)
     const handleOpenVideo = () => setShow(true)
 
+    useEffect(() => {
+        show ? (document.body.style.overflow = 'hidden') : (document.body.style.overflow = 'unset')
+    }, [show])
+
     return (
         <>
             <ParentWrapper direction="column" bg_image={video_details[0].bg_img_url}>
@@ -130,7 +133,12 @@ const Dbanner = ({ video_details, video_list }) => {
                     <VideoCarousel carousel_items={video_list} />
                 </Container>
             </ParentWrapper>
-            {show && <VideoPlayer video_src={VideoSrc} closeVideo={handleCloseVideo} />}
+            {show && (
+                <VideoPlayer
+                    video_src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4"
+                    closeVideo={handleCloseVideo}
+                />
+            )}
         </>
     )
 }

@@ -24,7 +24,7 @@ Forex.propTypes = {
 
 const Commodities = () => (
     <ArticleWrapper>
-        <Header as="h4">{localize('What are commodities?')}</Header>
+        <Header as="h4" type='subtitle-1'>{localize('What are commodities?')}</Header>
         <Text>
             {localize(
                 'A commodity is either grown or produced naturally in the environment. Examples include crude oil, metals, gold, and silver.',

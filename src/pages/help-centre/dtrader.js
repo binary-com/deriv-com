@@ -1,14 +1,13 @@
 import React from 'react'
-// import PropTypes from 'prop-types'
-import { usePageLoaded } from '../../components/hooks/use-page-loaded'
 import { Article } from './_article'
 import { ArticleWrapper, StyledHeader } from './_help-centre-style'
-import { Text, Header } from 'components/elements'
+import { usePageLoaded } from 'components/hooks/use-page-loaded'
+import { Text } from 'components/elements'
 import { localize, WithIntl } from 'components/localization'
 
 const WhatIsDMT5 = () => (
     <ArticleWrapper>
-        <Header as="h4" type='subtitle-1'>{localize('What is DTrader?')}</Header>
+        <StyledHeader as="h4" >{localize('What is DTrader?')}</StyledHeader>
         <Text>
             {localize(
                 'DTrader is an advanced trading platform that allows you to trade more than 50 assets in the form of digitals, multiplier, and lookback options.',
@@ -19,7 +18,7 @@ const WhatIsDMT5 = () => (
 
 const DTraderMarkets = () => (
     <ArticleWrapper>
-        <Header as="h4" type='subtitle-1'>{localize('What markets can I trade on DTrader?')}</Header>
+        <StyledHeader as="h4" >{localize('What markets can I trade on DTrader?')}</StyledHeader>
         <Text>
             {localize(
                 'You can trade forex, stock indices, commodities, and synthetic indices on DTrader.',

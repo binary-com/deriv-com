@@ -14,9 +14,6 @@ export const ArticleWrapper = styled.div`
     margin-left: 12.6rem;
     margin-top: 1.6rem;
 
-    h4 {
-        margin-bottom: 2.4rem;}
-
     @media ${device.laptopL} {
         margin-left: ${({ margin_left }) => margin_left ?? '12.6rem'};
     }

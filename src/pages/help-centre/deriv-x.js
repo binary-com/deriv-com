@@ -1,9 +1,8 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { usePageLoaded } from '../../components/hooks/use-page-loaded'
 import { Article } from './_article'
 import { ArticleWrapper, StyledHeader, StyledText } from './_help-centre-style'
+import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import { derivx_app_url, deriv_app_url } from 'common/constants'
 import { Text, LocalizedLinkText } from 'components/elements'
 import { localize, Localize, WithIntl } from 'components/localization'
@@ -18,9 +17,9 @@ const ExternalLink = styled.a`
 
 `
 
-const WhatisDerivX = (props) => (
+const WhatisDerivX = () => (
     <ArticleWrapper>
-        {props.is_mounted && <StyledHeader as="h4">{localize('What is Deriv X?')}</StyledHeader>}
+        <StyledHeader as="h4">{localize('What is Deriv X?')}</StyledHeader>
         <Text>
             {localize(
                 'Deriv X is an-easy-to-use trading platform where you can trade CFDs on various assets on a platform layout that you can customise according to your preference.',
@@ -28,20 +27,17 @@ const WhatisDerivX = (props) => (
         </Text>
     </ArticleWrapper>
 )
-WhatisDerivX.propTypes = {
-    children: PropTypes.any,
-    is_mounted: PropTypes.bool,
-};
-const DepositDerivX = (props) => (
+
+const DepositDerivX = () => (
     <ArticleWrapper>
-        {props.is_mounted && <StyledHeader as="h4">
+        <StyledHeader as="h4">
             {
                 <Localize
                     translate_text="What is  the minimum / maximum I can deposit into my <0/>Deriv X account?<0/>"
                     components={[<br key={0} />]}
                 />
             }
-        </StyledHeader>}
+        </StyledHeader>
         <Text>
             {localize(
                 'There is no minimum deposit. You can make a maximum deposit of USD2,500 twelve times a day.',
@@ -49,13 +45,10 @@ const DepositDerivX = (props) => (
         </Text>
     </ArticleWrapper>
 )
-DepositDerivX.propTypes = {
-    children: PropTypes.any,
-    is_mounted: PropTypes.bool,
-};
-const DerivXMarkets = (props) => (
+
+const DerivXMarkets = () => (
     <ArticleWrapper>
-        {props.is_mounted && <StyledHeader as="h4">{localize('What markets can I trade on Deriv X?')}</StyledHeader>}
+        <StyledHeader as="h4">{localize('What markets can I trade on Deriv X?')}</StyledHeader>
         <Text>
             {localize(
                 'You can trade CFDs on forex, cryptocurrencies, commodities, and our proprietary synthetic indices on Deriv X.',
@@ -63,15 +56,12 @@ const DerivXMarkets = (props) => (
         </Text>
     </ArticleWrapper>
 )
-DerivXMarkets.propTypes = {
-    children: PropTypes.any,
-    is_mounted: PropTypes.bool,
-};
-const DerivXTrade = (props) => (
+
+const DerivXTrade = () => (
     <ArticleWrapper>
-        {props.is_mounted && <StyledHeader as="h4">
+        <StyledHeader as="h4">
             {localize('What is the minimum and maximum amount to trade on Deriv X?')}
-        </StyledHeader>}
+        </StyledHeader>
         <Text>
             {localize(
                 'This depends on the trade type. To find out, right click on the specific asset and select “Instrument info”.',
@@ -79,17 +69,14 @@ const DerivXTrade = (props) => (
         </Text>
     </ArticleWrapper>
 )
-DerivXTrade.propTypes = {
-    children: PropTypes.any,
-    is_mounted: PropTypes.bool,
-};
-const DifferenceDMT5DTraderDerivX = (props) => (
+
+const DifferenceDMT5DTraderDerivX = () => (
     <ArticleWrapper>
-        {props.is_mounted && <StyledHeader as="h4">
+        <StyledHeader as="h4">
             {localize(
                 'What are the major differences between DTrader, Deriv MT5 (DMT5) and Deriv X?',
             )}
-        </StyledHeader>}
+        </StyledHeader>
         <Text>
             {localize(
                 'DTrader allows you to trade more than 50 assets in the form of digital options, multipliers, and lookbacks.',
@@ -102,13 +89,10 @@ const DifferenceDMT5DTraderDerivX = (props) => (
         </StyledText>
     </ArticleWrapper>
 )
-DifferenceDMT5DTraderDerivX.propTypes = {
-    children: PropTypes.any,
-    is_mounted: PropTypes.bool,
-};
-const DerivXAccount = (props) => (
+
+const DerivXAccount = () => (
     <ArticleWrapper>
-        {props.is_mounted && <StyledHeader as="h4">{localize('How do I create a Deriv X account?')}</StyledHeader>}
+        <StyledHeader as="h4">{localize('How do I create a Deriv X account?')}</StyledHeader>
         <Text>
             <Localize
                 translate_text="On the <0>Deriv X dashboard</0>, select the account type you want to open (Demo) and click “Add account”. Follow the instructions on the screen to create a new Deriv X account."
@@ -124,15 +108,12 @@ const DerivXAccount = (props) => (
         </Text>
     </ArticleWrapper>
 )
-DerivXAccount.propTypes = {
-    children: PropTypes.any,
-    is_mounted: PropTypes.bool,
-};
-const DifferentAccounts = (props) => (
+
+const DifferentAccounts = () => (
     <ArticleWrapper>
-        {props.is_mounted && <StyledHeader as="h4">
+        <StyledHeader as="h4">
             {localize('What are the differences between Synthetics and Financial accounts?')}
-        </StyledHeader>}
+        </StyledHeader>
         <Text>
             {localize(
                 'The Synthetics account allows you to trade on Deriv’s proprietary synthetic indices that are available 24/7 and simulate real-world market movements.',
@@ -145,13 +126,10 @@ const DifferentAccounts = (props) => (
         </StyledText>
     </ArticleWrapper>
 )
-DifferentAccounts.propTypes = {
-    children: PropTypes.any,
-    is_mounted: PropTypes.bool,
-};
-const TradingPassword = (props) => (
+
+const TradingPassword = () => (
     <ArticleWrapper>
-        {props.is_mounted && <StyledHeader as="h4">{localize('What is a trading password?')}</StyledHeader>}
+        <StyledHeader as="h4">{localize('What is a trading password?')}</StyledHeader>
         <Text>
             {localize(
                 'It is a password that gives you access to the standalone trading platforms Deriv MT5 (DMT5) and Deriv X.',
@@ -159,15 +137,12 @@ const TradingPassword = (props) => (
         </Text>
     </ArticleWrapper>
 )
-TradingPassword.propTypes = {
-    children: PropTypes.any,
-    is_mounted: PropTypes.bool,
-};
-const DifferentPassword = (props) => (
+
+const DifferentPassword = () => (
     <ArticleWrapper>
-        {props.is_mounted && <StyledHeader as="h4">
+        <StyledHeader as="h4">
             {localize('Why is my trading password different from my Deriv password?')}
-        </StyledHeader>}
+        </StyledHeader>
         <Text>
             {localize(
                 'Your trading password is linked to the standalone trading platforms Deriv MT5 (DMT5) and Deriv X, while your Deriv password gives you access to platforms hosted on our website such as DTrader and DBot.',
@@ -175,13 +150,10 @@ const DifferentPassword = (props) => (
         </Text>
     </ArticleWrapper>
 )
-DifferentPassword.propTypes = {
-    children: PropTypes.any,
-    is_mounted: PropTypes.bool,
-};
-const ResetDerivXPassowrd = (props) => (
+
+const ResetDerivXPassowrd = () => (
     <ArticleWrapper>
-        {props.is_mounted && <StyledHeader as="h4">{localize('How do I reset my Deriv X Password?')}</StyledHeader>}
+        <StyledHeader as="h4">{localize('How do I reset my Deriv X Password?')}</StyledHeader>
         <Text>
             <Localize
                 translate_text="Go to your <0>Account settings</0>. Under “Security and safety”, select “Passwords”. You can reset your Deriv X password under “Trading password”."
@@ -202,15 +174,12 @@ const ResetDerivXPassowrd = (props) => (
         </StyledText>
     </ArticleWrapper>
 )
-ResetDerivXPassowrd.propTypes = {
-    children: PropTypes.any,
-    is_mounted: PropTypes.bool,
-};
-const AccountInformation = (props) => (
+
+const AccountInformation = () => (
     <ArticleWrapper>
-        {props.is_mounted && <StyledHeader as="h4">
+        <StyledHeader as="h4">
             {localize('Where can I find my Deriv X account information?')}
-        </StyledHeader>}
+        </StyledHeader>
         <Text>
             <Localize
                 translate_text="You can view your account information (account type and login numbers) on the <0>Deriv X dashboard</0>. "
@@ -226,15 +195,12 @@ const AccountInformation = (props) => (
         </Text>
     </ArticleWrapper>
 )
-AccountInformation.propTypes = {
-    children: PropTypes.any,
-    is_mounted: PropTypes.bool,
-};
-const DerivXRealMoneyAccount = (props) => (
+
+const DerivXRealMoneyAccount = () => (
     <ArticleWrapper>
-        {props.is_mounted && <StyledHeader as="h4">
+        <StyledHeader as="h4">
             {localize('How can I deposit funds into my Deriv X real money account?')}
-        </StyledHeader>}
+        </StyledHeader>
         <Text>
             <Localize
                 translate_text="To deposit funds into your Deriv X account on Deriv, you’ll need to use the funds in your Deriv account. Go to Cashier > <0>Transfer between accounts</0> and follow the instructions on the screen."
@@ -255,15 +221,12 @@ const DerivXRealMoneyAccount = (props) => (
         </StyledText>
     </ArticleWrapper>
 )
-DerivXRealMoneyAccount.propTypes = {
-    children: PropTypes.any,
-    is_mounted: PropTypes.bool,
-};
-const WithdrawDerivX = (props) => (
+
+const WithdrawDerivX = () => (
     <ArticleWrapper>
-        {props.is_mounted && <StyledHeader as="h4">
+        <StyledHeader as="h4">
             {localize('How do I withdraw funds from my Deriv X real money account?')}
-        </StyledHeader>}
+        </StyledHeader>
         <Text>
             {localize(
                 'To withdraw funds from your Deriv X account on Deriv, you’ll first need to transfer the funds to your Deriv account. Go to Cashier > Transfer between accounts and follow the instructions on the screen.',
@@ -288,12 +251,9 @@ const WithdrawDerivX = (props) => (
         </Text>
     </ArticleWrapper>
 )
-WithdrawDerivX.propTypes = {
-    children: PropTypes.any,
-    is_mounted: PropTypes.bool,
-};
+
 const DerivXArticle = () => {
-    const [is_mounted,] = usePageLoaded(false) // needed to fix tab highlighting not being rerendered during first load
+    const [is_mounted] = usePageLoaded(false) // needed to fix tab highlighting not being rerendered during first load
 
     return (
         <div>

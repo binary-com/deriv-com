@@ -151,7 +151,7 @@ const DormantFee = () => (
 )
 
 const AccountArticle = () => {
-    const [is_mounted,] = usePageLoaded(false) // needed to fix tab highlighting not being rerendered during first load
+    const [is_mounted] = usePageLoaded(false) // needed to fix tab highlighting not being rerendered during first load
 
     return (
         <div>

@@ -1,16 +1,15 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import { usePageLoaded } from '../../components/hooks/use-page-loaded'
 import { Article } from './_article'
 import { ArticleWrapper, StyledHeader } from './_help-centre-style'
+import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import { Text } from 'components/elements'
 import { localize, WithIntl } from 'components/localization'
 
-const VerifyAccount = (props) => (
+const VerifyAccount = () => (
     <ArticleWrapper>
-        {props.is_mounted && <StyledHeader as="h4" type="sub-section-title">
+        <StyledHeader as="h4">
             {localize('Do I need to verify my Deriv account?')}
-        </StyledHeader>}
+        </StyledHeader>
         <Text>
             {localize(
                 'No, you do not need to verify your Deriv account unless prompted. If your account requires verification, we will contact you via email to initiate the process and provide you with clear instructions on how to submit your documents.',
@@ -18,15 +17,12 @@ const VerifyAccount = (props) => (
         </Text>
     </ArticleWrapper>
 )
-VerifyAccount.propTypes = {
-    children: PropTypes.any,
-    is_mounted: PropTypes.bool,
-};
-const VerificationDuration = (props) => (
+
+const VerificationDuration = () => (
     <ArticleWrapper>
-        {props.is_mounted && <StyledHeader as="h4" type="sub-section-title">
+        <StyledHeader as="h4">
             {localize('How long does verification take?')}
-        </StyledHeader>}
+        </StyledHeader>
         <Text>
             {localize(
                 'We’ll typically take 1-3 business days to review your documents and will inform you of the result via email once it’s done.',
@@ -34,15 +30,12 @@ const VerificationDuration = (props) => (
         </Text>
     </ArticleWrapper>
 )
-VerificationDuration.propTypes = {
-    children: PropTypes.any,
-    is_mounted: PropTypes.bool,
-};
-const DocumentsDeclined = (props) => (
+
+const DocumentsDeclined = () => (
     <ArticleWrapper>
-        {props.is_mounted && <StyledHeader as="h4" type="sub-section-title">
+        <StyledHeader as="h4">
             {localize('Why were my documents declined?')}
-        </StyledHeader>}
+        </StyledHeader>
         <Text>
             {localize(
                 'We may decline your verification documents if they are insufficiently clear, invalid, expired, or have cropped edges.',
@@ -50,13 +43,9 @@ const DocumentsDeclined = (props) => (
         </Text>
     </ArticleWrapper>
 )
-DocumentsDeclined.propTypes = {
-    children: PropTypes.any,
-    is_mounted: PropTypes.bool,
-};
 
 const SecurityArticle = () => {
-    const [is_mounted,] = usePageLoaded(false) // needed to fix tab highlighting not being rerendered during first load
+    const [is_mounted] = usePageLoaded(false) // needed to fix tab highlighting not being rerendered during first load
 
     return (
         <div>

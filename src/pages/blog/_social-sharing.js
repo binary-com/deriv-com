@@ -5,10 +5,10 @@ import { SectionContainer, Container, Flex } from 'components/containers'
 import { LocalizedLink } from 'components/localization'
 import { Header } from 'components/elements/typography'
 import device from 'themes/device'
-import InstagramIcon from 'images/svg/blog/instagram.svg'
 import FacebookIcon from 'images/svg/blog/facebook.svg'
 import PinterestIcon from 'images/svg/blog/pinterest.svg'
 import TwitterIcon from 'images/svg/blog/twitter.svg'
+import LinkedInIcon from 'images/svg/footer-linkedin.svg'
 
 const IconWrapper = styled.div`
     width: 120px;
@@ -44,13 +44,13 @@ const SocialSharing = ({ pathname }) => {
                             <LocalizedLink external to={"https://www.facebook.com/sharer/sharer.php?u=https://deriv.com" + pathname} target="_blank" rel="noopener noreferrer">
                                 <img src={FacebookIcon} width="24px" height="24px" />
                             </LocalizedLink>
-                            <LocalizedLink external to="" target="_blank" rel="noopener noreferrer">
-                                <img src={InstagramIcon} width="24px" height="24px" />
+                            <LocalizedLink external to={"http://www.linkedin.com/shareArticle?mini=true&url=https://deriv.com" + pathname} target="_blank" rel="noopener noreferrer">
+                                <img src={LinkedInIcon} width="24px" height="24px" />
                             </LocalizedLink>
                             <LocalizedLink external to={"https://www.twitter.com/share?url=https://deriv.com" + pathname} target="_blank" rel="noopener noreferrer">
                                 <img src={TwitterIcon} width="24px" height="24px" />
                             </LocalizedLink>
-                            <LocalizedLink external to={"https://pinterest.com/pin/create/button/?url=https://deriv.com" + pathname} target="_blank" rel="noopener noreferrer">
+                            <LocalizedLink external to={"https://pinterest.com/pin/create/button/?url=https://deriv.com" + pathname + "&media=&description="} target="_blank" rel="noopener noreferrer">
                                 <img src={PinterestIcon} width="24px" height="24px" />
                             </LocalizedLink>
                         </Flex>

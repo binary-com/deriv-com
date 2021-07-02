@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { graphql, StaticQuery, navigate } from 'gatsby'
 import styled from 'styled-components'
@@ -50,47 +50,43 @@ export const Appearances = {
     public: 'public',
     newSignup: 'newSignup',
 }
-class Signup extends Component {
-    state = {
-        email: '',
-        is_submitting: false,
-        email_error_msg: '',
-        submit_status: '',
-        submit_error_msg: '',
-    }
+// class Signup extends Component {
+const Signup = () => {
 
-    validateEmail = (email) => {
+    const [email, setEmail] = useState('');
+    const [is_submitting, setSubmitting] = useState(false);
+    const [email_error_msg, setEmailErrorMsg] = useState('');
+    const [submit_status, setSubmitStatus] = useState('');
+    const [submit_error_msg, setSubmitErrorMsg] = useState('');
+
+    const validateEmail = (email) => {
         const error_message =
             validation.required(email) || validation.email(email) || this.state.submit_error_msg
 
-        if (this.state.submit_error_msg) {
-            this.setState({
-                submit_error_msg: '',
-                submit_status: '',
-            })
+        if (submit_error_msg) {
+            setSubmitErrorMsg('')
+            setSubmitStatus('')
         }
 
         return error_message
     }
 
-    handleValidation = (param) => {
+    const handleValidation = (param) => {
         const message = typeof param === 'object' ? param.target.value : param
-
-        this.setState({
-            email_error_msg: this.validateEmail(message.replace(/\s/g, '')),
-        })
+        setEmailErrorMsg(validateEmail(message.replace(/\s/g, '')))
     }
 
-    handleInputChange = (e) => {
-        const { name, value } = e.target
+    const handleInputChange = (e) => {
+        const { value } = e.target
 
-        this.setState({
-            [name]: value,
-        })
+        // this.setState({
+        //     [name]: value,
+        // })
+        setEmail(value);
         this.handleValidation(value)
     }
 
-    getVerifyEmailRequest = (email) => {
+    const getVerifyEmailRequest = (email) => {
         const affiliate_token = Cookies.getJSON('affiliate_tracking')
 
         const cookies = getCookiesFields()
@@ -107,19 +103,19 @@ class Signup extends Component {
         }
     }
 
-    handleEmailSignup = (e) => {
+    const handleEmailSignup = (e) => {
         e.preventDefault()
-        this.setState({ is_submitting: true })
-        let { email, email_error_msg } = this.state
-        email = email.replace(/\s/g, '')
-        this.handleValidation(email)
-        const has_error_email = this.validateEmail(email)
+        this.setSubmitting(true)
+        // let { email, email_error_msg } = this.state
+        // email = email.replace(/\s/g, '')
+        handleValidation(email.replace(/\s/g, ''))
+        const has_error_email = validateEmail(email)
 
         if (has_error_email || email_error_msg) {
-            return this.setState({ is_submitting: false })
+            return setSubmitting('false')
         }
 
-        const verify_email_req = this.getVerifyEmailRequest(email)
+        const verify_email_req = getVerifyEmailRequest(email)
         const binary_socket = BinarySocketBase.init()
 
         binary_socket.onopen = () => {
@@ -129,19 +125,15 @@ class Signup extends Component {
             const response = JSON.parse(msg.data)
             if (response.error) {
                 binary_socket.close()
-                this.setState({
-                    is_submitting: false,
-                    submit_status: 'error',
-                    submit_error_msg: response.error.message,
-                })
-                this.handleValidation(email)
+                setSubmitting(false)
+                setSubmitStatus('error')
+                setSubmitErrorMsg(response.error.message)
+                handleValidation(email)
             } else {
-                this.setState({
-                    is_submitting: false,
-                    submit_status: 'success',
-                })
+                setSubmitting(false);
+                setSubmitStatus('success');
                 if (this.props.onSubmit)
-                    this.props.onSubmit(this.state.submit_status, this.state.email)
+                    this.props.onSubmit(submit_status, email)
             }
 
             binary_socket.close()
@@ -154,32 +146,34 @@ class Signup extends Component {
         }
     }
 
-    clearEmail = () => this.setState({ email: '', email_error_msg: '' })
-
-    handleSocialSignup = (e) => {
+    const clearEmail = () => {
+        setEmail('');
+        setEmailErrorMsg('')
+    }
+    const handleSocialSignup = (e) => {
         e.preventDefault()
 
         const data_provider = e.currentTarget.getAttribute('data-provider')
         Login.initOneAll(data_provider)
     }
 
-    handleLogin = (e) => {
+    const handleLogin = (e) => {
         e.preventDefault()
         Login.redirectToLogin()
     }
 
-    renderSwitch(param) {
+    const renderSwitch = (param) => {
         const parameters = {
             autofocus: this.props.autofocus,
-            clearEmail: this.clearEmail,
-            email: this.state.email,
-            email_error_msg: this.state.email_error_msg,
-            handleInputChange: this.handleInputChange,
-            handleLogin: this.handleLogin,
-            handleSocialSignup: this.handleSocialSignup,
-            handleValidation: this.handleValidation,
+            clearEmail: clearEmail,
+            email: email,
+            email_error_msg: email_error_msg,
+            handleInputChange: handleInputChange,
+            handleLogin: handleLogin,
+            handleSocialSignup: handleSocialSignup,
+            handleValidation: handleValidation,
             is_ppc: this.props.is_ppc,
-            is_submitting: this.state.is_submitting,
+            is_submitting: is_submitting,
         }
 
         switch (param) {
@@ -201,9 +195,8 @@ class Signup extends Component {
                 return <SignupDefault {...parameters}></SignupDefault>
         }
     }
-
-    render() {
-        return this.props.submit_state === 'success' ? (
+    return (
+        this.props.submit_state === 'success' ? (
             <ResponseWrapper>
                 <Header as="h3" type="section-title" align="center" weight="normal">
                     {localize('Check your email')}
@@ -233,11 +226,11 @@ class Signup extends Component {
                 </EmailLink>
             </ResponseWrapper>
         ) : (
-            <Form onSubmit={this.handleEmailSignup} noValidate bgColor={this.props.bgColor}>
-                {this.renderSwitch(this.props.appearance)}
+            <Form onSubmit={handleEmailSignup} noValidate bgColor={this.props.bgColor}>
+                {renderSwitch(this.props.appearance)}
             </Form>
         )
-    }
+    )
 }
 
 Signup.propTypes = {

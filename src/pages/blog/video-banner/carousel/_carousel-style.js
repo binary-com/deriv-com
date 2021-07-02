@@ -174,6 +174,7 @@ export const IconWrapper = styled.div`
     border-radius: 50%;
     border: 2px solid var(--color-white);
     position: relative;
+    cursor: pointer;
     opacity: ${(props) => (props.disabled ? '0.32' : '1')};
 
     &:first-child {

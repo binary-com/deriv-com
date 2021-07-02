@@ -54,6 +54,10 @@ const VidPlayer = styled.video`
     width: 100%;
     max-height: 558px;
     background-color: var(--color-black);
+
+    @media ${device.desktopS} {
+        max-height: 900px;
+    }
 `
 
 const VideoPlayer = ({ video_src, closeVideo }) => {

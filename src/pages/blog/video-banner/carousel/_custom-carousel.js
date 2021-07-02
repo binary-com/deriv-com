@@ -177,21 +177,19 @@ export const CustomCarousel = ({
                 <NavigationWrapper>
                     <Divider />
                     <NavIconWrapper>
-                        <IconWrapper disabled={!prevBtnEnabled}>
+                        <IconWrapper disabled={!prevBtnEnabled} onClick={scrollPrev}>
                             <PrevButton
                                 color={custom_chevron_color}
                                 enabled={prevBtnEnabled}
                                 is_reviews={custom_is_displayed_on_mobile}
-                                onClick={scrollPrev}
                                 style={custom_blog_video_nav_style}
                             />
                         </IconWrapper>
-                        <IconWrapper disabled={!nextBtnEnabled}>
+                        <IconWrapper disabled={!nextBtnEnabled} onClick={scrollNext}>
                             <NextButton
                                 color={custom_chevron_color}
                                 enabled={nextBtnEnabled}
                                 is_reviews={custom_is_displayed_on_mobile}
-                                onClick={scrollNext}
                                 style={custom_blog_video_nav_style}
                             />
                         </IconWrapper>

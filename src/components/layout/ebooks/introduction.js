@@ -5,6 +5,7 @@ import { Header, Text, Li } from 'components/elements'
 import checkIcon from 'images/common/ebooks/check-icon.png'
 import BackgroundPattern from 'images/svg/ebook-intro-bg.svg'
 import device from 'themes/device'
+import { localize } from 'components/localization'
 
 const BacgroundWrapper = styled.div`
     width: 100%;
@@ -109,13 +110,13 @@ const Introduction = ({ introImage, imageWidth, introPara, subPara, introList })
                 />
                 <MediaBody>
                     <Header as="h3" className="mt-0 intro-text">
-                        Introduction
+                        {localize("Introduction")}
                     </Header>
                     <Text className="intro-desc">{introPara}</Text>
                     {subPara && <Text className="intro-desc">{subPara}</Text>}
                     {introList && (
                         <>
-                            <Header as="h5">In this book you’ll learn:</Header>
+                            <Header as="h5">{localize("In this book you’ll learn:")}</Header>
                             <MediaItemList>
                                 {introList?.map((point, index) => {
                                     return (

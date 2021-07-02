@@ -17,7 +17,7 @@ const MainWrapper = styled(Flex)`
     }
     @media ${device.tablet} {
         background-image: ${(props) =>
-            props.bgMobile ? props.bgMobile : 'linear-gradient(281deg, #1b1b1b, #0e0e0e)'};
+        props.bgMobile ? props.bgMobile : 'linear-gradient(281deg, #1b1b1b, #0e0e0e)'};
     }
 `
 const HeaderBody = styled(Flex)`
@@ -164,7 +164,7 @@ const HeaderSection = ({
                         {localize(
                             'This e-book has been brought to you by a veteran online trader and New York Times bestselling author, ',
                         )}
-                        <AuthorNameText>{localize('Vince Stanzione.')}</AuthorNameText>
+                        <AuthorNameText>Vince Stanzione.</AuthorNameText>
                     </AuthorText>
                     <SignupWrapper>
                         <GetEbook ebook_utm_code={ebook_utm_code} />

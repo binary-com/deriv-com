@@ -47,7 +47,7 @@ const trading = [
             <Localize translate_text="Easily customise your trading environment. Drag and drop widgets, create your own layouts, and get the info you need, when you need it." />
         ),
         image_name: 'bespoke',
-        image_alt: 'Bespoke trading experience',
+        image_alt: localize('Deriv X widgets to customise your CFD trading'),
     },
     {
         title: <Localize translate_text="Intuitive tools" />,
@@ -55,7 +55,7 @@ const trading = [
             <Localize translate_text="Keep track of your progress with the dashboard, learn from historical trades with the journal, and create custom watchlists for your favourite assets." />
         ),
         image_name: 'intuitive',
-        image_alt: 'Intuitive tools',
+        image_alt: localize('Deriv X dashboard with tools to track your online trading'),
     },
     {
         title: <Localize translate_text="Know your margin" />,
@@ -63,7 +63,7 @@ const trading = [
             <Localize translate_text="You'll always be informed of the margin impact on your account before every trade." />
         ),
         image_name: 'margin',
-        image_alt: 'Know your margin',
+        image_alt: localize('Know the margin impact on your CFD trading'),
     },
     {
         title: <Localize translate_text="Feature-rich charts" />,
@@ -71,7 +71,7 @@ const trading = [
             <Localize translate_text="Enjoy multiple chart views, 90+ indicators, and 13 drawing tools." />
         ),
         image_name: 'feature_rich',
-        image_alt: 'Feature-rich charts',
+        image_alt: localize('Multiple charts to view your online trading'),
     },
 ]
 
@@ -107,7 +107,7 @@ const WhyTradeDerivX = () => {
         <div>
             <SectionContainer>
                 <Container fd="column">
-                    <StyledHeader type="page-title" align="center">
+                    <StyledHeader type="page-title" align="center" as="h2">
                         {localize('Why trade with Deriv X')}
                     </StyledHeader>
                     <Flex tablet_direction="column" tablet_ai="center" mt="40px">
@@ -122,6 +122,7 @@ const WhyTradeDerivX = () => {
                                         type="sub-section-title"
                                         mt="7px"
                                         mb="8px"
+                                        as="h3"
                                     >
                                         {index.title}
                                     </Header>

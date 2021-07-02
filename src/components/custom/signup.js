@@ -51,7 +51,7 @@ export const Appearances = {
     newSignup: 'newSignup',
 }
 // class Signup extends Component {
-const Signup = () => {
+const Signup = (props) => {
 
     const [email, setEmail] = useState('');
     const [is_submitting, setSubmitting] = useState(false);
@@ -132,8 +132,8 @@ const Signup = () => {
             } else {
                 setSubmitting(false);
                 setSubmitStatus('success');
-                if (this.props.onSubmit)
-                    this.props.onSubmit(submit_status, email)
+                if (props.onSubmit)
+                    props.onSubmit(submit_status, email)
             }
 
             binary_socket.close()
@@ -164,7 +164,7 @@ const Signup = () => {
 
     const renderSwitch = (param) => {
         const parameters = {
-            autofocus: this.props.autofocus,
+            autofocus: props.autofocus,
             clearEmail: clearEmail,
             email: email,
             email_error_msg: email_error_msg,
@@ -172,7 +172,7 @@ const Signup = () => {
             handleLogin: handleLogin,
             handleSocialSignup: handleSocialSignup,
             handleValidation: handleValidation,
-            is_ppc: this.props.is_ppc,
+            is_ppc: props.is_ppc,
             is_submitting: is_submitting,
         }
 
@@ -196,7 +196,7 @@ const Signup = () => {
         }
     }
     return (
-        this.props.submit_state === 'success' ? (
+        props.submit_state === 'success' ? (
             <ResponseWrapper>
                 <Header as="h3" type="section-title" align="center" weight="normal">
                     {localize('Check your email')}
@@ -218,7 +218,7 @@ const Signup = () => {
                 <Text align="center">
                     <Localize
                         translate_text="We've sent a message to {{email}} with a link to activate your account."
-                        values={{ email: this.props.email }}
+                        values={{ email: props.email }}
                     />
                 </Text>
                 <EmailLink to="/check-email/" align="center">
@@ -226,8 +226,8 @@ const Signup = () => {
                 </EmailLink>
             </ResponseWrapper>
         ) : (
-            <Form onSubmit={handleEmailSignup} noValidate bgColor={this.props.bgColor}>
-                {renderSwitch(this.props.appearance)}
+            <Form onSubmit={handleEmailSignup} noValidate bgColor={props.bgColor}>
+                {renderSwitch(props.appearance)}
             </Form>
         )
     )

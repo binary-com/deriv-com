@@ -5,7 +5,7 @@ import Dot from './images/dot.svg'
 import { recent_article_data, featured_article_data, article_data }  from './_data'
 import Layout from 'components/layout/layout'
 import { SEO, Container, Flex, } from 'components/containers'
-import { Header, Text, Tabs } from 'components/elements'
+import { Carousel, Header, Text, Tabs } from 'components/elements'
 import { localize,LocalizedLink , WithIntl } from 'components/localization'
 import HeroImage from 'images/common/blog/deriv-blog.png'
 import device from 'themes/device'
@@ -109,7 +109,6 @@ const MainArticle = styled(Flex)`
         props.image
             ? `linear-gradient(251.14deg,rgba(14, 14, 14, 0.5632) 29.18%,rgba(7, 6, 6, 0.88) 85.14%),url(${props.image}) no-repeat top left`
             : 'linear-gradient(251.14deg, rgba(14, 14, 14, 0.5632) 29.18%, rgba(7, 6, 6, 0.88) 85.14%)'};
-    margin-top: 8px;
     position: relative;
     background-size: cover;
     min-height: 464px;
@@ -222,25 +221,25 @@ const BottomDescription = styled.div`
     }
 `
 
-const ScrollContent = styled.div`
-    margin-top: 8px;
-    width: 384px;
-    height: 464px;
-    overflow-y:scroll;
-    overflow-x:hidden;
-    cursor: grab;
-    overflow: auto;
+// const ScrollContent = styled.div`
+//     margin-top: 8px;
+//     width: 384px;
+//     height: 464px;
+//     overflow-y:scroll;
+//     overflow-x:hidden;
+//     cursor: grab;
+//     overflow: auto;
 
-            
-    ::-webkit-scrollbar {
-        display: none;
-    }
+//     overflow-y:scroll;
+//     ::-webkit-scrollbar {
+//         display: none;
+//     }
 
-    @media ${device.laptopM} {
-        width:100%;
-    }
+//     @media ${device.laptopM} {
+//         width:100%;
+//     }
 
-`
+// `
 
 const SmallArticle = styled(Flex)`
     font-size: 16px;
@@ -352,6 +351,23 @@ const RedirectLink = styled(LocalizedLink)`
     text-decoration: none;
     z-index:1;
 `
+
+const settings = {
+    options: {
+        axis: 'y',
+        align: 'start',
+        draggable: true,
+    },
+    view_port: {
+        height: 'auto',
+    },
+    vertical_container: {
+        flexDirection: 'column',
+        height: '464px',
+        width: '384px'
+    },
+}
+
 const RecentFeaturedPosts= () => {
     const recent = recent_article_data;
     const featured = featured_article_data;
@@ -410,28 +426,30 @@ const RecentFeaturedPosts= () => {
                                 </RedirectLink>
                             </LeftContent>
                             <RightContent>
-                                <ScrollContent>
-                                    {
-                                     articles.map((article,idx) => {
-                                            return (
-                                                <SmallArticle key={idx}>
-                                                    <SmallArticleLeftContent>
-                                                        <ImageWrapper>
-                                                            <StyledImage
-                                                                src={article.image}
-                                                                alt={idx}
-                                                            />
-                                                        </ImageWrapper>
-                                                    </SmallArticleLeftContent>
-                                                    <SmallArticleRightContent>
-                                                        <SmallArticleCategories>{article.category}</SmallArticleCategories>
-                                                        <SmallArticleTitle>{article.title}</SmallArticleTitle>
-                                            <SmallArticleBottomContent>{article.date} <DotIcon src={Dot} /> {article.reading_time} mins read</SmallArticleBottomContent>
-                                                    </SmallArticleRightContent>
-                                                </SmallArticle>
-                                            )})
+                                <Carousel {...settings}>
+                                {
+                                    articles.map((article,idx) => {
+                                        return (
+                                            <RedirectLink to={article.link} key={idx}>
+                                            <SmallArticle>
+                                                <SmallArticleLeftContent>
+                                                    <ImageWrapper>
+                                                        <StyledImage
+                                                            src={article.image}
+                                                            alt={idx}
+                                                        />
+                                                    </ImageWrapper>
+                                                </SmallArticleLeftContent>
+                                                <SmallArticleRightContent>
+                                                    <SmallArticleCategories>{article.category}</SmallArticleCategories>
+                                                    <SmallArticleTitle>{article.title}</SmallArticleTitle>
+                                                    <SmallArticleBottomContent>{article.date} <DotIcon src={Dot} /> {article.reading_time} mins read</SmallArticleBottomContent>
+                                                </SmallArticleRightContent>
+                                            </SmallArticle>
+                                        </RedirectLink>
+                                        )})
                                     }
-                                </ScrollContent>
+                                </Carousel>
                             </RightContent>
                         </ArticleContentWrapper>
                     </Tabs.Panel>
@@ -463,32 +481,31 @@ const RecentFeaturedPosts= () => {
                                 </MainArticle>
                             </RedirectLink>
                         </LeftContent>
-
                         <RightContent>
-                                <ScrollContent>
-                                    {
-                                     articles.map((article,idx) => {
-                                            return (
-                                                <RedirectLink to={article.link} key={idx}>
-                                                    <SmallArticle>
-                                                        <SmallArticleLeftContent>
-                                                            <ImageWrapper>
-                                                                <StyledImage
-                                                                    src={article.image}
-                                                                    alt={idx}
-                                                                />
-                                                            </ImageWrapper>
-                                                        </SmallArticleLeftContent>
-                                                        <SmallArticleRightContent>
-                                                            <SmallArticleCategories>{article.category}</SmallArticleCategories>
-                                                            <SmallArticleTitle>{article.title}</SmallArticleTitle>
-                                                            <SmallArticleBottomContent>{article.date} <DotIcon src={Dot} /> {article.reading_time} mins read</SmallArticleBottomContent>
-                                                        </SmallArticleRightContent>
-                                                    </SmallArticle>
-                                                </RedirectLink>
-                                            )})
+                            <Carousel {...settings}>
+                                {
+                                    articles.map((article,idx) => {
+                                        return (
+                                            <RedirectLink to={article.link} key={idx}>
+                                                <SmallArticle>
+                                                    <SmallArticleLeftContent>
+                                                        <ImageWrapper>
+                                                            <StyledImage
+                                                                src={article.image}
+                                                                alt={idx}
+                                                            />
+                                                        </ImageWrapper>
+                                                    </SmallArticleLeftContent>
+                                                    <SmallArticleRightContent>
+                                                        <SmallArticleCategories>{article.category}</SmallArticleCategories>
+                                                        <SmallArticleTitle>{article.title}</SmallArticleTitle>
+                                                        <SmallArticleBottomContent>{article.date} <DotIcon src={Dot} /> {article.reading_time} mins read</SmallArticleBottomContent>
+                                                    </SmallArticleRightContent>
+                                                </SmallArticle>
+                                            </RedirectLink>
+                                        )})
                                     }
-                                </ScrollContent>
+                                </Carousel>
                             </RightContent>
                         </ArticleContentWrapper>
                     </Tabs.Panel>

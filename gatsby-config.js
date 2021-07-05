@@ -208,5 +208,17 @@ module.exports = {
                 offset: -100,
             },
         },
+        {
+            resolve: 'gatsby-plugin-page-progress',
+            options: {
+                includePaths: ["/", { regex: "^/blog" }],
+                excludePaths: [],
+                height: 2,
+                prependToBody: true,
+                color: `#FF444F`,
+                footerHeight: 500,
+                headerHeight: 72,
+            },
+        },
     ],
 }

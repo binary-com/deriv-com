@@ -1,5 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
+import Clock from './images/clock.svg'
+import Dot from './images/dot.svg'
 import { recent_article_data, featured_article_data, article_data }  from './_data'
 import Layout from 'components/layout/layout'
 import { SEO, Container, Flex, } from 'components/containers'
@@ -145,7 +147,6 @@ const StyledCategories = styled(Text)`
     background-color: var(--color-yellow-2);
     color: var(--color-yellow-3);
     padding: 1px 8px;
-    line-height: 20px;
     margin-left: -10px;
 `
 
@@ -211,20 +212,14 @@ const BottomDescription = styled.div`
     }
 `
 
-const DateDescription = styled.div`
-    margin-right:20px;
-`
-
-const ReadingTimeDescription = styled.div`
-    margin-left:20px;
-`
-
 const ScrollContent = styled.div`
     margin-top: 8px;
     width: 384px;
     height: 464px;
     overflow-y:scroll;
     overflow-x:hidden;
+    cursor: grab;
+    overflow: auto;
 
             
     ::-webkit-scrollbar {
@@ -328,6 +323,16 @@ const StyledTabs = styled(Tabs)`
     width:unset;
 `
 
+const ClockIcon = styled.img`
+    margin: 0 5px;
+    color:white;
+`
+
+const DotIcon = styled.img`
+    margin: 2px 4px;
+    color:white;
+`
+
 const RecentFeaturedPosts= () => {
     const recent = recent_article_data;
     const featured = featured_article_data;
@@ -379,7 +384,7 @@ const RecentFeaturedPosts= () => {
                                     </Description>
 
                                     <BottomDescription>
-                                        {recent.date} * {recent.reading_time} mins read
+                                        {recent.date} <ClockIcon src={Clock}/>  {recent.reading_time} mins read
                                     </BottomDescription>
                                 </MainArticle>
                             </LeftContent>
@@ -400,7 +405,7 @@ const RecentFeaturedPosts= () => {
                                                     <SmallArticleRightContent>
                                                         <SmallArticleCategories>{article.category}</SmallArticleCategories>
                                                         <SmallArticleTitle>{article.title}</SmallArticleTitle>
-                                                        <SmallArticleBottomContent>{article.date} * {article.reading_time} mins read</SmallArticleBottomContent>
+                                            <SmallArticleBottomContent>{article.date} <DotIcon src={Dot} /> {article.reading_time} mins read</SmallArticleBottomContent>
                                                     </SmallArticleRightContent>
                                                 </SmallArticle>
                                             )})
@@ -431,8 +436,7 @@ const RecentFeaturedPosts= () => {
                                 </Description>
 
                                 <BottomDescription>
-                                    <DateDescription>{featured.date}</DateDescription>
-                                    <ReadingTimeDescription>{featured.reading_time} mins</ReadingTimeDescription>
+                                    {featured.date} <ClockIcon src={Clock}/>  {featured.reading_time} mins read
                                 </BottomDescription>
                             </MainArticle>
                         </LeftContent>
@@ -454,7 +458,7 @@ const RecentFeaturedPosts= () => {
                                                     <SmallArticleRightContent>
                                                         <SmallArticleCategories>{article.category}</SmallArticleCategories>
                                                         <SmallArticleTitle>{article.title}</SmallArticleTitle>
-                                                        <SmallArticleBottomContent>{article.date} * {article.reading_time} mins read</SmallArticleBottomContent>
+                                                        <SmallArticleBottomContent>{article.date} <DotIcon src={Dot} /> {article.reading_time} mins read</SmallArticleBottomContent>
                                                     </SmallArticleRightContent>
                                                 </SmallArticle>
                                             )})

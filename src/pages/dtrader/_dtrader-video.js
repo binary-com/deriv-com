@@ -249,7 +249,7 @@ class DtraderTabs extends React.Component {
                             external="true"
                             type="deriv_app"
                             target="_blank"
-                            rel="noopener noreferrer"
+                            rel="noopener noreferrer nofollow"
                         >
                             {localize('Go to live demo')}
                         </GoToLiveDemo>

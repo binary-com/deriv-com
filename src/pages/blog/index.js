@@ -1,24 +1,33 @@
 import React from 'react'
-import Subscribe from './components/_subscribe';
+import Subscribe from './components/_subscribe'
 import Layout from 'components/layout/layout'
+import styled from 'styled-components'
 import { SEO, Container, Flex } from 'components/containers'
 import { localize, WithIntl } from 'components/localization'
 
-const Blog = () => {
+const MainWrapper = styled(Flex)`
+    background-color: var(--color-white);
+    flex-direction: column;
+    overflow: hidden;
+`
+
+const DerivBlog = () => {
     return (
         <Layout type="blog" is_ppc_redirect={true}>
-            <SEO
-                title={localize('Blog')}
-                description={localize('Blog like a boss')}
-                no_index
-            />
-            <Container>
-                <Flex direction="column" ai="flex-start" jc="space-between">
-                    <Subscribe />
-                </Flex>
-            </Container>
+            <MainWrapper>Testing
+                <SEO
+                    title={localize('Blog')}
+                    description={localize('Blog like a boss')}
+                    no_index
+                />
+                <Container>
+                    <Flex direction="column" ai="flex-start" jc="space-between">
+                        <Subscribe />
+                    </Flex>
+                </Container>
+            </MainWrapper>
         </Layout>
     )
 }
 
-export default WithIntl()(Blog)
+export default WithIntl()(DerivBlog)

@@ -1,7 +1,7 @@
 import React from 'react'
+import styled from 'styled-components'
 import Subscribe from './components/_subscribe'
 import Layout from 'components/layout/layout'
-import styled from 'styled-components'
 import { SEO, Container, Flex } from 'components/containers'
 import { localize, WithIntl } from 'components/localization'
 
@@ -14,7 +14,7 @@ const MainWrapper = styled(Flex)`
 const DerivBlog = () => {
     return (
         <Layout type="blog" is_ppc_redirect={true}>
-            <MainWrapper>Testing
+            <MainWrapper>
                 <SEO
                     title={localize('Blog')}
                     description={localize('Blog like a boss')}

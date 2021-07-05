@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { ContainedImg } from '../common/_styles'
 import { Header } from 'components/elements'
 import { Flex } from 'components/containers'
 import device from 'themes/device'
@@ -133,12 +134,7 @@ const VideoCard = ({ item, openVideo }) => {
                     <VideoDuration as="h5" type="paragraph-2" weight="bold">
                         {item.video_duration}
                     </VideoDuration>
-                    <img
-                        src={item.image}
-                        alt="Video card"
-                        width="100%"
-                        style={{ objectFit: 'contain' }}
-                    />
+                    <ContainedImg src={item.image} alt="Video card" width="100%" />
                 </ImageWrapper>
                 <ContentWrapper>
                     <Header as="h3" type="subtitle-2">

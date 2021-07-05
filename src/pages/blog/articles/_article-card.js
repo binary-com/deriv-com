@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { ContainedImg } from '../common/_styles'
 import { Flex } from 'components/containers'
 import { Header } from 'components/elements'
 import { LocalizedLink } from 'components/localization'
@@ -64,12 +65,7 @@ const ArticleCard = ({ item }) => {
         <RedirectLink to={`/blog/articles/${item.slug}`}>
             <ArticleCardWrapper>
                 <ImageWrapper>
-                    <img
-                        src={item.image}
-                        alt="Video card"
-                        width="100%"
-                        style={{ objectFit: 'contain' }}
-                    />
+                    <ContainedImg src={item.image} alt="Video card" width="100%" />
                 </ImageWrapper>
                 <ContentWrapper>
                     <Flex jc="flex-start" height="auto" fw="wrap">

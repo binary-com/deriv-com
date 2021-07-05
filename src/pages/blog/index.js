@@ -3,7 +3,11 @@ import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import Hero from './components/_hero';
 import Layout from 'components/layout/layout'
+<<<<<<< HEAD
 import { SEO, Flex } from 'components/containers'
+=======
+import { SEO } from 'components/containers'
+>>>>>>> 30912ab173 (remove subscription form)
 import { localize, WithIntl } from 'components/localization'
 import { Carousel } from 'components/elements'
 

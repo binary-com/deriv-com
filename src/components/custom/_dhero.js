@@ -288,7 +288,7 @@ const DHero = ({
                             external
                             type={getLinkType()}
                             target="_blank"
-                            rel="noopener noreferrer"
+                            rel="noopener noreferrer nofollow"
                         >
                             {localize('Go to live demo')}
                         </GoToLiveDemo>

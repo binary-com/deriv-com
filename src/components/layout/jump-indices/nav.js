@@ -29,7 +29,6 @@ export const Section = styled(SectionContainer)`
 `
 
 const ContentContainer = styled(Container)`
-    align-items: center;
     justify-content: space-between;
 
     @media ${device.tabletL} {

@@ -26,7 +26,7 @@ const MarketsNewsWrapper = styled.div`
 `
 
 const StyledSpan = styled.span`
-    background-color: var(--color-blue-9); 
+    background-color: var(--color-blue-10); 
     padding: 3px 8px 1px;
     border-radius: 8px;
 `
@@ -49,7 +49,7 @@ const MarketNews = () => {
                                 <StyledFlex key={index}>
                                     <img src={data.img_source} width="104px" height="78px" />
                                     <Flex ml="8px" fd="column">
-                                        <Header type="paragraph-2" color="blue-10">
+                                        <Header type="paragraph-2" color="blue-9">
                                             <StyledSpan>{data.report_type}</StyledSpan>
                                         </Header>
                                         <Header mt="8px" type="paragraph-1" weight="bold">

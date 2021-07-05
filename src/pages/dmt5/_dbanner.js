@@ -15,6 +15,9 @@ const Wrapper = styled(Flex)`
     border-top: 1px solid rgba(151, 151, 151, 0.2);
     background-color: var(--color-black);
 
+    @media ${device.desktopS} {
+        padding-left: 18%;
+    }
     @media ${device.laptopM} {
         height: 384px;
         padding-left: 80px;

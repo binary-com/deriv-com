@@ -5,6 +5,7 @@
     "author": "Deriv",
     "dependencies": {
         "@artsy/fresnel": "^1.7.0",
+        "@asayerio/tracker": "^5.6.8",
         "@datadog/browser-rum": "^2.14.0",
         "@deriv/web-push-notifications": "^3.19.3",
         "@livechat/customer-sdk": "^3.0.0",

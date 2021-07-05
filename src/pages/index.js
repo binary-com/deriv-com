@@ -1,4 +1,5 @@
 import React from 'react'
+import Tracker from '@asayerio/tracker';
 // import Ticker from './home/_ticker'
 import {
     Markets,
@@ -44,9 +45,14 @@ const simple_step_content = [
     },
 ]
 
+const tracker = new Tracker({
+    projectID: 5142598291963829
+  });
+
 const Home = () => {
     /* redirect livechat for en to open live chat popup */
     useOpenLiveChat()
+    tracker.start();
 
     return (
         <Layout>

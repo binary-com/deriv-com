@@ -52,12 +52,11 @@ export const Appearances = {
 }
 // class Signup extends Component {
 const Signup = (props) => {
-
-    const [email, setEmail] = useState('');
-    const [is_submitting, setSubmitting] = useState(false);
-    const [email_error_msg, setEmailErrorMsg] = useState('');
-    const [submit_status, setSubmitStatus] = useState('');
-    const [submit_error_msg, setSubmitErrorMsg] = useState('');
+    const [email, setEmail] = useState('')
+    const [is_submitting, setSubmitting] = useState(false)
+    const [email_error_msg, setEmailErrorMsg] = useState('')
+    const [submit_status, setSubmitStatus] = useState('')
+    const [submit_error_msg, setSubmitErrorMsg] = useState('')
 
     const validateEmail = (email) => {
         const error_message =
@@ -110,7 +109,6 @@ const Signup = (props) => {
         // email = email.replace(/\s/g, '')
         handleValidation(email.replace(/\s/g, ''))
         const has_error_email = validateEmail(email)
-
         if (has_error_email || email_error_msg) {
             return setSubmitting('false')
         }
@@ -132,8 +130,10 @@ const Signup = (props) => {
             } else {
                 setSubmitting(false);
                 setSubmitStatus('success');
-                if (props.onSubmit)
-                    props.onSubmit(submit_status, email)
+
+                if (props.onSubmit) {
+                    props.onSubmit(submit_status || 'success', email)
+                }
             }
 
             binary_socket.close()

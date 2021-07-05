@@ -61,7 +61,7 @@ const Signup = (props) => {
 
     const validateEmail = (email) => {
         const error_message =
-            validation.required(email) || validation.email(email) || this.state.submit_error_msg
+            validation.required(email) || validation.email(email) || submit_error_msg
 
         if (submit_error_msg) {
             setSubmitErrorMsg('')
@@ -83,7 +83,7 @@ const Signup = (props) => {
         //     [name]: value,
         // })
         setEmail(value);
-        this.handleValidation(value)
+        handleValidation(value)
     }
 
     const getVerifyEmailRequest = (email) => {
@@ -105,7 +105,7 @@ const Signup = (props) => {
 
     const handleEmailSignup = (e) => {
         e.preventDefault()
-        this.setSubmitting(true)
+        setSubmitting(true)
         // let { email, email_error_msg } = this.state
         // email = email.replace(/\s/g, '')
         handleValidation(email.replace(/\s/g, ''))

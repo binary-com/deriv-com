@@ -5,7 +5,7 @@ import { Header, Text, Li } from 'components/elements'
 import checkIcon from 'images/common/ebooks/check-icon.png'
 import BackgroundPattern from 'images/svg/ebook-intro-bg.svg'
 import device from 'themes/device'
-import { localize } from 'components/localization'
+import { localize, Localize } from 'components/localization'
 
 const BacgroundWrapper = styled.div`
     width: 100%;
@@ -122,7 +122,7 @@ const Introduction = ({ introImage, imageWidth, introPara, subPara, introList })
                                     return (
                                         <Li key={index}>
                                             <img src={checkIcon} alt="Check Icon" />
-                                            {point}
+                                            <Localize translate_text={point} />
                                         </Li>
                                     )
                                 })}

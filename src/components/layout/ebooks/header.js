@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import GetEbook from './get-ebook'
 import { Flex } from 'components/containers'
 import { Header } from 'components/elements'
-import { localize } from 'components/localization'
+import { localize, Localize } from 'components/localization'
 import device from 'themes/device.js'
 
 const MainWrapper = styled(Flex)`
@@ -161,9 +161,8 @@ const HeaderSection = ({
                         {localize('Plus a free demo account to practice.')}
                     </Header>
                     <AuthorText>
-                        {localize(
-                            'This e-book has been brought to you by a veteran online trader and New York Times bestselling author, ',
-                        )}
+                        <Localize translate_text="This e-book has been brought to you by a veteran online trader and New York Times bestselling author," />
+
                         <AuthorNameText>Vince Stanzione.</AuthorNameText>
                     </AuthorText>
                     <SignupWrapper>

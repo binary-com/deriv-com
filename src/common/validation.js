@@ -16,13 +16,6 @@ const validation = {
             return null
         }
     },
-    name: (input, message) => {
-        if (!input) {
-            return message ? message : localize('Name is required')
-        } else {
-            return null
-        }
-    },
     required: (input, message) => {
         if (!input) {
             return message ? message : localize('This field is required')

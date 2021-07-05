@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { Article } from './_article'
 import { ArticleWrapper, ExternalLink, StyledHeader } from './_help-centre-style'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
@@ -61,10 +60,6 @@ const CFD = () => (
         </Text>
     </ArticleWrapper>
 )
-CFD.propTypes = {
-    children: PropTypes.any,
-    is_mounted: PropTypes.bool
-};
 
 const DigitalOptions = () => (
     <ArticleWrapper>
@@ -127,10 +122,6 @@ const WeekendContracts = () => (
         <Text>{localize('Synthetic indices are available for trading 24/7.')}</Text>
     </ArticleWrapper>
 )
-WeekendContracts.propTypes = {
-    children: PropTypes.any,
-    is_mounted: PropTypes.bool
-};
 
 const TradingArticle = () => {
     const [is_mounted] = usePageLoaded(false) // needed to fix tab highlighting not being rerendered during first load

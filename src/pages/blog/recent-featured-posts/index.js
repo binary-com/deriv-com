@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Clock from './images/clock.svg'
 import Dot from './images/dot.svg'
-import { recent_article_data, featured_article_data, article_data }  from './_data'
+import { recent_article_data, featured_article_data, article_data, article_data_2 }  from './_data'
 import Layout from 'components/layout/layout'
 import { SEO, Container, Flex, } from 'components/containers'
 import { Carousel, Header, Text, Tabs } from 'components/elements'
@@ -372,6 +372,8 @@ const RecentFeaturedPosts= () => {
     const recent = recent_article_data;
     const featured = featured_article_data;
     const articles = article_data;
+    const articles_2 = article_data_2;
+
     return(
     <Layout>
         <SEO
@@ -484,7 +486,7 @@ const RecentFeaturedPosts= () => {
                         <RightContent>
                             <Carousel {...settings}>
                                 {
-                                    articles.map((article,idx) => {
+                                    articles_2.map((article,idx) => {
                                         return (
                                             <RedirectLink to={article.link} key={idx}>
                                                 <SmallArticle>

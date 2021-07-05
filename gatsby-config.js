@@ -208,5 +208,14 @@ module.exports = {
                 offset: -100,
             },
         },
+        {
+            resolve: '@directus/gatsby-source-directus',
+            options: {
+                url: `https://amammustofa.com`,
+                dev: {
+                    refresh: '5s',
+                },
+            },
+        },
     ],
 }

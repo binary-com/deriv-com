@@ -91,7 +91,7 @@ const pushwooshInit = (push_woosh) => {
                     }
                 })
                 // eslint-disable-next-line no-empty
-            } catch { }
+            } catch {}
 
             sendTags(api)
         },
@@ -143,10 +143,6 @@ export const onClientEntry = () => {
     if (isLive()) {
         pushwooshInit(push_woosh)
     }
-
-    // const CIO = require("customerio-node");
-    // const { RegionUS } = require("customerio-node/regions");
-    // let cio = new CIO(siteId, apiKey, { region: RegionUS }, [defaults]);
 
     // Add GTM script for test domain
     if (!isLocalHost() && is_gtm_test_domain) {

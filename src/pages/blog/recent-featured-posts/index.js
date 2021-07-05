@@ -6,7 +6,7 @@ import { recent_article_data, featured_article_data, article_data }  from './_da
 import Layout from 'components/layout/layout'
 import { SEO, Container, Flex, } from 'components/containers'
 import { Header, Text, Tabs } from 'components/elements'
-import { localize, WithIntl } from 'components/localization'
+import { localize,LocalizedLink , WithIntl } from 'components/localization'
 import HeroImage from 'images/common/blog/deriv-blog.png'
 import device from 'themes/device'
 import { LinkButton } from 'components/form'
@@ -25,7 +25,7 @@ const SmallContainer = styled(Container)`
     @media ${device.desktopL} {
         max-width: 1000px;
     }
-    @media ${device.tabletL} {
+    @media ${device.laptopM} {
         width: 90%;
         padding-left: 0;
         padding-right: 0;
@@ -39,13 +39,13 @@ const Hero = styled(Flex)`
     background-size: cover;
     background-position: center;
 
-    @media ${device.tabletL} {
+    @media ${device.laptopM} {
         height: 348px;
     }
 `
 
 const StyledHeader = styled(Header)`
-    @media ${device.tabletL} {
+    @media ${device.laptopM} {
         margin-top: 16px;
     }
 `
@@ -57,7 +57,7 @@ const StyledContainer = styled(Flex)`
     @media ${device.desktopL} {
         max-width: 1600px;
     }
-    @media ${device.tabletL} {
+    @media ${device.laptopM} {
         width: 100%;
         padding: 0 16px;
     }
@@ -66,14 +66,13 @@ const StyledContainer = styled(Flex)`
 const TagParentWrapper = styled(Flex)`
     height: 22px;
     justify-content: flex-start;
-    @media ${device.tabletL} {
+    @media ${device.laptopM} {
         margin-bottom: 8px;
     }
 `
 const TagWrapper = styled(Flex)`
     width: auto;
     padding: 1px 8px;
-    background: var(--color-orange-3);
     border-radius: 8px;
     align-items: center;
 `
@@ -81,7 +80,7 @@ const TagWrapper = styled(Flex)`
 const ArticleContentWrapper = styled(Container)`
     margin-top: 40px;
     color:white;
-    @media ${device.tabletL} {
+    @media ${device.laptopM} {
         flex-flow: column;
     }
 `
@@ -90,7 +89,7 @@ const LeftContent= styled(Flex)`
     display:flex;
     justify-content:start;
     margin-right:10px;
-    @media ${device.tabletL} {
+    @media ${device.laptopM} {
         margin-right:0;
         margin-bottom:20px;
     }
@@ -99,7 +98,7 @@ const LeftContent= styled(Flex)`
 const RightContent= styled(Flex)`
     display:flex;
     justify-content:start;
-    @media ${device.tabletL} {
+    @media ${device.laptopM} {
         flex-flow: column;
     }
 `
@@ -119,8 +118,14 @@ const MainArticle = styled(Flex)`
     max-width: 1440px;
     align-items: flex-end;
     padding-bottom:80px;
+    cursor: pointer;
+    transition: transform 0.3s;
 
-    @media ${device.tabletL} {
+    &:hover {
+        transform: translateY(-1.1rem) scale(1.02);
+    }
+
+    @media ${device.laptopM} {
         /* prettier-ignore */
         min-width: 328px;
         padding: 0;
@@ -131,12 +136,17 @@ const MainArticle = styled(Flex)`
         background-size: cover;
         justify-content:flex-end;
     }
+
+    @media ${device.tablet} {
+        width:100%;
+        min-width: 270px;
+    }
 `
 
 const Description = styled.div`
     padding:24px 40px 0 40px;
 
-    @media ${device.tabletL} {
+    @media ${device.laptopM} {
         padding:30px;
     }
 `
@@ -164,7 +174,7 @@ const ArticleTitle = styled.div`
     flex-grow: 0;
     margin: 8px 0;
 
-    @media ${device.tabletL} {
+    @media ${device.laptopM} {
         font-size:24px
     }
 `
@@ -182,7 +192,7 @@ const ArticleSubtitle = styled.div`
     flex-grow: 0;
     margin: 8px 0;
 
-    @media ${device.tabletL} {
+    @media ${device.laptopM} {
         width: 100%;
         font-size:12px;
     }
@@ -207,7 +217,7 @@ const BottomDescription = styled.div`
     flex-grow: 0;
     color: white;
 
-    @media ${device.tabletL} {
+    @media ${device.laptopM} {
         display:none;
     }
 `
@@ -226,7 +236,7 @@ const ScrollContent = styled.div`
         display: none;
     }
 
-    @media ${device.tabletL} {
+    @media ${device.laptopM} {
         width:100%;
     }
 
@@ -237,7 +247,12 @@ const SmallArticle = styled(Flex)`
     height: 110px;
     margin-bottom:22px;
     place-content: flex-start;
+    cursor: pointer;
+    transition: transform 0.3s;
 
+    &:hover {
+        transform: translateY(1.1rem) scale(1.02);
+    }
 `
 
 const ImageWrapper = styled.div`
@@ -294,7 +309,7 @@ const SmallArticleLeftContent = styled(Flex)`
     margin-right: 10px;
     width:unset;
 
-    @media ${device.tabletL} {
+    @media ${device.laptopM} {
         margin-left:0;
     }
 
@@ -314,7 +329,7 @@ const StyledLinkButton = styled(LinkButton)`
         cursor: pointer;
     }
 
-    @media ${device.tabletL} {
+    @media ${device.laptopM} {
         width: 100%;
     }
 `
@@ -333,6 +348,10 @@ const DotIcon = styled.img`
     color:white;
 `
 
+const RedirectLink = styled(LocalizedLink)`
+    text-decoration: none;
+    z-index:1;
+`
 const RecentFeaturedPosts= () => {
     const recent = recent_article_data;
     const featured = featured_article_data;
@@ -366,27 +385,29 @@ const RecentFeaturedPosts= () => {
 
                         <ArticleContentWrapper>
                             <LeftContent>
-                                <MainArticle image={recent.image} >
-                                    <Description>
-                                        <TagParentWrapper>
-                                            <TagWrapper>
-                                                <StyledCategories>
-                                                    {recent.category}
-                                                </StyledCategories>
-                                            </TagWrapper>
-                                        </TagParentWrapper>
-                                            <ArticleTitle>
-                                                {recent.title}
-                                            </ArticleTitle>
-                                            <ArticleSubtitle>
-                                                {recent.description}
-                                            </ArticleSubtitle>
-                                    </Description>
+                                <RedirectLink to={recent.link}>
+                                    <MainArticle image={recent.image} >
+                                        <Description>
+                                            <TagParentWrapper>
+                                                <TagWrapper>
+                                                    <StyledCategories>
+                                                        {recent.category}
+                                                    </StyledCategories>
+                                                </TagWrapper>
+                                            </TagParentWrapper>
+                                                <ArticleTitle>
+                                                    {recent.title}
+                                                </ArticleTitle>
+                                                <ArticleSubtitle>
+                                                    {recent.description}
+                                                </ArticleSubtitle>
+                                        </Description>
 
-                                    <BottomDescription>
-                                        {recent.date} <ClockIcon src={Clock}/>  {recent.reading_time} mins read
-                                    </BottomDescription>
-                                </MainArticle>
+                                        <BottomDescription>
+                                            {recent.date} <ClockIcon src={Clock}/>  {recent.reading_time} mins read
+                                        </BottomDescription>
+                                    </MainArticle>
+                                </RedirectLink>
                             </LeftContent>
                             <RightContent>
                                 <ScrollContent>
@@ -418,27 +439,29 @@ const RecentFeaturedPosts= () => {
                     <Tabs.Panel label={localize('Featured posts')}>
                     <ArticleContentWrapper>
                         <LeftContent>
-                            <MainArticle image={featured.image} >
-                                <Description>
-                                    <TagParentWrapper>
-                                        <TagWrapper>
-                                            <StyledCategories>
-                                                {featured.category}
-                                            </StyledCategories>
-                                        </TagWrapper>
-                                    </TagParentWrapper>
-                                        <ArticleTitle>
-                                            {featured.title}
-                                        </ArticleTitle>
-                                        <ArticleSubtitle>
-                                            {featured.description}
-                                        </ArticleSubtitle>
-                                </Description>
+                            <RedirectLink to={featured.link}>
+                                <MainArticle image={featured.image} >
+                                    <Description>
+                                        <TagParentWrapper>
+                                            <TagWrapper>
+                                                <StyledCategories>
+                                                    {featured.category}
+                                                </StyledCategories>
+                                            </TagWrapper>
+                                        </TagParentWrapper>
+                                            <ArticleTitle>
+                                                {featured.title}
+                                            </ArticleTitle>
+                                            <ArticleSubtitle>
+                                                {featured.description}
+                                            </ArticleSubtitle>
+                                    </Description>
 
-                                <BottomDescription>
-                                    {featured.date} <ClockIcon src={Clock}/>  {featured.reading_time} mins read
-                                </BottomDescription>
-                            </MainArticle>
+                                    <BottomDescription>
+                                        {featured.date} <ClockIcon src={Clock}/>  {featured.reading_time} mins read
+                                    </BottomDescription>
+                                </MainArticle>
+                            </RedirectLink>
                         </LeftContent>
 
                         <RightContent>
@@ -446,21 +469,23 @@ const RecentFeaturedPosts= () => {
                                     {
                                      articles.map((article,idx) => {
                                             return (
-                                                <SmallArticle key={idx}>
-                                                    <SmallArticleLeftContent>
-                                                        <ImageWrapper>
-                                                            <StyledImage
-                                                                src={article.image}
-                                                                alt={idx}
-                                                            />
-                                                        </ImageWrapper>
-                                                    </SmallArticleLeftContent>
-                                                    <SmallArticleRightContent>
-                                                        <SmallArticleCategories>{article.category}</SmallArticleCategories>
-                                                        <SmallArticleTitle>{article.title}</SmallArticleTitle>
-                                                        <SmallArticleBottomContent>{article.date} <DotIcon src={Dot} /> {article.reading_time} mins read</SmallArticleBottomContent>
-                                                    </SmallArticleRightContent>
-                                                </SmallArticle>
+                                                <RedirectLink to={article.link} key={idx}>
+                                                    <SmallArticle>
+                                                        <SmallArticleLeftContent>
+                                                            <ImageWrapper>
+                                                                <StyledImage
+                                                                    src={article.image}
+                                                                    alt={idx}
+                                                                />
+                                                            </ImageWrapper>
+                                                        </SmallArticleLeftContent>
+                                                        <SmallArticleRightContent>
+                                                            <SmallArticleCategories>{article.category}</SmallArticleCategories>
+                                                            <SmallArticleTitle>{article.title}</SmallArticleTitle>
+                                                            <SmallArticleBottomContent>{article.date} <DotIcon src={Dot} /> {article.reading_time} mins read</SmallArticleBottomContent>
+                                                        </SmallArticleRightContent>
+                                                    </SmallArticle>
+                                                </RedirectLink>
                                             )})
                                     }
                                 </ScrollContent>
@@ -475,6 +500,6 @@ const RecentFeaturedPosts= () => {
 
     </Layout>
 )
-        }
+}
 
 export default WithIntl()(RecentFeaturedPosts)

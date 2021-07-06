@@ -1,6 +1,7 @@
 import React from 'react'
 import { Article } from './_article'
 import { ArticleWrapper, ExternalLink, StyledHeader } from './_help-centre-style'
+import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import { deriv_app_url } from 'common/constants'
 import { Text } from 'components/elements'
 import { localize, Localize, WithIntl } from 'components/localization'
@@ -15,6 +16,7 @@ const Forex = () => (
         </Text>
     </ArticleWrapper>
 )
+
 const Commodities = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('What are commodities?')}</StyledHeader>
@@ -25,6 +27,7 @@ const Commodities = () => (
         </Text>
     </ArticleWrapper>
 )
+
 const StockIndices = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('What are stock indices?')}</StyledHeader>
@@ -35,6 +38,7 @@ const StockIndices = () => (
         </Text>
     </ArticleWrapper>
 )
+
 const SyntheticIndices = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('What are synthetic indices?')}</StyledHeader>
@@ -45,6 +49,7 @@ const SyntheticIndices = () => (
         </Text>
     </ArticleWrapper>
 )
+
 const CFD = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('What are contracts for difference (CFDs)?')}</StyledHeader>
@@ -55,6 +60,7 @@ const CFD = () => (
         </Text>
     </ArticleWrapper>
 )
+
 const DigitalOptions = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('What are digital options?')}</StyledHeader>
@@ -65,6 +71,7 @@ const DigitalOptions = () => (
         </Text>
     </ArticleWrapper>
 )
+
 const TradingPlatforms = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('How many trading platforms do you offer?')}</StyledHeader>
@@ -75,6 +82,7 @@ const TradingPlatforms = () => (
         </Text>
     </ArticleWrapper>
 )
+
 const AutomateTradingStrategy = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('How can I automate my trading strategy?')}</StyledHeader>
@@ -85,6 +93,7 @@ const AutomateTradingStrategy = () => (
         </Text>
     </ArticleWrapper>
 )
+
 const TradingLimits = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('What are my trading limits?')}</StyledHeader>
@@ -104,6 +113,7 @@ const TradingLimits = () => (
         </Text>
     </ArticleWrapper>
 )
+
 const WeekendContracts = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">
@@ -114,6 +124,7 @@ const WeekendContracts = () => (
 )
 
 const TradingArticle = () => {
+    const [is_mounted] = usePageLoaded(false) // needed to fix tab highlighting not being rerendered during first load
     return (
         <div>
             <Article
@@ -121,7 +132,11 @@ const TradingArticle = () => {
                 title={localize('Help centre | Frequently asked questions | Trading | Deriv')}
                 description={localize('Frequently asked questions - Trading')}
             >
-                <Forex text={localize('What is forex?')} label="what-is-forex" />
+                <Forex
+                    text={localize('What is forex?')}
+                    label="what-is-forex"
+                    is_mounted={is_mounted}
+                />
                 <Commodities
                     text={localize('What are commodities?')}
                     label="what-are-commodities"
@@ -129,34 +144,42 @@ const TradingArticle = () => {
                 <StockIndices
                     text={localize('What are stock indices?')}
                     label="what-are-stock-indices"
+                    is_mounted={is_mounted}
                 />
                 <SyntheticIndices
                     text={localize('What are synthetic indices?')}
                     label="what-are-synthetic-indices"
+                    is_mounted={is_mounted}
                 />
                 <CFD
                     text={localize('What are contracts for difference (CFDs)?')}
                     label="what-are-cfds"
+                    is_mounted={is_mounted}
                 />
                 <DigitalOptions
                     text={localize('What are digital options?')}
                     label="what-are-digital-options"
+                    is_mounted={is_mounted}
                 />
                 <TradingPlatforms
                     text={localize('How many trading platforms do you offer?')}
                     label="how-many-trading-platforms"
+                    is_mounted={is_mounted}
                 />
                 <AutomateTradingStrategy
                     text={localize('How can I automate my trading strategy?')}
                     label="how-to-automate-trading-strategy"
+                    is_mounted={is_mounted}
                 />
                 <TradingLimits
                     text={localize('What are my trading limits?')}
                     label="trading-limits"
+                    is_mounted={is_mounted}
                 />
                 <WeekendContracts
                     text={localize('What contracts are available for trading on weekends?')}
                     label="contracts-available-on-weekends"
+                    is_mounted={is_mounted}
                 />
             </Article>
         </div>

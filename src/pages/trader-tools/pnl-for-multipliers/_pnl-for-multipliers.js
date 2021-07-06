@@ -7,6 +7,7 @@ import {
     numberWithCommas,
     resetValidationPnlMultipliersAmount,
     resetValidationPnlMultipliersLevel,
+    getMaxLength
 } from '../common/_utility'
 import {
     BreadCrumbContainer,
@@ -32,7 +33,7 @@ import {
     StyledLinkButton,
     StyledOl,
     StyledSection,
-    SwapTabSelector,
+    SwapTabSelector
 } from '../common/_style'
 import { localize, Localize } from 'components/localization'
 import {
@@ -41,7 +42,7 @@ import {
     Header,
     LocalizedLinkText,
     QueryImage,
-    Text,
+    Text
 } from 'components/elements'
 import { Flex, Show } from 'components/containers'
 import Input from 'components/form/input'
@@ -152,7 +153,7 @@ const PnlMultipliersCalculator = () => {
                                     assetPrice: '',
                                     commission: '',
                                     stake: '',
-                                    multiplier: '',
+                                    multiplier: ''
                                 }}
                                 validate={resetValidationPnlMultipliersLevel}
                                 onSubmit={(values, { setFieldValue }) => {
@@ -161,39 +162,36 @@ const PnlMultipliersCalculator = () => {
                                         sub_tab === 'Up'
                                             ? getPnlMultiplierCommon(values, 'getTakeProfitLevelUp')
                                             : getPnlMultiplierCommon(
-                                                  values,
-                                                  'getTakeProfitLevelDown',
-                                              ),
+                                                values,
+                                                'getTakeProfitLevelDown'
+                                            )
                                     )
                                     setFieldValue(
                                         'stopLossLevelOutput',
                                         sub_tab === 'Up'
                                             ? getPnlMultiplierCommon(values, 'getStopLossLevelUp')
-                                            : getPnlMultiplierCommon(
-                                                  values,
-                                                  'getStopLossLevelDown',
-                                              ),
+                                            : getPnlMultiplierCommon(values, 'getStopLossLevelDown')
                                     )
                                     setFieldValue(
                                         'assetPrice',
-                                        numberSubmitFormat(values.assetPrice),
+                                        numberSubmitFormat(values.assetPrice)
                                     )
                                     setFieldValue(
                                         'commission',
-                                        numberSubmitFormat(values.commission),
+                                        numberSubmitFormat(values.commission)
                                     )
                                     setFieldValue('stake', numberSubmitFormat(values.stake))
                                     setFieldValue(
                                         'multiplier',
-                                        numberSubmitFormat(values.multiplier),
+                                        numberSubmitFormat(values.multiplier)
                                     )
                                     setFieldValue(
                                         'takeProfitAmount',
-                                        numberSubmitFormat(values.takeProfitAmount),
+                                        numberSubmitFormat(values.takeProfitAmount)
                                     )
                                     setFieldValue(
                                         'stopLossAmount',
-                                        numberSubmitFormat(values.stopLossAmount),
+                                        numberSubmitFormat(values.stopLossAmount)
                                     )
                                 }}
                             >
@@ -206,7 +204,7 @@ const PnlMultipliersCalculator = () => {
                                     setFieldError,
                                     setFieldTouched,
                                     isValid,
-                                    dirty,
+                                    dirty
                                 }) => (
                                     <>
                                         <Show.Desktop max_width="mobileL">
@@ -289,7 +287,7 @@ const PnlMultipliersCalculator = () => {
                                                                     onChange={(value) => {
                                                                         setFieldValue(
                                                                             'assetPrice',
-                                                                            value,
+                                                                            value
                                                                         )
                                                                     }}
                                                                 >
@@ -299,7 +297,7 @@ const PnlMultipliersCalculator = () => {
                                                                             id="assetPrice"
                                                                             type="text"
                                                                             label={localize(
-                                                                                'Asset price',
+                                                                                'Asset price'
                                                                             )}
                                                                             autoComplete="off"
                                                                             error={
@@ -314,20 +312,20 @@ const PnlMultipliersCalculator = () => {
                                                                                 setFieldValue(
                                                                                     'assetPrice',
                                                                                     '',
-                                                                                    false,
+                                                                                    false
                                                                                 )
                                                                                 setFieldError(
                                                                                     'assetPrice',
-                                                                                    '',
+                                                                                    ''
                                                                                 )
                                                                                 setFieldTouched(
                                                                                     'assetPrice',
                                                                                     false,
-                                                                                    false,
+                                                                                    false
                                                                                 )
                                                                                 current_input.focus()
                                                                             }}
-                                                                            maxLength="8"
+                                                                            maxLength={getMaxLength(values.assetPrice, 8)}
                                                                             background="white"
                                                                         />
                                                                     )}
@@ -342,7 +340,7 @@ const PnlMultipliersCalculator = () => {
                                                                     onChange={(value) => {
                                                                         setFieldValue(
                                                                             'commission',
-                                                                            value,
+                                                                            value
                                                                         )
                                                                     }}
                                                                 >
@@ -362,25 +360,25 @@ const PnlMultipliersCalculator = () => {
                                                                             onBlur={handleBlur}
                                                                             data-lpignore="true"
                                                                             handleError={(
-                                                                                current_input,
+                                                                                current_input
                                                                             ) => {
                                                                                 setFieldValue(
                                                                                     'commission',
                                                                                     '',
-                                                                                    false,
+                                                                                    false
                                                                                 )
                                                                                 setFieldError(
                                                                                     'commission',
-                                                                                    '',
+                                                                                    ''
                                                                                 )
                                                                                 setFieldTouched(
                                                                                     'commission',
                                                                                     false,
-                                                                                    false,
+                                                                                    false
                                                                                 )
                                                                                 current_input.focus()
                                                                             }}
-                                                                            maxLength="8"
+                                                                            maxLength={getMaxLength(values.commission, 8)}
                                                                             background="white"
                                                                         />
                                                                     )}
@@ -398,7 +396,7 @@ const PnlMultipliersCalculator = () => {
                                                                     onChange={(value) => {
                                                                         setFieldValue(
                                                                             'stake',
-                                                                            value,
+                                                                            value
                                                                         )
                                                                     }}
                                                                 >
@@ -408,7 +406,7 @@ const PnlMultipliersCalculator = () => {
                                                                             id="stake"
                                                                             type="text"
                                                                             label={localize(
-                                                                                'Stake',
+                                                                                'Stake'
                                                                             )}
                                                                             autoComplete="off"
                                                                             error={
@@ -423,20 +421,20 @@ const PnlMultipliersCalculator = () => {
                                                                                 setFieldValue(
                                                                                     'stake',
                                                                                     '',
-                                                                                    false,
+                                                                                    false
                                                                                 )
                                                                                 setFieldError(
                                                                                     'stake',
-                                                                                    '',
+                                                                                    ''
                                                                                 )
                                                                                 setFieldTouched(
                                                                                     'stake',
                                                                                     false,
-                                                                                    false,
+                                                                                    false
                                                                                 )
                                                                                 current_input.focus()
                                                                             }}
-                                                                            maxLength="15"
+                                                                            maxLength={getMaxLength(values.stake, 15)}
                                                                             background="white"
                                                                         />
                                                                     )}
@@ -451,7 +449,7 @@ const PnlMultipliersCalculator = () => {
                                                                     onChange={(value) => {
                                                                         setFieldValue(
                                                                             'takeProfitAmount',
-                                                                            value,
+                                                                            value
                                                                         )
                                                                     }}
                                                                 >
@@ -476,20 +474,20 @@ const PnlMultipliersCalculator = () => {
                                                                                 setFieldValue(
                                                                                     'takeProfitAmount',
                                                                                     '',
-                                                                                    false,
+                                                                                    false
                                                                                 )
                                                                                 setFieldError(
                                                                                     'takeProfitAmount',
-                                                                                    '',
+                                                                                    ''
                                                                                 )
                                                                                 setFieldTouched(
                                                                                     'takeProfitAmount',
                                                                                     false,
-                                                                                    false,
+                                                                                    false
                                                                                 )
                                                                                 current_input.focus()
                                                                             }}
-                                                                            maxLength="15"
+                                                                            maxLength={getMaxLength(values.takeProfitAmount, 15)}
                                                                             background="white"
                                                                         />
                                                                     )}
@@ -507,7 +505,7 @@ const PnlMultipliersCalculator = () => {
                                                                     onChange={(value) => {
                                                                         setFieldValue(
                                                                             'multiplier',
-                                                                            value,
+                                                                            value
                                                                         )
                                                                     }}
                                                                 >
@@ -520,7 +518,7 @@ const PnlMultipliersCalculator = () => {
                                                                                 values.multiplier
                                                                             }
                                                                             label={localize(
-                                                                                'Multiplier',
+                                                                                'Multiplier'
                                                                             )}
                                                                             autoComplete="off"
                                                                             error={
@@ -535,20 +533,20 @@ const PnlMultipliersCalculator = () => {
                                                                                 setFieldValue(
                                                                                     'multiplier',
                                                                                     '',
-                                                                                    false,
+                                                                                    false
                                                                                 )
                                                                                 setFieldError(
                                                                                     'multiplier',
-                                                                                    '',
+                                                                                    ''
                                                                                 )
                                                                                 setFieldTouched(
                                                                                     'multiplier',
                                                                                     false,
-                                                                                    false,
+                                                                                    false
                                                                                 )
                                                                                 current_input.focus()
                                                                             }}
-                                                                            maxLength="4"
+                                                                            maxLength={getMaxLength(values.multiplier, 4)}
                                                                             background="white"
                                                                         />
                                                                     )}
@@ -563,7 +561,7 @@ const PnlMultipliersCalculator = () => {
                                                                     onChange={(value) => {
                                                                         setFieldValue(
                                                                             'stopLossAmount',
-                                                                            value,
+                                                                            value
                                                                         )
                                                                     }}
                                                                 >
@@ -591,20 +589,20 @@ const PnlMultipliersCalculator = () => {
                                                                                 setFieldValue(
                                                                                     'stopLossAmount',
                                                                                     '',
-                                                                                    false,
+                                                                                    false
                                                                                 )
                                                                                 setFieldError(
                                                                                     'stopLossAmount',
-                                                                                    '',
+                                                                                    ''
                                                                                 )
                                                                                 setFieldTouched(
                                                                                     'stopLossAmount',
                                                                                     false,
-                                                                                    false,
+                                                                                    false
                                                                                 )
                                                                                 current_input.focus()
                                                                             }}
-                                                                            maxLength="15"
+                                                                            maxLength={getMaxLength(values.stopLossAmount, 15)}
                                                                             background="white"
                                                                         />
                                                                     )}
@@ -637,7 +635,7 @@ const PnlMultipliersCalculator = () => {
                                                             <PnLCalculatorOutputContainer>
                                                                 <PnLCalculatorOutputField>
                                                                     {numberWithCommas(
-                                                                        values.takeProfitLevelOutput,
+                                                                        values.takeProfitLevelOutput
                                                                     )}
                                                                 </PnLCalculatorOutputField>
                                                                 <PnLCalculatorOutputSymbol>
@@ -652,7 +650,7 @@ const PnlMultipliersCalculator = () => {
                                                             <PnLCalculatorOutputContainer>
                                                                 <PnLCalculatorOutputField>
                                                                     {numberWithCommas(
-                                                                        values.stopLossLevelOutput,
+                                                                        values.stopLossLevelOutput
                                                                     )}
                                                                 </PnLCalculatorOutputField>
                                                                 <PnLCalculatorOutputSymbol>
@@ -723,20 +721,20 @@ const PnlMultipliersCalculator = () => {
                                                                         setFieldValue(
                                                                             'assetPrice',
                                                                             '',
-                                                                            false,
+                                                                            false
                                                                         )
                                                                         setFieldError(
                                                                             'assetPrice',
-                                                                            '',
+                                                                            ''
                                                                         )
                                                                         setFieldTouched(
                                                                             'assetPrice',
                                                                             false,
-                                                                            false,
+                                                                            false
                                                                         )
                                                                         current_input.focus()
                                                                     }}
-                                                                    maxLength="8"
+                                                                    maxLength={getMaxLength(values.assetPrice, 8)}
                                                                     background="white"
                                                                 />
                                                             )}
@@ -770,17 +768,17 @@ const PnlMultipliersCalculator = () => {
                                                                         setFieldValue(
                                                                             'stake',
                                                                             '',
-                                                                            false,
+                                                                            false
                                                                         )
                                                                         setFieldError('stake', '')
                                                                         setFieldTouched(
                                                                             'stake',
                                                                             false,
-                                                                            false,
+                                                                            false
                                                                         )
                                                                         current_input.focus()
                                                                     }}
-                                                                    maxLength="15"
+                                                                    maxLength={getMaxLength(values.stake, 15)}
                                                                     background="white"
                                                                 />
                                                             )}
@@ -808,25 +806,25 @@ const PnlMultipliersCalculator = () => {
                                                                     onBlur={handleBlur}
                                                                     data-lpignore="true"
                                                                     handleError={(
-                                                                        current_input,
+                                                                        current_input
                                                                     ) => {
                                                                         setFieldValue(
                                                                             'multiplier',
                                                                             '',
-                                                                            false,
+                                                                            false
                                                                         )
                                                                         setFieldError(
                                                                             'multiplier',
-                                                                            '',
+                                                                            ''
                                                                         )
                                                                         setFieldTouched(
                                                                             'multiplier',
                                                                             false,
-                                                                            false,
+                                                                            false
                                                                         )
                                                                         current_input.focus()
                                                                     }}
-                                                                    maxLength="4"
+                                                                    maxLength={getMaxLength(values.multiplier, 4)}
                                                                     background="white"
                                                                 />
                                                             )}
@@ -872,7 +870,7 @@ const PnlMultipliersCalculator = () => {
                                                                         )
                                                                         current_input.focus()
                                                                     }}
-                                                                    maxLength="8"
+                                                                    maxLength={getMaxLength(values.commission, 8)}
                                                                     background="white"
                                                                 />
                                                             )}
@@ -896,7 +894,7 @@ const PnlMultipliersCalculator = () => {
                                                                     type="text"
                                                                     value={values.takeProfitAmount}
                                                                     label={localize(
-                                                                        'Take profit amount',
+                                                                        'Take profit amount'
                                                                     )}
                                                                     autoComplete="off"
                                                                     error={
@@ -911,20 +909,20 @@ const PnlMultipliersCalculator = () => {
                                                                         setFieldValue(
                                                                             'takeProfitAmount',
                                                                             '',
-                                                                            false,
+                                                                            false
                                                                         )
                                                                         setFieldError(
                                                                             'takeProfitAmount',
-                                                                            '',
+                                                                            ''
                                                                         )
                                                                         setFieldTouched(
                                                                             'takeProfitAmount',
                                                                             false,
-                                                                            false,
+                                                                            false
                                                                         )
                                                                         current_input.focus()
                                                                     }}
-                                                                    maxLength="15"
+                                                                    maxLength={getMaxLength(values.takeProfitAmount, 15)}
                                                                     background="white"
                                                                 />
                                                             )}
@@ -937,7 +935,7 @@ const PnlMultipliersCalculator = () => {
                                                             onChange={(value) => {
                                                                 setFieldValue(
                                                                     'stopLossAmount',
-                                                                    value,
+                                                                    value
                                                                 )
                                                             }}
                                                         >
@@ -948,7 +946,7 @@ const PnlMultipliersCalculator = () => {
                                                                     type="text"
                                                                     value={values.stopLossAmount}
                                                                     label={localize(
-                                                                        'Stop loss amount',
+                                                                        'Stop loss amount'
                                                                     )}
                                                                     autoComplete="off"
                                                                     error={
@@ -958,25 +956,25 @@ const PnlMultipliersCalculator = () => {
                                                                     onBlur={handleBlur}
                                                                     data-lpignore="true"
                                                                     handleError={(
-                                                                        current_input,
+                                                                        current_input
                                                                     ) => {
                                                                         setFieldValue(
                                                                             'stopLossAmount',
                                                                             '',
-                                                                            false,
+                                                                            false
                                                                         )
                                                                         setFieldError(
                                                                             'stopLossAmount',
-                                                                            '',
+                                                                            ''
                                                                         )
                                                                         setFieldTouched(
                                                                             'stopLossAmount',
                                                                             false,
-                                                                            false,
+                                                                            false
                                                                         )
                                                                         current_input.focus()
                                                                     }}
-                                                                    maxLength="15"
+                                                                    maxLength={getMaxLength(values.stopLossAmount, 15)}
                                                                     background="white"
                                                                 />
                                                             )}
@@ -1144,7 +1142,7 @@ const PnlMultipliersCalculator = () => {
                                     assetPrice: '',
                                     commission: '',
                                     stake: '',
-                                    multiplier: '',
+                                    multiplier: ''
                                 }}
                                 validate={resetValidationPnlMultipliersAmount}
                                 onSubmit={(values, { setFieldValue }) => {
@@ -1152,43 +1150,43 @@ const PnlMultipliersCalculator = () => {
                                         'takeProfitAmountOutput',
                                         sub_tab === 'Up'
                                             ? getPnlMultiplierCommon(
-                                                  values,
-                                                  'getTakeProfitAmountUp',
-                                              )
+                                                values,
+                                                'getTakeProfitAmountUp',
+                                            )
                                             : getPnlMultiplierCommon(
-                                                  values,
-                                                  'getTakeProfitAmountDown',
-                                              ),
+                                                values,
+                                                'getTakeProfitAmountDown',
+                                            ),
                                     )
                                     setFieldValue(
                                         'stopLossAmountOutput',
                                         sub_tab === 'Up'
                                             ? getPnlMultiplierCommon(values, 'getStopLossAmountUp')
                                             : getPnlMultiplierCommon(
-                                                  values,
-                                                  'getStopLossAmountDown',
-                                              ),
+                                                values,
+                                                'getStopLossAmountDown'
+                                            )
                                     )
                                     setFieldValue(
                                         'assetPrice',
-                                        numberSubmitFormat(values.assetPrice),
+                                        numberSubmitFormat(values.assetPrice)
                                     )
                                     setFieldValue(
                                         'commission',
-                                        numberSubmitFormat(values.commission),
+                                        numberSubmitFormat(values.commission)
                                     )
                                     setFieldValue('stake', numberSubmitFormat(values.stake))
                                     setFieldValue(
                                         'multiplier',
-                                        numberSubmitFormat(values.multiplier),
+                                        numberSubmitFormat(values.multiplier)
                                     )
                                     setFieldValue(
                                         'takeProfitLevel',
-                                        numberSubmitFormat(values.takeProfitLevel),
+                                        numberSubmitFormat(values.takeProfitLevel)
                                     )
                                     setFieldValue(
                                         'stopLossLevel',
-                                        numberSubmitFormat(values.stopLossLevel),
+                                        numberSubmitFormat(values.stopLossLevel)
                                     )
                                 }}
                             >
@@ -1201,7 +1199,7 @@ const PnlMultipliersCalculator = () => {
                                     setFieldError,
                                     setFieldTouched,
                                     isValid,
-                                    dirty,
+                                    dirty
                                 }) => (
                                     <>
                                         <Show.Desktop max_width="mobileL">
@@ -1284,7 +1282,7 @@ const PnlMultipliersCalculator = () => {
                                                                     onChange={(value) => {
                                                                         setFieldValue(
                                                                             'assetPrice',
-                                                                            value,
+                                                                            value
                                                                         )
                                                                     }}
                                                                 >
@@ -1309,20 +1307,20 @@ const PnlMultipliersCalculator = () => {
                                                                                 setFieldValue(
                                                                                     'assetPrice',
                                                                                     '',
-                                                                                    false,
+                                                                                    false
                                                                                 )
                                                                                 setFieldError(
                                                                                     'assetPrice',
-                                                                                    '',
+                                                                                    ''
                                                                                 )
                                                                                 setFieldTouched(
                                                                                     'assetPrice',
                                                                                     false,
-                                                                                    false,
+                                                                                    false
                                                                                 )
                                                                                 current_input.focus()
                                                                             }}
-                                                                            maxLength="8"
+                                                                            maxLength={getMaxLength(values.assetPrice, 8)}
                                                                             background="white"
                                                                         />
                                                                     )}
@@ -1337,7 +1335,7 @@ const PnlMultipliersCalculator = () => {
                                                                     onChange={(value) => {
                                                                         setFieldValue(
                                                                             'commission',
-                                                                            value,
+                                                                            value
                                                                         )
                                                                     }}
                                                                 >
@@ -1347,7 +1345,7 @@ const PnlMultipliersCalculator = () => {
                                                                             id="commission"
                                                                             type="text"
                                                                             label={localize(
-                                                                                'Commission',
+                                                                                'Commission'
                                                                             )}
                                                                             autoComplete="off"
                                                                             error={
@@ -1362,20 +1360,20 @@ const PnlMultipliersCalculator = () => {
                                                                                 setFieldValue(
                                                                                     'commission',
                                                                                     '',
-                                                                                    false,
+                                                                                    false
                                                                                 )
                                                                                 setFieldError(
                                                                                     'commission',
-                                                                                    '',
+                                                                                    ''
                                                                                 )
                                                                                 setFieldTouched(
                                                                                     'commission',
                                                                                     false,
-                                                                                    false,
+                                                                                    false
                                                                                 )
                                                                                 current_input.focus()
                                                                             }}
-                                                                            maxLength="8"
+                                                                            maxLength={getMaxLength(values.commission, 8)}
                                                                             background="white"
                                                                         />
                                                                     )}
@@ -1393,7 +1391,7 @@ const PnlMultipliersCalculator = () => {
                                                                     onChange={(value) => {
                                                                         setFieldValue(
                                                                             'stake',
-                                                                            value,
+                                                                            value
                                                                         )
                                                                     }}
                                                                 >
@@ -1403,7 +1401,7 @@ const PnlMultipliersCalculator = () => {
                                                                             id="stake"
                                                                             type="text"
                                                                             label={localize(
-                                                                                'Stake',
+                                                                                'Stake'
                                                                             )}
                                                                             autoComplete="off"
                                                                             error={
@@ -1413,25 +1411,25 @@ const PnlMultipliersCalculator = () => {
                                                                             onBlur={handleBlur}
                                                                             data-lpignore="true"
                                                                             handleError={(
-                                                                                current_input,
+                                                                                current_input
                                                                             ) => {
                                                                                 setFieldValue(
                                                                                     'stake',
                                                                                     '',
-                                                                                    false,
+                                                                                    false
                                                                                 )
                                                                                 setFieldError(
                                                                                     'stake',
-                                                                                    '',
+                                                                                    ''
                                                                                 )
                                                                                 setFieldTouched(
                                                                                     'stake',
                                                                                     false,
-                                                                                    false,
+                                                                                    false
                                                                                 )
                                                                                 current_input.focus()
                                                                             }}
-                                                                            maxLength="15"
+                                                                            maxLength={getMaxLength(values.stake, 15)}
                                                                             background="white"
                                                                         />
                                                                     )}
@@ -1446,7 +1444,7 @@ const PnlMultipliersCalculator = () => {
                                                                     onChange={(value) => {
                                                                         setFieldValue(
                                                                             'takeProfitLevel',
-                                                                            value,
+                                                                            value
                                                                         )
                                                                     }}
                                                                 >
@@ -1456,7 +1454,7 @@ const PnlMultipliersCalculator = () => {
                                                                             id="takeProfitLevel"
                                                                             type="text"
                                                                             label={localize(
-                                                                                'Take profit level',
+                                                                                'Take profit level'
                                                                             )}
                                                                             autoComplete="off"
                                                                             error={
@@ -1471,20 +1469,20 @@ const PnlMultipliersCalculator = () => {
                                                                                 setFieldValue(
                                                                                     'takeProfitLevel',
                                                                                     '',
-                                                                                    false,
+                                                                                    false
                                                                                 )
                                                                                 setFieldError(
                                                                                     'takeProfitLevel',
-                                                                                    '',
+                                                                                    ''
                                                                                 )
                                                                                 setFieldTouched(
                                                                                     'takeProfitLevel',
                                                                                     false,
-                                                                                    false,
+                                                                                    false
                                                                                 )
                                                                                 current_input.focus()
                                                                             }}
-                                                                            maxLength="15"
+                                                                            maxLength={getMaxLength(values.takeProfitLevel, 15)}
                                                                             background="white"
                                                                         />
                                                                     )}
@@ -1502,7 +1500,7 @@ const PnlMultipliersCalculator = () => {
                                                                     onChange={(value) => {
                                                                         setFieldValue(
                                                                             'multiplier',
-                                                                            value,
+                                                                            value
                                                                         )
                                                                     }}
                                                                 >
@@ -1515,7 +1513,7 @@ const PnlMultipliersCalculator = () => {
                                                                                 values.multiplier
                                                                             }
                                                                             label={localize(
-                                                                                'Multiplier',
+                                                                                'Multiplier'
                                                                             )}
                                                                             autoComplete="off"
                                                                             error={
@@ -1530,20 +1528,20 @@ const PnlMultipliersCalculator = () => {
                                                                                 setFieldValue(
                                                                                     'multiplier',
                                                                                     '',
-                                                                                    false,
+                                                                                    false
                                                                                 )
                                                                                 setFieldError(
                                                                                     'multiplier',
-                                                                                    '',
+                                                                                    ''
                                                                                 )
                                                                                 setFieldTouched(
                                                                                     'multiplier',
                                                                                     false,
-                                                                                    false,
+                                                                                    false
                                                                                 )
                                                                                 current_input.focus()
                                                                             }}
-                                                                            maxLength="4"
+                                                                            maxLength={getMaxLength(values.multiplier, 4)}
                                                                             background="white"
                                                                         />
                                                                     )}
@@ -1558,7 +1556,7 @@ const PnlMultipliersCalculator = () => {
                                                                     onChange={(value) => {
                                                                         setFieldValue(
                                                                             'stopLossLevel',
-                                                                            value,
+                                                                            value
                                                                         )
                                                                     }}
                                                                 >
@@ -1571,7 +1569,7 @@ const PnlMultipliersCalculator = () => {
                                                                                 values.stopLossLevel
                                                                             }
                                                                             label={localize(
-                                                                                'Stop loss level',
+                                                                                'Stop loss level'
                                                                             )}
                                                                             autoComplete="off"
                                                                             error={
@@ -1581,25 +1579,25 @@ const PnlMultipliersCalculator = () => {
                                                                             onBlur={handleBlur}
                                                                             data-lpignore="true"
                                                                             handleError={(
-                                                                                current_input,
+                                                                                current_input
                                                                             ) => {
                                                                                 setFieldValue(
                                                                                     'stopLossLevel',
                                                                                     '',
-                                                                                    false,
+                                                                                    false
                                                                                 )
                                                                                 setFieldError(
                                                                                     'stopLossLevel',
-                                                                                    '',
+                                                                                    ''
                                                                                 )
                                                                                 setFieldTouched(
                                                                                     'stopLossLevel',
                                                                                     false,
-                                                                                    false,
+                                                                                    false
                                                                                 )
                                                                                 current_input.focus()
                                                                             }}
-                                                                            maxLength="15"
+                                                                            maxLength={getMaxLength(values.stopLossLevel, 15)}
                                                                             background="white"
                                                                         />
                                                                     )}
@@ -1632,7 +1630,7 @@ const PnlMultipliersCalculator = () => {
                                                             <PnLCalculatorOutputContainer>
                                                                 <PnLCalculatorOutputField>
                                                                     {numberWithCommas(
-                                                                        values.takeProfitAmountOutput,
+                                                                        values.takeProfitAmountOutput
                                                                     )}
                                                                 </PnLCalculatorOutputField>
                                                                 <PnLCalculatorOutputSymbol>
@@ -1647,7 +1645,7 @@ const PnlMultipliersCalculator = () => {
                                                             <PnLCalculatorOutputContainer>
                                                                 <PnLCalculatorOutputField>
                                                                     {numberWithCommas(
-                                                                        values.stopLossAmountOutput,
+                                                                        values.stopLossAmountOutput
                                                                     )}
                                                                 </PnLCalculatorOutputField>
                                                                 <PnLCalculatorOutputSymbol>
@@ -1718,20 +1716,20 @@ const PnlMultipliersCalculator = () => {
                                                                         setFieldValue(
                                                                             'assetPrice',
                                                                             '',
-                                                                            false,
+                                                                            false
                                                                         )
                                                                         setFieldError(
                                                                             'assetPrice',
-                                                                            '',
+                                                                            ''
                                                                         )
                                                                         setFieldTouched(
                                                                             'assetPrice',
                                                                             false,
-                                                                            false,
+                                                                            false
                                                                         )
                                                                         current_input.focus()
                                                                     }}
-                                                                    maxLength="8"
+                                                                    maxLength={getMaxLength(values.assetPrice, 8)}
                                                                     background="white"
                                                                 />
                                                             )}
@@ -1765,17 +1763,17 @@ const PnlMultipliersCalculator = () => {
                                                                         setFieldValue(
                                                                             'stake',
                                                                             '',
-                                                                            false,
+                                                                            false
                                                                         )
                                                                         setFieldError('stake', '')
                                                                         setFieldTouched(
                                                                             'stake',
                                                                             false,
-                                                                            false,
+                                                                            false
                                                                         )
                                                                         current_input.focus()
                                                                     }}
-                                                                    maxLength="15"
+                                                                    maxLength={getMaxLength(values.stake, 15)}
                                                                     background="white"
                                                                 />
                                                             )}
@@ -1808,20 +1806,20 @@ const PnlMultipliersCalculator = () => {
                                                                         setFieldValue(
                                                                             'multiplier',
                                                                             '',
-                                                                            false,
+                                                                            false
                                                                         )
                                                                         setFieldError(
                                                                             'multiplier',
-                                                                            '',
+                                                                            ''
                                                                         )
                                                                         setFieldTouched(
                                                                             'multiplier',
                                                                             false,
-                                                                            false,
+                                                                            false
                                                                         )
                                                                         current_input.focus()
                                                                     }}
-                                                                    maxLength="4"
+                                                                    maxLength={getMaxLength(values.multiplier, 4)}
                                                                     background="white"
                                                                 />
                                                             )}
@@ -1854,20 +1852,20 @@ const PnlMultipliersCalculator = () => {
                                                                         setFieldValue(
                                                                             'commission',
                                                                             '',
-                                                                            false,
+                                                                            false
                                                                         )
                                                                         setFieldError(
                                                                             'commission',
-                                                                            '',
+                                                                            ''
                                                                         )
                                                                         setFieldTouched(
                                                                             'commission',
                                                                             false,
-                                                                            false,
+                                                                            false
                                                                         )
                                                                         current_input.focus()
                                                                     }}
-                                                                    maxLength="8"
+                                                                    maxLength={getMaxLength(values.commission, 8)}
                                                                     background="white"
                                                                 />
                                                             )}
@@ -1880,7 +1878,7 @@ const PnlMultipliersCalculator = () => {
                                                             onChange={(value) => {
                                                                 setFieldValue(
                                                                     'takeProfitLevel',
-                                                                    value,
+                                                                    value
                                                                 )
                                                             }}
                                                         >
@@ -1891,7 +1889,7 @@ const PnlMultipliersCalculator = () => {
                                                                     type="text"
                                                                     value={values.takeProfitLevel}
                                                                     label={localize(
-                                                                        'Take profit level',
+                                                                        'Take profit level'
                                                                     )}
                                                                     autoComplete="off"
                                                                     error={
@@ -1906,20 +1904,20 @@ const PnlMultipliersCalculator = () => {
                                                                         setFieldValue(
                                                                             'takeProfitLevel',
                                                                             '',
-                                                                            false,
+                                                                            false
                                                                         )
                                                                         setFieldError(
                                                                             'takeProfitLevel',
-                                                                            '',
+                                                                            ''
                                                                         )
                                                                         setFieldTouched(
                                                                             'takeProfitLevel',
                                                                             false,
-                                                                            false,
+                                                                            false
                                                                         )
                                                                         current_input.focus()
                                                                     }}
-                                                                    maxLength="15"
+                                                                    maxLength={getMaxLength(values.takeProfitLevel, 15)}
                                                                     background="white"
                                                                 />
                                                             )}
@@ -1932,7 +1930,7 @@ const PnlMultipliersCalculator = () => {
                                                             onChange={(value) => {
                                                                 setFieldValue(
                                                                     'stopLossLevel',
-                                                                    value,
+                                                                    value
                                                                 )
                                                             }}
                                                         >
@@ -1943,7 +1941,7 @@ const PnlMultipliersCalculator = () => {
                                                                     type="text"
                                                                     value={values.stopLossLevel}
                                                                     label={localize(
-                                                                        'Stop loss level',
+                                                                        'Stop loss level'
                                                                     )}
                                                                     autoComplete="off"
                                                                     error={
@@ -1953,25 +1951,25 @@ const PnlMultipliersCalculator = () => {
                                                                     onBlur={handleBlur}
                                                                     data-lpignore="true"
                                                                     handleError={(
-                                                                        current_input,
+                                                                        current_input
                                                                     ) => {
                                                                         setFieldValue(
                                                                             'stopLossLevel',
                                                                             '',
-                                                                            false,
+                                                                            false
                                                                         )
                                                                         setFieldError(
                                                                             'stopLossLevel',
-                                                                            '',
+                                                                            ''
                                                                         )
                                                                         setFieldTouched(
                                                                             'stopLossLevel',
                                                                             false,
-                                                                            false,
+                                                                            false
                                                                         )
                                                                         current_input.focus()
                                                                     }}
-                                                                    maxLength="15"
+                                                                    maxLength={getMaxLength(values.stopLossLevel, 15)}
                                                                     background="white"
                                                                 />
                                                             )}

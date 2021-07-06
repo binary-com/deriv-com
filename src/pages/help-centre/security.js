@@ -1,12 +1,13 @@
 import React from 'react'
 import { Article } from './_article'
 import { ArticleWrapper, StyledHeader } from './_help-centre-style'
+import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import { Text } from 'components/elements'
 import { localize, WithIntl } from 'components/localization'
 
 const VerifyAccount = () => (
     <ArticleWrapper>
-        <StyledHeader as="h4" type="sub-section-title">
+        <StyledHeader as="h4">
             {localize('Do I need to verify my Deriv account?')}
         </StyledHeader>
         <Text>
@@ -16,9 +17,10 @@ const VerifyAccount = () => (
         </Text>
     </ArticleWrapper>
 )
+
 const VerificationDuration = () => (
     <ArticleWrapper>
-        <StyledHeader as="h4" type="sub-section-title">
+        <StyledHeader as="h4">
             {localize('How long does verification take?')}
         </StyledHeader>
         <Text>
@@ -28,9 +30,10 @@ const VerificationDuration = () => (
         </Text>
     </ArticleWrapper>
 )
+
 const DocumentsDeclined = () => (
     <ArticleWrapper>
-        <StyledHeader as="h4" type="sub-section-title">
+        <StyledHeader as="h4">
             {localize('Why were my documents declined?')}
         </StyledHeader>
         <Text>
@@ -42,6 +45,8 @@ const DocumentsDeclined = () => (
 )
 
 const SecurityArticle = () => {
+    const [is_mounted] = usePageLoaded(false) // needed to fix tab highlighting not being rerendered during first load
+
     return (
         <div>
             <Article
@@ -52,14 +57,17 @@ const SecurityArticle = () => {
                 <VerifyAccount
                     text={localize('Do I need to verify my Deriv account?')}
                     label="verify-account"
+                    is_mounted={is_mounted}
                 />
                 <VerificationDuration
                     text={localize('How long does verification take?')}
                     label="verification-duration"
+                    is_mounted={is_mounted}
                 />
                 <DocumentsDeclined
                     text={localize('Why were my documents declined?')}
                     label="documents-declined"
+                    is_mounted={is_mounted}
                 />
             </Article>
         </div>

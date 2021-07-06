@@ -93,45 +93,45 @@ export const Header = styled(({ as = 'h1', children, ...props }) =>
 
     @media ${device.tabletL} {
         font-size: ${(props) => {
-            if (props.type === 'main-landing-title') return '40px'
-            if (props.type === 'display-title') return '40px'
-            if (props.type === 'page-title') return '32px'
-            if (props.type === 'section-title') return '24px'
-            if (props.type === 'sub-section-title') return '20px'
-            if (props.type === 'main-paragraph') return '16px'
-            if (props.type === 'sub-paragraph') return '14px'
-            // The above is deprecated and should not be used for any new designs on Figma
-            if (props.type === 'hero') return '40px'
-            if (props.type === 'heading-1') return '32px'
-            if (props.type === 'heading-2') return '28px'
-            if (props.type === 'heading-3') return '24px'
-            if (props.type === 'subtitle-1') return '18px'
-            if (props.type === 'subtitle-2') return '16px'
-            if (props.type === 'paragraph-1') return '14px'
-            if (props.type === 'paragraph-2') return '12px'
-            if (props.type === 'small') return '10px'
-            if (props.type === 'extra-small') return '8px'
-        }};
+        if (props.type === 'main-landing-title') return '40px'
+        if (props.type === 'display-title') return '40px'
+        if (props.type === 'page-title') return '32px'
+        if (props.type === 'section-title') return '24px'
+        if (props.type === 'sub-section-title') return '20px'
+        if (props.type === 'main-paragraph') return '16px'
+        if (props.type === 'sub-paragraph') return '14px'
+        // The above is deprecated and should not be used for any new designs on Figma
+        if (props.type === 'hero') return '40px'
+        if (props.type === 'heading-1') return '32px'
+        if (props.type === 'heading-2') return '28px'
+        if (props.type === 'heading-3') return '24px'
+        if (props.type === 'subtitle-1') return '18px'
+        if (props.type === 'subtitle-2') return '16px'
+        if (props.type === 'paragraph-1') return '14px'
+        if (props.type === 'paragraph-2') return '12px'
+        if (props.type === 'small') return '10px'
+        if (props.type === 'extra-small') return '8px'
+    }};
         line-height: ${(props) => {
-            if (props.type === 'main-landing-title') return '50px'
-            if (props.type === 'display-title') return '50px'
-            if (props.type === 'page-title') return '40px'
-            if (props.type === 'section-title') return '30px'
-            if (props.type === 'sub-section-title') return '25px'
-            if (props.type === 'main-paragraph') return '24px'
-            if (props.type === 'sub-paragraph') return '21px'
-            // The above is deprecated and should not be used for any new designs on Figma
-            if (props.type === 'hero') return '50px'
-            if (props.type === 'heading-1') return '40px'
-            if (props.type === 'heading-2') return '34px'
-            if (props.type === 'heading-3') return '30px'
-            if (props.type === 'subtitle-1') return '26px'
-            if (props.type === 'subtitle-2') return '24px'
-            if (props.type === 'paragraph-1') return '20px'
-            if (props.type === 'paragraph-2') return '18px'
-            if (props.type === 'small') return '14px'
-            if (props.type === 'extra-small') return '12px'
-        }};
+        if (props.type === 'main-landing-title') return '50px'
+        if (props.type === 'display-title') return '50px'
+        if (props.type === 'page-title') return '40px'
+        if (props.type === 'section-title') return '30px'
+        if (props.type === 'sub-section-title') return '25px'
+        if (props.type === 'main-paragraph') return '24px'
+        if (props.type === 'sub-paragraph') return '21px'
+        // The above is deprecated and should not be used for any new designs on Figma
+        if (props.type === 'hero') return '50px'
+        if (props.type === 'heading-1') return '40px'
+        if (props.type === 'heading-2') return '34px'
+        if (props.type === 'heading-3') return '30px'
+        if (props.type === 'subtitle-1') return '26px'
+        if (props.type === 'subtitle-2') return '24px'
+        if (props.type === 'paragraph-1') return '20px'
+        if (props.type === 'paragraph-2') return '18px'
+        if (props.type === 'small') return '14px'
+        if (props.type === 'extra-small') return '12px'
+    }};
     }
 `
 

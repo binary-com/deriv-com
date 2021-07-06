@@ -103,6 +103,7 @@ exports.onCreatePage = ({ page, actions }) => {
         const localized_path = is_default ? page.path : `${path}${page.path}`
         const is_production = process.env.GATSBY_ENV === 'production'
         const careers_regex = /^[a-z-]+\/careers\//g
+        const blog_regex = /^[a-z-]+\/blog\//g
         const endpoint_regex = /^[a-z-]+\/endpoint\//g
         const offline_plugin_regex = /^[a-z-]+\/offline-plugin-app-shell-fallback/g
 
@@ -111,6 +112,7 @@ exports.onCreatePage = ({ page, actions }) => {
         }
         if (
             careers_regex.test(localized_path) ||
+            blog_regex.test(localized_path) ||
             endpoint_regex.test(localized_path) ||
             offline_plugin_regex.test(localized_path)
         )
@@ -254,5 +256,43 @@ exports.onCreateWebpackConfig = ({ actions, getConfig }, { ...options }) => {
         resolve: {
             modules: [path.resolve(__dirname, 'src'), 'node_modules'],
         },
+    })
+}
+
+exports.createPages = async ({ reporter, actions, graphql }) => {
+    const { createPage } = actions
+    const articleTemplate = path.resolve(__dirname, 'src/templates/article.js')
+
+    // Query our published articles
+    const result = await graphql(`
+        query MyQuery {
+            directus {
+                articles(filter: { status: { _eq: "published" } }) {
+                    article_title
+                    article_url
+                    translations {
+                        article_title
+                        languages_id
+                    }
+                }
+            }
+        }
+    `)
+
+    if (result.errors) {
+        reporter.panic(result.errors)
+    }
+    const articles = result.data.directus.articles
+
+    articles.forEach((article) => {
+        createPage({
+            path: `/blog/articles/${article.article_url}`,
+            component: articleTemplate,
+            context: {
+                locale: 'en',
+                pathname: `/blog/articles/${article.article_url}`,
+                slug: article.article_url,
+            },
+        })
     })
 }

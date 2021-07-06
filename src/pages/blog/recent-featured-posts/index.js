@@ -221,26 +221,6 @@ const BottomDescription = styled.div`
     }
 `
 
-// const ScrollContent = styled.div`
-//     margin-top: 8px;
-//     width: 384px;
-//     height: 464px;
-//     overflow-y:scroll;
-//     overflow-x:hidden;
-//     cursor: grab;
-//     overflow: auto;
-
-//     overflow-y:scroll;
-//     ::-webkit-scrollbar {
-//         display: none;
-//     }
-
-//     @media ${device.laptopM} {
-//         width:100%;
-//     }
-
-// `
-
 const SmallArticle = styled(Flex)`
     font-size: 16px;
     height: 110px;

@@ -356,7 +356,7 @@ const settings = {
     options: {
         axis: 'y',
         align: 'start',
-        draggable: true,
+        slidesToScroll:3,
     },
     view_port: {
         height: 'auto',

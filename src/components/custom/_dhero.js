@@ -13,21 +13,32 @@ const Wrapper = styled.div`
     background-color: var(--color-black);
     width: 100%;
     display: flex;
-    height: 575px;
+
+    /* min-height: 690px; */
     padding: 12rem 12rem 9rem 12rem;
 
+    @media ${device.desktop}{
+        /* min-height: 575px; */
+    }
+
+    @media ${device.desktopS} {
+        padding-left: 18%;
+    }
+
     @media ${device.laptopM} {
-        max-height: 429px;
+        /* max-height: 429px; */
         padding: 8rem 12rem 8rem 4rem;
     }
     @media ${device.tabletL} {
-        min-height: 304px;
+        /* min-height: 304px; */
         flex-direction: column;
     }
     @media ${device.tablet} {
         flex-direction: column-reverse;
-        max-height: 640px;
-        padding: 0 16px 40px 16px;
+        align-items: center;
+
+        /* max-height: 640px; */
+        padding: 16px 16px 40px;
     }
 `
 const HeroContent = styled.div`
@@ -61,14 +72,22 @@ const StyledHeader = styled(Header)`
 
 const LottieWrapper = styled.div`
     width: 100%;
-    max-width: 606px;
+    max-width: 730px;
     position: absolute;
-    top: 10.8rem;
+    top: 50%;
+    bottom:50%;
     right: 12rem;
+    display: flex;
+    align-items: center;
+    
+    @media ${device.desktop} {
+        max-width:606px;
+    }
 
     @media ${device.laptopM} {
         max-width: 500px;
-        top: 8rem;
+
+        /* top: 8rem; */
         right: 8rem;
     }
     @media ${device.laptop} {
@@ -77,27 +96,25 @@ const LottieWrapper = styled.div`
     }
     @media ${device.tabletL} {
         max-width: 390px;
-        top: 5rem;
+
+        /* top: 5rem; */
         right: 2rem;
     }
     @media ${device.tabletS} {
         max-width: 380px;
-        top: 5rem;
+
+        /* top: 5rem; */
         right: 2rem;
     }
-    @media ${device.mobileL} {
+    @media ${device.tablet} {
         max-width: 328px;
-        top: 34px;
-        left: 50%;
+        top: unset;
+        left: unset;
         right: unset;
-        transform: translateX(-50%);
+        position:relative;
     }
     @media ${device.mobileM} {
         max-width: 280px;
-        top: 34px;
-        left: 50%;
-        right: unset;
-        transform: translateX(-50%);
     }
 `
 
@@ -119,7 +136,7 @@ const LinkWrapper = styled.div`
         top: unset;
         justify-content: start;
     }
-    @media (max-width: 360px) {
+    @media ${device.mobileL} {
         flex-wrap: wrap;
     }
 `
@@ -150,23 +167,64 @@ const DemoButton = styled(LinkButton)`
     @media ${device.mobileL} {
         white-space: nowrap;
     }
-    @media (max-width: 360px) {
+    @media ${device.mobileL} {
         margin-bottom: 1.6rem;
     }
 `
 const StyledContent = styled(Header)`
     font-size: 6.4rem;
 
-    @media (max-width: 1322px) {
+    @media (max-width: 1370px) {
         font-size: 4.2rem;
     }
 `
+
+const BackgroundSVG = styled.img`
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100%;
+        width: 30%;
+
+        @media (max-width: 1680px) {
+            width: 40%;
+        }
+
+        @media ${device.laptopM} {
+            width: 48%;
+            max-width: 492px;
+        }
+        @media ${device.laptop} {
+            width: 50%;
+        }
+        @media ${device.tabletL} {
+            width: 45%;
+            max-width: 350px;
+        }
+        @media ${device.tablet} {
+            width: 70%;
+            display:none;
+        }
+        @media ${device.tabletS} {
+            width: 80%;
+            max-width: 337px;
+        }
+        @media ${device.mobileL} {
+            max-width: 250px;
+            min-height: 244px;
+        }
+        @media ${device.mobileM} {
+            max-width: 205px;
+            min-height: 0;
+        }
+    `
+
 const InformationWrapper = styled(Flex)`
     width: 100%;
     max-width: 562px;
 
-    @media (max-width: 1320px) {
-        max-width: 450px;
+    @media (max-width: 1370px) {
+        max-width: 420px;
     }
     @media ${device.laptop} {
         max-width: 390px;
@@ -191,6 +249,12 @@ const InformationWrapper = styled(Flex)`
         top: 230px;
     }
 `
+
+const DLogo = styled.img`
+        width: 32px !important;
+        height: 32px !important;
+        margin-right: 1.6rem;
+    `
 
 const query = graphql`
     {
@@ -226,48 +290,11 @@ const DHero = ({
     const data = useStaticQuery(query)
     const getLinkType = () => (image_name === 'dbot' ? 'dbot' : 'deriv_app')
 
-    const DLogo = styled.img`
-        width: 32px !important;
-        height: 32px !important;
-        margin-right: 1.6rem;
-    `
-    const BackgroundSVG = styled.img`
-        position: absolute;
-        top: 0;
-        right: 0;
-        height: 100%;
-
-        @media ${device.laptopM} {
-            width: 48%;
-            max-width: 492px;
-            height: initial;
-        }
-        @media ${device.laptop} {
-            width: 50%;
-        }
-        @media ${device.tabletL} {
-            width: 45%;
-            max-width: 350px;
-        }
-        @media ${device.tablet} {
-            width: 70%;
-        }
-        @media ${device.tabletS} {
-            width: 80%;
-            max-width: 337px;
-        }
-        @media ${device.mobileL} {
-            max-width: 250px;
-            min-height: 244px;
-        }
-        @media ${device.mobileM} {
-            max-width: 205px;
-            min-height: 0;
-        }
-    `
     return (
         <Wrapper>
+
             <BackgroundSVG src={background_svg} alt="background svg" />
+
             <InformationWrapper height="unset" direction="column">
                 <StyledHeader as="h4" weight="normal">
                     <DLogo src={Logo} alt="logo" width="32" height="32" />
@@ -300,11 +327,11 @@ const DHero = ({
                 {image_name === 'dtrader' ? (
                     <QueryImage data={data['dtrader']} alt={background_alt} />
                 ) : (
-                    <QueryImage
-                        data={data[is_mobile ? image_name + '_mobile' : image_name]}
-                        alt={background_alt}
-                    />
-                )}
+                        <QueryImage
+                            data={data[is_mobile ? image_name + '_mobile' : image_name]}
+                            alt={background_alt}
+                        />
+                    )}
             </LottieWrapper>
         </Wrapper>
     )

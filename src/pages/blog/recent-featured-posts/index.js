@@ -121,7 +121,7 @@ const MainArticle = styled(Flex)`
     transition: transform 0.3s;
 
     &:hover {
-        transform: translateY(-1.1rem) scale(1.02);
+        transform: scale(1.02);
     }
 
     @media ${device.laptopM} {
@@ -250,7 +250,7 @@ const SmallArticle = styled(Flex)`
     transition: transform 0.3s;
 
     &:hover {
-        transform: translateY(1.1rem) scale(1.02);
+        transform: scale(1.02);
     }
 `
 

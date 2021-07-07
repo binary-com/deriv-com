@@ -214,7 +214,7 @@ module.exports = {
                 includePaths: ["/", { regex: "^/blog" }],
                 excludePaths: [],
                 height: 2,
-                prependToBody: true,
+                prependToBody: false,
                 color: `#FF444F`,
                 footerHeight: 500,
                 headerHeight: 72,

@@ -6,7 +6,6 @@ import { SectionContainer, SEO, SmallContainer } from 'components/containers'
 import { Header } from 'components/elements'
 
 const html = `
-<p><img src='https://amammustofa.com/assets/42d7a49b-51c1-40d0-8e35-e82e8b87ff64' /></p>
 <p>On January 15, 2015, the Swiss National Bank decided to abandon the 1.20 peg against the euro. This quickly transformed the currency from a safe haven to one of the riskiest assets and sent the FX markets into chaos. Traders accounts went into negative balance and a number of brokers were forced to close. Black swan events like this come at a tremendous cost to investors. What&rsquo;s even worse is that they seem to be becoming more frequent. In the past decade alone, we have witnessed a global financial crisis, the rouble rout, plunging oil prices, Brexit, and a persisting pandemic.</p>
 <p>But what if you could trade without being at the mercy of global events? This is what synthetic indices enable. Synthetic indices, also known as volatility indices, are simulated markets, which means they are not affected by world events.</p>
 <p>They act like real monetary markets but have been created with the help of numbers that are randomly generated through a computer programme. The number generator is secured cryptographically and is audited by an independent third party to ensure fairness. With this, the broker is unable to predict or influence the generated numbers.</p>
@@ -26,12 +25,14 @@ const html = `
 <p>With DTrader, you get:</p>
 <li><strong>Wide Range of Choices</strong></li>
 <p>DTrader offers you a wide range of synthetic indices to choose from, including higher volatility indices (Vol 100) and lower volatility indices (Vol 10). In Volatility 10 Index, the volatility is kept at 10%. This is a great choice for traders who prefer low price swings or fluctuations. On the other hand, Volatility 100 index, the volatility is maintained at 100%. This means that there are much stronger prices swings. Additionally, there are also no large price gaps, as they are continuous indices with deep liquidity.</p>
-<p><img src='https://amammustofa.com/assets/fed38b8a-2dc6-476c-9f23-be141582b59f' /><img src='https://amammustofa.com/assets/fed38b8a-2dc6-476c-9f23-be141582b59f' /></p>
+<p><img src='https://amammustofa.com/assets/fed38b8a-2dc6-476c-9f23-be141582b59f' /></p>
 `
-const replacedContent = html.replace(/<p><img /g, '<div><img ').replace(/\/><\/p>/g, '/></div>')
+const replacedContent = html.replace(/<p><img /g, '<img ').replace(/\/><\/p>/g, '/>')
 const article = {
+    main_image: "<img src='https://amammustofa.com/assets/42d7a49b-51c1-40d0-8e35-e82e8b87ff64' />",
     article_title: 'Strategies to trade synthetic indices',
     article_body: replacedContent,
+    publish_date: '12 December 2020',
     article_tags: [
         'DTrader',
         'Deriv MT5',
@@ -45,38 +46,73 @@ const article = {
         'Benefit',
     ],
 }
-
-const StyledHeader = styled(Header)`
+const DetailContainer = styled.div`
     width: 30%;
+    margin-right: 2.4rem;
 `
-// const ArticleTagsContainer = styled.div`
-//     display: flex;
-//     position: absolute;
-// `
+const PublishDate = styled.div`
+    margin-bottom: 1.6rem;
+    font-size: 1.4rem;
+`
 
+const BodyContainer = styled.div`
+    display: flex;
+    padding: 0 12rem;
+`
+const SideBarContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    max-width: 28.2rem;
+    margin-right: 12.6rem;
+    width: 100%;
+`
+const ArticleTagContainer = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 25.5rem;
+    width: 100%;
+`
+const Tag = styled.div`
+    height: 2.2rem;
+    border-radius: 8px;
+    background-color: #dee7f2;
+    padding: 1px 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 1.6rem;
+    margin-bottom: 1.6rem;
+`
 const HeroContainer = styled.div`
+    display: flex;
     width: 100%;
     max-width: 1444px;
-    padding: 148px 24px 0 120px;
-    height: 634px;
+    padding: 78px 24px 0 120px;
+    height: 564px;
     background-color: #f2f3f4;
-    position: absolute;
-    transform: translate(-50%);
-    left: 50%;
+    margin: auto;
+    margin-bottom: 8.6rem;
 `
-
+const HeroImageContainer = styled.div`
+    > img {
+        max-width: 100%;
+        height: auto;
+    }
+`
 const PreviewContainer = styled(SmallContainer)`
     font-size: 16px;
-    top: 150px;
-    left: 180px;
-    position: relative;
-    margin-bottom: 70px;
+    max-width: 79.2rem;
+    width: 100%;
 
     & p {
         margin-top: 22px;
         font-weight: 400;
         line-height: 24px;
         font-size: 16px;
+
+        :first-child {
+            margin-top: 0;
+        }
     }
     & blockquote {
         margin-top: 32px;
@@ -122,31 +158,14 @@ const PreviewContainer = styled(SmallContainer)`
     & img {
         max-width: 100%;
         height: auto;
+        display: block;
+        margin: auto;
+        margin-top: 1.6rem;
     }
     & img[width='full'] {
         margin-left: calc(50% - 50vw);
         margin-right: calc(50% - 50vw);
         max-width: 100vw;
-    }
-    & div {
-        display: flex;
-        justify-content: center;
-        margin: auto;
-
-        > img {
-            margin-right: 24px;
-        }
-        > img:last-child {
-            margin-right: 0;
-        }
-
-        @media (max-width: 800px) {
-            flex-direction: column;
-
-            > img {
-                margin-right: 0;
-            }
-        }
     }
     & h1 {
         font-size: 64px;
@@ -193,7 +212,6 @@ const PreviewContainer = styled(SmallContainer)`
         left: 0;
     }
 `
-
 const PreviewPage = () => {
     return (
         <Layout>
@@ -204,25 +222,42 @@ const PreviewPage = () => {
                 title={localize('Markets | Markets to trade | Deriv')}
             />
 
-            <SectionContainer position="relative" padding="8rem 0 8rem">
+            <SectionContainer position="relative">
                 <HeroContainer>
-                    <StyledHeader as="h1" type="page-title">
-                        {article.article_title}
-                    </StyledHeader>
-                </HeroContainer>
-                <PreviewContainer
-                    ai="flex-start"
-                    fd="column"
-                    dangerouslySetInnerHTML={{
-                        __html: article.article_body,
-                    }}
-                ></PreviewContainer>
+                    <DetailContainer>
+                        <PublishDate
+                            dangerouslySetInnerHTML={{
+                                __html: article.publish_date,
+                            }}
+                        />
+                        <Header as="h1" type="page-title">
+                            {article.article_title}
+                        </Header>
+                    </DetailContainer>
 
-                {/* <ArticleTagsContainer>
-                    {article.article_tags.map((tag) => {
-                        return <div key={tag}>{tag}</div>
-                    })}
-                </ArticleTagsContainer> */}
+                    <HeroImageContainer
+                        dangerouslySetInnerHTML={{
+                            __html: article.main_image,
+                        }}
+                    />
+                </HeroContainer>
+                <BodyContainer>
+                    <SideBarContainer>
+                        <ArticleTagContainer>
+                            {article.article_tags.map((tag) => {
+                                return <Tag key={tag}>{tag}</Tag>
+                            })}
+                        </ArticleTagContainer>
+                    </SideBarContainer>
+
+                    <PreviewContainer
+                        ai="flex-start"
+                        fd="column"
+                        dangerouslySetInnerHTML={{
+                            __html: article.article_body,
+                        }}
+                    ></PreviewContainer>
+                </BodyContainer>
             </SectionContainer>
         </Layout>
     )

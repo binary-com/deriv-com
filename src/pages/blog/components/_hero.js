@@ -60,9 +60,8 @@ const Wrapper = styled(Flex)`
         max-width: 1440px;
         margin: 0 auto;
     }
-    @media screen and (min-width: 1900px) {
+    @media screen and (min-width: 1980px) {
         max-width: 1900px;
-        margin: 0 auto;
     }
     @media ${device.laptopM} {
         height: ${(props) => props.laptopM_height};

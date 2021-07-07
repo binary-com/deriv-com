@@ -95,15 +95,15 @@ const RecentFeaturedPosts = () => {
                             </LeftContent>
                             <RightContent>
                                 <Carousel {...settings}>
-                                    {articles.map((article, idx) => {
+                                    {articles.map((article) => {
                                         return (
-                                            <RedirectLink to={article.link} key={idx}>
+                                            <RedirectLink to={article.link} key={article.title}>
                                                 <SmallArticle>
                                                     <SmallArticleLeftContent>
                                                         <SmallArticleImageWrapper>
                                                             <SmallArticleImage
                                                                 src={article.image}
-                                                                alt={idx}
+                                                                alt={article.title}
                                                             />
                                                         </SmallArticleImageWrapper>
                                                     </SmallArticleLeftContent>
@@ -161,7 +161,7 @@ const RecentFeaturedPosts = () => {
                             </LeftContent>
                             <RightContent>
                                 <Carousel {...settings}>
-                                    {articles_2.map((article, idx) => {
+                                    {articles_2.map((article) => {
                                         return (
                                             <RedirectLink to={article.link} key={article.title}>
                                                 <SmallArticle>
@@ -169,7 +169,7 @@ const RecentFeaturedPosts = () => {
                                                         <SmallArticleImageWrapper>
                                                             <SmallArticleImage
                                                                 src={article.image}
-                                                                alt={idx}
+                                                                alt={article.title}
                                                             />
                                                         </SmallArticleImageWrapper>
                                                     </SmallArticleLeftContent>

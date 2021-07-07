@@ -6,9 +6,9 @@ import AgreementLabel from './_agreement-label'
 import { Input, Button } from 'components/form'
 import { Header, LinkText, QueryImage, Text } from 'components/elements'
 import { localize } from 'components/localization'
-import { Flex, Show, SectionContainer, Container } from 'components/containers'
+import { Flex, Show, Box, Container } from 'components/containers'
 import { deriv_app_url } from 'common/constants'
-import device, { size } from 'themes/device.js'
+import device from 'themes/device.js'
 // SVG
 import Apple from 'images/svg/apple.svg'
 import Facebook from 'images/svg/facebook-blue.svg'
@@ -20,6 +20,18 @@ const query = graphql`
         deriv_platform: file(relativePath: { eq: "banner-phone.png" }) {
             ...fadeIn
         }
+    }
+`
+const StyledSectionContainer = styled(Box).attrs({ as: 'section' })`
+    width: 100%;
+    padding:80px 0;
+    position: 'static';
+    
+    /* prettier-ignore */
+    background-color: 'white';
+
+    @media ${device.tabletL} {
+        padding: 41px 0 40px;
     }
 `
 const Wrapper = styled.div`
@@ -340,7 +352,7 @@ const SignupPublic = ({
         setChecked(event.currentTarget.checked)
     }
     return (
-        <SectionContainer padding={window.screen?.width > size.bp769 ? "80px 0" : "41px 0 40px"}>
+        <StyledSectionContainer>
             <Show.Desktop>
                 <Container>
                     <Wrapper>
@@ -620,7 +632,7 @@ const SignupPublic = ({
                     </MobileWrapper>
                 </Container>
             </Show.Mobile>
-        </SectionContainer>
+        </StyledSectionContainer>
     )
 }
 

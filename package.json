@@ -91,7 +91,8 @@
         "deploy": "npm run build && gh-pages -d public -b master",
         "deploy-dev": "npm run build && gh-pages -d public",
         "deploy-branch": "PATH_PREFIX=/deriv-com/br/$branch_name npm run build && gh-pages -d public -e br/$branch_name",
-        "prepare": "husky install"
+        "prepare": "husky install",
+        "pre-commit-lint": "lint-staged"
     },
     "repository": {
         "type": "git",
@@ -99,12 +100,5 @@
     },
     "bugs": {
         "url": "https://github.com/binary-com/deriv-com/issues"
-    },
-    "lint-staged": {
-        "*.js": [
-            "eslint --cache --fix",
-            "prettier --write"
-        ],
-        "*.css": "stylelint --fix"
     }
 }

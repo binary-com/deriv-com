@@ -58,26 +58,9 @@ const Wrapper = styled(Flex)`
     }
     @media screen and (min-width: 1600px) {
         max-width: 1440px;
-        margin: 0 auto;
     }
     @media screen and (min-width: 1980px) {
         max-width: 1900px;
-    }
-    @media ${device.laptopM} {
-        height: ${(props) => props.laptopM_height};
-        min-height: unset;
-    }
-    @media ${device.laptop} {
-        height: ${(props) => props.laptop_height};
-        padding: 2rem;
-    }
-    @media ${device.tabletL} {
-        height: ${(props) => props.tabletL_height};
-        align-items: flex-start;
-    }
-    @media ${device.tablet} {
-        justify-content: center;
-        height: 100%;
     }
 `
 

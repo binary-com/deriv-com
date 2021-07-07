@@ -22,7 +22,7 @@ const SignupFormWrapper = styled(Flex)`
     align-items: center;
     justify-content: initial;
 
-    @media ${device.mobileM} {
+    @media ${device.tabletS} {
         width: 100%;
 
         & > div {
@@ -32,10 +32,10 @@ const SignupFormWrapper = styled(Flex)`
 `
 
 const InputWrapper = styled.div`
-    width: 40rem;
+    width: 400px;
 
     @media ${device.tabletL} {
-        margin-right: 1rem;
+        margin-right: 10px;
     }
 
     @media ${device.tablet} {
@@ -47,10 +47,10 @@ const InputGroupForm = styled.form`
     display: flex;
     flex-direction: column;
     width: 100%;
-    margin-top: 2.4rem;
+    margin-top: 24px;
 `
 const EmailButton = styled(Button)`
-    min-width: 40rem;
+    min-width: 400px;
     height: 4rem;
     padding: 10px 28px;
     border-radius: 4px;
@@ -74,25 +74,22 @@ const SocialWrapper = styled(Flex)`
 const SocialButton = styled(Button)`
     width: 12.5rem;
     min-width: 116px;
-    line-height: 27px;
+    line-height: 30px;
     padding: 5px;
     border-radius: 4px;
-    display: flex;
-    justify-content: center;
     background-color: var(--color-white);
     border: solid 1px var(--color-grey-7);
     min-height: 4rem;
     height: 40px;
-    font-weight: normal;
-
-    /* margin-left: 0.8rem; */
+    font-weight: 500;
 
     &:nth-of-type(1) {
         margin-left: 0;
     }
     img {
-        padding-right: 5px;
+        padding-right: 0;
         object-fit: contain;
+        position: relative;
     }
 
     @media (max-width: 500px) {
@@ -101,31 +98,30 @@ const SocialButton = styled(Button)`
         padding: 0;
         line-height: 14px;
         margin-bottom: 10px;
-
-        img {
-            margin-top: 3px;
-            padding-right: 0;
-        }
     }
 `
 const SocialButtonText = styled.div`
     display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
 
     span {
         display: block;
-        width: 100%;
         text-align: left;
+        padding-left: 5px;
+        font-weight: bold;
     }
-
-    @media (max-width: 500px) {
-        width: 100px;
+    @media ${device.tablet} {
+        width: 100%;
 
         span {
-            padding-left: 10px;
-            line-height: 40px;
+            width: 50px;
         }
         img {
-            margin-top: 8px;
+            width: 30px;
+            height: 30px;
         }
     }
 `
@@ -145,11 +141,11 @@ const SignupWithContainer = styled.div`
 const Line = styled.div`
     width: 130px;
     height: 1px;
-    background-color: white;
+    background-color: var(--color-grey-6);
 `
 
 const StyledText = styled(Text)`
-    color: white;
+    color: var(--color-grey-6);
 
     @media ${(props) => device.tabletL && props.notedBox} {
         width: 13rem;
@@ -164,10 +160,14 @@ const StyledText = styled(Text)`
 
 const ResponseWrapper = styled.div`
     justify-content: center;
-    max-width: 33rem;
-    margin: 0 auto;
+    max-width: 330px;
     flex-direction: column;
     text-align: center;
+    border: 1px solid var(--color-white);
+    padding: 20px;
+    position: relative;
+    border-radius: 10px;
+    margin: 30px 0;
 
     h3,
     p {
@@ -284,10 +284,10 @@ const GetEbook = ({ onSubmit, ebook_utm_code }) => {
 
     return submit_status === 'success' ? (
         <ResponseWrapper>
+            <EmailImage src={ViewEmailImage} alt="Email" />
             <Header as="h3" type="section-title" align="center" weight="normal">
                 {localize('Check your email')}
             </Header>
-            <EmailImage src={ViewEmailImage} alt="Email image" />
             <Text align="center">
                 <Localize
                     translate_text="We've sent a message to {{email}} with a link to activate your account."

@@ -3,15 +3,7 @@
     "rules": {
         "strict": 0,
         "camelcase": 0,
-        "no-console": [
-            "error",
-            {
-                "allow": [
-                    "warn",
-                    "error"
-                ]
-            }
-        ],
+        "no-console": "warn",
         "no-trailing-spaces": [
             "error",
             {
@@ -92,7 +84,7 @@
             }
         },
         "react": {
-            "version": "16"
+            "version": "17"
         }
     }
 }

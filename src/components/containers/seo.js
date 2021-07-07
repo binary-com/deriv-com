@@ -172,8 +172,7 @@ const SEO = ({ description, meta, title, no_index, has_organization_schema, meta
                         return (
                             <link
                                 rel="alternate"
-                                // eslint-disable-next-line react/no-unknown-property
-                                hreflang={replaced_local}
+                                hrefLang={replaced_local}
                                 href={href}
                                 key={replaced_local}
                             />

@@ -99,7 +99,7 @@ const Accounts = () => {
     return (
         <Section>
             <StyledHeader
-                mobile_font_size="32px"
+                mobile_font_size="24px"
                 mobile_margin="0 0 24px"
                 align="center"
                 as="h2"

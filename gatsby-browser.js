@@ -1,12 +1,13 @@
 import React from 'react'
 import NProgress from 'nprogress'
 import { datadogRum } from '@datadog/browser-rum'
-import { Pushwoosh } from 'web-push-notifications'
+import { Pushwoosh } from '@deriv/web-push-notifications'
 import { WrapPagesWithLocaleContext } from './src/components/localization'
 import { isProduction, isLive, isLocalHost } from './src/common/websocket/config'
 import { LocalStore } from './src/common/storage'
 import { MediaContextProvider } from './src/themes/media'
 import { DerivProvider } from './src/store'
+import { checkLiveChatRedirection } from './src/common/live-chat-redirection-checking.js'
 import { getClientInformation, getDomain, getLanguage } from 'common/utility'
 import {
     application_id,
@@ -77,18 +78,21 @@ const pushwooshInit = (push_woosh) => {
             safariWebsitePushID: 'web.com.deriv',
             defaultNotificationTitle: 'Deriv.com',
             defaultNotificationImage: 'https://deriv.com/favicons/favicon-192x192.png',
-            autoSubscribe: true,
         },
     ])
 
     push_woosh.push([
         'onReady',
         function (api) {
-            push_woosh.isSubscribed().then((is_subscribed) => {
-                if (!is_subscribed) {
-                    push_woosh.subscribe()
-                }
-            })
+            try {
+                push_woosh.isSubscribed().then((is_subscribed) => {
+                    if (!is_subscribed) {
+                        push_woosh.subscribe()
+                    }
+                })
+                // eslint-disable-next-line no-empty
+            } catch {}
+
             sendTags(api)
         },
     ])
@@ -168,6 +172,8 @@ export const onClientEntry = () => {
             sampleRate: sample_rate,
         })
     }
+
+    checkLiveChatRedirection()
 }
 
 export const onPreRouteUpdate = () => {

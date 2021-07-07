@@ -5,7 +5,6 @@ import { useOutsideClick } from 'components/hooks/use-outside-click'
 import { Flex } from 'components/containers'
 import { LocalizedLink, localize, Localize } from 'components/localization'
 import { Accordion, AccordionItem, NavCard, Text, Divider } from 'components/elements'
-import Signals from 'components/svgs/signals'
 import { deriv_status_page_url } from 'common/constants'
 // SVG
 import AffiliateIb from 'images/svg/menu/affiliate-ib.svg'
@@ -41,6 +40,7 @@ import SyntheticIndices from 'images/svg/synthetic-indices-nav.svg'
 import Terms from 'images/svg/menu/terms.svg'
 import { DerivStore } from 'store'
 import Trade from 'images/svg/trader-tool-nav.svg'
+import Signals from 'images/svg/menu/signals.svg'
 
 const OffCanvasMenu = styled.section`
     position: fixed;
@@ -481,7 +481,7 @@ export const OffCanvasMenuWrapper = (props) => {
                         >
                             <div>
                                 <SvgWrapper>
-                                    <Signals dynamic_id="dmt5-signals" />
+                                    <img src={Signals} alt="signals" width="24" height="24" />
                                 </SvgWrapper>
                             </div>
                             <span>{localize('DMT5 Signals')}</span>

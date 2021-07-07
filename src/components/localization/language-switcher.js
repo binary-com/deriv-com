@@ -2,7 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { withTranslation } from 'react-i18next'
 import { navigate } from 'gatsby'
+import Cookies from 'js-cookie'
 import language_config from '../../../i18n-config'
+import { useClientInformation } from '../hooks/use-client-information'
 import Dropdown from './language-dropdown'
 import { isProduction } from 'common/websocket/config'
 import { nonENLangUrlReplace } from 'common/utility'
@@ -13,10 +15,23 @@ const disabled_lang = ['ach']
 
 const LanguageSwitch = ({ i18n, is_high_nav, short_name }) => {
     const [language, setLanguage] = React.useState(i18n.language)
+    const client_information = useClientInformation()
 
     React.useEffect(() => {
         setLanguage(i18n.language)
     }, [i18n.language])
+
+    React.useEffect(() => {
+        if (!Cookies.get('lang_is_fixed')) {
+            if (client_information.preferred_language) {
+                const lang = client_information.preferred_language.toLowerCase()
+                if (lang !== language) {
+                    const replaced_lang = lang.replace('_', '-')
+                    handleSelect({ target: { id: `/${replaced_lang}/` } })
+                }
+            }
+        }
+    }, [client_information])
 
     const renderLanguageChoice = (lang) => {
         if (disabled_lang.includes(lang) && isProduction()) return

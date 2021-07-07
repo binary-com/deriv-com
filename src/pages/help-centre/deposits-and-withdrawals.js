@@ -1,6 +1,7 @@
 import React from 'react'
 import { Article } from './_article'
 import { ArticleWrapper, ExternalLink, StyledHeader, StyledText } from './_help-centre-style'
+import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import { deriv_app_url } from 'common/constants'
 import { Text } from 'components/elements'
 import { Localize, localize, WithIntl } from 'components/localization'
@@ -28,6 +29,7 @@ const PaymentMethods = () => (
         </StyledText>
     </ArticleWrapper>
 )
+
 const WithdrawalProcessingTime = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">
@@ -40,6 +42,7 @@ const WithdrawalProcessingTime = () => (
         </Text>
     </ArticleWrapper>
 )
+
 const MinimumDepositWithdrawal = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">
@@ -55,6 +58,7 @@ const MinimumDepositWithdrawal = () => (
         </StyledText>
     </ArticleWrapper>
 )
+
 const ExpiredVerificationLink = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">
@@ -67,6 +71,7 @@ const ExpiredVerificationLink = () => (
         </Text>
     </ArticleWrapper>
 )
+
 const LiftWithdrawalLimits = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('How can I lift my withdrawal limits?')}</StyledHeader>
@@ -86,6 +91,7 @@ const LiftWithdrawalLimits = () => (
         </Text>
     </ArticleWrapper>
 )
+
 const CreditCardDepositDeclined = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">
@@ -98,6 +104,7 @@ const CreditCardDepositDeclined = () => (
         </Text>
     </ArticleWrapper>
 )
+
 const WithdrawDepositBonus = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('Can I withdraw my deposit bonus?')}</StyledHeader>
@@ -108,6 +115,7 @@ const WithdrawDepositBonus = () => (
         </Text>
     </ArticleWrapper>
 )
+
 const WithdrawMaestroMastercard = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">
@@ -122,6 +130,8 @@ const WithdrawMaestroMastercard = () => (
 )
 
 const DepositsAndWithdrawalArticle = () => {
+    const [is_mounted] = usePageLoaded(false) // needed to fix tab highlighting not being rerendered during first load
+
     return (
         <div>
             <Article
@@ -134,34 +144,42 @@ const DepositsAndWithdrawalArticle = () => {
                 <PaymentMethods
                     text={localize('What payment methods do you support?')}
                     label="payment-methods"
+                    is_mounted={is_mounted}
                 />
                 <WithdrawalProcessingTime
                     text={localize('How long does it take to process deposits and withdrawals?')}
                     label="deposit-withdrawal-processing-time"
+                    is_mounted={is_mounted}
                 />
                 <MinimumDepositWithdrawal
                     text={localize('What is the minimum deposit or withdrawal amount?')}
                     label="minimum-deposit-or-withdrawal"
+                    is_mounted={is_mounted}
                 />
                 <ExpiredVerificationLink
                     text={localize('My withdrawal verification link expired. What should I do?')}
                     label="expired-verification-link"
+                    is_mounted={is_mounted}
                 />
                 <LiftWithdrawalLimits
                     text={localize('How can I lift my withdrawal limits?')}
                     label="lift-withdrawal-limits"
+                    is_mounted={is_mounted}
                 />
                 <CreditCardDepositDeclined
                     text={localize('Why does my credit card deposit keep getting declined?')}
                     label="credit-card-deposit-declined"
+                    is_mounted={is_mounted}
                 />
                 <WithdrawDepositBonus
                     text={localize('Can I withdraw my deposit bonus?')}
                     label="withdraw-deposit-bonus"
+                    is_mounted={is_mounted}
                 />
                 <WithdrawMaestroMastercard
                     text={localize("Why can't I withdraw funds to my Maestro/Mastercard?")}
                     label="withdraw-to-maestro-mastercard"
+                    is_mounted={is_mounted}
                 />
             </Article>
         </div>

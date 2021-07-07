@@ -81,7 +81,6 @@ const SectionContainerWrapper = styled(SectionContainer)`
 `
 
 const StyledContainer = styled(Container)`
-    display: flex;
     width: 100%;
     @media ${device.tabletL} {
         flex-wrap: wrap;

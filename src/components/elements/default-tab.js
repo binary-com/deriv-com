@@ -50,7 +50,7 @@ const TabList = styled.div`
     overflow: auto;
 
     @media ${device.mobileL} {
-        justify-content: ${(props) => (props.jc ? props.jc : 'space-between')};
+        justify-content: 'space-between';
     }
 `
 

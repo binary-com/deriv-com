@@ -26,12 +26,11 @@ export const ArticleContentWrapper = styled(Container)`
     margin-top: 24px;
     color: var(--color-white);
     @media ${device.laptopM} {
-        flex-flow: column;
+        flex-direction: column;
     }
 `
 
 export const LeftContent = styled(Flex)`
-    display: flex;
     justify-content: start;
     margin-right: 10px;
     @media ${device.laptopM} {
@@ -41,10 +40,9 @@ export const LeftContent = styled(Flex)`
 `
 
 export const RightContent = styled(Flex)`
-    display: flex;
     justify-content: start;
     @media ${device.laptopM} {
-        flex-flow: column;
+        flex-direction: column;
     }
 `
 
@@ -117,9 +115,8 @@ export const StyledCategories = styled(Text)`
     margin-left: -10px;
 `
 
-export const BottomDescription = styled.div`
+export const BottomDescription = styled(Flex)`
     position: absolute;
-    display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;

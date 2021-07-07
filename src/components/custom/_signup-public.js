@@ -8,8 +8,7 @@ import { Header, LinkText, QueryImage, Text } from 'components/elements'
 import { localize } from 'components/localization'
 import { Flex, Show, SectionContainer, Container } from 'components/containers'
 import { deriv_app_url } from 'common/constants'
-import { isMobile } from 'common/os-detect'
-import device from 'themes/device.js'
+import device, { size } from 'themes/device.js'
 // SVG
 import Apple from 'images/svg/apple.svg'
 import Facebook from 'images/svg/facebook-blue.svg'
@@ -107,9 +106,6 @@ const InputWrapper = styled.div`
         width: unset;
         max-width: 191px;
     }
-    // @media (max-width: 340px) {
-    //     width: 171px;
-    // }
 `
 const InputGroup = styled.div`
     display: flex;
@@ -344,7 +340,7 @@ const SignupPublic = ({
         setChecked(event.currentTarget.checked)
     }
     return (
-        <SectionContainer padding={isMobile() ? '41px 0 40px' : '80px 0'}>
+        <SectionContainer padding={window.screen?.width > size.bp769 ? "80px 0" : "41px 0 40px"}>
             <Show.Desktop>
                 <Container>
                     <Wrapper>

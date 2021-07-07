@@ -23,7 +23,7 @@ export const StyledTabs = styled(Tabs)`
 `
 
 export const ArticleContentWrapper = styled(Container)`
-    margin-top: 40px;
+    margin-top: 24px;
     color: var(--color-white);
     @media ${device.laptopM} {
         flex-flow: column;
@@ -59,7 +59,6 @@ export const MainArticle = styled(Flex)`
     min-height: 464px;
     width: 792px;
     max-height: 300px;
-    max-width: 1440px;
     align-items: flex-end;
     padding-bottom: 80px;
     cursor: pointer;
@@ -97,6 +96,7 @@ export const Description = styled.div`
 export const TagParentWrapper = styled(Flex)`
     height: 22px;
     justify-content: flex-start;
+    margin-bottom: 10px;
     @media ${device.laptopM} {
         margin-bottom: 8px;
     }
@@ -115,44 +115,6 @@ export const StyledCategories = styled(Text)`
     color: var(--color-yellow-3);
     padding: 1px 8px;
     margin-left: -10px;
-`
-
-export const ArticleTitle = styled.div`
-    position: static;
-    left: 0%;
-    right: 0%;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 32px;
-    line-height: 40px;
-    color: var(--color-white);
-    flex: none;
-    order: 0;
-    flex-grow: 0;
-    margin: 8px 0;
-
-    @media ${device.laptopM} {
-        font-size: 24px;
-    }
-`
-
-export const ArticleSubtitle = styled.div`
-    position: static;
-    width: 712px;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 20px;
-    color: var(--color-grey-8);
-    flex: none;
-    order: 1;
-    flex-grow: 0;
-    margin: 8px 0;
-
-    @media ${device.laptopM} {
-        width: 100%;
-        font-size: 12px;
-    }
 `
 
 export const BottomDescription = styled.div`
@@ -211,7 +173,6 @@ export const SmallArticleImage = styled.img`
 `
 
 export const SmallArticleCategories = styled(Text)`
-    margin-top: 4px;
     width: fit-content;
     border-radius: 8px;
     background-color: var(--color-blue-10);
@@ -219,16 +180,8 @@ export const SmallArticleCategories = styled(Text)`
     padding: 1px 8px;
     line-height: 20px;
     margin-left: -4px;
+    margin-bottom: 4px;
     font-size: 14px;
-    font-weight: 700;
-`
-
-export const SmallArticleTitle = styled.div`
-    margin-top: 10px;
-    font-size: 16px;
-    width: 100%;
-    line-height: 18px;
-    color: var(--color-black);
     font-weight: 700;
 `
 

@@ -13,14 +13,11 @@ import {
     TagParentWrapper,
     TagWrapper,
     StyledCategories,
-    ArticleTitle,
-    ArticleSubtitle,
     BottomDescription,
     SmallArticle,
     SmallArticleImageWrapper,
     SmallArticleImage,
     SmallArticleCategories,
-    SmallArticleTitle,
     SmallArticleBottomContent,
     SmallArticleLeftContent,
     SmallArticleRightContent,
@@ -30,7 +27,7 @@ import {
     DotIcon,
 } from './_style'
 import Layout from 'components/layout/layout'
-import { Carousel, Tabs } from 'components/elements'
+import { Carousel, Tabs, Header } from 'components/elements'
 import { localize, WithIntl } from 'components/localization'
 
 //Settings for carrousel
@@ -62,7 +59,7 @@ const RecentFeaturedPosts = () => {
                 <StyledTabs
                     tab_list={['recent_posts', 'featured_posts']}
                     route_from="recent_featured_posts"
-                    is_left_aligned
+                    jc="start"
                 >
                     <Tabs.Panel label={localize('Recent posts')}>
                         <ArticleContentWrapper>
@@ -77,8 +74,17 @@ const RecentFeaturedPosts = () => {
                                                     </StyledCategories>
                                                 </TagWrapper>
                                             </TagParentWrapper>
-                                            <ArticleTitle>{recent.title}</ArticleTitle>
-                                            <ArticleSubtitle>{recent.description}</ArticleSubtitle>
+                                            <Header as="h3" type="heading-3" color="white" mb="5px">
+                                                {recent.title}
+                                            </Header>
+                                            <Header
+                                                as="p"
+                                                type="paragraph-2"
+                                                color="white"
+                                                weight="normal"
+                                            >
+                                                {recent.description}
+                                            </Header>
                                         </Description>
                                         <BottomDescription>
                                             {recent.date} <ClockIcon src={Clock} />
@@ -105,9 +111,9 @@ const RecentFeaturedPosts = () => {
                                                         <SmallArticleCategories>
                                                             {article.category}
                                                         </SmallArticleCategories>
-                                                        <SmallArticleTitle>
+                                                        <Header as="p" type="paragraph-1">
                                                             {article.title}
-                                                        </SmallArticleTitle>
+                                                        </Header>
                                                         <SmallArticleBottomContent>
                                                             {article.date} <DotIcon src={Dot} />
                                                             {article.reading_time} mins read
@@ -134,10 +140,17 @@ const RecentFeaturedPosts = () => {
                                                     </StyledCategories>
                                                 </TagWrapper>
                                             </TagParentWrapper>
-                                            <ArticleTitle>{featured.title}</ArticleTitle>
-                                            <ArticleSubtitle>
+                                            <Header as="h3" type="heading-3" color="white" mb="5px">
+                                                {featured.title}
+                                            </Header>
+                                            <Header
+                                                as="p"
+                                                type="paragraph-2"
+                                                color="white"
+                                                weight="normal"
+                                            >
                                                 {featured.description}
-                                            </ArticleSubtitle>
+                                            </Header>
                                         </Description>
                                         <BottomDescription>
                                             {featured.date} <ClockIcon src={Clock} />
@@ -150,7 +163,7 @@ const RecentFeaturedPosts = () => {
                                 <Carousel {...settings}>
                                     {articles_2.map((article, idx) => {
                                         return (
-                                            <RedirectLink to={article.link} key={idx}>
+                                            <RedirectLink to={article.link} key={article.title}>
                                                 <SmallArticle>
                                                     <SmallArticleLeftContent>
                                                         <SmallArticleImageWrapper>
@@ -164,11 +177,11 @@ const RecentFeaturedPosts = () => {
                                                         <SmallArticleCategories>
                                                             {article.category}
                                                         </SmallArticleCategories>
-                                                        <SmallArticleTitle>
+                                                        <Header as="p" type="paragraph-1">
                                                             {article.title}
-                                                        </SmallArticleTitle>
+                                                        </Header>
                                                         <SmallArticleBottomContent>
-                                                            {article.date} <DotIcon src={Dot} />{' '}
+                                                            {article.date} <DotIcon src={Dot} />
                                                             {article.reading_time} mins read
                                                         </SmallArticleBottomContent>
                                                     </SmallArticleRightContent>

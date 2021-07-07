@@ -104,11 +104,12 @@ const InputWrapper = styled.div`
     font-weight: normal;
     margin-right: 1rem;
     @media ${device.mobileL} {
-        width: 191px;
+        width: unset;
+        max-width: 191px;
     }
-    @media (max-width: 340px) {
-        width: 171px;
-    }
+    // @media (max-width: 340px) {
+    //     width: 171px;
+    // }
 `
 const InputGroup = styled.div`
     display: flex;

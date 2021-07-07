@@ -8,6 +8,7 @@ import { Header, LinkText, QueryImage, Text } from 'components/elements'
 import { localize } from 'components/localization'
 import { Flex, Show, SectionContainer, Container } from 'components/containers'
 import { deriv_app_url } from 'common/constants'
+import { isMobile } from 'common/os-detect'
 import device from 'themes/device.js'
 // SVG
 import Apple from 'images/svg/apple.svg'
@@ -98,11 +99,15 @@ const BackgroundWrapper = styled(Flex)`
     }
 `
 const InputWrapper = styled.div`
-    width: 28rem;
+    width: 245px;
     line-height: 10px;
     font-weight: normal;
-    @media ${device.tabletL} {
-        margin-right: 1rem;
+    margin-right: 1rem;
+    @media ${device.mobileL} {
+        width: 191px;
+    }
+    @media (max-width: 340px) {
+        width: 171px;
     }
 `
 const InputGroup = styled.div`
@@ -338,7 +343,7 @@ const SignupPublic = ({
         setChecked(event.currentTarget.checked)
     }
     return (
-        <SectionContainer>
+        <SectionContainer padding={isMobile() ? '41px 0 40px' : '80px 0'}>
             <Show.Desktop>
                 <Container>
                     <Wrapper>

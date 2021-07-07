@@ -7,13 +7,6 @@ import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
 import { Container, SectionContainer, Flex } from 'components/containers'
 
-const StyledSection = styled(SectionContainer)`
-    @media ${device.tabletL} {
-        height: unset;
-        padding: 5rem 0;
-    }
-`
-
 const ClientCard = styled.article`
     width: 58.2rem;
     padding-top: 5.2rem;
@@ -21,7 +14,7 @@ const ClientCard = styled.article`
     overflow: hidden;
 
     @media ${device.tabletL} {
-        padding: 4rem;
+        padding: 4rem 4rem 0;
     }
 `
 
@@ -228,29 +221,27 @@ const WhatOurClientsSay = () => {
     }
 
     return (
-        <>
-            <StyledSection>
-                <Container direction="column">
-                    <Header align="center" as="h3" type="section-title">
-                        {localize('What our clients say about Deriv')}
-                    </Header>
-                </Container>
-                <Carousel has_autoplay autoplay_interval={6000} {...settings}>
-                    {our_client_slides.map((trader, idx) => (
-                        <div key={idx}>
-                            <ClientSlide
-                                key={trader.name}
-                                quote={trader.quote}
-                                name={trader.name}
-                                location={trader.location}
-                                img={data[trader.id]}
-                                img_alt={trader.name + localize(" - Deriv's Client")}
-                            />
-                        </div>
-                    ))}
-                </Carousel>
-            </StyledSection>
-        </>
+        <SectionContainer padding='8rem 0 0'>
+            <Container direction="column">
+                <Header align="center" as="h3" type="section-title">
+                    {localize('What our clients say about Deriv')}
+                </Header>
+            </Container>
+            <Carousel has_autoplay autoplay_interval={6000} {...settings}>
+                {our_client_slides.map((trader, idx) => (
+                    <div key={idx}>
+                        <ClientSlide
+                            key={trader.name}
+                            quote={trader.quote}
+                            name={trader.name}
+                            location={trader.location}
+                            img={data[trader.id]}
+                            img_alt={trader.name + localize(" - Deriv's Client")}
+                        />
+                    </div>
+                ))}
+            </Carousel>
+        </SectionContainer>
     )
 }
 

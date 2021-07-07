@@ -45,12 +45,12 @@ const TabButton = styled.button`
 const TabList = styled.div`
     display: flex;
     width: 100%;
-    justify-content: ${(props) => (props.jc ? props.jc : 'center')};
+    justify-content: ${(props) => (props.type == 'blog-featured' ? 'start' : 'center')};
     position: relative;
     overflow: auto;
 
-    @media ${device.mobileL} {
-        justify-content: 'space-between';
+    @media ${device.tablet} {
+        justify-content: ${(props) => (props.type == 'blog-featured' ? 'center' : 'space-between')};
     }
 `
 
@@ -58,7 +58,7 @@ const LineDivider = styled.div`
     bottom: 0;
     position: absolute;
     height: 2px;
-    width: ${(props) => (props.jc == 'start' ? 'unset' : '100%')};
+    width: ${(props) => (props.type == 'blog-featured' ? 'unset' : '100%')};
     background: var(--color-grey-2);
     z-index: 1;
 `
@@ -91,7 +91,7 @@ TabPanel.propTypes = {
     children: PropTypes.node,
 }
 
-const Tabs = ({ children, route_from, tab_list, jc }) => {
+const Tabs = ({ children, route_from, tab_list, type }) => {
     const [selected_tab, setSelectedTab] = useState(0)
     const [active_tab, setActiveTab] = useTabState(tab_list)
 
@@ -101,20 +101,21 @@ const Tabs = ({ children, route_from, tab_list, jc }) => {
 
     return (
         <Flex direction="column">
-            <TabList role="tablist" jc={jc}>
+            <TabList role="tablist" type={type}>
                 {React.Children.map(children, ({ props: { label } }, index) => (
                     <TabButton
                         role="tab"
                         selected={selected_tab === index}
                         aria-selected={selected_tab === index ? 'true' : 'false'}
                         onClick={() => setActiveTab(tab_list[index])}
+                        type={type}
                     >
                         <TextWrapper font_size={route_from === 'markets' ? '24px' : undefined}>
                             {label}
                         </TextWrapper>
                     </TabButton>
                 ))}
-                <LineDivider jc={jc} />
+                <LineDivider type={type} />
             </TabList>
 
             <Content>
@@ -130,9 +131,9 @@ Tabs.Panel = TabPanel
 
 Tabs.propTypes = {
     children: PropTypes.node,
-    jc: PropTypes.string,
     route_from: PropTypes.string,
     tab_list: PropTypes.array,
+    type: PropTypes.string,
 }
 
 export default Tabs

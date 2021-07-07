@@ -141,9 +141,10 @@ export const SmallArticle = styled(Flex)`
     font-size: 16px;
     height: 110px;
     margin-bottom: 22px;
-    place-content: flex-start;
+    justify-content: start;
     cursor: pointer;
     transition: transform 0.3s;
+    min-width: 328px;
 
     &:hover {
         transform: scale(1.02);
@@ -200,9 +201,9 @@ export const SmallArticleLeftContent = styled(Flex)`
 `
 
 export const SmallArticleRightContent = styled(Flex)`
-    margin-top: -4px;
     margin-left: 10px;
     flex-direction: column;
+    justify-content: start;
 `
 export const AllArticleButton = styled(LinkButton)`
     margin-top: 40px;
@@ -230,4 +231,36 @@ export const ClockIcon = styled.img`
 export const DotIcon = styled.img`
     margin: 2px 4px;
     color: var(--color-white);
+`
+
+export const MobileDotIcon = styled(DotIcon)`
+    height: 5px;
+`
+
+export const SmallArticleTopContent = styled(Flex)`
+    color: black;
+    height: 30px;
+`
+
+export const SmallArticleDateTimeMobile = styled(Flex)`
+    color: var(--color-grey-5);
+    width: 100%;
+    height: 20px;
+    font-size: 12px;
+    visibility: hidden;
+    margin-top: 5px;
+    @media ${device.laptopM} {
+        display: flex;
+        visibility: visible;
+    }
+`
+
+export const SmallArticleDateTimeDesktop = styled.div`
+    color: var(--color-grey-5);
+    margin-top: 12px;
+    width: 100%;
+    font-size: 12px;
+    @media ${device.laptopM} {
+        visibility: hidden;
+    }
 `

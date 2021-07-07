@@ -18,13 +18,16 @@ import {
     SmallArticleImageWrapper,
     SmallArticleImage,
     SmallArticleCategories,
-    SmallArticleBottomContent,
+    SmallArticleTopContent,
+    SmallArticleDateTimeDesktop,
+    SmallArticleDateTimeMobile,
     SmallArticleLeftContent,
     SmallArticleRightContent,
     AllArticleButton,
     RedirectLink,
     ClockIcon,
     DotIcon,
+    MobileDotIcon,
 } from './_style'
 import Layout from 'components/layout/layout'
 import { Carousel, Tabs, Header } from 'components/elements'
@@ -59,7 +62,7 @@ const RecentFeaturedPosts = () => {
                 <StyledTabs
                     tab_list={['recent_posts', 'featured_posts']}
                     route_from="recent_featured_posts"
-                    jc="start"
+                    type="blog-featured"
                 >
                     <Tabs.Panel label={localize('Recent posts')}>
                         <ArticleContentWrapper>
@@ -108,16 +111,23 @@ const RecentFeaturedPosts = () => {
                                                         </SmallArticleImageWrapper>
                                                     </SmallArticleLeftContent>
                                                     <SmallArticleRightContent>
-                                                        <SmallArticleCategories>
-                                                            {article.category}
-                                                        </SmallArticleCategories>
+                                                        <SmallArticleTopContent>
+                                                            <SmallArticleCategories>
+                                                                {article.category}
+                                                            </SmallArticleCategories>
+                                                            <SmallArticleDateTimeMobile>
+                                                                {article.date}
+                                                                <MobileDotIcon src={Dot} />
+                                                                {article.reading_time} mins read
+                                                            </SmallArticleDateTimeMobile>
+                                                        </SmallArticleTopContent>
                                                         <Header as="p" type="paragraph-1">
                                                             {article.title}
                                                         </Header>
-                                                        <SmallArticleBottomContent>
+                                                        <SmallArticleDateTimeDesktop>
                                                             {article.date} <DotIcon src={Dot} />
                                                             {article.reading_time} mins read
-                                                        </SmallArticleBottomContent>
+                                                        </SmallArticleDateTimeDesktop>
                                                     </SmallArticleRightContent>
                                                 </SmallArticle>
                                             </RedirectLink>
@@ -174,16 +184,23 @@ const RecentFeaturedPosts = () => {
                                                         </SmallArticleImageWrapper>
                                                     </SmallArticleLeftContent>
                                                     <SmallArticleRightContent>
-                                                        <SmallArticleCategories>
-                                                            {article.category}
-                                                        </SmallArticleCategories>
+                                                        <SmallArticleTopContent>
+                                                            <SmallArticleCategories>
+                                                                {article.category}
+                                                            </SmallArticleCategories>
+                                                            <SmallArticleDateTimeMobile>
+                                                                {article.date}{' '}
+                                                                <MobileDotIcon src={Dot} />
+                                                                {article.reading_time} mins read
+                                                            </SmallArticleDateTimeMobile>
+                                                        </SmallArticleTopContent>
                                                         <Header as="p" type="paragraph-1">
                                                             {article.title}
                                                         </Header>
-                                                        <SmallArticleBottomContent>
+                                                        <SmallArticleDateTimeDesktop>
                                                             {article.date} <DotIcon src={Dot} />
                                                             {article.reading_time} mins read
-                                                        </SmallArticleBottomContent>
+                                                        </SmallArticleDateTimeDesktop>
                                                     </SmallArticleRightContent>
                                                 </SmallArticle>
                                             </RedirectLink>

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Container, Flex, } from 'components/containers'
+import { Container, Flex } from 'components/containers'
 import { Text, Tabs } from 'components/elements'
 import { LocalizedLink } from 'components/localization'
 import device from 'themes/device'
@@ -19,7 +19,7 @@ export const StyledContainer = styled(Flex)`
 `
 
 export const StyledTabs = styled(Tabs)`
-    width:unset;
+    width: unset;
 `
 
 export const ArticleContentWrapper = styled(Container)`
@@ -30,19 +30,19 @@ export const ArticleContentWrapper = styled(Container)`
     }
 `
 
-export const LeftContent= styled(Flex)`
-    display:flex;
-    justify-content:start;
-    margin-right:10px;
+export const LeftContent = styled(Flex)`
+    display: flex;
+    justify-content: start;
+    margin-right: 10px;
     @media ${device.laptopM} {
-        margin-right:0;
-        margin-bottom:20px;
+        margin-right: 0;
+        margin-bottom: 20px;
     }
 `
 
-export const RightContent= styled(Flex)`
-    display:flex;
-    justify-content:start;
+export const RightContent = styled(Flex)`
+    display: flex;
+    justify-content: start;
     @media ${device.laptopM} {
         flex-flow: column;
     }
@@ -58,10 +58,10 @@ export const MainArticle = styled(Flex)`
     background-size: cover;
     min-height: 464px;
     width: 792px;
-    max-height:300px;
+    max-height: 300px;
     max-width: 1440px;
     align-items: flex-end;
-    padding-bottom:80px;
+    padding-bottom: 80px;
     cursor: pointer;
     transition: transform 0.3s;
 
@@ -77,20 +77,20 @@ export const MainArticle = styled(Flex)`
                 ? `linear-gradient(251.14deg, rgba(14, 14, 14, 0.5632) 29.18%, rgba(7, 6, 6, 0.88) 85.14%),url(${props.image}) no-repeat top right 46.5%`
                 : 'linear-gradient(251.14deg, rgba(14, 14, 14, 0.5632) 29.18%, rgba(7, 6, 6, 0.88) 85.14%)'};
         background-size: cover;
-        justify-content:flex-end;
+        justify-content: flex-end;
     }
 
     @media ${device.tablet} {
-        width:100%;
+        width: 100%;
         min-width: 270px;
     }
 `
 
 export const Description = styled.div`
-    padding:24px 40px 0 40px;
+    padding: 24px 40px 0 40px;
 
     @media ${device.laptopM} {
-        padding:30px;
+        padding: 30px;
     }
 `
 
@@ -132,7 +132,7 @@ export const ArticleTitle = styled.div`
     margin: 8px 0;
 
     @media ${device.laptopM} {
-        font-size:24px
+        font-size: 24px;
     }
 `
 
@@ -151,7 +151,7 @@ export const ArticleSubtitle = styled.div`
 
     @media ${device.laptopM} {
         width: 100%;
-        font-size:12px;
+        font-size: 12px;
     }
 `
 
@@ -171,17 +171,17 @@ export const BottomDescription = styled.div`
     flex: none;
     order: 1;
     flex-grow: 0;
-    color: var(--color-white); 
+    color: var(--color-white);
 
     @media ${device.laptopM} {
-        display:none;
+        display: none;
     }
 `
 
 export const SmallArticle = styled(Flex)`
     font-size: 16px;
     height: 110px;
-    margin-bottom:22px;
+    margin-bottom: 22px;
     place-content: flex-start;
     cursor: pointer;
     transition: transform 0.3s;
@@ -211,7 +211,7 @@ export const SmallArticleImage = styled.img`
 `
 
 export const SmallArticleCategories = styled(Text)`
-    margin-top:4px;
+    margin-top: 4px;
     width: fit-content;
     border-radius: 8px;
     background-color: var(--color-blue-10);
@@ -219,7 +219,7 @@ export const SmallArticleCategories = styled(Text)`
     padding: 1px 8px;
     line-height: 20px;
     margin-left: -4px;
-    font-size:14px;
+    font-size: 14px;
     font-weight: 700;
 `
 
@@ -232,7 +232,7 @@ export const SmallArticleTitle = styled.div`
     font-weight: 700;
 `
 
-export const SmallArticleBottomContent= styled.div`
+export const SmallArticleBottomContent = styled.div`
     color: var(--color-grey-5);
     margin-top: 18px;
     width: 100%;
@@ -242,10 +242,10 @@ export const SmallArticleBottomContent= styled.div`
 export const SmallArticleLeftContent = styled(Flex)`
     margin-left: 15px;
     margin-right: 10px;
-    width:unset;
+    width: unset;
 
     @media ${device.laptopM} {
-        margin-left:0;
+        margin-left: 0;
     }
 `
 
@@ -270,7 +270,7 @@ export const AllArticleButton = styled(LinkButton)`
 
 export const RedirectLink = styled(LocalizedLink)`
     text-decoration: none;
-    z-index:1;
+    z-index: 1;
 `
 export const ClockIcon = styled.img`
     margin: 0 5px;

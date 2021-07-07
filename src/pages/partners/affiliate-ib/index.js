@@ -21,6 +21,13 @@ const MoreReason = Loadable(() => import('./_more-reason.js'))
 const Faq = Loadable(() => import('./_faq'))
 const CTA = Loadable(() => import('./_partner-cta'))
 
+const meta_attributes = {
+    og_title: localize('Affiliate and IB programme | Deriv'),
+    og_description: localize(
+        'Join Deriv’s affiliate and IB programmes and get a chance to be a partner with a trusted online trading provider.',
+    ),
+}
+
 const StyledHeader = styled(Header)`
     width: 100%;
     max-width: 70rem;
@@ -149,6 +156,7 @@ const AffiliateIb = () => {
                 description={localize(
                     'Join Deriv’s affiliate and IB programmes and get a chance to be a partner with a trusted online trading provider.',
                 )}
+                meta_attributes={meta_attributes}
             />
             <Helmet>
                 <script type="application/ld+json">{JSON.stringify(faq_schema)}</script>

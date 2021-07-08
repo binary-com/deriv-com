@@ -23,7 +23,7 @@ const ParentWrapper = styled(SectionContainer)`
 
 const MainWrapper = styled(Flex)`
     background: ${(props) =>
-        props.background_color ? props.background_color : 'var(--color-grey-40)'};
+        props.background_color ? props.background_color : 'var(--color-grey-41)'};
     border-radius: 8px;
     position: relative;
     overflow: hidden;

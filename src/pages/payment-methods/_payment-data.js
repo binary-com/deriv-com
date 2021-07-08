@@ -572,7 +572,7 @@ const payment_data = [
             // },
             {
                 method: <StyledIcon src={Bitcoin} alt="Bitcoin" />,
-                currencies: 'USD EUR AUD GBP',
+                currencies: 'BTC',
                 min_max_deposit: <Localize translate_text='No minimum' />,
                 min_max_withdrawal: <Localize translate_text='0.0022' />,
                 deposit_time: <Localize translate_text="Funds available as soon as confirmed" />,
@@ -597,7 +597,7 @@ const payment_data = [
             // },
             {
                 method: <StyledIcon src={Ethereum} alt="Ethereum" />,
-                currencies: 'USD EUR AUD GBP',
+                currencies: 'ETH',
                 min_max_deposit: <Localize translate_text='No minimum' />,
                 min_max_withdrawal: <Localize translate_text='0.013' />,
                 deposit_time: <Localize translate_text="Funds available as soon as confirmed" />,
@@ -634,7 +634,7 @@ const payment_data = [
             // },
             {
                 method: <StyledIcon src={Litecoin} alt="Litecoin" />,
-                currencies: 'USD EUR AUD GBP',
+                currencies: 'LTC',
                 min_max_deposit: <Localize translate_text='No minimum' />,
                 min_max_withdrawal: <Localize translate_text='0.085' />,
                 deposit_time: <Localize translate_text="Funds available as soon as confirmed" />,
@@ -695,7 +695,7 @@ const payment_data = [
             // },
             {
                 method: <StyledIcon src={Tether} alt="Tether" />,
-                currencies: 'USD EUR AUD GBP',
+                currencies: 'USDT',
                 min_max_deposit: <Localize translate_text='No minimum' />,
                 min_max_withdrawal: <Localize translate_text='25' />,
                 deposit_time: <Localize translate_text="Funds available as soon as confirmed" />,

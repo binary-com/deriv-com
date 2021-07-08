@@ -8,7 +8,7 @@ import { Header, LocalizedLinkText, SpanLinkText, Text, QueryImage } from 'compo
 import { Flex, SectionContainer, Show } from 'components/containers'
 import Login from 'common/login'
 import device from 'themes/device'
-import { p2p_playstore_url } from 'common/constants'
+import { p2p_playstore_url, p2p_applestore_url, p2p_huawei_appgallery_url } from 'common/constants'
 
 const Row = styled.div`
     display: flex;
@@ -118,7 +118,7 @@ const Right = styled.div`
 
 const query = graphql`
     query {
-        qr_code: file(relativePath: { eq: "p2p/p2p_playstore.png" }) {
+        qr_code: file(relativePath: { eq: "p2p/p2p_all_appstores.png" }) {
             ...fadeIn
         }
     }
@@ -224,7 +224,7 @@ const Availability = () => {
                                                 />,
                                                 <LocalizedLinkText
                                                     external
-                                                    to={p2p_playstore_url}
+                                                    to={p2p_applestore_url}
                                                     target="_blank"
                                                     size={24}
                                                     color="red"
@@ -232,7 +232,7 @@ const Availability = () => {
                                                 />,
                                                 <LocalizedLinkText
                                                     external
-                                                    to={p2p_playstore_url}
+                                                    to={p2p_huawei_appgallery_url}
                                                     target="_blank"
                                                     size={24}
                                                     color="red"
@@ -265,7 +265,7 @@ const Availability = () => {
                                         />,
                                         <LocalizedLinkText
                                             external
-                                            to={p2p_playstore_url}
+                                            to={p2p_applestore_url}
                                             target="_blank"
                                             size={24}
                                             color="red"
@@ -273,7 +273,7 @@ const Availability = () => {
                                         />,
                                         <LocalizedLinkText
                                             external
-                                            to={p2p_playstore_url}
+                                            to={p2p_huawei_appgallery_url}
                                             target="_blank"
                                             size={24}
                                             color="red"

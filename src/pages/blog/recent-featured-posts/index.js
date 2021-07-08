@@ -118,7 +118,7 @@ const RecentFeaturedPosts = () => {
                                                             <SmallArticleDateTimeMobile>
                                                                 {article.date}
                                                                 <MobileDotIcon src={Dot} />
-                                                                {article.reading_time} mins read
+                                                                {article.reading_time} mins
                                                             </SmallArticleDateTimeMobile>
                                                         </SmallArticleTopContent>
                                                         <Header as="p" type="paragraph-1">
@@ -189,9 +189,9 @@ const RecentFeaturedPosts = () => {
                                                                 {article.category}
                                                             </SmallArticleCategories>
                                                             <SmallArticleDateTimeMobile>
-                                                                {article.date}{' '}
+                                                                {article.date}
                                                                 <MobileDotIcon src={Dot} />
-                                                                {article.reading_time} mins read
+                                                                {article.reading_time} mins
                                                             </SmallArticleDateTimeMobile>
                                                         </SmallArticleTopContent>
                                                         <Header as="p" type="paragraph-1">

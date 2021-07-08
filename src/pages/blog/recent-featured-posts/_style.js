@@ -12,10 +12,6 @@ export const StyledContainer = styled(Flex)`
     @media ${device.desktopL} {
         max-width: 1600px;
     }
-    @media ${device.laptopM} {
-        width: 100%;
-        padding: 0 16px;
-    }
 `
 
 export const StyledTabs = styled(Tabs)`
@@ -68,6 +64,7 @@ export const MainArticle = styled(Flex)`
     @media ${device.laptopM} {
         /* prettier-ignore */
         min-width: 328px;
+        width: unset;
         padding: 0;
         background: ${(props) =>
             props.image
@@ -149,6 +146,12 @@ export const SmallArticle = styled(Flex)`
     &:hover {
         transform: scale(1.02);
     }
+
+    @media ${device.laptopM} {
+        width: 328px;
+        height: 82px;
+        margin-bottom: 16px;
+    }
 `
 
 export const SmallArticleImageWrapper = styled.div`
@@ -157,6 +160,10 @@ export const SmallArticleImageWrapper = styled.div`
     position: relative;
     z-index: 1;
     overflow: hidden;
+
+    @media ${device.laptopM} {
+        height: 78px;
+    }
 `
 
 export const SmallArticleImage = styled.img`
@@ -181,6 +188,13 @@ export const SmallArticleCategories = styled(Text)`
     margin-bottom: 4px;
     font-size: 14px;
     font-weight: 700;
+
+    @media ${device.laptopM} {
+        position: static;
+        width: 94px;
+        height: 20px;
+        font-size: 10px;
+    }
 `
 
 export const SmallArticleBottomContent = styled.div`
@@ -204,6 +218,11 @@ export const SmallArticleRightContent = styled(Flex)`
     margin-left: 10px;
     flex-direction: column;
     justify-content: start;
+
+    @media ${device.laptopM} {
+        width: 185px;
+        margin-left: 0;
+    }
 `
 export const AllArticleButton = styled(LinkButton)`
     margin-top: 40px;
@@ -240,6 +259,7 @@ export const MobileDotIcon = styled(DotIcon)`
 export const SmallArticleTopContent = styled(Flex)`
     color: black;
     height: 30px;
+    justify-content: flex-start;
 `
 
 export const SmallArticleDateTimeMobile = styled(Flex)`
@@ -247,11 +267,13 @@ export const SmallArticleDateTimeMobile = styled(Flex)`
     width: 100%;
     height: 20px;
     font-size: 12px;
-    visibility: hidden;
     margin-top: 5px;
+    display: none;
     @media ${device.laptopM} {
+        margin-left: 5px;
         display: flex;
-        visibility: visible;
+        font-size: 10px;
+        justify-content: flex-start;
     }
 `
 
@@ -261,6 +283,6 @@ export const SmallArticleDateTimeDesktop = styled.div`
     width: 100%;
     font-size: 12px;
     @media ${device.laptopM} {
-        visibility: hidden;
+        display: none;
     }
 `

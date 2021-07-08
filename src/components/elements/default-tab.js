@@ -49,9 +49,21 @@ const TabList = styled.div`
     position: relative;
     overflow: auto;
 
-    @media ${device.tablet} {
-        justify-content: ${(props) => (props.type == 'blog-featured' ? 'center' : 'space-between')};
+    @media ${device.mobileL} {
+        justify-content: space-between;
     }
+
+    ${(props) =>
+        props.type == 'blog-featured' &&
+        css`
+            @media ${device.mobileL} {
+                justify-content: center;
+            }
+
+            @media ${device.tablet} {
+                justify-content: center;
+            }
+        `}
 `
 
 const LineDivider = styled.div`

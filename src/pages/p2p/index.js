@@ -13,7 +13,7 @@ const Availability = Loadable(() => import('./components/_availability'))
 const DP2P_CONTENT = [
     {
         title: <Localize translate_text="Save time" />,
-        subtitle: <Localize translate_text="Exchange in minutes. Less waiting, more trading." />,
+        subtitle: <Localize translate_text="Exchange in minutes. Less waiting, more trading Deposit and withdraw in minutes." />,
         subtitle_mobile: (
             <Localize
                 translate_text="Exchange in minutes.<0 />Less waiting, more trading."
@@ -25,8 +25,8 @@ const DP2P_CONTENT = [
         image_alt: localize('Buy and sell'),
     },
     {
-        title: <Localize translate_text="Works in your local currency" />,
-        subtitle: <Localize translate_text="Exchange with fellow traders at pre-agreed rates." />,
+        title: <Localize translate_text="Works with your local currency" />,
+        subtitle: <Localize translate_text="Deal with fellow traders at pre-agreed rates." />,
         subtitle_mobile: (
             <Localize translate_text="Exchange with fellow traders at pre-agreed rates." />
         ),
@@ -52,13 +52,13 @@ const DP2PHome = () => {
     return (
         <Layout>
             <SEO
-                title={localize('DP2P')}
+                title={localize('Deriv P2P')}
                 description={localize('Hassle-free deposits and withdrawals')}
             />
             <Hero
                 title={localize('Hassle-free deposits and withdrawals')}
                 content={
-                    <Localize translate_text="Can’t make deposits and withdrawals in your local currency? No problem. Exchange with fellow traders in minutes." />
+                    <Localize translate_text="Use your local currency to make deposits into and withdrawals from your Deriv account." />
                 }
                 image_name="DP2P"
             />
@@ -67,7 +67,7 @@ const DP2PHome = () => {
             <ExchangeSteps />
             <Availability />
             <P2PBanner
-                title={localize('Get hassle-free deposits and withdrawals today')}
+                title={localize('Make hassle-free deposits and withdrawals today')}
                 image_name="DP2P"
             />
         </Layout>

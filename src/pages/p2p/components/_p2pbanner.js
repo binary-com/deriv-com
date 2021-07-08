@@ -127,7 +127,7 @@ const P2PBanner = ({ title }) => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                {localize('Try DP2P now')}
+                                {localize('Try Deriv P2P now')}
                             </TryButton>
                         </InformationWrapper>
                     </Wrapper>
@@ -151,7 +151,7 @@ const P2PBanner = ({ title }) => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                {localize('Try DP2P now')}
+                                {localize('Try Deriv P2P now')}
                             </TryButton>
                         </InformationWrapper>
                     </Wrapper>

@@ -11,6 +11,13 @@ const YourControl = Loadable(() => import('./_your-control'))
 const WhoCanApply = Loadable(() => import('./_who-can-apply'))
 const Faq = Loadable(() => import('./_faq'))
 
+const meta_attributes = {
+    og_title: localize('Payment agents | Partners | Deriv'),
+    og_description: localize(
+        'Know all the details about how you can become the payment agent on Deriv. Send us an email to apply!',
+    ),
+}
+
 const PaymentAgent = () => {
     return (
         <Layout type="partners" margin_top={10} no_login_signup>
@@ -19,9 +26,10 @@ const PaymentAgent = () => {
                 description={localize(
                     'Know all the details about how you can become the payment agent on Deriv. Send us an email to apply!',
                 )}
+                meta_attributes={meta_attributes}
             />
             <Helmet>
-                    <script type="application/ld+json">{JSON.stringify(faq_schema)}</script>
+                <script type="application/ld+json">{JSON.stringify(faq_schema)}</script>
             </Helmet>
             <Hero />
             <TapInto />

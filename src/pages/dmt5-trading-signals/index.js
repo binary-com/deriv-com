@@ -111,7 +111,7 @@ const DMT5TradingSignals = () => {
     useEffect(() => {
         setMounted(true)
     }, [])
-  
+
     return (
         <Layout>
             <SEO
@@ -119,6 +119,10 @@ const DMT5TradingSignals = () => {
                     'Subscribe to Deriv MetaTrader 5 trading signals to copy the trades of experienced traders, or become a signal provider and share your strategies.',
                 )}
                 title={localize('Deriv MetaTrader 5 trading signals | Resources | Deriv')}
+<<<<<<< HEAD
+=======
+                meta_attributes={meta_attributes}
+>>>>>>> 81ebdd878f (fix: eslint errors (#1901))
             />
             <Hero jc="cneter" ai="center">
                 <SmallContainer>
@@ -128,20 +132,24 @@ const DMT5TradingSignals = () => {
                 </SmallContainer>
             </Hero>
             <TabsContainer>
-                {is_mounted && <Item
-                    onClick={() => setActiveTab('signal-subscriber')}
-                    active_tab={active_tab}
-                    name="signal-subscriber"
-                >
-                    <Header as="h4">{localize('Signal subscriber')}</Header>
-                </Item>}
-                {is_mounted && <Item
-                    onClick={() => setActiveTab('signal-provider')}
-                    active_tab={active_tab}
-                    name="signal-provider"
-                >
-                    <Header as="h4">{localize('Signal provider')}</Header>
-                </Item>}
+                {is_mounted && (
+                    <Item
+                        onClick={() => setActiveTab('signal-subscriber')}
+                        active_tab={active_tab}
+                        name="signal-subscriber"
+                    >
+                        <Header as="h4">{localize('Signal subscriber')}</Header>
+                    </Item>
+                )}
+                {is_mounted && (
+                    <Item
+                        onClick={() => setActiveTab('signal-provider')}
+                        active_tab={active_tab}
+                        name="signal-provider"
+                    >
+                        <Header as="h4">{localize('Signal provider')}</Header>
+                    </Item>
+                )}
             </TabsContainer>
             <Box position="relative">
                 <Separator />

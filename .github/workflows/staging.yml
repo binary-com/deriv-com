@@ -1,17 +1,15 @@
-name: Release Staging
+name: Release Production
 
 on:
-  push:
-    branches:
-      - master
-    paths-ignore:
-      - '**.md'
-  repository_dispatch:
-    types: [publish_blog]
+    push:
+        tags:
+            - 'production*'
+        paths-ignore:
+            - '**.md'
 
 env:
     GATSBY_CPU_COUNT: 2
-    GATSBY_ENV: staging
+    GATSBY_ENV: production
     GATSBY_ENV_CIO_KEY: ${{ secrets.GATSBY_ENV_CIO_KEY }}
     GATSBY_ENV_CIO_SITE_ID: ${{ secrets.GATSBY_ENV_CIO_SITE_ID }}
 
@@ -24,24 +22,28 @@ jobs:
             - name: Checkout 🛎️
               uses: actions/checkout@v2.3.1
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v1
-        with:
-          node-version: 12
-      - name: Cache dependencies
-        id: cache
-        uses: actions/cache@v2
-        env:
-          cache-name: cache-node-modules
-        with:
-          path: ./node_modules
-          key: modules-${{ hashFiles('package-lock.json') }}
-      - name: Install Node.js dependencies
-        run: |
-          npm ci
-          npm test
+            - name: Set up Node.js
+              uses: actions/setup-node@v1
+              with:
+                  node-version: 12
+            - name: Cache dependencies
+              id: cache
+              uses: actions/cache@v2
+              env:
+                  cache-name: cache-node-modules
+              with:
+                  path: ./node_modules
+                  key: modules-${{ hashFiles('package-lock.json') }}
+            - name: Install Node.js dependencies
+              run: |
+                  npm ci
+                  npm test
+            - name: Run linters
+              uses: wearerequired/lint-action@v1
+              with:
+                  eslint: true
 
-    release-staging:
+    release-production:
         needs: lint
         timeout-minutes: 30
         runs-on: ubuntu-latest
@@ -61,7 +63,6 @@ jobs:
                   key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
                   restore-keys: |
                       ${{ runner.os }}-node-
-
             - run: npm ci
             - run: npm run format
             - run: npm run test
@@ -70,19 +71,18 @@ jobs:
               id: tagName
               # For using same tag for staging and production we need to uncomment these two below lines:
               # with:
-              #   tagRegex: "staging(.*)"
+              #   tagRegex: "production(.*)"
             - name: Building docker image 🐳
-              run: docker build -t ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:latest-staging  -t ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:$GITHUB_SHA .
+              run: docker build -t ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:latest -t ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:$GIT_TAG_NAME .
 
             - name: Pushing Image to docker hub 🐳
               run: |
                   echo ${{ secrets.DOCKERHUB_PASSWORD }}| docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
-                  docker push  ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:latest-staging
-                  docker push  ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:$GITHUB_SHA
-
+                  docker push  ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:latest
+                  docker push  ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:$GIT_TAG_NAME
             - name: Deploy 🚀
               run: |
-                  export NAMESPACE="deriv-com-staging"
+                  export NAMESPACE="deriv-com-production"
                   export SERVICEACCOUNT_TOKEN=${{ secrets.SERVICEACCOUNT_TOKEN }}
                   export DOCKERHUB_ORGANISATION=${{ secrets.DOCKERHUB_ORGANISATION }}
                   export KUBE_SERVER=${{ secrets.KUBE_SERVER }}
@@ -90,8 +90,7 @@ jobs:
                   git clone https://github.com/binary-com/devops-ci-scripts
                   cd devops-ci-scripts/k8s-build_tools
                   echo ${{ secrets.CA_CRT}} | base64 --decode > ca.crt
-                  ./release.sh deriv-com $GITHUB_SHA
-
+                  ./release.sh deriv-com $GIT_TAG_NAME
             - name: Slack Notification 📣
               uses: 8398a7/action-slack@v3
               with:
@@ -102,7 +101,7 @@ jobs:
                       {
                         attachments: [{
                           color: '${{ job.status }}' === 'success' ? 'good' : '${{ job.status }}' === 'failure' ? 'danger' : 'warning',
-                          text: `Release for *Deriv.com* with version *$GITHUB_SHA*`
+                          text: `Release for *Deriv.com* with version *$GIT_TAG_NAME*`
                         }]
                       }
               env:

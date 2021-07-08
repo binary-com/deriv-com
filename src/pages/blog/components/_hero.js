@@ -12,14 +12,6 @@ const MainWrapper = styled.div`
     position: relative;
     height: 600px;
 
-    .wrap {
-        max-width: 1440px;
-    }
-    .hero-content{
-        position: relative;
-        z-index: 99;
-    }
-
     @media ${device.tablet} {
         height: 400px;
         text-align: left;

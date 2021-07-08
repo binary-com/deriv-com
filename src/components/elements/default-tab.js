@@ -60,7 +60,7 @@ const TabList = styled.div`
                 justify-content: center;
             }
 
-            @media ${device.tablet} {
+            @media ${device.laptopM} {
                 justify-content: center;
             }
         `}

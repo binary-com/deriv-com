@@ -10,6 +10,11 @@ import { SEO, SectionContainer, Container } from 'components/containers'
 import { localize, WithIntl, Localize } from 'components/localization'
 import { DerivStore } from 'store'
 
+const meta_attributes = {
+    og_title: localize('Payment Methods | Deposits and withdrawals | Deriv'),
+    og_description: localize('We offer various payment methods - Bank wires, debit/credit cards, e-wallets and cryptocurrencies to make your transactions more convenient!'),
+}
+
 const AccordionContainer = styled.div`
     width: 100%;
 `
@@ -225,6 +230,7 @@ const PaymentMethods = (locale) => {
                 description={localize(
                     'We offer various payment methods - Bank wires, debit/credit cards, e-wallets and cryptocurrencies to make your transactions more convenient!',
                 )}
+                meta_attributes={meta_attributes}
             />
             <SectionContainer>
                 <Container direction="column">

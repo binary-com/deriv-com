@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Article } from './_article'
 import { ArticleWrapper, StyledHeader, StyledText } from './_help-centre-style'
+import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import { derivx_app_url, deriv_app_url } from 'common/constants'
 import { Text, LocalizedLinkText } from 'components/elements'
 import { localize, Localize, WithIntl } from 'components/localization'
@@ -163,7 +164,7 @@ const ResetDerivXPassowrd = () => (
                         rel="noopener noreferrer"
                         key={0}
                     />,
-                ]}deriv_x_app_url
+                ]} deriv_x_app_url
             />
         </Text>
         <StyledText>
@@ -252,67 +253,86 @@ const WithdrawDerivX = () => (
 )
 
 const DerivXArticle = () => {
+    const [is_mounted] = usePageLoaded(false) // needed to fix tab highlighting not being rerendered during first load
+
     return (
         <div>
             <Article
                 header="Deriv X"
                 title={localize('Help Center | Frequently asked questions | Deriv X | Deriv')}
                 description={localize('Frequently asked questions - Deriv X')}
+                is_mounted={is_mounted}
             >
-                <WhatisDerivX text={localize('What is Deriv X?')} label="what-is-deriv-x" />
+                <WhatisDerivX
+                    text={localize('What is Deriv X?')}
+                    label="what-is-deriv-x"
+                    is_mounted={is_mounted}
+                />
                 <DepositDerivX
                     text={localize(
                         'What is the minimum / maximum I can deposit into my Deriv X account?',
                     )}
                     label="minimum-or-maximum-deposit"
+                    is_mounted={is_mounted}
                 />
                 <DerivXMarkets
                     text={localize('What markets can I trade on Deriv X?')}
                     label="markets-on-deriv-x"
+                    is_mounted={is_mounted}
                 />
                 <DerivXTrade
                     text={localize('What is the minimum and maximum amount to trade on Deriv X?')}
                     label="minimum-and-maximum-amount-to-trade"
+                    is_mounted={is_mounted}
                 />
                 <DifferenceDMT5DTraderDerivX
                     text={localize(
                         'What are the major differences between DTrader, Deriv MT5 (DMT5) and Deriv X?',
                     )}
                     label="differences-of-dtrader-dmt5-deriv-x"
+                    is_mounted={is_mounted}
                 />
                 <DerivXAccount
                     text={localize('How do I create a Deriv X account?')}
                     label="create-account"
+                    is_mounted={is_mounted}
                 />
                 <DifferentAccounts
                     text={localize(
                         'What are the differences between Synthetics and Financial accounts?',
                     )}
                     label="differences-of-synthetic-and-financial"
+                    is_mounted={is_mounted}
                 />
                 <TradingPassword
                     text={localize('What is a trading password?')}
                     label="trading-password"
+                    is_mounted={is_mounted}
                 />
                 <DifferentPassword
                     text={localize('Why is my trading password different from my Deriv password?')}
                     label="differences-of-trading-and-deriv-password"
+                    is_mounted={is_mounted}
                 />
                 <ResetDerivXPassowrd
                     text={localize('How do I reset my Deriv X password?')}
                     label="reset-deriv-x-password"
+                    is_mounted={is_mounted}
                 />
                 <AccountInformation
                     text={localize('Where can I find my Deriv X account information?')}
                     label="deriv-x-account-information"
+                    is_mounted={is_mounted}
                 />
                 <DerivXRealMoneyAccount
                     text={localize('How can I deposit funds into my Deriv X real money account?')}
                     label="deposit-funds"
+                    is_mounted={is_mounted}
                 />
                 <WithdrawDerivX
                     text={localize('How do I withdraw funds from my Deriv X real money account?')}
                     label="withdraw-funds-from-deriv-x"
+                    is_mounted={is_mounted}
                 />
             </Article>
         </div>

@@ -9,6 +9,13 @@ const DerivNumber = Loadable(() => import('./_deriv-numbers'))
 const WhyChooseUs = Loadable(() => import('./_why-choose-us'))
 const PartnershipOpportunities = Loadable(() => import('./_partnership-opportunities'))
 
+const meta_attributes = {
+    og_title: localize('Partnership Programme | Deriv'),
+    og_description: localize(
+        'Explore Deriv’s partnership programme and get a chance to be a partner with a trusted pioneer. All our programmes are free of charge with no hidden fees.',
+    ),
+}
+
 const Partner = () => {
     return (
         <Layout type="partners" margin_top={10} no_login_signup>
@@ -17,6 +24,7 @@ const Partner = () => {
                 description={localize(
                     'Explore Deriv’s partnership programme and get a chance to be a partner with a trusted pioneer. All our programmes are free of charge with no hidden fees.',
                 )}
+                meta_attributes={meta_attributes}
             />
             <Hero />
             <AboutDeriv />

@@ -181,7 +181,7 @@ const DtraderTabs = () => {
                         external="true"
                         type="dbot"
                         target="_blank"
-                        rel="noopener noreferrer"
+                        rel="noopener noreferrer nofollow"
                     >
                         {localize('Go to live demo')}
                     </GoToLiveDemo>

@@ -1,12 +1,11 @@
 import React from 'react'
-import HeaderSection from 'components/layout/ebooks/header'
-import Introduction from 'components/layout/ebooks/introduction'
-import Topics from 'components/layout/ebooks/topics'
+import { graphql, useStaticQuery } from 'gatsby'
+import HeaderSection from './components/_header'
+import Introduction from './components/_introduction'
+import Topics from './components/_topics'
 import Layout from 'components/layout/layout'
 import { SEO } from 'components/containers'
 import { localize, WithIntl } from 'components/localization'
-import stocksEbookImage from 'images/common/ebooks/stocks-ebook.png'
-import stocksEbookInside from 'images/common/ebooks/stocks-ebook-inside.png'
 import StocksIntroImage from 'images/svg/stock-indices/stocksHeaderBelowSection.svg'
 
 const topicsCovered = [
@@ -17,7 +16,19 @@ const topicsCovered = [
     localize('Stock market seasonality'),
 ]
 
+const query = graphql`
+    query {
+        stocks_ebook_img: file(relativePath: { eq: "ebooks/stocks-ebook.png" }) {
+            ...heroImage
+        }
+        stocks_ebook_inside: file(relativePath: { eq: "ebooks/stocks-ebook-inside.png" }) {
+            ...fadeIn
+        }
+    }
+`
+
 const StocksEbook = () => {
+    const data = useStaticQuery(query)
     return (
         <Layout type="ebook" is_ppc_redirect={true}>
             <SEO
@@ -26,10 +37,16 @@ const StocksEbook = () => {
                 no_index
             />
             <HeaderSection
-                mainHeaderImage={stocksEbookImage}
+                mainHeaderImage={data['stocks_ebook_img']}
                 imgWidth={557}
                 imgHeight={703}
                 ebook_utm_code="stock-ebook"
+                introSub=""
+                introMain={localize('Learn to trade Stock derivatives the smart way')}
+                authorDesc={localize(
+                    'This e-book has been brought to you by a veteran online trader and New York Times bestselling author, ',
+                )}
+                authorName={localize('Vince Stanzione.')}
             />
             <Introduction
                 introImage={StocksIntroImage}
@@ -41,7 +58,7 @@ const StocksEbook = () => {
                     'We’ll even add in a free demo account on Deriv.com right away. This way, you can practice trading stock derivatives completely risk-free on the Deriv MT5 platform, using a free Financial demo account. And once you are ready to get trading for real, you can get started with as little as $5.',
                 )}
             />
-            <Topics topicsImage={stocksEbookInside} topicsList={topicsCovered} />
+            <Topics topicsImage={data['stocks_ebook_inside']} topicsList={topicsCovered} />
         </Layout>
     )
 }

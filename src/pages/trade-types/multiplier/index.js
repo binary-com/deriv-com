@@ -13,6 +13,13 @@ const ThingsInMind = Loadable(() => import('./_things-in-mind'))
 const StartTrading = Loadable(() => import('./_start-trading'))
 const MarketsAvailable = Loadable(() => import('./_markets-available'))
 
+const meta_attributes = {
+    og_title: localize('Multipliers trading | Trade types | Deriv'),
+    og_description: localize(
+        'Learn about multipliers trading on Deriv. Enjoy a new way to trade with leverage without risking more than your stake — more profit potential, no swap charges.',
+    ),
+}
+
 const StyledHeader = styled(Header)`
     @media ${device.tablet} {
         font-size: 30px;
@@ -27,6 +34,7 @@ const Multipliers = () => {
                 description={localize(
                     'Learn about multipliers trading on Deriv. Enjoy a new way to trade with leverage without risking more than your stake — more profit potential, no swap charges.',
                 )}
+                meta_attributes={meta_attributes}
             />
             <Hero jc="cneter" ai="center">
                 <SmallContainer>

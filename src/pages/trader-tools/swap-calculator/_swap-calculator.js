@@ -12,11 +12,12 @@ import {
     numberSubmitFormatNegative,
     numberSubmitFormat,
     numberWithCommas,
+    getMaxLength
 } from '../common/_utility'
 import {
     optionItemDefault,
     syntheticItemLists,
-    financialItemLists,
+    financialItemLists
 } from '../common/_underlying-data'
 import {
     BreadCrumbContainer,
@@ -40,7 +41,7 @@ import {
     StyledOl,
     StyledSection,
     SwapFormWrapper,
-    SwapTabSelector,
+    SwapTabSelector
 } from '../common/_style'
 import { localize, Localize } from 'components/localization'
 import {
@@ -50,7 +51,7 @@ import {
     Header,
     LocalizedLinkText,
     QueryImage,
-    Text,
+    Text
 } from 'components/elements'
 import { Flex, Show } from 'components/containers'
 import Input from 'components/form/input'
@@ -145,20 +146,14 @@ const SwapCalculator = () => {
                                         optionList: syntheticItemLists,
                                         contractSize: '',
                                         swapRate: '',
-                                        assetPrice: '',
+                                        assetPrice: ''
                                     }}
                                     validate={resetValidationSynthetic}
                                     onSubmit={(values, { setFieldValue }) => {
                                         setFieldValue('swapCharge', getSwapChargeSynthetic(values))
                                         setFieldValue('volume', numberSubmitFormat(values.volume))
-                                        setFieldValue(
-                                            'swapRate',
-                                            numberSubmitFormatNegative(values.swapRate),
-                                        )
-                                        setFieldValue(
-                                            'assetPrice',
-                                            numberSubmitFormat(values.assetPrice),
-                                        )
+                                        setFieldValue('swapRate', numberSubmitFormatNegative(values.swapRate))
+                                        setFieldValue('assetPrice', numberSubmitFormat(values.assetPrice))
                                     }}
                                 >
                                     {({
@@ -170,7 +165,7 @@ const SwapCalculator = () => {
                                         setFieldError,
                                         setFieldTouched,
                                         isValid,
-                                        dirty,
+                                        dirty
                                     }) => (
                                         <CalculatorForm>
                                             <CalculatorHeader>
@@ -196,15 +191,9 @@ const SwapCalculator = () => {
                                                     selected_option={values.symbol}
                                                     id="symbol"
                                                     onChange={(value) => {
-                                                        setFieldValue(
-                                                            'swapCurrency',
-                                                            getCurrency(value),
+                                                        setFieldValue('swapCurrency', getCurrency(value)
                                                         )
-
-                                                        setFieldValue(
-                                                            'contractSize',
-                                                            getContractSize(value),
-                                                        )
+                                                        setFieldValue('contractSize', getContractSize(value))
                                                         setFieldValue('symbol', value)
                                                     }}
                                                     contract_size={values.contractSize}
@@ -233,20 +222,12 @@ const SwapCalculator = () => {
                                                                 onBlur={handleBlur}
                                                                 data-lpignore="true"
                                                                 handleError={(current_input) => {
-                                                                    setFieldValue(
-                                                                        'volume',
-                                                                        '',
-                                                                        false,
-                                                                    )
+                                                                    setFieldValue('volume', '', false)
                                                                     setFieldError('volume', '')
-                                                                    setFieldTouched(
-                                                                        'volume',
-                                                                        false,
-                                                                        false,
-                                                                    )
+                                                                    setFieldTouched('volume', false, false)
                                                                     current_input.focus()
                                                                 }}
-                                                                maxLength="8"
+                                                                maxLength={getMaxLength(values.volume, 8)}
                                                                 background="white"
                                                             />
                                                         )}
@@ -276,20 +257,12 @@ const SwapCalculator = () => {
                                                                 onBlur={handleBlur}
                                                                 data-lpignore="true"
                                                                 handleError={(current_input) => {
-                                                                    setFieldValue(
-                                                                        'assetPrice',
-                                                                        '',
-                                                                        false,
-                                                                    )
+                                                                    setFieldValue('assetPrice', '', false)
                                                                     setFieldError('assetPrice', '')
-                                                                    setFieldTouched(
-                                                                        'assetPrice',
-                                                                        false,
-                                                                        false,
-                                                                    )
+                                                                    setFieldTouched('assetPrice', false, false)
                                                                     current_input.focus()
                                                                 }}
-                                                                maxLength="15"
+                                                                maxLength={getMaxLength(values.assetPrice, 15)}
                                                                 background="white"
                                                             />
                                                         )}
@@ -319,20 +292,12 @@ const SwapCalculator = () => {
                                                                 onBlur={handleBlur}
                                                                 data-lpignore="true"
                                                                 handleError={(current_input) => {
-                                                                    setFieldValue(
-                                                                        'swapRate',
-                                                                        '',
-                                                                        false,
-                                                                    )
+                                                                    setFieldValue('swapRate', '', false)
                                                                     setFieldError('swapRate', '')
-                                                                    setFieldTouched(
-                                                                        'swapRate',
-                                                                        false,
-                                                                        false,
-                                                                    )
+                                                                    setFieldTouched('swapRate', false, false)
                                                                     current_input.focus()
                                                                 }}
-                                                                maxLength="15"
+                                                                maxLength={getMaxLength(values.swapRate, 15)}
                                                                 background="white"
                                                             />
                                                         )}
@@ -463,20 +428,14 @@ const SwapCalculator = () => {
                                         optionList: financialItemLists,
                                         contractSize: '',
                                         swapRate: '',
-                                        pointValue: '',
+                                        pointValue: ''
                                     }}
                                     validate={resetValidationForex}
                                     onSubmit={(values, { setFieldValue }) => {
                                         setFieldValue('swapCharge', getSwapChargeForex(values))
                                         setFieldValue('volume', numberSubmitFormat(values.volume))
-                                        setFieldValue(
-                                            'swapRate',
-                                            numberSubmitFormatNegative(values.swapRate),
-                                        )
-                                        setFieldValue(
-                                            'pointValue',
-                                            numberSubmitFormat(values.pointValue),
-                                        )
+                                        setFieldValue('swapRate', numberSubmitFormatNegative(values.swapRate))
+                                        setFieldValue('pointValue', numberSubmitFormat(values.pointValue))
                                     }}
                                 >
                                     {({
@@ -488,7 +447,7 @@ const SwapCalculator = () => {
                                         isValid,
                                         dirty,
                                         setFieldTouched,
-                                        setFieldError,
+                                        setFieldError
                                     }) => (
                                         <CalculatorForm>
                                             <CalculatorHeader>
@@ -513,14 +472,8 @@ const SwapCalculator = () => {
                                                     selected_option={values.symbol}
                                                     id="symbol"
                                                     onChange={(value) => {
-                                                        setFieldValue(
-                                                            'swapCurrency',
-                                                            getCurrency(value),
-                                                        )
-                                                        setFieldValue(
-                                                            'contractSize',
-                                                            getContractSize(value),
-                                                        )
+                                                        setFieldValue('swapCurrency', getCurrency(value))
+                                                        setFieldValue('contractSize', getContractSize(value))
                                                         setFieldValue('symbol', value)
                                                     }}
                                                     contractSize={values.contractSize}
@@ -548,20 +501,12 @@ const SwapCalculator = () => {
                                                                 onBlur={handleBlur}
                                                                 data-lpignore="true"
                                                                 handleError={(current_input) => {
-                                                                    setFieldValue(
-                                                                        'volume',
-                                                                        '',
-                                                                        false,
-                                                                    )
+                                                                    setFieldValue('volume', '', false)
                                                                     setFieldError('volume', '')
-                                                                    setFieldTouched(
-                                                                        'volume',
-                                                                        false,
-                                                                        false,
-                                                                    )
+                                                                    setFieldTouched('volume', false, false)
                                                                     current_input.focus()
                                                                 }}
-                                                                maxLength="8"
+                                                                maxLength={getMaxLength(values.volume, 8)}
                                                                 background="white"
                                                             />
                                                         )}
@@ -591,20 +536,12 @@ const SwapCalculator = () => {
                                                                 onBlur={handleBlur}
                                                                 data-lpignore="true"
                                                                 handleError={(current_input) => {
-                                                                    setFieldValue(
-                                                                        'pointValue',
-                                                                        '',
-                                                                        false,
-                                                                    )
+                                                                    setFieldValue('pointValue', '', false)
                                                                     setFieldError('pointValue', '')
-                                                                    setFieldTouched(
-                                                                        'pointValue',
-                                                                        false,
-                                                                        false,
-                                                                    )
+                                                                    setFieldTouched('pointValue', false, false)
                                                                     current_input.focus()
                                                                 }}
-                                                                maxLength="15"
+                                                                maxLength={getMaxLength(values.pointValue, 15)}
                                                                 background="white"
                                                             />
                                                         )}
@@ -634,20 +571,12 @@ const SwapCalculator = () => {
                                                                 onBlur={handleBlur}
                                                                 data-lpignore="true"
                                                                 handleError={(current_input) => {
-                                                                    setFieldValue(
-                                                                        'swapRate',
-                                                                        '',
-                                                                        false,
-                                                                    )
+                                                                    setFieldValue('swapRate', '', false,)
                                                                     setFieldError('swapRate', '')
-                                                                    setFieldTouched(
-                                                                        'swapRate',
-                                                                        false,
-                                                                        false,
-                                                                    )
+                                                                    setFieldTouched('swapRate', false, false)
                                                                     current_input.focus()
                                                                 }}
-                                                                maxLength="15"
+                                                                maxLength={getMaxLength(values.swapRate, 15)}
                                                                 background="white"
                                                             />
                                                         )}

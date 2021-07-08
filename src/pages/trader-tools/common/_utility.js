@@ -406,3 +406,5 @@ export const numberSubmitFormatNegative = (input) => {
     }
     return result
 }
+
+export const getMaxLength = (input_field, input_length) => input_field?.includes(".") ? (input_length + 1).toString() : input_length.toString()

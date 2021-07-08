@@ -1,5 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
+import { getImage } from 'gatsby-plugin-image'
+import { convertToBgImage } from 'gbimage-bridge'
 import BackgroundImage from 'gatsby-background-image'
 import PropTypes from 'prop-types'
 
@@ -13,14 +15,11 @@ const StyledBackground = styled(BackgroundImage)`
 `
 
 export const Background = ({ children, data, style, dark, ...props }) => {
+    const image = getImage(data)
+    const bgImage = convertToBgImage(image)
+
     return (
-        <StyledBackground
-            Tag="div"
-            style={style}
-            fluid={data.childImageSharp.fluid}
-            dark={dark}
-            {...props}
-        >
+        <StyledBackground Tag="div" style={style} dark={dark} {...bgImage} {...props}>
             {children}
         </StyledBackground>
     )

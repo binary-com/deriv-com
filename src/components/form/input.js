@@ -92,7 +92,7 @@ const StyledInput = styled.input`
     }
 
     &::placeholder {
-        opacity: 0;
+        opacity: ${(props) => (props.showLabel ? 0 : 1)};
         transition: opacity 0.25s;
         padding-left: 0.3rem;
     }
@@ -114,7 +114,11 @@ const StyledInput = styled.input`
         &::placeholder {
             opacity: 1;
             color: var(--color-grey-5);
-            font-size: 14px;
+            ${(props) =>
+                props.label &&
+                css`
+                    font-size: 14px;
+                `}
         }
     }
     &:valid {
@@ -189,17 +193,20 @@ const Input = ({
                     error={error}
                     disabled={disabled}
                     height={height}
+                    showLabel={label}
                     {...props}
                     ref={(ip) => (current_input = ip)}
                 />
-                <StyledLabel
-                    tabletBackground={tabletBackground}
-                    error={error}
-                    htmlFor={id}
-                    labelColor={labelColor}
-                >
-                    {label}
-                </StyledLabel>
+                {label && (
+                    <StyledLabel
+                        tabletBackground={tabletBackground}
+                        error={error}
+                        htmlFor={id}
+                        labelColor={labelColor}
+                    >
+                        {label}
+                    </StyledLabel>
+                )}
             </InputWrapper>
             <ErrorMessages lh="1.4" align="left" color="red-1">
                 {error}

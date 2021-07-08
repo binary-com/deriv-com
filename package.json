@@ -91,7 +91,9 @@
         "translate:upload": "crowdin upload sources -b crowdin",
         "deploy": "npm run build && gh-pages -d public -b master",
         "deploy-dev": "npm run build && gh-pages -d public",
-        "deploy-branch": "PATH_PREFIX=/deriv-com/br/$branch_name npm run build && gh-pages -d public -e br/$branch_name"
+        "deploy-branch": "PATH_PREFIX=/deriv-com/br/$branch_name npm run build && gh-pages -d public -e br/$branch_name",
+        "prepare": "husky install",
+        "pre-commit-lint": "lint-staged"
     },
     "repository": {
         "type": "git",

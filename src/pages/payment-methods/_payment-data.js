@@ -98,6 +98,7 @@ const payment_data = [
                     <Localize translate_text="A leading payment service in Southeast Asia that’s fast, easy, and secure." />
                 ),
                 name: 'Help2Pay',
+                reference: 'help2pay-payment-method.pdf',
             },
             {
                 method: <StyledIcon src={DragonPhoenix} alt="dragon phoenix" />,

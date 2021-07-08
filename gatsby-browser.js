@@ -201,6 +201,7 @@ export const onRouteUpdate = () => {
                 visitorId: client_information.loginid,
                 currency: client_information.currency,
                 email: client_information.email,
+                userId: client_information.user_id,
             }),
         })
     }, 50)

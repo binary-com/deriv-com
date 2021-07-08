@@ -526,7 +526,7 @@ export const Offices = () => {
                             <BorderBox>
                                 <MapContainer>
                                     <LocalizedLink
-                                        to="https://www.google.com/maps/place/vulica+Viery+Charu%C5%BEaj+25,+Minsk,+Belarus/@53.9216551,27.566977,17z"
+                                        to="https://yandex.com/maps/-/CCUeZJdAKA"
                                         external
                                         target="_blank"
                                         rel="noopener noreferrer"
@@ -539,7 +539,7 @@ export const Offices = () => {
                                     </LocalizedLink>
                                 </MapContainer>
                                 <LocalizedLinkText
-                                    to="https://www.google.com/maps/place/vulica+Viery+Charu%C5%BEaj+25,+Minsk,+Belarus/@53.9216551,27.566977,17z"
+                                    to="https://yandex.com/maps/-/CCUeZJdAKA"
                                     external
                                     target="_blank"
                                     rel="noopener noreferrer"

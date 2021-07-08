@@ -2,10 +2,10 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { Header, Text, Li } from 'components/elements'
-import { localize } from 'components/localization'
 import checkIcon from 'images/common/ebooks/check-icon.png'
 import BackgroundPattern from 'images/svg/ebook-intro-bg.svg'
 import device from 'themes/device'
+import { localize, Localize } from 'components/localization'
 
 const BacgroundWrapper = styled.div`
     width: 100%;
@@ -96,7 +96,7 @@ const Introduction = ({ introImage, imageWidth, introPara, subPara, introList })
                 />
                 <MediaBody>
                     <Header as="h3" className="mt-0 intro-text">
-                        {localize('Introduction')}
+                        {localize("Introduction")}
                     </Header>
                     <Text className="intro-desc" mb="20px">
                         {introPara}
@@ -113,14 +113,14 @@ const Introduction = ({ introImage, imageWidth, introPara, subPara, introList })
                                 mb="20px"
                                 mt="30px"
                             >
-                                {localize('In this book you’ll learn:')}
+                                {localize("In this book you’ll learn:")}
                             </Header>
                             <MediaItemList>
                                 {introList?.map((point, index) => {
                                     return (
                                         <Li key={index}>
                                             <img src={checkIcon} alt="Check Icon" />
-                                            {point}
+                                            <Localize translate_text={point} />
                                         </Li>
                                     )
                                 })}

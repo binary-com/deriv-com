@@ -33,7 +33,7 @@ import Layout from 'components/layout/layout'
 import { Carousel, Tabs, Header } from 'components/elements'
 import { localize, WithIntl } from 'components/localization'
 
-//Settings for carrousel
+// Settings for carousel
 const settings = {
     options: {
         axis: 'y',

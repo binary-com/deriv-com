@@ -76,6 +76,16 @@ const StyledText = styled(Text)`
         line-height: 24px;
     }
 `
+const VideoText = styled(Text)`
+    margin-top: 70px;
+    font-size: 2.4rem;
+    text-align: center;
+    line-height: 36px;
+
+    @media ${device.tabletL} {
+        font-size: 14px;
+    }
+`
 const Row = styled.div`
     flex-direction: ${(props) => props.flex_direction};
     width: 100%;
@@ -114,6 +124,22 @@ const DP2P = ({ P2P, reverse, two_title }) => {
                         'Deriv P2P is Deriv’s peer-to-peer deposit and withdrawal service that offers an easy way to get money in and out of your Deriv account. Connect with fellow traders and transfer money in minutes.',
                     )}
                 </StyledText>
+
+                <VideoText>
+                    {localize(
+                        'Find out how Deriv P2P works:',
+                    )}
+                </VideoText>
+                <iframe
+                  width="560"
+                  height="315"
+                  src="https://www.youtube.com/embed/zf9flqE94Ek"
+                  title="YouTube video player"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen>
+                </iframe>
+                
                 {P2P.map((item, index) => {
                     let is_even = reverse ? (index + 1) % 2 : index % 2
                     return (

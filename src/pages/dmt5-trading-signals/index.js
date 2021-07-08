@@ -12,6 +12,11 @@ import { Header } from 'components/elements'
 import { useTabState } from 'components/hooks/use-tab-state'
 import device from 'themes/device'
 
+const meta_attributes = {
+    og_title: localize('DMT5 Signals'),
+    og_description: localize('Deriv MT5 signals'),
+}
+
 const signal_content_subscriber = {
     header: (
         <Localize

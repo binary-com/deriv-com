@@ -2,9 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { Header, Li, QueryImage } from 'components/elements'
-import { localize } from 'components/localization'
 import checkIcon from 'images/common/ebooks/check-icon.png'
 import device from 'themes/device'
+import { localize, Localize } from 'components/localization'
 
 const FullWidth = styled.div`
     background-image: linear-gradient(to bottom, #eaf4f5 1%, rgba(242, 245, 248, 0) 99%);
@@ -90,13 +90,13 @@ const Topics = ({ topicsImage, topicsList }) => {
                         color="var(--color-black-3)"
                         mb="20px"
                     >
-                        {localize('Topics covered')}
+                        {localize("Topics covered")}
                     </Header>
                     {topicsList?.map((topic, index) => {
                         return (
                             <Li key={index} className="topic-item">
                                 <img src={checkIcon} alt="Check Icon" />
-                                {topic}
+                                <Localize translate_text={topic} />
                             </Li>
                         )
                     })}
@@ -105,7 +105,7 @@ const Topics = ({ topicsImage, topicsList }) => {
                     <QueryImage data={topicsImage} alt="Forex Topics" />
                 </TopicImgWrapper>
             </Wrapper>
-        </FullWidth>
+        </FullWidth >
     )
 }
 

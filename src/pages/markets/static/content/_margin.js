@@ -16,6 +16,7 @@ import {
     AmericanStocks,
     AsianIndices,
     EuropeanIndices,
+    JumpIndices,
 } from '../../instruments/_submarkets'
 import { smart_gold_index } from '../../instruments/_market-symbols'
 import {
@@ -28,6 +29,7 @@ import {
     AmericanIndicesDetails,
     AsianIndicesDetails,
     EuropeanIndicesDetails,
+    JumpIndicesDetails,
 } from './_details'
 import { Localize } from 'components/localization'
 
@@ -91,6 +93,11 @@ export const synthetic_margin = {
             title: <Localize translate_text="Crash/Boom" />,
             component: <CrashBoom />,
             details: CrashBoomDetails,
+        },
+        {
+            title: <Localize translate_text="Jump indices" />,
+            component: <JumpIndices />,
+            details: JumpIndicesDetails,
         },
         {
             title: <Localize translate_text="Step indices" />,

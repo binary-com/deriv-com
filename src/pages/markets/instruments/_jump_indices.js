@@ -1,15 +1,15 @@
 import React from 'react'
 import Symbol from '../components/helper/_symbol'
-import { energy } from './_market-symbols'
+import { jump_indices } from './_market-symbols'
 
-const Energy = () => {
+const JumpIndices = () => {
     return (
         <>
-            {energy.map((symbol, index) => (
+            {jump_indices.map((symbol, index) => (
                 <Symbol key={index} src={symbol.src} text={symbol.text} />
             ))}
         </>
     )
 }
 
-export default Energy
+export default JumpIndices

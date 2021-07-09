@@ -105,11 +105,11 @@ const OurNumbers = () => (
                 </article>
                 <article>
                     <Show.Desktop>
-                        <NumberHeader size="3.6rem">{localize('USD 8B+')}</NumberHeader>
+                        <NumberHeader size="3.6rem">{localize('USD 9.9B+')}</NumberHeader>
                         <Text align="center">{localize('Total trade turnover')}</Text>
                     </Show.Desktop>
                     <Show.Mobile>
-                        <NumberHeader size="4.5rem">{localize('2.9M+')}</NumberHeader>
+                        <NumberHeader size="4.5rem">{localize('2.7M+')}</NumberHeader>
                         <Text size="2rem" align="center">
                             {localize('Trading accounts opened')}
                         </Text>
@@ -122,7 +122,7 @@ const OurNumbers = () => (
                     </Show.Desktop>
 
                     <Show.Mobile>
-                        <NumberHeader size="4.5rem">{localize('65M+')}</NumberHeader>
+                        <NumberHeader size="4.5rem">{localize('104M+')}</NumberHeader>
                         <Text size="2rem" align="center">
                             {localize('Trades last month')}
                         </Text>
@@ -135,7 +135,7 @@ const OurNumbers = () => (
                     </Show.Desktop>
 
                     <Show.Mobile>
-                        <NumberHeader size="4.5rem">{localize('USD 19M+')}</NumberHeader>
+                        <NumberHeader size="4.5rem">{localize('USD 26M+')}</NumberHeader>
                         <Text size="2rem" align="center">
                             {localize('Withdrawal last month')}
                         </Text>

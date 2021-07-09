@@ -345,7 +345,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                     />
                                 )}
                                 content={localize(
-                                    'Predict broader market trends and diversify your risk with stock indices.',
+                                    'Predict broader market trends and diversify your risk with stocks & indices.',
                                 )}
                                 title={localize('Stocks & indices')}
                                 onClick={handleArrowClick}

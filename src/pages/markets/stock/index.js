@@ -21,7 +21,7 @@ const simple_step_content_stock = [
     {
         header: <Localize translate_text="Trade" />,
         text: (
-            <Localize translate_text="Open a real account, make a deposit, and start trading stock indices and other markets." />
+            <Localize translate_text="Open a real account, make a deposit, and start trading stocks & indices and other markets." />
         ),
         icon: <img src={TradeIcon} alt="trade" width="32" height="28" />,
     },
@@ -38,7 +38,7 @@ const StocksAndIndicesPage = () => (
     <Layout>
         <SEO
             description={localize(
-                'Learn about the markets that you can trade online with Deriv, including forex, commodities, synthetic indices, and stock indices.',
+                'Learn about the markets that you can trade online with Deriv, including forex, commodities, synthetic indices, and stocks & indices.',
             )}
             title={localize('Markets | Markets to trade | Deriv')}
         />

@@ -153,12 +153,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                     <NavCard
                                         aria_label="CFDs"
                                         icon={() => (
-                                            <img
-                                                src={CFD}
-                                                alt="CFDs"
-                                                width="32"
-                                                height="32"
-                                            />
+                                            <img src={CFD} alt="CFDs" width="32" height="32" />
                                         )}
                                         content={
                                             <Localize translate_text="Trade with leverage and tight spreads for better returns on successful trades." />
@@ -345,7 +340,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                     />
                                 )}
                                 content={localize(
-                                    'Predict broader market trends and diversify your risk with stock indices.',
+                                    'Predict broader market trends and diversify your risk with stocks & indices.',
                                 )}
                                 title={localize('Stocks & indices')}
                                 onClick={handleArrowClick}

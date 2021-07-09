@@ -36,13 +36,13 @@ const StyledText = styled(Text)`
     }
 `
 
-const MarketsAvailable = () => {
+const AvailableMarkets = () => {
     return (
         <>
             <SectionContainer background="white" padding="8rem 0" position="relative">
                 <SmallContainer direction="column" ai="flex-start">
                     <Header as="h3" type="section-title" mb="2.4rem">
-                        {localize('Markets available for options trading')}
+                        {localize('Markets available for margin trading')}
                     </Header>
                 </SmallContainer>
                 <MarketsCarousel>
@@ -56,7 +56,7 @@ const MarketsAvailable = () => {
                                 </MobileCardHeader>
                                 <Text>
                                     {localize(
-                                        'Take part in the world’s largest financial market. Trade digital options and Call/Put Spreads on major, minor, and smart forex pairs.',
+                                        'Access over 50 assets and also trade with up to 1000:1 leverage and zero commission on trades.',
                                     )}
                                 </Text>
                                 <LearnMore
@@ -83,7 +83,7 @@ const MarketsAvailable = () => {
                                 </MobileCardHeader>
                                 <Text>
                                     {localize(
-                                        'Trade digital options, lookbacks, and Call/Put Spreads 24/7 on our synthetic indices that are free from real-world disruptions.',
+                                        'Trade synthetic indices on margin 24/7 without being affected by natural events and liquidity risks.',
                                     )}
                                 </Text>
                                 <LearnMore
@@ -108,7 +108,7 @@ const MarketsAvailable = () => {
                                 </MobileCardHeader>
                                 <Text>
                                     {localize(
-                                        "Speculate on the price movements of the world's major commodities – silver, gold, oil, and energy.",
+                                        'Speculate on the price movements of silver, gold, oil, and more and use margin to amplify your possible profits.',
                                     )}
                                 </Text>
                                 <LearnMore
@@ -135,7 +135,7 @@ const MarketsAvailable = () => {
                                 </MobileCardHeader>
                                 <Text>
                                     {localize(
-                                        'Trade digital options on stocks & indices and profit from the price movements in our competitively priced asset baskets.',
+                                        'Go long or short on our OTC German index and utilise leverage to increase your potential profit.',
                                     )}
                                 </Text>
                                 <LearnMore
@@ -151,4 +151,4 @@ const MarketsAvailable = () => {
     )
 }
 
-export default MarketsAvailable
+export default AvailableMarkets

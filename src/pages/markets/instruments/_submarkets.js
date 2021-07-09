@@ -19,6 +19,7 @@ import AsianIndices from './_asian-indices'
 import EuropeanIndices from './_european-indices'
 import CryptocurrenciesMultipliers from './_cryptocurrencies-multipliers'
 import CryptocurrenciesCFDs from './_cryptocurrencies-cfds'
+import JumpIndices from './_jump_indices'
 
 export {
     Americas,
@@ -31,6 +32,7 @@ export {
     Energy,
     Europe,
     ExoticPairs,
+    JumpIndices,
     MajorPairs,
     Metals,
     MinorPairs,

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { Hero, SmallContainer } from './_style'
 import HowTo from './_how-to'
@@ -102,10 +102,14 @@ const Separator = styled.div`
 
 const DMT5TradingSignals = () => {
     const [active_tab, setActiveTab] = useTabState(['signal-subscriber', 'signal-provider'])
-
+    const [is_mounted, setMounted] = useState(false) //needs to fix bug with hightlight of the 1st loading
+    useEffect(() => {
+        setMounted(true)
+    }, [])
+  
     return (
         <Layout>
-            <SEO description={localize('Deriv MT5 signals')} title={localize('DMT5 Signals')} />
+            <SEO description={localize('Subscribe to Deriv MetaTrader 5 trading signals to copy the trades of experienced traders, or become a signal provider and share your strategies.')} title={localize('Deriv MetaTrader 5 trading signals | Resources | Deriv')} />
             <Hero jc="cneter" ai="center">
                 <SmallContainer>
                     <Header as="h1" type="display-title" color="white" align="center">
@@ -114,20 +118,20 @@ const DMT5TradingSignals = () => {
                 </SmallContainer>
             </Hero>
             <TabsContainer>
-                <Item
+                {is_mounted && <Item
                     onClick={() => setActiveTab('signal-subscriber')}
                     active_tab={active_tab}
                     name="signal-subscriber"
                 >
                     <Header as="h4">{localize('Signal subscriber')}</Header>
-                </Item>
-                <Item
+                </Item>}
+                {is_mounted && <Item
                     onClick={() => setActiveTab('signal-provider')}
                     active_tab={active_tab}
                     name="signal-provider"
                 >
                     <Header as="h4">{localize('Signal provider')}</Header>
-                </Item>
+                </Item>}
             </TabsContainer>
             <Box position="relative">
                 <Separator />

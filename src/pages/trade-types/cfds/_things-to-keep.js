@@ -5,7 +5,6 @@ import { SmallContainer } from '../components/_style'
 import { StyledLinkButton } from './_trading-cfd-increases'
 import { SectionContainer, Show } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
-// import { LinkButton } from 'components/form'
 import { localize } from 'components/localization'
 
 const query = graphql`

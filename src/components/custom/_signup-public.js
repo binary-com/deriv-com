@@ -24,11 +24,9 @@ const query = graphql`
 `
 const StyledSectionContainer = styled(Box).attrs({ as: 'section' })`
     width: 100%;
-    padding:80px 0;
-    position: 'static';
-    
-    /* prettier-ignore */
-    background-color: 'white';
+    padding: 80px 0;
+    position: static;
+    background-color: var(--color-white);
 
     @media ${device.tabletL} {
         padding: 41px 0 40px;

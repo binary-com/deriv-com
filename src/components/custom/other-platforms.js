@@ -411,7 +411,7 @@ export const NavMarket = ({ onClick, is_ppc }) => (
             aria_label="Stocks & indices"
             icon={() => <img src={StockIndices} alt="StockIndices" width="32" height="32" />}
             content={
-                <Localize translate_text="Predict broader market trends and diversify your risk with stock indices." />
+                <Localize translate_text="Predict broader market trends and diversify your risk." />
             }
             title={<Localize translate_text="Stocks & indices" />}
             onClick={onClick}

@@ -119,10 +119,7 @@ const DMT5TradingSignals = () => {
                     'Subscribe to Deriv MetaTrader 5 trading signals to copy the trades of experienced traders, or become a signal provider and share your strategies.',
                 )}
                 title={localize('Deriv MetaTrader 5 trading signals | Resources | Deriv')}
-<<<<<<< HEAD
-=======
                 meta_attributes={meta_attributes}
->>>>>>> 81ebdd878f (fix: eslint errors (#1901))
             />
             <Hero jc="cneter" ai="center">
                 <SmallContainer>

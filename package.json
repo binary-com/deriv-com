@@ -32,6 +32,7 @@
         "gatsby-source-filesystem": "^3.7.1",
         "gatsby-transformer-sharp": "^3.7.1",
         "gbimage-bridge": "^0.1.4",
+        "https-browserify": "^1.0.0",
         "i18next": "^20.3.1",
         "js-cookie": "^2.2.1",
         "lottie-web": "^5.7.11",

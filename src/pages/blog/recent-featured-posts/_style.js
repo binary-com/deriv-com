@@ -23,6 +23,7 @@ export const ArticleContentWrapper = styled(Container)`
     color: var(--color-white);
     @media ${device.laptopM} {
         flex-direction: column;
+        width: 100%;
     }
 `
 

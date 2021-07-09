@@ -45,32 +45,23 @@ const TabButton = styled.button`
 const TabList = styled.div`
     display: flex;
     width: 100%;
-    justify-content: ${(props) => (props.type == 'blog-featured' ? 'start' : 'center')};
+    justify-content: ${(props) => (props.jc ? props.jc : 'center')};
     position: relative;
     overflow: auto;
 
     @media ${device.mobileL} {
-        justify-content: space-between;
+        justify-content: ${(props) => (props.jc_mobileL ? props.jc_mobileL : 'space-between')};
     }
-
-    ${(props) =>
-        props.type == 'blog-featured' &&
-        css`
-            @media ${device.mobileL} {
-                justify-content: center;
-            }
-
-            @media ${device.laptopM} {
-                justify-content: center;
-            }
-        `}
+    @media ${device.laptopM} {
+        justify-content: ${(props) => (props.jc_laptopM ? props.jc_laptopM : 'center')};
+    }
 `
 
 const LineDivider = styled.div`
     bottom: 0;
     position: absolute;
     height: 2px;
-    width: ${(props) => (props.type == 'blog-featured' ? 'unset' : '100%')};
+    width: ${(props) => (props.line_divider_length ? props.line_divider_length : '100%')};
     background: var(--color-grey-2);
     z-index: 1;
 `
@@ -103,7 +94,15 @@ TabPanel.propTypes = {
     children: PropTypes.node,
 }
 
-const Tabs = ({ children, route_from, tab_list, type }) => {
+const Tabs = ({
+    children,
+    route_from,
+    tab_list,
+    jc,
+    jc_mobileL,
+    jc_laptopM,
+    line_divider_length,
+}) => {
     const [selected_tab, setSelectedTab] = useState(0)
     const [active_tab, setActiveTab] = useTabState(tab_list)
 
@@ -113,21 +112,26 @@ const Tabs = ({ children, route_from, tab_list, type }) => {
 
     return (
         <Flex direction="column">
-            <TabList role="tablist" type={type}>
+            <TabList
+                role="tablist"
+                jc={jc}
+                jc_mobileL={jc_mobileL}
+                jc_laptopM={jc_laptopM}
+                line_divider_length={line_divider_length}
+            >
                 {React.Children.map(children, ({ props: { label } }, index) => (
                     <TabButton
                         role="tab"
                         selected={selected_tab === index}
                         aria-selected={selected_tab === index ? 'true' : 'false'}
                         onClick={() => setActiveTab(tab_list[index])}
-                        type={type}
                     >
                         <TextWrapper font_size={route_from === 'markets' ? '24px' : undefined}>
                             {label}
                         </TextWrapper>
                     </TabButton>
                 ))}
-                <LineDivider type={type} />
+                <LineDivider line_divider_length={line_divider_length} />
             </TabList>
 
             <Content>
@@ -143,9 +147,12 @@ Tabs.Panel = TabPanel
 
 Tabs.propTypes = {
     children: PropTypes.node,
+    jc: PropTypes.string,
+    jc_laptopM: PropTypes.string,
+    jc_mobileL: PropTypes.string,
+    line_divider_length: PropTypes.string,
     route_from: PropTypes.string,
     tab_list: PropTypes.array,
-    type: PropTypes.string,
 }
 
 export default Tabs

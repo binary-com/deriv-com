@@ -108,8 +108,8 @@ export const StyledCategories = styled(Text)`
     border-radius: 8px;
     background-color: var(--color-yellow-2);
     color: var(--color-yellow-3);
-    padding: 1px 8px;
-    margin-left: -10px;
+    padding: 2px 8px 0;
+    margin: 0 8px 8px -10px;
 `
 
 export const BottomDescription = styled(Flex)`
@@ -182,17 +182,14 @@ export const SmallArticleCategories = styled(Text)`
     border-radius: 8px;
     background-color: var(--color-blue-10);
     color: var(--color-blue-9);
-    padding: 1px 8px;
+    padding: 2px 8px 0;
+    margin: 0 8px 8px -4px;
     line-height: 20px;
-    margin-left: -4px;
-    margin-bottom: 4px;
     font-size: 14px;
     font-weight: 700;
 
     @media ${device.laptopM} {
         position: static;
-        width: 94px;
-        height: 20px;
         font-size: 10px;
     }
 `
@@ -267,7 +264,7 @@ export const SmallArticleDateTimeMobile = styled(Flex)`
     width: 100%;
     height: 20px;
     font-size: 12px;
-    margin-top: 5px;
+    margin-top: 6px;
     display: none;
     @media ${device.laptopM} {
         margin-left: 5px;

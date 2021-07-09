@@ -63,6 +63,10 @@ const RecentFeaturedPosts = () => {
                     tab_list={['recent_posts', 'featured_posts']}
                     route_from="recent_featured_posts"
                     type="blog-featured"
+                    jc="start"
+                    jc_mobileL="center"
+                    jc_tabletM="center"
+                    line_divider_length="unset"
                 >
                     <Tabs.Panel label={localize('Recent posts')}>
                         <ArticleContentWrapper>
@@ -118,7 +122,7 @@ const RecentFeaturedPosts = () => {
                                                             <SmallArticleDateTimeMobile>
                                                                 {article.date}
                                                                 <MobileDotIcon src={Dot} />
-                                                                {article.reading_time} mins
+                                                                {article.reading_time} min
                                                             </SmallArticleDateTimeMobile>
                                                         </SmallArticleTopContent>
                                                         <Header as="p" type="paragraph-1">
@@ -191,7 +195,7 @@ const RecentFeaturedPosts = () => {
                                                             <SmallArticleDateTimeMobile>
                                                                 {article.date}
                                                                 <MobileDotIcon src={Dot} />
-                                                                {article.reading_time} mins
+                                                                {article.reading_time} min
                                                             </SmallArticleDateTimeMobile>
                                                         </SmallArticleTopContent>
                                                         <Header as="p" type="paragraph-1">

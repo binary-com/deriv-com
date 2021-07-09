@@ -101,6 +101,15 @@ const Row = styled.div`
         margin-top: 40px;
     }
 `
+
+const StyledIFrame = styled.iframe`
+    width: 560px;
+    height: 315px;
+
+    @media ${device.mobileM} {
+        width: 310px;
+    }
+`
 const query = graphql`
     query {
         buy_sell: file(relativePath: { eq: "p2p/p2p_buy_sell.png" }) {
@@ -125,21 +134,15 @@ const DP2P = ({ P2P, reverse, two_title }) => {
                     )}
                 </StyledText>
 
-                <VideoText>
-                    {localize(
-                        'Find out how Deriv P2P works:',
-                    )}
-                </VideoText>
-                <iframe
-                  width="560"
-                  height="315"
-                  src="https://www.youtube.com/embed/zf9flqE94Ek"
-                  title="YouTube video player"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen>
-                </iframe>
-                
+                <VideoText>{localize('Find out how Deriv P2P works:')}</VideoText>
+                <StyledIFrame
+                    src="https://www.youtube.com/embed/zf9flqE94Ek"
+                    title="YouTube video player"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                ></StyledIFrame>
+
                 {P2P.map((item, index) => {
                     let is_even = reverse ? (index + 1) % 2 : index % 2
                     return (

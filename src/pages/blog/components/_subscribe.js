@@ -2,12 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Cookies from 'js-cookie'
-import CIO from 'customerio-node'
+import CIO from 'react-native-customerio'
+import { nanoid } from 'nanoid'
 import { Title, TextWrapper } from './_common'
 import paperPlane from 'images/common/blog/paperplanes.png'
 import { getCookiesObject, getCookiesFields, getDataObjFromCookies } from 'common/cookies'
 import validation from 'common/validation'
-import { BinarySocketBase } from 'common/websocket/socket_base'
 import { Input, Button } from 'components/form'
 import { Header, Text } from 'components/elements'
 import { Localize, localize } from 'components/localization'
@@ -236,35 +236,37 @@ const Subscribe = ({ onSubmit, ebook_utm_code }) => {
         const apiKey = process.env.GATSBY_ENV_CIO_SITE_ID
 
         const cio = new CIO(siteId, apiKey, { region: 'US' })
-        cio.identify(1005, {
-            email: 'customer@example.com',
-            created_at: 1361205308,
-            first_name: 'Bob-node-example',
-            plan: 'basic',
-        })
 
         const verify_email_req = getVerifyEmailRequest(formattedEmail)
-        const binary_socket = BinarySocketBase.init()
 
-        binary_socket.onopen = () => {
-            binary_socket.send(JSON.stringify(verify_email_req))
-        }
-        binary_socket.onmessage = (msg) => {
-            const response = JSON.parse(msg.data)
-            if (response.error) {
-                binary_socket.close()
-                setIsSubmitting(false)
-                setSubmitStatus('error')
-                setSubmitErrorMsg(response.error.message)
-                handleValidation(formattedEmail)
-            } else {
-                setIsSubmitting(false)
-                setSubmitStatus('success')
-                if (onSubmit) onSubmit(submit_status, email)
-            }
+        cio.identify(nanoid(), {
+            email: verify_email_req,
+            name: name,
+        })
 
-            binary_socket.close()
-        }
+        setIsSubmitting(false)
+        setSubmitStatus('success')
+        if (onSubmit) onSubmit(submit_status, email)
+
+        // binary_socket.onopen = () => {
+        //     binary_socket.send(JSON.stringify(verify_email_req))
+        // }
+        // binary_socket.onmessage = (msg) => {
+        //     const response = JSON.parse(msg.data)
+        //     if (response.error) {
+        //         binary_socket.close()
+        //         setIsSubmitting(false)
+        //         setSubmitStatus('error')
+        //         setSubmitErrorMsg(response.error.message)
+        //         handleValidation(formattedEmail)
+        //     } else {
+        //         setIsSubmitting(false)
+        //         setSubmitStatus('success')
+        //         if (onSubmit) onSubmit(submit_status, email)
+        //     }
+
+        //     binary_socket.close()
+        // }
     }
 
     return submit_status === 'success' ? (

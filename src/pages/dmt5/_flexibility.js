@@ -8,6 +8,7 @@ import FinancialStpIcon from 'images/svg/financial-stp.svg'
 import FinancialIcon from 'images/svg/financial.svg'
 import SyntheticIcon from 'images/svg/synthetic.svg'
 import device from 'themes/device'
+import { DerivStore } from 'store'
 
 const BaseIconStyle = css`
     @media ${device.mobileL} {
@@ -32,13 +33,23 @@ const content = [
             <Localize translate_text="Trade CFDs on our exclusive, proprietary synthetic indices 24/7 which simulate real-world market movements." />
         ),
         icon: <StyledSyntheticIcon src={SyntheticIcon} alt="synthetic icon" />,
+        show_always: true
     },
     {
         header: <Localize translate_text="Financial" />,
         text: (
-            <Localize translate_text="Trade major (standard and micro-lots) and minor currency pairs, commodities, cryptocurrencies, and stocks & indices with high leverage." />
+            <Localize translate_text=" Trade major (standard and micro-lots) and minor currency pairs, stocks, stock indices, commodities, and cryptocurrencies." />
         ),
         icon: <StyledFinancialIcon src={FinancialIcon} alt="financial icon" />,
+        show_eu: true
+    },
+    {
+        header: <Localize translate_text="Financial" />,
+        text: (
+            <Localize translate_text=" Trade major (standard and micro-lots) and minor currency pairs, stocks, stock indices, commodities, and cryptocurrencies with high leverage." />
+        ),
+        icon: <StyledFinancialIcon src={FinancialIcon} alt="financial icon" />,
+        show_eu: false
     },
     {
         header: <Localize translate_text="Financial STP" />,
@@ -46,6 +57,7 @@ const content = [
             <Localize translate_text="Trade major, minor, and exotic currency pairs, and cryptocurrencies with tight spreads and higher trade volumes, straight to the market." />
         ),
         icon: <StyledFinancialStpIcon src={FinancialStpIcon} alt="financial stp icon" />,
+        show_always: true
     },
 ]
 const Section = styled(SectionContainer)`
@@ -112,6 +124,8 @@ const StyledText = styled(Text)`
 `
 
 const Flexibility = () => {
+    const { is_eu_country } = React.useContext(DerivStore);
+
     return (
         <Section>
             <StyledHeader
@@ -127,7 +141,7 @@ const Flexibility = () => {
             <Flex mb="4rem" tablet_direction="column" tablet_ai="center" tablet={{ m: '0' }}>
                 {content.map((item, idx) => {
                     return (
-                        <ClientCard key={idx}>
+                        ((is_eu_country && item.show_eu) || (!is_eu_country && !item.show_eu) || item.show_always) && <ClientCard key={idx}>
                             <Flex height="unset" ai="center" mobileL={{ mb: '8px' }}>
                                 <StyledHeader
                                     mobile_margin="unset"

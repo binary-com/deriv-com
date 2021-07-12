@@ -63,6 +63,7 @@ const RecentFeaturedPosts = () => {
                     tab_list={['recent_posts', 'featured_posts']}
                     route_from="recent_featured_posts"
                     type="blog-featured"
+                    inactive_color="--color-grey-5"
                     jc="start"
                     jc_mobileL="center"
                     jc_tabletM="center"

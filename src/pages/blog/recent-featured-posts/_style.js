@@ -83,9 +83,11 @@ export const MainArticle = styled(Flex)`
 
 export const Description = styled.div`
     padding: 24px 40px 0 40px;
+    margin-bottom: 24px;
 
     @media ${device.laptopM} {
         padding: 30px;
+        margin-bottom: 0;
     }
 `
 

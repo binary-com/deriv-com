@@ -4,8 +4,8 @@ import styled from 'styled-components'
 import { graphql } from 'gatsby'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
-import { SEO, SectionContainer, SmallContainer } from 'components/containers'
-import { Header } from 'components/elements'
+import { SEO, SectionContainer, SmallContainer, Flex } from 'components/containers'
+import { Header, QueryImage } from 'components/elements'
 
 const PreviewContainer = styled.div`
     font-size: 16px;
@@ -86,6 +86,8 @@ const PreviewContainer = styled.div`
 
 const ArticleTemplate = (props) => {
     const post_data = props.data.directus.articles[0]
+    const main_image = post_data?.main_image?.imageFile
+    const main_video = post_data?.main_video?.imageFile?.publicURL
     return (
         <Layout>
             <SEO
@@ -93,6 +95,12 @@ const ArticleTemplate = (props) => {
                 title={post_data.article_title}
                 no_index
             />
+            {main_image && <QueryImage data={main_image} />}
+            {main_video && (
+                <Flex>
+                    <video src={main_video} width="90%" controls />
+                </Flex>
+            )}
             <SectionContainer>
                 <SmallContainer fd="column">
                     <Header as="h1" type="page-title">
@@ -125,8 +133,18 @@ export const query = graphql`
                 featured
                 article_body
                 main_image {
+                    id
                     imageFile {
-                        absolutePath
+                        childImageSharp {
+                            gatsbyImageData
+                        }
+                    }
+                }
+                main_video {
+                    id
+                    imageFile {
+                        id
+                        publicURL
                     }
                 }
             }

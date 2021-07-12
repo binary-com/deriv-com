@@ -7,6 +7,7 @@ import {
     numberWithCommas,
     resetValidationPnlMultipliersAmount,
     resetValidationPnlMultipliersLevel,
+    getMaxLength,
 } from '../common/_utility'
 import {
     BreadCrumbContainer,
@@ -327,7 +328,10 @@ const PnlMultipliersCalculator = () => {
                                                                                 )
                                                                                 current_input.focus()
                                                                             }}
-                                                                            maxLength="8"
+                                                                            maxLength={getMaxLength(
+                                                                                values.assetPrice,
+                                                                                8,
+                                                                            )}
                                                                             background="white"
                                                                         />
                                                                     )}
@@ -380,7 +384,10 @@ const PnlMultipliersCalculator = () => {
                                                                                 )
                                                                                 current_input.focus()
                                                                             }}
-                                                                            maxLength="8"
+                                                                            maxLength={getMaxLength(
+                                                                                values.commission,
+                                                                                8,
+                                                                            )}
                                                                             background="white"
                                                                         />
                                                                     )}
@@ -436,7 +443,10 @@ const PnlMultipliersCalculator = () => {
                                                                                 )
                                                                                 current_input.focus()
                                                                             }}
-                                                                            maxLength="15"
+                                                                            maxLength={getMaxLength(
+                                                                                values.stake,
+                                                                                15,
+                                                                            )}
                                                                             background="white"
                                                                         />
                                                                     )}
@@ -489,7 +499,10 @@ const PnlMultipliersCalculator = () => {
                                                                                 )
                                                                                 current_input.focus()
                                                                             }}
-                                                                            maxLength="15"
+                                                                            maxLength={getMaxLength(
+                                                                                values.takeProfitAmount,
+                                                                                15,
+                                                                            )}
                                                                             background="white"
                                                                         />
                                                                     )}
@@ -548,7 +561,10 @@ const PnlMultipliersCalculator = () => {
                                                                                 )
                                                                                 current_input.focus()
                                                                             }}
-                                                                            maxLength="4"
+                                                                            maxLength={getMaxLength(
+                                                                                values.multiplier,
+                                                                                4,
+                                                                            )}
                                                                             background="white"
                                                                         />
                                                                     )}
@@ -604,7 +620,10 @@ const PnlMultipliersCalculator = () => {
                                                                                 )
                                                                                 current_input.focus()
                                                                             }}
-                                                                            maxLength="15"
+                                                                            maxLength={getMaxLength(
+                                                                                values.stopLossAmount,
+                                                                                15,
+                                                                            )}
                                                                             background="white"
                                                                         />
                                                                     )}
@@ -736,7 +755,10 @@ const PnlMultipliersCalculator = () => {
                                                                         )
                                                                         current_input.focus()
                                                                     }}
-                                                                    maxLength="8"
+                                                                    maxLength={getMaxLength(
+                                                                        values.assetPrice,
+                                                                        8,
+                                                                    )}
                                                                     background="white"
                                                                 />
                                                             )}
@@ -780,7 +802,10 @@ const PnlMultipliersCalculator = () => {
                                                                         )
                                                                         current_input.focus()
                                                                     }}
-                                                                    maxLength="15"
+                                                                    maxLength={getMaxLength(
+                                                                        values.stake,
+                                                                        15,
+                                                                    )}
                                                                     background="white"
                                                                 />
                                                             )}
@@ -826,7 +851,10 @@ const PnlMultipliersCalculator = () => {
                                                                         )
                                                                         current_input.focus()
                                                                     }}
-                                                                    maxLength="4"
+                                                                    maxLength={getMaxLength(
+                                                                        values.multiplier,
+                                                                        4,
+                                                                    )}
                                                                     background="white"
                                                                 />
                                                             )}
@@ -872,7 +900,10 @@ const PnlMultipliersCalculator = () => {
                                                                         )
                                                                         current_input.focus()
                                                                     }}
-                                                                    maxLength="8"
+                                                                    maxLength={getMaxLength(
+                                                                        values.commission,
+                                                                        8,
+                                                                    )}
                                                                     background="white"
                                                                 />
                                                             )}
@@ -924,7 +955,10 @@ const PnlMultipliersCalculator = () => {
                                                                         )
                                                                         current_input.focus()
                                                                     }}
-                                                                    maxLength="15"
+                                                                    maxLength={getMaxLength(
+                                                                        values.takeProfitAmount,
+                                                                        15,
+                                                                    )}
                                                                     background="white"
                                                                 />
                                                             )}
@@ -976,7 +1010,10 @@ const PnlMultipliersCalculator = () => {
                                                                         )
                                                                         current_input.focus()
                                                                     }}
-                                                                    maxLength="15"
+                                                                    maxLength={getMaxLength(
+                                                                        values.stopLossAmount,
+                                                                        15,
+                                                                    )}
                                                                     background="white"
                                                                 />
                                                             )}
@@ -1322,7 +1359,10 @@ const PnlMultipliersCalculator = () => {
                                                                                 )
                                                                                 current_input.focus()
                                                                             }}
-                                                                            maxLength="8"
+                                                                            maxLength={getMaxLength(
+                                                                                values.assetPrice,
+                                                                                8,
+                                                                            )}
                                                                             background="white"
                                                                         />
                                                                     )}
@@ -1375,7 +1415,10 @@ const PnlMultipliersCalculator = () => {
                                                                                 )
                                                                                 current_input.focus()
                                                                             }}
-                                                                            maxLength="8"
+                                                                            maxLength={getMaxLength(
+                                                                                values.commission,
+                                                                                8,
+                                                                            )}
                                                                             background="white"
                                                                         />
                                                                     )}
@@ -1431,7 +1474,10 @@ const PnlMultipliersCalculator = () => {
                                                                                 )
                                                                                 current_input.focus()
                                                                             }}
-                                                                            maxLength="15"
+                                                                            maxLength={getMaxLength(
+                                                                                values.stake,
+                                                                                15,
+                                                                            )}
                                                                             background="white"
                                                                         />
                                                                     )}
@@ -1484,7 +1530,10 @@ const PnlMultipliersCalculator = () => {
                                                                                 )
                                                                                 current_input.focus()
                                                                             }}
-                                                                            maxLength="15"
+                                                                            maxLength={getMaxLength(
+                                                                                values.takeProfitLevel,
+                                                                                15,
+                                                                            )}
                                                                             background="white"
                                                                         />
                                                                     )}
@@ -1543,7 +1592,10 @@ const PnlMultipliersCalculator = () => {
                                                                                 )
                                                                                 current_input.focus()
                                                                             }}
-                                                                            maxLength="4"
+                                                                            maxLength={getMaxLength(
+                                                                                values.multiplier,
+                                                                                4,
+                                                                            )}
                                                                             background="white"
                                                                         />
                                                                     )}
@@ -1599,7 +1651,10 @@ const PnlMultipliersCalculator = () => {
                                                                                 )
                                                                                 current_input.focus()
                                                                             }}
-                                                                            maxLength="15"
+                                                                            maxLength={getMaxLength(
+                                                                                values.stopLossLevel,
+                                                                                15,
+                                                                            )}
                                                                             background="white"
                                                                         />
                                                                     )}
@@ -1731,7 +1786,10 @@ const PnlMultipliersCalculator = () => {
                                                                         )
                                                                         current_input.focus()
                                                                     }}
-                                                                    maxLength="8"
+                                                                    maxLength={getMaxLength(
+                                                                        values.assetPrice,
+                                                                        8,
+                                                                    )}
                                                                     background="white"
                                                                 />
                                                             )}
@@ -1775,7 +1833,10 @@ const PnlMultipliersCalculator = () => {
                                                                         )
                                                                         current_input.focus()
                                                                     }}
-                                                                    maxLength="15"
+                                                                    maxLength={getMaxLength(
+                                                                        values.stake,
+                                                                        15,
+                                                                    )}
                                                                     background="white"
                                                                 />
                                                             )}
@@ -1821,7 +1882,10 @@ const PnlMultipliersCalculator = () => {
                                                                         )
                                                                         current_input.focus()
                                                                     }}
-                                                                    maxLength="4"
+                                                                    maxLength={getMaxLength(
+                                                                        values.multiplier,
+                                                                        4,
+                                                                    )}
                                                                     background="white"
                                                                 />
                                                             )}
@@ -1867,7 +1931,10 @@ const PnlMultipliersCalculator = () => {
                                                                         )
                                                                         current_input.focus()
                                                                     }}
-                                                                    maxLength="8"
+                                                                    maxLength={getMaxLength(
+                                                                        values.commission,
+                                                                        8,
+                                                                    )}
                                                                     background="white"
                                                                 />
                                                             )}
@@ -1919,7 +1986,10 @@ const PnlMultipliersCalculator = () => {
                                                                         )
                                                                         current_input.focus()
                                                                     }}
-                                                                    maxLength="15"
+                                                                    maxLength={getMaxLength(
+                                                                        values.takeProfitLevel,
+                                                                        15,
+                                                                    )}
                                                                     background="white"
                                                                 />
                                                             )}
@@ -1971,7 +2041,10 @@ const PnlMultipliersCalculator = () => {
                                                                         )
                                                                         current_input.focus()
                                                                     }}
-                                                                    maxLength="15"
+                                                                    maxLength={getMaxLength(
+                                                                        values.stopLossLevel,
+                                                                        15,
+                                                                    )}
                                                                     background="white"
                                                                 />
                                                             )}

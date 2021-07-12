@@ -2,10 +2,12 @@ name: Release Staging
 
 on:
   push:
-    tags:
-      - 'staging*'
+    branches:
+      - master
     paths-ignore:
-      - '**.md' 
+      - '**.md'
+  repository_dispatch:
+    types: [publish_blog]
 
 env:
   GATSBY_CPU_COUNT: 2
@@ -36,10 +38,6 @@ jobs:
         run: |
           npm ci
           npm test
-      - name: Run linters
-        uses: wearerequired/lint-action@v1
-        with:
-          eslint: true
 
   release-staging:
     needs: lint
@@ -72,13 +70,13 @@ jobs:
         # with:
         #   tagRegex: "staging(.*)"
       - name: Building docker image 🐳
-        run: docker build -t ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:latest-staging  -t ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:$GIT_TAG_NAME . 
+        run: docker build -t ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:latest-staging  -t ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:$GITHUB_SHA .
 
       - name: Pushing Image to docker hub 🐳
         run: |
           echo ${{ secrets.DOCKERHUB_PASSWORD }}| docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
           docker push  ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:latest-staging
-          docker push  ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:$GIT_TAG_NAME
+          docker push  ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:$GITHUB_SHA
 
       - name: Deploy 🚀
         run: |
@@ -90,7 +88,7 @@ jobs:
           git clone https://github.com/binary-com/devops-ci-scripts
           cd devops-ci-scripts/k8s-build_tools
           echo ${{ secrets.CA_CRT}} | base64 --decode > ca.crt
-          ./release.sh deriv-com $GIT_TAG_NAME
+          ./release.sh deriv-com $GITHUB_SHA
 
       - name: Slack Notification 📣
         uses: 8398a7/action-slack@v3
@@ -102,7 +100,7 @@ jobs:
             {
               attachments: [{
                 color: '${{ job.status }}' === 'success' ? 'good' : '${{ job.status }}' === 'failure' ? 'danger' : 'warning',
-                text: `Release for *Deriv.com* with version *$GIT_TAG_NAME*`
+                text: `Release for *Deriv.com* with version *$GITHUB_SHA*`
               }]
             }
         env:

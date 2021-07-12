@@ -5,6 +5,7 @@ import { Header, Text, Li } from 'components/elements'
 import checkIcon from 'images/common/ebooks/check-icon.png'
 import BackgroundPattern from 'images/svg/ebook-intro-bg.svg'
 import device from 'themes/device'
+import { localize, Localize } from 'components/localization'
 
 const BacgroundWrapper = styled.div`
     width: 100%;
@@ -59,9 +60,6 @@ const MediaBody = styled.div`
     font-size: 20px;
     align-self: center;
 
-    p.intro-desc {
-        margin-bottom: 20px;
-    }
     p.intro-desc,
     li {
         font-size: 16px;
@@ -74,17 +72,6 @@ const MediaBody = styled.div`
     li {
         line-height: 18px;
         margin-bottom: 20px;
-    }
-    h5 {
-        font-size: 24px;
-        font-weight: bold;
-        line-height: 1.5;
-        color: #333333;
-        margin-bottom: 20px;
-        margin-top: 30px;
-    }
-    img {
-        height: 476px;
     }
     li > img {
         height: 16px;
@@ -109,19 +96,31 @@ const Introduction = ({ introImage, imageWidth, introPara, subPara, introList })
                 />
                 <MediaBody>
                     <Header as="h3" className="mt-0 intro-text">
-                        Introduction
+                        {localize('Introduction')}
                     </Header>
-                    <Text className="intro-desc">{introPara}</Text>
+                    <Text className="intro-desc" mb="20px">
+                        {introPara}
+                    </Text>
                     {subPara && <Text className="intro-desc">{subPara}</Text>}
                     {introList && (
                         <>
-                            <Header as="h5">In this book you’ll learn:</Header>
+                            <Header
+                                as="h5"
+                                type="sub-section-title"
+                                weight="bold"
+                                lh={1.5}
+                                color="var(--color-black-3)"
+                                mb="20px"
+                                mt="30px"
+                            >
+                                {localize('In this book you’ll learn:')}
+                            </Header>
                             <MediaItemList>
                                 {introList?.map((point, index) => {
                                     return (
                                         <Li key={index}>
                                             <img src={checkIcon} alt="Check Icon" />
-                                            {point}
+                                            <Localize translate_text={point} />
                                         </Li>
                                     )
                                 })}

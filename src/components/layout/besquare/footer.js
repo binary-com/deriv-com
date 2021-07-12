@@ -61,7 +61,7 @@ const BeSquareFooter = () => {
                         alt="Fresh graduates discussing with their laptops"
                     />
                     <TextContainer>
-                        <Title as="h3">{localize('Next intake: July 2021')}</Title>
+                        <Title as="h3">Next intake: August 2021</Title>
                         <TextWrapper
                             max_width={['510px', '328px']}
                             font_size={['20px', '16px']}
@@ -104,7 +104,7 @@ const BeSquareFooter = () => {
                                 font_size={['16px']}
                                 line_height={['24px']}
                                 grid_area={'follow-us'}
-                                margin={'13px 0 0'}
+                                padding={'15px 0 0'}
                             >
                                 {localize('Follow us')}
                             </TextWrapper>

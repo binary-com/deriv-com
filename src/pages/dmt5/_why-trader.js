@@ -9,6 +9,39 @@ import { Header, Text } from 'components/elements'
 import { Flex, SectionContainer } from 'components/containers'
 import device from 'themes/device'
 
+const card_content = [
+    {
+        header: localize('Quick demo account sign-up'),
+        text: localize('Practise with a demo account preloaded with unlimited virtual funds.'),
+        image: InstantAccess,
+        alt: 'instant access',
+    },
+    {
+        header: localize('Multiple assets on a single platform'),
+        text: localize(
+            'Explore forex, synthetic indices, stocks, and commodities on an all-in-one platform.',
+        ),
+        image: SyntheticIndices,
+        alt: 'syntethic indices',
+    },
+    {
+        header: localize('24/7 trading'),
+        text: localize(
+            'Trade round-the-clock, even on weekends, with our proprietary synthetic indices.',
+        ),
+        image: Seven,
+        alt: 'seven',
+    },
+    {
+        header: localize('Licensed and regulated'),
+        text: localize(
+            'Trade with a regulated industry pioneer trusted by traders for more than 20 years.',
+        ),
+        image: MinimalRisk,
+        alt: 'minimal risk',
+    },
+]
+
 const Section = styled(SectionContainer)`
     display: flex;
     flex-direction: column;
@@ -82,58 +115,24 @@ const WhyTrader = () => {
                 {localize('Why trade with DMT5')}
             </StyledHeader>
             <CardContainer>
-                <Card>
-                    <div>
-                        <img src={InstantAccess} alt="instant access" />
-                    </div>
-                    <StyledCardHeader mt="0.8rem" mb="0.8rem" as="h4" type="sub-section-title">
-                        {localize('Quick demo account sign-up')}
-                    </StyledCardHeader>
-                    <StyledText>
-                        {localize(
-                            'Practise with a demo account preloaded with unlimited virtual funds.',
-                        )}
-                    </StyledText>
-                </Card>
-                <Card>
-                    <div>
-                        <img src={SyntheticIndices} alt="syntethic indices" />
-                    </div>
-                    <StyledCardHeader mt="0.8rem" mb="0.8rem" as="h4" type="sub-section-title">
-                        {localize('Multiple assets on a single platform')}
-                    </StyledCardHeader>
-                    <StyledText>
-                        {localize(
-                            'Explore forex, synthetic indices, stocks, and commodities on an all-in-one platform.',
-                        )}
-                    </StyledText>
-                </Card>
-                <Card>
-                    <div>
-                        <img src={Seven} alt="seven" />
-                    </div>
-                    <StyledCardHeader mt="0.8rem" mb="0.8rem" as="h4" type="sub-section-title">
-                        {localize('24/7 trading')}
-                    </StyledCardHeader>
-                    <StyledText>
-                        {localize(
-                            'Trade round-the-clock, even on weekends, with our proprietary synthetic indices.',
-                        )}
-                    </StyledText>
-                </Card>
-                <Card>
-                    <div>
-                        <img src={MinimalRisk} alt="minimal risk" />
-                    </div>
-                    <StyledCardHeader mt="0.8rem" mb="0.8rem" as="h4" type="sub-section-title">
-                        {localize('Licensed and regulated')}
-                    </StyledCardHeader>
-                    <StyledText>
-                        {localize(
-                            'Trade with a regulated industry pioneer trusted by traders for more than 20 years.',
-                        )}
-                    </StyledText>
-                </Card>
+                {card_content.map((card) => {
+                    return (
+                        <Card key={card.alt}>
+                            <div>
+                                <img src={card.image} alt={card.alt} />
+                            </div>
+                            <StyledCardHeader
+                                mt="0.8rem"
+                                mb="0.8rem"
+                                as="h4"
+                                type="sub-section-title"
+                            >
+                                {card.header}
+                            </StyledCardHeader>
+                            <StyledText>{card.text}</StyledText>
+                        </Card>
+                    )
+                })}
             </CardContainer>
         </Section>
     )

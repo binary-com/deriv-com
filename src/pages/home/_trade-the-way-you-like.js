@@ -7,25 +7,23 @@ import { localize } from 'components/localization'
 import { SectionContainer } from 'components/containers'
 import { OtherPlatform } from 'components/custom/other-platforms.js'
 
-const query = graphql`
-    query {
-        dtrader_artboard: file(relativePath: { eq: "dtrader_trade_home.png" }) {
-            childImageSharp {
-                fluid(maxWidth: 794) {
-                    ...GatsbyImageSharpFluid_withWebp_noBase64
-                    originalName
-                }
-            }
-        }
-    }
-`
 const ImageWrapper = styled.div`
     max-width: 65rem;
     margin: 3rem auto 0;
 `
+
 const StyledSection = styled(SectionContainer)`
     background: linear-gradient(var(--color-grey-11), var(--color-white));
 `
+
+const query = graphql`
+    query {
+        dtrader_artboard: file(relativePath: { eq: "dtrader_trade_home.png" }) {
+            ...fadeIn
+        }
+    }
+`
+
 const TradeTheWayYouLike = ({ is_ppc_redirect }) => {
     const data = useStaticQuery(query)
     return (
@@ -37,7 +35,11 @@ const TradeTheWayYouLike = ({ is_ppc_redirect }) => {
                 {localize('Choose from three powerful platforms — designed with you in mind')}
             </Text>
             <ImageWrapper>
-                <QueryImage data={data['dtrader_artboard']} alt={localize('Dtrader artboard')} />
+                <QueryImage
+                    data={data['dtrader_artboard']}
+                    alt={localize('Dtrader artboard')}
+                    is_eager
+                />
             </ImageWrapper>
             <OtherPlatform exclude="" is_nav is_ppc_redirect={is_ppc_redirect} />
         </StyledSection>

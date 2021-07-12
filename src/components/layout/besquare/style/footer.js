@@ -16,10 +16,7 @@ export const Section = styled(SectionContainer)`
 
 export const ContentContainer = styled(Container)`
     max-width: 1440px;
-    margin: 0 auto;
     flex-direction: row-reverse;
-    align-items: center;
-    justify-content: center;
 
     @media ${device.laptop} {
         flex-direction: column;
@@ -30,12 +27,7 @@ export const FollowUsContainer = styled.div`
     display: grid;
     grid-template-columns: 68px repeat(4, 26.67px);
     grid-column-gap: 21px;
-
-    @media ${device.tablet} {
-        grid-template-columns: repeat(4, 26.67px);
-        grid-template-areas: 'follow-us follow-us follow-us follow-us' 'icon icon icon icon';
-        grid-template-rows: auto auto;
-    }
+    grid-template-areas: ' follow-us icon icon icon icon ';
 `
 
 export const IconWrapper = styled.img`
@@ -54,7 +46,7 @@ export const ImageWrapper = styled(QueryImage)`
     bottom: 60px;
 
     @media ${device.tablet} {
-        max-width: 326px;
+        max-width: 250px;
         max-height: 224px;
         margin: 0 auto;
         bottom: 40px;
@@ -76,7 +68,7 @@ export const TextContainer = styled.div`
 `
 
 export const Title = styled(Header)`
-    max-width: 508px;
+    max-width: 400px;
     width: fit-content;
     font-size: 48px;
     font-weight: 700;
@@ -84,7 +76,7 @@ export const Title = styled(Header)`
     color: var(--color-white);
 
     @media ${device.tablet} {
-        max-width: 328px;
+        max-width: 250px;
         font-size: 28px;
         line-height: 34px;
     }

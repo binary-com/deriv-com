@@ -1,21 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { Header, Li } from 'components/elements'
+import { Header, Li, QueryImage } from 'components/elements'
 import checkIcon from 'images/common/ebooks/check-icon.png'
 import device from 'themes/device'
+import { localize, Localize } from 'components/localization'
 
 const FullWidth = styled.div`
     background-image: linear-gradient(to bottom, #eaf4f5 1%, rgba(242, 245, 248, 0) 99%);
-
-    h5 {
-        margin-top: 25px;
-        font-size: 24px;
-        font-weight: bold;
-        line-height: 1.5;
-        color: #333333;
-        margin-bottom: 20px;
-    }
 
     @media ${device.tabletL} {
         margin-top: 0;
@@ -83,28 +75,34 @@ const TopicImgWrapper = styled.div`
     }
 `
 
-const Image = styled.img`
-    width: 100%;
-`
 const Topics = ({ topicsImage, topicsList }) => {
     return (
         <FullWidth>
             <Wrapper>
                 <ItemList>
-                    <Header as="h5" className="header">
-                        Topics covered
+                    <Header
+                        as="h5"
+                        className="header"
+                        mt="25px"
+                        size="24px"
+                        weight="bold"
+                        lh={1.5}
+                        color="var(--color-black-3)"
+                        mb="20px"
+                    >
+                        {localize('Topics covered')}
                     </Header>
                     {topicsList?.map((topic, index) => {
                         return (
                             <Li key={index} className="topic-item">
                                 <img src={checkIcon} alt="Check Icon" />
-                                {topic}
+                                <Localize translate_text={topic} />
                             </Li>
                         )
                     })}
                 </ItemList>
                 <TopicImgWrapper className="topic-wrapper">
-                    <Image src={topicsImage} alt="Forex Topics" />
+                    <QueryImage data={topicsImage} alt="Forex Topics" />
                 </TopicImgWrapper>
             </Wrapper>
         </FullWidth>

@@ -13,9 +13,6 @@ export const Section = styled(SectionContainer)`
 `
 
 export const ContentContainer = styled(Container)`
-    align-items: center;
-    justify-content: center;
-
     @media ${device.tabletL} {
         display: grid;
     }

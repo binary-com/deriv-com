@@ -1,63 +1,91 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
-import { SectionContainer, SEO, SmallContainer } from 'components/containers'
-import { Header } from 'components/elements'
+import { SectionContainer, SEO, Show, Box, Flex } from 'components/containers'
+import { Header, Text } from 'components/elements'
+import device from 'themes/device'
 
-const html = `
-<p>On January 15, 2015, the Swiss National Bank decided to abandon the 1.20 peg against the euro. This quickly transformed the currency from a safe haven to one of the riskiest assets and sent the FX markets into chaos. Traders accounts went into negative balance and a number of brokers were forced to close. Black swan events like this come at a tremendous cost to investors. What&rsquo;s even worse is that they seem to be becoming more frequent. In the past decade alone, we have witnessed a global financial crisis, the rouble rout, plunging oil prices, Brexit, and a persisting pandemic.</p>
-<p>But what if you could trade without being at the mercy of global events? This is what synthetic indices enable. Synthetic indices, also known as volatility indices, are simulated markets, which means they are not affected by world events.</p>
-<p>They act like real monetary markets but have been created with the help of numbers that are randomly generated through a computer programme. The number generator is secured cryptographically and is audited by an independent third party to ensure fairness. With this, the broker is unable to predict or influence the generated numbers.</p>
-<h4>Why trade synthetic indices?</h4>
-<p>Before you decide on strategies to trade synthetic indices, you first need to understand why you would trade synthetic indices at all. There are multiple benefits of trading of synthetic indices, as compared to traditional indices and currency pairs.</p>
-<p>Synthetic indices offer tight spreads and high leverage. Also, there is no risk of slipping into negative balance. So, in case things don&rsquo;t go according to plan, your losses will be limited. Plus, you get great flexibility when trading synthetic indices. You can choose different synthetic markets, with high or low risk characteristics, based on your risk appetite</p>
-<p>Some of the other prominent benefits are:</p>
-<ul>
-    <li>You are aware of the potential risks right from the beginning. This means no unexpected margin calls or bad surprises.</li>
-    <li>You don&rsquo;t need large capital to start trading synthetic indices.</li>
-</ul>
-<h4>The best trading platforms for synthetic indices</h4>
-<p>There are 2 main platforms that can be used for synthetic indices trading. These are DTrader and Deriv MetaTrader 5 (DMT5).</p>
-<h5>DTrader</h5>
-<p><img src="https://amammustofa.com/assets/d9114b49-d29d-4f7f-b02b-93eee225958a" /></p>
-<p>With DTrader, you can trade directly from the live charts. It continuously provides you a price feed for Rise (Up), Fall (Down), and other ways of trading synthetic indices. DTrader can be accessed through Deriv.com on a mobile device or on a desktop, via a browser.</p>
-<p>With DTrader, you get:</p>
-<li><strong>Wide Range of Choices</strong></li>
-<p>DTrader offers you a wide range of synthetic indices to choose from, including higher volatility indices (Vol 100) and lower volatility indices (Vol 10). In Volatility 10 Index, the volatility is kept at 10%. This is a great choice for traders who prefer low price swings or fluctuations. On the other hand, Volatility 100 index, the volatility is maintained at 100%. This means that there are much stronger prices swings. Additionally, there are also no large price gaps, as they are continuous indices with deep liquidity.</p>
-<p><img src='https://amammustofa.com/assets/fed38b8a-2dc6-476c-9f23-be141582b59f' /></p>
-`
-const replacedContent = html.replace(/<p><img /g, '<img ').replace(/\/><\/p>/g, '/>')
-const article = {
-    main_image: "<img src='https://amammustofa.com/assets/42d7a49b-51c1-40d0-8e35-e82e8b87ff64' />",
-    article_title: 'Strategies to trade synthetic indices',
-    article_body: replacedContent,
-    publish_date: '12 December 2020',
-    article_tags: [
-        'DTrader',
-        'Deriv MT5',
-        'Trade type',
-        'Synthetics',
-        'Strategies',
-        'Forex',
-        'Market',
-        'Platforms',
-        'Ebook',
-        'Benefit',
-    ],
-}
-const DetailContainer = styled.div`
-    width: 30%;
-    margin-right: 2.4rem;
-`
-const PublishDate = styled.div`
-    margin-bottom: 1.6rem;
-    font-size: 1.4rem;
-`
-
-const BodyContainer = styled.div`
+const HeroContainer = styled.div`
     display: flex;
-    padding: 0 12rem;
+    width: 100%;
+    max-width: 144.4rem;
+    padding: 7.8rem 12.4rem 14.6rem 12rem;
+    height: 56.2rem;
+    background-color: var(--color-grey-8);
+    margin: auto;
+    margin-bottom: 8.6rem;
+
+    @media (max-width: 1350px) {
+        height: 50rem;
+    }
+    @media ${device.tabletL} {
+        flex-direction: column;
+        margin-bottom: 0;
+        padding: 38px 16px 0;
+        height: auto;
+        background-image: linear-gradient(#f2f3f4 80%, #ffffff 20%);
+    }
+`
+const HeroImageContainer = styled(Box)`
+    @media ${device.tabletL} {
+        margin: auto;
+    }
+
+    > img {
+        max-width: 100%;
+        height: auto;
+    }
+`
+const WriterContainer = styled(Box)`
+    display: flex;
+    align-items: center;
+`
+const PublishDate = styled(Text)`
+    @media ${device.tabletL} {
+        font-size: 12px;
+    }
+`
+const MinsToRead = styled(Text)`
+    @media ${device.tabletL} {
+        font-size: 12px;
+    }
+`
+const WriterImage = styled.div`
+    width: 4.8rem;
+    height: 4.8rem;
+    border-radius: 5rem;
+    margin-right: 8px;
+
+    @media ${device.tabletL} {
+        width: 4rem;
+        height: 4rem;
+
+        > img {
+            max-width: 100%;
+            height: auto;
+        }
+    }
+`
+const AuthorText = styled(Text)`
+    @media ${device.tabletL} {
+        font-size: 12px;
+    }
+`
+const WrittenbyText = styled(Text)`
+    color: var(--color-grey-5);
+    font-size: var(--text-size-xxs);
+
+    @media ${device.tabletL} {
+        font-size: 10px;
+    }
+`
+const BodyContainer = styled(Box)`
+    display: flex;
+
+    @media ${device.tabletL} {
+        flex-direction: column;
+    }
 `
 const SideBarContainer = styled.div`
     display: flex;
@@ -66,66 +94,61 @@ const SideBarContainer = styled.div`
     margin-right: 12.6rem;
     width: 100%;
 `
-const ArticleTagContainer = styled.div`
+const ArticleTagContainer = styled(Box)`
     display: flex;
     flex-wrap: wrap;
-    max-width: 25.5rem;
-    width: 100%;
 `
 const Tag = styled.div`
     height: 2.2rem;
-    border-radius: 8px;
-    background-color: #dee7f2;
+    color: var(--color-blue-10);
+    font-weight: bold;
+    font-size: var(--text-size-xs);
+    border-radius: 0.8rem;
+    background-color: var(--color-blue-9);
     padding: 1px 8px;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-right: 1.6rem;
-    margin-bottom: 1.6rem;
+    margin-right: 16px;
+    margin-bottom: 16px;
+
+    @media ${device.tabletL} {
+        height: 20px;
+        margin-right: 8px;
+        font-size: 12px;
+    }
 `
-const HeroContainer = styled.div`
-    display: flex;
-    width: 100%;
-    max-width: 1444px;
-    padding: 78px 24px 0 120px;
-    height: 564px;
-    background-color: #f2f3f4;
-    margin: auto;
-    margin-bottom: 8.6rem;
-`
-const HeroImageContainer = styled.div`
+const FooterContainer = styled.div`
+    align-items: center;
+
     > img {
         max-width: 100%;
         height: auto;
     }
 `
-const PreviewContainer = styled(SmallContainer)`
-    font-size: 16px;
+const PreviewContainer = styled(Box)`
+    font-size: var(--text-size-s);
     max-width: 79.2rem;
     width: 100%;
 
     & p {
-        margin-top: 22px;
+        margin-top: 2.2rem;
         font-weight: 400;
         line-height: 24px;
-        font-size: 16px;
+        font-size: 1.6rem;
 
         :first-child {
             margin-top: 0;
         }
-    }
-    & blockquote {
-        margin-top: 32px;
-        border-left: 0.25rem solid #ff1a75;
-        padding-left: 2rem;
-        font-style: italic;
-        line-height: 32px;
+        @media ${device.tabletL} {
+            font-size: 14px;
+        }
     }
     & hr {
         margin: 32px 0;
     }
     & ul {
-        margin-top: 32px;
+        margin-top: 3.2rem;
         list-style-type: disc;
         margin-block-start: 1em;
         margin-block-end: 1em;
@@ -134,7 +157,7 @@ const PreviewContainer = styled(SmallContainer)`
             margin: 8px 0 0 18px;
             padding: 0;
             line-height: 24px;
-            font-size: 16px;
+            font-size: var(--text-size-s);
         }
     }
     li > strong {
@@ -142,11 +165,11 @@ const PreviewContainer = styled(SmallContainer)`
         margin: 16px 0 0 8px;
         padding: 0;
         line-height: 24px;
-        font-size: 16px;
+        font-size: var(--text-size-s);
         font-weight: bold;
     }
     & a {
-        font-size: 20px;
+        font-size: var(--text-size-sm);
         color: var(--color-red);
         text-decoration: none;
         cursor: pointer;
@@ -160,7 +183,7 @@ const PreviewContainer = styled(SmallContainer)`
         height: auto;
         display: block;
         margin: auto;
-        margin-top: 1.6rem;
+        margin-top: 16px;
     }
     & img[width='full'] {
         margin-left: calc(50% - 50vw);
@@ -168,19 +191,19 @@ const PreviewContainer = styled(SmallContainer)`
         max-width: 100vw;
     }
     & h1 {
-        font-size: 64px;
+        font-size: var(--text-size-xxl);
         line-height: 80px;
         margin-top: 32px;
         font-weight: bold;
     }
     & h2 {
-        font-size: 48px;
+        font-size: var(--text-size-xl);
         line-height: 60px;
         margin-top: 32px;
         font-weight: bold;
     }
     & h3 {
-        font-size: 32px;
+        font-size: var(--text-size-l);
         line-height: 40px;
         margin-top: 40px;
         font-weight: bold;
@@ -190,19 +213,19 @@ const PreviewContainer = styled(SmallContainer)`
         }
     }
     & h4 {
-        font-size: 24px;
+        font-size: var(--text-size-m);
         line-height: 36px;
         margin-top: 40px;
         font-weight: bold;
     }
     & h5 {
-        font-size: 20px;
+        font-size: var(--text-size-sm);
         line-height: 30px;
         margin-top: 40px;
         font-weight: bold;
     }
     & h6 {
-        font-size: 16px;
+        font-size: var(--text-size-s);
         line-height: 24px;
         margin-top: 40px;
         font-weight: bold;
@@ -211,8 +234,45 @@ const PreviewContainer = styled(SmallContainer)`
     @media (max-width: 1024px) {
         left: 0;
     }
+    @media ${device.tabletL} {
+        max-width: none;
+    }
 `
 const PreviewPage = () => {
+    const [id, setId] = useState(null)
+    const [data, setData] = useState(null)
+    const [date, setDate] = useState(null)
+    const end_point_url = 'https://amammustofa.com/items/articles/'
+
+    useEffect(() => {
+        const getPreviewId = () => {
+            // if (typeof window !== 'undefined') {
+            // const query_string = window.location.search
+            // const url_params = new URLSearchParams(query_string)
+            const preview_id = '5183bb93-8218-4168-a03a-0274505d7b41' //url_params.get('article_id')
+            if (preview_id) {
+                setId(preview_id)
+            }
+            //}
+        }
+        const fetchArticle = async () => {
+            const res = await fetch(`${end_point_url}${id}`, { cache: 'no-store' })
+            const data = await res.json()
+            setDate(new Date(data.data.publish_date).toString().split(' '))
+            return data
+        }
+
+        getPreviewId()
+
+        const getPreviews = async () => {
+            const dataFromServer = await fetchArticle(id)
+            setData(dataFromServer)
+        }
+        if (id) {
+            getPreviews()
+        }
+    }, [id])
+
     return (
         <Layout>
             <SEO
@@ -224,39 +284,130 @@ const PreviewPage = () => {
 
             <SectionContainer position="relative">
                 <HeroContainer>
-                    <DetailContainer>
+                    <Box
+                        max_width="38.4rem"
+                        width="100%"
+                        mr="2.4rem"
+                        tabletL={{ max_width: '100%' }}
+                    >
                         <PublishDate
+                            mb="16px"
+                            size="var(--text-size-xs)"
                             dangerouslySetInnerHTML={{
-                                __html: article.publish_date,
+                                __html: date ? date[2] + ' ' + date[1] + ' ' + date[3] : '',
                             }}
                         />
                         <Header as="h1" type="page-title">
-                            {article.article_title}
+                            {data?.data.article_title}
                         </Header>
-                    </DetailContainer>
+                        <MinsToRead
+                            size="var(--text-size-xs)"
+                            mt="16px"
+                            dangerouslySetInnerHTML={{
+                                __html: data?.data.minutes_to_read + ' min read',
+                            }}
+                        />
+                        <Show.Mobile>
+                            <SideBarContainer>
+                                <ArticleTagContainer
+                                    max-width="328px"
+                                    width=" 100%"
+                                    tabletL={{ mt: '24px', mb: '40px' }}
+                                >
+                                    {data?.data.article_tags.map((tag) => {
+                                        return <Tag key={tag}>{tag}</Tag>
+                                    })}
+                                </ArticleTagContainer>
+                            </SideBarContainer>
+                        </Show.Mobile>
 
-                    <HeroImageContainer
-                        dangerouslySetInnerHTML={{
-                            __html: article.main_image,
-                        }}
-                    />
+                        <Show.Desktop>
+                            {data?.data.author && (
+                                <WriterContainer mt="4rem">
+                                    <WriterImage>
+                                        <img
+                                            src={
+                                                'https://amammustofa.com/assets/' +
+                                                data?.data.authors_image +
+                                                '.png'
+                                            }
+                                        />
+                                    </WriterImage>
+                                    <Box>
+                                        <WrittenbyText>{localize('Written by')}</WrittenbyText>
+                                        <AuthorText
+                                            dangerouslySetInnerHTML={{
+                                                __html: data?.data.author,
+                                            }}
+                                        />
+                                    </Box>
+                                </WriterContainer>
+                            )}
+                        </Show.Desktop>
+                    </Box>
+
+                    <HeroImageContainer tabletL={{ mt: '24px' }}>
+                        <img
+                            src={'https://amammustofa.com/assets/' + data?.data.main_image + '.png'}
+                        />
+                    </HeroImageContainer>
                 </HeroContainer>
-                <BodyContainer>
-                    <SideBarContainer>
-                        <ArticleTagContainer>
-                            {article.article_tags.map((tag) => {
-                                return <Tag key={tag}>{tag}</Tag>
-                            })}
-                        </ArticleTagContainer>
-                    </SideBarContainer>
 
-                    <PreviewContainer
-                        ai="flex-start"
-                        fd="column"
-                        dangerouslySetInnerHTML={{
-                            __html: article.article_body,
-                        }}
-                    ></PreviewContainer>
+                <BodyContainer
+                    p="0 12rem"
+                    tabletL={{ p: '0 16px' }}
+                    laptop={{ padding: '7.8rem 2.4rem 14.6rem 2rem' }}
+                >
+                    <Show.Mobile>
+                        {data?.data.author && (
+                            <WriterContainer tabletL={{ mt: '24px', mb: '40px' }}>
+                                <WriterImage>
+                                    <img
+                                        src={
+                                            'https://amammustofa.com/assets/' +
+                                            data?.data.authors_image +
+                                            '.png'
+                                        }
+                                    />
+                                </WriterImage>
+                                <Box>
+                                    <WrittenbyText>{localize('Written by')}</WrittenbyText>
+                                    <AuthorText
+                                        dangerouslySetInnerHTML={{
+                                            __html: data?.data.author,
+                                        }}
+                                    />
+                                </Box>
+                            </WriterContainer>
+                        )}
+                    </Show.Mobile>
+                    <Show.Desktop>
+                        <SideBarContainer>
+                            <ArticleTagContainer max-width="25.5rem" width=" 100%" mr="13.8rem">
+                                {data?.data.article_tags.map((tag) => {
+                                    return <Tag key={tag}>{tag}</Tag>
+                                })}
+                            </ArticleTagContainer>
+                        </SideBarContainer>
+                    </Show.Desktop>
+                    <Flex fd="column" margin="0 auto" ai="center">
+                        <PreviewContainer
+                            dangerouslySetInnerHTML={{
+                                __html: data?.data.article_body
+                                    .replace(/<p><img /g, '<img ')
+                                    .replace(/\/><\/p>/g, '/>'),
+                            }}
+                        />
+                        <FooterContainer>
+                            <img
+                                src={
+                                    'https://amammustofa.com/assets/' +
+                                    data?.data.footer_banner_bg_image +
+                                    '.png'
+                                }
+                            />
+                        </FooterContainer>
+                    </Flex>
                 </BodyContainer>
             </SectionContainer>
         </Layout>

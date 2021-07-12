@@ -36,7 +36,7 @@ const content = [
     {
         header: <Localize translate_text="Financial" />,
         text: (
-            <Localize translate_text="Trade major (standard and micro-lots) and minor currency pairs, commodities, cryptocurrencies, and stocks & indices with high leverage." />
+            <Localize translate_text="Trade major (standard and micro-lots) and minor currency pairs, commodities, cryptocurrencies, stocks, and stock indices with high leverage." />
         ),
         icon: <StyledFinancialIcon src={FinancialIcon} alt="financial icon" />,
     },

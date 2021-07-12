@@ -146,7 +146,7 @@ const Markets = () => (
     <Layout>
         <SEO
             description={localize(
-                'Learn about the markets that you can trade online with Deriv, including forex, commodities, synthetic indices, and stocks & indices.',
+                'Learn about the markets that you can trade online with Deriv, including forex, commodities, synthetic indices, stocks, and stock indices.',
             )}
             title={localize('Markets | Markets to trade | Deriv')}
         />

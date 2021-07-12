@@ -38,7 +38,7 @@ const content = [
     {
         header: <Localize translate_text="Financial" />,
         text: (
-            <Localize translate_text=" Trade major (standard and micro-lots) and minor currency pairs, stocks, stock indices, commodities, and cryptocurrencies." />
+            <Localize translate_text="Trade major (standard and micro-lots) and minor currency pairs, stocks, stock indices, commodities, and cryptocurrencies." />
         ),
         icon: <StyledFinancialIcon src={FinancialIcon} alt="financial icon" />,
         show_eu: true
@@ -46,7 +46,7 @@ const content = [
     {
         header: <Localize translate_text="Financial" />,
         text: (
-            <Localize translate_text=" Trade major (standard and micro-lots) and minor currency pairs, stocks, stock indices, commodities, and cryptocurrencies with high leverage." />
+            <Localize translate_text="Trade major (standard and micro-lots) and minor currency pairs, stocks, stock indices, commodities, and cryptocurrencies with high leverage." />
         ),
         icon: <StyledFinancialIcon src={FinancialIcon} alt="financial icon" />,
         show_eu: false

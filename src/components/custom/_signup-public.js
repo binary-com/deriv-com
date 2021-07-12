@@ -262,10 +262,6 @@ const MobileSignInText = styled(SignInText)`
         margin: 0 auto 0.8rem 0.8rem;
     }
 `
-const redirectToDerivApp = (e) => {
-    e.preventDefault()
-    window.open(deriv_app_url, '_blank')
-}
 const LinkFlex = styled(LinkText)`
     display: flex;
     align-items: center;
@@ -286,7 +282,7 @@ const MobileBackground = styled.div`
     border-top-left-radius: 10px;
     border-bottom-right-radius: 10px;
 `
-const DerivExperience = styled.div`
+const DerivExperience = styled(LinkText)`
     display: flex;
     align-items: center;
     position: absolute;
@@ -295,6 +291,10 @@ const DerivExperience = styled.div`
     z-index: 99;
     right: 20px;
     max-width: 310px;
+
+    &:hover {
+        text-decoration: none;
+    }
 
     @media ${device.mobileL} {
         width: unset;
@@ -459,7 +459,7 @@ const SignupPublic = ({
                                 external="true"
                                 href={deriv_app_url}
                                 target="_blank"
-                                rel="noopener noreferrer"
+                                rel="noopener noreferrer nofollow"
                             >
                                 <StyledHeader
                                     size="4rem"
@@ -489,7 +489,12 @@ const SignupPublic = ({
                                     width="100%"
                                 />
                             </MobilePlatform>
-                            <DerivExperience onClick={redirectToDerivApp}>
+                            <DerivExperience
+                                external="true"
+                                href={deriv_app_url}
+                                target="_blank"
+                                rel="noopener noreferrer nofollow"
+                            >
                                 <Header size="4rem">
                                     {localize('Get a taste of the Deriv experience')}
                                 </Header>

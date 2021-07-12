@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components'
 import { Button } from 'components/form/'
 import { Text } from 'components/elements'
 import { localize } from 'components/localization'
-import { getCryptoDecimals } from 'common/utility'
+// import { getCryptoDecimals } from 'common/utility'
 // SVG
 import Chevron from 'images/svg/chevron-thick.svg'
 import PDF from 'images/svg/pdf-icon-black.svg'
@@ -103,14 +103,14 @@ const Withdrawal = styled(Td)`
     }
 `
 
-const ExpandList = ({ data, config, is_crypto, is_fiat_onramp, locale }) => {
+const ExpandList = ({ data, /*config,*/ is_crypto, is_fiat_onramp, locale }) => {
     const [is_expanded, setIsExpanded] = React.useState(false)
     const toggleExpand = () => {
         setIsExpanded(!is_expanded)
     }
-    const getCryptoConfig = (name) => {
-        return config == undefined ? null : getCryptoDecimals(config[name].minimum_withdrawal)
-    }
+    // const getCryptoConfig = (name) => {
+    //     return config == undefined ? null : getCryptoDecimals(config[name].minimum_withdrawal)
+    // }
     return (
         <>
             <Tr is_expanded={is_expanded}>
@@ -133,7 +133,8 @@ const ExpandList = ({ data, config, is_crypto, is_fiat_onramp, locale }) => {
                                     <Text key={idx}>{md}</Text>
                                 ))
                             ) : is_crypto ? (
-                                <Text>{getCryptoConfig(data.name)}</Text>
+                                // <Text>{getCryptoConfig(data.name)}</Text>
+                                <Text>{data.min_max_withdrawal}</Text>
                             ) : (
                                 <Text>{data.min_max_withdrawal}</Text>
                             )}
@@ -188,7 +189,7 @@ const ExpandList = ({ data, config, is_crypto, is_fiat_onramp, locale }) => {
 }
 
 ExpandList.propTypes = {
-    config: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
+    // config: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
     data: PropTypes.object,
     is_crypto: PropTypes.bool,
     is_fiat_onramp: PropTypes.bool,

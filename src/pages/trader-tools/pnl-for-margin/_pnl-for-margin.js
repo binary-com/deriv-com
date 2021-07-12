@@ -8,11 +8,12 @@ import {
     numberSubmitFormat,
     numberWithCommas,
     resetValidationPnlMargin,
+    getMaxLength
 } from '../common/_utility'
 import {
     financialItemLists,
     optionItemDefault,
-    syntheticItemLists,
+    syntheticItemLists
 } from '../common/_underlying-data'
 import {
     BreadCrumbContainer,
@@ -41,7 +42,7 @@ import {
     StyledLinkButton,
     StyledOl,
     StyledSection,
-    SwapTabSelector,
+    SwapTabSelector
 } from '../common/_style'
 import { localize, Localize } from 'components/localization'
 import {
@@ -50,7 +51,7 @@ import {
     Header,
     LocalizedLinkText,
     QueryImage,
-    Text,
+    Text
 } from 'components/elements'
 import { Flex, Show } from 'components/containers'
 import Input from 'components/form/input'
@@ -119,7 +120,7 @@ const PnlMarginCalculator = () => {
         form?.setFieldValue('accountType', sub_tab === 'Synthetic' ? 'Synthetic' : 'Financial')
         form?.setFieldValue(
             'optionList',
-            sub_tab === 'Synthetic' ? syntheticItemLists : financialItemLists,
+            sub_tab === 'Synthetic' ? syntheticItemLists : financialItemLists
         )
     }
     const onSubTabClick = (tab) => setSubTab(tab)
@@ -130,11 +131,11 @@ const PnlMarginCalculator = () => {
         if (form?.values.pointValue) {
             form.setFieldValue(
                 'stopLossPips',
-                getPnlMarginCommon(formik_ref.current.values, 'getStopLossPip'),
+                getPnlMarginCommon(formik_ref.current.values, 'getStopLossPip')
             )
             form.setFieldValue(
                 'takeProfitPips',
-                getPnlMarginCommon(formik_ref.current.values, 'getTakeProfitPip'),
+                getPnlMarginCommon(formik_ref.current.values, 'getTakeProfitPip')
             )
             // The 2 calls below is to reset the output state in order
             // prevent the pip output from displaying NAN
@@ -163,7 +164,7 @@ const PnlMarginCalculator = () => {
             <StyledSection direction="column">
                 <SectionSubtitle as="h3" type="sub-section-title" align="center" weight="normal">
                     {localize(
-                        'Our profit and loss calculator for margin helps you to approximate your losses and/or gains.',
+                        'Our profit and loss calculator for margin helps you to approximate your losses and/or gains.'
                     )}
                 </SectionSubtitle>
 
@@ -199,40 +200,40 @@ const PnlMarginCalculator = () => {
                                 optionList: syntheticItemLists,
                                 contractSize: '',
                                 assetPrice: '',
-                                stopLossAmount: '',
+                                stopLossAmount: ''
                             }}
                             validate={resetValidationPnlMargin}
                             onSubmit={(values, { setFieldValue }) => {
                                 setFieldValue(
                                     'stopLossPips',
-                                    getPnlMarginCommon(values, 'getStopLossPip'),
+                                    getPnlMarginCommon(values, 'getStopLossPip')
                                 )
                                 setFieldValue(
                                     'stopLossLevel',
-                                    getPnlMarginCommon(values, 'getStopLossLevel'),
+                                    getPnlMarginCommon(values, 'getStopLossLevel')
                                 )
                                 setStopLossOutput(getPnlMarginCommon(values, 'getStopLossLevel'))
                                 setFieldValue(
                                     'takeProfitPips',
-                                    getPnlMarginCommon(values, 'getTakeProfitPip'),
+                                    getPnlMarginCommon(values, 'getTakeProfitPip')
                                 )
                                 setFieldValue(
                                     'takeProfitLevel',
-                                    getPnlMarginCommon(values, 'getTakeProfitLevel'),
+                                    getPnlMarginCommon(values, 'getTakeProfitLevel')
                                 )
                                 setTakeProfitOutput(
-                                    getPnlMarginCommon(values, 'getTakeProfitLevel'),
+                                    getPnlMarginCommon(values, 'getTakeProfitLevel')
                                 )
                                 setFieldValue('pointValue', numberSubmitFormat(values.pointValue))
                                 setFieldValue('volume', numberSubmitFormat(values.volume))
                                 setFieldValue('assetPrice', numberSubmitFormat(values.assetPrice))
                                 setFieldValue(
                                     'stopLossAmount',
-                                    numberSubmitFormat(values.stopLossAmount),
+                                    numberSubmitFormat(values.stopLossAmount)
                                 )
                                 setFieldValue(
                                     'takeProfitAmount',
-                                    numberSubmitFormat(values.takeProfitAmount),
+                                    numberSubmitFormat(values.takeProfitAmount)
                                 )
                             }}
                         >
@@ -247,7 +248,7 @@ const PnlMarginCalculator = () => {
                                 isValid,
                                 dirty,
                                 setErrors,
-                                resetForm,
+                                resetForm
                             }) => (
                                 <>
                                     <Show.Desktop max_width="mobileL">
@@ -351,11 +352,11 @@ const PnlMarginCalculator = () => {
                                                             resetForm()
                                                             setFieldValue(
                                                                 'accountType',
-                                                                'Financial',
+                                                                'Financial'
                                                             )
                                                             setFieldValue(
                                                                 'optionList',
-                                                                financialItemLists,
+                                                                financialItemLists
                                                             )
                                                         }}
                                                     >
@@ -375,12 +376,12 @@ const PnlMarginCalculator = () => {
                                                             onChange={(value) => {
                                                                 setFieldValue(
                                                                     'pnlMarginSymbol',
-                                                                    getCurrency(value),
+                                                                    getCurrency(value)
                                                                 )
 
                                                                 setFieldValue(
                                                                     'contractSize',
-                                                                    getContractSize(value),
+                                                                    getContractSize(value)
                                                                 )
                                                                 setFieldValue('symbol', value)
                                                             }}
@@ -395,10 +396,7 @@ const PnlMarginCalculator = () => {
                                                                 name="pointValue"
                                                                 value={values.pointValue}
                                                                 onChange={(value) => {
-                                                                    setFieldValue(
-                                                                        'pointValue',
-                                                                        value,
-                                                                    )
+                                                                    setFieldValue('pointValue', value)
                                                                 }}
                                                             >
                                                                 {({ field }) => (
@@ -406,9 +404,7 @@ const PnlMarginCalculator = () => {
                                                                         {...field}
                                                                         id="pointValue"
                                                                         type="text"
-                                                                        label={localize(
-                                                                            'Point value',
-                                                                        )}
+                                                                        label={localize('Point value')}
                                                                         autoComplete="off"
                                                                         error={
                                                                             touched.pointValue &&
@@ -416,26 +412,24 @@ const PnlMarginCalculator = () => {
                                                                         }
                                                                         onBlur={handleBlur}
                                                                         data-lpignore="true"
-                                                                        handleError={(
-                                                                            current_input,
-                                                                        ) => {
+                                                                        handleError={(current_input) => {
                                                                             setFieldValue(
                                                                                 'pointValue',
                                                                                 '',
-                                                                                false,
+                                                                                false
                                                                             )
                                                                             setFieldError(
                                                                                 'pointValue',
-                                                                                '',
+                                                                                ''
                                                                             )
                                                                             setFieldTouched(
                                                                                 'pointValue',
                                                                                 false,
-                                                                                false,
+                                                                                false
                                                                             )
                                                                             current_input.focus()
                                                                         }}
-                                                                        maxLength="8"
+                                                                        maxLength={getMaxLength(values.pointValue, 8)}
                                                                         background="white"
                                                                     />
                                                                 )}
@@ -473,20 +467,20 @@ const PnlMarginCalculator = () => {
                                                                             setFieldValue(
                                                                                 'volume',
                                                                                 '',
-                                                                                false,
+                                                                                false
                                                                             )
                                                                             setFieldError(
                                                                                 'volume',
-                                                                                '',
+                                                                                ''
                                                                             )
                                                                             setFieldTouched(
                                                                                 'volume',
                                                                                 false,
-                                                                                false,
+                                                                                false
                                                                             )
                                                                             current_input.focus()
                                                                         }}
-                                                                        maxLength="8"
+                                                                        maxLength={getMaxLength(values.volume, 8)}
                                                                         background="white"
                                                                     />
                                                                 )}
@@ -501,7 +495,7 @@ const PnlMarginCalculator = () => {
                                                                 onChange={(value) => {
                                                                     setFieldValue(
                                                                         'takeProfitAmount',
-                                                                        value,
+                                                                        value
                                                                     )
                                                                 }}
                                                             >
@@ -511,7 +505,7 @@ const PnlMarginCalculator = () => {
                                                                         id="takeProfitAmount"
                                                                         type="text"
                                                                         label={localize(
-                                                                            'Take profit amount',
+                                                                            'Take profit amount'
                                                                         )}
                                                                         autoComplete="off"
                                                                         error={
@@ -526,20 +520,20 @@ const PnlMarginCalculator = () => {
                                                                             setFieldValue(
                                                                                 'takeProfitAmount',
                                                                                 '',
-                                                                                false,
+                                                                                false
                                                                             )
                                                                             setFieldError(
                                                                                 'takeProfitAmount',
-                                                                                '',
+                                                                                ''
                                                                             )
                                                                             setFieldTouched(
                                                                                 'takeProfitAmount',
                                                                                 false,
-                                                                                false,
+                                                                                false
                                                                             )
                                                                             current_input.focus()
                                                                         }}
-                                                                        maxLength="15"
+                                                                        maxLength={getMaxLength(values.takeProfitAmount, 15)}
                                                                         background="white"
                                                                     />
                                                                 )}
@@ -557,7 +551,7 @@ const PnlMarginCalculator = () => {
                                                                 onChange={(value) => {
                                                                     setFieldValue(
                                                                         'assetPrice',
-                                                                        value,
+                                                                        value
                                                                     )
                                                                 }}
                                                             >
@@ -568,7 +562,7 @@ const PnlMarginCalculator = () => {
                                                                         type="text"
                                                                         value={values.assetPrice}
                                                                         label={localize(
-                                                                            'Open price of asset',
+                                                                            'Open price of asset'
                                                                         )}
                                                                         autoComplete="off"
                                                                         error={
@@ -583,20 +577,20 @@ const PnlMarginCalculator = () => {
                                                                             setFieldValue(
                                                                                 'assetPrice',
                                                                                 '',
-                                                                                false,
+                                                                                false
                                                                             )
                                                                             setFieldError(
                                                                                 'assetPrice',
-                                                                                '',
+                                                                                ''
                                                                             )
                                                                             setFieldTouched(
                                                                                 'assetPrice',
                                                                                 false,
-                                                                                false,
+                                                                                false
                                                                             )
                                                                             current_input.focus()
                                                                         }}
-                                                                        maxLength="15"
+                                                                        maxLength={getMaxLength(values.assetPrice, 15)}
                                                                         background="white"
                                                                     />
                                                                 )}
@@ -611,7 +605,7 @@ const PnlMarginCalculator = () => {
                                                                 onChange={(value) => {
                                                                     setFieldValue(
                                                                         'stopLossAmount',
-                                                                        value,
+                                                                        value
                                                                     )
                                                                 }}
                                                             >
@@ -624,7 +618,7 @@ const PnlMarginCalculator = () => {
                                                                             values.stopLossAmount
                                                                         }
                                                                         label={localize(
-                                                                            'Stop loss amount',
+                                                                            'Stop loss amount'
                                                                         )}
                                                                         autoComplete="off"
                                                                         error={
@@ -639,20 +633,20 @@ const PnlMarginCalculator = () => {
                                                                             setFieldValue(
                                                                                 'stopLossAmount',
                                                                                 '',
-                                                                                false,
+                                                                                false
                                                                             )
                                                                             setFieldError(
                                                                                 'stopLossAmount',
-                                                                                '',
+                                                                                ''
                                                                             )
                                                                             setFieldTouched(
                                                                                 'stopLossAmount',
                                                                                 false,
-                                                                                false,
+                                                                                false
                                                                             )
                                                                             current_input.focus()
                                                                         }}
-                                                                        maxLength="15"
+                                                                        maxLength={getMaxLength(values.stopLossAmount, 15)}
                                                                         background="white"
                                                                     />
                                                                 )}
@@ -777,11 +771,11 @@ const PnlMarginCalculator = () => {
                                                             resetForm()
                                                             setFieldValue(
                                                                 'accountType',
-                                                                'Financial',
+                                                                'Financial'
                                                             )
                                                             setFieldValue(
                                                                 'optionList',
-                                                                financialItemLists,
+                                                                financialItemLists
                                                             )
                                                         }}
                                                     >
@@ -799,12 +793,12 @@ const PnlMarginCalculator = () => {
                                                     onChange={(value) => {
                                                         setFieldValue(
                                                             'pnlMarginSymbol',
-                                                            getCurrency(value),
+                                                            getCurrency(value)
                                                         )
 
                                                         setFieldValue(
                                                             'contractSize',
-                                                            getContractSize(value),
+                                                            getContractSize(value)
                                                         )
                                                         setFieldValue('symbol', value)
                                                     }}
@@ -836,17 +830,17 @@ const PnlMarginCalculator = () => {
                                                                     setFieldValue(
                                                                         'volume',
                                                                         '',
-                                                                        false,
+                                                                        false
                                                                     )
                                                                     setFieldError('volume', '')
                                                                     setFieldTouched(
                                                                         'volume',
                                                                         false,
-                                                                        false,
+                                                                        false
                                                                     )
                                                                     current_input.focus()
                                                                 }}
-                                                                maxLength="8"
+                                                                maxLength={getMaxLength(values.volume, 8)}
                                                                 background="white"
                                                             />
                                                         )}
@@ -867,7 +861,7 @@ const PnlMarginCalculator = () => {
                                                                 type="text"
                                                                 value={values.assetPrice}
                                                                 label={localize(
-                                                                    'Open price of asset',
+                                                                    'Open price of asset'
                                                                 )}
                                                                 autoComplete="off"
                                                                 error={
@@ -880,17 +874,17 @@ const PnlMarginCalculator = () => {
                                                                     setFieldValue(
                                                                         'assetPrice',
                                                                         '',
-                                                                        false,
+                                                                        false
                                                                     )
                                                                     setFieldError('assetPrice', '')
                                                                     setFieldTouched(
                                                                         'assetPrice',
                                                                         false,
-                                                                        false,
+                                                                        false
                                                                     )
                                                                     current_input.focus()
                                                                 }}
-                                                                maxLength="15"
+                                                                maxLength={getMaxLength(values.assetPrice, 15)}
                                                                 background="white"
                                                             />
                                                         )}
@@ -931,7 +925,7 @@ const PnlMarginCalculator = () => {
                                                                     )
                                                                     current_input.focus()
                                                                 }}
-                                                                maxLength="8"
+                                                                maxLength={getMaxLength(values.pointValue, 8)}
                                                                 background="white"
                                                             />
                                                         )}
@@ -977,7 +971,7 @@ const PnlMarginCalculator = () => {
                                                                     )
                                                                     current_input.focus()
                                                                 }}
-                                                                maxLength="15"
+                                                                maxLength={getMaxLength(values.takeProfitAmount, 15)}
                                                                 background="white"
                                                             />
                                                         )}
@@ -1009,20 +1003,20 @@ const PnlMarginCalculator = () => {
                                                                     setFieldValue(
                                                                         'stopLossAmount',
                                                                         '',
-                                                                        false,
+                                                                        false
                                                                     )
                                                                     setFieldError(
                                                                         'stopLossAmount',
-                                                                        '',
+                                                                        ''
                                                                     )
                                                                     setFieldTouched(
                                                                         'stopLossAmount',
                                                                         false,
-                                                                        false,
+                                                                        false
                                                                     )
                                                                     current_input.focus()
                                                                 }}
-                                                                maxLength="15"
+                                                                maxLength={getMaxLength(values.stopLossAmount, 15)}
                                                                 background="white"
                                                             />
                                                         )}

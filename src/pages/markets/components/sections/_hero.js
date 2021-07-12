@@ -53,7 +53,7 @@ const Video = styled.video`
     height: 100%;
 
     @media ${device.tabletL} {
-        transform: translate(-50%, -50%) scale(1.5);
+        transform: translate(-40%, -50%) scale(1.5);
     }
 `
 

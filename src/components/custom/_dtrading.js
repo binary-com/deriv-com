@@ -15,10 +15,7 @@ const StyledSection = styled(SectionContainer)`
         border-bottom: unset;
     }
 `
-const StyledContainer = styled(Container)`
-    display: flex;
-    flex-direction: column;
-`
+
 const Content = styled.div`
     width: 100%;
     max-width: 58.8rem;
@@ -128,7 +125,7 @@ const DTrading = ({ trading, reverse, two_title }) => {
     const data = useStaticQuery(query)
     return (
         <StyledSection>
-            <StyledContainer>
+            <Container direction='column'>
                 {trading.map((item, index) => {
                     let is_even = reverse ? (index + 1) % 2 : index % 2
                     return (
@@ -155,7 +152,7 @@ const DTrading = ({ trading, reverse, two_title }) => {
                         </Row>
                     )
                 })}
-            </StyledContainer>
+            </Container>
         </StyledSection>
     )
 }

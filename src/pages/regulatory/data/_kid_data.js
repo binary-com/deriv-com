@@ -11,7 +11,7 @@ const kid_data = [
         ref: 'kid_deriv_forex.pdf',
     },
     {
-        title: <Localize translate_text="Cryptocurrency" />,
+        title: <Localize translate_text="Cryptocurrencies" />,
         ref: 'kid_deriv_crypto.pdf',
     },
     {

@@ -1,7 +1,7 @@
 import React from 'react'
 import NProgress from 'nprogress'
 import { datadogRum } from '@datadog/browser-rum'
-import { Pushwoosh } from 'web-push-notifications'
+import { Pushwoosh } from '@deriv/web-push-notifications'
 import { WrapPagesWithLocaleContext } from './src/components/localization'
 import { isProduction, isLive, isLocalHost } from './src/common/websocket/config'
 import { LocalStore } from './src/common/storage'
@@ -201,6 +201,7 @@ export const onRouteUpdate = () => {
                 visitorId: client_information.loginid,
                 currency: client_information.currency,
                 email: client_information.email,
+                userId: client_information.user_id,
             }),
         })
     }, 50)

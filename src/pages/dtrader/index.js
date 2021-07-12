@@ -19,6 +19,13 @@ const DTrading = Loadable(() => import('components/custom/_dtrading.js'))
 const DBanner = Loadable(() => import('components/custom/_dbanner.js'))
 const DHowItWorks = Loadable(() => import('components/custom/_dhow-it-works.js'))
 
+const meta_attributes = {
+    og_title: localize('DTrader | Online Trading Platform | Deriv.com'),
+    og_description: localize(
+        'DTrader keeps online trading simple, allowing you to trade forex, indices, commodities and synthetic indices.',
+    ),
+}
+
 const query = graphql`
     query {
         deriv_platform: file(relativePath: { eq: "dtrader-banner.png" }) {
@@ -83,6 +90,7 @@ const Dtrader = () => {
                 description={localize(
                     'DTrader keeps online trading simple, allowing you to trade forex, indices, commodities and synthetic indices.',
                 )}
+                meta_attributes={meta_attributes}
             />
             <DHero
                 title={localize('DTrader')}

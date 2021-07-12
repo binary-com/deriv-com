@@ -710,7 +710,7 @@ export const american_stocks = [
 //     },
 // ]
 
-export const cryptocurrencies_margin = [
+export const cryptocurrencies_cfds = [
     {
         src: icons.BTC,
         text: <Localize translate_text="Bitcoin" />,
@@ -804,7 +804,6 @@ export const jump_indices = [
         src: icons.JUMP100,
         text: <Localize translate_text="Jump 100 Index" />,
     },
-
 ]
 
 export const energy = [

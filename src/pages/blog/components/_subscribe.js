@@ -1,9 +1,10 @@
+/* eslint-disable no-console */
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Cookies from 'js-cookie'
 import CIO from 'react-native-customerio'
-import { nanoid } from 'nanoid'
+// import { nanoid } from 'nanoid'
 import { Title, TextWrapper } from './_common'
 import paperPlane from 'images/common/blog/paperplanes.png'
 import { getCookiesObject, getCookiesFields, getDataObjFromCookies } from 'common/cookies'
@@ -220,6 +221,25 @@ const Subscribe = ({ onSubmit, ebook_utm_code }) => {
         }
     }
 
+    const customerioData = (formattedEmail) => {
+        const siteId = process.env.GATSBY_ENV_CIO_KEY
+        const apiKey = process.env.GATSBY_ENV_CIO_SITE_ID
+
+        const cio = new CIO(siteId, apiKey, { region: 'US' })
+
+        const verify_email_req = getVerifyEmailRequest(formattedEmail)
+        console.log(verify_email_req, 'verify_email_req')
+
+        try {
+            cio.identify('123', {
+                email: 'Abdul@er.com',
+                name: 'nameshuvo',
+            })
+        } catch (error) {
+            return error
+        }
+    }
+
     const handleEmailSignup = (e) => {
         e.preventDefault()
         setIsSubmitting(true)
@@ -232,18 +252,8 @@ const Subscribe = ({ onSubmit, ebook_utm_code }) => {
         if (has_error_email || has_error_name || email_error_msg || name_error_msg) {
             return setIsSubmitting(false)
         }
-        const siteId = process.env.GATSBY_ENV_CIO_KEY
-        const apiKey = process.env.GATSBY_ENV_CIO_SITE_ID
 
-        const cio = new CIO(siteId, apiKey, { region: 'US' })
-
-        const verify_email_req = getVerifyEmailRequest(formattedEmail)
-
-        cio.identify(nanoid(), {
-            email: verify_email_req,
-            name: name,
-        })
-
+        customerioData(formattedEmail)
         setIsSubmitting(false)
         setSubmitStatus('success')
         if (onSubmit) onSubmit(submit_status, email)

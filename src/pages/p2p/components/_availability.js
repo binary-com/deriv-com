@@ -82,15 +82,15 @@ const StyledText = styled(Text)`
 `
 const Line = styled.div`
     width: 1px;
-    height: 44rem;
+    height: 55rem;
     border: solid 1px var(--color-grey-21);
     margin: 0 4.5rem;
 
     @media ${device.laptop} {
-        height: 47rem;
+        height: 58rem;
     }
     @media ${device.tabletL} {
-        height: 52rem;
+        height: 63rem;
     }
     @media ${device.tablet} {
         height: 1px;

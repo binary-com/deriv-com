@@ -13,10 +13,12 @@ const Availability = Loadable(() => import('./components/_availability'))
 const DP2P_CONTENT = [
     {
         title: <Localize translate_text="Save time" />,
-        subtitle: <Localize translate_text="Exchange in minutes. Less waiting, more trading Deposit and withdraw in minutes." />,
+        subtitle: (
+            <Localize translate_text="Exchange in minutes. Less waiting, more trading. Deposit and withdraw in minutes." />
+        ),
         subtitle_mobile: (
             <Localize
-                translate_text="Exchange in minutes.<0 />Less waiting, more trading."
+                translate_text="Exchange in minutes.<0 />Less waiting, more trading.<0 />Deposit and withdraw in minutes."
                 components={[<br key={0} />]}
             />
         ),
@@ -28,7 +30,7 @@ const DP2P_CONTENT = [
         title: <Localize translate_text="Works with your local currency" />,
         subtitle: <Localize translate_text="Deal with fellow traders at pre-agreed rates." />,
         subtitle_mobile: (
-            <Localize translate_text="Exchange with fellow traders at pre-agreed rates." />
+            <Localize translate_text="Deal with fellow traders at pre-agreed rates." />
         ),
 
         image_name: 'local_currency',
@@ -66,10 +68,7 @@ const DP2PHome = () => {
             <Numbers />
             <ExchangeSteps />
             <Availability />
-            <P2PBanner
-                title={localize('Make hassle-free deposits and withdrawals today')}
-                image_name="DP2P"
-            />
+            <P2PBanner title={localize('Hassle-free deposits and withdrawals')} image_name="DP2P" />
         </Layout>
     )
 }

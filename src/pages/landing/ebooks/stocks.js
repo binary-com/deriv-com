@@ -43,9 +43,11 @@ const StocksEbook = () => {
                 ebook_utm_code="stock-ebook"
                 introSub=""
                 introMain={localize('Learn to trade Stock derivatives the smart way')}
-                authorDesc={localize(
-                    'This e-book has been brought to you by a veteran online trader and New York Times bestselling author, ',
-                )}
+                authorDesc={
+                    localize(
+                        'This e-book has been brought to you by a veteran online trader and New York Times bestselling author,',
+                    ) + ' '
+                }
                 authorName={localize('Vince Stanzione.')}
             />
             <Introduction

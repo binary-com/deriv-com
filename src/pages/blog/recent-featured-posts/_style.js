@@ -243,7 +243,7 @@ export const RedirectLink = styled(LocalizedLink)`
     z-index: 1;
 `
 export const ClockIcon = styled.img`
-    margin: 0 5px;
+    margin: 0 5px 2px 18px;
     color: var(--color-white);
 `
 

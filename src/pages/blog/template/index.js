@@ -6,18 +6,24 @@ import { SectionContainer, SEO, Show, Box, Flex } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import device from 'themes/device'
 
-const HeroContainer = styled.div`
-    display: flex;
-    width: 100%;
-    max-width: 144.4rem;
-    padding: 7.8rem 12.4rem 14.6rem 12rem;
-    height: 56.2rem;
+const HeroContainer = styled(Flex)`
+    max-width: 1444px;
+    padding: 78px 124px 146px 120px;
+    height: 562px;
     background-color: var(--color-grey-8);
     margin: auto;
-    margin-bottom: 8.6rem;
+    margin-bottom: 86px;
 
     @media (max-width: 1350px) {
-        height: 50rem;
+        height: 500px;
+    }
+    @media (max-width: 1300px) {
+        padding: 78px 70px 53px 70px;
+        margin-bottom: 30px;
+    }
+    @media (max-width: 1100px) {
+        padding: 78px 40px 0 40px;
+        margin-bottom: 10px;
     }
     @media ${device.tabletL} {
         flex-direction: column;
@@ -37,29 +43,20 @@ const HeroImageContainer = styled(Box)`
         height: auto;
     }
 `
-const WriterContainer = styled(Box)`
-    display: flex;
-    align-items: center;
-`
-const PublishDate = styled(Text)`
-    @media ${device.tabletL} {
-        font-size: 12px;
-    }
-`
-const MinsToRead = styled(Text)`
+const InfoText = styled(Text)`
     @media ${device.tabletL} {
         font-size: 12px;
     }
 `
 const WriterImage = styled.div`
-    width: 4.8rem;
-    height: 4.8rem;
-    border-radius: 5rem;
+    width: 48px;
+    height: 48px;
+    border-radius: 50px;
     margin-right: 8px;
 
     @media ${device.tabletL} {
-        width: 4rem;
-        height: 4rem;
+        width: 40px;
+        height: 40px;
 
         > img {
             max-width: 100%;
@@ -67,46 +64,41 @@ const WriterImage = styled.div`
         }
     }
 `
-const AuthorText = styled(Text)`
-    @media ${device.tabletL} {
-        font-size: 12px;
-    }
-`
 const WrittenbyText = styled(Text)`
-    color: var(--color-grey-5);
-    font-size: var(--text-size-xxs);
-
     @media ${device.tabletL} {
         font-size: 10px;
     }
 `
-const BodyContainer = styled(Box)`
-    display: flex;
+const BodyContainer = styled(Flex)`
+    max-width: 1444px;
+    padding: 0 120px;
 
+    @media (max-width: 1300px) {
+        padding: 78px 70px 53px 70px;
+    }
+    @media (max-width: 1100px) {
+        padding: 78px 40px 0 40px;
+    }
+    @media ${device.laptop} {
+        padding: 78px 24px 146px 20px;
+    }
     @media ${device.tabletL} {
         flex-direction: column;
+        padding: 0 16px;
     }
 `
-const SideBarContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    max-width: 28.2rem;
-    margin-right: 12.6rem;
-    width: 100%;
+const SideBarContainer = styled(Flex)`
+    max-width: 282px;
 `
-const ArticleTagContainer = styled(Box)`
-    display: flex;
-    flex-wrap: wrap;
-`
-const Tag = styled.div`
-    height: 2.2rem;
+const Tag = styled(Flex)`
+    height: 22px;
+    width: auto;
     color: var(--color-blue-10);
     font-weight: bold;
-    font-size: var(--text-size-xs);
-    border-radius: 0.8rem;
+    font-size: 14px;
+    border-radius: 8px;
     background-color: var(--color-blue-9);
-    padding: 1px 8px;
-    display: flex;
+    padding: 1px 8px 0;
     justify-content: center;
     align-items: center;
     margin-right: 16px;
@@ -127,15 +119,15 @@ const FooterContainer = styled.div`
     }
 `
 const PreviewContainer = styled(Box)`
-    font-size: var(--text-size-s);
-    max-width: 79.2rem;
+    font-size: 16px;
+    max-width: 792px;
     width: 100%;
 
     & p {
-        margin-top: 2.2rem;
+        margin-top: 22px;
         font-weight: 400;
         line-height: 24px;
-        font-size: 1.6rem;
+        font-size: 16px;
 
         :first-child {
             margin-top: 0;
@@ -148,16 +140,16 @@ const PreviewContainer = styled(Box)`
         margin: 32px 0;
     }
     & ul {
-        margin-top: 3.2rem;
+        margin-top: 32px;
         list-style-type: disc;
-        margin-block-start: 1em;
-        margin-block-end: 1em;
+        margin-block-start: 10px;
+        margin-block-end: 10px;
 
         > li {
             margin: 8px 0 0 18px;
             padding: 0;
             line-height: 24px;
-            font-size: var(--text-size-s);
+            font-size: 16px;
         }
     }
     li > strong {
@@ -165,11 +157,11 @@ const PreviewContainer = styled(Box)`
         margin: 16px 0 0 8px;
         padding: 0;
         line-height: 24px;
-        font-size: var(--text-size-s);
+        font-size: 16px;
         font-weight: bold;
     }
     & a {
-        font-size: var(--text-size-sm);
+        font-size: 20px;
         color: var(--color-red);
         text-decoration: none;
         cursor: pointer;
@@ -191,19 +183,19 @@ const PreviewContainer = styled(Box)`
         max-width: 100vw;
     }
     & h1 {
-        font-size: var(--text-size-xxl);
+        font-size: 64px;
         line-height: 80px;
         margin-top: 32px;
         font-weight: bold;
     }
     & h2 {
-        font-size: var(--text-size-xl);
+        font-size: 48px;
         line-height: 60px;
         margin-top: 32px;
         font-weight: bold;
     }
     & h3 {
-        font-size: var(--text-size-l);
+        font-size: 32px;
         line-height: 40px;
         margin-top: 40px;
         font-weight: bold;
@@ -213,19 +205,19 @@ const PreviewContainer = styled(Box)`
         }
     }
     & h4 {
-        font-size: var(--text-size-m);
+        font-size: 24px;
         line-height: 36px;
         margin-top: 40px;
         font-weight: bold;
     }
     & h5 {
-        font-size: var(--text-size-sm);
+        font-size: 20px;
         line-height: 30px;
         margin-top: 40px;
         font-weight: bold;
     }
     & h6 {
-        font-size: var(--text-size-s);
+        font-size: 16px;
         line-height: 24px;
         margin-top: 40px;
         font-weight: bold;
@@ -284,15 +276,10 @@ const PreviewPage = () => {
 
             <SectionContainer position="relative">
                 <HeroContainer>
-                    <Box
-                        max_width="38.4rem"
-                        width="100%"
-                        mr="2.4rem"
-                        tabletL={{ max_width: '100%' }}
-                    >
-                        <PublishDate
+                    <Box max_width="384px" width="100%" mr="24px" tabletL={{ max_width: '100%' }}>
+                        <InfoText
                             mb="16px"
-                            size="var(--text-size-xs)"
+                            size="14px"
                             dangerouslySetInnerHTML={{
                                 __html: date ? date[2] + ' ' + date[1] + ' ' + date[3] : '',
                             }}
@@ -300,16 +287,18 @@ const PreviewPage = () => {
                         <Header as="h1" type="page-title">
                             {data?.data.article_title}
                         </Header>
-                        <MinsToRead
-                            size="var(--text-size-xs)"
+                        <InfoText
+                            size="14px"
                             mt="16px"
                             dangerouslySetInnerHTML={{
                                 __html: data?.data.minutes_to_read + ' min read',
                             }}
                         />
                         <Show.Mobile>
-                            <SideBarContainer>
-                                <ArticleTagContainer
+                            <SideBarContainer fd="column" mr="126px" height="auto">
+                                <Flex
+                                    fw="wrap"
+                                    jc="flex-start"
                                     max-width="328px"
                                     width=" 100%"
                                     tabletL={{ mt: '24px', mb: '40px' }}
@@ -317,13 +306,13 @@ const PreviewPage = () => {
                                     {data?.data.article_tags.map((tag) => {
                                         return <Tag key={tag}>{tag}</Tag>
                                     })}
-                                </ArticleTagContainer>
+                                </Flex>
                             </SideBarContainer>
                         </Show.Mobile>
 
                         <Show.Desktop>
                             {data?.data.author && (
-                                <WriterContainer mt="4rem">
+                                <Flex ai="center" mt="40px" jc="flex-start">
                                     <WriterImage>
                                         <img
                                             src={
@@ -334,14 +323,16 @@ const PreviewPage = () => {
                                         />
                                     </WriterImage>
                                     <Box>
-                                        <WrittenbyText>{localize('Written by')}</WrittenbyText>
-                                        <AuthorText
+                                        <WrittenbyText color="grey-5" size="12px">
+                                            {localize('Written by')}
+                                        </WrittenbyText>
+                                        <InfoText
                                             dangerouslySetInnerHTML={{
                                                 __html: data?.data.author,
                                             }}
                                         />
                                     </Box>
-                                </WriterContainer>
+                                </Flex>
                             )}
                         </Show.Desktop>
                     </Box>
@@ -353,14 +344,10 @@ const PreviewPage = () => {
                     </HeroImageContainer>
                 </HeroContainer>
 
-                <BodyContainer
-                    p="0 12rem"
-                    tabletL={{ p: '0 16px' }}
-                    laptop={{ padding: '7.8rem 2.4rem 14.6rem 2rem' }}
-                >
+                <BodyContainer width="100%" m="0 auto" jc="center">
                     <Show.Mobile>
                         {data?.data.author && (
-                            <WriterContainer tabletL={{ mt: '24px', mb: '40px' }}>
+                            <Flex ai="center" jc="flex-start" tabletL={{ mt: '24px', mb: '40px' }}>
                                 <WriterImage>
                                     <img
                                         src={
@@ -371,25 +358,34 @@ const PreviewPage = () => {
                                     />
                                 </WriterImage>
                                 <Box>
-                                    <WrittenbyText>{localize('Written by')}</WrittenbyText>
-                                    <AuthorText
+                                    <WrittenbyText color="grey-5" size="12px">
+                                        {localize('Written by')}
+                                    </WrittenbyText>
+                                    <InfoText
                                         dangerouslySetInnerHTML={{
                                             __html: data?.data.author,
                                         }}
                                     />
                                 </Box>
-                            </WriterContainer>
+                            </Flex>
                         )}
                     </Show.Mobile>
                     <Show.Desktop>
-                        <SideBarContainer>
-                            <ArticleTagContainer max-width="25.5rem" width=" 100%" mr="13.8rem">
+                        <SideBarContainer fd="column" mr="126px" height="auto">
+                            <Flex
+                                jc="flex-start"
+                                fw="wrap"
+                                max-width="255px"
+                                width=" 100%"
+                                mr="138px"
+                            >
                                 {data?.data.article_tags.map((tag) => {
                                     return <Tag key={tag}>{tag}</Tag>
                                 })}
-                            </ArticleTagContainer>
+                            </Flex>
                         </SideBarContainer>
                     </Show.Desktop>
+
                     <Flex fd="column" margin="0 auto" ai="center">
                         <PreviewContainer
                             dangerouslySetInnerHTML={{

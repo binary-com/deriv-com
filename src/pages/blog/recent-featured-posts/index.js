@@ -96,7 +96,7 @@ const RecentFeaturedPosts = () => {
                                         </Description>
                                         <BottomDescription>
                                             {recent.date} <ClockIcon src={Clock} />
-                                            {recent.reading_time} mins read
+                                            {recent.reading_time} min read
                                         </BottomDescription>
                                     </MainArticle>
                                 </RedirectLink>
@@ -131,7 +131,7 @@ const RecentFeaturedPosts = () => {
                                                         </Header>
                                                         <SmallArticleDateTimeDesktop>
                                                             {article.date} <DotIcon src={Dot} />
-                                                            {article.reading_time} mins read
+                                                            {article.reading_time} min read
                                                         </SmallArticleDateTimeDesktop>
                                                     </SmallArticleRightContent>
                                                 </SmallArticle>
@@ -169,7 +169,7 @@ const RecentFeaturedPosts = () => {
                                         </Description>
                                         <BottomDescription>
                                             {featured.date} <ClockIcon src={Clock} />
-                                            {featured.reading_time} mins read
+                                            {featured.reading_time} min read
                                         </BottomDescription>
                                     </MainArticle>
                                 </RedirectLink>
@@ -204,7 +204,7 @@ const RecentFeaturedPosts = () => {
                                                         </Header>
                                                         <SmallArticleDateTimeDesktop>
                                                             {article.date} <DotIcon src={Dot} />
-                                                            {article.reading_time} mins read
+                                                            {article.reading_time} min read
                                                         </SmallArticleDateTimeDesktop>
                                                     </SmallArticleRightContent>
                                                 </SmallArticle>

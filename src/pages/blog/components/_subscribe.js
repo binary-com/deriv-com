@@ -34,6 +34,15 @@ const SignupFormWrapper = styled(Flex)`
         right: 50px;
         bottom: 0;
     }
+
+    @media screen and (max-width: 1330px) and (min-width: 991px) {
+        .paperplane-img {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            width: 240px;
+        }
+    }
     @media ${device.tabletL} {
         padding: 200px 20px 40px;
 
@@ -71,6 +80,14 @@ const InputWrapper = styled.div`
         border-top-right-radius: 0;
         border-bottom-right-radius: 0;
         margin-left: 10px;
+    }
+    @media screen and (max-width: 1330px) and (min-width: 991px) {
+        input#name {
+            width: 100%;
+        }
+        input#email {
+            width: 200px;
+        }
     }
     @media ${device.tabletL} {
         margin-right: 10px;

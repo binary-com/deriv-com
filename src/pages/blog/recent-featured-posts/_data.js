@@ -1,7 +1,7 @@
 export const recent_article_data = {
     image: 'https://source.unsplash.com/random/1',
     reading_time: '2',
-    category: 'CFD',
+    category: 'CFDs',
     title: 'The complete beginner’s guide to cryptocurrency trading',
     description:
         'Love the idea of leverage, but hate the thought of getting wiped out with one bad trade? We have the ideal trade type for you. One that combines the upside of a leveraged trade with the limited downside of an options trade.',

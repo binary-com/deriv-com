@@ -46,7 +46,7 @@ const settings = {
     vertical_container: {
         flexDirection: 'column',
         height: '464px',
-        width: '384px',
+        width: '100%',
     },
 }
 
@@ -68,6 +68,7 @@ const RecentFeaturedPosts = () => {
                     jc_mobileL="center"
                     jc_tabletM="center"
                     line_divider_length="unset"
+                    mobile_tab_button_underline_length="100%"
                 >
                     <Tabs.Panel label={localize('Recent posts')}>
                         <ArticleContentWrapper>
@@ -95,7 +96,8 @@ const RecentFeaturedPosts = () => {
                                             </Header>
                                         </Description>
                                         <BottomDescription>
-                                            {recent.date} <ClockIcon src={Clock} />
+                                            {new Date(recent.date * 1000).toLocaleString}
+                                            <ClockIcon src={Clock} />
                                             {recent.reading_time} min read
                                         </BottomDescription>
                                     </MainArticle>

@@ -17,7 +17,7 @@ export const featured_article_data = {
     title: 'Why it’s the Tesla of the financial industry',
     description:
         'Tesla, Inc. designs, develops, manufactures and sells electric vehicles and designs, manufactures, installs and sells solar energy generation and energy storage products',
-    date: 'Jun 4, 2020',
+    date: 'Nov 5, 2020',
     id: 2,
     link: '/blog/articles/',
 }

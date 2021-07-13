@@ -24,6 +24,14 @@ const TabButton = styled.button`
     border: none;
     border-bottom: 2px solid var(--color-grey-2);
     white-space: nowrap;
+
+    @media ${device.laptopM} {
+        width: ${(props) =>
+            props.mobile_tab_button_underline_length
+                ? props.mobile_tab_button_underline_length
+                : 'unset'};
+    }
+
     ${(props) =>
         props.selected &&
         css`
@@ -104,6 +112,7 @@ const Tabs = ({
     jc_mobileL,
     jc_laptopM,
     line_divider_length,
+    mobile_tab_button_underline_length,
 }) => {
     const [selected_tab, setSelectedTab] = useState(0)
     const [active_tab, setActiveTab] = useTabState(tab_list)
@@ -127,6 +136,7 @@ const Tabs = ({
                         selected={selected_tab === index}
                         aria-selected={selected_tab === index ? 'true' : 'false'}
                         onClick={() => setActiveTab(tab_list[index])}
+                        mobile_tab_button_underline_length={mobile_tab_button_underline_length}
                     >
                         <TextWrapper
                             inactive_color={inactive_color}
@@ -157,6 +167,7 @@ Tabs.propTypes = {
     jc_laptopM: PropTypes.string,
     jc_mobileL: PropTypes.string,
     line_divider_length: PropTypes.string,
+    mobile_tab_button_underline_length: PropTypes.string,
     route_from: PropTypes.string,
     tab_list: PropTypes.array,
 }

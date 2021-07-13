@@ -151,7 +151,6 @@ export const SmallArticle = styled(Flex)`
     }
 
     @media ${device.laptopM} {
-        width: 328px;
         height: 82px;
         margin-bottom: 16px;
     }
@@ -219,7 +218,7 @@ export const SmallArticleRightContent = styled(Flex)`
     flex-direction: column;
     justify-content: start;
 
-    @media ${device.laptopM} {
+    @media (max-width: 425px) {
         width: 185px;
         margin-left: 0;
     }
@@ -273,7 +272,7 @@ export const SmallArticleDateTimeMobile = styled(Flex)`
         margin-left: 5px;
         display: flex;
         font-size: 10px;
-        justify-content: flex-start;
+        justify-content: flex-end;
     }
 `
 

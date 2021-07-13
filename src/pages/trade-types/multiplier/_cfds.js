@@ -61,7 +61,7 @@ const StyledTitle = styled(Text)`
     font-weight: bold;
 `
 
-const Margin = () => {
+const CFDs = () => {
     return (
         <SectionContainer padding="4rem 0 8rem">
             <Flex max_width="79.2rem" m="0 auto" direction="column">
@@ -87,4 +87,4 @@ const Margin = () => {
     )
 }
 
-export default Margin
+export default CFDs

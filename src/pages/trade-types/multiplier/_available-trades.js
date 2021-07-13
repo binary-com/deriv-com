@@ -122,7 +122,7 @@ const CardContainer = styled(Flex)`
         padding-right: 0;
     }
 `
-const TabMarginIcon = styled.img`
+const TabCFDIcon = styled.img`
     min-width: 16px;
     ${(props) => {
         if (props.active_tab === props.name)
@@ -164,7 +164,7 @@ const Card = ({ display_name, active_tab, onTabChange, name }) => {
         <CardContainer name={name} active_tab={active_tab} onClick={() => onTabChange(name)}>
             <Flex height="fit-content" jc="flex-start" ai="center">
                 {active_tab === 'Forex' && (
-                    <TabMarginIcon
+                    <TabCFDIcon
                         src={ForexIcon}
                         alt="margin icon"
                         name={name}

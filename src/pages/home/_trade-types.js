@@ -4,7 +4,7 @@ import TradeTypesCard from './_trade-types-card'
 import { Header, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import { Container, Flex } from 'components/containers'
-import MarginLogo from 'images/svg/trade-types/margin.svg'
+import CFDLogo from 'images/svg/trade-types/cfds.svg'
 import OptionsLogo from 'images/svg/trade-types/options.svg'
 import MultipliersLogo from 'images/svg/trade-types/multipliers.svg'
 import { LinkButton } from 'components/form'
@@ -27,15 +27,14 @@ const StyledContainer = styled(Container)`
 `
 
 const TradeTypes = () => {
-    
-    const margin = {
-        icon: <img src={MarginLogo} alt="margin" width="48" height="49" />,
-        title: <Localize translate_text="Margin trading" />,
+    const cfds = {
+        icon: <img src={CFDLogo} alt="cfd" width="48" height="49" />,
+        title: <Localize translate_text="CFDs" />,
         description: (
-            <Localize translate_text="Trade with leverage and low spreads for better returns on successful trades." />
+            <Localize translate_text="Trade with leverage and tight spreads for better returns on successful trades." />
         ),
-        link: '/trade-types/margin/',
-        linkTitle: localize('Margin'),
+        link: '/trade-types/cfds/',
+        linkTitle: localize('CFDs'),
     }
     const options = {
         icon: <img src={OptionsLogo} alt="options" width="48" height="49" />,
@@ -50,15 +49,15 @@ const TradeTypes = () => {
         icon: <img src={MultipliersLogo} alt="multipliers" width="48" height="49" />,
         title: <Localize translate_text="Multipliers" />,
         description: (
-            <Localize translate_text="Get the best of both - the upside of margin trading with the simplicity of options." />
+            <Localize translate_text="Get the best of both - the upside of CFDs with the simplicity of options." />
         ),
         link: '/trade-types/multiplier/',
         linkTitle: localize('Multiplier'),
     }
-    
+
     const { is_eu_country } = React.useContext(DerivStore)
-    
-    const trade_types = is_eu_country ? [margin, multipliers] : [margin, options, multipliers]
+
+    const trade_types = is_eu_country ? [cfds, multipliers] : [cfds, options, multipliers]
 
     return (
         <div>
@@ -68,7 +67,9 @@ const TradeTypes = () => {
                         {localize('Trade types')}
                     </Header>
                     <Text size="2.4rem" mt="1.6rem" mb="5rem">
-                        {localize('Explore different trade types to trade on your preferred market.')}
+                        {localize(
+                            'Explore different trade types to trade on your preferred market.',
+                        )}
                     </Text>
                     <TradingButton type="submit" secondary="true" to="/signup/">
                         {localize('Start trading')}

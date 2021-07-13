@@ -344,3 +344,14 @@ export const CryptocurrenciesDetails = () => (
         </Text>
     </DetailsContainer>
 )
+
+export const JumpIndicesDetails = () => (
+    <DetailsContainer>
+        <Text>
+            <Localize
+                translate_text="These indices correspond to simulated markets with <0>constant volatilities of 10%, 25%, 50%, 75%, and 100%.</0> There is an equal probability of an up or down jump <0>every 20 minutes</0>, on average. The jump size is <0>around 30 times</0> the normal price movement, on average."
+                components={[<strong key={0} />]}
+            />
+        </Text>
+    </DetailsContainer>
+)

@@ -13,10 +13,11 @@ import { useTabState } from 'components/hooks/use-tab-state'
 import device from 'themes/device'
 
 const meta_attributes = {
-    og_title: localize('DMT5 Signals'),
-    og_description: localize('Deriv MT5 signals'),
+    og_title: localize('Deriv MetaTrader 5 trading signals | Resources | Deriv'),
+    og_description: localize(
+        'Subscribe to Deriv MetaTrader 5 trading signals to copy the trades of experienced traders, or become a signal provider and share your strategies.',
+    ),
 }
-
 const signal_content_subscriber = {
     header: (
         <Localize

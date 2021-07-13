@@ -35,7 +35,10 @@ const StockIndices = ({ simple_step_content }) => {
             <AvailableTrades
                 CFDs={<CFDs market_tab_name={'stock-indices'} market_content={stock_cfds} />}
                 DigitalOptions={
-                    <DigitalOptions market_name={localize('stocks & indices')} options_list={stock_options} />
+                    <DigitalOptions
+                        market_name={localize('stocks & indices')}
+                        options_list={stock_options}
+                    />
                 }
                 name="Stocks & indices"
                 display_title={

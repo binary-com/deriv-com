@@ -106,8 +106,14 @@ const StyledIFrame = styled.iframe`
     width: 560px;
     height: 315px;
 
+    @media ${device.tablet} {
+        max-width: 90%;
+    }
+    @media ${device.tabletS} {
+        max-width: 90%;
+    }
     @media ${device.mobileM} {
-        width: 310px;
+        max-width: 90%;
     }
 `
 const query = graphql`

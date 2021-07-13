@@ -231,7 +231,7 @@ const Subscribe = ({ onSubmit, ebook_utm_code }) => {
         console.log(verify_email_req, 'verify_email_req')
 
         try {
-            cio.identify('123', {
+            cio.identify('abdul@er.com', {
                 email: 'Abdul@er.com',
                 name: 'nameshuvo',
             })

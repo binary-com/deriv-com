@@ -32,7 +32,7 @@ const Cryptocurrencies = ({ simple_step_content }) => {
         },
         {
             src: TightSpread,
-            alt: 'responsive website',
+            alt: 'tight spreads',
             text: <Localize translate_text="Tight spreads" />,
         },
         {

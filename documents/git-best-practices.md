@@ -3,7 +3,10 @@
 **In this document:**
 
 -   [Commit message guidelines](#commit-message-guidlines)
--
+    -   [Type](#type)
+-   [Changing base branch](#changing-base-branch)
+-   [Get latest Changes](#get-latest-changes)
+-   [Resolve translation conflict on message.json](#resolve-translation-conflict-on-message.json)
 
 ## Commit message guidelines
 

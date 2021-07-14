@@ -539,11 +539,7 @@ export const NavResources = ({ onClick }) => (
             icon={() => <img src={Blog} alt="blog" width="24" height="24" />}
             title={localize('Blog')}
             onClick={onClick}
-            to=""
-            type="blog"
-            external="true"
-            target="_blank"
-            rel="noopener noreferrer"
+            to="/blog"
         />
     </Flex>
 )

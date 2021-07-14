@@ -110,14 +110,6 @@ const Tag = styled(Flex)`
         font-size: 12px;
     }
 `
-const FooterContainer = styled.div`
-    align-items: center;
-
-    > img {
-        max-width: 100%;
-        height: auto;
-    }
-`
 const PreviewContainer = styled(Box)`
     font-size: 16px;
     max-width: 792px;
@@ -131,9 +123,6 @@ const PreviewContainer = styled(Box)`
 
         :first-child {
             margin-top: 0;
-        }
-        @media ${device.tabletL} {
-            font-size: 14px;
         }
     }
     & hr {
@@ -209,11 +198,15 @@ const PreviewContainer = styled(Box)`
         line-height: 36px;
         margin-top: 40px;
         font-weight: bold;
+
+        & + p {
+            margin-top: 8px;
+        }
     }
     & h5 {
         font-size: 20px;
         line-height: 30px;
-        margin-top: 40px;
+        margin-top: 24px;
         font-weight: bold;
     }
     & h6 {
@@ -228,6 +221,48 @@ const PreviewContainer = styled(Box)`
     }
     @media ${device.tabletL} {
         max-width: none;
+
+        & p {
+            font-size: 14px;
+        }
+        & ul {
+            > li {
+                font-size: 14px;
+                line-height: 20px;
+            }
+        }
+        & h1 {
+            font-size: 32px;
+            line-height: 40px;
+        }
+        & h2 {
+            font-size: 28px;
+            line-height: 34px;
+        }
+        & h3 {
+            font-size: 24px;
+            line-height: 30px;
+
+            & + p {
+                margin-top: 8px;
+            }
+        }
+        & h4 {
+            font-size: 18px;
+            line-height: 26px;
+
+            & + p {
+                margin-top: 8px;
+            }
+        }
+        & h5 {
+            font-size: 16px;
+            line-height: 24px;
+        }
+        & h6 {
+            font-size: 14px;
+            line-height: 20px;
+        }
     }
 `
 const PreviewPage = () => {
@@ -394,15 +429,6 @@ const PreviewPage = () => {
                                     .replace(/\/><\/p>/g, '/>'),
                             }}
                         />
-                        <FooterContainer>
-                            <img
-                                src={
-                                    'https://amammustofa.com/assets/' +
-                                    data?.data.footer_banner_bg_image +
-                                    '.png'
-                                }
-                            />
-                        </FooterContainer>
                     </Flex>
                 </BodyContainer>
             </SectionContainer>

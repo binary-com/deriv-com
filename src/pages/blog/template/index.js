@@ -2,35 +2,36 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
-import { SectionContainer, SEO, Show, Box, Flex } from 'components/containers'
+import { SEO, Show, Box, Flex, Container, SectionContainer } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import device from 'themes/device'
 
-const HeroContainer = styled(Flex)`
-    max-width: 1444px;
-    padding: 78px 124px 146px 120px;
+const Background = styled.div`
+    background: var(--color-grey-8);
+    width: 100%;
+    height: 100%;
+`
+const HeroContainer = styled(Container)`
     height: 562px;
-    background-color: var(--color-grey-8);
-    margin: auto;
+    padding-top: 76px;
+    align-items: flex-start;
     margin-bottom: 86px;
 
-    @media (max-width: 1350px) {
+    @media ${device.laptopM} {
         height: 500px;
-    }
-    @media (max-width: 1300px) {
-        padding: 78px 70px 53px 70px;
         margin-bottom: 30px;
     }
-    @media (max-width: 1100px) {
-        padding: 78px 40px 0 40px;
-        margin-bottom: 10px;
+    @media ${device.laptop} {
+        height: 450px;
+        margin-bottom: 20px;
     }
+
     @media ${device.tabletL} {
-        flex-direction: column;
-        margin-bottom: 0;
-        padding: 38px 16px 0;
-        height: auto;
         background-image: linear-gradient(#f2f3f4 80%, #ffffff 20%);
+        height: auto;
+        padding: 36px 16px 0;
+        width: 100%;
+        flex-direction: column;
     }
 `
 const HeroImageContainer = styled(Box)`
@@ -69,22 +70,14 @@ const WrittenbyText = styled(Text)`
         font-size: 10px;
     }
 `
-const BodyContainer = styled(Flex)`
-    max-width: 1444px;
-    padding: 0 120px;
+const BodyContainer = styled(Container)`
+    align-items: flex-start;
 
-    @media (max-width: 1300px) {
-        padding: 78px 70px 53px 70px;
-    }
-    @media (max-width: 1100px) {
-        padding: 78px 40px 0 40px;
-    }
-    @media ${device.laptop} {
-        padding: 78px 24px 146px 20px;
-    }
     @media ${device.tabletL} {
         flex-direction: column;
         padding: 0 16px;
+        margin-top: 24px;
+        width: 100%;
     }
 `
 const SideBarContainer = styled(Flex)`
@@ -265,6 +258,7 @@ const PreviewContainer = styled(Box)`
         }
     }
 `
+
 const PreviewPage = () => {
     const [id, setId] = useState(null)
     const [data, setData] = useState(null)
@@ -310,76 +304,87 @@ const PreviewPage = () => {
             />
 
             <SectionContainer position="relative">
-                <HeroContainer>
-                    <Box max_width="384px" width="100%" mr="24px" tabletL={{ max_width: '100%' }}>
-                        <InfoText
-                            mb="16px"
-                            size="14px"
-                            dangerouslySetInnerHTML={{
-                                __html: date ? date[2] + ' ' + date[1] + ' ' + date[3] : '',
-                            }}
-                        />
-                        <Header as="h1" type="page-title">
-                            {data?.data.article_title}
-                        </Header>
-                        <InfoText
-                            size="14px"
-                            mt="16px"
-                            dangerouslySetInnerHTML={{
-                                __html: data?.data.minutes_to_read + ' min read',
-                            }}
-                        />
-                        <Show.Mobile>
-                            <SideBarContainer fd="column" mr="126px" height="auto">
-                                <Flex
-                                    fw="wrap"
-                                    jc="flex-start"
-                                    max-width="328px"
-                                    width=" 100%"
-                                    tabletL={{ mt: '24px', mb: '40px' }}
-                                >
-                                    {data?.data.article_tags.map((tag) => {
-                                        return <Tag key={tag}>{tag}</Tag>
-                                    })}
-                                </Flex>
-                            </SideBarContainer>
-                        </Show.Mobile>
+                <Background>
+                    <HeroContainer>
+                        <Box
+                            max_width="384px"
+                            width="100%"
+                            mr="24px"
+                            tabletL={{ max_width: '100%', mr: '0' }}
+                        >
+                            <InfoText
+                                mb="16px"
+                                size="14px"
+                                dangerouslySetInnerHTML={{
+                                    __html: date ? date[2] + ' ' + date[1] + ' ' + date[3] : '',
+                                }}
+                            />
+                            <Header as="h1" type="page-title">
+                                {data?.data.article_title}
+                            </Header>
+                            <InfoText
+                                size="14px"
+                                mt="16px"
+                                dangerouslySetInnerHTML={{
+                                    __html: data?.data.minutes_to_read + ' min read',
+                                }}
+                            />
+                            <Show.Mobile>
+                                <SideBarContainer fd="column" mr="126px" height="auto">
+                                    <Flex
+                                        fw="wrap"
+                                        jc="flex-start"
+                                        max-width="328px"
+                                        width=" 100%"
+                                        tabletL={{ mt: '24px', mb: '40px' }}
+                                    >
+                                        {data?.data.article_tags.map((tag) => {
+                                            return <Tag key={tag}>{tag}</Tag>
+                                        })}
+                                    </Flex>
+                                </SideBarContainer>
+                            </Show.Mobile>
 
-                        <Show.Desktop>
-                            {data?.data.author && (
-                                <Flex ai="center" mt="40px" jc="flex-start">
-                                    <WriterImage>
-                                        <img
-                                            src={
-                                                'https://amammustofa.com/assets/' +
-                                                data?.data.authors_image +
-                                                '.png'
-                                            }
-                                        />
-                                    </WriterImage>
-                                    <Box>
-                                        <WrittenbyText color="grey-5" size="12px">
-                                            {localize('Written by')}
-                                        </WrittenbyText>
-                                        <InfoText
-                                            dangerouslySetInnerHTML={{
-                                                __html: data?.data.author,
-                                            }}
-                                        />
-                                    </Box>
-                                </Flex>
-                            )}
-                        </Show.Desktop>
-                    </Box>
+                            <Show.Desktop>
+                                {data?.data.author && (
+                                    <Flex ai="center" mt="40px" jc="flex-start">
+                                        <WriterImage>
+                                            <img
+                                                src={
+                                                    'https://amammustofa.com/assets/' +
+                                                    data?.data.authors_image +
+                                                    '.png'
+                                                }
+                                            />
+                                        </WriterImage>
+                                        <Box>
+                                            <WrittenbyText color="grey-5" size="12px">
+                                                {localize('Written by')}
+                                            </WrittenbyText>
+                                            <InfoText
+                                                dangerouslySetInnerHTML={{
+                                                    __html: data?.data.author,
+                                                }}
+                                            />
+                                        </Box>
+                                    </Flex>
+                                )}
+                            </Show.Desktop>
+                        </Box>
 
-                    <HeroImageContainer tabletL={{ mt: '24px' }}>
-                        <img
-                            src={'https://amammustofa.com/assets/' + data?.data.main_image + '.png'}
-                        />
-                    </HeroImageContainer>
-                </HeroContainer>
+                        <HeroImageContainer tabletL={{ mt: '24px' }}>
+                            <img
+                                src={
+                                    'https://amammustofa.com/assets/' +
+                                    data?.data.main_image +
+                                    '.png'
+                                }
+                            />
+                        </HeroImageContainer>
+                    </HeroContainer>
+                </Background>
 
-                <BodyContainer width="100%" m="0 auto" jc="center">
+                <BodyContainer>
                     <Show.Mobile>
                         {data?.data.author && (
                             <Flex ai="center" jc="flex-start" tabletL={{ mt: '24px', mb: '40px' }}>

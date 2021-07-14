@@ -103,19 +103,19 @@ const Row = styled.div`
 `
 
 const StyledIFrame = styled.iframe`
-    width: 560px;
     height: 315px;
+    width: 100%;
+    max-width: 560px;
 
     @media ${device.tablet} {
-        max-width: 90%;
+        width: 90%;
     }
-    @media ${device.tabletS} {
-        max-width: 90%;
-    }
+
     @media ${device.mobileM} {
-        max-width: 90%;
+        width: 90%;
     }
 `
+
 const query = graphql`
     query {
         buy_sell: file(relativePath: { eq: "p2p/p2p_buy_sell.png" }) {

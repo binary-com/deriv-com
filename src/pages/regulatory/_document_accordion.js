@@ -139,7 +139,7 @@ const DocumentAccordion = (locale) => {
     return (
         <Accordion has_single_state id="kid">
             <AccordionItem
-                header={localize('Pillar III disclosures')}
+                header={localize('Financial disclosure report')}
                 content_style={content_style}
                 header_style={header_style}
                 style={item_style}
@@ -147,18 +147,18 @@ const DocumentAccordion = (locale) => {
             >
                 <Text>
                     {localize(
-                        'Deriv Investments (Europe) Limited has prepared the Pillar III disclosure report in accordance with the Capital Requirements Directive IV and the Capital Requirements Regulation. Read our report to understand how we comply with market discipline as a market participant.',
+                        'Deriv Investments (Europe) Limited has prepared the Financial disclosure report in accordance with the Capital Requirements Directive IV and the Capital Requirements Regulation. Read our report to understand how we comply with market discipline as a market participant.',
                     )}
                 </Text>
                 <Flex mt="1.8rem">
                     <FlexText_Pillar
                         target="_blank"
                         rel="noopener noreferrer"
-                        href="/regulatory/DIEL_Pillar_3.pdf"
+                        href="/regulatory/Financial-Disclosures-Report.pdf"
                         color="red"
                     >
                         <img src={PDFIcon} alt="pdf icon black" />
-                        <span>{localize('Pillar III disclosure report')}</span>
+                        <span>{localize('Financial disclosure report')}</span>
                     </FlexText_Pillar>
                 </Flex>
             </AccordionItem>

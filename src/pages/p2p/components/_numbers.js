@@ -8,11 +8,11 @@ import device from 'themes/device'
 
 const content = [
     {
-        header: <Localize translate_text="14,400" />,
+        header: <Localize translate_text="21,000" />,
         text: <Localize translate_text="active users" />,
     },
     {
-        header: <Localize translate_text="6.2M USD" />,
+        header: <Localize translate_text="12M USD" />,
         text: <Localize translate_text="exchanged to date" />,
     },
 ]

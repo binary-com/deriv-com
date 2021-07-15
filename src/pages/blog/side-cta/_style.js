@@ -1,11 +1,17 @@
 import styled from 'styled-components'
 import Shape from './images/shape.svg'
 import { Flex } from 'components/containers'
-// import { Text, Tabs } from 'components/elements'
-// import { LocalizedLink } from 'components/localization'
-// import device from 'themes/device'
+import device from 'themes/device'
 import { LinkButton } from 'components/form'
 
+export const SideContainer = styled(Flex)`
+    padding: 20px;
+    justify-content:start;
+
+    @media ${device.tablet} {
+        justify-content:center;
+    }
+`
 export const CtaContainer = styled(Flex)`
     width: 282px;
     height: 420px;
@@ -18,6 +24,15 @@ export const CtaContainer = styled(Flex)`
     background-image: url(${Shape});
     background-position: right bottom; 
     background-repeat: no-repeat;
+
+    @media ${device.tablet} {
+        width: 328px;
+        height: 420px;
+        background-position: center bottom; 
+        padding-top: 26px;
+        padding-left:39px;
+        padding-right:46px;
+    }
 `
 
 export const DownloadPdfIcon = styled.img`
@@ -49,4 +64,8 @@ export const ImageWrapper = styled.div`
 
 export const BookImage = styled.img`
     height: 212px;
+    margin-bottom:-2px;
+    @media ${device.tablet} {
+        margin-right:30px;
+    }
 `

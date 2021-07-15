@@ -6,7 +6,7 @@ import AgreementLabel from './_agreement-label'
 import { Input, Button } from 'components/form'
 import { Header, LinkText, QueryImage, Text } from 'components/elements'
 import { localize } from 'components/localization'
-import { Flex, Show, SectionContainer, Container } from 'components/containers'
+import { Flex, Show, Box, Container } from 'components/containers'
 import { deriv_app_url } from 'common/constants'
 import device from 'themes/device.js'
 // SVG
@@ -20,6 +20,16 @@ const query = graphql`
         deriv_platform: file(relativePath: { eq: "banner-phone.png" }) {
             ...fadeIn
         }
+    }
+`
+const StyledSectionContainer = styled(Box).attrs({ as: 'section' })`
+    width: 100%;
+    padding: 80px 0;
+    position: static;
+    background-color: var(--color-white);
+
+    @media ${device.tabletL} {
+        padding: 41px 0 40px;
     }
 `
 const Wrapper = styled.div`
@@ -98,11 +108,13 @@ const BackgroundWrapper = styled(Flex)`
     }
 `
 const InputWrapper = styled.div`
-    width: 28rem;
+    width: 245px;
     line-height: 10px;
     font-weight: normal;
-    @media ${device.tabletL} {
-        margin-right: 1rem;
+    margin-right: 1rem;
+    @media ${device.mobileL} {
+        width: unset;
+        max-width: 191px;
     }
 `
 const InputGroup = styled.div`
@@ -338,7 +350,7 @@ const SignupPublic = ({
         setChecked(event.currentTarget.checked)
     }
     return (
-        <SectionContainer>
+        <StyledSectionContainer>
             <Show.Desktop>
                 <Container>
                     <Wrapper>
@@ -618,7 +630,7 @@ const SignupPublic = ({
                     </MobileWrapper>
                 </Container>
             </Show.Mobile>
-        </SectionContainer>
+        </StyledSectionContainer>
     )
 }
 

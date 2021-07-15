@@ -38,7 +38,7 @@ export const article_data = [
         image: 'https://source.unsplash.com/random/4',
         reading_time: '2',
         category: 'Multipliers',
-        title: 'How to trade multipliers on Deriv this is for really long titles',
+        title: 'How to trade multipliers on Deriv this is for',
         description:
             'To help you begin, we will look at the basics of cryptocurrency: what it is, how it works, and how to start trading cryptos on deriv.com',
         date: '12 June 2021',
@@ -107,7 +107,7 @@ export const article_data_2 = [
         image: 'https://source.unsplash.com/random/8',
         reading_time: '2',
         category: 'Multipliers',
-        title: 'How to trade multipliers on Deriv this is for really long titles',
+        title: 'How to trade multipliers on Deriv this is for really',
         description:
             'To help you begin, we will look at the basics of cryptocurrency: what it is, how it works, and how to start trading cryptos on deriv.com',
         date: '12 June 2021',

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { Container, Flex } from 'components/containers'
-import { Text, Tabs } from 'components/elements'
+import { Text, Tabs, Header } from 'components/elements'
 import { LocalizedLink } from 'components/localization'
 import device from 'themes/device'
 import { LinkButton } from 'components/form'
@@ -21,6 +21,7 @@ export const StyledTabs = styled(Tabs)`
 export const ArticleContentWrapper = styled(Container)`
     margin-top: 24px;
     color: var(--color-white);
+    width: 100%;
     @media ${device.laptopM} {
         flex-direction: column;
         width: 100%;
@@ -139,7 +140,7 @@ export const BottomDescription = styled(Flex)`
 
 export const SmallArticle = styled(Flex)`
     font-size: 16px;
-    height: 110px;
+    height: 102px;
     margin-bottom: 22px;
     justify-content: start;
     cursor: pointer;
@@ -216,7 +217,11 @@ export const SmallArticleLeftContent = styled(Flex)`
 export const SmallArticleRightContent = styled(Flex)`
     margin-left: 10px;
     flex-direction: column;
-    justify-content: start;
+    justify-content: space-between;
+
+    @media ${device.laptopM} {
+        justify-content: flex-start;
+    }
 
     @media (max-width: 425px) {
         width: 185px;
@@ -259,6 +264,14 @@ export const SmallArticleTopContent = styled(Flex)`
     color: black;
     height: 30px;
     justify-content: flex-start;
+    flex-direction: column;
+    @media ${device.laptopM} {
+        flex-direction: row;
+
+        ${Header} {
+            display: none;
+        }
+    }
 `
 
 export const SmallArticleDateTimeMobile = styled(Flex)`
@@ -283,5 +296,12 @@ export const SmallArticleDateTimeDesktop = styled.div`
     font-size: 12px;
     @media ${device.laptopM} {
         display: none;
+    }
+`
+
+export const MobileHeader = styled(Header)`
+    display: none;
+    @media ${device.laptopM} {
+        display: inline;
     }
 `

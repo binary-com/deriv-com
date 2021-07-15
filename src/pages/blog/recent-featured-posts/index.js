@@ -28,6 +28,7 @@ import {
     ClockIcon,
     DotIcon,
     MobileDotIcon,
+    MobileHeader,
 } from './_style'
 import Layout from 'components/layout/layout'
 import { Carousel, Tabs, Header } from 'components/elements'
@@ -127,10 +128,13 @@ const RecentFeaturedPosts = () => {
                                                                 <MobileDotIcon src={Dot} />
                                                                 {article.reading_time} min
                                                             </SmallArticleDateTimeMobile>
+                                                            <Header as="p" type="paragraph-1">
+                                                                {article.title}
+                                                            </Header>
                                                         </SmallArticleTopContent>
-                                                        <Header as="p" type="paragraph-1">
+                                                        <MobileHeader as="p" type="paragraph-1">
                                                             {article.title}
-                                                        </Header>
+                                                        </MobileHeader>
                                                         <SmallArticleDateTimeDesktop>
                                                             {article.date} <DotIcon src={Dot} />
                                                             {article.reading_time} min read
@@ -200,10 +204,13 @@ const RecentFeaturedPosts = () => {
                                                                 <MobileDotIcon src={Dot} />
                                                                 {article.reading_time} min
                                                             </SmallArticleDateTimeMobile>
+                                                            <Header as="p" type="paragraph-1">
+                                                                {article.title}
+                                                            </Header>
                                                         </SmallArticleTopContent>
-                                                        <Header as="p" type="paragraph-1">
+                                                        <MobileHeader as="p" type="paragraph-1">
                                                             {article.title}
-                                                        </Header>
+                                                        </MobileHeader>
                                                         <SmallArticleDateTimeDesktop>
                                                             {article.date} <DotIcon src={Dot} />
                                                             {article.reading_time} min read

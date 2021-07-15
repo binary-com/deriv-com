@@ -96,7 +96,7 @@ const RecentFeaturedPosts = () => {
                                             </Header>
                                         </Description>
                                         <BottomDescription>
-                                            {new Date(recent.date * 1000).toLocaleString}
+                                            {recent.date}
                                             <ClockIcon src={Clock} />
                                             {recent.reading_time} min read
                                         </BottomDescription>

@@ -27,6 +27,7 @@ Deriv.com - An online trading platform that offers a wide selection of derivativ
 -   [Git best practice](documents/git-best-practices.md) - Contain git practices and commit guidelines
 -   [File structures](documents/file-structures.md)
 -   [GTM Workflow](documents/gtm-workflow.md) - Contains Google Tag Manager workflow and additional information
+-   [Translation Workflow](documents/translation-workflow.md) - Contains general workflow and commands required for our translation process
 
 ## Pre-installation
 
@@ -35,7 +36,7 @@ Before running or contribute to this project, you need to have the setup of the 
 -   node >=12.3.0
 -   npm >=6.9.0
 -   git (for `contribution`)
--   gatsby-cli (npm install -g gatsby-cli)
+-   gatsby-cli (npm install -g gatsby-cli) (for using commands that aren't listed in scripts)
 
 Moreover, having these extensions will help you to speed up the development process and adhere to the best practices
 

@@ -89,6 +89,10 @@ const EmailButton = styled(Button)`
     margin-bottom: 0.4rem;
     margin-top: 3.2rem;
 
+    @media ${device.tabletL} {
+        margin-top: 24px;
+    }
+
     @media ${device.mobileL} {
         font-size: 1.75rem;
     }

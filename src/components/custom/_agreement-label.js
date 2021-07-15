@@ -31,7 +31,7 @@ const AgreementLabel = ({ handleChangeCheckbox, isChecked, color }) => {
                 fontWeight: 'normal',
                 lineHeight: '1px',
                 marginTop: '5px',
-                marginBottom: '20px',
+                marginBottom: '0',
             }}
         >
             <Checkbox

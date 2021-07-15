@@ -4,6 +4,8 @@
 
 This is the source code for Deriv.com
 
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/binary-com/deriv-com/Release%20Staging) ![node](https://img.shields.io/badge/node-%3E%3D12.3.0-blue.svg) ![npm](https://img.shields.io/badge/npm-%3E%3D6.9.0-blue.svg) [![GATSBY](https://img.shields.io/badge/Gatsby-663399?style=flat&logo=gatsby&logoColor=white)](https://github.com/styled-components/styled-components) [![style: styled-components](https://img.shields.io/badge/style-%F0%9F%92%85%20styled--components-orange.svg?colorB=daa357&colorA=db748e)](https://github.com/styled-components/styled-components)
+
 ## In this document:
 
 -   [Other Documents](#other-documents)
@@ -29,8 +31,8 @@ This is the source code for Deriv.com
 
 Before running or contribute to this project, you need to have the setup of the following packages in your environment
 
--   node
--   npm
+-   node >=12.3.0
+-   npm >=6.9.0
 -   git (for `contribution`)
 -   gatsby-cli (npm install -g gatsby-cli)
 

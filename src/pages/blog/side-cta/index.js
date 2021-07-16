@@ -1,18 +1,25 @@
 import React from 'react'
-import { SideContainer, CtaContainer, ClaimButton, LinkButtonWrapper, DownloadPdfIcon, ImageWrapper, BookImage } from './_style'
+import {
+    CtaContainer,
+    ClaimButton,
+    LinkButtonWrapper,
+    DownloadPdfIcon,
+    ImageWrapper,
+    BookImage,
+} from './_style'
 import DownloadPdf from './images/download-pdf.svg'
 import { pdf_data } from './_data'
 import Layout from 'components/layout/layout'
 import { WithIntl } from 'components/localization'
 import { Header } from 'components/elements'
+import { Flex } from 'components/containers'
 
 const SideCta = () => {
-
     return (
         <Layout>
-            <SideContainer>
+            <Flex p="20px" jc="flex-start" tablet_jc="center">
                 <CtaContainer>
-                    <DownloadPdfIcon src={DownloadPdf}/>
+                    <DownloadPdfIcon src={DownloadPdf} />
                     <Header as="h3" type="subtitle-2" mb="5px">
                         {pdf_data.title}
                     </Header>
@@ -30,7 +37,7 @@ const SideCta = () => {
                         <BookImage src={pdf_data.image}></BookImage>
                     </ImageWrapper>
                 </CtaContainer>
-            </SideContainer>
+            </Flex>
         </Layout>
     )
 }

@@ -1,62 +1,27 @@
 /* eslint-disable no-console */
-import React from 'react'
+import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import CIO from 'react-native-customerio'
-// import { nanoid } from 'nanoid'
 import { Title, TextWrapper } from './_common'
 import paperPlane from 'images/common/blog/paperplanes.png'
 import validation from 'common/validation'
 import { Input, Button } from 'components/form'
-import { Header, Text } from 'components/elements'
 import { Localize, localize } from 'components/localization'
 import { Flex } from 'components/containers'
 import AgreementLabel from 'components/custom/_agreement-label'
 import device from 'themes/device.js'
-import ViewEmailImage from 'images/common/view-email.png'
-// import { siteId, apiKey, customerId } from './config';
-// In actual use, specify your specific region and import the node module: const { RegionUS, RegionEU } from 'customerio-node/regions)
-// import { RegionUS, RegionEU } from '../regions';
 
 const SignupFormWrapper = styled(Flex)`
     width: 100%;
     align-items: initial;
     justify-content: initial;
-    background: #252e4f;
+    background: var(--color-blue-3);
     padding: 40px 80px;
     border-radius: 8px;
     position: relative;
 
-    .paperplane-img {
-        position: absolute;
-        right: 50px;
-        bottom: 0;
-    }
-
-    @media screen and (max-width: 1330px) and (min-width: 991px) {
-        .paperplane-img {
-            position: absolute;
-            right: 0;
-            bottom: 0;
-            width: 240px;
-        }
-    }
     @media ${device.tabletL} {
         padding: 200px 20px 40px;
-
-        .paperplane-img {
-            position: absolute;
-            top: 20px;
-            width: 280px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        .form-content,
-        .form-content h3,
-        .form-content p {
-            width: 100%;
-            max-width: 100%;
-        }
     }
     @media ${device.tabletS} {
         width: 100%;
@@ -66,7 +31,38 @@ const SignupFormWrapper = styled(Flex)`
         }
     }
 `
+const PaperPlaneImage = styled.img`
+    position: absolute;
+    right: 50px;
+    bottom: 0;
 
+    @media screen and (max-width: 1330px) and (min-width: 991px) {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 240px;
+    }
+
+    @media ${device.tabletL} {
+        position: absolute;
+        top: 20px;
+        width: 280px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+`
+const StyledFormContent = styled.div`
+    @media ${device.tabletL} {
+        width: 100%;
+        max-width: 100%;
+
+        h3,
+        p {
+            width: 100%;
+            max-width: 100%;
+        }
+    }
+`
 const InputWrapper = styled.div`
     display: flex;
 
@@ -107,6 +103,11 @@ const InputGroupForm = styled.form`
     width: 100%;
     margin-top: 24px;
 
+    .link-text {
+        color: var(--color-grey-19);
+        font-weight: bold;
+    }
+
     @media ${device.tabletL} {
         > div {
             flex-direction: column;
@@ -114,8 +115,7 @@ const InputGroupForm = styled.form`
     }
 `
 const EmailButton = styled(Button)`
-    height: 4rem;
-    padding: 10px 28px;
+    padding: 10px 28px 9px;
     border-radius: 4px;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
@@ -131,30 +131,8 @@ const EmailButton = styled(Button)`
         border-bottom-left-radius: 4px;
     }
 `
-const ResponseWrapper = styled.div`
-    justify-content: center;
-    max-width: 330px;
-    flex-direction: column;
-    text-align: center;
-    border: 1px solid var(--color-white);
-    padding: 20px;
-    position: relative;
-    border-radius: 10px;
-    margin: 30px 0;
 
-    h3,
-    p {
-        margin: 2rem 0;
-        color: white;
-    }
-`
-
-const EmailImage = styled.img`
-    margin: 0 auto;
-    width: 20rem;
-`
-
-const Subscribe = ({ onSubmit }) => {
+const Subscribe = () => {
     const [is_checked, setChecked] = React.useState(false)
     const [email, setEmail] = React.useState('')
     const [name, setName] = React.useState('')
@@ -163,6 +141,22 @@ const Subscribe = ({ onSubmit }) => {
     const [email_error_msg, setEmailErrorMsg] = React.useState('')
     const [name_error_msg, setNameErrorMsg] = React.useState('')
     const [submit_error_msg, setSubmitErrorMsg] = React.useState('')
+
+    useEffect(() => {
+        const options = {
+            headers: new Headers({ 'content-type': 'application/json' }),
+            mode: 'no-cors',
+        }
+        fetch('https://assets.customer.io/assets/track.js', options)
+            .then((response) => {
+                console.log(response)
+                setSubmitStatus(true)
+            })
+            .catch((error) => {
+                console.log('error', error)
+                setSubmitStatus(false)
+            })
+    }, [])
 
     const handleChange = (event) => {
         setChecked(event.currentTarget.checked)
@@ -220,41 +214,13 @@ const Subscribe = ({ onSubmit }) => {
         setNameErrorMsg('')
     }
 
-    // const getVerifyEmailRequest = (email) => {
-    //     const affiliate_token = Cookies.getJSON('affiliate_tracking')
-
-    //     const cookies = getCookiesFields()
-    //     const cookies_objects = getCookiesObject(cookies)
-    //     const cookies_value = getDataObjFromCookies(cookies_objects, cookies)
-
-    //     return {
-    //         verify_email: email,
-    //         type: 'account_opening',
-    //         url_parameters: {
-    //             ...(affiliate_token && { affiliate_token: affiliate_token }),
-    //             ...(cookies_value && { ...cookies_value }),
-    //             ...(ebook_utm_code && { utm_content: ebook_utm_code }),
-    //         },
-    //     }
-    // }
-
     const customerioData = () => {
-        const siteId = process.env.GATSBY_ENV_CIO_KEY
-        const apiKey = process.env.GATSBY_ENV_CIO_SITE_ID
-
-        const cio = new CIO(siteId, apiKey, { region: 'US' })
-
-        // const verify_email_req = getVerifyEmailRequest(formattedEmail)
-        // console.log(verify_email_req, 'verify_email_req')
-
-        try {
-            cio.identify(email, {
-                email: email,
-                name: name,
-            })
-        } catch (error) {
-            return error
-        }
+        window._cio.identify({
+            id: email,
+            email,
+            created_at: Math.round(Date.now() / 1000),
+            name,
+        })
     }
 
     const handleEmailSignup = (e) => {
@@ -271,48 +237,15 @@ const Subscribe = ({ onSubmit }) => {
         }
 
         customerioData(formattedEmail)
-        setIsSubmitting(false)
-        setSubmitStatus('success')
-        if (onSubmit) onSubmit(submit_status, email)
-
-        // binary_socket.onopen = () => {
-        //     binary_socket.send(JSON.stringify(verify_email_req))
-        // }
-        // binary_socket.onmessage = (msg) => {
-        //     const response = JSON.parse(msg.data)
-        //     if (response.error) {
-        //         binary_socket.close()
-        //         setIsSubmitting(false)
-        //         setSubmitStatus('error')
-        //         setSubmitErrorMsg(response.error.message)
-        //         handleValidation(formattedEmail)
-        //     } else {
-        //         setIsSubmitting(false)
-        //         setSubmitStatus('success')
-        //         if (onSubmit) onSubmit(submit_status, email)
-        //     }
-
-        //     binary_socket.close()
-        // }
+        submit_status && setSubmitStatus('success')
+        clearName()
+        clearEmail()
     }
 
-    return submit_status === 'success' ? (
-        <ResponseWrapper>
-            <EmailImage src={ViewEmailImage} alt="Email" />
-            <Header as="h3" type="section-title" align="center" weight="normal">
-                {localize('Check your email')}
-            </Header>
-            <Text align="center">
-                <Localize
-                    translate_text="We've sent a message to {{email}} with a link to activate your account."
-                    values={{ email: email }}
-                />
-            </Text>
-        </ResponseWrapper>
-    ) : (
+    return (
         <SignupFormWrapper>
-            <img className="paperplane-img" src={paperPlane} alt="Paper Plane" />
-            <div className="form-content">
+            <PaperPlaneImage src={paperPlane} alt="Paper Plane" />
+            <StyledFormContent>
                 <Title
                     as="h3"
                     color={'white'}
@@ -402,13 +335,25 @@ const Subscribe = ({ onSubmit }) => {
                             {localize('Subscribe')}
                         </EmailButton>
                     </Flex>
-                    <AgreementLabel
-                        isChecked={is_checked}
-                        handleChangeCheckbox={handleChange}
-                        color="white"
-                    />
+                    {submit_status === true && (
+                        <AgreementLabel
+                            isChecked={is_checked}
+                            handleChangeCheckbox={handleChange}
+                            color="#C2C2C2"
+                        />
+                    )}
+                    {submit_status === 'success' && (
+                        <TextWrapper color={'#01a79f'} font_size={15} margin_top={'10px'}>
+                            <Localize translate_text="Thanks for subscribing. We've sent a confirmation email to your inbox" />
+                        </TextWrapper>
+                    )}
+                    {submit_status === false && (
+                        <TextWrapper color={'#ff444f'} font_size={15} margin_top={'10px'}>
+                            <Localize translate_text="Please disable Adblock for Deriv to subscribe successfully" />
+                        </TextWrapper>
+                    )}
                 </InputGroupForm>
-            </div>
+            </StyledFormContent>
         </SignupFormWrapper>
     )
 }

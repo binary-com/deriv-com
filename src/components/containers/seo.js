@@ -148,11 +148,11 @@ const SEO = ({ description, meta, title, no_index, has_organization_schema, meta
                 },
                 ...(no_index || no_index_staging || is_ach_page
                     ? [
-                          {
-                              name: 'robots',
-                              content: 'noindex',
-                          },
-                      ]
+                        {
+                            name: 'robots',
+                            content: 'noindex',
+                        },
+                    ]
                     : []),
             ].concat(meta)}
         >

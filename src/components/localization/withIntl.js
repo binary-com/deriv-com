@@ -34,7 +34,7 @@ export const WithIntl = () => (WrappedComponent) => {
         }
         return (
             <I18nextProvider i18n={i18next}>
-                <WrappedComponent {...props} language={i18next.language} />
+                <WrappedComponent {...props} language={i18next.language} pageContext={pageContext} />
             </I18nextProvider>
         )
     }

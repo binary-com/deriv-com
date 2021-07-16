@@ -82,9 +82,6 @@ const Content = styled.div`
 const TextWrapper = styled(Text)`
     text-align: center;
     font-size: var(--text-size-m);
-    color: ${(props) =>
-        props.inactive_color ? `var(${props.inactive_color})` : `var(--color-black)`};
-
     @media ${device.tabletS} {
         font-size: ${({ font_size }) => font_size ?? 'var(--text-size-sm)'};
     }
@@ -107,7 +104,6 @@ const Tabs = ({
     children,
     route_from,
     tab_list,
-    inactive_color,
     jc,
     jc_mobileL,
     jc_laptopM,
@@ -138,10 +134,7 @@ const Tabs = ({
                         onClick={() => setActiveTab(tab_list[index])}
                         mobile_tab_button_underline_length={mobile_tab_button_underline_length}
                     >
-                        <TextWrapper
-                            inactive_color={inactive_color}
-                            font_size={route_from === 'markets' ? '24px' : undefined}
-                        >
+                        <TextWrapper font_size={route_from === 'markets' ? '24px' : undefined}>
                             {label}
                         </TextWrapper>
                     </TabButton>
@@ -162,7 +155,6 @@ Tabs.Panel = TabPanel
 
 Tabs.propTypes = {
     children: PropTypes.node,
-    inactive_color: PropTypes.string,
     jc: PropTypes.string,
     jc_laptopM: PropTypes.string,
     jc_mobileL: PropTypes.string,

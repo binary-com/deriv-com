@@ -27,7 +27,7 @@ const HeroContainer = styled(Container)`
     }
 
     @media ${device.tabletL} {
-        background-image: linear-gradient(#f2f3f4 80%, #ffffff 20%);
+        background-image: linear-gradient(var(--color-grey-8) 80%, var(--color-white) 20%);
         height: auto;
         padding: 36px 16px 0;
         width: 100%;
@@ -208,10 +208,6 @@ const PreviewContainer = styled(Box)`
         margin-top: 40px;
         font-weight: bold;
     }
-
-    @media (max-width: 1024px) {
-        left: 0;
-    }
     @media ${device.tabletL} {
         max-width: none;
 
@@ -322,13 +318,9 @@ const PreviewPage = () => {
                             <Header as="h1" type="page-title">
                                 {data?.data.article_title}
                             </Header>
-                            <InfoText
-                                size="14px"
-                                mt="16px"
-                                dangerouslySetInnerHTML={{
-                                    __html: data?.data.minutes_to_read + ' min read',
-                                }}
-                            />
+                            <InfoText size="14px" mt="16px">
+                                {localize(data?.data.minutes_to_read + ' min read')}
+                            </InfoText>
                             <Show.Mobile>
                                 <SideBarContainer fd="column" mr="126px" height="auto">
                                     <Flex
@@ -361,11 +353,7 @@ const PreviewPage = () => {
                                             <WrittenbyText color="grey-5" size="12px">
                                                 {localize('Written by')}
                                             </WrittenbyText>
-                                            <InfoText
-                                                dangerouslySetInnerHTML={{
-                                                    __html: data?.data.author,
-                                                }}
-                                            />
+                                            <InfoText>{localize(data?.data.author)}</InfoText>
                                         </Box>
                                     </Flex>
                                 )}
@@ -401,11 +389,7 @@ const PreviewPage = () => {
                                     <WrittenbyText color="grey-5" size="12px">
                                         {localize('Written by')}
                                     </WrittenbyText>
-                                    <InfoText
-                                        dangerouslySetInnerHTML={{
-                                            __html: data?.data.author,
-                                        }}
-                                    />
+                                    <InfoText>{localize(data?.data.author)}</InfoText>
                                 </Box>
                             </Flex>
                         )}

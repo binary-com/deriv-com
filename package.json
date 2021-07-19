@@ -44,6 +44,7 @@
         "react-is": "^17.0.2",
         "react-native-customerio": "^1.0.2",
         "react-perfect-scrollbar": "^1.5.8",
+        "uninstall": "0.0.0",
         "webpack": "^5.39.0"
     },
     "devDependencies": {

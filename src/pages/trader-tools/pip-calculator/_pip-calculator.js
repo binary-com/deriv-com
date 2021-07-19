@@ -209,7 +209,7 @@ const PipCalculator = () => {
                                             error={touched.symbol && errors.symbol}
                                             onBlur={handleBlur}
                                             autocomplete="off"
-                                            contractSize={values.contractSize}
+                                            contract_size={values.contractSize}
                                         />
 
                                         <InputGroup>

@@ -242,6 +242,32 @@ const ib_dmt5_synthetic = {
                 },
             ],
         },
+        {
+            title: <Localize translate_text="Jump indices" />,
+            headerHeight: '6.4rem',
+            assets: [
+                {
+                    title: <Localize key={0} translate_text="Asset" />,
+                    list: [
+                        <Localize key={1} translate_text="Jump 10 Index" />,
+                        <Localize key={2} translate_text="Jump 25 Index" />,
+                        <Localize key={3} translate_text="Jump 50 Index" />,
+                        <Localize key={4} translate_text="Jump 75 Index" />,
+                        <Localize key={5} translate_text="Jump 100 Index" />,
+                    ],
+                },
+                {
+                    title: <Localize key={0} translate_text="Commission per USD 100k turnover" />,
+                    list: [
+                        <Localize key={1} translate_text="0.50" />,
+                        <Localize key={2} translate_text="1.25" />,
+                        <Localize key={3} translate_text="2.50" />,
+                        <Localize key={4} translate_text="3.75" />,
+                        <Localize key={5} translate_text="5" />,
+                    ],
+                },
+            ],
+        },
     ],
     countDetails: [
         {

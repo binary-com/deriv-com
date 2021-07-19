@@ -89,7 +89,7 @@ export const Hero = () => {
                     mt="1.6rem"
                 >
                     {localize(
-                        'Learn about the markets that you can trade online with Deriv, including forex, commodities, synthetic indices, and stocks & indices.',
+                        'Learn about the markets that you can trade online with Deriv, including forex, commodities, synthetic indices, stocks, and stock indices.',
                     )}
                 </MarketSubHeader>
             </StyledContainer>

@@ -67,7 +67,7 @@ const Margin = () => {
             <Flex max_width="79.2rem" m="0 auto" direction="column">
                 <StyledText mb="12px" align="center">
                     {localize(
-                        'Trade Forex with multipliers for high leverage1, tight spreads and benefit from multiple opportunities to trade on world events.',
+                        'Trade Forex with multipliers for high leverage, tight spreads and benefit from multiple opportunities to trade on world events.',
                     )}
                 </StyledText>
                 <StyledTitle>

@@ -5,6 +5,7 @@ import Loadable from '@loadable/component'
 import { SmallContainer, Grid, WhyTradeItem } from '../components/_style'
 import Margin from './_margin.js'
 import SyntheticIndices from './_synthetic-indices.js'
+import Cryptocurrencies from './_crypto-currencies.js'
 import device from 'themes/device'
 import { SectionContainer, Flex } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
@@ -244,6 +245,7 @@ const WhatAreOptions = () => {
                 display_title={localize('Instruments available to trade on Multipliers')}
                 Forex={Margin}
                 SyntheticIndices={SyntheticIndices}
+                Cryptocurrencies={Cryptocurrencies}
             />
             <SectionContainer background="grey-23" padding="4rem 0">
                 <SmallContainer direction="column" jc="flex-start" ai="flex-start">

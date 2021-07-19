@@ -45,11 +45,15 @@ const AgreementLabel = ({ handleChangeCheckbox, isChecked, color }) => {
                     translate_text="I agree to the <0>terms and conditions</0>"
                     components={[
                         <LocalizedLinkText
+                            path="terms-and-conditions"
                             key={0}
-                            to="/terms-and-conditions/"
-                            target="_blank"
+                            type="terms-and-conditions"
+                            external="true"
+                            to="terms-and-conditions"
                             size="14px"
                             color="red"
+                            target="_blank"
+                            rel="noopener noreferrer"
                         />,
                     ]}
                 />

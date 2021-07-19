@@ -1,0 +1,19 @@
+add update email subscribe
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# interactive rebase in progress; onto 7593a5bda3
+# Last commands done (6 commands done):
+#    pick d25bf6f253 add js submit
+#    pick 21388e3de7 add update email subscribe
+# Next commands to do (18 remaining commands):
+#    pick 0b5d40241c add remove comment
+#    pick b232efd50e add env
+# You are currently rebasing branch 'habib/blog-final-update-form' on '7593a5bda3'.
+#
+# Changes to be committed:
+#	modified:   package-lock.json
+#	modified:   package.json
+#	modified:   src/pages/blog/components/_subscribe.js
+#

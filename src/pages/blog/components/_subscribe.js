@@ -10,10 +10,6 @@ import { Localize, localize } from 'components/localization'
 import { Flex } from 'components/containers'
 import AgreementLabel from 'components/custom/_agreement-label'
 import device from 'themes/device.js'
-<<<<<<< HEAD
-=======
-import ViewEmailImage from 'images/common/view-email.png'
->>>>>>> 21388e3de7 (add update email subscribe)
 
 const SignupFormWrapper = styled(Flex)`
     width: 100%;
@@ -135,26 +131,6 @@ const EmailButton = styled(Button)`
         border-bottom-left-radius: 4px;
     }
 `
-<<<<<<< HEAD
-=======
-const ResponseWrapper = styled.div`
-    justify-content: center;
-    max-width: 330px;
-    flex-direction: column;
-    text-align: center;
-    border: 1px solid var(--color-white);
-    padding: 20px;
-    position: relative;
-    border-radius: 10px;
-    margin: 30px auto;
-
-    h3,
-    p {
-        margin: 2rem 0;
-        color: black;
-    }
-`
->>>>>>> 21388e3de7 (add update email subscribe)
 
 const Subscribe = () => {
     const [is_checked, setChecked] = React.useState(false)
@@ -239,44 +215,12 @@ const Subscribe = () => {
     }
 
     const customerioData = () => {
-<<<<<<< HEAD
         window._cio.identify({
             id: email,
             email,
             created_at: Math.round(Date.now() / 1000),
             name,
         })
-=======
-        // const siteId = process.env.GATSBY_ENV_CIO_SITE_ID
-        // const apiKey = process.env.GATSBY_ENV_CIO_SITE_ID
-        // eslint-disable-next-line no-unexpected-multiline
-        let t1 = document.createElement('script')
-        let s1 = document.getElementsByTagName('script')[0]
-        t1.innerHTML = 'let _cio = [];'
-        s1.parentNode.insertBefore(t1, s1)
-        ;(function () {
-            // var a,b,c;a=function(f){return function(){_cio.push([f].
-            // concat(Array.prototype.slice.call(arguments,0)))}};b=["load","identify",
-            // "sidentify","track","page"];for(c=0;c<b.length;c++){_cio[b[c]]=a(b[c])}
-            let t = document.createElement('script')
-            let s = document.getElementsByTagName('script')[0]
-            t.async = true
-            t.id = 'cio-tracker'
-            t.setAttribute('data-site-id', '30320700716f35cd59d6')
-            t.src = 'https://assets.customer.io/assets/track.js'
-            s.parentNode.insertBefore(t, s)
-        })()
-        let t3 = document.createElement('script')
-        let s3 = document.getElementsByTagName('script')[0]
-        t1.innerHTML =
-            '_cio.identify({' +
-            "id: 'prod_287'," +
-            `email: ${email},` +
-            'created_at: 1339438758,' +
-            `name: ${name},` +
-            '})'
-        s3.parentNode.insertBefore(t3, s3)
->>>>>>> 21388e3de7 (add update email subscribe)
     }
 
     const handleEmailSignup = (e) => {

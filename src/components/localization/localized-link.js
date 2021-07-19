@@ -142,7 +142,7 @@ const deriv_app_links = ['dbot', 'deriv_app', 'mt5', 'derivx']
 const deriv_other_products = ['binary', 'smart_trader']
 const deriv_social_platforms = ['blog', 'community', 'developers', 'zoho']
 // add item to this array if you need to make external link without modal window
-const deriv_new_page_links = ['terms-and-conditions']
+const deriv_new_window_links = ['terms-and-conditions']
 
 const getURLFormat = (type, locale, to, affiliate_lang) => {
     if (deriv_app_links.includes(type)) {
@@ -184,7 +184,7 @@ const ExternalLink = ({
         !affiliate_links.includes(type) &&
         !deriv_app_links.includes(type) &&
         !deriv_social_platforms.includes(type) &&
-        !deriv_new_page_links.includes(type)
+        !deriv_new_window_links.includes(type)
 
     const default_style = { cursor: 'pointer' }
 
@@ -209,7 +209,7 @@ const ExternalLink = ({
         <StyledAnchor
             style={style ? style : default_style}
             aria-label={aria_label}
-            href={!show_modal || deriv_new_page_links.includes(type) ? url : ''}
+            href={!show_modal || deriv_new_window_links.includes(type) ? url : ''}
             onClick={handleClick}
             disabled={!mounted}
             target={target}

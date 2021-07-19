@@ -111,7 +111,7 @@ const ContinuousIndicesDetails = () => (
     </DetailsContainer>
 )
 
-const SyntheticIndices = () => {
+const Cryptocurrencies = () => {
     return (
         <SectionContainer padding="4rem 0 8rem">
             <Flex max_width="79.2rem" m="0 auto" direction="column">

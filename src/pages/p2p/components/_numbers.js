@@ -8,11 +8,11 @@ import device from 'themes/device'
 
 const content = [
     {
-        header: <Localize translate_text="4000" />,
+        header: <Localize translate_text="21,000" />,
         text: <Localize translate_text="active users" />,
     },
     {
-        header: <Localize translate_text="USD 2M" />,
+        header: <Localize translate_text="12M USD" />,
         text: <Localize translate_text="exchanged to date" />,
     },
 ]
@@ -134,7 +134,7 @@ const Numbers = () => {
                 target="_blank"
                 rel="noopener noreferrer"
             >
-                {localize('Try DP2P now')}
+                {localize('Try Deriv P2P now')}
             </StyledLinkButton>
         </Section>
     )

@@ -15,8 +15,12 @@ const kid_data = [
         ref: 'kid_deriv_crypto.pdf',
     },
     {
-        title: <Localize translate_text="Multipliers" />,
-        ref: 'kid_deriv_multipliers.pdf',
+        title: <Localize translate_text="Multipliers - Forex" />,
+        ref: 'kid_deriv_multipliers_forex.pdf',
+    },
+    {
+        title: <Localize translate_text="Multipliers - Cryptocurrencies" />,
+        ref: 'kid_deriv_multipliers_cryptocurrencies.pdf',
     },
     {
         title: <Localize translate_text="Stocks" />,

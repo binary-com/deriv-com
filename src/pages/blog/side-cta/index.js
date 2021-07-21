@@ -28,7 +28,7 @@ const SideCta = () => {
                     </Header>
 
                     <LinkButtonWrapper>
-                        <ClaimButton tertiary to="/blog/articles/">
+                        <ClaimButton tertiary to="/landing/ebooks/stocks/">
                             Claim free ebook
                         </ClaimButton>
                     </LinkButtonWrapper>

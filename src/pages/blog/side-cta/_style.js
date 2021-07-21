@@ -16,7 +16,7 @@ export const CtaContainer = styled(Flex)`
     width: 282px;
     height: 420px;
     border-radius: 8px;
-    padding: 25px 0 0 16px;
+    padding: 24px 0 0 16px;
     background-color: var(--color-grey-41);
     flex-flow: column;
     justify-content: flex-start;
@@ -29,7 +29,7 @@ export const CtaContainer = styled(Flex)`
         max-width: 328px;
         height: 420px;
         background-position: center bottom;
-        padding: 26px 46px 0 39px;
+        padding: 24px 39px 0;
     }
 `
 

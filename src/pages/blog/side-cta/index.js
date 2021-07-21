@@ -1,18 +1,12 @@
 import React from 'react'
-import {
-    CtaContainer,
-    ClaimButton,
-    LinkButtonWrapper,
-    DownloadPdfIcon,
-    ImageWrapper,
-    BookImage,
-} from './_style'
+import { CtaContainer, LinkButtonWrapper, DownloadPdfIcon, ImageWrapper, BookImage } from './_style'
 import DownloadPdf from './images/download-pdf.svg'
 import { pdf_data } from './_data'
 import Layout from 'components/layout/layout'
 import { WithIntl } from 'components/localization'
 import { Header } from 'components/elements'
 import { Flex } from 'components/containers'
+import { LinkButton } from 'components/form'
 
 const SideCta = () => {
     return (
@@ -28,9 +22,9 @@ const SideCta = () => {
                     </Header>
 
                     <LinkButtonWrapper>
-                        <ClaimButton tertiary to="/landing/ebooks/stocks/">
+                        <LinkButton tertiary to="/landing/ebooks/stocks/">
                             Claim free ebook
-                        </ClaimButton>
+                        </LinkButton>
                     </LinkButtonWrapper>
 
                     <ImageWrapper>

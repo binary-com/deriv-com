@@ -2,7 +2,6 @@ import styled from 'styled-components'
 import Shape from './images/shape.svg'
 import { Flex } from 'components/containers'
 import device from 'themes/device'
-import { LinkButton } from 'components/form'
 
 export const SideContainer = styled(Flex)`
     padding: 20px;
@@ -44,15 +43,6 @@ export const LinkButtonWrapper = styled(Flex)`
     margin-bottom: 16px;
     text-align: center;
     justify-content: center;
-`
-
-export const ClaimButton = styled(LinkButton)`
-    width: fit-content;
-    size: 14px;
-
-    &:hover {
-        cursor: pointer;
-    }
 `
 
 export const ImageWrapper = styled.div`

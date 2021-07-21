@@ -49,8 +49,9 @@ const AgreementLabel = ({ handleChangeCheckbox, isChecked, color }) => {
                             type="terms-and-conditions"
                             external="true"
                             target="_blank"
-                            path="terms-and-conditions"
-                            to="terms-and-conditions"
+                            // path="terms-and-conditions"
+                            // to=""
+                            // affiliate_lang=
                             rel="noopener noreferrer"
                             size="14px"
                             color="red"

@@ -48,7 +48,6 @@ const AgreementLabel = ({ handleChangeCheckbox, isChecked, color }) => {
                             key={0}
                             type="terms_and_conditions"
                             external="true"
-                            // target="_blank"
                             rel="noopener noreferrer"
                             size="14px"
                             color="red"

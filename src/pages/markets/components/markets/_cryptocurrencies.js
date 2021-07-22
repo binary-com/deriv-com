@@ -3,17 +3,50 @@ import PropTypes from 'prop-types'
 import Loadable from '@loadable/component'
 import { WhyTrade } from '../sections/_why-trade'
 import AvailableTrades from '../helper/_available-trades.js'
-import crypto_content from '../../static/content/_cryptocurrencies'
 import { crypto_margin } from '../../static/content/_margin'
 import { crypto_multiplier } from '../../static/content/_multipliers'
 import Margin from '../sub-markets/_margin'
 import Multipliers from '../sub-markets/_multipliers'
 import { Localize } from 'components/localization'
+import TightSpread from 'images/svg/tight-spread.svg'
+import CryptoPairs from 'images/svg/crypto-pairs.svg'
+import ZeroCommission from 'images/svg/zero-commission.svg'
+import Leverage from 'images/svg/leverage.svg'
+import { DerivStore } from 'store'
+
 //Lazy-load
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
 const OtherMarkets = Loadable(() => import('../sections/_other-markets.js'))
 
 const Cryptocurrencies = ({ simple_step_content }) => {
+    const { is_eu_country } = React.useContext(DerivStore)
+    const crypto_content = [
+        {
+            src: Leverage,
+            alt: 'leverage',
+            text: is_eu_country ? (
+                <Localize translate_text="1:2 leverage" />
+            ) : (
+                <Localize translate_text="1:50 leverage" />
+            ),
+        },
+        {
+            src: TightSpread,
+            alt: 'tight spreads',
+            text: <Localize translate_text="Tight spreads" />,
+        },
+        {
+            src: CryptoPairs,
+            alt: 'advanced charting widgets',
+            text: <Localize translate_text="17+ crypto pairs" />,
+        },
+        {
+            src: ZeroCommission,
+            alt: 'deposit and withdrawal',
+            text: <Localize translate_text="Zero commission" />,
+        },
+    ]
+
     return (
         <>
             <WhyTrade

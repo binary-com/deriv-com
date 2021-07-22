@@ -147,7 +147,7 @@ const DocumentAccordion = (locale) => {
             >
                 <Text>
                     {localize(
-                        'Deriv Investments (Europe) Limited has prepared the Financial disclosure report in accordance with the Capital Requirements Directive IV and the Capital Requirements Regulation. Read our report to understand how we comply with market discipline as a market participant.',
+                        'Deriv Investments (Europe) Limited has prepared the Financial disclosures report in accordance with the Investment Firms Regulation and Directive. Read our report to understand how we comply with market discipline as a market participant.',
                     )}
                 </Text>
                 <Flex mt="1.8rem">

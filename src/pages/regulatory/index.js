@@ -247,7 +247,7 @@ const Regulatory = (locale) => {
                                                 weight="bold"
                                                 color="black-3"
                                                 target="_blank"
-                                                to="https://beta.gamblingcommission.gov.uk/public-register/business/detail/39495"
+                                                to="https://www.gamblingcommission.gov.uk/public-register/business/detail/39495"
                                                 rel="noopener noreferrer"
                                             />,
                                         ]}
@@ -290,7 +290,7 @@ const Regulatory = (locale) => {
                                                 weight="bold"
                                                 color="black-3"
                                                 target="_blank"
-                                                to="https://beta.gamblingcommission.gov.uk/public-register/business/detail/39172"
+                                                to="https://www.gamblingcommission.gov.uk/public-register/business/detail/39172"
                                                 rel="noopener noreferrer"
                                             />,
                                         ]}

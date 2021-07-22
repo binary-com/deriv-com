@@ -154,9 +154,10 @@ const getURLFormat = (type, locale, to, affiliate_lang) => {
     } else if (deriv_social_platforms.includes(type)) {
         return `${localized_link_url[type]}${to}`
     } else if (new_tab_no_modal.includes(type)) {
-        return `${localized_link_url[type]}${
-            locale === 'en' ? '' : '/' + locale
-        }/terms-and-conditions`
+        return `${localized_link_url[type]}${locale === 'en' ? '' : '/' + locale}/${type.replace(
+            /_/g,
+            '-',
+        )}`
     } else {
         return to
     }

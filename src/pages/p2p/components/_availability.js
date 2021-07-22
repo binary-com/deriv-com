@@ -212,7 +212,7 @@ const Availability = () => {
                                 <Flex>
                                     <Left>
                                         <Localize
-                                            translate_text="1. Download Deriv P2P from the <0>Google Play Store</0>, Apple App Store <1>link to app in App Store</1>, or the Huawei AppGallery <2>link to app in AppGallery</2>."
+                                            translate_text="1. Download Deriv P2P from the <0>Google Play Store</0>, <1>Apple App Store</1>, or the <2>Huawei AppGallery</2>."
                                             components={[
                                                 <LocalizedLinkText
                                                     external
@@ -253,7 +253,7 @@ const Availability = () => {
                             </Show.Desktop>
                             <Show.Mobile>
                                 <Localize
-                                    translate_text="1. Download Deriv P2P from the <0>Google Play Store</0>, Apple App Store <1>link to app in App Store</1>, or the Huawei AppGallery <2>link to app in AppGallery</2>."
+                                    translate_text="1. Download Deriv P2P from the <0>Google Play Store</0>, <1>Apple App Store</1>, or the <2>Huawei AppGallery</2>."
                                     components={[
                                         <LocalizedLinkText
                                             external

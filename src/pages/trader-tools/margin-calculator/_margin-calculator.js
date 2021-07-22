@@ -188,7 +188,7 @@ const MarginCalculator = () => {
                                         <DropdownSearch
                                             id="symbol"
                                             key={tab}
-                                            contract_size={values.contractSize}
+                                            contractSize={values.contractSize}
                                             default_item={optionItemDefault}
                                             error={touched.symbol && errors.symbol}
                                             items={values.optionList}

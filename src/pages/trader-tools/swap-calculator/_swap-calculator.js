@@ -207,7 +207,7 @@ const SwapCalculator = () => {
                                                         )
                                                         setFieldValue('symbol', value)
                                                     }}
-                                                    contract_size={values.contractSize}
+                                                    contractSize={values.contractSize}
                                                     error={touched.symbol && errors.symbol}
                                                     onBlur={handleBlur}
                                                 />
@@ -516,6 +516,7 @@ const SwapCalculator = () => {
 
                                             <CalculatorBody>
                                                 <Dropdown
+                                                    mb="3.6rem"
                                                     default_option={optionItemDefault}
                                                     option_list={values.optionList}
                                                     label={localize('Symbol')}

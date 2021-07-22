@@ -13,6 +13,7 @@ const domain_url =
         : deriv_com_url
 
 // URL
+export const domain_full_url = `https://${domain_url}`
 export const deriv_app_id = domain_url === deriv_com_url ? deriv_com_app_id : deriv_me_app_id
 export const deriv_app_url = `https://app.${domain_url}`
 export const deriv_developer_url = `https://developers.${domain_url}`
@@ -28,7 +29,6 @@ export const affiliate_signup_url = `https://login.${domain_url}/signup.php`
 export const affiliate_signin_url = `https://login.${domain_url}/signin.php`
 export const community_url = `https://community.${deriv_com_url}`
 export const oauth_url = `https://oauth.${domain_url}`
-export const terms_and_conditions_url = `https://${domain_url}`
 
 export const application_id = 'f0aef779-d9ec-4517-807e-a84c683c4265'
 export const besquare_signup_url =
@@ -76,7 +76,7 @@ export const localized_link_url = Object.freeze({
     mt5: deriv_mt5_app_url,
     smart_trader: smarttrader_url,
     zoho: zoho_url,
-    'terms-and-conditions': terms_and_conditions_url,
+    terms_and_conditions: domain_full_url,
 })
 export const default_server_url = 'green.binaryws.com'
 

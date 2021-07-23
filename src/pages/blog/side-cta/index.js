@@ -17,7 +17,7 @@ const SideCta = () => {
                     <Header as="h3" type="subtitle-2" mb="5px">
                         {pdf_data.title}
                     </Header>
-                    <Header as="p" type="paragraph-2">
+                    <Header as="p" type="paragraph-2" weight="normal">
                         by {pdf_data.author}
                     </Header>
 

@@ -1,8 +1,12 @@
+<<<<<<< HEAD
 /* eslint-disable no-console */
+=======
+>>>>>>> 0938c5741d (add form ui)
 import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Title, TextWrapper } from './_common'
+import { DerivStore } from 'store'
 import paperPlane from 'images/common/blog/paperplanes.png'
 import validation from 'common/validation'
 import { Input, Button } from 'components/form'
@@ -223,6 +227,8 @@ const Subscribe = () => {
         setName('')
         setNameErrorMsg('')
     }
+
+    useEffect(() => {}, [])
 
     const customerioData = () => {
         window._cio.identify({

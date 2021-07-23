@@ -22,6 +22,16 @@ const SignupFormWrapper = styled(Flex)`
 
     @media ${device.tabletL} {
         padding: 200px 20px 40px;
+<<<<<<< HEAD
+=======
+
+        .form-content,
+        .form-content h3,
+        .form-content p {
+            width: 100%;
+            max-width: 100%;
+        }
+>>>>>>> 26767a3f74 (add stylde imge)
     }
     @media ${device.tabletS} {
         width: 100%;

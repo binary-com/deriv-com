@@ -144,7 +144,7 @@ const PreviewContainer = styled(Box)`
         font-weight: bold;
     }
     & a {
-        font-size: 20px;
+        font-size: 16px;
         color: var(--color-red);
         text-decoration: none;
         cursor: pointer;

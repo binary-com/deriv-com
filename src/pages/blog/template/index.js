@@ -12,12 +12,13 @@ const Background = styled.div`
     height: 100%;
 `
 const HeroContainer = styled(Container)`
-    height: 562px;
-    padding-top: 76px;
+    height: 634px;
+    padding-top: 148px;
     align-items: flex-start;
     margin-bottom: 86px;
 
     @media ${device.laptopM} {
+        padding-top: 65px;
         height: 500px;
         margin-bottom: 30px;
     }
@@ -299,7 +300,7 @@ const PreviewPage = () => {
                 title={localize('Markets | Markets to trade | Deriv')}
             />
 
-            <SectionContainer position="relative">
+            <SectionContainer padding="0" position="relative">
                 <Background>
                     <HeroContainer>
                         <Box
@@ -308,13 +309,9 @@ const PreviewPage = () => {
                             mr="24px"
                             tabletL={{ max_width: '100%', mr: '0' }}
                         >
-                            <InfoText
-                                mb="16px"
-                                size="14px"
-                                dangerouslySetInnerHTML={{
-                                    __html: date ? date[2] + ' ' + date[1] + ' ' + date[3] : '',
-                                }}
-                            />
+                            <InfoText mb="16px" size="14px">
+                                {localize(date ? date[2] + ' ' + date[1] + ' ' + date[3] : '')}
+                            </InfoText>
                             <Header as="h1" type="page-title">
                                 {data?.data.article_title}
                             </Header>

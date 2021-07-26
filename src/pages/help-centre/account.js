@@ -104,10 +104,25 @@ const CloseAccount = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('How can I close my account?')}</StyledHeader>
         <Text>
-            {localize(
-                'Before closing your account, please close all your open positions and withdraw all the funds in your account. After that, you may contact us with your request.',
-            )}
+            <Localize
+                translate_text="To close your account, go to <0>Deactivate account.</0> "
+                components={[
+                    <ExternalLink
+                        to={`${deriv_app_url}/account/deactivate-account`}
+                        target="_blank"
+                        external="true"
+                        weight="bold"
+                        rel="noopener noreferrer"
+                        key={0}
+                    />,
+                ]}
+            />
         </Text>
+        <StyledText>
+            {localize(
+                'Before closing your Deriv account, close all your open positions and withdraw all the funds in your trading accounts, including DMT5.',
+            )}
+        </StyledText>
     </ArticleWrapper>
 )
 

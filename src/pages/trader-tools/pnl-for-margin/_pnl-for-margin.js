@@ -208,22 +208,44 @@ const PnlMarginCalculator = () => {
                                     'stopLossPips',
                                     getPnlMarginCommon(values, 'getStopLossPip'),
                                 )
-                                setFieldValue(
-                                    'stopLossLevel',
-                                    getPnlMarginCommon(values, 'getStopLossLevel'),
-                                )
-                                setStopLossOutput(getPnlMarginCommon(values, 'getStopLossLevel'))
+                                if (tab === 'Buy') {
+                                    setFieldValue(
+                                        'takeProfitLevel',
+                                        getPnlMarginCommon(values, 'getTakeProfitLevelBuy'),
+                                    )
+                                    setTakeProfitOutput(
+                                        getPnlMarginCommon(values, 'getTakeProfitLevelBuy'),
+                                    )
+                                    setFieldValue(
+                                        'stopLossLevel',
+                                        getPnlMarginCommon(values, 'getStopLossLevelBuy'),
+                                    )
+                                    setStopLossOutput(
+                                        getPnlMarginCommon(values, 'getStopLossLevelBuy'),
+                                    )
+                                }
+                                if (tab === 'Sell') {
+                                    setFieldValue(
+                                        'stopLossLevel',
+                                        getPnlMarginCommon(values, 'getStopLossLevelSell'),
+                                    )
+                                    setStopLossOutput(
+                                        getPnlMarginCommon(values, 'getStopLossLevelSell'),
+                                    )
+                                    setFieldValue(
+                                        'takeProfitLevel',
+                                        getPnlMarginCommon(values, 'getTakeProfitLevelSell'),
+                                    )
+                                    setTakeProfitOutput(
+                                        getPnlMarginCommon(values, 'getTakeProfitLevelSell'),
+                                    )
+                                }
+
                                 setFieldValue(
                                     'takeProfitPips',
                                     getPnlMarginCommon(values, 'getTakeProfitPip'),
                                 )
-                                setFieldValue(
-                                    'takeProfitLevel',
-                                    getPnlMarginCommon(values, 'getTakeProfitLevel'),
-                                )
-                                setTakeProfitOutput(
-                                    getPnlMarginCommon(values, 'getTakeProfitLevel'),
-                                )
+
                                 setFieldValue('pointValue', numberSubmitFormat(values.pointValue))
                                 setFieldValue('volume', numberSubmitFormat(values.volume))
                                 setFieldValue('assetPrice', numberSubmitFormat(values.assetPrice))

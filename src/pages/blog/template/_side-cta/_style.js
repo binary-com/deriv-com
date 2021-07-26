@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import Shape from './images/shape.svg'
+import Shape from './_images/shape.svg'
 import { Flex } from 'components/containers'
 import device from 'themes/device'
 

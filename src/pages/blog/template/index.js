@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
-import BottomCta from '../article'
+import BottomCta from './_blog-footer/_blog-footer'
+import SideCta from './_side-cta/_side-cta'
 import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { SEO, Show, Box, Flex, Container, SectionContainer } from 'components/containers'
@@ -336,6 +337,7 @@ const PreviewPage = () => {
                                             return <Tag key={tag}>{tag}</Tag>
                                         })}
                                     </Flex>
+                                    <SideCta />
                                 </SideBarContainer>
                             </Show.Mobile>
 
@@ -409,6 +411,7 @@ const PreviewPage = () => {
                                     return <Tag key={tag}>{tag}</Tag>
                                 })}
                             </Flex>
+                            <SideCta />
                         </SideBarContainer>
                     </Show.Desktop>
                     <Flex fd="column" margin="0 auto" ai="center">

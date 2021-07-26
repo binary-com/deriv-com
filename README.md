@@ -84,7 +84,7 @@ Moreover, having these extensions will help you to speed up the development proc
 
 We have two types of PR (Pull request):
 
-### Base master
+### Base **Master**
 
 PR will be based on the master branch if the commits are not having text changes
 

@@ -125,7 +125,7 @@ const DTrading = ({ trading, reverse, two_title }) => {
     const data = useStaticQuery(query)
     return (
         <StyledSection>
-            <Container direction='column'>
+            <Container direction="column">
                 {trading.map((item, index) => {
                     let is_even = reverse ? (index + 1) % 2 : index % 2
                     return (

@@ -203,7 +203,7 @@ export const minsk = {
         'We’re located in Minsk, the largest city of Belarus. Minsk has an international airport and efficient public transportation that connects to other major cities in Belarus. The temperate continental climate with fascinating parks and gardens, delicious local cuisine, and intriguing cultures make Minsk a great location to work.',
     address: address_belarus,
     map_img: 'minsk_map',
-    google_map_link: 'https://goo.gl/maps/RaHj5WPv47MEYfPLA',
+    google_map_link: 'https://yandex.com/maps/-/CCUeZJdAKA',
     has_iframe: false,
 }
 

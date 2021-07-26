@@ -90,7 +90,7 @@ const Topics = ({ topicsImage, topicsList }) => {
                         color="var(--color-black-3)"
                         mb="20px"
                     >
-                        {localize("Topics covered")}
+                        {localize('Topics covered')}
                     </Header>
                     {topicsList?.map((topic, index) => {
                         return (
@@ -105,7 +105,7 @@ const Topics = ({ topicsImage, topicsList }) => {
                     <QueryImage data={topicsImage} alt="Forex Topics" />
                 </TopicImgWrapper>
             </Wrapper>
-        </FullWidth >
+        </FullWidth>
     )
 }
 

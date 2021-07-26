@@ -12,7 +12,7 @@ export const HeroContainer = styled.div`
     @media ${device.laptop} {
         grid-template-columns: auto;
     }
-    
+
     @media ${device.tablet} {
         height: 370px;
     }

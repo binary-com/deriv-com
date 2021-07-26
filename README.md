@@ -23,7 +23,7 @@ Deriv.com - An online trading platform that offers a wide selection of derivativ
 ## Other Documents
 
 -   [General implementation](documents/implementation-guide.md) - Contain ways to do development in deriv.com
--   [Development Guidelines](documents/development-guidelines.md) - Contain advice for developers working on this project
+-   [Development guidelines](documents/development-guidelines.md) - Contain advice for developers working on this project
 -   [Git best practice](documents/git-best-practices.md) - Contain git practices and commit guidelines
 -   [File structures](documents/file-structures.md)
 -   [GTM Workflow](documents/gtm-workflow.md) - Contains Google Tag Manager workflow and additional information

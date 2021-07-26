@@ -97,7 +97,8 @@ const RecoveringPassword = () => (
                 ]}
             />
         </Text>
-    </ArticleWrapper>)
+    </ArticleWrapper>
+)
 
 const CloseAccount = () => (
     <ArticleWrapper>

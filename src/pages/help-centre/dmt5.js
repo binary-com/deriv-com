@@ -39,22 +39,22 @@ const DifferentAccounts = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">
             {localize(
-                'What are the differences between the DMT5 Synthetic Indices, Financial and Financial STP accounts?'
+                'What are the differences between the DMT5 Synthetic Indices, Financial and Financial STP accounts?',
             )}
         </StyledHeader>
         <Text>
             {localize(
-                'The DMT5 Standard account offers new and experienced traders high leverage and variable spreads for maximum flexibility.'
+                'The DMT5 Standard account offers new and experienced traders high leverage and variable spreads for maximum flexibility.',
             )}
         </Text>
         <StyledText>
             {localize(
-                'The DMT5 Advanced account is a 100% A Book account where your trades are passed straight through to the market, giving you direct access to forex liquidity providers.'
+                'The DMT5 Advanced account is a 100% A Book account where your trades are passed straight through to the market, giving you direct access to forex liquidity providers.',
             )}
         </StyledText>
         <StyledText>
             {localize(
-                'The DMT5 Synthetic Indices account allows you to trade contracts for difference (CFDs) on synthetic indices that mimic real-world movements. It is available for trading 24/7 and audited for fairness by an independent third party.'
+                'The DMT5 Synthetic Indices account allows you to trade contracts for difference (CFDs) on synthetic indices that mimic real-world movements. It is available for trading 24/7 and audited for fairness by an independent third party.',
             )}
         </StyledText>
     </ArticleWrapper>
@@ -102,7 +102,7 @@ const WithdrawDMT5 = () => (
                         target="_blank"
                         rel="noopener noreferrer"
                         key={1}
-                    />
+                    />,
                 ]}
             />
         </Text>
@@ -121,7 +121,7 @@ const LoginCredentials = () => (
         </StyledHeader>
         <Text>
             {localize(
-                'MT5 on Deriv is a standalone trading platform that isn’t hosted on our website. Your DMT5 login details give you access to the MT5 platform while your Deriv login details give you access to the platforms hosted on our website, such as DTrader and DBot.'
+                'MT5 on Deriv is a standalone trading platform that isn’t hosted on our website. Your DMT5 login details give you access to the MT5 platform while your Deriv login details give you access to the platforms hosted on our website, such as DTrader and DBot.',
             )}
         </Text>
     </ArticleWrapper>
@@ -140,7 +140,7 @@ const ResetDMT5Password = () => (
                         rel="noopener noreferrer"
                         key={1}
                     />,
-                    <strong key={0} />
+                    <strong key={0} />,
                 ]}
             />
         </Text>
@@ -157,16 +157,20 @@ const DMT5Article = () => {
                 title={localize('Help centre | Frequently asked questions | DMT5 | Deriv')}
                 description={localize('Frequently asked questions - DMT5')}
             >
-                <WhatIsDMT5 text={localize('What is DMT5?')}
+                <WhatIsDMT5
+                    text={localize('What is DMT5?')}
                     label="what-is-dmt5"
-                    is_mounted={is_mounted} />
+                    is_mounted={is_mounted}
+                />
                 <DifferenceDMT5DTrader
                     text={localize('What are the major differences between DTrader and DMT5?')}
                     label="differences-of-dtrader-and-dmt5"
                     is_mounted={is_mounted}
                 />
                 <DifferentAccounts
-                    text={localize('What are the differences between the DMT5 Synthetic Indices, Financial and Financial STP accounts?')}
+                    text={localize(
+                        'What are the differences between the DMT5 Synthetic Indices, Financial and Financial STP accounts?',
+                    )}
                     label="differences-of-dmt5-accounts"
                     is_mounted={is_mounted}
                 />
@@ -176,7 +180,9 @@ const DMT5Article = () => {
                     is_mounted={is_mounted}
                 />
                 <LoginCredentials
-                    text={localize('Why are my DMT5 login details different from my Deriv login details?')}
+                    text={localize(
+                        'Why are my DMT5 login details different from my Deriv login details?',
+                    )}
                     label="login-credentials"
                     is_mounted={is_mounted}
                 />

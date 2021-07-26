@@ -38,9 +38,9 @@ const Markets = () => (
     <Layout>
         <SEO
             description={localize(
-                'Learn about the markets that you can trade online with Deriv, including forex, commodities, synthetic indices, and stock indices.',
+                'Deriv’s proprietary synthetic indices are free of market and liquidity risks. Enjoy 24/7 synthetic trading on Deriv MT5, DTrader, and our other platforms.',
             )}
-            title={localize('Markets | Markets to trade | Deriv')}
+            title={localize('Synthetic indices | Volatility indices | Deriv')}
         />
         <Hero />
         <NavTab route_from={'synthetic'} route_offset={50} />

@@ -1,12 +1,15 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 /* eslint-disable no-console */
 =======
 >>>>>>> 0938c5741d (add form ui)
 import React, { useEffect } from 'react'
+=======
+import React from 'react'
+>>>>>>> 49e2b88427 (add cstomerio working)
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Title, TextWrapper } from './_common'
-import { DerivStore } from 'store'
 import paperPlane from 'images/common/blog/paperplanes.png'
 import validation from 'common/validation'
 import { Input, Button } from 'components/form'
@@ -27,6 +30,7 @@ const SignupFormWrapper = styled(Flex)`
     @media ${device.tabletL} {
         padding: 200px 20px 40px;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
         .form-content,
@@ -36,6 +40,8 @@ const SignupFormWrapper = styled(Flex)`
             max-width: 100%;
         }
 >>>>>>> 26767a3f74 (add stylde imge)
+=======
+>>>>>>> 49e2b88427 (add cstomerio working)
     }
     @media ${device.tabletS} {
         width: 100%;
@@ -77,6 +83,7 @@ const StyledFormContent = styled.div`
         }
     }
 `
+
 const InputWrapper = styled.div`
     display: flex;
 
@@ -149,6 +156,7 @@ const EmailButton = styled(Button)`
 const Subscribe = () => {
     const [is_checked, setChecked] = React.useState(false)
     const [email, setEmail] = React.useState('')
+    const [emailForMessage, setEmailForMessage] = React.useState('')
     const [name, setName] = React.useState('')
     const [is_submitting, setIsSubmitting] = React.useState(false)
     const [submit_status, setSubmitStatus] = React.useState('')
@@ -227,8 +235,6 @@ const Subscribe = () => {
         setName('')
         setNameErrorMsg('')
     }
-
-    useEffect(() => {}, [])
 
     const customerioData = () => {
         window._cio.identify({

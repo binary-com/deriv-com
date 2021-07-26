@@ -36,7 +36,6 @@ const addScript = (settings) => {
     if (text) script.text = settings['text']
     if (src) script.src = settings['src']
     if (id) script.id = settings['id']
-
     document.body.appendChild(script)
 }
 
@@ -163,6 +162,29 @@ export const onClientEntry = () => {
     addScript({
         src: 'https://static.deriv.com/scripts/cookie.js',
         async: true,
+    })
+
+    const siteId = process.env.GATSBY_ENV_CIO_SITE_ID
+    const is_eu_country = false;
+
+    addScript({
+        text: `
+        var _cio = _cio || [];
+        var a,b,c;a=function(f){return function(){_cio.push([f].
+            concat(Array.prototype.slice.call(arguments,0)))}};b=["load","identify",
+            "sidentify","track","page"];for(c=0;c<b.length;c++){_cio[b[c]]=a(b[c])};
+            var t = document.createElement('script'),
+                s = document.getElementsByTagName('script')[0];
+            t.async = true;
+            t.id    = 'cio-tracker';
+            t.setAttribute('data-site-id', '${siteId}');
+            if(${is_eu_country}){
+                t.src = 'https://assets.customer.io/assets/track-eu.js'
+            } else {
+                t.src = 'https://assets.customer.io/assets/track.js';
+            }
+            //If your account is in the EU, use:
+            s.parentNode.insertBefore(t, s);`,
     })
 
     if (window.location.hostname === 'deriv.com') {

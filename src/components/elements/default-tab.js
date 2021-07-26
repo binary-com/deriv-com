@@ -38,7 +38,6 @@ const TabButton = styled.button`
             border-color: var(--color-red);
             ${Text} {
                 font-weight: bold;
-                color: var(--color-black) !important;
             }
         `}
 

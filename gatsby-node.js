@@ -104,6 +104,7 @@ exports.onCreatePage = ({ page, actions }) => {
         const is_production = process.env.GATSBY_ENV === 'production'
         const careers_regex = /^[a-z-]+\/careers\//g
         const endpoint_regex = /^[a-z-]+\/endpoint\//g
+        const besquare_regex = /^[a-z-]+\/besquare\//g
         const offline_plugin_regex = /^[a-z-]+\/offline-plugin-app-shell-fallback/g
 
         if (is_production) {
@@ -112,6 +113,7 @@ exports.onCreatePage = ({ page, actions }) => {
         if (
             careers_regex.test(localized_path) ||
             endpoint_regex.test(localized_path) ||
+            besquare_regex.test(localized_path) ||
             offline_plugin_regex.test(localized_path)
         )
             return

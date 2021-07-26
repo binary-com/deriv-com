@@ -64,12 +64,12 @@ const AvailablePlatforms = ({
     derivx,
     flex_direction,
     tablet_direction,
-    }) => {
+}) => {
     const { is_eu_country } = React.useContext(DerivStore)
 
     return (
         <Flex
-            style={{'flexWrap': 'wrap'}}
+            style={{ flexWrap: 'wrap' }}
             fd={flex_direction}
             mobileL={{ mt: '16px' }}
             mt="2.4rem"
@@ -84,7 +84,7 @@ const AvailablePlatforms = ({
                 {dmt5 && (
                     <LocalizedLink to="/dmt5/">
                         <StyledFlex direction="row" ai="center">
-                            <img src={DMT5} alt="dmt5 icon" width="32" height="32" />
+                            <img src={DMT5} alt="" width="32" height="32" />
                             <Text ml="0.4rem">{localize('Deriv MT5 (DMT5)')}</Text>
                         </StyledFlex>
                     </LocalizedLink>
@@ -92,7 +92,7 @@ const AvailablePlatforms = ({
                 {dtrader && (
                     <LocalizedLink to="/dtrader/">
                         <StyledFlex direction="row" ai="center">
-                            <img src={DTrader} alt="dtrader icon" width="32" height="32" />
+                            <img src={DTrader} alt="" width="32" height="32" />
                             <Text ml="0.4rem">{localize('DTrader')}</Text>
                         </StyledFlex>
                     </LocalizedLink>
@@ -100,7 +100,7 @@ const AvailablePlatforms = ({
                 {dbot && (
                     <LocalizedLink to="/dbot/">
                         <StyledFlex direction="row" ai="center">
-                            <img src={DBot} alt="dbot icon" width="32" height="32" />
+                            <img src={DBot} alt="" width="32" height="32" />
                             <Text ml="0.4rem">{localize('DBot')}</Text>
                         </StyledFlex>
                     </LocalizedLink>
@@ -108,7 +108,7 @@ const AvailablePlatforms = ({
                 {smarttrader && (
                     <a href={smarttrader_url} target="_blank" rel="noopener noreferrer">
                         <StyledFlex direction="row" ai="center">
-                            <img src={SmartTrader} alt="smarttrader" width="32" height="32" />
+                            <img src={SmartTrader} alt="" width="32" height="32" />
                             <Text ml="0.4rem">{localize('SmartTrader')}</Text>
                         </StyledFlex>
                     </a>
@@ -116,7 +116,7 @@ const AvailablePlatforms = ({
                 {derivx && !is_eu_country && (
                     <LocalizedLink to="/derivx/">
                         <StyledFlex direction="row" ai="center">
-                            <img src={DerivX} alt="Deriv X" width="32" height="32" />
+                            <img src={DerivX} alt="" width="32" height="32" />
                             <Text ml="0.4rem">{localize('Deriv X')}</Text>
                         </StyledFlex>
                     </LocalizedLink>

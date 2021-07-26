@@ -31,7 +31,7 @@ const simple_step_content = [
         text: (
             <Localize translate_text="Get your funds quickly and easily. We support a variety of withdrawal options." />
         ),
-        icon: <img src={WithdrawIcon} alt="withdraw" width="32" height="32" />,
+        icon: <img src={WithdrawIcon} alt="" width="32" height="32" />,
     },
 ]
 const Home = () => {

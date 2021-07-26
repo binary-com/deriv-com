@@ -87,11 +87,11 @@ const SideBarContainer = styled(Flex)`
 const Tag = styled(Flex)`
     height: 22px;
     width: auto;
-    color: var(--color-blue-10);
+    color: var(--color-blue-9);
     font-weight: bold;
     font-size: 14px;
     border-radius: 8px;
-    background-color: var(--color-blue-9);
+    background-color: var(--color-blue-10);
     padding: 1px 8px 0;
     justify-content: center;
     align-items: center;
@@ -115,6 +115,16 @@ const PreviewContainer = styled(Box)`
         line-height: 24px;
         font-size: 16px;
 
+        & a {
+            font-size: 16px;
+            color: var(--color-red);
+            text-decoration: none;
+            cursor: pointer;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
         :first-child {
             margin-top: 0;
         }
@@ -142,16 +152,6 @@ const PreviewContainer = styled(Box)`
         line-height: 24px;
         font-size: 16px;
         font-weight: bold;
-    }
-    & a {
-        font-size: 16px;
-        color: var(--color-red);
-        text-decoration: none;
-        cursor: pointer;
-
-        &:hover {
-            text-decoration: underline;
-        }
     }
     & img {
         max-width: 100%;
@@ -214,6 +214,10 @@ const PreviewContainer = styled(Box)`
 
         & p {
             font-size: 14px;
+
+            & a {
+                font-size: 14px;
+            }
         }
         & ul {
             > li {

@@ -14,25 +14,31 @@ const card_content = [
         header: localize('Quick demo account sign-up'),
         text: localize('Practise with a demo account preloaded with unlimited virtual funds.'),
         image: InstantAccess,
-        alt: "instant access"
+        alt: 'instant access',
     },
     {
         header: localize('Multiple assets on a single platform'),
-        text: localize('Explore forex, synthetic indices, stocks, and commodities on an all-in-one platform.'),
+        text: localize(
+            'Explore forex, synthetic indices, stocks, and commodities on an all-in-one platform.',
+        ),
         image: SyntheticIndices,
-        alt: "syntethic indices"
+        alt: 'syntethic indices',
     },
     {
         header: localize('24/7 trading'),
-        text: localize('Trade round-the-clock, even on weekends, with our proprietary synthetic indices.'),
+        text: localize(
+            'Trade round-the-clock, even on weekends, with our proprietary synthetic indices.',
+        ),
         image: Seven,
-        alt: "seven"
+        alt: 'seven',
     },
     {
         header: localize('Licensed and regulated'),
-        text: localize('Trade with a regulated industry pioneer trusted by traders for more than 20 years.'),
+        text: localize(
+            'Trade with a regulated industry pioneer trusted by traders for more than 20 years.',
+        ),
         image: MinimalRisk,
-        alt: "minimal risk"
+        alt: 'minimal risk',
     },
 ]
 
@@ -109,18 +115,21 @@ const WhyTrader = () => {
                 {localize('Why trade with DMT5')}
             </StyledHeader>
             <CardContainer>
-                {card_content.map(card => {
+                {card_content.map((card) => {
                     return (
                         <Card key={card.alt}>
                             <div>
                                 <img src={card.image} alt={card.alt} />
                             </div>
-                            <StyledCardHeader mt="0.8rem" mb="0.8rem" as="h4" type="sub-section-title">
+                            <StyledCardHeader
+                                mt="0.8rem"
+                                mb="0.8rem"
+                                as="h4"
+                                type="sub-section-title"
+                            >
                                 {card.header}
                             </StyledCardHeader>
-                            <StyledText>
-                                {card.text}
-                            </StyledText>
+                            <StyledText>{card.text}</StyledText>
                         </Card>
                     )
                 })}

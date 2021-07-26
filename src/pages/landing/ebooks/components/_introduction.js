@@ -96,7 +96,7 @@ const Introduction = ({ introImage, imageWidth, introPara, subPara, introList })
                 />
                 <MediaBody>
                     <Header as="h3" className="mt-0 intro-text">
-                        {localize("Introduction")}
+                        {localize('Introduction')}
                     </Header>
                     <Text className="intro-desc" mb="20px">
                         {introPara}
@@ -113,7 +113,7 @@ const Introduction = ({ introImage, imageWidth, introPara, subPara, introList })
                                 mb="20px"
                                 mt="30px"
                             >
-                                {localize("In this book you’ll learn:")}
+                                {localize('In this book you’ll learn:')}
                             </Header>
                             <MediaItemList>
                                 {introList?.map((point, index) => {

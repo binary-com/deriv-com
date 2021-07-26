@@ -7,7 +7,7 @@ import { localize, WithIntl } from 'components/localization'
 
 const WhatIsDMT5 = () => (
     <ArticleWrapper>
-        <StyledHeader as="h4" >{localize('What is DTrader?')}</StyledHeader>
+        <StyledHeader as="h4">{localize('What is DTrader?')}</StyledHeader>
         <Text>
             {localize(
                 'DTrader is an advanced trading platform that allows you to trade more than 50 assets in the form of digitals, multiplier, and lookback options.',
@@ -18,7 +18,7 @@ const WhatIsDMT5 = () => (
 
 const DTraderMarkets = () => (
     <ArticleWrapper>
-        <StyledHeader as="h4" >{localize('What markets can I trade on DTrader?')}</StyledHeader>
+        <StyledHeader as="h4">{localize('What markets can I trade on DTrader?')}</StyledHeader>
         <Text>
             {localize(
                 'You can trade forex, stock indices, commodities, and synthetic indices on DTrader.',
@@ -29,7 +29,7 @@ const DTraderMarkets = () => (
 
 const DTraderContracts = () => (
     <ArticleWrapper>
-        <StyledHeader as="h4" >{localize('What contract types can I use on DTrader?')}</StyledHeader>
+        <StyledHeader as="h4">{localize('What contract types can I use on DTrader?')}</StyledHeader>
         <Text>
             {localize(
                 'We offer three contract types on DTrader: Ups & Downs, Highs & Lows, and Digits.',

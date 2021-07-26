@@ -1,5 +1,12 @@
 import React from 'react'
-import { DisclaimerWrapper, DisclaimerParagraph, StaticAsset, StaticAssetLink, RiskWarning, BoldLink } from './common/style.js'
+import {
+    DisclaimerWrapper,
+    DisclaimerParagraph,
+    StaticAsset,
+    StaticAssetLink,
+    RiskWarning,
+    BoldLink,
+} from './common/style.js'
 import { Show } from 'components/containers'
 import { Localize, localize } from 'components/localization'
 
@@ -81,7 +88,7 @@ const DisclaimerSection = () => {
                                     external="true"
                                     key={1}
                                     target="_blank"
-                                    to="https://beta.gamblingcommission.gov.uk/public-register/business/detail/39172"
+                                    to="https://www.gamblingcommission.gov.uk/public-register/business/detail/39172"
                                     rel="noopener noreferrer"
                                 />,
                             ]}
@@ -101,7 +108,7 @@ const DisclaimerSection = () => {
                                     external="true"
                                     key={1}
                                     target="_blank"
-                                    to="https://beta.gamblingcommission.gov.uk/public-register/business/detail/39495"
+                                    to="https://www.gamblingcommission.gov.uk/public-register/business/detail/39495"
                                     rel="noopener noreferrer"
                                 />,
                             ]}
@@ -123,11 +130,7 @@ const DisclaimerSection = () => {
                                 <Localize
                                     translate_text="Before trading in the complex financial products offered, please be sure to understand the risks involved and learn about <0>Secure and responsible trading</0>."
                                     components={[
-                                        <BoldLink
-                                            key={0}
-                                            target="_blank"
-                                            to="/responsible/"
-                                        />,
+                                        <BoldLink key={0} target="_blank" to="/responsible/" />,
                                     ]}
                                 />
                             </DisclaimerParagraph>
@@ -137,7 +140,10 @@ const DisclaimerSection = () => {
                                 <Localize translate_text="CFDs are considered complex derivatives and may not be suitable for retail clients." />
                             </DisclaimerParagraph>
                             <DisclaimerParagraph>
-                                <Localize translate_text="CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. 68% of retail investor accounts lose money when trading CFDs with this provider. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money." />
+                                <Localize
+                                    translate_text="CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. {{loss_percent}}% of retail investor accounts lose money when trading CFDs with this provider. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money."
+                                    values={{ loss_percent: 63 }}
+                                />
                             </DisclaimerParagraph>
                             <DisclaimerParagraph>
                                 <Localize translate_text="The products mentioned here may be affected by changes in currency exchange rates. If you invest in these products, you may lose some or all of your investment and the value of your investment may fluctuate. You should never invest money that you cannot afford to lose and never trade with borrowed money." />
@@ -146,11 +152,7 @@ const DisclaimerSection = () => {
                                 <Localize
                                     translate_text="Gambling can be addictive, so please play responsibly. Visit <0>Secure and responsible trading</0> and <1>begambleaware.org</1> for more information."
                                     components={[
-                                        <BoldLink
-                                            key={0}
-                                            target="_blank"
-                                            to="/responsible/"
-                                        />,
+                                        <BoldLink key={0} target="_blank" to="/responsible/" />,
                                         <BoldLink
                                             external="true"
                                             key={1}
@@ -168,7 +170,10 @@ const DisclaimerSection = () => {
                                 <Localize translate_text="CFDs are considered complex derivatives and may not be suitable for retail clients." />
                             </DisclaimerParagraph>
                             <DisclaimerParagraph>
-                                <Localize translate_text="CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. 68% of retail investor accounts lose money when trading CFDs with this provider. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money." />
+                                <Localize
+                                    translate_text="CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. {{loss_percent}}% of retail investor accounts lose money when trading CFDs with this provider. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money."
+                                    values={{ loss_percent: 63 }}
+                                />
                             </DisclaimerParagraph>
                             <DisclaimerParagraph>
                                 <Localize translate_text="The products mentioned here may be affected by changes in currency exchange rates. If you invest in these products, you may lose some or all of your investment and the value of your investment may fluctuate. You should never invest money that you cannot afford to lose and never trade with borrowed money." />
@@ -177,11 +182,7 @@ const DisclaimerSection = () => {
                                 <Localize
                                     translate_text="Gambling can be addictive, so please play responsibly. Visit <0>Secure and responsible trading</0> and <1>begambleaware.org</1> if you need further information."
                                     components={[
-                                        <BoldLink
-                                            key={0}
-                                            target="_blank"
-                                            to="/responsible/"
-                                        />,
+                                        <BoldLink key={0} target="_blank" to="/responsible/" />,
                                         <BoldLink
                                             external="true"
                                             key={1}
@@ -200,11 +201,7 @@ const DisclaimerSection = () => {
                                 <Localize
                                     translate_text="Before trading in the complex financial products offered, please be sure to understand the risks involved and learn about <0>Secure and responsible trading</0>."
                                     components={[
-                                        <BoldLink
-                                            key={0}
-                                            target="_blank"
-                                            to="/responsible/"
-                                        />,
+                                        <BoldLink key={0} target="_blank" to="/responsible/" />,
                                     ]}
                                 />
                             </DisclaimerParagraph>
@@ -216,4 +213,4 @@ const DisclaimerSection = () => {
     )
 }
 
-export default DisclaimerSection;
+export default DisclaimerSection

@@ -12,7 +12,9 @@ import { DerivStore } from 'store'
 
 const meta_attributes = {
     og_title: localize('Payment Methods | Deposits and withdrawals | Deriv'),
-    og_description: localize('We offer various payment methods - Bank wires, debit/credit cards, e-wallets and cryptocurrencies to make your transactions more convenient!'),
+    og_description: localize(
+        'We offer various payment methods - Bank wires, debit/credit cards, e-wallets and cryptocurrencies to make your transactions more convenient!',
+    ),
 }
 
 const AccordionContainer = styled.div`

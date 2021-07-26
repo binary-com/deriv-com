@@ -37,7 +37,7 @@ const DropdownInput = styled.input`
 `
 
 const DropdownSearch = ({
-    contract_size,
+    contractSize,
     error,
     has_short_name,
     items,
@@ -48,9 +48,8 @@ const DropdownSearch = ({
 }) => {
     const [input_value, setInputValue] = useState('')
     const [dropdown_items, setDropdownItems] = useState([...items])
-    const [is_open, dropdown_ref, nodes, handleChange, toggleListVisibility, setOpen] = useDropdown(
-        onChange,
-    )
+    const [is_open, dropdown_ref, nodes, handleChange, toggleListVisibility, setOpen] =
+        useDropdown(onChange)
 
     const handleInputChange = (e) => {
         setInputValue(e.target.value)
@@ -116,13 +115,13 @@ const DropdownSearch = ({
                     selected_option={selected_item}
                 />
             </DropdownContainer>
-            <BottomLabel contract_size={contract_size} error={error} />
+            <BottomLabel contractSize={contractSize} error={error} />
         </>
     )
 }
 
 DropdownSearch.propTypes = {
-    contract_size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    contractSize: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     default_item: PropTypes.any,
     error: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     has_short_name: PropTypes.bool,

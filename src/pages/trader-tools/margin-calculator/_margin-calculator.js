@@ -8,7 +8,7 @@ import {
     getContractSize,
     getCurrency,
     resetValidationMargin,
-    getMaxLength
+    getMaxLength,
 } from '../common/_utility'
 import {
     optionItemDefault,
@@ -78,7 +78,7 @@ const MarginCalculator = () => {
     const onTabClick = (tab) => {
         setTab(tab)
     }
-      
+
     return (
         <>
             <BreadCrumbContainer>
@@ -115,7 +115,7 @@ const MarginCalculator = () => {
                                 assetPrice: '',
                                 leverage: '',
                                 optionList: syntheticItemLists,
-                                contractSize: ''
+                                contractSize: '',
                             }}
                             validate={resetValidationMargin}
                             onSubmit={(values, { setFieldValue }) => {
@@ -135,7 +135,7 @@ const MarginCalculator = () => {
                                 setErrors,
                                 resetForm,
                                 isValid,
-                                dirty
+                                dirty,
                             }) => (
                                 <CalculatorForm>
                                     <CalculatorHeader>
@@ -188,14 +188,17 @@ const MarginCalculator = () => {
                                         <DropdownSearch
                                             id="symbol"
                                             key={tab}
-                                            contract_size={values.contractSize}
+                                            contractSize={values.contractSize}
                                             default_item={optionItemDefault}
                                             error={touched.symbol && errors.symbol}
                                             items={values.optionList}
                                             label={localize('Symbol')}
                                             onChange={(value) => {
-                                                setFieldValue('marginSymbol', getCurrency(value));
-                                                setFieldValue('contractSize', getContractSize(value))
+                                                setFieldValue('marginSymbol', getCurrency(value))
+                                                setFieldValue(
+                                                    'contractSize',
+                                                    getContractSize(value),
+                                                )
                                                 setFieldValue('symbol', value)
                                             }}
                                             selected_item={values.symbol}
@@ -224,7 +227,7 @@ const MarginCalculator = () => {
                                                             setFieldTouched('volume', false, false)
                                                             current_input.focus()
                                                         }}
-                                                        maxLength={getMaxLength(values.volume,8)}
+                                                        maxLength={getMaxLength(values.volume, 8)}
                                                         background="white"
                                                     />
                                                 )}
@@ -259,7 +262,10 @@ const MarginCalculator = () => {
                                                             )
                                                             current_input.focus()
                                                         }}
-                                                        maxLength={getMaxLength(values.assetPrice, 15)}
+                                                        maxLength={getMaxLength(
+                                                            values.assetPrice,
+                                                            15,
+                                                        )}
                                                         background="white"
                                                     />
                                                 )}

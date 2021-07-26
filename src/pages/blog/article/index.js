@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import Layout from 'components/layout/layout'
 import { WithIntl } from 'components/localization'
 import { Header } from 'components/elements'
 import { Container, Flex, SectionContainer } from 'components/containers'
@@ -115,57 +114,50 @@ const item_data = {
 
 const BottomCta = () => {
     return (
-        <Layout>
-            <ParentWrapper>
-                <MainWrapper
-                    p="0 32px 0 24px"
-                    max_width="792px"
-                    background_color={item_data.background.color}
-                >
-                    <ContentWrapper ai="center" jc="space-between">
-                        <ImageWrapper pt="12px">
-                            <ImgDiv src={mcBookPro} alt={item_data.banner_image_alt} />
-                        </ImageWrapper>
-                        <TextWrapper direction="column">
-                            <Header
-                                as="h3"
-                                type="subtitle-2"
-                                max_width="35rem"
-                                mobile_max_width="100%"
-                            >
-                                {item_data.main_title}
-                            </Header>
-                            <Header as="p" type="paragraph-1" weight="normal">
-                                {item_data.small_desc}
-                            </Header>
-                        </TextWrapper>
-                        <CTAButton
-                            secondary="true"
-                            to={item_data.button.redirect_link}
-                            background_color={item_data.button.background_color}
-                            color={item_data.button.text_color}
-                            border_color={item_data.button.border_color}
-                        >
-                            {item_data.button.text}
-                        </CTAButton>
-                    </ContentWrapper>
-                    <BackgroundImageWrapper>
-                        <DesktopImageWrapper>
-                            <BackgroundImage src={bgImages} />
-                        </DesktopImageWrapper>
-                        <MobileImageWrapper>
-                            <BackgroundImage
-                                src={
-                                    item_data.background.background_img_mobile
-                                        ? bgImagesMobile
-                                        : bgImages
-                                }
-                            />
-                        </MobileImageWrapper>
-                    </BackgroundImageWrapper>
-                </MainWrapper>
-            </ParentWrapper>
-        </Layout>
+        <ParentWrapper>
+            <MainWrapper
+                p="0 32px 0 24px"
+                max_width="792px"
+                background_color={item_data.background.color}
+            >
+                <ContentWrapper ai="center" jc="space-between">
+                    <ImageWrapper pt="12px">
+                        <ImgDiv src={mcBookPro} alt={item_data.banner_image_alt} />
+                    </ImageWrapper>
+                    <TextWrapper direction="column">
+                        <Header as="h3" type="subtitle-2" max_width="35rem" mobile_max_width="100%">
+                            {item_data.main_title}
+                        </Header>
+                        <Header as="p" type="paragraph-1" weight="normal">
+                            {item_data.small_desc}
+                        </Header>
+                    </TextWrapper>
+                    <CTAButton
+                        secondary="true"
+                        to={item_data.button.redirect_link}
+                        background_color={item_data.button.background_color}
+                        color={item_data.button.text_color}
+                        border_color={item_data.button.border_color}
+                    >
+                        {item_data.button.text}
+                    </CTAButton>
+                </ContentWrapper>
+                <BackgroundImageWrapper>
+                    <DesktopImageWrapper>
+                        <BackgroundImage src={bgImages} />
+                    </DesktopImageWrapper>
+                    <MobileImageWrapper>
+                        <BackgroundImage
+                            src={
+                                item_data.background.background_img_mobile
+                                    ? bgImagesMobile
+                                    : bgImages
+                            }
+                        />
+                    </MobileImageWrapper>
+                </BackgroundImageWrapper>
+            </MainWrapper>
+        </ParentWrapper>
     )
 }
 

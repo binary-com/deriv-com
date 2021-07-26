@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
+import BottomCta from '../article'
 import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { SEO, Show, Box, Flex, Container, SectionContainer } from 'components/containers'
@@ -410,7 +411,6 @@ const PreviewPage = () => {
                             </Flex>
                         </SideBarContainer>
                     </Show.Desktop>
-
                     <Flex fd="column" margin="0 auto" ai="center">
                         <PreviewContainer
                             dangerouslySetInnerHTML={{
@@ -419,6 +419,7 @@ const PreviewPage = () => {
                                     .replace(/\/><\/p>/g, '/>'),
                             }}
                         />
+                        <BottomCta />
                     </Flex>
                 </BodyContainer>
             </SectionContainer>

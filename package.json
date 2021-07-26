@@ -23,6 +23,7 @@
         "gatsby-plugin-image": "^1.7.1",
         "gatsby-plugin-manifest": "^3.7.1",
         "gatsby-plugin-nprogress": "^3.7.1",
+        "gatsby-plugin-page-progress": "^2.2.1",
         "gatsby-plugin-react-helmet": "^4.7.1",
         "gatsby-plugin-robots-txt": "^1.6.2",
         "gatsby-plugin-sharp": "^3.7.1",

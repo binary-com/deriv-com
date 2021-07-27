@@ -57,10 +57,10 @@ const content = {
     },
     provider: {
         header: <Localize translate_text="How to register as a signals provider" />,
-        step_one_header: <Localize translate_text="1. Create signal" />,
+        step_one_header: <Localize translate_text="1.  Head to MQL5.com" />,
         step_one_text: (
             <Localize
-                translate_text="Go to the <0>MQL5 signals showcase</0> page and click on the Create signal button."
+                translate_text="In the <0>MQL5 signals showcase</0>, click the Create signal button"
                 components={[
                     <LocalizedLinkText
                         external="true"
@@ -72,16 +72,29 @@ const content = {
                 ]}
             />
         ),
-        step_two_header: <Localize translate_text="2. Fill the broker field" />,
+        step_two_header: <Localize translate_text="2. Fill in your details" />,
         step_two_text: (
             <Localize
-                translate_text="Complete the form with your Deriv MT5 account credentials. For the Broker field, add <0>Deriv-Server</0> as your broker or <0>Deriv-Demo</0> if your signal is for demo accounts only."
-                components={[<strong key={0} />]}
+                translate_text="Complete the form with your Deriv MT5 account credentials. In the <0>Broker</0> field, enter your account server name: <1/> <0>- Deriv-Demo</0> if your signal is for demo accounts only <1/> <0>- Deriv-Server</0> or <0>Deriv-Server-02</0> if your signal is for real accounts only <1/>
+(You can find the account server name on your <2>Deriv MT5 dashboard</2>.)"
+                components={[
+                    <strong key={0} />,
+                    <br key={1} />,
+                    <LocalizedLinkText
+                        external="true"
+                        to="https://app.deriv.com/mt5"
+                        color="red"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        size={16}
+                        key={2}
+                    />,
+                ]}
             />
         ),
         step_three_header: <Localize translate_text="3. Complete the registration" />,
         step_three_text: (
-            <Localize translate_text="Click Save and add a description to complete the registration." />
+            <Localize translate_text="Add a description and click Save to complete your registration." />
         ),
         notice: (
             <Localize

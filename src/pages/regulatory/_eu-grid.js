@@ -209,11 +209,6 @@ const EUgrid = () => {
                     url="/regulatory/countries/Sweden.pdf"
                     order="25"
                 />
-                <GridItem
-                    name={localize('United Kingdom')}
-                    url="/regulatory/countries/UnitedKingdom.pdf"
-                    order="26"
-                />
             </CssGridColumn>
         </CssGrid>
     )

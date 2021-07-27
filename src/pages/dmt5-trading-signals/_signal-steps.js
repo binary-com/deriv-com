@@ -75,7 +75,7 @@ const content = {
         step_two_header: <Localize translate_text="2. Fill the broker field" />,
         step_two_text: (
             <Localize
-                translate_text="Complete the form with your Deriv MT5 account credentials. For the Broker field, add <0>Deriv-Server</0> as your broker or <0>Deriv-Demo</0> if your signal is for demo accounts only."
+                translate_text="Complete the form with your Deriv MT5 account credentials. For the Broker field, add <0>Deriv-Server</0> or <0>Deriv-Server-02</0> as your broker or <0>Deriv-Demo</0> if your signal is for demo accounts only."
                 components={[<strong key={0} />]}
             />
         ),
@@ -85,7 +85,7 @@ const content = {
         ),
         notice: (
             <Localize
-                translate_text="<0>Note:</0> You need to upgrade your MQL5 account to seller status to be able to add a signal. If you’ve not upgraded yet, <1>follow the steps on this page</1> to register as a seller."
+                translate_text="<0>Note:</0> You need to upgrade your MQL5 account to seller status to be able to add a signal. If you’ve not upgraded yet, <1>follow the steps on this page</1> to register as a seller. You will find the account server name on your MT5 dashboard. "
                 components={[
                     <strong key={0} />,
                     <LocalizedLinkText

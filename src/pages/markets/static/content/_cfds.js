@@ -150,7 +150,7 @@ export const stock_cfds = {
             gap: '16px',
         },
         {
-            title: <Localize translate_text="American stocks" />,
+            title: <Localize translate_text="Stocks" />,
             component: <AmericanStocks />,
             col: 3,
             tablet_col: 2,

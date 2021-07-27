@@ -85,7 +85,7 @@ const content = {
         ),
         notice: (
             <Localize
-                translate_text="<0>Note:</0> You need to upgrade your MQL5 account to seller status to be able to add a signal. If you’ve not upgraded yet, <1>follow the steps on this page</1> to register as a seller. You will find the account server name on your MT5 dashboard. "
+                translate_text="<0>Note:</0> You need to upgrade your MQL5 account to seller status to be able to add a signal. If you’ve not upgraded yet, <1>follow the steps on this page</1> to register as a seller. You will find the account server name on your MT5 dashboard."
                 components={[
                     <strong key={0} />,
                     <LocalizedLinkText

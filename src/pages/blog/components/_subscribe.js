@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 /* eslint-disable no-console */
 =======
 >>>>>>> 0938c5741d (add form ui)
@@ -7,6 +8,10 @@ import React, { useEffect } from 'react'
 =======
 import React from 'react'
 >>>>>>> 49e2b88427 (add cstomerio working)
+=======
+/* eslint-disable no-console */
+import React, { useEffect } from 'react'
+>>>>>>> 5f8ad2a036 (add api checker adblock)
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Title, TextWrapper } from './_common'
@@ -83,6 +88,22 @@ const StyledFormContent = styled.div`
         }
     }
 `
+<<<<<<< HEAD
+=======
+const StyledSuccess = styled.div`
+    color: #01a79f;
+    font-size: 14px;
+    position: relative;
+    top: 15px;
+`
+
+const StyledFail = styled.div`
+    color: red;
+    font-size: 14px;
+    position: relative;
+    top: 15px;
+`
+>>>>>>> 5f8ad2a036 (add api checker adblock)
 
 const InputWrapper = styled.div`
     display: flex;
@@ -259,6 +280,10 @@ const Subscribe = () => {
         }
 
         customerioData(formattedEmail)
+<<<<<<< HEAD
+=======
+        setEmailForMessage(email)
+>>>>>>> 5f8ad2a036 (add api checker adblock)
         submit_status && setSubmitStatus('success')
         clearName()
         clearEmail()
@@ -365,6 +390,7 @@ const Subscribe = () => {
                         />
                     )}
                     {submit_status === 'success' && (
+<<<<<<< HEAD
                         <TextWrapper color={'#01a79f'} font_size={15} margin_top={'10px'}>
                             <Localize translate_text="Thanks for subscribing. We've sent a confirmation email to your inbox" />
                         </TextWrapper>
@@ -373,6 +399,22 @@ const Subscribe = () => {
                         <TextWrapper color={'#ff444f'} font_size={15} margin_top={'10px'}>
                             <Localize translate_text="Please disable Adblock for Deriv to subscribe successfully" />
                         </TextWrapper>
+=======
+                        <StyledSuccess>
+                            <Localize
+                                translate_text="Thanks for subscribing. We've sent a confirmation email to your inbox"
+                                values={{ email: emailForMessage }}
+                            />
+                        </StyledSuccess>
+>>>>>>> 5f8ad2a036 (add api checker adblock)
+                    )}
+                    {submit_status === false && (
+                        <StyledFail>
+                            <Localize
+                                translate_text="Please disable Adblock for Deriv to subscribe successfully"
+                                values={{ email: emailForMessage }}
+                            />
+                        </StyledFail>
                     )}
                 </InputGroupForm>
             </StyledFormContent>

@@ -90,7 +90,7 @@ const pushwooshInit = (push_woosh) => {
                     }
                 })
                 // eslint-disable-next-line no-empty
-            } catch {}
+            } catch { }
 
             sendTags(api)
         },
@@ -165,8 +165,6 @@ export const onClientEntry = () => {
     })
 
     const siteId = process.env.GATSBY_ENV_CIO_SITE_ID
-    const is_eu_country = false;
-
     addScript({
         text: `
         var _cio = _cio || [];
@@ -178,11 +176,7 @@ export const onClientEntry = () => {
             t.async = true;
             t.id    = 'cio-tracker';
             t.setAttribute('data-site-id', '${siteId}');
-            if(${is_eu_country}){
-                t.src = 'https://assets.customer.io/assets/track-eu.js'
-            } else {
-                t.src = 'https://assets.customer.io/assets/track.js';
-            }
+            t.src = 'https://assets.customer.io/assets/track.js' 
             //If your account is in the EU, use:
             s.parentNode.insertBefore(t, s);`,
     })

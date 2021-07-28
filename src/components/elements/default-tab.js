@@ -5,7 +5,6 @@ import { Text } from './typography'
 import { Flex } from 'components/containers'
 import { useTabState } from 'components/hooks/use-tab-state'
 import device from 'themes/device'
-
 const TabContent = styled.div`
     flex: 1;
     width: 100%;
@@ -25,6 +24,14 @@ const TabButton = styled.button`
     border: none;
     border-bottom: 2px solid var(--color-grey-2);
     white-space: nowrap;
+
+    @media ${device.laptopM} {
+        width: ${(props) =>
+            props.mobile_tab_button_underline_length
+                ? props.mobile_tab_button_underline_length
+                : 'unset'};
+    }
+
     ${(props) =>
         props.selected &&
         css`
@@ -45,12 +52,15 @@ const TabButton = styled.button`
 const TabList = styled.div`
     display: flex;
     width: 100%;
-    justify-content: center;
+    justify-content: ${(props) => (props.jc ? props.jc : 'center')};
     position: relative;
     overflow: auto;
 
     @media ${device.mobileL} {
-        justify-content: space-between;
+        justify-content: ${(props) => (props.jc_mobileL ? props.jc_mobileL : 'space-between')};
+    }
+    @media ${device.laptopM} {
+        justify-content: ${(props) => (props.jc_laptopM ? props.jc_laptopM : 'center')};
     }
 `
 
@@ -58,7 +68,7 @@ const LineDivider = styled.div`
     bottom: 0;
     position: absolute;
     height: 2px;
-    width: 100%;
+    width: ${(props) => (props.line_divider_length ? props.line_divider_length : '100%')};
     background: var(--color-grey-2);
     z-index: 1;
 `
@@ -71,8 +81,6 @@ const Content = styled.div`
 const TextWrapper = styled(Text)`
     text-align: center;
     font-size: var(--text-size-m);
-    color: var(--color-black);
-
     @media ${device.tabletS} {
         font-size: ${({ font_size }) => font_size ?? 'var(--text-size-sm)'};
     }
@@ -91,7 +99,16 @@ TabPanel.propTypes = {
     children: PropTypes.node,
 }
 
-const Tabs = ({ children, route_from, tab_list }) => {
+const Tabs = ({
+    children,
+    route_from,
+    tab_list,
+    jc,
+    jc_mobileL,
+    jc_laptopM,
+    line_divider_length,
+    mobile_tab_button_underline_length,
+}) => {
     const [selected_tab, setSelectedTab] = useState(0)
     const [active_tab, setActiveTab] = useTabState(tab_list)
 
@@ -101,20 +118,27 @@ const Tabs = ({ children, route_from, tab_list }) => {
 
     return (
         <Flex direction="column">
-            <TabList role="tablist">
+            <TabList
+                role="tablist"
+                jc={jc}
+                jc_mobileL={jc_mobileL}
+                jc_laptopM={jc_laptopM}
+                line_divider_length={line_divider_length}
+            >
                 {React.Children.map(children, ({ props: { label } }, index) => (
                     <TabButton
                         role="tab"
                         selected={selected_tab === index}
                         aria-selected={selected_tab === index ? 'true' : 'false'}
                         onClick={() => setActiveTab(tab_list[index])}
+                        mobile_tab_button_underline_length={mobile_tab_button_underline_length}
                     >
                         <TextWrapper font_size={route_from === 'markets' ? '24px' : undefined}>
                             {label}
                         </TextWrapper>
                     </TabButton>
                 ))}
-                <LineDivider />
+                <LineDivider line_divider_length={line_divider_length} />
             </TabList>
 
             <Content>
@@ -130,6 +154,11 @@ Tabs.Panel = TabPanel
 
 Tabs.propTypes = {
     children: PropTypes.node,
+    jc: PropTypes.string,
+    jc_laptopM: PropTypes.string,
+    jc_mobileL: PropTypes.string,
+    line_divider_length: PropTypes.string,
+    mobile_tab_button_underline_length: PropTypes.string,
     route_from: PropTypes.string,
     tab_list: PropTypes.array,
 }

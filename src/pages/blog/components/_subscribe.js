@@ -1,17 +1,5 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-/* eslint-disable no-console */
-=======
->>>>>>> 0938c5741d (add form ui)
-import React, { useEffect } from 'react'
-=======
-import React from 'react'
->>>>>>> 49e2b88427 (add cstomerio working)
-=======
 /* eslint-disable no-console */
 import React, { useEffect } from 'react'
->>>>>>> 5f8ad2a036 (add api checker adblock)
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Title, TextWrapper } from './_common'
@@ -34,19 +22,6 @@ const SignupFormWrapper = styled(Flex)`
 
     @media ${device.tabletL} {
         padding: 200px 20px 40px;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
-        .form-content,
-        .form-content h3,
-        .form-content p {
-            width: 100%;
-            max-width: 100%;
-        }
->>>>>>> 26767a3f74 (add stylde imge)
-=======
->>>>>>> 49e2b88427 (add cstomerio working)
     }
     @media ${device.tabletS} {
         width: 100%;
@@ -88,23 +63,6 @@ const StyledFormContent = styled.div`
         }
     }
 `
-<<<<<<< HEAD
-=======
-const StyledSuccess = styled.div`
-    color: #01a79f;
-    font-size: 14px;
-    position: relative;
-    top: 15px;
-`
-
-const StyledFail = styled.div`
-    color: red;
-    font-size: 14px;
-    position: relative;
-    top: 15px;
-`
->>>>>>> 5f8ad2a036 (add api checker adblock)
-
 const InputWrapper = styled.div`
     display: flex;
 
@@ -177,7 +135,6 @@ const EmailButton = styled(Button)`
 const Subscribe = () => {
     const [is_checked, setChecked] = React.useState(false)
     const [email, setEmail] = React.useState('')
-    const [emailForMessage, setEmailForMessage] = React.useState('')
     const [name, setName] = React.useState('')
     const [is_submitting, setIsSubmitting] = React.useState(false)
     const [submit_status, setSubmitStatus] = React.useState('')
@@ -280,10 +237,6 @@ const Subscribe = () => {
         }
 
         customerioData(formattedEmail)
-<<<<<<< HEAD
-=======
-        setEmailForMessage(email)
->>>>>>> 5f8ad2a036 (add api checker adblock)
         submit_status && setSubmitStatus('success')
         clearName()
         clearEmail()
@@ -390,31 +343,16 @@ const Subscribe = () => {
                         />
                     )}
                     {submit_status === 'success' && (
-<<<<<<< HEAD
                         <TextWrapper color={'#01a79f'} font_size={15} margin_top={'10px'}>
                             <Localize translate_text="Thanks for subscribing. We've sent a confirmation email to your inbox" />
                         </TextWrapper>
                     )}
                     {submit_status === false && (
-                        <TextWrapper color={'#ff444f'} font_size={15} margin_top={'10px'}>
-                            <Localize translate_text="Please disable Adblock for Deriv to subscribe successfully" />
-                        </TextWrapper>
-=======
-                        <StyledSuccess>
-                            <Localize
-                                translate_text="Thanks for subscribing. We've sent a confirmation email to your inbox"
-                                values={{ email: emailForMessage }}
-                            />
-                        </StyledSuccess>
->>>>>>> 5f8ad2a036 (add api checker adblock)
-                    )}
-                    {submit_status === false && (
-                        <StyledFail>
+                        <TextWrapper color={'red'} font_size={15} margin_top={'10px'}>
                             <Localize
                                 translate_text="Please disable Adblock for Deriv to subscribe successfully"
-                                values={{ email: emailForMessage }}
                             />
-                        </StyledFail>
+                        </TextWrapper>
                     )}
                 </InputGroupForm>
             </StyledFormContent>

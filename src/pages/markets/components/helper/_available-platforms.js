@@ -69,7 +69,7 @@ const AvailablePlatforms = ({
 
     return (
         <Flex
-            style={{ flexWrap: 'wrap' }}
+            wrap="wrap"
             fd={flex_direction}
             mobileL={{ mt: '16px' }}
             mt="2.4rem"

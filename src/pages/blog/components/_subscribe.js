@@ -66,14 +66,20 @@ const StyledFormContent = styled.div`
 const InputWrapper = styled.div`
     display: flex;
 
+    > div:last-child {
+        margin-left: 10px;
+    }
     input#name {
         width: 212px;
+    }
+    p {
+        padding-left: 0;
+        margin-top: 5px;
     }
     input#email {
         width: 300px;
         border-top-right-radius: 0;
         border-bottom-right-radius: 0;
-        margin-left: 10px;
     }
     @media screen and (max-width: 1330px) and (min-width: 991px) {
         input#name {
@@ -115,7 +121,7 @@ const InputGroupForm = styled.form`
     }
 `
 const EmailButton = styled(Button)`
-    padding: 10px 28px 9px;
+    padding: 9px 28px;
     border-radius: 4px;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
@@ -319,7 +325,7 @@ const Subscribe = () => {
                                 labelColor="black-3"
                                 labelSize="16px"
                                 labelTop="1.2rem"
-                                placeholder={'Name'}
+                                placeholder={'Your Name'}
                                 handleError={clearName}
                                 onChange={handleInputNameChange}
                                 onBlur={handleValidation}
@@ -342,7 +348,7 @@ const Subscribe = () => {
                                 labelColor="black-3"
                                 labelSize="16px"
                                 labelTop="1.2rem"
-                                placeholder={'email address'}
+                                placeholder={'Your Email Address'}
                                 handleError={clearEmail}
                                 onChange={handleInputChange}
                                 onBlur={handleValidation}
@@ -385,7 +391,7 @@ const Subscribe = () => {
                     )}
                     {submit_status === false && (
                         <TextWrapper color={'#ff444f'} font_size={15} margin_top={'10px'}>
-                            <Localize translate_text="Please disable Adblock for Deriv to subscribe successfully" />
+                            <Localize translate_text="If you have AdBlock installed, please disable it in order to subscribe" />
                         </TextWrapper>
                     )}
                 </InputGroupForm>

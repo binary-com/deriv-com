@@ -9,6 +9,7 @@ import { Localize, localize } from 'components/localization'
 import { Flex } from 'components/containers'
 import AgreementLabel from 'components/custom/_agreement-label'
 import device from 'themes/device.js'
+import { DerivStore } from 'store'
 
 const SignupFormWrapper = styled(Flex)`
     width: 100%;
@@ -141,12 +142,16 @@ const Subscribe = () => {
     const [name_error_msg, setNameErrorMsg] = React.useState('')
     const [submit_error_msg, setSubmitErrorMsg] = React.useState('')
 
+    const { is_eu_country } = React.useContext(DerivStore)
+
     useEffect(() => {
+        addScriptForCIO()
         const options = {
             headers: new Headers({ 'content-type': 'application/json' }),
             mode: 'no-cors',
         }
-        fetch('https://assets.customer.io/assets/track.js', options)
+        const url = 'https://assets.customer.io/assets/track.js'
+        fetch(url, options)
             .then(() => {
                 setSubmitStatus(true)
             })
@@ -154,6 +159,41 @@ const Subscribe = () => {
                 setSubmitStatus(false)
             })
     }, [])
+
+    const addScriptForCIO = () => {
+        const addScript = (settings) => {
+            const script = document.createElement('script')
+            const { async, text, src, id } = settings
+
+            if (async) script.async = settings['async']
+            if (text) script.text = settings['text']
+            if (src) script.src = settings['src']
+            if (id) script.id = settings['id']
+            document.body.appendChild(script)
+        }
+        const site_id = process.env.GATSBY_ENV_CIO_SITE_ID
+
+        let cio_url = 'https://assets.customer.io/assets/track.js'
+        if (is_eu_country) {
+            cio_url = 'https://assets.customer.io/assets/track-eu.js'
+        }
+
+        addScript({
+            text: `
+            var _cio = _cio || [];
+            var a,b,c;a=function(f){return function(){_cio.push([f].
+            concat(Array.prototype.slice.call(arguments,0)))}};b=["load","identify",
+            "sidentify","track","page"];for(c=0;c<b.length;c++){_cio[b[c]]=a(b[c])};
+            var t = document.createElement('script'),
+                s = document.getElementsByTagName('script')[0];
+            t.async = true;
+            t.id    = 'cio-tracker';
+            t.setAttribute('data-site-id', '${site_id}');
+            t.src = '${cio_url}' 
+            //If your account is in the EU, use:
+            s.parentNode.insertBefore(t, s);`,
+        })
+    }
 
     const handleChange = (event) => {
         setChecked(event.currentTarget.checked)
@@ -268,7 +308,6 @@ const Subscribe = () => {
                             <Input
                                 required
                                 id="name"
-                                className="name-input"
                                 name="text"
                                 type="text"
                                 error={name_error_msg}

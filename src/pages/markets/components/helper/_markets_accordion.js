@@ -52,7 +52,7 @@ const MarketsAccordion = ({ renderTitle, renderDetails, custom_index }) => {
                 <Button onClick={() => setShow(!is_show_detail)}>
                     <StyledChevron
                         src={ChevronThick}
-                        alt="chevron"
+                        alt=""
                         width="16px"
                         height="16px"
                         is_show_detail={String(is_show_detail)}

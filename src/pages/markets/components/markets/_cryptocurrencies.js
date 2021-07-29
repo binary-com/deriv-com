@@ -23,7 +23,6 @@ const Cryptocurrencies = ({ simple_step_content }) => {
     const crypto_content = [
         {
             src: Leverage,
-            alt: 'leverage',
             text: is_eu_country ? (
                 <Localize translate_text="1:2 leverage" />
             ) : (
@@ -32,17 +31,14 @@ const Cryptocurrencies = ({ simple_step_content }) => {
         },
         {
             src: TightSpread,
-            alt: 'tight spreads',
             text: <Localize translate_text="Tight spreads" />,
         },
         {
             src: CryptoPairs,
-            alt: 'advanced charting widgets',
             text: <Localize translate_text="17+ crypto pairs" />,
         },
         {
             src: ZeroCommission,
-            alt: 'deposit and withdrawal',
             text: <Localize translate_text="Zero commission" />,
         },
     ]
@@ -56,11 +52,7 @@ const Cryptocurrencies = ({ simple_step_content }) => {
                 }
             >
                 {crypto_content.map((content, index) => (
-                    <div
-                        key={index}
-                        text={content.text}
-                        icon={<img src={content.src} alt={content.alt} />}
-                    />
+                    <div key={index} text={content.text} icon={<img src={content.src} alt="" />} />
                 ))}
             </WhyTrade>
             <AvailableTrades

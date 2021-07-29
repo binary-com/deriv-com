@@ -69,6 +69,9 @@ const InputWrapper = styled.div`
     > div:last-child {
         margin-left: 10px;
     }
+    input {
+        text-transform: none;
+    }
     input#name {
         width: 212px;
     }
@@ -325,7 +328,7 @@ const Subscribe = () => {
                                 labelColor="black-3"
                                 labelSize="16px"
                                 labelTop="1.2rem"
-                                placeholder={'Your Name'}
+                                placeholder={'Your name'}
                                 handleError={clearName}
                                 onChange={handleInputNameChange}
                                 onBlur={handleValidation}
@@ -348,7 +351,7 @@ const Subscribe = () => {
                                 labelColor="black-3"
                                 labelSize="16px"
                                 labelTop="1.2rem"
-                                placeholder={'Your Email Address'}
+                                placeholder={'Your email address'}
                                 handleError={clearEmail}
                                 onChange={handleInputChange}
                                 onBlur={handleValidation}

@@ -148,12 +148,10 @@ const Subscribe = () => {
             mode: 'no-cors',
         }
         fetch('https://assets.customer.io/assets/track.js', options)
-            .then((response) => {
-                console.log(response)
+            .then(() => {
                 setSubmitStatus(true)
             })
-            .catch((error) => {
-                console.log('error', error)
+            .catch(() => {
                 setSubmitStatus(false)
             })
     }, [])

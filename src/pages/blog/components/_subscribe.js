@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
@@ -346,10 +345,8 @@ const Subscribe = () => {
                         </TextWrapper>
                     )}
                     {submit_status === false && (
-                        <TextWrapper color={'red'} font_size={15} margin_top={'10px'}>
-                            <Localize
-                                translate_text="Please disable Adblock for Deriv to subscribe successfully"
-                            />
+                        <TextWrapper color={'#ff444f'} font_size={15} margin_top={'10px'}>
+                            <Localize translate_text="Please disable Adblock for Deriv to subscribe successfully" />
                         </TextWrapper>
                     )}
                 </InputGroupForm>

@@ -13,6 +13,7 @@ const domain_url =
         : deriv_com_url
 
 // URL
+export const domain_full_url = `https://${domain_url}`
 export const deriv_app_id = domain_url === deriv_com_url ? deriv_com_app_id : deriv_me_app_id
 export const deriv_app_url = `https://app.${domain_url}`
 export const deriv_developer_url = `https://developers.${domain_url}`
@@ -75,6 +76,7 @@ export const localized_link_url = Object.freeze({
     mt5: deriv_mt5_app_url,
     smart_trader: smarttrader_url,
     zoho: zoho_url,
+    terms_and_conditions: domain_full_url,
 })
 export const default_server_url = 'green.binaryws.com'
 

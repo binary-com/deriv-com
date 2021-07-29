@@ -36,6 +36,7 @@ const addScript = (settings) => {
     if (text) script.text = settings['text']
     if (src) script.src = settings['src']
     if (id) script.id = settings['id']
+
     document.body.appendChild(script)
 }
 
@@ -90,7 +91,7 @@ const pushwooshInit = (push_woosh) => {
                     }
                 })
                 // eslint-disable-next-line no-empty
-            } catch { }
+            } catch {}
 
             sendTags(api)
         },

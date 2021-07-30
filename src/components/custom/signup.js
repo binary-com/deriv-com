@@ -81,7 +81,7 @@ const Signup = (props) => {
         // this.setState({
         //     [name]: value,
         // })
-        setEmail(value);
+        setEmail(value)
         handleValidation(value)
     }
 
@@ -110,7 +110,7 @@ const Signup = (props) => {
         handleValidation(email.replace(/\s/g, ''))
         const has_error_email = validateEmail(email)
         if (has_error_email || email_error_msg) {
-            return setSubmitting('false')
+            return setSubmitting(false)
         }
 
         const verify_email_req = getVerifyEmailRequest(email)
@@ -128,8 +128,8 @@ const Signup = (props) => {
                 setSubmitErrorMsg(response.error.message)
                 handleValidation(email)
             } else {
-                setSubmitting(false);
-                setSubmitStatus('success');
+                setSubmitting(false)
+                setSubmitStatus('success')
 
                 if (props.onSubmit) {
                     props.onSubmit(submit_status || 'success', email)
@@ -147,7 +147,7 @@ const Signup = (props) => {
     }
 
     const clearEmail = () => {
-        setEmail('');
+        setEmail('')
         setEmailErrorMsg('')
     }
     const handleSocialSignup = (e) => {
@@ -195,41 +195,39 @@ const Signup = (props) => {
                 return <SignupDefault {...parameters}></SignupDefault>
         }
     }
-    return (
-        props.submit_state === 'success' ? (
-            <ResponseWrapper>
-                <Header as="h3" type="section-title" align="center" weight="normal">
-                    {localize('Check your email')}
-                </Header>
-                <StaticQuery
-                    query={graphql`
-                        query {
-                            view_email: file(relativePath: { eq: "view-email.png" }) {
-                                ...fadeIn
-                            }
+    return props.submit_state === 'success' ? (
+        <ResponseWrapper>
+            <Header as="h3" type="section-title" align="center" weight="normal">
+                {localize('Check your email')}
+            </Header>
+            <StaticQuery
+                query={graphql`
+                    query {
+                        view_email: file(relativePath: { eq: "view-email.png" }) {
+                            ...fadeIn
                         }
-                    `}
-                    render={(data) => (
-                        <Box m="3.2rem 0">
-                            <QueryImage data={data.view_email} alt="Email image" />
-                        </Box>
-                    )}
+                    }
+                `}
+                render={(data) => (
+                    <Box m="3.2rem 0">
+                        <QueryImage data={data.view_email} alt="Email image" />
+                    </Box>
+                )}
+            />
+            <Text align="center">
+                <Localize
+                    translate_text="We've sent a message to {{email}} with a link to activate your account."
+                    values={{ email: props.email }}
                 />
-                <Text align="center">
-                    <Localize
-                        translate_text="We've sent a message to {{email}} with a link to activate your account."
-                        values={{ email: props.email }}
-                    />
-                </Text>
-                <EmailLink to="/check-email/" align="center">
-                    {localize("Didn't receive your email?")}
-                </EmailLink>
-            </ResponseWrapper>
-        ) : (
-            <Form onSubmit={handleEmailSignup} noValidate bgColor={props.bgColor}>
-                {renderSwitch(props.appearance)}
-            </Form>
-        )
+            </Text>
+            <EmailLink to="/check-email/" align="center">
+                {localize("Didn't receive your email?")}
+            </EmailLink>
+        </ResponseWrapper>
+    ) : (
+        <Form onSubmit={handleEmailSignup} noValidate bgColor={props.bgColor}>
+            {renderSwitch(props.appearance)}
+        </Form>
     )
 }
 

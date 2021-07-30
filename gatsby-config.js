@@ -71,7 +71,7 @@ module.exports = {
                 ],
                 serialize: ({ site, allSitePage }) =>
                     allSitePage.edges.map((edge) => {
-                        const ignore_localized_regex = /careers/
+                        const ignore_localized_regex = /careers|besquare|blog/
                         const path = edge.node.path
                         let priority = 0.7
                         const languages = Object.keys(language_config)
@@ -206,6 +206,15 @@ module.exports = {
             resolve: 'gatsby-plugin-anchor-links',
             options: {
                 offset: -100,
+            },
+        },
+        {
+            resolve: '@directus/gatsby-source-directus',
+            options: {
+                url: `https://amammustofa.com`,
+                dev: {
+                    refresh: '5s',
+                },
             },
         },
     ],

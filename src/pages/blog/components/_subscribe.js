@@ -71,7 +71,7 @@ const InputWrapper = styled.div`
     }
     input {
         text-transform: none;
-        font-size: 14px;
+        font-size: 12px;
     }
     input#name {
         width: 212px;
@@ -310,7 +310,7 @@ const Subscribe = () => {
                 <TextWrapper
                     color={'white'}
                     font_size={['16px', '14px']}
-                    line_height={['20px', '18px']}
+                    line_height={['22px', '18px']}
                     max_width={['684px', '291px']}
                 >
                     {localize(

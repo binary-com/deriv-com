@@ -309,12 +309,12 @@ const Subscribe = () => {
                 </Title>
                 <TextWrapper
                     color={'white'}
-                    font_size={['14px', '12px']}
+                    font_size={['16px', '14px']}
                     line_height={['20px', '18px']}
                     max_width={['684px', '291px']}
                 >
                     {localize(
-                        'Be among the first to get new content delivered to your inbox once a month by subscribing to our academy updates.',
+                        'Be among the first to get new content delivered to your inbox once a month by subscribing to our blog updates.',
                     )}
                 </TextWrapper>
                 <InputGroupForm onSubmit={handleEmailSignup} noValidate>

@@ -1,15 +1,18 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
-import VideoSrc from '../../markets/static/video/globe.mp4'
 import { StyledImg, Container, VideoGrid } from '../common/_styles'
+import VideoPlayer from '../_video-player'
 import VideoCard from './_video-card'
-import VideoPlayer from './_video-player'
 import { Flex } from 'components/containers'
 import { Text, LocalizedLinkText } from 'components/elements'
 import RightArrow from 'images/svg/black-right-arrow.svg'
 
 const AllVideos = ({ video_data }) => {
     const [show, setShow] = useState(false)
+
+    useEffect(() => {
+        show ? (document.body.style.overflow = 'hidden') : (document.body.style.overflow = 'unset')
+    }, [show])
 
     return (
         <Container m="0 auto" fd="column">
@@ -25,7 +28,12 @@ const AllVideos = ({ video_data }) => {
                     return <VideoCard key={item.id} item={item} openVideo={() => setShow(true)} />
                 })}
             </VideoGrid>
-            {show && <VideoPlayer video_src={VideoSrc} closeVideo={() => setShow(false)} />}
+            {show && (
+                <VideoPlayer
+                    video_src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4"
+                    closeVideo={() => setShow(false)}
+                />
+            )}
         </Container>
     )
 }

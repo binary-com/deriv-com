@@ -1,8 +1,8 @@
 import React from 'react'
 import Dbanner from './_DBanner'
-import Layout from 'components/layout/layout'
+// import Layout from 'components/layout/layout'
 import { Flex } from 'components/containers'
-import { WithIntl } from 'components/localization'
+// import { WithIntl } from 'components/localization'
 
 const MainVidDetails = [
     {
@@ -76,12 +76,10 @@ const carouselItem = [
 
 const DVideoBanner = () => {
     return (
-        <Layout>
-            <Flex>
-                <Dbanner video_details={MainVidDetails} video_list={carouselItem} />
-            </Flex>
-        </Layout>
+        <Flex>
+            <Dbanner video_details={MainVidDetails} video_list={carouselItem} />
+        </Flex>
     )
 }
 
-export default WithIntl()(DVideoBanner)
+export default DVideoBanner

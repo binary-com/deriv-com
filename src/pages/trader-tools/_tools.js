@@ -143,7 +143,7 @@ const TradingTools = ({ tools }) => {
                                     <Show.Mobile>
                                         <QueryImage
                                             data={data[item.image_name + '_mobile']}
-                                            alt="           "
+                                            alt=""
                                             height="100%"
                                         />
                                         <StyledLinkButton tertiary to={item.link.route}>

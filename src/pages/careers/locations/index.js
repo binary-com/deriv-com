@@ -91,13 +91,13 @@ const CountryCardWrapper = styled(StyledCard)`
 const CountryCard = ({ country_name, city_name, link, img_data, Icon }) => {
     return (
         <CountryCardWrapper to={link}>
-            <QueryImage data={img_data} alt={city_name + localize('Office')} width="100%" />
+            <QueryImage data={img_data} alt="" width="100%" />
             <div style={{ padding: '32px' }}>
                 <Header as="h5" size="var(--text-size-sm)">
                     {city_name}
                 </Header>
                 <Flex jc="unset" ai="center" mt="8px" mb="8px">
-                    <StyledImg src={Icon} alt="icon" />
+                    <StyledImg src={Icon} alt="" />
                     <Text weight="bold">{country_name}</Text>
                 </Flex>
                 <Flex ai="center" jc="flex-end">

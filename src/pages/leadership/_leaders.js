@@ -309,7 +309,7 @@ const Leaders = () => {
                         {leaders_data.map((leader, index) => (
                             <LeaderWrapper key={index} direction="column" ai="center">
                                 <Box margin={{ bottom: '0.8rem' }} width="100%" position="relative">
-                                    <QueryImage data={data[leader.image]} alt={leader.name} />
+                                    <QueryImage data={data[leader.image]} alt="" />
                                     <DescriptionWrapper>
                                         <Text lh="1.71" size="var(--text-size-xxs)" color="white">
                                             {leader.description}
@@ -331,7 +331,7 @@ const Leaders = () => {
                         <LeaderMobile key={idx}>
                             <RelativeImageWrapper>
                                 <AbsoluteImageWrapper>
-                                    <QueryImage data={data[`${leader.image}`]} alt={leader.name} />
+                                    <QueryImage data={data[`${leader.image}`]} alt="" />
                                 </AbsoluteImageWrapper>
                             </RelativeImageWrapper>
                             <Header as="h4" size="24px" align="center" m="16px 0 0">

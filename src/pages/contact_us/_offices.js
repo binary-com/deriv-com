@@ -184,7 +184,7 @@ export const Offices = () => {
                         <Flex fd="column" max_width="48.6rem" id="malta">
                             <OfficeHeader>
                                 <div>
-                                    <img src={Malta} alt="malta" />
+                                    <img src={Malta} alt="" />
                                 </div>
                                 <Header as="h4" type="sub-section-title" mt="0.8rem" mb="1.6rem">
                                     {localize('Malta')}
@@ -199,11 +199,7 @@ export const Offices = () => {
                                         target="_blank"
                                         rel="noopener noreferrer"
                                     >
-                                        <QueryImage
-                                            alt="Map Malta"
-                                            data={data['map_malta']}
-                                            height="100%"
-                                        />
+                                        <QueryImage alt="" data={data['map_malta']} height="100%" />
                                     </LocalizedLink>
                                 </MapContainer>
                                 <LocalizedLinkText
@@ -225,7 +221,7 @@ export const Offices = () => {
                         <Flex fd="column" max_width="48.6rem" id="dubai">
                             <OfficeHeader>
                                 <div>
-                                    <img src={Dubai} alt="dubai" />
+                                    <img src={Dubai} alt="" />
                                 </div>
                                 <Header as="h4" type="sub-section-title" mt="0.8rem" mb="1.6rem">
                                     {localize('Dubai')}
@@ -239,11 +235,7 @@ export const Offices = () => {
                                         target="_blank"
                                         rel="noopener noreferrer"
                                     >
-                                        <QueryImage
-                                            alt="Map Dubai"
-                                            data={data['map_dubai']}
-                                            height="100%"
-                                        />
+                                        <QueryImage alt="" data={data['map_dubai']} height="100%" />
                                     </LocalizedLink>
                                 </MapContainer>
                                 <LocalizedLinkText
@@ -264,7 +256,7 @@ export const Offices = () => {
                     <Flex fd="column" m="4rem 0" id="malaysia">
                         <OfficeHeader>
                             <div>
-                                <img src={Malaysia} alt="malaysia" />
+                                <img src={Malaysia} alt="" />
                             </div>
                             <Header as="h4" type="sub-section-title" mt="0.8rem" mb="1.6rem">
                                 {localize('Malaysia')}
@@ -281,7 +273,7 @@ export const Offices = () => {
                                             rel="noopener noreferrer"
                                         >
                                             <QueryImage
-                                                alt="Map Cyberjaya"
+                                                alt=""
                                                 data={data['map_cyberjaya']}
                                                 height="100%"
                                             />
@@ -312,7 +304,7 @@ export const Offices = () => {
                                             rel="noopener noreferrer"
                                         >
                                             <QueryImage
-                                                alt="Map Labuan"
+                                                alt=""
                                                 data={data['map_labuan']}
                                                 height="100%"
                                             />
@@ -343,7 +335,7 @@ export const Offices = () => {
                                             rel="noopener noreferrer"
                                         >
                                             <QueryImage
-                                                alt="Map Ipoh"
+                                                alt=""
                                                 data={data['map_ipoh']}
                                                 height="100%"
                                             />
@@ -374,7 +366,7 @@ export const Offices = () => {
                                             rel="noopener noreferrer"
                                         >
                                             <QueryImage
-                                                alt="Map Melaka"
+                                                alt=""
                                                 data={data['map_melaka']}
                                                 height="100%"
                                             />
@@ -401,7 +393,7 @@ export const Offices = () => {
                         <Flex fd="column" max_width="48.6rem" id="paraguay">
                             <OfficeHeader>
                                 <div>
-                                    <img src={Paraguay} alt="paraguay" />
+                                    <img src={Paraguay} alt="" />
                                 </div>
                                 <Header as="h4" type="sub-section-title" mt="0.8rem" mb="1.6rem">
                                     {localize('Paraguay')}
@@ -416,7 +408,7 @@ export const Offices = () => {
                                         rel="noopener noreferrer"
                                     >
                                         <QueryImage
-                                            alt="Map Paraguay"
+                                            alt=""
                                             data={data['map_paraguay']}
                                             height="100%"
                                         />
@@ -441,7 +433,7 @@ export const Offices = () => {
                         <Flex fd="column" max_width="48.6rem" id="cyprus">
                             <OfficeHeader>
                                 <div>
-                                    <img src={Cyprus} alt="cyprus" />
+                                    <img src={Cyprus} alt="" />
                                 </div>
                                 <Header as="h4" type="sub-section-title" mt="0.8rem" mb="1.6rem">
                                     {localize('Cyprus')}
@@ -456,7 +448,7 @@ export const Offices = () => {
                                         rel="noopener noreferrer"
                                     >
                                         <QueryImage
-                                            alt="Map Cyprus"
+                                            alt=""
                                             data={data['map_cyprus']}
                                             height="100%"
                                         />
@@ -479,7 +471,7 @@ export const Offices = () => {
                         <Flex fd="column" max_width="48.6rem" id="rwanda">
                             <OfficeHeader>
                                 <div>
-                                    <img src={Rwanda} alt="rwanda" />
+                                    <img src={Rwanda} alt="" />
                                 </div>
                                 <Header as="h4" type="sub-section-title" mt="0.8rem" mb="1.6rem">
                                     {localize('Rwanda')}
@@ -494,7 +486,7 @@ export const Offices = () => {
                                         rel="noopener noreferrer"
                                     >
                                         <QueryImage
-                                            alt="Map Rwanda"
+                                            alt=""
                                             data={data['map_rwanda']}
                                             height="100%"
                                         />
@@ -517,7 +509,7 @@ export const Offices = () => {
                         <Flex fd="column" max_width="48.6rem" id="belarus">
                             <OfficeHeader>
                                 <div>
-                                    <img src={Belarus} alt="belarus" />
+                                    <img src={Belarus} alt="" />
                                 </div>
                                 <Header as="h4" type="sub-section-title" mt="0.8rem" mb="1.6rem">
                                     {localize('Belarus')}
@@ -532,7 +524,7 @@ export const Offices = () => {
                                         rel="noopener noreferrer"
                                     >
                                         <QueryImage
-                                            alt="Map Belarus"
+                                            alt=""
                                             data={data['map_belarus_contact']}
                                             height="100%"
                                         />

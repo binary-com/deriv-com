@@ -71,6 +71,7 @@ const InputWrapper = styled.div`
     }
     input {
         text-transform: none;
+        font-size: 14px;
     }
     input#name {
         width: 212px;
@@ -90,6 +91,11 @@ const InputWrapper = styled.div`
         }
         input#email {
             width: 200px;
+        }
+    }
+    @media screen and (max-width: 991px) {
+        > div:last-child {
+            margin-left: 0;
         }
     }
     @media ${device.tabletL} {

@@ -61,7 +61,7 @@ const content = {
         step_one_header: <Localize translate_text="1.  Head to MQL5.com" />,
         step_one_text: (
             <Localize
-                translate_text="In the <0>MQL5 signals showcase page</0>, click the Create signal button"
+                translate_text="In the <0>MQL5 signals showcase page</0>, click the Create signal button."
                 components={[
                     <LocalizedLinkText
                         external="true"

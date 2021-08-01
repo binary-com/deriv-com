@@ -48,6 +48,10 @@ export const LinkButtonWrapper = styled(Flex)`
 export const ImageWrapper = styled.div`
     position: relative;
     margin: 0 auto;
+
+    @media ${device.mobileS} {
+        display: none;
+    }
 `
 
 export const BookImage = styled.img`

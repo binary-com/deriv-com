@@ -1,5 +1,5 @@
 import React from 'react'
-import Button, { LinkButton } from '../form/button'
+import Button from '../form/button'
 
 export default {
     title: 'Button',
@@ -17,6 +17,9 @@ export default {
             options: [true, false],
             control: { type: 'radio' },
         },
+        width: {
+            control: { type: 'text' },
+        },
     },
 }
 
@@ -31,10 +34,6 @@ export const Flat = (args) => <Button flat {...args} />
 export const White = (args) => <Button white {...args} />
 
 export const Social = (args) => <Button social {...args} />
-
-export const LinkButtonComponent = () => {
-    <LinkButton />
-}
 
 Social.argTypes = {
     provider: {

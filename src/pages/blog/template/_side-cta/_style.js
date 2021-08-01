@@ -23,7 +23,7 @@ export const CtaContainer = styled(Flex)`
     background-position: right bottom;
     background-repeat: no-repeat;
 
-    @media ${device.tablet} {
+    @media ${device.laptop} {
         width: 100%;
         max-width: 328px;
         height: 420px;

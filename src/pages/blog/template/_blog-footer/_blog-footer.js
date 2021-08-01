@@ -12,11 +12,12 @@ import mcBookPro from 'images/common/blog/article/mcbook-pro.png'
 // remove this during merge
 const ParentWrapper = styled(SectionContainer)`
     background: var(--color-white);
-    padding: 40px 16px;
+    padding: 40px 0;
     display: flex;
     justify-content: center;
     @media ${device.tabletL} {
         margin: 0;
+        padding: 0;
     }
 `
 
@@ -27,8 +28,16 @@ const MainWrapper = styled(Flex)`
     position: relative;
     overflow: hidden;
 
+    @media (max-width: 1334px) {
+        flex-direction: column;
+        padding: 24px 16px 45px;
+    }
     @media ${device.tabletL} {
-        max-width: 360px;
+        flex-direction: row;
+        padding: 0 32px 0 24px;
+        max-width: 992px;
+    }
+    @media (max-width: 712px) {
         flex-direction: column;
         padding: 24px 16px 45px;
     }
@@ -44,16 +53,28 @@ const BackgroundImage = styled.img`
 `
 const ContentWrapper = styled(Flex)`
     z-index: 3;
-    @media ${device.tabletL} {
+    @media (max-width: 1334px) {
+        margin: auto;
         justify-content: center;
         flex-direction: column;
+    }
+    @media ${device.tabletL} {
+        flex-direction: row;
+        margin: none;
+        justify-content: space-between;
+    }
+    @media (max-width: 712px) {
         max-width: 360px;
+        margin: auto;
+        justify-content: center;
+        flex-direction: column;
     }
 `
 const ImageWrapper = styled(Flex)`
     width: 180px;
     overflow: hidden;
-    @media ${device.tabletL} {
+
+    @media (max-width: 1334px) {
         width: 218px;
         padding-top: 0;
         margin-bottom: 16px;
@@ -64,7 +85,8 @@ const ImgDiv = styled.img`
 `
 const TextWrapper = styled(Flex)`
     width: auto;
-    @media ${device.tabletL} {
+
+    @media (max-width: 1334px) {
         margin-bottom: 16px;
     }
 `
@@ -80,13 +102,15 @@ const CTAButton = styled(LinkButton)`
 `
 const DesktopImageWrapper = styled(Container)`
     width: 100%;
-    @media ${device.tabletL} {
+
+    @media (max-width: 1334px) {
         display: none;
     }
 `
 const MobileImageWrapper = styled(Container)`
     display: none;
-    @media ${device.tabletL} {
+
+    @media (max-width: 1334px) {
         width: 100%;
         display: flex;
     }

@@ -337,7 +337,6 @@ const PreviewPage = () => {
                                             return <Tag key={tag}>{tag}</Tag>
                                         })}
                                     </Flex>
-                                    <SideCta />
                                 </SideBarContainer>
                             </Show.Mobile>
 
@@ -423,6 +422,9 @@ const PreviewPage = () => {
                             }}
                         />
                         <BottomCta />
+                        <Show.Mobile>
+                            <SideCta />
+                        </Show.Mobile>
                     </Flex>
                 </BodyContainer>
             </SectionContainer>

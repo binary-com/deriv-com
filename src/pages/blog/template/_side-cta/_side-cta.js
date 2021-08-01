@@ -9,10 +9,16 @@ import { LinkButton } from 'components/form'
 
 const SideCta = () => {
     return (
-        <Flex p="20px" jc="flex-start" tablet_jc="center">
+        <Flex
+            pt="32px"
+            laptop={{ pt: '56px', pb: '40px' }}
+            tabletL={{ max_width: '992px', width: '100%' }}
+            jc="flex-start"
+            tablet_jc="center"
+        >
             <CtaContainer>
                 <DownloadPdfIcon src={DownloadPdf} />
-                <Header as="h3" type="subtitle-2" mb="5px">
+                <Header as="h3" type="subtitle-1" mb="5px">
                     {pdf_data.title}
                 </Header>
                 <Header as="p" type="paragraph-2" weight="normal">

@@ -150,7 +150,7 @@ const VideoCard = ({ item, openVideo }) => {
 }
 
 VideoCard.propTypes = {
-    item: PropTypes.arrayOf(Object),
+    item: PropTypes.Object,
     openVideo: PropTypes.func,
 }
 

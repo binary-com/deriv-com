@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { TextWrapper, Title } from './_common';
+import { TextWrapper, Title } from './_common'
 import device from 'themes/device.js'
 import { Flex } from 'components/containers'
 import { QueryImage } from 'components/elements'
@@ -76,9 +76,8 @@ const Hero = ({ heroImage, title, description }) => (
             </TextWrapper>
         </Wrapper>
         <ImageWrapper>
-            <QueryImage width='100%' height="100%" data={heroImage} alt="Hero Blog" />
+            <QueryImage width="100%" height="100%" data={heroImage} alt="Hero Blog" />
         </ImageWrapper>
-
     </MainWrapper>
 )
 

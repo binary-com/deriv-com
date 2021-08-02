@@ -1,5 +1,12 @@
 import React from 'react'
-import { CtaContainer, LinkButtonWrapper, DownloadPdfIcon, ImageWrapper, BookImage } from './_style'
+import {
+    CtaContainer,
+    LinkButtonWrapper,
+    DownloadPdfIcon,
+    ImageWrapper,
+    BookImage,
+    StyledHeader,
+} from './_style'
 import DownloadPdf from './_images/download-pdf.svg'
 import { pdf_data } from './_data'
 import { WithIntl } from 'components/localization'
@@ -18,9 +25,9 @@ const SideCta = () => {
         >
             <CtaContainer>
                 <DownloadPdfIcon src={DownloadPdf} />
-                <Header as="h3" type="subtitle-1" mb="5px">
+                <StyledHeader as="h3" type="subtitle-1" mb="5px">
                     {pdf_data.title}
-                </Header>
+                </StyledHeader>
                 <Header as="p" type="paragraph-2" weight="normal">
                     by {pdf_data.author}
                 </Header>

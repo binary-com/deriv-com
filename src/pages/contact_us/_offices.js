@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import { Text, LocalizedLinkText } from 'components/elements/typography'
 import { Header, QueryImage } from 'components/elements'
-import { SectionContainer, Container, Flex, Box } from 'components/containers'
+import { SectionContainer, Container, Flex, Box, Show } from 'components/containers'
 import { localize, LocalizedLink } from 'components/localization'
 import device from 'themes/device'
 // import { map_api_key } from 'common/utility'
@@ -82,6 +82,7 @@ const BorderBox = styled.div`
 
     @media ${device.mobileL} {
         flex-direction: column-reverse;
+        padding-top: 0;
 
         ${MapContainer} {
             height: 173px;
@@ -106,6 +107,9 @@ const CountryText = styled(Text)`
     font-size: var(--text-size-xs);
     color: var(--color-grey-5);
     margin-bottom: 0.8rem;
+    @media ${device.mobileL} {
+        margin-bottom: 8px !important;
+    }
 `
 
 const FullBorder = styled(BorderBox)`
@@ -214,11 +218,17 @@ export const Offices = () => {
                                     mt="0.8rem"
                                     ml="1.6rem"
                                 >
-                                    Level 3, W Business Centre,
-                                    <br></br>
-                                    Triq Dun Karm, Birkirkara,
-                                    <br></br>
-                                    BKR 9033
+                                    <Show.Desktop min_width="mobileL">
+                                        Level 3, W Business Centre,
+                                        <br></br>
+                                        Triq Dun Karm, Birkirkara,
+                                        <br></br>
+                                        BKR 9033
+                                    </Show.Desktop>
+                                    <Show.Mobile>
+                                        Level 3, W Business Centre,Triq Dun Karm,
+                                        <br></br>Birkirkara, BKR 9033
+                                    </Show.Mobile>
                                 </LocalizedLinkText>
                             </BorderBox>
                         </Flex>
@@ -254,9 +264,15 @@ export const Offices = () => {
                                     mt="0.8rem"
                                     ml="1.6rem"
                                 >
-                                    Office 1902, Jumeirah Business
-                                    <br></br>
-                                    Center 1, JLT Cluster G
+                                    <Show.Desktop min_width="mobileL">
+                                        Office 1902, Jumeirah Business
+                                        <br></br>
+                                        Center 1, JLT Cluster G
+                                    </Show.Desktop>
+                                    <Show.Mobile>
+                                        Office 1902, Jumeirah Business Center 1,
+                                        <br></br>JLT Cluster G
+                                    </Show.Mobile>
                                 </LocalizedLinkText>
                             </BorderBox>
                         </Flex>
@@ -295,11 +311,18 @@ export const Offices = () => {
                                             target="_blank"
                                             rel="noopener noreferrer"
                                         >
-                                            C-13, iTech Tower, Jalan Impact,
-                                            <br></br>
-                                            Cyber 6, 63000, Cyberjaya,
-                                            <br></br>
-                                            Selangor
+                                            <Show.Desktop min_width="mobileL">
+                                                C-13, iTech Tower, Jalan Impact,
+                                                <br></br>
+                                                Cyber 6, Cyberjaya 63000,
+                                                <br></br>
+                                                Selangor
+                                            </Show.Desktop>
+                                            <Show.Mobile>
+                                                C-13, iTech Tower, Jalan Impact, Cyber 6,
+                                                <br></br>
+                                                Cyberjaya 63000, Selangor
+                                            </Show.Mobile>
                                         </LocalizedLinkText>
                                     </Box>
                                 </FullBox>
@@ -326,11 +349,18 @@ export const Offices = () => {
                                             target="_blank"
                                             rel="noopener noreferrer"
                                         >
-                                            F16, Level 1, Paragon Labuan,
-                                            <br></br>
-                                            Jalan Tun Mustapha,
-                                            <br></br>
-                                            Labuan 87000, Sabah
+                                            <Show.Desktop min_width="mobileL">
+                                                F16, Level 1, Paragon Labuan,
+                                                <br></br>
+                                                Jalan Tun Mustapha,
+                                                <br></br>
+                                                Labuan 87000, Sabah
+                                            </Show.Desktop>
+                                            <Show.Mobile>
+                                                F16, Level 1, Paragon Labuan,
+                                                <br></br>
+                                                Jalan Tun Mustapha, Labuan 87000, Sabah
+                                            </Show.Mobile>
                                         </LocalizedLinkText>
                                     </Box>
                                 </FullBox>
@@ -357,11 +387,18 @@ export const Offices = () => {
                                             target="_blank"
                                             rel="noopener noreferrer"
                                         >
-                                            E-5-6, Soho Ipoh 2,
-                                            <br></br>
-                                            Jalan Sultan Idris Shah,
-                                            <br></br>
-                                            Ipoh 30000, Perak
+                                            <Show.Desktop min_width="mobileL">
+                                                E-5-6, Soho Ipoh 2,
+                                                <br></br>
+                                                Jalan Sultan Idris Shah,
+                                                <br></br>
+                                                Ipoh 30000, Perak
+                                            </Show.Desktop>
+                                            <Show.Mobile>
+                                                E-5-6, Soho Ipoh 2, Jalan Sultan Idris Shah,
+                                                <br></br>
+                                                Ipoh 30000, Perak
+                                            </Show.Mobile>
                                         </LocalizedLinkText>
                                     </Box>
                                 </FullBox>
@@ -388,9 +425,18 @@ export const Offices = () => {
                                             target="_blank"
                                             rel="noopener noreferrer"
                                         >
-                                            67-1 &amp; 69-1, Jalan KLJ 6, Taman
-                                            <br></br>
-                                            Kota Laksamana Jaya, Melaka 75200
+                                            <Show.Desktop min_width="mobileL">
+                                                67-1 &amp; 69-1, Jalan KLJ 6,
+                                                <br></br>
+                                                Taman Kota Laksamana Jaya,
+                                                <br></br>
+                                                Melaka 75200
+                                            </Show.Desktop>
+                                            <Show.Mobile>
+                                                67-1 & 69-1, Jalan KLJ 6, Taman Kota
+                                                <br></br>
+                                                Laksamana Jaya, Melaka 75200
+                                            </Show.Mobile>
                                         </LocalizedLinkText>
                                     </Box>
                                 </FullBox>
@@ -410,7 +456,7 @@ export const Offices = () => {
                             <BorderBox>
                                 <MapContainer>
                                     <LocalizedLink
-                                        to="https://goo.gl/maps/Y2VJmt6cPkdJpEoM7"
+                                        to="https://goo.gl/maps/ci85LgJcyNj97uDa7"
                                         external
                                         target="_blank"
                                         rel="noopener noreferrer"
@@ -423,18 +469,25 @@ export const Offices = () => {
                                     </LocalizedLink>
                                 </MapContainer>
                                 <LocalizedLinkText
-                                    to="https://goo.gl/maps/Y2VJmt6cPkdJpEoM7"
+                                    to="https://goo.gl/maps/ci85LgJcyNj97uDa7"
                                     external
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     mt="0.8rem"
                                     ml="1.6rem"
                                 >
-                                    Edificio Australia, Oficina 1,
-                                    <br></br>
-                                    Herib Campos Cervera 886,
-                                    <br></br>
-                                    Asunción
+                                    <Show.Desktop min_width="mobileL">
+                                        Edificio Atrium, Piso 2, Guido
+                                        <br></br>
+                                        Spano Esq. Doctor Morra,
+                                        <br></br>
+                                        Asunción 1849
+                                    </Show.Desktop>
+                                    <Show.Mobile>
+                                        Edificio Atrium, Piso 2, Guido Spano Esq.
+                                        <br></br>
+                                        Doctor Morra, Asunción 1849
+                                    </Show.Mobile>
                                 </LocalizedLinkText>
                             </BorderBox>
                         </Flex>
@@ -546,7 +599,16 @@ export const Offices = () => {
                                     mt="0.8rem"
                                     ml="1.6rem"
                                 >
-                                    Level 2, 25/1-3 Vera Khoruzhey Street, Minsk 220123
+                                    <Show.Desktop min_width="mobileL">
+                                        Level 2, 25/1-3 Vera Khoruzhey
+                                        <br></br>
+                                        Street, Minsk 220123
+                                    </Show.Desktop>
+                                    <Show.Mobile>
+                                        Level 2, 25/1-3 Vera Khoruzhey Street,
+                                        <br></br>
+                                        Minsk 220123
+                                    </Show.Mobile>
                                 </LocalizedLinkText>
                             </BorderBox>
                         </Flex>

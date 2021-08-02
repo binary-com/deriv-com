@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { WithIntl } from 'components/localization'
 import { Header } from 'components/elements'
-import { Container, Flex, SectionContainer } from 'components/containers'
+import { Container, Flex } from 'components/containers'
 import { LinkButton } from 'components/form'
 import device from 'themes/device'
 import bgImages from 'images/common/blog/article/bg-shape.png'
@@ -10,16 +10,16 @@ import bgImagesMobile from 'images/common/blog/article/bg-shape-mobile.png'
 import mcBookPro from 'images/common/blog/article/mcbook-pro.png'
 
 // remove this during merge
-const ParentWrapper = styled(SectionContainer)`
-    background: var(--color-white);
-    padding: 40px 0;
-    display: flex;
-    justify-content: center;
-    @media ${device.tabletL} {
-        margin: 0;
-        padding: 0;
-    }
-`
+// const ParentWrapper = styled(SectionContainer)`
+//     background: var(--color-white);
+//     padding: 40px 0;
+//     display: flex;
+//     justify-content: center;
+//     @media ${device.tabletL} {
+//         margin: 0;
+//         padding: 0;
+//     }
+// `
 
 const MainWrapper = styled(Flex)`
     background: ${(props) =>
@@ -138,50 +138,45 @@ const item_data = {
 
 const BottomCta = () => {
     return (
-        <ParentWrapper>
-            <MainWrapper
-                p="0 32px 0 24px"
-                max_width="792px"
-                background_color={item_data.background.color}
-            >
-                <ContentWrapper ai="center" jc="space-between">
-                    <ImageWrapper pt="12px">
-                        <ImgDiv src={mcBookPro} alt={item_data.banner_image_alt} />
-                    </ImageWrapper>
-                    <TextWrapper direction="column">
-                        <Header as="h3" type="subtitle-2" max_width="35rem" mobile_max_width="100%">
-                            {item_data.main_title}
-                        </Header>
-                        <Header as="p" type="paragraph-1" weight="normal">
-                            {item_data.small_desc}
-                        </Header>
-                    </TextWrapper>
-                    <CTAButton
-                        secondary="true"
-                        to={item_data.button.redirect_link}
-                        background_color={item_data.button.background_color}
-                        color={item_data.button.text_color}
-                        border_color={item_data.button.border_color}
-                    >
-                        {item_data.button.text}
-                    </CTAButton>
-                </ContentWrapper>
-                <BackgroundImageWrapper>
-                    <DesktopImageWrapper>
-                        <BackgroundImage src={bgImages} />
-                    </DesktopImageWrapper>
-                    <MobileImageWrapper>
-                        <BackgroundImage
-                            src={
-                                item_data.background.background_img_mobile
-                                    ? bgImagesMobile
-                                    : bgImages
-                            }
-                        />
-                    </MobileImageWrapper>
-                </BackgroundImageWrapper>
-            </MainWrapper>
-        </ParentWrapper>
+        <MainWrapper
+            p="0 32px 0 24px"
+            max_width="792px"
+            mb="40px"
+            background_color={item_data.background.color}
+        >
+            <ContentWrapper ai="center" jc="space-between">
+                <ImageWrapper pt="12px">
+                    <ImgDiv src={mcBookPro} alt={item_data.banner_image_alt} />
+                </ImageWrapper>
+                <TextWrapper direction="column">
+                    <Header as="h3" type="subtitle-2" max_width="35rem" mobile_max_width="100%">
+                        {item_data.main_title}
+                    </Header>
+                    <Header as="p" type="paragraph-1" weight="normal">
+                        {item_data.small_desc}
+                    </Header>
+                </TextWrapper>
+                <CTAButton
+                    secondary="true"
+                    to={item_data.button.redirect_link}
+                    background_color={item_data.button.background_color}
+                    color={item_data.button.text_color}
+                    border_color={item_data.button.border_color}
+                >
+                    {item_data.button.text}
+                </CTAButton>
+            </ContentWrapper>
+            <BackgroundImageWrapper>
+                <DesktopImageWrapper>
+                    <BackgroundImage src={bgImages} />
+                </DesktopImageWrapper>
+                <MobileImageWrapper>
+                    <BackgroundImage
+                        src={item_data.background.background_img_mobile ? bgImagesMobile : bgImages}
+                    />
+                </MobileImageWrapper>
+            </BackgroundImageWrapper>
+        </MainWrapper>
     )
 }
 

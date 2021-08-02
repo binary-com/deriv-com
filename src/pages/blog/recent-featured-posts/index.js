@@ -30,7 +30,6 @@ import {
     MobileDotIcon,
     MobileHeader,
 } from './_style'
-import Layout from 'components/layout/layout'
 import { Carousel, Tabs, Header } from 'components/elements'
 import { localize, WithIntl } from 'components/localization'
 
@@ -58,7 +57,6 @@ const RecentFeaturedPosts = () => {
     const articles_2 = article_data_2
 
     return (
-        <Layout>
             <StyledContainer m="20px auto 0" fd="column" ai="center">
                 <StyledTabs
                     tab_list={['recent_posts', 'featured_posts']}
@@ -228,7 +226,6 @@ const RecentFeaturedPosts = () => {
                     See all blog articles
                 </AllArticleButton>
             </StyledContainer>
-        </Layout>
     )
 }
 

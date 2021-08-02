@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import DVideoBanner from './video-banner'
+import RecentFeaturedPosts from './recent-featured-posts'
 import Hero from './components/_hero'
 import Layout from 'components/layout/layout'
 import { SEO, Flex } from 'components/containers'
@@ -73,6 +74,7 @@ const DerivBlog = () => {
                     />
                 </Carousel>
             </MainWrapper>
+            <RecentFeaturedPosts />
             <DVideoBanner />
         </Layout>
     )

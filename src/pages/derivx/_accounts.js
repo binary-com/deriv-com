@@ -24,14 +24,14 @@ const content = [
         text: (
             <Localize translate_text="Trade our exclusive, proprietary synthetic indices 24/7, which simulate real-world market movements." />
         ),
-        icon: <StyledIcon src={DxSyntheticIcon} alt="synthetic icon" />,
+        icon: <StyledIcon src={DxSyntheticIcon} alt="" />,
     },
     {
         header: <Localize translate_text="Financial" />,
         text: (
             <Localize translate_text="Trade forex, commodities and cryptocurrencies at high leverage." />
         ),
-        icon: <StyledIcon src={DxFinancialIcon} alt="financial icon" />,
+        icon: <StyledIcon src={DxFinancialIcon} alt="" />,
     },
 ]
 const Section = styled(SectionContainer)`

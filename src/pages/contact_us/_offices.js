@@ -199,7 +199,11 @@ export const Offices = () => {
                                         target="_blank"
                                         rel="noopener noreferrer"
                                     >
-                                        <QueryImage alt="" data={data['map_malta']} height="100%" />
+                                        <QueryImage
+                                            alt="Map Malta"
+                                            data={data['map_malta']}
+                                            height="100%"
+                                        />
                                     </LocalizedLink>
                                 </MapContainer>
                                 <LocalizedLinkText
@@ -235,7 +239,11 @@ export const Offices = () => {
                                         target="_blank"
                                         rel="noopener noreferrer"
                                     >
-                                        <QueryImage alt="" data={data['map_dubai']} height="100%" />
+                                        <QueryImage
+                                            alt="Map Dubai"
+                                            data={data['map_dubai']}
+                                            height="100%"
+                                        />
                                     </LocalizedLink>
                                 </MapContainer>
                                 <LocalizedLinkText
@@ -273,7 +281,7 @@ export const Offices = () => {
                                             rel="noopener noreferrer"
                                         >
                                             <QueryImage
-                                                alt=""
+                                                alt="Map Cyberjaya"
                                                 data={data['map_cyberjaya']}
                                                 height="100%"
                                             />
@@ -304,7 +312,7 @@ export const Offices = () => {
                                             rel="noopener noreferrer"
                                         >
                                             <QueryImage
-                                                alt=""
+                                                alt="Map Labuan"
                                                 data={data['map_labuan']}
                                                 height="100%"
                                             />
@@ -335,7 +343,7 @@ export const Offices = () => {
                                             rel="noopener noreferrer"
                                         >
                                             <QueryImage
-                                                alt=""
+                                                alt="Map Ipoh"
                                                 data={data['map_ipoh']}
                                                 height="100%"
                                             />
@@ -366,7 +374,7 @@ export const Offices = () => {
                                             rel="noopener noreferrer"
                                         >
                                             <QueryImage
-                                                alt=""
+                                                alt="Map Melaka"
                                                 data={data['map_melaka']}
                                                 height="100%"
                                             />
@@ -408,7 +416,7 @@ export const Offices = () => {
                                         rel="noopener noreferrer"
                                     >
                                         <QueryImage
-                                            alt=""
+                                            alt="Map Paraguay"
                                             data={data['map_paraguay']}
                                             height="100%"
                                         />
@@ -448,7 +456,7 @@ export const Offices = () => {
                                         rel="noopener noreferrer"
                                     >
                                         <QueryImage
-                                            alt=""
+                                            alt="Map Cyprus"
                                             data={data['map_cyprus']}
                                             height="100%"
                                         />
@@ -486,7 +494,7 @@ export const Offices = () => {
                                         rel="noopener noreferrer"
                                     >
                                         <QueryImage
-                                            alt=""
+                                            alt="Map Rwanda"
                                             data={data['map_rwanda']}
                                             height="100%"
                                         />
@@ -524,7 +532,7 @@ export const Offices = () => {
                                         rel="noopener noreferrer"
                                     >
                                         <QueryImage
-                                            alt=""
+                                            alt="Map Belarus"
                                             data={data['map_belarus_contact']}
                                             height="100%"
                                         />

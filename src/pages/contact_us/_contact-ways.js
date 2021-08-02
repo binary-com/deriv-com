@@ -117,7 +117,11 @@ const ContactWays = () => {
                         return (
                             <ContactWrapper key={idx}>
                                 <ImgWrapper>
-                                    <QueryImage data={data[item.image]} alt="" width="100%" />
+                                    <QueryImage
+                                        data={data[item.image]}
+                                        alt={item.header.props.translate_text}
+                                        width="100%"
+                                    />
                                 </ImgWrapper>
 
                                 <Header mt="2.4rem" as="h3" type="section-title" align="center">

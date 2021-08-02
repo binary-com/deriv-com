@@ -74,14 +74,20 @@ const QuoteWrapper = styled(Flex)`
         top: 16px;
     }
 `
-const EmployeeSlide = ({ quote, img_path, name }) => {
+const EmployeeSlide = ({ quote, img_path, img_alt, name }) => {
     return (
         <Flex ai="center" height="unset">
             <EmployeeCard>
                 <Flex tablet_direction="column">
                     <Flex>
                         <ImageWrapper>
-                            <img loading="lazy" width="100%" height="100%" src={img_path} alt="" />
+                            <img
+                                loading="lazy"
+                                width="100%"
+                                height="100%"
+                                src={img_path}
+                                alt={img_alt}
+                            />
                         </ImageWrapper>
                     </Flex>
                     <QuoteWrapper direction="column">
@@ -96,6 +102,7 @@ const EmployeeSlide = ({ quote, img_path, name }) => {
 }
 
 EmployeeSlide.propTypes = {
+    img_alt: PropTypes.string,
     img_path: PropTypes.string,
     name: PropTypes.string,
     quote: PropTypes.string,
@@ -104,24 +111,28 @@ EmployeeSlide.propTypes = {
 
 const ahmad = {
     name: 'Ahmad Aizuddin, Disaster Recovery Analyst',
+    img_alt: 'Ahmad - Recovery Analyst',
     img_path: AhmadImage,
     quote: `One of the things I like best about working here is how we’re encouraged to take ownership of our tasks and goals. The autonomy and trust by the leadership team motivate me to excel in my role.`,
     index: 2,
 }
 const aditya = {
     name: 'Lalitaditya Addanki, DevOps Engineer',
+    img_alt: 'Lalitaditya - DevOps Engineer',
     img_path: AdityaImage,
     quote: `The best thing about my peers is that they are highly talented and skilled. Problem-solving and brainstorming with my team is fun, and they provide a great support structure. I’m able to produce higher quality work than what I would have achieved on my own.`,
     index: 3,
 }
 const mei_theng = {
     name: 'Wong Mei Theng, Accounting Operations Lead',
+    img_alt: 'Mei Theng - Accounting Operations Lead',
     img_path: MeiThengImage,
     quote: `I love the people I work with, and the company culture that we share. Everyone contributes to a positive working environment by having fun together during the ups and shouldering the burden together during the downs.`,
     index: 4,
 }
 const gary = {
     name: 'Gary Ross Vytialingam, Chief Risk Officer',
+    img_alt: 'Gary - Chief Risk Officer',
     img_path: GaryImage,
     quote: `We encourage knowledge sharing at all levels, so I learn from the people I work with every day. Our company is enriched by the diversity of talented individuals from over 40 countries. It’s inspiring to be a leader of these motivated team players at Deriv.`,
     index: 5,
@@ -166,7 +177,7 @@ const EmployeeTestimonialCarousel = () => {
                                 quote={employee_slide.quote}
                                 name={employee_slide.name}
                                 img_path={employee_slide.img_path}
-                                img_alt=""
+                                img_alt={employee_slide.img_alt}
                             />
                         </div>
                     ))}

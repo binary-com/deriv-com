@@ -3,6 +3,7 @@ import Shape from './_images/shape.svg'
 import BigShape from './_images/big-shape.svg'
 import { Header } from 'components/elements'
 import { Flex } from 'components/containers'
+import { LinkButton } from 'components/form'
 import device from 'themes/device'
 
 export const SideContainer = styled(Flex)`
@@ -41,6 +42,9 @@ export const CtaContainer = styled(Flex)`
 export const DownloadPdfIcon = styled.img`
     width: 44px;
     margin-bottom: 8px;
+`
+export const StyledLinkButton = styled(LinkButton)`
+    border-radius: 4px;
 `
 
 export const LinkButtonWrapper = styled(Flex)`

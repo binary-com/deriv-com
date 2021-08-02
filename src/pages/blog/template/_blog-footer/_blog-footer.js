@@ -9,18 +9,6 @@ import bgImages from 'images/common/blog/article/bg-shape.png'
 import bgImagesMobile from 'images/common/blog/article/bg-shape-mobile.png'
 import mcBookPro from 'images/common/blog/article/mcbook-pro.png'
 
-// remove this during merge
-// const ParentWrapper = styled(SectionContainer)`
-//     background: var(--color-white);
-//     padding: 40px 0;
-//     display: flex;
-//     justify-content: center;
-//     @media ${device.tabletL} {
-//         margin: 0;
-//         padding: 0;
-//     }
-// `
-
 const MainWrapper = styled(Flex)`
     background: ${(props) =>
         props.background_color ? props.background_color : 'var(--color-grey-41)'};

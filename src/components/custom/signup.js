@@ -50,7 +50,6 @@ export const Appearances = {
     public: 'public',
     newSignup: 'newSignup',
 }
-// class Signup extends Component {
 const Signup = (props) => {
     const [email, setEmail] = useState('')
     const [is_submitting, setSubmitting] = useState(false)
@@ -105,8 +104,6 @@ const Signup = (props) => {
     const handleEmailSignup = (e) => {
         e.preventDefault()
         setSubmitting(true)
-        // let { email, email_error_msg } = this.state
-        // email = email.replace(/\s/g, '')
         handleValidation(email.replace(/\s/g, ''))
         const has_error_email = validateEmail(email)
         if (has_error_email || email_error_msg) {

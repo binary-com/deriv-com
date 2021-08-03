@@ -343,7 +343,8 @@ const PreviewPage = () => {
                                 {data?.data.article_title}
                             </Header>
                             <InfoText size="14px" mt="16px">
-                                {localize(data?.data.minutes_to_read + ' min read')}
+                                {data?.minutes_to_read &&
+                                    localize(data.minutes_to_read + ' min read')}
                             </InfoText>
                             <Show.Mobile>
                                 <SideBarContainer fd="column" mr="126px" height="auto">

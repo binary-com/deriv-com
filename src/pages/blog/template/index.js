@@ -267,6 +267,20 @@ const PreviewPage = () => {
     const [date, setDate] = useState(null)
     const end_point_url = 'https://amammustofa.com/items/articles/'
 
+    const monthNames = [
+        'January',
+        'February',
+        'March',
+        'April',
+        'May',
+        'June',
+        'July',
+        'August',
+        'September',
+        'October',
+        'November',
+        'December',
+    ]
     useEffect(() => {
         const getPreviewId = () => {
             // if (typeof window !== 'undefined') {
@@ -281,8 +295,16 @@ const PreviewPage = () => {
         const fetchArticle = async () => {
             const res = await fetch(`${end_point_url}${id}`, { cache: 'no-store' })
             const data = await res.json()
-            setDate(new Date(data.data.publish_date).toString().split(' '))
+            setDate(createDate(data.data.publish_date))
             return data
+        }
+
+        const createDate = (publishDate) => {
+            const tempDate = new Date(publishDate).toString().split(' ')
+            const fullDate =
+                tempDate[2] + ' ' + monthNames[new Date(publishDate).getMonth()] + ' ' + tempDate[3]
+
+            return fullDate
         }
 
         getPreviewId()
@@ -315,7 +337,7 @@ const PreviewPage = () => {
                             tabletL={{ max_width: '100%', mr: '0' }}
                         >
                             <InfoText mb="16px" size="14px">
-                                {localize(date ? date[2] + ' ' + date[1] + ' ' + date[3] : '')}
+                                {localize(date ? date : '')}
                             </InfoText>
                             <Header as="h1" type="page-title">
                                 {data?.data.article_title}

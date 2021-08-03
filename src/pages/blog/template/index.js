@@ -11,7 +11,6 @@ import device from 'themes/device'
 const Background = styled.div`
     background: var(--color-grey-8);
     width: 100%;
-    height: 100%;
 `
 const HeroContainer = styled(Container)`
     height: 634px;

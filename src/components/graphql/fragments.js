@@ -12,6 +12,14 @@ export const heroImage = graphql`
     }
 `
 
+export const bannerImage = graphql`
+    fragment bannerImage on File {
+        childImageSharp {
+            gatsbyImageData(formats: [AUTO, AVIF, WEBP], layout: CONSTRAINED, placeholder: NONE)
+        }
+    }
+`
+
 export const fadeIn = graphql`
     fragment fadeIn on File {
         childImageSharp {

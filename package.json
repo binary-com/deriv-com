@@ -83,7 +83,7 @@
   ],
   "license": "Apache License 2.0",
   "scripts": {
-    "build": "gatsby clean && gatsby build && npm run build-storybook",
+    "build": "gatsby clean && gatsby build",
     "build:inc": "gatsby clean && export GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES=true && gatsby build",
     "develop": "gatsby develop -o",
     "format": "prettier --write '**/*.js' '*.js'",

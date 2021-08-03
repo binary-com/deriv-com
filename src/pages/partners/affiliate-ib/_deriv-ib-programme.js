@@ -229,7 +229,7 @@ const ib_dmt5_synthetic = {
             ],
         },
         {
-            title: <Localize translate_text="Step Index" />,
+            title: <Localize translate_text="Step index" />,
             headerHeight: '6.4rem',
             assets: [
                 {

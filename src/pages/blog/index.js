@@ -1,10 +1,11 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
+import Subscribe from './components/_subscribe'
 import DVideoBanner from './video-banner'
 import Hero from './components/_hero'
 import Layout from 'components/layout/layout'
-import { SEO, Flex } from 'components/containers'
+import { Container, SEO, Flex } from 'components/containers'
 import { localize, WithIntl } from 'components/localization'
 import { Carousel } from 'components/elements'
 
@@ -74,6 +75,11 @@ const DerivBlog = () => {
                 </Carousel>
             </MainWrapper>
             <DVideoBanner />
+            <Container>
+                <Flex direction="column" ai="flex-start" jc="space-between">
+                    <Subscribe />
+                </Flex>
+            </Container>
         </Layout>
     )
 }

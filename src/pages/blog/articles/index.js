@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import Subscribe from '../components/_subscribe'
 import AllArticles from './_all-articles'
 import { article_data } from './_data'
 import Layout from 'components/layout/layout'
@@ -67,6 +68,11 @@ const ArticlesPage = () => (
             </SmallContainer>
         </Hero>
         <AllArticles article_data={article_data} />
+        <Container>
+            <Flex direction="column" ai="flex-start" jc="space-between">
+                <Subscribe />
+            </Flex>
+        </Container>
     </Layout>
 )
 

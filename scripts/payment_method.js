@@ -1,7 +1,7 @@
 const csv = require('csv-parser');
 const fs = require('fs');
 const path = require('path');
-const { serialize } = require('v8');
+
 
 const json = [];
 
@@ -98,6 +98,8 @@ const filterFunctions = {
             if (category) {
                 d.logo = ucWord(sentencizeStr(key,'-'));
                 d.reference = `${file_name}.pdf`;
+                d.is_crypto =  category.includes('Crypto');
+                d.is_fiat_onramp = category.includes('Fiat');
 
                 if (categories[category] === undefined) {
                     categories[category] = [];

@@ -38,7 +38,9 @@
         ]
       },
       "logo": "Visa",
-      "reference": "visa.pdf"
+      "reference": "visa.pdf",
+      "is_crypto": false,
+      "is_fiat_onramp": false
     },
     {
       "name": "Visa Electron",
@@ -78,7 +80,9 @@
         ]
       },
       "logo": "VisaElectron",
-      "reference": "visa-electron.pdf"
+      "reference": "visa-electron.pdf",
+      "is_crypto": false,
+      "is_fiat_onramp": false
     },
     {
       "name": "Mastercard",
@@ -118,7 +122,9 @@
         ]
       },
       "logo": "Mastercard",
-      "reference": "mastercard.pdf"
+      "reference": "mastercard.pdf",
+      "is_crypto": false,
+      "is_fiat_onramp": false
     },
     {
       "name": "Maestro",
@@ -158,7 +164,9 @@
         ]
       },
       "logo": "Maestro",
-      "reference": "maestro.pdf"
+      "reference": "maestro.pdf",
+      "is_crypto": false,
+      "is_fiat_onramp": false
     },
     {
       "name": "Diners",
@@ -198,7 +206,9 @@
         ]
       },
       "logo": "Diners",
-      "reference": "diners.pdf"
+      "reference": "diners.pdf",
+      "is_crypto": false,
+      "is_fiat_onramp": false
     },
     {
       "name": "JCB",
@@ -235,7 +245,9 @@
         ]
       },
       "logo": "Jcb",
-      "reference": "jcb.pdf"
+      "reference": "jcb.pdf",
+      "is_crypto": false,
+      "is_fiat_onramp": false
     }
   ],
   "Online Banking": [
@@ -274,7 +286,9 @@
         ]
       },
       "logo": "InternetBankTransfer",
-      "reference": "internet-bank-transfer.pdf"
+      "reference": "internet-bank-transfer.pdf",
+      "is_crypto": false,
+      "is_fiat_onramp": false
     },
     {
       "name": "PayTrust88",
@@ -299,7 +313,9 @@
         "excluded": []
       },
       "logo": "Paytrust88",
-      "reference": "paytrust88.pdf"
+      "reference": "paytrust88.pdf",
+      "is_crypto": false,
+      "is_fiat_onramp": false
     },
     {
       "name": "DragonPhoenix",
@@ -324,7 +340,9 @@
         "excluded": []
       },
       "logo": "Dragonphoenix",
-      "reference": "dragonphoenix.pdf"
+      "reference": "dragonphoenix.pdf",
+      "is_crypto": false,
+      "is_fiat_onramp": false
     },
     {
       "name": "Ngan Luong",
@@ -347,7 +365,9 @@
         "excluded": []
       },
       "logo": "NganLuong",
-      "reference": "ngan-luong.pdf"
+      "reference": "ngan-luong.pdf",
+      "is_crypto": false,
+      "is_fiat_onramp": false
     },
     {
       "name": "Help2Pay",
@@ -372,7 +392,9 @@
         "excluded": []
       },
       "logo": "Help2pay",
-      "reference": "help2pay.pdf"
+      "reference": "help2pay.pdf",
+      "is_crypto": false,
+      "is_fiat_onramp": false
     },
     {
       "name": "Zingpay",
@@ -398,7 +420,9 @@
         "excluded": []
       },
       "logo": "Zingpay",
-      "reference": "zingpay.pdf"
+      "reference": "zingpay.pdf",
+      "is_crypto": false,
+      "is_fiat_onramp": false
     }
   ],
   "E-wallets": [
@@ -423,7 +447,9 @@
         "excluded": []
       },
       "logo": "Paylivre",
-      "reference": "paylivre.pdf"
+      "reference": "paylivre.pdf",
+      "is_crypto": false,
+      "is_fiat_onramp": false
     },
     {
       "name": "Astropay",
@@ -453,7 +479,9 @@
         "excluded": []
       },
       "logo": "Astropay",
-      "reference": "astropay.pdf"
+      "reference": "astropay.pdf",
+      "is_crypto": false,
+      "is_fiat_onramp": false
     }
   ],
   "Cryptocurrencies": [
@@ -494,7 +522,9 @@
         ]
       },
       "logo": "Bitcoin",
-      "reference": "bitcoin.pdf"
+      "reference": "bitcoin.pdf",
+      "is_crypto": true,
+      "is_fiat_onramp": false
     }
   ],
   "Fiat onramp": [
@@ -542,7 +572,9 @@
         ]
       },
       "logo": "Banxa",
-      "reference": "banxa.pdf"
+      "reference": "banxa.pdf",
+      "is_crypto": false,
+      "is_fiat_onramp": true
     }
   ]
 }

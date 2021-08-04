@@ -48,6 +48,7 @@
     "devDependencies": {
         "babel-eslint": "10.1.0",
         "babel-plugin-styled-components": "^1.12.0",
+        "csv-parser": "^3.0.0",
         "eslint": "^7.28.0",
         "eslint-loader": "^4.0.2",
         "eslint-plugin-import": "^2.23.4",
@@ -75,7 +76,9 @@
     ],
     "license": "Apache License 2.0",
     "scripts": {
-        "build": "gatsby build",
+        "build": "npm run build:payment_methods && npm run build:production",
+        "build:production": "gatsby build",
+        "build:payment_methods": "node scripts/payment_method",
         "develop": "gatsby develop -o",
         "format": "prettier --write '**/*.js' '*.js'",
         "stylelint": "stylelint 'src/**/*.js' --formatter verbose",

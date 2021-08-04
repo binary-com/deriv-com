@@ -13,6 +13,7 @@ const domain_url =
         : deriv_com_url
 
 // URL
+export const domain_full_url = `https://${domain_url}`
 export const deriv_app_id = domain_url === deriv_com_url ? deriv_com_app_id : deriv_me_app_id
 export const deriv_app_url = `https://app.${domain_url}`
 export const deriv_developer_url = `https://developers.${domain_url}`
@@ -75,15 +76,22 @@ export const localized_link_url = Object.freeze({
     mt5: deriv_mt5_app_url,
     smart_trader: smarttrader_url,
     zoho: zoho_url,
+    terms_and_conditions: domain_full_url,
 })
 export const default_server_url = 'green.binaryws.com'
 
 export const live_chat_key = 'live_chat_redirection'
 
-export const fb_url = 'https://www.facebook.com/derivdotcom'
+export const fb_non_eu_url = 'https://www.facebook.com/derivdotcom'
+export const fb_uk_url = 'https://www.facebook.com/derivUK/'
+export const fb_eu_url = 'https://www.facebook.com/derivEU/'
 export const fb_url_career = 'https://www.facebook.com/derivcareers'
-export const instagram_url = 'https://www.instagram.com/deriv_official/'
+export const instagram_non_eu_url = 'https://www.instagram.com/deriv_official/'
+export const instagram_uk_url = 'https://www.instagram.com/deriv_uk/'
+export const instagram_eu_url = 'https://www.instagram.com/deriv_eu/'
 export const instagram_url_career = 'https://www.instagram.com/derivcareers/'
 export const linkedin_url = 'https://www.linkedin.com/company/derivdotcom/'
 export const linkedin_url_career = 'https://www.linkedin.com/company/derivdotcom/life/'
-export const twitter_url = 'https://twitter.com/derivdotcom/'
+export const twitter_non_eu_url = 'https://twitter.com/derivdotcom/'
+export const twitter_uk_url = 'https://www.twitter.com/deriv_uk/'
+export const twitter_eu_url = 'https://www.twitter.com/deriv_eu/'

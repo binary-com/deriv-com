@@ -89,6 +89,10 @@ const EmailButton = styled(Button)`
     margin-bottom: 0.4rem;
     margin-top: 3.2rem;
 
+    @media ${device.tabletL} {
+        margin-top: 24px;
+    }
+
     @media ${device.mobileL} {
         font-size: 1.75rem;
     }
@@ -269,10 +273,7 @@ const SignupNew = ({
                     required
                 />
             </InputGroup>
-            <AgreementLabel
-                isChecked={is_checked}
-                handleChangeCheckbox={handleChange}
-            />
+            <AgreementLabel isChecked={is_checked} handleChangeCheckbox={handleChange} />
             <EmailButton
                 isChecked={is_checked}
                 type="submit"

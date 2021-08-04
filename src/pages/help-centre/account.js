@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Article } from './_article'
 import { ArticleWrapper, ExternalLink, StyledHeader, StyledText } from './_help-centre-style'
+import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import { deriv_app_url } from 'common/constants'
 import { Text } from 'components/elements'
 import { localize, Localize, WithIntl } from 'components/localization'
@@ -35,6 +36,7 @@ const WhoCanOpenAnAccount = () => (
         </StyledList>
     </ArticleWrapper>
 )
+
 const ChangingPersonalDetails = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('How can I change my personal details?')}</StyledHeader>
@@ -61,6 +63,7 @@ const ChangingPersonalDetails = () => (
         </StyledText>
     </ArticleWrapper>
 )
+
 const ChangeAccountCurrency = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize("How can I change my account's currency?")}</StyledHeader>
@@ -71,6 +74,7 @@ const ChangeAccountCurrency = () => (
         </Text>
     </ArticleWrapper>
 )
+
 const RecoveringPassword = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">
@@ -95,6 +99,7 @@ const RecoveringPassword = () => (
         </Text>
     </ArticleWrapper>
 )
+
 const CloseAccount = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('How can I close my account?')}</StyledHeader>
@@ -105,6 +110,7 @@ const CloseAccount = () => (
         </Text>
     </ArticleWrapper>
 )
+
 const UnsubscribeEmail = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">
@@ -128,6 +134,7 @@ const UnsubscribeEmail = () => (
         </Text>
     </ArticleWrapper>
 )
+
 const DormantFee = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('What is a dormant fee?')}</StyledHeader>
@@ -145,6 +152,8 @@ const DormantFee = () => (
 )
 
 const AccountArticle = () => {
+    const [is_mounted] = usePageLoaded(false) // needed to fix tab highlighting not being rerendered during first load
+
     return (
         <div>
             <Article
@@ -155,30 +164,40 @@ const AccountArticle = () => {
                 <WhoCanOpenAnAccount
                     text={localize("Why can't I create an account?")}
                     label="who-can-open-an-account"
+                    is_mounted={is_mounted}
                 />
                 <ChangingPersonalDetails
                     text={localize('How can I change my personal details?')}
                     label="changing-your-personal-details"
+                    is_mounted={is_mounted}
                 />
                 <ChangeAccountCurrency
                     text={localize("How can I change my account's currency?")}
                     label="change-account-currency"
+                    is_mounted={is_mounted}
                 />
                 <RecoveringPassword
                     text={localize(
                         'I forgot my Google/Facebook account password. How can I log in to my Deriv account?',
                     )}
                     label="recovering-your-password"
+                    is_mounted={is_mounted}
                 />
                 <CloseAccount
                     text={localize('How can I close my account?')}
                     label="close-your-account"
+                    is_mounted={is_mounted}
                 />
                 <UnsubscribeEmail
                     text={localize('How do I unsubscribe from marketing emails?')}
                     label="unsubscribe-marketing-emails"
+                    is_mounted={is_mounted}
                 />
-                <DormantFee text={localize('What is a dormant fee?')} label="what-is-dormant-fee" />
+                <DormantFee
+                    text={localize('What is a dormant fee?')}
+                    label="what-is-dormant-fee"
+                    is_mounted={is_mounted}
+                />
             </Article>
         </div>
     )

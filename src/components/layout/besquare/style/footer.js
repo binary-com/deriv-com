@@ -25,7 +25,7 @@ export const ContentContainer = styled(Container)`
 
 export const FollowUsContainer = styled.div`
     display: grid;
-    grid-template-columns: 68px repeat(4,26.67px);
+    grid-template-columns: 68px repeat(4, 26.67px);
     grid-column-gap: 21px;
     grid-template-areas: ' follow-us icon icon icon icon ';
 `

@@ -8,6 +8,7 @@ import {
     getContractSize,
     getCurrency,
     resetValidationMargin,
+    getMaxLength,
 } from '../common/_utility'
 import {
     optionItemDefault,
@@ -187,7 +188,7 @@ const MarginCalculator = () => {
                                         <DropdownSearch
                                             id="symbol"
                                             key={tab}
-                                            contract_size={values.contractSize}
+                                            contractSize={values.contractSize}
                                             default_item={optionItemDefault}
                                             error={touched.symbol && errors.symbol}
                                             items={values.optionList}
@@ -226,7 +227,7 @@ const MarginCalculator = () => {
                                                             setFieldTouched('volume', false, false)
                                                             current_input.focus()
                                                         }}
-                                                        maxLength="8"
+                                                        maxLength={getMaxLength(values.volume, 8)}
                                                         background="white"
                                                     />
                                                 )}
@@ -261,7 +262,10 @@ const MarginCalculator = () => {
                                                             )
                                                             current_input.focus()
                                                         }}
-                                                        maxLength="15"
+                                                        maxLength={getMaxLength(
+                                                            values.assetPrice,
+                                                            15,
+                                                        )}
                                                         background="white"
                                                     />
                                                 )}

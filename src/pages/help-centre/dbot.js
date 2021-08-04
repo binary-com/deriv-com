@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Article } from './_article'
 import { ArticleWrapper, StyledHeader, StyledText } from './_help-centre-style'
+import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import { Text } from 'components/elements'
 import { localize, Localize, WithIntl } from 'components/localization'
 import device from 'themes/device'
@@ -109,6 +110,7 @@ const WhatIsDBot = () => (
         </Text>
     </ArticleWrapper>
 )
+
 const FindBlocks = () => (
     <ArticleWrapper margin_left="2rem">
         <StyledHeader as="h4">{localize('How do I find the blocks I need?')}</StyledHeader>
@@ -145,6 +147,7 @@ const FindBlocks = () => (
         </ImageWrapper>
     </ArticleWrapper>
 )
+
 const RemoveBlocks = () => (
     <ArticleWrapper margin_left="2rem">
         <StyledHeader as="h4">
@@ -166,6 +169,7 @@ const RemoveBlocks = () => (
         </ImageWrapperRemove>
     </ArticleWrapper>
 )
+
 const CreateVariables = () => (
     <ArticleWrapper margin_left="2rem">
         <StyledHeader as="h4">{localize('How do I create variables?')}</StyledHeader>
@@ -219,6 +223,7 @@ const CreateVariables = () => (
         </ImageWrapper>
     </ArticleWrapper>
 )
+
 const QuickStrategy = () => (
     <ArticleWrapper margin_left="2rem">
         <StyledHeader as="h4">
@@ -308,6 +313,7 @@ const QuickStrategy = () => (
         </Text>
     </ArticleWrapper>
 )
+
 const MartingaleStrategy = () => (
     <ArticleWrapper margin_left="2rem">
         <StyledHeader as="h4">{localize('What is the Martingale strategy?')}</StyledHeader>
@@ -318,6 +324,7 @@ const MartingaleStrategy = () => (
         </Text>
     </ArticleWrapper>
 )
+
 const AlembertStrategy = () => (
     <ArticleWrapper margin_left="2rem">
         <StyledHeader as="h4">{localize('What is the D’Alembert strategy?')}</StyledHeader>
@@ -328,6 +335,7 @@ const AlembertStrategy = () => (
         </Text>
     </ArticleWrapper>
 )
+
 const OskarStrategy = () => (
     <ArticleWrapper margin_left="2rem">
         <StyledHeader as="h4">{localize("What is the Oscar's Grind strategy?")}</StyledHeader>
@@ -338,6 +346,7 @@ const OskarStrategy = () => (
         </Text>
     </ArticleWrapper>
 )
+
 const SaveStrategy = () => (
     <ArticleWrapper margin_left="2rem">
         <StyledHeader as="h4">{localize('How do I save my strategy?')}</StyledHeader>
@@ -428,6 +437,7 @@ const SaveStrategy = () => (
         </Text>
     </ArticleWrapper>
 )
+
 const ImportStrategy = () => (
     <ArticleWrapper margin_left="2rem">
         <StyledHeader as="h4">{localize('How do I import my strategies into DBot?')}</StyledHeader>
@@ -483,6 +493,7 @@ const ImportStrategy = () => (
         </Text>
     </ArticleWrapper>
 )
+
 const ResetWorkspace = () => (
     <ArticleWrapper margin_left="2rem">
         <StyledHeader as="h4">{localize('How do I reset the workspace?')}</StyledHeader>
@@ -502,6 +513,7 @@ const ResetWorkspace = () => (
         </ImageWrapper>
     </ArticleWrapper>
 )
+
 const TransactionLog = () => (
     <ArticleWrapper margin_left="2rem">
         <StyledHeader as="h4">{localize('How do I clear my transaction log?')}</StyledHeader>
@@ -529,6 +541,7 @@ const TransactionLog = () => (
         </ImageWrapper>
     </ArticleWrapper>
 )
+
 const ControlLosses = () => (
     <ArticleWrapper margin_left="2rem">
         <StyledHeader as="h4">{localize('How do I control my losses with DBot?')}</StyledHeader>
@@ -679,6 +692,7 @@ const TradeStatus = () => (
         </ImageWrapper>
     </ArticleWrapper>
 )
+
 const ViewChart = () => (
     <ArticleWrapper margin_left="2rem">
         <StyledHeader as="h4">{localize('How do I view the chart in DBot?')}</StyledHeader>
@@ -701,64 +715,87 @@ const ViewChart = () => (
 )
 
 const DBotArticle = () => {
+    const [is_mounted] = usePageLoaded(false) // needed to fix tab highlighting not being rerendered during first load
+
     return (
         <div>
             <Article
                 header="DBot"
                 title={localize('Help centre | Frequently asked questions | DBot | Deriv')}
                 description={localize('Frequently asked questions - DBot')}
+                is_mounted={is_mounted}
             >
                 <WhatIsDBot text={localize('What is DBot?')} label="what-is-dbot" />
                 <FindBlocks
                     text={localize('How do I find the blocks I need?')}
                     label="find-blocks"
+                    is_mounted={is_mounted}
                 />
                 <RemoveBlocks
                     text={localize('How do I remove blocks from the workspace?')}
                     label="remove-blocks"
+                    is_mounted={is_mounted}
                 />
                 <CreateVariables
                     text={localize('How do I create variables?')}
                     label="create-variables"
+                    is_mounted={is_mounted}
                 />
                 <QuickStrategy
                     text={localize('What is a quick strategy and how do I use it?')}
                     label="quick-strategy"
+                    is_mounted={is_mounted}
                 />
                 <MartingaleStrategy
                     text={localize('What is the Martingale strategy?')}
                     label="martingale-strategy"
+                    is_mounted={is_mounted}
                 />
                 <AlembertStrategy
                     text={localize('What is the D’Alembert strategy?')}
                     label="dalembert-strategy"
+                    is_mounted={is_mounted}
                 />
                 <OskarStrategy
                     text={localize("What is the Oscar's Grind strategy?")}
                     label="oscars-grind-strategy"
+                    is_mounted={is_mounted}
                 />
-                <SaveStrategy text={localize('How do I save my strategy?')} label="save-strategy" />
+                <SaveStrategy
+                    text={localize('How do I save my strategy?')}
+                    label="save-strategy"
+                    is_mounted={is_mounted}
+                />
                 <ImportStrategy
                     text={localize('How do I import my strategies into DBot?')}
                     label="import-strategy"
+                    is_mounted={is_mounted}
                 />
                 <ResetWorkspace
                     text={localize('How do I reset the workspace?')}
                     label="reset-workspace"
+                    is_mounted={is_mounted}
                 />
                 <TransactionLog
                     text={localize('How do I clear my transaction log?')}
                     label="clear-transaction-log"
+                    is_mounted={is_mounted}
                 />
                 <ControlLosses
                     text={localize('How do I control my losses with DBot?')}
                     label="control-loss"
+                    is_mounted={is_mounted}
                 />
                 <TradeStatus
                     text={localize('Where can I see the status of my trades in DBot?')}
                     label="status-of-trades"
+                    is_mounted={is_mounted}
                 />
-                <ViewChart text={localize('How do I view the chart in DBot?')} label="view-chart" />
+                <ViewChart
+                    text={localize('How do I view the chart in DBot?')}
+                    label="view-chart"
+                    is_mounted={is_mounted}
+                />
             </Article>
         </div>
     )

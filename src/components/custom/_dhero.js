@@ -13,31 +13,21 @@ const Wrapper = styled.div`
     background-color: var(--color-black);
     width: 100%;
     display: flex;
-
-    /* min-height: 690px; */
     padding: 12rem 12rem 9rem 12rem;
-
-    @media ${device.desktop}{
-        /* min-height: 575px; */
-    }
 
     @media ${device.desktopS} {
         padding-left: 18%;
     }
 
     @media ${device.laptopM} {
-        /* max-height: 429px; */
         padding: 8rem 12rem 8rem 4rem;
     }
     @media ${device.tabletL} {
-        /* min-height: 304px; */
         flex-direction: column;
     }
     @media ${device.tablet} {
         flex-direction: column-reverse;
         align-items: center;
-
-        /* max-height: 640px; */
         padding: 16px 16px 40px;
     }
 `
@@ -75,19 +65,17 @@ const LottieWrapper = styled.div`
     max-width: 730px;
     position: absolute;
     top: 50%;
-    bottom:50%;
+    bottom: 50%;
     right: 12rem;
     display: flex;
     align-items: center;
-    
+
     @media ${device.desktop} {
-        max-width:606px;
+        max-width: 606px;
     }
 
     @media ${device.laptopM} {
         max-width: 500px;
-
-        /* top: 8rem; */
         right: 8rem;
     }
     @media ${device.laptop} {
@@ -96,14 +84,10 @@ const LottieWrapper = styled.div`
     }
     @media ${device.tabletL} {
         max-width: 390px;
-
-        /* top: 5rem; */
         right: 2rem;
     }
     @media ${device.tabletS} {
         max-width: 380px;
-
-        /* top: 5rem; */
         right: 2rem;
     }
     @media ${device.tablet} {
@@ -111,10 +95,7 @@ const LottieWrapper = styled.div`
         top: unset;
         left: unset;
         right: unset;
-        position:relative;
-    }
-    @media ${device.mobileM} {
-        max-width: 280px;
+        position: relative;
     }
 `
 
@@ -180,44 +161,32 @@ const StyledContent = styled(Header)`
 `
 
 const BackgroundSVG = styled.img`
-        position: absolute;
-        top: 0;
-        right: 0;
-        height: 100%;
-        width: 30%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 600px;
 
-        @media (max-width: 1680px) {
-            width: 40%;
-        }
+    @media (max-width: 1680px) {
+        width: 40%;
+    }
 
-        @media ${device.laptopM} {
-            width: 48%;
-            max-width: 492px;
-        }
-        @media ${device.laptop} {
-            width: 50%;
-        }
-        @media ${device.tabletL} {
-            width: 45%;
-            max-width: 350px;
-        }
-        @media ${device.tablet} {
-            width: 70%;
-            display:none;
-        }
-        @media ${device.tabletS} {
-            width: 80%;
-            max-width: 337px;
-        }
-        @media ${device.mobileL} {
-            max-width: 250px;
-            min-height: 244px;
-        }
-        @media ${device.mobileM} {
-            max-width: 205px;
-            min-height: 0;
-        }
-    `
+    @media ${device.laptopM} {
+        width: 48%;
+        max-width: 492px;
+    }
+    @media ${device.laptop} {
+        width: 50%;
+    }
+    @media ${device.tabletL} {
+        width: 45%;
+        max-width: 350px;
+    }
+    @media ${device.tablet} {
+        width: 60%;
+        height: 250px;
+    }
+`
 
 const InformationWrapper = styled(Flex)`
     width: 100%;
@@ -235,26 +204,21 @@ const InformationWrapper = styled(Flex)`
     @media ${device.tabletL} {
         width: 46%;
         max-width: 400px;
-        top: 60px;
     }
     @media ${device.tablet} {
         width: 100%;
-        top: 350px;
+        margin-top: 8rem;
     }
     @media ${device.mobileL} {
-        top: 280px;
         max-width: 328px;
-    }
-    @media ${device.mobileM} {
-        top: 230px;
     }
 `
 
 const DLogo = styled.img`
-        width: 32px !important;
-        height: 32px !important;
-        margin-right: 1.6rem;
-    `
+    width: 32px !important;
+    height: 32px !important;
+    margin-right: 1.6rem;
+`
 
 const query = graphql`
     {
@@ -292,7 +256,6 @@ const DHero = ({
 
     return (
         <Wrapper>
-
             <BackgroundSVG src={background_svg} alt="background svg" />
 
             <InformationWrapper height="unset" direction="column">
@@ -327,11 +290,11 @@ const DHero = ({
                 {image_name === 'dtrader' ? (
                     <QueryImage data={data['dtrader']} alt={background_alt} />
                 ) : (
-                        <QueryImage
-                            data={data[is_mobile ? image_name + '_mobile' : image_name]}
-                            alt={background_alt}
-                        />
-                    )}
+                    <QueryImage
+                        data={data[is_mobile ? image_name + '_mobile' : image_name]}
+                        alt={background_alt}
+                    />
+                )}
             </LottieWrapper>
         </Wrapper>
     )

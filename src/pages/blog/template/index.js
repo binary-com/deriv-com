@@ -18,6 +18,9 @@ const HeroContainer = styled(Container)`
     align-items: flex-start;
     margin-bottom: 86px;
 
+    @media ${device.laptopL} {
+        width: 90%;
+    }
     @media ${device.laptopM} {
         padding-top: 65px;
         height: 500px;

@@ -83,41 +83,38 @@ const InnerDiv = styled.div`
     overflow-y: visible;
 `
 const DisplayAccordion = (locale) => {
-    const { is_eu_country, crypto_config } = React.useContext(DerivStore)
+    const { crypto_config } = React.useContext(DerivStore)
     return (
         <Accordion has_single_state>
             {payment_data.map((pd, idx) => {
-                if (pd.is_crypto && is_eu_country) {
-                    return []
-                } else
-                    return (
-                        <AccordionItem
-                            key={idx}
-                            content_style={{
-                                background: 'var(--color-white)',
-                                boxShadow: '-2px 6px 15px 0 rgba(195, 195, 195, 0.31)',
-                            }}
-                            header_style={{
-                                borderRadius: '6px',
-                            }}
-                            style={{
-                                padding: '2.2rem 4.8rem',
-                                position: 'relative',
-                                background: 'var(--color-white)',
-                                paddingBottom: pd.note ? '5rem' : '2.2rem',
-                            }}
-                            parent_style={{
-                                marginBottom: '2.4rem',
-                            }}
-                            header={pd.name}
-                        >
-                            <DisplayAccordianItem
-                                pd={pd}
-                                crypto_config={crypto_config}
-                                locale={locale}
-                            />
-                        </AccordionItem>
-                    )
+                return (
+                    <AccordionItem
+                        key={idx}
+                        content_style={{
+                            background: 'var(--color-white)',
+                            boxShadow: '-2px 6px 15px 0 rgba(195, 195, 195, 0.31)',
+                        }}
+                        header_style={{
+                            borderRadius: '6px',
+                        }}
+                        style={{
+                            padding: '2.2rem 4.8rem',
+                            position: 'relative',
+                            background: 'var(--color-white)',
+                            paddingBottom: pd.note ? '5rem' : '2.2rem',
+                        }}
+                        parent_style={{
+                            marginBottom: '2.4rem',
+                        }}
+                        header={pd.name}
+                    >
+                        <DisplayAccordianItem
+                            pd={pd}
+                            crypto_config={crypto_config}
+                            locale={locale}
+                        />
+                    </AccordionItem>
+                )
             })}
         </Accordion>
     )

@@ -13,18 +13,25 @@ type QueryImageProps = {
     alt: string
     className?: string
     data: any
-    height: any
+    height: string | number
     is_eager: boolean
-    width: any
+    width: string | number
 }
 
 type ImageWrapperProps = {
-    width: any
-    height: any
+    width: string | number
+    height: string | number
     className?: string
 }
 
-const QueryImage = ({ alt, className, data, height, is_eager, width }: QueryImageProps) => {
+const QueryImage = ({
+    alt,
+    className,
+    data,
+    height,
+    is_eager,
+    width,
+}: QueryImageProps): React.ReactNode => {
     const image = getImage(data)
     if (data) {
         return (

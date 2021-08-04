@@ -88,30 +88,18 @@ const filterFunctions = {
 
         return content;
     },
-    categorize: (data) => {
-        const categories = {};
-
-        data.map((d) => {
-            const { category, key } = d;
-            const file_name = escapeStr(key);
-
-            if (category) {
-                d.logo = ucWord(sentencizeStr(key,'-'));
-                d.reference = `${file_name}.pdf`;
-
-                if (categories[category] === undefined) {
-                    categories[category] = [];
-                }
-
-                delete d.category;
-                delete d.key;
-
-                categories[category].push({ ...d });
-            }
+    flatten: (data) => {
+        return data.map((d) => {
+          const { key, category } = d;
+          const file_name = escapeStr(key);
+    
+          return {
+            ...d,
+            logo: ucWord(sentencizeStr(key,'-')),
+            reference: `${file_name}.pdf`,
+          };
         });
-
-        return categories;
-    },
+      },
 };
 
 fs.createReadStream(source_path)
@@ -159,7 +147,7 @@ fs.createReadStream(source_path)
         json.push(data);
     })
     .on('end', () => {
-        const parsed_json = filterFunctions.categorize(json);
+        const parsed_json = filterFunctions.flatten(json);
         const final_json = JSON.stringify(parsed_json, null, 2);
 
         fs.writeFile(output_path, final_json, 'utf8', () => `${output_path} has been generated`);

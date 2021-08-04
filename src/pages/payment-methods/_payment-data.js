@@ -62,9 +62,37 @@ const StyledIcon = styled.img`
 //     text-align: center;
 // `
 
+const CategorizePaymentMethod = (json) => {
+    const categories = {}
+
+    json.map((data) => {
+        const { category, platform } = data
+
+        if (categories[category] === undefined) {
+            categories[category] = []
+        }
+
+        delete data.category
+
+        const show_method =
+            (platform && platform.toLowerCase().includes('deriv')) || platform === ''
+
+        if (show_method) {
+            categories[category].push({ ...data })
+        } else {
+            delete categories[category]
+        }
+    })
+
+    return categories
+}
+
 const PaymentDataGenerator = () => {
-    return Object.keys(payment_method_json).map((category) => {
-        const payment_methods = payment_method_json[category]
+    const categorized_method = CategorizePaymentMethod(payment_method_json)
+
+    return Object.keys(categorized_method).map((category) => {
+        const payment_methods = categorized_method[category]
+
         const data =
             payment_methods &&
             payment_methods.map(
@@ -81,9 +109,10 @@ const PaymentDataGenerator = () => {
                     withdrawal_processing_time,
                 }) => {
                     const payment_method_logo = PaymentLogos[logo]
+
                     return {
                         method: payment_method_logo && (
-                            <StyledIcon src={payment_method_logo} alt="bank transfer" />
+                            <StyledIcon src={payment_method_logo} alt={name} />
                         ),
                         currencies: currencies.join(' '),
                         min_max_deposit: (
@@ -97,7 +126,6 @@ const PaymentDataGenerator = () => {
                         description: <Localize translate_text={description} />,
                         name,
                         reference: 'dragonphoenix-payment-method.pdf',
-                        is_fiat_onramp: true,
                     }
                 },
             )

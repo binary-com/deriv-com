@@ -90,7 +90,7 @@ const filterFunctions = {
     },
     flatten: (data) => {
         return data.map((d) => {
-          const { key, category } = d;
+          const { key } = d;
           const file_name = escapeStr(key);
     
           return {

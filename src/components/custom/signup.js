@@ -76,10 +76,6 @@ const Signup = (props) => {
 
     const handleInputChange = (e) => {
         const { value } = e.target
-
-        // this.setState({
-        //     [name]: value,
-        // })
         setEmail(value)
         handleValidation(value)
     }
@@ -104,13 +100,14 @@ const Signup = (props) => {
     const handleEmailSignup = (e) => {
         e.preventDefault()
         setSubmitting(true)
-        handleValidation(email.replace(/\s/g, ''))
-        const has_error_email = validateEmail(email)
+        const formattedEmail = email.replace(/\s/g, '')
+        handleValidation(email)
+        const has_error_email = validateEmail(formattedEmail)
         if (has_error_email || email_error_msg) {
             return setSubmitting(false)
         }
 
-        const verify_email_req = getVerifyEmailRequest(email)
+        const verify_email_req = getVerifyEmailRequest(formattedEmail)
         const binary_socket = BinarySocketBase.init()
 
         binary_socket.onopen = () => {
@@ -123,7 +120,7 @@ const Signup = (props) => {
                 setSubmitting(false)
                 setSubmitStatus('error')
                 setSubmitErrorMsg(response.error.message)
-                handleValidation(email)
+                handleValidation(formattedEmail)
             } else {
                 setSubmitting(false)
                 setSubmitStatus('success')

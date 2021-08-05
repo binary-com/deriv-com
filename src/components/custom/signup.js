@@ -57,9 +57,9 @@ const Signup = (props) => {
     const [submit_status, setSubmitStatus] = useState('')
     const [submit_error_msg, setSubmitErrorMsg] = useState('')
 
-    const validateEmail = () => {
+    const validateEmail = (emailAddress) => {
         const error_message =
-            validation.required(email) || validation.email(email) || submit_error_msg
+            validation.required(emailAddress) || validation.email(emailAddress) || submit_error_msg
 
         if (submit_error_msg) {
             setSubmitErrorMsg('')
@@ -80,7 +80,7 @@ const Signup = (props) => {
         handleValidation(value)
     }
 
-    const getVerifyEmailRequest = () => {
+    const getVerifyEmailRequest = (formattedEmail) => {
         const affiliate_token = Cookies.getJSON('affiliate_tracking')
 
         const cookies = getCookiesFields()
@@ -88,7 +88,7 @@ const Signup = (props) => {
         const cookies_value = getDataObjFromCookies(cookies_objects, cookies)
 
         return {
-            verify_email: email,
+            verify_email: formattedEmail,
             type: 'account_opening',
             url_parameters: {
                 ...(affiliate_token && { affiliate_token: affiliate_token }),

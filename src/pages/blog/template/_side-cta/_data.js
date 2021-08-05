@@ -1,4 +1,4 @@
-import Stocks from './images/stocks.svg'
+import Stocks from './_images/stocks.svg'
 
 export const pdf_data = {
     image: Stocks,

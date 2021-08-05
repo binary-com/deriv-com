@@ -1,6 +1,9 @@
 import styled from 'styled-components'
-import Shape from './images/shape.svg'
+import Shape from './_images/shape.svg'
+import BigShape from './_images/big-shape.svg'
+import { Header } from 'components/elements'
 import { Flex } from 'components/containers'
+import { LinkButton } from 'components/form'
 import device from 'themes/device'
 
 export const SideContainer = styled(Flex)`
@@ -11,9 +14,14 @@ export const SideContainer = styled(Flex)`
         justify-content: center;
     }
 `
+
+export const StyledHeader = styled(Header)`
+    @media ${device.tabletL} {
+        max-width: 250px;
+    }
+`
 export const CtaContainer = styled(Flex)`
     width: 282px;
-    height: 420px;
     border-radius: 8px;
     padding: 24px 0 0 16px;
     background-color: var(--color-grey-41);
@@ -23,24 +31,25 @@ export const CtaContainer = styled(Flex)`
     background-position: right bottom;
     background-repeat: no-repeat;
 
-    @media ${device.tablet} {
+    @media ${device.mobileL} {
+        background-image: url(${BigShape});
         width: 100%;
         max-width: 328px;
-        height: 420px;
-        background-position: center bottom;
         padding: 24px 39px 0;
     }
 `
 
 export const DownloadPdfIcon = styled.img`
     width: 44px;
-    height: 18px;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
+`
+export const StyledLinkButton = styled(LinkButton)`
+    border-radius: 4px;
 `
 
 export const LinkButtonWrapper = styled(Flex)`
     margin-top: 16px;
-    margin-bottom: 16px;
+    margin-bottom: 24px;
     text-align: center;
     justify-content: center;
 `
@@ -48,12 +57,15 @@ export const LinkButtonWrapper = styled(Flex)`
 export const ImageWrapper = styled.div`
     position: relative;
     margin: 0 auto;
+
+    @media ${device.mobileS} {
+        display: none;
+    }
 `
 
 export const BookImage = styled.img`
-    height: 212px;
     margin-bottom: -2px;
-    @media ${device.tablet} {
+    @media ${device.mobileL} {
         margin-right: 30px;
     }
 `

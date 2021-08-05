@@ -1,7 +1,7 @@
 import { localize } from 'components/localization'
 
 const validation_regex = {
-    email: /([\w\-.]+)@((?:[\w]+\.)+)([a-zA-Z]{2,4})/,
+    email: /^[a-zA-Z0-9_.+-]+@((?:[\w]+\.)+)([a-zA-Z]{2,4})/,
     url: /^[\w|\-|.]+$/,
     alphabetic: /^[a-zA-Z]+$/,
     number: /^\d+$/,

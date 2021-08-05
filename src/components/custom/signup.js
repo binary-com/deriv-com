@@ -57,7 +57,7 @@ const Signup = (props) => {
     const [submit_status, setSubmitStatus] = useState('')
     const [submit_error_msg, setSubmitErrorMsg] = useState('')
 
-    const validateEmail = (email) => {
+    const validateEmail = () => {
         const error_message =
             validation.required(email) || validation.email(email) || submit_error_msg
 
@@ -80,7 +80,7 @@ const Signup = (props) => {
         handleValidation(value)
     }
 
-    const getVerifyEmailRequest = (email) => {
+    const getVerifyEmailRequest = () => {
         const affiliate_token = Cookies.getJSON('affiliate_tracking')
 
         const cookies = getCookiesFields()

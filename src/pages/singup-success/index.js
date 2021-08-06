@@ -7,7 +7,6 @@ import { localize, Localize, WithIntl } from 'components/localization'
 import { SEO, Box } from 'components/containers'
 import device from 'themes/device.js'
 import { Header, QueryImage, StyledLink, Text } from 'components/elements'
-// import Graph from 'images/svg/graph.svg'
 
 const Wrapper = styled.section`
     padding: 8rem 0;

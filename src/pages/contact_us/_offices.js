@@ -235,8 +235,10 @@ export const Offices = () => {
                                         BKR 9033
                                     </Show.Desktop>
                                     <Show.Mobile>
-                                        Level 3, W Business Centre,Triq Dun Karm,
-                                        <br></br>Birkirkara, BKR 9033
+                                        <StyledMobileAddress>
+                                            Level 3, W Business Centre,Triq Dun Karm, Birkirkara,
+                                            BKR 9033
+                                        </StyledMobileAddress>
                                     </Show.Mobile>
                                 </LocalizedLinkText>
                             </BorderBox>
@@ -279,8 +281,9 @@ export const Offices = () => {
                                         Center 1, JLT Cluster G
                                     </Show.Desktop>
                                     <Show.Mobile>
-                                        Office 1902, Jumeirah Business Center 1,
-                                        <br></br>JLT Cluster G
+                                        <StyledMobileAddress>
+                                            Office 1902, Jumeirah Business Center 1, JLT Cluster G
+                                        </StyledMobileAddress>
                                     </Show.Mobile>
                                 </LocalizedLinkText>
                             </BorderBox>
@@ -328,9 +331,10 @@ export const Offices = () => {
                                                 Selangor
                                             </Show.Desktop>
                                             <Show.Mobile>
-                                                C-13, iTech Tower, Jalan Impact, Cyber 6,
-                                                <br></br>
-                                                Cyberjaya 63000, Selangor
+                                                <StyledMobileAddress>
+                                                    C-13, iTech Tower, Jalan Impact, Cyber 6,
+                                                    Cyberjaya 63000, Selangor
+                                                </StyledMobileAddress>
                                             </Show.Mobile>
                                         </LocalizedLinkText>
                                     </Box>
@@ -404,9 +408,10 @@ export const Offices = () => {
                                                 Ipoh 30000, Perak
                                             </Show.Desktop>
                                             <Show.Mobile>
-                                                E-5-6, Soho Ipoh 2, Jalan Sultan Idris Shah,
-                                                <br></br>
-                                                Ipoh 30000, Perak
+                                                <StyledMobileAddress>
+                                                    E-5-6, Soho Ipoh 2, Jalan Sultan Idris Shah,
+                                                    Ipoh 30000, Perak
+                                                </StyledMobileAddress>
                                             </Show.Mobile>
                                         </LocalizedLinkText>
                                     </Box>

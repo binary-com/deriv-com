@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 // import Ticker from './home/_ticker'
 import {
     Markets,
@@ -47,6 +47,13 @@ const simple_step_content = [
 const Home = () => {
     /* redirect livechat for en to open live chat popup */
     useOpenLiveChat()
+    const [submit_state, setSubmitState] = useState('')
+    const [email, setEmail] = useState('')
+
+    function updateSubmitState(submitStatus, email) {
+        setSubmitState(submitStatus)
+        setEmail(email)
+    }
 
     return (
         <Layout>
@@ -78,7 +85,12 @@ const Home = () => {
                 sign_up={true}
             />
             <WhatOurClientsSay />
-            <Signup appearance={Appearances.public} />
+            <Signup
+                appearance={Appearances.public}
+                onSubmit={updateSubmitState}
+                submit_state={submit_state}
+                email={email}
+            />
             {/* TODO: investigate performance and enable later */}
             {/* {!isProduction() && <Ticker />} */}
         </Layout>

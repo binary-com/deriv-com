@@ -173,6 +173,15 @@ const StyledSectionContainer = styled(SectionContainer)`
         padding: 40px 0;
     }
 `
+const StyledMobileAddress = styled.div`
+    @media ${device.tablet} {
+        max-width: 328px;
+    }
+
+    @media (max-width: 324px) {
+        max-width: 320px;
+    }
+`
 
 export const Offices = () => {
     const data = useStaticQuery(query)
@@ -484,9 +493,10 @@ export const Offices = () => {
                                         Asunción 1849
                                     </Show.Desktop>
                                     <Show.Mobile>
-                                        Edificio Atrium, Piso 2, Guido Spano Esq.
-                                        <br></br>
-                                        Doctor Morra, Asunción 1849
+                                        <StyledMobileAddress>
+                                            Edificio Atrium, Piso 2, Guido Spano Esq. Doctor Morra,
+                                            Asunción 1849
+                                        </StyledMobileAddress>
                                     </Show.Mobile>
                                 </LocalizedLinkText>
                             </BorderBox>
@@ -605,9 +615,7 @@ export const Offices = () => {
                                         Street, Minsk 220123
                                     </Show.Desktop>
                                     <Show.Mobile>
-                                        Level 2, 25/1-3 Vera Khoruzhey Street,
-                                        <br></br>
-                                        Minsk 220123
+                                        Level 2, 25/1-3 Vera Khoruzhey Street, Minsk 220123
                                     </Show.Mobile>
                                 </LocalizedLinkText>
                             </BorderBox>

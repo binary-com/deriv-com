@@ -19,6 +19,7 @@ const DummyArticleLayout = styled(Flex)`
     margin-left: 8rem;
     @media ${device.tabletL} {
         margin: 0 auto;
+        max-width: 100%;
     }
 `
 const SubscribeBannerWrapper = styled(Flex)`
@@ -89,13 +90,13 @@ const EmailButton = styled(Button)`
     padding: 9px 28px;
     border-radius: 4px;
     margin-bottom: 8px;
+    height: 46px;
 
     @media ${device.tabletL} {
         padding: 10px 16px;
         white-space: nowrap;
         min-width: unset;
         margin-left: 0;
-        height: 40px;
         width: auto;
     }
 `

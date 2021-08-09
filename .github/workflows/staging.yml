@@ -60,7 +60,7 @@ jobs:
                   restore-keys: |
                       ${{ runner.os }}-node-
 
-            - name: Caching Gatsby
+            - name: Cache Gatsby
               id: gatsby-cache-build
               uses: actions/cache@v2
               with:

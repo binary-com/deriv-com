@@ -30,11 +30,8 @@ jobs:
               env:
                   cache-name: cache-node-modules
               with:
-                  path: |
-                      public
-                      .cache
-                      ./node_modules
-              key: modules-${{ hashFiles('package-lock.json') }}
+                  path: ./node_modules
+                  key: modules-${{ hashFiles('package-lock.json') }}
             - name: Install Node.js dependencies
               run: |
                   npm ci
@@ -60,6 +57,17 @@ jobs:
                   key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
                   restore-keys: |
                       ${{ runner.os }}-node-
+
+            - name: Cache Gatsby
+              id: gatsby-cache-build
+              uses: actions/cache@v2
+              with:
+                  path: |
+                      public
+                      .cache
+                  key: ${{ runner.os }}-gatsby-build-${{ github.run_id }}
+                  restore-keys: |
+                      ${{ runner.os }}-gatsby-build-
 
             - run: npm ci
             - run: npm run format

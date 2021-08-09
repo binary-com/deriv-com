@@ -200,6 +200,11 @@ const Regulatory = (locale) => {
                                 'Deriv Investments (Europe) Limited is entitled to provide services in another EU Member State through EU passporting rights. Above is a list of EU countries that have access to Deriv.com via EU passporting rights.',
                             )}
                         </Text>
+                        <Text lh="1.55" max_width="79.2rem" mt="10px">
+                            {localize(
+                                `In the United Kingdom, the company is authorised to provide investment services via the FCA's temporary permissions regime.`,
+                            )}
+                        </Text>
                     </Box>
                 </SmallContainer>
             </SectionContainer>

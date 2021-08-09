@@ -12,7 +12,7 @@ const StyledContainer = styled(Container)`
     justify-content: center;
 `
 
-const LiveChat = () => {
+const LiveChatPage = () => {
     const [is_livechat_interactive, LC_API] = useLivechat()
     const [loading, setLoading] = useState(true)
 
@@ -42,4 +42,4 @@ const LiveChat = () => {
     )
 }
 
-export default WithIntl()(LiveChat)
+export default WithIntl()(LiveChatPage)

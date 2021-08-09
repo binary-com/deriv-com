@@ -20,19 +20,19 @@ const CFDs = ({ market_content, market_tab_name }) => (
             <Descriptions>
                 <StyledText align="center" font_size="16px">
                     {localize(
-                        'CFD trading allows you to bet on the price movement of the underlying asset without purchasing it.',
+                        'CFD trading allows you to speculate on the price movement of the underlying asset without purchasing it.',
                     )}
                 </StyledText>
                 <StyledText align="center" mt="16px" font_size="16px">
-                {localize(
+                    {localize(
                         'On Deriv, trading CFDs with high leverage lets you pay only a small fraction of the contract’s value and amplify your potential profit, similarly increasing your potential loss.',
                     )}
                 </StyledText>
-                {
-                    market_tab_name === 'stock-indices'
-                    ? <AvailablePlatforms dmt5 />
-                    : <AvailablePlatforms dmt5 derivx />
-                }
+                {market_tab_name === 'stock-indices' ? (
+                    <AvailablePlatforms dmt5 />
+                ) : (
+                    <AvailablePlatforms dmt5 derivx />
+                )}
             </Descriptions>
             <StyledText font_size={'16px'} weight="bold" mt="4rem">
                 {localize('Instruments available for CFD trading')}

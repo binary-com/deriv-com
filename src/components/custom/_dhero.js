@@ -64,9 +64,7 @@ const LottieWrapper = styled.div`
     width: 100%;
     max-width: 730px;
     position: absolute;
-    top: 50%;
-    bottom: 50%;
-    right: 12rem;
+    inset: 50% 12rem 50% auto;
     display: flex;
     align-items: center;
 
@@ -88,13 +86,10 @@ const LottieWrapper = styled.div`
     }
     @media ${device.tabletS} {
         max-width: 380px;
-        right: 2rem;
     }
     @media ${device.tablet} {
         max-width: 328px;
-        top: unset;
-        left: unset;
-        right: unset;
+        inset: auto auto 50% auto;
         position: relative;
     }
 `
@@ -215,8 +210,8 @@ const InformationWrapper = styled(Flex)`
 `
 
 const DLogo = styled.img`
-    width: 32px !important;
-    height: 32px !important;
+    width: 32px;
+    height: 32px;
     margin-right: 1.6rem;
 `
 

@@ -22,7 +22,7 @@ const LiveChatPage = () => {
             script_timeout = setTimeout(() => {
                 LC_API.open_chat_window()
                 setLoading(false)
-            }, 3000)
+            }, 1000)
         }
 
         return () => {

@@ -7,6 +7,7 @@ import {
     live_chat_redirection_link,
     live_chat_key,
 } from './constants'
+import { isUK } from 'common/country-base'
 
 export const trimSpaces = (value) => value?.trim()
 
@@ -100,6 +101,18 @@ export const isLoggedIn = () => {
     const domain = getDomain()
     const client_information = getClientInformation(domain)
     return !!client_information
+}
+
+//This function returns true if user's location (IP address) is Uk or user's account is MX account (Uk resident)
+export const isUKOrMXAccount = (current_client_country) => {
+    const domain = getDomain()
+    const { residence } = getClientInformation(domain) || {
+        residence: '',
+    }
+
+    const isuk = residence === 'gb' || isUK(current_client_country)
+
+    return isuk
 }
 
 export const isIndexEven = (index, reverse) => (reverse ? (index + 1) % 2 : index % 2)

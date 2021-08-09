@@ -1,8 +1,18 @@
+# Git best practices
+
+**In this document:**
+
+-   [Commit message guidelines](#commit-message-guidlines)
+    -   [Type](#type)
+-   [Changing base branch](#changing-base-branch)
+-   [Get latest Changes](#get-latest-changes)
+-   [Resolve translation conflict on message.json](#resolve-translation-conflict-on-message.json)
+
 ## Commit message guidelines
 
-We have a precise rules over how our git commit messages can be formatted. This leads to more **readable messages** that are easy to follow when looking through the **project history**.
+We have a set of precise rules over how our git commit messages can be formatted. This leads to more **readable messages** that are easy to follow when looking through the **project history**.
 
-Each commit message will consists of **type** and **subject**:
+Each commit message will consist of **type** and **subject**:
 
 ```sh
 <type>|<...other_types>: <subject>
@@ -27,7 +37,7 @@ Must be one of the following:
 
 ## Changing base branch
 
-There are cases when you want to change the base branch because the PR that didn't used to have text changes is now having text changes, so, you need to convert base branch from `master` to `crowdin`. The command to do that is as follows:
+There are cases when you want to change the base branch because the PR that didn't have text changes is now having text changes, so, you need to convert the base branch from `master` to `crowdin`. The command to do that is as follows:
 
 ```sh
 git rebase --onto crowdin master your_branch_name
@@ -41,7 +51,7 @@ git rebase --onto master crowdin your_branch_name
 
 ## Get latest Changes
 
-There are two ways to get latest changes:
+There are two ways to get the latest changes:
 
 ```sh
 git pull upstream master|crowdin --rebase
@@ -57,20 +67,20 @@ both of these will do the job. However, rebase won't add another commit to your 
 
 ## Resolve translation conflict on message.json
 
-There are cases when other developers also work on translation (crowdin) branch, and get merged first. This way, your branch will get conflict of the extracted message.json. to fix this:
+There are cases when other developers also work on translation (crowdin) branch, and get merged first. This way, your branch will get conflict of the extracted message.json. To fix this:
 
--   get the latest crowdin changes
+-   Get the latest Crowdin changes
 
     ```sh
     git pull upstream crowdin
     ```
 
--   accept incoming change from crowdin
+-   Accept incoming change from Crowdin
 
     ```sh
     git checkout --theirs crowdin/messages.json
     ```
 
--   resolve other conflicts if any, or just commit your changes
+-   Resolve other conflicts if any, or just commit your changes
 
--   push to your origin branch to update the PR
+-   Push to your origin branch to update the PR

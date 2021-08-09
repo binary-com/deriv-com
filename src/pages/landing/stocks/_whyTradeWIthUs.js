@@ -92,7 +92,7 @@ const WhyTradeWithUs = ({ itemsArr, mainTitle, columnPerRow }) => {
                     {itemsArr.map((item, index) => {
                         return (
                             <Card direction="column" key={index} width={CardWidth}>
-                                <StyledImage src={item.icon} alt={item.image_alt} />
+                                <StyledImage src={item.icon} alt="" />
                                 <StyledIconTitle
                                     as="h4"
                                     weight="normal"

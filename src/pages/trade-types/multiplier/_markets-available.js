@@ -48,7 +48,7 @@ const MarketsAvailable = () => {
                         <MarketsItem>
                             <Card>
                                 <MobileCardHeader>
-                                    <img src={Forex} alt="forex" width="64" height="64" />
+                                    <img src={Forex} alt="" width="64" height="64" />
 
                                     <StyledText weight="bold">{localize('Forex')}</StyledText>
                                 </MobileCardHeader>
@@ -68,12 +68,7 @@ const MarketsAvailable = () => {
                         <MarketsItem>
                             <Card>
                                 <MobileCardHeader>
-                                    <img
-                                        src={SyntheticIndices}
-                                        alt="synthetic indices"
-                                        width="64"
-                                        height="64"
-                                    />
+                                    <img src={SyntheticIndices} alt="" width="64" height="64" />
 
                                     <StyledText weight="bold">
                                         {localize('Synthetic indices')}

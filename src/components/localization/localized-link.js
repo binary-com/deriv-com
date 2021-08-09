@@ -141,6 +141,8 @@ const affiliate_links = ['affiliate_sign_in', 'affiliate_sign_up']
 const deriv_app_links = ['dbot', 'deriv_app', 'mt5', 'derivx']
 const deriv_other_products = ['binary', 'smart_trader']
 const deriv_social_platforms = ['blog', 'community', 'api', 'zoho']
+// add item to this array if you need to make an internal link open on a new tab without modal window
+const new_tab_no_modal = ['terms_and_conditions']
 
 const getURLFormat = (type, locale, to, affiliate_lang) => {
     if (deriv_app_links.includes(type)) {
@@ -151,6 +153,11 @@ const getURLFormat = (type, locale, to, affiliate_lang) => {
         return `${localized_link_url[type]}/${getThaiExcludedLocale(locale)}/${to}.html`
     } else if (deriv_social_platforms.includes(type)) {
         return `${localized_link_url[type]}${to}`
+    } else if (new_tab_no_modal.includes(type)) {
+        return `${localized_link_url[type]}${locale === 'en' ? '' : '/' + locale}/${type.replace(
+            /_/g,
+            '-',
+        )}`
     } else {
         return to
     }
@@ -181,7 +188,8 @@ const ExternalLink = ({
         !is_mail_link &&
         !affiliate_links.includes(type) &&
         !deriv_app_links.includes(type) &&
-        !deriv_social_platforms.includes(type)
+        !deriv_social_platforms.includes(type) &&
+        !new_tab_no_modal.includes(type)
 
     const default_style = { cursor: 'pointer' }
 
@@ -207,9 +215,9 @@ const ExternalLink = ({
             style={style ? style : default_style}
             aria-label={aria_label}
             href={!show_modal ? url : ''}
-            onClick={handleClick}
+            onClick={show_modal ? handleClick : null}
             disabled={!mounted}
-            target={target}
+            target={new_tab_no_modal.includes(type) ? '__blank' : target}
             rel={rel}
             {...props}
         >

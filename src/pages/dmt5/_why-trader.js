@@ -14,7 +14,7 @@ const card_content = [
         header: localize('Quick demo account sign-up'),
         text: localize('Practise with a demo account preloaded with unlimited virtual funds.'),
         image: InstantAccess,
-        alt: 'instant access',
+        key: 0,
     },
     {
         header: localize('Multiple assets on a single platform'),
@@ -22,7 +22,7 @@ const card_content = [
             'Explore forex, synthetic indices, stocks, and commodities on an all-in-one platform.',
         ),
         image: SyntheticIndices,
-        alt: 'syntethic indices',
+        key: 1,
     },
     {
         header: localize('24/7 trading'),
@@ -30,7 +30,7 @@ const card_content = [
             'Trade round-the-clock, even on weekends, with our proprietary synthetic indices.',
         ),
         image: Seven,
-        alt: 'seven',
+        key: 2,
     },
     {
         header: localize('Licensed and regulated'),
@@ -38,7 +38,7 @@ const card_content = [
             'Trade with a regulated industry pioneer trusted by traders for more than 20 years.',
         ),
         image: MinimalRisk,
-        alt: 'minimal risk',
+        key: 3,
     },
 ]
 
@@ -117,9 +117,9 @@ const WhyTrader = () => {
             <CardContainer>
                 {card_content.map((card) => {
                     return (
-                        <Card key={card.alt}>
+                        <Card key={card.key}>
                             <div>
-                                <img src={card.image} alt={card.alt} />
+                                <img src={card.image} alt="" />
                             </div>
                             <StyledCardHeader
                                 mt="0.8rem"

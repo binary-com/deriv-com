@@ -17,7 +17,7 @@ import device from 'themes/device'
 const markets_type = {
     forex: {
         // eslint-disable-next-line react/display-name
-        icon: () => <img src={Forex} alt="forex" width="64" height="64" />,
+        icon: () => <img src={Forex} alt="" width="64" height="64" />,
         title: <Localize translate_text="Forex" />,
         content: (
             <Localize translate_text="Forex trading gives you the chance to profit from changes in the relative values of currencies on the forex market." />
@@ -27,7 +27,7 @@ const markets_type = {
     },
     Synthetic_Indices: {
         // eslint-disable-next-line react/display-name
-        icon: () => <img src={SyntheticIndices} alt="synthetic" width="64" height="64" />,
+        icon: () => <img src={SyntheticIndices} alt="" width="64" height="64" />,
         title: <Localize translate_text="Synthetic indices" />,
         content: (
             <Localize translate_text="Synthetic indices trading lets you benefit from correctly predicting the price movements of our proprietary indices that simulate real-world market movements." />
@@ -37,7 +37,7 @@ const markets_type = {
     },
     stock_indices: {
         // eslint-disable-next-line react/display-name
-        icon: () => <img src={StockIndices} alt="stock" width="64" height="64" />,
+        icon: () => <img src={StockIndices} alt="" width="64" height="64" />,
         title: <Localize translate_text="Stocks & indices" />,
         content: (
             <Localize translate_text="Stocks & indices trading allows you to profit from the price movements in a market without buying the underlying assets." />
@@ -48,7 +48,7 @@ const markets_type = {
 
     commodities: {
         // eslint-disable-next-line react/display-name
-        icon: () => <img src={Commodities} alt="commodities" width="64" height="64" />,
+        icon: () => <img src={Commodities} alt="" width="64" height="64" />,
         title: <Localize translate_text="Commodities" />,
         content: (
             <Localize translate_text="Commodities trading on Deriv lets you profit from correctly predicting the market movement on precious metals and crude oil." />
@@ -59,7 +59,7 @@ const markets_type = {
 
     cryptocurrencies: {
         // eslint-disable-next-line react/display-name
-        icon: () => <img src={Cryptocurrencies} alt="cryptocurrencies" width="64" height="64" />,
+        icon: () => <img src={Cryptocurrencies} alt="" width="64" height="64" />,
         title: <Localize translate_text="Cryptocurrencies" />,
         content: (
             <Localize translate_text="Crypto trading gives you an opportunity to benefit from correctly predicting the price movements of cryptocurrencies without buying them." />
@@ -161,7 +161,7 @@ const Card = ({ name }) => {
             <Text mt="0.8rem">{markets_type[name].content}</Text>
             <LearnMore to={markets_type[name].to} visibility={button_visibility}>
                 <Text mr="1rem">{localize('Learn more')}</Text>
-                <img src={Arrow} alt="arrow right" />
+                <img src={Arrow} alt="" />
             </LearnMore>
         </StyledFlex>
     )
@@ -179,7 +179,7 @@ const MobileCard = ({ name }) => {
             <Text size="2rem">{markets_type[name].content}</Text>
             <LearnMore to={markets_type[name].to} visibility="true">
                 <Text>{localize('Learn more')}</Text>
-                <img src={Arrow} alt="arrow right" />
+                <img src={Arrow} alt="" />
             </LearnMore>
         </MobileCardWrapper>
     )

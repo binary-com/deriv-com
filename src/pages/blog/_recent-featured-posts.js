@@ -1,7 +1,7 @@
 import React from 'react'
-import Clock from './images/clock.svg'
-import Dot from './images/dot.svg'
-import { recent_article_data, featured_article_data, article_data, article_data_2 } from './_data'
+import Clock from './recent-featured-posts/images/clock.svg'
+import Dot from './recent-featured-posts/images/dot.svg'
+import { recent_article_data, featured_article_data, article_data, article_data_2 } from './recent-featured-posts/_data'
 import {
     StyledContainer,
     StyledTabs,
@@ -29,8 +29,7 @@ import {
     DotIcon,
     MobileDotIcon,
     MobileHeader,
-} from './_style'
-import Layout from 'components/layout/layout'
+} from './recent-featured-posts/_style'
 import { Carousel, Tabs, Header } from 'components/elements'
 import { localize, WithIntl } from 'components/localization'
 
@@ -58,7 +57,6 @@ const RecentFeaturedPosts = () => {
     const articles_2 = article_data_2
 
     return (
-        <Layout>
             <StyledContainer m="20px auto 0" fd="column" ai="center">
                 <StyledTabs
                     tab_list={['recent_posts', 'featured_posts']}
@@ -228,7 +226,6 @@ const RecentFeaturedPosts = () => {
                     See all blog articles
                 </AllArticleButton>
             </StyledContainer>
-        </Layout>
     )
 }
 

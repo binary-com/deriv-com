@@ -230,7 +230,6 @@ export const SmallArticleRightContent = styled(Flex)`
 `
 export const AllArticleButton = styled(LinkButton)`
     margin-top: 40px;
-    margin-bottom: 80px;
     width: fit-content;
 
     &:hover {

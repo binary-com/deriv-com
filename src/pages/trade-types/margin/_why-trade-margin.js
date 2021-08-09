@@ -23,7 +23,7 @@ const WhyTradeMargin = () => {
                     </Header>
                     <Grid>
                         <WhyTradeItem>
-                            <img src={HighLeverge} alt="high leverage" />
+                            <img src={HighLeverge} alt="" />
                             <Text weight="bold" mb="0.8rem" mt="1.6rem">
                                 {localize('High leverage, low spreads')}
                             </Text>
@@ -38,7 +38,7 @@ const WhyTradeMargin = () => {
                             </Text>
                         </WhyTradeItem>
                         <WhyTradeItem>
-                            <img src={SyntheticIndices} alt="synthetic indices" />
+                            <img src={SyntheticIndices} alt="" />
                             <Text weight="bold" mb="0.8rem" mt="1.6rem">
                                 {localize('All favourite markets available')}
                             </Text>
@@ -49,7 +49,7 @@ const WhyTradeMargin = () => {
                             </Text>
                         </WhyTradeItem>
                         <WhyTradeItem>
-                            <img src={MaximizePotentialProfit} alt="maximize potential profit" />
+                            <img src={MaximizePotentialProfit} alt="" />
                             <Text weight="bold" mb="0.8rem" mt="1.6rem">
                                 {localize('Go long and short')}
                             </Text>
@@ -60,7 +60,7 @@ const WhyTradeMargin = () => {
                             </Text>
                         </WhyTradeItem>
                         <WhyTradeItem>
-                            <img src={FriendlySupport} alt="friendly support" />
+                            <img src={FriendlySupport} alt="" />
                             <Text weight="bold" mb="0.8rem" mt="1.6rem">
                                 {localize('Expert and friendly support')}
                             </Text>
@@ -69,7 +69,7 @@ const WhyTradeMargin = () => {
                             </Text>
                         </WhyTradeItem>
                         <WhyTradeItem>
-                            <img src={InstantAccess} alt="instant access" />
+                            <img src={InstantAccess} alt="" />
                             <Text weight="bold" mb="0.8rem" mt="1.6rem">
                                 {localize('Instant access')}
                             </Text>

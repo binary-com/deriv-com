@@ -955,10 +955,10 @@ export const NavPartners = ({ no_login_signup }) => {
                             </NavLink>
                             <NavLink>
                                 <StyledLink
-                                    active={current_page === 'developers'}
+                                    active={current_page === 'api'}
                                     activeClassName="active"
                                     to=""
-                                    type="developers"
+                                    type="api"
                                     target="_blank"
                                     external="true"
                                     rel="noopener noreferrer"

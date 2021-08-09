@@ -142,7 +142,7 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect, is_eu_country }) => {
                         <LinkWrapper>
                             <Link
                                 to=""
-                                type="developers"
+                                type="api"
                                 target="_blank"
                                 external="true"
                                 rel="noopener noreferrer"

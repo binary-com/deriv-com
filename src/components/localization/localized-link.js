@@ -140,7 +140,7 @@ InternalLink.propTypes = {
 const affiliate_links = ['affiliate_sign_in', 'affiliate_sign_up']
 const deriv_app_links = ['dbot', 'deriv_app', 'mt5', 'derivx']
 const deriv_other_products = ['binary', 'smart_trader']
-const deriv_social_platforms = ['blog', 'community', 'developers', 'zoho']
+const deriv_social_platforms = ['blog', 'community', 'api', 'zoho']
 // add item to this array if you need to make an internal link open on a new tab without modal window
 const new_tab_no_modal = ['terms_and_conditions']
 

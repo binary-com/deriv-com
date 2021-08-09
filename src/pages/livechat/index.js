@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import Layout from 'components/layout/layout'
 import InitialLoader from 'components/elements/dot-loader'
@@ -9,27 +9,35 @@ import { useLivechat } from 'components/hooks/use-livechat'
 const StyledContainer = styled(Container)`
     text-align: center;
     height: 100vh;
-    font-size: 5.5em;
     justify-content: center;
 `
 
 const LiveChat = () => {
     const [is_livechat_interactive, LC_API] = useLivechat()
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
+        let script_timeout = null
         if (is_livechat_interactive) {
-            window.LiveChatWidget.on('ready', () => {
+            script_timeout = setTimeout(() => {
                 LC_API.open_chat_window()
-            })
+                setLoading(false)
+            }, 3000)
+        }
+
+        return () => {
+            clearTimeout(script_timeout)
         }
     }, [is_livechat_interactive])
 
     return (
         <Layout type="static" margin_top={'0'}>
-            <SEO title={localize('Live Chat')} description={localize('Live chat')} no_index />
-            <StyledContainer>
-                <InitialLoader />
-            </StyledContainer>
+            <SEO
+                title={localize('Live Chat')}
+                description={localize('This page automatically open Live Chat window')}
+                no_index
+            />
+            <StyledContainer>{loading && <InitialLoader />}</StyledContainer>
         </Layout>
     )
 }

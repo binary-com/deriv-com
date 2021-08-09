@@ -251,40 +251,40 @@ exports.onCreateWebpackConfig = ({ actions, getConfig }, { ...options }) => {
     })
 }
 
-exports.createPages = async ({ reporter, actions, graphql }) => {
-    const { createPage } = actions
-    const articleTemplate = path.resolve(__dirname, 'src/templates/article.js')
+// exports.createPages = async ({ reporter, actions, graphql }) => {
+//     const { createPage } = actions
+//     const articleTemplate = path.resolve(__dirname, 'src/templates/article.js')
 
-    // Query our published articles
-    const result = await graphql(`
-        query MyQuery {
-            directus {
-                articles(filter: { status: { _eq: "published" } }) {
-                    article_title
-                    article_url
-                    translations {
-                        article_title
-                        languages_id
-                    }
-                }
-            }
-        }
-    `)
+//     // Query our published articles
+//     const result = await graphql(`
+//         query MyQuery {
+//             directus {
+//                 articles(filter: { status: { _eq: "published" } }) {
+//                     article_title
+//                     article_url
+//                     translations {
+//                         article_title
+//                         languages_id
+//                     }
+//                 }
+//             }
+//         }
+//     `)
 
-    if (result.errors) {
-        reporter.panic(result.errors)
-    }
-    const articles = result.data.directus.articles
+//     if (result.errors) {
+//         reporter.panic(result.errors)
+//     }
+//     const articles = result.data.directus.articles
 
-    articles.forEach((article) => {
-        createPage({
-            path: `/blog/articles/${article.article_url}`,
-            component: articleTemplate,
-            context: {
-                locale: 'en',
-                pathname: `/blog/articles/${article.article_url}`,
-                slug: article.article_url,
-            },
-        })
-    })
-}
+//     articles.forEach((article) => {
+//         createPage({
+//             path: `/blog/articles/${article.article_url}`,
+//             component: articleTemplate,
+//             context: {
+//                 locale: 'en',
+//                 pathname: `/blog/articles/${article.article_url}`,
+//                 slug: article.article_url,
+//             },
+//         })
+//     })
+// }

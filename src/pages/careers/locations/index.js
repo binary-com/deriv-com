@@ -97,7 +97,7 @@ const CountryCard = ({ country_name, city_name, link, img_data, Icon }) => {
                     {city_name}
                 </Header>
                 <Flex jc="unset" ai="center" mt="8px" mb="8px">
-                    <StyledImg src={Icon} alt="icon" />
+                    <StyledImg src={Icon} alt="" />
                     <Text weight="bold">{country_name}</Text>
                 </Flex>
                 <Flex ai="center" jc="flex-end">

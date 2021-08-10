@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { graphql, StaticQuery } from 'gatsby'
 import Layout from 'components/layout/layout'
-import { localize, Localize, WithIntl } from 'components/localization'
+import { localize, Localize } from 'components/localization'
 import { SEO, Box } from 'components/containers'
 import device from 'themes/device.js'
 import { Header, QueryImage, StyledLink, Text } from 'components/elements'
@@ -51,7 +51,7 @@ const EmailLink = styled(StyledLink)`
     text-align: center;
 `
 
-const NewSignup = () => {
+const SignupSuccess = () => {
     return (
         <Layout type="static" margin_top={'0'}>
             <SEO
@@ -93,8 +93,8 @@ const NewSignup = () => {
     )
 }
 
-NewSignup.propTypes = {
+SignupSuccess.propTypes = {
     autofocus: PropTypes.bool,
 }
 
-export default WithIntl()(NewSignup)
+export default SignupSuccess

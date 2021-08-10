@@ -146,10 +146,15 @@ class Signup extends Component {
 
             binary_socket.close()
         }
-        const language_code = localStorage.getItem('i18n')
-        const success_link =
-            language_code !== 'en' ? '/' + language_code + '/signup-success' : '/signup-success'
-        this.props.appearance === 'public' && navigate(success_link, { replace: true })
+        if (this.props.appearance === 'public') {
+            const language_code = localStorage.getItem('i18n')
+            const success_link =
+                language_code !== 'en' ? '/' + language_code + '/signup-success' : '/signup-success'
+            navigate(
+                success_link,
+                // { replace: true }
+            )
+        }
     }
 
     clearEmail = () => this.setState({ email: '', email_error_msg: '' })

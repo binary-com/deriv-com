@@ -24,7 +24,7 @@ const LiveChatPage = () => {
                 setLoading(false)
             }, 500)
         }
-
+        // fixing PR code analysis
         return () => {
             clearTimeout(script_timeout)
         }

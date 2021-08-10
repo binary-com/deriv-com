@@ -150,10 +150,7 @@ class Signup extends Component {
             const language_code = localStorage.getItem('i18n')
             const success_link =
                 language_code !== 'en' ? language_code + '/signup-success' : 'signup-success'
-            navigate(
-                success_link,
-                // { replace: true }
-            )
+            navigate(success_link, { replace: true })
         }
     }
 

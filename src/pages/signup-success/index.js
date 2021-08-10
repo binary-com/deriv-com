@@ -59,6 +59,7 @@ const NewSignup = () => {
                 description={localize(
                     'Signup to Deriv.com and trade online with as little as $1 USD on major currencies, stocks, indices, and commodities.',
                 )}
+                no_index
             />
             <Wrapper>
                 <ResponseWrapper>
@@ -80,10 +81,7 @@ const NewSignup = () => {
                         )}
                     />
                     <Text align="center">
-                        <Localize
-                            translate_text="We've sent a message to your email with a link to activate your account."
-                            values={{ email: 'email' }}
-                        />
+                        <Localize translate_text="We've sent a message to your email with a link to activate your account." />
                     </Text>
                     <EmailLink to="/check-email/" align="center">
                         {localize("Didn't receive your email?")}

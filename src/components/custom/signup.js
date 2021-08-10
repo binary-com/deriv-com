@@ -146,7 +146,12 @@ class Signup extends Component {
 
             binary_socket.close()
         }
-        navigate('singup-success')
+        // eslint-disable-next-line
+        console.log()
+        const language_code = localStorage.getItem('i18n')
+        const success_link =
+            language_code !== 'en' ? '/' + language_code + '/signup-success' : '/signup-success'
+        this.props.appearance === 'public' && navigate(success_link, { replace: true })
     }
 
     clearEmail = () => this.setState({ email: '', email_error_msg: '' })

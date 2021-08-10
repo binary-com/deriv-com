@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { graphql, StaticQuery } from 'gatsby'
 import Layout from 'components/layout/layout'
-import { localize, Localize } from 'components/localization'
+import { localize, Localize, WithIntl } from 'components/localization'
 import { SEO, Box } from 'components/containers'
 import device from 'themes/device.js'
 import { Header, QueryImage, StyledLink, Text } from 'components/elements'
@@ -97,4 +97,4 @@ SignupSuccess.propTypes = {
     autofocus: PropTypes.bool,
 }
 
-export default SignupSuccess
+export default WithIntl()(SignupSuccess)

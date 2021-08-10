@@ -59,7 +59,9 @@ const Signup = (props) => {
 
     const validateEmail = (email_address) => {
         const error_message =
-            validation.required(emailAddress) || validation.email(emailAddress) || submit_error_msg
+            validation.required(email_address) ||
+            validation.email(email_address) ||
+            submit_error_msg
 
         if (submit_error_msg) {
             setSubmitErrorMsg('')
@@ -88,7 +90,7 @@ const Signup = (props) => {
         const cookies_value = getDataObjFromCookies(cookies_objects, cookies)
 
         return {
-            verify_email: formattedEmail,
+            verify_email: formatted_email,
             type: 'account_opening',
             url_parameters: {
                 ...(affiliate_token && { affiliate_token: affiliate_token }),
@@ -102,12 +104,12 @@ const Signup = (props) => {
         setSubmitting(true)
         const formatted_email = email.replace(/\s/g, '')
         handleValidation(email)
-        const has_error_email = validateEmail(formattedEmail)
+        const has_error_email = validateEmail(formatted_email)
         if (has_error_email || email_error_msg) {
             return setSubmitting(false)
         }
 
-        const verify_email_req = getVerifyEmailRequest(formattedEmail)
+        const verify_email_req = getVerifyEmailRequest(formatted_email)
         const binary_socket = BinarySocketBase.init()
 
         binary_socket.onopen = () => {
@@ -115,16 +117,14 @@ const Signup = (props) => {
         }
         binary_socket.onmessage = (msg) => {
             const response = JSON.parse(msg.data)
+            setSubmitting(false)
             if (response.error) {
                 binary_socket.close()
-                setSubmitting(false)
                 setSubmitStatus('error')
                 setSubmitErrorMsg(response.error.message)
-                handleValidation(formattedEmail)
+                handleValidation(formatted_email)
             } else {
-                setSubmitting(false)
                 setSubmitStatus('success')
-
                 if (props.onSubmit) {
                     props.onSubmit(submit_status || 'success', email)
                 }

@@ -80,7 +80,7 @@ const Signup = (props) => {
         handleValidation(value)
     }
 
-    const getVerifyEmailRequest = (formattedEmail) => {
+    const getVerifyEmailRequest = (formatted_email) => {
         const affiliate_token = Cookies.getJSON('affiliate_tracking')
 
         const cookies = getCookiesFields()

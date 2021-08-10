@@ -57,7 +57,7 @@ const Signup = (props) => {
     const [submit_status, setSubmitStatus] = useState('')
     const [submit_error_msg, setSubmitErrorMsg] = useState('')
 
-    const validateEmail = (emailAddress) => {
+    const validateEmail = (email_address) => {
         const error_message =
             validation.required(emailAddress) || validation.email(emailAddress) || submit_error_msg
 

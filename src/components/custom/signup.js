@@ -100,7 +100,7 @@ const Signup = (props) => {
     const handleEmailSignup = (e) => {
         e.preventDefault()
         setSubmitting(true)
-        const formattedEmail = email.replace(/\s/g, '')
+        const formatted_email = email.replace(/\s/g, '')
         handleValidation(email)
         const has_error_email = validateEmail(formattedEmail)
         if (has_error_email || email_error_msg) {

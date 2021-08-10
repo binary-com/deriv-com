@@ -146,8 +146,6 @@ class Signup extends Component {
 
             binary_socket.close()
         }
-        // eslint-disable-next-line
-        console.log()
         const language_code = localStorage.getItem('i18n')
         const success_link =
             language_code !== 'en' ? '/' + language_code + '/signup-success' : '/signup-success'

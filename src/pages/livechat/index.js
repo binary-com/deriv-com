@@ -24,7 +24,12 @@ const LiveChatPage = () => {
             script_timeout = setTimeout(() => {
                 LC_API.open_chat_window()
                 setLoading(false)
-            }, 500)
+
+                document.querySelector('[aria-label="Minimize window"]')
+                    ? (document.querySelector('[aria-label="Minimize window"]').style.display =
+                          'none')
+                    : null
+            }, 1000)
         }
 
         return () => {

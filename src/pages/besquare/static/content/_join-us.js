@@ -11,7 +11,6 @@ export default {
     content: [
         {
             src: TechExperienceIcon,
-            alt: 'tech experience icon',
             text: (
                 <>
                     <strong>Hands-on tech experience</strong> by learning directly from all our
@@ -21,7 +20,6 @@ export default {
         },
         {
             src: ExtensiveNetworkIcon,
-            alt: 'extensive network icon',
             text: (
                 <>
                     <strong>An extensive network</strong> of professionals, guest speakers, and
@@ -31,7 +29,6 @@ export default {
         },
         {
             src: ProfessionalGuidanceIcon,
-            alt: 'professional guidance icon',
             text: (
                 <>
                     <strong>Professional guidance</strong> that helps you set clear career goals to
@@ -41,7 +38,6 @@ export default {
         },
         {
             src: ResumeIcon,
-            alt: 'tech experience icon',
             text: (
                 <>
                     <strong>An enriched résumé</strong> with tech and non-tech skills that set you

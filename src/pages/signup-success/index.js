@@ -81,7 +81,7 @@ const SignupSuccess = () => {
                         )}
                     />
                     <Text align="center">
-                        <Localize translate_text="We've sent a message to entered email with a link to activate your account." />
+                        <Localize translate_text="We've sent a message to the entered email with a link to activate your account." />
                     </Text>
                     <EmailLink to="/check-email/" align="center">
                         {localize("Didn't receive your email?")}

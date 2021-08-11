@@ -159,7 +159,6 @@ const FAQ = () => {
                             >
                                 <IsDerivRegulated />
                             </AccordionItem>
-
                             <AccordionItem
                                 header={
                                     <Localize translate_text="Are you going to close down Binary.com?" />
@@ -182,7 +181,7 @@ const FAQ = () => {
                             {localize('What does it mean to me?')}
                         </Header>
                         <Text>
-                            <Localize translate_text="We understand that change can be intimidating. That’s why we’ve been working very hard to make sure that your transition from Binary.com to Deriv.com is as seamless as possible." />
+                            <Localize translate_text="We understand that change can be intimidating. That’s why we’ve been working very hard to make sure that your transition from Binary.com to Deriv.com is as seamless as" />
                         </Text>
                     </Question>
                     <Answer>

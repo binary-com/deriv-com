@@ -25,10 +25,9 @@ const LiveChatPage = () => {
                 LC_API.open_chat_window()
                 setLoading(false)
 
-                document.querySelector('[aria-label="Minimize window"]')
-                    ? (document.querySelector('[aria-label="Minimize window"]').style.display =
-                          'none')
-                    : null
+                document.querySelector('[aria-label="Minimize window"]') &&
+                    (document.querySelector('[aria-label="Minimize window"]').style.display =
+                        'none')
             }, 1000)
         }
 

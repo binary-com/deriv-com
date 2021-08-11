@@ -1,7 +1,6 @@
-const csv = require('csv-parser');
 const fs = require('fs');
 const path = require('path');
-
+const csv = require('csv-parser');
 
 const json = [];
 
@@ -45,7 +44,7 @@ const escapeStr = (str) => replaceAll(str.toLowerCase(), ' ', '_');
 
 const sentencizeStr = (str,delimeter) => str.split(delimeter).join(" ");
 
-const ucWord = (str) => str.split(" ").map((s,k) =>  s.charAt(0).toUpperCase() + s.slice(1)).join("");
+const ucWord = (str) => str.split(" ").map((s) =>  s.charAt(0).toUpperCase() + s.slice(1)).join("");
 
 const filterFunctions = {
     descriptionMinMax: (value) => {
@@ -90,15 +89,18 @@ const filterFunctions = {
     },
     flatten: (data) => {
         return data.map((d) => {
-          const { key,reference } = d;
+          const { key,platform,reference } = d;
           const file_name = escapeStr(key);
-    
-          return {
+
+          if(platform.toLowerCase().includes("deriv") || platform.trim()===''){
+ 
+           return {
             ...d,
             logo: ucWord(sentencizeStr(key,'-')),
-            reference: reference === "yes"  ? file_name : ""
+            reference: reference === "yes"  ? file_name : "",
           };
-        });
+        }
+        }).filter(e => e);
       },
 };
 

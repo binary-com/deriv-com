@@ -142,8 +142,6 @@ const DemoButton = styled(LinkButton)`
 
     @media ${device.mobileL} {
         white-space: nowrap;
-    }
-    @media ${device.mobileL} {
         margin-bottom: 1.6rem;
     }
 `

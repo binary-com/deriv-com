@@ -37,8 +37,16 @@ const BackgroundWrapper = styled(Flex)`
 
 const ImageContainer = styled.div`
     position: absolute;
-    left: 5%;
+    left: 10%;
     height: 100%;
+
+    @media (max-width: 1680px) {
+        left: 7%;
+    }
+
+    @media ${device.laptopL} {
+        left: 5%;
+    }
 
     @media (max-width: 800px) {
         left: 0;
@@ -59,8 +67,12 @@ const ImageWrapper = styled(Flex)`
         width: 100%;
     }
 
-    @media (max-width: 1350px) {
-        width: 30rem;
+    @media (max-width: 1680px) {
+        width: 35rem;
+    }
+
+    @media (max-width: 1440px) {
+        width: 32rem;
     }
     @media (max-width: 800px) {
         height: auto;

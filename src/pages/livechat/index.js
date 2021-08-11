@@ -17,6 +17,8 @@ const LiveChatPage = () => {
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
+        // The reason for this timeout is to help delay before calling LC_API.open_chat_window() function,
+        // so that it only call the function if Live Chat is fully loaded.
         let script_timeout = null
         if (is_livechat_interactive) {
             script_timeout = setTimeout(() => {

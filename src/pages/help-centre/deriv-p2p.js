@@ -10,7 +10,7 @@ const WhatisDerivP2P = () => (
         <StyledHeader as="h4">{localize('What is Deriv P2P?')}</StyledHeader>
         <Text>
             {localize(
-                'Deriv P2P is Deriv’s peer-to-peer deposit and withdrawal service that allows you to get money in and out of your Deriv account easily through transactions with fellow traders. ',
+                'Deriv P2P is Deriv’s peer-to-peer deposit and withdrawal service that allows you to get money in and out of your Deriv account easily through transactions with fellow traders.',
             )}
         </Text>
         <StyledText>
@@ -56,7 +56,7 @@ const BuyOrSellLimit = () => (
         </StyledHeader>
         <Text>
             {localize(
-                'Yes. You can request to increase your daily limit via live chat on our website and we’ll get back to you via email. ',
+                'Yes. You can request to increase your daily limit via live chat on our website and we’ll get back to you via email.',
             )}
         </Text>
     </ArticleWrapper>

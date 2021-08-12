@@ -1,5 +1,6 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
+import { useTranslation } from 'react-i18next'
 import Introduction from './components/_introduction'
 import HeaderSection from './components/_header'
 import Topics from './components/_topics'
@@ -30,16 +31,27 @@ const topicsCovered = [
 
 const query = graphql`
     query {
-        forex_ebook_img: file(relativePath: { eq: "ebooks/forex-ebook.png" }) {
+        forex_ebook_img_en: file(relativePath: { eq: "ebooks/forex-ebook-en.png" }) {
             ...bannerImage
         }
-        forex_ebook_inside: file(relativePath: { eq: "ebooks/forex-ebook-inside.png" }) {
+        forex_ebook_img_es: file(relativePath: { eq: "ebooks/forex-ebook-es.png" }) {
+            ...bannerImage
+        }
+        forex_ebook_inside_en: file(relativePath: { eq: "ebooks/forex-ebook-inside-en.png" }) {
+            ...bannerImage
+        }
+        forex_ebook_inside_es: file(relativePath: { eq: "ebooks/forex-ebook-inside-es.png" }) {
             ...bannerImage
         }
     }
 `
 
 const ForexEbook = () => {
+    const { i18n } = useTranslation('home')
+    let lng = i18n.language
+    if (lng != 'es') {
+        lng = 'en'
+    }
     const data = useStaticQuery(query)
     return (
         <Layout type="ebook" is_ppc_redirect={true}>
@@ -49,7 +61,7 @@ const ForexEbook = () => {
                 no_index
             />
             <HeaderSection
-                mainHeaderImage={data['forex_ebook_img']}
+                mainHeaderImage={data[`forex_ebook_img_${lng}`]}
                 imgWidth={601}
                 imgHeight={682}
                 bg="linear-gradient(to left, #661b20 39%, #cc363f);"
@@ -72,7 +84,7 @@ const ForexEbook = () => {
                 )}
                 introList={introPoints}
             />
-            <Topics topicsImage={data['forex_ebook_inside']} topicsList={topicsCovered} />
+            <Topics topicsImage={data[`forex_ebook_inside_${lng}`]} topicsList={topicsCovered} />
         </Layout>
     )
 }

@@ -12,6 +12,17 @@ const StyledContainer = styled(Container)`
     justify-content: center;
 `
 
+const CoverMinimizeButton = styled.div`
+    width: 50px;
+    height: 50px;
+    background-color: rgb(255 255 255);
+    display: ${(props) => (props.loading === 'true' ? 'none' : 'block')};
+    position: absolute;
+    top: -85px;
+    right: 0;
+    z-index: 999999999999999999;
+`
+
 const LiveChatPage = () => {
     const [is_livechat_interactive, LC_API] = useLivechat()
     const [loading, setLoading] = useState(true)
@@ -28,8 +39,6 @@ const LiveChatPage = () => {
         }
 
         return () => {
-            document.querySelector('[aria-label="Minimize window"]') &&
-                (document.querySelector('[aria-label="Minimize window"]').style.display = 'none')
             clearTimeout(script_timeout)
         }
     }, [is_livechat_interactive])
@@ -42,6 +51,7 @@ const LiveChatPage = () => {
                 no_index
             />
             <StyledContainer>{loading && <InitialLoader />}</StyledContainer>
+            <CoverMinimizeButton loading={`${loading}`} />
         </Layout>
     )
 }

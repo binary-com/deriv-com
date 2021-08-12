@@ -716,8 +716,8 @@ const PnlMarginCalculator = () => {
                                         <PnlCalculatorFormMobile>
                                             <PnlHeaderOverflow>
                                                 <PnlCalculatorHeaderMobile>
-                                                    <Flex mb="24px">
-                                                        <Flex fd="column" mr="24px">
+                                                    <Flex fd="column">
+                                                        <Flex fd="column" mr="24px" mb="24px">
                                                             <CalculatorLabel htmlFor="message">
                                                                 {localize('Stop loss pips')}
                                                             </CalculatorLabel>
@@ -732,7 +732,7 @@ const PnlMarginCalculator = () => {
                                                                 </PnLCalculatorOutputSymbol>
                                                             </PnLCalculatorOutputContainer>
                                                         </Flex>
-                                                        <Flex fd="column">
+                                                        <Flex fd="column" mb="24px">
                                                             <CalculatorLabel htmlFor="message">
                                                                 {localize('Stop loss level')}
                                                             </CalculatorLabel>
@@ -749,8 +749,8 @@ const PnlMarginCalculator = () => {
                                                         </Flex>
                                                     </Flex>
 
-                                                    <Flex>
-                                                        <Flex fd="column" mr="24px">
+                                                    <Flex fd="column">
+                                                        <Flex fd="column" mr="24px" mb="24px">
                                                             <CalculatorLabel htmlFor="message">
                                                                 {localize('Take profit pips')}
                                                             </CalculatorLabel>

@@ -44,7 +44,7 @@ const OurValues = () => (
                 mobile_columns="38.4rem"
             >
                 <GridItem direction="column">
-                    <img src={Integrity} alt="integrity" />
+                    <img src={Integrity} alt="" />
                     <MiddleText as="h4" type="sub-section-title">
                         Integrity
                     </MiddleText>
@@ -55,7 +55,7 @@ const OurValues = () => (
                     </Text>
                 </GridItem>
                 <GridItem direction="column">
-                    <img src={Customer} alt="customer" />
+                    <img src={Customer} alt="" />
                     <MiddleText as="h4" type="sub-section-title">
                         Customer focus
                     </MiddleText>
@@ -65,7 +65,7 @@ const OurValues = () => (
                     </Text>
                 </GridItem>
                 <GridItem direction="column">
-                    <img src={Competence} alt="competence" />
+                    <img src={Competence} alt="" />
                     <MiddleText as="h4" type="sub-section-title">
                         Competence
                     </MiddleText>
@@ -75,7 +75,7 @@ const OurValues = () => (
                     </Text>
                 </GridItem>
                 <GridItem direction="column">
-                    <img src={Teamwork} alt="teamwork" />
+                    <img src={Teamwork} alt="" />
                     <MiddleText as="h4" type="sub-section-title">
                         Teamwork
                     </MiddleText>

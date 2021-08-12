@@ -5,7 +5,6 @@ import { Carousel, Header, Text } from 'components/elements'
 import device from 'themes/device'
 import { SectionContainer, Flex } from 'components/containers'
 import QuoteMark from 'images/svg/quotemark.svg'
-import NegarImage from 'images/common/careers/negar.jpg'
 import AhmadImage from 'images/common/careers/ahmad.jpg'
 import AdityaImage from 'images/common/careers/aditya.jpg'
 import GaryImage from 'images/common/careers/gary.jpg'
@@ -110,14 +109,6 @@ EmployeeSlide.propTypes = {
     title: PropTypes.string,
 }
 
-const negar = {
-    name: 'Negar Naghshbandi, Front-end Developer & Team Lead',
-    img_alt: 'Negar - Front-end Developer & Team Lead',
-    img_path: NegarImage,
-    quote:
-        'The most exciting thing for me is the culture of the company and the people I work with. I learn something new everyday and I can pair-program with anyone when needed because everyone is approachable and eager to help.',
-    index: 1,
-}
 const ahmad = {
     name: 'Ahmad Aizuddin, Disaster Recovery Analyst',
     img_alt: 'Ahmad - Recovery Analyst',
@@ -147,7 +138,7 @@ const gary = {
     index: 5,
 }
 
-const employee_testimonials = [negar, ahmad, aditya, mei_theng, gary]
+const employee_testimonials = [ahmad, aditya, mei_theng, gary]
 
 const EmployeeTestimonialCarousel = () => {
     const settings = {

@@ -9,11 +9,11 @@ import { localize, WithIntl } from 'components/localization'
 import introForexEbook from 'images/common/ebooks/introduction-forex-ebook.png'
 
 const introPoints = [
-    localize('The simple basics of forex'),
-    localize('How to make more profitable forex trades and lower your trading risks'),
+    localize('The basics of forex trading'),
+    localize('How to manage risk when trading forex'),
     localize('How to use digital options to profit from up, down, and even sideways moves'),
     localize(
-        'How to trade like professionals without spending hours each day analysing the world market',
+        'How to plan your trading activities without spending hours each day analysing the world market',
     ),
 ]
 
@@ -31,10 +31,10 @@ const topicsCovered = [
 const query = graphql`
     query {
         forex_ebook_img: file(relativePath: { eq: "ebooks/forex-ebook.png" }) {
-            ...backGroundBlur
+            ...bannerImage
         }
         forex_ebook_inside: file(relativePath: { eq: "ebooks/forex-ebook-inside.png" }) {
-            ...fadeIn
+            ...bannerImage
         }
     }
 `
@@ -57,9 +57,11 @@ const ForexEbook = () => {
                 bgMobile="linear-gradient(0deg, #cc363f, #661b20);"
                 introSub={localize('Your free guide on')}
                 introMain={localize('How to trade the forex market')}
-                authorDesc={localize(
-                    'This e-book has been brought to you by a veteran online trader and New York Times bestselling author, ',
-                )}
+                authorDesc={
+                    localize(
+                        'This e-book has been brought to you by a veteran online trader and New York Times bestselling author,',
+                    ) + ' '
+                }
                 authorName={localize('Vince Stanzione.')}
             />
             <Introduction

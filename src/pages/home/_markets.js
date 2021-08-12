@@ -81,7 +81,7 @@ const Markets = ({ is_ppc }) => (
             </Header>
             <MarketWrapper wrap="wrap">
                 <MarketCard mr="2.4rem" mb="4rem">
-                    <img src={ForexIcon} alt="forex" width="64" height="64" />
+                    <img src={ForexIcon} alt="" width="64" height="64" />
                     <div>
                         <Header as="h4" type="sub-section-title">
                             {localize('Forex')}
@@ -98,7 +98,7 @@ const Markets = ({ is_ppc }) => (
                     </div>
                 </MarketCard>
                 <MarketCard mb="4rem">
-                    <img src={StockIcon} alt="stock" width="64" height="64" />
+                    <img src={StockIcon} alt="" width="64" height="64" />
                     <div>
                         <Header as="h4" type="sub-section-title">
                             {localize('Stocks & indices')}
@@ -116,7 +116,7 @@ const Markets = ({ is_ppc }) => (
                 </MarketCard>
                 {!is_ppc && (
                     <MarketCard mr="2.4rem">
-                        <img src={SyntheticIndicesIcon} alt="synthetic" width="64" height="64" />
+                        <img src={SyntheticIndicesIcon} alt="" width="64" height="64" />
                         <div>
                             <Header as="h4" type="sub-section-title">
                                 {localize('Synthetic indices')}
@@ -136,7 +136,7 @@ const Markets = ({ is_ppc }) => (
                     </MarketCard>
                 )}
                 <MarketCard>
-                    <img src={CommoditiesIcon} alt="commodities" width="64" height="64" />
+                    <img src={CommoditiesIcon} alt="" width="64" height="64" />
                     <div>
                         <Header as="h4" type="sub-section-title">
                             {localize('Commodities')}

@@ -489,7 +489,7 @@ const NavDesktop = ({ base, is_ppc, is_ppc_redirect, is_logged_in, hide_signup_l
     }, [])
 
     return (
-        <div>
+        <>
             {active_dropdown && (
                 <PlatformsDropdown
                     key={active_dropdown}
@@ -580,7 +580,7 @@ const NavDesktop = ({ base, is_ppc, is_ppc_redirect, is_logged_in, hide_signup_l
                     </NavRight>
                 )}
             </Wrapper>
-        </div>
+        </>
     )
 }
 
@@ -955,10 +955,10 @@ export const NavPartners = ({ no_login_signup }) => {
                             </NavLink>
                             <NavLink>
                                 <StyledLink
-                                    active={current_page === 'developers'}
+                                    active={current_page === 'api'}
                                     activeClassName="active"
                                     to=""
-                                    type="developers"
+                                    type="api"
                                     target="_blank"
                                     external="true"
                                     rel="noopener noreferrer"

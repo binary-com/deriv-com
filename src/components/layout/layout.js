@@ -7,6 +7,7 @@ import Copyright from './copyright'
 import { Nav, NavStatic, NavPartners, NavInterim } from './nav'
 import BeSquareNav from './besquare/nav'
 import BeSquareFooter from './besquare/footer'
+import JumpIndicesNav from './jump-indices/nav'
 import { NavCareers } from './nav-careers'
 import { LocationProvider } from './location-context'
 import EURedirect, { useModal } from 'components/custom/_eu-redirect-modal.js'
@@ -92,7 +93,8 @@ export const CFDWarning = ({ is_ppc }) => {
                 <CFDContainer>
                     <CFDText>
                         <Localize
-                            translate_text="CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. <0>68% of retail investor accounts lose money when trading CFDs with this provider.</0> You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money."
+                            translate_text="CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. <0>{{loss_percent}}% of retail investor accounts lose money when trading CFDs with this provider.</0> You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money."
+                            values={{ loss_percent: 63 }}
                             components={[<strong key={0} />]}
                         />
                     </CFDText>
@@ -182,6 +184,10 @@ const Layout = ({
         case 'ebook':
             Navigation = <Nav hide_signup_login={true} />
             FooterNav = <Footer />
+            break
+        case 'jump-indices':
+            Navigation = <JumpIndicesNav />
+            FooterNav = <Footer is_ppc={is_ppc} is_ppc_redirect={is_ppc_redirect} />
             break
         case 'careers':
             Navigation = <NavCareers />

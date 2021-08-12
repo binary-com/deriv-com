@@ -71,6 +71,10 @@ const DMT5 = () => {
                 background_svg2={DMT5BG2}
                 background_alt={localize('DMT5')}
                 is_ppc={true}
+                d_height="60.2rem"
+                laptopM_height="60rem"
+                laptop_height="62rem"
+                tabletL_height="66rem"
             />
             <Numbers numbers_content={numbers_content} />
             <WhatIsTrader />

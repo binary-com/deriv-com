@@ -1,14 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {LinksWrapper, LinkWrapper, LinksCol, Title, Link } from './common/style.js'
+import { LinksWrapper, LinkWrapper, LinksCol, Title, Link } from './common/style.js'
 import { localize } from 'components/localization'
 import { Flex, Show } from 'components/containers'
-import {
-    deriv_status_page_url,
-} from 'common/constants'
+import { deriv_status_page_url } from 'common/constants'
 
-const MainLinksSection = ({is_ppc, is_ppc_redirect, is_eu_country }) => {
-
+const MainLinksSection = ({ is_ppc, is_ppc_redirect, is_eu_country }) => {
     return (
         <LinksWrapper>
             <Show.Desktop>
@@ -24,14 +21,10 @@ const MainLinksSection = ({is_ppc, is_ppc_redirect, is_eu_country }) => {
                             <Link to="/leadership/">{localize('Our leadership')}</Link>
                         </LinkWrapper>
                         <LinkWrapper>
-                            <Link to="/why-choose-us/">
-                                {localize('Why choose us?')}
-                            </Link>
+                            <Link to="/why-choose-us/">{localize('Why choose us?')}</Link>
                         </LinkWrapper>
                         <LinkWrapper>
-                            <Link to="/partners/">
-                                {localize('Partnership programmes')}
-                            </Link>
+                            <Link to="/partners/">{localize('Partnership programmes')}</Link>
                         </LinkWrapper>
                         <LinkWrapper>
                             <Link to="/contact_us/">{localize('Contact us')}</Link>
@@ -78,21 +71,15 @@ const MainLinksSection = ({is_ppc, is_ppc_redirect, is_eu_country }) => {
                                 <Title>{localize('TRADE TYPES')}</Title>
                             </LinkWrapper>
                             <LinkWrapper first_child="true">
-                                <Link to="/trade-types/margin/">
-                                    {localize('Margin trading')}
-                                </Link>
+                                <Link to="/trade-types/margin/">{localize('Margin trading')}</Link>
                             </LinkWrapper>
                             <Show.NonEU>
                                 <LinkWrapper>
-                                    <Link to="/trade-types/options/">
-                                        {localize('Options')}
-                                    </Link>
+                                    <Link to="/trade-types/options/">{localize('Options')}</Link>
                                 </LinkWrapper>
                             </Show.NonEU>
                             <LinkWrapper>
-                                <Link to="/trade-types/multiplier/">
-                                    {localize('Multipliers')}
-                                </Link>
+                                <Link to="/trade-types/multiplier/">{localize('Multipliers')}</Link>
                             </LinkWrapper>
                         </LinksCol>
                     )}
@@ -111,13 +98,14 @@ const MainLinksSection = ({is_ppc, is_ppc_redirect, is_eu_country }) => {
                             </LinkWrapper>
                         )}
                         <LinkWrapper>
-                            <Link to="/markets/stock/">
-                                {localize('Stock indices')}
-                            </Link>
+                            <Link to="/markets/stock/">{localize('Stock indices')}</Link>
                         </LinkWrapper>
                         <LinkWrapper>
-                            <Link to="/markets/commodities/">
-                                {localize('Commodities')}
+                            <Link to="/markets/commodities/">{localize('Commodities')}</Link>
+                        </LinkWrapper>
+                        <LinkWrapper>
+                            <Link to="/markets/cryptocurrencies/">
+                                {localize('Cryptocurrencies')}
                             </Link>
                         </LinkWrapper>
                     </LinksCol>
@@ -126,9 +114,7 @@ const MainLinksSection = ({is_ppc, is_ppc_redirect, is_eu_country }) => {
                             <Title>{localize('LEGAL')}</Title>
                         </LinkWrapper>
                         <LinkWrapper first_child="true">
-                            <Link to="/regulatory">
-                                {localize('Regulatory information')}
-                            </Link>
+                            <Link to="/regulatory">{localize('Regulatory information')}</Link>
                         </LinkWrapper>
                         <LinkWrapper>
                             <Link to="/terms-and-conditions">
@@ -151,14 +137,12 @@ const MainLinksSection = ({is_ppc, is_ppc_redirect, is_eu_country }) => {
                             </Link>
                         </LinkWrapper>
                         <LinkWrapper>
-                            <Link to="/partners/payment-agent/">
-                                {localize('Payment agents')}
-                            </Link>
+                            <Link to="/partners/payment-agent/">{localize('Payment agents')}</Link>
                         </LinkWrapper>
                         <LinkWrapper>
                             <Link
                                 to=""
-                                type="developers"
+                                type="api"
                                 target="_blank"
                                 external="true"
                                 rel="noopener noreferrer"
@@ -186,14 +170,10 @@ const MainLinksSection = ({is_ppc, is_ppc_redirect, is_eu_country }) => {
                             </Link>
                         </LinkWrapper>
                         <LinkWrapper>
-                            <Link to="/trader-tools/">
-                                {localize('Traders’ tools')}
-                            </Link>
+                            <Link to="/trader-tools/">{localize('Traders’ tools')}</Link>
                         </LinkWrapper>
                         <LinkWrapper>
-                            <Link to="/payment-methods/">
-                                {localize('Payment methods')}
-                            </Link>
+                            <Link to="/payment-methods/">{localize('Payment methods')}</Link>
                         </LinkWrapper>
                         <LinkWrapper>
                             <Link
@@ -223,7 +203,7 @@ const MainLinksSection = ({is_ppc, is_ppc_redirect, is_eu_country }) => {
     )
 }
 
-export default MainLinksSection;
+export default MainLinksSection
 
 MainLinksSection.propTypes = {
     is_eu_country: PropTypes.bool,

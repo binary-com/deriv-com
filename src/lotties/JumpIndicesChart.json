@@ -1,0 +1,1594 @@
+{
+    "v": "4.8.0",
+    "meta": { "g": "LottieFiles AE ", "a": "", "k": "", "d": "", "tc": "" },
+    "fr": 29.9700012207031,
+    "ip": 0,
+    "op": 418.000017025489,
+    "w": 700,
+    "h": 518,
+    "nm": "JumpChart",
+    "ddd": 0,
+    "assets": [
+        {
+            "id": "image_0",
+            "w": 24,
+            "h": 346,
+            "u": "",
+            "p": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAFaCAYAAAAEkJ0rAAAACXBIWXMAAAABAAAAAQBPJcTWAAAAJHpUWHRDcmVhdG9yAAAImXNMyU9KVXBMK0ktUnBNS0tNLikGAEF6Bs5qehXFAAABGklEQVR4nO3dwW0CMRAF0PEuDVABHKAOQhfbAGkjoY8UkDIogTscoAJoIHHOWZRdayFIoPeP1oyfpTn5YqcozGnV5F8LOZbjj89NX19VCgwNAAAAAAAAAAAAAAAAAAAAcFcgnV6b96LKHC+t1m2kfO5rG0WOtwEHi4i8iNxf9fgzGLUXviezqzasjvtu4Gs6vynw+DMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIDOXLz7Xh92/wu0H4a/Ns8wgxTrosqBHyyk0pP4FBUAAAAAAAAAAAAA7n8R/zPty2Idh5K2H/CCKA2r/ZCrAAAAAElFTkSuQmCC",
+            "e": 1
+        },
+        {
+            "id": "image_1",
+            "w": 24,
+            "h": 45,
+            "u": "",
+            "p": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAtCAYAAAC0wKvmAAAACXBIWXMAAAABAAAAAQBPJcTWAAAAJHpUWHRDcmVhdG9yAAAImXNMyU9KVXBMK0ktUnBNS0tNLikGAEF6Bs5qehXFAAAAqUlEQVRYhWNkIBK8T434jyLwn8FRcM6KA4T0MRFrAblg1IJRC0YtGLVgMFjA+D4lwoE4lQz7Ufj/GQsZGP5fIKSNBUMj0U7730+MsqEfByzoAv8FhCgykPHDO/wW/NE3p8gC1oPbUfhDPw5GLRi1YNSCUQtGhAUY9QHLxZO0tQC9RqIUDIc4+M/gSJRKMhtejMS6ZLSfTDOAkQ9wAvTE8IeDYAQzMDAwAACV8yZQl4+qmQAAAABJRU5ErkJggg==",
+            "e": 1
+        },
+        {
+            "id": "image_2",
+            "w": 24,
+            "h": 387,
+            "u": "",
+            "p": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAGDCAYAAAAxodDMAAAACXBIWXMAAAABAAAAAQBPJcTWAAAAJHpUWHRDcmVhdG9yAAAImXNMyU9KVXBMK0ktUnBNS0tNLikGAEF6Bs5qehXFAAABOklEQVR4nO3dsU3DUBAG4HtRGhpYAAlqxA7Io6RzywBpPEVaT4JHoEBMQEELDTT4pY2NhF8SN0bf3/l05++kG+ClKEzdNnlQ6FO122y7qblVKXBqAAAAAAAAAAAAAAAAAACOSKrbpivsvR0MRrzniO+poXVEPBy/V0SOuCnpW/4N1uPC/fXdWT98eXv9G7i6uDwLGGf5NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALAT49TbX+PGu2YGPr89Zgf9wgz5VRZ2r/HT4mVI85p/0PDWWSjep2yYPCn2qdpttN7lXKXBqAAAAAAAAAAAAAAAAAAAAc2YPmWAkhlzbQH4AAAAASUVORK5CYII=",
+            "e": 1
+        },
+        {
+            "id": "image_3",
+            "w": 24,
+            "h": 49,
+            "u": "",
+            "p": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAxCAYAAADA1GkGAAAACXBIWXMAAAABAAAAAQBPJcTWAAAAJHpUWHRDcmVhdG9yAAAImXNMyU9KVXBMK0ktUnBNS0tNLikGAEF6Bs5qehXFAAAAr0lEQVRYhWNkIBKETy/5j8xnZGBwXJHZc4CQPiZiLSAXjFow8BYwRkwvcSBG4X8Ghv1oAoWMjAwXCOljwdBItNMY+v8TVjUM4oAFXUCQS4AiA99/+4DfAmMFA4os2HPtAAp/6MfBqAWjFoxaMGrBqAWjFoxaMGrBELEAo2V39gHBFjllFqC3LSkFwyAOGBkYHIlRSG4XipFYl4z29EctwAkwcjIugJ6cf/z4Q1SZAgAZ3ybFgp8jcgAAAABJRU5ErkJggg==",
+            "e": 1
+        },
+        {
+            "id": "image_4",
+            "w": 24,
+            "h": 55,
+            "u": "",
+            "p": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAA3CAYAAAAWjYobAAAACXBIWXMAAAABAAAAAQBPJcTWAAAAJHpUWHRDcmVhdG9yAAAImXNMyU9KVXBMK0ktUnBNS0tNLikGAEF6Bs5qehXFAAAAsklEQVRYhWNkIBJkLGz6jyLwj9FxRmLtAUL6mIi1gFwwasGoBaMWjFpABGDMWNh0gEi1CigaGRhe/Gdg+EFIEwsDA4M96e5iYPjPwCBPjLqhHwcs6AI6MloUGXjlyTX8FvBz8lFkAToY+nEwasGoBaMWjFowasGoBaMWjFpAHYDR8Pr4/RNtLUBv+lEKhkccHCRSrQIyh9geDiOxLhkdLxq1ACfAyMm4wf9GVP6/B8ToAgDCliLPaqTr8AAAAABJRU5ErkJggg==",
+            "e": 1
+        },
+        {
+            "id": "comp_0",
+            "layers": [
+                {
+                    "ddd": 0,
+                    "ind": 1,
+                    "ty": 2,
+                    "nm": "bar 12.ai",
+                    "cl": "ai",
+                    "refId": "image_0",
+                    "sr": 1,
+                    "ks": {
+                        "o": { "a": 0, "k": 100, "ix": 11 },
+                        "r": { "a": 0, "k": 0, "ix": 10 },
+                        "p": { "a": 0, "k": [731.5, 199, 0], "ix": 2 },
+                        "a": { "a": 0, "k": [12, 173, 0], "ix": 1 },
+                        "s": { "a": 0, "k": [100, 59.393, 100], "ix": 6 }
+                    },
+                    "ao": 0,
+                    "hasMask": true,
+                    "masksProperties": [
+                        {
+                            "inv": false,
+                            "mode": "a",
+                            "pt": {
+                                "a": 1,
+                                "k": [
+                                    {
+                                        "i": { "x": 0.667, "y": 1 },
+                                        "o": { "x": 0.333, "y": 0 },
+                                        "t": 355,
+                                        "s": [
+                                            {
+                                                "i": [
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0]
+                                                ],
+                                                "o": [
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0]
+                                                ],
+                                                "v": [
+                                                    [0, 0],
+                                                    [-0.5, -5.925],
+                                                    [23.5, -5.925],
+                                                    [24, 0]
+                                                ],
+                                                "c": true
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "t": 371.00001511114,
+                                        "s": [
+                                            {
+                                                "i": [
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0]
+                                                ],
+                                                "o": [
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0]
+                                                ],
+                                                "v": [
+                                                    [0, 0],
+                                                    [0, 346],
+                                                    [24, 346],
+                                                    [24, 0]
+                                                ],
+                                                "c": true
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "ix": 1
+                            },
+                            "o": { "a": 0, "k": 100, "ix": 3 },
+                            "x": { "a": 0, "k": 0, "ix": 4 },
+                            "nm": "Mask 1"
+                        }
+                    ],
+                    "ip": 349.000014215061,
+                    "op": 1161.0000472885,
+                    "st": 261.000010630748,
+                    "bm": 0
+                },
+                {
+                    "ddd": 0,
+                    "ind": 2,
+                    "ty": 2,
+                    "nm": "bar 11.ai",
+                    "cl": "ai",
+                    "refId": "image_1",
+                    "sr": 1,
+                    "ks": {
+                        "o": { "a": 0, "k": 100, "ix": 11 },
+                        "r": { "a": 0, "k": 0, "ix": 10 },
+                        "p": { "a": 0, "k": [677.5, 107, 0], "ix": 2 },
+                        "a": { "a": 0, "k": [12, 22.5, 0], "ix": 1 },
+                        "s": { "a": 0, "k": [100, 100, 100], "ix": 6 }
+                    },
+                    "ao": 0,
+                    "hasMask": true,
+                    "masksProperties": [
+                        {
+                            "inv": false,
+                            "mode": "a",
+                            "pt": {
+                                "a": 1,
+                                "k": [
+                                    {
+                                        "i": { "x": 0.667, "y": 1 },
+                                        "o": { "x": 0.333, "y": 0 },
+                                        "t": 318,
+                                        "s": [
+                                            {
+                                                "i": [
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0]
+                                                ],
+                                                "o": [
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0]
+                                                ],
+                                                "v": [
+                                                    [0, 0],
+                                                    [0, -2.25],
+                                                    [24, -2.25],
+                                                    [24, 0]
+                                                ],
+                                                "c": true
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "t": 348.000014174331,
+                                        "s": [
+                                            {
+                                                "i": [
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0]
+                                                ],
+                                                "o": [
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0]
+                                                ],
+                                                "v": [
+                                                    [0, 0],
+                                                    [0, 45],
+                                                    [24, 45],
+                                                    [24, 0]
+                                                ],
+                                                "c": true
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "ix": 1
+                            },
+                            "o": { "a": 0, "k": 100, "ix": 3 },
+                            "x": { "a": 0, "k": 0, "ix": 4 },
+                            "nm": "Mask 1"
+                        }
+                    ],
+                    "ip": 310.000012626559,
+                    "op": 1158.00004716631,
+                    "st": 258.000010508555,
+                    "bm": 0
+                },
+                {
+                    "ddd": 0,
+                    "ind": 3,
+                    "ty": 2,
+                    "nm": "bar 10.ai",
+                    "cl": "ai",
+                    "refId": "image_1",
+                    "sr": 1,
+                    "ks": {
+                        "o": { "a": 0, "k": 100, "ix": 11 },
+                        "r": { "a": 0, "k": 0, "ix": 10 },
+                        "p": { "a": 0, "k": [628.5, 84, 0], "ix": 2 },
+                        "a": { "a": 0, "k": [12, 22.5, 0], "ix": 1 },
+                        "s": { "a": 0, "k": [100, 100, 100], "ix": 6 }
+                    },
+                    "ao": 0,
+                    "hasMask": true,
+                    "masksProperties": [
+                        {
+                            "inv": false,
+                            "mode": "a",
+                            "pt": {
+                                "a": 1,
+                                "k": [
+                                    {
+                                        "i": { "x": 0.667, "y": 1 },
+                                        "o": { "x": 0.333, "y": 0 },
+                                        "t": 276,
+                                        "s": [
+                                            {
+                                                "i": [
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0]
+                                                ],
+                                                "o": [
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0]
+                                                ],
+                                                "v": [
+                                                    [0, 0],
+                                                    [0, -2.25],
+                                                    [24, -2.25],
+                                                    [24, 0]
+                                                ],
+                                                "c": true
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "t": 306.000012463636,
+                                        "s": [
+                                            {
+                                                "i": [
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0]
+                                                ],
+                                                "o": [
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0]
+                                                ],
+                                                "v": [
+                                                    [0, 0],
+                                                    [0, 45],
+                                                    [24, 45],
+                                                    [24, 0]
+                                                ],
+                                                "c": true
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "ix": 1
+                            },
+                            "o": { "a": 0, "k": 100, "ix": 3 },
+                            "x": { "a": 0, "k": 0, "ix": 4 },
+                            "nm": "Mask 1"
+                        }
+                    ],
+                    "ip": 268.000010915864,
+                    "op": 1116.00004545561,
+                    "st": 216.00000879786,
+                    "bm": 0
+                },
+                {
+                    "ddd": 0,
+                    "ind": 4,
+                    "ty": 2,
+                    "nm": "bar 9.ai",
+                    "cl": "ai",
+                    "refId": "image_2",
+                    "sr": 1,
+                    "ks": {
+                        "o": { "a": 0, "k": 100, "ix": 11 },
+                        "r": { "a": 0, "k": 0, "ix": 10 },
+                        "p": { "a": 0, "k": [572.5, 205, 0], "ix": 2 },
+                        "a": { "a": 0, "k": [12, 193.5, 0], "ix": 1 },
+                        "s": { "a": 0, "k": [100, 100.517, 100], "ix": 6 }
+                    },
+                    "ao": 0,
+                    "hasMask": true,
+                    "masksProperties": [
+                        {
+                            "inv": false,
+                            "mode": "a",
+                            "pt": {
+                                "a": 1,
+                                "k": [
+                                    {
+                                        "i": { "x": 0.667, "y": 1 },
+                                        "o": { "x": 0.333, "y": 0 },
+                                        "t": 255,
+                                        "s": [
+                                            {
+                                                "i": [
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0]
+                                                ],
+                                                "o": [
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0]
+                                                ],
+                                                "v": [
+                                                    [-0.5, 388.647],
+                                                    [0, 387],
+                                                    [24, 387],
+                                                    [23.5, 388.647]
+                                                ],
+                                                "c": true
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "i": { "x": 0.667, "y": 1 },
+                                        "o": { "x": 0.333, "y": 0 },
+                                        "t": 267,
+                                        "s": [
+                                            {
+                                                "i": [
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0]
+                                                ],
+                                                "o": [
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0]
+                                                ],
+                                                "v": [
+                                                    [0.346, -5.728],
+                                                    [0, 387],
+                                                    [24, 387],
+                                                    [24.346, -5.728]
+                                                ],
+                                                "c": true
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "t": 268.000010915864,
+                                        "s": [
+                                            {
+                                                "i": [
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0]
+                                                ],
+                                                "o": [
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0]
+                                                ],
+                                                "v": [
+                                                    [0, 0],
+                                                    [0, 387],
+                                                    [24, 387],
+                                                    [24, 0]
+                                                ],
+                                                "c": true
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "ix": 1
+                            },
+                            "o": { "a": 0, "k": 100, "ix": 3 },
+                            "x": { "a": 0, "k": 0, "ix": 4 },
+                            "nm": "Mask 1"
+                        }
+                    ],
+                    "ip": 247.000010060516,
+                    "op": 981.000039956949,
+                    "st": 81.0000032991976,
+                    "bm": 0
+                },
+                {
+                    "ddd": 0,
+                    "ind": 5,
+                    "ty": 2,
+                    "nm": "bar 8.ai ",
+                    "cl": "ai",
+                    "refId": "image_1",
+                    "sr": 1,
+                    "ks": {
+                        "o": { "a": 0, "k": 100, "ix": 11 },
+                        "r": { "a": 0, "k": 0, "ix": 10 },
+                        "p": { "a": 0, "k": [524.5, 286, 0], "ix": 2 },
+                        "a": { "a": 0, "k": [12, 22.5, 0], "ix": 1 },
+                        "s": { "a": 0, "k": [100, 100, 100], "ix": 6 }
+                    },
+                    "ao": 0,
+                    "hasMask": true,
+                    "masksProperties": [
+                        {
+                            "inv": false,
+                            "mode": "a",
+                            "pt": {
+                                "a": 1,
+                                "k": [
+                                    {
+                                        "i": { "x": 0.667, "y": 1 },
+                                        "o": { "x": 0.333, "y": 0 },
+                                        "t": 210,
+                                        "s": [
+                                            {
+                                                "i": [
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0]
+                                                ],
+                                                "o": [
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0]
+                                                ],
+                                                "v": [
+                                                    [0, 0],
+                                                    [0, -2.25],
+                                                    [24, -2.25],
+                                                    [24, 0]
+                                                ],
+                                                "c": true
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "t": 240.0000097754,
+                                        "s": [
+                                            {
+                                                "i": [
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0]
+                                                ],
+                                                "o": [
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0]
+                                                ],
+                                                "v": [
+                                                    [0, 0],
+                                                    [0, 45],
+                                                    [24, 45],
+                                                    [24, 0]
+                                                ],
+                                                "c": true
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "ix": 1
+                            },
+                            "o": { "a": 0, "k": 100, "ix": 3 },
+                            "x": { "a": 0, "k": 0, "ix": 4 },
+                            "nm": "Mask 1"
+                        }
+                    ],
+                    "ip": 204.00000830909,
+                    "op": 1050.00004276738,
+                    "st": 150.000006109625,
+                    "bm": 0
+                },
+                {
+                    "ddd": 0,
+                    "ind": 6,
+                    "ty": 2,
+                    "nm": "bar 7.ai",
+                    "cl": "ai",
+                    "refId": "image_2",
+                    "sr": 1,
+                    "ks": {
+                        "o": { "a": 0, "k": 100, "ix": 11 },
+                        "r": { "a": 0, "k": 0, "ix": 10 },
+                        "p": { "a": 0, "k": [470.5, 308, 0], "ix": 2 },
+                        "a": { "a": 0, "k": [12, 193.5, 0], "ix": 1 },
+                        "s": { "a": 0, "k": [100, 60.724, 100], "ix": 6 }
+                    },
+                    "ao": 0,
+                    "hasMask": true,
+                    "masksProperties": [
+                        {
+                            "inv": false,
+                            "mode": "a",
+                            "pt": {
+                                "a": 1,
+                                "k": [
+                                    {
+                                        "i": { "x": 0.667, "y": 1 },
+                                        "o": { "x": 0.333, "y": 0 },
+                                        "t": 192,
+                                        "s": [
+                                            {
+                                                "i": [
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0]
+                                                ],
+                                                "o": [
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0]
+                                                ],
+                                                "v": [
+                                                    [-0.5, 388.647],
+                                                    [0, 387],
+                                                    [24, 387],
+                                                    [23.5, 388.647]
+                                                ],
+                                                "c": true
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "t": 205.000008349821,
+                                        "s": [
+                                            {
+                                                "i": [
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0]
+                                                ],
+                                                "o": [
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0]
+                                                ],
+                                                "v": [
+                                                    [0, 0],
+                                                    [0, 387],
+                                                    [24, 387],
+                                                    [24, 0]
+                                                ],
+                                                "c": true
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "ix": 1
+                            },
+                            "o": { "a": 0, "k": 100, "ix": 3 },
+                            "x": { "a": 0, "k": 0, "ix": 4 },
+                            "nm": "Mask 1"
+                        }
+                    ],
+                    "ip": 187.000007616666,
+                    "op": 918.000037390907,
+                    "st": 18.000000733155,
+                    "bm": 0
+                },
+                {
+                    "ddd": 0,
+                    "ind": 7,
+                    "ty": 2,
+                    "nm": "bar 6.ai",
+                    "cl": "ai",
+                    "refId": "image_1",
+                    "sr": 1,
+                    "ks": {
+                        "o": { "a": 0, "k": 100, "ix": 11 },
+                        "r": { "a": 0, "k": 0, "ix": 10 },
+                        "p": { "a": 0, "k": [418.5, 423, 0], "ix": 2 },
+                        "a": { "a": 0, "k": [12, 22.5, 0], "ix": 1 },
+                        "s": { "a": 0, "k": [100, 100, 100], "ix": 6 }
+                    },
+                    "ao": 0,
+                    "hasMask": true,
+                    "masksProperties": [
+                        {
+                            "inv": false,
+                            "mode": "a",
+                            "pt": {
+                                "a": 1,
+                                "k": [
+                                    {
+                                        "i": { "x": 0.667, "y": 1 },
+                                        "o": { "x": 0.333, "y": 0 },
+                                        "t": 168,
+                                        "s": [
+                                            {
+                                                "i": [
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0]
+                                                ],
+                                                "o": [
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0]
+                                                ],
+                                                "v": [
+                                                    [0, 0],
+                                                    [0, -2.25],
+                                                    [24, -2.25],
+                                                    [24, 0]
+                                                ],
+                                                "c": true
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "t": 198.000008064705,
+                                        "s": [
+                                            {
+                                                "i": [
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0]
+                                                ],
+                                                "o": [
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0]
+                                                ],
+                                                "v": [
+                                                    [0, 0],
+                                                    [0, 45],
+                                                    [24, 45],
+                                                    [24, 0]
+                                                ],
+                                                "c": true
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "ix": 1
+                            },
+                            "o": { "a": 0, "k": 100, "ix": 3 },
+                            "x": { "a": 0, "k": 0, "ix": 4 },
+                            "nm": "Mask 1"
+                        }
+                    ],
+                    "ip": 157.000006394741,
+                    "op": 1008.00004105668,
+                    "st": 108.00000439893,
+                    "bm": 0
+                },
+                {
+                    "ddd": 0,
+                    "ind": 8,
+                    "ty": 2,
+                    "nm": "bar 5.ai",
+                    "cl": "ai",
+                    "refId": "image_3",
+                    "sr": 1,
+                    "ks": {
+                        "o": { "a": 0, "k": 100, "ix": 11 },
+                        "r": { "a": 0, "k": 0, "ix": 10 },
+                        "p": { "a": 0, "k": [366, 420, 0], "ix": 2 },
+                        "a": { "a": 0, "k": [12, 24.5, 0], "ix": 1 },
+                        "s": { "a": 0, "k": [100, 100, 100], "ix": 6 }
+                    },
+                    "ao": 0,
+                    "hasMask": true,
+                    "masksProperties": [
+                        {
+                            "inv": false,
+                            "mode": "a",
+                            "pt": {
+                                "a": 1,
+                                "k": [
+                                    {
+                                        "i": { "x": 0.667, "y": 1 },
+                                        "o": { "x": 0.333, "y": 0 },
+                                        "t": 6,
+                                        "s": [
+                                            {
+                                                "i": [
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0]
+                                                ],
+                                                "o": [
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0]
+                                                ],
+                                                "v": [
+                                                    [0, 48],
+                                                    [0, 49],
+                                                    [24, 49],
+                                                    [24, 48]
+                                                ],
+                                                "c": true
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "i": { "x": 0.667, "y": 1 },
+                                        "o": { "x": 0.333, "y": 0 },
+                                        "t": 135,
+                                        "s": [
+                                            {
+                                                "i": [
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0]
+                                                ],
+                                                "o": [
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0]
+                                                ],
+                                                "v": [
+                                                    [0, 48.442],
+                                                    [0, 49],
+                                                    [24, 49],
+                                                    [24, 48.442]
+                                                ],
+                                                "c": true
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "t": 150.000006109625,
+                                        "s": [
+                                            {
+                                                "i": [
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0]
+                                                ],
+                                                "o": [
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0]
+                                                ],
+                                                "v": [
+                                                    [0, -0.506],
+                                                    [0, 49],
+                                                    [24, 49],
+                                                    [24, -0.506]
+                                                ],
+                                                "c": true
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "ix": 1
+                            },
+                            "o": { "a": 0, "k": 100, "ix": 3 },
+                            "x": { "a": 0, "k": 0, "ix": 4 },
+                            "nm": "Mask 1"
+                        }
+                    ],
+                    "ip": 131.000005335739,
+                    "op": 918.000037390907,
+                    "st": 18.000000733155,
+                    "bm": 0
+                },
+                {
+                    "ddd": 0,
+                    "ind": 9,
+                    "ty": 2,
+                    "nm": "bar 4.ai",
+                    "cl": "ai",
+                    "refId": "image_0",
+                    "sr": 1,
+                    "ks": {
+                        "o": { "a": 0, "k": 100, "ix": 11 },
+                        "r": { "a": 0, "k": 0, "ix": 10 },
+                        "p": { "a": 0, "k": [310.5, 314, 0], "ix": 2 },
+                        "a": { "a": 0, "k": [12, 173, 0], "ix": 1 },
+                        "s": { "a": 0, "k": [100, 84.393, 100], "ix": 6 }
+                    },
+                    "ao": 0,
+                    "hasMask": true,
+                    "masksProperties": [
+                        {
+                            "inv": false,
+                            "mode": "a",
+                            "pt": {
+                                "a": 1,
+                                "k": [
+                                    {
+                                        "i": { "x": 0.667, "y": 1 },
+                                        "o": { "x": 0.333, "y": 0 },
+                                        "t": 94,
+                                        "s": [
+                                            {
+                                                "i": [
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0]
+                                                ],
+                                                "o": [
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0]
+                                                ],
+                                                "v": [
+                                                    [0, 0],
+                                                    [-0.5, -5.925],
+                                                    [23.5, -5.925],
+                                                    [24, 0]
+                                                ],
+                                                "c": true
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "t": 110.000004480392,
+                                        "s": [
+                                            {
+                                                "i": [
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0]
+                                                ],
+                                                "o": [
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0]
+                                                ],
+                                                "v": [
+                                                    [0, 0],
+                                                    [0, 346],
+                                                    [24, 346],
+                                                    [24, 0]
+                                                ],
+                                                "c": true
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "ix": 1
+                            },
+                            "o": { "a": 0, "k": 100, "ix": 3 },
+                            "x": { "a": 0, "k": 0, "ix": 4 },
+                            "nm": "Mask 1"
+                        }
+                    ],
+                    "ip": 0,
+                    "op": 900.000036657751,
+                    "st": 0,
+                    "bm": 0
+                },
+                {
+                    "ddd": 0,
+                    "ind": 10,
+                    "ty": 2,
+                    "nm": "bar 3.ai",
+                    "cl": "ai",
+                    "refId": "image_1",
+                    "sr": 1,
+                    "ks": {
+                        "o": { "a": 0, "k": 100, "ix": 11 },
+                        "r": { "a": 0, "k": 0, "ix": 10 },
+                        "p": { "a": 0, "k": [252.5, 186, 0], "ix": 2 },
+                        "a": { "a": 0, "k": [12, 22.5, 0], "ix": 1 },
+                        "s": { "a": 0, "k": [100, 100, 100], "ix": 6 }
+                    },
+                    "ao": 0,
+                    "hasMask": true,
+                    "masksProperties": [
+                        {
+                            "inv": false,
+                            "mode": "a",
+                            "pt": {
+                                "a": 1,
+                                "k": [
+                                    {
+                                        "i": { "x": 0.667, "y": 1 },
+                                        "o": { "x": 0.333, "y": 0 },
+                                        "t": 60,
+                                        "s": [
+                                            {
+                                                "i": [
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0]
+                                                ],
+                                                "o": [
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0]
+                                                ],
+                                                "v": [
+                                                    [0, 0],
+                                                    [0, -2.25],
+                                                    [24, -2.25],
+                                                    [24, 0]
+                                                ],
+                                                "c": true
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "t": 90.0000036657751,
+                                        "s": [
+                                            {
+                                                "i": [
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0]
+                                                ],
+                                                "o": [
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0]
+                                                ],
+                                                "v": [
+                                                    [0, 0],
+                                                    [0, 45],
+                                                    [24, 45],
+                                                    [24, 0]
+                                                ],
+                                                "c": true
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "ix": 1
+                            },
+                            "o": { "a": 0, "k": 100, "ix": 3 },
+                            "x": { "a": 0, "k": 0, "ix": 4 },
+                            "nm": "Mask 1"
+                        }
+                    ],
+                    "ip": 0,
+                    "op": 900.000036657751,
+                    "st": 0,
+                    "bm": 0
+                },
+                {
+                    "ddd": 0,
+                    "ind": 11,
+                    "ty": 2,
+                    "nm": "bar 2.ai",
+                    "cl": "ai",
+                    "refId": "image_4",
+                    "sr": 1,
+                    "ks": {
+                        "o": { "a": 0, "k": 100, "ix": 11 },
+                        "r": { "a": 0, "k": 0, "ix": 10 },
+                        "p": { "a": 0, "k": [192.5, 193.5, 0], "ix": 2 },
+                        "a": { "a": 0, "k": [12, 27.5, 0], "ix": 1 },
+                        "s": { "a": 0, "k": [100, 100, 100], "ix": 6 }
+                    },
+                    "ao": 0,
+                    "hasMask": true,
+                    "masksProperties": [
+                        {
+                            "inv": false,
+                            "mode": "a",
+                            "pt": {
+                                "a": 1,
+                                "k": [
+                                    {
+                                        "i": { "x": 0.667, "y": 1 },
+                                        "o": { "x": 0.333, "y": 0 },
+                                        "t": 30,
+                                        "s": [
+                                            {
+                                                "i": [
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0]
+                                                ],
+                                                "o": [
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0]
+                                                ],
+                                                "v": [
+                                                    [0, 57.75],
+                                                    [0, 55],
+                                                    [24, 55],
+                                                    [24, 57.75]
+                                                ],
+                                                "c": true
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "t": 59.0000024031193,
+                                        "s": [
+                                            {
+                                                "i": [
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0]
+                                                ],
+                                                "o": [
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0]
+                                                ],
+                                                "v": [
+                                                    [0, -2],
+                                                    [0, 55],
+                                                    [24, 55],
+                                                    [24, -2]
+                                                ],
+                                                "c": true
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "ix": 1
+                            },
+                            "o": { "a": 0, "k": 100, "ix": 3 },
+                            "x": { "a": 0, "k": 0, "ix": 4 },
+                            "nm": "Mask 1"
+                        }
+                    ],
+                    "ip": 0,
+                    "op": 900.000036657751,
+                    "st": 0,
+                    "bm": 0
+                },
+                {
+                    "ddd": 0,
+                    "ind": 12,
+                    "ty": 2,
+                    "nm": "bar 1.ai",
+                    "cl": "ai",
+                    "refId": "image_3",
+                    "sr": 1,
+                    "ks": {
+                        "o": { "a": 0, "k": 100, "ix": 11 },
+                        "r": { "a": 0, "k": 0, "ix": 10 },
+                        "p": { "a": 0, "k": [143, 246, 0], "ix": 2 },
+                        "a": { "a": 0, "k": [12, 24.5, 0], "ix": 1 },
+                        "s": { "a": 0, "k": [100, 100, 100], "ix": 6 }
+                    },
+                    "ao": 0,
+                    "hasMask": true,
+                    "masksProperties": [
+                        {
+                            "inv": false,
+                            "mode": "a",
+                            "pt": {
+                                "a": 1,
+                                "k": [
+                                    {
+                                        "i": { "x": 0.667, "y": 1 },
+                                        "o": { "x": 0.333, "y": 0 },
+                                        "t": -12,
+                                        "s": [
+                                            {
+                                                "i": [
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0]
+                                                ],
+                                                "o": [
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0]
+                                                ],
+                                                "v": [
+                                                    [0, 48],
+                                                    [0, 49],
+                                                    [24, 49],
+                                                    [24, 48]
+                                                ],
+                                                "c": true
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "i": { "x": 0.667, "y": 1 },
+                                        "o": { "x": 0.333, "y": 0 },
+                                        "t": 0,
+                                        "s": [
+                                            {
+                                                "i": [
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0]
+                                                ],
+                                                "o": [
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0]
+                                                ],
+                                                "v": [
+                                                    [0, 48.442],
+                                                    [0, 49],
+                                                    [24, 49],
+                                                    [24, 48.442]
+                                                ],
+                                                "c": true
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "t": 15.0000006109625,
+                                        "s": [
+                                            {
+                                                "i": [
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0]
+                                                ],
+                                                "o": [
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0],
+                                                    [0, 0]
+                                                ],
+                                                "v": [
+                                                    [0, -0.506],
+                                                    [0, 49],
+                                                    [24, 49],
+                                                    [24, -0.506]
+                                                ],
+                                                "c": true
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "ix": 1
+                            },
+                            "o": { "a": 0, "k": 100, "ix": 3 },
+                            "x": { "a": 0, "k": 0, "ix": 4 },
+                            "nm": "Mask 1"
+                        }
+                    ],
+                    "ip": 0,
+                    "op": 900.000036657751,
+                    "st": 0,
+                    "bm": 0
+                }
+            ]
+        },
+        {
+            "id": "comp_1",
+            "layers": [
+                {
+                    "ddd": 0,
+                    "ind": 1,
+                    "ty": 2,
+                    "nm": "bar 12.ai 2",
+                    "cl": "ai",
+                    "refId": "image_0",
+                    "sr": 1,
+                    "ks": {
+                        "o": { "a": 0, "k": 100, "ix": 11 },
+                        "r": { "a": 0, "k": 0, "ix": 10 },
+                        "p": { "a": 0, "k": [0.5, 202, 0], "ix": 2 },
+                        "a": { "a": 0, "k": [12, 173, 0], "ix": 1 },
+                        "s": { "a": 0, "k": [100, 59.393, 100], "ix": 6 }
+                    },
+                    "ao": 0,
+                    "ip": 0,
+                    "op": 1143.00004655534,
+                    "st": 243.000009897593,
+                    "bm": 0
+                },
+                {
+                    "ddd": 0,
+                    "ind": 2,
+                    "ty": 2,
+                    "nm": "bar 12.ai",
+                    "cl": "ai",
+                    "refId": "image_0",
+                    "sr": 1,
+                    "ks": {
+                        "o": { "a": 0, "k": 100, "ix": 11 },
+                        "r": { "a": 0, "k": 0, "ix": 10 },
+                        "p": { "a": 0, "k": [642.5, 202, 0], "ix": 2 },
+                        "a": { "a": 0, "k": [12, 173, 0], "ix": 1 },
+                        "s": { "a": 0, "k": [100, 59.393, 100], "ix": 6 }
+                    },
+                    "ao": 0,
+                    "ip": 0,
+                    "op": 1143.00004655534,
+                    "st": 243.000009897593,
+                    "bm": 0
+                },
+                {
+                    "ddd": 0,
+                    "ind": 3,
+                    "ty": 2,
+                    "nm": "bar 11.ai",
+                    "cl": "ai",
+                    "refId": "image_1",
+                    "sr": 1,
+                    "ks": {
+                        "o": { "a": 0, "k": 100, "ix": 11 },
+                        "r": { "a": 0, "k": 0, "ix": 10 },
+                        "p": { "a": 0, "k": [588.5, 110, 0], "ix": 2 },
+                        "a": { "a": 0, "k": [12, 22.5, 0], "ix": 1 },
+                        "s": { "a": 0, "k": [100, 100, 100], "ix": 6 }
+                    },
+                    "ao": 0,
+                    "ip": 0,
+                    "op": 1140.00004643315,
+                    "st": 240.0000097754,
+                    "bm": 0
+                },
+                {
+                    "ddd": 0,
+                    "ind": 4,
+                    "ty": 2,
+                    "nm": "bar 10.ai",
+                    "cl": "ai",
+                    "refId": "image_1",
+                    "sr": 1,
+                    "ks": {
+                        "o": { "a": 0, "k": 100, "ix": 11 },
+                        "r": { "a": 0, "k": 0, "ix": 10 },
+                        "p": { "a": 0, "k": [539.5, 87, 0], "ix": 2 },
+                        "a": { "a": 0, "k": [12, 22.5, 0], "ix": 1 },
+                        "s": { "a": 0, "k": [100, 100, 100], "ix": 6 }
+                    },
+                    "ao": 0,
+                    "ip": 0,
+                    "op": 1098.00004472246,
+                    "st": 198.000008064705,
+                    "bm": 0
+                },
+                {
+                    "ddd": 0,
+                    "ind": 5,
+                    "ty": 2,
+                    "nm": "bar 9.ai",
+                    "cl": "ai",
+                    "refId": "image_2",
+                    "sr": 1,
+                    "ks": {
+                        "o": { "a": 0, "k": 100, "ix": 11 },
+                        "r": { "a": 0, "k": 0, "ix": 10 },
+                        "p": { "a": 0, "k": [483.5, 208, 0], "ix": 2 },
+                        "a": { "a": 0, "k": [12, 193.5, 0], "ix": 1 },
+                        "s": { "a": 0, "k": [100, 100.517, 100], "ix": 6 }
+                    },
+                    "ao": 0,
+                    "ip": 0,
+                    "op": 963.000039223794,
+                    "st": 63.0000025660426,
+                    "bm": 0
+                },
+                {
+                    "ddd": 0,
+                    "ind": 6,
+                    "ty": 2,
+                    "nm": "bar 8.ai ",
+                    "cl": "ai",
+                    "refId": "image_1",
+                    "sr": 1,
+                    "ks": {
+                        "o": { "a": 0, "k": 100, "ix": 11 },
+                        "r": { "a": 0, "k": 0, "ix": 10 },
+                        "p": { "a": 0, "k": [435.5, 289, 0], "ix": 2 },
+                        "a": { "a": 0, "k": [12, 22.5, 0], "ix": 1 },
+                        "s": { "a": 0, "k": [100, 100, 100], "ix": 6 }
+                    },
+                    "ao": 0,
+                    "ip": 0,
+                    "op": 1032.00004203422,
+                    "st": 132.00000537647,
+                    "bm": 0
+                },
+                {
+                    "ddd": 0,
+                    "ind": 7,
+                    "ty": 2,
+                    "nm": "bar 7.ai",
+                    "cl": "ai",
+                    "refId": "image_2",
+                    "sr": 1,
+                    "ks": {
+                        "o": { "a": 0, "k": 100, "ix": 11 },
+                        "r": { "a": 0, "k": 0, "ix": 10 },
+                        "p": { "a": 0, "k": [381.5, 311, 0], "ix": 2 },
+                        "a": { "a": 0, "k": [12, 193.5, 0], "ix": 1 },
+                        "s": { "a": 0, "k": [100, 60.724, 100], "ix": 6 }
+                    },
+                    "ao": 0,
+                    "ip": 0,
+                    "op": 900.000036657751,
+                    "st": 0,
+                    "bm": 0
+                },
+                {
+                    "ddd": 0,
+                    "ind": 8,
+                    "ty": 2,
+                    "nm": "bar 6.ai",
+                    "cl": "ai",
+                    "refId": "image_1",
+                    "sr": 1,
+                    "ks": {
+                        "o": { "a": 0, "k": 100, "ix": 11 },
+                        "r": { "a": 0, "k": 0, "ix": 10 },
+                        "p": { "a": 0, "k": [329.5, 426, 0], "ix": 2 },
+                        "a": { "a": 0, "k": [12, 22.5, 0], "ix": 1 },
+                        "s": { "a": 0, "k": [100, 100, 100], "ix": 6 }
+                    },
+                    "ao": 0,
+                    "ip": 0,
+                    "op": 975.000039712564,
+                    "st": 75.0000030548126,
+                    "bm": 0
+                },
+                {
+                    "ddd": 0,
+                    "ind": 9,
+                    "ty": 2,
+                    "nm": "bar 5.ai",
+                    "cl": "ai",
+                    "refId": "image_3",
+                    "sr": 1,
+                    "ks": {
+                        "o": { "a": 0, "k": 100, "ix": 11 },
+                        "r": { "a": 0, "k": 0, "ix": 10 },
+                        "p": { "a": 0, "k": [277, 423, 0], "ix": 2 },
+                        "a": { "a": 0, "k": [12, 24.5, 0], "ix": 1 },
+                        "s": { "a": 0, "k": [100, 100, 100], "ix": 6 }
+                    },
+                    "ao": 0,
+                    "ip": 0,
+                    "op": 900.000036657751,
+                    "st": 0,
+                    "bm": 0
+                },
+                {
+                    "ddd": 0,
+                    "ind": 10,
+                    "ty": 2,
+                    "nm": "bar 4.ai",
+                    "cl": "ai",
+                    "refId": "image_0",
+                    "sr": 1,
+                    "ks": {
+                        "o": { "a": 0, "k": 100, "ix": 11 },
+                        "r": { "a": 0, "k": 0, "ix": 10 },
+                        "p": { "a": 0, "k": [221.5, 317, 0], "ix": 2 },
+                        "a": { "a": 0, "k": [12, 173, 0], "ix": 1 },
+                        "s": { "a": 0, "k": [100, 84.393, 100], "ix": 6 }
+                    },
+                    "ao": 0,
+                    "ip": 0,
+                    "op": 900.000036657751,
+                    "st": 0,
+                    "bm": 0
+                },
+                {
+                    "ddd": 0,
+                    "ind": 11,
+                    "ty": 2,
+                    "nm": "bar 3.ai",
+                    "cl": "ai",
+                    "refId": "image_1",
+                    "sr": 1,
+                    "ks": {
+                        "o": { "a": 0, "k": 100, "ix": 11 },
+                        "r": { "a": 0, "k": 0, "ix": 10 },
+                        "p": { "a": 0, "k": [163.5, 189, 0], "ix": 2 },
+                        "a": { "a": 0, "k": [12, 22.5, 0], "ix": 1 },
+                        "s": { "a": 0, "k": [100, 100, 100], "ix": 6 }
+                    },
+                    "ao": 0,
+                    "ip": 0,
+                    "op": 900.000036657751,
+                    "st": 0,
+                    "bm": 0
+                },
+                {
+                    "ddd": 0,
+                    "ind": 12,
+                    "ty": 2,
+                    "nm": "bar 2.ai",
+                    "cl": "ai",
+                    "refId": "image_4",
+                    "sr": 1,
+                    "ks": {
+                        "o": { "a": 0, "k": 100, "ix": 11 },
+                        "r": { "a": 0, "k": 0, "ix": 10 },
+                        "p": { "a": 0, "k": [103.5, 196.5, 0], "ix": 2 },
+                        "a": { "a": 0, "k": [12, 27.5, 0], "ix": 1 },
+                        "s": { "a": 0, "k": [100, 100, 100], "ix": 6 }
+                    },
+                    "ao": 0,
+                    "ip": 0,
+                    "op": 900.000036657751,
+                    "st": 0,
+                    "bm": 0
+                },
+                {
+                    "ddd": 0,
+                    "ind": 13,
+                    "ty": 2,
+                    "nm": "bar 1.ai",
+                    "cl": "ai",
+                    "refId": "image_3",
+                    "sr": 1,
+                    "ks": {
+                        "o": { "a": 0, "k": 100, "ix": 11 },
+                        "r": { "a": 0, "k": 0, "ix": 10 },
+                        "p": { "a": 0, "k": [54, 249, 0], "ix": 2 },
+                        "a": { "a": 0, "k": [12, 24.5, 0], "ix": 1 },
+                        "s": { "a": 0, "k": [100, 100, 100], "ix": 6 }
+                    },
+                    "ao": 0,
+                    "ip": 0,
+                    "op": 900.000036657751,
+                    "st": 0,
+                    "bm": 0
+                }
+            ]
+        }
+    ],
+    "layers": [
+        {
+            "ddd": 0,
+            "ind": 5,
+            "ty": 3,
+            "nm": "Null 5",
+            "sr": 1,
+            "ks": {
+                "o": { "a": 0, "k": 0, "ix": 11 },
+                "r": { "a": 0, "k": 0, "ix": 10 },
+                "p": {
+                    "a": 1,
+                    "k": [
+                        {
+                            "i": { "x": 0.833, "y": 0.833 },
+                            "o": { "x": 0.167, "y": 0.167 },
+                            "t": 0,
+                            "s": [350, 259, 0],
+                            "to": [-106.833, 0, 0],
+                            "ti": [106.833, 0, 0]
+                        },
+                        { "t": 417.000016984758, "s": [-291, 259, 0] }
+                    ],
+                    "ix": 2
+                },
+                "a": { "a": 0, "k": [0, 0, 0], "ix": 1 },
+                "s": { "a": 0, "k": [100, 100, 100], "ix": 6 }
+            },
+            "ao": 0,
+            "ip": 0,
+            "op": 1798.00007323404,
+            "st": 0,
+            "bm": 0
+        },
+        {
+            "ddd": 0,
+            "ind": 6,
+            "ty": 0,
+            "nm": "chart-1",
+            "parent": 5,
+            "refId": "comp_0",
+            "sr": 1,
+            "ks": {
+                "o": { "a": 0, "k": 100, "ix": 11 },
+                "r": { "a": 0, "k": 0, "ix": 10 },
+                "p": { "a": 0, "k": [662.5, 3, 0], "ix": 2 },
+                "a": { "a": 0, "k": [460.5, 259, 0], "ix": 1 },
+                "s": { "a": 0, "k": [100, 100, 100], "ix": 6 }
+            },
+            "ao": 0,
+            "w": 921,
+            "h": 518,
+            "ip": 47.0000019143492,
+            "op": 947.000038572101,
+            "st": 47.0000019143492,
+            "bm": 0
+        },
+        {
+            "ddd": 0,
+            "ind": 7,
+            "ty": 0,
+            "nm": "static",
+            "parent": 5,
+            "refId": "comp_1",
+            "sr": 1,
+            "ks": {
+                "o": { "a": 0, "k": 100, "ix": 11 },
+                "r": { "a": 0, "k": 0, "ix": 10 },
+                "p": { "a": 0, "k": [0, 0, 0], "ix": 2 },
+                "a": { "a": 0, "k": [350, 259, 0], "ix": 1 },
+                "s": { "a": 0, "k": [100, 100, 100], "ix": 6 }
+            },
+            "ao": 0,
+            "w": 700,
+            "h": 518,
+            "ip": 0,
+            "op": 1798.00007323404,
+            "st": 0,
+            "bm": 0
+        }
+    ],
+    "markers": []
+}

@@ -12,6 +12,10 @@ export const HeroContainer = styled.div`
     @media ${device.laptop} {
         grid-template-columns: auto;
     }
+
+    @media ${device.tablet} {
+        height: 370px;
+    }
 `
 
 export const HeaderContainer = styled(Container)`
@@ -31,9 +35,9 @@ export const ImageWrapper = styled.img`
     top: 90px;
 
     @media ${device.tablet} {
-        max-width: 328px;
-        margin-right: 15px;
+        max-width: 298px;
+        margin: 0 auto;
         overflow: unset;
-        top: 40px;
+        top: 24px;
     }
 `

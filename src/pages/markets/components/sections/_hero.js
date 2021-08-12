@@ -53,7 +53,7 @@ const Video = styled.video`
     height: 100%;
 
     @media ${device.tabletL} {
-        transform: translate(-50%, -50%) scale(1.5);
+        transform: translate(-40%, -50%) scale(1.5);
     }
 `
 
@@ -89,7 +89,7 @@ export const Hero = () => {
                     mt="1.6rem"
                 >
                     {localize(
-                        'Learn about the markets that you can trade online with Deriv, including forex, commodities, synthetic indices, and stocks & indices.',
+                        'Learn about the markets that you can trade online with Deriv, including forex, commodities, synthetic indices, stocks, stock indices, and cryptocurrencies.',
                     )}
                 </MarketSubHeader>
             </StyledContainer>

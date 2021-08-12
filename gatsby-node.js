@@ -1,3 +1,4 @@
+/* eslint-disable import/order */
 const language_config = require(`./i18n-config.js`)
 const path = require('path')
 
@@ -101,19 +102,13 @@ exports.onCreatePage = ({ page, actions }) => {
         const { path, is_default } = language_config[lang]
         const localized_path = is_default ? page.path : `${path}${page.path}`
         const is_production = process.env.GATSBY_ENV === 'production'
-        const careers_regex = /^[a-z-]+\/careers\//g
-        const endpoint_regex = /^[a-z-]+\/endpoint\//g
-        const offline_plugin_regex = /^[a-z-]+\/offline-plugin-app-shell-fallback/g
+        const excluded_pages_regex =
+            /^[a-z-]+\/(careers|endpoint|offline-plugin-app-shell-fallback|besquare)\//g
 
         if (is_production) {
             if (path === 'ach') return
         }
-        if (
-            careers_regex.test(localized_path) ||
-            endpoint_regex.test(localized_path) ||
-            offline_plugin_regex.test(localized_path)
-        )
-            return
+        if (localized_path.match(excluded_pages_regex)) return
 
         if (!translations_cache[lang]) {
             const translation_json = require(`./src/translations/${lang}`)
@@ -235,10 +230,21 @@ exports.onCreatePage = ({ page, actions }) => {
     })
 }
 
-exports.onCreateWebpackConfig = ({ actions, getConfig }) => {
+const StylelintPlugin = require('stylelint-webpack-plugin')
+const TerserPlugin = require('terser-webpack-plugin')
+const style_lint_options = {
+    files: 'src/**/*.js',
+    emitErrors: false,
+    lintDirtyModulesOnly: true,
+}
+
+exports.onCreateWebpackConfig = ({ actions, getConfig }, { ...options }) => {
     const config = getConfig()
-    if (config.optimization) config.optimization.minimizer[0].options.parallel = 2
+    if (config.optimization) {
+        config.optimization.minimizer = [new TerserPlugin()]
+    }
     actions.setWebpackConfig({
+        plugins: [new StylelintPlugin({ ...style_lint_options, ...options })],
         resolve: {
             modules: [path.resolve(__dirname, 'src'), 'node_modules'],
         },

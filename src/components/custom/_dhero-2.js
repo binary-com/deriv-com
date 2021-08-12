@@ -16,6 +16,9 @@ const Wrapper = styled(Flex)`
     min-height: ${(props) => props.d_height};
     padding: 2rem 12rem;
 
+    @media ${device.desktopS} {
+        padding-left: 18%;
+    }
     @media ${device.laptopM} {
         height: ${(props) => props.laptopM_height};
         min-height: unset;
@@ -194,10 +197,10 @@ const query = graphql`
             ...fadeIn
         }
         deriv_x: file(relativePath: { eq: "deriv-x/hero-laptop.png" }) {
-            ...backGroundBlur
+            ...bannerImage
         }
         deriv_x_mobile: file(relativePath: { eq: "deriv-x/hero-laptop-mobile.png" }) {
-            ...backGroundBlur
+            ...bannerImage
         }
     }
 `
@@ -259,8 +262,12 @@ const DHero = ({
     const BackgroundSVG = styled.img`
         ${HeroBackground}
         position: absolute;
-        top: 170px;
+        bottom: 0;
         right: 0;
+
+        @media ${device.tablet} {
+            top: 170px;
+        }
     `
     const BackgroundSVG2 = styled.img`
         ${HeroBackground}
@@ -312,7 +319,7 @@ const DHero = ({
                             secondary="true"
                             type={getLinkType()}
                             target="_blank"
-                            rel="noopener noreferrer"
+                            rel="noopener noreferrer nofollow"
                         >
                             {localize('Go to live demo')}
                         </StyledLinkButton>

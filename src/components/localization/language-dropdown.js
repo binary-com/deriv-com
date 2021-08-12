@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import PropTypes from 'prop-types'
 import styled, { keyframes } from 'styled-components'
+import Cookies from 'js-cookie'
 import { useOutsideClick } from 'components/hooks/use-outside-click'
 import { QueryImage, Text } from 'components/elements'
 import { ReactComponent as Chevron } from 'images/svg/chevron-bottom.svg'
@@ -198,7 +199,7 @@ const Dropdown = ({ default_option, onChange, option_list, is_high_nav }) => {
                         width="24px"
                         height="24px"
                         data={data[default_abbreviation]}
-                        alt={default_option.short_name}
+                        alt=""
                     />
                     <ResponsiveText color="white" ml="0.8rem" weight="bold" mr="0.4rem">
                         {default_option.short_name}
@@ -216,14 +217,17 @@ const Dropdown = ({ default_option, onChange, option_list, is_high_nav }) => {
                                 <Item
                                     disabled={current_option}
                                     id={option.value}
-                                    onClick={() => handleSelect(option.value)}
+                                    onClick={() => {
+                                        handleSelect(option.value)
+                                        Cookies.set('lang_is_fixed', 'true')
+                                    }}
                                     key={idx}
                                 >
                                     <QueryImage
                                         width="24px"
                                         height="24px"
                                         data={data[abbreviation]}
-                                        alt={option.text}
+                                        alt=""
                                     />
                                     <Text ml="0.8rem" color={current_option ? 'red' : 'black'}>
                                         {option.text}

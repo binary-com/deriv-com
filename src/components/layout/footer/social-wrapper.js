@@ -18,17 +18,23 @@ const SocialWrapperComponent = ({ is_career_page, fb_url, instagram_url, twitter
     const alt_string = (is_career_page ? 'career' : '') + ' icon link'
     const accounts = [
         {
-            link: is_career_page ? fb_url_career : fb_url,
+            link: is_career_page
+                ? fb_url_career
+                : fb_url,
             image: Facebook,
             image_alt: `facebook ${alt_string}`,
         },
         {
-            link: is_career_page ? instagram_url_career : instagram_url,
+            link: is_career_page
+                ? instagram_url_career
+                : instagram_url,
             image: Instagram,
             image_alt: `instagram ${alt_string}`,
         },
         {
-            link: is_career_page ? linkedin_url_career : linkedin_url,
+            link: is_career_page
+                ? linkedin_url_career
+                : linkedin_url,
             image: Linkedin,
             image_alt: `linkedin ${alt_string}`,
         },
@@ -74,4 +80,4 @@ SocialMediaComponent.propTypes = {
     social_accounts: PropTypes.array,
 }
 
-export default SocialWrapperComponent
+export default SocialWrapperComponent;

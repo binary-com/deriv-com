@@ -221,7 +221,7 @@ const WhatOurClientsSay = () => {
     }
 
     return (
-        <SectionContainer padding="5rem 0 0">
+        <SectionContainer padding='5rem 0 0'>
             <Container direction="column">
                 <Header align="center" as="h3" type="section-title">
                     {localize('What our clients say about Deriv')}

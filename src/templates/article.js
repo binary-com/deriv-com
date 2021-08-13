@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { graphql } from 'gatsby'
+// import { graphql } from 'gatsby'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
 import { SEO, SectionContainer, SmallContainer, Flex } from 'components/containers'
@@ -123,31 +123,31 @@ ArticleTemplate.propTypes = {
 export default WithIntl()(ArticleTemplate)
 
 // Query our published articles by slug
-export const query = graphql`
-    query MyQuery($slug: String) {
-        directus {
-            articles(filter: { article_url: { _eq: $slug } }) {
-                article_title
-                article_tags
-                date_created
-                featured
-                article_body
-                main_image {
-                    id
-                    imageFile {
-                        childImageSharp {
-                            gatsbyImageData
-                        }
-                    }
-                }
-                main_video {
-                    id
-                    imageFile {
-                        id
-                        publicURL
-                    }
-                }
-            }
-        }
-    }
-`
+// export const query = graphql`
+//     query MyQuery($slug: String) {
+//         directus {
+//             articles(filter: { article_url: { _eq: $slug } }) {
+//                 article_title
+//                 article_tags
+//                 date_created
+//                 featured
+//                 article_body
+//                 main_image {
+//                     id
+//                     imageFile {
+//                         childImageSharp {
+//                             gatsbyImageData
+//                         }
+//                     }
+//                 }
+//                 main_video {
+//                     id
+//                     imageFile {
+//                         id
+//                         publicURL
+//                     }
+//                 }
+//             }
+//         }
+//     }
+// `

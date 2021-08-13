@@ -28,6 +28,13 @@ import RwandaFlagIcon from 'images/svg/flag_rwanda.svg'
 import BelarusFlagIcon from 'images/svg/flag_belarus.svg'
 import { ReactComponent as Chevron } from 'images/svg/carousel-chevron.svg'
 
+const meta_attributes = {
+    og_title: localize('Explore our office locations | Deriv'),
+    og_description: localize(
+        'Discover career opportunities at Deriv across our office locations around the globe.',
+    ),
+}
+
 const ChevronRight = styled(Chevron)`
     transform: rotate(180deg);
     width: 16px;
@@ -90,7 +97,7 @@ const CountryCard = ({ country_name, city_name, link, img_data, Icon }) => {
                     {city_name}
                 </Header>
                 <Flex jc="unset" ai="center" mt="8px" mb="8px">
-                    <StyledImg src={Icon} alt="icon" />
+                    <StyledImg src={Icon} alt="" />
                     <Text weight="bold">{country_name}</Text>
                 </Flex>
                 <Flex ai="center" jc="flex-end">
@@ -158,6 +165,7 @@ const Locations = () => {
                 description={localize(
                     'Discover career opportunities at Deriv across our office locations around the globe.',
                 )}
+                meta_attributes={meta_attributes}
             />
             <Hero />
             <Container direction="column">

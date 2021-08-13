@@ -253,7 +253,7 @@ const WhatAreOptions = () => {
                     <Grid>
                         <WhyTradeItem>
                             <div>
-                                <img src={MinimalRisk} alt="minimal risk" />
+                                <img src={MinimalRisk} alt="" />
                             </div>
                             <Text mt="1.6rem" mb="0.8rem" weight="bold">
                                 {localize('Better risk management')}
@@ -266,7 +266,7 @@ const WhatAreOptions = () => {
                         </WhyTradeItem>
                         <WhyTradeItem>
                             <div>
-                                <img src={FullControl} alt="full control" />
+                                <img src={FullControl} alt="" />
                             </div>
                             <Text mt="1.6rem" mb="0.8rem" weight="bold">
                                 {localize('Increased market exposure')}
@@ -279,7 +279,7 @@ const WhatAreOptions = () => {
                         </WhyTradeItem>
                         <WhyTradeItem>
                             <div>
-                                <img src={ResponsivePlatform} alt="responsive platform" />
+                                <img src={ResponsivePlatform} alt="" />
                             </div>
                             <Text mt="1.6rem" mb="0.8rem" weight="bold">
                                 {localize('Secure, responsive platform')}
@@ -292,7 +292,7 @@ const WhatAreOptions = () => {
                         </WhyTradeItem>
                         <WhyTradeItem>
                             <div>
-                                <img src={FriendlySupport} alt="friendly support" />
+                                <img src={FriendlySupport} alt="" />
                             </div>
                             <Text mt="1.6rem" mb="0.8rem" weight="bold">
                                 {localize('Expert and friendly support')}
@@ -303,7 +303,7 @@ const WhatAreOptions = () => {
                         </WhyTradeItem>
                         <WhyTradeItem>
                             <div>
-                                <img src={Seven} alt="seven" />
+                                <img src={Seven} alt="" />
                             </div>
                             <Text mt="1.6rem" mb="0.8rem" weight="bold">
                                 {localize('Trade 24/7, 365 days a year')}
@@ -316,7 +316,7 @@ const WhatAreOptions = () => {
                         </WhyTradeItem>
                         <WhyTradeItem>
                             <div>
-                                <img src={CrashBoom} alt="crash boom" />
+                                <img src={CrashBoom} alt="" />
                             </div>
                             <Text mt="1.6rem" mb="0.8rem" weight="bold">
                                 {localize('Crash/Boom indices')}

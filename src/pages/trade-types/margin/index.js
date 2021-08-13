@@ -13,6 +13,13 @@ const StartTrading = Loadable(() => import('./_start-trading'))
 const RelationshipWithLeverge = Loadable(() => import('./_relationship-with-leverge'))
 const AvailableMarkets = Loadable(() => import('./_available-markets'))
 
+const meta_attributes = {
+    og_title: localize('Margin trading | Trade types | Deriv'),
+    og_description: localize(
+        'Learn about margin trading on Deriv MT5 (DMT5). Enjoy 24/7 trading, high leverage, and zero commissions on forex, synthetic indices, and other assets.',
+    ),
+}
+
 const Margin = () => {
     return (
         <Layout>
@@ -21,6 +28,7 @@ const Margin = () => {
                 description={localize(
                     'Learn about margin trading on Deriv MT5 (DMT5). Enjoy 24/7 trading, high leverage, and zero commissions on forex, synthetic indices, and other assets.',
                 )}
+                meta_attributes={meta_attributes}
             />
             <Hero jc="cneter" ai="center">
                 <SmallContainer>

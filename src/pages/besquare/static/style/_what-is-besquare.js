@@ -13,7 +13,6 @@ export const Section = styled(SectionContainer)`
 `
 
 export const ContentContainer = styled(Container)`
-
     @media ${device.tabletL} {
         display: grid;
     }

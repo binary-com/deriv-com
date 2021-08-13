@@ -1,14 +1,26 @@
-## Implementation guide
+# General Implementation guide
 
-### Styled Component
+**In this Document**
 
-to use styled component you can import it
+-   [Styled Component](#styled-component)
+-   [Image Component](#image-component)
+-   [Translation / Localization](#translation-/-localization)
+-   [Mobile responsive](#mobile-responsive)
+-   [CSS responsive function](#css-responsive-function)
+-   [Create new page](#create-new-page)
+-   [Handling EU or NonEU Views](#handling-eu-or-noneu-views)
+
+## Styled Component
+
+To use a styled component you can follow this step:
+
+1. Import it
 
 ```js
 import styled from 'styled-components'
 ```
 
-to use it you can create a function using the imported `styled`
+2. For extending styles of a html element using the imported `styled`
 
 ```js
 const _component_name_ = styled._any_html_tag`
@@ -26,15 +38,7 @@ const _component_name_ = styled._any_html_tag`
 `
 ```
 
-Then in your react component
-
-```js
-<_component_name_>
-    <children>
-</_component_name_>
-```
-
-you can extend styled component like this
+Also you can extend styled component like this
 
 ```js
 const _want_extend_ = styled(_component_name_)`
@@ -42,28 +46,33 @@ const _want_extend_ = styled(_component_name_)`
 `
 ```
 
-*noted that we are using `rem` as value where `10px = 1rem`, the rem configuration can be found at `themes/global-style.js`
-*for further information you can take a look at [Styled Component](https://www.styled-components.com/)
+3. Then in your react component
 
-### Image Component
+```js
+<_component_name_>
+    <children>
+</_component_name_>
+```
 
-#### (png|jpg|jpeg|gif) file type
+**Note:** Use `rem` as length unit where `10px = 1rem`, the rem configuration can be found at `themes/global-style.js`
 
-image will be located anywhere within `src/images/common` directory.
-this project uses GatsbyImageSharpFluid lazy load image built in gatsby-iamge. for further information, can take a look at [Gatsby Image](https://www.gatsbyjs.org/packages/gatsby-image), the configuration is located at
-`src/components/elements/image.js`.
+For further information you can take a look at [Styled Component Documentation](https://styled-components.com/docs)
+
+## Image Component
+
+### (png|jpg|jpeg|gif) file type
+
+An image will be located anywhere within `src/images/common` directory.
+This project uses `GatsbyImage` built in gatsby-plugin-image. For further information, can take a look at [Gatsby Image plugin](https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-plugin-image/#gatsbyimage), the configuration is located at
+`src/components/elements/query-image.js`.
 
 Usage example:
 
 ```js
-<Image
-    width="_image_size_" // this is max width
-    img_name="_image_name_"
-    alt="_image_alt_"
-/>
+<Image data="_image_data_object_" alt="_image_alt_" />
 ```
 
-#### (svg) file type
+### (svg) file type
 
 svg will be located anywhere within `src/images/svg` directory.
 SVG will be handled by `gatsby-plugin-react-svg` which overriding `svg-react-loader`, you can take a look at [Gatsby SVG](https://www.gatsbyjs.org/packages/gatsby-plugin-react-svg/)
@@ -75,9 +84,9 @@ import { ReactComponent as Logo } from 'images/svg/logo-header.svg'
 ;<Logo />
 ```
 
-### Translation / Localization
+## Translation / Localization
 
-translation functions and component located within `src/components/localization` directory.
+Translation functions and component located within `src/components/localization` directory.
 text translation use `react-i18next`, you can take a look at [react-i18next](https://react.i18next.com/) for more information.
 
 Usage example:
@@ -97,13 +106,13 @@ import { localize, Localize } from 'components/localization'
 </p>
 ```
 
-### Mobile responsive
+## Mobile responsive
 
 Mobile responsive device breakpoints can be found in this directory `themes/device`
 
-#### CSS changes
+### CSS changes
 
-to configure responsiveness based on css changes, you can use `@media`
+To configure responsiveness based on css changes, you can use `@media`
 
 Usage example:
 
@@ -118,9 +127,9 @@ const YourCssStyle = styled.div`
 `
 ```
 
-#### JS changes
+### JS changes
 
-to configure responsiveness based on js changes or different component render, you can use `Show` component in `/containers` directory
+to configure responsiveness based on JS changes or different component render, you can use `Show` component in `/containers` directory
 
 Usage example (chain):
 
@@ -154,45 +163,9 @@ const Example = () => (
 )
 ```
 
-#### Create new page
+## CSS responsive function
 
-to create new page, please create a directory inside `src/pages`. directory name automatically become the new route,
-create an index.js inside the directory (this is required). To separate into different sections, you can make another js file inside the directory with prefix `_` to avoid creation of new route.
-
-Example directory:
-
-```
-   ├── my-page-name/
-   │   ├── index.js
-   │   ├── _component-name.js
-   │   ├── ...
-```
-
-Every page should be wrapped within `<Layout />` component, and have a child `<SEO title='' description='' />`.
-It is required to export default your page. and use Higher order component of `WithIntl` from localization to help usage of translation methods.
-
-Usage example:
-
-```js
-import React from 'react'
-import styled from 'styled-components'
-import { localize, WithIntl } from 'components/localization'
-
-const MyPageName = () => {
-    return (
-        <Layout>
-            <SEO title={localize('My page')} description={localize('My page description')} />
-            {/* Your children here */}
-        </Layout>
-    )
-}
-
-export default WithIntl()(MyPageName)
-```
-
-### CSS responsive function
-
-to create a responsive component for different breakpoints, please use `<Box>` component and inject the css styles for available breakpoints.
+To create a responsive component for different breakpoints, please use `<Box>` component and inject the CSS styles for available breakpoints.
 
 Usage example:
 
@@ -220,9 +193,44 @@ const UseResponsiveCss = () => {
 }
 ```
 
-### Handling EU or NonEU Views
+## Create new page
 
-to handle visibility of europe countries, you can use `Show` component in `/containers` directory. Eu countries list are located in `common/country-base.js`
+To create a new page, please create a directory inside `src/pages`. Directory name automatically becomes the new route,
+create an `index.js` inside the directory (this is required). To separate into different sections, you can make another JS file inside the directory with prefix `_` to avoid creation of new route.
+
+Example directory:
+
+```
+   ├── my-page-name/
+   │   ├── index.js
+   │   ├── _component-name.js
+   │   ├── ...
+```
+
+Every page should be wrapped within `<Layout />` component, and also it should contain a child `<SEO title='' description='' />`.
+It is required to export default your page with a Higher-order component of `WithIntl` from localization to help the usage of translation methods.
+Usage example:
+
+```js
+import React from 'react'
+import styled from 'styled-components'
+import { localize, WithIntl } from 'components/localization'
+
+const MyPageName = () => {
+    return (
+        <Layout>
+            <SEO title={localize('My page')} description={localize('My page description')} />
+            {/* Your children here */}
+        </Layout>
+    )
+}
+
+export default WithIntl()(MyPageName)
+```
+
+## Handling EU or NonEU Views
+
+To handle the visibility for European countries, you can use `Show` component in `/containers` directory. Eu countries list are located in `common/country-base.js`
 
 Usage example (chain):
 
@@ -233,9 +241,9 @@ const Example = () => (
     <div>
         <h1>Test!</h1>
         <Show.Eu minDeviceWidth={size.tabletL} device={{ deviceWidth: size.desktopS }}>
-            you are in europe countries
+            You are in europe countries
         </Show.Eu>
-        <Show.NonEU>you are in non-europe countries</Show.NonEU>
+        <Show.NonEU>You are in non-europe countries</Show.NonEU>
     </div>
 )
 ```

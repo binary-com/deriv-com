@@ -31,21 +31,21 @@ const content = [
         text: (
             <Localize translate_text="Trade CFDs on our exclusive, proprietary synthetic indices 24/7 which simulate real-world market movements." />
         ),
-        icon: <StyledSyntheticIcon src={SyntheticIcon} alt="synthetic icon" />,
+        icon: <StyledSyntheticIcon src={SyntheticIcon} alt="" />,
     },
     {
         header: <Localize translate_text="Financial" />,
         text: (
             <Localize translate_text="Trade major (standard and micro-lots) and minor currency pairs, commodities, cryptocurrencies, and stocks & indices with high leverage." />
         ),
-        icon: <StyledFinancialIcon src={FinancialIcon} alt="financial icon" />,
+        icon: <StyledFinancialIcon src={FinancialIcon} alt="" />,
     },
     {
         header: <Localize translate_text="Financial STP" />,
         text: (
             <Localize translate_text="Trade major, minor, and exotic currency pairs, and cryptocurrencies with tight spreads and higher trade volumes, straight to the market." />
         ),
-        icon: <StyledFinancialStpIcon src={FinancialStpIcon} alt="financial stp icon" />,
+        icon: <StyledFinancialStpIcon src={FinancialStpIcon} alt="" />,
     },
 ]
 const Section = styled(SectionContainer)`

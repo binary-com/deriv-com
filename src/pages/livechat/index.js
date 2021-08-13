@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Layout from 'components/layout/layout'
 import InitialLoader from 'components/elements/dot-loader'
 import { localize, WithIntl } from 'components/localization'
-import { SEO, Container } from 'components/containers'
+import { SEO, Container, Show } from 'components/containers'
 import { useLivechat } from 'components/hooks/use-livechat'
 
 const StyledContainer = styled(Container)`
@@ -51,7 +51,9 @@ const LiveChatPage = () => {
                 no_index
             />
             <StyledContainer>{loading && <InitialLoader />}</StyledContainer>
-            <CoverMinimizeButton loading={`${loading}`} />
+            <Show.Mobile>
+                <CoverMinimizeButton loading={`${loading}`} />
+            </Show.Mobile>
         </Layout>
     )
 }

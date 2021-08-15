@@ -234,7 +234,7 @@ const ib_dmt5_synthetic = {
             assets: [
                 {
                     title: <Localize key={0} translate_text="Asset" />,
-                    list: [<Localize key={1} translate_text="Step Index" />],
+                    list: [<Localize key={1} translate_text="Step index" />],
                 },
                 {
                     title: <Localize key={0} translate_text="Commission per USD 100k turnover" />,

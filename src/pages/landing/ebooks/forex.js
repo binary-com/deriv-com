@@ -1,6 +1,6 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { graphql, useStaticQuery } from 'gatsby'
-import { useTranslation } from 'react-i18next'
 import Introduction from './components/_introduction'
 import HeaderSection from './components/_header'
 import Topics from './components/_topics'
@@ -46,9 +46,9 @@ const query = graphql`
     }
 `
 
-const ForexEbook = () => {
-    const { i18n } = useTranslation('home')
-    let lng = i18n.language
+const ForexEbook = (props) => {
+    const { language } = props
+    let lng = language
     if (lng != 'es') {
         lng = 'en'
     }
@@ -87,6 +87,10 @@ const ForexEbook = () => {
             <Topics topicsImage={data[`forex_ebook_inside_${lng}`]} topicsList={topicsCovered} />
         </Layout>
     )
+}
+
+ForexEbook.propTypes = {
+    language: PropTypes.string,
 }
 
 export default WithIntl()(ForexEbook)

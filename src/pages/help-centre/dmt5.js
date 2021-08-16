@@ -1,6 +1,7 @@
 import React from 'react'
 import { Article } from './_article'
 import { ArticleWrapper, ExternalLink, StyledHeader, StyledText } from './_help-centre-style'
+import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import { deriv_app_url } from 'common/constants'
 import { Text } from 'components/elements'
 import { localize, Localize, WithIntl } from 'components/localization'
@@ -15,6 +16,7 @@ const WhatIsDMT5 = () => (
         </Text>
     </ArticleWrapper>
 )
+
 const DifferenceDMT5DTrader = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">
@@ -32,6 +34,7 @@ const DifferenceDMT5DTrader = () => (
         </StyledText>
     </ArticleWrapper>
 )
+
 const DifferentAccounts = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">
@@ -56,6 +59,7 @@ const DifferentAccounts = () => (
         </StyledText>
     </ArticleWrapper>
 )
+
 const DepositDMT5 = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">
@@ -67,7 +71,7 @@ const DepositDMT5 = () => (
                 components={[
                     <strong key={0} />,
                     <ExternalLink
-                        href={`${deriv_app_url}/cashier/account-transfer`}
+                        to={`${deriv_app_url}/cashier/account-transfer`}
                         target="_blank"
                         rel="noopener noreferrer"
                         key={1}
@@ -82,6 +86,7 @@ const DepositDMT5 = () => (
         </StyledText>
     </ArticleWrapper>
 )
+
 const WithdrawDMT5 = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">
@@ -89,11 +94,11 @@ const WithdrawDMT5 = () => (
         </StyledHeader>
         <Text mb="1.5rem">
             <Localize
-                translate_text="To withdraw funds from your MT5 account on Deriv, you’ll need to transfer the funds to your Deriv account. Go to <0>Cashier ></0> <1>Transfer between accounts</1> and follow the instructions on the screen."
+                translate_text="To withdraw funds from your MT5 account on Deriv, you’ll need to transfer the funds to your Deriv account. Go to <0>Cashier > </0> <1>Transfer between accounts</1> and follow the instructions on the screen."
                 components={[
                     <strong key={0} />,
                     <ExternalLink
-                        href={`${deriv_app_url}/cashier/account-transfer`}
+                        to={`${deriv_app_url}/cashier/account-transfer`}
                         target="_blank"
                         rel="noopener noreferrer"
                         key={1}
@@ -108,6 +113,7 @@ const WithdrawDMT5 = () => (
         </Text>
     </ArticleWrapper>
 )
+
 const LoginCredentials = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">
@@ -120,6 +126,7 @@ const LoginCredentials = () => (
         </Text>
     </ArticleWrapper>
 )
+
 const ResetDMT5Password = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('How can I reset my DMT5 account password?')}</StyledHeader>
@@ -128,7 +135,7 @@ const ResetDMT5Password = () => (
                 translate_text="Please go to the <0>DMT5 dashboard</0> and click on the <1>Password</1> button of that DMT5 account."
                 components={[
                     <ExternalLink
-                        href={`${deriv_app_url}/mt5`}
+                        to={`${deriv_app_url}/mt5`}
                         target="_blank"
                         rel="noopener noreferrer"
                         key={1}
@@ -141,6 +148,8 @@ const ResetDMT5Password = () => (
 )
 
 const DMT5Article = () => {
+    const [is_mounted] = usePageLoaded(false) // needed to fix tab highlighting not being rerendered during first load
+
     return (
         <div>
             <Article
@@ -148,34 +157,44 @@ const DMT5Article = () => {
                 title={localize('Help centre | Frequently asked questions | DMT5 | Deriv')}
                 description={localize('Frequently asked questions - DMT5')}
             >
-                <WhatIsDMT5 text={localize('What is DMT5?')} label="what-is-dmt5" />
+                <WhatIsDMT5
+                    text={localize('What is DMT5?')}
+                    label="what-is-dmt5"
+                    is_mounted={is_mounted}
+                />
                 <DifferenceDMT5DTrader
                     text={localize('What are the major differences between DTrader and DMT5?')}
                     label="differences-of-dtrader-and-dmt5"
+                    is_mounted={is_mounted}
                 />
                 <DifferentAccounts
                     text={localize(
                         'What are the differences between the DMT5 Synthetic Indices, Financial and Financial STP accounts?',
                     )}
                     label="differences-of-dmt5-accounts"
+                    is_mounted={is_mounted}
                 />
                 <WithdrawDMT5
                     text={localize('How can I withdraw funds from my DMT5 real money account?')}
                     label="withdraw-funds-from-DMT5"
+                    is_mounted={is_mounted}
                 />
                 <LoginCredentials
                     text={localize(
                         'Why are my DMT5 login details different from my Deriv login details?',
                     )}
                     label="login-credentials"
+                    is_mounted={is_mounted}
                 />
                 <ResetDMT5Password
                     text={localize('How can I reset my DMT5 account password?')}
                     label="reset-dmt5-password"
+                    is_mounted={is_mounted}
                 />
                 <DepositDMT5
                     text={localize('How can I deposit funds into my DMT5 real money account?')}
                     label="deposit-to-dmt5"
+                    is_mounted={is_mounted}
                 />
             </Article>
         </div>

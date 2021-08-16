@@ -209,6 +209,18 @@ module.exports = {
             },
         },
         {
+            resolve: 'gatsby-plugin-page-progress',
+            options: {
+                includePaths: [{ regex: '^/blog/article/' }],
+                excludePaths: [],
+                height: 4,
+                prependToBody: true,
+                color: `#FF444F`,
+                footerHeight: 500,
+                headerHeight: 0,
+            },
+        },
+        {
             resolve: '@directus/gatsby-source-directus',
             options: {
                 url: `https://cms.deriv.com`,

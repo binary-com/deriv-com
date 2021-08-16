@@ -8,6 +8,7 @@ import {
     getContractSize,
     numberWithCommas,
     numberSubmitFormat,
+    getMaxLength,
 } from '../common/_utility'
 import {
     optionItemDefault,
@@ -234,7 +235,7 @@ const PipCalculator = () => {
                                                             setFieldTouched('volume', false, false)
                                                             current_input.focus()
                                                         }}
-                                                        maxLength="8"
+                                                        maxLength={getMaxLength(values.volume, 8)}
                                                         background="white"
                                                     />
                                                 )}
@@ -270,7 +271,10 @@ const PipCalculator = () => {
                                                             )
                                                             current_input.focus()
                                                         }}
-                                                        maxLength="15"
+                                                        maxLength={getMaxLength(
+                                                            values.pointValue,
+                                                            15,
+                                                        )}
                                                         background="white"
                                                     />
                                                 )}

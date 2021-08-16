@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import Subscribe from './components/_subscribe'
+import RecentFeaturedPosts from './_recent-featured-posts'
 import DVideoBanner from './video-banner'
 import Hero from './components/_hero'
 import Layout from 'components/layout/layout'
@@ -74,6 +75,7 @@ const DerivBlog = () => {
                     />
                 </Carousel>
             </MainWrapper>
+            <RecentFeaturedPosts />
             <DVideoBanner />
             <Container>
                 <Flex direction="column" ai="flex-start" jc="space-between">

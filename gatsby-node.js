@@ -251,11 +251,12 @@ exports.onCreateWebpackConfig = ({ actions, getConfig }, { ...options }) => {
     })
 }
 
+// TODO: To be updated to the new shape of the API of the new endpoint
 // exports.createPages = async ({ reporter, actions, graphql }) => {
 //     const { createPage } = actions
 //     const articleTemplate = path.resolve(__dirname, 'src/templates/article.js')
 
-//     // Query our published articles
+// Query our published articles
 //     const result = await graphql(`
 //         query MyQuery {
 //             directus {

@@ -132,7 +132,7 @@ const Signup = (props) => {
 
             binary_socket.close()
         }
-        if (this.props.appearance === 'public') {
+        if (props.appearance === 'public') {
             const language_code = localStorage.getItem('i18n')
             const success_link =
                 language_code !== 'en' ? '/' + language_code + '/signup-success' : '/signup-success'

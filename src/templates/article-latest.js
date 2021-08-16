@@ -15,7 +15,7 @@ const Background = styled.div`
     height: 100%;
 
     @media ${device.laptop} {
-        background-image: linear-gradient(var(--color-grey-8) 80%, var(--color-white) 20%);
+        background-image: linear-gradient(var(--color-grey-8) 84%, var(--color-white) 20%);
     }
 `
 const HeroContainer = styled(Container)`
@@ -31,18 +31,16 @@ const HeroContainer = styled(Container)`
     @media ${device.laptopM} {
         padding-top: 65px;
         height: 500px;
-        margin-bottom: 30px;
+        margin-bottom: 48px;
     }
     @media ${device.laptop} {
+        width: 100%;
+        max-width: 58.8rem;
         height: auto;
-        margin-bottom: 20px;
+        margin-bottom: 0;
+        padding: 36px 16px 0;
         flex-direction: column;
         background-image: linear-gradient(var(--color-grey-8) 80%, var(--color-white) 20%);
-    }
-    @media ${device.tabletL} {
-        height: auto;
-        padding: 36px 16px 0;
-        width: 100%;
     }
 `
 const HeroLeftWrapper = styled(Box)`
@@ -81,7 +79,7 @@ const HeroImageContainer = styled(Box)`
         right: unset;
     }
 
-    @media ${device.tabletL} {
+    @media ${device.laptop} {
         margin: auto;
     }
 
@@ -91,7 +89,7 @@ const HeroImageContainer = styled(Box)`
     }
 `
 const InfoText = styled(Text)`
-    @media ${device.tabletL} {
+    @media ${device.laptop} {
         font-size: 12px;
     }
 `
@@ -100,7 +98,7 @@ const WriterImage = styled.div`
     height: 48px;
     border-radius: 50px;
     margin-right: 8px;
-    @media ${device.tabletL} {
+    @media ${device.laptop} {
         width: 40px;
         height: 40px;
 
@@ -111,22 +109,40 @@ const WriterImage = styled.div`
     }
 `
 const WrittenbyText = styled(Text)`
-    @media ${device.tabletL} {
+    @media ${device.laptop} {
         font-size: 10px;
     }
 `
 const BodyContainer = styled(Container)`
     align-items: flex-start;
     padding: 0 0 40px;
-    @media ${device.tabletL} {
+
+    @media ${device.laptop} {
         flex-direction: column;
-        padding: 0 16px 40px;
         margin-top: 24px;
-        width: 100%;
+        max-width: 58.8rem;
+    }
+`
+const LeftBodyContainerWrapper = styled(Flex)`
+    max-width: 384px;
+    margin-right: 24px;
+    justify-content: flex-start;
+`
+const RightBodyContainerWrapper = styled(Flex)`
+    position: relative;
+    max-width: 792px;
+    width: 100%;
+
+    @media ${device.laptop} {
+        margin-top: 40px;
     }
 `
 const SideBarContainer = styled(Flex)`
     max-width: 282px;
+
+    @media ${device.laptop} {
+        margin: 24px 0 32px;
+    }
 `
 const Tag = styled(Flex)`
     height: 22px;
@@ -141,7 +157,7 @@ const Tag = styled(Flex)`
     align-items: center;
     margin-right: 16px;
     margin-bottom: 16px;
-    @media ${device.tabletL} {
+    @media ${device.laptop} {
         height: 20px;
         margin-right: 8px;
         font-size: 12px;
@@ -256,7 +272,7 @@ const PreviewContainer = styled(Box)`
         margin-top: 40px;
         font-weight: bold;
     }
-    @media ${device.tabletL} {
+    @media ${device.laptop} {
         max-width: none;
 
         & p {
@@ -361,15 +377,9 @@ const ArticlesTemplate = (props) => {
                             <InfoText size="14px" mt="16px">
                                 {localize(post_data?.read_time_in_minutes + ' min read')}
                             </InfoText>
-                            <Show.Mobile>
+                            <Show.Mobile min_width="laptop">
                                 <SideBarContainer fd="column" mr="126px" height="auto">
-                                    <Flex
-                                        fw="wrap"
-                                        jc="flex-start"
-                                        max-width="328px"
-                                        width=" 100%"
-                                        tabletL={{ mt: '24px', mb: '40px' }}
-                                    >
+                                    <Flex fw="wrap" jc="flex-start" max-width="100%" width=" 100%">
                                         {post_data?.tags.map((tag) => {
                                             return (
                                                 <Tag key={tag.tags_id.id}>
@@ -381,7 +391,7 @@ const ArticlesTemplate = (props) => {
                                 </SideBarContainer>
                             </Show.Mobile>
 
-                            <Show.Desktop>
+                            <Show.Desktop max_width="laptop">
                                 {post_data?.author && (
                                     <Flex ai="center" mt="40px" jc="flex-start">
                                         <WriterImage>
@@ -416,59 +426,64 @@ const ArticlesTemplate = (props) => {
                 </Background>
 
                 <BodyContainer>
-                    <Show.Mobile>
-                        {post_data?.author && (
-                            <Flex ai="center" jc="flex-start" tabletL={{ mt: '24px', mb: '40px' }}>
-                                <WriterImage>
-                                    <img
-                                        src={
-                                            'https://cms.deriv.com/assets/' +
-                                            post_data?.author?.image?.filename_disk
-                                        }
-                                    />
-                                </WriterImage>
-                                <Box>
-                                    <WrittenbyText color="grey-5" size="12px">
-                                        {localize('Written by')}
-                                    </WrittenbyText>
-                                    <InfoText>{localize(post_data?.author?.name)}</InfoText>
-                                </Box>
-                            </Flex>
-                        )}
-                    </Show.Mobile>
-                    <Show.Desktop>
-                        <SideBarContainer fd="column" mr="126px" height="auto">
-                            <Flex
-                                jc="flex-start"
-                                fw="wrap"
-                                max-width="255px"
-                                width=" 100%"
-                                mr="138px"
-                            >
-                                {post_data?.tags.map((tag) => {
-                                    return <Tag key={tag.tags_id.id}>{tag.tags_id.tag_name}</Tag>
-                                })}
-                            </Flex>
-                            <Banner detailsObj={side_banner_data_details} />
-                        </SideBarContainer>
-                    </Show.Desktop>
-
-                    <Flex fd="column" margin="0 auto" ai="center">
-                        <PreviewContainer
-                            dangerouslySetInnerHTML={{
-                                __html: post_data?.blog_post
-                                    .replace(/<p><img /g, '<img ')
-                                    .replace(/\/><\/p>/g, '/>'),
-                            }}
-                        />
-
-                        <Banner detailsObj={footer_banner_details} />
-                        <Show.Mobile>
-                            <Flex mt="24px">
-                                <Banner detailsObj={side_banner_data_details} />
-                            </Flex>
+                    <LeftBodyContainerWrapper>
+                        <Show.Mobile min_width="laptop">
+                            {post_data?.author && (
+                                <Flex ai="center" jc="flex-start">
+                                    <WriterImage>
+                                        <img
+                                            src={
+                                                'https://cms.deriv.com/assets/' +
+                                                post_data?.author?.image?.filename_disk
+                                            }
+                                        />
+                                    </WriterImage>
+                                    <Box>
+                                        <WrittenbyText color="grey-5" size="12px">
+                                            {localize('Written by')}
+                                        </WrittenbyText>
+                                        <InfoText>{localize(post_data?.author?.name)}</InfoText>
+                                    </Box>
+                                </Flex>
+                            )}
                         </Show.Mobile>
-                    </Flex>
+                        <Show.Desktop max_width="laptop">
+                            <SideBarContainer fd="column" height="auto">
+                                <Flex
+                                    jc="flex-start"
+                                    mb="40px"
+                                    fw="wrap"
+                                    max-width="255px"
+                                    width=" 100%"
+                                >
+                                    {post_data?.tags.map((tag) => {
+                                        return (
+                                            <Tag key={tag.tags_id.id}>{tag.tags_id.tag_name}</Tag>
+                                        )
+                                    })}
+                                </Flex>
+                                <Banner detailsObj={side_banner_data_details} />
+                            </SideBarContainer>
+                        </Show.Desktop>
+                    </LeftBodyContainerWrapper>
+                    <RightBodyContainerWrapper>
+                        <Flex fd="column" margin="0 auto" ai="center">
+                            <PreviewContainer
+                                dangerouslySetInnerHTML={{
+                                    __html: post_data?.blog_post
+                                        .replace(/<p><img /g, '<img ')
+                                        .replace(/\/><\/p>/g, '/>'),
+                                }}
+                            />
+
+                            <Banner detailsObj={footer_banner_details} />
+                            <Show.Mobile>
+                                <Flex mt="24px">
+                                    <Banner detailsObj={side_banner_data_details} />
+                                </Flex>
+                            </Show.Mobile>
+                        </Flex>
+                    </RightBodyContainerWrapper>
                 </BodyContainer>
             </SectionContainer>
         </Layout>

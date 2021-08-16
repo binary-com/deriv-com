@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { graphql, StaticQuery } from 'gatsby'
+import { graphql, StaticQuery, navigate } from 'gatsby'
 import styled from 'styled-components'
 import Cookies from 'js-cookie'
 import { getCookiesObject, getCookiesFields, getDataObjFromCookies } from 'common/cookies'
@@ -145,6 +145,12 @@ class Signup extends Component {
             }
 
             binary_socket.close()
+        }
+        if (this.props.appearance === 'public') {
+            const language_code = localStorage.getItem('i18n')
+            const success_link =
+                language_code !== 'en' ? '/' + language_code + '/signup-success' : '/signup-success'
+            navigate(success_link, { replace: true })
         }
     }
 

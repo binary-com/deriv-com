@@ -66,7 +66,7 @@ const WhatAreOptions = () => {
                     <Grid>
                         <WhyTradeItem>
                             <div>
-                                <img src={FixedPayout} alt="fixed payout" />
+                                <img src={FixedPayout} alt="" />
                             </div>
                             <Text mt="1.6rem" mb="0.8rem" weight="bold">
                                 {localize('Fixed, predictable payout')}
@@ -79,7 +79,7 @@ const WhatAreOptions = () => {
                         </WhyTradeItem>
                         <WhyTradeItem>
                             <div>
-                                <img src={SyntheticIndices} alt="synthetic indices" />
+                                <img src={SyntheticIndices} alt="" />
                             </div>
                             <Text mt="1.6rem" mb="0.8rem" weight="bold">
                                 {localize('All favourite markets and more')}
@@ -92,7 +92,7 @@ const WhatAreOptions = () => {
                         </WhyTradeItem>
                         <WhyTradeItem>
                             <div>
-                                <img src={InstantAccess} alt="instant access" />
+                                <img src={InstantAccess} alt="" />
                             </div>
                             <Text mt="1.6rem" mb="0.8rem" weight="bold">
                                 {localize('Instant access')}
@@ -101,7 +101,7 @@ const WhatAreOptions = () => {
                         </WhyTradeItem>
                         <WhyTradeItem>
                             <div>
-                                <img src={UserFriendly} alt="user friendly platforms" />
+                                <img src={UserFriendly} alt="" />
                             </div>
                             <Text mt="1.6rem" mb="0.8rem" weight="bold">
                                 {localize('User-friendly platforms with powerful chart widgets')}
@@ -114,7 +114,7 @@ const WhatAreOptions = () => {
                         </WhyTradeItem>
                         <WhyTradeItem>
                             <div>
-                                <img src={FlexibleTrade} alt="flexible trade types" />
+                                <img src={FlexibleTrade} alt="" />
                             </div>
                             <Text mt="1.6rem" mb="0.8rem" weight="bold">
                                 {localize('Flexible trade types with minimal capital requirements')}

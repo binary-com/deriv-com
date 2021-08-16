@@ -4,38 +4,40 @@ import InstantAccess from 'images/svg/trade-types/instant-access.svg'
 import MinimalRisk from 'images/svg/trade-types/minimal-risk.svg'
 import Seven from 'images/svg/trade-types/seven.svg'
 import SyntheticIndices from 'images/svg/trade-types/synthetic-indices.svg'
-import { localize } from 'components/localization'
+import { localize, Localize } from 'components/localization'
 import { Header, Text } from 'components/elements'
 import { Flex, SectionContainer } from 'components/containers'
 import device from 'themes/device'
 
 const card_content = [
     {
-        header: localize('Quick demo account sign-up'),
-        text: localize('Practise with a demo account preloaded with unlimited virtual funds.'),
+        header: <Localize translate_text="Quick demo account sign-up" />,
+        text: (
+            <Localize translate_text="Practise with a demo account preloaded with unlimited virtual funds." />
+        ),
         image: InstantAccess,
         key: 0,
     },
     {
-        header: localize('Multiple assets on a single platform'),
-        text: localize(
-            'Explore forex, synthetic indices, stocks, and commodities on an all-in-one platform.',
+        header: <Localize translate_text="Multiple assets on a single platform" />,
+        text: (
+            <Localize translate_text="Explore forex, synthetic indices, stocks, and commodities on an all-in-one platform." />
         ),
         image: SyntheticIndices,
         key: 1,
     },
     {
-        header: localize('24/7 trading'),
-        text: localize(
-            'Trade round-the-clock, even on weekends, with our proprietary synthetic indices.',
+        header: <Localize translate_text="24/7 trading" />,
+        text: (
+            <Localize translate_text="Trade round-the-clock, even on weekends, with our proprietary synthetic indices." />
         ),
         image: Seven,
         key: 2,
     },
     {
-        header: localize('Licensed and regulated'),
-        text: localize(
-            'Trade with a regulated industry pioneer trusted by traders for more than 20 years.',
+        header: <Localize translate_text="Licensed and regulated" />,
+        text: (
+            <Localize translate_text="Trade with a regulated industry pioneer trusted by traders for more than 20 years." />
         ),
         image: MinimalRisk,
         key: 3,

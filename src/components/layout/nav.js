@@ -907,12 +907,12 @@ export const NavPartners = ({ no_login_signup }) => {
                                     {localize('Deriv website')}
                                 </Text>
                             </HomeLink>
-                            <HomeLink to="/about">
+                            <HomeLink to="/about/">
                                 <Text color="grey-19" size="var(--text-size-xxs)">
                                     {localize('About us')}
                                 </Text>
                             </HomeLink>
-                            <HomeLink to="/contact_us">
+                            <HomeLink to="/contact_us/">
                                 <Text color="grey-19" size="var(--text-size-xxs)">
                                     {localize('Contact us')}
                                 </Text>
@@ -1017,7 +1017,7 @@ export const NavPartners = ({ no_login_signup }) => {
 
                         <Mobile>
                             <Flex ai="center">
-                                <LogoLinkMobile to="/partners" aria-label={localize('Home')}>
+                                <LogoLinkMobile to="/partners/" aria-label={localize('Home')}>
                                     <ResLogo src={LogoOnly} alt="reslogo" />
                                 </LogoLinkMobile>
                                 <Flex ml="auto" ai="center" width="auto">

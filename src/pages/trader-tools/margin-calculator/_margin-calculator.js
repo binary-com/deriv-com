@@ -83,7 +83,7 @@ const MarginCalculator = () => {
         <>
             <BreadCrumbContainer>
                 <Flex jc="flex-start" ai="center">
-                    <LocalizedLinkText to="/trader-tools" color="grey-5">
+                    <LocalizedLinkText to="/trader-tools/" color="grey-5">
                         {localize("Traders' tools")}
                     </LocalizedLinkText>
                     <img
@@ -379,7 +379,7 @@ const MarginCalculator = () => {
                             >
                                 {localize('Go to DMT5 dashboard')}
                             </StyledLinkButton>
-                            <StyledLinkButton secondary="true" to="/trade-types/margin">
+                            <StyledLinkButton secondary="true" to="/trade-types/margin/">
                                 {localize('Learn more about margin')}
                             </StyledLinkButton>
                         </LinkWrapper>

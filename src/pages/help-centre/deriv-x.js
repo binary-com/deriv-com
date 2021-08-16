@@ -240,7 +240,7 @@ const WithdrawDerivX = () => (
         <Text mt="1.7rem">
             <Localize
                 translate_text="After the required processing time of your selected payment method, your funds will be deposited into your personal account. You can check processing times on our <0>Payment methods</0> page."
-                components={[<LocalizedLinkText to="/payment-methods" color="red" key={0} />]}
+                components={[<LocalizedLinkText to="/payment-methods/" color="red" key={0} />]}
             />
         </Text>
     </ArticleWrapper>

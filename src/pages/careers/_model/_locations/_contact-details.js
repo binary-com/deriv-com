@@ -1,4 +1,8 @@
-const address_asuncion = ['Edificio Australia, Oficina 1,', 'Herib Campos Cervera 886,', 'Asunción']
+const address_asuncion = [
+    'Edificio Atrium, Piso 2,',
+    'Guido Spano Esq. Doctor Morra,',
+    'Asuncion 1849',
+]
 
 const address_belarus = ['Level 2, 25/1-3 Vera Khoruzhey Street,', 'Minsk 220123']
 

@@ -38,7 +38,7 @@ const TradeTheWayYouLike = ({ is_ppc_redirect }) => {
                 <QueryImage
                     data={data['dtrader_artboard']}
                     alt={localize('Dtrader artboard')}
-                    is_eager
+                    loading="eager"
                 />
             </ImageWrapper>
             <OtherPlatform exclude="" is_nav is_ppc_redirect={is_ppc_redirect} />

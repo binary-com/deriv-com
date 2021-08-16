@@ -14,7 +14,7 @@ type QueryImageProps = {
     className?: string
     data: any
     height: string | number
-    is_eager: boolean
+    loading?: 'eager' | 'lazy'
     width: string | number
 }
 
@@ -29,14 +29,15 @@ const QueryImage = ({
     className,
     data,
     height,
-    is_eager,
+    loading,
     width,
+    ...props
 }: QueryImageProps): React.ReactNode => {
     const image = getImage(data)
     if (data) {
         return (
             <ImageWrapper width={width} height={height} className={className}>
-                <GatsbyImage image={image} alt={alt} loading={is_eager ? 'eager' : 'lazy'} />
+                <GatsbyImage image={image} alt={alt} loading={loading} {...props} />
             </ImageWrapper>
         )
     }

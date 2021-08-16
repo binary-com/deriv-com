@@ -252,40 +252,99 @@ exports.onCreateWebpackConfig = ({ actions, getConfig }, { ...options }) => {
 }
 
 // TODO: To be updated to the new shape of the API of the new endpoint
-// exports.createPages = async ({ reporter, actions, graphql }) => {
-//     const { createPage } = actions
-//     const articleTemplate = path.resolve(__dirname, 'src/templates/article.js')
+exports.createPages = async ({ reporter, actions, graphql }) => {
+    const { createPage } = actions
+    const articleTemplate = path.resolve(__dirname, 'src/templates/article-latest.js')
 
-// Query our published articles
-//     const result = await graphql(`
-//         query MyQuery {
-//             directus {
-//                 articles(filter: { status: { _eq: "published" } }) {
-//                     article_title
-//                     article_url
-//                     translations {
-//                         article_title
-//                         languages_id
-//                     }
-//                 }
-//             }
-//         }
-//     `)
+    // Query our published articles
+    const result = await graphql(`
+        query MyQuery {
+            directus {
+                blog(filter: { status: { _eq: "published" } }) {
+                    id
+                    blog_title
+                    published_date
+                    read_time_in_minutes
+                    blog_post
+                    author {
+                        id
+                        name
+                        image {
+                            id
+                            imageFile {
+                                childImageSharp {
+                                    gatsbyImageData
+                                }
+                            }
+                        }
+                    }
+                    main_image {
+                        id
+                        imageFile {
+                            childImageSharp {
+                                gatsbyImageData
+                            }
+                        }
+                    }
+                    tags {
+                        id
+                        tags_id {
+                            id
+                            tag_name
+                        }
+                    }
+                    footer_banners {
+                        id
+                        cta_url
+                        name
+                        desktop_banner_image {
+                            id
+                            imageFile {
+                                childImageSharp {
+                                    gatsbyImageData
+                                }
+                            }
+                        }
+                        mobile_banner_image {
+                            id
+                            imageFile {
+                                childImageSharp {
+                                    gatsbyImageData
+                                }
+                            }
+                        }
+                    }
+                    side_banners {
+                        id
+                        cta_url
+                        name
+                        banner_image {
+                            id
+                            imageFile {
+                                childImageSharp {
+                                    gatsbyImageData
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    `)
 
-//     if (result.errors) {
-//         reporter.panic(result.errors)
-//     }
-//     const articles = result.data.directus.articles
-
-//     articles.forEach((article) => {
-//         createPage({
-//             path: `/blog/articles/${article.article_url}`,
-//             component: articleTemplate,
-//             context: {
-//                 locale: 'en',
-//                 pathname: `/blog/articles/${article.article_url}`,
-//                 slug: article.article_url,
-//             },
-//         })
-//     })
-// }
+    if (result.errors) {
+        reporter.panic(result.errors)
+    }
+    const articles = result.data.directus.blog
+    articles.forEach((article) => {
+        createPage({
+            path: `/academy/blog/articles/${article.id}`,
+            component: articleTemplate,
+            context: {
+                locale: 'en',
+                pathname: `/academy/blog/articles/${article.id}`,
+                slug: article.id,
+            },
+        })
+    })
+}

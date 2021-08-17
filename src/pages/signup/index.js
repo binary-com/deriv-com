@@ -62,9 +62,9 @@ const NewSignup = () => {
     const [submit_state, setSubmitState] = useState('')
     const [email, setEmail] = useState('')
 
-    const updateSubmitState = (submitStatus, email) => {
-        setSubmitState(submitStatus)
-        setEmail(email)
+    const updateSubmitState = (status_arg, email_arg) => {
+        setSubmitState(status_arg)
+        setEmail(email_arg)
     }
 
     return (

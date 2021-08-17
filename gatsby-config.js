@@ -223,7 +223,7 @@ module.exports = {
         {
             resolve: '@directus/gatsby-source-directus',
             options: {
-                url: `https://cms.deriv.com`,
+                url: `http://cms.deriv.com`,
                 dev: {
                     refresh: '5s',
                 },

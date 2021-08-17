@@ -103,7 +103,6 @@
         "url": "https://github.com/binary-com/deriv-com/issues"
     },
     "engines": {
-        "npm": ">=6.9.0",
-        "node": ">=12.3.0"
+        "npm": ">=6.9.0"
     }
 }

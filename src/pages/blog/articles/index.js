@@ -86,32 +86,32 @@ ArticlesPage.propTypes = {
 export default WithIntl()(ArticlesPage)
 
 export const query = graphql`
-directus {
-    blog(filter: {status: {_eq: "published"}}) {
-      id
-      main_image {
-        id
-        filename_disk
-        description
-        imageFile {
-          publicURL
-          relativePath
-          id
+    {
+        directus {
+            blog(filter: { status: { _eq: "published" } }) {
+                id
+                main_image {
+                    id
+                    filename_disk
+                    description
+                    imageFile {
+                        publicURL
+                        relativePath
+                        id
+                    }
+                }
+                slug
+                featured
+                tags {
+                    id
+                    tags_id {
+                        tag_name
+                    }
+                }
+                blog_title
+                blog_description
+                read_time_in_minutes
+            }
         }
-      }
-      slug
-      featured
-      tags {
-        id
-        tags_id {
-          tag_name
-        }
-      }
-      blog_title
-      blog_description
-      read_time_in_minutes
     }
-  }
-}
-
 `

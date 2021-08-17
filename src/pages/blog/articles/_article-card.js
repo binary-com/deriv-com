@@ -69,7 +69,11 @@ const ArticleCard = ({ item }) => {
                         src={item.main_image.imageFile.publicURL}
                         alt={item.main_image.description}
                         width="100%" /> */}
-                    <QueryImage data={item.main_image.imageFile} alt="example" width="100%" />
+                    <QueryImage
+                        data={item.main_image.imageFile.relativePath}
+                        alt="example"
+                        width="100%"
+                    />
                 </ImageWrapper>
 
                 <ContentWrapper>

@@ -1,29 +1,26 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { LinkText, Checkbox } from 'components/elements'
+import { Checkbox, LocalizedLinkText } from 'components/elements'
 import { Localize } from 'components/localization'
 import device from 'themes/device.js'
 
 const CheckboxSpan = styled.span`
     font-size: var(--text-size-xs);
     color: ${(props) => (props.color ? props.color : 'black')};
+
+    a {
+        font-weight: 700;
+    }
+
     @media ${device.tabletL} {
         font-size: 1.75rem;
     }
 `
 const AgreementLabel = ({ handleChangeCheckbox, isChecked, color }) => {
-    const [language_code, setLanguageCode] = useState('en')
-
-    useEffect(() => {
-        setLanguageCode(localStorage.getItem('i18n'))
-    }, [])
-
     const handleChange = (event) => {
         handleChangeCheckbox(event)
     }
-
-    const url = `/${language_code}/terms-and-conditions/`
 
     return (
         <label>
@@ -44,14 +41,13 @@ const AgreementLabel = ({ handleChangeCheckbox, isChecked, color }) => {
                     fontSize="var(--text-size-xs)"
                     translate_text="I agree to the <0>terms and conditions</0>"
                     components={[
-                        <LinkText
-                            className="link-text"
+                        <LocalizedLinkText
                             key={0}
-                            href={url}
-                            target="_blank"
-                            size="14px"
-                            color="red"
+                            type="terms_and_conditions"
+                            external="true"
                             rel="noopener noreferrer"
+                            size="14px"
+                            color="grey-5"
                         />,
                     ]}
                 />

@@ -228,11 +228,9 @@ export const Offices = () => {
                                     ml="1.6rem"
                                 >
                                     <Show.Desktop min_width="mobileL">
-                                        Level 3, W Business Centre,
-                                        <br></br>
-                                        Triq Dun Karm, Birkirkara,
-                                        <br></br>
-                                        BKR 9033
+                                        <p>Level 3, W Business Centre,</p>
+                                        <p>Triq Dun Karm, Birkirkara,</p>
+                                        <p>BKR 9033</p>
                                     </Show.Desktop>
                                     <Show.Mobile>
                                         <StyledMobileAddress>
@@ -276,9 +274,8 @@ export const Offices = () => {
                                     ml="1.6rem"
                                 >
                                     <Show.Desktop min_width="mobileL">
-                                        Office 1902, Jumeirah Business
-                                        <br></br>
-                                        Center 1, JLT Cluster G
+                                        <p>Office 1902, Jumeirah Business</p>
+                                        <p> Center 1, JLT Cluster G</p>
                                     </Show.Desktop>
                                     <Show.Mobile>
                                         <StyledMobileAddress>
@@ -324,11 +321,9 @@ export const Offices = () => {
                                             rel="noopener noreferrer"
                                         >
                                             <Show.Desktop min_width="mobileL">
-                                                C-13, iTech Tower, Jalan Impact,
-                                                <br></br>
-                                                Cyber 6, Cyberjaya 63000,
-                                                <br></br>
-                                                Selangor
+                                                <p>C-13, iTech Tower, Jalan Impact,</p>
+                                                <p>Cyber 6, Cyberjaya 63000,</p>
+                                                <p>Selangor</p>
                                             </Show.Desktop>
                                             <Show.Mobile>
                                                 <StyledMobileAddress>
@@ -363,16 +358,13 @@ export const Offices = () => {
                                             rel="noopener noreferrer"
                                         >
                                             <Show.Desktop min_width="mobileL">
-                                                F16, Level 1, Paragon Labuan,
-                                                <br></br>
-                                                Jalan Tun Mustapha,
-                                                <br></br>
-                                                Labuan 87000, Sabah
+                                                <p>F16, Level 1, Paragon Labuan,</p>
+                                                <p>Jalan Tun Mustapha,</p>
+                                                <p>Labuan 87000, Sabah</p>
                                             </Show.Desktop>
                                             <Show.Mobile>
-                                                F16, Level 1, Paragon Labuan,
-                                                <br></br>
-                                                Jalan Tun Mustapha, Labuan 87000, Sabah
+                                                <p>F16, Level 1, Paragon Labuan,</p>
+                                                <p>Jalan Tun Mustapha, Labuan 87000, Sabah</p>
                                             </Show.Mobile>
                                         </LocalizedLinkText>
                                     </Box>
@@ -401,11 +393,9 @@ export const Offices = () => {
                                             rel="noopener noreferrer"
                                         >
                                             <Show.Desktop min_width="mobileL">
-                                                E-5-6, Soho Ipoh 2,
-                                                <br></br>
-                                                Jalan Sultan Idris Shah,
-                                                <br></br>
-                                                Ipoh 30000, Perak
+                                                <p>E-5-6, Soho Ipoh 2,</p>
+                                                <p>Jalan Sultan Idris Shah,</p>
+                                                <p>Ipoh 30000, Perak</p>
                                             </Show.Desktop>
                                             <Show.Mobile>
                                                 <StyledMobileAddress>
@@ -440,16 +430,13 @@ export const Offices = () => {
                                             rel="noopener noreferrer"
                                         >
                                             <Show.Desktop min_width="mobileL">
-                                                67-1 &amp; 69-1, Jalan KLJ 6,
-                                                <br></br>
-                                                Taman Kota Laksamana Jaya,
-                                                <br></br>
-                                                Melaka 75200
+                                                <p>67-1 &amp; 69-1, Jalan KLJ 6,</p>
+                                                <p>Taman Kota Laksamana Jaya,</p>
+                                                <p>Melaka 75200</p>
                                             </Show.Desktop>
                                             <Show.Mobile>
-                                                67-1 & 69-1, Jalan KLJ 6, Taman Kota
-                                                <br></br>
-                                                Laksamana Jaya, Melaka 75200
+                                                <p>67-1 & 69-1, Jalan KLJ 6, Taman Kota</p>
+                                                <p>Laksamana Jaya, Melaka 75200</p>
                                             </Show.Mobile>
                                         </LocalizedLinkText>
                                     </Box>
@@ -491,16 +478,15 @@ export const Offices = () => {
                                     ml="1.6rem"
                                 >
                                     <Show.Desktop min_width="mobileL">
-                                        Edificio Atrium, Piso 2, Guido
-                                        <br></br>
-                                        Spano Esq. Doctor Morra,
-                                        <br></br>
-                                        Asunción 1849
+                                        <p>Edificio Atrium, Piso 2,</p>
+                                        <p>Guido Spano Esq. Doctor Morra,</p>
+                                        <p>Asunción 1849</p>
                                     </Show.Desktop>
                                     <Show.Mobile>
                                         <StyledMobileAddress>
-                                            Edificio Atrium, Piso 2, Guido Spano Esq. Doctor Morra,
-                                            Asunción 1849
+                                            <p>Edificio Atrium, Piso 2,</p>
+                                            <p>Guido Spano Esq. Doctor Morra,</p>
+                                            <p>Asunción 1849</p>
                                         </StyledMobileAddress>
                                     </Show.Mobile>
                                 </LocalizedLinkText>
@@ -538,9 +524,8 @@ export const Offices = () => {
                                     mt="0.8rem"
                                     ml="1.6rem"
                                 >
-                                    Level 5, 42 Agias Filaxeos,
-                                    <br></br>
-                                    Limassol 3025
+                                    <p>Level 5, 42 Agias Filaxeos,</p>
+                                    <p>Limassol 3025</p>
                                 </LocalizedLinkText>
                             </BorderBox>
                         </Flex>
@@ -576,9 +561,8 @@ export const Offices = () => {
                                     mt="0.8rem"
                                     ml="1.6rem"
                                 >
-                                    Level 2 East Wing, Kigali Heights,
-                                    <br></br>
-                                    KG7 Avenue, Kigali
+                                    <p>Level 2 East Wing, Kigali Heights,</p>
+                                    <p>KG7 Avenue, Kigali</p>
                                 </LocalizedLinkText>
                             </BorderBox>
                         </Flex>
@@ -615,9 +599,8 @@ export const Offices = () => {
                                     ml="1.6rem"
                                 >
                                     <Show.Desktop min_width="mobileL">
-                                        Level 2, 25/1-3 Vera Khoruzhey
-                                        <br></br>
-                                        Street, Minsk 220123
+                                        <p>Level 2, 25/1-3 Vera Khoruzhey</p>
+                                        <p>Street, Minsk 220123</p>
                                     </Show.Desktop>
                                     <Show.Mobile>
                                         Level 2, 25/1-3 Vera Khoruzhey Street, Minsk 220123

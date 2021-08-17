@@ -70,7 +70,7 @@ const ArticleCard = ({ item }) => {
                         alt={item.main_image.description}
                         width="100%" /> */}
                     <QueryImage
-                        data={item.main_image.imageFile.relativePath}
+                        data={item.main_image.imageFile.childImageSharp.gatsbyImageData}
                         alt="example"
                         width="100%"
                     />

@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import Signup, { Appearances } from 'components/custom/signup'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
@@ -63,10 +62,11 @@ const NewSignup = () => {
     const [submit_state, setSubmitState] = useState('')
     const [email, setEmail] = useState('')
 
-    function updateSubmitState(submitStatus, email) {
+    const updateSubmitState = (submitStatus, email) => {
         setSubmitState(submitStatus)
         setEmail(email)
     }
+
     return (
         <Layout type="static" margin_top={'0'}>
             <SEO
@@ -104,10 +104,6 @@ const NewSignup = () => {
             <StyledDiv />
         </Layout>
     )
-}
-
-NewSignup.propTypes = {
-    autofocus: PropTypes.bool,
 }
 
 export default WithIntl()(NewSignup)

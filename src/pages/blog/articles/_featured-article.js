@@ -61,27 +61,28 @@ const CoverImg = styled.img`
     object-fit: cover;
 `
 
-const FeaturedArticle = ({ article_data }) => {
+const FeaturedArticle = ({ item }) => {
     return (
-        <RedirectLink to={`/blog/articles/${article_data[0].slug}/`}>
+        <RedirectLink to={`/blog/articles/${item.slug}/`}>
             <StyledFlex jc="flex-start" mt="96px">
                 <ImageWrapper>
                     <CoverImg
-                        src="https://source.unsplash.com/random/10"
-                        alt="Video card"
+                        src={item.main_image.imageFile.publicURL}
+                        alt={item.main_image.description}
                         width="100%"
                     />
                 </ImageWrapper>
                 <FeaturedContentWrapper fd="column" p="35px 40px" width="45%">
                     <Flex jc="flex-start" height="auto" fw="wrap">
-                        {article_data[0].category.slice(0, 2).map((item_category) => (
-                            <StyledCategories as="h4" type="paragraph-2" key={item_category}>
-                                {item_category}
-                            </StyledCategories>
-                        ))}
-                        {article_data[0].category.length > 2 && (
+                        {item?.tags &&
+                            item.tags.slice(0, 2).map((tag) => (
+                                <StyledCategories as="h4" type="paragraph-2" key={tag.id}>
+                                    {tag.tags_id.tag_name}
+                                </StyledCategories>
+                            ))}
+                        {item?.tags.length > 2 && (
                             <StyledCategories as="h4" type="paragraph-2">
-                                {`+${article_data[0].category.slice(2).length.toString()}`}
+                                {`+${item.tags.slice(2).length.toString()}`}
                             </StyledCategories>
                         )}
                         <Header
@@ -91,14 +92,14 @@ const FeaturedArticle = ({ article_data }) => {
                             type="paragraph-2"
                             width="auto"
                         >
-                            {`• ${article_data[0].reading_time} min read`}
+                            {item.read_time_in_minutes && `• ${item.read_time_in_minutes} min read`}
                         </Header>
                     </Flex>
                     <Header as="h3" type="heading-3">
-                        {article_data[0].title}
+                        {item.blog_title}
                     </Header>
                     <Header as="p" type="paragraph-1" weight="normal" mt="8px" color="grey-5">
-                        {article_data[0].description}
+                        {item.blog_description}
                     </Header>
                 </FeaturedContentWrapper>
             </StyledFlex>
@@ -107,7 +108,7 @@ const FeaturedArticle = ({ article_data }) => {
 }
 
 FeaturedArticle.propTypes = {
-    article_data: PropTypes.arrayOf(PropTypes.object),
+    item: PropTypes.object,
 }
 
 export default FeaturedArticle

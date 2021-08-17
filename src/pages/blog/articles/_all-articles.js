@@ -8,6 +8,9 @@ import { Text, LocalizedLinkText } from 'components/elements'
 import RightArrow from 'images/svg/black-right-arrow.svg'
 
 const AllArticles = ({ article_data }) => {
+    //TODO = reverse search result after any article will be featured in cms!
+    const featured_article = article_data.find((article) => article.featured === true)
+
     return (
         <Container m="0 auto" fd="column" ai="center">
             <Flex jc="flex-start" ai="center" mt="40px">
@@ -17,11 +20,12 @@ const AllArticles = ({ article_data }) => {
                 <StyledImg src={RightArrow} height="16" width="16" />
                 <Text>All articles</Text>
             </Flex>
-            <FeaturedArticle article_data={article_data} />
+            {featured_article && <FeaturedArticle item={featured_article} />}
             <VideoGrid m="40px 0">
-                {article_data.map((item) => {
-                    return <ArticleCard key={item.id} item={item} />
-                })}
+                {article_data &&
+                    article_data.map((item) => {
+                        return <ArticleCard key={item.id} item={item} />
+                    })}
             </VideoGrid>
         </Container>
     )

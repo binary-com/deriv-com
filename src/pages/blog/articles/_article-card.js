@@ -65,18 +65,23 @@ const ArticleCard = ({ item }) => {
         <RedirectLink to={`/blog/articles/${item.slug}`}>
             <ArticleCardWrapper>
                 <ImageWrapper>
-                    <ContainedImg src={item.image} alt="Video card" width="100%" />
+                    <ContainedImg
+                        src={item.main_image.imageFile.publicURL}
+                        alt={item.main_image.description}
+                        width="100%"
+                    />
                 </ImageWrapper>
                 <ContentWrapper>
                     <Flex jc="flex-start" height="auto" fw="wrap">
-                        {item.category.slice(0, 2).map((item_category) => (
-                            <StyledCategories as="h4" type="paragraph-2" key={item_category}>
-                                {item_category}
-                            </StyledCategories>
-                        ))}
-                        {item.category.length > 2 && (
+                        {item.tags &&
+                            item.tags.slice(0, 2).map((tag) => (
+                                <StyledCategories as="h4" type="paragraph-2" key={tag.id}>
+                                    {tag.tags_id.tag_name}
+                                </StyledCategories>
+                            ))}
+                        {item.tags.length > 2 && (
                             <StyledCategories as="h4" type="paragraph-2">
-                                {`+${item.category.slice(2).length.toString()}`}
+                                {`+${item.tags.slice(2).length.toString()}`}
                             </StyledCategories>
                         )}
                         <Header
@@ -86,14 +91,14 @@ const ArticleCard = ({ item }) => {
                             color="grey-5"
                             width="auto"
                         >
-                            {`• ${item.reading_time} min read`}
+                            {`• ${item.read_time_in_minutes} min read`}
                         </Header>
                     </Flex>
                     <Header as="h3" type="subtitle-2">
-                        {item.title}
+                        {item.blog_title}
                     </Header>
                     <Header as="p" type="paragraph-2" weight="normal" mt="8px" color="grey-5">
-                        {item.description}
+                        {item.blog_description}
                     </Header>
                 </ContentWrapper>
             </ArticleCardWrapper>
@@ -102,7 +107,7 @@ const ArticleCard = ({ item }) => {
 }
 
 ArticleCard.propTypes = {
-    item: PropTypes.arrayOf(PropTypes.object),
+    item: PropTypes.object,
 }
 
 export default ArticleCard

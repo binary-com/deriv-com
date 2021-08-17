@@ -124,29 +124,17 @@ export default WithIntl()(ArticleTemplate)
 
 // Query our published articles by slug
 export const query = graphql`
-    query MyQuery($slug: String) {
+    query MyQuery {
         directus {
-            articles(filter: { article_url: { _eq: $slug } }) {
-                article_title
-                article_tags
-                date_created
-                featured
-                article_body
-                main_image {
-                    id
+            homepage_banners {
+                description
+                subject
+                thumbnail {
                     imageFile {
-                        childImageSharp {
-                            gatsbyImageData
-                        }
-                    }
-                }
-                main_video {
-                    id
-                    imageFile {
-                        id
                         publicURL
                     }
                 }
+                id
             }
         }
     }

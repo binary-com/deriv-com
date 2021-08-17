@@ -1,8 +1,10 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { graphql } from 'gatsby'
 import Subscribe from '../components/_subscribe'
 import AllArticles from './_all-articles'
-import { article_data } from './_data'
+// import { article_data } from './_data'
 import Layout from 'components/layout/layout'
 import { SEO, Container, Flex } from 'components/containers'
 import { Header } from 'components/elements'
@@ -49,31 +51,66 @@ const StyledHeader = styled(Header)`
     }
 `
 
-const ArticlesPage = () => (
-    <Layout>
-        <SEO
-            title={localize('Articles, trading guide and resources | Deriv')}
-            description={localize(
-                "If you are looking for trading guide or tutorials, visit Deriv's trading academy and learn how to trade online.",
-            )}
-        />
-        <Hero jc="center" ai="center">
-            <SmallContainer>
-                <Header as="h2" type="heading-3" color="white" weight="400" align="left">
-                    {localize('Deriv Blog')}
-                </Header>
-                <StyledHeader as="h2" type="heading-2" color="white" align="left">
-                    {localize('The latest articles and resources')}
-                </StyledHeader>
-            </SmallContainer>
-        </Hero>
-        <AllArticles article_data={article_data} />
-        <Container>
-            <Flex direction="column" ai="flex-start" jc="space-between">
-                <Subscribe />
-            </Flex>
-        </Container>
-    </Layout>
-)
+const ArticlesPage = ({ data }) => {
+    const article_data = data.directus.blog
+    return (
+        <Layout>
+            <SEO
+                title={localize('Deriv Blog')}
+                description={localize(
+                    "If you are looking for trading guide or tutorials, visit Deriv's trading academy and learn how to trade online.",
+                )}
+            />
+            <Hero jc="center" ai="center">
+                <SmallContainer>
+                    <Header as="h2" type="heading-3" color="white" weight="400" align="left">
+                        {localize('Deriv Blog')}
+                    </Header>
+                    <StyledHeader as="h2" type="heading-2" color="white" align="left">
+                        {localize('The latest articles and resources')}
+                    </StyledHeader>
+                </SmallContainer>
+            </Hero>
+            <AllArticles article_data={article_data} />
+            <Container>
+                <Flex direction="column" ai="flex-start" jc="space-between">
+                    <Subscribe />
+                </Flex>
+            </Container>
+        </Layout>
+    )
+}
 
+ArticlesPage.propTypes = {
+    data: PropTypes.object,
+}
 export default WithIntl()(ArticlesPage)
+
+export const query = graphql`
+    {
+        directus {
+            blog(filter: { status: { _eq: "published" } }) {
+                id
+                main_image {
+                    id
+                    filename_disk
+                    description
+                    imageFile {
+                        publicURL
+                    }
+                }
+                slug
+                featured
+                tags {
+                    id
+                    tags_id {
+                        tag_name
+                    }
+                }
+                blog_title
+                blog_description
+                read_time_in_minutes
+            }
+        }
+    }
+`

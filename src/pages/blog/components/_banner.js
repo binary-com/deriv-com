@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import { getImage } from 'gatsby-plugin-image'
+import { QueryImage } from 'components/elements'
 import { Flex } from 'components/containers'
 import { LocalizedLink } from 'components/localization'
 import device from 'themes/device'
@@ -12,9 +14,6 @@ const ParentWrapper = styled(Flex)`
     @media ${device.tabletS} {
         max-width: ${(props) => (props.max_w_tablet ? props.max_w_tablet : '100%')};
     }
-`
-const ImgWrapper = styled.img`
-    width: 100%;
 `
 const DesktopWrapper = styled(Flex)`
     @media ${device.tabletS} {
@@ -40,16 +39,16 @@ const Banner = ({ detailsObj }) => {
             >
                 {detailsObj.imgSrcDesktop && !detailsObj.imgSrcMobile && (
                     <>
-                        <ImgWrapper src={detailsObj.imgSrcDesktop} />
+                        <QueryImage data={getImage(detailsObj.imgSrcDesktop)} alt="" />
                     </>
                 )}
                 {detailsObj.imgSrcDesktop && detailsObj.imgSrcMobile && (
                     <>
                         <DesktopWrapper>
-                            <ImgWrapper src={detailsObj.imgSrcDesktop} />
+                            <QueryImage data={getImage(detailsObj.imgSrcDesktop)} alt="" />
                         </DesktopWrapper>
                         <MobileWrapper>
-                            <ImgWrapper src={detailsObj.imgSrcMobile} />
+                            <QueryImage data={getImage(detailsObj.imgSrcMobile)} alt="" />
                         </MobileWrapper>
                     </>
                 )}
@@ -59,7 +58,7 @@ const Banner = ({ detailsObj }) => {
 }
 
 Banner.propTypes = {
-    detailsObj: PropTypes.obj,
+    detailsObj: PropTypes.object,
 }
 
 export default Banner

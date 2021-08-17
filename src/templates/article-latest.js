@@ -1,4 +1,5 @@
 import React from 'react'
+import { getImage } from 'gatsby-plugin-image'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
@@ -6,7 +7,7 @@ import Banner from '../pages/blog/components/_banner'
 import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { SEO, Show, Box, Flex, Container, SectionContainer } from 'components/containers'
-import { Header, Text } from 'components/elements'
+import { Header, QueryImage, Text } from 'components/elements'
 import device from 'themes/device'
 
 const Background = styled.div`
@@ -40,7 +41,6 @@ const HeroContainer = styled(Container)`
         margin-bottom: 0;
         padding: 36px 16px 0;
         flex-direction: column;
-        background-image: linear-gradient(var(--color-grey-8) 80%, var(--color-white) 20%);
     }
 `
 const HeroLeftWrapper = styled(Box)`
@@ -332,6 +332,7 @@ const convertDate = (date) => {
 
 const ArticlesTemplate = (props) => {
     const post_data = props.data.directus.blog[0]
+
     const footer_banner_data = post_data.footer_banners
     const side_banner_data = post_data.side_banners
 
@@ -340,8 +341,7 @@ const ArticlesTemplate = (props) => {
         max_w_tablet: '320px',
         isExternal: true,
         redirectLink: side_banner_data.cta_url,
-        imgSrcDesktop:
-            'https://cms.deriv.com/assets/' + side_banner_data.banner_image.filename_disk,
+        imgSrcDesktop: side_banner_data.banner_image.imageFile,
     }
 
     const footer_banner_details = {
@@ -349,10 +349,8 @@ const ArticlesTemplate = (props) => {
         max_w_tablet: '580px',
         isExternal: true,
         redirectLink: footer_banner_data.cta_url,
-        imgSrcDesktop:
-            'https://cms.deriv.com/assets/' + footer_banner_data.desktop_banner_image.filename_disk,
-        imgSrcMobile:
-            'https://cms.deriv.com/assets/' + footer_banner_data.mobile_banner_image.filename_disk,
+        imgSrcDesktop: footer_banner_data.desktop_banner_image.imageFile,
+        imgSrcMobile: footer_banner_data.mobile_banner_image.imageFile,
     }
 
     return (
@@ -395,11 +393,9 @@ const ArticlesTemplate = (props) => {
                                 {post_data?.author && (
                                     <Flex ai="center" mt="40px" jc="flex-start">
                                         <WriterImage>
-                                            <img
-                                                src={
-                                                    'https://cms.deriv.com/assets/' +
-                                                    post_data?.author?.image?.filename_disk
-                                                }
+                                            <QueryImage
+                                                data={getImage(post_data?.author?.image?.imageFile)}
+                                                alt=""
                                             />
                                         </WriterImage>
                                         <Box>
@@ -414,11 +410,9 @@ const ArticlesTemplate = (props) => {
                         </HeroLeftWrapper>
                         <HeroRightWrapper>
                             <HeroImageContainer tabletL={{ mt: '24px' }}>
-                                <img
-                                    src={
-                                        'https://cms.deriv.com/assets/' +
-                                        post_data?.main_image?.filename_disk
-                                    }
+                                <QueryImage
+                                    data={getImage(post_data?.main_image?.imageFile)}
+                                    alt=""
                                 />
                             </HeroImageContainer>
                         </HeroRightWrapper>
@@ -431,11 +425,9 @@ const ArticlesTemplate = (props) => {
                             {post_data?.author && (
                                 <Flex ai="center" jc="flex-start">
                                     <WriterImage>
-                                        <img
-                                            src={
-                                                'https://cms.deriv.com/assets/' +
-                                                post_data?.author?.image?.filename_disk
-                                            }
+                                        <QueryImage
+                                            data={getImage(post_data?.author?.image.imageFile)}
+                                            alt=""
                                         />
                                     </WriterImage>
                                     <Box>
@@ -510,12 +502,21 @@ export const query = graphql`
                     id
                     name
                     image {
-                        filename_disk
+                        id
+                        imageFile {
+                            childImageSharp {
+                                gatsbyImageData
+                            }
+                        }
                     }
                 }
                 main_image {
                     id
-                    filename_disk
+                    imageFile {
+                        childImageSharp {
+                            gatsbyImageData
+                        }
+                    }
                 }
                 tags {
                     id
@@ -529,10 +530,20 @@ export const query = graphql`
                     cta_url
                     name
                     desktop_banner_image {
-                        filename_disk
+                        id
+                        imageFile {
+                            childImageSharp {
+                                gatsbyImageData
+                            }
+                        }
                     }
                     mobile_banner_image {
-                        filename_disk
+                        id
+                        imageFile {
+                            childImageSharp {
+                                gatsbyImageData
+                            }
+                        }
                     }
                 }
                 side_banners {
@@ -540,7 +551,12 @@ export const query = graphql`
                     cta_url
                     name
                     banner_image {
-                        filename_disk
+                        id
+                        imageFile {
+                            childImageSharp {
+                                gatsbyImageData
+                            }
+                        }
                     }
                 }
             }

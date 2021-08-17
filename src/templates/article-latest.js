@@ -341,16 +341,16 @@ const ArticlesTemplate = (props) => {
         max_w_tablet: '320px',
         isExternal: true,
         redirectLink: side_banner_data.cta_url,
-        imgSrcDesktop: side_banner_data.banner_image.imageFile,
+        imgSrcDesktop: getImage(side_banner_data.banner_image.imageFile),
     }
 
     const footer_banner_details = {
         max_w_value: '792px',
         max_w_tablet: '580px',
         isExternal: true,
-        redirectLink: footer_banner_data.cta_url,
-        imgSrcDesktop: footer_banner_data.desktop_banner_image.imageFile,
-        imgSrcMobile: footer_banner_data.mobile_banner_image.imageFile,
+        redirectLink: footer_banner_data?.cta_url,
+        imgSrcDesktop: getImage(footer_banner_data?.desktop_banner_image?.imageFile),
+        imgSrcMobile: getImage(footer_banner_data?.mobile_banner_image?.imageFile),
     }
 
     return (

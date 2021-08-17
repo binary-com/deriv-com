@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { getImage } from 'gatsby-plugin-image'
 import { QueryImage } from 'components/elements'
 import { Flex } from 'components/containers'
 import { LocalizedLink } from 'components/localization'
@@ -39,16 +38,16 @@ const Banner = ({ detailsObj }) => {
             >
                 {detailsObj.imgSrcDesktop && !detailsObj.imgSrcMobile && (
                     <>
-                        <QueryImage data={getImage(detailsObj.imgSrcDesktop)} alt="" />
+                        <QueryImage data={detailsObj.imgSrcDesktop} alt="" />
                     </>
                 )}
                 {detailsObj.imgSrcDesktop && detailsObj.imgSrcMobile && (
                     <>
                         <DesktopWrapper>
-                            <QueryImage data={getImage(detailsObj.imgSrcDesktop)} alt="" />
+                            <QueryImage data={detailsObj.imgSrcDesktop} alt="" />
                         </DesktopWrapper>
                         <MobileWrapper>
-                            <QueryImage data={getImage(detailsObj.imgSrcMobile)} alt="" />
+                            <QueryImage data={detailsObj.imgSrcMobile} alt="" />
                         </MobileWrapper>
                     </>
                 )}

@@ -19,7 +19,6 @@ const Wrapper = styled.section`
     background-color: rgba(200, 214, 215, 0.22);
 
     @media ${device.mobileL} {
-        height: 100vh;
         padding: 0;
     }
 `

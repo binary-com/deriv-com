@@ -52,8 +52,6 @@ const StyledHeader = styled(Header)`
 
 const ArticlesPage = ({ data }) => {
     const article_data = data.directus.blog
-    // eslint-disable-next-line no-console
-    console.log({ article_data })
     return (
         <Layout>
             <SEO

@@ -20,7 +20,7 @@ const dots = keyframes`
     }
     80%, 100% {
         text-shadow:
-            0.25em 0 0 grey,
+            0.25em 0 0 black,
             0.5em 0 0 grey;
     }
 `

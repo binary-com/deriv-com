@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { market_news_data } from './_markets_news_data'
 import { SectionContainer, Container, Flex } from 'components/containers'
-import { Header } from 'components/elements/typography'
+import { Header, QueryImage } from 'components/elements'
+import { LocalizedLink } from 'components/localization'
 import EyeIcon from 'images/svg/eye.svg'
 import device from 'themes/device'
 
@@ -36,29 +36,43 @@ const StyledFlex = styled(Flex)`
     max-height: 83px;
 `
 
+const StyledLocalizedLink = styled(LocalizedLink)`
+    text-decoration: none;
+`
+
+// Can modify this for second phase to get the tag name
+// const getTagName = (tags) => {
+//     for (let i = 0; i < tags.length; i++){
+//         if (tags[i].tags_id.tag_name !== 'Market News') return tags[i].tags_id.tag_name
+//     }
+//     return 'Market News'
+// }
+
 const MarketNews = ({ data }) => {
-    console.log(data) //eslint-disable-line
     return (
         <SectionContainer>
             <Container>
                 <Flex fd="column">
                     <Header mb="20px" align="center" type="heading-3" as="h3">
-                        Market News
+                        Market news
                     </Header>
                     <MarketsNewsWrapper>
-                        {market_news_data
-                            .filter((data) => data.report_type === 'Weekly report')
-                            .slice(0, 6)
-                            .map((data, index) => {
-                                return (
+                        {data.map((data, index) => {
+                            return (
+                                <StyledLocalizedLink key={index} to={`/academy/blog/${data.slug}`}>
                                     <StyledFlex key={index}>
-                                        <img src={data.img_source} width="104px" height="78px" />
+                                        <QueryImage
+                                            data={data.main_image.imageFile}
+                                            width="104px"
+                                            height="78px"
+                                        />
                                         <Flex ml="8px" fd="column">
                                             <Header type="paragraph-2" color="blue-9">
-                                                <StyledSpan>{data.report_type}</StyledSpan>
+                                                {/* We'll stick to just weekly report for phase 1 */}
+                                                <StyledSpan>Weekly report</StyledSpan>
                                             </Header>
                                             <Header mt="8px" type="paragraph-1" weight="bold">
-                                                {data.date}
+                                                {data.blog_title}
                                             </Header>
                                             <Flex
                                                 mt="auto"
@@ -74,13 +88,14 @@ const MarketNews = ({ data }) => {
                                                     weight="normal"
                                                     color="grey-5"
                                                 >
-                                                    {data.read_time} min read
+                                                    {data.read_time_in_minutes} min read
                                                 </Header>
                                             </Flex>
                                         </Flex>
                                     </StyledFlex>
-                                )
-                            })}
+                                </StyledLocalizedLink>
+                            )
+                        })}
                     </MarketsNewsWrapper>
                 </Flex>
             </Container>

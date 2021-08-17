@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { ContainedImg } from '../common/_styles'
+// import { ContainedImg } from '../common/_styles'
 import { Flex } from 'components/containers'
-import { Header } from 'components/elements'
+import { Header, QueryImage } from 'components/elements'
 import { LocalizedLink } from 'components/localization'
 import device from 'themes/device'
 
@@ -65,12 +65,13 @@ const ArticleCard = ({ item }) => {
         <RedirectLink to={`/blog/articles/${item.slug}`}>
             <ArticleCardWrapper>
                 <ImageWrapper>
-                    <ContainedImg
+                    {/* <ContainedImg
                         src={item.main_image.imageFile.publicURL}
                         alt={item.main_image.description}
-                        width="100%"
-                    />
+                        width="100%" /> */}
+                    <QueryImage data={item.main_image} alt="example" width="100%" />
                 </ImageWrapper>
+
                 <ContentWrapper>
                     <Flex jc="flex-start" height="auto" fw="wrap">
                         {item.tags &&

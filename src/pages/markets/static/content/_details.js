@@ -118,7 +118,7 @@ export const EuropeDetails = (index) => {
         </Text>,
         <Text key={2}>
             <Localize
-                translate_text="<0>Euro 50</0> Index follows the performance of the 50 largest and most liquid stocks in the EU."
+                translate_text="<0>Europe 50</0> Index follows the performance of the 50 largest and most liquid stocks in the EU."
                 components={[<strong key={0} />]}
             />
         </Text>,
@@ -130,7 +130,7 @@ export const EuropeDetails = (index) => {
         </Text>,
         <Text key={4}>
             <Localize
-                translate_text="<0>German 30</0> follows the stock performance of the 30 major listed companies in Germany."
+                translate_text="<0>Germany 30</0> follows the stock performance of the 30 major listed companies in Germany."
                 components={[<strong key={0} />]}
             />
         </Text>,
@@ -305,7 +305,7 @@ export const EuropeanIndicesDetails = () => (
         </Text>
         <Text>
             <Localize
-                translate_text="<0>Euro 50</0> Index follows the performance of the 50 largest and most liquid stocks in the EU."
+                translate_text="<0>Europe 50</0> Index follows the performance of the 50 largest and most liquid stocks in the EU."
                 components={[<strong key={0} />]}
             />
         </Text>
@@ -317,7 +317,7 @@ export const EuropeanIndicesDetails = () => (
         </Text>
         <Text>
             <Localize
-                translate_text="<0>German 30</0> follows the stock performance of the 30 major listed companies in Germany."
+                translate_text="<0>Germany 30</0> follows the stock performance of the 30 major listed companies in Germany."
                 components={[<strong key={0} />]}
             />
         </Text>

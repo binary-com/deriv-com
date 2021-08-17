@@ -8,8 +8,7 @@ import { Text, LocalizedLinkText } from 'components/elements'
 import RightArrow from 'images/svg/black-right-arrow.svg'
 
 const AllArticles = ({ article_data }) => {
-    //TODO =bug:empty search result while any article is featured in cms!
-    const featured_article = article_data.find((article) => !article.featured)
+    const featured_article = article_data.find((article) => article.featured)
 
     return (
         <Container m="0 auto" fd="column" ai="center">

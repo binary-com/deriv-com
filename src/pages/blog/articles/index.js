@@ -4,7 +4,6 @@ import styled from 'styled-components'
 import { graphql } from 'gatsby'
 import Subscribe from '../components/_subscribe'
 import AllArticles from './_all-articles'
-// import { article_data } from './_data'
 import Layout from 'components/layout/layout'
 import { SEO, Container, Flex } from 'components/containers'
 import { Header } from 'components/elements'
@@ -53,6 +52,8 @@ const StyledHeader = styled(Header)`
 
 const ArticlesPage = ({ data }) => {
     const article_data = data.directus.blog
+    // eslint-disable-next-line no-console
+    console.log({ article_data })
     return (
         <Layout>
             <SEO

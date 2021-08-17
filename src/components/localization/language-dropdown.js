@@ -199,7 +199,7 @@ const Dropdown = ({ default_option, onChange, option_list, is_high_nav }) => {
                         width="24px"
                         height="24px"
                         data={data[default_abbreviation]}
-                        alt={default_option.short_name}
+                        alt=""
                     />
                     <ResponsiveText color="white" ml="0.8rem" weight="bold" mr="0.4rem">
                         {default_option.short_name}
@@ -227,7 +227,7 @@ const Dropdown = ({ default_option, onChange, option_list, is_high_nav }) => {
                                         width="24px"
                                         height="24px"
                                         data={data[abbreviation]}
-                                        alt={option.text}
+                                        alt=""
                                     />
                                     <Text ml="0.8rem" color={current_option ? 'red' : 'black'}>
                                         {option.text}

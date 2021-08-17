@@ -38,32 +38,26 @@ const WhyTradeWithUsArr = [
     {
         title: <Localize translate_text="Extended market hours" />,
         icon: ExtendedTimeSVG,
-        image_alt: localize('extended market hours'),
     },
     {
         title: <Localize translate_text="No commissions" />,
         icon: NoCommisionSVG,
-        image_alt: localize('no commissions'),
     },
     {
         title: <Localize translate_text="High leverage" />,
         icon: HighLeverageSVG,
-        image_alt: localize('high leverage'),
     },
     {
         title: <Localize translate_text="12+ world indices" />,
         icon: TwelveIndicesSVG,
-        image_alt: localize('world indices'),
     },
     {
         title: <Localize translate_text="40+ stocks" />,
         icon: FourtyStocksSVG,
-        image_alt: localize('40 stocks'),
     },
     {
         title: <Localize translate_text="Low capital requirement" />,
         icon: LowCapitalSVG,
-        image_alt: localize('low capital'),
     },
 ]
 

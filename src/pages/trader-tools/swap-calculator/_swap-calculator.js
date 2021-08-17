@@ -12,6 +12,7 @@ import {
     numberSubmitFormatNegative,
     numberSubmitFormat,
     numberWithCommas,
+    getMaxLength,
 } from '../common/_utility'
 import {
     optionItemDefault,
@@ -200,14 +201,13 @@ const SwapCalculator = () => {
                                                             'swapCurrency',
                                                             getCurrency(value),
                                                         )
-
                                                         setFieldValue(
                                                             'contractSize',
                                                             getContractSize(value),
                                                         )
                                                         setFieldValue('symbol', value)
                                                     }}
-                                                    contract_size={values.contractSize}
+                                                    contractSize={values.contractSize}
                                                     error={touched.symbol && errors.symbol}
                                                     onBlur={handleBlur}
                                                 />
@@ -246,7 +246,10 @@ const SwapCalculator = () => {
                                                                     )
                                                                     current_input.focus()
                                                                 }}
-                                                                maxLength="8"
+                                                                maxLength={getMaxLength(
+                                                                    values.volume,
+                                                                    8,
+                                                                )}
                                                                 background="white"
                                                             />
                                                         )}
@@ -289,7 +292,10 @@ const SwapCalculator = () => {
                                                                     )
                                                                     current_input.focus()
                                                                 }}
-                                                                maxLength="15"
+                                                                maxLength={getMaxLength(
+                                                                    values.assetPrice,
+                                                                    15,
+                                                                )}
                                                                 background="white"
                                                             />
                                                         )}
@@ -332,7 +338,10 @@ const SwapCalculator = () => {
                                                                     )
                                                                     current_input.focus()
                                                                 }}
-                                                                maxLength="15"
+                                                                maxLength={getMaxLength(
+                                                                    values.swapRate,
+                                                                    15,
+                                                                )}
                                                                 background="white"
                                                             />
                                                         )}
@@ -507,6 +516,7 @@ const SwapCalculator = () => {
 
                                             <CalculatorBody>
                                                 <Dropdown
+                                                    mb="3.6rem"
                                                     default_option={optionItemDefault}
                                                     option_list={values.optionList}
                                                     label={localize('Symbol')}
@@ -561,7 +571,10 @@ const SwapCalculator = () => {
                                                                     )
                                                                     current_input.focus()
                                                                 }}
-                                                                maxLength="8"
+                                                                maxLength={getMaxLength(
+                                                                    values.volume,
+                                                                    8,
+                                                                )}
                                                                 background="white"
                                                             />
                                                         )}
@@ -604,7 +617,10 @@ const SwapCalculator = () => {
                                                                     )
                                                                     current_input.focus()
                                                                 }}
-                                                                maxLength="15"
+                                                                maxLength={getMaxLength(
+                                                                    values.pointValue,
+                                                                    15,
+                                                                )}
                                                                 background="white"
                                                             />
                                                         )}
@@ -647,7 +663,10 @@ const SwapCalculator = () => {
                                                                     )
                                                                     current_input.focus()
                                                                 }}
-                                                                maxLength="15"
+                                                                maxLength={getMaxLength(
+                                                                    values.swapRate,
+                                                                    15,
+                                                                )}
                                                                 background="white"
                                                             />
                                                         )}

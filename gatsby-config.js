@@ -211,7 +211,7 @@ module.exports = {
         {
             resolve: 'gatsby-plugin-page-progress',
             options: {
-                includePaths: [{ regex: '^/blog' }],
+                includePaths: [{ regex: '^/blog/article/' }],
                 excludePaths: [],
                 height: 4,
                 prependToBody: true,
@@ -223,7 +223,7 @@ module.exports = {
         {
             resolve: '@directus/gatsby-source-directus',
             options: {
-                url: `https://cms.deriv.com`,
+                url: `http://cms.deriv.com`,
                 dev: {
                     refresh: '5s',
                 },

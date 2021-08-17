@@ -54,11 +54,12 @@ const EmailButton = styled(Button)`
     height: 4rem;
     padding: 10px 28px;
     border-radius: 4px;
+    margin: 12px 0 0;
     @media ${device.tabletL} {
+        margin: 22px 0 0;
         padding: 10px 16px;
         white-space: nowrap;
         min-width: unset;
-        margin-left: 0;
         height: 40px;
         width: auto;
     }
@@ -313,7 +314,7 @@ const GetEbook = ({ onSubmit, ebook_utm_code }) => {
                             labelColor="black-3"
                             labelSize="16px"
                             labelTop="1.2rem"
-                            placeholder={'email address'}
+                            placeholder={localize('email address')}
                             handleError={clearEmail}
                             onChange={handleInputChange}
                             onBlur={handleValidation}

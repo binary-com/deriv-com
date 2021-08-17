@@ -19,10 +19,10 @@ const topicsCovered = [
 const query = graphql`
     query {
         stocks_ebook_img: file(relativePath: { eq: "ebooks/stocks-ebook.png" }) {
-            ...heroImage
+            ...bannerImage
         }
         stocks_ebook_inside: file(relativePath: { eq: "ebooks/stocks-ebook-inside.png" }) {
-            ...fadeIn
+            ...bannerImage
         }
     }
 `
@@ -43,9 +43,11 @@ const StocksEbook = () => {
                 ebook_utm_code="stock-ebook"
                 introSub=""
                 introMain={localize('Learn to trade Stock derivatives the smart way')}
-                authorDesc={localize(
-                    'This e-book has been brought to you by a veteran online trader and New York Times bestselling author, ',
-                )}
+                authorDesc={
+                    localize(
+                        'This e-book has been brought to you by a veteran online trader and New York Times bestselling author,',
+                    ) + ' '
+                }
                 authorName={localize('Vince Stanzione.')}
             />
             <Introduction

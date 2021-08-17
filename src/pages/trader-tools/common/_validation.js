@@ -9,11 +9,12 @@ const validation_regex = {
 
 const validation_is_exceed_number = (input, maxDigit) => {
     const max_digit = maxDigit || 15
-
-    if (input.length > max_digit) {
+    if (input.includes('.') && input.length > max_digit + 1) {
         return false
     }
-
+    if (!input.includes('.') && input.length > max_digit) {
+        return false
+    }
     return true
 }
 

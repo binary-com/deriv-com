@@ -8,6 +8,7 @@ import {
     numberSubmitFormat,
     numberWithCommas,
     resetValidationPnlMargin,
+    getMaxLength,
 } from '../common/_utility'
 import {
     financialItemLists,
@@ -435,7 +436,10 @@ const PnlMarginCalculator = () => {
                                                                             )
                                                                             current_input.focus()
                                                                         }}
-                                                                        maxLength="8"
+                                                                        maxLength={getMaxLength(
+                                                                            values.pointValue,
+                                                                            8,
+                                                                        )}
                                                                         background="white"
                                                                     />
                                                                 )}
@@ -486,7 +490,10 @@ const PnlMarginCalculator = () => {
                                                                             )
                                                                             current_input.focus()
                                                                         }}
-                                                                        maxLength="8"
+                                                                        maxLength={getMaxLength(
+                                                                            values.volume,
+                                                                            8,
+                                                                        )}
                                                                         background="white"
                                                                     />
                                                                 )}
@@ -539,7 +546,10 @@ const PnlMarginCalculator = () => {
                                                                             )
                                                                             current_input.focus()
                                                                         }}
-                                                                        maxLength="15"
+                                                                        maxLength={getMaxLength(
+                                                                            values.takeProfitAmount,
+                                                                            15,
+                                                                        )}
                                                                         background="white"
                                                                     />
                                                                 )}
@@ -596,7 +606,10 @@ const PnlMarginCalculator = () => {
                                                                             )
                                                                             current_input.focus()
                                                                         }}
-                                                                        maxLength="15"
+                                                                        maxLength={getMaxLength(
+                                                                            values.assetPrice,
+                                                                            15,
+                                                                        )}
                                                                         background="white"
                                                                     />
                                                                 )}
@@ -652,7 +665,10 @@ const PnlMarginCalculator = () => {
                                                                             )
                                                                             current_input.focus()
                                                                         }}
-                                                                        maxLength="15"
+                                                                        maxLength={getMaxLength(
+                                                                            values.stopLossAmount,
+                                                                            15,
+                                                                        )}
                                                                         background="white"
                                                                     />
                                                                 )}
@@ -846,7 +862,10 @@ const PnlMarginCalculator = () => {
                                                                     )
                                                                     current_input.focus()
                                                                 }}
-                                                                maxLength="8"
+                                                                maxLength={getMaxLength(
+                                                                    values.volume,
+                                                                    8,
+                                                                )}
                                                                 background="white"
                                                             />
                                                         )}
@@ -890,7 +909,10 @@ const PnlMarginCalculator = () => {
                                                                     )
                                                                     current_input.focus()
                                                                 }}
-                                                                maxLength="15"
+                                                                maxLength={getMaxLength(
+                                                                    values.assetPrice,
+                                                                    15,
+                                                                )}
                                                                 background="white"
                                                             />
                                                         )}
@@ -931,7 +953,10 @@ const PnlMarginCalculator = () => {
                                                                     )
                                                                     current_input.focus()
                                                                 }}
-                                                                maxLength="8"
+                                                                maxLength={getMaxLength(
+                                                                    values.pointValue,
+                                                                    8,
+                                                                )}
                                                                 background="white"
                                                             />
                                                         )}
@@ -977,7 +1002,10 @@ const PnlMarginCalculator = () => {
                                                                     )
                                                                     current_input.focus()
                                                                 }}
-                                                                maxLength="15"
+                                                                maxLength={getMaxLength(
+                                                                    values.takeProfitAmount,
+                                                                    15,
+                                                                )}
                                                                 background="white"
                                                             />
                                                         )}
@@ -1022,7 +1050,10 @@ const PnlMarginCalculator = () => {
                                                                     )
                                                                     current_input.focus()
                                                                 }}
-                                                                maxLength="15"
+                                                                maxLength={getMaxLength(
+                                                                    values.stopLossAmount,
+                                                                    15,
+                                                                )}
                                                                 background="white"
                                                             />
                                                         )}

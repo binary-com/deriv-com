@@ -19,6 +19,13 @@ const DTrading = Loadable(() => import('components/custom/_dtrading.js'))
 const DBanner = Loadable(() => import('components/custom/_dbanner.js'))
 const OtherPlatform = Loadable(() => import('components/custom/other-platforms.js'))
 
+const meta_attributes = {
+    og_title: localize('DBot Trading | Auto Trading Robot | Deriv'),
+    og_description: localize(
+        'Deriv’s easy and free setup of DBot trader can automate your trading without writing codes. Create your own bot trader using our tutorials and guides!',
+    ),
+}
+
 const query = graphql`
     query {
         deriv_platform: file(relativePath: { eq: "dbot-banner.png" }) {
@@ -109,6 +116,7 @@ class Dbot extends Component {
                     description={localize(
                         'Deriv’s easy and free setup of DBot trader can automate your trading without writing codes. Create your own bot trader using our tutorials and guides!',
                     )}
+                    meta_attributes={meta_attributes}
                 />
 
                 <DHero

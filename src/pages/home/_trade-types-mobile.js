@@ -88,7 +88,7 @@ TradeTypeSlide.propTypes = {
 
 const TradeTypesMobile = () => {
     const margin = {
-        icon: <img src={MarginLogo} alt="margin" width="48" height="49" />,
+        icon: <img src={MarginLogo} alt="" width="48" height="49" />,
         title: <Localize translate_text="Margin trading" />,
         description: (
             <Localize translate_text="Trade with leverage and low spreads for better returns on successful trades." />
@@ -97,7 +97,7 @@ const TradeTypesMobile = () => {
         linkTitle: localize('Margin'),
     }
     const options = {
-        icon: <img src={OptionsLogo} alt="options" width="48" height="49" />,
+        icon: <img src={OptionsLogo} alt="" width="48" height="49" />,
         title: <Localize translate_text="Options" />,
         description: (
             <Localize translate_text="Earn fixed payouts by predicting an asset's price movement within a fixed time." />
@@ -106,7 +106,7 @@ const TradeTypesMobile = () => {
         linkTitle: localize('Options'),
     }
     const multipliers = {
-        icon: <img src={MultipliersLogo} alt="multipliers" width="48" height="49" />,
+        icon: <img src={MultipliersLogo} alt="" width="48" height="49" />,
         title: <Localize translate_text="Multipliers" />,
         description: (
             <Localize translate_text="Get the best of both - the upside of margin trading with the simplicity of options." />

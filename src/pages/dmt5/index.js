@@ -22,6 +22,13 @@ import DMT5BG2 from 'images/svg/dmt5-bg2.svg'
 import { size } from 'themes/device'
 import { isBrowser } from 'common/utility'
 
+const meta_attributes = {
+    og_title: localize('DMT5 | MetaTrader 5 | Deriv'),
+    og_description: localize(
+        'DMT5 is developed to give you the best CFD trading experience. You can access our MT5 trader through desktop and even mobile.',
+    ),
+}
+
 const query = graphql`
     query {
         deriv_platform: file(relativePath: { eq: "dmt5-banner.png" }) {
@@ -63,6 +70,7 @@ const DMT5 = () => {
                 description={localize(
                     'DMT5 is developed to give you the best CFD trading experience. You can access our MT5 trader through desktop and even mobile.',
                 )}
+                meta_attributes={meta_attributes}
             />
             <DHero
                 title={localize('Deriv MetaTrader 5 (DMT5)')}

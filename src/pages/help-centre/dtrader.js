@@ -1,6 +1,7 @@
 import React from 'react'
 import { Article } from './_article'
 import { ArticleWrapper, StyledHeader } from './_help-centre-style'
+import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import { Text } from 'components/elements'
 import { localize, WithIntl } from 'components/localization'
 
@@ -14,6 +15,7 @@ const WhatIsDMT5 = () => (
         </Text>
     </ArticleWrapper>
 )
+
 const DTraderMarkets = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('What markets can I trade on DTrader?')}</StyledHeader>
@@ -24,6 +26,7 @@ const DTraderMarkets = () => (
         </Text>
     </ArticleWrapper>
 )
+
 const DTraderContracts = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('What contract types can I use on DTrader?')}</StyledHeader>
@@ -36,6 +39,8 @@ const DTraderContracts = () => (
 )
 
 const DTraderArticle = () => {
+    const [is_mounted] = usePageLoaded(false) // needed to fix tab highlighting not being rerendered during first load
+
     return (
         <div>
             <Article
@@ -43,14 +48,20 @@ const DTraderArticle = () => {
                 title={localize('Help centre | Frequently asked questions | DTrader | Deriv')}
                 description={localize('Frequently asked questions - DTrader')}
             >
-                <WhatIsDMT5 text={localize('What is DTrader?')} label="what-is-dtrader" />
+                <WhatIsDMT5
+                    text={localize('What is DTrader?')}
+                    label="what-is-dtrader"
+                    is_mounted={is_mounted}
+                />
                 <DTraderMarkets
                     text={localize('What markets can I trade on DTrader?')}
                     label="markets-on-dtrader"
+                    is_mounted={is_mounted}
                 />
                 <DTraderContracts
                     text={localize('What contract types can I use on DTrader?')}
                     label="contracts-on-dtrader"
+                    is_mounted={is_mounted}
                 />
             </Article>
         </div>

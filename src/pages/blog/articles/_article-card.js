@@ -28,8 +28,6 @@ const ImageWrapper = styled.div`
     display: flex;
     max-height: 280px;
     width: 384px;
-    z-index: 2;
-    object-fit: hidden;
 
     @media ${device.mobileL} {
         width: 100%;
@@ -66,7 +64,6 @@ const ArticleCard = ({ item }) => {
                     <QueryImage
                         data={item.main_image.imageFile.childImageSharp.gatsbyImageData}
                         alt={item.main_image.description || ''}
-                        width="100%"
                     />
                 </ImageWrapper>
 

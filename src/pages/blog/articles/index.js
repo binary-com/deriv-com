@@ -95,7 +95,7 @@ export const query = graphql`
                     description
                     imageFile {
                         childImageSharp {
-                            gatsbyImageData
+                            gatsbyImageData(layout: CONSTRAINED)
                         }
                     }
                 }

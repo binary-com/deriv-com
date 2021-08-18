@@ -102,7 +102,7 @@
     "prepare": "husky install",
     "pre-commit-lint": "lint-staged",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook -c .storybook -o public/storybook"
+    "build:storybook": "build-storybook -c .storybook -o public/storybook"
   },
   "repository": {
     "type": "git",

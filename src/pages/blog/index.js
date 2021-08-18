@@ -19,7 +19,7 @@ const MainWrapper = styled(Flex)`
 export const query = graphql`
     query MyQuery {
         directus {
-            homepage_banners {
+            homepage_banners(filter: { status: { _eq: "published" } }) {
                 id
                 heading
                 sub_heading

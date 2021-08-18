@@ -27,7 +27,6 @@ const ImageWrapper = styled.div`
     display: flex;
     height: 300px;
     width: 55%;
-    z-index: 2;
 
     @media (max-width: 823px) {
         width: 100%;

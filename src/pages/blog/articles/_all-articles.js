@@ -9,6 +9,7 @@ import RightArrow from 'images/svg/black-right-arrow.svg'
 
 const AllArticles = ({ article_data }) => {
     const featured_article = article_data.find((article) => article.featured)
+    const usual_articles = article_data.filter((article) => !article.featured)
 
     return (
         <Container m="0 auto" fd="column" ai="center">
@@ -21,8 +22,8 @@ const AllArticles = ({ article_data }) => {
             </Flex>
             {featured_article && <FeaturedArticle item={featured_article} />}
             <VideoGrid m="40px 0">
-                {article_data &&
-                    article_data.map((item) => {
+                {usual_articles &&
+                    usual_articles.map((item) => {
                         return <ArticleCard key={item.id} item={item} />
                     })}
             </VideoGrid>

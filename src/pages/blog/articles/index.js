@@ -55,7 +55,7 @@ const ArticlesPage = ({ data }) => {
     return (
         <Layout>
             <SEO
-                title={localize('Deriv Blog')}
+                title={localize('Articles, trading guide and resources | Deriv')}
                 description={localize(
                     "If you are looking for trading guide or tutorials, visit Deriv's trading academy and learn how to trade online.",
                 )}

@@ -7,11 +7,12 @@ import { LocalizedLink } from 'components/localization'
 import device from 'themes/device'
 
 const ArticleCardWrapper = styled(Flex)`
-    justify-content: flex-start;
     box-sizing: border-box;
     max-width: 384px;
     flex-direction: column;
+    justify-content: flex-start;
     text-decoration: none;
+    position: relative;
     height: 400px;
     border-radius: 8px;
     border: 1px solid var(--color-grey-8);
@@ -26,13 +27,12 @@ const ArticleCardWrapper = styled(Flex)`
 `
 
 const ImageWrapper = styled.div`
-    box-sizing: border-box;
     width: 384px;
     height: 200px;
     position: relative;
     z-index: 1;
     overflow: hidden;
-    background-size: cover;
+
     @media ${device.mobileL} {
         width: 100%;
     }

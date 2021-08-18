@@ -75,8 +75,10 @@
     ],
     "license": "Apache License 2.0",
     "scripts": {
-        "build": "gatsby build --log-pages",
         "develop": "gatsby develop -o",
+        "build": "npm run build:payment_methods && npm run build:production",
+        "build:production": "gatsby build --log-pages",
+        "build:payment_methods": "node scripts/payment_method",
         "format": "prettier --write '**/*.js' '*.js'",
         "stylelint": "stylelint 'src/**/*.js' --formatter verbose",
         "eslint": "DEBUG=eslint:cli-engine eslint {'src/**/*.js','./*js'} --fix",

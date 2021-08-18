@@ -8,10 +8,11 @@ import device from 'themes/device'
 
 const ArticleCardWrapper = styled(Flex)`
     justify-content: flex-start;
-    width: 384px;
+    box-sizing: border-box;
+    max-width: 384px;
     flex-direction: column;
     text-decoration: none;
-    height: 100%;
+    height: 400px;
     border-radius: 8px;
     border: 1px solid var(--color-grey-8);
     background: var(--color-white);
@@ -25,13 +26,15 @@ const ArticleCardWrapper = styled(Flex)`
 `
 
 const ImageWrapper = styled.div`
-    display: flex;
-    max-height: 280px;
+    box-sizing: border-box;
     width: 384px;
-
+    height: 200px;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    background-size: cover;
     @media ${device.mobileL} {
         width: 100%;
-        height: 184px;
     }
 `
 
@@ -45,6 +48,7 @@ const StyledCategories = styled(Header)`
 `
 
 const ContentWrapper = styled.div`
+    height: 200px;
     padding: 16px 24px;
 
     @media ${device.mobileL} {

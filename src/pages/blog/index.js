@@ -59,34 +59,24 @@ const DerivBlog = ({ data }) => {
             <SEO title={localize('Blog')} description={localize('Blog like a boss')} no_index />
             <MainWrapper>
                 <Carousel has_autoplay autoplay_interval={6000} {...settings}>
-                    {/* {homepage_banner_data.map((page_data)=>{ */}
-                    <Hero
-                        heroImage={
-                            <QueryImage
-                                data={
-                                    homepage_banner_data[0].image.imageFile.childImageSharp
-                                        .gatsbyImageData
+                    {homepage_banner_data.map((page_data) => {
+                        return (
+                            <Hero
+                                key={page_data.id}
+                                heroImage={
+                                    <QueryImage
+                                        data={
+                                            page_data.image.imageFile.childImageSharp
+                                                .gatsbyImageData
+                                        }
+                                        alt={page_data.image.description || ''}
+                                    />
                                 }
-                                alt={homepage_banner_data[0].image.description || ''}
+                                title={page_data.heading}
+                                description={page_data.sub_heading}
                             />
-                        }
-                        title={homepage_banner_data[0].heading}
-                        description={homepage_banner_data[0].sub_heading}
-                    />
-                    <Hero
-                        heroImage={
-                            <QueryImage
-                                data={
-                                    homepage_banner_data[1].image.imageFile.childImageSharp
-                                        .gatsbyImageData
-                                }
-                                alt={homepage_banner_data[1].image.description || ''}
-                            />
-                        }
-                        title={homepage_banner_data[1].heading}
-                        description={homepage_banner_data[1].sub_heading}
-                    />
-                    {/* })} */}
+                        )
+                    })}
                 </Carousel>
             </MainWrapper>
             <RecentFeaturedPosts />

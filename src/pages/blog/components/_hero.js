@@ -4,7 +4,6 @@ import styled from 'styled-components'
 import { TextWrapper, Title } from './_common'
 import device from 'themes/device.js'
 import { Flex } from 'components/containers'
-import { QueryImage } from 'components/elements'
 
 const MainWrapper = styled.div`
     width: 100%;
@@ -75,9 +74,7 @@ const Hero = ({ heroImage, title, description }) => (
                 {description}
             </TextWrapper>
         </Wrapper>
-        <ImageWrapper>
-            <QueryImage width="100%" height="100%" data={heroImage} alt="Hero Blog" />
-        </ImageWrapper>
+        <ImageWrapper>{heroImage}</ImageWrapper>
     </MainWrapper>
 )
 

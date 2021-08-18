@@ -7,19 +7,17 @@ import { LocalizedLink } from 'components/localization'
 import device from 'themes/device'
 
 const ArticleCardWrapper = styled(Flex)`
-    max-width: 384px;
-    flex-direction: column;
     justify-content: flex-start;
+    width: 384px;
+    flex-direction: column;
     text-decoration: none;
-    position: relative;
     height: 100%;
     border-radius: 8px;
     border: 1px solid var(--color-grey-8);
     background: var(--color-white);
-    transition: transform 0.3s;
     overflow: hidden;
+    transition: transform 0.3s;
     cursor: pointer;
-    z-index: 2;
 
     &:hover {
         transform: translateY(-1.1rem) scale(1.02);
@@ -27,10 +25,11 @@ const ArticleCardWrapper = styled(Flex)`
 `
 
 const ImageWrapper = styled.div`
-    height: 200px;
+    display: flex;
+    max-height: 280px;
     width: 384px;
-    position: relative;
     z-index: 2;
+    object-fit: hidden;
 
     @media ${device.mobileL} {
         width: 100%;

@@ -16,7 +16,6 @@ const StyledFlex = styled(Flex)`
     &:hover {
         transform: translateY(-1.1rem) scale(1.02);
     }
-
     @media (max-width: 823px) {
         flex-direction: column;
         height: auto;
@@ -24,7 +23,6 @@ const StyledFlex = styled(Flex)`
         margin-top: 40px;
     }
 `
-
 const ImageWrapper = styled.div`
     display: flex;
     height: 300px;

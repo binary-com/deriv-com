@@ -1,9 +1,14 @@
 {
     "include": ["./src/**/*"],
       "jsx": "react",
-      "moduleResolution": "node",
       "compilerOptions": {
         "baseUrl": "src",
         "jsx": "preserve",
+        "esModuleInterop": true,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "noEmit": true,
+        "skipLibCheck": true,
+        "moduleResolution": "node"
       }
 }

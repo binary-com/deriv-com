@@ -25,11 +25,7 @@ const Commodities = ({ simple_step_content }) => {
                 }
             >
                 {commodities.map((content, index) => (
-                    <div
-                        key={index}
-                        text={content.text}
-                        icon={<img src={content.src} alt={content.alt} />}
-                    />
+                    <div key={index} text={content.text} icon={<img src={content.src} alt="" />} />
                 ))}
             </WhyTrade>
             <AvailableTrades

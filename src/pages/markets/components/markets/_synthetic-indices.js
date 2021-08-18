@@ -23,11 +23,7 @@ const StockIndices = ({ simple_step_content }) => (
             }
         >
             {synthetic_content.map((content, index) => (
-                <div
-                    key={index}
-                    text={content.text}
-                    icon={<img src={content.src} alt={content.alt} />}
-                />
+                <div key={index} text={content.text} icon={<img src={content.src} alt="" />} />
             ))}
         </WhyTrade>
         <AvailableTrades

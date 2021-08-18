@@ -25,17 +25,16 @@ const StockIndices = ({ simple_step_content }) => {
                 }
             >
                 {stock_content.map((content, index) => (
-                    <div
-                        key={index}
-                        text={content.text}
-                        icon={<img src={content.src} alt={content.alt} />}
-                    />
+                    <div key={index} text={content.text} icon={<img src={content.src} alt="" />} />
                 ))}
             </WhyTrade>
             <AvailableTrades
                 CFDs={<CFDs market_tab_name={'stock-indices'} market_content={stock_cfds} />}
                 DigitalOptions={
-                    <DigitalOptions market_name={localize('stocks & indices')} options_list={stock_options} />
+                    <DigitalOptions
+                        market_name={localize('stocks & indices')}
+                        options_list={stock_options}
+                    />
                 }
                 name="Stocks & indices"
                 display_title={

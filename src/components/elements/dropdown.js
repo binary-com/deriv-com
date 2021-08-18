@@ -304,16 +304,16 @@ ItemList.propTypes = {
     selected_option: PropTypes.any,
 }
 
-export const BottomLabel = ({ error, contract_size }) => {
+export const BottomLabel = ({ error, contractSize }) => {
     return (
         <StyledDiv>
             <ErrorMessages lh="1.4" align="left" color="red-1">
                 {error}
             </ErrorMessages>
 
-            {contract_size && (
+            {contractSize && (
                 <ContractSizeWrapper lh="1.4" align="left">
-                    Contract size : {getCommaSeparatedNumber(contract_size)}
+                    Contract size : {getCommaSeparatedNumber(contractSize)}
                 </ContractSizeWrapper>
             )}
         </StyledDiv>
@@ -321,7 +321,7 @@ export const BottomLabel = ({ error, contract_size }) => {
 }
 
 BottomLabel.propTypes = {
-    contract_size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    contractSize: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     error: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
 }
 
@@ -333,7 +333,7 @@ const Dropdown = ({
     label,
     error,
     selected_option,
-    contract_size,
+    contractSize,
     ...props
 }) => {
     const [is_open, dropdown_ref, nodes, handleChange, toggleListVisibility] = useDropdown(onChange)
@@ -374,13 +374,13 @@ const Dropdown = ({
                     selected_option={selected_option}
                 />
             </DropdownContainer>
-            <BottomLabel contract_size={contract_size} error={error} />
+            <BottomLabel contractSize={contractSize} error={error} />
         </>
     )
 }
 
 Dropdown.propTypes = {
-    contract_size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    contractSize: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     default_option: PropTypes.any,
     error: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     has_short_name: PropTypes.bool,

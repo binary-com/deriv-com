@@ -167,28 +167,13 @@ const Card = ({ display_name, active_tab, onTabChange, name }) => {
         <CardContainer name={name} active_tab={active_tab} onClick={() => onTabChange(name)}>
             <Flex height="fit-content" jc="flex-start" ai="center">
                 {active_tab === 'CFDs' && (
-                    <TabIcon
-                        src={CFDIcon}
-                        alt="cfds icon"
-                        name={name}
-                        active_tab={active_tab}
-                    />
+                    <TabIcon src={CFDIcon} alt="" name={name} active_tab={active_tab} />
                 )}
                 {active_tab === 'Options' && (
-                    <TabIcon
-                        src={OptionsIcon}
-                        alt="option icon"
-                        name={name}
-                        active_tab={active_tab}
-                    />
+                    <TabIcon src={OptionsIcon} alt="" name={name} active_tab={active_tab} />
                 )}
                 {active_tab === 'Multipliers' && (
-                    <TabIcon
-                        src={MultipliersIcon}
-                        alt="multiplier icon"
-                        name={name}
-                        active_tab={active_tab}
-                    />
+                    <TabIcon src={MultipliersIcon} alt="" name={name} active_tab={active_tab} />
                 )}
                 <CardHeader as="h4" type="sub-section-title" width="auto">
                     {display_name}

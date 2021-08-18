@@ -291,26 +291,26 @@ export const articles = [
                 sub_category: <Localize translate_text="Platforms" />,
                 label: 'differences-of-synthetic-and-financial',
             },
-            {
-                title: <Localize translate_text="What is a trading password?" />,
-                category: 'Deriv X',
-                sub_category: <Localize translate_text="Platforms" />,
-                label: 'trading-password',
-            },
-            {
-                title: (
-                    <Localize translate_text="Why is my trading password different from my Deriv password?" />
-                ),
-                category: 'Deriv X',
-                sub_category: <Localize translate_text="Platforms" />,
-                label: 'differences-of-trading-and-deriv-password',
-            },
-            {
-                title: <Localize translate_text="How do I reset my Deriv X password?" />,
-                category: 'Deriv X',
-                sub_category: <Localize translate_text="Platforms" />,
-                label: 'reset-deriv-x-password',
-            },
+            // {
+            //     title: <Localize translate_text="What is a trading password?" />,
+            //     category: 'Deriv X',
+            //     sub_category: <Localize translate_text="Platforms" />,
+            //     label: 'trading-password',
+            // },
+            // {
+            //     title: (
+            //         <Localize translate_text="Why is my trading password different from my Deriv password?" />
+            //     ),
+            //     category: 'Deriv X',
+            //     sub_category: <Localize translate_text="Platforms" />,
+            //     label: 'differences-of-trading-and-deriv-password',
+            // },
+            // {
+            //     title: <Localize translate_text="How do I reset my Deriv X password?" />,
+            //     category: 'Deriv X',
+            //     sub_category: <Localize translate_text="Platforms" />,
+            //     label: 'reset-deriv-x-password',
+            // },
             {
                 title: (
                     <Localize translate_text="Where can I find my Deriv X account information?" />
@@ -486,19 +486,25 @@ export const articles = [
                 label: 'buy-or-sell-limit',
             },
             {
-                title: <Localize translate_text="What should I do if I have a dispute with the trader I’m dealing with?" />,
+                title: (
+                    <Localize translate_text="What should I do if I have a dispute with the trader I’m dealing with?" />
+                ),
                 category: 'Deriv P2P',
                 sub_category: <Localize translate_text="Dispute" />,
                 label: 'dispute-with-the-trader',
             },
             {
-                title: <Localize translate_text="How do I get in touch with the counterparty of my transaction?" />,
+                title: (
+                    <Localize translate_text="How do I get in touch with the counterparty of my transaction?" />
+                ),
                 category: 'Deriv P2P',
                 sub_category: <Localize translate_text="Transaction" />,
                 label: 'in-touch-with-the-counterparty',
             },
             {
-                title: <Localize translate_text="Why is my Deriv P2P balance different from my Deriv account balance?" />,
+                title: (
+                    <Localize translate_text="Why is my Deriv P2P balance different from my Deriv account balance?" />
+                ),
                 category: 'Deriv P2P',
                 sub_category: <Localize translate_text="Balance" />,
                 label: 'different-account-balance',

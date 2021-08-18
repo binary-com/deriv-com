@@ -68,17 +68,26 @@ export const getPnlMarginCommon = (values, action) => {
     assetPrice = Number(assetPrice)
     stopLossAmount = Number(stopLossAmount)
     takeProfitAmount = Number(takeProfitAmount)
-    stopLossLevel = Number(stopLossLevel)
-    takeProfitLevel = Number(takeProfitLevel)
+    stopLossLevel = Number(numberWithoutCommas(stopLossLevel))
+    takeProfitLevel = Number(numberWithoutCommas(stopLossLevel))
 
     switch (action) {
-        case 'getStopLossLevel': {
-            const stop_loss_level_formula = assetPrice + stopLossAmount / (volume * contractSize)
+        case 'getStopLossLevelSell': {
+            const stop_loss_level_formula = assetPrice - [-stopLossAmount / (volume * contractSize)]
             return toFixed(stop_loss_level_formula)
         }
-        case 'getTakeProfitLevel': {
+        case 'getTakeProfitLevelSell': {
             const take_profit_level_formula =
                 assetPrice - takeProfitAmount / (volume * contractSize)
+            return toFixed(take_profit_level_formula)
+        }
+        case 'getStopLossLevelBuy': {
+            const stop_loss_level_formula = assetPrice + [-stopLossAmount / (volume * contractSize)]
+            return toFixed(stop_loss_level_formula)
+        }
+        case 'getTakeProfitLevelBuy': {
+            const take_profit_level_formula =
+                assetPrice + takeProfitAmount / (volume * contractSize)
             return toFixed(take_profit_level_formula)
         }
         case 'getStopLossPip': {
@@ -388,6 +397,10 @@ export const resetValidationForex = (values) => {
     return errors
 }
 
+export const numberWithoutCommas = (input) => {
+    return input.toString().replace(/,/g, '')
+}
+
 export const numberWithCommas = (input) => {
     return input.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
 }
@@ -407,4 +420,5 @@ export const numberSubmitFormatNegative = (input) => {
     return result
 }
 
-export const getMaxLength = (input_field, input_length) => input_field?.includes(".") ? (input_length + 1).toString() : input_length.toString()
+export const getMaxLength = (input_field, input_length) =>
+    input_field?.includes('.') ? (input_length + 1).toString() : input_length.toString()

@@ -54,11 +54,12 @@ const EmailButton = styled(Button)`
     height: 4rem;
     padding: 10px 28px;
     border-radius: 4px;
+    margin: 12px 0 0;
     @media ${device.tabletL} {
+        margin: 22px 0 0;
         padding: 10px 16px;
         white-space: nowrap;
         min-width: unset;
-        margin-left: 0;
         height: 40px;
         width: auto;
     }
@@ -296,101 +297,101 @@ const GetEbook = ({ onSubmit, ebook_utm_code }) => {
             </Text>
         </ResponseWrapper>
     ) : (
-            <SignupFormWrapper>
-                <div>
-                    <InputGroupForm onSubmit={handleEmailSignup} noValidate>
-                        <InputWrapper>
-                            <Input
-                                id="email"
-                                name="email"
-                                type="text"
-                                error={email_error_msg}
-                                value={email}
-                                background="white"
-                                tabletBackground="green-1"
-                                inputBackground="grey-8"
-                                labelFocusColor="grey-7"
-                                labelColor="black-3"
-                                labelSize="16px"
-                                labelTop="1.2rem"
-                                placeholder={localize('email address')}
-                                handleError={clearEmail}
-                                onChange={handleInputChange}
-                                onBlur={handleValidation}
-                                autoFocus={true}
-                                autoComplete="off"
-                                required
-                                border="unset"
-                                height="40px"
-                                focusBorder="var(--color-grey-7)"
-                            />
-                        </InputWrapper>
-                        <AgreementLabel
-                            isChecked={is_checked}
-                            handleChangeCheckbox={handleChange}
-                            color="white"
+        <SignupFormWrapper>
+            <div>
+                <InputGroupForm onSubmit={handleEmailSignup} noValidate>
+                    <InputWrapper>
+                        <Input
+                            id="email"
+                            name="email"
+                            type="text"
+                            error={email_error_msg}
+                            value={email}
+                            background="white"
+                            tabletBackground="green-1"
+                            inputBackground="grey-8"
+                            labelFocusColor="grey-7"
+                            labelColor="black-3"
+                            labelSize="16px"
+                            labelTop="1.2rem"
+                            placeholder={localize('email address')}
+                            handleError={clearEmail}
+                            onChange={handleInputChange}
+                            onBlur={handleValidation}
+                            autoFocus={true}
+                            autoComplete="off"
+                            required
+                            border="unset"
+                            height="40px"
+                            focusBorder="var(--color-grey-7)"
                         />
-                        <EmailButton
-                            isChecked={is_checked}
-                            id="gtm-signup-email"
-                            type="submit"
-                            secondary="true"
-                            disabled={is_submitting || !is_checked || email_error_msg || !email}
-                        >
-                            {localize('Get your free ebook now!')}
-                        </EmailButton>
-                    </InputGroupForm>
-                    <SignupWithContainer>
-                        <Line />
-                        <StyledText color="grey-5" align="center" tabletFontSize="12px">
-                            {localize('Or sign up with')}
-                        </StyledText>
-                        <Line />
-                    </SignupWithContainer>
-                    <SocialWrapper jc="unset" ai="center">
-                        <SocialButton
-                            onClick={handleSocialSignup}
-                            provider="google"
-                            data-provider="google"
-                            id="gtm-signup-google"
-                            type="button"
-                            social
-                        >
-                            <SocialButtonText>
-                                <img src={Google} alt="google" width="24" height="24" />
-                                <span>Google</span>
-                            </SocialButtonText>
-                        </SocialButton>
-                        <SocialButton
-                            onClick={handleSocialSignup}
-                            provider="facebook"
-                            data-provider="facebook"
-                            id="gtm-signup-facebook"
-                            type="button"
-                            social
-                        >
-                            <SocialButtonText>
-                                <img src={Facebook} alt="facebook" width="24" height="24" />
-                                <span>Facebook</span>
-                            </SocialButtonText>
-                        </SocialButton>
-                        <SocialButton
-                            onClick={handleSocialSignup}
-                            provider="apple"
-                            data-provider="apple"
-                            id="gtm-signup-apple"
-                            type="button"
-                            social
-                        >
-                            <SocialButtonText>
-                                <img src={Apple} alt="apple" width="24" height="24" />
-                                <span>Apple</span>
-                            </SocialButtonText>
-                        </SocialButton>
-                    </SocialWrapper>
-                </div>
-            </SignupFormWrapper>
-        )
+                    </InputWrapper>
+                    <AgreementLabel
+                        isChecked={is_checked}
+                        handleChangeCheckbox={handleChange}
+                        color="white"
+                    />
+                    <EmailButton
+                        isChecked={is_checked}
+                        id="gtm-signup-email"
+                        type="submit"
+                        secondary="true"
+                        disabled={is_submitting || !is_checked || email_error_msg || !email}
+                    >
+                        {localize('Get your free ebook now!')}
+                    </EmailButton>
+                </InputGroupForm>
+                <SignupWithContainer>
+                    <Line />
+                    <StyledText color="grey-5" align="center" tabletFontSize="12px">
+                        {localize('Or sign up with')}
+                    </StyledText>
+                    <Line />
+                </SignupWithContainer>
+                <SocialWrapper jc="unset" ai="center">
+                    <SocialButton
+                        onClick={handleSocialSignup}
+                        provider="google"
+                        data-provider="google"
+                        id="gtm-signup-google"
+                        type="button"
+                        social
+                    >
+                        <SocialButtonText>
+                            <img src={Google} alt="google" width="24" height="24" />
+                            <span>Google</span>
+                        </SocialButtonText>
+                    </SocialButton>
+                    <SocialButton
+                        onClick={handleSocialSignup}
+                        provider="facebook"
+                        data-provider="facebook"
+                        id="gtm-signup-facebook"
+                        type="button"
+                        social
+                    >
+                        <SocialButtonText>
+                            <img src={Facebook} alt="facebook" width="24" height="24" />
+                            <span>Facebook</span>
+                        </SocialButtonText>
+                    </SocialButton>
+                    <SocialButton
+                        onClick={handleSocialSignup}
+                        provider="apple"
+                        data-provider="apple"
+                        id="gtm-signup-apple"
+                        type="button"
+                        social
+                    >
+                        <SocialButtonText>
+                            <img src={Apple} alt="apple" width="24" height="24" />
+                            <span>Apple</span>
+                        </SocialButtonText>
+                    </SocialButton>
+                </SocialWrapper>
+            </div>
+        </SignupFormWrapper>
+    )
 }
 
 GetEbook.propTypes = {

@@ -104,7 +104,7 @@ const PartnershipOpportunities = () => (
             </ClientCard>
             <ClientCard
                 to=""
-                type="developers"
+                type="api"
                 target="_blank"
                 external="true"
                 rel="noopener noreferrer"

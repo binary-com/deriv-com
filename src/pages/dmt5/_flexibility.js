@@ -32,32 +32,32 @@ const content = [
         text: (
             <Localize translate_text="Trade CFDs on our exclusive, proprietary synthetic indices 24/7 which simulate real-world market movements." />
         ),
-        icon: <StyledSyntheticIcon src={SyntheticIcon} alt="synthetic icon" />,
-        show_always: true
+        icon: <StyledSyntheticIcon src={SyntheticIcon} alt="" />,
+        show_always: true,
     },
     {
         header: <Localize translate_text="Financial" />,
         text: (
             <Localize translate_text="Trade major (standard and micro-lots) and minor currency pairs, stocks, stock indices, commodities, and cryptocurrencies." />
         ),
-        icon: <StyledFinancialIcon src={FinancialIcon} alt="financial icon" />,
-        show_eu: true
+        icon: <StyledFinancialIcon src={FinancialIcon} alt="" />,
+        show_eu: true,
     },
     {
         header: <Localize translate_text="Financial" />,
         text: (
             <Localize translate_text="Trade major (standard and micro-lots) and minor currency pairs, stocks, stock indices, commodities, and cryptocurrencies with high leverage." />
         ),
-        icon: <StyledFinancialIcon src={FinancialIcon} alt="financial icon" />,
-        show_eu: false
+        icon: <StyledFinancialIcon src={FinancialIcon} alt="" />,
+        show_eu: false,
     },
     {
         header: <Localize translate_text="Financial STP" />,
         text: (
             <Localize translate_text="Trade major, minor, and exotic currency pairs, and cryptocurrencies with tight spreads and higher trade volumes, straight to the market." />
         ),
-        icon: <StyledFinancialStpIcon src={FinancialStpIcon} alt="financial stp icon" />,
-        show_always: true
+        icon: <StyledFinancialStpIcon src={FinancialStpIcon} alt="" />,
+        show_always: true,
     },
 ]
 const Section = styled(SectionContainer)`
@@ -124,7 +124,7 @@ const StyledText = styled(Text)`
 `
 
 const Flexibility = () => {
-    const { is_eu_country } = React.useContext(DerivStore);
+    const { is_eu_country } = React.useContext(DerivStore)
 
     return (
         <Section>
@@ -141,20 +141,24 @@ const Flexibility = () => {
             <Flex mb="4rem" tablet_direction="column" tablet_ai="center" tablet={{ m: '0' }}>
                 {content.map((item, idx) => {
                     return (
-                        ((is_eu_country && item.show_eu) || (!is_eu_country && !item.show_eu) || item.show_always) && <ClientCard key={idx}>
-                            <Flex height="unset" ai="center" mobileL={{ mb: '8px' }}>
-                                <StyledHeader
-                                    mobile_margin="unset"
-                                    mobile_font_size="20px"
-                                    as="h4"
-                                    type="sub-section-title"
-                                >
-                                    {item.header}
-                                </StyledHeader>
-                                {item.icon}
-                            </Flex>
-                            <StyledText>{item.text}</StyledText>
-                        </ClientCard>
+                        ((is_eu_country && item.show_eu) ||
+                            (!is_eu_country && !item.show_eu) ||
+                            item.show_always) && (
+                            <ClientCard key={idx}>
+                                <Flex height="unset" ai="center" mobileL={{ mb: '8px' }}>
+                                    <StyledHeader
+                                        mobile_margin="unset"
+                                        mobile_font_size="20px"
+                                        as="h4"
+                                        type="sub-section-title"
+                                    >
+                                        {item.header}
+                                    </StyledHeader>
+                                    {item.icon}
+                                </Flex>
+                                <StyledText>{item.text}</StyledText>
+                            </ClientCard>
+                        )
                     )
                 })}
             </Flex>

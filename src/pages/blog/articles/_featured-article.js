@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Flex } from 'components/containers'
-import { Header } from 'components/elements'
+import { Header, QueryImage } from 'components/elements'
 import { LocalizedLink } from 'components/localization'
 
 const StyledFlex = styled(Flex)`
@@ -29,6 +29,7 @@ const ImageWrapper = styled.div`
     display: flex;
     height: 300px;
     width: 55%;
+    z-index: 2;
 
     @media (max-width: 823px) {
         width: 100%;
@@ -57,18 +58,14 @@ const RedirectLink = styled(LocalizedLink)`
     max-width: 1200px;
 `
 
-const CoverImg = styled.img`
-    object-fit: cover;
-`
-
 const FeaturedArticle = ({ item }) => {
     return (
         <RedirectLink to={`/blog/articles/${item.slug}/`}>
             <StyledFlex jc="flex-start" mt="96px">
                 <ImageWrapper>
-                    <CoverImg
-                        src={item.main_image.imageFile.publicURL}
-                        alt={item.main_image.description}
+                    <QueryImage
+                        data={item.main_image.imageFile.childImageSharp.gatsbyImageData}
+                        alt={item.main_image.description || ''}
                         width="100%"
                     />
                 </ImageWrapper>

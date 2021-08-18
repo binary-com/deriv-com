@@ -86,18 +86,17 @@ ArticlesPage.propTypes = {
 export default WithIntl()(ArticlesPage)
 
 export const query = graphql`
-    {
+    query MyQuery {
         directus {
             blog(filter: { status: { _eq: "published" } }) {
                 id
                 main_image {
                     id
-                    filename_disk
                     description
                     imageFile {
-                        publicURL
-                        relativePath
-                        id
+                        childImageSharp {
+                            gatsbyImageData
+                        }
                     }
                 }
                 slug

@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-// import { ContainedImg } from '../common/_styles'
 import { Flex } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
 import { LocalizedLink } from 'components/localization'
@@ -20,6 +19,7 @@ const ArticleCardWrapper = styled(Flex)`
     transition: transform 0.3s;
     overflow: hidden;
     cursor: pointer;
+    z-index: 2;
 
     &:hover {
         transform: translateY(-1.1rem) scale(1.02);
@@ -30,8 +30,7 @@ const ImageWrapper = styled.div`
     height: 200px;
     width: 384px;
     position: relative;
-    z-index: 1;
-    overflow: hidden;
+    z-index: 2;
 
     @media ${device.mobileL} {
         width: 100%;
@@ -65,13 +64,9 @@ const ArticleCard = ({ item }) => {
         <RedirectLink to={`/blog/articles/${item.slug}`}>
             <ArticleCardWrapper>
                 <ImageWrapper>
-                    {/* <ContainedImg
-                        src={item.main_image.imageFile.publicURL}
-                        alt={item.main_image.description}
-                        width="100%" /> */}
                     <QueryImage
                         data={item.main_image.imageFile.childImageSharp.gatsbyImageData}
-                        alt="example"
+                        alt={item.main_image.description || ''}
                         width="100%"
                     />
                 </ImageWrapper>

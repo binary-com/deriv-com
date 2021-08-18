@@ -1,14 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { graphql, StaticQuery } from 'gatsby'
+// import { graphql, StaticQuery, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import Subscribe from './components/_subscribe'
 import RecentFeaturedPosts from './_recent-featured-posts'
 import DVideoBanner from './video-banner'
-import Hero from './components/_hero'
+// import Hero from './components/_hero'
 import Layout from 'components/layout/layout'
 import { Container, SEO, Flex } from 'components/containers'
 import { localize, WithIntl } from 'components/localization'
-import { Carousel } from 'components/elements'
+// import { Carousel } from 'components/elements'
 
 // const query = graphql`
 //     query {
@@ -30,63 +31,58 @@ const MainWrapper = styled(Flex)`
 `
 
 const DerivBlog = () => {
-    const settings = {
-        options: {
-            loop: true,
-        },
-        container_style: {
-            maxWidth: '100%',
-            margin: '0 auto',
-        },
-        slide_style: {
-            minWidth: '100%',
-            position: 'relative',
-        },
-        navigation_style: {
-            nav_color: '--color-grey-5',
-        },
-    }
-
+    // const settings = {
+    //     options: {
+    //         loop: true,
+    //     },
+    //     container_style: {
+    //         maxWidth: '100%',
+    //         margin: '0 auto',
+    //     },
+    //     slide_style: {
+    //         minWidth: '100%',
+    //         position: 'relative',
+    //     },
+    //     navigation_style: {
+    //         nav_color: '--color-grey-5',
+    //     },
+    // }
+    const [header, setheader] = useState('')
     // const data = useStaticQuery(query)
     return (
         <Layout type="blog" is_ppc_redirect={true}>
             <SEO title={localize('Blog')} description={localize('Blog like a boss')} no_index />
+
+            <RecentFeaturedPosts />
+            <h1>Hello world</h1>
             <MainWrapper>
                 <StaticQuery
                     query={graphql`
                         query MyQuery {
                             directus {
                                 homepage_banners {
-                                    thumbnail {
-                                        id
+                                    id
+                                    heading
+                                    sub_heading
+                                    image {
                                         imageFile {
-                                            id
                                             childImageSharp {
                                                 gatsbyImageData
                                             }
                                         }
+                                        id
                                     }
-                                    description
-                                    subject
                                 }
                             }
                         }
                     `}
-                    render={(data) => (
-                        <Carousel has_autoplay autoplay_interval={600000} {...settings}>
-                            {console.log(data, '12')}
-                            <Hero
-                                // heroImage={data['hero_image_three']}
-                                // title={data.author.name}
-                                description={localize(
-                                    'Today, financial markets are open to everyone, not just the financial elite. This ebook by Vince Stanzione teaches you how you can trade stocks just like the pros.',
-                                )}
-                            />
-                        </Carousel>
-                    )}
+                    render={(data) => setheader(data.directus.homepage_banners)}
                 />
             </MainWrapper>
-            <RecentFeaturedPosts />
+
+            {/* <Carousel has_autoplay autoplay_interval={600} {...settings}> */}
+            {header && header.map((x) => <h1 key={x.id}>{localize(x.heading)}</h1>)}
+            {/* </Carousel> */}
             <DVideoBanner />
             <Container>
                 <Flex direction="column" ai="flex-start" jc="space-between">

@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import styled from 'styled-components'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 
@@ -13,9 +13,9 @@ type QueryImageProps = {
     alt: string
     className?: string
     data: any
-    height: string | number
+    height?: string | number
+    width?: string | number
     loading?: 'eager' | 'lazy'
-    width: string | number
 }
 
 type ImageWrapperProps = {

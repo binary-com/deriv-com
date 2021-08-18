@@ -1,0 +1,9 @@
+{
+    "include": ["./src/**/*"],
+      "jsx": "react",
+      "moduleResolution": "node",
+      "compilerOptions": {
+        "baseUrl": "src",
+        "jsx": "preserve",
+      }
+}

@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { getImage } from 'gatsby-plugin-image'
 import styled from 'styled-components'
 import { Flex } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
@@ -66,7 +67,7 @@ const ArticleCard = ({ item }) => {
             <ArticleCardWrapper>
                 <ImageWrapper>
                     <QueryImage
-                        data={item.main_image.imageFile.childImageSharp.gatsbyImageData}
+                        data={getImage(item.main_image.imageFile)}
                         alt={item.main_image.description || ''}
                     />
                 </ImageWrapper>

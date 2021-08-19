@@ -8,7 +8,7 @@ import DVideoBanner from './video-banner'
 import Hero from './components/_hero'
 import Layout from 'components/layout/layout'
 import { Container, SEO, Flex } from 'components/containers'
-import { localize, WithIntl } from 'components/localization'
+import { localize, WithIntl, LocalizedLink } from 'components/localization'
 import { Carousel, QueryImage } from 'components/elements'
 
 const MainWrapper = styled(Flex)`
@@ -21,6 +21,7 @@ export const query = graphql`
         directus {
             homepage_banners(filter: { status: { _eq: "published" } }) {
                 id
+                link
                 heading
                 sub_heading
                 image {
@@ -66,17 +67,22 @@ const DerivBlog = ({ data }) => {
                 <Carousel has_autoplay autoplay_interval={6000} {...settings}>
                     {homepage_banner_data.map((page_data) => {
                         return (
-                            <Hero
+                            <LocalizedLink
                                 key={page_data.id}
-                                heroImage={
-                                    <QueryImage
-                                        data={page_data.image.imageFile}
-                                        alt={page_data.image.description || ''}
-                                    />
-                                }
-                                title={page_data.heading}
-                                description={page_data.sub_heading}
-                            />
+                                to={page_data.link}
+                                style={{ textDecoration: 'none' }}
+                            >
+                                <Hero
+                                    heroImage={
+                                        <QueryImage
+                                            data={page_data.image.imageFile}
+                                            alt={page_data.image.description || ''}
+                                        />
+                                    }
+                                    title={page_data.heading}
+                                    description={page_data.sub_heading}
+                                />
+                            </LocalizedLink>
                         )
                     })}
                 </Carousel>

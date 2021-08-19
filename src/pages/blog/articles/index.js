@@ -70,7 +70,7 @@ const ArticlesPage = ({ data }) => {
                     </StyledHeader>
                 </SmallContainer>
             </Hero>
-            <AllArticles article_data={article_data} />
+            {article_data && <AllArticles article_data={article_data} />}
             <Container>
                 <Flex direction="column" ai="flex-start" jc="space-between">
                     <Subscribe />

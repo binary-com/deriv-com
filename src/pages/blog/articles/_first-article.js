@@ -30,7 +30,7 @@ const ImageWrapper = styled.div`
 
     @media (max-width: 823px) {
         width: 100%;
-        max-height: 328px;
+        height: unset;
     }
 `
 
@@ -43,7 +43,7 @@ const StyledCategories = styled(Header)`
     margin: 0 8px 8px 0;
 `
 
-const FeaturedContentWrapper = styled(Flex)`
+const FirstContentWrapper = styled(Flex)`
     @media (max-width: 823px) {
         width: 100%;
         padding: 24px 16px;
@@ -55,7 +55,7 @@ const RedirectLink = styled(LocalizedLink)`
     max-width: 1200px;
 `
 
-const FeaturedArticle = ({ item }) => {
+const FirstArticle = ({ item }) => {
     return (
         <RedirectLink to={`/blog/articles/${item.slug}/`}>
             <StyledFlex jc="flex-start" mt="96px">
@@ -66,7 +66,7 @@ const FeaturedArticle = ({ item }) => {
                         width="100%"
                     />
                 </ImageWrapper>
-                <FeaturedContentWrapper fd="column" p="35px 40px" width="45%">
+                <FirstContentWrapper fd="column" p="35px 40px" width="45%">
                     <Flex jc="flex-start" height="auto" fw="wrap">
                         {item?.tags &&
                             item.tags.slice(0, 2).map((tag) => (
@@ -95,14 +95,14 @@ const FeaturedArticle = ({ item }) => {
                     <Header as="p" type="paragraph-1" weight="normal" mt="8px" color="grey-5">
                         {item.blog_description}
                     </Header>
-                </FeaturedContentWrapper>
+                </FirstContentWrapper>
             </StyledFlex>
         </RedirectLink>
     )
 }
 
-FeaturedArticle.propTypes = {
+FirstArticle.propTypes = {
     item: PropTypes.object,
 }
 
-export default FeaturedArticle
+export default FirstArticle

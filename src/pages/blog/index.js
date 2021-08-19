@@ -56,7 +56,12 @@ const DerivBlog = ({ data }) => {
     const homepage_banner_data = data.directus.homepage_banners
     return (
         <Layout type="blog" is_ppc_redirect={true}>
-            <SEO title={localize('Blog')} description={localize('Blog like a boss')} no_index />
+            <SEO
+                title={localize('Articles, trading guide and resources | Deriv')}
+                description={localize(
+                    "If you are looking for trading guide or tutorials, visit Deriv's trading academy and learn how to trade online.",
+                )}
+            />
             <MainWrapper>
                 <Carousel has_autoplay autoplay_interval={6000} {...settings}>
                     {homepage_banner_data.map((page_data) => {
@@ -65,10 +70,7 @@ const DerivBlog = ({ data }) => {
                                 key={page_data.id}
                                 heroImage={
                                     <QueryImage
-                                        data={
-                                            page_data.image.imageFile.childImageSharp
-                                                .gatsbyImageData
-                                        }
+                                        data={page_data.image.imageFile}
                                         alt={page_data.image.description || ''}
                                     />
                                 }

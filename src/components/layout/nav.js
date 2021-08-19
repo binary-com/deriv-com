@@ -20,7 +20,12 @@ import { SharedLinkStyle } from 'components/localization/localized-link'
 import Login from 'common/login'
 import device from 'themes/device'
 import { affiliate_signin_url, affiliate_signup_url, deriv_app_url } from 'common/constants'
-import { isLoggedIn, getLanguage, getDerivAppLocalizedURL } from 'common/utility'
+import {
+    isLoggedIn,
+    getLanguage,
+    getDerivAppLocalizedURL,
+    redirectToTradingPlatform,
+} from 'common/utility'
 // Icons
 import Logo from 'images/svg/logo-deriv.svg'
 import LogoPartner from 'images/svg/logo-partners.svg'
@@ -389,33 +394,18 @@ const LogoDescription = styled(Flex)`
 `
 
 const handleLogin = () => {
+    redirectToTradingPlatform()
     Login.redirectToLogin()
 }
 
-const redirectTo = (sub_url) => {
+const handleGetTrading = () => {
+    const sub_url = redirectToTradingPlatform()
+
     let trading_url_localized = getDerivAppLocalizedURL(
         `${deriv_app_url}/${sub_url}`,
         getLanguage(),
     )
-
     window.location.href = trading_url_localized
-}
-
-const handleGetTrading = () => {
-    const url_location = window.location.href
-
-    if (url_location.indexOf('/dmt5') > -1) {
-        redirectTo('mt5')
-    } else if (url_location.indexOf('/dbot') > -1) {
-        redirectTo('bot')
-    } else if (
-        url_location.indexOf('/derivx') > -1 ||
-        url_location.indexOf('/trade-types/margin') > -1
-    ) {
-        redirectTo('derivx')
-    } else {
-        redirectTo('')
-    }
 }
 
 const NavMobile = ({ is_ppc, is_ppc_redirect, is_logged_in, hide_signup_login }) => {

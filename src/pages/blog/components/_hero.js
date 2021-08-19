@@ -50,6 +50,9 @@ const Wrapper = styled(Flex)`
     @media screen and (min-width: 1980px) {
         max-width: 1900px;
     }
+    @media screen and (max-width: 500px) {
+        padding: 2rem 4rem;
+    }
 `
 
 const Hero = ({ heroImage, title, description }) => (

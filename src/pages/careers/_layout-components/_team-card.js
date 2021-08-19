@@ -1,15 +1,20 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { keyframes } from 'styled-components'
+import device from 'themes/device.js'
 import { QueryImage, Text, Header } from 'components/elements'
 import { LocalizedLink, localize } from 'components/localization'
-// SVG
-import { ReactComponent as Chevron } from 'images/svg/carousel-chevron.svg'
+import { LinkButton } from 'components/form'
 
-const ChevronRight = styled(Chevron)`
-    transform: rotate(180deg);
-    width: 16px;
-    height: 16px;
+const GoViewTeam = styled(LinkButton)`
+    border-color: var(--color-black-5);
+    padding: 12px 16px;
+    border-radius: 3px;
+
+    @media ${device.tablet} {
+        display: block;
+        width: 100%;
+    }
 `
 const Bounce = keyframes`
     0%, 20%, 80%, 100% {
@@ -31,15 +36,18 @@ export const StyledCard = styled(LocalizedLink)`
     position: relative;
     height: ${(props) => (props.height ? props.height : 'auto')};
     width: 100%;
-    box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.05);
-    border-radius: 4px;
+    border-radius: 6px;
     background: var(--color-white);
     transition: transform 0.3s;
     overflow: hidden;
     cursor: pointer;
+    padding: 16px;
+    border: 1px solid #e6e9e9;
+    margin-bottom: 2.4rem;
 
     &:hover {
         transform: translateY(-1.1rem) scale(1.02);
+        box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.05);
 
         svg {
             path {
@@ -66,21 +74,23 @@ const ImageWrapper = styled.div`
 `
 
 const StyledContent = styled.div`
-    padding: 3.2rem;
+    padding: 2.7rem 0;
     width: 100%;
 `
 
 const StyledHeader = styled(Header)`
     margin-bottom: 0.8rem;
-    font-size: var(--text-size-sm);
+    font-size: 20px;
+    line-height: 30px;
 `
-
 const StyledLink = styled.div`
     position: absolute;
     bottom: 3.2rem;
-    right: 3.2rem;
-`
 
+    @media ${device.tablet} {
+        width: 91%;
+    }
+`
 const TeamCard = ({ to, img_data, display_team_name, tagline }) => (
     <StyledCard height="388px" to={to}>
         <ImageWrapper>
@@ -95,7 +105,9 @@ const TeamCard = ({ to, img_data, display_team_name, tagline }) => (
             <StyledHeader as="h5">{display_team_name}</StyledHeader>
             <Text>{tagline}</Text>
             <StyledLink>
-                <ChevronRight />
+                <GoViewTeam tertiary external target="_blank" rel="noopener noreferrer nofollow">
+                    {localize('View Team')}
+                </GoViewTeam>
             </StyledLink>
         </StyledContent>
     </StyledCard>

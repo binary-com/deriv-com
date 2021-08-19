@@ -6,6 +6,7 @@ import {
     OurValues,
     EmployeeTestimonial,
     OurHiringProcess,
+    JoinYourTeam,
 } from './_lazy-load'
 import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
@@ -29,6 +30,7 @@ const Careers = () => (
         />
         <Hero />
         <WhoWeLookFor />
+        <JoinYourTeam />
         <LifeAtDerivCarousel />
         <OurValues />
         <EmployeeTestimonial />

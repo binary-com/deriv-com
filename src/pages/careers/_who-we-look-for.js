@@ -15,11 +15,12 @@ const StyledContainer = styled(Flex)`
 `
 
 const StyledHeader = styled(Header)`
-    font-size: var(--text-size-header-4);
-    max-width: 20.5rem;
+    font-size: 32px;
+    max-width: 17.5rem;
 
     @media ${device.tablet} {
         max-width: 100%;
+        font-size: var(--text-size-header-4);
     }
 `
 
@@ -34,13 +35,17 @@ const StyledDivider = styled(Divider)`
 `
 
 const ParimaryText = styled(Text)`
-    font-size: var(--text-size-sm);
+    font-size: var(--text-size-m);
+
+    @media ${device.tablet} {
+        text-align: center;
+        font-size: var(--text-size-sm);
+    }
 `
 
 const DescContainer = styled(Flex)`
     @media ${device.tablet} {
         flex-direction: column;
-        align-items: center;
     }
 `
 
@@ -60,6 +65,13 @@ const ImageDescription = styled.div`
 
 const DiffHeader = styled(Header)`
     margin-bottom: 6.4rem;
+    font-size: 48px;
+    line-height: 60px;
+
+    @media ${device.tablet} {
+        font-size: 28px;
+        line-height: 34px;
+    }
 `
 
 const BoldSpan = styled.span`
@@ -69,9 +81,16 @@ const BoldSpan = styled.span`
 const DescText = styled(ParimaryText)`
     max-width: ${(props) => (props.max_width ? props.max_width : '38rem')};
     margin-bottom: 3.2rem;
+    font-size: 16px;
+    line-height: 24px;
 
     &:last-child {
         margin-bottom: 0;
+    }
+
+    @media ${device.tablet} {
+        text-align: left;
+        max-width: 100%;
     }
 `
 

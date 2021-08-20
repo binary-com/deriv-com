@@ -1,10 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
-import { MajorPairs } from '../../markets/instruments/_submarkets.js'
+import MarketInstruments from '../../markets/components/sections/_market_instruments.js'
+import { MajorPairs, SmartFX } from '../../markets/instruments/_submarkets.js'
 import AvailablePlatforms from '../../markets/components/helper/_available-platforms.js'
+import { SmartFXDetails } from '../../markets/static/content/_details'
 import { Text } from 'components/elements'
 import { SectionContainer, Flex, CssGrid } from 'components/containers'
-import { localize } from 'components/localization'
+import { Localize, localize } from 'components/localization'
 import device from 'themes/device'
 
 const StyledText = styled(Text)`
@@ -62,6 +64,30 @@ const StyledTitle = styled(Text)`
 `
 
 const CFDs = () => {
+    const forex_cfds = {
+        markets_list: {
+            col: 3,
+            tablet_col: 3,
+            mobile_col: 1,
+        },
+        content: [
+            {
+                title: <Localize translate_text="Smart FX" />,
+                component: <SmartFX />,
+                details: SmartFXDetails,
+                mobile_fullwidth: true,
+                mobileSetup: true,
+                mobileStyle: {
+                    col: 3,
+                    tablet_col: 2,
+                    mobile_col: 2,
+                    padding: '16px',
+                    flex: true,
+                    gap: '8px',
+                },
+            },
+        ],
+    }
     return (
         <SectionContainer padding="4rem 0 8rem">
             <Flex max_width="79.2rem" m="0 auto" direction="column">
@@ -81,6 +107,7 @@ const CFDs = () => {
                         <MajorPairs />
                     </MarketsList>
                 </Row>
+                <MarketInstruments market_content={forex_cfds} />
                 <AvailablePlatforms dtrader />
             </Flex>
         </SectionContainer>

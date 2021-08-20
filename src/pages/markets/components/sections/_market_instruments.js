@@ -38,10 +38,10 @@ const MarketInstruments = ({ market_content }) => (
                                 </>
                             ) : (
                                 <>
-                                    <Col>
+                                    <Col full_width={content.mobile_fullwidth}>
                                         <Title>{content.title}</Title>
                                     </Col>
-                                    <MarketsList has_right_border={true}>
+                                    <MarketsList has_right_border={true} {...content.mobileStyle}>
                                         {content.component}
                                     </MarketsList>
                                 </>

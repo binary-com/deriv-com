@@ -391,6 +391,8 @@ const Subscribe = () => {
                             isChecked={is_checked}
                             handleChangeCheckbox={handleChange}
                             color="#C2C2C2"
+                            link_text="Send me marketing materials too!"
+                            additional_text="We respect your privacy and protect your information. Read our <0>Privacy policy</0> to find out more."
                         />
                     )}
                     {submit_status === 'success' && (

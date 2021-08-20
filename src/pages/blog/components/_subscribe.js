@@ -393,6 +393,7 @@ const Subscribe = () => {
                             color="#C2C2C2"
                             link_text="Send me marketing materials too!"
                             additional_text="We respect your privacy and protect your information. Read our <0>Privacy policy</0> to find out more."
+                            additional_link_path="tnc/security-and-privacy.pdf"
                         />
                     )}
                     {submit_status === 'success' && (

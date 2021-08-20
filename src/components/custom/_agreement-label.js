@@ -27,6 +27,7 @@ const AgreementLabel = ({
     color,
     additional_text = '',
     link_path = 'terms_and_conditions',
+    additional_link_path = 'terms_and_conditions',
     link_text = 'I agree to the <0>terms and conditions</0>',
 }) => {
     const handleChange = (event) => {
@@ -78,7 +79,7 @@ const AgreementLabel = ({
                         components={[
                             <LocalizedLinkText
                                 key={0}
-                                type={link_path}
+                                type={additional_link_path}
                                 external="true"
                                 rel="noopener noreferrer"
                                 size="14px"
@@ -93,6 +94,7 @@ const AgreementLabel = ({
 }
 
 AgreementLabel.propTypes = {
+    additional_link_path: PropTypes.string,
     additional_text: PropTypes.string,
     color: PropTypes.string,
     handleChangeCheckbox: PropTypes.func,

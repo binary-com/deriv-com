@@ -319,22 +319,23 @@ export const articles = [
                 sub_category: <Localize translate_text="Platforms" />,
                 label: 'deriv-x-account-information',
             },
-            {
-                title: (
-                    <Localize translate_text="How can I deposit funds into my Deriv X real money account?" />
-                ),
-                category: 'Deriv X',
-                sub_category: <Localize translate_text="Platforms" />,
-                label: 'deposit-funds',
-            },
-            {
-                title: (
-                    <Localize translate_text="How do I withdraw funds from my Deriv X real money account?" />
-                ),
-                category: 'Deriv X',
-                sub_category: <Localize translate_text="Platforms" />,
-                label: 'withdraw-funds-from-deriv-x',
-            },
+            // TODO: uncomment this once deriv x real is ready
+            // {
+            //     title: (
+            //         <Localize translate_text="How can I deposit funds into my Deriv X real money account?" />
+            //     ),
+            //     category: 'Deriv X',
+            //     sub_category: <Localize translate_text="Platforms" />,
+            //     label: 'deposit-funds',
+            // },
+            // {
+            //     title: (
+            //         <Localize translate_text="How do I withdraw funds from my Deriv X real money account?" />
+            //     ),
+            //     category: 'Deriv X',
+            //     sub_category: <Localize translate_text="Platforms" />,
+            //     label: 'withdraw-funds-from-deriv-x',
+            // },
         ],
     },
     {

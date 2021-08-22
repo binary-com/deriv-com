@@ -13,13 +13,15 @@ const Wrapper = styled.div`
     background-color: var(--color-black);
     width: 100%;
     display: flex;
-    padding: 12rem 12rem 9rem 12rem;
+    padding: 9rem 12rem;
+    min-height: 575px;
 
     @media ${device.desktopS} {
         padding-left: 18%;
     }
 
     @media ${device.laptopM} {
+        min-height: unset;
         padding: 8rem 12rem 8rem 4rem;
     }
     @media ${device.tabletL} {
@@ -35,19 +37,6 @@ const HeroContent = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-
-    ${Header} {
-        color: var(--color-white);
-        display: flex;
-        margin-top: 1.5rem;
-        line-height: 1.25;
-    }
-
-    @media ${device.laptopM} {
-        ${Header} {
-            font-size: 32px;
-        }
-    }
 `
 const StyledHeader = styled(Header)`
     color: var(--color-white);
@@ -127,6 +116,7 @@ const GoToLiveDemo = styled(LinkButton)`
         max-width: 100%;
         white-space: nowrap;
         margin-left: 0;
+        width: 100%;
     }
 
     @media (max-width: 360px) {
@@ -143,13 +133,8 @@ const DemoButton = styled(LinkButton)`
     @media ${device.mobileL} {
         white-space: nowrap;
         margin-bottom: 1.6rem;
-    }
-`
-const StyledContent = styled(Header)`
-    font-size: 6.4rem;
-
-    @media (max-width: 1370px) {
-        font-size: 4.2rem;
+        margin-right: unset;
+        width: 100%;
     }
 `
 
@@ -257,7 +242,9 @@ const DHero = ({
                     {title}
                 </StyledHeader>
                 <HeroContent>
-                    <StyledContent as="h1">{content}</StyledContent>
+                    <Header as="h1" type="display-title" color="white" mt="1.5rem">
+                        {content}
+                    </Header>
                 </HeroContent>
                 <LinkWrapper>
                     {join_us_for_free && (

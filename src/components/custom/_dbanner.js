@@ -99,6 +99,7 @@ const DemoButton = styled.div`
     }
 `
 const StyledHeader = styled(Header)`
+    max-width: 84rem;
     @media ${device.laptopM} {
         font-size: 4rem;
         max-width: 60rem;

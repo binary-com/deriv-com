@@ -229,7 +229,7 @@ const StartDerivX = () => {
                         {localize('Demo account')}
                     </StyledText>
                 </TabItem>
-                {/* TODO: Enable once real money account is available */}
+                {/* TODO: enable this once deriv x real account is ready */}
                 {/* <TabItem
                     mobile_padding="12px 24px"
                     active={tab === 'real'}

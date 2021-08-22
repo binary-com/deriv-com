@@ -1,6 +1,7 @@
 import * as React from 'react'
 import styled from 'styled-components'
 import { Formik, Form } from 'formik'
+import device from 'themes/device'
 import { WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { Container, SEO } from 'components/containers'
@@ -12,6 +13,17 @@ import { default_server_url } from 'common/constants'
 import { getAppId } from 'common/websocket/config'
 import { DerivStore } from 'store'
 import { useLocalStorageState } from 'components/hooks/use-localstorage-state'
+
+const StyledInput = styled(Input)`
+    & ~ label {
+        transform: translate(-0.6rem, -2rem) scale(0.7);
+        color: var(--color-black-3);
+        background-color: var(--color-${(props) => props.background || 'grey-1'});
+        @media ${device.tabletL} {
+            top: 9px;
+        }
+    }
+`
 
 const StyledContainer = styled(Container)`
     text-align: center;
@@ -73,9 +85,8 @@ const Endpoint = () => {
     const [server_url, setServerUrl] = useLocalStorageState(default_server_url, 'config.server_url')
     const [app_id, setAppId] = useLocalStorageState(getAppId(), 'config.app_id')
     const [reset_loading, setResetLoading] = React.useState(false)
-    const { website_status, setWebsiteStatus, website_status_loading } = React.useContext(
-        DerivStore,
-    )
+    const { website_status, setWebsiteStatus, website_status_loading } =
+        React.useContext(DerivStore)
     const STATUS_TIMEOUT_DELAY = 1500
     const RESET_TIMEOUT_DELAY = 500
 
@@ -161,7 +172,7 @@ const Endpoint = () => {
                     }) => (
                         <Form noValidate>
                             <InputGroup>
-                                <Input
+                                <StyledInput
                                     name="server_url"
                                     error={errors.server_url}
                                     value={values.server_url}
@@ -174,7 +185,7 @@ const Endpoint = () => {
                                     background="white"
                                     placeholder={'e.g. green.binaryws.com'}
                                 />
-                                <Input
+                                <StyledInput
                                     name="app_id"
                                     error={errors.app_id}
                                     value={values.app_id}
@@ -187,7 +198,7 @@ const Endpoint = () => {
                                     background="white"
                                     placeholder={'e.g. 9999'}
                                 />
-                                <Input
+                                <StyledInput
                                     name="clients_country"
                                     error={errors.clients_country}
                                     value={values.clients_country}

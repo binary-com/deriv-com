@@ -103,7 +103,7 @@ exports.onCreatePage = ({ page, actions }) => {
         const localized_path = is_default ? page.path : `${path}${page.path}`
         const is_production = process.env.GATSBY_ENV === 'production'
         const excluded_pages_regex =
-            /^[a-z-]+\/(careers|endpoint|offline-plugin-app-shell-fallback|besquare)\//g
+            /^[a-z-]+\/(careers|endpoint|offline-plugin-app-shell-fallback|besquare|livechat)\//g
 
         if (is_production) {
             if (path === 'ach') return

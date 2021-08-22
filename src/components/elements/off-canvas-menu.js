@@ -518,7 +518,7 @@ export const OffCanvasMenuWrapper = (props) => {
                         </StyledLink>
                         <StyledLink
                             to=""
-                            type="developers"
+                            type="api"
                             target="_blank"
                             external="true"
                             rel="noopener noreferrer"
@@ -583,7 +583,7 @@ export const OffCanvasMenuPartner = (props) => {
                 </StyledLink>
                 <StyledLink
                     to=""
-                    type="developers"
+                    type="api"
                     target="_blank"
                     external="true"
                     rel="noopener noreferrer"

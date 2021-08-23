@@ -103,7 +103,7 @@ exports.onCreatePage = ({ page, actions }) => {
         const localized_path = is_default ? page.path : `${path}${page.path}`
         const is_production = process.env.GATSBY_ENV === 'production'
         const excluded_pages_regex =
-            /^[a-z-]+\/(careers|endpoint|offline-plugin-app-shell-fallback|besquare|blog)\//g
+            /^[a-z-]+\/(careers|endpoint|offline-plugin-app-shell-fallback|besquare|blog|academy)\//g
 
         if (is_production) {
             if (path === 'ach') return
@@ -254,7 +254,7 @@ exports.onCreateWebpackConfig = ({ actions, getConfig }, { ...options }) => {
 // TODO: To be updated to the new shape of the API of the new endpoint
 exports.createPages = async ({ reporter, actions, graphql }) => {
     const { createPage } = actions
-    const articleTemplate = path.resolve(__dirname, 'src/templates/article-latest.js')
+    const articleTemplate = path.resolve(__dirname, 'src/templates/article.js')
 
     // Query our published articles
     const result = await graphql(`
@@ -262,71 +262,7 @@ exports.createPages = async ({ reporter, actions, graphql }) => {
             directus {
                 blog(filter: { status: { _eq: "published" } }) {
                     id
-                    blog_title
-                    published_date
-                    read_time_in_minutes
-                    blog_post
-                    author {
-                        id
-                        name
-                        image {
-                            id
-                            imageFile {
-                                childImageSharp {
-                                    gatsbyImageData
-                                }
-                            }
-                        }
-                    }
-                    main_image {
-                        id
-                        imageFile {
-                            childImageSharp {
-                                gatsbyImageData
-                            }
-                        }
-                    }
-                    tags {
-                        id
-                        tags_id {
-                            id
-                            tag_name
-                        }
-                    }
-                    footer_banners {
-                        id
-                        cta_url
-                        name
-                        desktop_banner_image {
-                            id
-                            imageFile {
-                                childImageSharp {
-                                    gatsbyImageData
-                                }
-                            }
-                        }
-                        mobile_banner_image {
-                            id
-                            imageFile {
-                                childImageSharp {
-                                    gatsbyImageData
-                                }
-                            }
-                        }
-                    }
-                    side_banners {
-                        id
-                        cta_url
-                        name
-                        banner_image {
-                            id
-                            imageFile {
-                                childImageSharp {
-                                    gatsbyImageData
-                                }
-                            }
-                        }
-                    }
+                    slug
                 }
             }
         }
@@ -335,15 +271,15 @@ exports.createPages = async ({ reporter, actions, graphql }) => {
     if (result.errors) {
         reporter.panic(result.errors)
     }
-    const articles = result.data.directus.blog
-    articles.forEach((article) => {
+    const blog = result.data.directus.blog
+    blog.forEach((blog_post) => {
         createPage({
-            path: `/academy/blog/articles/${article.id}`,
+            path: `/academy/blog/${blog_post.slug}`,
             component: articleTemplate,
             context: {
                 locale: 'en',
-                pathname: `/academy/blog/articles/${article.id}`,
-                slug: article.id,
+                pathname: `/academy/blog/${blog_post.slug}`,
+                slug: blog_post.slug,
             },
         })
     })

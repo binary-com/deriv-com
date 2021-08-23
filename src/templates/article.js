@@ -74,7 +74,6 @@ const HeroImageContainer = styled(Box)`
     top: 10%;
     right: 0%;
     max-height: 532px;
-    background: red;
     overflow: hidden;
 
     @media (max-width: 1300px) {

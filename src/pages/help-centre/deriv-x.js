@@ -297,7 +297,7 @@ const DerivXArticle = () => {
                     is_mounted={is_mounted}
                 />
                 <TradingPassword
-                    text={localize('What is a trading password?')}
+                    text={localize('What is a Deriv X password?')}
                     label="trading-password"
                     is_mounted={is_mounted}
                 />

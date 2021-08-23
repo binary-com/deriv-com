@@ -1,5 +1,7 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import {
+    AcademyWrapper,
     DisclaimerWrapper,
     DisclaimerParagraph,
     StaticAsset,
@@ -10,7 +12,7 @@ import {
 import { Show } from 'components/containers'
 import { Localize, localize } from 'components/localization'
 
-const DisclaimerSection = () => {
+const DisclaimerSection = ({ academy }) => {
     return (
         <>
             <DisclaimerWrapper>
@@ -114,6 +116,11 @@ const DisclaimerSection = () => {
                         "This website's services are not made available in certain countries, including the USA, Canada, and Hong Kong, or to persons below 18.",
                     )}
                 </DisclaimerParagraph>
+                {academy && (
+                    <AcademyWrapper>
+                        <Localize translate_text="The information contained in this blog post is for educational purposes only and is not intended as financial or investment advice." />
+                    </AcademyWrapper>
+                )}
                 <RiskWarning>
                     <Show.Desktop>
                         <Show.NonEU>
@@ -205,6 +212,10 @@ const DisclaimerSection = () => {
             </DisclaimerWrapper>
         </>
     )
+}
+
+DisclaimerSection.propTypes = {
+    academy: PropTypes.bool,
 }
 
 export default DisclaimerSection

@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { graphql } from 'gatsby'
-import Banner from '../pages/blog/components/_banner'
-import SocialSharing from '../pages/blog/_social-sharing'
+import { graphql, useStaticQuery } from 'gatsby'
+import Banner from '../components/_banner'
+import SocialSharing from '../_social-sharing'
 import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { SEO, Show, Box, Flex, Container, SectionContainer } from 'components/containers'
@@ -346,9 +346,101 @@ const convertDate = (date) => {
     )
 }
 
-const ArticlesTemplate = (props) => {
+export const query_preview = graphql`
+    query MyQueryPreview {
+        directus {
+            blog {
+                id
+                slug
+                blog_title
+                published_date
+                read_time_in_minutes
+                blog_post
+                author {
+                    id
+                    name
+                    image {
+                        id
+                        imageFile {
+                            childImageSharp {
+                                gatsbyImageData
+                            }
+                        }
+                    }
+                }
+                main_image {
+                    id
+                    imageFile {
+                        childImageSharp {
+                            gatsbyImageData
+                        }
+                    }
+                }
+                tags {
+                    id
+                    tags_id {
+                        id
+                        tag_name
+                    }
+                }
+                footer_banners {
+                    id
+                    cta_url
+                    name
+                    desktop_banner_image {
+                        id
+                        imageFile {
+                            childImageSharp {
+                                gatsbyImageData
+                            }
+                        }
+                    }
+                    mobile_banner_image {
+                        id
+                        imageFile {
+                            childImageSharp {
+                                gatsbyImageData
+                            }
+                        }
+                    }
+                }
+                side_banners {
+                    id
+                    cta_url
+                    name
+                    banner_image {
+                        id
+                        imageFile {
+                            childImageSharp {
+                                gatsbyImageData
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+`
+
+const BlogPreview = (props) => {
+    const data = useStaticQuery(query_preview)
+    const [isData, setData] = useState()
+
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            const query_string = window.location.search
+            const url_params = new URLSearchParams(query_string)
+            const params = url_params.get('id')
+            const item_data = data.directus.blog.find((items) => {
+                return items.id == params
+            })
+
+            setData(item_data)
+        }
+    }, [data])
+
     const pathname = props.pageContext.pathname
-    const post_data = props.data.directus.blog[0]
+    const post_data = isData
     const footer_banner_data = post_data?.footer_banners
     const side_banner_data = post_data?.side_banners
 
@@ -509,85 +601,8 @@ const ArticlesTemplate = (props) => {
     )
 }
 
-ArticlesTemplate.propTypes = {
-    data: PropTypes.object,
+BlogPreview.propTypes = {
     pageContext: PropTypes.object,
 }
 
-export default WithIntl()(ArticlesTemplate)
-
-// Query our published articles by slug
-export const query = graphql`
-    query MyQuery($slug: String) {
-        directus {
-            blog(filter: { slug: { _eq: $slug } }) {
-                id
-                blog_title
-                published_date
-                read_time_in_minutes
-                blog_post
-                author {
-                    id
-                    name
-                    image {
-                        id
-                        imageFile {
-                            childImageSharp {
-                                gatsbyImageData
-                            }
-                        }
-                    }
-                }
-                main_image {
-                    id
-                    imageFile {
-                        childImageSharp {
-                            gatsbyImageData
-                        }
-                    }
-                }
-                tags {
-                    id
-                    tags_id {
-                        id
-                        tag_name
-                    }
-                }
-                footer_banners {
-                    id
-                    cta_url
-                    name
-                    desktop_banner_image {
-                        id
-                        imageFile {
-                            childImageSharp {
-                                gatsbyImageData
-                            }
-                        }
-                    }
-                    mobile_banner_image {
-                        id
-                        imageFile {
-                            childImageSharp {
-                                gatsbyImageData
-                            }
-                        }
-                    }
-                }
-                side_banners {
-                    id
-                    cta_url
-                    name
-                    banner_image {
-                        id
-                        imageFile {
-                            childImageSharp {
-                                gatsbyImageData
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-`
+export default WithIntl()(BlogPreview)

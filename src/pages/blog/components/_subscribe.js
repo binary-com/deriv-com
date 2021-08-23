@@ -6,6 +6,7 @@ import paperPlane from 'images/common/blog/paperplanes.png'
 import validation from 'common/validation'
 import { Input, Button } from 'components/form'
 import { Localize, localize } from 'components/localization'
+import { LocalizedLinkText } from 'components/elements'
 import { Flex } from 'components/containers'
 import AgreementLabel from 'components/custom/_agreement-label'
 import device from 'themes/device.js'
@@ -146,7 +147,15 @@ const EmailButton = styled(Button)`
         border-bottom-left-radius: 4px;
     }
 `
-
+const AdditionalFlex = styled.div`
+    margin-top: 10px;
+    font-size: var(--text-size-xs);
+    line-height: 20px;
+    color: ${(props) => (props.color ? props.color : 'black')};
+    @media ${device.tabletL} {
+        font-size: 1.75rem;
+    }
+`
 const Subscribe = () => {
     const [is_checked, setChecked] = React.useState(false)
     const [email, setEmail] = React.useState('')
@@ -387,14 +396,30 @@ const Subscribe = () => {
                         </EmailButton>
                     </Flex>
                     {submit_status === true && (
-                        <AgreementLabel
-                            isChecked={is_checked}
-                            handleChangeCheckbox={handleChange}
-                            color="#C2C2C2"
-                            link_text="Send me marketing materials too!"
-                            additional_text="We respect your privacy and protect your information. Read our <0>Privacy policy</0> to find out more."
-                            additional_link_path="tnc/security-and-privacy.pdf"
-                        />
+                        <>
+                            <AgreementLabel
+                                isChecked={is_checked}
+                                handleChangeCheckbox={handleChange}
+                                color="#C2C2C2"
+                                link_text="Send me marketing materials too!"
+                            />
+                            <AdditionalFlex color="#C2C2C2">
+                                <Localize
+                                    fontSize="var(--text-size-xs)"
+                                    translate_text="We respect your privacy and protect your information. Read our <0>Privacy policy</0> to find out more."
+                                    components={[
+                                        <LocalizedLinkText
+                                            key={0}
+                                            type="tnc/security-and-privacy.pdf"
+                                            external="true"
+                                            rel="noopener noreferrer"
+                                            size="14px"
+                                            color="red"
+                                        />,
+                                    ]}
+                                />
+                            </AdditionalFlex>
+                        </>
                     )}
                     {submit_status === 'success' && (
                         <TextWrapper color={'#01a79f'} font_size={15} margin_top={'10px'}>

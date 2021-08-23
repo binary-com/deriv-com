@@ -12,22 +12,11 @@ const CheckboxSpan = styled.span`
         font-size: 1.75rem;
     }
 `
-const AdditionalFlex = styled.div`
-    margin-top: 10px;
-    font-size: var(--text-size-xs);
-    line-height: 20px;
-    color: ${(props) => (props.color ? props.color : 'black')};
-    @media ${device.tabletL} {
-        font-size: 1.75rem;
-    }
-`
 const AgreementLabel = ({
     handleChangeCheckbox,
     isChecked,
     color,
-    additional_text = '',
     link_path = 'terms_and_conditions',
-    additional_link_path = 'terms_and_conditions',
     link_text = 'I agree to the <0>terms and conditions</0>',
 }) => {
     const handleChange = (event) => {
@@ -71,31 +60,11 @@ const AgreementLabel = ({
                     ]}
                 />
             </CheckboxSpan>
-            {additional_text && (
-                <AdditionalFlex color={color}>
-                    <Localize
-                        fontSize="var(--text-size-xs)"
-                        translate_text={additional_text}
-                        components={[
-                            <LocalizedLinkText
-                                key={0}
-                                type={additional_link_path}
-                                external="true"
-                                rel="noopener noreferrer"
-                                size="14px"
-                                color="red"
-                            />,
-                        ]}
-                    />
-                </AdditionalFlex>
-            )}
         </label>
     )
 }
 
 AgreementLabel.propTypes = {
-    additional_link_path: PropTypes.string,
-    additional_text: PropTypes.string,
     color: PropTypes.string,
     handleChangeCheckbox: PropTypes.func,
     isChecked: PropTypes.bool,

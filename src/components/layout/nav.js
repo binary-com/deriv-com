@@ -420,9 +420,9 @@ const NavMobile = ({ is_ppc, is_ppc_redirect, is_logged_in, hide_signup_login, a
                     <LogoDescription ai="center">
                         <Line />
                         {academy_logo ? (
-                            <img src={LogoCombinedShape} alt="logo combined shape" />
-                        ) : (
                             <img src={AcademyLogo} alt="Academy" />
+                        ) : (
+                            <img src={LogoCombinedShape} alt="logo combined shape" />
                         )}
                     </LogoDescription>
                 </Flex>
@@ -528,9 +528,9 @@ const NavDesktop = ({
                     </LogoLink>
                     <Line />
                     {academy_logo ? (
-                        <img src={LogoCombinedShape} alt="logo combined shape" />
-                    ) : (
                         <img src={AcademyLogo} alt="Academy" />
+                    ) : (
+                        <img src={LogoCombinedShape} alt="logo combined shape" />
                     )}
                 </NavLeftMain>
                 <NavCenter ref={navigation_bar_ref}>

@@ -165,11 +165,6 @@ const ResetDerivXPassowrd = () => (
                 deriv_x_app_url
             />
         </Text>
-        <StyledText>
-            {localize(
-                'Note: Remember that your trading password is also linked to your Deriv MT5 (DMT5) account.',
-            )}
-        </StyledText>
     </ArticleWrapper>
 )
 

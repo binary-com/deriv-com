@@ -433,7 +433,7 @@ class HelpCentreClass extends Component {
                                                             can_expand &&
                                                             idxb === item.articles.length - 1
                                                         return (
-                                                            <ListNoBullets key={idxb}>
+                                                             <ListNoBullets key={idxb}>
                                                                 {should_show_item && (
                                                                     <li>
                                                                         <StyledLink

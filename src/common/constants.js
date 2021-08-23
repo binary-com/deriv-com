@@ -59,6 +59,8 @@ export const map_api_key = 'AIzaSyAEha6-HeZuI95L9JWmX3m6o-AxQr_oFqU'
 export const mga_link_url =
     'https://authorisation.mga.org.mt/verification.aspx?lang=EN&company=a5fd1edc-d072-4c26-b0cd-ab3fa0f0cc40&details=1'
 export const p2p_playstore_url = 'https://play.google.com/store/apps/details?id=com.deriv.dp2p'
+export const p2p_applestore_url = 'https://apps.apple.com/us/app/deriv-dp2p/id1506901451'
+export const p2p_huawei_appgallery_url = 'https://appgallery.huawei.com/#/app/C103844755'
 export const pushwoosh_app_code = 'DD293-35A19'
 export const sample_rate = 25
 export const zoho_url = 'https://deriv.zohorecruit.com'

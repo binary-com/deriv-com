@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react'
-import { Localize } from 'components/localization'
+import { Localize, localize } from 'components/localization'
 import DHero from 'components/custom/_dhero-2'
 import { size } from 'themes/device'
 import DerivXBG from 'images/svg/deriv-x/triangle-up.svg'
@@ -33,7 +33,7 @@ const Hero = () => {
             is_mobile={is_mobile}
             background_svg={DerivXBG2}
             background_svg2={DerivXBG}
-            background_alt={<Localize translate_text="DerivX" />}
+            background_alt={localize('Deriv X online trading platform')}
             d_height="56.7rem"
             laptopM_height="49.9rem"
             laptop_height="53.8rem"

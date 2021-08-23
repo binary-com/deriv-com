@@ -4,10 +4,10 @@ import Loadable from '@loadable/component'
 import { WhyTrade } from '../sections/_why-trade'
 import AvailableTrades from '../helper/_available-trades'
 import synthetic_content from '../../static/content/_synthetic'
-import { synthetic_margin } from '../../static/content/_margin'
+import { synthetic_cfds } from '../../static/content/_cfds'
 import { synthetic_multiplier } from '../../static/content/_multipliers'
 import { synthetic_options } from '../../static/content/_digital-options'
-import Margin from '../sub-markets/_margin'
+import CFDs from '../sub-markets/_cfds'
 import Multipliers from '../sub-markets/_multipliers'
 import DigitalOptions from '../sub-markets/_digital-options'
 import { Localize, localize } from 'components/localization'
@@ -27,7 +27,7 @@ const StockIndices = ({ simple_step_content }) => (
             ))}
         </WhyTrade>
         <AvailableTrades
-            Margin={<Margin market_content={synthetic_margin} />}
+            CFDs={<CFDs market_content={synthetic_cfds} />}
             DigitalOptions={
                 <DigitalOptions
                     market_name={localize('synthetic indices')}

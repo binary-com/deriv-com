@@ -76,6 +76,16 @@ const StyledText = styled(Text)`
         line-height: 24px;
     }
 `
+const VideoText = styled(Text)`
+    margin-top: 70px;
+    font-size: 2.4rem;
+    text-align: center;
+    line-height: 36px;
+
+    @media ${device.tabletL} {
+        font-size: 14px;
+    }
+`
 const Row = styled.div`
     flex-direction: ${(props) => props.flex_direction};
     width: 100%;
@@ -91,6 +101,13 @@ const Row = styled.div`
         margin-top: 40px;
     }
 `
+
+const StyledIFrame = styled.iframe`
+    height: 315px;
+    width: 100%;
+    max-width: 560px;
+`
+
 const query = graphql`
     query {
         buy_sell: file(relativePath: { eq: "p2p/p2p_buy_sell.png" }) {
@@ -111,9 +128,19 @@ const DP2P = ({ P2P, reverse, two_title }) => {
             <StyledContainer>
                 <StyledText>
                     {localize(
-                        'DP2P is Deriv’s peer-to-peer deposit and withdrawal service. It’s where you can get money in and out of your Deriv account via exchanges with fellow traders.',
+                        'Deriv P2P is Deriv’s peer-to-peer deposit and withdrawal service that offers an easy way to get money in and out of your Deriv account. Connect with fellow traders and transfer money in minutes.',
                     )}
                 </StyledText>
+
+                <VideoText>{localize('Find out how Deriv P2P works:')}</VideoText>
+                <StyledIFrame
+                    src="https://www.youtube.com/embed/zf9flqE94Ek"
+                    title="YouTube video player"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                ></StyledIFrame>
+
                 {P2P.map((item, index) => {
                     let is_even = reverse ? (index + 1) % 2 : index % 2
                     return (

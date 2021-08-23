@@ -118,7 +118,7 @@ export const EuropeDetails = (index) => {
         </Text>,
         <Text key={2}>
             <Localize
-                translate_text="<0>Euro 50</0> Index follows the performance of the 50 largest and most liquid stocks in the EU."
+                translate_text="<0>Europe 50</0> Index follows the performance of the 50 largest and most liquid stocks in the EU."
                 components={[<strong key={0} />]}
             />
         </Text>,
@@ -130,7 +130,7 @@ export const EuropeDetails = (index) => {
         </Text>,
         <Text key={4}>
             <Localize
-                translate_text="<0>German 30</0> follows the stock performance of the 30 major listed companies in Germany."
+                translate_text="<0>Germany 30</0> follows the stock performance of the 30 major listed companies in Germany."
                 components={[<strong key={0} />]}
             />
         </Text>,
@@ -305,7 +305,7 @@ export const EuropeanIndicesDetails = () => (
         </Text>
         <Text>
             <Localize
-                translate_text="<0>Euro 50</0> Index follows the performance of the 50 largest and most liquid stocks in the EU."
+                translate_text="<0>Europe 50</0> Index follows the performance of the 50 largest and most liquid stocks in the EU."
                 components={[<strong key={0} />]}
             />
         </Text>
@@ -317,7 +317,7 @@ export const EuropeanIndicesDetails = () => (
         </Text>
         <Text>
             <Localize
-                translate_text="<0>German 30</0> follows the stock performance of the 30 major listed companies in Germany."
+                translate_text="<0>Germany 30</0> follows the stock performance of the 30 major listed companies in Germany."
                 components={[<strong key={0} />]}
             />
         </Text>
@@ -341,6 +341,17 @@ export const CryptocurrenciesDetails = () => (
             {localize(
                 'Cryptocurrency contracts traded with multipliers have a time limit. It depends on the asset you are trading and appears on the DTrader dashboard before you place a trade.',
             )}
+        </Text>
+    </DetailsContainer>
+)
+
+export const JumpIndicesDetails = () => (
+    <DetailsContainer>
+        <Text>
+            <Localize
+                translate_text="These indices correspond to simulated markets with <0>constant volatilities of 10%, 25%, 50%, 75%, and 100%.</0> There is an equal probability of an up or down jump <0>every 20 minutes</0>, on average. The jump size is <0>around 30 times</0> the normal price movement, on average."
+                components={[<strong key={0} />]}
+            />
         </Text>
     </DetailsContainer>
 )

@@ -1,11 +1,13 @@
 import React from 'react'
 import Symbol from '../components/helper/_symbol'
-import { OILUSD } from 'components/elements/symbols'
+import { energy } from './_market-symbols'
 
 const Energy = () => {
     return (
         <>
-            <Symbol src={OILUSD} text={'Oil/USD'} />
+            {energy.map((symbol, index) => (
+                <Symbol key={index} src={symbol.src} text={symbol.text} />
+            ))}
         </>
     )
 }

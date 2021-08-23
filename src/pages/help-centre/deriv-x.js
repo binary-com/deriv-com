@@ -128,11 +128,9 @@ const DifferentAccounts = () => (
 
 const TradingPassword = () => (
     <ArticleWrapper>
-        <StyledHeader as="h4">{localize('What is a trading password?')}</StyledHeader>
+        <StyledHeader as="h4">{localize('What is a Deriv X password?')}</StyledHeader>
         <Text>
-            {localize(
-                'It is a password that gives you access to the standalone trading platforms Deriv MT5 (DMT5) and Deriv X.',
-            )}
+            {localize('It is a password that you use to log in to the Deriv X trading platform.')}
         </Text>
     </ArticleWrapper>
 )
@@ -140,11 +138,11 @@ const TradingPassword = () => (
 const DifferentPassword = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">
-            {localize('Why is my trading password different from my Deriv password?')}
+            {localize('How is my Deriv X password different from my Deriv password?')}
         </StyledHeader>
         <Text>
             {localize(
-                'Your trading password is linked to the standalone trading platforms Deriv MT5 (DMT5) and Deriv X, while your Deriv password gives you access to platforms hosted on our website such as DTrader and DBot.',
+                'Your Deriv X password is linked to the standalone Deriv X trading platform while your Deriv password gives you access to platforms hosted on our website such as DTrader and DBot.',
             )}
         </Text>
     </ArticleWrapper>
@@ -152,10 +150,10 @@ const DifferentPassword = () => (
 
 const ResetDerivXPassowrd = () => (
     <ArticleWrapper>
-        <StyledHeader as="h4">{localize('How do I reset my Deriv X Password?')}</StyledHeader>
+        <StyledHeader as="h4">{localize('How do I reset my Deriv X password?')}</StyledHeader>
         <Text>
             <Localize
-                translate_text="Go to your <0>Account settings</0>. Under “Security and safety”, select “Passwords”. You can reset your Deriv X password under “Trading password”."
+                translate_text="Go to your <0>Account settings</0>. Click the “Security and safety” drop-down menu, and select “Passwords”. Under “Deriv X password”, click “Change password” to reset your password."
                 components={[
                     <ExternalLink
                         href={`${deriv_app_url}/account/personal-details`}
@@ -167,11 +165,6 @@ const ResetDerivXPassowrd = () => (
                 deriv_x_app_url
             />
         </Text>
-        <StyledText>
-            {localize(
-                'Note: Remember that your trading password is also linked to your Deriv MT5 (DMT5) account.',
-            )}
-        </StyledText>
     </ArticleWrapper>
 )
 
@@ -299,12 +292,12 @@ const DerivXArticle = () => {
                     is_mounted={is_mounted}
                 />
                 <TradingPassword
-                    text={localize('What is a trading password?')}
+                    text={localize('What is a Deriv X password?')}
                     label="trading-password"
                     is_mounted={is_mounted}
                 />
                 <DifferentPassword
-                    text={localize('Why is my trading password different from my Deriv password?')}
+                    text={localize('How is my Deriv X password different from my Deriv password?')}
                     label="differences-of-trading-and-deriv-password"
                     is_mounted={is_mounted}
                 />

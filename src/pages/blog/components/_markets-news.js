@@ -57,10 +57,13 @@ const MarketNews = ({ data }) => {
                         Market news
                     </Header>
                     <MarketsNewsWrapper>
-                        {data.map((data, index) => {
+                        {data.map((data) => {
                             return (
-                                <StyledLocalizedLink key={index} to={`/academy/blog/${data.slug}`}>
-                                    <StyledFlex key={index}>
+                                <StyledLocalizedLink
+                                    key={data.id}
+                                    to={`/academy/blog/${data.slug}`}
+                                >
+                                    <StyledFlex>
                                         <QueryImage
                                             data={data.main_image.imageFile}
                                             width="104px"

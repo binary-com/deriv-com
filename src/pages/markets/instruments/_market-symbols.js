@@ -353,7 +353,7 @@ export const smart_fx = [
         text: <Localize translate_text="USD Index" />,
     },
     {
-        src: icons.GOLDUSD,
+        src: icons.GOLDINDEX,
         text: <Localize translate_text="Gold Index" />,
     },
 ]

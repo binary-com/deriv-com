@@ -46,6 +46,9 @@
         "webpack": "^5.39.0"
     },
     "devDependencies": {
+        "@types/node": "^16.6.1",
+        "@types/react": "^17.0.18",
+        "@types/react-dom": "^17.0.9",
         "@types/styled-components": "^5.1.11",
         "@typescript-eslint/eslint-plugin": "^4.29.0",
         "@typescript-eslint/parser": "^4.29.0",
@@ -95,7 +98,8 @@
         "deploy-dev": "npm run build && gh-pages -d public",
         "deploy-branch": "PATH_PREFIX=/deriv-com/br/$branch_name npm run build && gh-pages -d public -e br/$branch_name",
         "prepare": "husky install",
-        "pre-commit-lint": "lint-staged"
+        "pre-commit-lint": "lint-staged",
+        "type-check": "tsc --noEmit"
     },
     "repository": {
         "type": "git",

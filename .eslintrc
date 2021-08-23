@@ -86,8 +86,9 @@
             "node": {
                 "paths": [
                     "src"
-                ]
-            }
+                ],
+                "extensions": [".js", ".jsx", ".ts", ".tsx"]
+              }
         },
         "react": {
             "version": "17"

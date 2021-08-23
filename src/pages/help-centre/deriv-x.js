@@ -94,7 +94,7 @@ const DerivXAccount = () => (
         <StyledHeader as="h4">{localize('How do I create a Deriv X account?')}</StyledHeader>
         <Text>
             <Localize
-                translate_text="On the <0>Deriv X dashboard</0>, select the account type you want to open (Demo) and click “Add account. Follow the instructions on the screen to create a new Deriv X account."
+                translate_text="On the <0>Deriv X dashboard</0>, select the account type you want to open (Demo) and click “Add account". Follow the instructions on the screen to create a new Deriv X account."
                 components={[
                     <ExternalLink
                         href={derivx_app_url}

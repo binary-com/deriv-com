@@ -92,7 +92,7 @@ const ArticleCard = ({ item }) => {
                             color="grey-5"
                             width="auto"
                         >
-                            {`• ${item.read_time_in_minutes} min read`}
+                            {item.read_time_in_minutes && `• ${item.read_time_in_minutes} min read`}
                         </Header>
                     </Flex>
                     <Header as="h3" type="subtitle-2">

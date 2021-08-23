@@ -8,6 +8,7 @@ import { Text, LocalizedLinkText } from 'components/elements'
 import RightArrow from 'images/svg/black-right-arrow.svg'
 
 const AllArticles = ({ article_data }) => {
+    console.log(article_data)
     return (
         <Container m="0 auto" fd="column" ai="center">
             <Flex jc="flex-start" ai="center" mt="40px">

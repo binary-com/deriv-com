@@ -88,7 +88,7 @@ export default WithIntl()(ArticlesPage)
 export const query = graphql`
     query MyQuery {
         directus {
-            blog(filter: { status: { _eq: "published" } }) {
+            blog(filter: { status: { _eq: "published" } }, sort: "-published_date") {
                 id
                 main_image {
                     id
@@ -110,6 +110,7 @@ export const query = graphql`
                 blog_title
                 blog_description
                 read_time_in_minutes
+                published_date
             }
         }
     }

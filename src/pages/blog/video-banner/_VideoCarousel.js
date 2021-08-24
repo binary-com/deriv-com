@@ -94,12 +94,16 @@ const SeeMoreBtnMobile = styled(LinkButton)`
 
 const VideoCarousel = ({ carousel_items }) => {
     const [show, setShow] = useState(false)
+    const [video_url, setVideoUrl] = useState('')
     const [is_mobile] = useBrowserResize()
+
     const handleCloseVideo = () => setShow(false)
-    const handleOpenVideo = (event) => {
+    const handleOpenVideo = (event, video_id) => {
         if (event.defaultPrevented) return
+        setVideoUrl(getAssetUrl(video_id))
         setShow(true)
     }
+    const getAssetUrl = (id) => `https://cms.deriv.cloud/assets/${id}`
 
     useEffect(() => {
         show ? (document.body.style.overflow = 'hidden') : (document.body.style.overflow = 'unset')
@@ -146,14 +150,23 @@ const VideoCarousel = ({ carousel_items }) => {
                 <Flex height="auto">
                     <CustomCarousel {...settings} custom_blog_video_nav>
                         {carousel_items.map((item, index) => {
+                            const { published_date, video_file, video_thumbnail, video_title } =
+                                item
+
+                            const { id: video_id, duration } = video_file
+                            const { id: thumbnail_id, description: thumbnail_alt } = video_thumbnail
+
                             return (
                                 <ItemsMainWrapper
                                     jc="flex-start"
                                     key={index}
-                                    onClick={handleOpenVideo}
+                                    onClick={(e) => handleOpenVideo(e, video_id)}
                                 >
                                     <ImgWrapper width="139px">
-                                        <ImgDiv src={item.img_url} alt={item.image} />
+                                        <ImgDiv
+                                            src={getAssetUrl(thumbnail_id)}
+                                            alt={thumbnail_alt}
+                                        />
                                         <PlayerIconWrapper absolute ai="center">
                                             <IconDiv>
                                                 <PlayerIcon src={PlayIcon} />
@@ -162,7 +175,7 @@ const VideoCarousel = ({ carousel_items }) => {
                                     </ImgWrapper>
                                     <Flex direction="column" ml="8px" width="180px">
                                         <Header as="p" type="paragraph-1" color="white" mb="4px">
-                                            {item.title}
+                                            {video_title}
                                         </Header>
                                         <SmallDetailsWrapper
                                             height="24px"
@@ -176,7 +189,7 @@ const VideoCarousel = ({ carousel_items }) => {
                                                 color="grey-17"
                                                 width="auto"
                                             >
-                                                {item.date}
+                                                {published_date}
                                             </Header>
                                             <StyledDot />
                                             <Header
@@ -186,7 +199,7 @@ const VideoCarousel = ({ carousel_items }) => {
                                                 color="grey-17"
                                                 width="auto"
                                             >
-                                                {item.duration}
+                                                {duration}
                                             </Header>
                                         </SmallDetailsWrapper>
                                     </Flex>
@@ -203,12 +216,7 @@ const VideoCarousel = ({ carousel_items }) => {
                     </SeeMoreBtnMobile>
                 )}
             </Flex>
-            {show && (
-                <VideoPlayer
-                    video_src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4"
-                    closeVideo={handleCloseVideo}
-                />
-            )}
+            {show && <VideoPlayer video_src={video_url} closeVideo={handleCloseVideo} />}
         </>
     )
 }

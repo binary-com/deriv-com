@@ -18,7 +18,7 @@ const MainWrapper = styled(Flex)`
     overflow: hidden;
 `
 export const query = graphql`
-    query MyQuery {
+    query Blog {
         directus {
             homepage_banners(filter: { status: { _eq: "published" } }) {
                 id
@@ -55,6 +55,18 @@ export const query = graphql`
                     id
                 }
             }
+            videos {
+                video_title
+                published_date
+                video_description
+                video_thumbnail {
+                    id
+                    description
+                }
+                video_file {
+                    id
+                }
+            }
         }
     }
 `
@@ -78,6 +90,8 @@ const DerivBlog = ({ data }) => {
     }
     const homepage_banner_data = data.directus.homepage_banners
     const market_news_data = data.directus.blog
+    const video_list_data = data.directus.videos
+
     return (
         <Layout type="blog" is_ppc_redirect={true}>
             <SEO
@@ -111,7 +125,7 @@ const DerivBlog = ({ data }) => {
                 </Carousel>
             </MainWrapper>
             <RecentFeaturedPosts />
-            <DVideoBanner />
+            <DVideoBanner video_details={false} video_list_data={video_list_data} />
             <MarketNews data={market_news_data} />
             <Container>
                 <Flex direction="column" ai="flex-start" jc="space-between">

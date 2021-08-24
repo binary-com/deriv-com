@@ -1,7 +1,12 @@
 import React from 'react'
 import Clock from './recent-featured-posts/images/clock.svg'
 import Dot from './recent-featured-posts/images/dot.svg'
-import { recent_article_data, featured_article_data, article_data, article_data_2 } from './recent-featured-posts/_data'
+import {
+    recent_article_data,
+    featured_article_data,
+    article_data,
+    article_data_2,
+} from './recent-featured-posts/_data'
 import {
     StyledContainer,
     StyledTabs,
@@ -57,175 +62,175 @@ const RecentFeaturedPosts = () => {
     const articles_2 = article_data_2
 
     return (
-            <StyledContainer m="20px auto 0" fd="column" ai="center">
-                <StyledTabs
-                    tab_list={['recent_posts', 'featured_posts']}
-                    route_from="recent_featured_posts"
-                    type="blog-featured"
-                    jc="start"
-                    jc_mobileL="center"
-                    jc_tabletM="center"
-                    line_divider_length="unset"
-                    mobile_tab_button_underline_length="100%"
-                >
-                    <Tabs.Panel label={localize('Recent posts')}>
-                        <ArticleContentWrapper>
-                            <LeftContent>
-                                <RedirectLink to={recent.link}>
-                                    <MainArticle image={recent.image}>
-                                        <Description>
-                                            <TagParentWrapper>
-                                                <TagWrapper>
-                                                    <StyledCategories>
-                                                        {recent.category}
-                                                    </StyledCategories>
-                                                </TagWrapper>
-                                            </TagParentWrapper>
-                                            <Header as="h3" type="heading-3" color="white" mb="5px">
-                                                {recent.title}
-                                            </Header>
-                                            <Header
-                                                as="p"
-                                                type="paragraph-2"
-                                                color="white"
-                                                weight="normal"
-                                            >
-                                                {recent.description}
-                                            </Header>
-                                        </Description>
-                                        <BottomDescription>
-                                            {recent.date}
-                                            <ClockIcon src={Clock} />
-                                            {recent.reading_time} min read
-                                        </BottomDescription>
-                                    </MainArticle>
-                                </RedirectLink>
-                            </LeftContent>
-                            <RightContent>
-                                <Carousel {...settings}>
-                                    {articles.map((article) => {
-                                        return (
-                                            <RedirectLink to={article.link} key={article.title}>
-                                                <SmallArticle>
-                                                    <SmallArticleLeftContent>
-                                                        <SmallArticleImageWrapper>
-                                                            <SmallArticleImage
-                                                                src={article.image}
-                                                                alt={article.title}
-                                                            />
-                                                        </SmallArticleImageWrapper>
-                                                    </SmallArticleLeftContent>
-                                                    <SmallArticleRightContent>
-                                                        <SmallArticleTopContent>
-                                                            <SmallArticleCategories>
-                                                                {article.category}
-                                                            </SmallArticleCategories>
-                                                            <SmallArticleDateTimeMobile>
-                                                                {article.date}
-                                                                <MobileDotIcon src={Dot} />
-                                                                {article.reading_time} min
-                                                            </SmallArticleDateTimeMobile>
-                                                            <Header as="p" type="paragraph-1">
-                                                                {article.title}
-                                                            </Header>
-                                                        </SmallArticleTopContent>
-                                                        <MobileHeader as="p" type="paragraph-1">
+        <StyledContainer m="20px auto 0" fd="column" ai="center">
+            <StyledTabs
+                tab_list={['recent_posts', 'featured_posts']}
+                route_from="recent_featured_posts"
+                type="blog-featured"
+                jc="start"
+                jc_mobileL="center"
+                jc_tabletM="center"
+                line_divider_length="unset"
+                mobile_tab_button_underline_length="100%"
+            >
+                <Tabs.Panel label={localize('Recent posts')}>
+                    <ArticleContentWrapper>
+                        <LeftContent>
+                            <RedirectLink to={recent.link}>
+                                <MainArticle image={recent.image}>
+                                    <Description>
+                                        <TagParentWrapper>
+                                            <TagWrapper>
+                                                <StyledCategories>
+                                                    {recent.category}
+                                                </StyledCategories>
+                                            </TagWrapper>
+                                        </TagParentWrapper>
+                                        <Header as="h3" type="heading-3" color="white" mb="5px">
+                                            {recent.title}
+                                        </Header>
+                                        <Header
+                                            as="p"
+                                            type="paragraph-2"
+                                            color="white"
+                                            weight="normal"
+                                        >
+                                            {recent.description}
+                                        </Header>
+                                    </Description>
+                                    <BottomDescription>
+                                        {recent.date}
+                                        <ClockIcon src={Clock} />
+                                        {recent.reading_time} min read
+                                    </BottomDescription>
+                                </MainArticle>
+                            </RedirectLink>
+                        </LeftContent>
+                        <RightContent>
+                            <Carousel {...settings}>
+                                {articles.map((article) => {
+                                    return (
+                                        <RedirectLink to={article.link} key={article.title}>
+                                            <SmallArticle>
+                                                <SmallArticleLeftContent>
+                                                    <SmallArticleImageWrapper>
+                                                        <SmallArticleImage
+                                                            src={article.image}
+                                                            alt={article.title}
+                                                        />
+                                                    </SmallArticleImageWrapper>
+                                                </SmallArticleLeftContent>
+                                                <SmallArticleRightContent>
+                                                    <SmallArticleTopContent>
+                                                        <SmallArticleCategories>
+                                                            {article.category}
+                                                        </SmallArticleCategories>
+                                                        <SmallArticleDateTimeMobile>
+                                                            {article.date}
+                                                            <MobileDotIcon src={Dot} />
+                                                            {article.reading_time} min
+                                                        </SmallArticleDateTimeMobile>
+                                                        <Header as="p" type="paragraph-1">
                                                             {article.title}
-                                                        </MobileHeader>
-                                                        <SmallArticleDateTimeDesktop>
-                                                            {article.date} <DotIcon src={Dot} />
-                                                            {article.reading_time} min read
-                                                        </SmallArticleDateTimeDesktop>
-                                                    </SmallArticleRightContent>
-                                                </SmallArticle>
-                                            </RedirectLink>
-                                        )
-                                    })}
-                                </Carousel>
-                            </RightContent>
-                        </ArticleContentWrapper>
-                    </Tabs.Panel>
-                    <Tabs.Panel label={localize('Featured posts')}>
-                        <ArticleContentWrapper>
-                            <LeftContent>
-                                <RedirectLink to={featured.link}>
-                                    <MainArticle image={featured.image}>
-                                        <Description>
-                                            <TagParentWrapper>
-                                                <TagWrapper>
-                                                    <StyledCategories>
-                                                        {featured.category}
-                                                    </StyledCategories>
-                                                </TagWrapper>
-                                            </TagParentWrapper>
-                                            <Header as="h3" type="heading-3" color="white" mb="5px">
-                                                {featured.title}
-                                            </Header>
-                                            <Header
-                                                as="p"
-                                                type="paragraph-2"
-                                                color="white"
-                                                weight="normal"
-                                            >
-                                                {featured.description}
-                                            </Header>
-                                        </Description>
-                                        <BottomDescription>
-                                            {featured.date} <ClockIcon src={Clock} />
-                                            {featured.reading_time} min read
-                                        </BottomDescription>
-                                    </MainArticle>
-                                </RedirectLink>
-                            </LeftContent>
-                            <RightContent>
-                                <Carousel {...settings}>
-                                    {articles_2.map((article) => {
-                                        return (
-                                            <RedirectLink to={article.link} key={article.title}>
-                                                <SmallArticle>
-                                                    <SmallArticleLeftContent>
-                                                        <SmallArticleImageWrapper>
-                                                            <SmallArticleImage
-                                                                src={article.image}
-                                                                alt={article.title}
-                                                            />
-                                                        </SmallArticleImageWrapper>
-                                                    </SmallArticleLeftContent>
-                                                    <SmallArticleRightContent>
-                                                        <SmallArticleTopContent>
-                                                            <SmallArticleCategories>
-                                                                {article.category}
-                                                            </SmallArticleCategories>
-                                                            <SmallArticleDateTimeMobile>
-                                                                {article.date}
-                                                                <MobileDotIcon src={Dot} />
-                                                                {article.reading_time} min
-                                                            </SmallArticleDateTimeMobile>
-                                                            <Header as="p" type="paragraph-1">
-                                                                {article.title}
-                                                            </Header>
-                                                        </SmallArticleTopContent>
-                                                        <MobileHeader as="p" type="paragraph-1">
+                                                        </Header>
+                                                    </SmallArticleTopContent>
+                                                    <MobileHeader as="p" type="paragraph-1">
+                                                        {article.title}
+                                                    </MobileHeader>
+                                                    <SmallArticleDateTimeDesktop>
+                                                        {article.date} <DotIcon src={Dot} />
+                                                        {article.reading_time} min read
+                                                    </SmallArticleDateTimeDesktop>
+                                                </SmallArticleRightContent>
+                                            </SmallArticle>
+                                        </RedirectLink>
+                                    )
+                                })}
+                            </Carousel>
+                        </RightContent>
+                    </ArticleContentWrapper>
+                </Tabs.Panel>
+                <Tabs.Panel label={localize('Featured posts')}>
+                    <ArticleContentWrapper>
+                        <LeftContent>
+                            <RedirectLink to={featured.link}>
+                                <MainArticle image={featured.image}>
+                                    <Description>
+                                        <TagParentWrapper>
+                                            <TagWrapper>
+                                                <StyledCategories>
+                                                    {featured.category}
+                                                </StyledCategories>
+                                            </TagWrapper>
+                                        </TagParentWrapper>
+                                        <Header as="h3" type="heading-3" color="white" mb="5px">
+                                            {featured.title}
+                                        </Header>
+                                        <Header
+                                            as="p"
+                                            type="paragraph-2"
+                                            color="white"
+                                            weight="normal"
+                                        >
+                                            {featured.description}
+                                        </Header>
+                                    </Description>
+                                    <BottomDescription>
+                                        {featured.date} <ClockIcon src={Clock} />
+                                        {featured.reading_time} min read
+                                    </BottomDescription>
+                                </MainArticle>
+                            </RedirectLink>
+                        </LeftContent>
+                        <RightContent>
+                            <Carousel {...settings}>
+                                {articles_2.map((article) => {
+                                    return (
+                                        <RedirectLink to={article.link} key={article.title}>
+                                            <SmallArticle>
+                                                <SmallArticleLeftContent>
+                                                    <SmallArticleImageWrapper>
+                                                        <SmallArticleImage
+                                                            src={article.image}
+                                                            alt={article.title}
+                                                        />
+                                                    </SmallArticleImageWrapper>
+                                                </SmallArticleLeftContent>
+                                                <SmallArticleRightContent>
+                                                    <SmallArticleTopContent>
+                                                        <SmallArticleCategories>
+                                                            {article.category}
+                                                        </SmallArticleCategories>
+                                                        <SmallArticleDateTimeMobile>
+                                                            {article.date}
+                                                            <MobileDotIcon src={Dot} />
+                                                            {article.reading_time} min
+                                                        </SmallArticleDateTimeMobile>
+                                                        <Header as="p" type="paragraph-1">
                                                             {article.title}
-                                                        </MobileHeader>
-                                                        <SmallArticleDateTimeDesktop>
-                                                            {article.date} <DotIcon src={Dot} />
-                                                            {article.reading_time} min read
-                                                        </SmallArticleDateTimeDesktop>
-                                                    </SmallArticleRightContent>
-                                                </SmallArticle>
-                                            </RedirectLink>
-                                        )
-                                    })}
-                                </Carousel>
-                            </RightContent>
-                        </ArticleContentWrapper>
-                    </Tabs.Panel>
-                </StyledTabs>
-                <AllArticleButton tertiary to="/blog/articles/">
-                    See all blog articles
-                </AllArticleButton>
-            </StyledContainer>
+                                                        </Header>
+                                                    </SmallArticleTopContent>
+                                                    <MobileHeader as="p" type="paragraph-1">
+                                                        {article.title}
+                                                    </MobileHeader>
+                                                    <SmallArticleDateTimeDesktop>
+                                                        {article.date} <DotIcon src={Dot} />
+                                                        {article.reading_time} min read
+                                                    </SmallArticleDateTimeDesktop>
+                                                </SmallArticleRightContent>
+                                            </SmallArticle>
+                                        </RedirectLink>
+                                    )
+                                })}
+                            </Carousel>
+                        </RightContent>
+                    </ArticleContentWrapper>
+                </Tabs.Panel>
+            </StyledTabs>
+            <AllArticleButton tertiary="true" to="/blog/articles/">
+                See all blog articles
+            </AllArticleButton>
+        </StyledContainer>
     )
 }
 

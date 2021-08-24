@@ -33,7 +33,7 @@ const SideCta = () => {
                 </Header>
 
                 <LinkButtonWrapper>
-                    <StyledLinkButton tertiary to="/landing/ebooks/stocks/">
+                    <StyledLinkButton tertiary="true" to="/landing/ebooks/stocks/">
                         Claim free ebook
                     </StyledLinkButton>
                 </LinkButtonWrapper>

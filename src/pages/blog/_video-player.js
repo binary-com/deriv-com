@@ -138,7 +138,7 @@ const VideoPlayer = ({ video_src, closeVideo }) => {
 
 VideoPlayer.propTypes = {
     closeVideo: PropTypes.func,
-    video_src: PropTypes.object,
+    video_src: PropTypes.string,
 }
 
 export default VideoPlayer

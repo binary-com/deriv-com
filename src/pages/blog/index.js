@@ -6,6 +6,7 @@ import Subscribe from './components/_subscribe'
 import RecentFeaturedPosts from './_recent-featured-posts'
 import DVideoBanner from './video-banner'
 import Hero from './components/_hero'
+import MarketNews from './components/_markets-news'
 import Layout from 'components/layout/layout'
 import { Container, SEO, Flex } from 'components/containers'
 import { localize, WithIntl, LocalizedLink } from 'components/localization'
@@ -33,6 +34,27 @@ export const query = graphql`
                     id
                 }
             }
+            blog(
+                filter: { tags: { tags_id: { tag_name: { _contains: "Market News" } } } }
+                limit: 6
+                sort: "-published_date"
+            ) {
+                id
+                blog_title
+                slug
+                tags {
+                    tags_id {
+                        tag_name
+                    }
+                }
+                read_time_in_minutes
+                main_image {
+                    imageFile {
+                        ...fadeIn
+                    }
+                    id
+                }
+            }
         }
     }
 `
@@ -55,6 +77,7 @@ const DerivBlog = ({ data }) => {
         },
     }
     const homepage_banner_data = data.directus.homepage_banners
+    const market_news_data = data.directus.blog
     return (
         <Layout type="blog" is_ppc_redirect={true}>
             <SEO
@@ -89,6 +112,7 @@ const DerivBlog = ({ data }) => {
             </MainWrapper>
             <RecentFeaturedPosts />
             <DVideoBanner />
+            <MarketNews data={market_news_data} />
             <Container>
                 <Flex direction="column" ai="flex-start" jc="space-between">
                     <Subscribe />

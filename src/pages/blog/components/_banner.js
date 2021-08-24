@@ -38,16 +38,25 @@ const Banner = ({ detailsObj }) => {
             >
                 {detailsObj.imgSrcDesktop && !detailsObj.imgSrcMobile && (
                     <>
-                        <QueryImage data={detailsObj.imgSrcDesktop} alt="" />
+                        <QueryImage
+                            data={detailsObj.imgSrcDesktop}
+                            alt={detailsObj.imgAltDesktop}
+                        />
                     </>
                 )}
                 {detailsObj.imgSrcDesktop && detailsObj.imgSrcMobile && (
                     <>
                         <DesktopWrapper>
-                            <QueryImage data={detailsObj.imgSrcDesktop} alt="" />
+                            <QueryImage
+                                data={detailsObj.imgSrcDesktop}
+                                alt={detailsObj.imgAltDesktop}
+                            />
                         </DesktopWrapper>
                         <MobileWrapper>
-                            <QueryImage data={detailsObj.imgSrcMobile} alt="" />
+                            <QueryImage
+                                data={detailsObj.imgSrcMobile}
+                                alt={detailsObj.imgAltMobile}
+                            />
                         </MobileWrapper>
                     </>
                 )}

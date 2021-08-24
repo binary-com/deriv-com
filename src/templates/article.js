@@ -360,6 +360,7 @@ const ArticlesTemplate = (props) => {
         isExternal: true,
         redirectLink: side_banner_data?.cta_url,
         imgSrcDesktop: side_banner_data?.banner_image?.imageFile,
+        imgAltDesktop: side_banner_data?.banner_image?.description,
     }
 
     const footer_banner_details = {
@@ -368,7 +369,9 @@ const ArticlesTemplate = (props) => {
         isExternal: true,
         redirectLink: footer_banner_data?.cta_url,
         imgSrcDesktop: footer_banner_data?.desktop_banner_image?.imageFile,
+        imgAltDesktop: footer_banner_data?.desktop_banner_image?.description,
         imgSrcMobile: footer_banner_data?.mobile_banner_image?.imageFile,
+        imgAltMobile: footer_banner_data?.mobile_banner_image?.description,
     }
 
     return (
@@ -410,7 +413,7 @@ const ArticlesTemplate = (props) => {
                                         <WriterImage>
                                             <QueryImage
                                                 data={post_data?.author?.image?.imageFile}
-                                                alt=""
+                                                alt={post_data?.author?.image?.description}
                                             />
                                         </WriterImage>
                                         <Box>
@@ -425,7 +428,10 @@ const ArticlesTemplate = (props) => {
                         </HeroLeftWrapper>
                         <HeroRightWrapper>
                             <HeroImageContainer tabletL={{ mt: '24px' }}>
-                                <QueryImage data={post_data?.main_image?.imageFile} alt="" />
+                                <QueryImage
+                                    data={post_data?.main_image?.imageFile}
+                                    alt={post_data?.main_image?.description}
+                                />
                             </HeroImageContainer>
                         </HeroRightWrapper>
                     </HeroContainer>
@@ -439,7 +445,7 @@ const ArticlesTemplate = (props) => {
                                     <WriterImage>
                                         <QueryImage
                                             data={post_data?.author?.image?.imageFile}
-                                            alt=""
+                                            alt={post_data?.author?.image?.description}
                                         />
                                     </WriterImage>
                                     <Box>
@@ -529,6 +535,7 @@ export const query = graphql`
                     name
                     image {
                         id
+                        description
                         imageFile {
                             childImageSharp {
                                 gatsbyImageData
@@ -538,6 +545,7 @@ export const query = graphql`
                 }
                 main_image {
                     id
+                    description
                     imageFile {
                         childImageSharp {
                             gatsbyImageData
@@ -557,6 +565,7 @@ export const query = graphql`
                     name
                     desktop_banner_image {
                         id
+                        description
                         imageFile {
                             childImageSharp {
                                 gatsbyImageData
@@ -565,6 +574,7 @@ export const query = graphql`
                     }
                     mobile_banner_image {
                         id
+                        description
                         imageFile {
                             childImageSharp {
                                 gatsbyImageData
@@ -578,6 +588,7 @@ export const query = graphql`
                     name
                     banner_image {
                         id
+                        description
                         imageFile {
                             childImageSharp {
                                 gatsbyImageData

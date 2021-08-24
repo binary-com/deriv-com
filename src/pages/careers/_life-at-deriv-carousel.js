@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { Carousel, Header } from 'components/elements'
+import { Header } from 'components/elements'
 import device from 'themes/device'
 import { Container, SectionContainer } from 'components/containers'
 import GymImage from 'images/common/careers/gym.jpg'
@@ -24,10 +24,9 @@ const StyledHeader = styled(Header)`
 
 const ImageWrapper = styled.div`
     img {
-        width: 78rem;
-        max-width: 78rem;
+        width: 100%;
         height: 100%;
-        max-height: 60rem;
+        border-radius: 10px;
 
         @media ${device.tablet} {
             width: 35rem;
@@ -35,11 +34,44 @@ const ImageWrapper = styled.div`
         }
     }
 `
+const MasonryGrid = styled.div`
+    max-width: 100%;
+    padding: 1rem;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr auto;
+    grid-gap: 2rem;
+`
+
+const ImageOne = styled.div`
+    grid-row: span 1;
+    grid-column: span 1;
+`
+const ImageTwo = styled.div`
+    grid-column: span 1;
+    grid-row: span 2;
+`
+const ImageThree = styled.div`
+    grid-column: span 1;
+    grid-row: span 2;
+`
+const ImageFour = styled.div`
+    grid-column: span 1;
+    grid-row: span 1;
+`
+const ImageFive = styled.div`
+    grid-column: span 0.5;
+    grid-row: span 1;
+`
+const ImageSix = styled.div`
+    grid-column: 3 / 5;
+`
 
 const ImageSlide = ({ img_path, img_alt }) => {
     return (
         <ImageWrapper>
-            <img src={img_path} alt={img_alt} width="100%" height="100%" loading="lazy" />
+            <img src={img_path} alt={img_alt} loading="lazy" />
         </ImageWrapper>
     )
 }
@@ -49,62 +81,7 @@ ImageSlide.propTypes = {
     img_path: PropTypes.string,
 }
 
-const fitness = {
-    img_path: FitnessImage,
-    img_alt: 'Yoga and Pilates',
-    index: 3,
-}
-const games = {
-    img_path: GamesImage,
-    img_alt: 'Team Games',
-    index: 1,
-}
-const greenarea = {
-    img_path: GreenAreaImage,
-    img_alt: 'Free Working Style',
-    index: 4,
-}
-const gym = {
-    img_path: GymImage,
-    img_alt: 'Workout at Gym',
-    index: 5,
-}
-const lunch = {
-    img_path: LunchImage,
-    img_alt: 'Lunch Buffets',
-    index: 2,
-}
-const deriv_lifestyle_images = [games, lunch, fitness, greenarea, gym]
-
 const LifeAtDerivCarousel = () => {
-    const settings = {
-        options: {
-            loop: true,
-            axis: 'x',
-        },
-        container_style: {
-            height: '50%',
-        },
-        slide_style: {
-            width: '100%',
-            position: 'relative',
-            paddingRight: '10px',
-        },
-        chevron_style: {
-            chevron_left: {
-                padding: '5rem 0.9rem',
-                backgroundColor: 'rgba(0, 0, 0, 0.25)',
-                marginLeft: '-0.9rem',
-            },
-            chevron_right: {
-                padding: '5rem 0.9rem',
-                backgroundColor: 'rgba(0, 0, 0, 0.25)',
-                marginRight: '-0.9rem',
-            },
-            chevron_color: 'white',
-        },
-    }
-
     return (
         <>
             <StyledSection>
@@ -112,17 +89,63 @@ const LifeAtDerivCarousel = () => {
                     <StyledHeader align="center" as="h3" type="section-title">
                         Life at Deriv
                     </StyledHeader>
-                </Container>
-                <Carousel {...settings}>
-                    {deriv_lifestyle_images.map((slide_content, idx) => (
-                        <div key={idx}>
-                            <ImageSlide
-                                img_path={slide_content.img_path}
-                                img_alt={slide_content.alt}
+                    <MasonryGrid>
+                        <ImageOne>
+                            <img
+                                src={FitnessImage}
+                                alt={''}
+                                width="100%"
+                                height="100%"
+                                loading="lazy"
                             />
-                        </div>
-                    ))}
-                </Carousel>
+                        </ImageOne>
+                        <ImageTwo>
+                            <img
+                                src={GymImage}
+                                alt={''}
+                                width="100%"
+                                height="100%"
+                                loading="lazy"
+                            />
+                        </ImageTwo>
+                        <ImageThree>
+                            <img
+                                src={LunchImage}
+                                alt={''}
+                                width="100%"
+                                height="100%"
+                                loading="lazy"
+                            />
+                        </ImageThree>
+                        <ImageFour>
+                            <img
+                                src={GamesImage}
+                                alt={''}
+                                width="100%"
+                                height="100%"
+                                loading="lazy"
+                            />
+                        </ImageFour>
+                        <ImageFive>
+                            <img
+                                src={FitnessImage}
+                                alt={''}
+                                width="100%"
+                                height="100%"
+                                loading="lazy"
+                            />
+                        </ImageFive>
+                        <ImageSix>
+                            <img
+                                src={GreenAreaImage}
+                                alt={''}
+                                width="100%"
+                                height="100%"
+                                loading="lazy"
+                            />
+                        </ImageSix>
+                    </MasonryGrid>
+                </Container>
             </StyledSection>
         </>
     )

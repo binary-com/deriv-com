@@ -31,8 +31,8 @@ const Careers = () => (
         <Hero />
         <WhoWeLookFor />
         <JoinYourTeam />
-        <LifeAtDerivCarousel />
         <OurValues />
+        <LifeAtDerivCarousel />
         <EmployeeTestimonial />
         <OurHiringProcess />
     </Layout>

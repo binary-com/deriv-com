@@ -18,12 +18,17 @@ const StyledSection = styled(SectionContainer)`
 `
 const StyledHeader = styled(Header)`
     padding-bottom: 4.4rem;
+    font-size: 48px;
 
     @media ${device.tabletS} {
+        line-height: 34px;
+        font-size: 28px;
         padding: 0 3rem;
     }
     @media ${device.mobileL} {
         padding: 0 3.5rem;
+        line-height: 34px;
+        font-size: 28px;
     }
 `
 
@@ -153,13 +158,32 @@ const EmployeeTestimonialCarousel = () => {
             minWidth: '100%',
             position: 'relative',
         },
+        navigation_style: {
+            bottom_offset: '0px',
+            nav_color: '--color-red',
+        },
+        view_port: {
+            height: 'auto',
+        },
         chevron_style: {
             chevron_color: 'black',
             chevron_left: {
-                left: '2px',
+                width: '40px',
+                height: '40px',
+                background: '#FFFFFF',
+                boxShadow: '0px 7px 20px rgba(0, 0, 0, 0.12877)',
+                borderRadius: '20px',
+                padding: '8px',
+                left: '80px',
             },
             chevron_right: {
-                right: '2px',
+                width: '40px',
+                height: '40px',
+                background: '#FFFFFF',
+                boxShadow: '0px 7px 20px rgba(0, 0, 0, 0.12877)',
+                borderRadius: '20px',
+                right: '80px',
+                padding: '8px',
             },
         },
     }

@@ -98,7 +98,7 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect, is_eu_country }) => {
                             </LinkWrapper>
                         )}
                         <LinkWrapper>
-                            <Link to="/markets/stock/">{localize('Stock indices')}</Link>
+                            <Link to="/markets/stock/">{localize('Stocks & indices')}</Link>
                         </LinkWrapper>
                         <LinkWrapper>
                             <Link to="/markets/commodities/">{localize('Commodities')}</Link>

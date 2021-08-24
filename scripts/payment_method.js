@@ -1,82 +1,86 @@
-const fs = require('fs');
-const path = require('path');
-const csv = require('csv-parser');
+const fs = require('fs')
+const path = require('path')
+const csv = require('csv-parser')
 
-const json = [];
+const json = []
 
-const source_path = path.join(__dirname, 'data', 'payment-methods.csv');
+const source_path = path.join(__dirname, 'data', 'payment-methods.csv')
 const output_path = path.join(
     __dirname,
     '..',
     'src',
     'pages',
     'payment-methods',
-    'payment_methods.json'
-);
+    'payment_methods.json',
+)
 
 const column_filters = {
     currencies: {
-        filter: 'multipleEntries',
-        type  : 'custom',
+        type: 'double_array',
+        delimeter: ',',
+        textcase: 'uppercase',
     },
     countries: {
         filter: 'includeExclude',
-        type  : 'custom',
+        type: 'custom',
     },
     locale: {
-        type  : 'array',
+        type: 'array',
         delimeter: ',',
-        textcase: "lowercase"
-    }
-};
+        textcase: 'lowercase',
+    },
+}
 
-const replaceAll = (string, search, replacement) =>
-    string.split(search).join(replacement);
+const replaceAll = (string, search, replacement) => string.split(search).join(replacement)
 
-const cleanStr = (str) => replaceAll(str.toLowerCase(), ' ', '');
+const cleanStr = (str) => replaceAll(str.toLowerCase(), ' ', '')
 
-const cleanArray = (arr) => arr.map((a) => a.trim());
+const cleanArray = (arr) => arr.map((a) => a.trim())
 
-const filterArray = (arr) => arr.filter( (e) => e );
+const filterArray = (arr) => arr.filter((e) => e)
 
-const escapeStr = (str) => replaceAll(str.toLowerCase(), ' ', '_');
+const escapeStr = (str) => replaceAll(str.toLowerCase(), ' ', '_')
 
-const sentencizeStr = (str,delimeter) => str.split(delimeter).join(" ");
+const sentencizeStr = (str, delimeter) => str.split(delimeter).join(' ')
 
-const ucWord = (str) => str.split(" ").map((s) =>  s.charAt(0).toUpperCase() + s.slice(1)).join("");
+const ucWord = (str) =>
+    str
+        .split(' ')
+        .map((s) => s.charAt(0).toUpperCase() + s.slice(1))
+        .join('')
 
-const caseArray = (arr,c) => {
-    let array_result = [];
+const caseArray = (arr, c) => {
+    let array_result = []
 
-    switch(c){
+    switch (c) {
         case 'uppercase':
-            array_result = arr.map(e => e.toUpperCase());
-            break;
+            array_result = arr.map((e) => e.toUpperCase())
+            break
         case 'lowercase':
-            array_result = arr.map(e => e.toLowerCase());
-            break;
+            array_result = arr.map((e) => e.toLowerCase())
+            break
         default:
-             array_result = arr;
-            break;
+            array_result = arr
+            break
     }
-    
+
     return array_result
 }
 
 const filterFunctions = {
     descriptionMinMax: (value) => {
-        const data = value.split('|');
+        const data = value.split('|')
 
-        let description, min, max;
+        let description, min, max
 
         if (data.length) {
-            description = data[0] ? data[0] : '';
+            description = data[0] ? data[0] : ''
 
-            const min_max_parts = data[1] ? data[1].split('-') : [];
+            const min_max_parts = data[1] ? data[1].split('-') : []
 
             if (min_max_parts.length) {
-                min = cleanStr(replaceAll(min_max_parts[0], 'min', ''));
-                max = cleanStr(replaceAll(min_max_parts[1], 'max', ''));
+                min = cleanStr(replaceAll(min_max_parts[0], 'min', ''))
+                max = cleanStr(replaceAll(min_max_parts[1], 'max', ''))
             }
         }
 
@@ -84,101 +88,188 @@ const filterFunctions = {
             description,
             min,
             max,
-        };
+        }
     },
     includeExclude: (value) => {
-        const items = cleanArray(value.split(','));
+        const items = cleanArray(value.split(','))
 
         const content = {
             included: [],
             excluded: [],
-        };
+        }
 
         items.map((i) => {
             if (i.includes('-')) {
-                content.excluded.push(replaceAll(i, '-', ''));
+                content.excluded.push(replaceAll(i, '-', ''))
             } else {
-                content.included.push(i);
+                content.included.push(i)
             }
-        });
-
-        return content;
-    },
-    multipleEntries: (value) => {
-        const items = cleanArray(value.split('|'));
-
-        const final_items = [];
-
-        items.map(e => {
-            const data = filterArray(cleanArray(e.split(',')));
-            final_items.push(data);
         })
 
-        return final_items;
+        return content
+    },
+    multipleEntries: (data) => {
+        const keys = {}
+        const multi_entries = [
+            {
+                name: 'min_deposit',
+                type: 'string',
+                delimeter: '|',
+            },
+            {
+                name: 'max_deposit',
+                type: 'string',
+                delimeter: '|',
+            },
+            {
+                name: 'min_withdrawal',
+                type: 'string',
+                delimeter: '|',
+            },
+            {
+                name: 'max_withdrawal',
+                type: 'string',
+                delimeter: '|',
+            },
+            {
+                name: 'currencies',
+                type: 'array',
+            },
+        ]
+
+        const filtered_keys = []
+
+        data.map((d, index) => {
+            const { key } = d
+
+            if (!keys[key]) {
+                keys[key] = index
+            } else {
+                const parent_index = keys[key]
+                const parent = data[parent_index]
+
+                multi_entries.map((entry) => {
+                    const { name, type, delimeter } = entry
+
+                    const added_value = d[name]
+                    const current_value = parent[name]
+
+                    if (added_value !== '') {
+                        let final_data = null
+
+                        if (type == 'array') {
+                            added_value.map((a) => {
+                                current_value.push(a)
+                            })
+
+                            final_data = current_value
+                        } else {
+                            const new_data = current_value.toString().split(delimeter)
+
+                            new_data.push(added_value)
+
+                            final_data = new_data.join(delimeter)
+                        }
+                        data[parent_index][name] = final_data
+                    }
+                })
+
+                filtered_keys.push(index)
+
+                // Handle Multiple Entries
+            }
+        })
+
+        filtered_keys.map((k) => {
+            delete data[k]
+        })
+
+        return data.filter((e) => e)
     },
     flatten: (data) => {
-        return data.map((d) => {
-          const { key,platform,reference } = d;
-          const file_name = escapeStr(key);
+        const excludes = ['link_binary', 'platform']
 
-          if(platform.toLowerCase().includes("deriv") || platform.trim()===''){
- 
-           return {
-            ...d,
-            logo: ucWord(sentencizeStr(key,'-')),
-            reference: reference === "yes"  ? file_name : "",
-          };
-        }
-        }).filter(e => e);
-      },
-};
+        return filterFunctions.multipleEntries(
+            data.map((d) => {
+                const { key, platform, reference } = d
+                const file_name = escapeStr(key)
+
+                const details = {}
+
+                // Exclude unnecessary properties
+                Object.keys(d).map((dk) => {
+                    if (!excludes.includes(dk)) {
+                        details[dk] = d[dk]
+                    }
+                })
+
+                if (platform.toLowerCase().includes('deriv') || platform.trim() === '') {
+                    return {
+                        ...details,
+                        logo: ucWord(sentencizeStr(key, '-')),
+                        reference: reference === 'yes' ? file_name : '',
+                    }
+                }
+            }),
+        )
+    },
+}
 
 fs.createReadStream(source_path)
     .pipe(
         csv({
             mapHeaders: ({ header }) => {
-                const headings = {};
+                const headings = {}
 
-                let header_text = escapeStr(header);
+                let header_text = escapeStr(header)
 
-                header_text = headings[header_text]
-                    ? headings[header_text]
-                    : header_text;
+                header_text = headings[header_text] ? headings[header_text] : header_text
 
-                return header_text;
+                return header_text
             },
             // eslint-disable-next-line
-      mapValues: ({ header, index, value }) => {
-                let final_value = value;
+            mapValues: ({ header, index, value }) => {
+                let final_value = value
 
-                const filter_option = column_filters[header];
+                const filter_option = column_filters[header]
 
                 if (filter_option) {
-                    const { delimeter, type, filter,textcase } = filter_option;
+                    const { delimeter, type, filter, textcase } = filter_option
 
                     switch (type) {
                         case 'array':
-                            final_value = caseArray(filterArray(cleanArray(value.split(delimeter))),textcase);
-                            break;
+                            final_value = caseArray(
+                                filterArray(cleanArray(value.split(delimeter))),
+                                textcase,
+                            )
+                            break
+                        case 'double_array':
+                            final_value = [
+                                caseArray(
+                                    filterArray(cleanArray(value.split(delimeter))),
+                                    textcase,
+                                ),
+                            ]
+                            break
                         case 'custom':
-                            final_value = filterFunctions[filter](value);
+                            final_value = filterFunctions[filter](value)
 
-                            break;
+                            break
                         default:
-                            break;
+                            break
                     }
                 }
 
-                return final_value;
+                return final_value
             },
-        })
+        }),
     )
     .on('data', (data) => {
-        json.push(data);
+        json.push(data)
     })
     .on('end', () => {
-        const parsed_json = filterFunctions.flatten(json);
-        const final_json = JSON.stringify(parsed_json, null, 2);
+        const parsed_json = filterFunctions.flatten(json)
+        const final_json = JSON.stringify(parsed_json, null, 2)
 
-        fs.writeFile(output_path, final_json, 'utf8', () => `${output_path} has been generated`);
-    });
+        fs.writeFile(output_path, final_json, 'utf8', () => `${output_path} has been generated`)
+    })

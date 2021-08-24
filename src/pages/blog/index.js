@@ -37,6 +37,7 @@ export const query = graphql`
             blog(
                 filter: { tags: { tags_id: { tag_name: { _contains: "Market News" } } } }
                 limit: 6
+                sort: "-published_date"
             ) {
                 id
                 blog_title

@@ -1,24 +1,25 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { getImage } from 'gatsby-plugin-image'
 import styled from 'styled-components'
-import { ContainedImg } from '../common/_styles'
 import { Flex } from 'components/containers'
-import { Header } from 'components/elements'
+import { Header, QueryImage } from 'components/elements'
 import { LocalizedLink } from 'components/localization'
 import device from 'themes/device'
 
 const ArticleCardWrapper = styled(Flex)`
+    box-sizing: border-box;
     max-width: 384px;
     flex-direction: column;
     justify-content: flex-start;
     text-decoration: none;
     position: relative;
-    height: 100%;
+    height: 400px;
     border-radius: 8px;
     border: 1px solid var(--color-grey-8);
     background: var(--color-white);
-    transition: transform 0.3s;
     overflow: hidden;
+    transition: transform 0.3s;
     cursor: pointer;
 
     &:hover {
@@ -27,15 +28,14 @@ const ArticleCardWrapper = styled(Flex)`
 `
 
 const ImageWrapper = styled.div`
-    height: 200px;
     width: 384px;
+    height: 200px;
     position: relative;
     z-index: 1;
     overflow: hidden;
 
     @media ${device.mobileL} {
         width: 100%;
-        height: 184px;
     }
 `
 
@@ -49,6 +49,7 @@ const StyledCategories = styled(Header)`
 `
 
 const ContentWrapper = styled.div`
+    height: 200px;
     padding: 16px 24px;
 
     @media ${device.mobileL} {
@@ -65,18 +66,23 @@ const ArticleCard = ({ item }) => {
         <RedirectLink to={`/blog/articles/${item.slug}`}>
             <ArticleCardWrapper>
                 <ImageWrapper>
-                    <ContainedImg src={item.image} alt="Video card" width="100%" />
+                    <QueryImage
+                        data={getImage(item.main_image.imageFile)}
+                        alt={item.main_image.description || ''}
+                    />
                 </ImageWrapper>
+
                 <ContentWrapper>
                     <Flex jc="flex-start" height="auto" fw="wrap">
-                        {item.category.slice(0, 2).map((item_category) => (
-                            <StyledCategories as="h4" type="paragraph-2" key={item_category}>
-                                {item_category}
-                            </StyledCategories>
-                        ))}
-                        {item.category.length > 2 && (
+                        {item.tags &&
+                            item.tags.slice(0, 2).map((tag) => (
+                                <StyledCategories as="h4" type="paragraph-2" key={tag.id}>
+                                    {tag.tags_id.tag_name}
+                                </StyledCategories>
+                            ))}
+                        {item.tags.length > 2 && (
                             <StyledCategories as="h4" type="paragraph-2">
-                                {`+${item.category.slice(2).length.toString()}`}
+                                {`+${item.tags.slice(2).length.toString()}`}
                             </StyledCategories>
                         )}
                         <Header
@@ -86,14 +92,14 @@ const ArticleCard = ({ item }) => {
                             color="grey-5"
                             width="auto"
                         >
-                            {`• ${item.reading_time} min read`}
+                            {item.read_time_in_minutes && `• ${item.read_time_in_minutes} min read`}
                         </Header>
                     </Flex>
                     <Header as="h3" type="subtitle-2">
-                        {item.title}
+                        {item.blog_title}
                     </Header>
                     <Header as="p" type="paragraph-2" weight="normal" mt="8px" color="grey-5">
-                        {item.description}
+                        {item.blog_description}
                     </Header>
                 </ContentWrapper>
             </ArticleCardWrapper>
@@ -102,7 +108,7 @@ const ArticleCard = ({ item }) => {
 }
 
 ArticleCard.propTypes = {
-    item: PropTypes.arrayOf(PropTypes.object),
+    item: PropTypes.object,
 }
 
 export default ArticleCard

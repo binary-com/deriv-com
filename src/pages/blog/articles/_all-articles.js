@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { StyledImg, Container, VideoGrid } from '../common/_styles'
 import ArticleCard from './_article-card'
-import FeaturedArticle from './_featured-article'
+import FirstArticle from './_first-article'
 import { Flex } from 'components/containers'
 import { Text, LocalizedLinkText } from 'components/elements'
 import RightArrow from 'images/svg/black-right-arrow.svg'
@@ -17,9 +17,9 @@ const AllArticles = ({ article_data }) => {
                 <StyledImg src={RightArrow} height="16" width="16" />
                 <Text>All articles</Text>
             </Flex>
-            <FeaturedArticle article_data={article_data} />
+            <FirstArticle item={article_data[0]} />
             <VideoGrid m="40px 0">
-                {article_data.map((item) => {
+                {article_data.slice(1).map((item) => {
                     return <ArticleCard key={item.id} item={item} />
                 })}
             </VideoGrid>

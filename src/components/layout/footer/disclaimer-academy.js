@@ -26,14 +26,42 @@ const DisclaimerSectionAcademy = () => {
                     />
                 </DisclaimerParagraph>
                 <DisclaimerParagraph>
-                    {localize(
-                        'Deriv (MX) Ltd, Millennium House, Level 1, Victoria Road, Douglas IM2 4RW, Isle of Man, is licensed and regulated by the Gambling Supervision Commission in the Isle of Man (view licence) and by the UK Gambling Commission for clients in the UK (account no. 39172).',
-                    )}
+                    <Localize
+                        translate_text="Deriv (MX) Ltd, Millennium House, Level 1, Victoria Road, Douglas IM2 4RW, Isle of Man, is licensed and regulated by the Gambling Supervision Commission in the Isle of Man <0>(view licence)</0> and by the UK Gambling Commission for clients in the UK <1>(account no. 39172)</1>."
+                        components={[
+                            <StaticAsset
+                                key={0}
+                                target="_blank"
+                                href="/regulatory/Deriv_(MX)_Ltd.pdf"
+                                rel="noopener noreferrer"
+                            />,
+                            <StaticAsset
+                                key={1}
+                                target="_blank"
+                                href="https://www.gamblingcommission.gov.uk/public-register/business/detail/39172"
+                                rel="noopener noreferrer"
+                            />,
+                        ]}
+                    />
                 </DisclaimerParagraph>
                 <DisclaimerParagraph>
-                    {localize(
-                        'Deriv (Europe) Limited, W Business Centre, Level 3, Triq Dun Karm, Birkirkara BKR 9033, Malta, is licensed and regulated for synthetic indices by the Malta Gaming Authority (licence no. MGA/B2C/102/2000), by the Gambling Commission for clients in Great Britain (account no. 39495), and by the Revenue Commissioners for clients in Ireland (licence no. 1010285).',
-                    )}
+                    <Localize
+                        translate_text="Deriv (Europe) Limited, W Business Centre, Level 3, Triq Dun Karm, Birkirkara BKR 9033, Malta, is licensed and regulated for synthetic indices by the Malta Gaming Authority <0>(licence no. MGA/B2C/102/2000)</0>, by the Gambling Commission for clients in Great Britain <1>(account no. 39495)</1>, and by the Revenue Commissioners for clients in Ireland (licence no. 1010285)."
+                        components={[
+                            <StaticAsset
+                                key={0}
+                                target="_blank"
+                                href="/regulatory/Deriv_(Europe)_Limited.pdf"
+                                rel="noopener noreferrer"
+                            />,
+                            <StaticAsset
+                                key={1}
+                                target="_blank"
+                                href="https://www.gamblingcommission.gov.uk/public-register/business/detail/39495"
+                                rel="noopener noreferrer"
+                            />,
+                        ]}
+                    />
                 </DisclaimerParagraph>
                 <DisclaimerParagraph>
                     {localize(

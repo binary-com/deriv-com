@@ -1,8 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { getImage } from 'gatsby-plugin-image'
 import styled from 'styled-components'
 import { Flex } from 'components/containers'
-import { Header } from 'components/elements'
+import { Header, QueryImage } from 'components/elements'
 import { LocalizedLink } from 'components/localization'
 
 const StyledFlex = styled(Flex)`
@@ -16,7 +17,6 @@ const StyledFlex = styled(Flex)`
     &:hover {
         transform: translateY(-1.1rem) scale(1.02);
     }
-
     @media (max-width: 823px) {
         flex-direction: column;
         height: auto;
@@ -24,7 +24,6 @@ const StyledFlex = styled(Flex)`
         margin-top: 40px;
     }
 `
-
 const ImageWrapper = styled.div`
     display: flex;
     height: 300px;
@@ -32,7 +31,7 @@ const ImageWrapper = styled.div`
 
     @media (max-width: 823px) {
         width: 100%;
-        max-height: 328px;
+        height: unset;
     }
 `
 
@@ -45,7 +44,7 @@ const StyledCategories = styled(Header)`
     margin: 0 8px 8px 0;
 `
 
-const FeaturedContentWrapper = styled(Flex)`
+const FirstContentWrapper = styled(Flex)`
     @media (max-width: 823px) {
         width: 100%;
         padding: 24px 16px;
@@ -57,31 +56,28 @@ const RedirectLink = styled(LocalizedLink)`
     max-width: 1200px;
 `
 
-const CoverImg = styled.img`
-    object-fit: cover;
-`
-
-const FeaturedArticle = ({ article_data }) => {
+const FirstArticle = ({ item }) => {
     return (
-        <RedirectLink to={`/blog/articles/${article_data[0].slug}/`}>
+        <RedirectLink to={`/blog/articles/${item.slug}/`}>
             <StyledFlex jc="flex-start" mt="96px">
                 <ImageWrapper>
-                    <CoverImg
-                        src="https://source.unsplash.com/random/10"
-                        alt="Video card"
+                    <QueryImage
+                        data={getImage(item.main_image.imageFile)}
+                        alt={item.main_image.description || ''}
                         width="100%"
                     />
                 </ImageWrapper>
-                <FeaturedContentWrapper fd="column" p="35px 40px" width="45%">
+                <FirstContentWrapper fd="column" p="35px 40px" width="45%">
                     <Flex jc="flex-start" height="auto" fw="wrap">
-                        {article_data[0].category.slice(0, 2).map((item_category) => (
-                            <StyledCategories as="h4" type="paragraph-2" key={item_category}>
-                                {item_category}
-                            </StyledCategories>
-                        ))}
-                        {article_data[0].category.length > 2 && (
+                        {item?.tags &&
+                            item.tags.slice(0, 2).map((tag) => (
+                                <StyledCategories as="h4" type="paragraph-2" key={tag.id}>
+                                    {tag.tags_id.tag_name}
+                                </StyledCategories>
+                            ))}
+                        {item?.tags.length > 2 && (
                             <StyledCategories as="h4" type="paragraph-2">
-                                {`+${article_data[0].category.slice(2).length.toString()}`}
+                                {`+${item.tags.slice(2).length.toString()}`}
                             </StyledCategories>
                         )}
                         <Header
@@ -91,23 +87,23 @@ const FeaturedArticle = ({ article_data }) => {
                             type="paragraph-2"
                             width="auto"
                         >
-                            {`• ${article_data[0].reading_time} min read`}
+                            {item.read_time_in_minutes && `• ${item.read_time_in_minutes} min read`}
                         </Header>
                     </Flex>
                     <Header as="h3" type="heading-3">
-                        {article_data[0].title}
+                        {item.blog_title}
                     </Header>
                     <Header as="p" type="paragraph-1" weight="normal" mt="8px" color="grey-5">
-                        {article_data[0].description}
+                        {item.blog_description}
                     </Header>
-                </FeaturedContentWrapper>
+                </FirstContentWrapper>
             </StyledFlex>
         </RedirectLink>
     )
 }
 
-FeaturedArticle.propTypes = {
-    article_data: PropTypes.arrayOf(PropTypes.object),
+FirstArticle.propTypes = {
+    item: PropTypes.object,
 }
 
-export default FeaturedArticle
+export default FirstArticle

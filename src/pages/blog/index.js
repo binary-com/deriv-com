@@ -1,35 +1,65 @@
 import React from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
+import PropTypes from 'prop-types'
+import { graphql } from 'gatsby'
 import styled from 'styled-components'
 import Subscribe from './components/_subscribe'
 import RecentFeaturedPosts from './_recent-featured-posts'
 import DVideoBanner from './video-banner'
 import Hero from './components/_hero'
+import MarketNews from './components/_markets-news'
 import Layout from 'components/layout/layout'
 import { Container, SEO, Flex } from 'components/containers'
-import { localize, WithIntl } from 'components/localization'
-import { Carousel } from 'components/elements'
+import { localize, WithIntl, LocalizedLink } from 'components/localization'
+import { Carousel, QueryImage } from 'components/elements'
 
-const query = graphql`
-    query {
-        hero_image_one: file(relativePath: { eq: "blog/blog-bg1.png" }) {
-            ...fadeIn
-        }
-        hero_image_two: file(relativePath: { eq: "blog/blog-bg2.png" }) {
-            ...fadeIn
-        }
-        hero_image_three: file(relativePath: { eq: "blog/blog-bg3.png" }) {
-            ...fadeIn
-        }
-    }
-`
 const MainWrapper = styled(Flex)`
     background-color: var(--color-white);
     flex-direction: column;
     overflow: hidden;
 `
+export const query = graphql`
+    query MyQuery {
+        directus {
+            homepage_banners(filter: { status: { _eq: "published" } }) {
+                id
+                link
+                heading
+                sub_heading
+                image {
+                    imageFile {
+                        childImageSharp {
+                            gatsbyImageData
+                        }
+                    }
+                    id
+                }
+            }
+            blog(
+                filter: { tags: { tags_id: { tag_name: { _contains: "Market News" } } } }
+                limit: 6
+                sort: "-published_date"
+            ) {
+                id
+                blog_title
+                slug
+                tags {
+                    tags_id {
+                        tag_name
+                    }
+                }
+                read_time_in_minutes
+                main_image {
+                    imageFile {
+                        ...fadeIn
+                    }
+                    id
+                }
+            }
+        }
+    }
+`
 
-const DerivBlog = () => {
+const DerivBlog = ({ data }) => {
     const settings = {
         options: {
             loop: true,
@@ -46,37 +76,43 @@ const DerivBlog = () => {
             nav_color: '--color-grey-5',
         },
     }
-    const data = useStaticQuery(query)
+    const homepage_banner_data = data.directus.homepage_banners
+    const market_news_data = data.directus.blog
     return (
         <Layout type="blog" is_ppc_redirect={true}>
-            <SEO title={localize('Blog')} description={localize('Blog like a boss')} no_index />
+            <SEO
+                title={localize('Articles, trading guide and resources | Deriv')}
+                description={localize(
+                    "If you are looking for trading guide or tutorials, visit Deriv's trading academy and learn how to trade online.",
+                )}
+            />
             <MainWrapper>
-                <Carousel has_autoplay autoplay_interval={60000000} {...settings}>
-                    <Hero
-                        heroImage={data['hero_image_one']}
-                        title={localize('BeSquare')}
-                        description={localize(
-                            'Our 6-month programme aims to make fresh graduates attractive to hiring managers by providing them with square-shaped skills, mentorship, and a once-in-a-lifetime work experience.',
-                        )}
-                    />
-                    <Hero
-                        heroImage={data['hero_image_two']}
-                        title={localize('This week’s market report')}
-                        description={localize(
-                            'We give our 2 satoshis about the crypto market outlook, and talk about the performance of other markets in the past week. ',
-                        )}
-                    />
-                    <Hero
-                        heroImage={data['hero_image_three']}
-                        title={localize('Free ebook: How to trade stocks the smart way')}
-                        description={localize(
-                            'Today, financial markets are open to everyone, not just the financial elite. This ebook by Vince Stanzione teaches you how you can trade stocks just like the pros.',
-                        )}
-                    />
+                <Carousel has_autoplay autoplay_interval={6000} {...settings}>
+                    {homepage_banner_data.map((page_data) => {
+                        return (
+                            <LocalizedLink
+                                key={page_data.id}
+                                to={page_data.link}
+                                style={{ textDecoration: 'none' }}
+                            >
+                                <Hero
+                                    heroImage={
+                                        <QueryImage
+                                            data={page_data.image.imageFile}
+                                            alt={page_data.image.description || ''}
+                                        />
+                                    }
+                                    title={page_data.heading}
+                                    description={page_data.sub_heading}
+                                />
+                            </LocalizedLink>
+                        )
+                    })}
                 </Carousel>
             </MainWrapper>
             <RecentFeaturedPosts />
             <DVideoBanner />
+            <MarketNews data={market_news_data} />
             <Container>
                 <Flex direction="column" ai="flex-start" jc="space-between">
                     <Subscribe />
@@ -84,6 +120,10 @@ const DerivBlog = () => {
             </Container>
         </Layout>
     )
+}
+
+DerivBlog.propTypes = {
+    data: PropTypes.object,
 }
 
 export default WithIntl()(DerivBlog)

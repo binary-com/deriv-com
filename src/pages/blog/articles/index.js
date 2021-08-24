@@ -86,7 +86,7 @@ ArticlesPage.propTypes = {
 export default WithIntl()(ArticlesPage)
 
 export const query = graphql`
-    query MyQuery {
+    query AllArticlesQuery {
         directus {
             blog(filter: { status: { _eq: "published" } }, sort: "-published_date") {
                 id

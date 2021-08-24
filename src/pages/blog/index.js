@@ -18,7 +18,7 @@ const MainWrapper = styled(Flex)`
     overflow: hidden;
 `
 export const query = graphql`
-    query MyQuery {
+    query HomepageQuery {
         directus {
             homepage_banners(filter: { status: { _eq: "published" } }) {
                 id
@@ -50,7 +50,9 @@ export const query = graphql`
                 read_time_in_minutes
                 main_image {
                     imageFile {
-                        ...fadeIn
+                        childImageSharp {
+                            gatsbyImageData
+                        }
                     }
                     id
                 }

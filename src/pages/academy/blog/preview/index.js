@@ -347,7 +347,7 @@ const convertDate = (date) => {
 }
 
 const query_preview = graphql`
-    query MyQueryPreview {
+    query Preview {
         directus {
             blog {
                 id

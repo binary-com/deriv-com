@@ -514,7 +514,7 @@ export default WithIntl()(ArticlesTemplate)
 
 // Query our published articles by slug
 export const query = graphql`
-    query MyQuery($slug: String) {
+    query Article($slug: String) {
         directus {
             blog(filter: { slug: { _eq: $slug } }) {
                 id

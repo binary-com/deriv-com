@@ -292,14 +292,14 @@ export const articles = [
                 label: 'differences-of-synthetic-and-financial',
             },
             {
-                title: <Localize translate_text="What is a trading password?" />,
+                title: <Localize translate_text="What is a Deriv X password?" />,
                 category: 'Deriv X',
                 sub_category: <Localize translate_text="Platforms" />,
                 label: 'trading-password',
             },
             {
                 title: (
-                    <Localize translate_text="Why is my trading password different from my Deriv password?" />
+                    <Localize translate_text="How is my Deriv X password different from my Deriv password?" />
                 ),
                 category: 'Deriv X',
                 sub_category: <Localize translate_text="Platforms" />,
@@ -319,22 +319,23 @@ export const articles = [
                 sub_category: <Localize translate_text="Platforms" />,
                 label: 'deriv-x-account-information',
             },
-            {
-                title: (
-                    <Localize translate_text="How can I deposit funds into my Deriv X real money account?" />
-                ),
-                category: 'Deriv X',
-                sub_category: <Localize translate_text="Platforms" />,
-                label: 'deposit-funds',
-            },
-            {
-                title: (
-                    <Localize translate_text="How do I withdraw funds from my Deriv X real money account?" />
-                ),
-                category: 'Deriv X',
-                sub_category: <Localize translate_text="Platforms" />,
-                label: 'withdraw-funds-from-deriv-x',
-            },
+            // TODO: uncomment this once deriv x real is ready
+            // {
+            //     title: (
+            //         <Localize translate_text="How can I deposit funds into my Deriv X real money account?" />
+            //     ),
+            //     category: 'Deriv X',
+            //     sub_category: <Localize translate_text="Platforms" />,
+            //     label: 'deposit-funds',
+            // },
+            // {
+            //     title: (
+            //         <Localize translate_text="How do I withdraw funds from my Deriv X real money account?" />
+            //     ),
+            //     category: 'Deriv X',
+            //     sub_category: <Localize translate_text="Platforms" />,
+            //     label: 'withdraw-funds-from-deriv-x',
+            // },
         ],
     },
     {
@@ -454,6 +455,60 @@ export const articles = [
                 category: 'DBot',
                 sub_category: <Localize translate_text="Chart" />,
                 label: 'view-chart',
+            },
+        ],
+    },
+
+    {
+        category: <Localize translate_text="Deriv P2P" />,
+        articles: [
+            {
+                title: <Localize translate_text="What is Deriv P2P?" />,
+                category: 'Deriv P2P',
+                sub_category: <Localize translate_text="Platforms" />,
+                label: 'what-is-deriv-p2p',
+            },
+            {
+                title: <Localize translate_text="How secure is Deriv P2P?" />,
+                category: 'Deriv P2P',
+                sub_category: <Localize translate_text="Secure" />,
+                label: 'how-secure-deriv-p2p',
+            },
+            {
+                title: <Localize translate_text="What payment methods can I use with Deriv P2P?" />,
+                category: 'Deriv P2P',
+                sub_category: <Localize translate_text="Payment" />,
+                label: 'payment-methods',
+            },
+            {
+                title: <Localize translate_text="Can I increase my daily buy or sell limit?" />,
+                category: 'Deriv P2P',
+                sub_category: <Localize translate_text="Limit" />,
+                label: 'buy-or-sell-limit',
+            },
+            {
+                title: (
+                    <Localize translate_text="What should I do if I have a dispute with the trader I’m dealing with?" />
+                ),
+                category: 'Deriv P2P',
+                sub_category: <Localize translate_text="Dispute" />,
+                label: 'dispute-with-the-trader',
+            },
+            {
+                title: (
+                    <Localize translate_text="How do I get in touch with the counterparty of my transaction?" />
+                ),
+                category: 'Deriv P2P',
+                sub_category: <Localize translate_text="Transaction" />,
+                label: 'in-touch-with-the-counterparty',
+            },
+            {
+                title: (
+                    <Localize translate_text="Why is my Deriv P2P balance different from my Deriv account balance?" />
+                ),
+                category: 'Deriv P2P',
+                sub_category: <Localize translate_text="Balance" />,
+                label: 'different-account-balance',
             },
         ],
     },

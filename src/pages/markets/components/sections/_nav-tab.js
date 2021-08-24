@@ -92,7 +92,7 @@ const tabList = [
         route_to: '/markets/synthetic/',
     },
     {
-        title: <Localize translate_text="Stock indices" />,
+        title: <Localize translate_text="Stocks & indices" />,
         tab_name: 'stock',
         route_to: '/markets/stock/',
     },

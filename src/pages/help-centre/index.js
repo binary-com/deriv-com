@@ -322,19 +322,16 @@ class HelpCentreClass extends Component {
     }
 
     render() {
-        const {
-            all_articles,
-            all_categories,
-            search,
-            toggle_search,
-            search_has_transition,
-        } = this.state
+        const { all_articles, all_categories, search, toggle_search, search_has_transition } =
+            this.state
 
         const filtered_articles = matchSorter(all_articles, search.trim(), {
             keys: ['title', 'sub_category'],
         })
 
-        const splitted_articles = this.props.is_eu_country ? euArticles(splitArticles(articles, 3)): splitArticles(articles, 3)
+        const splitted_articles = this.props.is_eu_country
+            ? euArticles(splitArticles(articles, 3))
+            : splitArticles(articles, 3)
 
         const has_results = !!filtered_articles.length
 
@@ -412,13 +409,10 @@ class HelpCentreClass extends Component {
                                                 {id === 1 && idx == 0 && (
                                                     <Platforms>Platforms</Platforms>
                                                 )}
-                                                {id === 1 && idx !== 0 && (
-                                                    <HeaderPlatforms />
-                                                )}
-                                                
+                                                {id === 1 && idx !== 0 && <HeaderPlatforms />}
+
                                                 <ListWrapper>
                                                     <StyledHeader
-                                                        is_first_row={!!id}
                                                         type="section-title"
                                                     >
                                                         {item.category}
@@ -439,7 +433,7 @@ class HelpCentreClass extends Component {
                                                             can_expand &&
                                                             idxb === item.articles.length - 1
                                                         return (
-                                                            <ListNoBullets key={idxb}>
+                                                             <ListNoBullets key={idxb}>
                                                                 {should_show_item && (
                                                                     <li>
                                                                         <StyledLink

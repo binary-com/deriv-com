@@ -211,7 +211,7 @@ module.exports = {
         {
             resolve: 'gatsby-plugin-page-progress',
             options: {
-                includePaths: [{ regex: '^/academy/blog/*' }],
+                includePaths: [{ regex: '^/academy/blog/posts/' }],
                 excludePaths: [],
                 height: 4,
                 prependToBody: true,

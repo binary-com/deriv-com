@@ -274,11 +274,11 @@ exports.createPages = async ({ reporter, actions, graphql }) => {
     const blog = result.data.directus.blog
     blog.forEach((blog_post) => {
         createPage({
-            path: `/academy/blog/${blog_post.slug}`,
+            path: `/academy/blog/posts/${blog_post.slug}`,
             component: articleTemplate,
             context: {
                 locale: 'en',
-                pathname: `/academy/blog/${blog_post.slug}`,
+                pathname: `/academy/blog/posts/${blog_post.slug}`,
                 slug: blog_post.slug,
             },
         })

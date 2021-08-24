@@ -351,6 +351,8 @@ const ArticlesTemplate = (props) => {
     const post_data = props.data.directus.blog[0]
     const footer_banner_data = post_data?.footer_banners
     const side_banner_data = post_data?.side_banners
+    const meta_title = post_data?.meta_title
+    const meta_description = post_data?.meta_description
 
     const side_banner_data_details = {
         max_w_value: '328px',
@@ -371,13 +373,7 @@ const ArticlesTemplate = (props) => {
 
     return (
         <Layout>
-            <SEO
-                description={
-                    'Learn about the markets that you can trade online with Deriv, including forex, commodities, synthetic indices, and stock indices.'
-                }
-                title={'Markets | Markets to trade | Deriv'}
-                no_index
-            />
+            <SEO description={meta_description} title={meta_title} />
 
             <SectionContainer padding="0" position="relative">
                 <Background>
@@ -385,7 +381,7 @@ const ArticlesTemplate = (props) => {
                         <HeroLeftWrapper width="100%">
                             <InfoText mb="16px" size="14px">
                                 {post_data?.published_date &&
-                                    localize(convertDate(post_data?.published_date))}
+                                    convertDate(post_data?.published_date)}
                             </InfoText>
                             <Header as="h1" type="page-title">
                                 {post_data?.blog_title}
@@ -523,6 +519,8 @@ export const query = graphql`
             blog(filter: { slug: { _eq: $slug } }) {
                 id
                 blog_title
+                meta_title
+                meta_description
                 published_date
                 read_time_in_minutes
                 blog_post

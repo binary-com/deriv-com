@@ -346,7 +346,7 @@ const convertDate = (date) => {
     )
 }
 
-export const query_preview = graphql`
+const query_preview = graphql`
     query MyQueryPreview {
         directus {
             blog {
@@ -424,7 +424,7 @@ export const query_preview = graphql`
 
 const BlogPreview = (props) => {
     const data = useStaticQuery(query_preview)
-    const [isData, setData] = useState()
+    const [post_data, setPostData] = useState()
 
     useEffect(() => {
         if (typeof window !== 'undefined') {
@@ -435,12 +435,11 @@ const BlogPreview = (props) => {
                 return items.id == params
             })
 
-            setData(item_data)
+            setPostData(item_data)
         }
     }, [data])
 
     const pathname = props.pageContext.pathname
-    const post_data = isData
     const footer_banner_data = post_data?.footer_banners
     const side_banner_data = post_data?.side_banners
 
@@ -465,9 +464,9 @@ const BlogPreview = (props) => {
         <Layout>
             <SEO
                 description={
-                    'Learn about the markets that you can trade online with Deriv, including forex, commodities, synthetic indices, and stock indices.'
+                    'Checkout latest trading news, market updates, useful tips, and how-to guides for Deriv products and online trading platforms on our official blog.'
                 }
-                title={'Markets | Markets to trade | Deriv'}
+                title={'Blog Post Preview | Deriv Academy'}
                 no_index
             />
 

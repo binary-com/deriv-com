@@ -33,8 +33,6 @@ const column_filters = {
 
 const replaceAll = (string, search, replacement) => string.split(search).join(replacement)
 
-const cleanStr = (str) => replaceAll(str.toLowerCase(), ' ', '')
-
 const cleanArray = (arr) => arr.map((a) => a.trim())
 
 const filterArray = (arr) => arr.filter((e) => e)
@@ -68,28 +66,6 @@ const caseArray = (arr, c) => {
 }
 
 const filterFunctions = {
-    descriptionMinMax: (value) => {
-        const data = value.split('|')
-
-        let description, min, max
-
-        if (data.length) {
-            description = data[0] ? data[0] : ''
-
-            const min_max_parts = data[1] ? data[1].split('-') : []
-
-            if (min_max_parts.length) {
-                min = cleanStr(replaceAll(min_max_parts[0], 'min', ''))
-                max = cleanStr(replaceAll(min_max_parts[1], 'max', ''))
-            }
-        }
-
-        return {
-            description,
-            min,
-            max,
-        }
-    },
     includeExclude: (value) => {
         const items = cleanArray(value.split(','))
 
@@ -148,7 +124,7 @@ const filterFunctions = {
                 const parent_index = keys[key]
                 const parent = data[parent_index]
 
-                multi_entries.map((entry) => {
+                multi_entries.forEach((entry) => {
                     const { name, type, delimeter } = entry
 
                     const added_value = d[name]
@@ -157,7 +133,7 @@ const filterFunctions = {
                     if (added_value !== '') {
                         let final_data = null
 
-                        if (type == 'array') {
+                        if (type === 'array') {
                             added_value.map((a) => {
                                 current_value.push(a)
                             })
@@ -172,15 +148,14 @@ const filterFunctions = {
                         }
                         data[parent_index][name] = final_data
                     }
+                    
                 })
 
                 filtered_keys.push(index)
-
-                // Handle Multiple Entries
             }
         })
 
-        filtered_keys.map((k) => {
+        filtered_keys.forEach((k) => {
             delete data[k]
         })
 
@@ -197,7 +172,7 @@ const filterFunctions = {
                 const details = {}
 
                 // Exclude unnecessary properties
-                Object.keys(d).map((dk) => {
+                Object.keys(d).forEach((dk) => {
                     if (!excludes.includes(dk)) {
                         details[dk] = d[dk]
                     }
@@ -210,6 +185,8 @@ const filterFunctions = {
                         reference: reference === 'yes' ? file_name : '',
                     }
                 }
+
+                return false
             }),
         )
     },

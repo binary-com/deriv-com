@@ -8,6 +8,7 @@ import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { SEO, Show, Box, Flex, Container, SectionContainer } from 'components/containers'
 import { Header, QueryImage, Text } from 'components/elements'
+import { isBrowser } from 'common/utility'
 import device from 'themes/device'
 
 const Background = styled.div`
@@ -424,22 +425,24 @@ const query_preview = graphql`
 
 const BlogPreview = (props) => {
     const data = useStaticQuery(query_preview)
+    const pathname = props.pageContext.pathname
+    const GET_DATA_TIMEOUT_DELAY = 700
     const [post_data, setPostData] = useState()
 
     useEffect(() => {
-        if (typeof window !== 'undefined') {
-            const query_string = window.location.search
-            const url_params = new URLSearchParams(query_string)
-            const params = url_params.get('id')
-            const item_data = data.directus.blog.find((items) => {
-                return items.id == params
-            })
-
-            setPostData(item_data)
-        }
+        setTimeout(() => {
+            if (isBrowser()) {
+                const query_string = window.location.search
+                const url_params = new URLSearchParams(query_string)
+                const params = url_params.get('id')
+                const item_data = data.directus.blog.find((items) => {
+                    return items.id == params
+                })
+                setPostData(item_data)
+            }
+        }, GET_DATA_TIMEOUT_DELAY)
     }, [data])
 
-    const pathname = props.pageContext.pathname
     const footer_banner_data = post_data?.footer_banners
     const side_banner_data = post_data?.side_banners
 

@@ -52,7 +52,7 @@ const StyledHeader = styled(Header)`
 
 const VideosPage = ({ data }) => {
     const video_data = data.directus.videos
-    console.log(data.directus.videos)
+
     return (
         <Layout>
             <SEO

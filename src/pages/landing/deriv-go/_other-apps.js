@@ -9,6 +9,15 @@ import DMT5 from 'images/svg/deriv-go/dmt5.svg'
 import DerivX from 'images/svg/deriv-go/dx.svg'
 import device from 'themes/device'
 
+const StyledSectionContainer = styled(SectionContainer)`
+    border-top: solid 1px var(--color-grey-2);
+    padding-top: 80px;
+
+    @media ${device.tablet} {
+        padding-top: 20px;
+    }
+`
+
 const StyledHeader = styled(Header)`
     @media ${device.mobileL} {
         font-size: 32px;
@@ -97,7 +106,7 @@ const other_apps = [
 const OtherApps = () => {
     return (
         <div>
-            <SectionContainer>
+            <StyledSectionContainer>
                 <Container fd="column">
                     <StyledHeader type="page-title" align="center">
                         {localize('Check out our other apps')}
@@ -119,7 +128,7 @@ const OtherApps = () => {
                         })}
                     </Flex>
                 </Container>
-            </SectionContainer>
+            </StyledSectionContainer>
         </div>
     )
 }

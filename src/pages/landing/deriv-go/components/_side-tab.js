@@ -10,6 +10,9 @@ const TabContent = styled.div`
     flex: 1;
     width: 100%;
 `
+// const Mobile = styled(Show.Mobile)`
+
+// `
 
 const TabButton = styled.div`
     position: relative;
@@ -195,6 +198,7 @@ Tabs.propTypes = {
     is_reverse: PropTypes.bool,
     max_width: PropTypes.string,
     notice_content: PropTypes.object,
+    tab_break: PropTypes.string,
 }
 
 export default Tabs

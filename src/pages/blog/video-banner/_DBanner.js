@@ -99,11 +99,16 @@ const Dbanner = ({ video_list }) => {
                         </PlayerIconWrapper>
                         <TagParentWrapper height="22px" jc="flex-start">
                             <TagWrapper ai="center" width="auto" p="1px 8px">
-                                {types.map((t) => (
+                                {types.slice(0, 2).map((t) => (
                                     <Header key={t} type="paragraph-2" color="orange-2">
                                         {t}
                                     </Header>
                                 ))}
+                                {types.length > 2 && (
+                                    <Header type="paragraph-2" color="orange-2">
+                                        +2
+                                    </Header>
+                                )}
                             </TagWrapper>
                         </TagParentWrapper>
 

@@ -246,8 +246,7 @@ export const redirectOpenLiveChatBox = (is_redirect) => {
     }
 }
 
-// Blog Related Utilities
-// Get Assets
+// CMS Related Utilities
 export const getAssetUrl = (id) => `${cms_endpoint}assets/${id}`
 
 export const getVideoObject = (video_data) => {

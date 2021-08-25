@@ -426,22 +426,22 @@ const query_preview = graphql`
 const BlogPreview = (props) => {
     const data = useStaticQuery(query_preview)
     const pathname = props.pageContext.pathname
-    const GET_DATA_TIMEOUT_DELAY = 900
     const [post_data, setPostData] = useState()
+    const [isMounted, setMounted] = useState(false)
 
     useEffect(() => {
-        setTimeout(() => {
-            if (isBrowser()) {
-                const query_string = window.location.search
-                const url_params = new URLSearchParams(query_string)
-                const params = url_params.get('id')
-                const item_data = data.directus.blog.find((items) => {
-                    return items.id == params
-                })
-                setPostData(item_data)
-            }
-        }, GET_DATA_TIMEOUT_DELAY)
-    }, [data])
+        setMounted(true)
+
+        if (isMounted && isBrowser()) {
+            const query_string = window.location.search
+            const url_params = new URLSearchParams(query_string)
+            const params = url_params.get('id')
+            const item_data = data.directus.blog.find((items) => {
+                return items.id == params
+            })
+            setPostData(item_data)
+        }
+    }, [isMounted])
 
     const footer_banner_data = post_data?.footer_banners
     const side_banner_data = post_data?.side_banners

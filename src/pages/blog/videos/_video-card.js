@@ -118,11 +118,12 @@ const VideoCard = ({ item, openVideo }) => {
                 <ImageWrapper>
                     <ImageOverlay />
                     <CategoriesContainer jc="flex-start" fw="wrap">
-                        {item.tags.slice(0, 2).map((tag) => (
-                            <StyledCategories as="h4" type="paragraph-2" key={tag.tags_id.id}>
-                                {tag.tags_id.tag_name}
-                            </StyledCategories>
-                        ))}
+                        {item.tags &&
+                            item.tags.slice(0, 2).map((tag) => (
+                                <StyledCategories as="h4" type="paragraph-2" key={tag.tags_id.id}>
+                                    {tag.tags_id.tag_name}
+                                </StyledCategories>
+                            ))}
                         {item.tags.length > 2 && (
                             <StyledCategories as="h4" type="paragraph-2">
                                 {`+${item.tags.slice(2).length.toString()}`}
@@ -134,7 +135,10 @@ const VideoCard = ({ item, openVideo }) => {
                     <VideoDuration as="h5" type="paragraph-2" weight="bold">
                         {item.video_duration}
                     </VideoDuration>
-                    <QueryImage data={getImage(item.video_thumbnail.imageFile)} alt="Video card" />
+                    <QueryImage
+                        data={getImage(item.video_thumbnail.imageFile)}
+                        alt={item.video_description}
+                    />
                 </ImageWrapper>
                 <ContentWrapper>
                     <Header as="h3" type="subtitle-2">

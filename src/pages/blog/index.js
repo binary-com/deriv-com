@@ -18,7 +18,7 @@ const MainWrapper = styled(Flex)`
     overflow: hidden;
 `
 export const query = graphql`
-    query MyQuery {
+    query IndexQuery {
         directus {
             homepage_banners(filter: { status: { _eq: "published" } }) {
                 id

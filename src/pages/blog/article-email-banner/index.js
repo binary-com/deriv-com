@@ -186,20 +186,26 @@ const ArticleEmailBanner = () => {
         const { value } = e.target
 
         setName(value)
-        handleValidation(value)
+        handleValidation(value, 'name')
     }
 
     const handleInputChange = (e) => {
         const { value } = e.target
 
         setEmail(value)
-        handleValidation(value)
+        handleValidation(value, 'email')
     }
 
-    const handleValidation = (param) => {
+    const handleValidation = (param, type) => {
         const message = typeof param === 'object' ? param.target.value : param
-        setNameErrorMsg(validateName(message.replace(/\s/g, '')))
-        setEmailErrorMsg(validateEmail(message.replace(/\s/g, '')))
+
+        if (type == 'email') {
+            setEmailErrorMsg(validateEmail(message.replace(/\s/g, '')))
+        }
+
+        if (type == 'name') {
+            setNameErrorMsg(validateName(message.replace(/\s/g, '')))
+        }
     }
 
     const validateEmail = (email) => {
@@ -247,8 +253,8 @@ const ArticleEmailBanner = () => {
         e.preventDefault()
         setIsSubmitting(true)
         const formattedEmail = email.replace(/\s/g, '')
-        handleValidation(email)
-        handleValidation(name)
+        handleValidation(email, 'email')
+        handleValidation(name, 'name')
         const has_error_email = validateEmail(formattedEmail)
         const has_error_name = validateName(formattedEmail)
 
@@ -292,7 +298,6 @@ const ArticleEmailBanner = () => {
                                     error={name_error_msg}
                                     required
                                     onChange={handleInputNameChange}
-                                    onBlur={handleValidation}
                                 />
 
                                 {name_error_msg && (
@@ -323,7 +328,6 @@ const ArticleEmailBanner = () => {
                                     value={email}
                                     required
                                     onChange={handleInputChange}
-                                    onBlur={handleValidation}
                                 />
                                 {email_error_msg && (
                                     <>

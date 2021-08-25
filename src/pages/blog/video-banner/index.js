@@ -8,7 +8,9 @@ import { Flex } from 'components/containers'
 const DVideoBanner = ({ video_list_data }) => {
     return (
         <Flex>
-            <Dbanner video_list={video_list_data} />
+            {(video_list_data || video_list_data.length) && (
+                <Dbanner video_list={video_list_data} />
+            )}
         </Flex>
     )
 }

@@ -7,6 +7,7 @@ import { CustomCarousel } from './carousel/_custom-carousel'
 import { Flex } from 'components/containers'
 import { Header } from 'components/elements'
 import { LinkButton } from 'components/form'
+import { getVideoObject } from 'common/utility'
 import device from 'themes/device'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import PlayIcon from 'images/svg/blog/video/Triangle.svg'
@@ -156,7 +157,7 @@ const VideoCarousel = ({ carousel_items }) => {
                                 video_title,
                                 video_url,
                                 video_duration,
-                            } = item
+                            } = getVideoObject(item)
 
                             return (
                                 <ItemsMainWrapper

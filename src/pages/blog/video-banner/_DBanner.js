@@ -72,8 +72,8 @@ const Dbanner = ({ video_list }) => {
     const {
         published_date,
         thumbnail_img,
-        thumbnail_img_alt,
         video_title,
+        video_description,
         video_url,
         video_duration,
         types,
@@ -119,7 +119,7 @@ const Dbanner = ({ video_list }) => {
                             max_width="894px"
                             mobile_max_width="100%"
                         >
-                            {thumbnail_img_alt}
+                            {video_description}
                         </Header>
                         <Flex ai="center" jc="flex-start" height="24px">
                             <Header

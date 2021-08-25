@@ -426,7 +426,7 @@ const query_preview = graphql`
 const BlogPreview = (props) => {
     const data = useStaticQuery(query_preview)
     const pathname = props.pageContext.pathname
-    const GET_DATA_TIMEOUT_DELAY = 700
+    const GET_DATA_TIMEOUT_DELAY = 900
     const [post_data, setPostData] = useState()
 
     useEffect(() => {
@@ -493,9 +493,13 @@ const BlogPreview = (props) => {
                                     <Flex fw="wrap" jc="flex-start" max-width="100%" width=" 100%">
                                         {post_data?.tags.map((tag) => {
                                             return (
-                                                <Tag key={tag.tags_id.id}>
-                                                    {tag.tags_id.tag_name}
-                                                </Tag>
+                                                <>
+                                                    {tag?.tags_id?.id && (
+                                                        <Tag key={tag?.tags_id?.id}>
+                                                            {tag?.tags_id?.tag_name}
+                                                        </Tag>
+                                                    )}
+                                                </>
                                             )
                                         })}
                                     </Flex>
@@ -505,12 +509,17 @@ const BlogPreview = (props) => {
                             <Show.Desktop max_width="laptop">
                                 {post_data?.author && (
                                     <Flex ai="center" mt="40px" jc="flex-start">
-                                        <WriterImage>
-                                            <QueryImage
-                                                data={post_data?.author?.image?.imageFile}
-                                                alt=""
-                                            />
-                                        </WriterImage>
+                                        <>
+                                            {post_data?.author?.image && (
+                                                <WriterImage>
+                                                    <QueryImage
+                                                        data={post_data?.author?.image?.imageFile}
+                                                        alt=""
+                                                    />
+                                                </WriterImage>
+                                            )}
+                                        </>
+
                                         <Box>
                                             <WrittenbyText color="grey-5" size="12px">
                                                 {localize('Written by')}
@@ -534,12 +543,17 @@ const BlogPreview = (props) => {
                         <Show.Mobile min_width="laptop">
                             {post_data?.author && (
                                 <Flex ai="center" jc="flex-start">
-                                    <WriterImage>
-                                        <QueryImage
-                                            data={post_data?.author?.image?.imageFile}
-                                            alt=""
-                                        />
-                                    </WriterImage>
+                                    <>
+                                        {post_data?.author?.image && (
+                                            <WriterImage>
+                                                <QueryImage
+                                                    data={post_data?.author?.image?.imageFile}
+                                                    alt=""
+                                                />
+                                            </WriterImage>
+                                        )}
+                                    </>
+
                                     <Box>
                                         <WrittenbyText color="grey-5" size="12px">
                                             {localize('Written by')}
@@ -560,7 +574,13 @@ const BlogPreview = (props) => {
                                 >
                                     {post_data?.tags.map((tag) => {
                                         return (
-                                            <Tag key={tag.tags_id.id}>{tag.tags_id.tag_name}</Tag>
+                                            <>
+                                                {tag?.tags_id?.id && (
+                                                    <Tag key={tag?.tags_id?.id}>
+                                                        {tag?.tags_id?.tag_name}
+                                                    </Tag>
+                                                )}
+                                            </>
                                         )
                                     })}
                                 </Flex>

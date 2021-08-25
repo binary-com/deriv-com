@@ -127,7 +127,7 @@ const DerivBlog = ({ data }) => {
                 </Carousel>
             </MainWrapper>
             <RecentFeaturedPosts />
-            <DVideoBanner video_details={false} video_list_data={video_list_data} />
+            <DVideoBanner video_list_data={video_list_data} />
             <MarketNews data={market_news_data} />
             <Container>
                 <Flex direction="column" ai="flex-start" jc="space-between">

@@ -2,6 +2,7 @@ import { navigate } from 'gatsby'
 import Cookies from 'js-cookie'
 import extend from 'extend'
 import {
+    cms_endpoint,
     deriv_cookie_domain,
     deriv_app_languages,
     live_chat_redirection_link,
@@ -242,5 +243,26 @@ export const redirectOpenLiveChatBox = (is_redirect) => {
     removeLocalStorage(live_chat_key)
     if (live_chat_status) {
         navigate(live_chat_redirection_link, { replace: true })
+    }
+}
+
+// Blog Related Utilities
+// Get Assets
+export const getAssetUrl = (id) => `${cms_endpoint}/assets/${id}`
+
+export const getVideoObject = (video_data) => {
+    const { published_date, video_file, video_thumbnail, video_title, tags } = video_data
+
+    const { id: video_id, duration } = video_file
+    const { id: thumbnail_id, description } = video_thumbnail
+
+    return {
+        published_date,
+        thumbnail_img: getAssetUrl(thumbnail_id),
+        thumbnail_img_alt: description,
+        video_title,
+        video_url: getAssetUrl(video_id),
+        video_duration: duration,
+        types: tags.map((t) => t.tags_id.tag_name),
     }
 }

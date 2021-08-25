@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import VideoPlayer from '../_video-player'
 import VideoCarousel from './_VideoCarousel'
+import { getVideoObject } from 'common/utility'
 import { Flex, Container } from 'components/containers'
 import { Header } from 'components/elements'
 import device from 'themes/device'
@@ -63,10 +64,20 @@ const StyledDot = styled.img`
     margin: 0 10px 4px;
 `
 
-const Dbanner = ({ video_details, video_list }) => {
+const Dbanner = ({ video_list }) => {
     const [show, setShow] = useState(false)
     const handleCloseVideo = () => setShow(false)
     const handleOpenVideo = () => setShow(true)
+
+    const {
+        published_date,
+        thumbnail_img,
+        thumbnail_img_alt,
+        video_title,
+        video_url,
+        video_duration,
+        types,
+    } = getVideoObject(video_list[0])
 
     useEffect(() => {
         show ? (document.body.style.overflow = 'hidden') : (document.body.style.overflow = 'unset')
@@ -74,7 +85,7 @@ const Dbanner = ({ video_details, video_list }) => {
 
     return (
         <>
-            <ParentWrapper direction="column" bg_image={video_details[0].bg_img_url}>
+            <ParentWrapper direction="column" bg_image={thumbnail_img}>
                 <Container direction="column" jc="flex-start">
                     <Flex direction="column" jc="flex-start" height="auto">
                         <PlayerIconWrapper
@@ -88,14 +99,16 @@ const Dbanner = ({ video_details, video_list }) => {
                         </PlayerIconWrapper>
                         <TagParentWrapper height="22px" jc="flex-start">
                             <TagWrapper ai="center" width="auto" p="1px 8px">
-                                <Header type="paragraph-2" color="orange-2">
-                                    {video_details[0].type}
-                                </Header>
+                                {types.map((t) => (
+                                    <Header key={t} type="paragraph-2" color="orange-2">
+                                        {t}
+                                    </Header>
+                                ))}
                             </TagWrapper>
                         </TagParentWrapper>
 
                         <Header as="h2" type="heading-2" color="white" mb="8px">
-                            {video_details[0].title}
+                            {video_title}
                         </Header>
                         <Header
                             as="p"
@@ -106,7 +119,7 @@ const Dbanner = ({ video_details, video_list }) => {
                             max_width="894px"
                             mobile_max_width="100%"
                         >
-                            {video_details[0].description}
+                            {thumbnail_img_alt}
                         </Header>
                         <Flex ai="center" jc="flex-start" height="24px">
                             <Header
@@ -116,7 +129,7 @@ const Dbanner = ({ video_details, video_list }) => {
                                 color="grey-17"
                                 width="auto"
                             >
-                                {video_details[0].published_date}
+                                {published_date}
                             </Header>
                             <StyledDot />
                             <Header
@@ -126,25 +139,19 @@ const Dbanner = ({ video_details, video_list }) => {
                                 color="grey-17"
                                 width="auto"
                             >
-                                {video_details[0].duration}
+                                {video_duration}
                             </Header>
                         </Flex>
                     </Flex>
                     <VideoCarousel carousel_items={video_list} />
                 </Container>
             </ParentWrapper>
-            {show && (
-                <VideoPlayer
-                    video_src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4"
-                    closeVideo={handleCloseVideo}
-                />
-            )}
+            {show && <VideoPlayer video_src={video_url} closeVideo={handleCloseVideo} />}
         </>
     )
 }
 
 Dbanner.propTypes = {
-    video_details: PropTypes.array,
     video_list: PropTypes.array,
 }
 

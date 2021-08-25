@@ -95,3 +95,4 @@ export const linkedin_url_career = 'https://www.linkedin.com/company/derivdotcom
 export const twitter_non_eu_url = 'https://twitter.com/derivdotcom/'
 export const twitter_uk_url = 'https://www.twitter.com/deriv_uk/'
 export const twitter_eu_url = 'https://www.twitter.com/deriv_eu/'
+export const cms_endpoint = 'https://cms.deriv.cloud/'

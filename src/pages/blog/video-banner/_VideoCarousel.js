@@ -94,16 +94,15 @@ const SeeMoreBtnMobile = styled(LinkButton)`
 
 const VideoCarousel = ({ carousel_items }) => {
     const [show, setShow] = useState(false)
-    const [video_url, setVideoUrl] = useState('')
+    const [video_src, setVideoSrc] = useState('')
     const [is_mobile] = useBrowserResize()
 
     const handleCloseVideo = () => setShow(false)
-    const handleOpenVideo = (event, video_id) => {
+    const handleOpenVideo = (event, url) => {
         if (event.defaultPrevented) return
-        setVideoUrl(getAssetUrl(video_id))
+        setVideoSrc(url)
         setShow(true)
     }
-    const getAssetUrl = (id) => `https://cms.deriv.cloud/assets/${id}`
 
     useEffect(() => {
         show ? (document.body.style.overflow = 'hidden') : (document.body.style.overflow = 'unset')
@@ -150,23 +149,23 @@ const VideoCarousel = ({ carousel_items }) => {
                 <Flex height="auto">
                     <CustomCarousel {...settings} custom_blog_video_nav>
                         {carousel_items.map((item, index) => {
-                            const { published_date, video_file, video_thumbnail, video_title } =
-                                item
-
-                            const { id: video_id, duration } = video_file
-                            const { id: thumbnail_id, description: thumbnail_alt } = video_thumbnail
+                            const {
+                                published_date,
+                                thumbnail_img,
+                                thumbnail_img_alt,
+                                video_title,
+                                video_url,
+                                video_duration,
+                            } = item
 
                             return (
                                 <ItemsMainWrapper
                                     jc="flex-start"
                                     key={index}
-                                    onClick={(e) => handleOpenVideo(e, video_id)}
+                                    onClick={(e) => handleOpenVideo(e, video_url)}
                                 >
                                     <ImgWrapper width="139px">
-                                        <ImgDiv
-                                            src={getAssetUrl(thumbnail_id)}
-                                            alt={thumbnail_alt}
-                                        />
+                                        <ImgDiv src={thumbnail_img} alt={thumbnail_img_alt} />
                                         <PlayerIconWrapper absolute ai="center">
                                             <IconDiv>
                                                 <PlayerIcon src={PlayIcon} />
@@ -199,7 +198,7 @@ const VideoCarousel = ({ carousel_items }) => {
                                                 color="grey-17"
                                                 width="auto"
                                             >
-                                                {duration}
+                                                {video_duration}
                                             </Header>
                                         </SmallDetailsWrapper>
                                     </Flex>
@@ -216,7 +215,7 @@ const VideoCarousel = ({ carousel_items }) => {
                     </SeeMoreBtnMobile>
                 )}
             </Flex>
-            {show && <VideoPlayer video_src={video_url} closeVideo={handleCloseVideo} />}
+            {show && <VideoPlayer video_src={video_src} closeVideo={handleCloseVideo} />}
         </>
     )
 }

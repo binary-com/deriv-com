@@ -68,6 +68,11 @@ export const query = graphql`
                 video_file {
                     id
                 }
+                tags {
+                    tags_id {
+                        tag_name
+                    }
+                }
             }
         }
     }

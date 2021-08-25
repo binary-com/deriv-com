@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { ContainedImg } from '../common/_styles'
-import { Header } from 'components/elements'
+import { getImage } from 'gatsby-plugin-image'
+import { Header, QueryImage } from 'components/elements'
 import { Flex } from 'components/containers'
 import device from 'themes/device'
 import Triangle from 'images/svg/triangle.svg'
@@ -118,14 +118,14 @@ const VideoCard = ({ item, openVideo }) => {
                 <ImageWrapper>
                     <ImageOverlay />
                     <CategoriesContainer jc="flex-start" fw="wrap">
-                        {item.category.slice(0, 2).map((item_category) => (
-                            <StyledCategories as="h4" type="paragraph-2" key={item_category}>
-                                {item_category}
+                        {item.tags.slice(0, 2).map((tag) => (
+                            <StyledCategories as="h4" type="paragraph-2" key={tag.tags_id.id}>
+                                {tag.tags_id.tag_name}
                             </StyledCategories>
                         ))}
-                        {item.category.length > 2 && (
+                        {item.tags.length > 2 && (
                             <StyledCategories as="h4" type="paragraph-2">
-                                {`+${item.category.slice(2).length.toString()}`}
+                                {`+${item.tags.slice(2).length.toString()}`}
                             </StyledCategories>
                         )}
                     </CategoriesContainer>
@@ -134,14 +134,14 @@ const VideoCard = ({ item, openVideo }) => {
                     <VideoDuration as="h5" type="paragraph-2" weight="bold">
                         {item.video_duration}
                     </VideoDuration>
-                    <ContainedImg src={item.image} alt="Video card" width="100%" />
+                    <QueryImage data={getImage(item.video_thumbnail.imageFile)} alt="Video card" />
                 </ImageWrapper>
                 <ContentWrapper>
                     <Header as="h3" type="subtitle-2">
-                        {item.title}
+                        {item.video_title}
                     </Header>
                     <Header as="h4" type="paragraph-2" weight="normal" mt="8px" color="grey-40">
-                        {item.date}
+                        {item.published_date}
                     </Header>
                 </ContentWrapper>
             </VideoCardWrapper>
@@ -150,7 +150,7 @@ const VideoCard = ({ item, openVideo }) => {
 }
 
 VideoCard.propTypes = {
-    item: PropTypes.Object,
+    item: PropTypes.object,
     openVideo: PropTypes.func,
 }
 

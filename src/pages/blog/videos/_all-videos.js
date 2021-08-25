@@ -9,11 +9,23 @@ import RightArrow from 'images/svg/black-right-arrow.svg'
 
 const AllVideos = ({ video_data }) => {
     const [show, setShow] = useState(false)
+    const [play_video_id, setPlayVideoId] = useState('')
 
     useEffect(() => {
         show ? (document.body.style.overflow = 'hidden') : (document.body.style.overflow = 'unset')
     }, [show])
 
+    const play_video_src = `http://cms.deriv.cloud/assets/${play_video_id}`
+
+    const openVideo = (video_id) => {
+        setPlayVideoId(video_id)
+        setShow(true)
+    }
+
+    const closeVideo = () => {
+        setShow(false)
+        setPlayVideoId('')
+    }
     return (
         <Container m="0 auto" fd="column">
             <Flex jc="flex-start" ai="center" mt="4rem">
@@ -25,15 +37,16 @@ const AllVideos = ({ video_data }) => {
             </Flex>
             <VideoGrid m="8rem 0">
                 {video_data.map((item) => {
-                    return <VideoCard key={item.id} item={item} openVideo={() => setShow(true)} />
+                    return (
+                        <VideoCard
+                            key={item.video_id}
+                            item={item}
+                            openVideo={() => openVideo(item.video_file.id)}
+                        />
+                    )
                 })}
             </VideoGrid>
-            {show && (
-                <VideoPlayer
-                    video_src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4"
-                    closeVideo={() => setShow(false)}
-                />
-            )}
+            {show && <VideoPlayer video_src={play_video_src} closeVideo={closeVideo} />}
         </Container>
     )
 }

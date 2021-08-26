@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
-import { graphql } from 'gatsby'
+import { graphql, useStaticQuery } from 'gatsby'
 import {
     Background,
     HeroContainer,
@@ -19,22 +19,113 @@ import {
     SocialComponentsWrapper,
     LeftSocialComponents,
     RightSocialComponents,
-} from '../pages/academy/blog/posts/_style'
-import Banner from '../pages/blog/components/_banner'
-import SocialSharing from '../pages/blog/_social-sharing'
+} from '../_style'
+import Banner from '../../../../blog/components/_banner'
+import SocialSharing from '../../../../blog/_social-sharing'
 import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { SEO, Show, Box, Flex, SectionContainer } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
-import { convertDate } from 'common/utility'
+import { convertDate, isBrowser } from 'common/utility'
 
-const ArticlesTemplate = (props) => {
+const query_preview = graphql`
+    query Preview {
+        directus {
+            blog {
+                id
+                slug
+                blog_title
+                published_date
+                read_time_in_minutes
+                blog_post
+                author {
+                    id
+                    name
+                    image {
+                        id
+                        imageFile {
+                            childImageSharp {
+                                gatsbyImageData
+                            }
+                        }
+                    }
+                }
+                main_image {
+                    id
+                    imageFile {
+                        childImageSharp {
+                            gatsbyImageData
+                        }
+                    }
+                }
+                tags {
+                    id
+                    tags_id {
+                        id
+                        tag_name
+                    }
+                }
+                footer_banners {
+                    id
+                    cta_url
+                    name
+                    desktop_banner_image {
+                        id
+                        imageFile {
+                            childImageSharp {
+                                gatsbyImageData
+                            }
+                        }
+                    }
+                    mobile_banner_image {
+                        id
+                        imageFile {
+                            childImageSharp {
+                                gatsbyImageData
+                            }
+                        }
+                    }
+                }
+                side_banners {
+                    id
+                    cta_url
+                    name
+                    banner_image {
+                        id
+                        imageFile {
+                            childImageSharp {
+                                gatsbyImageData
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+`
+
+const BlogPreview = (props) => {
+    const data = useStaticQuery(query_preview)
     const pathname = props.pageContext.pathname
-    const post_data = props.data.directus.blog[0]
+    const [post_data, setPostData] = useState()
+    const [isMounted, setMounted] = useState(false)
+
+    useEffect(() => {
+        setMounted(true)
+
+        if (isMounted && isBrowser()) {
+            const query_string = window.location.search
+            const url_params = new URLSearchParams(query_string)
+            const params = url_params.get('id')
+            const item_data = data.directus.blog.find((items) => {
+                return items.id == params
+            })
+            setPostData(item_data)
+        }
+    }, [isMounted])
+
     const footer_banner_data = post_data?.footer_banners
     const side_banner_data = post_data?.side_banners
-    const meta_title = post_data?.meta_title
-    const meta_description = post_data?.meta_description
 
     const side_banner_data_details = {
         max_w_value: '328px',
@@ -42,7 +133,6 @@ const ArticlesTemplate = (props) => {
         isExternal: true,
         redirectLink: side_banner_data?.cta_url,
         imgSrcDesktop: side_banner_data?.banner_image?.imageFile,
-        imgAltDesktop: side_banner_data?.banner_image?.description,
     }
 
     const footer_banner_details = {
@@ -51,14 +141,18 @@ const ArticlesTemplate = (props) => {
         isExternal: true,
         redirectLink: footer_banner_data?.cta_url,
         imgSrcDesktop: footer_banner_data?.desktop_banner_image?.imageFile,
-        imgAltDesktop: footer_banner_data?.desktop_banner_image?.description,
         imgSrcMobile: footer_banner_data?.mobile_banner_image?.imageFile,
-        imgAltMobile: footer_banner_data?.mobile_banner_image?.description,
     }
 
     return (
         <Layout>
-            <SEO description={meta_description} title={meta_title} />
+            <SEO
+                description={
+                    'Checkout latest trading news, market updates, useful tips, and how-to guides for Deriv products and online trading platforms on our official blog.'
+                }
+                title={'Blog Post Preview | Deriv Academy'}
+                no_index
+            />
 
             <SectionContainer padding="0" position="relative">
                 <Background>
@@ -66,7 +160,7 @@ const ArticlesTemplate = (props) => {
                         <HeroLeftWrapper width="100%">
                             <InfoText mb="16px" size="14px">
                                 {post_data?.published_date &&
-                                    convertDate(post_data?.published_date)}
+                                    localize(convertDate(post_data?.published_date))}
                             </InfoText>
                             <Header as="h1" type="page-title">
                                 {post_data?.blog_title}
@@ -80,9 +174,13 @@ const ArticlesTemplate = (props) => {
                                     <Flex fw="wrap" jc="flex-start" max-width="100%" width=" 100%">
                                         {post_data?.tags.map((tag) => {
                                             return (
-                                                <Tag key={tag.tags_id.id}>
-                                                    {tag.tags_id.tag_name}
-                                                </Tag>
+                                                <>
+                                                    {tag?.tags_id?.id && (
+                                                        <Tag key={tag?.tags_id?.id}>
+                                                            {tag?.tags_id?.tag_name}
+                                                        </Tag>
+                                                    )}
+                                                </>
                                             )
                                         })}
                                     </Flex>
@@ -97,7 +195,7 @@ const ArticlesTemplate = (props) => {
                                                 <WriterImage>
                                                     <QueryImage
                                                         data={post_data?.author?.image?.imageFile}
-                                                        alt={post_data?.author?.image?.description}
+                                                        alt=""
                                                     />
                                                 </WriterImage>
                                             )}
@@ -115,10 +213,7 @@ const ArticlesTemplate = (props) => {
                         </HeroLeftWrapper>
                         <HeroRightWrapper>
                             <HeroImageContainer tabletL={{ mt: '24px' }}>
-                                <QueryImage
-                                    data={post_data?.main_image?.imageFile}
-                                    alt={post_data?.main_image?.description}
-                                />
+                                <QueryImage data={post_data?.main_image?.imageFile} alt="" />
                             </HeroImageContainer>
                         </HeroRightWrapper>
                     </HeroContainer>
@@ -134,7 +229,7 @@ const ArticlesTemplate = (props) => {
                                             <WriterImage>
                                                 <QueryImage
                                                     data={post_data?.author?.image?.imageFile}
-                                                    alt={post_data?.author?.image?.description}
+                                                    alt=""
                                                 />
                                             </WriterImage>
                                         )}
@@ -160,7 +255,13 @@ const ArticlesTemplate = (props) => {
                                 >
                                     {post_data?.tags.map((tag) => {
                                         return (
-                                            <Tag key={tag.tags_id.id}>{tag.tags_id.tag_name}</Tag>
+                                            <>
+                                                {tag?.tags_id?.id && (
+                                                    <Tag key={tag?.tags_id?.id}>
+                                                        {tag?.tags_id?.tag_name}
+                                                    </Tag>
+                                                )}
+                                            </>
                                         )
                                     })}
                                 </Flex>
@@ -203,92 +304,8 @@ const ArticlesTemplate = (props) => {
     )
 }
 
-ArticlesTemplate.propTypes = {
-    data: PropTypes.object,
+BlogPreview.propTypes = {
     pageContext: PropTypes.object,
 }
 
-export default WithIntl()(ArticlesTemplate)
-
-// Query our published articles by slug
-export const query = graphql`
-    query Article($slug: String) {
-        directus {
-            blog(filter: { slug: { _eq: $slug } }) {
-                id
-                blog_title
-                meta_title
-                meta_description
-                published_date
-                read_time_in_minutes
-                blog_post
-                author {
-                    id
-                    name
-                    image {
-                        id
-                        description
-                        imageFile {
-                            childImageSharp {
-                                gatsbyImageData
-                            }
-                        }
-                    }
-                }
-                main_image {
-                    id
-                    description
-                    imageFile {
-                        childImageSharp {
-                            gatsbyImageData
-                        }
-                    }
-                }
-                tags {
-                    id
-                    tags_id {
-                        id
-                        tag_name
-                    }
-                }
-                footer_banners {
-                    id
-                    cta_url
-                    name
-                    desktop_banner_image {
-                        id
-                        description
-                        imageFile {
-                            childImageSharp {
-                                gatsbyImageData
-                            }
-                        }
-                    }
-                    mobile_banner_image {
-                        id
-                        description
-                        imageFile {
-                            childImageSharp {
-                                gatsbyImageData
-                            }
-                        }
-                    }
-                }
-                side_banners {
-                    id
-                    cta_url
-                    name
-                    banner_image {
-                        id
-                        description
-                        imageFile {
-                            childImageSharp {
-                                gatsbyImageData
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-`
+export default WithIntl()(BlogPreview)

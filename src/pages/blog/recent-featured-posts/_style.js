@@ -216,6 +216,7 @@ export const SmallArticleCategories = styled(Text)`
     line-height: 20px;
     font-size: 14px;
     font-weight: 700;
+    display: inline-block;
 
     @media ${device.laptopM} {
         position: static;

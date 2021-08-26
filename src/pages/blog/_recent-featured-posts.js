@@ -31,7 +31,7 @@ import {
     MobileDotIcon,
     MobileHeader,
 } from './recent-featured-posts/_style'
-import { Carousel, Tabs, Header, QueryImage } from 'components/elements'
+import { QueryImage , Carousel, Tabs, Header } from 'components/elements'
 import { localize, WithIntl } from 'components/localization'
 
 // Settings for carousel
@@ -54,10 +54,12 @@ const settings = {
 const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
     const featured = featured_article_data
     const articles_2 = article_data_2
-    const recents = recent_data
-    const headline_recent = recents[0]
-    const featureds = featured_data
-    const headline_featured = featureds[0]
+    const recents = recent_data.slice(1)
+    const headline_recent = recent_data[0]
+    const featureds = featured_data.slice(1)
+    const headline_featured = featured_data[0]
+    console.log(featureds)
+
     console.log(headline_featured)
 
     return (
@@ -85,32 +87,13 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
                                     />
                                     <Description>
                                         <TagParentWrapper>
-                                            {headline_recent.tags.map((item) => {
+                                            {headline_recent.tags.map((article) => {
                                                 return (
                                                     <>
                                                         <TagWrapper>
-                                                            <>
-                                                                {item.tags &&
-                                                                    item.tags
-                                                                        .slice(0, 2)
-                                                                        .map((tag) => (
-                                                                            <StyledCategories
-                                                                                key={tag.id}
-                                                                            >
-                                                                                {
-                                                                                    tag.tags_id
-                                                                                        .tag_name
-                                                                                }
-                                                                            </StyledCategories>
-                                                                        ))}
-                                                                {item.tags.length > 2 && (
-                                                                    <StyledCategories>
-                                                                        {`+${item.tags
-                                                                            .slice(2)
-                                                                            .length.toString()}`}
-                                                                    </StyledCategories>
-                                                                )}
-                                                            </>
+                                                            <StyledCategories key={article.id}>
+                                                                {article.tags_id.tag_name}
+                                                            </StyledCategories>
                                                         </TagWrapper>
                                                     </>
                                                 )
@@ -159,32 +142,23 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
                                                 </SmallArticleLeftContent>
                                                 <SmallArticleRightContent>
                                                     <SmallArticleTopContent>
-                                                        {headline_recent.map((item) => {
-                                                            return (
-                                                                <>
-                                                                    {item.tags &&
-                                                                        item.tags
-                                                                            .slice(0, 1)
-                                                                            .map((tag) => (
-                                                                                <SmallArticleCategories
-                                                                                    key={tag.id}
-                                                                                >
-                                                                                    {
-                                                                                        tag.tags_id
-                                                                                            .tag_name
-                                                                                    }
-                                                                                </SmallArticleCategories>
-                                                                            ))}
-                                                                    {item.tags.length > 1 && (
-                                                                        <SmallArticleCategories>
-                                                                            {`+${item.tags
-                                                                                .slice(2)
-                                                                                .length.toString()}`}
-                                                                        </SmallArticleCategories>
-                                                                    )}
-                                                                </>
-                                                            )
-                                                        })}
+                                                        {article.tags &&
+                                                            article.tags
+                                                                .slice(0, 1)
+                                                                .map((tag) => (
+                                                                    <SmallArticleCategories
+                                                                        key={tag.id}
+                                                                    >
+                                                                        {tag.tags_id.tag_name}
+                                                                    </SmallArticleCategories>
+                                                                ))}
+                                                        {article.tags.length > 1 && (
+                                                            <SmallArticleCategories>
+                                                                {`+${article.tags
+                                                                    .slice(1)
+                                                                    .length.toString()}`}
+                                                            </SmallArticleCategories>
+                                                        )}
                                                         <SmallArticleDateTimeMobile>
                                                             {article.published_date}
                                                             <MobileDotIcon src={Dot} />

@@ -29,7 +29,6 @@ import { Header, QueryImage } from 'components/elements'
 import { convertDate } from 'common/utility'
 
 const ArticlesTemplate = (props) => {
-    const pathname = props.pageContext.pathname
     const post_data = props.data.directus.blog[0]
     const footer_banner_data = post_data?.footer_banners
     const side_banner_data = post_data?.side_banners
@@ -195,7 +194,7 @@ const ArticlesTemplate = (props) => {
                             <SocialComponentsWrapper>
                                 <LeftSocialComponents />
                                 <RightSocialComponents>
-                                    <SocialSharing pathname={pathname} />
+                                    <SocialSharing />
                                 </RightSocialComponents>
                             </SocialComponentsWrapper>
 

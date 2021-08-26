@@ -175,7 +175,7 @@ const HeroComponent = ({ title, content, background_data, img_data }) => {
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        {localize('Try DP2P now')}
+                        {localize('Try Deriv P2P now')}
                     </TryButton>
                 </InformationWrapper>
                 <ImgWrapper>

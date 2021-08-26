@@ -115,12 +115,12 @@ const MarketsAvailable = () => {
                                     <img src={StockIndices} alt="" width="64" height="64" />
 
                                     <StyledText weight="bold">
-                                        {localize('Stock indices')}
+                                        {localize('Stocks & indices')}
                                     </StyledText>
                                 </MobileCardHeader>
                                 <Text>
                                     {localize(
-                                        'Trade digital options on stock indices and profit from the price movements in our competitively priced asset baskets.',
+                                        'Trade digital options on stocks & indices and profit from the price movements in our competitively priced asset baskets.',
                                     )}
                                 </Text>
                                 <LearnMore

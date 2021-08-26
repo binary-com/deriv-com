@@ -71,7 +71,7 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect, is_eu_country }) => {
                                 <Title>{localize('TRADE TYPES')}</Title>
                             </LinkWrapper>
                             <LinkWrapper first_child="true">
-                                <Link to="/trade-types/margin/">{localize('Margin trading')}</Link>
+                                <Link to="/trade-types/cfds/">{localize('CFDs')}</Link>
                             </LinkWrapper>
                             <Show.NonEU>
                                 <LinkWrapper>
@@ -98,7 +98,7 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect, is_eu_country }) => {
                             </LinkWrapper>
                         )}
                         <LinkWrapper>
-                            <Link to="/markets/stock/">{localize('Stock indices')}</Link>
+                            <Link to="/markets/stock/">{localize('Stocks & indices')}</Link>
                         </LinkWrapper>
                         <LinkWrapper>
                             <Link to="/markets/commodities/">{localize('Commodities')}</Link>

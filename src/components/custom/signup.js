@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import { graphql, StaticQuery } from 'gatsby'
+import { graphql, StaticQuery, navigate } from 'gatsby'
 import styled from 'styled-components'
 import Cookies from 'js-cookie'
 import { getCookiesObject, getCookiesFields, getDataObjFromCookies } from 'common/cookies'
@@ -50,47 +50,40 @@ export const Appearances = {
     public: 'public',
     newSignup: 'newSignup',
 }
-class Signup extends Component {
-    state = {
-        email: '',
-        is_submitting: false,
-        email_error_msg: '',
-        submit_status: '',
-        submit_error_msg: '',
-    }
 
-    validateEmail = (email) => {
+const Signup = (props) => {
+    const [email, setEmail] = useState('')
+    const [is_submitting, setSubmitting] = useState(false)
+    const [email_error_msg, setEmailErrorMsg] = useState('')
+    const [submit_status, setSubmitStatus] = useState('')
+    const [submit_error_msg, setSubmitErrorMsg] = useState('')
+
+    const validateEmail = (email_address) => {
         const error_message =
-            validation.required(email) || validation.email(email) || this.state.submit_error_msg
+            validation.required(email_address) ||
+            validation.email(email_address) ||
+            submit_error_msg
 
-        if (this.state.submit_error_msg) {
-            this.setState({
-                submit_error_msg: '',
-                submit_status: '',
-            })
+        if (submit_error_msg) {
+            setSubmitErrorMsg('')
+            setSubmitStatus('')
         }
 
         return error_message
     }
 
-    handleValidation = (param) => {
+    const handleValidation = (param) => {
         const message = typeof param === 'object' ? param.target.value : param
-
-        this.setState({
-            email_error_msg: this.validateEmail(message.replace(/\s/g, '')),
-        })
+        setEmailErrorMsg(validateEmail(message.replace(/\s/g, '')))
     }
 
-    handleInputChange = (e) => {
-        const { name, value } = e.target
-
-        this.setState({
-            [name]: value,
-        })
-        this.handleValidation(value)
+    const handleInputChange = (e) => {
+        const { value } = e.target
+        setEmail(value)
+        handleValidation(value)
     }
 
-    getVerifyEmailRequest = (email) => {
+    const getVerifyEmailRequest = (formatted_email) => {
         const affiliate_token = Cookies.getJSON('affiliate_tracking')
 
         const cookies = getCookiesFields()
@@ -98,7 +91,7 @@ class Signup extends Component {
         const cookies_value = getDataObjFromCookies(cookies_objects, cookies)
 
         return {
-            verify_email: email,
+            verify_email: formatted_email,
             type: 'account_opening',
             url_parameters: {
                 ...(affiliate_token && { affiliate_token: affiliate_token }),
@@ -107,19 +100,17 @@ class Signup extends Component {
         }
     }
 
-    handleEmailSignup = (e) => {
+    const handleEmailSignup = (e) => {
         e.preventDefault()
-        this.setState({ is_submitting: true })
-        let { email, email_error_msg } = this.state
-        email = email.replace(/\s/g, '')
-        this.handleValidation(email)
-        const has_error_email = this.validateEmail(email)
-
+        setSubmitting(true)
+        const formatted_email = email.replace(/\s/g, '')
+        handleValidation(email)
+        const has_error_email = validateEmail(formatted_email)
         if (has_error_email || email_error_msg) {
-            return this.setState({ is_submitting: false })
+            return setSubmitting(false)
         }
 
-        const verify_email_req = this.getVerifyEmailRequest(email)
+        const verify_email_req = getVerifyEmailRequest(formatted_email)
         const binary_socket = BinarySocketBase.init()
 
         binary_socket.onopen = () => {
@@ -127,53 +118,57 @@ class Signup extends Component {
         }
         binary_socket.onmessage = (msg) => {
             const response = JSON.parse(msg.data)
+            setSubmitting(false)
             if (response.error) {
                 binary_socket.close()
-                this.setState({
-                    is_submitting: false,
-                    submit_status: 'error',
-                    submit_error_msg: response.error.message,
-                })
-                this.handleValidation(email)
+                setSubmitStatus('error')
+                setSubmitErrorMsg(response.error.message)
+                handleValidation(formatted_email)
             } else {
-                this.setState({
-                    is_submitting: false,
-                    submit_status: 'success',
-                })
-                if (this.props.onSubmit)
-                    this.props.onSubmit(this.state.submit_status, this.state.email)
+                setSubmitStatus('success')
+                if (props.onSubmit) {
+                    props.onSubmit(submit_status || 'success', email)
+                }
             }
 
             binary_socket.close()
         }
+        if (props.appearance === 'public') {
+            const language_code = localStorage.getItem('i18n')
+            const success_link =
+                language_code !== 'en' ? '/' + language_code + '/signup-success' : '/signup-success'
+            navigate(success_link, { replace: true })
+        }
     }
 
-    clearEmail = () => this.setState({ email: '', email_error_msg: '' })
-
-    handleSocialSignup = (e) => {
+    const clearEmail = () => {
+        setEmail('')
+        setEmailErrorMsg('')
+    }
+    const handleSocialSignup = (e) => {
         e.preventDefault()
 
         const data_provider = e.currentTarget.getAttribute('data-provider')
         Login.initOneAll(data_provider)
     }
 
-    handleLogin = (e) => {
+    const handleLogin = (e) => {
         e.preventDefault()
         Login.redirectToLogin()
     }
 
-    renderSwitch(param) {
+    const renderSwitch = (param) => {
         const parameters = {
-            autofocus: this.props.autofocus,
-            clearEmail: this.clearEmail,
-            email: this.state.email,
-            email_error_msg: this.state.email_error_msg,
-            handleInputChange: this.handleInputChange,
-            handleLogin: this.handleLogin,
-            handleSocialSignup: this.handleSocialSignup,
-            handleValidation: this.handleValidation,
-            is_ppc: this.props.is_ppc,
-            is_submitting: this.state.is_submitting,
+            autofocus: props.autofocus,
+            clearEmail: clearEmail,
+            email: email,
+            email_error_msg: email_error_msg,
+            handleInputChange: handleInputChange,
+            handleLogin: handleLogin,
+            handleSocialSignup: handleSocialSignup,
+            handleValidation: handleValidation,
+            is_ppc: props.is_ppc,
+            is_submitting: is_submitting,
         }
 
         switch (param) {
@@ -195,43 +190,40 @@ class Signup extends Component {
                 return <SignupDefault {...parameters}></SignupDefault>
         }
     }
-
-    render() {
-        return this.props.submit_state === 'success' ? (
-            <ResponseWrapper>
-                <Header as="h3" type="section-title" align="center" weight="normal">
-                    {localize('Check your email')}
-                </Header>
-                <StaticQuery
-                    query={graphql`
-                        query {
-                            view_email: file(relativePath: { eq: "view-email.png" }) {
-                                ...fadeIn
-                            }
+    return props.submit_state === 'success' ? (
+        <ResponseWrapper>
+            <Header as="h3" type="section-title" align="center" weight="normal">
+                {localize('Check your email')}
+            </Header>
+            <StaticQuery
+                query={graphql`
+                    query {
+                        view_email: file(relativePath: { eq: "view-email.png" }) {
+                            ...fadeIn
                         }
-                    `}
-                    render={(data) => (
-                        <Box m="3.2rem 0">
-                            <QueryImage data={data.view_email} alt="Email image" />
-                        </Box>
-                    )}
+                    }
+                `}
+                render={(data) => (
+                    <Box m="3.2rem 0">
+                        <QueryImage data={data.view_email} alt="Email image" />
+                    </Box>
+                )}
+            />
+            <Text align="center">
+                <Localize
+                    translate_text="We've sent a message to {{email}} with a link to activate your account."
+                    values={{ email: props.email }}
                 />
-                <Text align="center">
-                    <Localize
-                        translate_text="We've sent a message to {{email}} with a link to activate your account."
-                        values={{ email: this.props.email }}
-                    />
-                </Text>
-                <EmailLink to="/check-email/" align="center">
-                    {localize("Didn't receive your email?")}
-                </EmailLink>
-            </ResponseWrapper>
-        ) : (
-            <Form onSubmit={this.handleEmailSignup} noValidate bgColor={this.props.bgColor}>
-                {this.renderSwitch(this.props.appearance)}
-            </Form>
-        )
-    }
+            </Text>
+            <EmailLink to="/check-email/" align="center">
+                {localize("Didn't receive your email?")}
+            </EmailLink>
+        </ResponseWrapper>
+    ) : (
+        <Form onSubmit={handleEmailSignup} noValidate bgColor={props.bgColor}>
+            {renderSwitch(props.appearance)}
+        </Form>
+    )
 }
 
 Signup.propTypes = {

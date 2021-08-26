@@ -9,11 +9,27 @@ import Career1 from 'images/svg/career-1.svg'
 import Career2 from 'images/svg/career-2.svg'
 import Career3 from 'images/svg/career-3.svg'
 import Career4 from 'images/svg/career-4.svg'
+import TipIcon from 'images/svg/career-tip.svg'
 import DownwardsLeft from 'images/svg/downwards-left.svg'
 import DownwardsRight from 'images/svg/downwards-right.svg'
 
+const StyledSectionContainer = styled(SectionContainer)`
+    padding: 10rem 0 12rem;
+    border-top: 2px solid #e5e5e5;
+
+    @media ${device.tablet} {
+        border: none;
+    }
+`
 const StyledHeader = styled(Header)`
     margin-bottom: 5.8rem;
+    font-size: 48px;
+    line-height: 60px;
+
+    @media ${device.tablet} {
+        font-size: 28px;
+        line-height: 34px;
+    }
 `
 
 const ProcessContainer = styled.div`
@@ -26,7 +42,7 @@ const StyledTipsCard = styled(Flex)`
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.05);
     padding: 2.4rem;
     position: relative;
-    max-width: 30.9rem;
+    max-width: 350px;
 
     &::after {
         content: '';
@@ -52,28 +68,38 @@ const StyledTipsCard = styled(Flex)`
     }
 `
 
-const TipsRounded = styled.div`
-    background: var(--color-black);
-    border-radius: 50%;
-    padding: 2px 9px;
+const TipsRounded = styled.img`
     margin-right: 0.8rem;
-    height: 2.2rem;
-    color: var(--color-white);
-    font-size: var(--text-size-s);
 `
 
 const TipsCard = ({ content, right, style }) => (
     <StyledTipsCard direction="column" right={right} style={style}>
         <Flex direction="row" mb="1.3rem" jc="flex-start">
-            <TipsRounded>!</TipsRounded>
+            <TipsRounded src={TipIcon} alt="career1" />
             <Text weight="bold">Tips:</Text>
         </Flex>
-        <Text size="var(--text-size-xs)">{content}</Text>
+        <Text size="14px">{content}</Text>
     </StyledTipsCard>
 )
 
 const SecondaryHeader = styled(Header)`
     margin-bottom: 2.4rem;
+    font-size: 48px;
+    line-height: 60px;
+
+    @media ${device.tablet} {
+        font-size: 28px;
+        line-height: 34px;
+    }
+`
+const DescriptionText = styled(Text)`
+    font-size: 24px;
+    line-height: 36px;
+
+    @media ${device.tablet} {
+        font-size: 18px;
+        line-height: 26px;
+    }
 `
 
 const ProcessWrapper = styled(Flex)`
@@ -85,7 +111,7 @@ const Process = ({ title, description, style }) => (
         <SecondaryHeader as="h2" type="page-title">
             {title}
         </SecondaryHeader>
-        <Text size="var(--text-size-sm)">{description}</Text>
+        <DescriptionText>{description}</DescriptionText>
     </ProcessWrapper>
 )
 
@@ -155,7 +181,7 @@ const SubResponsiveFlex1 = styled(Flex)`
 const ResponsiveFlex2 = styled(Flex)`
     @media ${device.tablet} {
         flex-direction: column;
-        align-items: flex-end;
+        align-items: flex-start;
         margin-top: 4.8rem;
     }
 `
@@ -163,7 +189,7 @@ const ResponsiveFlex2 = styled(Flex)`
 const SubResponsiveFlex2 = styled(Flex)`
     @media ${device.tablet} {
         flex-direction: column-reverse;
-        align-items: flex-end;
+        align-items: flex-start;
     }
 `
 
@@ -186,7 +212,7 @@ const ResponsiveFlex4 = styled(Flex)`
     @media ${device.tablet} {
         flex-direction: column;
         margin-top: 4.8rem;
-        align-items: flex-end;
+        align-items: flex-start;
     }
 `
 
@@ -206,7 +232,7 @@ const StyledLinkText = styled(LinkText)`
 `
 
 const OurHiringProcess = () => (
-    <SectionContainer padding="0 0 12rem">
+    <StyledSectionContainer>
         <Container direction="column">
             <StyledHeader as="h3" type="section-title" align="center">
                 Our hiring process
@@ -314,7 +340,7 @@ const OurHiringProcess = () => (
                 </StyledText>
             </Container>
         </Show.Eu>
-    </SectionContainer>
+    </StyledSectionContainer>
 )
 
 Process.propTypes = {

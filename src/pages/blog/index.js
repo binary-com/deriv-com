@@ -81,7 +81,7 @@ const DerivBlog = ({ data }) => {
     const homepage_banner_data = data.directus.homepage_banners
     const market_news_data = data.directus.blog
     return (
-        <Layout type="blog" is_ppc_redirect={true}>
+        <Layout type="academy" is_ppc_redirect={true}>
             <SEO
                 title={localize('Articles, trading guide and resources | Deriv')}
                 description={localize(

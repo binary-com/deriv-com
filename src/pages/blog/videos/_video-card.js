@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { getImage } from 'gatsby-plugin-image'
+// import { getImage } from 'gatsby-plugin-image'
 import { Header, QueryImage } from 'components/elements'
 import { Flex } from 'components/containers'
 import device from 'themes/device'
@@ -37,7 +37,6 @@ const ImageWrapper = styled.div`
     width: 384px;
     position: relative;
     z-index: 1;
-    overflow: hidden;
 
     @media ${device.mobileL} {
         width: 100%;
@@ -136,8 +135,10 @@ const VideoCard = ({ item, openVideo }) => {
                         {item.video_duration}
                     </VideoDuration>
                     <QueryImage
-                        data={getImage(item.video_thumbnail.imageFile)}
+                        data={item.video_thumbnail.imageFile}
                         alt={item.video_description}
+                        height="200px"
+                        weight="384px"
                     />
                 </ImageWrapper>
                 <ContentWrapper>

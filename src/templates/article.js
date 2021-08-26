@@ -29,7 +29,7 @@ import { Header, QueryImage } from 'components/elements'
 import { convertDate } from 'common/utility'
 
 const ArticlesTemplate = (props) => {
-    const url = props.location.href
+    const pathname = props.pageContext.pathname
     const post_data = props.data.directus.blog[0]
     const footer_banner_data = post_data?.footer_banners
     const side_banner_data = post_data?.side_banners
@@ -195,7 +195,7 @@ const ArticlesTemplate = (props) => {
                             <SocialComponentsWrapper>
                                 <LeftSocialComponents />
                                 <RightSocialComponents>
-                                    <SocialSharing url={url} />
+                                    <SocialSharing pathname={pathname} />
                                 </RightSocialComponents>
                             </SocialComponentsWrapper>
 
@@ -216,7 +216,7 @@ const ArticlesTemplate = (props) => {
 
 ArticlesTemplate.propTypes = {
     data: PropTypes.object,
-    location: PropTypes.object,
+    pageContext: PropTypes.object,
 }
 
 export default WithIntl()(ArticlesTemplate)

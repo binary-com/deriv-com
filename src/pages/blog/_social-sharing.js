@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import { Flex } from 'components/containers'
 import { LocalizedLink } from 'components/localization'
 import { Header } from 'components/elements/typography'
+import { domain_full_url } from 'common/constants'
 import device from 'themes/device'
 import FacebookIcon from 'images/svg/blog/facebook.svg'
 import PinterestIcon from 'images/svg/blog/pinterest.svg'
@@ -29,7 +30,7 @@ const StyledFlex = styled(Flex)`
     }
 `
 
-const SocialSharing = ({ url }) => {
+const SocialSharing = ({ pathname }) => {
     return (
         <Flex>
             <StyledFlex
@@ -48,7 +49,7 @@ const SocialSharing = ({ url }) => {
                     <Flex jc="space-between">
                         <LocalizedLink
                             external
-                            to={'https://www.facebook.com/sharer/sharer.php?u=' + url}
+                            to={`https://www.facebook.com/sharer/sharer.php?u=${domain_full_url}${pathname}`}
                             target="_blank"
                             rel="noopener noreferrer"
                         >
@@ -56,7 +57,7 @@ const SocialSharing = ({ url }) => {
                         </LocalizedLink>
                         <LocalizedLink
                             external
-                            to={'http://www.linkedin.com/shareArticle?mini=true&url=' + url}
+                            to={`http://www.linkedin.com/shareArticle?mini=true&url=${domain_full_url}${pathname}`}
                             target="_blank"
                             rel="noopener noreferrer"
                         >
@@ -64,7 +65,7 @@ const SocialSharing = ({ url }) => {
                         </LocalizedLink>
                         <LocalizedLink
                             external
-                            to={'https://www.twitter.com/share?url=' + url}
+                            to={`https://www.twitter.com/share?url=${domain_full_url}${pathname}`}
                             target="_blank"
                             rel="noopener noreferrer"
                         >
@@ -72,11 +73,7 @@ const SocialSharing = ({ url }) => {
                         </LocalizedLink>
                         <LocalizedLink
                             external
-                            to={
-                                'https://pinterest.com/pin/create/button/?url=' +
-                                url +
-                                '&media=&description='
-                            }
+                            to={`https://pinterest.com/pin/create/button/?url=${domain_full_url}${pathname}&media=&description=`}
                             target="_blank"
                             rel="noopener noreferrer"
                         >
@@ -90,7 +87,7 @@ const SocialSharing = ({ url }) => {
 }
 
 SocialSharing.propTypes = {
-    url: PropTypes.string,
+    pathname: PropTypes.string,
 }
 
 export default SocialSharing

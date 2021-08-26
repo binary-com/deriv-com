@@ -107,6 +107,10 @@ const InputWrapper = styled.div`
             margin-left: 0 !important;
             width: 100% !important;
         }
+        input#email {
+            border-top-right-radius: 4px;
+            border-bottom-right-radius: 4px;
+        }
     }
     @media ${device.tablet} {
         margin-right: 0;

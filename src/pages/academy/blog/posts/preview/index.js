@@ -104,8 +104,9 @@ const query_preview = graphql`
     }
 `
 
-const BlogPreview = () => {
+const BlogPreview = (props) => {
     const data = useStaticQuery(query_preview)
+    const pathname = props.pageContext.pathname
     const [post_data, setPostData] = useState()
     const [isMounted, setMounted] = useState(false)
 
@@ -284,7 +285,7 @@ const BlogPreview = () => {
                             <SocialComponentsWrapper>
                                 <LeftSocialComponents />
                                 <RightSocialComponents>
-                                    <SocialSharing />
+                                    <SocialSharing pathname={pathname} />
                                 </RightSocialComponents>
                             </SocialComponentsWrapper>
 

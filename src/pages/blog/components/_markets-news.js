@@ -57,15 +57,15 @@ const MarketNews = ({ data }) => {
                         Market news
                     </Header>
                     <MarketsNewsWrapper>
-                        {data.map((data) => {
+                        {data.map((item) => {
                             return (
                                 <StyledLocalizedLink
-                                    key={data.id}
-                                    to={`/academy/blog/${data.slug}`}
+                                    key={item.id}
+                                    to={`/academy/blog/${item.slug}`}
                                 >
                                     <StyledFlex>
                                         <QueryImage
-                                            data={data.main_image.imageFile}
+                                            data={item.main_image.imageFile}
                                             width="104px"
                                             height="78px"
                                         />
@@ -75,7 +75,7 @@ const MarketNews = ({ data }) => {
                                                 <StyledSpan>Weekly report</StyledSpan>
                                             </Header>
                                             <Header mt="8px" type="paragraph-1" weight="bold">
-                                                {data.blog_title}
+                                                {item.blog_title}
                                             </Header>
                                             <Flex
                                                 mt="auto"
@@ -91,7 +91,7 @@ const MarketNews = ({ data }) => {
                                                     weight="normal"
                                                     color="grey-5"
                                                 >
-                                                    {data.read_time_in_minutes} min read
+                                                    {item.read_time_in_minutes} min read
                                                 </Header>
                                             </Flex>
                                         </Flex>

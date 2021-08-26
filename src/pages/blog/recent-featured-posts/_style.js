@@ -66,7 +66,7 @@ export const MainArticle = styled(Flex)`
     @media ${device.laptopM} {
         /* prettier-ignore */
         min-width: 328px;
-        width: unset;
+        width: 90vw;
         padding: 0;
         background: ${(props) =>
             props.image
@@ -80,9 +80,23 @@ export const MainArticle = styled(Flex)`
         width: 100%;
         min-width: 270px;
     }
+
+    &.main-article-bg {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        position: absolute;
+        object-fit: cover;
+        opacity: 0.8;
+    }
 `
 
 export const Description = styled.div`
+    position: absolute;
+    left: 0;
     padding: 24px 40px 0 40px;
     margin-bottom: 24px;
 
@@ -166,6 +180,18 @@ export const SmallArticleImageWrapper = styled.div`
 
     @media ${device.laptopM} {
         height: 78px;
+    }
+
+    &.small-article-bg {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        position: absolute;
+        object-fit: cover;
+        opacity: 0.8;
     }
 `
 

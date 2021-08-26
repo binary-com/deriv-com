@@ -57,6 +57,62 @@ export const query = graphql`
                     id
                 }
             }
+            recent: blog(
+                filter: { status: { _eq: "published" } }
+                sort: "-published_date"
+                limit: 6
+            ) {
+                id
+                main_image {
+                    id
+                    description
+                    imageFile {
+                        childImageSharp {
+                            gatsbyImageData
+                        }
+                    }
+                }
+                slug
+                published_date
+                featured
+                tags {
+                    id
+                    tags_id {
+                        tag_name
+                    }
+                }
+                blog_title
+                blog_description
+                read_time_in_minutes
+            }
+            featured: blog(
+                filter: { status: { _eq: "published" }, featured: { _eq: true } }
+                sort: "-published_date"
+                limit: 6
+            ) {
+                id
+                main_image {
+                    id
+                    description
+                    imageFile {
+                        childImageSharp {
+                            gatsbyImageData
+                        }
+                    }
+                }
+                slug
+                published_date
+                featured
+                tags {
+                    id
+                    tags_id {
+                        tag_name
+                    }
+                }
+                blog_title
+                blog_description
+                read_time_in_minutes
+            }
         }
     }
 `
@@ -80,6 +136,10 @@ const DerivBlog = ({ data }) => {
     }
     const homepage_banner_data = data.directus.homepage_banners
     const market_news_data = data.directus.blog
+
+    //article data
+    const recent_data = data.directus.recent
+    const featured_data = data.directus.featured
     return (
         <Layout type="blog" is_ppc_redirect={true}>
             <SEO
@@ -112,7 +172,7 @@ const DerivBlog = ({ data }) => {
                     })}
                 </Carousel>
             </MainWrapper>
-            <RecentFeaturedPosts />
+            <RecentFeaturedPosts recent_data={recent_data} featured_data={featured_data} />
             <DVideoBanner />
             <MarketNews data={market_news_data} />
             <Container>

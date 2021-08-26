@@ -79,7 +79,7 @@ const YourControl = () => {
                     mobile_row_gap="16px"
                 >
                     <Card>
-                        <img src={Comission} alt="comission" />
+                        <img src={Comission} alt="" />
                         <CardText>
                             {localize(
                                 'Determine your commission per transaction, subject to our established thresholds.',
@@ -87,7 +87,7 @@ const YourControl = () => {
                         </CardText>
                     </Card>
                     <Card>
-                        <img src={LoudSpeaker} alt="promote services" />
+                        <img src={LoudSpeaker} alt="" />
                         <CardText>
                             {localize(
                                 'Choose which countries to service, and promote your services your way.',
@@ -95,13 +95,13 @@ const YourControl = () => {
                         </CardText>
                     </Card>
                     <Card>
-                        <img src={WithdrawDeposit} alt="withdraw deposit" />
+                        <img src={WithdrawDeposit} alt="" />
                         <CardText>
                             {localize('Perform multiple deposits and withdrawals per day.')}
                         </CardText>
                     </Card>
                     <Card>
-                        <img src={CloseAccount} alt="close account" />
+                        <img src={CloseAccount} alt="" />
                         <CardText>{localize('Close your account at any time you want.')}</CardText>
                     </Card>
                 </CssGrid>

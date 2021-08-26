@@ -31,15 +31,6 @@ export const forex_multiplier = {
             title: <Localize translate_text="SmartFX" />,
             component: <SmartFX />,
             details: SmartFXDetails,
-            mobile_fullwidth: true,
-            mobileSetup: true,
-            mobileStyle: {
-                tablet_col: 2,
-                mobile_col: 2,
-                padding: '16px',
-                flex: true,
-                gap: '8px',
-            },
         },
     ],
 }

@@ -229,7 +229,11 @@ export const commodities_options = {
 
 export const forex_options = {
     market_instruments: {
-        template: 2,
+        markets_list: {
+            col: 4,
+            tablet_col: 3,
+            mobile_col: 2,
+        },
         content: [
             {
                 title: <Localize translate_text="Major pairs" />,
@@ -243,15 +247,6 @@ export const forex_options = {
                 title: <Localize translate_text="SmartFX" />,
                 component: <SmartFX />,
                 details: SmartFXDetails,
-                mobile_fullwidth: true,
-                mobileSetup: true,
-                mobileStyle: {
-                    tablet_col: 2,
-                    mobile_col: 2,
-                    padding: '16px',
-                    flex: true,
-                    gap: '8px',
-                },
             },
         ],
     },

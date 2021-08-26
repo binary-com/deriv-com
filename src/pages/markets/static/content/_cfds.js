@@ -69,15 +69,6 @@ export const forex_cfds = {
             title: <Localize translate_text="Smart FX" />,
             component: <SmartFX />,
             details: SmartFXDetails,
-            mobile_fullwidth: true,
-            mobileSetup: true,
-            mobileStyle: {
-                tablet_col: 2,
-                mobile_col: 2,
-                padding: '16px',
-                flex: true,
-                gap: '8px',
-            },
         },
     ],
 }

@@ -50,6 +50,7 @@ export const Appearances = {
     public: 'public',
     newSignup: 'newSignup',
 }
+
 const Signup = (props) => {
     const [email, setEmail] = useState('')
     const [is_submitting, setSubmitting] = useState(false)

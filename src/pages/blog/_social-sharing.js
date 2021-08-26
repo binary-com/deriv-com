@@ -29,7 +29,7 @@ const StyledFlex = styled(Flex)`
     }
 `
 
-const SocialSharing = ({ pathname }) => {
+const SocialSharing = ({ url }) => {
     return (
         <Flex>
             <StyledFlex
@@ -48,10 +48,7 @@ const SocialSharing = ({ pathname }) => {
                     <Flex jc="space-between">
                         <LocalizedLink
                             external
-                            to={
-                                'https://www.facebook.com/sharer/sharer.php?u=https://deriv.com' +
-                                pathname
-                            }
+                            to={'https://www.facebook.com/sharer/sharer.php?u=' + url}
                             target="_blank"
                             rel="noopener noreferrer"
                         >
@@ -59,10 +56,7 @@ const SocialSharing = ({ pathname }) => {
                         </LocalizedLink>
                         <LocalizedLink
                             external
-                            to={
-                                'http://www.linkedin.com/shareArticle?mini=true&url=https://deriv.com' +
-                                pathname
-                            }
+                            to={'http://www.linkedin.com/shareArticle?mini=true&url=' + url}
                             target="_blank"
                             rel="noopener noreferrer"
                         >
@@ -70,7 +64,7 @@ const SocialSharing = ({ pathname }) => {
                         </LocalizedLink>
                         <LocalizedLink
                             external
-                            to={'https://www.twitter.com/share?url=https://deriv.com' + pathname}
+                            to={'https://www.twitter.com/share?url=' + url}
                             target="_blank"
                             rel="noopener noreferrer"
                         >
@@ -79,8 +73,8 @@ const SocialSharing = ({ pathname }) => {
                         <LocalizedLink
                             external
                             to={
-                                'https://pinterest.com/pin/create/button/?url=https://deriv.com' +
-                                pathname +
+                                'https://pinterest.com/pin/create/button/?url=' +
+                                url +
                                 '&media=&description='
                             }
                             target="_blank"
@@ -96,7 +90,7 @@ const SocialSharing = ({ pathname }) => {
 }
 
 SocialSharing.propTypes = {
-    pathname: PropTypes.string,
+    url: PropTypes.string,
 }
 
 export default SocialSharing

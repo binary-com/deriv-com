@@ -29,12 +29,12 @@ import { Header, QueryImage } from 'components/elements'
 import { convertDate } from 'common/utility'
 
 const ArticlesTemplate = (props) => {
-    const pathname = props.pageContext.pathname
     const post_data = props.data.directus.blog[0]
     const footer_banner_data = post_data?.footer_banners
     const side_banner_data = post_data?.side_banners
     const meta_title = post_data?.meta_title
     const meta_description = post_data?.meta_description
+    const og_image = post_data?.og_image?.imageFile.childImageSharp.fixed.src
 
     const side_banner_data_details = {
         max_w_value: '328px',
@@ -56,10 +56,20 @@ const ArticlesTemplate = (props) => {
         imgAltMobile: footer_banner_data?.mobile_banner_image?.description,
     }
 
+    const meta_attributes = {
+        og_type: 'website',
+        og_img_width: '600',
+        og_img_height: '315',
+        og_img: og_image,
+    }
+
     return (
         <Layout>
-            <SEO description={meta_description} title={meta_title} />
-
+            <SEO
+                description={meta_description}
+                title={meta_title}
+                meta_attributes={meta_attributes}
+            />
             <SectionContainer padding="0" position="relative">
                 <Background>
                     <HeroContainer>
@@ -184,7 +194,7 @@ const ArticlesTemplate = (props) => {
                             <SocialComponentsWrapper>
                                 <LeftSocialComponents />
                                 <RightSocialComponents>
-                                    <SocialSharing pathname={pathname} />
+                                    <SocialSharing />
                                 </RightSocialComponents>
                             </SocialComponentsWrapper>
 
@@ -241,6 +251,17 @@ export const query = graphql`
                     imageFile {
                         childImageSharp {
                             gatsbyImageData
+                        }
+                    }
+                }
+                og_image: main_image {
+                    id
+                    imageFile {
+                        childImageSharp {
+                            gatsbyImageData
+                            fixed(width: 600) {
+                                src
+                            }
                         }
                     }
                 }

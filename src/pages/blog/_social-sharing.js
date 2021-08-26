@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import { Flex } from 'components/containers'
 import { LocalizedLink } from 'components/localization'
 import { Header } from 'components/elements/typography'
@@ -29,7 +28,11 @@ const StyledFlex = styled(Flex)`
     }
 `
 
-const SocialSharing = ({ pathname }) => {
+const SocialSharing = () => {
+    let url
+    if (typeof window !== 'undefined') {
+        url = window.location.href
+    }
     return (
         <Flex>
             <StyledFlex
@@ -48,10 +51,7 @@ const SocialSharing = ({ pathname }) => {
                     <Flex jc="space-between">
                         <LocalizedLink
                             external
-                            to={
-                                'https://www.facebook.com/sharer/sharer.php?u=https://deriv.com' +
-                                pathname
-                            }
+                            to={`https://www.facebook.com/sharer/sharer.php?u=${url}`}
                             target="_blank"
                             rel="noopener noreferrer"
                         >
@@ -59,10 +59,7 @@ const SocialSharing = ({ pathname }) => {
                         </LocalizedLink>
                         <LocalizedLink
                             external
-                            to={
-                                'http://www.linkedin.com/shareArticle?mini=true&url=https://deriv.com' +
-                                pathname
-                            }
+                            to={`http://www.linkedin.com/shareArticle?mini=true&url=${url}`}
                             target="_blank"
                             rel="noopener noreferrer"
                         >
@@ -70,7 +67,7 @@ const SocialSharing = ({ pathname }) => {
                         </LocalizedLink>
                         <LocalizedLink
                             external
-                            to={'https://www.twitter.com/share?url=https://deriv.com' + pathname}
+                            to={`https://www.twitter.com/share?url=${url}`}
                             target="_blank"
                             rel="noopener noreferrer"
                         >
@@ -78,11 +75,7 @@ const SocialSharing = ({ pathname }) => {
                         </LocalizedLink>
                         <LocalizedLink
                             external
-                            to={
-                                'https://pinterest.com/pin/create/button/?url=https://deriv.com' +
-                                pathname +
-                                '&media=&description='
-                            }
+                            to={`https://pinterest.com/pin/create/button/?url=${url}&media=&description=`}
                             target="_blank"
                             rel="noopener noreferrer"
                         >
@@ -93,10 +86,6 @@ const SocialSharing = ({ pathname }) => {
             </StyledFlex>
         </Flex>
     )
-}
-
-SocialSharing.propTypes = {
-    pathname: PropTypes.string,
 }
 
 export default SocialSharing

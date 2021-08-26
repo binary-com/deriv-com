@@ -1,6 +1,5 @@
 import React from 'react'
 import NProgress from 'nprogress'
-import { datadogRum } from '@datadog/browser-rum'
 import { Pushwoosh } from '@deriv/web-push-notifications'
 import { WrapPagesWithLocaleContext } from './src/components/localization'
 import { isProduction, isLive, isLocalHost } from './src/common/websocket/config'
@@ -9,13 +8,7 @@ import { MediaContextProvider } from './src/themes/media'
 import { DerivProvider } from './src/store'
 import { checkLiveChatRedirection } from './src/common/live-chat-redirection-checking.js'
 import { getClientInformation, getDomain, getLanguage } from 'common/utility'
-import {
-    application_id,
-    client_token,
-    gtm_test_domain,
-    sample_rate,
-    pushwoosh_app_code,
-} from 'common/constants'
+import { gtm_test_domain, pushwoosh_app_code } from 'common/constants'
 import './static/css/ibm-plex-sans-var.css'
 
 const is_browser = typeof window !== 'undefined'
@@ -164,14 +157,6 @@ export const onClientEntry = () => {
         src: 'https://cdn.jsdelivr.net/gh/khalidxx/deriv-static-content/scripts/cookie.js',
         async: true,
     })
-
-    if (window.location.hostname === 'deriv.com') {
-        datadogRum.init({
-            clientToken: client_token,
-            applicationId: application_id,
-            sampleRate: sample_rate,
-        })
-    }
 
     checkLiveChatRedirection()
 }

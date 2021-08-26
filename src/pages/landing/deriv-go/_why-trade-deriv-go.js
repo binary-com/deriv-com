@@ -74,7 +74,7 @@ const WhyTradeDerivGo = () => {
         <div>
             <SectionContainer>
                 <Container fd="column">
-                    <StyledHeader type="page-title" align="center">
+                    <StyledHeader type="heading-2" align="center">
                         {localize('Why trade with Deriv GO')}
                     </StyledHeader>
                     <Flex tablet_direction="column" tablet_ai="center" mt="40px" mr="8px">

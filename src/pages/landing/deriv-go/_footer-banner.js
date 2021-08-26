@@ -33,7 +33,7 @@ const StyledContainer = styled(Container)`
     @media ${device.tabletL} {
         flex-direction: column;
         height: auto;
-        padding-bottom: 40px;
+        padding-bottom: 30px;
     }
 `
 

@@ -108,7 +108,7 @@ const OtherApps = () => {
         <div>
             <StyledSectionContainer>
                 <Container fd="column">
-                    <StyledHeader type="page-title" align="center">
+                    <StyledHeader type="heading-2" align="center">
                         {localize('Check out our other apps')}
                     </StyledHeader>
                     <Flex tablet_direction="column" tablet_ai="center" mt="40px">

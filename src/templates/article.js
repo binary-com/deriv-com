@@ -92,12 +92,17 @@ const ArticlesTemplate = (props) => {
                             <Show.Desktop max_width="laptop">
                                 {post_data?.author && (
                                     <Flex ai="center" mt="40px" jc="flex-start">
-                                        <WriterImage>
-                                            <QueryImage
-                                                data={post_data?.author?.image?.imageFile}
-                                                alt={post_data?.author?.image?.description}
-                                            />
-                                        </WriterImage>
+                                        <>
+                                            {post_data?.author?.image && (
+                                                <WriterImage>
+                                                    <QueryImage
+                                                        data={post_data?.author?.image?.imageFile}
+                                                        alt={post_data?.author?.image?.description}
+                                                    />
+                                                </WriterImage>
+                                            )}
+                                        </>
+
                                         <Box>
                                             <WrittenbyText color="grey-5" size="12px">
                                                 {localize('Written by')}
@@ -124,12 +129,17 @@ const ArticlesTemplate = (props) => {
                         <Show.Mobile min_width="laptop">
                             {post_data?.author && (
                                 <Flex ai="center" jc="flex-start">
-                                    <WriterImage>
-                                        <QueryImage
-                                            data={post_data?.author?.image?.imageFile}
-                                            alt={post_data?.author?.image?.description}
-                                        />
-                                    </WriterImage>
+                                    <>
+                                        {post_data?.author?.image && (
+                                            <WriterImage>
+                                                <QueryImage
+                                                    data={post_data?.author?.image?.imageFile}
+                                                    alt={post_data?.author?.image?.description}
+                                                />
+                                            </WriterImage>
+                                        )}
+                                    </>
+
                                     <Box>
                                         <WrittenbyText color="grey-5" size="12px">
                                             {localize('Written by')}

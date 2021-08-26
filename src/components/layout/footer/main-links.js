@@ -117,7 +117,7 @@ const MainLinksSection = ({ is_ppc, is_ppc_redirect, is_eu_country }) => {
                             <Link to="/regulatory">{localize('Regulatory information')}</Link>
                         </LinkWrapper>
                         <LinkWrapper>
-                            <Link to="/terms-and-conditions">
+                            <Link to="/terms-and-conditions/">
                                 {localize('Terms and conditions')}
                             </Link>
                         </LinkWrapper>

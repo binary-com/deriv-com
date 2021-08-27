@@ -270,7 +270,6 @@ export const getVideoObject = (video_data) => {
         video_description,
         tags,
     } = video_data
-
     const { id: video_id } = video_file
     const { id: thumbnail_id, title: alt } = video_thumbnail
 

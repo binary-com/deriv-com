@@ -57,7 +57,7 @@ export const query = graphql`
                     id
                 }
             }
-            videos(limit: 6, sort: "-published_date") {
+            videos(limit: 6, filter: { status: { _eq: "published" } }, sort: "-published_date") {
                 video_title
                 published_date
                 video_description

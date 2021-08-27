@@ -327,3 +327,15 @@ export const LeftSocialComponents = styled.div`
 export const RightSocialComponents = styled.div`
     width: auto;
 `
+export const DesktopWrapper = styled(Flex)`
+    @media ${device.tabletS} {
+        display: none;
+    }
+`
+export const MobileWrapper = styled.div`
+    display: none;
+
+    @media ${device.tabletS} {
+        display: flex;
+    }
+`

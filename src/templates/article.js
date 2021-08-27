@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import {
@@ -19,8 +19,11 @@ import {
     SocialComponentsWrapper,
     LeftSocialComponents,
     RightSocialComponents,
+    DesktopWrapper,
+    MobileWrapper,
 } from '../pages/academy/blog/posts/_style'
 import Banner from '../pages/blog/components/_banner'
+import ArticleEmailBanner from '../pages/academy/blog/components/side-subscription-banner'
 import SocialSharing from '../pages/blog/_social-sharing'
 import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
@@ -29,6 +32,12 @@ import { Header, QueryImage } from 'components/elements'
 import { convertDate } from 'common/utility'
 
 const ArticlesTemplate = (props) => {
+    const [isMounted, setMounted] = useState(false)
+    useEffect(() => {
+        setMounted(true)
+        isMounted && window.scrollTo(0, 0)
+    }, [isMounted])
+
     const pathname = props.pageContext.pathname
     const post_data = props.data.directus.blog[0]
     const footer_banner_data = post_data?.footer_banners
@@ -59,146 +68,179 @@ const ArticlesTemplate = (props) => {
     return (
         <Layout>
             <SEO description={meta_description} title={meta_title} />
+            <>
+                {isMounted && (
+                    <SectionContainer padding="0" position="relative">
+                        <Background>
+                            <HeroContainer>
+                                <HeroLeftWrapper width="100%">
+                                    <InfoText mb="16px" size="14px">
+                                        {post_data?.published_date &&
+                                            convertDate(post_data?.published_date)}
+                                    </InfoText>
+                                    <Header as="h1" type="page-title">
+                                        {post_data?.blog_title}
+                                    </Header>
+                                    <InfoText size="14px" mt="16px">
+                                        {post_data?.read_time_in_minutes &&
+                                            localize(post_data?.read_time_in_minutes + ' min read')}
+                                    </InfoText>
+                                    <Show.Mobile min_width="laptop">
+                                        <SideBarContainer fd="column" mr="126px" height="auto">
+                                            <Flex
+                                                fw="wrap"
+                                                jc="flex-start"
+                                                max-width="100%"
+                                                width=" 100%"
+                                            >
+                                                {post_data?.tags.map((tag) => {
+                                                    return (
+                                                        <Tag key={tag.tags_id.id}>
+                                                            {tag.tags_id.tag_name}
+                                                        </Tag>
+                                                    )
+                                                })}
+                                            </Flex>
+                                        </SideBarContainer>
+                                    </Show.Mobile>
 
-            <SectionContainer padding="0" position="relative">
-                <Background>
-                    <HeroContainer>
-                        <HeroLeftWrapper width="100%">
-                            <InfoText mb="16px" size="14px">
-                                {post_data?.published_date &&
-                                    convertDate(post_data?.published_date)}
-                            </InfoText>
-                            <Header as="h1" type="page-title">
-                                {post_data?.blog_title}
-                            </Header>
-                            <InfoText size="14px" mt="16px">
-                                {post_data?.read_time_in_minutes &&
-                                    localize(post_data?.read_time_in_minutes + ' min read')}
-                            </InfoText>
-                            <Show.Mobile min_width="laptop">
-                                <SideBarContainer fd="column" mr="126px" height="auto">
-                                    <Flex fw="wrap" jc="flex-start" max-width="100%" width=" 100%">
-                                        {post_data?.tags.map((tag) => {
-                                            return (
-                                                <Tag key={tag.tags_id.id}>
-                                                    {tag.tags_id.tag_name}
-                                                </Tag>
-                                            )
-                                        })}
-                                    </Flex>
-                                </SideBarContainer>
-                            </Show.Mobile>
+                                    <Show.Desktop max_width="laptop">
+                                        {post_data?.author && (
+                                            <Flex ai="center" mt="40px" jc="flex-start">
+                                                <>
+                                                    {post_data?.author?.image && (
+                                                        <WriterImage>
+                                                            <QueryImage
+                                                                data={
+                                                                    post_data?.author?.image
+                                                                        ?.imageFile
+                                                                }
+                                                                alt={
+                                                                    post_data?.author?.image
+                                                                        ?.description
+                                                                }
+                                                            />
+                                                        </WriterImage>
+                                                    )}
+                                                </>
 
-                            <Show.Desktop max_width="laptop">
-                                {post_data?.author && (
-                                    <Flex ai="center" mt="40px" jc="flex-start">
-                                        <>
-                                            {post_data?.author?.image && (
-                                                <WriterImage>
-                                                    <QueryImage
-                                                        data={post_data?.author?.image?.imageFile}
-                                                        alt={post_data?.author?.image?.description}
-                                                    />
-                                                </WriterImage>
-                                            )}
-                                        </>
-
-                                        <Box>
-                                            <WrittenbyText color="grey-5" size="12px">
-                                                {localize('Written by')}
-                                            </WrittenbyText>
-                                            <InfoText>{localize(post_data?.author?.name)}</InfoText>
-                                        </Box>
-                                    </Flex>
-                                )}
-                            </Show.Desktop>
-                        </HeroLeftWrapper>
-                        <HeroRightWrapper>
-                            <HeroImageContainer tabletL={{ mt: '24px' }}>
-                                <QueryImage
-                                    data={post_data?.main_image?.imageFile}
-                                    alt={post_data?.main_image?.description}
-                                />
-                            </HeroImageContainer>
-                        </HeroRightWrapper>
-                    </HeroContainer>
-                </Background>
-
-                <BodyContainer>
-                    <LeftBodyContainerWrapper>
-                        <Show.Mobile min_width="laptop">
-                            {post_data?.author && (
-                                <Flex ai="center" jc="flex-start">
-                                    <>
-                                        {post_data?.author?.image && (
-                                            <WriterImage>
-                                                <QueryImage
-                                                    data={post_data?.author?.image?.imageFile}
-                                                    alt={post_data?.author?.image?.description}
-                                                />
-                                            </WriterImage>
+                                                <Box>
+                                                    <WrittenbyText color="grey-5" size="12px">
+                                                        {localize('Written by')}
+                                                    </WrittenbyText>
+                                                    <InfoText>
+                                                        {localize(post_data?.author?.name)}
+                                                    </InfoText>
+                                                </Box>
+                                            </Flex>
                                         )}
-                                    </>
+                                    </Show.Desktop>
+                                </HeroLeftWrapper>
+                                <HeroRightWrapper>
+                                    <HeroImageContainer tabletL={{ mt: '24px' }}>
+                                        <QueryImage
+                                            data={post_data?.main_image?.imageFile}
+                                            alt={post_data?.main_image?.description}
+                                        />
+                                    </HeroImageContainer>
+                                </HeroRightWrapper>
+                            </HeroContainer>
+                        </Background>
 
-                                    <Box>
-                                        <WrittenbyText color="grey-5" size="12px">
-                                            {localize('Written by')}
-                                        </WrittenbyText>
-                                        <InfoText>{localize(post_data?.author?.name)}</InfoText>
-                                    </Box>
-                                </Flex>
-                            )}
-                        </Show.Mobile>
-                        <Show.Desktop max_width="laptop">
-                            <SideBarContainer fd="column" height="auto">
-                                <Flex
-                                    jc="flex-start"
-                                    mb="40px"
-                                    fw="wrap"
-                                    max-width="255px"
-                                    width=" 100%"
-                                >
-                                    {post_data?.tags.map((tag) => {
-                                        return (
-                                            <Tag key={tag.tags_id.id}>{tag.tags_id.tag_name}</Tag>
-                                        )
-                                    })}
-                                </Flex>
-                                {side_banner_data_details && (
-                                    <Banner detailsObj={side_banner_data_details} />
-                                )}
-                            </SideBarContainer>
-                        </Show.Desktop>
-                    </LeftBodyContainerWrapper>
-                    <RightBodyContainerWrapper>
-                        <Flex fd="column" margin="0 auto" ai="center">
-                            <PreviewContainer
-                                dangerouslySetInnerHTML={{
-                                    __html: post_data?.blog_post
-                                        .replace(/<p><img /g, '<img ')
-                                        .replace(/\/><\/p>/g, '/>'),
-                                }}
-                            />
+                        <BodyContainer>
+                            <LeftBodyContainerWrapper>
+                                <Show.Mobile min_width="laptop">
+                                    {post_data?.author && (
+                                        <Flex ai="center" jc="flex-start">
+                                            <>
+                                                {post_data?.author?.image && (
+                                                    <WriterImage>
+                                                        <QueryImage
+                                                            data={
+                                                                post_data?.author?.image?.imageFile
+                                                            }
+                                                            alt={
+                                                                post_data?.author?.image
+                                                                    ?.description
+                                                            }
+                                                        />
+                                                    </WriterImage>
+                                                )}
+                                            </>
 
-                            {footer_banner_details && <Banner detailsObj={footer_banner_details} />}
-                            <SocialComponentsWrapper>
-                                <LeftSocialComponents />
-                                <RightSocialComponents>
-                                    <SocialSharing pathname={pathname} />
-                                </RightSocialComponents>
-                            </SocialComponentsWrapper>
-
-                            {side_banner_data_details && (
-                                <Show.Mobile>
-                                    <Flex mt="24px">
-                                        <Banner detailsObj={side_banner_data_details} />
-                                    </Flex>
+                                            <Box>
+                                                <WrittenbyText color="grey-5" size="12px">
+                                                    {localize('Written by')}
+                                                </WrittenbyText>
+                                                <InfoText>
+                                                    {localize(post_data?.author?.name)}
+                                                </InfoText>
+                                            </Box>
+                                        </Flex>
+                                    )}
                                 </Show.Mobile>
-                            )}
-                        </Flex>
-                    </RightBodyContainerWrapper>
-                </BodyContainer>
-            </SectionContainer>
+                                <Show.Desktop max_width="laptop">
+                                    <SideBarContainer fd="column" height="auto">
+                                        <Flex
+                                            jc="flex-start"
+                                            mb="40px"
+                                            fw="wrap"
+                                            max-width="255px"
+                                            width=" 100%"
+                                        >
+                                            {post_data?.tags.map((tag) => {
+                                                return (
+                                                    <Tag key={tag.tags_id.id}>
+                                                        {tag.tags_id.tag_name}
+                                                    </Tag>
+                                                )
+                                            })}
+                                        </Flex>
+                                        {side_banner_data_details && (
+                                            <Banner detailsObj={side_banner_data_details} />
+                                        )}
+                                        <DesktopWrapper>
+                                            <ArticleEmailBanner />
+                                        </DesktopWrapper>
+                                    </SideBarContainer>
+                                </Show.Desktop>
+                            </LeftBodyContainerWrapper>
+                            <RightBodyContainerWrapper>
+                                <Flex fd="column" margin="0 auto" ai="center">
+                                    <PreviewContainer
+                                        dangerouslySetInnerHTML={{
+                                            __html: post_data?.blog_post
+                                                .replace(/<p><img /g, '<img ')
+                                                .replace(/\/><\/p>/g, '/>'),
+                                        }}
+                                    />
+
+                                    {footer_banner_details && (
+                                        <Banner detailsObj={footer_banner_details} />
+                                    )}
+                                    <SocialComponentsWrapper>
+                                        <LeftSocialComponents />
+                                        <RightSocialComponents>
+                                            <SocialSharing pathname={pathname} />
+                                        </RightSocialComponents>
+                                    </SocialComponentsWrapper>
+
+                                    {side_banner_data_details && (
+                                        <Show.Mobile>
+                                            <Flex mt="24px">
+                                                <Banner detailsObj={side_banner_data_details} />
+                                            </Flex>
+                                        </Show.Mobile>
+                                    )}
+                                    <MobileWrapper>
+                                        <ArticleEmailBanner />
+                                    </MobileWrapper>
+                                </Flex>
+                            </RightBodyContainerWrapper>
+                        </BodyContainer>
+                    </SectionContainer>
+                )}
+            </>
         </Layout>
     )
 }

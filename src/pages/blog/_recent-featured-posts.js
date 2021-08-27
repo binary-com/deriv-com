@@ -108,7 +108,7 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
                                     </Description>
                                     <BottomDescription>
                                         {headline_recent?.published_date &&
-                                            localize(convertDate(headline_recent?.published_date))}
+                                            convertDate(headline_recent?.published_date)}
                                         <ClockIcon src={Clock} />
                                         {headline_recent.read_time_in_minutes}{' '}
                                         <Localize translate_text="min read" />
@@ -163,10 +163,8 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
                                                         </Flex>
                                                         <SmallArticleDateTimeMobile>
                                                             {article?.published_date &&
-                                                                localize(
-                                                                    convertDate(
-                                                                        article?.published_date,
-                                                                    ),
+                                                                convertDate(
+                                                                    article?.published_date,
                                                                 )}
                                                             <MobileDotIcon src={Dot} />
                                                             {article.read_time_in_minutes}{' '}
@@ -181,13 +179,9 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
                                                     </MobileHeader>
                                                     <SmallArticleDateTimeDesktop>
                                                         {article?.published_date &&
-                                                            localize(
-                                                                convertDate(
-                                                                    article?.published_date,
-                                                                ),
-                                                            )}
+                                                            convertDate(article?.published_date)}
                                                         <DotIcon src={Dot} />
-                                                        {article.read_time_in_minutes}{' '}
+                                                        {article.read_time_in_minutes}
                                                         <Localize translate_text="min read" />
                                                     </SmallArticleDateTimeDesktop>
                                                 </SmallArticleRightContent>
@@ -238,9 +232,7 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
                                     </Description>
                                     <BottomDescription>
                                         {headline_featured.published_date &&
-                                            localize(
-                                                convertDate(headline_featured?.published_date),
-                                            )}
+                                            convertDate(headline_featured?.published_date)}
                                         <ClockIcon src={Clock} />
                                         {headline_featured.read_time_in_minutes}
                                         <Localize translate_text="min read" />
@@ -295,10 +287,8 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
                                                         </Flex>
                                                         <SmallArticleDateTimeMobile>
                                                             {article?.published_date &&
-                                                                localize(
-                                                                    convertDate(
-                                                                        article?.published_date,
-                                                                    ),
+                                                                convertDate(
+                                                                    article?.published_date,
                                                                 )}
                                                             <MobileDotIcon src={Dot} />
                                                             {article.read_time_in_minutes}{' '}
@@ -313,11 +303,7 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
                                                     </MobileHeader>
                                                     <SmallArticleDateTimeDesktop>
                                                         {article?.published_date &&
-                                                            localize(
-                                                                convertDate(
-                                                                    article?.published_date,
-                                                                ),
-                                                            )}
+                                                            convertDate(article?.published_date)}
                                                         <DotIcon src={Dot} />
                                                         {article.read_time_in_minutes}{' '}
                                                         <Localize translate_text="min read" />

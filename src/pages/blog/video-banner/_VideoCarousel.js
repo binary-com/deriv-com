@@ -7,6 +7,7 @@ import { CustomCarousel } from './carousel/_custom-carousel'
 import { Flex } from 'components/containers'
 import { Header } from 'components/elements'
 import { LinkButton } from 'components/form'
+import { convertDate, getVideoObject } from 'common/utility'
 import device from 'themes/device'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import PlayIcon from 'images/svg/blog/video/Triangle.svg'
@@ -94,10 +95,13 @@ const SeeMoreBtnMobile = styled(LinkButton)`
 
 const VideoCarousel = ({ carousel_items }) => {
     const [show, setShow] = useState(false)
+    const [video_src, setVideoSrc] = useState('')
     const [is_mobile] = useBrowserResize()
+
     const handleCloseVideo = () => setShow(false)
-    const handleOpenVideo = (event) => {
+    const handleOpenVideo = (event, url) => {
         if (event.defaultPrevented) return
+        setVideoSrc(url)
         setShow(true)
     }
 
@@ -146,14 +150,23 @@ const VideoCarousel = ({ carousel_items }) => {
                 <Flex height="auto">
                     <CustomCarousel {...settings} custom_blog_video_nav>
                         {carousel_items.map((item, index) => {
+                            const {
+                                published_date,
+                                thumbnail_img,
+                                thumbnail_img_alt,
+                                video_title,
+                                video_url,
+                                video_duration,
+                            } = getVideoObject(item)
+
                             return (
                                 <ItemsMainWrapper
                                     jc="flex-start"
                                     key={index}
-                                    onClick={handleOpenVideo}
+                                    onClick={(e) => handleOpenVideo(e, video_url)}
                                 >
                                     <ImgWrapper width="139px">
-                                        <ImgDiv src={item.img_url} alt={item.image} />
+                                        <ImgDiv src={thumbnail_img} alt={thumbnail_img_alt} />
                                         <PlayerIconWrapper absolute ai="center">
                                             <IconDiv>
                                                 <PlayerIcon src={PlayIcon} />
@@ -162,7 +175,7 @@ const VideoCarousel = ({ carousel_items }) => {
                                     </ImgWrapper>
                                     <Flex direction="column" ml="8px" width="180px">
                                         <Header as="p" type="paragraph-1" color="white" mb="4px">
-                                            {item.title}
+                                            {video_title}
                                         </Header>
                                         <SmallDetailsWrapper
                                             height="24px"
@@ -176,7 +189,7 @@ const VideoCarousel = ({ carousel_items }) => {
                                                 color="grey-17"
                                                 width="auto"
                                             >
-                                                {item.date}
+                                                {convertDate(published_date)}
                                             </Header>
                                             <StyledDot />
                                             <Header
@@ -186,7 +199,7 @@ const VideoCarousel = ({ carousel_items }) => {
                                                 color="grey-17"
                                                 width="auto"
                                             >
-                                                {item.duration}
+                                                {video_duration}
                                             </Header>
                                         </SmallDetailsWrapper>
                                     </Flex>
@@ -203,12 +216,7 @@ const VideoCarousel = ({ carousel_items }) => {
                     </SeeMoreBtnMobile>
                 )}
             </Flex>
-            {show && (
-                <VideoPlayer
-                    video_src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4"
-                    closeVideo={handleCloseVideo}
-                />
-            )}
+            {show && <VideoPlayer video_src={video_src} closeVideo={handleCloseVideo} />}
         </>
     )
 }

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
-import { graphql, useStaticQuery } from 'gatsby'
 import {
     Background,
     HeroContainer,
@@ -28,105 +27,47 @@ import SocialSharing from '../../../../blog/_social-sharing'
 import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { SEO, Show, Box, Flex, SectionContainer } from 'components/containers'
-import { Header, QueryImage } from 'components/elements'
+import { Header } from 'components/elements'
 import { convertDate, isBrowser } from 'common/utility'
+import { cms_assets_end_point } from 'common/constants'
 
-const query_preview = graphql`
-    query Preview {
-        directus {
-            blog {
-                id
-                slug
-                blog_title
-                published_date
-                read_time_in_minutes
-                blog_post
-                author {
-                    id
-                    name
-                    image {
-                        id
-                        imageFile {
-                            childImageSharp {
-                                gatsbyImageData
-                            }
-                        }
-                    }
-                }
-                main_image {
-                    id
-                    imageFile {
-                        childImageSharp {
-                            gatsbyImageData
-                        }
-                    }
-                }
-                tags {
-                    id
-                    tags_id {
-                        id
-                        tag_name
-                    }
-                }
-                footer_banners {
-                    id
-                    cta_url
-                    name
-                    desktop_banner_image {
-                        id
-                        imageFile {
-                            childImageSharp {
-                                gatsbyImageData
-                            }
-                        }
-                    }
-                    mobile_banner_image {
-                        id
-                        imageFile {
-                            childImageSharp {
-                                gatsbyImageData
-                            }
-                        }
-                    }
-                }
-                side_banners {
-                    id
-                    cta_url
-                    name
-                    banner_image {
-                        id
-                        imageFile {
-                            childImageSharp {
-                                gatsbyImageData
-                            }
-                        }
-                    }
+const BlogPreview = () => {
+    const [data, setData] = useState(null)
+    const [id, setId] = useState(null)
+    const end_point_url = 'https://cms.deriv.cloud/items/blog/'
+
+    useEffect(() => {
+        const getPreviewId = () => {
+            if (isBrowser()) {
+                const query_string = window.location.search
+                const url_params = new URLSearchParams(query_string)
+                const params = url_params.get('id')
+                if (params) {
+                    setId(params)
                 }
             }
         }
-    }
-`
 
-const BlogPreview = (props) => {
-    const data = useStaticQuery(query_preview)
-    const pathname = props.pageContext.pathname
-    const [post_data, setPostData] = useState()
-    const [isMounted, setMounted] = useState(false)
-
-    useEffect(() => {
-        setMounted(true)
-
-        if (isMounted && isBrowser()) {
-            const query_string = window.location.search
-            const url_params = new URLSearchParams(query_string)
-            const params = url_params.get('id')
-            const item_data = data.directus.blog.find((items) => {
-                return items.id == params
-            })
-            setPostData(item_data)
-            window.scrollTo(0, 0)
+        const fetchBlogPreview = async () => {
+            const res = await fetch(`${end_point_url}${id}?fields=*.*.*.*.*`, { cache: 'no-store' })
+            const data = await res.json()
+            return data
         }
-    }, [isMounted])
+
+        const getPreviews = async () => {
+            const dataFromServer = await fetchBlogPreview(id)
+            setData(dataFromServer)
+        }
+
+        getPreviewId()
+        if (id) {
+            getPreviews()
+        }
+
+        window.scrollTo(0, 0)
+    }, [id])
+
+    const post_data = data?.data
 
     const footer_banner_data = post_data?.footer_banners
     const side_banner_data = post_data?.side_banners
@@ -136,7 +77,7 @@ const BlogPreview = (props) => {
         max_w_tablet: '320px',
         isExternal: true,
         redirectLink: side_banner_data?.cta_url,
-        imgSrcDesktop: side_banner_data?.banner_image?.imageFile,
+        imgSrcDesktop: side_banner_data?.banner_image?.id,
     }
 
     const footer_banner_details = {
@@ -144,35 +85,31 @@ const BlogPreview = (props) => {
         max_w_tablet: '580px',
         isExternal: true,
         redirectLink: footer_banner_data?.cta_url,
-        imgSrcDesktop: footer_banner_data?.desktop_banner_image?.imageFile,
-        imgSrcMobile: footer_banner_data?.mobile_banner_image?.imageFile,
+        imgSrcDesktop: footer_banner_data?.desktop_banner_image?.id,
+        imgSrcMobile: footer_banner_data?.mobile_banner_image?.id,
     }
 
     return (
         <Layout>
-            <SEO
-                description={
-                    'Checkout latest trading news, market updates, useful tips, and how-to guides for Deriv products and online trading platforms on our official blog.'
-                }
-                title={'Blog Post Preview | Deriv Academy'}
-                no_index
-            />
+            <SEO description={post_data?.meta_description} title={post_data?.meta_title} no_index />
             <>
-                {isMounted && (
+                {post_data && (
                     <SectionContainer padding="0" position="relative">
                         <Background>
                             <HeroContainer>
                                 <HeroLeftWrapper width="100%">
                                     <InfoText mb="16px" size="14px">
                                         {post_data?.published_date &&
-                                            localize(convertDate(post_data?.published_date))}
+                                            convertDate(post_data?.published_date)}
                                     </InfoText>
                                     <Header as="h1" type="page-title">
                                         {post_data?.blog_title}
                                     </Header>
                                     <InfoText size="14px" mt="16px">
                                         {post_data?.read_time_in_minutes &&
-                                            localize(post_data?.read_time_in_minutes + ' min read')}
+                                            post_data?.read_time_in_minutes +
+                                                ' ' +
+                                                localize('min read')}
                                     </InfoText>
                                     <Show.Mobile min_width="laptop">
                                         <SideBarContainer fd="column" mr="126px" height="auto">
@@ -203,11 +140,8 @@ const BlogPreview = (props) => {
                                                 <>
                                                     {post_data?.author?.image && (
                                                         <WriterImage>
-                                                            <QueryImage
-                                                                data={
-                                                                    post_data?.author?.image
-                                                                        ?.imageFile
-                                                                }
+                                                            <img
+                                                                src={`${cms_assets_end_point}${post_data?.author?.image.id}`}
                                                                 alt=""
                                                             />
                                                         </WriterImage>
@@ -218,9 +152,7 @@ const BlogPreview = (props) => {
                                                     <WrittenbyText color="grey-5" size="12px">
                                                         {localize('Written by')}
                                                     </WrittenbyText>
-                                                    <InfoText>
-                                                        {localize(post_data?.author?.name)}
-                                                    </InfoText>
+                                                    <InfoText>{post_data?.author?.name}</InfoText>
                                                 </Box>
                                             </Flex>
                                         )}
@@ -228,8 +160,8 @@ const BlogPreview = (props) => {
                                 </HeroLeftWrapper>
                                 <HeroRightWrapper>
                                     <HeroImageContainer tabletL={{ mt: '24px' }}>
-                                        <QueryImage
-                                            data={post_data?.main_image?.imageFile}
+                                        <img
+                                            src={`${cms_assets_end_point}${post_data?.main_image?.id}`}
                                             alt=""
                                         />
                                     </HeroImageContainer>
@@ -245,10 +177,8 @@ const BlogPreview = (props) => {
                                             <>
                                                 {post_data?.author?.image && (
                                                     <WriterImage>
-                                                        <QueryImage
-                                                            data={
-                                                                post_data?.author?.image?.imageFile
-                                                            }
+                                                        <img
+                                                            src={`${cms_assets_end_point}${post_data?.author?.image.id}`}
                                                             alt=""
                                                         />
                                                     </WriterImage>
@@ -259,9 +189,7 @@ const BlogPreview = (props) => {
                                                 <WrittenbyText color="grey-5" size="12px">
                                                     {localize('Written by')}
                                                 </WrittenbyText>
-                                                <InfoText>
-                                                    {localize(post_data?.author?.name)}
-                                                </InfoText>
+                                                <InfoText>{post_data?.author?.name}</InfoText>
                                             </Box>
                                         </Flex>
                                     )}
@@ -288,7 +216,7 @@ const BlogPreview = (props) => {
                                             })}
                                         </Flex>
                                         {side_banner_data_details && (
-                                            <Banner detailsObj={side_banner_data_details} />
+                                            <Banner detailsPreviewObj={side_banner_data_details} />
                                         )}
                                         <DesktopWrapper>
                                             <ArticleEmailBanner />
@@ -307,19 +235,21 @@ const BlogPreview = (props) => {
                                     />
 
                                     {footer_banner_details && (
-                                        <Banner detailsObj={footer_banner_details} />
+                                        <Banner detailsPreviewObj={footer_banner_details} />
                                     )}
                                     <SocialComponentsWrapper>
                                         <LeftSocialComponents />
                                         <RightSocialComponents>
-                                            <SocialSharing pathname={pathname} />
+                                            <SocialSharing />
                                         </RightSocialComponents>
                                     </SocialComponentsWrapper>
 
                                     {side_banner_data_details && (
                                         <Show.Mobile>
                                             <Flex mt="24px">
-                                                <Banner detailsObj={side_banner_data_details} />
+                                                <Banner
+                                                    detailsPreviewObj={side_banner_data_details}
+                                                />
                                             </Flex>
                                         </Show.Mobile>
                                     )}

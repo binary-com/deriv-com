@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Header, QueryImage } from 'components/elements'
-import { ChangeDateFormat } from 'common/utility'
+// import { convertDate } from 'common/utility'
 import { Flex } from 'components/containers'
 import device from 'themes/device'
 import Triangle from 'images/svg/triangle.svg'
@@ -146,7 +146,7 @@ const VideoCard = ({ item, openVideo }) => {
                         {item.video_title}
                     </Header>
                     <Header as="h4" type="paragraph-2" weight="normal" mt="8px" color="grey-40">
-                        {ChangeDateFormat(item.published_date)}
+                        {/* {convertDate(item.published_date)} */}
                     </Header>
                 </ContentWrapper>
             </VideoCardWrapper>

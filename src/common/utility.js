@@ -23,31 +23,6 @@ export const toISOFormat = (date) => {
     return ''
 }
 
-export const ChangeDateFormat = (date) => {
-    const months = [
-        'January',
-        'February',
-        'March',
-        'April',
-        'May',
-        'June',
-        'July',
-        'August',
-        'September',
-        'October',
-        'November',
-        'December',
-    ]
-    try {
-        const day = date.slice(8)
-        const month = date.slice(5, 7)
-        const year = date.slice(0, 4)
-        return `${day} ${months[month - 1]}  ${year}`
-    } catch {
-        return 'wrong format of input data'
-    }
-}
-
 export const toHashFormat = (string) => string.replace(/\s+/g, '-').toLowerCase() // change space to dash then lowercase all
 
 export const isBrowser = () => typeof window !== 'undefined'

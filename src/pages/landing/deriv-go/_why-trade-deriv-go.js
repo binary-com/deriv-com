@@ -34,7 +34,8 @@ const Card = styled(Flex)`
 
     @media ${device.tablet} {
         margin-right: unset;
-        margin-top: 24px;
+        margin-bottom: 0;
+        margin-top: 0;
     }
 `
 const StyledText = styled(Text)`

@@ -62,6 +62,7 @@ export const query = graphql`
                 published_date
                 video_description
                 video_duration
+                featured
                 video_thumbnail {
                     id
                     title

@@ -68,6 +68,8 @@ const Dbanner = ({ video_list }) => {
     const [show, setShow] = useState(false)
     const handleCloseVideo = () => setShow(false)
     const handleOpenVideo = () => setShow(true)
+    const featured_video = video_list.find((v) => v.featured)
+    const filtered_video = video_list.filter((v) => v !== featured_video)
 
     const {
         published_date,
@@ -77,7 +79,7 @@ const Dbanner = ({ video_list }) => {
         video_url,
         video_duration,
         types,
-    } = getVideoObject(video_list[0])
+    } = getVideoObject(featured_video)
 
     useEffect(() => {
         show ? (document.body.style.overflow = 'hidden') : (document.body.style.overflow = 'unset')
@@ -150,7 +152,7 @@ const Dbanner = ({ video_list }) => {
                             </Header>
                         </Flex>
                     </Flex>
-                    <VideoCarousel carousel_items={video_list} />
+                    <VideoCarousel carousel_items={filtered_video} />
                 </Container>
             </ParentWrapper>
             {show && <VideoPlayer video_src={video_url} closeVideo={handleCloseVideo} />}

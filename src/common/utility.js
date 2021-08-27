@@ -268,6 +268,7 @@ export const getVideoObject = (video_data) => {
         video_title,
         video_duration,
         video_description,
+        featured,
         tags,
     } = video_data
     const { id: video_id } = video_file
@@ -281,6 +282,7 @@ export const getVideoObject = (video_data) => {
         video_description,
         video_url: getAssetUrl(video_id),
         video_duration,
+        featured,
         types: tags.map((t) => t.tags_id.tag_name),
     }
 }

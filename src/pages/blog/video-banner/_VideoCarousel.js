@@ -149,7 +149,7 @@ const VideoCarousel = ({ carousel_items }) => {
             <Flex direction="column" jc="flex-start">
                 <Flex height="auto">
                     <CustomCarousel {...settings} custom_blog_video_nav>
-                        {carousel_items.slice(1).map((item, index) => {
+                        {carousel_items.map((item, index) => {
                             const {
                                 published_date,
                                 thumbnail_img,

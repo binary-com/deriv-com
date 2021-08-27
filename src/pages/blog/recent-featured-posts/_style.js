@@ -56,7 +56,6 @@ export const MainArticle = styled(Flex)`
     width: 792px;
     max-height: 300px;
     align-items: flex-end;
-    padding-bottom: 80px;
     cursor: pointer;
     transition: transform 0.3s;
 
@@ -82,14 +81,6 @@ export const MainArticle = styled(Flex)`
     }
 
     &.main-article-bg {
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        position: absolute;
-        object-fit: cover;
         opacity: 0.8;
     }
 `
@@ -98,7 +89,7 @@ export const Description = styled.div`
     position: absolute;
     left: 0;
     padding: 24px 40px 0 40px;
-    margin-bottom: 24px;
+    margin-bottom: 80px;
 
     @media ${device.laptopM} {
         padding: 30px;
@@ -195,17 +186,6 @@ export const SmallArticleImageWrapper = styled.div`
     }
 `
 
-export const SmallArticleImage = styled.img`
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    position: absolute;
-    object-fit: cover;
-`
-
 export const SmallArticleCategories = styled(Text)`
     width: fit-content;
     border-radius: 8px;
@@ -297,6 +277,13 @@ export const SmallArticleTopContent = styled(Flex)`
         ${Header} {
             display: none;
         }
+    }
+`
+
+export const SmallArticleCategoryWrapper = styled(Flex)`
+    justify-content: start;
+    @media ${device.laptopM} {
+        flex-direction: row;
     }
 `
 

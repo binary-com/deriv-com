@@ -69,6 +69,8 @@ const ArticleCard = ({ item }) => {
                     <QueryImage
                         data={getImage(item.main_image.imageFile)}
                         alt={item.main_image.description || ''}
+                        height="200px"
+                        weight="384px"
                     />
                 </ImageWrapper>
 

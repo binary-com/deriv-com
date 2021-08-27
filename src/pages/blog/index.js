@@ -57,6 +57,25 @@ export const query = graphql`
                     id
                 }
             }
+            videos(limit: 6, sort: "-published_date") {
+                video_title
+                published_date
+                video_description
+                video_duration
+                featured
+                video_thumbnail {
+                    id
+                    title
+                }
+                video_file {
+                    id
+                }
+                tags {
+                    tags_id {
+                        tag_name
+                    }
+                }
+            }
             recent: blog(
                 filter: { status: { _eq: "published" } }
                 sort: "-published_date"
@@ -137,9 +156,10 @@ const DerivBlog = ({ data }) => {
     const homepage_banner_data = data.directus.homepage_banners
     const market_news_data = data.directus.blog
 
-    //article data
     const recent_data = data.directus.recent
     const featured_data = data.directus.featured
+    const video_list_data = data.directus.videos
+
     return (
         <Layout type="academy" is_ppc_redirect={true}>
             <SEO
@@ -174,6 +194,8 @@ const DerivBlog = ({ data }) => {
             </MainWrapper>
             <RecentFeaturedPosts recent_data={recent_data} featured_data={featured_data} />
             <DVideoBanner />
+            <RecentFeaturedPosts />
+            <DVideoBanner video_list_data={video_list_data} />
             <MarketNews data={market_news_data} />
             <Container>
                 <Flex direction="column" ai="flex-start" jc="space-between">

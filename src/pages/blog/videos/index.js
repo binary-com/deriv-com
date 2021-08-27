@@ -1,8 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
+import { graphql } from 'gatsby'
 import Subscribe from '../components/_subscribe'
 import AllVideos from './_all-videos'
-import { video_data } from './_data'
 import Layout from 'components/layout/layout'
 import { SEO, Container, Flex } from 'components/containers'
 import { Header } from 'components/elements'
@@ -49,31 +50,71 @@ const StyledHeader = styled(Header)`
     }
 `
 
-const VideosPage = () => (
-    <Layout>
-        <SEO
-            title={localize('Latest videos, tutorials, webinars for trading | Deriv')}
-            description={localize(
-                "Learn how to trade using our trading videos and tutorials at Deriv's online trading academy.",
-            )}
-        />
-        <Hero jc="center" ai="center">
-            <SmallContainer>
-                <Header as="h2" type="heading-3" color="white" weight="400" align="left">
-                    Video tutorials
-                </Header>
-                <StyledHeader as="h2" type="heading-2" color="white" align="left">
-                    Our latest videos and webinars
-                </StyledHeader>
-            </SmallContainer>
-        </Hero>
-        <AllVideos video_data={video_data} />
-        <Container>
-            <Flex direction="column" ai="flex-start" jc="space-between">
-                <Subscribe />
-            </Flex>
-        </Container>
-    </Layout>
-)
+const VideosPage = ({ data }) => {
+    const video_data = data.directus.videos
 
+    return (
+        <Layout>
+            <SEO
+                title={localize('Latest videos, tutorials, webinars for trading | Deriv')}
+                description={localize(
+                    "Learn how to trade using our trading videos and tutorials at Deriv's online trading academy.",
+                )}
+            />
+            <Hero jc="center" ai="center">
+                <SmallContainer>
+                    <Header as="h2" type="heading-3" color="white" weight="400" align="left">
+                        Video tutorials
+                    </Header>
+                    <StyledHeader as="h2" type="heading-2" color="white" align="left">
+                        Our latest videos and webinars
+                    </StyledHeader>
+                </SmallContainer>
+            </Hero>
+            {video_data && <AllVideos video_data={video_data} />}
+            <Container>
+                <Flex direction="column" ai="flex-start" jc="space-between">
+                    <Subscribe />
+                </Flex>
+            </Container>
+        </Layout>
+    )
+}
+
+VideosPage.propTypes = {
+    data: PropTypes.object,
+}
 export default WithIntl()(VideosPage)
+
+export const query = graphql`
+    query AllVideosQuery {
+        directus {
+            videos(filter: { status: { _eq: "published" } }, sort: "- published_date") {
+                video_id
+                video_slug
+                video_title
+                published_date
+                video_description
+                video_duration
+                tags {
+                    tags_id {
+                        tag_name
+                        id
+                    }
+                }
+                video_file {
+                    id
+                }
+                video_thumbnail {
+                    id
+                    imageFile {
+                        id
+                        childImageSharp {
+                            gatsbyImageData
+                        }
+                    }
+                }
+            }
+        }
+    }
+`

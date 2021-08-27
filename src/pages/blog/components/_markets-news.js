@@ -68,6 +68,7 @@ const MarketNews = ({ data }) => {
                                             data={data.main_image.imageFile}
                                             width="104px"
                                             height="78px"
+                                            alt={data.main_image.alt || ''}
                                         />
                                         <Flex ml="8px" fd="column">
                                             <Header type="paragraph-2" color="blue-9">
@@ -109,5 +110,5 @@ const MarketNews = ({ data }) => {
 export default MarketNews
 
 MarketNews.propTypes = {
-    data: PropTypes.object,
+    data: PropTypes.array,
 }

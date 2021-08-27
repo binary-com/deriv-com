@@ -2,6 +2,7 @@ import { navigate } from 'gatsby'
 import Cookies from 'js-cookie'
 import extend from 'extend'
 import {
+    cms_assets_end_point,
     deriv_cookie_domain,
     deriv_app_languages,
     live_chat_redirection_link,
@@ -254,4 +255,34 @@ export const convertDate = (date) => {
         ' ' +
         newdate.toLocaleString('en', { year: 'numeric' })
     )
+}
+
+// CMS Related Utilities
+export const getAssetUrl = (id) => `${cms_assets_end_point}${id}`
+
+export const getVideoObject = (video_data) => {
+    const {
+        published_date,
+        video_file,
+        video_thumbnail,
+        video_title,
+        video_duration,
+        video_description,
+        featured,
+        tags,
+    } = video_data
+    const { id: video_id } = video_file
+    const { id: thumbnail_id, title: alt } = video_thumbnail
+
+    return {
+        published_date,
+        thumbnail_img: getAssetUrl(thumbnail_id),
+        thumbnail_img_alt: alt,
+        video_title,
+        video_description,
+        video_url: getAssetUrl(video_id),
+        video_duration,
+        featured,
+        types: tags.map((t) => t.tags_id.tag_name),
+    }
 }

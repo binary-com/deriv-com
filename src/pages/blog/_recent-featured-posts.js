@@ -318,7 +318,7 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
                     </ArticleContentWrapper>
                 </Tabs.Panel>
             </StyledTabs>
-            <AllArticleButton tertiary to="/blog/articles/">
+            <AllArticleButton tertiary="true" to="/blog/articles/">
                 See all blog articles
             </AllArticleButton>
         </StyledContainer>

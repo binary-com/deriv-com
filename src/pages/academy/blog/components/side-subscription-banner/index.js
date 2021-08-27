@@ -249,7 +249,7 @@ const ArticleEmailBanner = () => {
             return setIsSubmitting(false)
         }
 
-        customerioData(formattedEmail)
+        customerioData()
         submit_status && setSubmitStatus('success')
         clearName()
         clearEmail()
@@ -295,7 +295,7 @@ const ArticleEmailBanner = () => {
                                     src={CrossIcon}
                                     alt="error icon"
                                     onClick={() => {
-                                        clearName(name)
+                                        clearName()
                                     }}
                                 />
                             </>
@@ -324,7 +324,7 @@ const ArticleEmailBanner = () => {
                                     src={CrossIcon}
                                     alt="error icon"
                                     onClick={() => {
-                                        clearEmail(email)
+                                        clearEmail()
                                     }}
                                 />
                             </>

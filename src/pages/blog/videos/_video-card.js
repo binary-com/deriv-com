@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { ContainedImg } from '../common/_styles'
-import { Header } from 'components/elements'
+import { Header, QueryImage } from 'components/elements'
+import { convertDate } from 'common/utility'
 import { Flex } from 'components/containers'
 import device from 'themes/device'
 import Triangle from 'images/svg/triangle.svg'
@@ -37,7 +37,6 @@ const ImageWrapper = styled.div`
     width: 384px;
     position: relative;
     z-index: 1;
-    overflow: hidden;
 
     @media ${device.mobileL} {
         width: 100%;
@@ -110,6 +109,9 @@ const ContentWrapper = styled.div`
 `
 
 const VideoCard = ({ item, openVideo }) => {
+    const first_2_tags = item.tags?.slice(0, 2)
+    const another_tags_number = item.tags.length > 2 ? `+${item.tags.length - 2}` : ''
+    const converted_date = convertDate(item.published_date)
     return (
         // the extra div surrounding the videocard is to get around Safari's different
         // interpretation of height: 100%
@@ -118,14 +120,15 @@ const VideoCard = ({ item, openVideo }) => {
                 <ImageWrapper>
                     <ImageOverlay />
                     <CategoriesContainer jc="flex-start" fw="wrap">
-                        {item.category.slice(0, 2).map((item_category) => (
-                            <StyledCategories as="h4" type="paragraph-2" key={item_category}>
-                                {item_category}
-                            </StyledCategories>
-                        ))}
-                        {item.category.length > 2 && (
+                        {item.tags &&
+                            first_2_tags.map((tag) => (
+                                <StyledCategories as="h4" type="paragraph-2" key={tag.tags_id.id}>
+                                    {tag.tags_id.tag_name}
+                                </StyledCategories>
+                            ))}
+                        {another_tags_number && (
                             <StyledCategories as="h4" type="paragraph-2">
-                                {`+${item.category.slice(2).length.toString()}`}
+                                {another_tags_number}
                             </StyledCategories>
                         )}
                     </CategoriesContainer>
@@ -134,14 +137,19 @@ const VideoCard = ({ item, openVideo }) => {
                     <VideoDuration as="h5" type="paragraph-2" weight="bold">
                         {item.video_duration}
                     </VideoDuration>
-                    <ContainedImg src={item.image} alt="Video card" width="100%" />
+                    <QueryImage
+                        data={item.video_thumbnail.imageFile}
+                        alt={item.video_description}
+                        height="200px"
+                        weight="384px"
+                    />
                 </ImageWrapper>
                 <ContentWrapper>
                     <Header as="h3" type="subtitle-2">
-                        {item.title}
+                        {item.video_title}
                     </Header>
                     <Header as="h4" type="paragraph-2" weight="normal" mt="8px" color="grey-40">
-                        {item.date}
+                        {converted_date}
                     </Header>
                 </ContentWrapper>
             </VideoCardWrapper>
@@ -150,7 +158,7 @@ const VideoCard = ({ item, openVideo }) => {
 }
 
 VideoCard.propTypes = {
-    item: PropTypes.Object,
+    item: PropTypes.object,
     openVideo: PropTypes.func,
 }
 

@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import { Flex } from 'components/containers'
 import { LocalizedLink } from 'components/localization'
 import { Header } from 'components/elements/typography'
@@ -29,74 +28,63 @@ const StyledFlex = styled(Flex)`
     }
 `
 
-const SocialSharing = ({ pathname }) => {
+const SocialSharing = () => {
+    const url = typeof window !== 'undefined' ? window.location.href : ''
     return (
-        <Flex>
-            <StyledFlex
-                jc="flex-end"
-                ai="center"
-                tablet_direction="column"
-                tablet_jc="flex-end"
-                tablet_ai="flex-end"
-            >
-                <HeaderWrapper>
-                    <Header type="paragraph-2" weight="normal">
-                        Share this post
-                    </Header>
-                </HeaderWrapper>
-                <IconWrapper>
-                    <Flex jc="space-between">
-                        <LocalizedLink
-                            external
-                            to={
-                                'https://www.facebook.com/sharer/sharer.php?u=https://deriv.com' +
-                                pathname
-                            }
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <img src={FacebookIcon} width="24px" height="24px" />
-                        </LocalizedLink>
-                        <LocalizedLink
-                            external
-                            to={
-                                'http://www.linkedin.com/shareArticle?mini=true&url=https://deriv.com' +
-                                pathname
-                            }
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <img src={LinkedInIcon} width="24px" height="24px" />
-                        </LocalizedLink>
-                        <LocalizedLink
-                            external
-                            to={'https://www.twitter.com/share?url=https://deriv.com' + pathname}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <img src={TwitterIcon} width="24px" height="24px" />
-                        </LocalizedLink>
-                        <LocalizedLink
-                            external
-                            to={
-                                'https://pinterest.com/pin/create/button/?url=https://deriv.com' +
-                                pathname +
-                                '&media=&description='
-                            }
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <img src={PinterestIcon} width="24px" height="24px" />
-                        </LocalizedLink>
-                    </Flex>
-                </IconWrapper>
-            </StyledFlex>
-        </Flex>
+        url && (
+            <Flex>
+                <StyledFlex
+                    jc="flex-end"
+                    ai="center"
+                    tablet_direction="column"
+                    tablet_jc="flex-end"
+                    tablet_ai="flex-end"
+                >
+                    <HeaderWrapper>
+                        <Header type="paragraph-2" weight="normal">
+                            Share this post
+                        </Header>
+                    </HeaderWrapper>
+                    <IconWrapper>
+                        <Flex jc="space-between">
+                            <LocalizedLink
+                                external
+                                to={`https://www.facebook.com/sharer/sharer.php?u=${url}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <img src={FacebookIcon} width="24px" height="24px" />
+                            </LocalizedLink>
+                            <LocalizedLink
+                                external
+                                to={`http://www.linkedin.com/shareArticle?mini=true&url=${url}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <img src={LinkedInIcon} width="24px" height="24px" />
+                            </LocalizedLink>
+                            <LocalizedLink
+                                external
+                                to={`https://www.twitter.com/share?url=${url}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <img src={TwitterIcon} width="24px" height="24px" />
+                            </LocalizedLink>
+                            <LocalizedLink
+                                external
+                                to={`https://pinterest.com/pin/create/button/?url=${url}&media=&description=`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <img src={PinterestIcon} width="24px" height="24px" />
+                            </LocalizedLink>
+                        </Flex>
+                    </IconWrapper>
+                </StyledFlex>
+            </Flex>
+        )
     )
-}
-
-SocialSharing.propTypes = {
-    pathname: PropTypes.string,
 }
 
 export default SocialSharing

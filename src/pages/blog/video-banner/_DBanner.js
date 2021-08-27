@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import VideoPlayer from '../_video-player'
 import VideoCarousel from './_VideoCarousel'
-import { getVideoObject } from 'common/utility'
+import { convertDate, getVideoObject } from 'common/utility'
 import { Flex, Container } from 'components/containers'
 import { Header } from 'components/elements'
 import device from 'themes/device'
@@ -136,7 +136,7 @@ const Dbanner = ({ video_list }) => {
                                 color="grey-17"
                                 width="auto"
                             >
-                                {published_date}
+                                {convertDate(published_date)}
                             </Header>
                             <StyledDot />
                             <Header

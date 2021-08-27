@@ -7,7 +7,7 @@ import { CustomCarousel } from './carousel/_custom-carousel'
 import { Flex } from 'components/containers'
 import { Header } from 'components/elements'
 import { LinkButton } from 'components/form'
-import { getVideoObject } from 'common/utility'
+import { convertDate, getVideoObject } from 'common/utility'
 import device from 'themes/device'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import PlayIcon from 'images/svg/blog/video/Triangle.svg'
@@ -189,7 +189,7 @@ const VideoCarousel = ({ carousel_items }) => {
                                                 color="grey-17"
                                                 width="auto"
                                             >
-                                                {published_date}
+                                                {convertDate(published_date)}
                                             </Header>
                                             <StyledDot />
                                             <Header

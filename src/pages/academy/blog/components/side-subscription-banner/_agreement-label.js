@@ -8,30 +8,21 @@ import device from 'themes/device.js'
 const CheckboxSpan = styled.span`
     font-size: var(--text-size-xs);
     color: ${(props) => (props.color ? props.color : 'black')};
+
+    a {
+        font-weight: 700;
+    }
     @media ${device.tabletL} {
         font-size: 1.75rem;
     }
 `
-const AgreementLabel = ({
-    handleChangeCheckbox,
-    isChecked,
-    color,
-    link_path = 'terms_and_conditions',
-    link_text = 'I agree to the <0>terms and conditions</0>',
-}) => {
+const AgreementLabel = ({ handleChangeCheckbox, isChecked, color }) => {
     const handleChange = (event) => {
         handleChangeCheckbox(event)
     }
 
     return (
-        <label
-            style={{
-                fontWeight: 'normal',
-                lineHeight: '1px',
-                marginTop: '5px',
-                marginBottom: '0',
-            }}
-        >
+        <label>
             <Checkbox
                 style={{
                     border: '0',
@@ -47,15 +38,15 @@ const AgreementLabel = ({
             <CheckboxSpan color={color}>
                 <Localize
                     fontSize="var(--text-size-xs)"
-                    translate_text={link_text}
+                    translate_text="I agree to the <0>terms and conditions</0>"
                     components={[
                         <LocalizedLinkText
                             key={0}
-                            type={link_path}
+                            type="terms_and_conditions"
                             external="true"
                             rel="noopener noreferrer"
                             size="14px"
-                            color="red"
+                            color="grey-5"
                         />,
                     ]}
                 />
@@ -68,8 +59,6 @@ AgreementLabel.propTypes = {
     color: PropTypes.string,
     handleChangeCheckbox: PropTypes.func,
     isChecked: PropTypes.bool,
-    link_path: PropTypes.string,
-    link_text: PropTypes.string,
 }
 
 export default AgreementLabel

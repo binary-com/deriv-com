@@ -103,7 +103,7 @@ exports.onCreatePage = ({ page, actions }) => {
         const localized_path = is_default ? page.path : `${path}${page.path}`
         const is_production = process.env.GATSBY_ENV === 'production'
         const excluded_pages_regex =
-            /^[a-z-]+\/(careers|endpoint|offline-plugin-app-shell-fallback|besquare|blog)\//g
+            /^[a-z-]+\/(careers|endpoint|offline-plugin-app-shell-fallback|besquare|blog|academy)\//g
 
         if (is_production) {
             if (path === 'ach') return
@@ -252,40 +252,35 @@ exports.onCreateWebpackConfig = ({ actions, getConfig }, { ...options }) => {
 }
 
 // TODO: To be updated to the new shape of the API of the new endpoint
-// exports.createPages = async ({ reporter, actions, graphql }) => {
-//     const { createPage } = actions
-//     const articleTemplate = path.resolve(__dirname, 'src/templates/article.js')
+exports.createPages = async ({ reporter, actions, graphql }) => {
+    const { createPage } = actions
+    const articleTemplate = path.resolve(__dirname, 'src/templates/article.js')
 
-// Query our published articles
-//     const result = await graphql(`
-//         query MyQuery {
-//             directus {
-//                 articles(filter: { status: { _eq: "published" } }) {
-//                     article_title
-//                     article_url
-//                     translations {
-//                         article_title
-//                         languages_id
-//                     }
-//                 }
-//             }
-//         }
-//     `)
+    // Query our published articles
+    const result = await graphql(`
+        query MyQuery {
+            directus {
+                blog(filter: { status: { _eq: "published" } }) {
+                    id
+                    slug
+                }
+            }
+        }
+    `)
 
-//     if (result.errors) {
-//         reporter.panic(result.errors)
-//     }
-//     const articles = result.data.directus.articles
-
-//     articles.forEach((article) => {
-//         createPage({
-//             path: `/blog/articles/${article.article_url}`,
-//             component: articleTemplate,
-//             context: {
-//                 locale: 'en',
-//                 pathname: `/blog/articles/${article.article_url}`,
-//                 slug: article.article_url,
-//             },
-//         })
-//     })
-// }
+    if (result.errors) {
+        reporter.panic(result.errors)
+    }
+    const blog = result.data.directus.blog
+    blog.forEach((blog_post) => {
+        createPage({
+            path: `/academy/blog/posts/${blog_post.slug}`,
+            component: articleTemplate,
+            context: {
+                locale: 'en',
+                pathname: `/academy/blog/posts/${blog_post.slug}`,
+                slug: blog_post.slug,
+            },
+        })
+    })
+}

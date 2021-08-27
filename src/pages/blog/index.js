@@ -141,7 +141,7 @@ const DerivBlog = ({ data }) => {
     const recent_data = data.directus.recent
     const featured_data = data.directus.featured
     return (
-        <Layout type="blog" is_ppc_redirect={true}>
+        <Layout type="academy" is_ppc_redirect={true}>
             <SEO
                 title={localize('Articles, trading guide and resources | Deriv')}
                 description={localize(

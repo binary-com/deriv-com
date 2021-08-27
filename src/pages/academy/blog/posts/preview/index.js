@@ -49,7 +49,8 @@ const BlogPreview = () => {
         }
 
         const fetchBlogPreview = async () => {
-            const res = await fetch(`${end_point_url}${id}?fields=*.*.*.*.*`, { cache: 'no-store' })
+            const url = `${end_point_url}${id}?fields=*.*.*.*.*`
+            const res = await fetch(url, { cache: 'no-store' })
             const data = await res.json()
             return data
         }
@@ -57,14 +58,15 @@ const BlogPreview = () => {
         const getPreviews = async () => {
             const dataFromServer = await fetchBlogPreview()
             setData(dataFromServer)
+            if (dataFromServer) {
+                window.scrollTo(0, 0)
+            }
         }
 
         getPreviewId()
         if (id) {
             getPreviews()
         }
-
-        window.scrollTo(0, 0)
     }, [id])
 
     const post_data = data?.data

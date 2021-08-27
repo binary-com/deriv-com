@@ -17,7 +17,6 @@ import {
     SmallArticle,
     SmallArticleImageWrapper,
     SmallArticleCategories,
-    SmallArticleCategoryWrapper,
     SmallArticleTopContent,
     SmallArticleDateTimeDesktop,
     SmallArticleDateTimeMobile,
@@ -30,8 +29,10 @@ import {
     MobileDotIcon,
     MobileHeader,
 } from './recent-featured-posts/_style'
+import { convertDate } from 'common/utility'
+import { Flex } from 'components/containers'
 import { QueryImage, Carousel, Tabs, Header } from 'components/elements'
-import { localize, WithIntl } from 'components/localization'
+import { localize, WithIntl, Localize } from 'components/localization'
 
 // Settings for carousel
 const settings = {
@@ -71,7 +72,7 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
                 <Tabs.Panel label={localize('Recent posts')}>
                     <ArticleContentWrapper>
                         <LeftContent>
-                            <RedirectLink to={`/academy/blog/${headline_recent.slug}`}>
+                            <RedirectLink to={`/academy/blog/posts/${headline_recent.slug}`}>
                                 <MainArticle>
                                     <QueryImage
                                         className="main-article-bg"
@@ -106,9 +107,11 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
                                         </Header>
                                     </Description>
                                     <BottomDescription>
-                                        {headline_recent.published_date}
+                                        {headline_recent?.published_date &&
+                                            localize(convertDate(headline_recent?.published_date))}
                                         <ClockIcon src={Clock} />
-                                        {headline_recent.read_time_in_minutes} min read
+                                        {headline_recent.read_time_in_minutes}{' '}
+                                        <Localize translate_text="min read" />
                                     </BottomDescription>
                                 </MainArticle>
                             </RedirectLink>
@@ -118,7 +121,7 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
                                 {recents.map((article) => {
                                     return (
                                         <RedirectLink
-                                            to={`/academy/blog/${article.slug}`}
+                                            to={`/academy/blog/posts/${article.slug}`}
                                             key={article.slug}
                                         >
                                             <SmallArticle>
@@ -136,7 +139,10 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
                                                 </SmallArticleLeftContent>
                                                 <SmallArticleRightContent>
                                                     <SmallArticleTopContent>
-                                                        <SmallArticleCategoryWrapper>
+                                                        <Flex
+                                                            jc="start"
+                                                            laptopM={{ flexDirection: 'start' }}
+                                                        >
                                                             {article.tags &&
                                                                 article.tags
                                                                     .slice(0, 1)
@@ -154,11 +160,17 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
                                                                         .length.toString()}`}
                                                                 </SmallArticleCategories>
                                                             )}
-                                                        </SmallArticleCategoryWrapper>
+                                                        </Flex>
                                                         <SmallArticleDateTimeMobile>
-                                                            {article.published_date}
+                                                            {article?.published_date &&
+                                                                localize(
+                                                                    convertDate(
+                                                                        article?.published_date,
+                                                                    ),
+                                                                )}
                                                             <MobileDotIcon src={Dot} />
-                                                            {article.read_time_in_minutes} min
+                                                            {article.read_time_in_minutes}{' '}
+                                                            <Localize translate_text="min" />
                                                         </SmallArticleDateTimeMobile>
                                                         <Header as="p" type="paragraph-1">
                                                             {article.blog_title}
@@ -168,9 +180,15 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
                                                         {article.blog_description}
                                                     </MobileHeader>
                                                     <SmallArticleDateTimeDesktop>
-                                                        {article.published_date}
+                                                        {article?.published_date &&
+                                                            localize(
+                                                                convertDate(
+                                                                    article?.published_date,
+                                                                ),
+                                                            )}
                                                         <DotIcon src={Dot} />
-                                                        {article.read_time_in_minutes} min read
+                                                        {article.read_time_in_minutes}{' '}
+                                                        <Localize translate_text="min read" />
                                                     </SmallArticleDateTimeDesktop>
                                                 </SmallArticleRightContent>
                                             </SmallArticle>
@@ -184,7 +202,7 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
                 <Tabs.Panel label={localize('Featured posts')}>
                     <ArticleContentWrapper>
                         <LeftContent>
-                            <RedirectLink to={`/academy/blog/${headline_recent.slug}`}>
+                            <RedirectLink to={`/academy/blog/posts/${headline_featured.slug}`}>
                                 <MainArticle>
                                     <QueryImage
                                         className="main-article-bg"
@@ -207,7 +225,7 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
                                             })}
                                         </TagParentWrapper>
                                         <Header as="h3" type="heading-3" color="white" mb="5px">
-                                            {headline_recent.blog_title}
+                                            {headline_featured.blog_title}
                                         </Header>
                                         <Header
                                             as="p"
@@ -215,13 +233,17 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
                                             color="white"
                                             weight="normal"
                                         >
-                                            {headline_recent.blog_description}
+                                            {headline_featured.blog_description}
                                         </Header>
                                     </Description>
                                     <BottomDescription>
-                                        {headline_recent.published_date}
+                                        {headline_featured.published_date &&
+                                            localize(
+                                                convertDate(headline_featured?.published_date),
+                                            )}
                                         <ClockIcon src={Clock} />
-                                        {headline_recent.read_time_in_minutes} min read
+                                        {headline_featured.read_time_in_minutes}
+                                        <Localize translate_text="min read" />
                                     </BottomDescription>
                                 </MainArticle>
                             </RedirectLink>
@@ -231,7 +253,7 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
                                 {featureds.map((article) => {
                                     return (
                                         <RedirectLink
-                                            to={`/academy/blog/${article.slug}`}
+                                            to={`/academy/blog/posts/${article.slug}`}
                                             key={article.slug}
                                         >
                                             <SmallArticle>
@@ -249,7 +271,10 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
                                                 </SmallArticleLeftContent>
                                                 <SmallArticleRightContent>
                                                     <SmallArticleTopContent>
-                                                        <SmallArticleCategoryWrapper>
+                                                        <Flex
+                                                            jc="start"
+                                                            laptopM={{ flexDirection: 'start' }}
+                                                        >
                                                             {article.tags &&
                                                                 article.tags
                                                                     .slice(0, 1)
@@ -267,11 +292,17 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
                                                                         .length.toString()}`}
                                                                 </SmallArticleCategories>
                                                             )}
-                                                        </SmallArticleCategoryWrapper>
+                                                        </Flex>
                                                         <SmallArticleDateTimeMobile>
-                                                            {article.published_date}
+                                                            {article?.published_date &&
+                                                                localize(
+                                                                    convertDate(
+                                                                        article?.published_date,
+                                                                    ),
+                                                                )}
                                                             <MobileDotIcon src={Dot} />
-                                                            {article.read_time_in_minutes} min
+                                                            {article.read_time_in_minutes}{' '}
+                                                            <Localize translate_text="min" />
                                                         </SmallArticleDateTimeMobile>
                                                         <Header as="p" type="paragraph-1">
                                                             {article.blog_title}
@@ -281,9 +312,15 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
                                                         {article.blog_description}
                                                     </MobileHeader>
                                                     <SmallArticleDateTimeDesktop>
-                                                        {article.published_date}
+                                                        {article?.published_date &&
+                                                            localize(
+                                                                convertDate(
+                                                                    article?.published_date,
+                                                                ),
+                                                            )}
                                                         <DotIcon src={Dot} />
-                                                        {article.read_time_in_minutes} min read
+                                                        {article.read_time_in_minutes}{' '}
+                                                        <Localize translate_text="min read" />
                                                     </SmallArticleDateTimeDesktop>
                                                 </SmallArticleRightContent>
                                             </SmallArticle>

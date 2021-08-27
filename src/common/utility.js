@@ -244,3 +244,14 @@ export const redirectOpenLiveChatBox = (is_redirect) => {
         navigate(live_chat_redirection_link, { replace: true })
     }
 }
+
+export const convertDate = (date) => {
+    const newdate = new Date(date)
+    return (
+        newdate.toLocaleString('en', { day: 'numeric' }) +
+        ' ' +
+        newdate.toLocaleString('en', { month: 'long' }) +
+        ' ' +
+        newdate.toLocaleString('en', { year: 'numeric' })
+    )
+}

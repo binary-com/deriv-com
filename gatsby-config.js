@@ -71,7 +71,7 @@ module.exports = {
                 ],
                 serialize: ({ site, allSitePage }) =>
                     allSitePage.edges.map((edge) => {
-                        const ignore_localized_regex = /careers|besquare|blog/
+                        const ignore_localized_regex = /careers|besquare|blog|academy/
                         const path = edge.node.path
                         let priority = 0.7
                         const languages = Object.keys(language_config)
@@ -211,7 +211,7 @@ module.exports = {
         {
             resolve: 'gatsby-plugin-page-progress',
             options: {
-                includePaths: [{ regex: '^/blog/article/' }],
+                includePaths: [{ regex: '^/academy/blog/posts/' }],
                 excludePaths: [],
                 height: 4,
                 prependToBody: true,

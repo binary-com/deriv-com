@@ -100,7 +100,7 @@ const DerivBlog = ({ data }) => {
     const video_list_data = data.directus.videos
 
     return (
-        <Layout type="blog" is_ppc_redirect={true}>
+        <Layout type="academy" is_ppc_redirect={true}>
             <SEO
                 title={localize('Articles, trading guide and resources | Deriv')}
                 description={localize(

@@ -143,6 +143,8 @@ const deriv_other_products = ['binary', 'smart_trader']
 const deriv_social_platforms = ['blog', 'community', 'api', 'zoho']
 // add item to this array if you need to make an internal link open on a new tab without modal window
 const new_tab_no_modal = ['terms_and_conditions']
+// !only for  paths without localisation: add item to this array if you need to make an internal link open on a new tab without modal window
+const only_en_new_tab_no_modal = ['tnc/security-and-privacy.pdf']
 
 const getURLFormat = (type, locale, to, affiliate_lang) => {
     if (deriv_app_links.includes(type)) {
@@ -154,10 +156,11 @@ const getURLFormat = (type, locale, to, affiliate_lang) => {
     } else if (deriv_social_platforms.includes(type)) {
         return `${localized_link_url[type]}${to}`
     } else if (new_tab_no_modal.includes(type)) {
-        return `${localized_link_url[type]}${locale === 'en' ? '' : '/' + locale}/${type.replace(
-            /_/g,
-            '-',
-        )}`
+        return `${localized_link_url.domain_full_url}${
+            locale === 'en' ? '' : '/' + locale
+        }/${type.replace(/_/g, '-')}`
+    } else if (only_en_new_tab_no_modal.includes(type)) {
+        return `${localized_link_url.domain_full_url}/${type.replace(/_/g, '-')}`
     } else {
         return to
     }
@@ -189,9 +192,14 @@ const ExternalLink = ({
         !affiliate_links.includes(type) &&
         !deriv_app_links.includes(type) &&
         !deriv_social_platforms.includes(type) &&
-        !new_tab_no_modal.includes(type)
+        !new_tab_no_modal.includes(type) &&
+        !only_en_new_tab_no_modal.includes(type)
 
     const default_style = { cursor: 'pointer' }
+    let final_target = target
+    if (new_tab_no_modal.includes(type) || only_en_new_tab_no_modal.includes(type)) {
+        final_target = '__blank'
+    }
 
     const handleClick = (e) => {
         if (show_modal) {
@@ -217,7 +225,7 @@ const ExternalLink = ({
             href={!show_modal ? url : ''}
             onClick={show_modal ? handleClick : null}
             disabled={!mounted}
-            target={new_tab_no_modal.includes(type) ? '__blank' : target}
+            target={final_target}
             rel={rel}
             {...props}
         >

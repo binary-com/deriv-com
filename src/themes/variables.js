@@ -60,6 +60,7 @@ const Variables = css`
         --color-grey-39: #f7fafb;
         --color-grey-40: #b3b3b3;
         --color-grey-41: #f8fafb;
+        --color-grey-42: #f5f8f9;
         --color-green: #85acb0;
         --color-blue: #4c76be;
         --color-blue-2: #365899;

@@ -246,6 +246,17 @@ export const redirectOpenLiveChatBox = (is_redirect) => {
     }
 }
 
+export const convertDate = (date) => {
+    const newdate = new Date(date)
+    return (
+        newdate.toLocaleString('en', { day: 'numeric' }) +
+        ' ' +
+        newdate.toLocaleString('en', { month: 'long' }) +
+        ' ' +
+        newdate.toLocaleString('en', { year: 'numeric' })
+    )
+}
+
 // CMS Related Utilities
 export const getAssetUrl = (id) => `${cms_endpoint}assets/${id}`
 

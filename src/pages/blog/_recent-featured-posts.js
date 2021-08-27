@@ -181,7 +181,7 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
                                                         {article?.published_date &&
                                                             convertDate(article?.published_date)}
                                                         <DotIcon src={Dot} />
-                                                        {article.read_time_in_minutes}
+                                                        {article.read_time_in_minutes}{' '}
                                                         <Localize translate_text="min read" />
                                                     </SmallArticleDateTimeDesktop>
                                                 </SmallArticleRightContent>

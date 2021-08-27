@@ -55,7 +55,7 @@ const BlogPreview = () => {
         }
 
         const getPreviews = async () => {
-            const dataFromServer = await fetchBlogPreview(id)
+            const dataFromServer = await fetchBlogPreview()
             setData(dataFromServer)
         }
 

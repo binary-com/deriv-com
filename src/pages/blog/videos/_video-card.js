@@ -109,6 +109,9 @@ const ContentWrapper = styled.div`
 `
 
 const VideoCard = ({ item, openVideo }) => {
+    const first_2_tags = item.tags?.slice(0, 2)
+    const another_tags_number = item.tags.length > 2 ? `+${item.tags.length - 2}` : ''
+    const converted_date = convertDate(item.published_date)
     return (
         // the extra div surrounding the videocard is to get around Safari's different
         // interpretation of height: 100%
@@ -118,14 +121,14 @@ const VideoCard = ({ item, openVideo }) => {
                     <ImageOverlay />
                     <CategoriesContainer jc="flex-start" fw="wrap">
                         {item.tags &&
-                            item.tags.slice(0, 2).map((tag) => (
+                            first_2_tags.map((tag) => (
                                 <StyledCategories as="h4" type="paragraph-2" key={tag.tags_id.id}>
                                     {tag.tags_id.tag_name}
                                 </StyledCategories>
                             ))}
-                        {item.tags.length > 2 && (
+                        {another_tags_number && (
                             <StyledCategories as="h4" type="paragraph-2">
-                                {`+${item.tags.slice(2).length.toString()}`}
+                                {another_tags_number}
                             </StyledCategories>
                         )}
                     </CategoriesContainer>
@@ -146,7 +149,7 @@ const VideoCard = ({ item, openVideo }) => {
                         {item.video_title}
                     </Header>
                     <Header as="h4" type="paragraph-2" weight="normal" mt="8px" color="grey-40">
-                        {convertDate(item.published_date)}
+                        {converted_date}
                     </Header>
                 </ContentWrapper>
             </VideoCardWrapper>

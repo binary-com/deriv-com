@@ -2,7 +2,7 @@ import { navigate } from 'gatsby'
 import Cookies from 'js-cookie'
 import extend from 'extend'
 import {
-    cms_endpoint,
+    cms_assets_end_point,
     deriv_cookie_domain,
     deriv_app_languages,
     live_chat_redirection_link,
@@ -258,7 +258,7 @@ export const convertDate = (date) => {
 }
 
 // CMS Related Utilities
-export const getAssetUrl = (id) => `${cms_endpoint}assets/${id}`
+export const getAssetUrl = (id) => `${cms_assets_end_point}${id}`
 
 export const getVideoObject = (video_data) => {
     const {

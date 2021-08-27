@@ -164,7 +164,7 @@ export const PreviewContainer = styled(Box)`
     font-size: 16px;
     max-width: 792px;
     width: 100%;
-    padding-bottom: 16px;
+    margin-bottom: 40px;
 
     & br {
         display: none;
@@ -214,7 +214,8 @@ export const PreviewContainer = styled(Box)`
         }
     }
     & img {
-        max-width: 100%;
+        max-width: 610px;
+        width: 100%;
         height: auto;
         display: block;
         margin: auto;

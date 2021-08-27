@@ -98,18 +98,20 @@ const Dbanner = ({ video_list }) => {
                             <PlayerIcon width="20px" height="20px" src={PlayIcon} />
                         </PlayerIconWrapper>
                         <TagParentWrapper height="22px" jc="flex-start">
-                            <TagWrapper ai="center" width="auto" p="1px 8px">
-                                {types.slice(0, 2).map((t) => (
-                                    <Header key={t} type="paragraph-2" color="orange-2">
+                            {types.slice(0, 2).map((t) => (
+                                <TagWrapper key={t} ai="center" width="auto" p="1px 8px" mr="8px">
+                                    <Header type="paragraph-2" color="orange-2">
                                         {t}
                                     </Header>
-                                ))}
-                                {types.length > 2 && (
+                                </TagWrapper>
+                            ))}
+                            {types.length > 2 && (
+                                <TagWrapper ai="center" width="auto" p="1px 8px">
                                     <Header type="paragraph-2" color="orange-2">
                                         +2
                                     </Header>
-                                )}
-                            </TagWrapper>
+                                </TagWrapper>
+                            )}
                         </TagParentWrapper>
 
                         <Header as="h2" type="heading-2" color="white" mb="8px">

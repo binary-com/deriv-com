@@ -261,10 +261,18 @@ export const convertDate = (date) => {
 export const getAssetUrl = (id) => `${cms_endpoint}assets/${id}`
 
 export const getVideoObject = (video_data) => {
-    const { published_date, video_file, video_thumbnail, video_title, tags } = video_data
+    const {
+        published_date,
+        video_file,
+        video_thumbnail,
+        video_title,
+        video_duration,
+        video_description,
+        tags,
+    } = video_data
 
-    const { id: video_id, description: video_description, duration } = video_file
-    const { id: thumbnail_id, description: alt } = video_thumbnail
+    const { id: video_id } = video_file
+    const { id: thumbnail_id, title: alt } = video_thumbnail
 
     return {
         published_date,
@@ -273,7 +281,7 @@ export const getVideoObject = (video_data) => {
         video_title,
         video_description,
         video_url: getAssetUrl(video_id),
-        video_duration: duration,
+        video_duration,
         types: tags.map((t) => t.tags_id.tag_name),
     }
 }

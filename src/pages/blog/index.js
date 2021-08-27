@@ -61,9 +61,10 @@ export const query = graphql`
                 video_title
                 published_date
                 video_description
+                video_duration
                 video_thumbnail {
                     id
-                    description
+                    title
                 }
                 video_file {
                     id

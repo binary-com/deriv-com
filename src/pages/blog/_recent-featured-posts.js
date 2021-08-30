@@ -52,9 +52,9 @@ const settings = {
 }
 
 const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
-    const recents = recent_data.slice(1)
+    const recents = recent_data
     const headline_recent = recent_data[0]
-    const featureds = featured_data.slice(1)
+    const featureds = featured_data
     const headline_featured = featured_data[0]
 
     return (

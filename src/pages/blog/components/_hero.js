@@ -25,7 +25,7 @@ const ImageWrapper = styled.div`
     height: 100%;
     object-fit: cover;
 
-    > div {
+    > div > div {
         height: 100%;
     }
 

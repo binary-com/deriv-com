@@ -52,9 +52,9 @@ const settings = {
 }
 
 const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
-    const recents = recent_data
+    const recents = recent_data.slice(1)
     const headline_recent = recent_data[0]
-    const featureds = featured_data
+    const featureds = featured_data.slice(1)
     const headline_featured = featured_data[0]
 
     return (
@@ -326,8 +326,8 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
 }
 
 RecentFeaturedPosts.propTypes = {
-    featured_data: PropTypes.array,
-    recent_data: PropTypes.array,
+    featured_data: PropTypes.object,
+    recent_data: PropTypes.object,
 }
 
 export default WithIntl()(RecentFeaturedPosts)

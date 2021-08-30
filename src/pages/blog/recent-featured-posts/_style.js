@@ -76,7 +76,7 @@ export const MainArticle = styled(Flex)`
     }
 
     @media ${device.tablet} {
-        width: 100%;
+        width: 87vw;
         min-width: 270px;
     }
 

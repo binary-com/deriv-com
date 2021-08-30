@@ -194,7 +194,6 @@ const DerivBlog = ({ data }) => {
             </MainWrapper>
             <RecentFeaturedPosts recent_data={recent_data} featured_data={featured_data} />
             <DVideoBanner />
-            <RecentFeaturedPosts />
             <DVideoBanner video_list_data={video_list_data} />
             <MarketNews data={market_news_data} />
             <Container>

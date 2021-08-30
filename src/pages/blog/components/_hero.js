@@ -28,6 +28,9 @@ const ImageWrapper = styled.div`
     > div {
         height: 100%;
     }
+    > div > div {
+        height: 100%;
+    }
 
     @media ${device.tabletL} {
         display: flex;

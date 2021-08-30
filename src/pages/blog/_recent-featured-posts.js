@@ -85,8 +85,8 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
                                             {headline_recent.tags.map((article) => {
                                                 return (
                                                     <>
-                                                        <TagWrapper>
-                                                            <StyledCategories key={article.id}>
+                                                        <TagWrapper key={article.id}>
+                                                            <StyledCategories>
                                                                 {article.tags_id.tag_name}
                                                             </StyledCategories>
                                                         </TagWrapper>
@@ -209,8 +209,8 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
                                             {headline_featured.tags.map((article) => {
                                                 return (
                                                     <>
-                                                        <TagWrapper>
-                                                            <StyledCategories key={article.id}>
+                                                        <TagWrapper key={article.id}>
+                                                            <StyledCategories>
                                                                 {article.tags_id.tag_name}
                                                             </StyledCategories>
                                                         </TagWrapper>
@@ -326,8 +326,8 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
 }
 
 RecentFeaturedPosts.propTypes = {
-    featured_data: PropTypes.object,
-    recent_data: PropTypes.object,
+    featured_data: PropTypes.array,
+    recent_data: PropTypes.array,
 }
 
 export default WithIntl()(RecentFeaturedPosts)

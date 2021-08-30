@@ -307,6 +307,7 @@ const DHero = ({
                 <LinkWrapper>
                     {join_us_for_free && (
                         <StyledLinkButton
+                            id="dm-signup-redirect"
                             secondary="true"
                             to={is_ppc ? '/landing/signup/' : '/signup/'}
                         >

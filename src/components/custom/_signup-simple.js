@@ -77,7 +77,7 @@ const SignupSimple = ({
                         />
                     </InputWrapper>
                     <EmailButton
-                        id="gtm-signup-email"
+                        id="dm-signup-button"
                         type="submit"
                         secondary="true"
                         disabled={is_submitting}

@@ -42,7 +42,7 @@ const StartTrading = () => {
                         )}
                     </FixTimeline.Item>
                 </FixTimeline>
-                <LinkButton secondary to="/signup/">
+                <LinkButton id="dm-signup-redirect" secondary to="/signup/">
                     {localize('Create free demo account')}
                 </LinkButton>
             </SmallContainer>

@@ -199,7 +199,7 @@ const Hero = ({ is_ppc }) => {
                     </ImageWrapper>
                 </StyledHeroContainer>
                 <ButtonWrapper>
-                    <HeroButton data-deriv="dm-link-signup-redirect" secondary="true" to="/signup/">
+                    <HeroButton id="dm-signup-redirect" secondary="true" to="/signup/">
                         <Localize translate_text="Create free demo account" />
                     </HeroButton>
                 </ButtonWrapper>

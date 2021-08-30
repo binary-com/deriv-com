@@ -137,6 +137,7 @@ const DBanner = ({ background_pattern, data, is_ppc, title }) => {
                         {title}
                     </StyledHeader>
                     <StyledLinkButton
+                        id="dm-signup-redirect"
                         type="submit"
                         secondary="true"
                         to={is_ppc ? '/landing/signup/' : '/signup/'}

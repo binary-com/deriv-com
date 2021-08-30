@@ -73,7 +73,7 @@ const WhyTradeCFD = () => {
                 <Text align="left" width="100%" weight="bold">
                     {localize("Don't have a Deriv account yet?")}
                 </Text>
-                <LinkButton mt="1.6rem" to="/signup/" secondary="true">
+                <LinkButton id="dm-signup-redirect" mt="1.6rem" to="/signup/" secondary="true">
                     {localize('Create free demo account')}
                 </LinkButton>
             </SmallContainer>

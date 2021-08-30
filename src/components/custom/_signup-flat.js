@@ -129,7 +129,7 @@ const SignupFlat = ({
                     <InputGroup>
                         <InputWrapper>
                             <Input
-                                id="dm-input-signup-email"
+                                id="dm-signup-email-input"
                                 name="email"
                                 background={dark ? 'black' : 'white'}
                                 inputColor={dark ? 'grey-7' : 'black'}
@@ -147,6 +147,7 @@ const SignupFlat = ({
                             />
                         </InputWrapper>
                         <EmailButton
+                            id="dm-signup-button"
                             type="submit"
                             secondary="true"
                             disabled={is_submitting}

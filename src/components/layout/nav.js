@@ -581,7 +581,10 @@ const NavDesktop = ({ base, is_ppc, is_ppc_redirect, is_logged_in, hide_signup_l
                                 <span>{localize('Log in')}</span>
                             </NowrapButton>
                         )}
-                        <LocalizedLink to={is_ppc_redirect ? '/landing/signup/' : '/signup/'}>
+                        <LocalizedLink
+                            id="dm-signup-redirect"
+                            to={is_ppc_redirect ? '/landing/signup/' : '/signup/'}
+                        >
                             {!hide_signup_login && (
                                 <SignupButton ref={button_ref} secondary="true">
                                     <span>{localize('Create free demo account')}</span>

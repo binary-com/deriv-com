@@ -234,7 +234,7 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
                                         {headline_featured.published_date &&
                                             convertDate(headline_featured?.published_date)}
                                         <ClockIcon src={Clock} />
-                                        {headline_featured.read_time_in_minutes}
+                                        {headline_featured.read_time_in_minutes}{' '}
                                         <Localize translate_text="min read" />
                                     </BottomDescription>
                                 </MainArticle>

@@ -326,8 +326,8 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
 }
 
 RecentFeaturedPosts.propTypes = {
-    featured_data: PropTypes.object,
-    recent_data: PropTypes.object,
+    featured_data: PropTypes.array,
+    recent_data: PropTypes.array,
 }
 
 export default WithIntl()(RecentFeaturedPosts)

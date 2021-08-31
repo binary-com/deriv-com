@@ -19,8 +19,10 @@ const StyledHeader = styled(Header)`
     max-width: 17.5rem;
 
     @media ${device.tablet} {
+        text-align: center;
         max-width: 100%;
-        font-size: var(--text-size-header-4);
+        font-size: 24px;
+        line-height: 30px;
     }
 `
 

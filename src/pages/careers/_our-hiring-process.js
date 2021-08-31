@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { Container, SectionContainer, Flex, Show } from 'components/containers'
 import { Text, Header, LinkText } from 'components/elements'
+import { LinkButton } from 'components/form'
 import device from 'themes/device'
 // SVG
 import Career1 from 'images/svg/career-1.svg'
@@ -14,7 +15,7 @@ import DownwardsLeft from 'images/svg/downwards-left.svg'
 import DownwardsRight from 'images/svg/downwards-right.svg'
 
 const StyledSectionContainer = styled(SectionContainer)`
-    padding: 10rem 0 12rem;
+    padding: 10rem 0 5rem 0;
     border-top: 2px solid #e5e5e5;
 
     @media ${device.tablet} {
@@ -32,6 +33,28 @@ const StyledHeader = styled(Header)`
     }
 `
 
+const StyledLinkButton = styled(LinkButton)`
+    padding: 24px;
+    font-size: 20px;
+    font-weight: bold;
+`
+
+const StyledAnotherHeader = styled(Header)`
+    margin-top: 6rem;
+    margin-bottom: 5rem;
+    font-size: 32px;
+    line-height: 40px;
+
+    & span {
+        color: var(--color-red);
+    }
+
+    @media ${device.tablet} {
+        font-size: 24px;
+        line-height: 30px;
+    }
+`
+
 const ProcessContainer = styled.div`
     position: relative;
     display: flex;
@@ -43,6 +66,10 @@ const StyledTipsCard = styled(Flex)`
     padding: 2.4rem;
     position: relative;
     max-width: 350px;
+
+    @media ${device.tablet} {
+        max-width: 100% !important;
+    }
 
     &::after {
         content: '';
@@ -71,6 +98,15 @@ const StyledTipsCard = styled(Flex)`
 const TipsRounded = styled.img`
     margin-right: 0.8rem;
 `
+const TipsCardText = styled(Text)`
+    font-size: 16px;
+    line-height: 24px;
+`
+
+const StyledContainer = styled(Container)`
+    flex-direction: column;
+    align-items: center;
+`
 
 const TipsCard = ({ content, right, style }) => (
     <StyledTipsCard direction="column" right={right} style={style}>
@@ -78,7 +114,7 @@ const TipsCard = ({ content, right, style }) => (
             <TipsRounded src={TipIcon} alt="career1" />
             <Text weight="bold">Tips:</Text>
         </Flex>
-        <Text size="14px">{content}</Text>
+        <TipsCardText>{content}</TipsCardText>
     </StyledTipsCard>
 )
 
@@ -104,6 +140,10 @@ const DescriptionText = styled(Text)`
 
 const ProcessWrapper = styled(Flex)`
     max-width: 46.4rem;
+
+    @media ${device.tablet} {
+        max-width: 100% !important;
+    }
 `
 
 const Process = ({ title, description, style }) => (
@@ -150,18 +190,39 @@ const StyledCareer4 = styled.img`
     ${SharedIconRightStyles}
 `
 
-const DownwardsShape = styled(Show.Desktop)`
+const DownwardsShape = styled.div`
     display: flex;
     justify-content: center;
     align-items: flex-start;
 `
 
 const StyledDownwardsRight = styled.img`
-    margin: -25px 60px -40px 0;
+    margin: -128px 82px -97px 0;
+    height: 400px;
+
+    @media ${device.tablet} {
+        margin: 0 -60px -109px 0;
+        height: auto;
+    }
+`
+const StyledDownwardsRight1 = styled.img`
+    margin: -82px 60px -78px 0;
+    height: 400px;
+
+    @media ${device.tablet} {
+        margin: 0 -60px -109px 0;
+        height: auto;
+    }
 `
 
 const StyledDownwardsLeft = styled.img`
-    margin: -25px 0 -70px 50px;
+    margin: -80px -19px -152px 0;
+    height: 400px;
+
+    @media ${device.tablet} {
+        margin: 0 0 -109px -61px;
+        height: auto;
+    }
 `
 
 const ResponsiveFlex1 = styled(Flex)`
@@ -183,13 +244,15 @@ const ResponsiveFlex2 = styled(Flex)`
         flex-direction: column;
         align-items: flex-start;
         margin-top: 4.8rem;
+        margin-left: 0;
+        width: 100%;
     }
 `
 
 const SubResponsiveFlex2 = styled(Flex)`
     @media ${device.tablet} {
         flex-direction: column-reverse;
-        align-items: flex-start;
+        align-items: flex-end;
     }
 `
 
@@ -258,7 +321,7 @@ const OurHiringProcess = () => (
                     </SubResponsiveFlex1>
                 </ResponsiveFlex1>
                 <DownwardsShape>
-                    <StyledDownwardsRight src={DownwardsRight} alt="downwards right" />
+                    <StyledDownwardsRight1 src={DownwardsRight} alt="downwards right" />
                 </DownwardsShape>
                 <ResponsiveFlex2 direction="row" ml="2.4rem" mt="1rem" width="unset">
                     <SubResponsiveFlex2 direction="row" width="unset">
@@ -323,6 +386,22 @@ const OurHiringProcess = () => (
                 </ResponsiveFlex4>
             </ProcessContainer>
         </Container>
+
+        <StyledContainer>
+            <StyledAnotherHeader as="h3" type="section-title" align="center">
+                Make an impact. Start your Deriv journey <span>now</span>
+            </StyledAnotherHeader>
+            <StyledLinkButton
+                secondary="true"
+                to={'/'}
+                external="true"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                See all jobs
+            </StyledLinkButton>
+        </StyledContainer>
+
         <Show.Eu>
             <Container>
                 <StyledText mt="8rem">

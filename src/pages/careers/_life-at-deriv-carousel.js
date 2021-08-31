@@ -8,7 +8,7 @@ import GymImage from 'images/common/careers/gym.jpg'
 import FitnessImage from 'images/common/careers/fitness.jpg'
 import LunchImage from 'images/common/careers/lunch.jpg'
 import GamesImage from 'images/common/careers/games.jpg'
-import GreenAreaImage from 'images/common/careers/green-area.jpg'
+// import GreenAreaImage from 'images/common/careers/green-area.jpg'
 
 const StyledSection = styled(SectionContainer)`
     padding: 12rem 0;
@@ -34,38 +34,22 @@ const ImageWrapper = styled.div`
         }
     }
 `
-const MasonryGrid = styled.div`
-    max-width: 100%;
-    padding: 1rem;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 1fr auto;
-    grid-gap: 2rem;
+const GridDiv = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 10px;
 `
+const ColumnDiv = styled.div`
+    flex: 50%;
+    max-width: 50%;
+    padding: 10px;
 
-const ImageOne = styled.div`
-    grid-row: span 1;
-    grid-column: span 1;
-`
-const ImageTwo = styled.div`
-    grid-column: span 1;
-    grid-row: span 2;
-`
-const ImageThree = styled.div`
-    grid-column: span 1;
-    grid-row: span 2;
-`
-const ImageFour = styled.div`
-    grid-column: span 1;
-    grid-row: span 1;
-`
-const ImageFive = styled.div`
-    grid-column: span 0.5;
-    grid-row: span 1;
-`
-const ImageSix = styled.div`
-    grid-column: 3 / 5;
+    & img {
+        margin-top: 20px;
+        vertical-align: middle;
+        width: 100%;
+        border-radius: 10px;
+    }
 `
 
 const ImageSlide = ({ img_path, img_alt }) => {
@@ -89,62 +73,16 @@ const LifeAtDerivCarousel = () => {
                     <StyledHeader align="center" as="h3" type="section-title">
                         Life at Deriv
                     </StyledHeader>
-                    <MasonryGrid>
-                        <ImageOne>
-                            <img
-                                src={FitnessImage}
-                                alt={''}
-                                width="100%"
-                                height="100%"
-                                loading="lazy"
-                            />
-                        </ImageOne>
-                        <ImageTwo>
-                            <img
-                                src={GymImage}
-                                alt={''}
-                                width="100%"
-                                height="100%"
-                                loading="lazy"
-                            />
-                        </ImageTwo>
-                        <ImageThree>
-                            <img
-                                src={LunchImage}
-                                alt={''}
-                                width="100%"
-                                height="100%"
-                                loading="lazy"
-                            />
-                        </ImageThree>
-                        <ImageFour>
-                            <img
-                                src={GamesImage}
-                                alt={''}
-                                width="100%"
-                                height="100%"
-                                loading="lazy"
-                            />
-                        </ImageFour>
-                        <ImageFive>
-                            <img
-                                src={FitnessImage}
-                                alt={''}
-                                width="100%"
-                                height="100%"
-                                loading="lazy"
-                            />
-                        </ImageFive>
-                        <ImageSix>
-                            <img
-                                src={GreenAreaImage}
-                                alt={''}
-                                width="100%"
-                                height="100%"
-                                loading="lazy"
-                            />
-                        </ImageSix>
-                    </MasonryGrid>
+                    <GridDiv>
+                        <ColumnDiv>
+                            <img src={GymImage} style={{ height: '348px' }} />
+                            <img src={FitnessImage} />
+                        </ColumnDiv>
+                        <ColumnDiv>
+                            <img src={LunchImage} />
+                            <img src={GamesImage} style={{ height: '348px' }} />
+                        </ColumnDiv>
+                    </GridDiv>
                 </Container>
             </StyledSection>
         </>

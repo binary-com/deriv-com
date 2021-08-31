@@ -6,6 +6,7 @@ import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import { derivx_app_url, deriv_app_url } from 'common/constants'
 import { Text } from 'components/elements'
 import { localize, Localize, WithIntl } from 'components/localization'
+// TOOD: uncomment once deriv x real is ready import { LocalizedLinkText } from 'components/elements'
 
 const ExternalLink = styled.a`
     text-decoration: none;
@@ -225,9 +226,14 @@ const AccountInformation = () => (
 //                 'To withdraw funds from your Deriv X account on Deriv, you’ll first need to transfer the funds to your Deriv account. Go to Cashier > Transfer between accounts and follow the instructions on the screen.',
 //             )}
 //         </Text>
+//        <StyledText>
+//             {localize(
+//                 'To withdraw from your Deriv account into your personal account, go to Cashier -> Withdrawal and follow the instructions on the screen. You’ll receive an email with a verification link. Click the link to confirm your withdrawal amount.',
+//             )}
+//         </StyledText>
 //         <StyledText>
 //             {localize(
-//                 'To withdraw from your Deriv account into your personal account, go to Cashier -> Withdrawal and follow the instructions on the screen. You’ll need to verify your identity and confirm your withdrawal amount.',
+//                 'Your funds will be available in your personal account once your payment is processed. You can check processing times on our Payment methods page.',
 //             )}
 //         </StyledText>
 //         <Text mt="1.7rem">

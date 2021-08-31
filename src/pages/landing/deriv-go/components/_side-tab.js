@@ -4,37 +4,23 @@ import styled, { css } from 'styled-components'
 import { Flex, Show } from 'components/containers'
 import { Text } from 'components/elements'
 import device from 'themes/device'
-import { ReactComponent as Info } from 'images/svg/info2.svg'
 
 const TabContent = styled.div`
     flex: 1;
     width: 100%;
 `
-// const Mobile = styled(Show.Mobile)`
 
-// `
-
-const TabButton = styled.div`
+const TabButton = styled(Flex)`
     position: relative;
     z-index: 2;
-    display: flex;
     flex-direction: column;
-    padding-left: 1.6rem;
-    margin-bottom: 1.6rem;
+    justify-content: flex-start;
+    padding-top: 40px;
+    width: 428px;
     cursor: pointer;
-
-    &::before {
-        content: '';
-        position: absolute;
-        width: 4px;
-        height: 100%;
-        left: 0;
-        top: 0;
-        background: ${(props) => (props.selected ? 'var(--color-red)' : 'var(--color-grey-29)')};
-        transition: background 0.25s;
-    }
-    &:last-child {
-        margin-bottom: 0;
+    @media ${device.tabletL} {
+        width: fit-content;
+        padding-top: 10px;
     }
 `
 
@@ -55,15 +41,32 @@ const TabListWrapper = styled.div`
     display: flex;
     flex-direction: column;
 
-    @media ${device.tabletS} {
+    @media ${device.tabletL} {
         max-width: 100%;
         margin: 0;
     }
 `
+const TextLabel = styled(Text)`
+    font-size: 32px;
+    @media ${device.tabletL} {
+        font-size: 24px;
+    }
+`
 
-const Content = styled.div`
-    flex: 1;
-    width: 100%;
+const TextDesc = styled(Text)`
+    font-size: 24px;
+    @media ${device.tabletL} {
+        font-size: 18px;
+    }
+`
+
+const Content = styled(Flex)`
+    display: grid;
+    justify-content: center;
+    padding-top: 80px;
+    @media ${device.tabletL} {
+        padding-top: 24px;
+    }
 `
 
 const Desktop = styled(Show.Desktop)`
@@ -73,8 +76,8 @@ const Desktop = styled(Show.Desktop)`
 
 const Mobile = styled(Show.Mobile)`
     @media ${device.tabletS} {
-        margin-top: 1.6rem;
-        margin-bottom: 2.3rem;
+        margin-top: 0.8rem;
+        margin-bottom: 0;
 
         &:last-child {
             margin-bottom: 0;
@@ -83,40 +86,6 @@ const Mobile = styled(Show.Mobile)`
     @media ${device.mobileL} {
         margin-top: 0.8rem;
         margin-bottom: 0;
-    }
-`
-
-const NoticeWrapper = styled(Flex)`
-    width: 100%;
-    margin: 3.2rem 0 0 2.2rem;
-    align-self: flex-start;
-
-    @media ${device.tabletL} {
-        margin: 32px 0 0 0;
-        justify-content: flex-start;
-    }
-`
-
-const StyledInfo = styled(Info)`
-    margin-right: 8px;
-    margin-top: 4px;
-
-    @media ${device.tabletL} {
-        margin-right: 8px;
-        margin-left: -10px;
-    }
-`
-const StyledText = styled(Text)`
-    line-height: 2.4rem;
-    max-width: 36rem;
-    width: 94%;
-
-    @media ${device.tabletL} {
-        line-height: 24px;
-        max-width: 100%;
-    }
-    @media ${device.tabletS} {
-        font-size: 18px;
     }
 `
 
@@ -131,7 +100,7 @@ TabPanel.propTypes = {
     className: PropTypes.string,
 }
 
-const Tabs = ({ children, is_reverse, className, max_width, has_notice, notice_content }) => {
+const Tabs = ({ children, is_reverse, className, max_width }) => {
     const [selected_tab, setSelectedTab] = React.useState(0)
     const selectTab = (tabIndex) => {
         setSelectedTab(tabIndex)
@@ -154,12 +123,12 @@ const Tabs = ({ children, is_reverse, className, max_width, has_notice, notice_c
                                     aria-selected={selected_tab === index ? 'true' : 'false'}
                                     onClick={() => selectTab(index)}
                                 >
-                                    <Text className="side-tab__label" weight="bold">
+                                    <TextLabel className="side-tab__label" weight="bold">
                                         {label}
-                                    </Text>
-                                    <Text className="side-tab__description" mt="0.8rem">
+                                    </TextLabel>
+                                    <TextDesc className="side-tab__description" mt="0.8rem">
                                         {description}
-                                    </Text>
+                                    </TextDesc>
                                 </TabButton>
                                 <Mobile
                                     className="side-tab__mobile"
@@ -171,12 +140,6 @@ const Tabs = ({ children, is_reverse, className, max_width, has_notice, notice_c
                         )
                     })}
                 </TabList>
-                {has_notice && (
-                    <NoticeWrapper>
-                        <StyledInfo />
-                        <StyledText>{notice_content}</StyledText>
-                    </NoticeWrapper>
-                )}
             </TabListWrapper>
             <Desktop className="side-tab__desktop" max_width={max_width || 'tabletS'}>
                 <Content>
@@ -194,11 +157,8 @@ Tabs.Panel = TabPanel
 Tabs.propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,
-    has_notice: PropTypes.bool,
     is_reverse: PropTypes.bool,
     max_width: PropTypes.string,
-    notice_content: PropTypes.object,
-    tab_break: PropTypes.string,
 }
 
 export default Tabs

@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import SideTab from './components/_side-tab'
-import { Localize, localize } from 'components/localization'
+import { Localize, localize, LocalizedLink } from 'components/localization'
 import { SectionContainer, Container } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
 import device from 'themes/device'
@@ -23,16 +23,16 @@ const query = graphql`
 
 const StyledSectionContainer = styled(SectionContainer)`
     height: 887px;
-    padding-top: 40px;
+    padding-top: 80px;
 
     @media ${device.tablet} {
         height: 824px;
+        margin-bottom: 40px;
         padding-top: 20px;
     }
 `
 const SmallContainer = styled(Container)`
-    width: 60%;
-    max-width: 62.5rem;
+    width: 100%;
     @media ${device.tabletL} {
         width: 90%;
         padding-left: 0;
@@ -48,18 +48,31 @@ const ImageWrapper = styled.div`
         height: 386px;
     }
 `
+const StyledLocalizedLink = styled(LocalizedLink)`
+    text-decoration: none;
+    color: rgba(255, 68, 79, 1);
+
+    &:hover {
+        text-decoration: underline;
+    }
+`
 
 const StartDerivGo = () => {
     const data = useStaticQuery(query)
     return (
         <StyledSectionContainer>
             <SmallContainer direction="column" ai="flex-start">
-                <Header type="heading-2">{localize('How to get started with Deriv GO')}</Header>
+                <Header type="heading-2" align="center">
+                    {localize('How to get started with Deriv GO')}
+                </Header>
                 <SideTab>
                     <SideTab.Panel
                         label={<Localize translate_text="1. Create your Deriv account" />}
                         description={
-                            <Localize translate_text="Sign up with your email, Facebook, or Google account." />
+                            <Localize
+                                translate_text="<0>Sign up</0> with your email, Facebook, or Google account."
+                                components={[<StyledLocalizedLink to="/signup/" key={0} />]}
+                            />
                         }
                     >
                         <ImageWrapper>

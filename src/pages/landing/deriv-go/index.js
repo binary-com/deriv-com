@@ -1,5 +1,5 @@
 import React from 'react'
-import { Banner, DerivGoContent, FooterBanner } from './_lazy-load.js'
+import { Banner, DerivGoContent, FooterBanner, StartDerivGo } from './_lazy-load.js'
 import OtherApps from './_other-apps'
 import WhatIsDerivGo from './_what-is-deriv-go'
 import WhyTradeDerivGo from './_why-trade-deriv-go'
@@ -49,7 +49,7 @@ const DerivGo = () => {
             <WhatIsDerivGo />
             <WhyTradeDerivGo />
             <DerivGoContent reverse P2P={items} />
-            {/* <StartDerivGo /> */}
+            <StartDerivGo />
             <FooterBanner />
             <OtherApps />
         </Layout>

@@ -45,20 +45,38 @@ const AgreementLabel = ({
                 checked={isChecked}
             />
             <CheckboxSpan color={color}>
-                <Localize
-                    fontSize="var(--text-size-xs)"
-                    translate_text={link_text}
-                    components={[
-                        <LocalizedLinkText
-                            key={0}
-                            type={link_path}
-                            external="true"
-                            rel="noopener noreferrer"
-                            size="14px"
-                            color="red"
-                        />,
-                    ]}
-                />
+                {link_text === 'I agree to the <0>terms and conditions</0>' && (
+                    <Localize
+                        fontSize="var(--text-size-xs)"
+                        translate_text="I agree to the <0>terms and conditions</0>"
+                        components={[
+                            <LocalizedLinkText
+                                key={0}
+                                type={link_path}
+                                external="true"
+                                rel="noopener noreferrer"
+                                size="14px"
+                                color="red"
+                            />,
+                        ]}
+                    />
+                )}
+                {link_text === 'Send me marketing materials too!' && (
+                    <Localize
+                        fontSize="var(--text-size-xs)"
+                        translate_text="Send me marketing materials too!"
+                        components={[
+                            <LocalizedLinkText
+                                key={0}
+                                type={link_path}
+                                external="true"
+                                rel="noopener noreferrer"
+                                size="14px"
+                                color="red"
+                            />,
+                        ]}
+                    />
+                )}
             </CheckboxSpan>
         </label>
     )

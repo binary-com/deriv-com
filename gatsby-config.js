@@ -208,5 +208,12 @@ module.exports = {
                 offset: -100,
             },
         },
+        {
+            resolve: 'gatsby-source-trustpilot-api',
+            options: {
+                apiKey: 'akv2qmqDeOA8utqGyVhmLhGPSsN4ADaL',
+                domainName: 'deriv.com',
+            },
+        },
     ],
 }

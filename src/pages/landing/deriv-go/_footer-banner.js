@@ -28,7 +28,7 @@ const query = graphql`
 
 const StyledContainer = styled(Container)`
     flex-direction: row;
-    padding-top: 30px;
+    padding-top: 60px;
     padding-bottom: 80px;
     @media ${device.tabletL} {
         flex-direction: column;

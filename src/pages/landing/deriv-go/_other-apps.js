@@ -14,7 +14,7 @@ const StyledSectionContainer = styled(SectionContainer)`
     padding-top: 80px;
 
     @media ${device.tablet} {
-        padding-top: 20px;
+        padding-top: 40px;
     }
 `
 
@@ -40,7 +40,11 @@ const LearnMore = styled(LocalizedLink)`
     align-items: center;
     font-size: 20px;
     color: rgba(255, 68, 79, 1);
+    text-decoration: none;
 
+    &:hover {
+        text-decoration: underline;
+    }
     & > img {
         width: 7px;
         height: 12px;

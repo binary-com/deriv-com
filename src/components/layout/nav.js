@@ -586,7 +586,11 @@ const NavDesktop = ({ base, is_ppc, is_ppc_redirect, is_logged_in, hide_signup_l
                             to={is_ppc_redirect ? '/landing/signup/' : '/signup/'}
                         >
                             {!hide_signup_login && (
-                                <SignupButton ref={button_ref} secondary="true">
+                                <SignupButton
+                                    id="dm-signup-redirect"
+                                    ref={button_ref}
+                                    secondary="true"
+                                >
                                     <span>{localize('Create free demo account')}</span>
                                 </SignupButton>
                             )}
@@ -1000,6 +1004,7 @@ export const NavPartners = ({ no_login_signup }) => {
                                     <span>{localize('Affiliate & IB log in')}</span>
                                 </LinkButton>
                                 <LinkSignupButton
+                                    id="dm-affiliate-signup-redirect"
                                     to={affiliate_signup_url}
                                     external="true"
                                     type="affiliate_sign_up"

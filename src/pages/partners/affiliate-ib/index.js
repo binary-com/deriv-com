@@ -168,6 +168,7 @@ const AffiliateIb = () => {
                     {localize('online trading provider')}
                 </StyledHeader>
                 <StyledLinkButton
+                    id="dm-affiliate-signup-redirect"
                     to={affiliate_signup_url}
                     external="true"
                     target="_blank"

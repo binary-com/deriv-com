@@ -76,7 +76,7 @@ export const MainArticle = styled(Flex)`
     }
 
     @media ${device.tablet} {
-        width: 87vw;
+        width: 88vw;
         min-width: 270px;
     }
 
@@ -200,6 +200,8 @@ export const SmallArticleCategories = styled(Text)`
 
     @media ${device.laptopM} {
         position: static;
+        height: 18px;
+        padding: 0 8px 0;
         font-size: 10px;
     }
 `

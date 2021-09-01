@@ -57,6 +57,8 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
     const featureds = featured_data.slice(1)
     const headline_featured = featured_data[0]
 
+    const truncateString = (input) => (input.length > 40 ? `${input.substring(0, 40)}...` : input)
+
     return (
         <StyledContainer m="20px auto 0" fd="column" ai="center">
             <StyledTabs
@@ -171,11 +173,11 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
                                                             <Localize translate_text="min" />
                                                         </SmallArticleDateTimeMobile>
                                                         <Header as="p" type="paragraph-1">
-                                                            {article.blog_title}
+                                                            {truncateString(article.blog_title)}
                                                         </Header>
                                                     </SmallArticleTopContent>
                                                     <MobileHeader as="p" type="paragraph-1">
-                                                        {article.blog_description}
+                                                        {truncateString(article.blog_title)}
                                                     </MobileHeader>
                                                     <SmallArticleDateTimeDesktop>
                                                         {article?.published_date &&
@@ -295,11 +297,11 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
                                                             <Localize translate_text="min" />
                                                         </SmallArticleDateTimeMobile>
                                                         <Header as="p" type="paragraph-1">
-                                                            {article.blog_title}
+                                                            {truncateString(article.blog_title)}
                                                         </Header>
                                                     </SmallArticleTopContent>
                                                     <MobileHeader as="p" type="paragraph-1">
-                                                        {article.blog_description}
+                                                        {truncateString(article.blog_title)}
                                                     </MobileHeader>
                                                     <SmallArticleDateTimeDesktop>
                                                         {article?.published_date &&

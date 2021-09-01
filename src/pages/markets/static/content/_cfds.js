@@ -66,7 +66,7 @@ export const forex_cfds = {
             component: <ExoticPairs />,
         },
         {
-            title: <Localize translate_text="Smart FX" />,
+            title: <Localize translate_text="SmartFX" />,
             component: <SmartFX />,
             details: SmartFXDetails,
         },

@@ -48,7 +48,7 @@ const CFDs = () => {
         template: 2,
         content: [
             {
-                title: <Localize translate_text="Smart FX" />,
+                title: <Localize translate_text="SmartFX" />,
                 component: <SmartFX />,
                 details: SmartFXDetails,
                 col: 3,
@@ -60,7 +60,7 @@ const CFDs = () => {
     const forex_cfds_mobile = {
         content: [
             {
-                title: <Localize translate_text="Smart FX" />,
+                title: <Localize translate_text="SmartFX" />,
                 component: <SmartFX />,
                 details: SmartFXDetails,
             },

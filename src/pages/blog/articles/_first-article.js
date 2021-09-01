@@ -13,7 +13,8 @@ const StyledFlex = styled(Flex)`
     overflow: hidden;
     transition: transform 0.3s;
     cursor: pointer;
-    width: 77vw;
+    width: 78vw;
+    max-width: 1200px;
 
     &:hover {
         transform: translateY(-1.1rem) scale(1.02);
@@ -59,7 +60,6 @@ const FirstContentWrapper = styled(Flex)`
 
 const RedirectLink = styled(LocalizedLink)`
     text-decoration: none;
-    max-width: 1200px;
 `
 
 const FirstArticle = ({ item }) => {

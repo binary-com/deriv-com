@@ -72,7 +72,7 @@ const CFDs = () => {
             <Flex max_width="720px" m="0 auto" direction="column">
                 <StyledText align="center">
                     {localize(
-                        'Trade Forex with multipliers for high leverage, tight spreads and benefit from multiple opportunities to trade on world events.',
+                        'Trade forex with multipliers for high leverage, tight spreads, and benefit from multiple opportunities to trade on world events.',
                     )}
                 </StyledText>
                 <AvailablePlatformsWrapper mb="40px">

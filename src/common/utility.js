@@ -247,14 +247,12 @@ export const redirectOpenLiveChatBox = (is_redirect) => {
 
 // Function which returns sub path to the specific trading platform
 export const redirectToTradingPlatform = () => {
-    const url_location = window.location.href
-
     const dmt5_url = 'mt5'
     const dbot_url = 'bot'
     const derivx_url = 'derivx'
 
     const isUserAt = () => {
-        const checkURL = (keyURL) => url_location.indexOf(keyURL) > -1
+        const checkURL = (platform) => window.location.pathname.includes(platform)
         return { dmt5: checkURL(dmt5_url), dbot: checkURL(dbot_url), derivx: checkURL(derivx_url) }
     }
 

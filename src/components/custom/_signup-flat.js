@@ -164,7 +164,7 @@ const SignupFlat = ({
                             onClick={handleSocialSignup}
                             provider="google"
                             data-provider="google"
-                            id="gtm-signup-google"
+                            id="dm-signup-google"
                             type="button"
                             social
                         >
@@ -177,7 +177,7 @@ const SignupFlat = ({
                             onClick={handleSocialSignup}
                             provider="facebook"
                             data-provider="facebook"
-                            id="gtm-signup-facebook"
+                            id="dm-signup-facebook"
                             type="button"
                             social
                         >

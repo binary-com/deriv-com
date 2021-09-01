@@ -1,13 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
-import TrustPilotWidget from './_trust_pilot.js'
+import TrustPilotWidget, { getRatingData } from './_trust_pilot.js'
+import Stars from 'images/svg/playstore/stars'
 import { Text, Header } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import LineTab from 'components/custom/_line-tab'
 import { Container, Flex } from 'components/containers'
 import AppStore from 'images/svg/app-store-round.svg'
 import GooglePlay from 'images/svg/google-play-round.svg'
-import Stars from 'images/svg/stars.svg'
 import device from 'themes/device'
 
 const StyledContainer = styled.div`
@@ -85,6 +85,7 @@ const ReviewStars = styled.img`
 `
 
 const WhatOurClientsSay = () => {
+    const { icon } = getRatingData(1.5)
     return (
         <StyledContainer>
             <ClientContainer padding="5rem 0 0">
@@ -99,16 +100,24 @@ const WhatOurClientsSay = () => {
                         <ClientCard className="right" direction="column">
                             <Header as="h3" type="heading-3">
                                 <Localize
-                                    translate_text="Selling has been <0>seamlessly</0> done and it makes weekend withdrawals an additional plus for this app!."
+                                    translate_text="Selling has been <0>seamlessly</0> done and it makes weekend withdrawals an additional plus for this app!"
                                     components={[<span className="emphasis" key={0} />]}
                                 />
                             </Header>
                             <Text size="2.4rem">{localize('- DP2P apps')}</Text>
                             <AppDownloadBox>
-                                <AppLink>
+                                <AppLink
+                                    href="https://play.google.com/store/apps/details?id=com.deriv.dp2p"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
                                     <img src={GooglePlay} />
                                 </AppLink>
-                                <AppLink>
+                                <AppLink
+                                    href="https://apps.apple.com/gh/app/deriv-dp2p/id1506901451"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
                                     <img src={AppStore} />
                                 </AppLink>
                                 <ReviewBox>
@@ -120,45 +129,9 @@ const WhatOurClientsSay = () => {
                                             }}
                                         />
                                     </Text>
-                                    <ReviewStars src={Stars} />
+                                    <ReviewStars src={Stars[icon]} />
                                 </ReviewBox>
                             </AppDownloadBox>
-                        </ClientCard>
-                    </ClientFlex>
-                    <ClientFlex jc="space-between" ai="center">
-                        <ClientCard className="right" direction="column">
-                            <Header as="h3" type="heading-3">
-                                <Localize
-                                    translate_text="Selling has been <0>seamlessly</0> done and it makes weekend withdrawals an additional plus for this app!."
-                                    components={[<span className="emphasis" key={0} />]}
-                                />
-                            </Header>
-                            <Text size="2.4rem">{localize('- DP2P apps')}</Text>
-                            <AppDownloadBox>
-                                <AppLink>
-                                    <img src={GooglePlay} />
-                                </AppLink>
-                                <AppLink>
-                                    <img src={AppStore} />
-                                </AppLink>
-                                <ReviewBox>
-                                    <Text size="1.2rem">
-                                        <Localize
-                                            translate_text="{{ total_reviews }} review"
-                                            values={{
-                                                total_reviews: 208,
-                                            }}
-                                        />
-                                    </Text>
-                                    <ReviewStars src={Stars} />
-                                </ReviewBox>
-                            </AppDownloadBox>
-                        </ClientCard>
-                        <ClientCard className="left" direction="column">
-                            <Header as="h2" type="heading-2">
-                                {localize('What our clients say about Deriv')}
-                            </Header>
-                            <TrustPilotWidget />
                         </ClientCard>
                     </ClientFlex>
                 </LineTab>

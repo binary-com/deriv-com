@@ -27,24 +27,28 @@ const LineNavig = styled.div`
 const renderNavigations = (count, selected_index, setSelected, style) => {
     const items = Array.from(Array(count).keys())
 
-    return (
-        <Navigation>
-            {items.map((_, index) => (
-                <LineNavig
-                    activeBackground={style && style.activeBackground}
-                    background={style && style.background}
-                    height={style && style.height}
-                    margin={style && style.margin}
-                    width={style && style.width}
-                    className={index === selected_index ? 'active' : ''}
-                    key={`navig-${index}`}
-                    onClick={() => {
-                        setSelected(index)
-                    }}
-                />
-            ))}
-        </Navigation>
-    )
+    if (count > 1) {
+        return (
+            <Navigation>
+                {items.map((_, index) => (
+                    <LineNavig
+                        activeBackground={style && style.activeBackground}
+                        background={style && style.background}
+                        height={style && style.height}
+                        margin={style && style.margin}
+                        width={style && style.width}
+                        className={index === selected_index ? 'active' : ''}
+                        key={`navig-${index}`}
+                        onClick={() => {
+                            setSelected(index)
+                        }}
+                    />
+                ))}
+            </Navigation>
+        )
+    }
+
+    return <React.Fragment />
 }
 
 const LineTab = ({ children, default_selected = 0, navigation_style }) => {

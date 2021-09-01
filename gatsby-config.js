@@ -208,18 +208,18 @@ module.exports = {
                 offset: -100,
             },
         },
-        {
-            resolve: 'gatsby-plugin-page-progress',
-            options: {
-                includePaths: [{ regex: '^/academy/blog/posts/' }],
-                excludePaths: [],
-                height: 4,
-                prependToBody: true,
-                color: `#FF444F`,
-                footerHeight: 500,
-                headerHeight: 0,
-            },
-        },
+        // {
+        //     resolve: 'gatsby-plugin-page-progress',
+        //     options: {
+        //         includePaths: [{ regex: '^/academy/blog/posts/' }],
+        //         excludePaths: [],
+        //         height: 4,
+        //         prependToBody: true,
+        //         color: `#FF444F`,
+        //         footerHeight: 500,
+        //         headerHeight: 0,
+        //     },
+        // },
         {
             resolve: '@directus/gatsby-source-directus',
             options: {

@@ -36,6 +36,9 @@ export const HeroContainer = styled(Container)`
         flex-direction: column;
     }
 `
+export const BreadcrumbsWrapper = styled(Container)`
+    width: 100%;
+`
 export const HeroLeftWrapper = styled(Box)`
     max-width: 384px;
     margin-right: 24px;
@@ -339,4 +342,7 @@ export const MobileWrapper = styled.div`
     @media ${device.tabletS} {
         display: flex;
     }
+`
+export const StyledImg = styled.img`
+    margin: 0 8px;
 `

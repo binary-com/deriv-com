@@ -13,17 +13,24 @@ const StyledFlex = styled(Flex)`
     overflow: hidden;
     transition: transform 0.3s;
     cursor: pointer;
-    width: 78vw;
+    width: 100vw;
     max-width: 1200px;
 
     &:hover {
         transform: translateY(-1.1rem) scale(1.02);
     }
+
+    @media (max-width: 1333px) {
+        width: 100%;
+        min-width: 800px;
+    }
+
     @media (max-width: 823px) {
         flex-direction: column;
         height: auto;
         width: 90vw;
         max-width: 384px;
+        min-width: unset;
         margin-top: 40px;
     }
 `

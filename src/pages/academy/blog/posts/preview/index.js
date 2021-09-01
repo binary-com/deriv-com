@@ -99,7 +99,7 @@ const BlogPreview = () => {
     }
 
     return (
-        <Layout>
+        <Layout type="academy">
             <SEO description={post_data?.meta_description} title={post_data?.meta_title} no_index />
             <>
                 {post_data && (

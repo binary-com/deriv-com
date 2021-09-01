@@ -81,7 +81,7 @@ const ArticlesTemplate = (props) => {
     }
 
     return (
-        <Layout>
+        <Layout type="academy">
             <SEO
                 description={meta_description}
                 title={meta_title}

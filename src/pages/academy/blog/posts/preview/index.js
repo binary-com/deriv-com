@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import {
     Background,
     HeroContainer,
+    BreadcrumbsWrapper,
     HeroLeftWrapper,
     HeroRightWrapper,
     HeroImageContainer,
@@ -20,6 +21,7 @@ import {
     RightSocialComponents,
     DesktopWrapper,
     MobileWrapper,
+    StyledImg,
 } from '../_style'
 import Banner from '../../../../blog/components/_banner'
 import ArticleEmailBanner from '../../components/side-subscription-banner'
@@ -27,9 +29,10 @@ import SocialSharing from '../../../../blog/_social-sharing'
 import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { SEO, Show, Box, Flex, SectionContainer } from 'components/containers'
-import { Header } from 'components/elements'
+import { Header, LocalizedLinkText, Text } from 'components/elements'
 import { convertDate, isBrowser } from 'common/utility'
 import { cms_assets_end_point } from 'common/constants'
+import RightArrow from 'images/svg/black-right-arrow.svg'
 
 const BlogPreview = () => {
     const [data, setData] = useState(null)
@@ -70,7 +73,7 @@ const BlogPreview = () => {
     }, [id])
 
     const post_data = data?.data
-
+    const article_title = post_data?.blog_title
     const footer_banner_data = post_data?.footer_banners
     const side_banner_data = post_data?.side_banners
 
@@ -98,6 +101,26 @@ const BlogPreview = () => {
                 {post_data && (
                     <SectionContainer padding="0" position="relative">
                         <Background>
+                            <BreadcrumbsWrapper>
+                                <Flex jc="flex-start" ai="center">
+                                    <LocalizedLinkText to="/blog/" color="grey-5">
+                                        Home
+                                    </LocalizedLinkText>
+                                    <StyledImg src={RightArrow} height="16" width="16" />
+                                    <LocalizedLinkText to="/blog/articles" color="grey-5">
+                                        All articles
+                                    </LocalizedLinkText>
+                                    <StyledImg src={RightArrow} height="16" width="16" />
+                                    <DesktopWrapper width="auto" jc="flex-start">
+                                        <Text>{article_title}</Text>
+                                    </DesktopWrapper>
+                                </Flex>
+                                <MobileWrapper>
+                                    <Flex jc="flex-start" mt="10px">
+                                        <Text lh="20px">{article_title}</Text>
+                                    </Flex>
+                                </MobileWrapper>
+                            </BreadcrumbsWrapper>
                             <HeroContainer>
                                 <HeroLeftWrapper width="100%">
                                     <InfoText mb="16px" size="14px">

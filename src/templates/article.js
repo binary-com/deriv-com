@@ -88,15 +88,24 @@ const ArticlesTemplate = (props) => {
                     <SectionContainer padding="0" position="relative">
                         <Background>
                             <BreadcrumbsWrapper>
-                                <Flex jc="flex-start" ai="center" mt="40px">
+                                <Flex jc="flex-start" ai="center">
                                     <LocalizedLinkText to="/blog/" color="grey-5">
                                         Home
                                     </LocalizedLinkText>
                                     <StyledImg src={RightArrow} height="16" width="16" />
-                                    <Text>All articles</Text>
+                                    <LocalizedLinkText to="/blog/articles" color="grey-5">
+                                        All articles
+                                    </LocalizedLinkText>
                                     <StyledImg src={RightArrow} height="16" width="16" />
-                                    <Text>{article_title}</Text>
+                                    <DesktopWrapper width="auto" jc="flex-start">
+                                        <Text>{article_title}</Text>
+                                    </DesktopWrapper>
                                 </Flex>
+                                <MobileWrapper>
+                                    <Flex jc="flex-start" mt="10px">
+                                        <Text lh="20px">{article_title}</Text>
+                                    </Flex>
+                                </MobileWrapper>
                             </BreadcrumbsWrapper>
                             <HeroContainer>
                                 <HeroLeftWrapper width="100%">

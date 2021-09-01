@@ -13,8 +13,9 @@ export const Background = styled.div`
     }
 `
 export const HeroContainer = styled(Container)`
-    height: 566px;
-    padding: 76px 0 0;
+    height: auto;
+    min-height: 566px;
+    padding: 76px 0 40px;
     align-items: flex-start;
     margin-bottom: 86px;
 
@@ -37,7 +38,20 @@ export const HeroContainer = styled(Container)`
     }
 `
 export const BreadcrumbsWrapper = styled(Container)`
-    width: 100%;
+    padding: 24px 0;
+
+    @media ${device.desktopS} {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    @media ${device.laptop} {
+        width: 100%;
+        max-width: 58.8rem;
+        padding: 20px 16px;
+        display: flex;
+        flex-direction: column;
+    }
 `
 export const HeroLeftWrapper = styled(Box)`
     max-width: 384px;
@@ -341,6 +355,7 @@ export const MobileWrapper = styled.div`
 
     @media ${device.tabletS} {
         display: flex;
+        width: 100%;
     }
 `
 export const StyledImg = styled.img`

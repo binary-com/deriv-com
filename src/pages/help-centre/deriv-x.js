@@ -4,9 +4,8 @@ import { Article } from './_article'
 import { ArticleWrapper, StyledHeader, StyledText } from './_help-centre-style'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import { derivx_app_url, deriv_app_url } from 'common/constants'
-import { Text } from 'components/elements'
+import { Text, LocalizedLinkText } from 'components/elements'
 import { localize, Localize, WithIntl } from 'components/localization'
-// TOOD: uncomment once deriv x real is ready import { LocalizedLinkText } from 'components/elements'
 
 const ExternalLink = styled.a`
     text-decoration: none;
@@ -190,60 +189,60 @@ const AccountInformation = () => (
     </ArticleWrapper>
 )
 // TOOD: uncomment once deriv x real is ready
-// const DerivXRealMoneyAccount = () => (
-//     <ArticleWrapper>
-//         <StyledHeader as="h4">
-//             {localize('How can I deposit funds into my Deriv X real money account?')}
-//         </StyledHeader>
-//         <Text>
-//             <Localize
-//                 translate_text="To deposit funds into your Deriv X account on Deriv, you’ll need to use the funds in your Deriv account. Go to Cashier > <0>Transfer between accounts</0> and follow the instructions on the screen."
-//                 components={[
-//                     <ExternalLink
-//                         href={`${deriv_app_url}/cashier/account-transfer`}
-//                         target="_blank"
-//                         rel="noopener noreferrer"
-//                         key={0}
-//                     />,
-//                 ]}
-//             />
-//         </Text>
-//         <StyledText>
-//             {localize(
-//                 'Transfers are instant. Once you’ve completed all the steps, your Deriv X account balance will be updated immediately.',
-//             )}
-//         </StyledText>
-//     </ArticleWrapper>
-// )
+const DerivXRealMoneyAccount = () => (
+    <ArticleWrapper>
+        <StyledHeader as="h4">
+            {localize('How can I deposit funds into my Deriv X real money account?')}
+        </StyledHeader>
+        <Text>
+            <Localize
+                translate_text="To deposit funds into your Deriv X account on Deriv, you’ll need to use the funds in your Deriv account. Go to Cashier > <0>Transfer between accounts</0> and follow the instructions on the screen."
+                components={[
+                    <ExternalLink
+                        href={`${deriv_app_url}/cashier/account-transfer`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        key={0}
+                    />,
+                ]}
+            />
+        </Text>
+        <StyledText>
+            {localize(
+                'Transfers are instant. Once you’ve completed all the steps, your Deriv X account balance will be updated immediately.',
+            )}
+        </StyledText>
+    </ArticleWrapper>
+)
 
-// const WithdrawDerivX = () => (
-//     <ArticleWrapper>
-//         <StyledHeader as="h4">
-//             {localize('How do I withdraw funds from my Deriv X real money account?')}
-//         </StyledHeader>
-//         <Text>
-//             {localize(
-//                 'To withdraw funds from your Deriv X account on Deriv, you’ll first need to transfer the funds to your Deriv account. Go to Cashier > Transfer between accounts and follow the instructions on the screen.',
-//             )}
-//         </Text>
-//        <StyledText>
-//             {localize(
-//                 'To withdraw from your Deriv account into your personal account, go to Cashier -> Withdrawal and follow the instructions on the screen. You’ll receive an email with a verification link. Click the link to confirm your withdrawal amount.',
-//             )}
-//         </StyledText>
-//         <StyledText>
-//             {localize(
-//                 'Your funds will be available in your personal account once your payment is processed. You can check processing times on our Payment methods page.',
-//             )}
-//         </StyledText>
-//         <Text mt="1.7rem">
-//             <Localize
-//                 translate_text="After the required processing time of your selected payment method, your funds will be deposited into your personal account. You can check processing times on our <0>Payment methods</0> page."
-//                 components={[<LocalizedLinkText to="/payment-methods" color="red" key={0} />]}
-//             />
-//         </Text>
-//     </ArticleWrapper>
-// )
+const WithdrawDerivX = () => (
+    <ArticleWrapper>
+        <StyledHeader as="h4">
+            {localize('How do I withdraw funds from my Deriv X real money account?')}
+        </StyledHeader>
+        <Text>
+            {localize(
+                'To withdraw funds from your Deriv X account on Deriv, you’ll first need to transfer the funds to your Deriv account. Go to Cashier > Transfer between accounts and follow the instructions on the screen.',
+            )}
+        </Text>
+        <StyledText>
+            {localize(
+                'To withdraw from your Deriv account into your personal account, go to Cashier -> Withdrawal and follow the instructions on the screen. You’ll receive an email with a verification link. Click the link to confirm your withdrawal amount.',
+            )}
+        </StyledText>
+        <StyledText>
+            {localize(
+                'Your funds will be available in your personal account once your payment is processed. You can check processing times on our Payment methods page.',
+            )}
+        </StyledText>
+        <Text mt="1.7rem">
+            <Localize
+                translate_text="After the required processing time of your selected payment method, your funds will be deposited into your personal account. You can check processing times on our <0>Payment methods</0> page."
+                components={[<LocalizedLinkText to="/payment-methods" color="red" key={0} />]}
+            />
+        </Text>
+    </ArticleWrapper>
+)
 
 const DerivXArticle = () => {
     const [is_mounted] = usePageLoaded(false) // needed to fix tab highlighting not being rerendered during first load
@@ -318,7 +317,7 @@ const DerivXArticle = () => {
                     is_mounted={is_mounted}
                 />
                 {/* TOOD: uncomment once deriv x real is ready */}
-                {/* <DerivXRealMoneyAccount
+                <DerivXRealMoneyAccount
                     text={localize('How can I deposit funds into my Deriv X real money account?')}
                     label="deposit-funds"
                     is_mounted={is_mounted}
@@ -327,7 +326,7 @@ const DerivXArticle = () => {
                     text={localize('How do I withdraw funds from my Deriv X real money account?')}
                     label="withdraw-funds-from-deriv-x"
                     is_mounted={is_mounted}
-                /> */}
+                />
             </Article>
         </div>
     )

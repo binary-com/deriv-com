@@ -302,6 +302,7 @@ export const SmallArticleDateTimeMobile = styled(Flex)`
         display: flex;
         font-size: 10px;
         justify-content: flex-end;
+        white-space: nowrap;
     }
 `
 

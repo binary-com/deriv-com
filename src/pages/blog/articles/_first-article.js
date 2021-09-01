@@ -21,6 +21,7 @@ const StyledFlex = styled(Flex)`
     @media (max-width: 823px) {
         flex-direction: column;
         height: auto;
+        width: 90vw;
         max-width: 384px;
         margin-top: 40px;
     }

@@ -13,6 +13,7 @@ const StyledFlex = styled(Flex)`
     overflow: hidden;
     transition: transform 0.3s;
     cursor: pointer;
+    width: 77vw;
 
     &:hover {
         transform: translateY(-1.1rem) scale(1.02);
@@ -32,6 +33,10 @@ const ImageWrapper = styled.div`
     @media (max-width: 823px) {
         width: 100%;
         height: unset;
+    }
+
+    > .main-article-bg {
+        display: contents;
     }
 `
 
@@ -65,6 +70,7 @@ const FirstArticle = ({ item }) => {
                         data={getImage(item.main_image.imageFile)}
                         alt={item.main_image.description || ''}
                         width="100%"
+                        className="main-article-bg"
                     />
                 </ImageWrapper>
                 <FirstContentWrapper fd="column" p="35px 40px" width="45%">

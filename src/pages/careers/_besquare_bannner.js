@@ -25,14 +25,14 @@ const StyledSection = styled(SectionContainer)`
 const BackgroundImage = styled.div`
     width: 100vw;
     max-width: 100%;
-    height: 44vh;
-    background-size: auto;
+    height: 50vh;
+    background-size: 75%;
     background-color: var(--color-black);
     border-radius: 10px;
     background-image: url(${banner});
     background-repeat: no-repeat;
     background-position: right;
-    padding: 70px;
+    padding: 100px;
     color: white;
 
     @media ${device.tablet} {
@@ -68,7 +68,7 @@ const StyledText = styled(Text)`
 `
 
 const StyledDiv = styled.div`
-    width: 25%;
+    width: 30%;
 
     @media ${device.tablet} {
         width: 80%;

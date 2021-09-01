@@ -1,21 +1,31 @@
 import React from 'react'
 import Timeline from '../components/_timeline'
-import { SmallContainer } from '../components/_style'
-import { SectionContainer } from 'components/containers'
+import { SmallContainer, StartTradingBg } from '../components/_style'
 import { localize, Localize } from 'components/localization'
 import { LinkButton } from 'components/form'
 import { Header } from 'components/elements'
 import { DerivStore } from 'store'
+import { Show } from 'components/containers'
 
 const StartTrading = () => {
     const { is_eu_country } = React.useContext(DerivStore)
     return (
         <>
-            <SectionContainer background="white" padding="8rem 0 4rem">
+            <StartTradingBg>
                 <SmallContainer direction="column" ai="flex-start">
-                    <Header as="h3" type="section-title" mb="4rem">
-                        {localize('Start trading on margin with Deriv')}
-                    </Header>
+                    <Show.Desktop>
+                        <Header as="h3" type="section-title" mb="4rem">
+                            {localize('Start trading CFDs on Deriv')}
+                        </Header>
+                    </Show.Desktop>
+                    <Show.Mobile>
+                        <Header as="h3" type="section-title" mb="4rem">
+                            <Localize
+                                translate_text="Start trading CFDs on <0/>Deriv<0/>"
+                                components={[<br key={0} />]}
+                            />
+                        </Header>
+                    </Show.Mobile>
 
                     <Timeline>
                         <Timeline.Item title={<Localize translate_text="Practise" />}>
@@ -28,13 +38,9 @@ const StartTrading = () => {
                                   )}
                         </Timeline.Item>
                         <Timeline.Item title={<Localize translate_text="Trade" />}>
-                            {is_eu_country
-                                ? localize(
-                                      'Trade with a real Deriv MT5 (DMT5) account and get access to high leverage to trade positions larger than your existing capital.',
-                                  )
-                                : localize(
-                                      'Trade with a real Deriv MT5 (DMT5) or real Deriv X account and get access to high leverage to trade positions larger than your existing capital.',
-                                  )}
+                            {localize(
+                                'Trade with a real Deriv MT5 (DMT5) account and get access to high leverage to trade positions larger than your existing capital.',
+                            )}
                         </Timeline.Item>
                         <Timeline.Item title={<Localize translate_text="Withdraw" />}>
                             {localize(
@@ -42,11 +48,19 @@ const StartTrading = () => {
                             )}
                         </Timeline.Item>
                     </Timeline>
-                    <LinkButton mt="4rem" to="/signup/" secondary="true">
+                    <LinkButton
+                        mt="4rem"
+                        external="true"
+                        type="mt5"
+                        to="#demo"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        secondary="true"
+                    >
                         {localize('Create free demo account')}
                     </LinkButton>
                 </SmallContainer>
-            </SectionContainer>
+            </StartTradingBg>
         </>
     )
 }

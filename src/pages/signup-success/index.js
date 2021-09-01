@@ -12,16 +12,12 @@ const Wrapper = styled.section`
     padding: 8rem 0;
     width: 100%;
     height: 80vh;
-    justify-content: center;
     display: flex;
+    justify-content: center;
     flex-direction: row;
     background-color: rgba(200, 214, 215, 0.22);
 
-    @media ${device.tabletL} {
-        height: 120vh;
-    }
     @media ${device.mobileL} {
-        height: 100vh;
         padding: 0;
     }
 `

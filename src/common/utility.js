@@ -286,3 +286,6 @@ export const getVideoObject = (video_data) => {
         types: tags.map((t) => t.tags_id.tag_name),
     }
 }
+
+export const truncateString = (input, limit) =>
+    input.length > limit ? `${input.substring(0, limit)}...` : input

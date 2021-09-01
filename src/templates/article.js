@@ -22,7 +22,11 @@ import {
     RightSocialComponents,
     DesktopWrapper,
     MobileWrapper,
+    DesktopBreadcrumbsWrapper,
+    MobileBreadcrumbsWrapper,
     StyledImg,
+    StyledBreadcrumbsLink,
+    StyledBreadcrumbsTitle,
 } from '../pages/academy/blog/posts/_style'
 import Banner from '../pages/blog/components/_banner'
 import ArticleEmailBanner from '../pages/academy/blog/components/side-subscription-banner'
@@ -30,7 +34,7 @@ import SocialSharing from '../pages/blog/_social-sharing'
 import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { SEO, Show, Box, Flex, SectionContainer } from 'components/containers'
-import { Header, LocalizedLinkText, QueryImage, Text } from 'components/elements'
+import { Header, QueryImage } from 'components/elements'
 import { convertDate } from 'common/utility'
 import RightArrow from 'images/svg/black-right-arrow.svg'
 
@@ -89,23 +93,27 @@ const ArticlesTemplate = (props) => {
                         <Background>
                             <BreadcrumbsWrapper>
                                 <Flex jc="flex-start" ai="center">
-                                    <LocalizedLinkText to="/blog/" color="grey-5">
+                                    <StyledBreadcrumbsLink to="/blog/" color="grey-5">
                                         Home
-                                    </LocalizedLinkText>
+                                    </StyledBreadcrumbsLink>
                                     <StyledImg src={RightArrow} height="16" width="16" />
-                                    <LocalizedLinkText to="/blog/articles" color="grey-5">
+                                    <StyledBreadcrumbsLink to="/blog/articles" color="grey-5">
                                         All articles
-                                    </LocalizedLinkText>
+                                    </StyledBreadcrumbsLink>
                                     <StyledImg src={RightArrow} height="16" width="16" />
-                                    <DesktopWrapper width="auto" jc="flex-start">
-                                        <Text>{article_title}</Text>
-                                    </DesktopWrapper>
+                                    <DesktopBreadcrumbsWrapper>
+                                        <StyledBreadcrumbsTitle>
+                                            {article_title}
+                                        </StyledBreadcrumbsTitle>
+                                    </DesktopBreadcrumbsWrapper>
                                 </Flex>
-                                <MobileWrapper>
-                                    <Flex jc="flex-start" mt="10px">
-                                        <Text lh="20px">{article_title}</Text>
+                                <MobileBreadcrumbsWrapper>
+                                    <Flex width="auto" jc="flex-start" mt="10px">
+                                        <StyledBreadcrumbsTitle lh="20px">
+                                            {article_title}
+                                        </StyledBreadcrumbsTitle>
                                     </Flex>
-                                </MobileWrapper>
+                                </MobileBreadcrumbsWrapper>
                             </BreadcrumbsWrapper>
                             <HeroContainer>
                                 <HeroLeftWrapper width="100%">

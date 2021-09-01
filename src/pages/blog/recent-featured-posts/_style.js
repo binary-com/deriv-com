@@ -79,10 +79,6 @@ export const MainArticle = styled(Flex)`
         width: 88vw;
         min-width: 270px;
     }
-
-    &.main-article-bg {
-        opacity: 0.8;
-    }
 `
 
 export const Description = styled.div`

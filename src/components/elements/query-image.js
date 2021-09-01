@@ -8,6 +8,10 @@ export const ImageWrapper = styled.div`
         width: ${(props) => props.width || '100%'};
         height: ${(props) => props.height};
     }
+    &.main-article-bg {
+        display: contents;
+        opacity: 0.8;
+    }
 `
 
 const QueryImage = ({ alt, className, data, height, is_eager, width }) => {

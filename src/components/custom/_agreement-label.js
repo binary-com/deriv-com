@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Checkbox, LocalizedLinkText } from 'components/elements'
-import { Localize } from 'components/localization'
+import { Localize, localize } from 'components/localization'
 import device from 'themes/device.js'
 
 const CheckboxSpan = styled.span`
@@ -17,7 +17,7 @@ const AgreementLabel = ({
     isChecked,
     color,
     link_path = 'terms_and_conditions',
-    link_text = 'I agree to the <0>terms and conditions</0>',
+    link_text = localize('I agree to the <0>terms and conditions</0>'),
 }) => {
     const handleChange = (event) => {
         handleChangeCheckbox(event)

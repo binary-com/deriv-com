@@ -155,13 +155,6 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
                                                                             {tag.tags_id.tag_name}
                                                                         </SmallArticleCategories>
                                                                     ))}
-                                                            {article.tags.length > 1 && (
-                                                                <SmallArticleCategories>
-                                                                    {`+${article.tags
-                                                                        .slice(1)
-                                                                        .length.toString()}`}
-                                                                </SmallArticleCategories>
-                                                            )}
                                                         </Flex>
                                                         <SmallArticleDateTimeMobile>
                                                             {article?.published_date &&
@@ -279,13 +272,6 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
                                                                             {tag.tags_id.tag_name}
                                                                         </SmallArticleCategories>
                                                                     ))}
-                                                            {article.tags.length > 1 && (
-                                                                <SmallArticleCategories>
-                                                                    {`+${article.tags
-                                                                        .slice(1)
-                                                                        .length.toString()}`}
-                                                                </SmallArticleCategories>
-                                                            )}
                                                         </Flex>
                                                         <SmallArticleDateTimeMobile>
                                                             {article?.published_date &&

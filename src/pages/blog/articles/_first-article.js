@@ -13,14 +13,24 @@ const StyledFlex = styled(Flex)`
     overflow: hidden;
     transition: transform 0.3s;
     cursor: pointer;
+    width: 100vw;
+    max-width: 1200px;
 
     &:hover {
         transform: translateY(-1.1rem) scale(1.02);
     }
+
+    @media (max-width: 1333px) {
+        width: 100%;
+        min-width: 800px;
+    }
+
     @media (max-width: 823px) {
         flex-direction: column;
         height: auto;
+        width: 90vw;
         max-width: 384px;
+        min-width: unset;
         margin-top: 40px;
     }
 `
@@ -32,6 +42,10 @@ const ImageWrapper = styled.div`
     @media (max-width: 823px) {
         width: 100%;
         height: unset;
+    }
+
+    > .main-article-bg {
+        display: contents;
     }
 `
 
@@ -53,7 +67,6 @@ const FirstContentWrapper = styled(Flex)`
 
 const RedirectLink = styled(LocalizedLink)`
     text-decoration: none;
-    max-width: 1200px;
 `
 
 const FirstArticle = ({ item }) => {
@@ -65,6 +78,7 @@ const FirstArticle = ({ item }) => {
                         data={getImage(item.main_image.imageFile)}
                         alt={item.main_image.description || ''}
                         width="100%"
+                        className="main-article-bg"
                     />
                 </ImageWrapper>
                 <FirstContentWrapper fd="column" p="35px 40px" width="45%">

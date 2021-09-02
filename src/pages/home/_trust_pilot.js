@@ -117,6 +117,8 @@ const TrustPilotWidget = () => {
 
     if (trust_pilot) {
         const { numberOfReviews, score } = trust_pilot
+        const review_score = score.trustScore + '/5'
+        const numberFormat = (n) => n.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
 
         return (
             <StyledFlex jc="space-between" className="trustpilot-container">
@@ -127,23 +129,21 @@ const TrustPilotWidget = () => {
                 >
                     <StarBox>
                         <Flex className="logo-box">
-                            <img className="star" src={TrustStar} />
-                            <img className="logo" src={TrustLogo} />
+                            <img className="star" src={TrustStar} alt="TrustPilot Star" />
+                            <img className="logo" src={TrustLogo} alt="TrustPilot Logo" />
                         </Flex>
                         <TrustPilotStars rating={score.stars.toString()} />
                     </StarBox>
 
                     <ScoreBox>
                         <Text size={'3.2rem'} weight={'bold'} className="score">
-                            {score.trustScore}/5
+                            {review_score}
                         </Text>
                         <Text size={'1.4rem'}>
                             <Localize
                                 translate_text="{{ total_reviews }} Reviews"
                                 values={{
-                                    total_reviews: numberOfReviews.total
-                                        .toString()
-                                        .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,'),
+                                    total_reviews: numberFormat(numberOfReviews.total),
                                 }}
                             />
                         </Text>

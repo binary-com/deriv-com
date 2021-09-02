@@ -8,6 +8,7 @@ import Stars from 'images/svg/trustpilot/stars'
 import { Flex } from 'components/containers'
 import { Text } from 'components/elements'
 import { Localize } from 'components/localization'
+import device from 'themes/device'
 
 const StyledFlex = styled(Flex)`
     .trustpilot-widget {
@@ -20,6 +21,10 @@ const StyledLink = styled.a`
     width: 100%;
     display: flex;
     text-decoration: none;
+
+    @media ${device.tabletS} {
+        justify-content: space-between;
+    }
 `
 
 const StarBox = styled(Flex)`
@@ -36,6 +41,11 @@ const StarBox = styled(Flex)`
             margin: 0 0 -1.4rem 0;
         }
     }
+
+    @media ${device.tabletS} {
+        justify-content: flex-start;
+        width: fit-content;
+    }
 `
 
 const ScoreBox = styled(Flex)`
@@ -44,6 +54,11 @@ const ScoreBox = styled(Flex)`
 
     .score {
         margin: 0 0 -0.6rem 0;
+    }
+
+    @media ${device.tabletS} {
+        width: fit-content;
+        flex: none;
     }
 `
 
@@ -85,8 +100,8 @@ const TrustPilotWidget = () => {
     const [trust_pilot, setTrustPilot] = useState(null)
 
     useEffect(() => {
-        const api_key = 'akv2qmqDeOA8utqGyVhmLhGPSsN4ADaL'
-        const app_name = 'deriv.com'
+        const api_key = process.env.TRUSTPILOT_API_KEY
+        const app_name = process.env.TRUSTPILOT_NAME
 
         axios({
             method: 'GET',

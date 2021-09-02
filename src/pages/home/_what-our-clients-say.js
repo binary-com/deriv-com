@@ -14,6 +14,10 @@ const StyledContainer = styled.div`
     background-color: var(--color-grey-25);
     width: 100%;
     height: fit-content;
+
+    @media ${device.tabletS} {
+        background: linear-gradient(76.48deg, #8aadc5 3.41%, #d3e0e9 64.21%);
+    }
 `
 
 const ClientContainer = styled(Container)`
@@ -31,7 +35,7 @@ const ClientFlex = styled(Flex)`
 
     @media ${device.tabletS} {
         flex-direction: column;
-        padding: 9rem 4rem;
+        padding: 4rem 1.6rem;
         max-width: 100%;
     }
 `
@@ -55,7 +59,15 @@ const ClientCard = styled(Flex)`
         max-width: 100% !important;
 
         &.left {
-            margin-bottom: 5rem;
+            margin-bottom: 8.8rem;
+        }
+        &.right {
+            h2 {
+                margin-bottom: 0.8rem;
+            }
+            .dp2p-text {
+                color: var(--color-white);
+            }
         }
     }
 `
@@ -63,7 +75,21 @@ const ClientCard = styled(Flex)`
 const AppDownloadBox = styled(Flex)`
     margin-top: 4rem;
     justify-content: start;
+
+    @media ${device.tabletS} {
+        flex-direction: column;
+        align-items: center;
+    }
 `
+
+const AppDownloadBtns = styled(Flex)`
+    width: fit-content;
+
+    @media ${device.tabletS} {
+        margin-bottom: 1.6rem;
+    }
+`
+
 const AppLink = styled.a`
     margin: 0 2.4rem 0 0;
     cursor: pointer;
@@ -78,6 +104,12 @@ const ReviewBox = styled(Flex)`
     align-items: flex-start;
     width: fit-content;
     height: auto;
+
+    @media ${device.tabletS} {
+        p {
+            color: var(--color-white);
+        }
+    }
 `
 
 const ReviewStars = styled.img`
@@ -85,7 +117,7 @@ const ReviewStars = styled.img`
 `
 
 const WhatOurClientsSay = () => {
-    const { icon } = getRatingData(1.5)
+    const { icon } = getRatingData(4.5)
     return (
         <StyledContainer>
             <ClientContainer padding="5rem 0 0">
@@ -104,22 +136,26 @@ const WhatOurClientsSay = () => {
                                     components={[<span className="emphasis" key={0} />]}
                                 />
                             </Header>
-                            <Text size="2.4rem">{localize('- DP2P apps')}</Text>
+                            <Text size="2.4rem" className="dp2p-text">
+                                {localize('- DP2P apps')}
+                            </Text>
                             <AppDownloadBox>
-                                <AppLink
-                                    href="https://play.google.com/store/apps/details?id=com.deriv.dp2p"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    <img src={GooglePlay} />
-                                </AppLink>
-                                <AppLink
-                                    href="https://apps.apple.com/gh/app/deriv-dp2p/id1506901451"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    <img src={AppStore} />
-                                </AppLink>
+                                <AppDownloadBtns>
+                                    <AppLink
+                                        href="https://play.google.com/store/apps/details?id=com.deriv.dp2p"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        <img src={GooglePlay} />
+                                    </AppLink>
+                                    <AppLink
+                                        href="https://apps.apple.com/gh/app/deriv-dp2p/id1506901451"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        <img src={AppStore} />
+                                    </AppLink>
+                                </AppDownloadBtns>
                                 <ReviewBox>
                                     <Text size="1.2rem">
                                         <Localize

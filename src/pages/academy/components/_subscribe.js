@@ -301,7 +301,7 @@ const Subscribe = () => {
             return setIsSubmitting(false)
         }
 
-        customerioData(formattedEmail)
+        customerioData()
         submit_status && setSubmitStatus('success')
         clearName()
         clearEmail()

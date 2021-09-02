@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import { TextWrapper } from '../../../../blog/components/_common'
-import AgreementLabel from './_agreement-label'
+import AgreementLabel from 'components/custom/_agreement-label'
 import validation from 'common/validation'
 import { localize, Localize } from 'components/localization'
 import { Button } from 'components/form'
-import { Header, Text } from 'components/elements'
+import { Header, Text, LocalizedLinkText } from 'components/elements'
 import { Flex } from 'components/containers'
 import device from 'themes/device.js'
 import { DerivStore } from 'store'
@@ -17,7 +17,7 @@ const SubscribeBannerWrapper = styled(Flex)`
     padding: 32px 16px;
     background: var(--color-grey-42);
     border-radius: 8px;
-    margin-top: 40px;
+    margin: 40px 0;
     @media ${device.tabletL} {
         max-width: 328px;
         padding: 32px 18.5px;
@@ -85,6 +85,15 @@ const EmailButton = styled(Button)`
         min-width: unset;
         margin-left: 0;
         width: auto;
+    }
+`
+const AdditionalFlex = styled.div`
+    margin-top: 10px;
+    font-size: var(--text-size-xs);
+    line-height: 20px;
+    color: ${(props) => (props.color ? props.color : 'black')};
+    @media ${device.tabletL} {
+        font-size: 1.75rem;
     }
 `
 const ErrorMessages = styled(Text)`
@@ -346,11 +355,30 @@ const ArticleEmailBanner = () => {
                             {localize('Subscribe')}
                         </EmailButton>
                         {submit_status === true && (
-                            <AgreementLabel
-                                isChecked={is_checked}
-                                color="#C2C2C2"
-                                handleChangeCheckbox={handleChange}
-                            />
+                            <>
+                                <AgreementLabel
+                                    isChecked={is_checked}
+                                    handleChangeCheckbox={handleChange}
+                                    color="#C2C2C2"
+                                    link_text={localize('Send me marketing materials too!')}
+                                />
+                                <AdditionalFlex color="#C2C2C2">
+                                    <Localize
+                                        fontSize="var(--text-size-xs)"
+                                        translate_text="We respect your privacy and protect your information. Read our <0>Privacy policy</0> to find out more."
+                                        components={[
+                                            <LocalizedLinkText
+                                                key={0}
+                                                type="tnc/security-and-privacy.pdf"
+                                                external="true"
+                                                rel="noopener noreferrer"
+                                                size="14px"
+                                                color="red"
+                                            />,
+                                        ]}
+                                    />
+                                </AdditionalFlex>
+                            </>
                         )}
                     </InputWrapper>
                 </Flex>

@@ -56,7 +56,6 @@ export const MainArticle = styled(Flex)`
     width: 792px;
     max-height: 300px;
     align-items: flex-end;
-    padding-bottom: 80px;
     cursor: pointer;
     transition: transform 0.3s;
 
@@ -66,7 +65,7 @@ export const MainArticle = styled(Flex)`
     @media ${device.laptopM} {
         /* prettier-ignore */
         min-width: 328px;
-        width: unset;
+        width: 90vw;
         padding: 0;
         background: ${(props) =>
             props.image
@@ -77,14 +76,21 @@ export const MainArticle = styled(Flex)`
     }
 
     @media ${device.tablet} {
-        width: 100%;
+        width: 88vw;
         min-width: 270px;
+    }
+
+    > .main-article-bg {
+        display: contents;
+        opacity: 0.8;
     }
 `
 
 export const Description = styled.div`
+    position: absolute;
+    left: 0;
     padding: 24px 40px 0 40px;
-    margin-bottom: 24px;
+    margin-bottom: 80px;
 
     @media ${device.laptopM} {
         padding: 30px;
@@ -167,17 +173,18 @@ export const SmallArticleImageWrapper = styled.div`
     @media ${device.laptopM} {
         height: 78px;
     }
-`
 
-export const SmallArticleImage = styled.img`
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    position: absolute;
-    object-fit: cover;
+    &.small-article-bg {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        position: absolute;
+        object-fit: cover;
+        opacity: 0.8;
+    }
 `
 
 export const SmallArticleCategories = styled(Text)`
@@ -190,9 +197,12 @@ export const SmallArticleCategories = styled(Text)`
     line-height: 20px;
     font-size: 14px;
     font-weight: 700;
+    display: inline-block;
 
     @media ${device.laptopM} {
         position: static;
+        height: 18px;
+        padding: 0 8px 0;
         font-size: 10px;
     }
 `
@@ -273,6 +283,13 @@ export const SmallArticleTopContent = styled(Flex)`
     }
 `
 
+export const SmallArticleCategoryWrapper = styled(Flex)`
+    justify-content: start;
+    @media ${device.laptopM} {
+        flex-direction: row;
+    }
+`
+
 export const SmallArticleDateTimeMobile = styled(Flex)`
     color: var(--color-grey-5);
     width: 100%;
@@ -285,6 +302,7 @@ export const SmallArticleDateTimeMobile = styled(Flex)`
         display: flex;
         font-size: 10px;
         justify-content: flex-end;
+        white-space: nowrap;
     }
 `
 

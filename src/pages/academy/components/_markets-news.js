@@ -62,7 +62,7 @@ const MarketNews = ({ data }) => {
                             return (
                                 <StyledLocalizedLink
                                     key={data.id}
-                                    to={`/academy/blog/${data.slug}`}
+                                    to={`/academy/blog/posts/${data.slug}/`}
                                 >
                                     <StyledFlex>
                                         <QueryImage

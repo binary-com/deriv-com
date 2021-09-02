@@ -4,7 +4,7 @@ import { graphql } from 'gatsby'
 import styled from 'styled-components'
 import Subscribe from './components/_subscribe'
 import RecentFeaturedPosts from './_recent-featured-posts'
-import DVideoBanner from './video-banner'
+import DVideoBanner from './_video-banner'
 import Hero from './components/_hero'
 import MarketNews from './components/_markets-news'
 import Layout from 'components/layout/layout'
@@ -35,7 +35,10 @@ export const query = graphql`
                 }
             }
             blog(
-                filter: { tags: { tags_id: { tag_name: { _contains: "Market News" } } } }
+                filter: {
+                    tags: { tags_id: { tag_name: { _contains: "Market News" } } }
+                    status: { _eq: "published" }
+                }
                 limit: 6
                 sort: "-published_date"
             ) {

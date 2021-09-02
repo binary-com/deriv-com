@@ -1,9 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Dbanner from './_DBanner'
-// import Layout from 'components/layout/layout'
+import Dbanner from './components/video-banner/_DBanner'
 import { Flex } from 'components/containers'
-// import { WithIntl } from 'components/localization'
 
 const DVideoBanner = ({ video_list_data }) => {
     return (

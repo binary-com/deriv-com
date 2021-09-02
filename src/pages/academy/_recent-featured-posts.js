@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Clock from './recent-featured-posts/images/clock.svg'
-import Dot from './recent-featured-posts/images/dot.svg'
+import Clock from './components/recent-featured-posts/images/clock.svg'
+import Dot from './components/recent-featured-posts/images/dot.svg'
 import {
     StyledContainer,
     StyledTabs,
@@ -28,8 +28,8 @@ import {
     DotIcon,
     MobileDotIcon,
     MobileHeader,
-} from './recent-featured-posts/_style'
-import { convertDate , truncateString } from 'common/utility'
+} from './components/recent-featured-posts/_style'
+import { convertDate, truncateString } from 'common/utility'
 import { Flex } from 'components/containers'
 import { QueryImage, Carousel, Tabs, Header } from 'components/elements'
 import { localize, WithIntl, Localize } from 'components/localization'
@@ -304,7 +304,7 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
                     </ArticleContentWrapper>
                 </Tabs.Panel>
             </StyledTabs>
-            <AllArticleButton tertiary="true" to="/blog/articles/">
+            <AllArticleButton tertiary="true" to="/academy/blog/">
                 See all blog articles
             </AllArticleButton>
         </StyledContainer>

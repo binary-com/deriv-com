@@ -27,9 +27,9 @@ import {
     StyledBreadcrumbsLink,
     StyledBreadcrumbsTitle,
 } from '../_style'
-import Banner from '../../../../blog/components/_banner'
-import SocialSharing from '../../../../blog/_social-sharing'
-import ArticleEmailBanner from '../../components/_side-subscription-banner'
+import Banner from '../../../components/_banner'
+import SocialSharing from '../../../components/_social-sharing'
+import ArticleEmailBanner from '../../../components/_side-subscription-banner'
 import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { SEO, Show, Box, Flex, SectionContainer } from 'components/containers'
@@ -107,11 +107,11 @@ const BlogPreview = () => {
                         <Background>
                             <BreadcrumbsWrapper>
                                 <Flex jc="flex-start" ai="center">
-                                    <StyledBreadcrumbsLink to="/blog/" color="grey-5">
+                                    <StyledBreadcrumbsLink to="/academy/" color="grey-5">
                                         Home
                                     </StyledBreadcrumbsLink>
                                     <StyledImg src={RightArrow} height="16" width="16" />
-                                    <StyledBreadcrumbsLink to="/blog/articles" color="grey-5">
+                                    <StyledBreadcrumbsLink to="/academy/blog/" color="grey-5">
                                         All articles
                                     </StyledBreadcrumbsLink>
                                     <StyledImg src={RightArrow} height="16" width="16" />

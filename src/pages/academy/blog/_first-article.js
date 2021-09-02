@@ -71,7 +71,7 @@ const RedirectLink = styled(LocalizedLink)`
 
 const FirstArticle = ({ item }) => {
     return (
-        <RedirectLink to={`/blog/articles/${item.slug}/`}>
+        <RedirectLink to={`/academy/blog/posts/${item.slug}/`}>
             <StyledFlex jc="flex-start" mt="96px">
                 <ImageWrapper>
                     <QueryImage

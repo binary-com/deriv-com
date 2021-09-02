@@ -50,10 +50,10 @@ const TabListWrapper = styled.div`
 `
 const animateTab = keyframes`
     0% {
-        display: none;
+        top: 0;
     }
     100% {
-        display: inline;
+        top: 100px;
     }
 `
 
@@ -69,7 +69,7 @@ const TextLabel = styled(Text)`
 const TextDesc = styled(Text)`
     display: ${(props) => (!props.selected ? 'none' : '')};
     font-size: 24px;
-    animation: ${animateTab} 1s 1 ease-in;
+    animation: ${animateTab} 2s ease-in;
     @media ${device.tabletL} {
         font-size: 18px;
     }

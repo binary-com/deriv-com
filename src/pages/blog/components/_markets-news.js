@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import { SectionContainer, Container, Flex } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
 import { LocalizedLink } from 'components/localization'
+import { truncateString } from 'common/utility'
 import EyeIcon from 'images/svg/eye.svg'
 import device from 'themes/device'
 
@@ -76,7 +77,7 @@ const MarketNews = ({ data }) => {
                                                 <StyledSpan>Weekly report</StyledSpan>
                                             </Header>
                                             <Header mt="8px" type="paragraph-1" weight="bold">
-                                                {data.blog_title}
+                                                {truncateString(data.blog_title, 38)}
                                             </Header>
                                             <Flex
                                                 mt="auto"

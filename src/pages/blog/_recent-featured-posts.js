@@ -29,7 +29,7 @@ import {
     MobileDotIcon,
     MobileHeader,
 } from './recent-featured-posts/_style'
-import { convertDate } from 'common/utility'
+import { convertDate , truncateString } from 'common/utility'
 import { Flex } from 'components/containers'
 import { QueryImage, Carousel, Tabs, Header } from 'components/elements'
 import { localize, WithIntl, Localize } from 'components/localization'
@@ -56,8 +56,6 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
     const headline_recent = recent_data[0]
     const featureds = featured_data.slice(1)
     const headline_featured = featured_data[0]
-
-    const truncateString = (input) => (input.length > 40 ? `${input.substring(0, 40)}...` : input)
 
     return (
         <StyledContainer m="20px auto 0" fd="column" ai="center">
@@ -166,11 +164,11 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
                                                             <Localize translate_text="min" />
                                                         </SmallArticleDateTimeMobile>
                                                         <Header as="p" type="paragraph-1">
-                                                            {truncateString(article.blog_title)}
+                                                            {truncateString(article.blog_title, 40)}
                                                         </Header>
                                                     </SmallArticleTopContent>
                                                     <MobileHeader as="p" type="paragraph-1">
-                                                        {truncateString(article.blog_title)}
+                                                        {truncateString(article.blog_title, 40)}
                                                     </MobileHeader>
                                                     <SmallArticleDateTimeDesktop>
                                                         {article?.published_date &&
@@ -283,11 +281,11 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
                                                             <Localize translate_text="min" />
                                                         </SmallArticleDateTimeMobile>
                                                         <Header as="p" type="paragraph-1">
-                                                            {truncateString(article.blog_title)}
+                                                            {truncateString(article.blog_title, 40)}
                                                         </Header>
                                                     </SmallArticleTopContent>
                                                     <MobileHeader as="p" type="paragraph-1">
-                                                        {truncateString(article.blog_title)}
+                                                        {truncateString(article.blog_title, 40)}
                                                     </MobileHeader>
                                                     <SmallArticleDateTimeDesktop>
                                                         {article?.published_date &&

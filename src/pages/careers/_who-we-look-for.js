@@ -102,10 +102,10 @@ const ImageWrapper = styled.div`
 `
 const query = graphql`
     {
-        teamfocus: file(relativePath: { eq: "careers/team-focus.jpg" }) {
+        teamfocus: file(relativePath: { eq: "careers/team-focus.png" }) {
             ...fadeIn
         }
-        peopleeating: file(relativePath: { eq: "careers/people-eating.jpg" }) {
+        peopleeating: file(relativePath: { eq: "careers/people-eating.png" }) {
             ...fadeIn
         }
     }

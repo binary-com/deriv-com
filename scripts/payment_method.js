@@ -91,7 +91,6 @@ const filterFunctions = {
         const { included, excluded } = countries
 
         if (included.length && excluded.length) {
-            console.log(key,countries)
             throw new Error(
                 `Invalid data for payment method (${key}). Can't have both included and excluded countries.`,
             )

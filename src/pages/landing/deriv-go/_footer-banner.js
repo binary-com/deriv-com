@@ -162,12 +162,7 @@ const FooterBanner = () => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                <AppLogo
-                                    width="136px"
-                                    height="40px"
-                                    src={HuaweiAppGallery}
-                                    alt=""
-                                />
+                                <AppLogo src={HuaweiAppGallery} alt="" />
                             </AppButton>
                         </ButtonWrapper>
                     </div>

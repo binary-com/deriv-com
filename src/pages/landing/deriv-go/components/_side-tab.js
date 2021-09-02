@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled, { css } from 'styled-components'
+import styled, { css, keyframes } from 'styled-components'
 import { Flex, Show } from 'components/containers'
 import { Text } from 'components/elements'
 import device from 'themes/device'
@@ -14,10 +14,12 @@ const TabButton = styled(Flex)`
     position: relative;
     z-index: 2;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     padding-top: 40px;
     width: 428px;
     cursor: pointer;
+    transition: ease-in;
+
     @media ${device.tabletL} {
         width: fit-content;
         padding-top: 10px;
@@ -46,15 +48,28 @@ const TabListWrapper = styled.div`
         margin: 0;
     }
 `
+const animateTab = keyframes`
+    0% {
+        display: none;
+    }
+    100% {
+        display: inline;
+    }
+`
+
 const TextLabel = styled(Text)`
+    color: ${(props) => (props.selected ? 'rgba(51, 51, 51, 1)' : 'rgba(153, 153, 153, 1)')};
     font-size: 32px;
+    animation: ${animateTab} 2s ease-in;
     @media ${device.tabletL} {
         font-size: 24px;
     }
 `
 
 const TextDesc = styled(Text)`
+    display: ${(props) => (!props.selected ? 'none' : '')};
     font-size: 24px;
+    animation: ${animateTab} 1s 1 ease-in;
     @media ${device.tabletL} {
         font-size: 18px;
     }
@@ -63,7 +78,6 @@ const TextDesc = styled(Text)`
 const Content = styled(Flex)`
     display: grid;
     justify-content: center;
-    padding-top: 80px;
     @media ${device.tabletL} {
         padding-top: 24px;
     }
@@ -102,9 +116,15 @@ TabPanel.propTypes = {
 
 const Tabs = ({ children, is_reverse, className, max_width }) => {
     const [selected_tab, setSelectedTab] = React.useState(0)
-    const selectTab = (tabIndex) => {
-        setSelectedTab(tabIndex)
-    }
+    // const selectTab = (tabIndex) => {
+    //     setSelectedTab(tabIndex)
+    // }
+
+    React.useEffect(() => {
+        selected_tab >= 2
+            ? setTimeout(() => setSelectedTab(0), 3000)
+            : setTimeout(() => setSelectedTab(selected_tab + 1), 3000)
+    }, [selected_tab, setSelectedTab])
 
     return (
         <Flex className={className} ai="flex-start" direction={is_reverse ? 'row-reverse' : 'row'}>
@@ -121,15 +141,24 @@ const Tabs = ({ children, is_reverse, className, max_width }) => {
                                     role="tab"
                                     selected={selected_tab === index}
                                     aria-selected={selected_tab === index ? 'true' : 'false'}
-                                    onClick={() => selectTab(index)}
+                                    onClick={() => setSelectedTab(index)}
                                 >
-                                    <TextLabel className="side-tab__label" weight="bold">
+                                    <TextLabel
+                                        selected={selected_tab === index}
+                                        className="side-tab__label"
+                                        weight="bold"
+                                    >
                                         {label}
                                     </TextLabel>
-                                    <TextDesc className="side-tab__description" mt="0.8rem">
+                                    <TextDesc
+                                        selected={selected_tab === index}
+                                        className="side-tab__description"
+                                        mt="0.8rem"
+                                    >
                                         {description}
                                     </TextDesc>
                                 </TabButton>
+
                                 <Mobile
                                     className="side-tab__mobile"
                                     min_width={max_width || 'tabletS'}

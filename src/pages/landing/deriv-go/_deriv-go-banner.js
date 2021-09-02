@@ -26,13 +26,12 @@ const query = graphql`
 `
 
 const MainWrapper = styled(Flex)`
-    background: url(${DerivGoBg});
-    background-position: center;
+    background: url(${DerivGoBg}) right bottom 50%;
+    background-size: cover;
     height: 79rem;
     @media ${device.tabletL} {
-        background: url(${DerivGoMobileBg});
+        background: url(${DerivGoMobileBg}) center bottom 30%;
         height: 100%;
-        padding: 6rem 0;
     }
 `
 
@@ -54,12 +53,21 @@ const HeaderWrapper = styled(Flex)`
         width: 100%;
         height: 412px;
     }
+    @media ${device.mobileL} {
+        align-items: flex-start;
+        width: 100%;
+    }
 `
 const StyledHeader = styled(Header)`
     @media ${device.tabletL} {
         display: flex;
         justify-content: center;
         width: 326px;
+    }
+    @media ${device.mobileL} {
+        display: flex;
+        justify-content: center;
+        width: auto;
     }
 `
 const StyledSubTitle = styled(Header)`

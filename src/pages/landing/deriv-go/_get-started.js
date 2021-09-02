@@ -26,17 +26,24 @@ const StyledSectionContainer = styled(SectionContainer)`
     padding-top: 80px;
 
     @media ${device.tablet} {
-        height: 824px;
-        margin-bottom: 40px;
-        padding-top: 20px;
+        height: fit-content;
+        padding-top: 40px;
     }
 `
 const SmallContainer = styled(Container)`
     width: 100%;
     @media ${device.tabletL} {
         width: 90%;
-        padding-left: 0;
-        padding-right: 0;
+        padding: 0;
+    }
+`
+const StyledHeader = styled(Header)`
+    @media ${device.mobileL} {
+        font-size: 32px;
+        padding: 0 35px;
+    }
+    @media ${device.mobileM} {
+        padding: 0 20px;
     }
 `
 
@@ -61,10 +68,10 @@ const StartDerivGo = () => {
     const data = useStaticQuery(query)
     return (
         <StyledSectionContainer>
-            <SmallContainer direction="column" ai="flex-start">
-                <Header type="heading-2" align="center">
+            <SmallContainer direction="column">
+                <StyledHeader type="heading-2" align="center" mb="4rem">
                     {localize('How to get started with Deriv GO')}
-                </Header>
+                </StyledHeader>
                 <SideTab>
                     <SideTab.Panel
                         label={<Localize translate_text="1. Create your Deriv account" />}

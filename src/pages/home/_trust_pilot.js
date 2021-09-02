@@ -100,8 +100,8 @@ const TrustPilotWidget = () => {
     const [trust_pilot, setTrustPilot] = useState(null)
 
     useEffect(() => {
-        const api_key = process.env.TRUSTPILOT_API_KEY
-        const app_name = process.env.TRUSTPILOT_NAME
+        const api_key = process.env.GATSBY_TRUSTPILOT_API_KEY
+        const app_name = process.env.GATSBY_TRUSTPILOT_NAME
 
         axios({
             method: 'GET',

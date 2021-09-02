@@ -199,7 +199,7 @@ const DerivXRealMoneyAccount = () => (
                 translate_text="To deposit funds into your Deriv X account on Deriv, you’ll need to use the funds in your Deriv account. Go to Cashier > <0>Transfer between accounts</0> and follow the instructions on the screen."
                 components={[
                     <ExternalLink
-                        href={`${deriv_app_url}/cashier/account-transfer`}
+                        href={`${deriv_app_url}/cashier/account-transfer/`}
                         target="_blank"
                         rel="noopener noreferrer"
                         key={0}
@@ -238,7 +238,7 @@ const WithdrawDerivX = () => (
         <Text mt="1.7rem">
             <Localize
                 translate_text="After the required processing time of your selected payment method, your funds will be deposited into your personal account. You can check processing times on our <0>Payment methods</0> page."
-                components={[<LocalizedLinkText to="/payment-methods" color="red" key={0} />]}
+                components={[<LocalizedLinkText to="/payment-methods/" color="red" key={0} />]}
             />
         </Text>
     </ArticleWrapper>

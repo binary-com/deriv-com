@@ -6,6 +6,7 @@ import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { SEO, Show, Box, Flex, Container, SectionContainer } from 'components/containers'
 import { Header, Text } from 'components/elements'
+import ArticleEmailBanner from 'pages/academy/blog/components/side-subscription-banner'
 import device from 'themes/device'
 
 const Background = styled.div`
@@ -436,6 +437,7 @@ const PreviewPage = () => {
                                 })}
                             </Flex>
                             <SideCta />
+                            <ArticleEmailBanner />
                         </SideBarContainer>
                     </Show.Desktop>
                     <Flex fd="column" margin="0 auto" ai="center">
@@ -449,6 +451,7 @@ const PreviewPage = () => {
                         <BottomCta />
                         <Show.Mobile>
                             <SideCta />
+                            <ArticleEmailBanner />
                         </Show.Mobile>
                     </Flex>
                 </BodyContainer>

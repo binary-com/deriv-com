@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import {
     Background,
     HeroContainer,
+    BreadcrumbsWrapper,
     HeroLeftWrapper,
     HeroRightWrapper,
     HeroImageContainer,
@@ -20,16 +21,22 @@ import {
     RightSocialComponents,
     DesktopWrapper,
     MobileWrapper,
+    DesktopBreadcrumbsWrapper,
+    MobileBreadcrumbsWrapper,
+    StyledImg,
+    StyledBreadcrumbsLink,
+    StyledBreadcrumbsTitle,
 } from '../_style'
 import Banner from '../../../../blog/components/_banner'
-import ArticleEmailBanner from '../../components/side-subscription-banner'
 import SocialSharing from '../../../../blog/_social-sharing'
+import ArticleEmailBanner from '../../components/_side-subscription-banner'
 import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { SEO, Show, Box, Flex, SectionContainer } from 'components/containers'
 import { Header } from 'components/elements'
 import { convertDate, isBrowser } from 'common/utility'
 import { cms_assets_end_point } from 'common/constants'
+import RightArrow from 'images/svg/black-right-arrow.svg'
 
 const BlogPreview = () => {
     const [data, setData] = useState(null)
@@ -70,7 +77,7 @@ const BlogPreview = () => {
     }, [id])
 
     const post_data = data?.data
-
+    const article_title = post_data?.blog_title
     const footer_banner_data = post_data?.footer_banners
     const side_banner_data = post_data?.side_banners
 
@@ -92,12 +99,36 @@ const BlogPreview = () => {
     }
 
     return (
-        <Layout>
+        <Layout type="academy">
             <SEO description={post_data?.meta_description} title={post_data?.meta_title} no_index />
             <>
                 {post_data && (
                     <SectionContainer padding="0" position="relative">
                         <Background>
+                            <BreadcrumbsWrapper>
+                                <Flex jc="flex-start" ai="center">
+                                    <StyledBreadcrumbsLink to="/blog/" color="grey-5">
+                                        Home
+                                    </StyledBreadcrumbsLink>
+                                    <StyledImg src={RightArrow} height="16" width="16" />
+                                    <StyledBreadcrumbsLink to="/blog/articles" color="grey-5">
+                                        All articles
+                                    </StyledBreadcrumbsLink>
+                                    <StyledImg src={RightArrow} height="16" width="16" />
+                                    <DesktopBreadcrumbsWrapper>
+                                        <StyledBreadcrumbsTitle>
+                                            {article_title}
+                                        </StyledBreadcrumbsTitle>
+                                    </DesktopBreadcrumbsWrapper>
+                                </Flex>
+                                <MobileBreadcrumbsWrapper>
+                                    <Flex width="auto" jc="flex-start" mt="10px">
+                                        <StyledBreadcrumbsTitle lh="20px">
+                                            {article_title}
+                                        </StyledBreadcrumbsTitle>
+                                    </Flex>
+                                </MobileBreadcrumbsWrapper>
+                            </BreadcrumbsWrapper>
                             <HeroContainer>
                                 <HeroLeftWrapper width="100%">
                                     <InfoText mb="16px" size="14px">

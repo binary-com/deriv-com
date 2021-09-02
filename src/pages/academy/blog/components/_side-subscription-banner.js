@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import styled from 'styled-components'
-import { TextWrapper } from '../../../../blog/components/_common'
+import { TextWrapper } from '../../../blog/components/_common'
 import AgreementLabel from 'components/custom/_agreement-label'
 import validation from 'common/validation'
 import { localize, Localize } from 'components/localization'
@@ -89,11 +89,11 @@ const EmailButton = styled(Button)`
 `
 const AdditionalFlex = styled.div`
     margin-top: 10px;
-    font-size: var(--text-size-xs);
+    font-size: 14px;
     line-height: 20px;
     color: ${(props) => (props.color ? props.color : 'black')};
     @media ${device.tabletL} {
-        font-size: 1.75rem;
+        font-size: 12px;
     }
 `
 const ErrorMessages = styled(Text)`
@@ -109,6 +109,11 @@ const StyledError = styled.img`
     height: 1.6rem;
     width: 1.6rem;
     cursor: pointer;
+`
+const StyledLocalizedLink = styled(LocalizedLinkText)`
+    @media ${device.tabletL} {
+        font-size: 12px;
+    }
 `
 
 const ArticleEmailBanner = () => {
@@ -364,10 +369,10 @@ const ArticleEmailBanner = () => {
                                 />
                                 <AdditionalFlex color="#C2C2C2">
                                     <Localize
-                                        fontSize="var(--text-size-xs)"
+                                        fontSize="14px"
                                         translate_text="We respect your privacy and protect your information. Read our <0>Privacy policy</0> to find out more."
                                         components={[
-                                            <LocalizedLinkText
+                                            <StyledLocalizedLink
                                                 key={0}
                                                 type="tnc/security-and-privacy.pdf"
                                                 external="true"

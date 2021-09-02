@@ -4,6 +4,7 @@ import { graphql } from 'gatsby'
 import {
     Background,
     HeroContainer,
+    BreadcrumbsWrapper,
     HeroLeftWrapper,
     HeroRightWrapper,
     HeroImageContainer,
@@ -21,15 +22,21 @@ import {
     RightSocialComponents,
     DesktopWrapper,
     MobileWrapper,
+    DesktopBreadcrumbsWrapper,
+    MobileBreadcrumbsWrapper,
+    StyledImg,
+    StyledBreadcrumbsLink,
+    StyledBreadcrumbsTitle,
 } from '../pages/academy/blog/posts/_style'
 import Banner from '../pages/blog/components/_banner'
-import ArticleEmailBanner from '../pages/academy/blog/components/side-subscription-banner'
+import ArticleEmailBanner from '../pages/academy/blog/components/_side-subscription-banner.js'
 import SocialSharing from '../pages/blog/_social-sharing'
 import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { SEO, Show, Box, Flex, SectionContainer } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
 import { convertDate } from 'common/utility'
+import RightArrow from 'images/svg/black-right-arrow.svg'
 
 const ArticlesTemplate = (props) => {
     const [isMounted, setMounted] = useState(false)
@@ -41,6 +48,7 @@ const ArticlesTemplate = (props) => {
     const post_data = props.data.directus.blog[0]
     const footer_banner_data = post_data?.footer_banners
     const side_banner_data = post_data?.side_banners
+    const article_title = post_data?.blog_title
     const meta_title = post_data?.meta_title
     const meta_description = post_data?.meta_description
     const og_image = post_data?.og_image?.imageFile.childImageSharp.fixed.src
@@ -73,7 +81,7 @@ const ArticlesTemplate = (props) => {
     }
 
     return (
-        <Layout>
+        <Layout type="academy">
             <SEO
                 description={meta_description}
                 title={meta_title}
@@ -83,6 +91,30 @@ const ArticlesTemplate = (props) => {
                 {isMounted && (
                     <SectionContainer padding="0" position="relative">
                         <Background>
+                            <BreadcrumbsWrapper>
+                                <Flex jc="flex-start" ai="center">
+                                    <StyledBreadcrumbsLink to="/blog/" color="grey-5">
+                                        Home
+                                    </StyledBreadcrumbsLink>
+                                    <StyledImg src={RightArrow} height="16" width="16" />
+                                    <StyledBreadcrumbsLink to="/blog/articles" color="grey-5">
+                                        All articles
+                                    </StyledBreadcrumbsLink>
+                                    <StyledImg src={RightArrow} height="16" width="16" />
+                                    <DesktopBreadcrumbsWrapper>
+                                        <StyledBreadcrumbsTitle>
+                                            {article_title}
+                                        </StyledBreadcrumbsTitle>
+                                    </DesktopBreadcrumbsWrapper>
+                                </Flex>
+                                <MobileBreadcrumbsWrapper>
+                                    <Flex width="auto" jc="flex-start" mt="10px">
+                                        <StyledBreadcrumbsTitle lh="20px">
+                                            {article_title}
+                                        </StyledBreadcrumbsTitle>
+                                    </Flex>
+                                </MobileBreadcrumbsWrapper>
+                            </BreadcrumbsWrapper>
                             <HeroContainer>
                                 <HeroLeftWrapper width="100%">
                                     <InfoText mb="16px" size="14px">

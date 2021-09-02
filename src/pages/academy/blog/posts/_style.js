@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { Box, Flex, Container } from 'components/containers'
-import { Text } from 'components/elements'
+import { LocalizedLinkText, Text } from 'components/elements'
 import device from 'themes/device'
 
 export const Background = styled.div`
@@ -13,26 +13,41 @@ export const Background = styled.div`
     }
 `
 export const HeroContainer = styled(Container)`
-    height: 566px;
-    padding: 76px 0 0;
+    height: auto;
+    min-height: 566px;
+    padding: 76px 0 40px;
     align-items: flex-start;
     margin-bottom: 86px;
 
     @media (max-width: 1300px) {
-        padding: 76px 16px 0;
+        min-height: 600px;
     }
 
     @media ${device.laptopM} {
         padding-top: 65px;
-        height: 500px;
+        min-height: 500px;
         margin-bottom: 48px;
     }
     @media ${device.laptop} {
         width: 100%;
         max-width: 58.8rem;
-        height: auto;
         margin-bottom: 0;
         padding: 36px 16px 0;
+        flex-direction: column;
+    }
+`
+export const BreadcrumbsWrapper = styled(Container)`
+    padding: 24px 0;
+
+    @media ${device.desktopS} {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    @media ${device.laptop} {
+        width: 100%;
+        max-width: 58.8rem;
+        padding: 20px 16px;
         flex-direction: column;
     }
 `
@@ -338,5 +353,35 @@ export const MobileWrapper = styled.div`
 
     @media ${device.tabletS} {
         display: flex;
+        width: 100%;
     }
+`
+export const StyledImg = styled.img`
+    margin: 0 8px;
+`
+export const DesktopBreadcrumbsWrapper = styled(Flex)`
+    width: auto;
+    @media ${device.laptop} {
+        display: none;
+    }
+`
+export const MobileBreadcrumbsWrapper = styled.div`
+    display: none;
+
+    @media ${device.laptop} {
+        display: flex;
+        width: 100%;
+    }
+`
+export const StyledBreadcrumbsLink = styled(LocalizedLinkText)`
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 20px;
+    color: var(--color-grey-5);
+`
+export const StyledBreadcrumbsTitle = styled(Text)`
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 20px;
+    color: var(--color-black-3);
 `

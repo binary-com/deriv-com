@@ -48,7 +48,6 @@ export const BreadcrumbsWrapper = styled(Container)`
         width: 100%;
         max-width: 58.8rem;
         padding: 20px 16px;
-        display: flex;
         flex-direction: column;
     }
 `

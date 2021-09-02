@@ -15,6 +15,7 @@ const StyledContainer = styled(Flex)`
 `
 const StyledContainer2 = styled(Container)`
     width: 67%;
+    max-width: 70%;
 
     @media ${device.tablet} {
         width: 90%;

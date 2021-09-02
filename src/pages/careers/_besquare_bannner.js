@@ -19,7 +19,7 @@ const StyledSection = styled(SectionContainer)`
 const BackgroundImage = styled.div`
     width: 100vw;
     max-width: 100%;
-    height: 55vh;
+    height: 50vh;
     background-size: 75%;
     background-color: var(--color-black);
     border-radius: 10px;

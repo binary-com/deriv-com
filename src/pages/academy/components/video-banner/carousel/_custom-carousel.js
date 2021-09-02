@@ -209,7 +209,7 @@ export const CustomCarousel = ({
                             </div>
                         ))}
                         {!is_mobile && (
-                            <LastChildWrapper key={'lastchild of carousel'} to="/blog/videos">
+                            <LastChildWrapper key={'lastchild of carousel'} to="/academy/videos/">
                                 <PlayerIconWrapper>
                                     <PlayerIcon src={PlayIcon} />
                                 </PlayerIconWrapper>

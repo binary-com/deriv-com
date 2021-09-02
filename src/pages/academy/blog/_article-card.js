@@ -63,7 +63,7 @@ const RedirectLink = styled(LocalizedLink)`
 
 const ArticleCard = ({ item }) => {
     return (
-        <RedirectLink to={`/blog/articles/${item.slug}`}>
+        <RedirectLink to={`/academy/blog/posts/${item.slug}`}>
             <ArticleCardWrapper>
                 <ImageWrapper>
                     <QueryImage

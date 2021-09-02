@@ -28,9 +28,9 @@ import {
     StyledBreadcrumbsLink,
     StyledBreadcrumbsTitle,
 } from '../pages/academy/blog/posts/_style'
-import Banner from '../pages/blog/components/_banner'
-import ArticleEmailBanner from '../pages/academy/blog/components/_side-subscription-banner.js'
-import SocialSharing from '../pages/blog/_social-sharing'
+import Banner from '../pages/academy/components/_banner'
+import ArticleEmailBanner from '../pages/academy/components/_side-subscription-banner.js'
+import SocialSharing from '../pages/academy/components/_social-sharing'
 import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { SEO, Show, Box, Flex, SectionContainer } from 'components/containers'
@@ -93,11 +93,11 @@ const ArticlesTemplate = (props) => {
                         <Background>
                             <BreadcrumbsWrapper>
                                 <Flex jc="flex-start" ai="center">
-                                    <StyledBreadcrumbsLink to="/blog/" color="grey-5">
+                                    <StyledBreadcrumbsLink to="/academy/" color="grey-5">
                                         Home
                                     </StyledBreadcrumbsLink>
                                     <StyledImg src={RightArrow} height="16" width="16" />
-                                    <StyledBreadcrumbsLink to="/blog/articles" color="grey-5">
+                                    <StyledBreadcrumbsLink to="/academy/blog/" color="grey-5">
                                         All articles
                                     </StyledBreadcrumbsLink>
                                     <StyledImg src={RightArrow} height="16" width="16" />

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-// import VideoSrc from '../../markets/static/video/globe.mp4'
 import VideoPlayer from '../_video-player'
 import { CustomCarousel } from './carousel/_custom-carousel'
 import { Flex } from 'components/containers'
@@ -209,7 +208,7 @@ const VideoCarousel = ({ carousel_items }) => {
                     </CustomCarousel>
                 </Flex>
                 {is_mobile && (
-                    <SeeMoreBtnMobile to="/blog/videos">
+                    <SeeMoreBtnMobile to="/academy/videos/">
                         <Header type="paragraph-2" color="white" align="center">
                             See all videos
                         </Header>

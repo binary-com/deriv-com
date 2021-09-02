@@ -31,6 +31,7 @@ const ParentWrapper = styled(Flex)`
                 : 'linear-gradient(251.14deg, rgba(14, 14, 14, 0.5632) 29.18%, rgba(7, 6, 6, 0.88) 85.14%)'};
         background-size: cover;
         padding: 73px 0 40px;
+        margin: 40px 0;
     }
 `
 const PlayerIconWrapper = styled(Flex)`

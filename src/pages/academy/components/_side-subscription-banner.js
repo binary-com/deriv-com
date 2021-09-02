@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import styled from 'styled-components'
-import { TextWrapper } from '../../../blog/components/_common'
+import { TextWrapper } from './_common'
 import AgreementLabel from 'components/custom/_agreement-label'
 import validation from 'common/validation'
 import { localize, Localize } from 'components/localization'

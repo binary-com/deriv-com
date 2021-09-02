@@ -11,7 +11,7 @@ const AllArticles = ({ article_data }) => {
     return (
         <Container m="0 auto" fd="column" ai="center">
             <Flex jc="flex-start" ai="center" mt="40px">
-                <LocalizedLinkText to="/blog/" color="grey-5">
+                <LocalizedLinkText to="/academy/" color="grey-5">
                     Home
                 </LocalizedLinkText>
                 <StyledImg src={RightArrow} height="16" width="16" />

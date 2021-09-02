@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import { StyledImg, Container, VideoGrid } from '../common/_styles'
-import VideoPlayer from '../_video-player'
+import VideoPlayer from '../components/_video-player'
 import VideoCard from './_video-card'
 import { Flex } from 'components/containers'
 import { Text, LocalizedLinkText } from 'components/elements'
@@ -29,7 +29,7 @@ const AllVideos = ({ video_data }) => {
     return (
         <Container m="0 auto" fd="column">
             <Flex jc="flex-start" ai="center" mt="4rem">
-                <LocalizedLinkText to="/blog" color="grey-5">
+                <LocalizedLinkText to="/academy/" color="grey-5">
                     Home
                 </LocalizedLinkText>
                 <StyledImg src={RightArrow} alt="Right arrow" height={16} width={16} />

@@ -14,10 +14,6 @@ const StyledContainer = styled.div`
     background-color: var(--color-grey-25);
     width: 100%;
     height: fit-content;
-
-    @media ${device.tabletS} {
-        background: linear-gradient(76.48deg, #8aadc5 3.41%, #d3e0e9 64.21%);
-    }
 `
 
 const ClientContainer = styled(Container)`
@@ -65,9 +61,6 @@ const ClientCard = styled(Flex)`
             h2 {
                 margin-bottom: 0.8rem;
             }
-            .dp2p-text {
-                color: var(--color-white);
-            }
         }
     }
 `
@@ -104,12 +97,6 @@ const ReviewBox = styled(Flex)`
     align-items: flex-start;
     width: fit-content;
     height: auto;
-
-    @media ${device.tabletS} {
-        p {
-            color: var(--color-white);
-        }
-    }
 `
 
 const ReviewStars = styled.img`

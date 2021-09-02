@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { SectionContainer, Container, Flex } from 'components/containers'
+import { Container, Flex } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
 import { LocalizedLink } from 'components/localization'
 import { truncateString } from 'common/utility'
@@ -41,6 +41,14 @@ const StyledLocalizedLink = styled(LocalizedLink)`
     text-decoration: none;
 `
 
+const StyledContainer = styled(Container)`
+    margin-bottom: 80px;
+
+    @media ${device.tabletL} {
+        margin-bottom: 40px;
+    }
+`
+
 // Can modify this for second phase to get the tag name
 // const getTagName = (tags) => {
 //     for (let i = 0; i < tags.length; i++){
@@ -51,60 +59,58 @@ const StyledLocalizedLink = styled(LocalizedLink)`
 
 const MarketNews = ({ data }) => {
     return (
-        <SectionContainer>
-            <Container>
-                <Flex fd="column">
-                    <Header mb="20px" align="center" type="heading-3" as="h3">
-                        Market news
-                    </Header>
-                    <MarketsNewsWrapper>
-                        {data.map((data) => {
-                            return (
-                                <StyledLocalizedLink
-                                    key={data.id}
-                                    to={`/academy/blog/posts/${data.slug}/`}
-                                >
-                                    <StyledFlex>
-                                        <QueryImage
-                                            data={data.main_image.imageFile}
-                                            width="104px"
-                                            height="78px"
-                                            alt={data.main_image.alt || ''}
-                                        />
-                                        <Flex ml="8px" fd="column">
-                                            <Header type="paragraph-2" color="blue-9">
-                                                {/* We'll stick to just weekly report for phase 1 */}
-                                                <StyledSpan>Weekly report</StyledSpan>
-                                            </Header>
-                                            <Header mt="8px" type="paragraph-1" weight="bold">
-                                                {truncateString(data.blog_title, 38)}
-                                            </Header>
-                                            <Flex
-                                                mt="auto"
-                                                height="fit-content"
-                                                jc="center"
-                                                ai="center"
+        <StyledContainer>
+            <Flex fd="column">
+                <Header mb="20px" align="center" type="heading-3" as="h3">
+                    Market news
+                </Header>
+                <MarketsNewsWrapper>
+                    {data.map((data) => {
+                        return (
+                            <StyledLocalizedLink
+                                key={data.id}
+                                to={`/academy/blog/posts/${data.slug}/`}
+                            >
+                                <StyledFlex>
+                                    <QueryImage
+                                        data={data.main_image.imageFile}
+                                        width="104px"
+                                        height="78px"
+                                        alt={data.main_image.alt || ''}
+                                    />
+                                    <Flex ml="8px" fd="column">
+                                        <Header type="paragraph-2" color="blue-9">
+                                            {/* We'll stick to just weekly report for phase 1 */}
+                                            <StyledSpan>Weekly report</StyledSpan>
+                                        </Header>
+                                        <Header mt="8px" type="paragraph-1" weight="bold">
+                                            {truncateString(data.blog_title, 38)}
+                                        </Header>
+                                        <Flex
+                                            mt="auto"
+                                            height="fit-content"
+                                            jc="center"
+                                            ai="center"
+                                        >
+                                            <img src={EyeIcon} width="16px" height="11px" />
+                                            <Header
+                                                ml="4px"
+                                                mt="3px"
+                                                type="small"
+                                                weight="normal"
+                                                color="grey-5"
                                             >
-                                                <img src={EyeIcon} width="16px" height="11px" />
-                                                <Header
-                                                    ml="4px"
-                                                    mt="3px"
-                                                    type="small"
-                                                    weight="normal"
-                                                    color="grey-5"
-                                                >
-                                                    {data.read_time_in_minutes} min read
-                                                </Header>
-                                            </Flex>
+                                                {data.read_time_in_minutes} min read
+                                            </Header>
                                         </Flex>
-                                    </StyledFlex>
-                                </StyledLocalizedLink>
-                            )
-                        })}
-                    </MarketsNewsWrapper>
-                </Flex>
-            </Container>
-        </SectionContainer>
+                                    </Flex>
+                                </StyledFlex>
+                            </StyledLocalizedLink>
+                        )
+                    })}
+                </MarketsNewsWrapper>
+            </Flex>
+        </StyledContainer>
     )
 }
 

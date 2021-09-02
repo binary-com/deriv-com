@@ -199,7 +199,13 @@ const DerivBlog = ({ data }) => {
             <DVideoBanner video_list_data={video_list_data} />
             <MarketNews data={market_news_data} />
             <Container>
-                <Flex direction="column" ai="flex-start" jc="space-between">
+                <Flex
+                    direction="column"
+                    ai="flex-start"
+                    jc="space-between"
+                    mb="80px"
+                    tabletL={{ marginBottom: '40px' }}
+                >
                     <Subscribe />
                 </Flex>
             </Container>

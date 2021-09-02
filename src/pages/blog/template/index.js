@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
+import ArticleEmailBanner from '../../academy/blog/components/_side-subscription-banner'
 import BottomCta from './_blog-footer/_blog-footer'
 import SideCta from './_side-cta/_side-cta'
 import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { SEO, Show, Box, Flex, Container, SectionContainer } from 'components/containers'
 import { Header, Text } from 'components/elements'
-import ArticleEmailBanner from 'pages/academy/blog/components/side-subscription-banner'
 import device from 'themes/device'
 
 const Background = styled.div`

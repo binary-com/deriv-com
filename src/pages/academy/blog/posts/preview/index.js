@@ -28,8 +28,8 @@ import {
     StyledBreadcrumbsTitle,
 } from '../_style'
 import Banner from '../../../../blog/components/_banner'
-import ArticleEmailBanner from '../../components/_side-subscription-banner'
 import SocialSharing from '../../../../blog/_social-sharing'
+import ArticleEmailBanner from '../../components/_side-subscription-banner'
 import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { SEO, Show, Box, Flex, SectionContainer } from 'components/containers'

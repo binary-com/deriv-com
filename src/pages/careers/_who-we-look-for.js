@@ -7,10 +7,17 @@ import device from 'themes/device'
 
 const StyledContainer = styled(Flex)`
     max-width: 79.2rem;
-    margin: 12rem auto;
+    margin: 10rem auto;
     @media ${device.tablet} {
         max-width: 80%;
         flex-direction: column;
+    }
+`
+const StyledContainer2 = styled(Container)`
+    width: 67%;
+
+    @media ${device.tablet} {
+        width: 90%;
     }
 `
 
@@ -55,10 +62,10 @@ const ImageDescription = styled.div`
     ${(props) =>
         props.left
             ? css`
-                  margin-right: 6.4rem;
+                  margin-right: 2.4rem;
               `
             : css`
-                  margin-left: 6.4rem;
+                  margin-left: 2.4rem;
               `}
     @media ${device.tablet} {
         margin: 3.2rem 0;
@@ -66,7 +73,7 @@ const ImageDescription = styled.div`
 `
 
 const DiffHeader = styled(Header)`
-    margin-bottom: 6.4rem;
+    margin-bottom: 3.4rem;
     font-size: 48px;
     line-height: 60px;
 
@@ -124,11 +131,11 @@ const WhoWeLookFor = () => {
                     people who are up for a challenge to make online trading accessible to anyone.
                 </ParimaryText>
             </StyledContainer>
-            <Container direction="column">
+            <StyledContainer2 direction="column">
                 <DiffHeader as="h3" type="section-title" align="center">
                     What’s different about working at Deriv?
                 </DiffHeader>
-                <DescContainer direction="row" mb="14.4rem" jc="flex-start">
+                <DescContainer direction="row" mb="9.4rem" jc="flex-start">
                     <ImageWrapper>
                         <QueryImage data={data.teamfocus} alt={'Team Focus'} width="100%" />
                     </ImageWrapper>
@@ -178,7 +185,7 @@ const WhoWeLookFor = () => {
                         </DescText>
                     </ImageDescription>
                 </DescContainer>
-            </Container>
+            </StyledContainer2>
         </>
     )
 }

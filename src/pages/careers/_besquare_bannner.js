@@ -1,11 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-// import { graphql, useStaticQuery } from 'gatsby'
-// import Container from './_layout-components/_container'
-// import {  BackgroundImage } from 'components/elements'
-// import { LinkButton } from 'components/form'
-// import { zoho_url } from 'common/constants'
-// import { LocationContext } from 'components/layout/location-context.js'
 import { SectionContainer } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { LinkButton } from 'components/form'
@@ -25,7 +19,7 @@ const StyledSection = styled(SectionContainer)`
 const BackgroundImage = styled.div`
     width: 100vw;
     max-width: 100%;
-    height: 50vh;
+    height: 68vh;
     background-size: 75%;
     background-color: var(--color-black);
     border-radius: 10px;

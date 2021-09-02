@@ -29,7 +29,7 @@ import {
     StyledBreadcrumbsTitle,
 } from '../pages/academy/blog/posts/_style'
 import Banner from '../pages/blog/components/_banner'
-import ArticleEmailBanner from '../pages/academy/blog/components/side-subscription-banner'
+import ArticleEmailBanner from '../pages/academy/blog/components/_side-subscription-banner'
 import SocialSharing from '../pages/blog/_social-sharing'
 import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'

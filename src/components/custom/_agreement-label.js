@@ -6,10 +6,10 @@ import { Localize, localize } from 'components/localization'
 import device from 'themes/device.js'
 
 const CheckboxSpan = styled.span`
-    font-size: var(--text-size-xs);
+    font-size: 14px;
     color: ${(props) => (props.color ? props.color : 'black')};
     @media ${device.tabletL} {
-        font-size: 1.75rem;
+        font-size: 12px;
     }
 `
 const AgreementLabel = ({
@@ -46,7 +46,7 @@ const AgreementLabel = ({
             />
             <CheckboxSpan color={color}>
                 <Localize
-                    fontSize="var(--text-size-xs)"
+                    fontSize="14px"
                     translate_text={link_text}
                     components={[
                         <LocalizedLinkText

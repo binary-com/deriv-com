@@ -246,27 +246,9 @@ export const redirectOpenLiveChatBox = (is_redirect) => {
 }
 
 // Function which returns sub path to the specific trading platform
-export const redirectToTradingPlatform = () => {
-    const dmt5_url = 'mt5'
-    const dbot_url = 'bot'
-    const derivx_url = 'derivx'
-
-    const isUserAt = () => {
-        const checkURL = (platform) => window.location.pathname.includes(platform)
-        return { dmt5: checkURL(dmt5_url), dbot: checkURL(dbot_url), derivx: checkURL(derivx_url) }
-    }
-
-    const redirectTo = () => {
-        if (isUserAt().dmt5) {
-            return dmt5_url
-        } else if (isUserAt().dbot) {
-            return dbot_url
-        } else if (isUserAt().derivx) {
-            return derivx_url
-        } else {
-            return ''
-        }
-    }
-
-    return redirectTo()
-}
+const supported_platforms = ['mt5', 'bot', 'derivx']
+export const redirectToTradingPlatform = () =>
+    supported_platforms.filter(
+        (platform, index) =>
+            window.location.pathname.includes(platform) && supported_platforms[index],
+    )

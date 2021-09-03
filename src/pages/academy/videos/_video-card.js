@@ -122,8 +122,8 @@ const VideoCard = ({ item, openVideo }) => {
                     <CategoriesContainer jc="flex-start" fw="wrap">
                         {item.tags &&
                             first_2_tags.map((tag) => (
-                                <StyledCategories as="h4" type="paragraph-2" key={tag.tags_id.id}>
-                                    {tag.tags_id.tag_name}
+                                <StyledCategories as="h4" type="paragraph-2" key={tag?.tags_id?.id}>
+                                    {tag?.tags_id?.tag_name}
                                 </StyledCategories>
                             ))}
                         {another_tags_number && (

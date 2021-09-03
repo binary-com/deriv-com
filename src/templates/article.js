@@ -138,8 +138,8 @@ const ArticlesTemplate = (props) => {
                                             >
                                                 {post_data?.tags.map((tag) => {
                                                     return (
-                                                        <Tag key={tag.tags_id.id}>
-                                                            {tag.tags_id.tag_name}
+                                                        <Tag key={tag?.tags_id?.id}>
+                                                            {tag?.tags_id?.tag_name}
                                                         </Tag>
                                                     )
                                                 })}
@@ -233,8 +233,8 @@ const ArticlesTemplate = (props) => {
                                         >
                                             {post_data?.tags.map((tag) => {
                                                 return (
-                                                    <Tag key={tag.tags_id.id}>
-                                                        {tag.tags_id.tag_name}
+                                                    <Tag key={tag?.tags_id?.id}>
+                                                        {tag?.tags_id?.tag_name}
                                                     </Tag>
                                                 )
                                             })}

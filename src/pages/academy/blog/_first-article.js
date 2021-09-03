@@ -85,8 +85,8 @@ const FirstArticle = ({ item }) => {
                     <Flex jc="flex-start" height="auto" fw="wrap">
                         {item?.tags &&
                             item.tags.slice(0, 2).map((tag) => (
-                                <StyledCategories as="h4" type="paragraph-2" key={tag.id}>
-                                    {tag.tags_id.tag_name}
+                                <StyledCategories as="h4" type="paragraph-2" key={tag?.id}>
+                                    {tag?.tags_id?.tag_name}
                                 </StyledCategories>
                             ))}
                         {item?.tags.length > 2 && (

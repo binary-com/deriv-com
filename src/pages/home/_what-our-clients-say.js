@@ -66,10 +66,11 @@ const ClientCard = styled(Flex)`
 
 const TrustPilotWidget = styled(Flex)`
     margin: 2.5rem 0 0 0;
+    width: 24rem;
+    margin-left: -1rem;
 
     @media ${device.tabletS} {
         width: 29rem;
-        margin-left: -1rem;
     }
 `
 

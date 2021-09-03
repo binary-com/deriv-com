@@ -175,14 +175,14 @@ const WhatOurClientsSay = () => {
                                         target="_blank"
                                         rel="noopener noreferrer"
                                     >
-                                        <img src={GooglePlay} />
+                                        <img src={GooglePlay} alt="Get on Google Play" />
                                     </AppLink>
                                     <AppLink
                                         href="https://apps.apple.com/gh/app/deriv-dp2p/id1506901451"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                     >
-                                        <img src={AppStore} />
+                                        <img src={AppStore} alt="Get on App Store" />
                                     </AppLink>
                                 </AppDownloadBtns>
                                 <ReviewBox>

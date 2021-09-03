@@ -17,7 +17,7 @@ const StyledContainer2 = styled(Container)`
     width: 67%;
 
     @media ${device.desktop} {
-        width: 70%;
+        width: 70% !important;
     }
 
     @media ${device.tablet} {

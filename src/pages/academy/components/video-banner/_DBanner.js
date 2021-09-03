@@ -11,10 +11,12 @@ import PlayIcon from 'images/svg/blog/video/Triangle.svg'
 
 const ParentWrapper = styled(Flex)`
     /* prettier-ignore */
-    background: ${(props) =>
-        props.bg_image
-            ? `linear-gradient(251.14deg,rgba(14, 14, 14, 0.5632) 29.18%,rgba(7, 6, 6, 0.88) 85.14%),url(${props.bg_image}) no-repeat top left`
-            : 'linear-gradient(251.14deg, rgba(14, 14, 14, 0.5632) 29.18%, rgba(7, 6, 6, 0.88) 85.14%)'};
+    background: ${(props) => {
+        const bg_image = `linear-gradient(251.14deg,rgba(14, 14, 14, 0.5632) 29.18%,rgba(7, 6, 6, 0.88) 85.14%),url(${props.bg_image}) no-repeat top left`
+        const default_bg =
+            'linear-gradient(251.14deg, rgba(14, 14, 14, 0.5632) 29.18%, rgba(7, 6, 6, 0.88) 85.14%)'
+        return props.bg_image ? bg_image : default_bg
+    }};
     overflow: hidden;
     margin: 80px 0;
     position: relative;
@@ -25,10 +27,13 @@ const ParentWrapper = styled(Flex)`
 
     @media ${device.tabletL} {
         /* prettier-ignore */
-        background: ${(props) =>
-            props.bg_image
-                ? `linear-gradient(251.14deg, rgba(14, 14, 14, 0.5632) 29.18%, rgba(7, 6, 6, 0.88) 85.14%),url(${props.bg_image}) no-repeat top right 46.5%`
-                : 'linear-gradient(251.14deg, rgba(14, 14, 14, 0.5632) 29.18%, rgba(7, 6, 6, 0.88) 85.14%)'};
+        background: ${(props) => {
+            const bg_image = `linear-gradient(251.14deg, rgba(14, 14, 14, 0.5632) 29.18%, rgba(7, 6, 6, 0.88) 85.14%),url(${props.bg_image}) no-repeat top right 46.5%`
+            const default_bg =
+                'linear-gradient(251.14deg, rgba(14, 14, 14, 0.5632) 29.18%, rgba(7, 6, 6, 0.88) 85.14%)'
+
+            return props.bg_image ? bg_image : default_bg
+        }};
         background-size: cover;
         padding: 73px 0 40px;
         margin: 40px 0;
@@ -83,7 +88,7 @@ const Dbanner = ({ video_list }) => {
     } = getVideoObject(featured_video)
 
     useEffect(() => {
-        show ? (document.body.style.overflow = 'hidden') : (document.body.style.overflow = 'unset')
+        document.body.style.overflow = show ? 'hidden' : 'unset'
     }, [show])
 
     return (

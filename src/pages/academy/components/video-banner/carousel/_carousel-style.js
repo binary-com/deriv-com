@@ -40,49 +40,24 @@ export const StyledButtonWrapper = styled.div`
     bottom: 50%;
     opacity: ${(props) => (props.disabled ? '0.92' : '1')};
     ${(props) => {
-        if (props.left)
+        const is_reviews = props.is_reviews
+        const left_tablet_styles = `@media ${device.tabletL} {left: 22%;}@media ${device.tabletS} {left: 2px;}`
+        const right_tablet_styles = `@media ${device.tabletL} {right: 22%;}@media ${device.tabletS} {right: 2px;}`
+        const display_none = 'display:none;'
+
+        if (props.left) {
+            const styles = is_reviews ? left_tablet_styles : display_none
             return css`
                 left: 0;
-
-                @media ${device.tabletL} {
-                    ${(props) => {
-                        if (props.is_reviews) {
-                            return css`
-                                @media ${device.tabletL} {
-                                    left: 22%;
-                                }
-                                @media ${device.tabletS} {
-                                    left: 2px;
-                                }
-                            `
-                        }
-                        return css`
-                            display: none;
-                        `
-                    }}
-                }
+                ${styles}
             `
-        return css`
-            right: 0;
-
-            @media ${device.tabletL} {
-                ${(props) => {
-                    if (props.is_reviews) {
-                        return css`
-                            @media ${device.tabletL} {
-                                right: 22%;
-                            }
-                            @media ${device.tabletS} {
-                                right: 2px;
-                            }
-                        `
-                    }
-                    return css`
-                        display: none;
-                    `
-                }}
-            }
-        `
+        } else {
+            const styles = is_reviews ? right_tablet_styles : display_none
+            return css`
+                right: 0;
+                ${styles}
+            `
+        }
     }}
 
     &:hover {
@@ -94,34 +69,27 @@ export const StyledChevron = styled(Chevron)`
     height: 24px;
     width: 24px;
     ${(props) => {
+        const red_box = 'width: 16px;height: 16px;'
+        const custom_box = 'width: 10px;height: 18px;'
+
         if (props.red) {
             return css`
-                width: 16px;
-                height: 16px;
+                ${red_box}
             `
         } else if (props.custom) {
             return css`
-                width: 10px;
-                height: 18px;
+                ${custom_box}
             `
         }
     }}
 
     path {
         ${(props) => {
-            if (props.black) {
-                return css`
-                    fill: var(--color-black);
-                `
-            } else if (props.red) {
-                return css`
-                    fill: var(--color-red);
-                `
-            }
+            const black_color = 'fill: var(--color-black);'
+            const red_color = 'fill: var(--color-red);'
+            const default_color = 'fill: var(--color-white);'
 
-            return css`
-                fill: var(--color-white);
-            `
+            return props.black ? black_color : props.red ? red_color : default_color
         }}
     }
 `

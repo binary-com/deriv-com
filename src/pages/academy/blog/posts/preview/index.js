@@ -58,7 +58,7 @@ const BlogPreview = () => {
         const fetchBlogPreview = async () => {
             const url = `${end_point_url}${id}?fields=*.*.*.*.*`
             const res = await fetch(url, { cache: 'no-store' })
-            return res.json()
+            return await res.json()
         }
 
         const getPreviews = async () => {

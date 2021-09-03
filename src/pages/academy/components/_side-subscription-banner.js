@@ -287,7 +287,6 @@ const ArticleEmailBanner = () => {
                     <InputWrapper>
                         <Input
                             placeholder="Your name"
-                            autoFocus={true}
                             focusBorder="var(--color-grey-6)"
                             autoComplete="off"
                             id="name"
@@ -318,7 +317,6 @@ const ArticleEmailBanner = () => {
                     <InputWrapper>
                         <Input
                             placeholder="Your email address"
-                            autoFocus={true}
                             focusBorder="var(--color-grey-6)"
                             autoComplete="off"
                             id="email"

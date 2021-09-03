@@ -249,6 +249,5 @@ export const redirectOpenLiveChatBox = (is_redirect) => {
 const supported_platforms = ['mt5', 'bot', 'derivx']
 export const redirectToTradingPlatform = () =>
     supported_platforms.filter(
-        (platform, index) =>
-            window.location.pathname.includes(platform) && supported_platforms[index],
+        (platform) => window.location.pathname.includes(platform) && platform,
     )

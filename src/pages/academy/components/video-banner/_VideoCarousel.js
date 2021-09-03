@@ -105,7 +105,7 @@ const VideoCarousel = ({ carousel_items }) => {
     }
 
     useEffect(() => {
-        show ? (document.body.style.overflow = 'hidden') : (document.body.style.overflow = 'unset')
+        document.body.style.overflow = show ? 'hidden' : 'unset'
     }, [show])
 
     const settings = {

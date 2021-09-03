@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import TrustPilotWidget, { getRatingData } from './_trust_pilot.js'
 import Stars from 'images/svg/playstore/stars'
 import { Text, Header } from 'components/elements'
 import { localize, Localize } from 'components/localization'
@@ -65,6 +64,15 @@ const ClientCard = styled(Flex)`
     }
 `
 
+const TrustPilotWidget = styled(Flex)`
+    margin: 2.5rem 0 0 0;
+
+    @media ${device.tabletS} {
+        width: 29rem;
+        margin-left: -1rem;
+    }
+`
+
 const AppDownloadBox = styled(Flex)`
     margin-top: 4rem;
     justify-content: start;
@@ -103,6 +111,20 @@ const ReviewStars = styled.img`
     height: 1rem;
 `
 
+const getRatingData = (rating) => {
+    const rating_str = typeof rating == 'string' ? rating : rating.toString()
+    const rating_data = rating_str.split('.').map((e, k) => (k == 0 ? e : e >= 5 ? 5 : ''))
+    const rate = rating_data[0]
+    const point = rating_data[1] ? rating_data[1] : 0
+    const icon = 'Star' + [rate, point == 5 ? 'Half' : ''].join('')
+
+    return {
+        point,
+        rate,
+        icon,
+    }
+}
+
 const WhatOurClientsSay = () => {
     const { icon } = getRatingData(4.5)
     return (
@@ -114,7 +136,26 @@ const WhatOurClientsSay = () => {
                             <Header as="h2" type="heading-2">
                                 {localize('What our clients say about Deriv')}
                             </Header>
-                            <TrustPilotWidget />
+                            <TrustPilotWidget>
+                                <div
+                                    className="trustpilot-widget"
+                                    data-locale="en-US"
+                                    data-template-id="5419b637fa0340045cd0c936"
+                                    data-businessunit-id="5ed4c8a9f74f310001f51bf7"
+                                    data-style-height="30px"
+                                    data-style-width="100%"
+                                    data-theme="light"
+                                    data-font-family="Roboto"
+                                >
+                                    <a
+                                        href="https://www.trustpilot.com/review/deriv.com"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        Trustpilot
+                                    </a>
+                                </div>
+                            </TrustPilotWidget>
                         </ClientCard>
                         <ClientCard className="right" direction="column">
                             <Header as="h3" type="heading-3">

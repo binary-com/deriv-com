@@ -158,6 +158,11 @@ export const onClientEntry = () => {
         async: true,
     })
 
+    addScript({
+        src: 'https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js',
+        id: 'trust-pilot',
+    })
+
     checkLiveChatRedirection()
 }
 

@@ -69,7 +69,7 @@ const DP2PHome = () => {
                     <Hero
                         title={localize('Hassle-free deposits and withdrawals')}
                         content={
-                            <Localize translate_text="Can’t make deposits and withdrawals in your local currency? No problem. Exchange with fellow traders in minutes." />
+                            <Localize translate_text="Use your local currency to make deposits into and withdrawals from your Deriv account." />
                         }
                         image_name="DP2P"
                     />
@@ -78,7 +78,7 @@ const DP2PHome = () => {
                     <ExchangeSteps />
                     <Availability />
                     <P2PBanner
-                        title={localize('Get hassle-free deposits and withdrawals today')}
+                        title={localize('Hassle-free deposits and withdrawals')}
                         image_name="DP2P"
                     />
                 </ContentWrapper>

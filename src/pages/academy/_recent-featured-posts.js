@@ -29,7 +29,7 @@ import {
     MobileDotIcon,
     MobileHeader,
 } from './components/recent-featured-posts/_style'
-import { convertDate, truncateString } from 'common/utility'
+import { convertDate, truncateString, getAssetUrl } from 'common/utility'
 import { Flex } from 'components/containers'
 import { QueryImage, Carousel, Tabs, Header } from 'components/elements'
 import { localize, WithIntl, Localize } from 'components/localization'
@@ -73,13 +73,7 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
                     <ArticleContentWrapper>
                         <LeftContent>
                             <RedirectLink to={`/academy/blog/posts/${headline_recent.slug}`}>
-                                <MainArticle>
-                                    <QueryImage
-                                        className="main-article-bg"
-                                        data={headline_recent.main_image.imageFile}
-                                        alt={headline_recent.main_image.description || ''}
-                                        height="464px"
-                                    />
+                                <MainArticle image={getAssetUrl(headline_recent.main_image.id)}>
                                     <Description>
                                         <TagParentWrapper>
                                             {headline_recent.tags.map((article) => {
@@ -190,13 +184,7 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
                     <ArticleContentWrapper>
                         <LeftContent>
                             <RedirectLink to={`/academy/blog/posts/${headline_featured.slug}`}>
-                                <MainArticle>
-                                    <QueryImage
-                                        className="main-article-bg"
-                                        data={headline_featured.main_image.imageFile}
-                                        alt={headline_featured.main_image.description || ''}
-                                        height="464px"
-                                    />
+                                <MainArticle image={getAssetUrl(headline_featured.main_image.id)}>
                                     <Description>
                                         <TagParentWrapper>
                                             {headline_featured.tags.map((article) => {

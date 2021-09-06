@@ -44,7 +44,7 @@ const ImageWrapper = styled.div`
         height: unset;
     }
 
-    > .main-article-bg {
+    > .first-article-image {
         display: contents;
     }
 `
@@ -78,7 +78,7 @@ const FirstArticle = ({ item }) => {
                         data={getImage(item.main_image.imageFile)}
                         alt={item.main_image.description || ''}
                         width="100%"
-                        className="main-article-bg"
+                        className="first-article-image"
                     />
                 </ImageWrapper>
                 <FirstContentWrapper fd="column" p="35px 40px" width="45%">

@@ -83,7 +83,7 @@ const StartDerivGo = () => {
                         }
                     >
                         <ImageWrapper>
-                            <QueryImage data={data['sign_up']} alt="create account image" />
+                            <QueryImage data={data['sign_up']} alt="create account" />
                         </ImageWrapper>
                     </SideTab.Panel>
                     <SideTab.Panel
@@ -93,7 +93,7 @@ const StartDerivGo = () => {
                         }
                     >
                         <ImageWrapper>
-                            <QueryImage data={data['fund']} alt="fund account image" />
+                            <QueryImage data={data['fund']} alt="fund account" />
                         </ImageWrapper>
                     </SideTab.Panel>
                     <SideTab.Panel
@@ -103,7 +103,7 @@ const StartDerivGo = () => {
                         }
                     >
                         <ImageWrapper>
-                            <QueryImage data={data['trading']} alt="get trading image" />
+                            <QueryImage data={data['trading']} alt="get trading" />
                         </ImageWrapper>
                     </SideTab.Panel>
                 </SideTab>

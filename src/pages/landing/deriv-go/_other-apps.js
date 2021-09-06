@@ -11,11 +11,6 @@ import device from 'themes/device'
 
 const StyledSectionContainer = styled(SectionContainer)`
     border-top: solid 1px var(--color-grey-2);
-    padding-top: 80px;
-
-    @media ${device.tablet} {
-        padding-top: 40px;
-    }
 `
 
 const StyledHeader = styled(Header)`
@@ -62,7 +57,7 @@ const Card = styled(Flex)`
     flex-direction: column;
     max-width: 380px;
     max-height: 300px;
-    padding: 32px 24px;
+    padding: 80px 24px;
     border-radius: 12px;
     box-shadow: 0 16px 40px rgba(198, 198, 198, 0.3);
     margin-right: 2.4rem;
@@ -73,8 +68,9 @@ const Card = styled(Flex)`
         margin-right: 8px;
     }
 
-    @media ${device.tablet} {
+    @media ${device.tabletL} {
         margin-right: unset;
+        padding-top: 40px;
     }
 `
 
@@ -110,7 +106,7 @@ const other_apps = [
 const OtherApps = () => {
     return (
         <div>
-            <StyledSectionContainer>
+            <StyledSectionContainer pt="80px" tablet={{ paddingTop: '40px' }}>
                 <Container fd="column">
                     <StyledHeader type="heading-2" align="center">
                         {localize('Check out our other apps')}

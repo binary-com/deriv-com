@@ -114,7 +114,20 @@ const ReviewStars = styled.img`
 
 const getRatingData = (rating) => {
     const rating_str = typeof rating == 'string' ? rating : rating.toString()
-    const rating_data = rating_str.split('.').map((e, k) => (k == 0 ? e : e >= 5 ? 5 : ''))
+    const rating_data = rating_str.split('.').map((e, k) => {
+        let rate = e
+
+        if (k != 0) {
+            if (e >= 5) {
+                rate = 5
+            } else {
+                rate = ''
+            }
+        }
+
+        return rate
+    })
+
     const rate = rating_data[0]
     const point = rating_data[1] ? rating_data[1] : 0
     const icon = 'Star' + [rate, point == 5 ? 'Half' : ''].join('')

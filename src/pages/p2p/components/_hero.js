@@ -18,6 +18,7 @@ const Wrapper = styled(Container)`
     justify-content: space-between;
     background-color: transparent;
     height: unset;
+
     @media ${device.tabletL} {
         flex-direction: column-reverse;
         justify-content: center;
@@ -42,6 +43,7 @@ const ImgWrapper = styled.div`
             object-fit: contain !important;
         }
     }
+
     @media ${device.tabletL} {
         max-width: 313px;
         max-height: 380px;
@@ -56,6 +58,7 @@ const InformationWrapper = styled(Flex)`
     width: 100%;
     max-width: 60.5rem;
     z-index: 1;
+
     @media ${device.tabletL} {
         max-width: 42rem;
     }
@@ -116,6 +119,7 @@ const StyledHeader = styled(Header)`
     font-weight: 600;
     display: flex;
     font-size: 8rem;
+
     @media ${device.laptopM} {
         width: 100%;
         font-size: 6rem;
@@ -139,6 +143,7 @@ const TryButton = styled(LinkButton)`
     margin-top: 3.2rem;
     margin-bottom: 40px;
     border: unset;
+
     @media ${device.mobileL} {
         padding: 1.5rem 1.6rem;
         height: 42px;

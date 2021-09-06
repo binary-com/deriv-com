@@ -69,7 +69,7 @@ const TrustPilotWidget = styled(Flex)`
     width: 24rem;
     margin-left: -1rem;
 
-    @media ${device.tabletS} {
+    @media ${device.laptop} {
         width: 29rem;
     }
 `

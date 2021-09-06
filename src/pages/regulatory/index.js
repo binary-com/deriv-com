@@ -250,15 +250,6 @@ const Regulatory = (locale) => {
                                                     href="/regulatory/Deriv_(Europe)_Limited.pdf"
                                                     rel="noopener noreferrer"
                                                 />,
-                                                <ExternalBoldLink
-                                                    external="true"
-                                                    key={1}
-                                                    weight="bold"
-                                                    color="black-3"
-                                                    target="_blank"
-                                                    to="https://www.gamblingcommission.gov.uk/public-register/business/detail/39495"
-                                                    rel="noopener noreferrer"
-                                                />,
                                             ]}
                                         />
                                     </Text>

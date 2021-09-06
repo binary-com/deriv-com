@@ -98,13 +98,6 @@ const DisclaimerSection = () => {
                                     href="/regulatory/Deriv_(Europe)_Limited.pdf"
                                     rel="noopener noreferrer"
                                 />,
-                                <StaticAssetLink
-                                    external="true"
-                                    key={1}
-                                    target="_blank"
-                                    to="https://www.gamblingcommission.gov.uk/public-register/business/detail/39495"
-                                    rel="noopener noreferrer"
-                                />,
                             ]}
                         />
                     </DisclaimerParagraph>

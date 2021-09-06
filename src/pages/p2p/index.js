@@ -1,7 +1,9 @@
 import React from 'react'
+import styled from 'styled-components'
 import Loadable from '@loadable/component'
 import Hero from './components/_hero'
 import DP2P from './components/_dp2p'
+import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import { localize, Localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { SEO } from 'components/containers'
@@ -49,26 +51,38 @@ const DP2P_CONTENT = [
         image_alt: localize('Web and mobile apps'),
     },
 ]
+const ContentWrapper = styled.div`
+    width: 100%;
+`
 
 const DP2PHome = () => {
+    const [is_mounted] = usePageLoaded(false) // needed to fix tab highlighting not being rerendered during first load
     return (
         <Layout>
             <SEO
                 title={localize('Deriv P2P')}
                 description={localize('Hassle-free deposits and withdrawals')}
             />
-            <Hero
-                title={localize('Hassle-free deposits and withdrawals')}
-                content={
-                    <Localize translate_text="Use your local currency to make deposits into and withdrawals from your Deriv account." />
-                }
-                image_name="DP2P"
-            />
-            <DP2P reverse P2P={DP2P_CONTENT} />
-            <Numbers />
-            <ExchangeSteps />
-            <Availability />
-            <P2PBanner title={localize('Hassle-free deposits and withdrawals')} image_name="DP2P" />
+
+            {is_mounted && (
+                <ContentWrapper>
+                    <Hero
+                        title={localize('Hassle-free deposits and withdrawals')}
+                        content={
+                            <Localize translate_text="Can’t make deposits and withdrawals in your local currency? No problem. Exchange with fellow traders in minutes." />
+                        }
+                        image_name="DP2P"
+                    />
+                    <DP2P reverse P2P={DP2P_CONTENT} />
+                    <Numbers />
+                    <ExchangeSteps />
+                    <Availability />
+                    <P2PBanner
+                        title={localize('Get hassle-free deposits and withdrawals today')}
+                        image_name="DP2P"
+                    />
+                </ContentWrapper>
+            )}
         </Layout>
     )
 }

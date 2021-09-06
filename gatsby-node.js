@@ -15,6 +15,7 @@ exports.onCreatePage = ({ page, actions }) => {
     const is_p2p = /responsible/g.test(page.path)
     const is_story = /story/g.test(page.path)
     const is_market = /markets/g.test(page.path)
+    const is_cfds = /cfds/g.test(page.path)
 
     if (is_responsible_trading) {
         createRedirect({
@@ -97,24 +98,33 @@ exports.onCreatePage = ({ page, actions }) => {
         })
     }
 
+    if (is_cfds) {
+        createRedirect({
+            fromPath: `/trade-types/margin/`,
+            toPath: `/trade-types/cfds/`,
+            redirectInBrowser: true,
+            isPermanent: true,
+        })
+        createRedirect({
+            fromPath: `/trade-types/margin`,
+            toPath: `/trade-types/cfds/`,
+            redirectInBrowser: true,
+            isPermanent: true,
+        })
+    }
+
     Object.keys(language_config).map((lang) => {
         // Use the values defined in "locales" to construct the path
         const { path, is_default } = language_config[lang]
         const localized_path = is_default ? page.path : `${path}${page.path}`
         const is_production = process.env.GATSBY_ENV === 'production'
-        const careers_regex = /^[a-z-]+\/careers\//g
-        const endpoint_regex = /^[a-z-]+\/endpoint\//g
-        const offline_plugin_regex = /^[a-z-]+\/offline-plugin-app-shell-fallback/g
+        const excluded_pages_regex =
+            /^[a-z-]+\/(careers|endpoint|offline-plugin-app-shell-fallback|besquare|livechat)\//g
 
         if (is_production) {
             if (path === 'ach') return
         }
-        if (
-            careers_regex.test(localized_path) ||
-            endpoint_regex.test(localized_path) ||
-            offline_plugin_regex.test(localized_path)
-        )
-            return
+        if (localized_path.match(excluded_pages_regex)) return
 
         if (!translations_cache[lang]) {
             const translation_json = require(`./src/translations/${lang}`)
@@ -227,6 +237,21 @@ exports.onCreatePage = ({ page, actions }) => {
             createRedirect({
                 fromPath: `/${lang}/markets`,
                 toPath: `/${lang}/markets/forex/`,
+                redirectInBrowser: true,
+                isPermanent: true,
+            })
+        }
+
+        if (is_cfds) {
+            createRedirect({
+                fromPath: `/${lang}/trade-types/margin/`,
+                toPath: `/${lang}/trade-types/cfds/`,
+                redirectInBrowser: true,
+                isPermanent: true,
+            })
+            createRedirect({
+                fromPath: `/${lang}/trade-types/margin`,
+                toPath: `/${lang}/trade-types/cfds/`,
                 redirectInBrowser: true,
                 isPermanent: true,
             })

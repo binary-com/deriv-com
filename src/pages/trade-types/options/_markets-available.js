@@ -50,7 +50,7 @@ const MarketsAvailable = () => {
                         <MarketsItem>
                             <Card>
                                 <MobileCardHeader>
-                                    <img src={Forex} alt="forex" width="64" height="64" />
+                                    <img src={Forex} alt="" width="64" height="64" />
 
                                     <StyledText weight="bold">{localize('Forex')}</StyledText>
                                 </MobileCardHeader>
@@ -70,12 +70,7 @@ const MarketsAvailable = () => {
                         <MarketsItem>
                             <Card>
                                 <MobileCardHeader>
-                                    <img
-                                        src={SyntheticIndices}
-                                        alt="synthetic indices"
-                                        width="64"
-                                        height="64"
-                                    />
+                                    <img src={SyntheticIndices} alt="" width="64" height="64" />
 
                                     <StyledText weight="bold">
                                         {localize('Synthetic indices')}
@@ -97,12 +92,7 @@ const MarketsAvailable = () => {
                         <MarketsItem>
                             <Card>
                                 <MobileCardHeader>
-                                    <img
-                                        src={Commodities}
-                                        alt="commodities"
-                                        width="64"
-                                        height="64"
-                                    />
+                                    <img src={Commodities} alt="" width="64" height="64" />
 
                                     <StyledText weight="bold">{localize('Commodities')}</StyledText>
                                 </MobileCardHeader>
@@ -122,20 +112,15 @@ const MarketsAvailable = () => {
                         <MarketsItem>
                             <Card>
                                 <MobileCardHeader>
-                                    <img
-                                        src={StockIndices}
-                                        alt="stock indices"
-                                        width="64"
-                                        height="64"
-                                    />
+                                    <img src={StockIndices} alt="" width="64" height="64" />
 
                                     <StyledText weight="bold">
-                                        {localize('Stock indices')}
+                                        {localize('Stocks & indices')}
                                     </StyledText>
                                 </MobileCardHeader>
                                 <Text>
                                     {localize(
-                                        'Trade digital options on stock indices and profit from the price movements in our competitively priced asset baskets.',
+                                        'Trade digital options on stocks & indices and profit from the price movements in our competitively priced asset baskets.',
                                     )}
                                 </Text>
                                 <LearnMore

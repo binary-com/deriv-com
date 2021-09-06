@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import Loadable from '@loadable/component'
 import { SmallContainer, Grid, WhyTradeItem } from '../components/_style'
-import Margin from './_margin.js'
+import CFDs from './_cfds.js'
 import SyntheticIndices from './_synthetic-indices.js'
 import device from 'themes/device'
 import { SectionContainer, Flex } from 'components/containers'
@@ -113,7 +113,7 @@ const query = graphql`
             ...fadeIn
         }
         multiplier_no_multi_loss: file(
-            relativePath: { eq: "multiplier/multipliers-no-multiplier-loss@3x.png" }
+            relativePath: { eq: "multiplier/multipliers-no-multiplier-loss@2x.png" }
         ) {
             ...fadeIn
         }
@@ -242,7 +242,7 @@ const WhatAreOptions = () => {
             </StyledSectionContainer>
             <AvailableTrades
                 display_title={localize('Instruments available to trade on Multipliers')}
-                Forex={Margin}
+                Forex={CFDs}
                 SyntheticIndices={SyntheticIndices}
             />
             <SectionContainer background="grey-23" padding="4rem 0">
@@ -253,7 +253,7 @@ const WhatAreOptions = () => {
                     <Grid>
                         <WhyTradeItem>
                             <div>
-                                <img src={MinimalRisk} alt="minimal risk" />
+                                <img src={MinimalRisk} alt="" />
                             </div>
                             <Text mt="1.6rem" mb="0.8rem" weight="bold">
                                 {localize('Better risk management')}
@@ -266,7 +266,7 @@ const WhatAreOptions = () => {
                         </WhyTradeItem>
                         <WhyTradeItem>
                             <div>
-                                <img src={FullControl} alt="full control" />
+                                <img src={FullControl} alt="" />
                             </div>
                             <Text mt="1.6rem" mb="0.8rem" weight="bold">
                                 {localize('Increased market exposure')}
@@ -279,7 +279,7 @@ const WhatAreOptions = () => {
                         </WhyTradeItem>
                         <WhyTradeItem>
                             <div>
-                                <img src={ResponsivePlatform} alt="responsive platform" />
+                                <img src={ResponsivePlatform} alt="" />
                             </div>
                             <Text mt="1.6rem" mb="0.8rem" weight="bold">
                                 {localize('Secure, responsive platform')}
@@ -292,7 +292,7 @@ const WhatAreOptions = () => {
                         </WhyTradeItem>
                         <WhyTradeItem>
                             <div>
-                                <img src={FriendlySupport} alt="friendly support" />
+                                <img src={FriendlySupport} alt="" />
                             </div>
                             <Text mt="1.6rem" mb="0.8rem" weight="bold">
                                 {localize('Expert and friendly support')}
@@ -303,7 +303,7 @@ const WhatAreOptions = () => {
                         </WhyTradeItem>
                         <WhyTradeItem>
                             <div>
-                                <img src={Seven} alt="seven" />
+                                <img src={Seven} alt="" />
                             </div>
                             <Text mt="1.6rem" mb="0.8rem" weight="bold">
                                 {localize('Trade 24/7, 365 days a year')}
@@ -316,7 +316,7 @@ const WhatAreOptions = () => {
                         </WhyTradeItem>
                         <WhyTradeItem>
                             <div>
-                                <img src={CrashBoom} alt="crash boom" />
+                                <img src={CrashBoom} alt="" />
                             </div>
                             <Text mt="1.6rem" mb="0.8rem" weight="bold">
                                 {localize('Crash/Boom indices')}

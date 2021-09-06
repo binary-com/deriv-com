@@ -3,17 +3,46 @@ import PropTypes from 'prop-types'
 import Loadable from '@loadable/component'
 import { WhyTrade } from '../sections/_why-trade'
 import AvailableTrades from '../helper/_available-trades.js'
-import crypto_content from '../../static/content/_cryptocurrencies'
-import { crypto_margin } from '../../static/content/_margin'
+import { crypto_cfds } from '../../static/content/_cfds'
 import { crypto_multiplier } from '../../static/content/_multipliers'
-import Margin from '../sub-markets/_margin'
+import CFDs from '../sub-markets/_cfds'
 import Multipliers from '../sub-markets/_multipliers'
 import { Localize } from 'components/localization'
+import TightSpread from 'images/svg/tight-spread.svg'
+import CryptoPairs from 'images/svg/crypto-pairs.svg'
+import ZeroCommission from 'images/svg/zero-commission.svg'
+import Leverage from 'images/svg/leverage.svg'
+import { DerivStore } from 'store'
+
 //Lazy-load
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
 const OtherMarkets = Loadable(() => import('../sections/_other-markets.js'))
 
 const Cryptocurrencies = ({ simple_step_content }) => {
+    const { is_eu_country } = React.useContext(DerivStore)
+    const crypto_content = [
+        {
+            src: Leverage,
+            text: is_eu_country ? (
+                <Localize translate_text="1:2 leverage" />
+            ) : (
+                <Localize translate_text="1:50 leverage" />
+            ),
+        },
+        {
+            src: TightSpread,
+            text: <Localize translate_text="Tight spreads" />,
+        },
+        {
+            src: CryptoPairs,
+            text: <Localize translate_text="17+ crypto pairs" />,
+        },
+        {
+            src: ZeroCommission,
+            text: <Localize translate_text="Zero commission" />,
+        },
+    ]
+
     return (
         <>
             <WhyTrade
@@ -23,15 +52,11 @@ const Cryptocurrencies = ({ simple_step_content }) => {
                 }
             >
                 {crypto_content.map((content, index) => (
-                    <div
-                        key={index}
-                        text={content.text}
-                        icon={<img src={content.src} alt={content.alt} />}
-                    />
+                    <div key={index} text={content.text} icon={<img src={content.src} alt="" />} />
                 ))}
             </WhyTrade>
             <AvailableTrades
-                Margin={<Margin market_content={crypto_margin} />}
+                CFDs={<CFDs market_content={crypto_cfds} />}
                 Multipliers={<Multipliers market_content={crypto_multiplier} is_crypto={true} />}
                 name="Cryptocurrency"
                 display_title={

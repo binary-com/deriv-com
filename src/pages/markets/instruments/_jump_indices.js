@@ -1,15 +1,15 @@
 import React from 'react'
 import Symbol from '../components/helper/_symbol'
-import { cryptocurrencies_margin } from './_market-symbols'
+import { jump_indices } from './_market-symbols'
 
-const CryptocurrenciesMargin = () => {
+const JumpIndices = () => {
     return (
         <>
-            {cryptocurrencies_margin.map((symbol, index) => (
+            {jump_indices.map((symbol, index) => (
                 <Symbol key={index} src={symbol.src} text={symbol.text} />
             ))}
         </>
     )
 }
 
-export default CryptocurrenciesMargin
+export default JumpIndices

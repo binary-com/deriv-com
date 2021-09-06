@@ -13,9 +13,10 @@ const domain_url =
         : deriv_com_url
 
 // URL
+export const domain_full_url = `https://${domain_url}`
 export const deriv_app_id = domain_url === deriv_com_url ? deriv_com_app_id : deriv_me_app_id
 export const deriv_app_url = `https://app.${domain_url}`
-export const deriv_developer_url = `https://developers.${domain_url}`
+export const deriv_api_url = `https://api.${domain_url}`
 export const deriv_bot_app_url = `${deriv_app_url}/bot`
 export const deriv_dp2p_app_url = `${deriv_app_url}/cashier/p2p`
 export const deriv_mt5_app_url = `${deriv_app_url}/mt5`
@@ -58,6 +59,8 @@ export const map_api_key = 'AIzaSyAEha6-HeZuI95L9JWmX3m6o-AxQr_oFqU'
 export const mga_link_url =
     'https://authorisation.mga.org.mt/verification.aspx?lang=EN&company=a5fd1edc-d072-4c26-b0cd-ab3fa0f0cc40&details=1'
 export const p2p_playstore_url = 'https://play.google.com/store/apps/details?id=com.deriv.dp2p'
+export const p2p_applestore_url = 'https://apps.apple.com/us/app/deriv-dp2p/id1506901451'
+export const p2p_huawei_appgallery_url = 'https://appgallery.huawei.com/#/app/C103844755'
 export const pushwoosh_app_code = 'DD293-35A19'
 export const sample_rate = 25
 export const zoho_url = 'https://deriv.zohorecruit.com'
@@ -69,21 +72,28 @@ export const localized_link_url = Object.freeze({
     blog: blog_url,
     community: community_url,
     derivx: derivx_app_url,
-    developers: deriv_developer_url,
+    api: deriv_api_url,
     dbot: deriv_bot_app_url,
     deriv_app: deriv_app_url,
     mt5: deriv_mt5_app_url,
     smart_trader: smarttrader_url,
     zoho: zoho_url,
+    terms_and_conditions: domain_full_url,
 })
 export const default_server_url = 'green.binaryws.com'
 
 export const live_chat_key = 'live_chat_redirection'
 
-export const fb_url = 'https://www.facebook.com/derivdotcom'
+export const fb_non_eu_url = 'https://www.facebook.com/derivdotcom'
+export const fb_uk_url = 'https://www.facebook.com/derivUK/'
+export const fb_eu_url = 'https://www.facebook.com/derivEU/'
 export const fb_url_career = 'https://www.facebook.com/derivcareers'
-export const instagram_url = 'https://www.instagram.com/deriv_official/'
+export const instagram_non_eu_url = 'https://www.instagram.com/deriv_official/'
+export const instagram_uk_url = 'https://www.instagram.com/deriv_uk/'
+export const instagram_eu_url = 'https://www.instagram.com/deriv_eu/'
 export const instagram_url_career = 'https://www.instagram.com/derivcareers/'
 export const linkedin_url = 'https://www.linkedin.com/company/derivdotcom/'
 export const linkedin_url_career = 'https://www.linkedin.com/company/derivdotcom/life/'
-export const twitter_url = 'https://twitter.com/derivdotcom/'
+export const twitter_non_eu_url = 'https://twitter.com/derivdotcom/'
+export const twitter_uk_url = 'https://www.twitter.com/deriv_uk/'
+export const twitter_eu_url = 'https://www.twitter.com/deriv_eu/'

@@ -279,8 +279,28 @@ export const major_pairs = [
 
 export const metals = [
     {
+        src: icons.ALUMINIUMUSD,
+        text: <Localize translate_text="Aluminium/USD" />,
+    },
+    {
+        src: icons.COPPERUSD,
+        text: <Localize translate_text="Copper/USD" />,
+    },
+    {
+        src: icons.GOLDEUR,
+        text: <Localize translate_text="Gold/EUR" />,
+    },
+    {
         src: icons.GOLDUSD,
         text: <Localize translate_text="Gold/USD" />,
+    },
+    {
+        src: icons.LEADUSD,
+        text: <Localize translate_text="Lead/USD" />,
+    },
+    {
+        src: icons.NICKELUSD,
+        text: <Localize translate_text="Nickel/USD" />,
     },
     {
         src: icons.PALLADIUMUSD,
@@ -291,8 +311,16 @@ export const metals = [
         text: <Localize translate_text="Platinum/USD" />,
     },
     {
+        src: icons.SILVEREUR,
+        text: <Localize translate_text="Silver/EUR" />,
+    },
+    {
         src: icons.SILVERUSD,
         text: <Localize translate_text="Silver/USD" />,
+    },
+    {
+        src: icons.ZINCUSD,
+        text: <Localize translate_text="Zinc/USD" />,
     },
 ]
 
@@ -682,7 +710,7 @@ export const american_stocks = [
 //     },
 // ]
 
-export const cryptocurrencies_margin = [
+export const cryptocurrencies_cfds = [
     {
         src: icons.BTC,
         text: <Localize translate_text="Bitcoin" />,
@@ -753,5 +781,38 @@ export const cryptocurrencies_multipliers = [
     {
         src: icons.ETH,
         text: <Localize translate_text="Ethereum" />,
+    },
+]
+export const jump_indices = [
+    {
+        src: icons.JUMP10,
+        text: <Localize translate_text="Jump 10 Index" />,
+    },
+    {
+        src: icons.JUMP25,
+        text: <Localize translate_text="Jump 25 Index" />,
+    },
+    {
+        src: icons.JUMP50,
+        text: <Localize translate_text="Jump 50 Index" />,
+    },
+    {
+        src: icons.JUMP75,
+        text: <Localize translate_text="Jump 75 Index" />,
+    },
+    {
+        src: icons.JUMP100,
+        text: <Localize translate_text="Jump 100 Index" />,
+    },
+]
+
+export const energy = [
+    {
+        src: icons.NATURALGAS,
+        text: <Localize translate_text="Natural gas" />,
+    },
+    {
+        src: icons.OILUSD,
+        text: <Localize translate_text="Oil/USD" />,
     },
 ]

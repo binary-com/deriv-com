@@ -115,17 +115,17 @@ const ReviewStars = styled.img`
 const getRatingData = (rating) => {
     const rating_str = typeof rating == 'string' ? rating : rating.toString()
     const rating_data = rating_str.split('.').map((e, k) => {
-        let rate = e
+        let r = e
 
         if (k != 0) {
             if (e >= 5) {
-                rate = 5
+                r = 5
             } else {
-                rate = ''
+                r = ''
             }
         }
 
-        return rate
+        return r
     })
 
     const rate = rating_data[0]

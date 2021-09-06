@@ -56,7 +56,7 @@ const ContentWrapper = styled.div`
 `
 
 const DP2PHome = () => {
-    const [is_mounted] = usePageLoaded(false) // needed to fix tab highlighting not being rerendered during first load
+    const [is_mounted] = usePageLoaded(false) // needed to fix the second Hero-component during page's loading
     return (
         <Layout>
             <SEO

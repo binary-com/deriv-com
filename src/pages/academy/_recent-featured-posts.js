@@ -57,8 +57,6 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
     const featureds = featured_data.slice(1)
     const headline_featured = featured_data[0]
 
-    console.log(getAssetUrl(headline_featured.main_image.id))
-
     return (
         <StyledContainer m="20px auto 0" fd="column" ai="center">
             <StyledTabs

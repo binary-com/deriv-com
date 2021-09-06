@@ -76,13 +76,7 @@ export const MainArticle = styled(Flex)`
     }
 
     @media ${device.tablet} {
-        width: 88vw;
         min-width: 270px;
-    }
-
-    > .main-article-bg {
-        display: contents;
-        opacity: 0.8;
     }
 `
 
@@ -160,6 +154,7 @@ export const SmallArticle = styled(Flex)`
     @media ${device.laptopM} {
         height: 82px;
         margin-bottom: 16px;
+        min-width: unset;
     }
 `
 
@@ -234,7 +229,6 @@ export const SmallArticleRightContent = styled(Flex)`
     }
 
     @media (max-width: 425px) {
-        width: 185px;
         margin-left: 0;
     }
 `

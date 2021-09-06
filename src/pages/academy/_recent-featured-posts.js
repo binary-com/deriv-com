@@ -146,7 +146,7 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
                                                                         <SmallArticleCategories
                                                                             key={tag.id}
                                                                         >
-                                                                            {tag.tags_id?.tag_name}
+                                                                            {tag?.tags_id?.tag_name}
                                                                         </SmallArticleCategories>
                                                                     ))}
                                                         </Flex>
@@ -255,9 +255,9 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
                                                                     .slice(0, 1)
                                                                     .map((tag) => (
                                                                         <SmallArticleCategories
-                                                                            key={tag.id}
+                                                                            key={tag?.id}
                                                                         >
-                                                                            {tag.tags_id?.tag_name}
+                                                                            {tag?.tags_id?.tag_name}
                                                                         </SmallArticleCategories>
                                                                     ))}
                                                         </Flex>

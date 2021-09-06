@@ -209,8 +209,8 @@ const ArticleEmailBanner = () => {
         }
     }
 
-    const validateEmail = (email) => {
-        const error_message = validation.email(email) || submit_error_msg
+    const validateEmail = (email_str) => {
+        const error_message = validation.email(email_str) || submit_error_msg
 
         if (submit_error_msg) {
             setSubmitErrorMsg('')
@@ -220,8 +220,8 @@ const ArticleEmailBanner = () => {
         return error_message
     }
 
-    const validateName = (name) => {
-        const error_message = validation.name(name) || submit_error_msg
+    const validateName = (name_str) => {
+        const error_message = validation.name(name_str) || submit_error_msg
 
         if (submit_error_msg) {
             setSubmitErrorMsg('')
@@ -287,7 +287,6 @@ const ArticleEmailBanner = () => {
                     <InputWrapper>
                         <Input
                             placeholder="Your name"
-                            autoFocus={true}
                             focusBorder="var(--color-grey-6)"
                             autoComplete="off"
                             id="name"
@@ -318,7 +317,6 @@ const ArticleEmailBanner = () => {
                     <InputWrapper>
                         <Input
                             placeholder="Your email address"
-                            autoFocus={true}
                             focusBorder="var(--color-grey-6)"
                             autoComplete="off"
                             id="email"

@@ -8,6 +8,15 @@ import device from 'themes/device'
 const TabContent = styled.div`
     flex: 1;
     width: 100%;
+
+    & .content-wrapper {
+        width: 287px;
+        height: 576px;
+        @media ${device.tabletL} {
+            width: 192px;
+            height: 386px;
+        }
+    }
 `
 
 const TabButton = styled(Flex)`
@@ -18,11 +27,13 @@ const TabButton = styled(Flex)`
     padding-top: 40px;
     width: 428px;
     cursor: pointer;
+    margin-left: 9rem;
     transition: ease-in;
 
     @media ${device.tabletL} {
         width: fit-content;
         padding-top: 10px;
+        margin-left: 0;
     }
 `
 
@@ -78,8 +89,10 @@ const TextDesc = styled(Text)`
 const Content = styled(Flex)`
     display: grid;
     justify-content: center;
+    padding-left: 16rem;
     @media ${device.tabletL} {
         padding-top: 24px;
+        padding-left: 0;
     }
 `
 
@@ -116,9 +129,6 @@ TabPanel.propTypes = {
 
 const Tabs = ({ children, is_reverse, className, max_width }) => {
     const [selected_tab, setSelectedTab] = React.useState(0)
-    // const selectTab = (tabIndex) => {
-    //     setSelectedTab(tabIndex)
-    // }
 
     React.useEffect(() => {
         selected_tab >= 2

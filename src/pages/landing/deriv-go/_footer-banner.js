@@ -30,7 +30,7 @@ const StyledContainer = styled(Container)`
     flex-direction: row;
     padding-top: 60px;
     padding-bottom: 80px;
-    @media ${device.tabletL} {
+    @media ${device.tablet} {
         flex-direction: column;
         height: auto;
         padding-bottom: 30px;
@@ -44,6 +44,10 @@ const BackgroundWrapper = styled(Flex)`
     position: relative;
     min-height: 38.3rem;
     align-items: center;
+    @media ${device.laptopL} {
+        min-height: 31rem;
+        padding-left: 20px;
+    }
     @media ${device.tabletL} {
         background: url(${BannerMobileBg});
         flex-direction: column-reverse;
@@ -56,19 +60,19 @@ const BannerWrapper = styled(Flex)`
     position: relative;
     display: grid;
     justify-content: center;
+
+    & .footerimg-wrapper {
+        width: 80%;
+        margin-top: 45px;
+        @media ${device.tabletL} {
+            width: 256px;
+            height: 220px;
+            margin-top: 80px;
+        }
+    }
     @media ${device.tabletL} {
         width: 100%;
         justify-content: center;
-    }
-`
-
-const BannerImageWrapper = styled(Flex)`
-    width: 80%;
-    margin-top: 45px;
-    @media ${device.tabletL} {
-        width: 256px;
-        height: 220px;
-        margin-top: 80px;
     }
 `
 
@@ -122,12 +126,11 @@ const FooterBanner = () => {
         <StyledContainer>
             <BackgroundWrapper>
                 <BannerWrapper>
-                    <BannerImageWrapper>
-                        <QueryImage
-                            data={data[is_mobile ? 'footer_banner_m' : 'footer_banner']}
-                            alt="footer banner"
-                        />
-                    </BannerImageWrapper>
+                    <QueryImage
+                        data={data[is_mobile ? 'footer_banner_m' : 'footer_banner']}
+                        alt="footer banner"
+                        className="footerimg-wrapper"
+                    />
                 </BannerWrapper>
                 <HeaderWrapper>
                     <div>

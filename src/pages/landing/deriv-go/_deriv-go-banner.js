@@ -29,14 +29,14 @@ const MainWrapper = styled(Flex)`
     background: url(${DerivGoBg}) right bottom 50%;
     background-size: cover;
     height: 79rem;
-    @media ${device.tabletL} {
+    @media ${device.tablet} {
         background: url(${DerivGoMobileBg}) bottom 35% center;
         height: 100%;
     }
 `
 
 const StyledContainer = styled(Container)`
-    @media ${device.tabletL} {
+    @media ${device.tablet} {
         flex-direction: column;
     }
 `
@@ -45,10 +45,7 @@ const HeaderWrapper = styled(Flex)`
     align-items: center;
     width: 53%;
     height: 100%;
-    @media ${device.desktopL} {
-        height: 40rem;
-    }
-    @media ${device.tabletL} {
+    @media ${device.tablet} {
         align-items: flex-start;
         width: 100%;
         height: 412px;
@@ -61,7 +58,7 @@ const HeaderWrapper = styled(Flex)`
     }
 `
 const StyledHeader = styled(Header)`
-    @media ${device.tabletL} {
+    @media ${device.tablet} {
         display: flex;
         justify-content: center;
         width: 326px;
@@ -74,7 +71,7 @@ const StyledHeader = styled(Header)`
 `
 const StyledSubTitle = styled(Header)`
     margin-top: 24px;
-    @media ${device.tabletL} {
+    @media ${device.tablet} {
         max-width: 326px;
         margin-top: 8px;
     }
@@ -83,12 +80,12 @@ const ButtonWrapper = styled(Flex)`
     flex-direction: row;
     justify-content: flex-start;
     margin-top: 40px;
-    @media ${device.tabletL} {
+    @media ${device.tablet} {
         flex-wrap: wrap;
         max-height: 98px;
         margin: 7px 8px;
     }
-    @media ${device.mobileL} {
+    @media ${device.mobileS} {
         flex-wrap: wrap;
         height: fit-content;
     }
@@ -98,14 +95,14 @@ const AppButton = styled(LocalizedLink)`
     margin-right: 8px;
     background: none;
     padding: 0;
-    @media ${device.tabletL} {
+    @media ${device.tablet} {
         margin-bottom: 7px;
     }
 `
 const AppLogo = styled.img`
     width: 170px;
     height: 50px;
-    @media ${device.tabletL} {
+    @media ${device.tablet} {
         width: 156px;
         height: 46px;
     }
@@ -117,23 +114,25 @@ const BannerWrapper = styled(Flex)`
     position: relative;
     align-items: center;
     margin-left: 55px;
-    @media ${device.tabletL} {
+
+    & .bannerimg-wrapper {
+        width: 100%;
+        position: relative;
+        @media ${device.tablet} {
+            padding-bottom: 40px;
+        }
+    }
+    @media ${device.tablet} {
         width: 100%;
         justify-content: center;
         height: fit-content;
-        padding-bottom: 40px;
-        margin-left: 0;
+        margin: 0;
     }
-    @media ${device.mobileL} {
-        padding-bottom: 10px;
+    @media ${device.mobileS} {
         width: 100%;
         height: fit-content;
+        margin-top: 36px;
     }
-`
-
-const BannerImageWrapper = styled.div`
-    width: 100%;
-    position: relative;
 `
 
 const Banner = () => {
@@ -194,12 +193,11 @@ const Banner = () => {
                     </div>
                 </HeaderWrapper>
                 <BannerWrapper>
-                    <BannerImageWrapper>
-                        <QueryImage
-                            data={data[is_mobile ? 'hero_mobile' : 'hero']}
-                            alt="hero phone image"
-                        />
-                    </BannerImageWrapper>
+                    <QueryImage
+                        data={data[is_mobile ? 'hero_mobile' : 'hero']}
+                        alt="hero phone image"
+                        className="bannerimg-wrapper"
+                    />
                 </BannerWrapper>
             </StyledContainer>
         </MainWrapper>

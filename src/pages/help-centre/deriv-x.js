@@ -222,12 +222,12 @@ const WithdrawDerivX = () => (
         </StyledHeader>
         <Text>
             {localize(
-                'To withdraw funds from your Deriv X real account on Deriv, you’ll first need to transfer the funds to your Deriv account. Go to Cashier, select Transfer, and follow the instructions on the screen',
+                'To withdraw funds from your Deriv X real account on Deriv, you’ll first need to transfer the funds to your Deriv account. Go to Cashier, select Transfer, and follow the instructions on the screen.',
             )}
         </Text>
         <StyledText>
             {localize(
-                'To withdraw from your Deriv account into your personal account, go to Cashier -> Withdrawal and follow the instructions on the screen. You’ll receive an email with a verification link. Click the link to confirm your withdrawal amount.',
+                'To withdraw from your Deriv account into your personal account, go to Cashier, select Withdrawal, and follow the instructions on the screen. You’ll receive an email with a verification link. Click the link to confirm your withdrawal amount.',
             )}
         </StyledText>
         <Text mt="1.7rem">

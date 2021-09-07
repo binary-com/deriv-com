@@ -1,5 +1,4 @@
 import React from 'react'
-import styled from 'styled-components'
 import Loadable from '@loadable/component'
 import Hero from './components/_hero'
 import DP2P from './components/_dp2p'
@@ -51,9 +50,6 @@ const DP2P_CONTENT = [
         image_alt: localize('Web and mobile apps'),
     },
 ]
-const ContentWrapper = styled.div`
-    width: 100%;
-`
 
 const DP2PHome = () => {
     const [is_mounted] = usePageLoaded(false) // needed to fix the second Hero-component during page's loading
@@ -65,7 +61,7 @@ const DP2PHome = () => {
             />
 
             {is_mounted && (
-                <ContentWrapper>
+                <>
                     <Hero
                         title={localize('Hassle-free deposits and withdrawals')}
                         content={
@@ -81,7 +77,7 @@ const DP2PHome = () => {
                         title={localize('Hassle-free deposits and withdrawals')}
                         image_name="DP2P"
                     />
-                </ContentWrapper>
+                </>
             )}
         </Layout>
     )

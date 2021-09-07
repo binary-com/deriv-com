@@ -23,12 +23,10 @@ const checkDomain = () => {
 
 const addScript = (settings) => {
     const script = document.createElement('script')
-    const { async, text, src, id } = settings
 
-    if (async) script.async = async
-    if (text) script.text = text
-    if (src) script.src = src
-    if (id) script.id = id
+    Object.keys(settings).forEach((key) => {
+        script.setAttribute(key, settings[key])
+    })
 
     document.body.appendChild(script)
 }

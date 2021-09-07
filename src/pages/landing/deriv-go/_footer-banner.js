@@ -77,13 +77,10 @@ const BannerWrapper = styled(Flex)`
 `
 
 const HeaderWrapper = styled(Flex)`
-    align-items: center;
-    justify-content: cennter;
     width: 424px;
     @media ${device.tabletL} {
         width: 100%;
         margin-top: 60px;
-        padding-left: 20px;
     }
 `
 
@@ -132,7 +129,7 @@ const FooterBanner = () => {
                         className="footerimg-wrapper"
                     />
                 </BannerWrapper>
-                <HeaderWrapper>
+                <HeaderWrapper ai="center" jc="center">
                     <div>
                         <StyledHeader color="white" type="heading-3">
                             {localize('Start trading on the go')}
@@ -142,7 +139,7 @@ const FooterBanner = () => {
                                 'Download the app today and trade multipliers anytime, anywhere you want.',
                             )}
                         </StyledSubTitle>
-                        <ButtonWrapper>
+                        <ButtonWrapper fd="row" mt="40px" jc="start" tablet_fw="wrap">
                             <AppButton
                                 external="true"
                                 to={deriv_go_playstore_url}

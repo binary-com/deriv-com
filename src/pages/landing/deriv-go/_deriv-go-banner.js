@@ -36,24 +36,18 @@ const MainWrapper = styled(Flex)`
 `
 
 const StyledContainer = styled(Container)`
-    @media ${device.tablet} {
+    @media ${device.tabletL} {
         flex-direction: column;
     }
 `
 
 const HeaderWrapper = styled(Flex)`
-    align-items: center;
-    width: 53%;
-    height: 100%;
     @media ${device.tablet} {
-        align-items: flex-start;
         width: 100%;
         height: 412px;
         padding-top: 40px;
     }
     @media ${device.mobileL} {
-        align-items: flex-start;
-        width: 100%;
         padding-top: 20px;
     }
 `
@@ -77,11 +71,7 @@ const StyledSubTitle = styled(Header)`
     }
 `
 const ButtonWrapper = styled(Flex)`
-    flex-direction: row;
-    justify-content: flex-start;
-    margin-top: 40px;
     @media ${device.tablet} {
-        flex-wrap: wrap;
         max-height: 98px;
         margin: 7px 8px;
     }
@@ -154,7 +144,7 @@ const Banner = () => {
     return (
         <MainWrapper>
             <StyledContainer>
-                <HeaderWrapper>
+                <HeaderWrapper ai="center" width="53%" height="100%" tablet_ai="start">
                     <div>
                         <StyledHeader color="white" width="64rem" type="heading-1">
                             {localize('Trade forex, synthetics, and cryptocurrencies on the go')}
@@ -164,7 +154,7 @@ const Banner = () => {
                                 'Download the app now and start trading whenever, wherever you want.',
                             )}
                         </StyledSubTitle>
-                        <ButtonWrapper>
+                        <ButtonWrapper fd="row" mt="40px" jc="start" tablet_fw="wrap">
                             <AppButton
                                 external="true"
                                 to={deriv_go_playstore_url}

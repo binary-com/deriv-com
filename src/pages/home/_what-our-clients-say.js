@@ -168,8 +168,6 @@ const WhatOurClientsSay = () => {
             id: 'trust-pilot',
             async: true,
         })
-
-        return () => {}
     }, [document])
 
     return (

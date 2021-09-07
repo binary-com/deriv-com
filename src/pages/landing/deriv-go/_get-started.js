@@ -21,15 +21,6 @@ const query = graphql`
     }
 `
 
-const StyledSectionContainer = styled(SectionContainer)`
-    height: 887px;
-    padding-top: 80px;
-
-    @media ${device.tablet} {
-        height: fit-content;
-        padding-top: 40px;
-    }
-`
 const SmallContainer = styled(Container)`
     width: 100%;
     @media ${device.tabletL} {
@@ -59,7 +50,7 @@ const StyledLocalizedLink = styled(LocalizedLink)`
 const StartDerivGo = () => {
     const data = useStaticQuery(query)
     return (
-        <StyledSectionContainer>
+        <SectionContainer height="887px" tablet={{ height: 'fit-content', p: '40px 0 0' }}>
             <SmallContainer direction="column">
                 <StyledHeader type="heading-2" align="center" mb="4rem">
                     {localize('How to get started with Deriv GO')}
@@ -106,7 +97,7 @@ const StartDerivGo = () => {
                     </SideTab.Panel>
                 </SideTab>
             </SmallContainer>
-        </StyledSectionContainer>
+        </SectionContainer>
     )
 }
 

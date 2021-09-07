@@ -106,7 +106,7 @@ const other_apps = [
 const OtherApps = () => {
     return (
         <div>
-            <StyledSectionContainer pt="80px">
+            <StyledSectionContainer tablet={{ padding: '4rem 0' }}>
                 <Container fd="column">
                     <StyledHeader type="heading-2" align="center">
                         {localize('Check out our other apps')}

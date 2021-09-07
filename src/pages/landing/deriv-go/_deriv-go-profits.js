@@ -6,13 +6,6 @@ import device from 'themes/device'
 import { Container, Flex, SectionContainer } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
 
-const StyledSection = styled(SectionContainer)`
-    background: rgba(243, 246, 250, 1);
-    padding: 8.9rem 0 8rem 0;
-    @media ${device.tabletL} {
-        padding: 40px 16px;
-    }
-`
 const StyledContainer = styled(Container)`
     flex-direction: column;
     max-width: 996px;
@@ -69,7 +62,11 @@ const query = graphql`
 const DerivGoContent = ({ P2P, reverse, two_title }) => {
     const data = useStaticQuery(query)
     return (
-        <StyledSection>
+        <SectionContainer
+            p="8.9rem 0 8rem 0"
+            background="rgba(243, 246, 250, 1)"
+            tablet={{ p: '40px 16px' }}
+        >
             <StyledContainer>
                 {P2P.map((item, index) => {
                     let is_even = reverse ? (index + 1) % 2 : index % 2
@@ -101,7 +98,7 @@ const DerivGoContent = ({ P2P, reverse, two_title }) => {
                     )
                 })}
             </StyledContainer>
-        </StyledSection>
+        </SectionContainer>
     )
 }
 

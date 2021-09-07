@@ -313,12 +313,12 @@ const DerivXArticle = () => {
                 />
                 {/* TOOD: uncomment once deriv x real is ready */}
                 <DerivXRealMoneyAccount
-                    text={localize('How can I deposit funds into my Deriv X real money account?')}
+                    text={localize('How can I deposit funds into my Deriv X real account?')}
                     label="deposit-funds"
                     is_mounted={is_mounted}
                 />
                 <WithdrawDerivX
-                    text={localize('How do I withdraw funds from my Deriv X real money account?')}
+                    text={localize('How do I withdraw funds from my Deriv X real account?')}
                     label="withdraw-funds-from-deriv-x"
                     is_mounted={is_mounted}
                 />

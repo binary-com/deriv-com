@@ -244,3 +244,15 @@ export const redirectOpenLiveChatBox = (is_redirect) => {
         navigate(live_chat_redirection_link, { replace: true })
     }
 }
+
+export const addScript = (settings) => {
+    const script = document.createElement('script')
+    const { async, text, src, id } = settings
+
+    if (async) script.async = async
+    if (text) script.text = text
+    if (src) script.src = src
+    if (id) script.id = id
+
+    document.body.appendChild(script)
+}

@@ -1,13 +1,25 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
+import { graphql, useStaticQuery } from 'gatsby'
 import Stars from 'images/svg/playstore/stars'
-import { Text, Header } from 'components/elements'
+import { Text, Header, QueryImage } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import LineTab from 'components/custom/_line-tab'
 import { Container, Flex } from 'components/containers'
-import AppStore from 'images/svg/app-store-round.svg'
-import GooglePlay from 'images/svg/google-play-round.svg'
 import device from 'themes/device'
+import { addScript } from 'common/utility'
+import { p2p_playstore_url, p2p_applestore_url } from 'common/constants'
+
+const query = graphql`
+    query {
+        app_store: file(relativePath: { eq: "app-store-round.png" }) {
+            ...fadeIn
+        }
+        play_store: file(relativePath: { eq: "google-play-round.png" }) {
+            ...fadeIn
+        }
+    }
+`
 
 const StyledContainer = styled.div`
     background-color: var(--color-grey-25);
@@ -18,64 +30,63 @@ const StyledContainer = styled.div`
 const ClientContainer = styled(Container)`
     display: flex;
     align-items: center;
-    min-height: 45.5rem;
-    margin: 0 auto 8rem;
+    min-height: 455px;
+    margin: 0 auto 80px;
 `
 
 const ClientFlex = styled(Flex)`
-    width: 100%;
-    max-width: 144rem;
+    max-width: 1440px;
     min-height: 100px;
-    height: fit-content;
 
     @media ${device.tabletS} {
-        flex-direction: column;
-        padding: 4rem 1.6rem;
+        padding: 40px 0;
         max-width: 100%;
     }
 `
 
 const ClientCard = styled(Flex)`
     &.left {
-        max-width: 38.4rem;
+        max-width: 384px;
+
+        @media ${device.tablet} {
+            max-width: 588px;
+            margin-bottom: 60px;
+        }
     }
     &.right {
-        max-width: 58.8rem;
+        max-width: 588px;
 
         .emphasis {
             color: #6a8a8d;
         }
     }
     .trustpilot-container {
-        margin-top: 5.4rem;
+        margin-top: 54px;
     }
 
     @media ${device.tabletS} {
         max-width: 100% !important;
 
-        &.left {
-            margin-bottom: 8.8rem;
-        }
         &.right {
             h2 {
-                margin-bottom: 0.8rem;
+                margin-bottom: 8px;
             }
         }
     }
 `
 
 const TrustPilotWidget = styled(Flex)`
-    margin: 2.5rem 0 0 0;
-    width: 24rem;
-    margin-left: -1rem;
+    margin: 25px 0 0 0;
+    width: 240px;
+    margin-left: -10px;
 
-    @media ${device.laptop} {
-        width: 29rem;
+    a {
+        display: none;
     }
 `
 
 const AppDownloadBox = styled(Flex)`
-    margin-top: 4rem;
+    margin-top: 40px;
     justify-content: start;
 
     @media ${device.tabletS} {
@@ -85,19 +96,22 @@ const AppDownloadBox = styled(Flex)`
 `
 
 const AppDownloadBtns = styled(Flex)`
-    width: fit-content;
-
     @media ${device.tabletS} {
-        margin-bottom: 1.6rem;
+        margin-bottom: 16px;
+        width: 100%;
     }
 `
 
 const AppLink = styled.a`
-    margin: 0 2.4rem 0 0;
+    margin: 0 24px 0 0;
     cursor: pointer;
 
     img {
-        height: 4.8rem;
+        height: 48px;
+    }
+
+    @media ${device.tabletS} {
+        margin: 0;
     }
 `
 
@@ -109,23 +123,27 @@ const ReviewBox = styled(Flex)`
 `
 
 const ReviewStars = styled.img`
-    height: 1rem;
+    height: 10px;
+
+    @media ${device.tabletS} {
+        align-self: center;
+    }
 `
 
 const getRatingData = (rating) => {
     const rating_str = typeof rating == 'string' ? rating : rating.toString()
-    const rating_data = rating_str.split('.').map((e, k) => {
-        let r = e
+    const rating_data = rating_str.split('.').map((item_value, decimal_place) => {
+        let place_value = item_value
 
-        if (k != 0) {
-            if (e >= 5) {
-                r = 5
+        if (decimal_place != 0) {
+            if (item_value >= 5) {
+                place_value = 5
             } else {
-                r = ''
+                place_value = ''
             }
         }
 
-        return r
+        return place_value
     })
 
     const rate = rating_data[0]
@@ -141,11 +159,30 @@ const getRatingData = (rating) => {
 
 const WhatOurClientsSay = () => {
     const { icon } = getRatingData(4.5)
+
+    const images = useStaticQuery(query)
+
+    useEffect(() => {
+        addScript({
+            src: 'https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js',
+            id: 'trust-pilot',
+            async: true,
+        })
+
+        return () => {}
+    }, [document])
+
     return (
         <StyledContainer>
             <ClientContainer padding="5rem 0 0">
                 <LineTab>
-                    <ClientFlex jc="space-between" ai="center">
+                    <ClientFlex
+                        jc="space-between"
+                        ai="center"
+                        height="fit-content"
+                        width="100%"
+                        tablet_direction="column"
+                    >
                         <ClientCard className="left" direction="column">
                             <Header as="h2" type="heading-2">
                                 {localize('What our clients say about Deriv')}
@@ -182,26 +219,36 @@ const WhatOurClientsSay = () => {
                                 {localize('- DP2P apps')}
                             </Text>
                             <AppDownloadBox>
-                                <AppDownloadBtns>
+                                <AppDownloadBtns tablet_jc="space-around" width="fit-content">
                                     <AppLink
-                                        href="https://play.google.com/store/apps/details?id=com.deriv.dp2p"
+                                        href={p2p_playstore_url}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                     >
-                                        <img src={GooglePlay} alt="Get on Google Play" />
+                                        <QueryImage
+                                            data={images['play_store']}
+                                            alt="Get on Google Play"
+                                            width="148px"
+                                            height="48px"
+                                        />
                                     </AppLink>
                                     <AppLink
-                                        href="https://apps.apple.com/gh/app/deriv-dp2p/id1506901451"
+                                        href={p2p_applestore_url}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                     >
-                                        <img src={AppStore} alt="Get on App Store" />
+                                        <QueryImage
+                                            data={images['app_store']}
+                                            alt="Get on App Store"
+                                            width="148px"
+                                            height="48px"
+                                        />
                                     </AppLink>
                                 </AppDownloadBtns>
                                 <ReviewBox>
                                     <Text size="1.2rem">
                                         <Localize
-                                            translate_text="{{ total_reviews }} review"
+                                            translate_text="{{ total_reviews }} review on the Play Store"
                                             values={{
                                                 total_reviews: 208,
                                             }}

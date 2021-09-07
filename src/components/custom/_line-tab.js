@@ -4,10 +4,7 @@ import PropTypes from 'prop-types'
 import { Flex } from 'components/containers'
 
 const Navigation = styled(Flex)`
-    width: 100%;
-    justify-content: center;
-    height: 10px;
-    margin: 8rem 0 0 0;
+    margin: 80px 0 0 0;
 `
 
 const LineNavig = styled.div`
@@ -29,7 +26,7 @@ const renderNavigations = (count, selected_index, setSelected, style) => {
 
     if (count > 1) {
         return (
-            <Navigation>
+            <Navigation width="100%" jc="center" height="10px">
                 {items.map((_, index) => (
                     <LineNavig
                         activeBackground={style && style.activeBackground}

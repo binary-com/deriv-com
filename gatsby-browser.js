@@ -25,10 +25,10 @@ const addScript = (settings) => {
     const script = document.createElement('script')
     const { async, text, src, id } = settings
 
-    if (async) script.async = settings['async']
-    if (text) script.text = settings['text']
-    if (src) script.src = settings['src']
-    if (id) script.id = settings['id']
+    if (async) script.async = async
+    if (text) script.text = text
+    if (src) script.src = src
+    if (id) script.id = id
 
     document.body.appendChild(script)
 }
@@ -155,12 +155,6 @@ export const onClientEntry = () => {
 
     addScript({
         src: 'https://static.deriv.com/scripts/cookie.js',
-        async: true,
-    })
-
-    addScript({
-        src: 'https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js',
-        id: 'trust-pilot',
         async: true,
     })
 

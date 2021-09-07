@@ -192,7 +192,7 @@ const AccountInformation = () => (
 const DerivXRealMoneyAccount = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">
-            {localize('How can I deposit funds into my Deriv X real money account?')}
+            {localize('How can I deposit funds into my Deriv X real account?')}
         </StyledHeader>
         <Text>
             <Localize
@@ -218,11 +218,11 @@ const DerivXRealMoneyAccount = () => (
 const WithdrawDerivX = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">
-            {localize('How do I withdraw funds from my Deriv X real money account?')}
+            {localize('How do I withdraw funds from my Deriv X real account?')}
         </StyledHeader>
         <Text>
             {localize(
-                'To withdraw funds from your Deriv X account on Deriv, you’ll first need to transfer the funds to your Deriv account. Go to Cashier > Transfer between accounts and follow the instructions on the screen.',
+                'To withdraw funds from your Deriv X real account on Deriv, you’ll first need to transfer the funds to your Deriv account. Go to Cashier, select Transfer, and follow the instructions on the screen',
             )}
         </Text>
         <StyledText>
@@ -230,14 +230,9 @@ const WithdrawDerivX = () => (
                 'To withdraw from your Deriv account into your personal account, go to Cashier -> Withdrawal and follow the instructions on the screen. You’ll receive an email with a verification link. Click the link to confirm your withdrawal amount.',
             )}
         </StyledText>
-        <StyledText>
-            {localize(
-                'Your funds will be available in your personal account once your payment is processed. You can check processing times on our Payment methods page.',
-            )}
-        </StyledText>
         <Text mt="1.7rem">
             <Localize
-                translate_text="After the required processing time of your selected payment method, your funds will be deposited into your personal account. You can check processing times on our <0>Payment methods</0> page."
+                translate_text="Your funds will be available in your personal account once your payment is processed. You can check processing times on our <0>Payment methods</0> page."
                 components={[<LocalizedLinkText to="/payment-methods/" color="red" key={0} />]}
             />
         </Text>

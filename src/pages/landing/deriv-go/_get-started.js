@@ -47,14 +47,6 @@ const StyledHeader = styled(Header)`
     }
 `
 
-const ImageWrapper = styled.div`
-    width: 287px;
-    height: 576px;
-    @media ${device.tabletL} {
-        width: 192px;
-        height: 386px;
-    }
-`
 const StyledLocalizedLink = styled(LocalizedLink)`
     text-decoration: none;
     color: rgba(255, 68, 79, 1);
@@ -82,9 +74,11 @@ const StartDerivGo = () => {
                             />
                         }
                     >
-                        <ImageWrapper>
-                            <QueryImage data={data['sign_up']} alt="create account" />
-                        </ImageWrapper>
+                        <QueryImage
+                            data={data['sign_up']}
+                            alt="create account"
+                            className="content-wrapper"
+                        />
                     </SideTab.Panel>
                     <SideTab.Panel
                         label={<Localize translate_text="2. Fund your account" />}
@@ -92,9 +86,11 @@ const StartDerivGo = () => {
                             <Localize translate_text="Fund your account with your preferred payment method." />
                         }
                     >
-                        <ImageWrapper>
-                            <QueryImage data={data['fund']} alt="fund account" />
-                        </ImageWrapper>
+                        <QueryImage
+                            data={data['fund']}
+                            alt="fund account"
+                            className="content-wrapper"
+                        />
                     </SideTab.Panel>
                     <SideTab.Panel
                         label={<Localize translate_text="3. Get Trading" />}
@@ -102,9 +98,11 @@ const StartDerivGo = () => {
                             <Localize translate_text="Download the app and trade anytime, anywhere.." />
                         }
                     >
-                        <ImageWrapper>
-                            <QueryImage data={data['trading']} alt="get trading" />
-                        </ImageWrapper>
+                        <QueryImage
+                            data={data['trading']}
+                            alt="get trading"
+                            className="content-wrapper"
+                        />
                     </SideTab.Panel>
                 </SideTab>
             </SmallContainer>

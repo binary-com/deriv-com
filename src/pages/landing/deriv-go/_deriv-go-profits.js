@@ -36,16 +36,16 @@ const Content = styled(Flex)`
     }
 `
 
-const ImageWrapper = styled.div`
-    width: 100%;
-    margin-right: ${(props) => props.margin_right};
-    @media ${device.tabletL} {
-        margin: 2rem auto;
-    }
-`
-
 const Row = styled(Flex)`
     align-items: center;
+
+    & .content-wrapper {
+        width: 100%;
+        margin-right: ${(props) => props.margin_right};
+        @media ${device.tabletL} {
+            margin: 2rem auto;
+        }
+    }
     @media ${device.tabletL} {
         flex-direction: column;
     }
@@ -74,7 +74,11 @@ const DerivGoContent = ({ P2P, reverse, two_title }) => {
                 {P2P.map((item, index) => {
                     let is_even = reverse ? (index + 1) % 2 : index % 2
                     return (
-                        <Row fd={!is_even ? 'row' : 'row-reverse'} key={index}>
+                        <Row
+                            fd={!is_even ? 'row' : 'row-reverse'}
+                            key={index}
+                            margin_right={!is_even ? '0' : '12.6rem'}
+                        >
                             <Content margin_right={!is_even ? '12.6rem' : '0'}>
                                 <Header type="heading-3">{item.title}</Header>
                                 <Text>{item.subtitle}</Text>
@@ -87,13 +91,12 @@ const DerivGoContent = ({ P2P, reverse, two_title }) => {
                                     </>
                                 )}
                             </Content>
-                            <ImageWrapper margin_right={!is_even ? '0' : '12.6rem'}>
-                                <QueryImage
-                                    data={data[item.image_name]}
-                                    alt={item.image_alt}
-                                    width="100%"
-                                />
-                            </ImageWrapper>
+                            <QueryImage
+                                data={data[item.image_name]}
+                                alt={item.image_alt}
+                                width="100%"
+                                className="content-wrapper"
+                            />
                         </Row>
                     )
                 })}

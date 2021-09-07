@@ -285,6 +285,9 @@ export const PreviewContainer = styled(Box)`
         margin-top: 40px;
         font-weight: bold;
     }
+    & em {
+        font-style: italic;
+    }
     @media ${device.laptop} {
         max-width: none;
 

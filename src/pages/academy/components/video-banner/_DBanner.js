@@ -70,12 +70,18 @@ const StyledDot = styled.img`
     margin: 0 10px 4px;
 `
 
-const Dbanner = ({ video_list }) => {
+const Dbanner = ({ featured_video_list, non_featured_video_list }) => {
     const [show, setShow] = useState(false)
     const handleCloseVideo = () => setShow(false)
     const handleOpenVideo = () => setShow(true)
-    const featured_video = video_list.find((v) => v.featured)
-    const filtered_video = video_list.filter((v) => v !== featured_video)
+
+    let featured_video
+    if (featured_video_list && featured_video_list.length) {
+        featured_video = featured_video_list[0]
+    } else {
+        featured_video = non_featured_video_list[0]
+        non_featured_video_list.shift()
+    }
 
     const {
         published_date,
@@ -158,7 +164,7 @@ const Dbanner = ({ video_list }) => {
                             </Header>
                         </Flex>
                     </Flex>
-                    <VideoCarousel carousel_items={filtered_video} />
+                    <VideoCarousel carousel_items={non_featured_video_list} />
                 </Container>
             </ParentWrapper>
             {show && <VideoPlayer video_src={video_url} closeVideo={handleCloseVideo} />}
@@ -167,7 +173,8 @@ const Dbanner = ({ video_list }) => {
 }
 
 Dbanner.propTypes = {
-    video_list: PropTypes.array,
+    featured_video_list: PropTypes.array,
+    non_featured_video_list: PropTypes.array,
 }
 
 export default Dbanner

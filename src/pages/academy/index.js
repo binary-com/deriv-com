@@ -79,6 +79,29 @@ export const query = graphql`
                     }
                 }
             }
+            featured_video: videos(
+                filter: { status: { _eq: "published" }, featured: { _eq: true } }
+                sort: "-published_date"
+                limit: 1
+            ) {
+                video_title
+                published_date
+                video_description
+                video_duration
+                featured
+                video_thumbnail {
+                    id
+                    title
+                }
+                video_file {
+                    id
+                }
+                tags {
+                    tags_id {
+                        tag_name
+                    }
+                }
+            }
             recent: blog(
                 filter: { status: { _eq: "published" } }
                 sort: "-published_date"
@@ -161,7 +184,8 @@ const DerivBlog = ({ data }) => {
 
     const recent_data = data.directus.recent
     const featured_data = data.directus.featured
-    const video_list_data = data.directus.videos
+    const non_featured_video_list_data = data.directus.videos
+    const featured_video_list_data = data.directus.featured_video
 
     return (
         <Layout type="academy" is_ppc_redirect={true}>
@@ -196,7 +220,10 @@ const DerivBlog = ({ data }) => {
                 </Carousel>
             </MainWrapper>
             <RecentFeaturedPosts recent_data={recent_data} featured_data={featured_data} />
-            <DVideoBanner video_list_data={video_list_data} />
+            <DVideoBanner
+                featured_video_list_data={featured_video_list_data}
+                non_featured_video_list_data={non_featured_video_list_data}
+            />
             <MarketNews data={market_news_data} />
             <Container>
                 <Flex

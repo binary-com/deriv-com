@@ -351,7 +351,6 @@ const Subscribe = () => {
                                 handleError={clearName}
                                 onChange={handleInputNameChange}
                                 onBlur={handleValidation}
-                                autoFocus={true}
                                 autoComplete="off"
                                 border="unset"
                                 height="40px"
@@ -374,7 +373,6 @@ const Subscribe = () => {
                                 handleError={clearEmail}
                                 onChange={handleInputChange}
                                 onBlur={handleValidation}
-                                autoFocus={true}
                                 autoComplete="off"
                                 required
                                 border="unset"

@@ -108,10 +108,10 @@ export const query = graphql`
                     }
                 }
             }
-            videos_eu: videos(
-                limit: 6
-                filter: { status: { _eq: "published" }, hide_for_eu: { _eq: false } }
+            featured_video: videos(
+                filter: { status: { _eq: "published" }, featured: { _eq: true } }
                 sort: "-published_date"
+                limit: 1
             ) {
                 video_title
                 published_date
@@ -281,7 +281,9 @@ const DerivBlog = ({ data }) => {
 
     const recent_data = is_eu_country ? data.directus.recent_eu : data.directus.recent
     const featured_data = is_eu_country ? data.directus.featured_eu : data.directus.featured
-    const video_list_data = is_eu_country ? data.directus.videos_eu : data.directus.videos
+    // const video_list_data = is_eu_country ? data.directus.videos_eu : data.directus.videos
+    const non_featured_video_list_data = data.directus.videos
+    const featured_video_list_data = data.directus.featured_video
 
     return (
         <Layout type="academy" is_ppc_redirect={true}>
@@ -316,7 +318,10 @@ const DerivBlog = ({ data }) => {
                 </Carousel>
             </MainWrapper>
             <RecentFeaturedPosts recent_data={recent_data} featured_data={featured_data} />
-            <DVideoBanner video_list_data={video_list_data} />
+            <DVideoBanner
+                featured_video_list_data={featured_video_list_data}
+                non_featured_video_list_data={non_featured_video_list_data}
+            />
             <MarketNews data={market_news_data} />
             <Container>
                 <Flex

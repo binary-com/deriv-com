@@ -10,6 +10,7 @@ import { Header } from 'components/elements'
 import { localize, WithIntl } from 'components/localization'
 import HeroImage from 'images/common/blog/deriv-blog.png'
 import device from 'themes/device'
+import { DerivStore } from 'store'
 
 const SmallContainer = styled(Container)`
     width: 60%;
@@ -51,7 +52,8 @@ const StyledHeader = styled(Header)`
 `
 
 const ArticlesPage = ({ data }) => {
-    const article_data = data.directus.blog
+    const { is_eu_country } = React.useContext(DerivStore)
+    const article_data = is_eu_country ? data.directus.blog_eu : data.directus.blog
     return (
         <Layout>
             <SEO
@@ -101,6 +103,34 @@ export const query = graphql`
                 }
                 slug
                 featured
+                tags {
+                    id
+                    tags_id {
+                        tag_name
+                    }
+                }
+                blog_title
+                blog_description
+                read_time_in_minutes
+                published_date
+            }
+            blog_eu: blog(
+                filter: { status: { _eq: "published" }, hide_for_eu: { _eq: false } }
+                sort: "-published_date"
+            ) {
+                id
+                main_image {
+                    id
+                    description
+                    imageFile {
+                        childImageSharp {
+                            gatsbyImageData
+                        }
+                    }
+                }
+                slug
+                featured
+                hide_for_eu
                 tags {
                     id
                     tags_id {

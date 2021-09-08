@@ -35,7 +35,7 @@ export const query = graphql`
                     id
                 }
             }
-            blog(
+            market_news: blog(
                 filter: {
                     tags: { tags_id: { tag_name: { _contains: "Market News" } } }
                     status: { _eq: "published" }
@@ -61,12 +61,64 @@ export const query = graphql`
                     id
                 }
             }
+            market_news_eu: blog(
+                filter: {
+                    tags: { tags_id: { tag_name: { _contains: "Market News" } } }
+                    status: { _eq: "published" }
+                    hide_for_eu: { _eq: false }
+                }
+                limit: 6
+                sort: "-published_date"
+            ) {
+                id
+                blog_title
+                slug
+                hide_for_eu
+                tags {
+                    tags_id {
+                        tag_name
+                    }
+                }
+                read_time_in_minutes
+                main_image {
+                    imageFile {
+                        childImageSharp {
+                            gatsbyImageData
+                        }
+                    }
+                    id
+                }
+            }
             videos(limit: 6, filter: { status: { _eq: "published" } }, sort: "-published_date") {
                 video_title
                 published_date
                 video_description
                 video_duration
                 featured
+                video_thumbnail {
+                    id
+                    title
+                }
+                video_file {
+                    id
+                }
+                tags {
+                    tags_id {
+                        tag_name
+                    }
+                }
+            }
+            videos_eu: videos(
+                limit: 6
+                filter: { status: { _eq: "published" }, hide_for_eu: { _eq: false } }
+                sort: "-published_date"
+            ) {
+                video_title
+                published_date
+                video_description
+                video_duration
+                featured
+                hide_for_eu
                 video_thumbnail {
                     id
                     title
@@ -108,7 +160,7 @@ export const query = graphql`
                 blog_description
                 read_time_in_minutes
             }
-            recenteu: blog(
+            recent_eu: blog(
                 filter: { status: { _eq: "published" }, hide_for_eu: { _eq: false } }
                 sort: "-published_date"
                 limit: 6
@@ -165,7 +217,7 @@ export const query = graphql`
                 blog_description
                 read_time_in_minutes
             }
-            featuredeu: blog(
+            featured_eu: blog(
                 filter: {
                     status: { _eq: "published" }
                     featured: { _eq: true }
@@ -223,11 +275,13 @@ const DerivBlog = ({ data }) => {
     const { is_eu_country } = React.useContext(DerivStore)
 
     const homepage_banner_data = data.directus.homepage_banners
-    const market_news_data = data.directus.blog
+    const market_news_data = is_eu_country
+        ? data.directus.market_news_eu
+        : data.directus.market_news
 
-    const recent_data = is_eu_country ? data.directus.recenteu : data.directus.recent
-    const featured_data = is_eu_country ? data.directus.featuredeu : data.directus.featured
-    const video_list_data = data.directus.videos
+    const recent_data = is_eu_country ? data.directus.recent_eu : data.directus.recent
+    const featured_data = is_eu_country ? data.directus.featured_eu : data.directus.featured
+    const video_list_data = is_eu_country ? data.directus.videos_eu : data.directus.videos
 
     return (
         <Layout type="academy" is_ppc_redirect={true}>

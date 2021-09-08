@@ -10,7 +10,7 @@ import IconUserFriendly from 'images/svg/deriv-go/user-friendly.svg'
 
 const StyledHeader = styled(Header)`
     @media ${device.mobileL} {
-        font-size: 24px;
+        font-size: 32px;
         padding: 0 35px;
     }
     @media ${device.mobileM} {
@@ -21,21 +21,13 @@ const StyledHeader = styled(Header)`
 const Card = styled(Flex)`
     flex-direction: column;
     max-width: 384px;
-    max-height: 300px;
-    padding: 32px 24px;
+    padding: 24px 7px;
     border: none;
     margin-right: 2.4rem;
-    margin-bottom: 2rem;
     align-items: center;
 
     :last-child {
         margin-right: 8px;
-    }
-
-    @media ${device.tablet} {
-        margin-right: unset;
-        margin-bottom: 0;
-        margin-top: 0;
     }
 `
 const StyledText = styled(Text)`
@@ -85,7 +77,7 @@ const WhyTradeDerivGo = () => {
                                     <div>
                                         <img src={index.icon} width="72px" height="72px" alt="" />
                                     </div>
-                                    <Header type="heading-3" align="center">
+                                    <Header type="heading-3" align="center" mt="24px">
                                         {index.title}
                                     </Header>
                                     <StyledText align="center" mt="8px">

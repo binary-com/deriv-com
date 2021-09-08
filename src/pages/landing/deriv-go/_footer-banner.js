@@ -44,7 +44,7 @@ const BackgroundWrapper = styled(Flex)`
     position: relative;
     min-height: 38.3rem;
     align-items: center;
-    @media ${device.laptopL} {
+    @media ${device.laptopM} {
         min-height: 31rem;
         padding-left: 20px;
     }
@@ -72,7 +72,6 @@ const BannerWrapper = styled(Flex)`
     }
     @media ${device.tabletL} {
         width: 100%;
-        justify-content: center;
     }
 `
 
@@ -131,7 +130,7 @@ const FooterBanner = () => {
                 </BannerWrapper>
                 <HeaderWrapper ai="center" jc="center">
                     <div>
-                        <StyledHeader color="white" type="heading-3">
+                        <StyledHeader color="white" type="heading-3" ai="centter">
                             {localize('Start trading on the go')}
                         </StyledHeader>
                         <StyledSubTitle color="white" type="subtitle-2" weight="normal">

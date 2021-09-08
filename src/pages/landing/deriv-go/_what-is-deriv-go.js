@@ -9,7 +9,7 @@ const StyledSectionContainer = styled(SectionContainer)`
     border-bottom: solid 1px var(--color-grey-2);
     padding-top: 40px;
 
-    @media ${device.tablet} {
+    @media ${device.tabletL} {
         padding-top: 20px;
     }
 `
@@ -43,7 +43,7 @@ const StyledSubTitle = styled(Text)`
 `
 
 const StyledHeader = styled(Header)`
-    @media ${device.tablet} {
+    @media ${device.tabletL} {
         font-size: 32px;
     }
 `

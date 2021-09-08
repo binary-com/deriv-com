@@ -26,23 +26,23 @@ const query = graphql`
 `
 
 const MainWrapper = styled(Flex)`
-    background: url(${DerivGoBg}) right bottom 50%;
+    background: url(${DerivGoBg}) right bottom 30%;
     background-size: cover;
     height: 79rem;
-    @media ${device.tablet} {
+    @media ${device.tabletL} {
         background: url(${DerivGoMobileBg}) bottom 35% center;
         height: 100%;
     }
 `
 
 const StyledContainer = styled(Container)`
-    @media ${device.tabletL} {
+    @media ${device.laptopM} {
         flex-direction: column;
     }
 `
 
 const HeaderWrapper = styled(Flex)`
-    @media ${device.tablet} {
+    @media ${device.tabletL} {
         width: 100%;
         height: 412px;
         padding-top: 40px;
@@ -65,13 +65,13 @@ const StyledHeader = styled(Header)`
 `
 const StyledSubTitle = styled(Header)`
     margin-top: 24px;
-    @media ${device.tablet} {
+    @media ${device.tabletL} {
         max-width: 326px;
         margin-top: 8px;
     }
 `
 const ButtonWrapper = styled(Flex)`
-    @media ${device.tablet} {
+    @media ${device.tabletL} {
         max-height: 98px;
         margin: 7px 8px;
     }
@@ -92,7 +92,7 @@ const AppButton = styled(LocalizedLink)`
 const AppLogo = styled.img`
     width: 170px;
     height: 50px;
-    @media ${device.tablet} {
+    @media ${device.tabletL} {
         width: 156px;
         height: 46px;
     }
@@ -108,11 +108,11 @@ const BannerWrapper = styled(Flex)`
     & .bannerimg-wrapper {
         width: 100%;
         position: relative;
-        @media ${device.tablet} {
+        @media ${device.tabletL} {
             padding-bottom: 40px;
         }
     }
-    @media ${device.tablet} {
+    @media ${device.tabletL} {
         width: 100%;
         justify-content: center;
         height: fit-content;

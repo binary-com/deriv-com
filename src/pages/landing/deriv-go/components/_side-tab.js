@@ -28,7 +28,6 @@ const TabButton = styled(Flex)`
     width: 428px;
     cursor: pointer;
     margin-left: 9rem;
-    transition: ease-in;
 
     @media ${device.tabletL} {
         width: fit-content;
@@ -62,6 +61,7 @@ const TabListWrapper = styled.div`
 const animateTab = keyframes`
     0% {opacity:0;}
     100% {opacity:1;}
+
 `
 
 const TextLabel = styled(Text)`

@@ -71,6 +71,9 @@ const ClientCard = styled(Flex)`
             h2 {
                 margin-bottom: 8px;
             }
+            .dp2p-text {
+                margin-top: 8px;
+            }
         }
     }
 `

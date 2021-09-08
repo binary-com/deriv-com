@@ -17,10 +17,7 @@ const StyledSection = styled(SectionContainer)`
     }
 `
 const BackgroundImage = styled.div`
-    width: 100vw;
-    max-width: 100%;
-    height: 50vh;
-    background-size: 75%;
+    background-size: contain;
     background-color: var(--color-black);
     border-radius: 10px;
     background-image: url(${banner});
@@ -28,11 +25,12 @@ const BackgroundImage = styled.div`
     background-position: right;
     padding: 100px;
     color: white;
+    position: relative;
 
     @media ${device.tablet} {
         background-image: url(${bannerMobile});
         background-position: bottom;
-        background-size: contain;
+        background-size: cover;
         height: 85vh;
         padding: 50px 30px;
     }

@@ -45,6 +45,14 @@ export const StyledCard = styled(LocalizedLink)`
     border: 1px solid #e6e9e9;
     margin-bottom: 2.4rem;
 
+    @media ${device.laptopL} {
+        height: 100%;
+    }
+
+    @media ${device.tablet} {
+        height: 388px;
+    }
+
     &:hover {
         transform: translateY(-1.1rem) scale(1.02);
         box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.05);

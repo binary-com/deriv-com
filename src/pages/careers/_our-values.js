@@ -77,10 +77,11 @@ const OurValues = () => (
                 columns="repeat(3, 38.4rem)"
                 rows="repeat(1.3, auto)"
                 row_gap="4rem"
+                laptop_columns="repeat(3, 35.4rem)"
                 column_gap="4rem"
                 justify="center"
                 align="center"
-                tablet_columns="38.4rem"
+                tablet_columns="repeat(3, 30.4rem)"
                 mobile_columns="100%"
             >
                 <FirstColumn direction="column">

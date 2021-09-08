@@ -80,6 +80,7 @@ const Dbanner = ({ featured_video_list, non_featured_video_list }) => {
         featured_video = featured_video_list[0]
     } else {
         featured_video = non_featured_video_list[0]
+        non_featured_video_list.shift()
     }
 
     const {

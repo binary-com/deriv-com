@@ -11,6 +11,7 @@ import Layout from 'components/layout/layout'
 import { Container, SEO, Flex } from 'components/containers'
 import { localize, WithIntl, LocalizedLink } from 'components/localization'
 import { Carousel, QueryImage } from 'components/elements'
+import { DerivStore } from 'store'
 
 const MainWrapper = styled(Flex)`
     background-color: var(--color-white);
@@ -107,6 +108,35 @@ export const query = graphql`
                 blog_description
                 read_time_in_minutes
             }
+            recenteu: blog(
+                filter: { status: { _eq: "published" }, hide_for_eu: { _eq: false } }
+                sort: "-published_date"
+                limit: 6
+            ) {
+                id
+                main_image {
+                    id
+                    description
+                    imageFile {
+                        childImageSharp {
+                            gatsbyImageData
+                        }
+                    }
+                }
+                slug
+                published_date
+                featured
+                hide_for_eu
+                tags {
+                    id
+                    tags_id {
+                        tag_name
+                    }
+                }
+                blog_title
+                blog_description
+                read_time_in_minutes
+            }
             featured: blog(
                 filter: { status: { _eq: "published" }, featured: { _eq: true } }
                 sort: "-published_date"
@@ -125,6 +155,39 @@ export const query = graphql`
                 slug
                 published_date
                 featured
+                tags {
+                    id
+                    tags_id {
+                        tag_name
+                    }
+                }
+                blog_title
+                blog_description
+                read_time_in_minutes
+            }
+            featuredeu: blog(
+                filter: {
+                    status: { _eq: "published" }
+                    featured: { _eq: true }
+                    hide_for_eu: { _eq: false }
+                }
+                sort: "-published_date"
+                limit: 6
+            ) {
+                id
+                main_image {
+                    id
+                    description
+                    imageFile {
+                        childImageSharp {
+                            gatsbyImageData
+                        }
+                    }
+                }
+                slug
+                published_date
+                featured
+                hide_for_eu
                 tags {
                     id
                     tags_id {
@@ -156,11 +219,14 @@ const DerivBlog = ({ data }) => {
             nav_color: '--color-grey-5',
         },
     }
+
+    const { is_eu_country } = React.useContext(DerivStore)
+
     const homepage_banner_data = data.directus.homepage_banners
     const market_news_data = data.directus.blog
 
-    const recent_data = data.directus.recent
-    const featured_data = data.directus.featured
+    const recent_data = is_eu_country ? data.directus.recenteu : data.directus.recent
+    const featured_data = is_eu_country ? data.directus.featuredeu : data.directus.featured
     const video_list_data = data.directus.videos
 
     return (

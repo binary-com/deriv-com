@@ -10,6 +10,7 @@ import { Header } from 'components/elements'
 import { localize, WithIntl } from 'components/localization'
 import HeroImage from 'images/common/blog/video-tutorials.png'
 import device from 'themes/device'
+import { DerivStore } from 'store'
 
 const SmallContainer = styled(Container)`
     width: 60%;
@@ -51,7 +52,8 @@ const StyledHeader = styled(Header)`
 `
 
 const VideosPage = ({ data }) => {
-    const video_data = data.directus.videos
+    const { is_eu_country } = React.useContext(DerivStore)
+    const video_data = is_eu_country ? data.directus.video_eu : data.directus.video
 
     return (
         <Layout>
@@ -96,6 +98,36 @@ export const query = graphql`
                 published_date
                 video_description
                 video_duration
+                tags {
+                    tags_id {
+                        tag_name
+                        id
+                    }
+                }
+                video_file {
+                    id
+                }
+                video_thumbnail {
+                    id
+                    imageFile {
+                        id
+                        childImageSharp {
+                            gatsbyImageData
+                        }
+                    }
+                }
+            }
+            videos_eu: videos(
+                filter: { status: { _eq: "published" }, hide_for_eu: { _eq: false } }
+                sort: "- published_date"
+            ) {
+                video_id
+                video_slug
+                video_title
+                published_date
+                video_description
+                video_duration
+                hide_for_eu
                 tags {
                     tags_id {
                         tag_name

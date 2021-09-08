@@ -53,7 +53,10 @@ const StyledHeader = styled(Header)`
 
 const ArticlesPage = ({ data }) => {
     const { is_eu_country } = React.useContext(DerivStore)
-    const article_data = is_eu_country ? data.directus.blog_eu : data.directus.blog
+    const article_data = is_eu_country
+        ? data.directus.blog.filter((item) => item.hide_for_eu == false)
+        : data.directus.blog
+
     return (
         <Layout>
             <SEO
@@ -91,33 +94,6 @@ export const query = graphql`
     query AllArticlesQuery {
         directus {
             blog(filter: { status: { _eq: "published" } }, sort: "-published_date") {
-                id
-                main_image {
-                    id
-                    description
-                    imageFile {
-                        childImageSharp {
-                            gatsbyImageData
-                        }
-                    }
-                }
-                slug
-                featured
-                tags {
-                    id
-                    tags_id {
-                        tag_name
-                    }
-                }
-                blog_title
-                blog_description
-                read_time_in_minutes
-                published_date
-            }
-            blog_eu: blog(
-                filter: { status: { _eq: "published" }, hide_for_eu: { _eq: false } }
-                sort: "-published_date"
-            ) {
                 id
                 main_image {
                     id

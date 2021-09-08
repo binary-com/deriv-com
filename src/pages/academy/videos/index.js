@@ -53,7 +53,9 @@ const StyledHeader = styled(Header)`
 
 const VideosPage = ({ data }) => {
     const { is_eu_country } = React.useContext(DerivStore)
-    const video_data = is_eu_country ? data.directus.video_eu : data.directus.video
+    const video_data = is_eu_country
+        ? data.directus.videos.filter((item) => item.hide_for_eu == false)
+        : data.directus.videos
 
     return (
         <Layout>
@@ -92,35 +94,6 @@ export const query = graphql`
     query AllVideosQuery {
         directus {
             videos(filter: { status: { _eq: "published" } }, sort: "- published_date") {
-                video_id
-                video_slug
-                video_title
-                published_date
-                video_description
-                video_duration
-                tags {
-                    tags_id {
-                        tag_name
-                        id
-                    }
-                }
-                video_file {
-                    id
-                }
-                video_thumbnail {
-                    id
-                    imageFile {
-                        id
-                        childImageSharp {
-                            gatsbyImageData
-                        }
-                    }
-                }
-            }
-            videos_eu: videos(
-                filter: { status: { _eq: "published" }, hide_for_eu: { _eq: false } }
-                sort: "- published_date"
-            ) {
                 video_id
                 video_slug
                 video_title

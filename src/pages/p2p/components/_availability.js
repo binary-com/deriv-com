@@ -45,7 +45,7 @@ const PlatformCard = styled.article`
         max-width: 328px;
     }
     @media ${device.mobileM} {
-        max-width: 310px;
+        max-width: 335px;
     }
 `
 const StyledHeader = styled(Header)`
@@ -140,7 +140,7 @@ const Availability = () => {
                 mb="4rem"
             >
                 <Show.Desktop min_width="992">{localize('How to get Deriv P2P')}</Show.Desktop>
-                <Show.Mobile>{localize('Available on desktop and mobile')}</Show.Mobile>
+                <Show.Mobile>{localize('How to get Deriv P2P')}</Show.Mobile>
             </StyledHeader>
             <Flex
                 tablet_direction="column"
@@ -154,12 +154,7 @@ const Availability = () => {
                     </Row>
                     <Row>
                         <StyledCardHeader mobile_margin="unset" as="h4">
-                            <Show.Desktop min_width="992">
-                                <Localize translate_text="On your computer" />
-                            </Show.Desktop>
-                            <Show.Mobile>
-                                <Localize translate_text="Deriv P2P on your computer" />
-                            </Show.Mobile>
+                            <Localize translate_text="On your computer" />
                         </StyledCardHeader>
                     </Row>
                     <div>
@@ -198,12 +193,7 @@ const Availability = () => {
                     </Row>
                     <Row>
                         <StyledCardHeader mobile_margin="unset" as="h4">
-                            <Show.Desktop min_width="992">
-                                <Localize translate_text="On your mobile" />
-                            </Show.Desktop>
-                            <Show.Mobile>
-                                <Localize translate_text="DP2P on your mobile" />
-                            </Show.Mobile>
+                            <Localize translate_text="On your mobile" />
                         </StyledCardHeader>
                     </Row>
                     <div>

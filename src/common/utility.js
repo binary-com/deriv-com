@@ -287,6 +287,7 @@ export const getVideoObject = (video_data) => {
     }
 }
 
+// remove spaces before appending "..." on truncated strings
 const getLimit = (input, limit) => {
     if (input[limit - 1] === ' ') {
         return limit - 1

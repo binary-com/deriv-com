@@ -108,8 +108,60 @@ export const query = graphql`
                     }
                 }
             }
+            videos_eu: videos(
+                limit: 6
+                filter: { status: { _eq: "published" }, hide_for_eu: { _eq: false } }
+                sort: "-published_date"
+            ) {
+                video_title
+                published_date
+                video_description
+                video_duration
+                featured
+                hide_for_eu
+                video_thumbnail {
+                    id
+                    title
+                }
+                video_file {
+                    id
+                }
+                tags {
+                    tags_id {
+                        tag_name
+                    }
+                }
+            }
             featured_video: videos(
                 filter: { status: { _eq: "published" }, featured: { _eq: true } }
+                sort: "-published_date"
+                limit: 1
+            ) {
+                video_title
+                published_date
+                video_description
+                video_duration
+                featured
+                hide_for_eu
+                video_thumbnail {
+                    id
+                    title
+                }
+                video_file {
+                    id
+                }
+                tags {
+                    tags_id {
+                        tag_name
+                    }
+                }
+            }
+            featured_video_eu: videos(
+                filter: {
+                    status: { _eq: "published" }
+                    featured: { _eq: true }
+                    hide_for_eu: { _eq: false }
+                }
                 sort: "-published_date"
                 limit: 1
             ) {
@@ -281,9 +333,12 @@ const DerivBlog = ({ data }) => {
 
     const recent_data = is_eu_country ? data.directus.recent_eu : data.directus.recent
     const featured_data = is_eu_country ? data.directus.featured_eu : data.directus.featured
-    // const video_list_data = is_eu_country ? data.directus.videos_eu : data.directus.videos
-    const non_featured_video_list_data = data.directus.videos
-    const featured_video_list_data = data.directus.featured_video
+    const non_featured_video_list_data = is_eu_country
+        ? data.directus.videos_eu
+        : data.directus.videos
+    const featured_video_list_data = is_eu_country
+        ? data.directus.featured_video_eu
+        : data.directus.featured_video
 
     return (
         <Layout type="academy" is_ppc_redirect={true}>

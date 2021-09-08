@@ -121,7 +121,7 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
                                                     <SmallArticleImageWrapper>
                                                         <QueryImage
                                                             className="small-article-bg"
-                                                            data={article?.main_image?.imageFile}
+                                                            data={article.main_image.imageFile}
                                                             alt={
                                                                 article?.main_image?.description ||
                                                                 ''
@@ -231,7 +231,7 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
                                                     <SmallArticleImageWrapper>
                                                         <QueryImage
                                                             className="small-article-bg"
-                                                            data={article?.main_image?.imageFile}
+                                                            data={article.main_image.imageFile}
                                                             alt={
                                                                 article?.main_image?.description ||
                                                                 ''

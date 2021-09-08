@@ -1,5 +1,4 @@
 import React from 'react'
-// import { Story } from '@storybook/react'
 import { Text, Header, LinkText, SpanLinkText } from 'components/elements/typography'
 
 export default {

@@ -60,18 +60,15 @@ const TabListWrapper = styled.div`
     }
 `
 const animateTab = keyframes`
-    0% {
-        top: 0;
-    }
-    100% {
-        top: 100px;
-    }
+    0% {opacity:0;}
+    100% {opacity:1;}
 `
 
 const TextLabel = styled(Text)`
     color: ${(props) => (props.selected ? 'rgba(51, 51, 51, 1)' : 'rgba(153, 153, 153, 1)')};
     font-size: 32px;
-    animation: ${animateTab} 2s ease-in;
+    animation: ${animateTab} 2s;
+
     @media ${device.tabletL} {
         font-size: 24px;
     }
@@ -80,7 +77,8 @@ const TextLabel = styled(Text)`
 const TextDesc = styled(Text)`
     display: ${(props) => (!props.selected ? 'none' : '')};
     font-size: 24px;
-    animation: ${animateTab} 2s ease-in;
+    animation: ${animateTab} 2s;
+
     @media ${device.tabletL} {
         font-size: 18px;
     }
@@ -131,9 +129,16 @@ const Tabs = ({ children, is_reverse, className, max_width }) => {
     const [selected_tab, setSelectedTab] = React.useState(0)
 
     React.useEffect(() => {
-        selected_tab >= 2
-            ? setTimeout(() => setSelectedTab(0), 3000)
-            : setTimeout(() => setSelectedTab(selected_tab + 1), 3000)
+        let timer
+        if (selected_tab >= 2) {
+            timer = setTimeout(() => setSelectedTab(0), 3000)
+        } else {
+            timer = setTimeout(() => setSelectedTab(selected_tab + 1), 3000)
+        }
+
+        return () => {
+            clearTimeout(timer)
+        }
     }, [selected_tab, setSelectedTab])
 
     return (

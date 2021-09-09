@@ -412,9 +412,7 @@ class HelpCentreClass extends Component {
                                                 {id === 1 && idx !== 0 && <HeaderPlatforms />}
 
                                                 <ListWrapper>
-                                                    <StyledHeader
-                                                        type="section-title"
-                                                    >
+                                                    <StyledHeader type="section-title">
                                                         {item.category}
                                                     </StyledHeader>
                                                     {item.articles.map((ar, idxb) => {
@@ -433,7 +431,7 @@ class HelpCentreClass extends Component {
                                                             can_expand &&
                                                             idxb === item.articles.length - 1
                                                         return (
-                                                             <ListNoBullets key={idxb}>
+                                                            <ListNoBullets key={idxb}>
                                                                 {should_show_item && (
                                                                     <li>
                                                                         <StyledLink

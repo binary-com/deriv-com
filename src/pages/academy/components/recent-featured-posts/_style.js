@@ -83,6 +83,7 @@ export const MainArticle = styled(Flex)`
 export const Description = styled.div`
     position: absolute;
     left: 0;
+    bottom: 0;
     padding: 24px 40px 0 40px;
     margin-bottom: 80px;
 

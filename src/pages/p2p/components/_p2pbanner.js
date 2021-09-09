@@ -125,7 +125,7 @@ const P2PBanner = ({ title }) => {
                     translate_text="Want to learn more about Deriv P2P? Head to our <0>Help Centre</0>"
                     components={[
                         <LocalizedLinkText
-                            to={'/help-centre/deriv-p2p#what-is-deriv-p2p'}
+                            to={'/help-centre/deriv-p2p/#what-is-deriv-p2p'}
                             size={24}
                             target="_blank"
                             color="blue"

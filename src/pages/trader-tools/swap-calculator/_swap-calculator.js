@@ -96,7 +96,7 @@ const SwapCalculator = () => {
         <>
             <BreadCrumbContainer>
                 <Flex jc="flex-start" ai="center">
-                    <LocalizedLinkText to="/trader-tools" color="grey-5">
+                    <LocalizedLinkText to="/trader-tools/" color="grey-5">
                         {localize("Traders' tools")}
                     </LocalizedLinkText>
                     <img

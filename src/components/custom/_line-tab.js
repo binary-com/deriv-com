@@ -7,28 +7,28 @@ const Navigation = styled(Flex)`
     margin: 80px 0 0 0;
 `
 
-const LineNavig = styled.div`
-    width: ${(props) => (props.width ? props.width : '8rem')};
-    height: ${(props) => (props.height ? props.height : '0.4rem')};
-    background-color: ${(props) => (props.background ? props.background : 'var(--color-grey-7)')};
-    margin: 0 ${(props) => (props.margin ? props.margin : '0.8rem')} 0 0;
+const LineNavigation = styled.div`
+    width: ${(props) => props.width ?? '8rem'};
+    height: ${(props) => props.height ?? '0.4rem'};
+    background-color: ${(props) => props.background ?? 'var(--color-grey-7)'};
+    margin: 0 ${(props) => props.margin ?? '0.8rem'} 0 0;
     cursor: pointer;
 
     &.active {
-        background-color: ${(props) =>
-            props.activeBackground ? props.activeBackground : 'var(--color-grey-5)'};
+        background-color: ${(props) => props.activeBackground ?? 'var(--color-grey-5)'};
         cursor: default;
     }
 `
 
 const renderNavigations = (count, selected_index, setSelected, style) => {
     const items = Array.from(Array(count).keys())
+    const is_tabbable = count > 1
 
-    if (count > 1) {
+    if (is_tabbable > 1) {
         return (
             <Navigation width="100%" jc="center" height="10px">
                 {items.map((_, index) => (
-                    <LineNavig
+                    <LineNavigation
                         activeBackground={style && style.activeBackground}
                         background={style && style.background}
                         height={style && style.height}

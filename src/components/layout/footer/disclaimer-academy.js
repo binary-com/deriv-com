@@ -4,7 +4,7 @@ import {
     DisclaimerParagraph,
     RiskWarning,
     StaticAsset,
-    // BoldLink,
+    BoldLink,
 } from './common/style.js'
 import { Localize, localize } from 'components/localization'
 
@@ -84,7 +84,18 @@ const DisclaimerSectionAcademy = () => {
                         <Localize translate_text="The products mentioned here may be affected by changes in currency exchange rates. If you invest in these products, you may lose some or all of your investment, and the value of your investment may fluctuate. You should never invest money that you cannot afford to lose and never trade with borrowed money." />
                     </DisclaimerParagraph>
                     <DisclaimerParagraph>
-                        <Localize translate_text="Gambling can be addictive, so please play responsibly. Visit Secure and responsible trading and begambleaware.org for more information." />
+                        <Localize
+                            translate_text="Gambling can be addictive, so please play responsibly. Visit <0>Secure and responsible trading</0> and <1>begambleaware.org</1> for more information."
+                            components={[
+                                <BoldLink key={0} target="_blank" to="/responsible/" />,
+                                <BoldLink
+                                    external="true"
+                                    key={1}
+                                    target="_blank"
+                                    to="https://www.begambleaware.org/"
+                                />,
+                            ]}
+                        />
                     </DisclaimerParagraph>
                 </RiskWarning>
             </DisclaimerWrapper>

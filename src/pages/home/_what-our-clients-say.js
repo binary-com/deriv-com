@@ -134,11 +134,11 @@ const ReviewStars = styled.img`
 `
 
 const getRatingData = (rating) => {
-    const rating_str = typeof rating == 'string' ? rating : rating.toString()
+    const rating_str = `${rating}`
     const rating_data = rating_str.split('.').map((item_value, decimal_place) => {
         let place_value = item_value
 
-        if (decimal_place != 0) {
+        if (decimal_place) {
             if (item_value >= 5) {
                 place_value = 5
             } else {
@@ -255,7 +255,7 @@ const WhatOurClientsSay = () => {
                                             }}
                                         />
                                     </Text>
-                                    <ReviewStars src={Stars[icon]} />
+                                    <ReviewStars src={Stars[icon]} alt="Google Play Reviews" />
                                 </ReviewBox>
                             </AppDownloadBox>
                         </ClientCard>

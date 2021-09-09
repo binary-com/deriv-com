@@ -6,7 +6,7 @@ import { Header } from 'components/elements'
 import { Localize } from 'components/localization'
 import device from 'themes/device'
 //SVG
-import MarginIcon from 'images/svg/margin.svg'
+import CFDIcon from 'images/svg/trade-types/cfds.svg'
 import MultipliersIcon from 'images/svg/multipliers.svg'
 import OptionsIcon from 'images/svg/options.svg'
 
@@ -166,8 +166,8 @@ const Card = ({ display_name, active_tab, onTabChange, name }) => {
     return (
         <CardContainer name={name} active_tab={active_tab} onClick={() => onTabChange(name)}>
             <Flex height="fit-content" jc="flex-start" ai="center">
-                {active_tab === 'Margin' && (
-                    <TabIcon src={MarginIcon} alt="" name={name} active_tab={active_tab} />
+                {active_tab === 'CFDs' && (
+                    <TabIcon src={CFDIcon} alt="" name={name} active_tab={active_tab} />
                 )}
                 {active_tab === 'Options' && (
                     <TabIcon src={OptionsIcon} alt="" name={name} active_tab={active_tab} />
@@ -192,14 +192,14 @@ Card.propTypes = {
 
 class AvailableTrades extends React.Component {
     state = {
-        active_tab: 'Margin',
+        active_tab: 'CFDs',
     }
     handleTabChange = (new_tab) => {
         if (new_tab === this.state.active_tab) return
         this.setState({ active_tab: new_tab })
     }
     render() {
-        const { Margin, DigitalOptions, Multipliers, display_title } = this.props
+        const { CFDs, DigitalOptions, Multipliers, display_title } = this.props
         return (
             <StyledSection>
                 <StyledHeader size="var(--text-size-header-1)" align="center">
@@ -207,11 +207,11 @@ class AvailableTrades extends React.Component {
                 </StyledHeader>
                 <StyledContainer direction="column">
                     <CardWrapper position="relative">
-                        {Margin && (
+                        {CFDs && (
                             <Card
-                                name="Margin"
-                                display_name={<Localize translate_text="Margin" />}
-                                onTabChange={() => this.handleTabChange('Margin')}
+                                name="CFDs"
+                                display_name={<Localize translate_text="CFDs" />}
+                                onTabChange={() => this.handleTabChange('CFDs')}
                                 active_tab={this.state.active_tab}
                             />
                         )}
@@ -233,7 +233,7 @@ class AvailableTrades extends React.Component {
                         )}
                     </CardWrapper>
                     <ContentWrapper>
-                        {this.state.active_tab === 'Margin' && Margin}
+                        {this.state.active_tab === 'CFDs' && CFDs}
                         {this.state.active_tab === 'Options' && DigitalOptions}
                         {this.state.active_tab === 'Multipliers' && Multipliers}
                     </ContentWrapper>
@@ -244,9 +244,9 @@ class AvailableTrades extends React.Component {
 }
 
 AvailableTrades.propTypes = {
+    CFDs: PropTypes.object,
     DigitalOptions: PropTypes.object,
     display_title: PropTypes.object,
-    Margin: PropTypes.object,
     Multipliers: PropTypes.object,
 }
 

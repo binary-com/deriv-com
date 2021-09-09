@@ -25,7 +25,7 @@ const BackgroundImage = styled.div`
     height: 41.9rem;
 
     @media ${device.laptopL} {
-        height: 39.9rem;
+        height: 397px;
     }
 
     @media ${device.laptopM} {

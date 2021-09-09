@@ -73,7 +73,7 @@ const CTA = () => {
                         )}
                     </Header>
                     <RedButton
-                        id="dm-affiliate-signup-redirect"
+                        id="dm-cta-affiliate-signup"
                         mt="2rem"
                         to={affiliate_signup_url}
                         external="true"

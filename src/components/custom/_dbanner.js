@@ -114,12 +114,7 @@ const DBanner = ({ title, data, background_pattern }) => {
                     {title}
                 </StyledHeader>
                 <DemoButton>
-                    <LinkButton
-                        id="dm-signup-redirect"
-                        type="submit"
-                        secondary="true"
-                        to="/signup/"
-                    >
+                    <LinkButton id="dm-dbanner-signup" type="submit" secondary="true" to="/signup/">
                         {localize('Create free demo account')}
                     </LinkButton>
                 </DemoButton>

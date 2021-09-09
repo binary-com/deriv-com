@@ -582,12 +582,12 @@ const NavDesktop = ({ base, is_ppc, is_ppc_redirect, is_logged_in, hide_signup_l
                             </NowrapButton>
                         )}
                         <LocalizedLink
-                            id="dm-signup-redirect"
+                            id="dm-signup"
                             to={is_ppc_redirect ? '/landing/signup/' : '/signup/'}
                         >
                             {!hide_signup_login && (
                                 <SignupButton
-                                    id="dm-signup-redirect"
+                                    id="dm-nav-signup-redirect"
                                     ref={button_ref}
                                     secondary="true"
                                 >
@@ -1004,7 +1004,7 @@ export const NavPartners = ({ no_login_signup }) => {
                                     <span>{localize('Affiliate & IB log in')}</span>
                                 </LinkButton>
                                 <LinkSignupButton
-                                    id="dm-affiliate-signup-redirect"
+                                    id="dm-nav-affiliate-signup"
                                     to={affiliate_signup_url}
                                     external="true"
                                     type="affiliate_sign_up"

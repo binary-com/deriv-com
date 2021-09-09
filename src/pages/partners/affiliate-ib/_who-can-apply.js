@@ -287,7 +287,7 @@ const WhoCanApply = () => {
             </StyledSection>
             <CenteredSection padding="2rem 0">
                 <StyledLinkButton
-                    id="dm-affiliate-signup-redirect"
+                    id="dm-page-affiliate-signup"
                     secondary
                     to={affiliate_signup_url}
                     external="true"

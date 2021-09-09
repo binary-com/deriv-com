@@ -88,7 +88,7 @@ const SignupDefault = ({
                 />
             </InputGroup>
             <EmailButton
-                id="dm-signup-email"
+                id="dm-default-signup-button"
                 type="submit"
                 secondary="true"
                 disabled={is_submitting}

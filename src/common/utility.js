@@ -244,3 +244,10 @@ export const redirectOpenLiveChatBox = (is_redirect) => {
         navigate(live_chat_redirection_link, { replace: true })
     }
 }
+
+// Function which returns sub path to the specific trading platform
+const supported_platforms = ['mt5', 'bot', 'derivx']
+export const redirectToTradingPlatform = () =>
+    supported_platforms.filter(
+        (platform) => window.location.pathname.includes(platform) && platform,
+    )

@@ -203,6 +203,8 @@ const DerivBlog = ({ data }) => {
                                 key={page_data.id}
                                 to={page_data.link}
                                 style={{ textDecoration: 'none' }}
+                                rel="noopener noreferrer"
+                                target="_blank"
                             >
                                 <Hero
                                     heroImage={

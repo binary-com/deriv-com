@@ -161,7 +161,7 @@ const getRatingData = (rating) => {
 }
 
 const WhatOurClientsSay = () => {
-    const { icon } = getRatingData(4.5)
+    const { icon } = getRatingData(4)
 
     const images = useStaticQuery(query)
 

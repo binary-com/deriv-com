@@ -20,7 +20,12 @@ import { SharedLinkStyle } from 'components/localization/localized-link'
 import Login from 'common/login'
 import device from 'themes/device'
 import { affiliate_signin_url, affiliate_signup_url, deriv_app_url } from 'common/constants'
-import { isLoggedIn, getLanguage, getDerivAppLocalizedURL } from 'common/utility'
+import {
+    isLoggedIn,
+    getLanguage,
+    getDerivAppLocalizedURL,
+    redirectToTradingPlatform,
+} from 'common/utility'
 // Icons
 import Logo from 'images/svg/logo-deriv.svg'
 import LogoPartner from 'images/svg/logo-partners.svg'
@@ -389,11 +394,17 @@ const LogoDescription = styled(Flex)`
 `
 
 const handleLogin = () => {
+    redirectToTradingPlatform()
     Login.redirectToLogin()
 }
 
 const handleGetTrading = () => {
-    let trading_url_localized = getDerivAppLocalizedURL(deriv_app_url, getLanguage())
+    const sub_url = redirectToTradingPlatform()
+
+    let trading_url_localized = getDerivAppLocalizedURL(
+        `${deriv_app_url}/${sub_url}`,
+        getLanguage(),
+    )
     window.location.href = trading_url_localized
 }
 
@@ -907,7 +918,7 @@ export const NavPartners = ({ no_login_signup }) => {
                                     {localize('Deriv website')}
                                 </Text>
                             </HomeLink>
-                            <HomeLink to="/about">
+                            <HomeLink to="/about/">
                                 <Text color="grey-19" size="var(--text-size-xxs)">
                                     {localize('About us')}
                                 </Text>

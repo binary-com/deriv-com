@@ -146,7 +146,7 @@ const P2PBanner = ({ title }) => {
                             </StyledHeader>
                             <TryButton
                                 secondary="true"
-                                to="/cashier/p2p"
+                                to="/cashier/p2p/"
                                 external="true"
                                 type="deriv_app"
                                 target="_blank"

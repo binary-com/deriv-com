@@ -11,6 +11,7 @@ import Layout from 'components/layout/layout'
 import { Container, SEO, Flex } from 'components/containers'
 import { localize, WithIntl, LocalizedLink } from 'components/localization'
 import { Carousel, QueryImage } from 'components/elements'
+import { DerivStore } from 'store'
 
 const MainWrapper = styled(Flex)`
     background-color: var(--color-white);
@@ -34,7 +35,7 @@ export const query = graphql`
                     id
                 }
             }
-            blog(
+            market_news: blog(
                 filter: {
                     tags: { tags_id: { tag_name: { _contains: "Market News" } } }
                     status: { _eq: "published" }
@@ -45,6 +46,34 @@ export const query = graphql`
                 id
                 blog_title
                 slug
+                tags {
+                    tags_id {
+                        tag_name
+                    }
+                }
+                read_time_in_minutes
+                main_image {
+                    imageFile {
+                        childImageSharp {
+                            gatsbyImageData
+                        }
+                    }
+                    id
+                }
+            }
+            market_news_eu: blog(
+                filter: {
+                    tags: { tags_id: { tag_name: { _contains: "Market News" } } }
+                    status: { _eq: "published" }
+                    hide_for_eu: { _eq: false }
+                }
+                limit: 6
+                sort: "-published_date"
+            ) {
+                id
+                blog_title
+                slug
+                hide_for_eu
                 tags {
                     tags_id {
                         tag_name
@@ -79,6 +108,30 @@ export const query = graphql`
                     }
                 }
             }
+            videos_eu: videos(
+                limit: 6
+                filter: { status: { _eq: "published" }, hide_for_eu: { _eq: false } }
+                sort: "-published_date"
+            ) {
+                video_title
+                published_date
+                video_description
+                video_duration
+                featured
+                hide_for_eu
+                video_thumbnail {
+                    id
+                    title
+                }
+                video_file {
+                    id
+                }
+                tags {
+                    tags_id {
+                        tag_name
+                    }
+                }
+            }
             featured_video: videos(
                 filter: { status: { _eq: "published" }, featured: { _eq: true } }
                 sort: "-published_date"
@@ -89,6 +142,35 @@ export const query = graphql`
                 video_description
                 video_duration
                 featured
+                hide_for_eu
+                video_thumbnail {
+                    id
+                    title
+                }
+                video_file {
+                    id
+                }
+                tags {
+                    tags_id {
+                        tag_name
+                    }
+                }
+            }
+            featured_video_eu: videos(
+                filter: {
+                    status: { _eq: "published" }
+                    featured: { _eq: true }
+                    hide_for_eu: { _eq: false }
+                }
+                sort: "-published_date"
+                limit: 1
+            ) {
+                video_title
+                published_date
+                video_description
+                video_duration
+                featured
+                hide_for_eu
                 video_thumbnail {
                     id
                     title
@@ -130,6 +212,35 @@ export const query = graphql`
                 blog_description
                 read_time_in_minutes
             }
+            recent_eu: blog(
+                filter: { status: { _eq: "published" }, hide_for_eu: { _eq: false } }
+                sort: "-published_date"
+                limit: 6
+            ) {
+                id
+                main_image {
+                    id
+                    description
+                    imageFile {
+                        childImageSharp {
+                            gatsbyImageData
+                        }
+                    }
+                }
+                slug
+                published_date
+                featured
+                hide_for_eu
+                tags {
+                    id
+                    tags_id {
+                        tag_name
+                    }
+                }
+                blog_title
+                blog_description
+                read_time_in_minutes
+            }
             featured: blog(
                 filter: { status: { _eq: "published" }, featured: { _eq: true } }
                 sort: "-published_date"
@@ -148,6 +259,39 @@ export const query = graphql`
                 slug
                 published_date
                 featured
+                tags {
+                    id
+                    tags_id {
+                        tag_name
+                    }
+                }
+                blog_title
+                blog_description
+                read_time_in_minutes
+            }
+            featured_eu: blog(
+                filter: {
+                    status: { _eq: "published" }
+                    featured: { _eq: true }
+                    hide_for_eu: { _eq: false }
+                }
+                sort: "-published_date"
+                limit: 6
+            ) {
+                id
+                main_image {
+                    id
+                    description
+                    imageFile {
+                        childImageSharp {
+                            gatsbyImageData
+                        }
+                    }
+                }
+                slug
+                published_date
+                featured
+                hide_for_eu
                 tags {
                     id
                     tags_id {
@@ -179,13 +323,22 @@ const DerivBlog = ({ data }) => {
             nav_color: '--color-grey-5',
         },
     }
-    const homepage_banner_data = data.directus.homepage_banners
-    const market_news_data = data.directus.blog
 
-    const recent_data = data.directus.recent
-    const featured_data = data.directus.featured
-    const non_featured_video_list_data = data.directus.videos
-    const featured_video_list_data = data.directus.featured_video
+    const { is_eu_country } = React.useContext(DerivStore)
+
+    const homepage_banner_data = data.directus.homepage_banners
+    const market_news_data = is_eu_country
+        ? data.directus.market_news_eu
+        : data.directus.market_news
+
+    const recent_data = is_eu_country ? data.directus.recent_eu : data.directus.recent
+    const featured_data = is_eu_country ? data.directus.featured_eu : data.directus.featured
+    const non_featured_video_list_data = is_eu_country
+        ? data.directus.videos_eu
+        : data.directus.videos
+    const featured_video_list_data = is_eu_country
+        ? data.directus.featured_video_eu
+        : data.directus.featured_video
 
     return (
         <Layout type="academy" is_ppc_redirect={true}>

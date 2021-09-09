@@ -78,13 +78,11 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
                                         <TagParentWrapper>
                                             {headline_recent.tags.map((article) => {
                                                 return (
-                                                    <>
-                                                        <TagWrapper key={article.id}>
-                                                            <StyledCategories>
-                                                                {article.tags_id.tag_name}
-                                                            </StyledCategories>
-                                                        </TagWrapper>
-                                                    </>
+                                                    <TagWrapper key={article.id}>
+                                                        <StyledCategories>
+                                                            {article.tags_id.tag_name}
+                                                        </StyledCategories>
+                                                    </TagWrapper>
                                                 )
                                             })}
                                         </TagParentWrapper>
@@ -125,7 +123,8 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
                                                             className="small-article-bg"
                                                             data={article.main_image.imageFile}
                                                             alt={
-                                                                article.main_image.description || ''
+                                                                article?.main_image?.description ||
+                                                                ''
                                                             }
                                                             height="102px"
                                                         />
@@ -142,7 +141,7 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
                                                                     .slice(0, 1)
                                                                     .map((tag) => (
                                                                         <SmallArticleCategories
-                                                                            key={tag.id}
+                                                                            key={tag?.id}
                                                                         >
                                                                             {tag?.tags_id?.tag_name}
                                                                         </SmallArticleCategories>
@@ -189,13 +188,11 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
                                         <TagParentWrapper>
                                             {headline_featured.tags.map((article) => {
                                                 return (
-                                                    <>
-                                                        <TagWrapper key={article.id}>
-                                                            <StyledCategories>
-                                                                {article.tags_id.tag_name}
-                                                            </StyledCategories>
-                                                        </TagWrapper>
-                                                    </>
+                                                    <TagWrapper key={article.id}>
+                                                        <StyledCategories>
+                                                            {article.tags_id.tag_name}
+                                                        </StyledCategories>
+                                                    </TagWrapper>
                                                 )
                                             })}
                                         </TagParentWrapper>
@@ -236,7 +233,8 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
                                                             className="small-article-bg"
                                                             data={article.main_image.imageFile}
                                                             alt={
-                                                                article.main_image.description || ''
+                                                                article?.main_image?.description ||
+                                                                ''
                                                             }
                                                             height="102px"
                                                         />

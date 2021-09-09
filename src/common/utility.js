@@ -245,6 +245,14 @@ export const redirectOpenLiveChatBox = (is_redirect) => {
     }
 }
 
+// Function which returns sub path to the specific trading platform
+const supported_platforms = ['mt5', 'bot', 'derivx']
+export const redirectToTradingPlatform = () =>
+    supported_platforms.filter(
+        (platform) => window.location.pathname.includes(platform) && platform,
+    )
+
+// Function to manually add external js files.
 export const addScript = (settings) => {
     const script = document.createElement('script')
 

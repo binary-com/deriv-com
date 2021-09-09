@@ -102,7 +102,7 @@ const StyledFlexGridContainer = styled(FlexGridContainer)`
 `
 
 export const TraderCard = ({ is_selected, word_break_cover }) => (
-    <StyledLink aria_label="DTrader" to="/dtrader">
+    <StyledLink aria_label="DTrader" to="/dtrader/">
         <Card
             cover_background="var(--color-red)"
             cover_content={localize('Discover DTrader now')}
@@ -119,7 +119,7 @@ export const TraderCard = ({ is_selected, word_break_cover }) => (
 )
 
 export const BotCard = ({ is_selected, word_break_cover }) => (
-    <StyledLink aria_label="DBot" to="/dbot">
+    <StyledLink aria_label="DBot" to="/dbot/">
         <Card
             cover_background="var(--color-orange)"
             cover_content={localize('Discover DBot now')}
@@ -136,7 +136,7 @@ export const BotCard = ({ is_selected, word_break_cover }) => (
 )
 
 export const DMT5Card = ({ is_selected, is_ppc_redirect, word_break_cover }) => (
-    <StyledLink aria_label="DMT5" to={is_ppc_redirect ? '/landing/dmt5' : '/dmt5'}>
+    <StyledLink aria_label="DMT5" to={is_ppc_redirect ? '/landing/dmt5/' : '/dmt5/'}>
         <Card
             cover_background="var(--color-green)"
             cover_content={localize('Discover DMT5 now')}

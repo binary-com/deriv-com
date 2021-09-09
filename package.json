@@ -5,7 +5,7 @@
     "author": "Deriv",
     "dependencies": {
         "@artsy/fresnel": "^1.7.0",
-        "@deriv/web-push-notifications": "^3.19.4",
+        "@deriv/web-push-notifications": "^3.21.1",
         "@livechat/customer-sdk": "^3.0.0",
         "@loadable/component": "^5.15.0",
         "@svgr/webpack": "^5.5.0",

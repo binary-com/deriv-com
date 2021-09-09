@@ -134,7 +134,7 @@ const JoinYourTeam = () => {
             <StyledCssGrid
                 columns="repeat(3, 384px)"
                 column_gap="2.4rem"
-                laptop_columns="repeat(3, 300px)"
+                laptop_columns="repeat(3, 384px)"
                 laptop_row_gap="2.4rem"
                 tablet_columns="repeat(2, 300px)"
                 tablet_row_gap="2.4rem"

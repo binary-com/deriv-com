@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { SectionContainer } from 'components/containers'
+import { SectionContainer, Flex, Show } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { LinkButton } from 'components/form'
 import { zoho_url } from 'common/constants'
@@ -17,15 +17,21 @@ const StyledSection = styled(SectionContainer)`
     }
 `
 const BackgroundImage = styled.div`
-    background-size: contain;
     background-color: var(--color-black);
     border-radius: 10px;
-    background-image: url(${banner});
-    background-repeat: no-repeat;
-    background-position: right;
     padding: 100px;
     color: white;
     position: relative;
+    height: 41.9rem;
+
+    @media ${device.laptopL} {
+        height: 39.9rem;
+    }
+
+    @media ${device.laptopM} {
+        padding: 50px;
+        height: 353px;
+    }
 
     @media ${device.tablet} {
         background-image: url(${bannerMobile});
@@ -33,6 +39,37 @@ const BackgroundImage = styled.div`
         background-size: cover;
         height: 85vh;
         padding: 50px 30px;
+    }
+`
+
+const BackgroundPattern = styled.img`
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 95rem;
+    height: initial;
+    border-radius: 10px;
+
+    @media ${device.laptopL} {
+        width: 90rem;
+        height: initial;
+    }
+    @media ${device.laptopM} {
+        width: 80rem;
+        height: initial;
+    }
+    @media ${device.tabletL} {
+        width: 54rem;
+    }
+    @media ${device.tablet} {
+        width: 44rem;
+    }
+    @media ${device.tabletS} {
+        width: 400px;
+    }
+    @media ${device.mobileL} {
+        width: unset;
+        max-width: unset;
     }
 `
 
@@ -60,7 +97,11 @@ const StyledText = styled(Text)`
 `
 
 const StyledDiv = styled.div`
-    width: 30%;
+    width: 38%;
+
+    @media ${device.laptopL} {
+        width: 32%;
+    }
 
     @media ${device.tablet} {
         width: 80%;
@@ -83,27 +124,32 @@ const StyledLinkButton = styled(LinkButton)`
 const BeSquareBanner = () => {
     return (
         <StyledSection>
-            <BackgroundImage>
-                <StyledDiv>
-                    <StyledHeader as="h3" type="section-title">
-                        Apply now
-                    </StyledHeader>
-                    <StyledText>
-                        Are you a go-getter who loves learning tech skills and taking on new
-                        challenges? Then apply for Deriv graduate programme to start an exciting
-                        journey that will transform your professional life!
-                    </StyledText>
-                    <StyledLinkButton
-                        secondary="true"
-                        to={zoho_url}
-                        external="true"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Join BeSquare
-                    </StyledLinkButton>
-                </StyledDiv>
-            </BackgroundImage>
+            <Flex position="relative">
+                <BackgroundImage>
+                    <StyledDiv>
+                        <StyledHeader as="h3" type="section-title">
+                            Apply now
+                        </StyledHeader>
+                        <StyledText>
+                            Are you a go-getter who loves learning tech skills and taking on new
+                            challenges? Then apply for Deriv graduate programme to start an exciting
+                            journey that will transform your professional life!
+                        </StyledText>
+                        <StyledLinkButton
+                            secondary="true"
+                            to={zoho_url}
+                            external="true"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Join BeSquare
+                        </StyledLinkButton>
+                    </StyledDiv>
+                    <Show.Desktop>
+                        <BackgroundPattern src={banner} alt="background pattern" />
+                    </Show.Desktop>
+                </BackgroundImage>
+            </Flex>
         </StyledSection>
     )
 }

@@ -81,7 +81,7 @@ const OurValues = () => (
                 column_gap="4rem"
                 justify="center"
                 align="center"
-                tablet_columns="repeat(3, 30.4rem)"
+                tablet_columns="100%"
                 mobile_columns="100%"
             >
                 <FirstColumn direction="column">

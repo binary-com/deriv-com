@@ -202,7 +202,7 @@ const Regulatory = (locale) => {
                         </Text>
                         <Text lh="1.55" max_width="79.2rem" mt="10px">
                             {localize(
-                                `In the United Kingdom, the company is authorised to provide investment services via the FCA's temporary permissions regime.`,
+                                "In the United Kingdom, the company is authorised to provide investment services via the FCA's temporary permissions regime.",
                             )}
                         </Text>
                     </Box>

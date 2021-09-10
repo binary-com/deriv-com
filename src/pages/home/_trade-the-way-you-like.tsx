@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { Header, Text, QueryImage } from 'components/elements'
@@ -6,7 +6,7 @@ import { localize } from 'components/localization'
 import { SectionContainer } from 'components/containers'
 import { OtherPlatform } from 'components/custom/other-platforms'
 
-type isPpcRedirectProps = {
+type IsPpcRedirectProps = {
     is_ppc_redirect: boolean
 }
 
@@ -27,7 +27,7 @@ const query = graphql`
     }
 `
 
-const TradeTheWayYouLike = ({ is_ppc_redirect }: isPpcRedirectProps): React.ReactNode => {
+const TradeTheWayYouLike = ({ is_ppc_redirect }: IsPpcRedirectProps): React.ReactNode => {
     const data = useStaticQuery(query)
     return (
         <StyledSection padding="5rem 2rem">

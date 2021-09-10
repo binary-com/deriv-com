@@ -1,6 +1,21 @@
-import * as React from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
+
+type QueryImageProps = {
+    alt: string
+    className?: string
+    data: any
+    height?: string
+    width?: string
+    loading?: 'eager' | 'lazy'
+}
+
+type ImageWrapperProps = {
+    width: string
+    height: string
+    className?: string
+}
 
 export const ImageWrapper = styled.div<ImageWrapperProps>`
     & .gatsby-image-wrapper {
@@ -8,21 +23,6 @@ export const ImageWrapper = styled.div<ImageWrapperProps>`
         height: ${(props) => props.height};
     }
 `
-
-type QueryImageProps = {
-    alt: string
-    className?: string
-    data: any
-    height?: string | number
-    width?: string | number
-    loading?: 'eager' | 'lazy'
-}
-
-type ImageWrapperProps = {
-    width: string | number
-    height: string | number
-    className?: string
-}
 
 const QueryImage = ({
     alt,

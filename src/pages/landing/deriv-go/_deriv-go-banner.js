@@ -29,6 +29,9 @@ const MainWrapper = styled(Flex)`
     background: url(${DerivGoBg}) right bottom 30%;
     background-size: cover;
     height: 79rem;
+    @media ${device.laptopM} {
+        height: 100%;
+    }
     @media ${device.tabletL} {
         background: url(${DerivGoMobileBg}) bottom 35% center;
         height: 100%;
@@ -42,13 +45,14 @@ const StyledContainer = styled(Container)`
 `
 
 const HeaderWrapper = styled(Flex)`
-    @media ${device.tabletL} {
+    @media ${device.laptopM} {
         width: 100%;
-        height: 412px;
+        justify-content: flex-start;
         padding-top: 40px;
     }
     @media ${device.mobileL} {
         padding-top: 20px;
+        height: 412px;
     }
 `
 const StyledHeader = styled(Header)`
@@ -65,13 +69,13 @@ const StyledHeader = styled(Header)`
 `
 const StyledSubTitle = styled(Header)`
     margin-top: 24px;
-    @media ${device.tabletL} {
-        max-width: 326px;
+    @media ${device.laptopM} {
+        max-width: fit-content;
         margin-top: 8px;
     }
 `
 const ButtonWrapper = styled(Flex)`
-    @media ${device.tabletL} {
+    @media ${device.laptopM} {
         max-height: 98px;
         margin: 7px 8px;
     }
@@ -81,10 +85,9 @@ const ButtonWrapper = styled(Flex)`
     }
 `
 const AppButton = styled(LocalizedLink)`
-    border: none;
     margin-right: 8px;
-    background: none;
     padding: 0;
+    border: none;
     @media ${device.tablet} {
         margin-bottom: 7px;
     }
@@ -92,9 +95,14 @@ const AppButton = styled(LocalizedLink)`
 const AppLogo = styled.img`
     width: 170px;
     height: 50px;
-    @media ${device.tabletL} {
+    border-radius: 7.8px;
+    @media ${device.laptopM} {
         width: 156px;
         height: 46px;
+    }
+    @media ${device.mobileL} {
+        width: 150px;
+        height: 40px;
     }
 `
 
@@ -108,14 +116,21 @@ const BannerWrapper = styled(Flex)`
     & .bannerimg-wrapper {
         width: 100%;
         position: relative;
+        @media ${device.laptopM} {
+            padding-bottom: 40px;
+        }
         @media ${device.tabletL} {
             padding-bottom: 40px;
         }
     }
+    @media ${device.laptopM} {
+        width: 100%;
+        justify-content: flex-start;
+        height: fit-content;
+    }
     @media ${device.tabletL} {
         width: 100%;
         justify-content: center;
-        height: fit-content;
         margin: 0;
     }
     @media ${device.mobileS} {

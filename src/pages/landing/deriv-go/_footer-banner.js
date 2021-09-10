@@ -100,6 +100,7 @@ const StyledSubTitle = styled(Header)`
 const AppLogo = styled.img`
     width: 136px;
     height: 40px;
+    border-radius: 6px;
 `
 
 const FooterBanner = () => {

@@ -76,7 +76,7 @@ const ArticlesPage = ({ data }) => {
                 </SmallContainer>
             </Hero>
             {article_data && <AllArticles article_data={article_data} />}
-            <Container>
+            <Container pb="80px" tabletL={{ pb: '40px' }}>
                 <Flex direction="column" ai="flex-start" jc="space-between">
                     <Subscribe />
                 </Flex>

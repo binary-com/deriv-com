@@ -76,7 +76,7 @@ const VideosPage = ({ data }) => {
                 </SmallContainer>
             </Hero>
             {video_data && <AllVideos video_data={video_data} />}
-            <Container>
+            <Container pb="80px" tabletL={{ pb: '40px' }}>
                 <Flex direction="column" ai="flex-start" jc="space-between">
                     <Subscribe />
                 </Flex>

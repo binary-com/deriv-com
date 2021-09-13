@@ -3,54 +3,31 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { graphql, useStaticQuery } from 'gatsby'
 import { Flex, Container, Show } from 'components/containers'
-import { Header, QueryImage, ImageWrapper } from 'components/elements'
+import { Header } from 'components/elements'
 import { localize } from 'components/localization'
 import { Background } from 'components/elements/background-image'
 import { LinkButton } from 'components/form'
 import device from 'themes/device.js'
 
 const BackgroundWrapper = styled(Background)`
-    height: 100%;
-    width: 100%;
+    background-color: transparent;
 `
 
 const Wrapper = styled(Container)`
     justify-content: space-between;
     background-color: transparent;
     height: unset;
+    padding-top: 2rem;
+    padding-bottom: 27rem;
 
     @media ${device.tabletL} {
+        padding-left: 4rem;
+    }
+
+    @media ${device.mobileL} {
+        padding-left: 2rem;
         flex-direction: column-reverse;
         justify-content: center;
-    }
-`
-
-const ImgWrapper = styled.div`
-    width: 100%;
-    height: 100%;
-    max-width: 576px;
-    max-height: 700px;
-
-    .gatsby-image-wrapper {
-        width: 100%;
-        height: 100%;
-    }
-    ${ImageWrapper} {
-        width: 100%;
-        height: 100%;
-
-        picture > img {
-            object-fit: contain !important;
-        }
-    }
-
-    @media ${device.tabletL} {
-        max-width: 313px;
-        max-height: 380px;
-    }
-    @media ${device.mobileL} {
-        max-width: 240px;
-        max-height: 292px;
     }
 `
 
@@ -60,11 +37,8 @@ const InformationWrapper = styled(Flex)`
     z-index: 1;
 
     @media ${device.tabletL} {
-        max-width: 42rem;
-    }
-    @media ${device.tablet} {
+        max-width: 55rem;
         top: 280px;
-        max-width: 350px;
         padding: 0 16px;
     }
     @media ${device.mobileL} {
@@ -83,11 +57,11 @@ const HeroContent = styled(Flex)`
     ${Header} {
         font-size: 24px;
         font-weight: 200;
-        color: var(--color-white);
+        color: var(--color-black-3);
         display: flex;
-        margin-top: 1.6rem;
-        line-height: 3.6rem;
-        max-width: 78%;
+        margin-top: 1rem;
+        line-height: 2.6rem;
+        max-width: 90%;
     }
     @media ${device.laptopM} {
         ${Header} {
@@ -104,7 +78,7 @@ const HeroContent = styled(Flex)`
         ${Header} {
             font-size: 20px;
             line-height: 25px;
-            margin-top: 16px;
+            margin-top: 1px;
         }
     }
     @media ${device.mobileS} {
@@ -114,11 +88,12 @@ const HeroContent = styled(Flex)`
     }
 `
 const StyledHeader = styled(Header)`
-    color: var(--color-white);
-    line-height: 10rem;
+    padding-top: 35px;
+    color: var(--color-black-3);
+    line-height: 9rem;
     font-weight: 600;
     display: flex;
-    font-size: 8rem;
+    font-size: 70px;
 
     @media ${device.laptopM} {
         width: 100%;
@@ -131,6 +106,7 @@ const StyledHeader = styled(Header)`
         line-height: 6rem;
     }
     @media ${device.mobileL} {
+        padding-top: 3px;
         line-height: 50px;
     }
 `
@@ -140,28 +116,31 @@ const TryButton = styled(LinkButton)`
     width: min-content;
     white-space: nowrap;
     font-size: 14px;
-    margin-top: 3.2rem;
-    margin-bottom: 40px;
+    margin-top: 1.2rem;
     border: unset;
 
+    @media ${device.tabletL} {
+        padding: 1.5rem 1.6rem;
+        height: 42px;
+        white-space: nowrap;
+        margin-top: 24px;
+        margin-bottom: 680px;
+    }
     @media ${device.mobileL} {
         padding: 1.5rem 1.6rem;
         height: 42px;
         white-space: nowrap;
-        margin-bottom: 2rem;
-    }
-    @media ${device.mobileL} {
         margin-top: 24px;
-        margin-bottom: 40px;
+        margin-bottom: 230px;
     }
 `
 
-const HeroComponent = ({ title, content, background_data, img_data }) => {
+const HeroComponent = ({ title, content, background_data }) => {
     return (
         <BackgroundWrapper data={background_data}>
             <Wrapper>
                 <InformationWrapper height="unset" direction="column">
-                    <StyledHeader as="h1" weight={500}>
+                    <StyledHeader as="h1" weight={400}>
                         {title}
                     </StyledHeader>
                     <HeroContent>
@@ -169,23 +148,15 @@ const HeroComponent = ({ title, content, background_data, img_data }) => {
                     </HeroContent>
                     <TryButton
                         secondary="true"
-                        to="/cashier/p2p"
+                        to="/"
                         external="true"
                         type="deriv_app"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        {localize('Try Deriv P2P now')}
+                        {localize('Get trading')}
                     </TryButton>
                 </InformationWrapper>
-                <ImgWrapper>
-                    <QueryImage
-                        data={img_data}
-                        alt={'p2p background'}
-                        height={'700px'}
-                        width={'576px'}
-                    />
-                </ImgWrapper>
             </Wrapper>
         </BackgroundWrapper>
     )
@@ -193,15 +164,10 @@ const HeroComponent = ({ title, content, background_data, img_data }) => {
 
 const query = graphql`
     query {
-        p2p_hero_background: file(relativePath: { eq: "p2p/p2p_hero_background.png" }) {
+        p2p_hero_background: file(relativePath: { eq: "landing/weekend.png" }) {
             ...fadeIn
         }
-        p2p_hero_background_mobile: file(
-            relativePath: { eq: "p2p/p2p_hero_background_mobile.png" }
-        ) {
-            ...fadeIn
-        }
-        p2p_hero_img: file(relativePath: { eq: "p2p/p2p_hero_img.png" }) {
+        p2p_hero_background_mobile: file(relativePath: { eq: "landing/weekend-m.png" }) {
             ...fadeIn
         }
     }
@@ -212,12 +178,11 @@ const Hero = ({ title, content }) => {
 
     return (
         <div>
-            <Show.Desktop min_width="992">
+            <Show.Desktop min_width="800">
                 <HeroComponent
                     title={title}
                     content={content}
                     background_data={data['p2p_hero_background']}
-                    img_data={data['p2p_hero_img']}
                 />
             </Show.Desktop>
             <Show.Mobile>
@@ -225,7 +190,6 @@ const Hero = ({ title, content }) => {
                     title={title}
                     content={content}
                     background_data={data['p2p_hero_background_mobile']}
-                    img_data={data['p2p_hero_img']}
                 />
             </Show.Mobile>
         </div>
@@ -235,7 +199,6 @@ const Hero = ({ title, content }) => {
 HeroComponent.propTypes = {
     background_data: PropTypes.any,
     content: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-    img_data: PropTypes.any,
     title: PropTypes.string,
 }
 

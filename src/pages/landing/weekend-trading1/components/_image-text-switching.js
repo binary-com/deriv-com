@@ -70,20 +70,11 @@ const StyledText = styled(Text)`
     font-size: 3.2rem;
     line-height: 40px;
     text-align: center;
+    font-weight: 700;
 
     @media ${device.tabletL} {
-        font-size: 16px;
-        line-height: 24px;
-    }
-`
-const VideoText = styled(Text)`
-    margin-top: 70px;
-    font-size: 2.4rem;
-    text-align: center;
-    line-height: 36px;
-
-    @media ${device.tabletL} {
-        font-size: 14px;
+        font-size: 24px;
+        line-height: 30px;
     }
 `
 const Row = styled.div`
@@ -102,44 +93,22 @@ const Row = styled.div`
     }
 `
 
-const StyledIFrame = styled.iframe`
-    height: 315px;
-    width: 100%;
-    max-width: 560px;
-`
-
 const query = graphql`
     query {
-        buy_sell: file(relativePath: { eq: "p2p/p2p_buy_sell.png" }) {
+        buy_sell: file(relativePath: { eq: "landing/crypto1.png" }) {
             ...fadeIn
         }
-        local_currency: file(relativePath: { eq: "p2p/p2p_local_currency.png" }) {
-            ...fadeIn
-        }
-        web_and_mobile: file(relativePath: { eq: "p2p/p2p_web_and_mobile.png" }) {
+        local_currency: file(relativePath: { eq: "landing/crypto2.png" }) {
             ...fadeIn
         }
     }
 `
-const DP2P = ({ P2P, reverse, two_title }) => {
+const ImageTextSwitching = ({ P2P, reverse, two_title }) => {
     const data = useStaticQuery(query)
     return (
         <StyledSection>
             <StyledContainer>
-                <StyledText>
-                    {localize(
-                        'Deriv P2P is Deriv’s peer-to-peer deposit and withdrawal service that offers an easy way to get money in and out of your Deriv account. Connect with fellow traders and transfer money in minutes.',
-                    )}
-                </StyledText>
-
-                <VideoText>{localize('Find out how Deriv P2P works:')}</VideoText>
-                <StyledIFrame
-                    src="https://www.youtube.com/embed/zf9flqE94Ek"
-                    title="YouTube video player"
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                ></StyledIFrame>
+                <StyledText>{localize('Trade the markets that never sleep')}</StyledText>
 
                 {P2P.map((item, index) => {
                     let is_even = reverse ? (index + 1) % 2 : index % 2
@@ -175,10 +144,10 @@ const DP2P = ({ P2P, reverse, two_title }) => {
     )
 }
 
-DP2P.propTypes = {
+ImageTextSwitching.propTypes = {
     P2P: PropTypes.array,
     reverse: PropTypes.bool,
     two_title: PropTypes.bool,
 }
 
-export default DP2P
+export default ImageTextSwitching

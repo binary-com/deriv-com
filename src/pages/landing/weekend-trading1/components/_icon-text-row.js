@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import RightAd from 'images/svg/right-ad.svg'
-import SettlePayment from 'images/svg/settle-payment.svg'
-import CompleteOrder from 'images/svg/complete-order.svg'
+import RightAd from 'images/svg/lamp.svg'
+import SettlePayment from 'images/svg/24.svg'
+import CompleteOrder from 'images/svg/relaxing.svg'
 import { localize } from 'components/localization'
 import { Header, Text } from 'components/elements'
 import { Flex, SectionContainer } from 'components/containers'
@@ -24,6 +24,7 @@ const Row = styled.div`
     display: flex;
     flex-direction: row;
     width: 100%;
+    justify-content: center;
 `
 
 const Section = styled(SectionContainer)`
@@ -77,54 +78,71 @@ const Card = styled(Flex)`
     }
 `
 const StyledHeader = styled(Header)`
+    padding-left: 4rem;
+    padding-right: 4rem;
+    color: var(--color-black-3);
     @media ${device.tablet} {
-        margin-bottom: 24px;
+        line-height: 34px;
+        margin-top: 1.5rem;
+        margin-bottom: 5rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
     }
     @media ${device.mobileL} {
-        font-size: 24px;
+        font-size: 28px;
+        line-height: 34px;
+        text-align: center;
     }
 `
 const StyledCardHeader = styled(Header)`
     font-size: 24px;
+    color: var(--color-black-3);
+    @media ${device.tabletL} {
+        text-align: center;
+    }
 
     @media ${device.mobileL} {
-        font-size: 20px;
-        margin-bottom: 8px;
-        margin-top: 16px;
+        font-size: 18px;
+        margin-bottom: 20px;
+        margin-top: 50px;
         line-height: 1.2;
     }
 `
 const StyledText = styled(Text)`
     font-size: 2.4rem;
-
+    color: var(--color-black-3);
     @media ${device.tabletL} {
-        font-size: 16px;
+        font-size: 18px;
+        line-height: 26px;
+        text-align: center;
     }
 `
-const ExchangeSteps = () => {
+const img = styled(Text)`
+    @media ${device.tabletL} {
+        width: 50px;
+    }
+`
+
+const IconTextRow = () => {
     return (
         <Section>
-            <StyledHeader type="page-title" align="center" mb="4rem" as="h2">
-                {localize('3 steps for faster deposits and withdrawals')}
+            <StyledHeader type="page-title" align="center" mb="8rem" as="h2">
+                {localize('Enjoy weekend trading on Deriv and get the most out of your trades')}
             </StyledHeader>
             <CardContainer>
                 <Card>
                     <Row>
-                        <img src={RightAd} alt="" width="100%" />
+                        <img src={RightAd} alt="" width="95px" />
                     </Row>
                     <Row>
+                        <Column></Column>
                         <Column>
-                            <StyledCardHeader mt="0.8rem" mb="0.8rem" as="h4">
-                                {'1.'}
-                            </StyledCardHeader>
-                        </Column>
-                        <Column>
-                            <StyledCardHeader mt="0.8rem" mb="0.8rem" as="h4">
-                                {localize('Find or create an ad')}
+                            <StyledCardHeader mt="6.5rem" mb="0.8rem" as="h4">
+                                {localize('Opportunity knocks')}
                             </StyledCardHeader>
                             <StyledText>
                                 {localize(
-                                    'Pick the best rates and place an order, or create an ad for the rates you want.',
+                                    'Maximise your trading time on the markets that are open on weekends.',
                                 )}
                             </StyledText>
                         </Column>
@@ -132,43 +150,33 @@ const ExchangeSteps = () => {
                 </Card>
                 <Card>
                     <Row>
-                        <img src={SettlePayment} alt="" width="100%" />
+                        <img src={SettlePayment} alt="" width="95px" />
                     </Row>
                     <Row>
+                        <Column></Column>
                         <Column>
-                            <StyledCardHeader mt="0.8rem" mb="0.8rem" as="h4">
-                                {'2.'}
-                            </StyledCardHeader>
-                        </Column>
-                        <Column>
-                            <StyledCardHeader mt="0.8rem" mb="0.8rem" as="h4">
-                                {localize('Send or receive payment')}
+                            <StyledCardHeader mt="6.5rem" mb="0.8rem" as="h4">
+                                {localize('Trade anytime')}
                             </StyledCardHeader>
                             <StyledText>
-                                {localize(
-                                    'Settle the payment with the counterparty of your transaction.',
-                                )}
+                                {localize('Trade any time of the day, at your convenience.')}
                             </StyledText>
                         </Column>
                     </Row>
                 </Card>
                 <Card>
                     <Row>
-                        <img src={CompleteOrder} alt="" width="100%" />
+                        <img src={CompleteOrder} alt="" width="120px" />
                     </Row>
                     <Row>
+                        <Column></Column>
                         <Column>
-                            <StyledCardHeader mt="0.8rem" mb="0.8rem" as="h4">
-                                {'3.'}
-                            </StyledCardHeader>
-                        </Column>
-                        <Column>
-                            <StyledCardHeader mt="0.8rem" mb="0.8rem" as="h4">
-                                {localize('Complete the transaction')}
+                            <StyledCardHeader mt="6.5rem" mb="0.8rem" as="h4">
+                                {localize('Fewer distractions')}
                             </StyledCardHeader>
                             <StyledText>
                                 {localize(
-                                    'Every order must be completed and confirmed within 2 hours. Note: Funds are only released when the transaction is complete.',
+                                    'Trade when you’re free from the distractions of weekday responsibilities.',
                                 )}
                             </StyledText>
                         </Column>
@@ -179,4 +187,4 @@ const ExchangeSteps = () => {
     )
 }
 
-export default ExchangeSteps
+export default IconTextRow

@@ -201,10 +201,10 @@ const DisplayAccordianItem = ({ pd, crypto_config, locale }) => {
                                 <Th>
                                     <BoldText>{localize('Method')}</BoldText>
                                 </Th>
-                                <Th colSpan={pd.is_fiat_onramp && '3'}>
+                                <Th colSpan={pd.is_fiat_onramp && '2'}>
                                     <BoldText>{localize('Currencies')}</BoldText>
                                 </Th>
-                                <Th style={pd.is_fiat_onramp && { width: '135px' }}>
+                                <Th style={pd.is_fiat_onramp && { width: '180px' }}>
                                     {pd.is_crypto || pd.is_fiat_onramp ? (
                                         <BoldText>{localize('Min deposit')}</BoldText>
                                     ) : pd.is_dp2p ? (

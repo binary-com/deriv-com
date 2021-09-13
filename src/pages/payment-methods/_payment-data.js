@@ -432,7 +432,7 @@ const payment_data = [
             //     reference: 'help2pay-payment-method.pdf',
             // },
             {
-                method: <StyledIcon src={Boleto} alt="Airtm" />,
+                method: <StyledIcon src={Boleto} alt="Boleto" />,
                 currencies: 'USD',
                 min_max_deposit: <Localize translate_text="10 - 500" />,
                 min_max_withdrawal: <Localize translate_text="Not applicable" />,
@@ -473,7 +473,7 @@ const payment_data = [
             },
             {
                 method: <StyledIcon src={Trustly} alt="Trustly" />,
-                currencies: 'EUR',
+                currencies: 'USD EUR GBP',
                 min_max_deposit: <Localize translate_text="10 - 100" />,
                 min_max_withdrawal: <Localize translate_text="Will be available soon" />,
                 deposit_time: <Localize translate_text="Instant" />,
@@ -634,7 +634,7 @@ const payment_data = [
                 method: <StyledIcon src={Bitcoin} alt="Bitcoin" />,
                 currencies: 'BTC',
                 min_max_deposit: <Localize translate_text="No minimum" />,
-                min_max_withdrawal: <Localize translate_text="0.00052" />,
+                min_max_withdrawal: <Localize translate_text="0.0022" />,
                 deposit_time: <Localize translate_text="Funds available as soon as confirmed" />,
                 withdrawal_time: <Localize translate_text="Subject to internal checks" />,
                 description: (
@@ -659,7 +659,7 @@ const payment_data = [
                 method: <StyledIcon src={Ethereum} alt="Ethereum" />,
                 currencies: 'USD',
                 min_max_deposit: <Localize translate_text="No minimum" />,
-                min_max_withdrawal: <Localize translate_text="0.0094" />,
+                min_max_withdrawal: <Localize translate_text="0.013" />,
                 deposit_time: <Localize translate_text="Funds available as soon as confirmed" />,
                 withdrawal_time: <Localize translate_text="Subject to internal checks" />,
                 description: (
@@ -696,7 +696,7 @@ const payment_data = [
                 method: <StyledIcon src={Litecoin} alt="Litecoin" />,
                 currencies: 'USD',
                 min_max_deposit: <Localize translate_text="No minimum" />,
-                min_max_withdrawal: <Localize translate_text="0.029" />,
+                min_max_withdrawal: <Localize translate_text="0.085" />,
                 deposit_time: <Localize translate_text="Funds available as soon as confirmed" />,
                 withdrawal_time: <Localize translate_text="Subject to internal checks" />,
                 description: (
@@ -831,7 +831,7 @@ const payment_data = [
                 method: <StyledIcon src={Xanpool} alt="Xanpool" />,
                 currencies: (
                     <Localize
-                        translate_text="USD EUR GBP AUD<0></0>BTC LTC USDT USDC"
+                        translate_text="USD EUR GBP AUD<0></0>BTC ETH LTC USDT"
                         components={[<br key={0} />]}
                     />
                 ),

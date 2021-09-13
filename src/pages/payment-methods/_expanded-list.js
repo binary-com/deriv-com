@@ -113,7 +113,7 @@ const ExpandList = ({ data, /*config,*/ is_crypto, is_fiat_onramp, locale }) => 
         <>
             <Tr is_expanded={is_expanded}>
                 <Td>{data.method}</Td>
-                <Td colSpan={is_fiat_onramp && '3'}>
+                <Td colSpan={is_fiat_onramp && '2'}>
                     <Text>{data.currencies}</Text>
                 </Td>
                 <Td>

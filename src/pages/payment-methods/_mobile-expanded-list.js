@@ -217,7 +217,7 @@ const MobileExpandedList = ({ is_crypto, is_fiat_onramp, is_dp2p, locale, paymen
             </StyledRow>
             {payment_data.description && (
                 <Flex p="16px 0" fd="column">
-                    <Header type="paragraph-1" weight="normal" max_width="296px">
+                    <Header type="paragraph-1" weight="normal">
                         {payment_data.description}
                     </Header>
                     {payment_data.url && (

@@ -53,7 +53,7 @@ const contactways = [
         ),
         image: 'help',
         button: (
-            <StyledLinkButton secondary="true" to="/help-centre">
+            <StyledLinkButton secondary="true" to="/help-centre/">
                 <Localize translate_text="Visit our Help centre" />
             </StyledLinkButton>
         ),

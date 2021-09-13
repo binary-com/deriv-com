@@ -175,7 +175,7 @@ const Availability = () => {
                                         key={0}
                                     />,
                                     <LocalizedLinkText
-                                        to="/signup"
+                                        to="/signup/"
                                         size={24}
                                         color="red"
                                         key={1}

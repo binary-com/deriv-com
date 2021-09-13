@@ -65,6 +65,7 @@ export const useLivechat = () => {
 
                     const utm_data = getUTMData(domain)
                     const client_information = getClientInformation(domain)
+                    const url_params = new URLSearchParams(window.location.search)
 
                     const { utm_source, utm_medium, utm_campaign } = utm_data || {}
 
@@ -87,6 +88,7 @@ export const useLivechat = () => {
                         currency: currency ?? '',
                         residence: residence ?? '',
                         email: email ?? '',
+                        platform: url_params.get('platform') ?? '',
                         utm_source: utm_source ?? '',
                         utm_medium: utm_medium ?? '',
                         utm_campaign: utm_campaign ?? '',
@@ -112,7 +114,6 @@ export const useLivechat = () => {
                         }
                     }
 
-                    const url_params = new URLSearchParams(window.location.search)
                     const is_livechat_query = url_params.get('is_livechat_open')
                     if (is_livechat_query?.toLowerCase() === 'true') {
                         window.LC_API.open_chat_window()

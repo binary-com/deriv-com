@@ -308,7 +308,7 @@ const DHero = ({
                     {join_us_for_free && (
                         <StyledLinkButton
                             secondary="true"
-                            to={is_ppc ? '/landing/signup/' : '/signup'}
+                            to={is_ppc ? '/landing/signup/' : '/signup/'}
                         >
                             {localize('Create free demo account')}
                         </StyledLinkButton>

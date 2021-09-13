@@ -93,7 +93,7 @@ const RecoveringPassword = () => (
                 translate_text="If you’ve forgotten your Google/Facebook account password, you can <0>reset your Deriv account password</0> to log in to Deriv."
                 components={[
                     <StyledLink
-                        to="/reset-password"
+                        to="/reset-password/"
                         external="true"
                         weight="bold"
                         target="_blank"

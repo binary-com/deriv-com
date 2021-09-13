@@ -194,12 +194,6 @@ export const SmartFXDetails = () => (
                 components={[<strong key={0} />]}
             />
         </Text>
-        <Text>
-            <Localize
-                translate_text="<0>Gold Index</0> measures the value of gold against a basket of five global currencies (EUR, GBP, JPY, AUD, USD), each weighted by 20%."
-                components={[<strong key={0} />]}
-            />
-        </Text>
     </DetailsContainer>
 )
 

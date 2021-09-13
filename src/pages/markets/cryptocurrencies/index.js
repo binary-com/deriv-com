@@ -38,9 +38,9 @@ const CryptocurrenciesPage = () => (
     <Layout>
         <SEO
             description={localize(
-                "Start trading the world's most popular cryptocurrencies on Deriv, and take advantage of a highly volatile market with round-the-clock trading.",
+                'Learn about the markets that you can trade online with Deriv, including forex, commodities, synthetic indices, stocks, and stock indices.',
             )}
-            title={localize('Cryptocurrency market | Crypto trading | Deriv')}
+            title={localize('Markets | Markets to trade | Deriv')}
         />
         <Hero />
         <NavTab route_from={'cryptocurrencies'} route_offset={480} />

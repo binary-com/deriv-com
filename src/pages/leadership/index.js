@@ -99,9 +99,9 @@ const Leadership = () => {
     return (
         <Layout>
             <SEO
-                title={localize('Our leadership | Deriv')}
+                title={localize('About Us | An Online Trading Platform | Deriv.com')}
                 description={localize(
-                    'Meet our leaders, dedicated to making Deriv an innovative and reliable broker that provides a simple and flexible trading experience.',
+                    'Deriv.com - A Binary.com brand, is a pioneer and award-winning online trading platform in the trading market.',
                 )}
             />
             <Background>

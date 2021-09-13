@@ -17,6 +17,7 @@ import {
     ContinuousIndicesDetails,
     DailyResetIndicesDetails,
     EuropeDetails,
+    SmartFXDetails,
 } from './_details'
 import { Localize } from 'components/localization'
 import Asians from 'images/svg/options/asians.svg'
@@ -228,6 +229,11 @@ export const commodities_options = {
 
 export const forex_options = {
     market_instruments: {
+        markets_list: {
+            col: 4,
+            tablet_col: 3,
+            mobile_col: 2,
+        },
         content: [
             {
                 title: <Localize translate_text="Major pairs" />,
@@ -240,13 +246,9 @@ export const forex_options = {
             {
                 title: <Localize translate_text="SmartFX" />,
                 component: <SmartFX />,
+                details: SmartFXDetails,
             },
         ],
-        markets_list: {
-            col: 4,
-            tablet_col: 3,
-            mobile_col: 2,
-        },
     },
     options: getOptions(false),
 }

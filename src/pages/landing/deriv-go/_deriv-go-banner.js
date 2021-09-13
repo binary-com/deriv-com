@@ -34,7 +34,6 @@ const MainWrapper = styled(Flex)`
     }
     @media ${device.tabletL} {
         background: url(${DerivGoMobileBg}) bottom 35% center;
-        height: 100%;
     }
 `
 
@@ -49,10 +48,6 @@ const HeaderWrapper = styled(Flex)`
         width: 100%;
         justify-content: flex-start;
         padding-top: 40px;
-    }
-    @media ${device.mobileL} {
-        padding-top: 20px;
-        height: 412px;
     }
 `
 const StyledHeader = styled(Header)`
@@ -77,7 +72,7 @@ const StyledSubTitle = styled(Header)`
 const ButtonWrapper = styled(Flex)`
     @media ${device.laptopM} {
         max-height: 98px;
-        margin: 7px 8px;
+        margin: 7px 8px 48px;
     }
     @media ${device.mobileS} {
         flex-wrap: wrap;
@@ -88,7 +83,7 @@ const AppButton = styled(LocalizedLink)`
     margin-right: 8px;
     padding: 0;
     border: none;
-    @media ${device.tablet} {
+    @media ${device.tabletL} {
         margin-bottom: 7px;
     }
 `
@@ -107,7 +102,6 @@ const AppLogo = styled.img`
 `
 
 const BannerWrapper = styled(Flex)`
-    height: 100%;
     width: 48%;
     position: relative;
     align-items: center;
@@ -117,26 +111,16 @@ const BannerWrapper = styled(Flex)`
         width: 100%;
         position: relative;
         @media ${device.laptopM} {
-            padding-bottom: 40px;
-        }
-        @media ${device.tabletL} {
-            padding-bottom: 40px;
+            margin-bottom: 40px;
         }
     }
     @media ${device.laptopM} {
-        width: 100%;
-        justify-content: flex-start;
-        height: fit-content;
+        align-items: flex-end;
     }
-    @media ${device.tabletL} {
+    @media ${device.mobileL} {
         width: 100%;
         justify-content: center;
         margin: 0;
-    }
-    @media ${device.mobileS} {
-        width: 100%;
-        height: fit-content;
-        margin-top: 36px;
     }
 `
 

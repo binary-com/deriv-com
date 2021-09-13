@@ -20,7 +20,7 @@ const CFDs = ({ market_content, market_tab_name }) => (
             <Descriptions>
                 <StyledText align="center" font_size="16px">
                     {localize(
-                        'CFD trading allows you to bet on the price movement of the underlying asset without purchasing it.',
+                        'CFD trading allows you to speculate on the price movement of the underlying asset without purchasing it.',
                     )}
                 </StyledText>
                 <StyledText align="center" mt="16px" font_size="16px">

@@ -19,7 +19,10 @@ const DigitalOptions = ({ market_name, options_list }) => (
         <ContentWrapper>
             <Descriptions>
                 <StyledText font_size="16px" align="center">
-                    <Localize translate_text="Options trading allows for fixed payouts from correctly predicting market movements, without needing to buy an underlying asset." />
+                    <Localize
+                        translate_text="Options trading allows for payouts from predicting market movements, without needing to buy an underlying asset. Trade digital options on {{market_name}}."
+                        values={{ market_name }}
+                    />
                 </StyledText>
                 <AvailablePlatforms dtrader dbot smarttrader tablet_direction="column" />
             </Descriptions>

@@ -6,6 +6,7 @@ import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import { deriv_app_url } from 'common/constants'
 import { Text } from 'components/elements'
 import { localize, Localize, WithIntl } from 'components/localization'
+import device from 'themes/device.js'
 
 const StyledList = styled.ul`
     list-style: unset;
@@ -14,6 +15,11 @@ const StyledList = styled.ul`
 const StyledListItem = styled.li`
     color: var(--color-black-3);
     margin-top: 1.6rem;
+`
+const StyledLink = styled(ExternalLink)`
+    @media ${device.tabletL} {
+        font-size: 16px;
+    }
 `
 
 const WhoCanOpenAnAccount = () => (
@@ -45,7 +51,7 @@ const ChangingPersonalDetails = () => (
                 translate_text="If your account is not authenticated, you can change your name, date of birth, or citizenship by going to <0>Settings ></0> <1>Personal details</1>."
                 components={[
                     <strong key={0} />,
-                    <ExternalLink
+                    <StyledLink
                         to={`${deriv_app_url}/account/personal-details`}
                         external="true"
                         weight="bold"
@@ -86,7 +92,7 @@ const RecoveringPassword = () => (
             <Localize
                 translate_text="If you’ve forgotten your Google/Facebook account password, you can <0>reset your Deriv account password</0> to log in to Deriv."
                 components={[
-                    <ExternalLink
+                    <StyledLink
                         to="/reset-password/"
                         external="true"
                         weight="bold"
@@ -104,10 +110,24 @@ const CloseAccount = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">{localize('How can I close my account?')}</StyledHeader>
         <Text>
-            {localize(
-                'Before closing your account, please close all your open positions and withdraw all the funds in your account. After that, you may contact us with your request.',
-            )}
+            <Localize
+                translate_text="To close your account, go to <0>Deactivate account.</0> "
+                components={[
+                    <StyledLink
+                        to={`${deriv_app_url}/account/deactivate-account`}
+                        target="_blank"
+                        weight="bold"
+                        rel="noopener noreferrer"
+                        key={0}
+                    />,
+                ]}
+            />
         </Text>
+        <StyledText>
+            {localize(
+                'Before closing your Deriv account, close all your open positions and withdraw all the funds in your trading accounts, including DMT5.',
+            )}
+        </StyledText>
     </ArticleWrapper>
 )
 
@@ -121,7 +141,7 @@ const UnsubscribeEmail = () => (
                 translate_text="You can do this easily by going to <0>Settings > Profile ></0> <1>Personal details</1>. Uncheck the email preference box, and click the ‘Submit’ button to unsubscribe."
                 components={[
                     <strong key={0} />,
-                    <ExternalLink
+                    <StyledLink
                         to={`${deriv_app_url}/account/personal-details`}
                         target="_blank"
                         external="true"

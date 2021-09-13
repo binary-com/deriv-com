@@ -88,6 +88,7 @@ const Content = styled(Flex)`
     display: grid;
     justify-content: center;
     padding-left: 16rem;
+    padding-top: 60px;
     @media ${device.tabletL} {
         padding-top: 24px;
         padding-left: 0;
@@ -159,7 +160,7 @@ const Tabs = ({ children, is_reverse, className, max_width }) => {
     }, [selected_tab, setSelectedTab])
 
     return (
-        <Flex className={className} ai="flex-start" direction={is_reverse ? 'row-reverse' : 'row'}>
+        <Flex className={className} ai="center" direction={is_reverse ? 'row-reverse' : 'row'}>
             <TabListWrapper className="side-tab__wrapper">
                 <TabList className="side-tab__list" role="tablist" is_reverse={is_reverse}>
                     {React.Children.map(children, (child, index) => {

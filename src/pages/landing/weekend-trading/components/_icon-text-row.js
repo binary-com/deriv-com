@@ -35,12 +35,12 @@ const Section = styled(SectionContainer)`
     justify-content: center;
     box-shadow: inset 0 1px 0 0 var(--color-grey-8);
 
-    @media ${device.tablet} {
+    @media ${device.tabletL} {
         padding: 40px 16px;
     }
 `
 const CardContainer = styled(Flex)`
-    @media ${device.laptopM} {
+    @media ${device.tabletL} {
         max-width: 58rem;
         flex-wrap: wrap;
     }
@@ -115,11 +115,6 @@ const StyledText = styled(Text)`
         font-size: 18px;
         line-height: 26px;
         text-align: center;
-    }
-`
-const img = styled(Text)`
-    @media ${device.tabletL} {
-        width: 50px;
     }
 `
 

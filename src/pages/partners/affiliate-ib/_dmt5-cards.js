@@ -43,7 +43,7 @@ const query = graphql`
 `
 
 const StyledCard = styled(Card)`
-    min-height: 37.1rem;
+    min-height: 42.6rem;
     height: 100%;
     position: relative;
     border-radius: 8px;
@@ -81,7 +81,7 @@ const StyledCard = styled(Card)`
     }
 `
 const CardWrappers = styled(Flex)`
-    min-height: 27.3rem;
+    min-height: 33.8rem;
     flex-direction: column;
     justify-content: flex-start;
 

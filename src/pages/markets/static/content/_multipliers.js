@@ -5,12 +5,14 @@ import {
     MajorPairs,
     StepIndices,
     CryptocurrenciesMultipliers,
+    SmartFX,
 } from '../../instruments/_submarkets'
 import {
     ContinuousIndicesDetails,
     CrashBoomDetails,
     StepIndicesDetails,
     CryptocurrenciesDetails,
+    SmartFXDetails,
 } from './_details'
 import { Localize } from 'components/localization'
 
@@ -24,6 +26,11 @@ export const forex_multiplier = {
         {
             title: <Localize translate_text="Major pairs" />,
             component: <MajorPairs />,
+        },
+        {
+            title: <Localize translate_text="SmartFX" />,
+            component: <SmartFX />,
+            details: SmartFXDetails,
         },
     ],
 }

@@ -237,7 +237,7 @@ const HeaderPlatforms = styled.div`
 `
 
 const ShowItem = styled.li`
-    display: ${props => props.should_show_item ? 'block' : 'none'};
+    display: ${(props) => (props.should_show_item ? 'block' : 'none')};
 `
 
 // Since useContext can only be used in functional components
@@ -436,18 +436,22 @@ class HelpCentreClass extends Component {
                                                             idxb === item.articles.length - 1
                                                         return (
                                                             <ListNoBullets key={idxb}>
-                                                                    <ShowItem should_show_item={should_show_item}>
-                                                                        <StyledLink
-                                                                            to={convertToHash(
-                                                                                item.category.props
-                                                                                    .translate_text,
-                                                                                ar.label,
-                                                                            )}
-                                                                        >
-                                                                            {ar.title}
-                                                                        </StyledLink>
-                                                                    </ShowItem>
-                                                            
+                                                                <ShowItem
+                                                                    should_show_item={
+                                                                        should_show_item
+                                                                    }
+                                                                >
+                                                                    <StyledLink
+                                                                        to={convertToHash(
+                                                                            item.category.props
+                                                                                .translate_text,
+                                                                            ar.label,
+                                                                        )}
+                                                                    >
+                                                                        {ar.title}
+                                                                    </StyledLink>
+                                                                </ShowItem>
+
                                                                 {(should_show_expand ||
                                                                     should_show_collapse) && (
                                                                     <li>

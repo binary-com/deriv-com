@@ -94,13 +94,30 @@ const Content = styled(Flex)`
     }
 `
 
+const CarouselDot = styled.div`
+    height: 12px;
+    align-self: center;
+    width: 12px;
+    border-radius: 50%;
+    border: ${(props) => (props.selected ? 'none' : '1px solid #000000')};
+    margin-bottom: 16px;
+    background-color: ${(props) =>
+        props.selected ? 'rgba(255, 68, 79, 1)' : 'rgba(248, 250, 251, 1)'};
+    @media ${device.tabletL} {
+        display: none;
+    }
+`
+const CarouselContainer = styled.div`
+    height: 80px;
+    align-self: center;
+`
 const Desktop = styled(Show.Desktop)`
     flex: 1;
     width: 100%;
 `
 
 const Mobile = styled(Show.Mobile)`
-    @media ${device.tabletS} {
+    @media ${device.tabletL} {
         margin-top: 0.8rem;
         margin-bottom: 0;
 
@@ -176,7 +193,7 @@ const Tabs = ({ children, is_reverse, className, max_width }) => {
 
                                 <Mobile
                                     className="side-tab__mobile"
-                                    min_width={max_width || 'tabletS'}
+                                    min_width={max_width || 'tabletL'}
                                 >
                                     <Content>{selected_tab === index ? child : undefined}</Content>
                                 </Mobile>
@@ -185,13 +202,18 @@ const Tabs = ({ children, is_reverse, className, max_width }) => {
                     })}
                 </TabList>
             </TabListWrapper>
-            <Desktop className="side-tab__desktop" max_width={max_width || 'tabletS'}>
+            <Desktop className="side-tab__desktop" max_width={max_width || 'tabletL'}>
                 <Content>
                     {React.Children.map(children, (el, index) => {
                         return selected_tab === index ? el : undefined
                     })}
                 </Content>
             </Desktop>
+            <CarouselContainer ai="flex-end">
+                {React.Children.map(children, (child, index) => (
+                    <CarouselDot selected={selected_tab === index} />
+                ))}
+            </CarouselContainer>
         </Flex>
     )
 }

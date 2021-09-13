@@ -14,7 +14,7 @@ const items = [
             <Localize translate_text="Amplify your profits up to 1000x without losing more than your trade amount with multipliers." />
         ),
         image_name: 'multiply_profit',
-        image_alt: '',
+        image_alt: 'multiplier trading',
     },
     {
         title: <Localize translate_text="Forex trading on the go" />,
@@ -22,7 +22,7 @@ const items = [
             <Localize translate_text="Access the world’s most traded market and take advantage of currency price movements." />
         ),
         image_name: 'forex',
-        image_alt: '',
+        image_alt: 'trade forex',
     },
     {
         title: <Localize translate_text="Trade synthetic indices" />,
@@ -30,7 +30,7 @@ const items = [
             <Localize translate_text="Trade Volatility and Crash/Boom indices that emulate the movements of real-world markets." />
         ),
         image_name: 'synthetic_indices',
-        image_alt: '',
+        image_alt: 'synthetic indices trading',
     },
     {
         title: <Localize translate_text="Better risk management" />,
@@ -38,7 +38,7 @@ const items = [
             <Localize translate_text="Customise your contracts to suit your risk appetite using innovative features like stop loss, take profit, and deal cancellation." />
         ),
         image_name: 'better_risk',
-        image_alt: '',
+        image_alt: 'risk management trading',
     },
 ]
 const DerivGo = () => {

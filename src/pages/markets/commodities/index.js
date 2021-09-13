@@ -38,9 +38,9 @@ const CommoditiesPage = () => (
     <Layout>
         <SEO
             description={localize(
-                'Sign up with Deriv to start trading on commodities and speculate on the price movements of gold, silver, oil, and other assets.',
+                'Learn about the markets that you can trade online with Deriv, including forex, commodities, synthetic indices, stocks, and stock indices.',
             )}
-            title={localize('Commodities market | Commodities trading | Deriv')}
+            title={localize('Markets | Markets to trade | Deriv')}
         />
         <Hero />
         <NavTab route_from={'commodities'} route_offset={360} />

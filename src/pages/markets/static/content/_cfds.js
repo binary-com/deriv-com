@@ -1,4 +1,5 @@
 import React from 'react'
+import Symbol from '../../components/helper/_symbol'
 import {
     CrashBoom,
     CryptocurrenciesCFDs,
@@ -17,10 +18,12 @@ import {
     EuropeanIndices,
     JumpIndices,
 } from '../../instruments/_submarkets'
+import { smart_gold_index } from '../../instruments/_market-symbols'
 import {
     CrashBoomDetails,
     RangeBreakIndicesDetails,
     SmartFXDetails,
+    SmartGoldIndexDetails,
     StepIndicesDetails,
     VolatilityIndicesDetails,
     AmericanIndicesDetails,
@@ -66,9 +69,14 @@ export const forex_cfds = {
             component: <ExoticPairs />,
         },
         {
-            title: <Localize translate_text="SmartFX" />,
+            title: <Localize translate_text="Smart FX" />,
             component: <SmartFX />,
             details: SmartFXDetails,
+        },
+        {
+            title: <Localize translate_text="Smart Gold Index" />,
+            component: <Symbol instruments_type={smart_gold_index} />,
+            details: SmartGoldIndexDetails,
         },
     ],
 }
@@ -142,7 +150,7 @@ export const stock_cfds = {
             gap: '16px',
         },
         {
-            title: <Localize translate_text="Stocks" />,
+            title: <Localize translate_text="American stocks" />,
             component: <AmericanStocks />,
             col: 3,
             tablet_col: 2,

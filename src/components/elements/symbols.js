@@ -71,7 +71,6 @@ import GBPSGD from 'images/svg/symbols/gbp-sgd.svg'
 import GBPTRY from 'images/svg/symbols/gbp-try.svg'
 import GBPUSD from 'images/svg/symbols/gbp-usd.svg'
 import GM from 'images/svg/symbols/gm.svg'
-import GOLDINDEX from 'images/svg/symbols/gold-index.svg'
 import GOLDEUR from 'images/svg/symbols/gold-eur.svg'
 import GOLDUSD from 'images/svg/symbols/gold-usd.svg'
 import GOOGL from 'images/svg/symbols/googl.svg'
@@ -322,7 +321,6 @@ export {
     GBPTRY,
     GBPUSD,
     GM,
-    GOLDINDEX,
     GOLDEUR,
     GOLDUSD,
     GOOGL,

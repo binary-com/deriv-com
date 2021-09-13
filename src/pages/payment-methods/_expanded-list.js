@@ -35,7 +35,7 @@ const Tr = styled.tr`
 
 const Td = styled.td`
     vertical-align: middle;
-    padding: 0.8rem 2rem;
+    padding: 16px 0 16px 24px;
     position: relative;
 
     :first-child {
@@ -45,6 +45,8 @@ const Td = styled.td`
         left: -5px;
         background-color: var(--color-white);
         z-index: 2;
+        width: 128px;
+        padding: 16px 0 16px 16px;
     }
     & .tooltip {
         padding: 0.8rem;
@@ -60,10 +62,6 @@ const HoverTd = styled(Td)`
     cursor: pointer;
     display: flex;
     justify-content: center;
-
-    &:hover {
-        background: var(--color-grey-8);
-    }
 `
 
 const Description = styled.div`
@@ -152,38 +150,49 @@ const ExpandList = ({ data, /*config,*/ is_crypto, is_fiat_onramp, locale }) => 
                 )}
 
                 <Td>
-                    {data.reference ? (
-                        <CenterIcon
-                            href={`/payment-methods/${
-                                data.locales?.includes(locale.locale.language)
-                                    ? locale.locale.language + '/' + data.reference
-                                    : data.reference
-                            }`}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <StyledPDF src={PDF} alt="PDF" />
-                        </CenterIcon>
-                    ) : (
-                        <Text align="center">-</Text>
-                    )}
-                </Td>
-                <HoverTd onClick={toggleExpand}>
-                    <StyledChevron src={Chevron} alt="chevron" expanded={is_expanded} />
-                </HoverTd>
-            </Tr>
-            <tr>
-                <ExpandedContent colSpan="8">
-                    <Description is_expanded={is_expanded}>
-                        <StyledText is_expanded={is_expanded}>{data.description}</StyledText>
-                        {data.url && (
-                            <StyledButton onClick={() => window.open(data.url, '_blank')} tertiary>
-                                {localize('Learn more')}
-                            </StyledButton>
+                    <>
+                        {data.reference ? (
+                            <CenterIcon
+                                href={`/payment-methods/${
+                                    data.locales?.includes(locale.locale.language)
+                                        ? locale.locale.language + '/' + data.reference
+                                        : data.reference
+                                }`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <StyledPDF src={PDF} alt="PDF" />
+                            </CenterIcon>
+                        ) : data.reference_link ? (
+                            data.reference_link
+                        ) : (
+                            <Text align="center">-</Text>
                         )}
-                    </Description>
-                </ExpandedContent>
-            </tr>
+                    </>
+                </Td>
+                {data.description && (
+                    <HoverTd onClick={toggleExpand}>
+                        <StyledChevron src={Chevron} alt="chevron" expanded={is_expanded} />
+                    </HoverTd>
+                )}
+            </Tr>
+            {data.description && (
+                <Tr>
+                    <ExpandedContent colSpan="8">
+                        <Description is_expanded={is_expanded}>
+                            <StyledText is_expanded={is_expanded}>{data.description}</StyledText>
+                            {data.url && (
+                                <StyledButton
+                                    onClick={() => window.open(data.url, '_blank')}
+                                    tertiary
+                                >
+                                    {localize('Learn more')}
+                                </StyledButton>
+                            )}
+                        </Description>
+                    </ExpandedContent>
+                </Tr>
+            )}
         </>
     )
 }

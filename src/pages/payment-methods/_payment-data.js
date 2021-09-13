@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Localize } from 'components/localization'
+import { Localize, LocalizedLink } from 'components/localization'
 // SVG
-import BankTransfer from 'images/svg/payment-methods/payment-bank-transfer.svg'
+// import BankTransfer from 'images/svg/payment-methods/payment-bank-transfer.svg'
 import Paytrust from 'images/svg/payment-methods/payment-paytrust.svg'
 import Visa from 'images/svg/payment-methods/payment-visa.svg'
 import VisaElectron from 'images/svg/payment-methods/payment-visa-electron.svg'
@@ -46,25 +46,37 @@ import OnlineNaira from 'images/svg/payment-methods/payment-onlinenaira.svg'
 // import Tigo from 'images/svg/payment-methods/payment-tigo.svg'
 // import Airtel from 'images/svg/payment-methods/payment-airtel.svg'
 import Trustly from 'images/svg/payment-methods/payment-trustly.svg'
+import InstantBankTransfer from 'images/svg/payment-methods/payment-instant-bank-transfer.svg'
+import JCB from 'images/svg/payment-methods/payment-jcb.svg'
+import Boleto from 'images/svg/payment-methods/payment-boleto.svg'
+import Beyonic from 'images/svg/payment-methods/payment-beyonic.svg'
+import Astropay from 'images/svg/payment-methods/payment-astropay.svg'
+import OneForYou from 'images/svg/payment-methods/payment-one-for-you.svg'
+import Advcash from 'images/svg/payment-methods/payment-advcash.svg'
+import Dp2p from 'images/svg/payment-methods/payment-dp2p.svg'
 
 const StyledIcon = styled.img`
-    width: 72px;
-    height: 72px;
+    width: 100%;
 `
-
-const NoIconText = styled.div`
-    color: var(--color-red);
+const StyledRefLink = styled(LocalizedLink)`
     font-size: 16px;
-    font-weight: bold;
-    text-align: center;
+    line-height: 24px;
+    color: var(--color-blue-9);
 `
+/* commented for now unless there is an item that has no icon */
+// const NoIconText = styled.div`
+//     color: var(--color-red);
+//     font-size: 16px;
+//     font-weight: bold;
+//     text-align: center;
+// `
 
 const payment_data = [
     {
         name: <Localize translate_text="Online banking" />,
         data: [
             {
-                method: <StyledIcon src={BankTransfer} alt="bank transfer" />,
+                method: <StyledIcon src={InstantBankTransfer} alt="instant bank transfer" />,
                 currencies: 'USD',
                 min_max_deposit: <Localize translate_text="5 - 50,000" />,
                 min_max_withdrawal: <Localize translate_text="5 - 50,000" />,
@@ -73,7 +85,7 @@ const payment_data = [
                 description: (
                     <Localize translate_text="Deposit and withdraw easily using secure and fast money transfers." />
                 ),
-                name: 'bank transfer',
+                name: 'InstantBankTransfer',
             },
             {
                 method: <StyledIcon src={Paytrust} alt="pay safe card" />,
@@ -247,7 +259,7 @@ const payment_data = [
             //     ),
             // },
             {
-                method: <NoIconText>JCB</NoIconText>,
+                method: <StyledIcon src={JCB} alt="JCB" />,
                 currencies: 'USD',
                 min_max_deposit: <Localize translate_text="10 - 10,000" />,
                 min_max_withdrawal: <Localize translate_text="10 - 10,000" />,
@@ -420,7 +432,7 @@ const payment_data = [
             //     reference: 'help2pay-payment-method.pdf',
             // },
             {
-                method: <NoIconText>Boleto Bancário</NoIconText>,
+                method: <StyledIcon src={Boleto} alt="Airtm" />,
                 currencies: 'USD',
                 min_max_deposit: <Localize translate_text="10 - 500" />,
                 min_max_withdrawal: <Localize translate_text="Not applicable" />,
@@ -472,7 +484,55 @@ const payment_data = [
                 url: 'https://www.trustly.net/',
                 name: 'trustly',
             },
-
+            {
+                method: <StyledIcon src={Beyonic} alt="Beyonic" />,
+                currencies: 'UGX TZS',
+                min_max_deposit: <Localize translate_text="5 - 1,000" />,
+                min_max_withdrawal: <Localize translate_text="5 - 1,000" />,
+                deposit_time: <Localize translate_text="Instant" />,
+                withdrawal_time: <Localize translate_text="1 - 2 working days" />,
+                description: (
+                    <Localize translate_text="Make deposits easily using your mobile. For clients in Uganda and Tanzania." />
+                ),
+                url: 'https://www.trustly.net/',
+                name: 'trustly',
+            },
+            {
+                method: <StyledIcon src={Astropay} alt="Astropay" />,
+                currencies: 'USD',
+                min_max_deposit: <Localize translate_text="5 - 2,500" />,
+                min_max_withdrawal: <Localize translate_text="5 - 2,500" />,
+                deposit_time: <Localize translate_text="Instant" />,
+                withdrawal_time: <Localize translate_text="1 working day" />,
+                description: (
+                    <Localize translate_text="Enjoy fast and secure deposits and withdrawals with Astropay." />
+                ),
+                name: 'astropay',
+            },
+            {
+                method: <StyledIcon src={OneForYou} alt="OneForYou" />,
+                currencies: 'USD',
+                min_max_deposit: <Localize translate_text="10 - 1,000" />,
+                min_max_withdrawal: <Localize translate_text="Not applicable" />,
+                deposit_time: <Localize translate_text="Instant" />,
+                withdrawal_time: <Localize translate_text="Not applicable" />,
+                description: (
+                    <Localize translate_text="Make deposits easily with cash voucher payment solution for South Africa." />
+                ),
+                name: 'oneforyou',
+            },
+            {
+                method: <StyledIcon src={Advcash} alt="Advcash" />,
+                currencies: 'USD',
+                min_max_deposit: <Localize translate_text="5 - 1,000" />,
+                min_max_withdrawal: <Localize translate_text="Will be available soon" />,
+                deposit_time: <Localize translate_text="Instant" />,
+                withdrawal_time: <Localize translate_text="Will be available soon" />,
+                description: (
+                    <Localize translate_text="Enjoy fast, smooth, and secure deposits and withdrawals with AdvCash." />
+                ),
+                name: 'advcash',
+            },
             // {
             //     method: <NoIconText> MTN Mobile Money</NoIconText>,
             //     currencies: 'GHS UGX',
@@ -574,7 +634,7 @@ const payment_data = [
                 method: <StyledIcon src={Bitcoin} alt="Bitcoin" />,
                 currencies: 'BTC',
                 min_max_deposit: <Localize translate_text="No minimum" />,
-                min_max_withdrawal: <Localize translate_text="0.0022" />,
+                min_max_withdrawal: <Localize translate_text="0.00052" />,
                 deposit_time: <Localize translate_text="Funds available as soon as confirmed" />,
                 withdrawal_time: <Localize translate_text="Subject to internal checks" />,
                 description: (
@@ -597,9 +657,9 @@ const payment_data = [
             // },
             {
                 method: <StyledIcon src={Ethereum} alt="Ethereum" />,
-                currencies: 'ETH',
+                currencies: 'USD',
                 min_max_deposit: <Localize translate_text="No minimum" />,
-                min_max_withdrawal: <Localize translate_text="0.013" />,
+                min_max_withdrawal: <Localize translate_text="0.0094" />,
                 deposit_time: <Localize translate_text="Funds available as soon as confirmed" />,
                 withdrawal_time: <Localize translate_text="Subject to internal checks" />,
                 description: (
@@ -634,9 +694,9 @@ const payment_data = [
             // },
             {
                 method: <StyledIcon src={Litecoin} alt="Litecoin" />,
-                currencies: 'LTC',
+                currencies: 'USD',
                 min_max_deposit: <Localize translate_text="No minimum" />,
-                min_max_withdrawal: <Localize translate_text="0.085" />,
+                min_max_withdrawal: <Localize translate_text="0.029" />,
                 deposit_time: <Localize translate_text="Funds available as soon as confirmed" />,
                 withdrawal_time: <Localize translate_text="Subject to internal checks" />,
                 description: (
@@ -671,7 +731,7 @@ const payment_data = [
             // },
             {
                 method: <StyledIcon src={UsdCoin} alt="UsdCoin" />,
-                currencies: 'USDC',
+                currencies: 'USD',
                 min_max_deposit: <Localize translate_text="No minimum" />,
                 min_max_withdrawal: <Localize translate_text="25" />,
                 deposit_time: <Localize translate_text="Funds available as soon as confirmed" />,
@@ -695,7 +755,7 @@ const payment_data = [
             // },
             {
                 method: <StyledIcon src={Tether} alt="Tether" />,
-                currencies: 'USDT',
+                currencies: 'USD EUR AUD GBP',
                 min_max_deposit: <Localize translate_text="No minimum" />,
                 min_max_withdrawal: <Localize translate_text="25" />,
                 deposit_time: <Localize translate_text="Funds available as soon as confirmed" />,
@@ -771,7 +831,7 @@ const payment_data = [
                 method: <StyledIcon src={Xanpool} alt="Xanpool" />,
                 currencies: (
                     <Localize
-                        translate_text="USD EUR GBP AUD<0></0>BTC ETH LTC USDT"
+                        translate_text="USD EUR GBP AUD<0></0>BTC LTC USDT USDC"
                         components={[<br key={0} />]}
                     />
                 ),
@@ -781,6 +841,33 @@ const payment_data = [
                     <Localize translate_text="Make a deposit into your Deriv crypto account via local bank wire with this fiat-to-crypto exchange for clients in Southeast Asia." />
                 ),
                 name: 'Xanpool',
+            },
+        ],
+    },
+    {
+        is_dp2p: true,
+        name: <Localize translate_text="Deriv P2P" />,
+        note: (
+            <Localize translate_text="Please contact our customer support in you wish to increase your daily deposit/withdrawal limits." />
+        ),
+        data: [
+            {
+                method: <StyledIcon src={Dp2p} alt="DP2P" />,
+                currencies: 'Your local currency',
+                min_max_deposit: <Localize translate_text="Deriv USD account" />,
+                min_max_withdrawal: <Localize translate_text="500 USD" />,
+                deposit_time: <Localize translate_text="500 USD" />,
+                withdrawal_time: <Localize translate_text="Max 2 hours" />,
+                reference_link: (
+                    <StyledRefLink
+                        to="/help-centre/deriv-p2p/#what-is-deriv-p2p"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Deriv P2P FAQ
+                    </StyledRefLink>
+                ),
+                name: 'DP2P',
             },
         ],
     },

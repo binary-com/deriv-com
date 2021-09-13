@@ -236,10 +236,6 @@ const HeaderPlatforms = styled.div`
     }
 `
 
-const ShowItem = styled.li`
-    display: ${props => props.should_show_item ? 'block' : 'none'};
-`
-
 // Since useContext can only be used in functional components
 // Wrap HelpCenter class component in a function plug in the context
 // TODO - Refactor Help Center to function component and move this inside
@@ -377,13 +373,13 @@ class HelpCentreClass extends Component {
                                     )}
                                 </SearchForm>
                                 <ResultWrapper>
-                                    {!!has_results && !!search.length && (
+                                    {has_results && search.length > 0 && (
                                         <SearchSuccess
                                             suggested_topics={filtered_articles}
                                             max_length={3}
                                         />
                                     )}
-                                    {!has_results && !!search.length && (
+                                    {!has_results && search.length && (
                                         <SearchError search={search} />
                                     )}
                                 </ResultWrapper>
@@ -436,7 +432,8 @@ class HelpCentreClass extends Component {
                                                             idxb === item.articles.length - 1
                                                         return (
                                                             <ListNoBullets key={idxb}>
-                                                                    <ShowItem should_show_item={should_show_item}>
+                                                                {should_show_item && (
+                                                                    <li>
                                                                         <StyledLink
                                                                             to={convertToHash(
                                                                                 item.category.props
@@ -446,8 +443,8 @@ class HelpCentreClass extends Component {
                                                                         >
                                                                             {ar.title}
                                                                         </StyledLink>
-                                                                    </ShowItem>
-                                                            
+                                                                    </li>
+                                                                )}
                                                                 {(should_show_expand ||
                                                                     should_show_collapse) && (
                                                                     <li>

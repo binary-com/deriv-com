@@ -123,11 +123,6 @@ const MobileExpandedList = ({ is_crypto, is_fiat_onramp, is_dp2p, locale, paymen
                                         {md}
                                     </ValueText>
                                 ))
-                            ) : is_crypto ? (
-                                // <Text>{getCryptoConfig(data.name)}</Text>
-                                <ValueText type="subtitle-2" weight="normal">
-                                    {payment_data.min_max_withdrawal}
-                                </ValueText>
                             ) : (
                                 <ValueText type="subtitle-2" weight="normal">
                                     {payment_data.min_max_withdrawal}

@@ -68,6 +68,8 @@ module.exports = {
                     '/**/landing/**',
                     '/endpoint',
                     '/**/endpoint',
+                    '/signup-success',
+                    '/**/signup-success',
                 ],
                 serialize: ({ site, allSitePage }) =>
                     allSitePage.edges.map((edge) => {

@@ -15,6 +15,7 @@ const StyledItemWrapper = styled(Flex)`
 const StyledIconWrapper = styled.div`
     width: 100%;
     max-width: 128px;
+    height: 80px;
     margin-left: 16px;
 `
 const StyledChevron = styled.img`

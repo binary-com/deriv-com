@@ -8,10 +8,6 @@ import device, { size } from 'themes/device.js'
 import DerivGoBg from 'images/common/deriv-go/hero-bg.png'
 import DerivGoMobileBg from 'images/common/deriv-go/hero-mobile-bg.png'
 import { deriv_go_playstore_url, deriv_go_huaweiappgallery_url } from 'common/constants'
-// svgs
-import AppStoreLogo from 'images/svg/deriv-go/app-store.svg'
-import HuaweiAppGallery from 'images/svg/deriv-go/huawei-app.svg'
-import GooglePlayLogo from 'images/svg/deriv-go/google-play.svg'
 import { isBrowser } from 'common/utility'
 
 const query = graphql`
@@ -20,6 +16,15 @@ const query = graphql`
             ...fadeIn
         }
         hero_mobile: file(relativePath: { eq: "deriv-go/hero-mobile.png" }) {
+            ...fadeIn
+        }
+        google_play: file(relativePath: { eq: "deriv-go/google-play.png" }) {
+            ...fadeIn
+        }
+        app_store: file(relativePath: { eq: "deriv-go/app-store.png" }) {
+            ...fadeIn
+        }
+        huawei_app: file(relativePath: { eq: "deriv-go/huawei-app.png" }) {
             ...fadeIn
         }
     }
@@ -37,55 +42,28 @@ const MainWrapper = styled(Flex)`
     }
 `
 
-const HeaderWrapper = styled(Flex)`
-    @media ${device.laptopM} {
-        width: 100%;
-        justify-content: flex-start;
-        padding-top: 40px;
-    }
-`
 const StyledHeader = styled(Header)`
-    @media ${device.tablet} {
-        display: flex;
-        justify-content: center;
-        width: 326px;
-    }
-    @media ${device.mobileL} {
-        display: flex;
-        justify-content: center;
+    @media ${device.tabletL} {
         width: auto;
     }
 `
 const StyledSubTitle = styled(Header)`
     margin-top: 24px;
     @media ${device.laptopM} {
-        max-width: fit-content;
         margin-top: 8px;
     }
 `
-const ButtonWrapper = styled(Flex)`
-    @media ${device.laptopM} {
-        max-height: 98px;
-        margin: 7px 8px 48px;
-    }
-    @media ${device.mobileS} {
-        flex-wrap: wrap;
-        height: fit-content;
-    }
-`
+
 const AppButton = styled(LocalizedLink)`
     margin-right: 8px;
     padding: 0;
     border: none;
-    @media ${device.tabletL} {
-        margin-bottom: 7px;
+
+    img {
+        border-radius: 7px;
     }
-`
-const AppLogo = styled.img`
-    width: 170px;
-    height: 50px;
-    border-radius: 7.8px;
-    @media ${device.laptopM} {
+    @media ${device.tabletL} {
+        margin-bottom: 8px;
         width: 156px;
         height: 46px;
     }
@@ -136,7 +114,13 @@ const Banner = () => {
     return (
         <MainWrapper>
             <Container laptop_direction="column">
-                <HeaderWrapper ai="center" width="53%" height="100%" tablet_ai="start">
+                <Flex
+                    jc="center"
+                    ai="center"
+                    max_width="53%"
+                    height="100%"
+                    laptopM={{ max_width: '100%', pt: '40px' }}
+                >
                     <div>
                         <StyledHeader color="white" width="64rem" type="heading-1">
                             {localize('Trade forex, synthetics, and cryptocurrencies on the go')}
@@ -146,14 +130,20 @@ const Banner = () => {
                                 'Download the app now and start trading whenever, wherever you want.',
                             )}
                         </StyledSubTitle>
-                        <ButtonWrapper fd="row" mt="40px" jc="start" tablet_fw="wrap">
+                        <Flex
+                            fd="row"
+                            mt="40px"
+                            jc="start"
+                            tablet_fw="wrap"
+                            laptopM={{ m: '7px 8px 48px' }}
+                        >
                             <AppButton
                                 external="true"
                                 to={deriv_go_playstore_url}
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                <AppLogo src={GooglePlayLogo} alt="" />
+                                <QueryImage data={data['google_play']} alt="google play logo" />
                             </AppButton>
                             <AppButton
                                 external="true"
@@ -161,7 +151,7 @@ const Banner = () => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                <AppLogo src={AppStoreLogo} alt="" />
+                                <QueryImage data={data['app_store']} alt="app store logo" />
                             </AppButton>
                             <AppButton
                                 external="true"
@@ -169,11 +159,11 @@ const Banner = () => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                <AppLogo src={HuaweiAppGallery} alt="" />
+                                <QueryImage data={data['huawei_app']} alt="huawei app gallery" />
                             </AppButton>
-                        </ButtonWrapper>
+                        </Flex>
                     </div>
-                </HeaderWrapper>
+                </Flex>
                 <BannerWrapper>
                     <QueryImage
                         data={data[is_mobile ? 'hero_mobile' : 'hero']}
@@ -185,7 +175,5 @@ const Banner = () => {
         </MainWrapper>
     )
 }
-
-export { ButtonWrapper, AppButton }
 
 export default Banner

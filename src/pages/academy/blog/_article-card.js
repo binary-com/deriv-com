@@ -14,7 +14,8 @@ const ArticleCardWrapper = styled(Flex)`
     justify-content: flex-start;
     text-decoration: none;
     position: relative;
-    height: 400px;
+    min-height: 400px;
+    height: 100%;
     border-radius: 8px;
     border: 1px solid var(--color-grey-8);
     background: var(--color-white);
@@ -49,7 +50,7 @@ const StyledCategories = styled(Header)`
 `
 
 const ContentWrapper = styled.div`
-    height: 200px;
+    height: auto;
     padding: 16px 24px;
 
     @media ${device.mobileL} {

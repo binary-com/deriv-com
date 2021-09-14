@@ -179,35 +179,35 @@ export const PreviewContainer = styled(Box)`
     font-size: 16px;
     max-width: 792px;
     width: 100%;
-    margin-bottom: 40px;
 
     & br {
         display: none;
     }
     & p {
-        margin-top: 22px;
+        margin-bottom: 16px;
         font-weight: 400;
         line-height: 24px;
         font-size: 16px;
-
-        :first-child {
-            margin-top: 0;
-        }
     }
     & hr {
         margin: 32px 0;
     }
     & ul {
-        margin-top: 32px;
+        margin-left: 16px;
+        margin-bottom: 16px;
         list-style-type: disc;
         margin-block-start: 10px;
         margin-block-end: 10px;
 
         > li {
-            margin: 8px 0 0 18px;
+            margin-bottom: 8px;
             padding: 0;
             line-height: 24px;
             font-size: 16px;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
         }
     }
     li > strong {
@@ -233,8 +233,7 @@ export const PreviewContainer = styled(Box)`
         width: 100%;
         height: auto;
         display: block;
-        margin: auto;
-        margin-top: 16px;
+        margin: 16px auto;
     }
     & img[width='full'] {
         margin-left: calc(50% - 50vw);
@@ -245,18 +244,21 @@ export const PreviewContainer = styled(Box)`
         font-size: 64px;
         line-height: 80px;
         margin-top: 32px;
+        margin-bottom: 8px;
         font-weight: bold;
     }
     & h2 {
-        font-size: 48px;
-        line-height: 60px;
-        margin-top: 32px;
+        font-size: 24px;
+        line-height: 36px;
+        margin-top: 40px;
+        margin-bottom: 8px;
         font-weight: bold;
     }
     & h3 {
-        font-size: 32px;
-        line-height: 40px;
-        margin-top: 40px;
+        font-size: 20px;
+        line-height: 30px;
+        margin-top: 24px;
+        margin-bottom: 8px;
         font-weight: bold;
 
         & + p {
@@ -264,9 +266,10 @@ export const PreviewContainer = styled(Box)`
         }
     }
     & h4 {
-        font-size: 24px;
-        line-height: 36px;
-        margin-top: 40px;
+        font-size: 16px;
+        line-height: 24px;
+        margin-top: 24px;
+        margin-bottom: 8px;
         font-weight: bold;
 
         & + p {
@@ -274,15 +277,17 @@ export const PreviewContainer = styled(Box)`
         }
     }
     & h5 {
-        font-size: 20px;
-        line-height: 30px;
+        font-size: 16px;
+        line-height: 24px;
         margin-top: 24px;
+        margin-bottom: 8px;
         font-weight: bold;
     }
     & h6 {
         font-size: 16px;
         line-height: 24px;
-        margin-top: 40px;
+        margin-top: 24px;
+        margin-bottom: 8px;
         font-weight: bold;
     }
     & em {
@@ -305,28 +310,28 @@ export const PreviewContainer = styled(Box)`
             line-height: 40px;
         }
         & h2 {
-            font-size: 28px;
-            line-height: 34px;
+            font-size: 18px;
+            line-height: 26px;
         }
         & h3 {
-            font-size: 24px;
-            line-height: 30px;
+            font-size: 16px;
+            line-height: 24px;
 
             & + p {
                 margin-top: 8px;
             }
         }
         & h4 {
-            font-size: 18px;
-            line-height: 26px;
+            font-size: 14px;
+            line-height: 20px;
 
             & + p {
                 margin-top: 8px;
             }
         }
         & h5 {
-            font-size: 16px;
-            line-height: 24px;
+            font-size: 14px;
+            line-height: 20px;
         }
         & h6 {
             font-size: 14px;

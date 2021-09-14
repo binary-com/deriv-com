@@ -1,18 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
-import { ButtonWrapper, AppButton } from './_deriv-go-banner'
 import { Flex, Container } from 'components/containers'
-import { localize } from 'components/localization'
+import { localize, LocalizedLink } from 'components/localization'
 import { Header, QueryImage } from 'components/elements'
 import device, { size } from 'themes/device.js'
 import BannerBg from 'images/common/deriv-go/banner.png'
 import BannerMobileBg from 'images/common/deriv-go/banner-m.png'
 import { deriv_go_playstore_url, deriv_go_huaweiappgallery_url } from 'common/constants'
-// svgs
-import AppStoreLogo from 'images/svg/deriv-go/app-store.svg'
-import HuaweiAppGallery from 'images/svg/deriv-go/huawei-app.svg'
-import GooglePlayLogo from 'images/svg/deriv-go/google-play.svg'
 import { isBrowser } from 'common/utility'
 
 const query = graphql`
@@ -23,51 +18,43 @@ const query = graphql`
         footer_banner_m: file(relativePath: { eq: "deriv-go/footer-banner-mobile.png" }) {
             ...fadeIn
         }
+        google_play: file(relativePath: { eq: "deriv-go/google-play.png" }) {
+            ...fadeIn
+        }
+        app_store: file(relativePath: { eq: "deriv-go/app-store.png" }) {
+            ...fadeIn
+        }
+        huawei_app: file(relativePath: { eq: "deriv-go/huawei-app.png" }) {
+            ...fadeIn
+        }
     }
 `
-
-const StyledContainer = styled(Container)`
-    flex-direction: row;
-    padding-top: 60px;
-    padding-bottom: 80px;
-    @media ${device.tablet} {
-        flex-direction: column;
-        height: auto;
-        padding-bottom: 30px;
-    }
-`
-
 const BackgroundWrapper = styled(Flex)`
     background: url(${BannerBg});
     background-repeat: round;
-    border-radius: 16px;
+    border-radius: 12px;
     position: relative;
     min-height: 38.3rem;
     align-items: center;
     @media ${device.laptopM} {
         min-height: 31rem;
-        padding-left: 20px;
     }
     @media ${device.tabletL} {
         background: url(${BannerMobileBg});
         flex-direction: column-reverse;
-        height: 100%;
     }
 `
 
 const BannerWrapper = styled(Flex)`
     width: 50%;
-    position: relative;
-    display: grid;
-    justify-content: center;
 
     & .footerimg-wrapper {
         width: 80%;
         margin-top: 45px;
         @media ${device.tabletL} {
-            width: 256px;
-            height: 220px;
-            margin-top: 80px;
+            width: 250px;
+            height: 321px;
+            padding-top: 106px;
         }
     }
     @media ${device.tabletL} {
@@ -75,32 +62,32 @@ const BannerWrapper = styled(Flex)`
     }
 `
 
-const HeaderWrapper = styled(Flex)`
-    width: 424px;
+const StyledHeader = styled(Header)`
     @media ${device.tabletL} {
-        width: 100%;
-        margin-top: 60px;
+        text-align: center;
     }
 `
 
-const StyledHeader = styled(Header)`
-    @media ${device.tabletL} {
-        display: flex;
-        justify-content: center;
-    }
-`
 const StyledSubTitle = styled(Header)`
     margin-top: 5px;
     @media ${device.tabletL} {
-        display: flex;
-        justify-content: center;
         margin-top: 8px;
+        text-align: center;
     }
 `
-const AppLogo = styled.img`
-    width: 136px;
-    height: 40px;
-    border-radius: 6px;
+
+const AppButton = styled(LocalizedLink)`
+    margin-right: 8px;
+    padding: 0;
+
+    img {
+        border-radius: 7px;
+    }
+    @media ${device.tabletL} {
+        margin-bottom: 8px;
+        width: 136px;
+        height: 40px;
+    }
 `
 
 const FooterBanner = () => {
@@ -119,55 +106,59 @@ const FooterBanner = () => {
     }, [handleResizeWindow])
 
     return (
-        <StyledContainer>
+        <Container
+            pt="60px"
+            pb="80px"
+            tablet_direction="column"
+            tabletL={{ height: 'auto', pb: '30px' }}
+        >
             <BackgroundWrapper>
-                <BannerWrapper>
+                <BannerWrapper jc="start" tablet_jc="center">
                     <QueryImage
                         data={data[is_mobile ? 'footer_banner_m' : 'footer_banner']}
                         alt="footer banner"
                         className="footerimg-wrapper"
                     />
                 </BannerWrapper>
-                <HeaderWrapper ai="center" jc="center">
-                    <div>
-                        <StyledHeader color="white" type="heading-3" ai="centter">
-                            {localize('Start trading on the go')}
-                        </StyledHeader>
-                        <StyledSubTitle color="white" type="subtitle-2" weight="normal">
-                            {localize(
-                                'Download the app today and trade multipliers anytime, anywhere you want.',
-                            )}
-                        </StyledSubTitle>
-                        <ButtonWrapper fd="row" mt="40px" jc="start" tablet_fw="wrap">
-                            <AppButton
-                                external="true"
-                                to={deriv_go_playstore_url}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <AppLogo src={GooglePlayLogo} alt="" />
-                            </AppButton>
-                            <AppButton
-                                external="true"
-                                to=""
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <AppLogo src={AppStoreLogo} alt="" />
-                            </AppButton>
-                            <AppButton
-                                external="true"
-                                to={deriv_go_huaweiappgallery_url}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <AppLogo src={HuaweiAppGallery} alt="" />
-                            </AppButton>
-                        </ButtonWrapper>
-                    </div>
-                </HeaderWrapper>
+                <Flex
+                    fd="column"
+                    ai="center"
+                    jc="center"
+                    width="424px"
+                    tabletL={{ max_width: '100%', mt: '40px' }}
+                >
+                    <StyledHeader color="white" type="heading-3">
+                        {localize('Start trading on the go')}
+                    </StyledHeader>
+                    <StyledSubTitle color="white" type="subtitle-2" weight="normal">
+                        {localize(
+                            'Download the app today and trade multipliers anytime, anywhere you want.',
+                        )}
+                    </StyledSubTitle>
+                    <Flex mt="40px" jc="start" tablet_fw="wrap" tabletL={{ m: '24px 8px 0 32px' }}>
+                        <AppButton
+                            external="true"
+                            to={deriv_go_playstore_url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <QueryImage data={data['google_play']} alt="google play logo" />
+                        </AppButton>
+                        <AppButton external="true" to="" target="_blank" rel="noopener noreferrer">
+                            <QueryImage data={data['app_store']} alt="app store logo" />
+                        </AppButton>
+                        <AppButton
+                            external="true"
+                            to={deriv_go_huaweiappgallery_url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <QueryImage data={data['huawei_app']} alt="huawei app gallery" />
+                        </AppButton>
+                    </Flex>
+                </Flex>
             </BackgroundWrapper>
-        </StyledContainer>
+        </Container>
     )
 }
 

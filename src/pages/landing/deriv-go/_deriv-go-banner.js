@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import { Flex, Container } from 'components/containers'
@@ -34,12 +34,6 @@ const MainWrapper = styled(Flex)`
     }
     @media ${device.tabletL} {
         background: url(${DerivGoMobileBg}) bottom 35% center;
-    }
-`
-
-const StyledContainer = styled(Container)`
-    @media ${device.laptopM} {
-        flex-direction: column;
     }
 `
 
@@ -127,9 +121,8 @@ const BannerWrapper = styled(Flex)`
 const Banner = () => {
     const data = useStaticQuery(query)
     const [is_mobile, setMobile] = useState(false)
-    const handleResizeWindow = useCallback(() => {
+    const handleResizeWindow = () =>
         setMobile(isBrowser() ? window.screen.width <= size.tablet : false)
-    }, [setMobile])
 
     useEffect(() => {
         handleResizeWindow()
@@ -142,7 +135,7 @@ const Banner = () => {
 
     return (
         <MainWrapper>
-            <StyledContainer>
+            <Container laptop_direction="column">
                 <HeaderWrapper ai="center" width="53%" height="100%" tablet_ai="start">
                     <div>
                         <StyledHeader color="white" width="64rem" type="heading-1">
@@ -188,7 +181,7 @@ const Banner = () => {
                         className="bannerimg-wrapper"
                     />
                 </BannerWrapper>
-            </StyledContainer>
+            </Container>
         </MainWrapper>
     )
 }

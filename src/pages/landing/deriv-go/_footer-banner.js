@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from 'react'
+import React, { useEffect, useState } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import { ButtonWrapper, AppButton } from './_deriv-go-banner'
@@ -106,9 +106,8 @@ const AppLogo = styled.img`
 const FooterBanner = () => {
     const data = useStaticQuery(query)
     const [is_mobile, setMobile] = useState(false)
-    const handleResizeWindow = useCallback(() => {
+    const handleResizeWindow = () =>
         setMobile(isBrowser() ? window.screen.width <= size.tablet : false)
-    }, [setMobile])
 
     useEffect(() => {
         handleResizeWindow()

@@ -111,6 +111,7 @@ const CarouselDot = styled.div`
 const CarouselContainer = styled.div`
     height: 80px;
     align-self: center;
+    margin-right: 36px;
 `
 const Desktop = styled(Show.Desktop)`
     flex: 1;

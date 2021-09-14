@@ -7,6 +7,10 @@ export const useBrowserResize = (maxSize) => {
     const [width, setWidth] = useState(isBrowser() ? window.innerWidth : 0)
     const breakpoint = maxSize ? maxSize : size.tablet
 
+    const handleResizeWindow = () => {
+        setMobile(isBrowser() ? !!(width <= breakpoint) : false)
+    }
+
     useEffect(() => {
         if (!isBrowser()) return false
         const handleResize = () => setWidth(window.innerWidth)
@@ -18,10 +22,6 @@ export const useBrowserResize = (maxSize) => {
             handleResizeWindow()
         }
     })
-
-    const handleResizeWindow = () => {
-        setMobile(isBrowser() ? !!(width <= breakpoint) : false)
-    }
 
     return [is_mobile]
 }

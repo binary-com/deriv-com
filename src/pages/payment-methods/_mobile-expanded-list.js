@@ -15,7 +15,6 @@ const StyledItemWrapper = styled(Flex)`
 const StyledIconWrapper = styled.div`
     width: 100%;
     max-width: 128px;
-    height: 80px;
     margin-left: 16px;
 `
 const StyledChevron = styled.img`
@@ -61,9 +60,6 @@ const StyledRow = styled(Flex)`
         border-bottom: none;
     }
 `
-const BoldText = styled(Header)`
-    font-weight: bold;
-`
 const ValueText = styled(Header)`
     text-align: right;
 
@@ -85,9 +81,9 @@ const StyledButton = styled(Button)`
 `
 
 const MobileExpandedList = ({ is_crypto, is_fiat_onramp, is_dp2p, locale, payment_data }) => {
-    const [is_expanded, setIsExpanded] = React.useState(false)
+    const [is_expanded, setExpanded] = React.useState(false)
     const toggleExpand = () => {
-        setIsExpanded(!is_expanded)
+        setExpanded(!is_expanded)
     }
 
     return (
@@ -108,7 +104,7 @@ const MobileExpandedList = ({ is_crypto, is_fiat_onramp, is_dp2p, locale, paymen
                     {/* first row */}
                     <StyledRow jc="space-between" ai="center">
                         <StyledItemDiv>
-                            <BoldText type="subtitle-2">{localize('Currencies')}</BoldText>
+                            <Header type="subtitle-2">{localize('Currencies')}</Header>
                         </StyledItemDiv>
                         <StyledKeyDiv>
                             <ValueText type="subtitle-2" weight="normal">
@@ -121,15 +117,15 @@ const MobileExpandedList = ({ is_crypto, is_fiat_onramp, is_dp2p, locale, paymen
                     <StyledRow jc="space-between" ai="center">
                         <StyledItemDiv>
                             {is_crypto || is_fiat_onramp ? (
-                                <BoldText type="subtitle-2">{localize('Min deposit')}</BoldText>
+                                <Header type="subtitle-2">{localize('Min deposit')}</Header>
                             ) : is_dp2p ? (
-                                <BoldText type="subtitle-2">
+                                <Header type="subtitle-2">
                                     {localize('Supported Deriv accounts')}
-                                </BoldText>
+                                </Header>
                             ) : (
                                 <>
-                                    <BoldText type="subtitle-2">{localize('Min-max')}</BoldText>
-                                    <BoldText type="subtitle-2">{localize('deposit')}</BoldText>
+                                    <Header type="subtitle-2">{localize('Min-max')}</Header>
+                                    <Header type="subtitle-2">{localize('deposit')}</Header>
                                 </>
                             )}
                         </StyledItemDiv>
@@ -146,21 +142,19 @@ const MobileExpandedList = ({ is_crypto, is_fiat_onramp, is_dp2p, locale, paymen
                             <StyledRow jc="space-between" ai="center">
                                 <StyledItemDiv>
                                     {is_crypto ? (
-                                        <BoldText type="subtitle-2">
+                                        <Header type="subtitle-2">
                                             {localize('Min withdrawal')}
-                                        </BoldText>
+                                        </Header>
                                     ) : is_dp2p ? (
-                                        <BoldText type="subtitle-2">
+                                        <Header type="subtitle-2">
                                             {localize('Daily deposit limits')}
-                                        </BoldText>
+                                        </Header>
                                     ) : (
                                         <>
-                                            <BoldText type="subtitle-2">
-                                                {localize('Min-max')}
-                                            </BoldText>
-                                            <BoldText type="subtitle-2">
+                                            <Header type="subtitle-2">{localize('Min-max')}</Header>
+                                            <Header type="subtitle-2">
                                                 {localize('withdrawal')}
-                                            </BoldText>
+                                            </Header>
                                         </>
                                     )}
                                 </StyledItemDiv>
@@ -185,20 +179,18 @@ const MobileExpandedList = ({ is_crypto, is_fiat_onramp, is_dp2p, locale, paymen
                     <StyledRow jc="space-between" ai="center">
                         <StyledItemDiv>
                             {is_fiat_onramp ? (
-                                <BoldText type="subtitle-2">
+                                <Header type="subtitle-2">
                                     {localize('Deposit processing time')}
-                                </BoldText>
+                                </Header>
                             ) : is_dp2p ? (
-                                <BoldText type="subtitle-2">
+                                <Header type="subtitle-2">
                                     {localize('Daily withdrawal limits')}
-                                </BoldText>
+                                </Header>
                             ) : (
-                                <BoldText type="subtitle-2">
-                                    <BoldText type="subtitle-2">{localize('Deposit')}</BoldText>
-                                    <BoldText type="subtitle-2">
-                                        {localize('processing time')}
-                                    </BoldText>
-                                </BoldText>
+                                <Header type="subtitle-2">
+                                    <Header type="subtitle-2">{localize('Deposit')}</Header>
+                                    <Header type="subtitle-2">{localize('processing time')}</Header>
+                                </Header>
                             )}
                         </StyledItemDiv>
                         <StyledKeyDiv>
@@ -212,8 +204,8 @@ const MobileExpandedList = ({ is_crypto, is_fiat_onramp, is_dp2p, locale, paymen
                     {!is_fiat_onramp && !is_dp2p && (
                         <StyledRow jc="space-between" ai="center">
                             <StyledItemDiv>
-                                <BoldText type="subtitle-2">{localize('Withdrawal')}</BoldText>
-                                <BoldText type="subtitle-2">{localize('processing time')}</BoldText>
+                                <Header type="subtitle-2">{localize('Withdrawal')}</Header>
+                                <Header type="subtitle-2">{localize('processing time')}</Header>
                             </StyledItemDiv>
                             <StyledKeyDiv>
                                 <ValueText type="subtitle-2" weight="normal">
@@ -225,7 +217,7 @@ const MobileExpandedList = ({ is_crypto, is_fiat_onramp, is_dp2p, locale, paymen
                     {is_dp2p && (
                         <StyledRow jc="space-between" ai="center">
                             <StyledItemDiv>
-                                <BoldText type="subtitle-2">{localize('Processing time')}</BoldText>
+                                <Header type="subtitle-2">{localize('Processing time')}</Header>
                             </StyledItemDiv>
                             <StyledKeyDiv>
                                 <ValueText type="subtitle-2" weight="normal">
@@ -238,7 +230,7 @@ const MobileExpandedList = ({ is_crypto, is_fiat_onramp, is_dp2p, locale, paymen
                     {/* reference row */}
                     <StyledRow jc="space-between" ai="center">
                         <StyledItemDiv>
-                            <BoldText type="subtitle-2">{localize('Reference')}</BoldText>
+                            <Header type="subtitle-2">{localize('Reference')}</Header>
                         </StyledItemDiv>
                         <StyledKeyDiv>
                             <>

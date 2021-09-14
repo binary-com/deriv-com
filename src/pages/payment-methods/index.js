@@ -8,7 +8,7 @@ import MobileAccordianItem from './_mobile-accordian-item'
 import Layout from 'components/layout/layout'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import { Text, Header, Divider, Accordion, AccordionItem } from 'components/elements'
-import { SEO, SectionContainer, Container, Show } from 'components/containers'
+import { SEO, SectionContainer, Container } from 'components/containers'
 import { localize, WithIntl, Localize } from 'components/localization'
 import { DerivStore } from 'store'
 import device from 'themes/device'
@@ -92,7 +92,6 @@ const Tr = styled.tr`
 const BoldText = styled(Text)`
     font-weight: bold;
 `
-
 const Notes = styled.div`
     position: absolute;
     width: 100%;
@@ -105,10 +104,21 @@ const Notes = styled.div`
 const OuterDiv = styled.div`
     position: relative;
 `
-
 const InnerDiv = styled.div`
     overflow-x: auto;
     overflow-y: visible;
+`
+const DesktopWrapper = styled.div`
+    display: block;
+    @media ${device.tabletL} {
+        display: none;
+    }
+`
+const MobileWrapper = styled.div`
+    display: none;
+    @media ${device.tabletL} {
+        display: block;
+    }
 `
 const DisplayAccordion = (locale) => {
     const { is_eu_country, crypto_config } = React.useContext(DerivStore)
@@ -165,20 +175,20 @@ const DisplayAccordion = (locale) => {
                             parent_style={parent_style}
                             header={pd.name}
                         >
-                            <Show.Desktop>
+                            <DesktopWrapper>
                                 <DisplayAccordianItem
                                     pd={pd}
                                     crypto_config={crypto_config}
                                     locale={locale}
                                 />
-                            </Show.Desktop>
-                            <Show.Mobile>
+                            </DesktopWrapper>
+                            <MobileWrapper>
                                 <MobileAccordianItem
                                     pd={pd}
                                     crypto_config={crypto_config}
                                     locale={locale}
                                 />
-                            </Show.Mobile>
+                            </MobileWrapper>
                         </AccordionItem>
                     )
             })}

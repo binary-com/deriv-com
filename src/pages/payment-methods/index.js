@@ -320,7 +320,7 @@ const PaymentMethods = (locale) => {
                         as="h3"
                         type="subtitle-1"
                         weight="normal"
-                        max_width="326px"
+                        mobile_max_width="326px"
                     >
                         {localize('We support a variety of deposit and withdrawal options.')}
                     </Header>
@@ -329,7 +329,7 @@ const PaymentMethods = (locale) => {
                         as="h3"
                         type="subtitle-1"
                         weight="normal"
-                        max_width="326px"
+                        mobile_max_width="326px"
                     >
                         {localize('Learn more about our payment methods and how to use them.')}
                     </Header>

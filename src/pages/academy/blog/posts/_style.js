@@ -293,6 +293,9 @@ export const PreviewContainer = styled(Box)`
     & em {
         font-style: italic;
     }
+    & table {
+        margin-bottom: 16px;
+    }
     @media ${device.laptop} {
         max-width: none;
 

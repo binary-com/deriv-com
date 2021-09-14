@@ -230,7 +230,7 @@ const MarginCalculator = () => {
                 >
                     <StyledBox max_width="100%">
                         <MainHeader type="page-title" lh="1.25" align="left">
-                            <Localize translate_text="Take control of your trades on DMT5" />
+                            <Localize translate_text="Take control of your trades on Deriv MT5" />
                         </MainHeader>
                         <StyledText>
                             <Localize
@@ -247,7 +247,7 @@ const MarginCalculator = () => {
                             />
                         </StyledText>
                         <StyledText>
-                            <Localize translate_text="With the calculators and numerous analytical tools available on the DMT5 platform, you’ll be able to manage your capital and trading positions better." />
+                            <Localize translate_text="With the calculators and numerous analytical tools available on the Deriv MT5 platform, you’ll be able to manage your capital and trading positions better." />
                         </StyledText>
                     </StyledBox>
                 </StyledFlex>

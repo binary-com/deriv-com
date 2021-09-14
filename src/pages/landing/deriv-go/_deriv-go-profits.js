@@ -16,7 +16,6 @@ const StyledContainer = styled(Container)`
 const Content = styled(Flex)`
     width: 100%;
     max-width: 38.4rem;
-    display: flex;
     flex-direction: column;
     margin-right: ${(props) => props.margin_right};
 

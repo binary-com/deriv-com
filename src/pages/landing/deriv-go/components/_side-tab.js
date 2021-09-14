@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import styled, { css, keyframes } from 'styled-components'
 import { Flex, Show } from 'components/containers'
@@ -147,7 +147,7 @@ TabPanel.propTypes = {
 const Tabs = ({ children, is_reverse, className, max_width }) => {
     const [selected_tab, setSelectedTab] = React.useState(0)
 
-    React.useEffect(() => {
+    useEffect(() => {
         let timer
         if (selected_tab >= 2) {
             timer = setTimeout(() => setSelectedTab(0), 3000)

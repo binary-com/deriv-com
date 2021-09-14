@@ -1,5 +1,6 @@
 import React from 'react'
-import { Banner, DerivGoContent, FooterBanner, StartDerivGo } from './_lazy-load.js'
+import { DerivGoContent, FooterBanner, StartDerivGo } from './_lazy-load.js'
+import Banner from './_deriv-go-banner.js'
 import OtherApps from './_other-apps'
 import WhatIsDerivGo from './_what-is-deriv-go'
 import WhyTradeDerivGo from './_why-trade-deriv-go'

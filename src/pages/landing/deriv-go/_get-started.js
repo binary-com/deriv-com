@@ -50,7 +50,7 @@ const StyledLocalizedLink = styled(LocalizedLink)`
 const StartDerivGo = () => {
     const data = useStaticQuery(query)
     return (
-        <SectionContainer height="887px" tablet={{ height: 'fit-content', p: '40px 0 0' }}>
+        <SectionContainer height="887px" tabletL={{ height: 'fit-content', p: '40px 0 0' }}>
             <SmallContainer direction="column">
                 <StyledHeader type="heading-2" align="center" mb="4rem">
                     {localize('How to get started with Deriv GO')}

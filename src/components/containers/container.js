@@ -29,6 +29,7 @@ const Container = styled(Box)`
         width: 90%;
         padding-left: 0;
         padding-right: 0;
+        flex-direction: ${(props) => (props.tablet_direction ? props.tablet_direction : '')};
     }
 `
 

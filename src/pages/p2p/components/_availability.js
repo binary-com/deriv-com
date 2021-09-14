@@ -175,7 +175,7 @@ const Availability = () => {
                                         key={0}
                                     />,
                                     <LocalizedLinkText
-                                        id="dm-signup-redirect"
+                                        id="dm-p2p-signup-link"
                                         to="/signup"
                                         size={24}
                                         color="red"

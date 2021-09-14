@@ -147,7 +147,7 @@ const SignupFlat = ({
                             />
                         </InputWrapper>
                         <EmailButton
-                            id="dm-signup-button"
+                            id="dm-flat-signup"
                             type="submit"
                             secondary="true"
                             disabled={is_submitting}

@@ -586,11 +586,7 @@ const NavDesktop = ({ base, is_ppc, is_ppc_redirect, is_logged_in, hide_signup_l
                             to={is_ppc_redirect ? '/landing/signup/' : '/signup/'}
                         >
                             {!hide_signup_login && (
-                                <SignupButton
-                                    id="dm-nav-signup-redirect"
-                                    ref={button_ref}
-                                    secondary="true"
-                                >
+                                <SignupButton id="dm-nav-signup" ref={button_ref} secondary="true">
                                     <span>{localize('Create free demo account')}</span>
                                 </SignupButton>
                             )}

@@ -81,7 +81,7 @@ const WhyTradeMargin = () => {
                     <Text align="left" width="100%" weight="bold">
                         {localize("Don't have a Deriv.com account yet?")}
                     </Text>
-                    <LinkButton id="dm-signup-redirect" mt="1.6rem" to="/signup/" secondary="true">
+                    <LinkButton id="dm-cfd-signup" mt="1.6rem" to="/signup/" secondary="true">
                         {localize('Create free demo account')}
                     </LinkButton>
                 </SmallContainer>

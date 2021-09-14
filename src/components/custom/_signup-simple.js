@@ -77,7 +77,7 @@ const SignupSimple = ({
                         />
                     </InputWrapper>
                     <EmailButton
-                        id="dm-signup-button"
+                        id="dm-simple-signup"
                         type="submit"
                         secondary="true"
                         disabled={is_submitting}

@@ -279,7 +279,7 @@ const SignupNew = ({
                 type="submit"
                 secondary="true"
                 disabled={is_submitting || !is_checked || email_error_msg || !email}
-                id="dm-signup-button"
+                id="dm-new-signup"
             >
                 {localize('Create demo account')}
             </EmailButton>

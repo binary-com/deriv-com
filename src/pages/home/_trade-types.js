@@ -72,7 +72,7 @@ const TradeTypes = () => {
                         )}
                     </Text>
                     <TradingButton
-                        id="dm-signup-redirect"
+                        id="dm-trade-types-signup"
                         type="submit"
                         secondary="true"
                         to="/signup/"

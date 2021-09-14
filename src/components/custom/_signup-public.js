@@ -394,7 +394,7 @@ const SignupPublic = ({
                                     </InputWrapper>
                                     <EmailButton
                                         isChecked={is_checked}
-                                        id="dm-signup-button"
+                                        id="dm-public-signup"
                                         type="submit"
                                         secondary="true"
                                         disabled={
@@ -550,7 +550,7 @@ const SignupPublic = ({
                                     </InputWrapper>
                                     <EmailButton
                                         isChecked={is_checked}
-                                        id="dm-signup-button"
+                                        id="dm-mobile-public-signup"
                                         type="submit"
                                         secondary="true"
                                         disabled={

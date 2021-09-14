@@ -260,10 +260,6 @@ export const PreviewContainer = styled(Box)`
         margin-top: 24px;
         margin-bottom: 8px;
         font-weight: bold;
-
-        & + p {
-            margin-top: 8px;
-        }
     }
     & h4 {
         font-size: 16px;
@@ -271,10 +267,6 @@ export const PreviewContainer = styled(Box)`
         margin-top: 24px;
         margin-bottom: 8px;
         font-weight: bold;
-
-        & + p {
-            margin-top: 8px;
-        }
     }
     & h5 {
         font-size: 16px;
@@ -319,18 +311,10 @@ export const PreviewContainer = styled(Box)`
         & h3 {
             font-size: 16px;
             line-height: 24px;
-
-            & + p {
-                margin-top: 8px;
-            }
         }
         & h4 {
             font-size: 14px;
             line-height: 20px;
-
-            & + p {
-                margin-top: 8px;
-            }
         }
         & h5 {
             font-size: 14px;

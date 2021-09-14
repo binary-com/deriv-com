@@ -136,7 +136,9 @@ const Signup = (props) => {
         if (props.appearance === 'public') {
             const language_code = localStorage.getItem('i18n')
             const success_link =
-                language_code !== 'en' ? '/' + language_code + '/signup-success' : '/signup-success'
+                language_code !== 'en'
+                    ? '/' + language_code + `/signup-success?email=${email}`
+                    : `/signup-success?email=${email}`
             navigate(success_link, { replace: true })
         }
     }

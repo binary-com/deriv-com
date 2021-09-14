@@ -59,7 +59,7 @@ const SectionTopContainer = styled(SectionContainer)`
 `
 const SectionContentContainer = styled(SectionContainer)`
     @media ${device.tabletL} {
-        padding: 24px 16px 40px;
+        padding: 24px 0 40px;
     }
 `
 const TopContainer = styled(Container)`

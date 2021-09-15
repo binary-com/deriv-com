@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { graphql, StaticQuery, navigate } from 'gatsby'
+import { getLanguage } from '../../common/utility'
 import Layout from 'components/layout/layout'
 import { localize, Localize, WithIntl } from 'components/localization'
 import { SEO, Box } from 'components/containers'
@@ -52,10 +53,10 @@ const SignupSuccess = () => {
     useEffect(() => {
         const params = new URLSearchParams(location.search)
         const email = params.get('email')
-        const success_url = '/signup-success'
-        setRegisteredEmail(email)
+        const success_url = `/${getLanguage()}/signup-success`
 
-        navigate(email ? success_url : '/', { replace: true })
+        setRegisteredEmail(email)
+        navigate(email ? success_url : `/${getLanguage()}/`, { replace: true })
     }, [])
 
     return (

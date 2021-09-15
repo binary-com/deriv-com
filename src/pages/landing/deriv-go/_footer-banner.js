@@ -35,10 +35,7 @@ const BackgroundWrapper = styled(Flex)`
     border-radius: 12px;
     position: relative;
     min-height: 38.3rem;
-    align-items: center;
-    @media ${device.laptopM} {
-        min-height: 31rem;
-    }
+
     @media ${device.tabletL} {
         background: url(${BannerMobileBg});
         flex-direction: column-reverse;
@@ -47,10 +44,10 @@ const BackgroundWrapper = styled(Flex)`
 
 const BannerWrapper = styled(Flex)`
     width: 50%;
+    align-self: flex-end;
 
     & .footerimg-wrapper {
         width: 80%;
-        margin-top: 45px;
         @media ${device.tabletL} {
             width: 250px;
             height: 321px;
@@ -59,6 +56,7 @@ const BannerWrapper = styled(Flex)`
     }
     @media ${device.tabletL} {
         width: 100%;
+        justify-content: center;
     }
 `
 
@@ -112,8 +110,8 @@ const FooterBanner = () => {
             tablet_direction="column"
             tabletL={{ height: 'auto', pb: '30px' }}
         >
-            <BackgroundWrapper>
-                <BannerWrapper jc="start" tablet_jc="center">
+            <BackgroundWrapper ai="center">
+                <BannerWrapper jc="start">
                     <QueryImage
                         data={data[is_mobile ? 'footer_banner_m' : 'footer_banner']}
                         alt="footer banner"

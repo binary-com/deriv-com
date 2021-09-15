@@ -223,10 +223,16 @@ export const SmallArticleLeftContent = styled(Flex)`
 export const SmallArticleRightContent = styled(Flex)`
     margin-left: 10px;
     flex-direction: column;
+    /* stylelint-disable */
+    -webkit-justify-content: space-between;
+    /* stylelint-enable */
     justify-content: space-between;
 
     @media ${device.laptopM} {
         justify-content: flex-start;
+        /* stylelint-disable */
+        -webkit-justify-content: flex-start;
+        /* stylelint-enable */
     }
 
     @media (max-width: 425px) {

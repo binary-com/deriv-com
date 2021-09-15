@@ -275,6 +275,10 @@ export const SmallArticleTopContent = styled(Flex)`
     height: 30px;
     justify-content: flex-start;
     flex-direction: column;
+    /* stylelint-disable */
+    flex: 0 1;
+    -webkit-flex: 0 1;
+    /* stylelint-enable */
     @media ${device.laptopM} {
         flex-direction: row;
 

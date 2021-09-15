@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { Box, Flex, Container } from 'components/containers'
 import { LocalizedLinkText, Text } from 'components/elements'
 import device from 'themes/device'
@@ -175,6 +175,22 @@ export const Tag = styled(Flex)`
         font-size: 12px;
     }
 `
+const SharedHeadingStyles = css`
+    font-size: 16px;
+    line-height: 24px;
+    margin-top: 24px;
+    margin-bottom: 8px;
+    font-weight: bold;
+
+    > span {
+        font-weight: bold !important;
+    }
+`
+const SharedMobileHeadingStyles = css`
+    font-size: 14px;
+    line-height: 20px;
+`
+
 export const PreviewContainer = styled(Box)`
     font-size: 16px;
     max-width: 792px;
@@ -253,6 +269,10 @@ export const PreviewContainer = styled(Box)`
         margin-top: 40px;
         margin-bottom: 8px;
         font-weight: bold;
+
+        > span {
+            font-weight: bold !important; /* needed for overriding the default inline styles */
+        }
     }
     & h3 {
         font-size: 20px;
@@ -260,27 +280,19 @@ export const PreviewContainer = styled(Box)`
         margin-top: 24px;
         margin-bottom: 8px;
         font-weight: bold;
+
+        > span {
+            font-weight: bold !important; /* needed for overriding the default inline styles */
+        }
     }
     & h4 {
-        font-size: 16px;
-        line-height: 24px;
-        margin-top: 24px;
-        margin-bottom: 8px;
-        font-weight: bold;
+        ${SharedHeadingStyles}
     }
     & h5 {
-        font-size: 16px;
-        line-height: 24px;
-        margin-top: 24px;
-        margin-bottom: 8px;
-        font-weight: bold;
+        ${SharedHeadingStyles}
     }
     & h6 {
-        font-size: 16px;
-        line-height: 24px;
-        margin-top: 24px;
-        margin-bottom: 8px;
-        font-weight: bold;
+        ${SharedHeadingStyles}
     }
     & em {
         font-style: italic;
@@ -313,16 +325,13 @@ export const PreviewContainer = styled(Box)`
             line-height: 24px;
         }
         & h4 {
-            font-size: 14px;
-            line-height: 20px;
+            ${SharedMobileHeadingStyles}
         }
         & h5 {
-            font-size: 14px;
-            line-height: 20px;
+            ${SharedMobileHeadingStyles}
         }
         & h6 {
-            font-size: 14px;
-            line-height: 20px;
+            ${SharedMobileHeadingStyles}
         }
     }
 `

@@ -114,7 +114,7 @@ const WhyTrader = () => {
     return (
         <Section>
             <StyledHeader align="center" mb="4rem" as="h2" type="page-title">
-                {localize('Why trade with DMT5')}
+                {localize('Why trade with Deriv MT5')}
             </StyledHeader>
             <CardContainer>
                 {card_content.map((card) => {

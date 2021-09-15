@@ -40,7 +40,7 @@ const query = graphql`
 const numbers_content = [
     {
         title: <Localize translate_text="330K+" />,
-        subtitle: <Localize translate_text="clients on DMT5" />,
+        subtitle: <Localize translate_text="clients on Deriv MT5" />,
     },
     {
         title: <Localize translate_text="100+" />,
@@ -105,7 +105,7 @@ const DMT5 = () => {
                         background_pattern={
                             is_mobile ? BackgroundPatternDMT5_mobile : BackgroundPatternDMT5
                         }
-                        title={<Localize translate_text="Get into the DMT5 experience" />}
+                        title={<Localize translate_text="Get into the Deriv MT5 experience" />}
                         data={data}
                     />
                 )}

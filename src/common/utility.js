@@ -75,8 +75,7 @@ export const routeBack = () => {
 export const checkElemInArray = (tab_list, tab) => tab_list.includes(tab)
 
 // Formats number to comma separated string
-export const getCommaSeparatedNumber = (input) =>
-    input.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+export const getCommaSeparatedNumber = (input) => input.toString().toLocaleString('en-US')
 
 export const getWindowWidth = () => (isBrowser() && window.screen ? window.screen.width : '')
 

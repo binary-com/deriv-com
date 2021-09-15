@@ -6,7 +6,6 @@ import {
     resetValidationPip,
     getCurrency,
     getContractSize,
-    numberWithCommas,
     numberSubmitFormat,
     getMaxLength,
 } from '../common/_utility'
@@ -48,6 +47,7 @@ import {
     QueryImage,
     Text,
 } from 'components/elements'
+import { getCommaSeparatedNumber } from 'common/utility'
 import Input from 'components/form/input'
 import RightArrow from 'images/svg/black-right-arrow.svg'
 import { Flex, Show } from 'components/containers'
@@ -149,7 +149,7 @@ const PipCalculator = () => {
                                         </CalculatorLabel>
                                         <CalculatorOutputContainer>
                                             <CalculatorOutputField>
-                                                {numberWithCommas(values.margin)}
+                                                {getCommaSeparatedNumber(values.margin)}
                                             </CalculatorOutputField>
                                             <CalculatorOutputSymbol>
                                                 {values.marginSymbol}

@@ -11,7 +11,6 @@ import {
     getCurrency,
     numberSubmitFormatNegative,
     numberSubmitFormat,
-    numberWithCommas,
     getMaxLength,
 } from '../common/_utility'
 import {
@@ -53,6 +52,7 @@ import {
     QueryImage,
     Text,
 } from 'components/elements'
+import { getCommaSeparatedNumber } from 'common/utility'
 import { Flex, Show } from 'components/containers'
 import Input from 'components/form/input'
 import RightArrow from 'images/svg/black-right-arrow.svg'
@@ -180,7 +180,7 @@ const SwapCalculator = () => {
                                                 </CalculatorLabel>
                                                 <CalculatorOutputContainer>
                                                     <CalculatorOutputField>
-                                                        {numberWithCommas(values.swapCharge)}
+                                                        {getCommaSeparatedNumber(values.swapCharge)}
                                                     </CalculatorOutputField>
                                                     <CalculatorOutputSymbol>
                                                         {values.swapChargeSymbol}
@@ -506,7 +506,7 @@ const SwapCalculator = () => {
                                                 </CalculatorLabel>
                                                 <CalculatorOutputContainer>
                                                     <CalculatorOutputField>
-                                                        {numberWithCommas(values.swapCharge)}
+                                                        {getCommaSeparatedNumber(values.swapCharge)}
                                                     </CalculatorOutputField>
                                                     <CalculatorOutputSymbol>
                                                         {values.swapChargeSymbol}

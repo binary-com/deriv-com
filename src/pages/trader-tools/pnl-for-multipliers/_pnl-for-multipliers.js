@@ -4,7 +4,6 @@ import { graphql, useStaticQuery } from 'gatsby'
 import {
     getPnlMultiplierCommon,
     numberSubmitFormat,
-    numberWithCommas,
     resetValidationPnlMultipliersAmount,
     resetValidationPnlMultipliersLevel,
     getMaxLength,
@@ -44,6 +43,7 @@ import {
     QueryImage,
     Text,
 } from 'components/elements'
+import { getCommaSeparatedNumber } from 'common/utility'
 import { Flex, Show } from 'components/containers'
 import Input from 'components/form/input'
 import RightArrow from 'images/svg/black-right-arrow.svg'
@@ -220,7 +220,7 @@ const PnlMultipliersCalculator = () => {
                                                             </CalculatorLabel>
                                                             <PnLCalculatorOutputContainer>
                                                                 <PnLCalculatorOutputField>
-                                                                    {numberWithCommas(
+                                                                    {getCommaSeparatedNumber(
                                                                         values.takeProfitLevelOutput,
                                                                     )}
                                                                 </PnLCalculatorOutputField>
@@ -235,7 +235,7 @@ const PnlMultipliersCalculator = () => {
                                                             </CalculatorLabel>
                                                             <PnLCalculatorOutputContainer>
                                                                 <PnLCalculatorOutputField>
-                                                                    {numberWithCommas(
+                                                                    {getCommaSeparatedNumber(
                                                                         values.stopLossLevelOutput,
                                                                     )}
                                                                 </PnLCalculatorOutputField>
@@ -655,7 +655,7 @@ const PnlMultipliersCalculator = () => {
                                                             </CalculatorLabel>
                                                             <PnLCalculatorOutputContainer>
                                                                 <PnLCalculatorOutputField>
-                                                                    {numberWithCommas(
+                                                                    {getCommaSeparatedNumber(
                                                                         values.takeProfitLevelOutput,
                                                                     )}
                                                                 </PnLCalculatorOutputField>
@@ -670,7 +670,7 @@ const PnlMultipliersCalculator = () => {
                                                             </CalculatorLabel>
                                                             <PnLCalculatorOutputContainer>
                                                                 <PnLCalculatorOutputField>
-                                                                    {numberWithCommas(
+                                                                    {getCommaSeparatedNumber(
                                                                         values.stopLossLevelOutput,
                                                                     )}
                                                                 </PnLCalculatorOutputField>
@@ -1251,7 +1251,7 @@ const PnlMultipliersCalculator = () => {
                                                             </CalculatorLabel>
                                                             <PnLCalculatorOutputContainer>
                                                                 <PnLCalculatorOutputField>
-                                                                    {numberWithCommas(
+                                                                    {getCommaSeparatedNumber(
                                                                         values.takeProfitAmountOutput,
                                                                     )}
                                                                 </PnLCalculatorOutputField>
@@ -1266,7 +1266,7 @@ const PnlMultipliersCalculator = () => {
                                                             </CalculatorLabel>
                                                             <PnLCalculatorOutputContainer>
                                                                 <PnLCalculatorOutputField>
-                                                                    {numberWithCommas(
+                                                                    {getCommaSeparatedNumber(
                                                                         values.stopLossAmountOutput,
                                                                     )}
                                                                 </PnLCalculatorOutputField>
@@ -1686,7 +1686,7 @@ const PnlMultipliersCalculator = () => {
                                                             </CalculatorLabel>
                                                             <PnLCalculatorOutputContainer>
                                                                 <PnLCalculatorOutputField>
-                                                                    {numberWithCommas(
+                                                                    {getCommaSeparatedNumber(
                                                                         values.takeProfitAmountOutput,
                                                                     )}
                                                                 </PnLCalculatorOutputField>
@@ -1701,7 +1701,7 @@ const PnlMultipliersCalculator = () => {
                                                             </CalculatorLabel>
                                                             <PnLCalculatorOutputContainer>
                                                                 <PnLCalculatorOutputField>
-                                                                    {numberWithCommas(
+                                                                    {getCommaSeparatedNumber(
                                                                         values.stopLossAmountOutput,
                                                                     )}
                                                                 </PnLCalculatorOutputField>

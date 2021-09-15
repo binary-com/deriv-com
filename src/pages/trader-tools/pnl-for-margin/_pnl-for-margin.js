@@ -6,7 +6,6 @@ import {
     getCurrency,
     getPnlMarginCommon,
     numberSubmitFormat,
-    numberWithCommas,
     resetValidationPnlMargin,
     getMaxLength,
 } from '../common/_utility'
@@ -53,6 +52,7 @@ import {
     QueryImage,
     Text,
 } from 'components/elements'
+import { getCommaSeparatedNumber } from 'common/utility'
 import { Flex, Show } from 'components/containers'
 import Input from 'components/form/input'
 import RightArrow from 'images/svg/black-right-arrow.svg'
@@ -283,7 +283,7 @@ const PnlMarginCalculator = () => {
                                                         </CalculatorLabel>
                                                         <PnLCalculatorOutputContainer>
                                                             <PnLCalculatorOutputField>
-                                                                {numberWithCommas(
+                                                                {getCommaSeparatedNumber(
                                                                     values.stopLossPips,
                                                                 )}
                                                             </PnLCalculatorOutputField>
@@ -298,7 +298,7 @@ const PnlMarginCalculator = () => {
                                                         </CalculatorLabel>
                                                         <PnLCalculatorOutputContainer>
                                                             <PnLCalculatorOutputField>
-                                                                {numberWithCommas(
+                                                                {getCommaSeparatedNumber(
                                                                     values.stopLossLevel,
                                                                 )}
                                                             </PnLCalculatorOutputField>
@@ -316,7 +316,7 @@ const PnlMarginCalculator = () => {
                                                         </CalculatorLabel>
                                                         <PnLCalculatorOutputContainer>
                                                             <PnLCalculatorOutputField>
-                                                                {numberWithCommas(
+                                                                {getCommaSeparatedNumber(
                                                                     values.takeProfitPips,
                                                                 )}
                                                             </PnLCalculatorOutputField>
@@ -331,7 +331,7 @@ const PnlMarginCalculator = () => {
                                                         </CalculatorLabel>
                                                         <PnLCalculatorOutputContainer>
                                                             <PnLCalculatorOutputField>
-                                                                {numberWithCommas(
+                                                                {getCommaSeparatedNumber(
                                                                     values.takeProfitLevel,
                                                                 )}
                                                             </PnLCalculatorOutputField>
@@ -723,7 +723,7 @@ const PnlMarginCalculator = () => {
                                                             </CalculatorLabel>
                                                             <PnLCalculatorOutputContainer>
                                                                 <PnLCalculatorOutputField>
-                                                                    {numberWithCommas(
+                                                                    {getCommaSeparatedNumber(
                                                                         values.stopLossPips,
                                                                     )}
                                                                 </PnLCalculatorOutputField>
@@ -738,7 +738,7 @@ const PnlMarginCalculator = () => {
                                                             </CalculatorLabel>
                                                             <PnLCalculatorOutputContainer>
                                                                 <PnLCalculatorOutputField>
-                                                                    {numberWithCommas(
+                                                                    {getCommaSeparatedNumber(
                                                                         values.stopLossLevel,
                                                                     )}
                                                                 </PnLCalculatorOutputField>
@@ -756,7 +756,7 @@ const PnlMarginCalculator = () => {
                                                             </CalculatorLabel>
                                                             <PnLCalculatorOutputContainer>
                                                                 <PnLCalculatorOutputField>
-                                                                    {numberWithCommas(
+                                                                    {getCommaSeparatedNumber(
                                                                         values.takeProfitPips,
                                                                     )}
                                                                 </PnLCalculatorOutputField>
@@ -771,7 +771,7 @@ const PnlMarginCalculator = () => {
                                                             </CalculatorLabel>
                                                             <PnLCalculatorOutputContainer>
                                                                 <PnLCalculatorOutputField>
-                                                                    {numberWithCommas(
+                                                                    {getCommaSeparatedNumber(
                                                                         values.takeProfitLevel,
                                                                     )}
                                                                 </PnLCalculatorOutputField>

@@ -3,7 +3,6 @@ import { Formik, Field } from 'formik'
 import { graphql, useStaticQuery } from 'gatsby'
 import {
     getMargin,
-    numberWithCommas,
     numberSubmitFormat,
     getContractSize,
     getCurrency,
@@ -41,6 +40,7 @@ import {
     StyledSection,
 } from '../common/_style'
 import { localize, Localize } from 'components/localization'
+import { getCommaSeparatedNumber } from 'common/utility'
 import { Flex, Show } from 'components/containers'
 import {
     Accordion,
@@ -144,7 +144,7 @@ const MarginCalculator = () => {
                                         </CalculatorLabel>
                                         <CalculatorOutputContainer>
                                             <CalculatorOutputField>
-                                                {numberWithCommas(values.margin)}
+                                                {getCommaSeparatedNumber(values.margin)}
                                             </CalculatorOutputField>
                                             <CalculatorOutputSymbol>
                                                 {values.marginSymbol}

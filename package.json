@@ -42,7 +42,6 @@
         "react-i18next": "^11.11.0",
         "react-is": "^17.0.2",
         "react-perfect-scrollbar": "^1.5.8",
-        "react-query": "^3.21.1",
         "webpack": "^5.39.0"
     },
     "devDependencies": {

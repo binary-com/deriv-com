@@ -204,7 +204,7 @@ export const OurOffices = () => {
                     <NumberWrapper fd="column" width="auto">
                         <Flex fd="column" ai="center" mb="8rem" tabletS={{ mb: '0' }}>
                             <Text color="red" size="4.8rem" align="center" weight="bold">
-                                500+
+                                600+
                             </Text>
                             <Text align="center">{localize('Team members')}</Text>
                         </Flex>

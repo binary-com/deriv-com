@@ -47,9 +47,9 @@ const DP2P_CONTENT = [
     },
 ]
 
-const DP2PHome = () => {
+const WeekenLP = () => {
     return (
-        <Layout>
+        <Layout type="landingpage" is_ppc_redirect={true}>
             <SEO
                 title={localize('Weekends')}
                 description={localize('Ride the trends even on weekends')}
@@ -62,9 +62,12 @@ const DP2PHome = () => {
             />
             <IconTextRow />
             <ImageTextSwitching reverse P2P={DP2P_CONTENT} />
-            <Titlebtn></Titlebtn>
+            <Titlebtn
+                btnlabel={localize('Get trading')}
+                text={localize('Create your Deriv account now and start trading!')}
+            />
         </Layout>
     )
 }
 
-export default WithIntl()(DP2PHome)
+export default WithIntl()(WeekenLP)

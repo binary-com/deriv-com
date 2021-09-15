@@ -14,11 +14,8 @@ const BackgroundWrapper = styled(Background)`
 `
 
 const Wrapper = styled(Container)`
-    justify-content: space-between;
     background-color: transparent;
     height: unset;
-    padding-top: 2rem;
-    padding-bottom: 27rem;
 
     @media ${device.tabletL} {
         padding-left: 4rem;
@@ -50,8 +47,6 @@ const InformationWrapper = styled(Flex)`
 `
 
 const HeroContent = styled(Flex)`
-    flex-direction: column;
-    justify-content: flex-start;
     height: unset;
 
     ${Header} {
@@ -138,12 +133,12 @@ const TryButton = styled(LinkButton)`
 const HeroComponent = ({ title, content, background_data }) => {
     return (
         <BackgroundWrapper data={background_data}>
-            <Wrapper>
+            <Wrapper pt="2rem" pb="28rem" justify="space-between">
                 <InformationWrapper height="unset" direction="column">
                     <StyledHeader as="h1" weight={400}>
                         {title}
                     </StyledHeader>
-                    <HeroContent>
+                    <HeroContent direction="column" justify="flex-start">
                         <Header as="h2">{content}</Header>
                     </HeroContent>
                     <TryButton

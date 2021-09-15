@@ -275,7 +275,7 @@ const ArticleEmailBanner = () => {
                 <ImageWrapper src={EmailSubscriptionSVG} />
             </Flex>
             <StyledHeader as="h3" type="subtitle-1">
-                {localize('Subscribe to our blog via email')}
+                {localize('Subscribe to our academy via email')}
             </StyledHeader>
             <StyledSmallHeader as="h3" type="paragraph-2" weight="normal">
                 {localize(

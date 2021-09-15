@@ -276,7 +276,7 @@ export const SmallArticleTopContent = styled(Flex)`
     justify-content: flex-start;
     flex-direction: column;
     /* stylelint-disable */
-    flex: 0 1;
+    flex: 1 1 15em;
     -webkit-flex: 1 1 15em;
     /* stylelint-enable */
     @media ${device.laptopM} {

@@ -83,6 +83,7 @@ export const MainArticle = styled(Flex)`
 export const Description = styled.div`
     position: absolute;
     left: 0;
+    bottom: 0;
     padding: 24px 40px 0 40px;
     margin-bottom: 80px;
 
@@ -222,10 +223,16 @@ export const SmallArticleLeftContent = styled(Flex)`
 export const SmallArticleRightContent = styled(Flex)`
     margin-left: 10px;
     flex-direction: column;
+    /* stylelint-disable */
+    -webkit-justify-content: space-between;
+    /* stylelint-enable */
     justify-content: space-between;
 
     @media ${device.laptopM} {
         justify-content: flex-start;
+        /* stylelint-disable */
+        -webkit-justify-content: flex-start;
+        /* stylelint-enable */
     }
 
     @media (max-width: 425px) {
@@ -268,6 +275,10 @@ export const SmallArticleTopContent = styled(Flex)`
     height: 30px;
     justify-content: flex-start;
     flex-direction: column;
+    /* stylelint-disable */
+    flex: 1 1 15em;
+    -webkit-flex: 1 1 15em;
+    /* stylelint-enable */
     @media ${device.laptopM} {
         flex-direction: row;
 

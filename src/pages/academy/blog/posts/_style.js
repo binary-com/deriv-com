@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { Box, Flex, Container } from 'components/containers'
 import { LocalizedLinkText, Text } from 'components/elements'
 import device from 'themes/device'
@@ -175,44 +175,60 @@ export const Tag = styled(Flex)`
         font-size: 12px;
     }
 `
+const SharedHeadingStyles = css`
+    font-size: 16px;
+    line-height: 24px;
+    margin-top: 24px;
+    margin-bottom: 8px;
+    font-weight: bold;
+
+    > span {
+        font-weight: bold !important;
+    }
+`
+const SharedMobileHeadingStyles = css`
+    font-size: 14px;
+    line-height: 20px;
+`
+
 export const PreviewContainer = styled(Box)`
     font-size: 16px;
     max-width: 792px;
     width: 100%;
-    margin-bottom: 40px;
 
     & br {
         display: none;
     }
     & p {
-        margin-top: 22px;
+        margin-bottom: 16px;
         font-weight: 400;
         line-height: 24px;
         font-size: 16px;
-
-        :first-child {
-            margin-top: 0;
-        }
     }
     & hr {
         margin: 32px 0;
     }
     & ul {
-        margin-top: 32px;
+        margin-left: 16px;
+        margin-bottom: 16px;
         list-style-type: disc;
         margin-block-start: 10px;
         margin-block-end: 10px;
 
         > li {
-            margin: 8px 0 0 18px;
+            margin-bottom: 8px;
             padding: 0;
             line-height: 24px;
             font-size: 16px;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
         }
     }
     li > strong {
         display: inline-block;
-        margin: 16px 0 0 8px;
+        margin: 0 0 0 8px;
         padding: 0;
         line-height: 24px;
         font-size: 16px;
@@ -233,8 +249,7 @@ export const PreviewContainer = styled(Box)`
         width: 100%;
         height: auto;
         display: block;
-        margin: auto;
-        margin-top: 16px;
+        margin: 16px auto;
     }
     & img[width='full'] {
         margin-left: calc(50% - 50vw);
@@ -245,48 +260,45 @@ export const PreviewContainer = styled(Box)`
         font-size: 64px;
         line-height: 80px;
         margin-top: 32px;
+        margin-bottom: 8px;
         font-weight: bold;
     }
     & h2 {
-        font-size: 48px;
-        line-height: 60px;
-        margin-top: 32px;
-        font-weight: bold;
-    }
-    & h3 {
-        font-size: 32px;
-        line-height: 40px;
-        margin-top: 40px;
-        font-weight: bold;
-
-        & + p {
-            margin-top: 8px;
-        }
-    }
-    & h4 {
         font-size: 24px;
         line-height: 36px;
         margin-top: 40px;
+        margin-bottom: 8px;
         font-weight: bold;
 
-        & + p {
-            margin-top: 8px;
+        > span {
+            font-weight: bold !important; /* needed for overriding the default inline styles */
         }
     }
-    & h5 {
+    & h3 {
         font-size: 20px;
         line-height: 30px;
         margin-top: 24px;
+        margin-bottom: 8px;
         font-weight: bold;
+
+        > span {
+            font-weight: bold !important; /* needed for overriding the default inline styles */
+        }
+    }
+    & h4 {
+        ${SharedHeadingStyles}
+    }
+    & h5 {
+        ${SharedHeadingStyles}
     }
     & h6 {
-        font-size: 16px;
-        line-height: 24px;
-        margin-top: 40px;
-        font-weight: bold;
+        ${SharedHeadingStyles}
     }
     & em {
         font-style: italic;
+    }
+    & table {
+        margin-bottom: 16px;
     }
     @media ${device.laptop} {
         max-width: none;
@@ -305,32 +317,21 @@ export const PreviewContainer = styled(Box)`
             line-height: 40px;
         }
         & h2 {
-            font-size: 28px;
-            line-height: 34px;
-        }
-        & h3 {
-            font-size: 24px;
-            line-height: 30px;
-
-            & + p {
-                margin-top: 8px;
-            }
-        }
-        & h4 {
             font-size: 18px;
             line-height: 26px;
-
-            & + p {
-                margin-top: 8px;
-            }
         }
-        & h5 {
+        & h3 {
             font-size: 16px;
             line-height: 24px;
         }
+        & h4 {
+            ${SharedMobileHeadingStyles}
+        }
+        & h5 {
+            ${SharedMobileHeadingStyles}
+        }
         & h6 {
-            font-size: 14px;
-            line-height: 20px;
+            ${SharedMobileHeadingStyles}
         }
     }
 `

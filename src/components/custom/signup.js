@@ -136,10 +136,9 @@ const Signup = (props) => {
         }
         if (props.appearance === 'public') {
             const success_default_link = `signup-success?email=${email}`
+            const link_with_language = `${getLanguage()}/${success_default_link}`
             const success_link = `/${
-                isChoosenLanguage().english
-                    ? success_default_link
-                    : `${getLanguage()}/${success_default_link}`
+                isChoosenLanguage().english ? success_default_link : link_with_language
             }`
             navigate(success_link, { replace: true })
         }

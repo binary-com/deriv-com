@@ -1,21 +1,13 @@
 import React from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
 import styled, { keyframes } from 'styled-components'
 import PropTypes from 'prop-types'
 import VerticalCarousel from './_vertical-carousel.js'
 import device from 'themes/device'
 import { LinkButton } from 'components/form'
 import { Container, Box, Flex, Show } from 'components/containers'
-import { Header, QueryImage } from 'components/elements'
+import { Header } from 'components/elements'
 import { Localize, localize } from 'components/localization'
-
-const query = graphql`
-    query {
-        background: file(relativePath: { eq: "home/platform_devices.png" }) {
-            ...fadeIn
-        }
-    }
-`
+import heroImage from 'images/common/home/platform_devices.png'
 
 const StyledContainer = styled(Container)`
     @media ${device.tabletL} {
@@ -112,7 +104,6 @@ const ImageWrapper = styled(Box)`
     }
 `
 const Hero = ({ is_ppc }) => {
-    const data = useStaticQuery(query)
     const typewriter_text = !is_ppc
         ? localize('Trade forex, commodities, synthetic indices, stocks, and stock indices.')
         : localize('Trade forex, commodities, stocks, and stock indices')
@@ -180,8 +171,8 @@ const Hero = ({ is_ppc }) => {
                     <ImageWrapper>
                         {check_first_load && (
                             <Show.Mobile>
-                                <QueryImage
-                                    data={data.background}
+                                <img
+                                    src={heroImage}
                                     alt="platform devices mobile"
                                     width="100%"
                                     height="233"
@@ -189,12 +180,7 @@ const Hero = ({ is_ppc }) => {
                             </Show.Mobile>
                         )}
                         <Show.Desktop>
-                            <QueryImage
-                                data={data.background}
-                                alt="platform devices"
-                                width="100%"
-                                height="346"
-                            />
+                            <img src={heroImage} alt="platform devices" width="100%" height="346" />
                         </Show.Desktop>
                     </ImageWrapper>
                 </StyledHeroContainer>

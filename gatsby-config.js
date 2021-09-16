@@ -79,7 +79,7 @@ module.exports = {
                         const languages = Object.keys(language_config)
                         if (path === '/') {
                             priority = 1.0
-                        } else if (path.match(/dbot|dtrader|dmt5|about/)) {
+                        } else if (path.match(/dbot|dtrader|dmt5|story/)) {
                             priority = 1.0
                         } else {
                             languages.forEach((lang) => {

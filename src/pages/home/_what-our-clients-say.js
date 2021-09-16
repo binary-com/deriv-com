@@ -13,10 +13,10 @@ import { p2p_playstore_url, p2p_applestore_url } from 'common/constants'
 const query = graphql`
     query {
         app_store: file(relativePath: { eq: "app-store-round.png" }) {
-            ...fadeIn
+            ...homePageFadeIn
         }
         play_store: file(relativePath: { eq: "google-play-round.png" }) {
-            ...fadeIn
+            ...homePageFadeIn
         }
     }
 `

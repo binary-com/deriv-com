@@ -12,7 +12,7 @@ import { Localize, localize } from 'components/localization'
 const query = graphql`
     query {
         background: file(relativePath: { eq: "home/platform_devices.png" }) {
-            ...fadeIn
+            ...homePageFadeIn
         }
     }
 `

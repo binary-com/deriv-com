@@ -32,3 +32,15 @@ export const fadeIn = graphql`
         }
     }
 `
+export const homePageFadeIn = graphql`
+    fragment homePageFadeIn on File {
+        childImageSharp {
+            gatsbyImageData(
+                formats: [AUTO, WEBP]
+                layout: CONSTRAINED
+                breakpoints: [360, 992]
+                placeholder: DOMINANT_COLOR
+            )
+        }
+    }
+`

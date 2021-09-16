@@ -232,7 +232,7 @@ export const OurOffices = () => {
                                 left="19%"
                                 top="75%"
                                 title={localize('Paraguay')}
-                                link="/careers/locations/paraguay"
+                                link="/careers/locations/asuncion"
                             />
                             <MapPin
                                 left="45.5%"
@@ -256,7 +256,7 @@ export const OurOffices = () => {
                                 left="48%"
                                 top="20%"
                                 title={localize('Belarus')}
-                                link="/careers/locations/belarus"
+                                link="/careers/locations/minsk"
                             />
                             <MapPin
                                 left="63.5%"
@@ -297,7 +297,7 @@ export const OurOffices = () => {
                                 left="19%"
                                 top="70%"
                                 title="Paraguay"
-                                link="/careers/locations/paraguay"
+                                link="/careers/locations/asuncion"
                             />
                             <MapPin
                                 left="45%"
@@ -315,7 +315,7 @@ export const OurOffices = () => {
                                 left="49%"
                                 top="17.5%"
                                 title={localize('Belarus')}
-                                link="/careers/locations/belarus"
+                                link="/careers/locations/minsk"
                             />
                             <MapPin
                                 left="52%"

@@ -39,7 +39,7 @@ export const homePageFadeIn = graphql`
                 formats: [AUTO, WEBP]
                 layout: CONSTRAINED
                 breakpoints: [360, 992]
-                placeholder: DOMINANT_COLOR
+                placeholder: BLURRED
             )
         }
     }

@@ -49,6 +49,10 @@ const BannerWrapper = styled(Flex)`
     & .footerimg-wrapper {
         width: 80%;
         @media ${device.tabletL} {
+            padding-top: 120px;
+            width: 65%;
+        }
+        @media ${device.mobileL} {
             width: 250px;
             height: 321px;
             padding-top: 106px;

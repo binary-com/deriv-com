@@ -142,7 +142,7 @@ const deriv_app_links = ['dbot', 'deriv_app', 'mt5', 'derivx']
 const deriv_other_products = ['binary', 'smart_trader']
 const deriv_social_platforms = ['blog', 'community', 'api', 'zoho']
 // add item to this array if you need to make an internal link open on a new tab without modal window
-const new_tab_no_modal = ['terms_and_conditions']
+const new_tab_no_modal = ['terms_and_conditions/#clients']
 
 const getURLFormat = (type, locale, to, affiliate_lang) => {
     if (deriv_app_links.includes(type)) {

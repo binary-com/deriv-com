@@ -126,7 +126,10 @@ const SignupDefault = ({
             </SocialWrapper>
             <LoginText>
                 {localize('Already have an account?')}
-                <LoginLink onClick={handleLogin}> {localize('Log in.')}</LoginLink>
+                <LoginLink id="dm-default-login-button" onClick={handleLogin}>
+                    {' '}
+                    {localize('Log in.')}
+                </LoginLink>
             </LoginText>
             <NoteText>
                 <Localize

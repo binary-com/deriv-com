@@ -168,6 +168,7 @@ const Availability = () => {
                                 translate_text="1. <0>Log in</0> to your Deriv account. Don’t have one? <1>Sign up</1> for free."
                                 components={[
                                     <SpanLinkText
+                                        id="dm-p2p-login-link"
                                         size={24}
                                         onClick={handleLogin}
                                         color="red"

@@ -197,7 +197,13 @@ const StartTrader = () => {
                             description={
                                 <Localize
                                     translate_text="Sign up for a free <0>Deriv demo account</0>"
-                                    components={[<StyledLocalizedLink to="/signup/" key={0} />]}
+                                    components={[
+                                        <StyledLocalizedLink
+                                            id="dm-dmt5-signup-link"
+                                            to="/signup/"
+                                            key={0}
+                                        />,
+                                    ]}
                                 />
                             }
                             item_width="24rem"

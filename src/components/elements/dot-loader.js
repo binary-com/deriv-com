@@ -26,12 +26,13 @@ const dots = keyframes`
 `
 const InitialLoader = styled.span`
     text-align: center;
+    margin-top: -160px;
 
     ::after {
         color: grey;
         content: ' .';
         animation: ${dots} 1s steps(5, end) infinite;
-        font-size: 2rem;
+        font-size: 6rem;
         line-height: 1;
     }
 `

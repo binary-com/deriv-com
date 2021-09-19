@@ -23,7 +23,7 @@ import DTrader from 'images/svg/dtrader-icon.svg'
 import Forex from 'images/svg/forex-nav.svg'
 import Help from 'images/svg/menu/help-center.svg'
 import Leadership from 'images/svg/menu/leadership.svg'
-import MarginTrading from 'images/svg/margin-trading-nav.svg'
+import CFD from 'images/svg/margin-trading-nav.svg'
 import Multipliers from 'images/svg/multipliers-nav.svg'
 import Options from 'images/svg/options-nav.svg'
 import Partner from 'images/svg/menu/partner.svg'
@@ -151,21 +151,14 @@ export const OffCanvasMenuWrapper = (props) => {
                                 </Text>
                                 <Flex mb="2rem">
                                     <NavCard
-                                        aria_label="Margin trading"
-                                        icon={() => (
-                                            <img
-                                                src={MarginTrading}
-                                                alt=""
-                                                width="32"
-                                                height="32"
-                                            />
-                                        )}
+                                        aria_label="CFDs"
+                                        icon={() => <img src={CFD} alt="" width="32" height="32" />}
                                         content={
-                                            <Localize translate_text="Trade with leverage and low spreads for better returns on successful trades." />
+                                            <Localize translate_text="Trade with leverage and tight spreads for better returns on successful trades." />
                                         }
-                                        title={<Localize translate_text="Margin trading" />}
+                                        title={<Localize translate_text="CFDs" />}
                                         onClick={handleArrowClick}
-                                        to="/trade-types/margin/"
+                                        to="/trade-types/cfds/"
                                     />
                                 </Flex>
                                 {!is_eu_country && (
@@ -191,7 +184,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                             <img src={Multipliers} alt="" width="32" height="32" />
                                         )}
                                         content={
-                                            <Localize translate_text="Combine the upside of margin trading with the simplicity of options." />
+                                            <Localize translate_text="Combine the upside of CFDs with the simplicity of options." />
                                         }
                                         title={<Localize translate_text="Multipliers" />}
                                         onClick={handleArrowClick}
@@ -314,7 +307,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                     <img src={StockIndices} alt="" width="32" height="32" />
                                 )}
                                 content={localize(
-                                    'Predict broader market trends and diversify your risk with stock indices.',
+                                    'Predict broader market trends and diversify your risk with stocks & indices.',
                                 )}
                                 title={localize('Stocks & indices')}
                                 onClick={handleArrowClick}
@@ -518,7 +511,7 @@ export const OffCanvasMenuWrapper = (props) => {
                         </StyledLink>
                         <StyledLink
                             to=""
-                            type="developers"
+                            type="api"
                             target="_blank"
                             external="true"
                             rel="noopener noreferrer"
@@ -583,7 +576,7 @@ export const OffCanvasMenuPartner = (props) => {
                 </StyledLink>
                 <StyledLink
                     to=""
-                    type="developers"
+                    type="api"
                     target="_blank"
                     external="true"
                     rel="noopener noreferrer"

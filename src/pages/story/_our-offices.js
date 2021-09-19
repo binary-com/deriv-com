@@ -204,7 +204,7 @@ export const OurOffices = () => {
                     <NumberWrapper fd="column" width="auto">
                         <Flex fd="column" ai="center" mb="8rem" tabletS={{ mb: '0' }}>
                             <Text color="red" size="4.8rem" align="center" weight="bold">
-                                500+
+                                600+
                             </Text>
                             <Text align="center">{localize('Team members')}</Text>
                         </Flex>
@@ -232,61 +232,61 @@ export const OurOffices = () => {
                                 left="19%"
                                 top="75%"
                                 title={localize('Paraguay')}
-                                link="/contact_us#paraguay"
+                                link="/careers/locations/asuncion"
                             />
                             <MapPin
                                 left="45.5%"
                                 top="32.5%"
                                 title={localize('Malta')}
-                                link="/contact_us#malta"
+                                link="/careers/locations/malta"
                             />
                             <MapPin
                                 left="51.5%"
                                 top="32%"
                                 title={localize('Cyprus')}
-                                link="/contact_us#cyprus"
+                                link="/careers/locations/cyprus"
                             />
                             <MapPin
                                 left="52%"
                                 top="58%"
                                 title={localize('Rwanda')}
-                                link="/contact_us#rwanda"
+                                link="/careers/locations/rwanda"
                             />
                             <MapPin
                                 left="48%"
                                 top="20%"
                                 title={localize('Belarus')}
-                                link="/contact_us#belarus"
+                                link="/careers/locations/minsk"
                             />
                             <MapPin
                                 left="63.5%"
                                 top="40%"
                                 title={localize('Dubai')}
-                                link="/contact_us#dubai"
+                                link="/careers/locations/dubai"
                             />
                             <MapPin
                                 left="81%"
                                 top="55.5%"
                                 title={localize('Ipoh')}
-                                link="/contact_us#ipoh"
+                                link="/careers/locations/ipoh"
                             />
                             <MapPin
                                 left="81.8%"
                                 top="58.5%"
                                 title={localize('Cyberjaya')}
-                                link="/contact_us#cyberjaya"
+                                link="/careers/locations/cyberjaya"
                             />
                             <MapPin
                                 left="83%"
                                 top="60.3%"
                                 title={localize('Melaka')}
-                                link="/contact_us#melaka"
+                                link="/careers/locations/melaka"
                             />
                             <MapPin
                                 left="88%"
                                 top="55.5%"
                                 title={localize('Labuan')}
-                                link="/contact_us#labuan"
+                                link="/careers/locations/labuan"
                             />
                         </MapImage>
                     </Show.Desktop>
@@ -297,36 +297,61 @@ export const OurOffices = () => {
                                 left="19%"
                                 top="70%"
                                 title="Paraguay"
-                                link="/contact_us#paraguay"
+                                link="/careers/locations/asuncion"
                             />
-                            <MapPin left="45%" top="31.5%" title="Malta" link="/contact_us#malta" />
+                            <MapPin
+                                left="45%"
+                                top="31.5%"
+                                title="Malta"
+                                link="/careers/locations/malta"
+                            />
                             <MapPin
                                 left="52.4%"
                                 top="33.8%"
                                 title="Cyprus"
-                                link="/contact_us#cyprus"
+                                link="/careers/locations/cyprus"
                             />
                             <MapPin
                                 left="49%"
                                 top="17.5%"
                                 title={localize('Belarus')}
-                                link="/contact_us#belarus"
+                                link="/careers/locations/minsk"
                             />
-                            <MapPin left="52%" top="57%" title="Rwanda" link="/contact_us#rwanda" />
-                            <MapPin left="64%" top="36.8%" title="Dubai" link="/contact_us#dubai" />
-                            <MapPin left="81.5%" top="48.5%" title="Ipoh" link="/contact_us#ipoh" />
+                            <MapPin
+                                left="52%"
+                                top="57%"
+                                title="Rwanda"
+                                link="/careers/locations/rwanda"
+                            />
+                            <MapPin
+                                left="64%"
+                                top="36.8%"
+                                title="Dubai"
+                                link="/careers/locations/dubai"
+                            />
+                            <MapPin
+                                left="81.5%"
+                                top="48.5%"
+                                title="Ipoh"
+                                link="/careers/locations/ipoh"
+                            />
                             <MapPin
                                 left="82%"
                                 top="52%"
                                 title="Cyberjaya"
-                                link="/contact_us#cyberjaya"
+                                link="/careers/locations/cyberjaya"
                             />
-                            <MapPin left="83%" top="55%" title="Melaka" link="/contact_us#melaka" />
+                            <MapPin
+                                left="83%"
+                                top="55%"
+                                title="Melaka"
+                                link="/careers/locations/melaka"
+                            />
                             <MapPin
                                 left="88.5%"
                                 top="51%"
                                 title="Labuan"
-                                link="/contact_us#labuan"
+                                link="/careers/locations/labuan"
                             />
                         </MapImage>
                     </Show.Mobile>

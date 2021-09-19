@@ -4,12 +4,12 @@
 
 Deriv.com - An online trading platform that offers a wide selection of derivatives to trade on 24/7.
 
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/binary-com/deriv-com/Release%20Staging) ![node](https://img.shields.io/badge/node-%3E%3D12.3.0-blue.svg) ![npm](https://img.shields.io/badge/npm-%3E%3D6.9.0-blue.svg) [![GATSBY](https://img.shields.io/badge/Gatsby-663399?style=flat&logo=gatsby&logoColor=white)](https://github.com/styled-components/styled-components) [![style: styled-components](https://img.shields.io/badge/style-%F0%9F%92%85%20styled--components-orange.svg?colorB=daa357&colorA=db748e)](https://github.com/styled-components/styled-components) ![Sonar Violations (short format)](https://img.shields.io/sonar/violations/DerivFE_deriv-com?label=sonar%20violation&server=https%3A%2F%2Fsonarcloud.io)
-![Sonar Tech Debt](https://img.shields.io/sonar/tech_debt/DerivFE_deriv-com?server=http%3A%2F%2Fsonarcloud.io)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/binary-com/deriv-com/Release%20Staging) ![node](https://img.shields.io/badge/node-%3E%3D12.3.0-blue.svg) ![npm](https://img.shields.io/badge/npm-%3E%3D6.9.0-blue.svg) [![GATSBY](https://img.shields.io/badge/Gatsby-663399?style=flat&logo=gatsby&logoColor=white)](https://github.com/styled-components/styled-components) [![style: styled-components](https://img.shields.io/badge/style-%F0%9F%92%85%20styled--components-orange.svg?colorB=daa357&colorA=db748e)](https://github.com/styled-components/styled-components) ![Sonar Tech Debt](https://img.shields.io/sonar/tech_debt/binary-com_deriv-com?server=https%3A%2F%2Fsonarcloud.io)
+![Sonar Violations (short format)](https://img.shields.io/sonar/violations/binary-com_deriv-com?server=https%3A%2F%2Fsonarcloud.io)
 
 ## In this document:
 
--   [Other Documents](#other-documents)
+-   [Other documents](#other-documents)
 -   [Pre-installation](#pre-installation)
 -   [Quick start](#quick-start)
 -   [How to contribute](#how-to-contribute)
@@ -26,8 +26,8 @@ Deriv.com - An online trading platform that offers a wide selection of derivativ
 -   [Development guidelines](documents/development-guidelines.md) - Contain advice for developers working on this project
 -   [Git best practice](documents/git-best-practices.md) - Contain git practices and commit guidelines
 -   [File structures](documents/file-structures.md)
--   [GTM Workflow](documents/gtm-workflow.md) - Contains Google Tag Manager workflow and additional information
--   [Translation Workflow](documents/translation-workflow.md) - Contains general workflow and commands required for our translation process
+-   [GTM workflow](documents/gtm-workflow.md) - Contains Google Tag Manager workflow and additional information
+-   [Translation workflow](documents/translation-workflow.md) - Contains general workflow and commands required for our translation process
 
 ## Pre-installation
 

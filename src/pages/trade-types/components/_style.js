@@ -1,4 +1,6 @@
 import styled from 'styled-components'
+import CfdPattern from 'images/common/trade-types/cfd-pattern.png'
+import CfdMobilePattern from 'images/common/trade-types/mobile-cfd-pattern.png'
 import PatternsMobile from 'images/common/trade-types/trade-patterns-mobile.png'
 import Patterns from 'images/common/trade-types/trade-patterns.png'
 import { Container, Flex } from 'components/containers'
@@ -135,6 +137,15 @@ const MarketsItem = styled(Flex)`
     position: relative;
     z-index: 2;
 `
+const StartTradingBg = styled(Flex)`
+    background: var(--color-white);
+    background-image: url(${CfdPattern});
+    padding: 8rem 0 4rem;
+
+    @media ${device.mobileL} {
+        background-image: url(${CfdMobilePattern});
+    }
+`
 
 export {
     SmallContainer,
@@ -147,4 +158,5 @@ export {
     OptionGrid,
     OptionGridSecondary,
     MarketsItem,
+    StartTradingBg,
 }

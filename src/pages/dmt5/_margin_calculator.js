@@ -234,13 +234,13 @@ const MarginCalculator = () => {
                         </MainHeader>
                         <StyledText>
                             <Localize
-                                translate_text="Explore <0>margin trading</0> on DMT5, and enjoy high leverage and low spreads to increase your returns when the market moves in your favour."
+                                translate_text="Explore <0>CFDs</0> on Deriv MT5, and enjoy high leverage and low spreads to increase your returns when the market moves in your favour."
                                 components={[
                                     <LinkText
                                         color="red"
                                         key={0}
                                         target="_blank"
-                                        href="/trade-types/margin/"
+                                        href="/trade-types/cfds/"
                                         rel="noopener noreferrer"
                                     />,
                                 ]}

@@ -5,8 +5,7 @@
     "author": "Deriv",
     "dependencies": {
         "@artsy/fresnel": "^1.7.0",
-        "@datadog/browser-rum": "^2.14.0",
-        "@deriv/web-push-notifications": "^3.19.3",
+        "@deriv/web-push-notifications": "^3.21.1",
         "@livechat/customer-sdk": "^3.0.0",
         "@loadable/component": "^5.15.0",
         "@svgr/webpack": "^5.5.0",
@@ -76,9 +75,10 @@
     ],
     "license": "Apache License 2.0",
     "scripts": {
-        "build": "npm run build:payment_methods && npm run build:production",
+        "build:development": "npm run build:payment_methods && npm run build:production",
         "build:production": "gatsby build",
         "build:payment_methods": "node scripts/payment_method",
+        "build": "npm run build:development && gatsby build --log-pages",
         "develop": "gatsby develop -o",
         "format": "prettier --write '**/*.js' '*.js'",
         "stylelint": "stylelint 'src/**/*.js' --formatter verbose",

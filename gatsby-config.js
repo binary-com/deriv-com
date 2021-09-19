@@ -68,10 +68,12 @@ module.exports = {
                     '/**/landing/**',
                     '/endpoint',
                     '/**/endpoint',
+                    '/signup-success',
+                    '/**/signup-success',
                 ],
                 serialize: ({ site, allSitePage }) =>
                     allSitePage.edges.map((edge) => {
-                        const ignore_localized_regex = /careers|besquare/
+                        const ignore_localized_regex = /careers|besquare|livechat/
                         const path = edge.node.path
                         let priority = 0.7
                         const languages = Object.keys(language_config)
@@ -181,7 +183,7 @@ module.exports = {
                     {
                         userAgent: '*',
                         allow: '/',
-                        disallow: ['/404/', '/homepage/', '/landing/', '/endpoint/'],
+                        disallow: ['/404/', '/homepage/', '/landing/', '/endpoint/', '/livechat/'],
                     },
                 ],
             },

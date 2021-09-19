@@ -62,19 +62,19 @@ const demo = [
             <Localize translate_text="Sign in to your Deriv account. If you don’t have one, sign up for free." />
         ),
         image_data: 'demo_step1',
-        image_alt: 'demo_step1',
+        image_alt: localize('Deriv X demo account signup page'),
     },
     {
         description: <Localize translate_text="Add a Deriv X demo account." />,
         image_data: 'demo_step2',
-        image_alt: 'demo_step2',
+        image_alt: localize('Deriv X dashboard showing demo account comparison'),
     },
     {
         description: (
             <Localize translate_text="Start trading on the mobile app or through your web browser." />
         ),
         image_data: 'demo_step3',
-        image_alt: 'demo_step3',
+        image_alt: localize('Deriv X trading dashboard'),
     },
 ]
 
@@ -229,7 +229,7 @@ const StartDerivX = () => {
                         {localize('Demo account')}
                     </StyledText>
                 </TabItem>
-                {/* TODO: Enable once real money account is available */}
+                {/* TODO: enable this once deriv x real account is ready */}
                 {/* <TabItem
                     mobile_padding="12px 24px"
                     active={tab === 'real'}

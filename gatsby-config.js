@@ -1,7 +1,7 @@
 const language_config = require(`./i18n-config.js`)
 
 module.exports = {
-    // pathPrefix: process.env.PATH_PREFIX || '/deriv-com/', // For non CNAME GH-pages deployment
+    pathPrefix: process.env.PATH_PREFIX || '/deriv-com/', // For non CNAME GH-pages deployment
     flags: {
         FAST_DEV: true,
         PRESERVE_WEBPACK_CACHE: true,

@@ -22,6 +22,7 @@ export const query = graphql`
     query HomepageQuery {
         directus {
             homepage_banners(filter: { status: { _eq: "published" } }) {
+                order
                 id
                 link
                 heading
@@ -327,6 +328,10 @@ const DerivBlog = ({ data }) => {
     const { is_eu_country } = React.useContext(DerivStore)
 
     const homepage_banner_data = data.directus.homepage_banners
+
+    //arranges homepage banners in ascendingly on order value
+    homepage_banner_data.sort((a, b) => parseInt(a.order) - parseInt(b.order))
+
     const market_news_data = is_eu_country
         ? data.directus.market_news_eu
         : data.directus.market_news

@@ -49,7 +49,7 @@ const DP2P_CONTENT = [
 
 const WeekenLP = () => {
     return (
-        <Layout type="landingpage" is_ppc_redirect={true}>
+        <Layout type="landing-page" is_ppc_redirect={true}>
             <SEO
                 title={localize('Weekends')}
                 description={localize('Ride the trends even on weekends')}

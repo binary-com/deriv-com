@@ -11,6 +11,7 @@ import device from 'themes/device.js'
 
 const BackgroundWrapper = styled(Background)`
     background-color: transparent;
+    height: 100%;
 `
 
 const Wrapper = styled(Container)`
@@ -65,15 +66,17 @@ const HeroContent = styled(Flex)`
     }
     @media ${device.tabletL} {
         ${Header} {
-            font-size: 16px;
+            font-size: 20px;
+            line-height: 26px;
             max-width: 100%;
         }
     }
+
     @media ${device.mobileL} {
         ${Header} {
-            font-size: 20px;
-            line-height: 25px;
-            margin-top: 1px;
+            font-size: 18px;
+            margin-top: 10px;
+            margin-bottom: 0;
         }
     }
     @media ${device.mobileS} {
@@ -92,17 +95,23 @@ const StyledHeader = styled(Header)`
 
     @media ${device.laptopM} {
         width: 100%;
-        font-size: 6rem;
+        font-size: 60px;
         line-height: 8rem;
     }
     @media ${device.tabletL} {
-        margin-top: 2rem;
-        font-size: 40px;
-        line-height: 6rem;
+        font-size: 43px;
+        line-height: 7rem;
     }
     @media ${device.mobileL} {
-        padding-top: 3px;
+        margin-top: 1rem;
+        font-size: 40px;
         line-height: 50px;
+        padding-top: 3px;
+    }
+    @media ${device.mobileXS} {
+        font-size: 30px;
+        padding-top: 3px;
+        line-height: 40px;
     }
 `
 
@@ -114,19 +123,11 @@ const TryButton = styled(LinkButton)`
     margin-top: 1.2rem;
     border: unset;
 
-    @media ${device.tabletL} {
-        padding: 1.5rem 1.6rem;
+    @media ${device.tablet} {
+        padding: 1.8rem 1.6rem;
         height: 42px;
         white-space: nowrap;
-        margin-top: 24px;
-        margin-bottom: 680px;
-    }
-    @media ${device.mobileL} {
-        padding: 1.5rem 1.6rem;
-        height: 42px;
-        white-space: nowrap;
-        margin-top: 24px;
-        margin-bottom: 230px;
+        margin-top: 30px;
     }
 `
 

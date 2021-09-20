@@ -89,7 +89,8 @@ const SignupSuccess = () => {
                     />
                     <Text align="center">
                         <Localize
-                            translate_text={`We've sent a message to ${registeredEmail} with a link to activate your account.`}
+                            translate_text="We've sent a message to {{email}} with a link to activate your account."
+                            values={{ email: registeredEmail }}
                         />
                     </Text>
                     <EmailLink to="/check-email/" align="center">

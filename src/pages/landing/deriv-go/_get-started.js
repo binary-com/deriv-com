@@ -86,7 +86,7 @@ const StartDerivGo = () => {
                     <SideTab.Panel
                         label={<Localize translate_text="3. Get Trading" />}
                         description={
-                            <Localize translate_text="Download the app and trade anytime, anywhere.." />
+                            <Localize translate_text="Download the app and trade anytime, anywhere." />
                         }
                     >
                         <QueryImage

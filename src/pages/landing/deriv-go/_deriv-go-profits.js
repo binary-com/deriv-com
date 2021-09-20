@@ -27,6 +27,18 @@ const Content = styled(Flex)`
         margin: 0 auto;
     }
 `
+const StyledHeader = styled(Header)`
+    @media ${device.tabletL} {
+        text-align: center;
+    }
+`
+
+const StyledText = styled(Text)`
+    @media ${device.tabletL} {
+        text-align: center;
+        font-size: 18px;
+    }
+`
 
 const Row = styled(Flex)`
     align-items: center;
@@ -39,7 +51,7 @@ const Row = styled(Flex)`
         }
     }
     @media ${device.tabletL} {
-        flex-direction: column;
+        flex-direction: column-reverse;
     }
 `
 const query = graphql`
@@ -64,7 +76,7 @@ const DerivGoContent = ({ P2P, reverse, two_title }) => {
         <SectionContainer
             p="8.9rem 0 8rem 0"
             background="rgba(243, 246, 250, 1)"
-            tablet={{ p: '40px 16px' }}
+            tabletL={{ pt: '40px' }}
         >
             <StyledContainer>
                 {P2P.map((item, index) => {
@@ -76,14 +88,14 @@ const DerivGoContent = ({ P2P, reverse, two_title }) => {
                             margin_right={!is_even ? '0' : '12.6rem'}
                         >
                             <Content margin_right={!is_even ? '12.6rem' : '0'}>
-                                <Header type="heading-3">{item.title}</Header>
-                                <Text>{item.subtitle}</Text>
+                                <StyledHeader type="heading-3">{item.title}</StyledHeader>
+                                <StyledText>{item.subtitle}</StyledText>
                                 {two_title && (
                                     <>
-                                        <Header type="heading-3" mt="2.4rem">
+                                        <StyledHeader type="heading-3" mt="2.4rem">
                                             {item.second_title}
-                                        </Header>
-                                        <Text>{item.second_subtitle}</Text>
+                                        </StyledHeader>
+                                        <StyledText>{item.second_subtitle}</StyledText>
                                     </>
                                 )}
                             </Content>

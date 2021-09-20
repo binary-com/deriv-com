@@ -137,7 +137,13 @@ const FooterBanner = () => {
                             'Download the app today and trade multipliers anytime, anywhere you want.',
                         )}
                     </StyledSubTitle>
-                    <Flex mt="40px" jc="start" tablet_fw="wrap" tabletL={{ m: '24px 8px 0 32px' }}>
+                    <Flex
+                        mt="40px"
+                        jc="start"
+                        tablet_fw="wrap"
+                        tablet_jc="center"
+                        tabletL={{ m: '24px 8px 0 32px' }}
+                    >
                         <AppButton
                             external="true"
                             to={deriv_go_playstore_url}

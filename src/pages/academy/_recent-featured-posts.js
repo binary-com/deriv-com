@@ -134,6 +134,7 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
                                                     <SmallArticleTopContent>
                                                         <Flex
                                                             jc="start"
+                                                            height="unset"
                                                             laptopM={{ flexDirection: 'start' }}
                                                         >
                                                             {article.tags &&
@@ -244,6 +245,7 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
                                                     <SmallArticleTopContent>
                                                         <Flex
                                                             jc="start"
+                                                            height="unset"
                                                             laptopM={{ flexDirection: 'start' }}
                                                         >
                                                             {article.tags &&

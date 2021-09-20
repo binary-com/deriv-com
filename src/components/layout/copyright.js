@@ -2,7 +2,7 @@ import React from 'react'
 import { Box, Container } from 'components/containers'
 import { Text } from 'components/elements'
 import { Localize } from 'components/localization'
-import CopyrightIc from 'images/svg/copyright-white.svg'
+import CopyrightIc from 'images/svg/layout/copyright-white.svg'
 
 const Copyright = () => {
     const current_year = new Date().getFullYear()

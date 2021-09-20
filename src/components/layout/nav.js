@@ -30,7 +30,7 @@ import {
 import Logo from 'images/svg/logo-deriv.svg'
 import LogoPartner from 'images/svg/logo-partners.svg'
 import Hamburger from 'images/svg/hamburger_menu.svg'
-import Close from 'images/svg/close-long.svg'
+import Close from 'images/svg/layout/close-long.svg'
 import LogoOnly from 'images/svg/logo-deriv-only.svg'
 import LogoCombinedShape from 'images/svg/logo-combined-shape.svg'
 import { CFDWarning } from 'components/layout'

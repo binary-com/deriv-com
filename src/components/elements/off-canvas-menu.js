@@ -8,10 +8,10 @@ import { Accordion, AccordionItem, NavCard, Text, Divider } from 'components/ele
 import { deriv_status_page_url } from 'common/constants'
 // SVG
 import AffiliateIb from 'images/svg/menu/affiliate-ib.svg'
-import Blog from 'images/svg/blog-nav.svg'
+import Blog from 'images/svg/custom/blog-nav.svg'
 import Career from 'images/svg/menu/careers.svg'
 import Choose from 'images/svg/menu/choose.svg'
-import Commodities from 'images/svg/commodities-nav.svg'
+import Commodities from 'images/svg/custom/commodities-nav.svg'
 import Community from 'images/svg/menu/community.svg'
 import Contact from 'images/svg/menu/contact.svg'
 import DBot from 'images/svg/dbot-icon.svg'

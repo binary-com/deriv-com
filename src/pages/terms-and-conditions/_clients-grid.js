@@ -11,7 +11,7 @@ import Funds from 'images/svg/funds-transfers-tc.svg'
 import Security from 'images/svg/security-privacy-tc.svg'
 import Risk from 'images/svg/risk-tc.svg'
 import PDF from 'images/svg/pdf-icon-black.svg'
-import BFX from 'images/svg/bfx-tc.svg'
+import BFX from 'images/svg/terms-and-conditions/bfx-tc.svg'
 
 const Col = ({ Icon, content, title, eu_links, non_eu_links }) => (
     <GridCol>

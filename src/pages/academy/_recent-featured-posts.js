@@ -68,17 +68,18 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
                 jc_tabletM="center"
                 line_divider_length="unset"
                 mobile_tab_button_underline_length="100%"
+                has_no_query
             >
                 <Tabs.Panel label={localize('Recent posts')}>
                     <ArticleContentWrapper>
                         <LeftContent>
                             <RedirectLink to={`/academy/blog/posts/${headline_recent.slug}`}>
-                                <MainArticle image={getAssetUrl(headline_recent.main_image.id)}>
+                                <MainArticle image={getAssetUrl(headline_recent?.main_image?.id)}>
                                     <Description>
                                         <TagParentWrapper>
                                             {headline_recent.tags.map((article) => {
                                                 return (
-                                                    <TagWrapper key={article.id}>
+                                                    <TagWrapper key={article?.id}>
                                                         <StyledCategories>
                                                             {article.tags_id.tag_name}
                                                         </StyledCategories>
@@ -121,7 +122,7 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
                                                     <SmallArticleImageWrapper>
                                                         <QueryImage
                                                             className="small-article-bg"
-                                                            data={article.main_image.imageFile}
+                                                            data={article?.main_image?.imageFile}
                                                             alt={
                                                                 article?.main_image?.description ||
                                                                 ''

@@ -9,7 +9,7 @@ import { SEO, Flex, Box } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { localize, Localize, WithIntl } from 'components/localization'
 import { Header } from 'components/elements'
-import { useTabState } from 'components/hooks/use-tab-state'
+import { useTabStateQuery } from 'components/hooks/use-tab-state-query'
 import device from 'themes/device'
 
 const meta_attributes = {
@@ -107,7 +107,7 @@ const Separator = styled.div`
 `
 
 const DMT5TradingSignals = () => {
-    const [active_tab, setActiveTab] = useTabState(['signal-subscriber', 'signal-provider'])
+    const [active_tab, setActiveTab] = useTabStateQuery(['signal-subscriber', 'signal-provider'])
     const [is_mounted, setMounted] = useState(false) //needs to fix bug with hightlight of the 1st loading
     useEffect(() => {
         setMounted(true)

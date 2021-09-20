@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { Text } from './typography'
 import { Flex } from 'components/containers'
+import { useTabStateQuery } from 'components/hooks/use-tab-state-query'
 import { useTabState } from 'components/hooks/use-tab-state'
 import device from 'themes/device'
 const TabContent = styled.div`
@@ -108,9 +109,10 @@ const Tabs = ({
     jc_laptopM,
     line_divider_length,
     mobile_tab_button_underline_length,
+    has_no_query,
 }) => {
     const [selected_tab, setSelectedTab] = useState(0)
-    const [active_tab, setActiveTab] = useTabState(tab_list)
+    const [active_tab, setActiveTab] = has_no_query ? useTabState(tab_list) : useTabStateQuery(tab_list)
 
     useEffect(() => {
         setSelectedTab(tab_list.indexOf(active_tab))
@@ -154,6 +156,7 @@ Tabs.Panel = TabPanel
 
 Tabs.propTypes = {
     children: PropTypes.node,
+    has_no_query: PropTypes.bool,
     jc: PropTypes.string,
     jc_laptopM: PropTypes.string,
     jc_mobileL: PropTypes.string,

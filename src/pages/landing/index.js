@@ -7,7 +7,7 @@ import { SEO, Show } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { WithIntl, Localize, localize } from 'components/localization'
 import { Appearances } from 'components/custom/signup'
-import PractiseIcon from 'images/svg/aim.svg'
+import PractiseIcon from 'images/svg/markets/aim.svg'
 import TradeIcon from 'images/svg/trade.svg'
 import WithdrawIcon from 'images/svg/withdraw.svg'
 

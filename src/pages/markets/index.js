@@ -12,7 +12,7 @@ import { localize, Localize, WithIntl } from 'components/localization'
 import { SEO, Flex } from 'components/containers'
 import device from 'themes/device'
 import { Tabs } from 'components/elements'
-import PractiseIcon from 'images/svg/aim.svg'
+import PractiseIcon from 'images/svg/markets/aim.svg'
 import TradeIcon from 'images/svg/trade.svg'
 import WithdrawIcon from 'images/svg/withdraw.svg'
 

@@ -26,7 +26,7 @@ import MaltaFlagIcon from 'images/svg/flag_malta.svg'
 import CyprusFlagIcon from 'images/svg/flag_cyprus.svg'
 import RwandaFlagIcon from 'images/svg/flag_rwanda.svg'
 import BelarusFlagIcon from 'images/svg/flag_belarus.svg'
-import { ReactComponent as Chevron } from 'images/svg/carousel-chevron.svg'
+import { ReactComponent as Chevron } from 'images/svg/careers/carousel-chevron.svg'
 
 const meta_attributes = {
     og_title: localize('Explore our office locations | Deriv'),

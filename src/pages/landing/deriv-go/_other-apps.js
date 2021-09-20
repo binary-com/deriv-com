@@ -34,6 +34,7 @@ const LearnMore = styled(LocalizedLink)`
     justify-content: center;
     align-items: center;
     font-size: 20px;
+    padding-top: 13px;
     color: rgba(255, 68, 79, 1);
     text-decoration: none;
 
@@ -60,7 +61,7 @@ const Card = styled(Flex)`
     padding: 80px 24px;
     border-radius: 12px;
     box-shadow: 0 16px 40px rgba(198, 198, 198, 0.3);
-    margin-right: 2.4rem;
+    margin-right: 2.5rem;
     margin-bottom: 2rem;
     align-items: center;
 
@@ -118,7 +119,7 @@ const OtherApps = () => {
                                     <div>
                                         <img src={index.icon} alt="" />
                                     </div>
-                                    <Header width="110px" type="heading-3" mt="8px">
+                                    <Header align="center" type="heading-3" mt="8px">
                                         {index.title}
                                     </Header>
                                     <StyledText>{index.content}</StyledText>

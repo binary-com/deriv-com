@@ -100,6 +100,7 @@ const BlogPreview = () => {
 
     const StyledSectionContainer = styled(SectionContainer)`
         /* stylelint-disable */
+        justify-content: space-between;
         -webkit-justify-content: space-between;
         /* stylelint-enable */
         left: 0;

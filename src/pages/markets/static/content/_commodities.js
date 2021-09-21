@@ -1,6 +1,6 @@
 import React from 'react'
 import { Localize } from 'components/localization'
-import FriendlySupport from 'images/svg/friendly-support.svg'
+import FriendlySupport from 'images/svg/markets/friendly-support.svg'
 import MetalAndOil from 'images/svg/precious-metals-and-oils.svg'
 import NoCommission from 'images/svg/no-commission.svg'
 import ResponsiveWebsite from 'images/svg/responsive-website.svg'

@@ -8,8 +8,8 @@ import GamStop from 'images/svg/gamstop.svg'
 import BeGambleAware from 'images/svg/responsible/begambleaware.svg'
 import Underage from 'images/svg/underage.svg'
 import UnderageMobile from 'images/svg/underage-mobile.svg'
-import Filtering from 'images/svg/filtering-controls.svg'
-import FilteringMobile from 'images/svg/filtering-controls-mobile.svg'
+import Filtering from 'images/svg/responsible/filtering-controls.svg'
+import FilteringMobile from 'images/svg/responsible/filtering-controls-mobile.svg'
 
 const help_content = [
     {

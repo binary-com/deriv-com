@@ -109,7 +109,7 @@ const testimonial_slides = [
         id: 'sammy',
         name: 'Sammy',
         date: '22 July 2021',
-        quote: <Localize translate_text="Great app, I love it!" />,
+        quote: <Localize translate_text="Deriv P2P is a great app, I love it!" />,
     },
     {
         id: 'amina',

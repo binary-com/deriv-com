@@ -148,6 +148,7 @@ module.exports = {
                 ],
                 gcm_sender_id: '370236002280',
                 gcm_user_visible_only: true,
+                crossOrigin: `use-credentials`,
                 // TODO: add translations and support for language routes e.g:
                 // localize: [
                 //     {

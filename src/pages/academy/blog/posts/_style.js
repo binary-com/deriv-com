@@ -87,15 +87,13 @@ export const HeroRightWrapper = styled.div`
 `
 export const HeroImageContainer = styled(Box)`
     position: absolute;
-    top: 10%;
-    right: 0%;
+    top: 0;
+    right: 0;
     max-height: 532px;
     overflow: hidden;
 
     @media (max-width: 1300px) {
         position: relative;
-        top: unset;
-        right: unset;
         max-height: 460px;
     }
 

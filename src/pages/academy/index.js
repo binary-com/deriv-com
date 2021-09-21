@@ -38,7 +38,7 @@ export const query = graphql`
             }
             market_news: blog(
                 filter: {
-                    tags: { tags_id: { tag_name: { _contains: "Market News" } } }
+                    tags: { tags_id: { tag_name: { _contains: "Market report" } } }
                     status: { _eq: "published" }
                 }
                 limit: 6
@@ -64,7 +64,7 @@ export const query = graphql`
             }
             market_news_eu: blog(
                 filter: {
-                    tags: { tags_id: { tag_name: { _contains: "Market News" } } }
+                    tags: { tags_id: { tag_name: { _contains: "Market report" } } }
                     status: { _eq: "published" }
                     hide_for_eu: { _eq: false }
                 }

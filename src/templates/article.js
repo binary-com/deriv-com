@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import {
+    ArticleTitle,
     Background,
     HeroContainer,
     BreadcrumbsWrapper,
@@ -34,7 +35,7 @@ import SocialSharing from '../pages/academy/components/_social-sharing'
 import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { SEO, Show, Box, Flex, SectionContainer } from 'components/containers'
-import { Header, QueryImage } from 'components/elements'
+import { QueryImage } from 'components/elements'
 import { convertDate } from 'common/utility'
 import RightArrow from 'images/svg/black-right-arrow.svg'
 
@@ -121,9 +122,9 @@ const ArticlesTemplate = (props) => {
                                         {post_data?.published_date &&
                                             convertDate(post_data?.published_date)}
                                     </InfoText>
-                                    <Header as="h1" type="page-title">
+                                    <ArticleTitle as="h1" type="page-title">
                                         {post_data?.blog_title}
-                                    </Header>
+                                    </ArticleTitle>
                                     <InfoText size="14px" mt="16px">
                                         {post_data?.read_time_in_minutes &&
                                             localize(post_data?.read_time_in_minutes + ' min read')}

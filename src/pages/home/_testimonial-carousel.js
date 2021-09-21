@@ -131,15 +131,15 @@ const TestimonialCarousel = ({ children, default_active = 0, height = '295px' })
         if (molder_ref) {
             const molder_element = molder_ref.current
             const flex_height = molder_element.offsetHeight
-            let height = flex_height + 'px'
+            let final_height = flex_height + 'px'
 
             // Safari browser issue fallback - offset height is undetectable
             if (flex_height == 0) {
-                height = 'fit-content'
+                final_height = 'fit-content'
                 container_ref.current.querySelector('.flexi-item').style.marginBottom = '40px'
             }
 
-            container_ref.current.style.height = height
+            container_ref.current.style.height = final_height
             container_ref.current.style.opacity = 1
         }
     }, [active])

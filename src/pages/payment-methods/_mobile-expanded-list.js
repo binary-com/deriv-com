@@ -39,14 +39,14 @@ const DetailsWrapper = styled(Flex)`
 const StyledItemDiv = styled.div`
     width: 50%;
     margin-right: 8px;
-    @media ${device.mobileM} {
+    @media ${device.mobileL} {
         width: 130px;
     }
 `
 const StyledKeyDiv = styled.div`
     width: 50%;
 
-    @media ${device.mobileM} {
+    @media ${device.mobileL} {
         max-width: 120px;
         display: flex;
         justify-content: flex-start;
@@ -63,7 +63,7 @@ const StyledRow = styled(Flex)`
 const ValueText = styled(Header)`
     text-align: right;
 
-    @media ${device.mobileM} {
+    @media ${device.mobileL} {
         text-align: left;
     }
 `

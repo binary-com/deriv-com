@@ -359,7 +359,12 @@ const payment_data = [
             // },
             {
                 method: <StyledIcon src={PaysafeCard} alt="PaysafeCard" />,
-                currencies: 'USD AUD GBP EUR',
+                currencies: (
+                    <Localize
+                        translate_text="USD AUD <0></0>GBP EUR"
+                        components={[<br key={0} />]}
+                    />
+                ),
                 min_max_deposit: (
                     <Localize
                         translate_text="5 - 1,000<0></0>5 - 10,000"
@@ -494,8 +499,8 @@ const payment_data = [
                 description: (
                     <Localize translate_text="Make deposits easily using your mobile. For clients in Uganda and Tanzania." />
                 ),
-                url: 'https://www.trustly.net/',
-                name: 'trustly',
+                url: 'https://beyonic.com/',
+                name: 'beyonic',
             },
             {
                 method: <StyledIcon src={Astropay} alt="Astropay" />,
@@ -657,7 +662,7 @@ const payment_data = [
             // },
             {
                 method: <StyledIcon src={Ethereum} alt="Ethereum" />,
-                currencies: 'USD',
+                currencies: 'ETH',
                 min_max_deposit: <Localize translate_text="No minimum" />,
                 min_max_withdrawal: <Localize translate_text="0.013" />,
                 deposit_time: <Localize translate_text="Funds available as soon as confirmed" />,
@@ -694,7 +699,7 @@ const payment_data = [
             // },
             {
                 method: <StyledIcon src={Litecoin} alt="Litecoin" />,
-                currencies: 'USD',
+                currencies: 'LTC',
                 min_max_deposit: <Localize translate_text="No minimum" />,
                 min_max_withdrawal: <Localize translate_text="0.085" />,
                 deposit_time: <Localize translate_text="Funds available as soon as confirmed" />,
@@ -731,7 +736,7 @@ const payment_data = [
             // },
             {
                 method: <StyledIcon src={UsdCoin} alt="UsdCoin" />,
-                currencies: 'USD',
+                currencies: 'USDC',
                 min_max_deposit: <Localize translate_text="No minimum" />,
                 min_max_withdrawal: <Localize translate_text="25" />,
                 deposit_time: <Localize translate_text="Funds available as soon as confirmed" />,
@@ -755,7 +760,7 @@ const payment_data = [
             // },
             {
                 method: <StyledIcon src={Tether} alt="Tether" />,
-                currencies: 'USD EUR AUD GBP',
+                currencies: 'USDT',
                 min_max_deposit: <Localize translate_text="No minimum" />,
                 min_max_withdrawal: <Localize translate_text="25" />,
                 deposit_time: <Localize translate_text="Funds available as soon as confirmed" />,

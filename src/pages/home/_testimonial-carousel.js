@@ -53,17 +53,21 @@ const renderNavigations = (count, active, setActive, animate) => {
     const has_prev = active !== 0
     const has_next = active < count - 1
 
+    const validSlide = (n) => {
+        return n >= 0 && n < count ? n : 0
+    }
+
     const previous = () => {
         if (has_prev) {
             animate(() => {
-                setActive((current_active) => current_active - 1)
+                setActive((current_active) => validSlide(current_active - 1))
             })
         }
     }
     const next = () => {
         if (has_next) {
             animate(() => {
-                setActive((current_active) => current_active + 1)
+                setActive((current_active) => validSlide(current_active + 1))
             })
         }
     }

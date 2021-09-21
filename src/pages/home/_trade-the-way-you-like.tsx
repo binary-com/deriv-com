@@ -6,7 +6,7 @@ import { localize } from 'components/localization'
 import { SectionContainer } from 'components/containers'
 import { OtherPlatform } from 'components/custom/other-platforms'
 
-type IsPpcRedirectProps = {
+type TradeTheWayYouLikeProps = {
     is_ppc_redirect: boolean
 }
 
@@ -27,7 +27,7 @@ const query = graphql`
     }
 `
 
-const TradeTheWayYouLike = ({ is_ppc_redirect }: IsPpcRedirectProps): React.ReactNode => {
+const TradeTheWayYouLike = ({ is_ppc_redirect }: TradeTheWayYouLikeProps): React.ReactNode => {
     const data = useStaticQuery(query)
     return (
         <StyledSection padding="5rem 2rem">

@@ -47,7 +47,12 @@ const Arrows = styled.img`
     cursor: pointer;
 
     @media ${device.tablet} {
-        margin-right: 32px;
+        &:nth-child(1) {
+            margin-right: 16px;
+        }
+        &:nth-child(2) {
+            margin-left: 16px;
+        }
     }
 `
 

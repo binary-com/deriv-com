@@ -56,8 +56,10 @@ const DP2PHome = () => {
     return (
         <Layout>
             <SEO
-                title={localize('Deriv P2P')}
-                description={localize('Hassle-free deposits and withdrawals')}
+                title={localize('Deriv P2P – peer-to-peer deposit and withdrawal service')}
+                description={localize(
+                    'With Deriv P2P your deposits and withdrawals are easy, fast, and efficient. Access now via the desktop or mobile app.',
+                )}
             />
 
             {is_mounted && (

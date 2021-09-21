@@ -12,7 +12,7 @@ import SoftwareDeveloper from 'images/svg/software-developer.svg'
 import CommunityManagers from 'images/svg/partners/community-managers.svg'
 import Apply from 'images/svg/partners/apply.svg'
 import Advertise from 'images/svg/partners/advertise.svg'
-import Earn from 'images/svg/earn.svg'
+import Earn from 'images/svg/partners/earn.svg'
 
 const StyledSection = styled(Container)`
     align-items: flex-start;

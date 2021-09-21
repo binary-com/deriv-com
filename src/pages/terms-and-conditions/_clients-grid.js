@@ -7,7 +7,7 @@ import { localize } from 'components/localization'
 // Icons
 import General from 'images/svg/general-tc.svg'
 import Trading from 'images/svg/trading-tc.svg'
-import Funds from 'images/svg/funds-transfers-tc.svg'
+import Funds from 'images/svg/terms-and-conditions/funds-transfers-tc.svg'
 import Security from 'images/svg/security-privacy-tc.svg'
 import Risk from 'images/svg/risk-tc.svg'
 import PDF from 'images/svg/pdf-icon-black.svg'

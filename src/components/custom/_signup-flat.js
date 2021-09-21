@@ -7,7 +7,7 @@ import { localize } from 'components/localization'
 import { Container } from 'components/containers'
 import device from 'themes/device.js'
 // SVG
-import Facebook from 'images/svg/facebook-blue.svg'
+import Facebook from 'images/svg/custom/facebook-blue.svg'
 import Google from 'images/svg/google.svg'
 
 const Wrapper = styled.div`

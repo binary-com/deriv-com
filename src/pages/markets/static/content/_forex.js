@@ -1,8 +1,8 @@
 import React from 'react'
 import { Localize } from 'components/localization'
 import AdvancedCharting from 'images/svg/markets/advanced-charting-widgets.svg'
-import Deposit from 'images/svg/deposit-and-withdrawal.svg'
-import FriendlySupport from 'images/svg/friendly-support.svg'
+import Deposit from 'images/svg/markets/deposit-and-withdrawal.svg'
+import FriendlySupport from 'images/svg/markets/friendly-support.svg'
 import Leverage from 'images/svg/leverage.svg'
 import ResponsiveWebsite from 'images/svg/responsive-website.svg'
 

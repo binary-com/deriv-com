@@ -109,7 +109,7 @@ const OtherApps = () => {
         <div>
             <StyledSectionContainer tablet={{ padding: '4rem 0' }}>
                 <Container fd="column">
-                    <StyledHeader type="heading-2" align="center">
+                    <StyledHeader as="h2" type="heading-2" align="center">
                         {localize('Check out our other apps')}
                     </StyledHeader>
                     <Flex tablet_direction="column" tablet_ai="center" mt="40px">

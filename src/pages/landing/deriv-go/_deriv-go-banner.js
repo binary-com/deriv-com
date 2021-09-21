@@ -126,7 +126,7 @@ const Banner = () => {
                     laptopM={{ max_width: '100%', pt: '40px' }}
                 >
                     <div>
-                        <StyledHeader color="white" width="64rem" type="heading-1">
+                        <StyledHeader as="h1" color="white" width="64rem" type="heading-1">
                             {localize('Trade forex, synthetics, and cryptocurrencies on the go')}
                         </StyledHeader>
                         <StyledSubTitle color="white" type="subtitle-1" weight="normal">

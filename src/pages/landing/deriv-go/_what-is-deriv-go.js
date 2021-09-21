@@ -79,7 +79,7 @@ const WhatIsDerivGo = () => {
             </StyledContainer>
             <Container>
                 <Flex width="1202px" fd="column" ai="center" jc="center">
-                    <StyledHeader type="heading-2" align="center">
+                    <StyledHeader as="h2" type="heading-2" align="center">
                         <Localize translate_text="What is Deriv GO" />
                     </StyledHeader>
                     <StyledText mt="16px" align="center">

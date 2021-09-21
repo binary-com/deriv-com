@@ -133,7 +133,7 @@ const FooterBanner = () => {
                     width="424px"
                     tabletL={{ max_width: '100%', mt: '40px' }}
                 >
-                    <StyledHeader color="white" type="heading-3">
+                    <StyledHeader as="h3" color="white" type="heading-3">
                         {localize('Start trading on the go')}
                     </StyledHeader>
                     <StyledSubTitle color="white" type="subtitle-2" weight="normal">

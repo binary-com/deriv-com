@@ -67,7 +67,7 @@ const WhyTradeDerivGo = () => {
         <div>
             <SectionContainer>
                 <Container fd="column">
-                    <StyledHeader type="heading-2" align="center">
+                    <StyledHeader as="h2" type="heading-2" align="center">
                         {localize('Why trade with Deriv GO')}
                     </StyledHeader>
                     <Flex tablet_direction="column" tablet_ai="center" mt="40px" mr="8px">
@@ -77,7 +77,7 @@ const WhyTradeDerivGo = () => {
                                     <div>
                                         <img src={index.icon} width="72px" height="72px" alt="" />
                                     </div>
-                                    <Header type="heading-3" align="center" mt="24px">
+                                    <Header as="h3" type="heading-3" align="center" mt="24px">
                                         {index.title}
                                     </Header>
                                     <StyledText align="center" mt="8px">

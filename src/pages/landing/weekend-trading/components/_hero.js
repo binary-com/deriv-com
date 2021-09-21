@@ -10,8 +10,32 @@ import { LinkButton } from 'components/form'
 import device from 'themes/device.js'
 
 const BackgroundWrapper = styled(Background)`
-    background-color: transparent;
-    height: 100%;
+    background-size: cover;
+    background-position: bottom right;
+    @media ${device.desktopL} {
+        height: 70rem !important;
+    }
+    @media ${device.desktop} {
+        height: 65rem !important;
+    }
+    @media ${device.tabletL} {
+        height: 155rem !important;
+    }
+    @media ${device.tablet} {
+        height: 136rem !important;
+    }
+    @media ${device.tabletS} {
+        height: 105rem !important;
+    }
+    @media ${device.mobileL} {
+        height: 95rem !important;
+    }
+    @media ${device.mobileM} {
+        height: 90rem !important;
+    }
+    @media ${device.mobileS} {
+        height: 80rem !important;
+    }
 `
 
 const Wrapper = styled(Container)`
@@ -134,7 +158,7 @@ const TryButton = styled(LinkButton)`
 const HeroComponent = ({ title, content, background_data }) => {
     return (
         <BackgroundWrapper data={background_data}>
-            <Wrapper pt="2rem" pb="28rem" justify="space-between">
+            <Wrapper justify="space-between">
                 <InformationWrapper height="unset" direction="column">
                     <StyledHeader as="h1" weight={400}>
                         {title}

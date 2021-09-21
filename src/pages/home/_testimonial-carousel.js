@@ -14,12 +14,16 @@ const CarouselContainer = styled(Flex)`
     .carousel-item {
         position: relative;
         overflow: hidden;
-        transition: height 0.3s ease-in;
+        transition: all 0.3s ease-in;
         align-items: center;
 
         .flexible-height {
             position: relative;
             transition: opacity 0.3s ease-in;
+
+            .flexi-item {
+                margin-bottom: 0;
+            }
         }
     }
     .height-scanner {
@@ -44,19 +48,23 @@ const Arrows = styled.img`
     }
 `
 
-const renderNavigations = (count, active, setActive) => {
+const renderNavigations = (count, active, setActive, animate) => {
     const is_carousel = count > 1
     const has_prev = active !== 0
     const has_next = active < count - 1
 
     const previous = () => {
         if (has_prev) {
-            setActive((current_active) => current_active - 1)
+            animate(() => {
+                setActive((current_active) => current_active - 1)
+            })
         }
     }
     const next = () => {
         if (has_next) {
-            setActive((current_active) => current_active + 1)
+            animate(() => {
+                setActive((current_active) => current_active + 1)
+            })
         }
     }
 
@@ -85,22 +93,31 @@ const TestimonialCarousel = ({ children, default_active = 0, height = '295px' })
     const [active, setActive] = useState(default_active)
     const children_array = Children.toArray(children)
     const container_ref = useRef(null)
-    const scanner_ref = useRef(null)
+    const molder_ref = useRef(null)
     const flexible_ref = useRef(null)
     const has_active = active !== null
 
-    const navigations = renderNavigations(children_array.length, active, setActive)
+    const animate = (action) => {
+        container_ref.current.style.opacity = 0
+
+        setTimeout(() => {
+            action()
+        }, 300)
+    }
+
+    const navigations = renderNavigations(children_array.length, active, setActive, animate)
 
     useEffect(() => {
         setActive(default_active)
     }, [default_active])
 
     useEffect(() => {
-        if (scanner_ref) {
-            const scanner_element = scanner_ref.current
+        if (molder_ref) {
+            const scanner_element = molder_ref.current
             const flex_height = scanner_element.offsetHeight
 
             container_ref.current.style.height = flex_height + 'px'
+            container_ref.current.style.opacity = 1
         }
     }, [active])
     return (
@@ -132,7 +149,7 @@ const TestimonialCarousel = ({ children, default_active = 0, height = '295px' })
             </Flex>
             <Flex
                 className="height-scanner"
-                ref={scanner_ref}
+                ref={molder_ref}
                 position="absolute"
                 p="0 50px"
                 opacity="0"
@@ -149,7 +166,6 @@ const TestimonialCarousel = ({ children, default_active = 0, height = '295px' })
 }
 
 TestimonialCarousel.propTypes = {
-    // autoplay: PropTypes.boolean,
     children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
     default_active: PropTypes.number,
     height: PropTypes.string,

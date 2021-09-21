@@ -241,7 +241,7 @@ const testimonial_slides = [
 
 const ClientSlide = ({ quote, name, date }) => (
     <Flex direction="column" height="100%" jc="space-between">
-        <ClientTestimonial size={'24px'} weight={400} lh={'36px'}>
+        <ClientTestimonial size={'24px'} weight={400} lh={'36px'} className="flexi-item">
             {quote}
         </ClientTestimonial>
         <Flex direction="column" height="fit-content">

@@ -55,7 +55,7 @@ const SignupSuccess = () => {
         const email = params.get('email')
         const success_url = `/${getLanguage()}/signup-success`
 
-        setRegisteredEmail(email)
+        setRegisteredEmail(email?.replaceAll(' ', '+'))
         navigate(email ? success_url : `/${getLanguage()}/`, { replace: true })
     }, [])
 

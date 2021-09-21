@@ -51,12 +51,12 @@ const renderNavigations = (count, active, setActive) => {
 
     const previous = () => {
         if (has_prev) {
-            setActive((active) => active - 1)
+            setActive((current_active) => current_active - 1)
         }
     }
     const next = () => {
         if (has_next) {
-            setActive((active) => active + 1)
+            setActive((current_active) => current_active + 1)
         }
     }
 

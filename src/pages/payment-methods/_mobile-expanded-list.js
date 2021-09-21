@@ -268,7 +268,7 @@ const MobileExpandedList = ({ is_crypto, is_fiat_onramp, is_dp2p, locale, paymen
                                     onClick={() => window.open(payment_data.url, '_blank')}
                                     tertiary
                                 >
-                                    {localize('More detail')}
+                                    {localize('Learn more')}
                                 </StyledButton>
                             )}
                         </Flex>

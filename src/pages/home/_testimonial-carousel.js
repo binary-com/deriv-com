@@ -11,6 +11,10 @@ import device from 'themes/device'
 const CarouselItem = styled(Flex)`
     overflow: hidden;
     transition: all 0.3s ease-in;
+
+    @media ${device.tablet} {
+        height: auto !important;
+    }
 `
 
 const FlexiItem = styled(Flex)`
@@ -23,6 +27,10 @@ const FlexiItem = styled(Flex)`
 
     .flexi-item {
         margin-bottom: 0;
+
+        @media ${device.tablet} {
+            margin-bottom: 20px;
+        }
     }
 `
 

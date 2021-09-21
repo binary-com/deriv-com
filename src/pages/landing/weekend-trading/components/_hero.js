@@ -110,32 +110,23 @@ const HeroContent = styled(Flex)`
     }
 `
 const StyledHeader = styled(Header)`
-    padding-top: 35px;
+    font-size: 60px !important;
     color: var(--color-black-3);
-    line-height: 9rem;
-    font-weight: 600;
+    line-height: 8rem !important;
     display: flex;
-    font-size: 70px;
 
     @media ${device.laptopM} {
         width: 100%;
-        font-size: 60px;
-        line-height: 8rem;
     }
     @media ${device.tabletL} {
-        font-size: 43px;
-        line-height: 7rem;
+        font-size: 43px !important;
+        line-height: 7rem !important;
     }
     @media ${device.mobileL} {
         margin-top: 1rem;
-        font-size: 40px;
-        line-height: 50px;
+        font-size: 40px !important;
+        line-height: 50px !important;
         padding-top: 3px;
-    }
-    @media ${device.mobileXS} {
-        font-size: 30px;
-        padding-top: 3px;
-        line-height: 40px;
     }
 `
 
@@ -158,9 +149,9 @@ const TryButton = styled(LinkButton)`
 const HeroComponent = ({ title, content, background_data }) => {
     return (
         <BackgroundWrapper data={background_data}>
-            <Wrapper justify="space-between">
+            <Wrapper pt="5rem" justify="space-between">
                 <InformationWrapper height="unset" direction="column">
-                    <StyledHeader as="h1" weight={400}>
+                    <StyledHeader as="h1" weight={600}>
                         {title}
                     </StyledHeader>
                     <HeroContent direction="column" justify="flex-start">

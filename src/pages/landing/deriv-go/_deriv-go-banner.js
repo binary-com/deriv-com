@@ -7,7 +7,11 @@ import { Header, QueryImage } from 'components/elements'
 import device, { size } from 'themes/device.js'
 import DerivGoBg from 'images/common/deriv-go/hero-bg.png'
 import DerivGoMobileBg from 'images/common/deriv-go/hero-mobile-bg.png'
-import { deriv_go_playstore_url, deriv_go_huaweiappgallery_url } from 'common/constants'
+import {
+    deriv_go_playstore_url,
+    deriv_go_huaweiappgallery_url,
+    deriv_go_ios_url,
+} from 'common/constants'
 import { isBrowser } from 'common/utility'
 
 const query = graphql`
@@ -147,7 +151,7 @@ const Banner = () => {
                             </AppButton>
                             <AppButton
                                 external="true"
-                                to=""
+                                to={deriv_go_ios_url}
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >

@@ -7,7 +7,11 @@ import { Header, QueryImage } from 'components/elements'
 import device, { size } from 'themes/device.js'
 import BannerBg from 'images/common/deriv-go/banner.png'
 import BannerMobileBg from 'images/common/deriv-go/banner-m.png'
-import { deriv_go_playstore_url, deriv_go_huaweiappgallery_url } from 'common/constants'
+import {
+    deriv_go_playstore_url,
+    deriv_go_huaweiappgallery_url,
+    deriv_go_ios_url,
+} from 'common/constants'
 import { isBrowser } from 'common/utility'
 
 const query = graphql`
@@ -152,7 +156,12 @@ const FooterBanner = () => {
                         >
                             <QueryImage data={data['google_play']} alt="google play logo" />
                         </AppButton>
-                        <AppButton external="true" to="" target="_blank" rel="noopener noreferrer">
+                        <AppButton
+                            external="true"
+                            to={deriv_go_ios_url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
                             <QueryImage data={data['app_store']} alt="app store logo" />
                         </AppButton>
                         <AppButton

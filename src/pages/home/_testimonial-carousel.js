@@ -11,10 +11,6 @@ import device from 'themes/device'
 const CarouselItem = styled(Flex)`
     overflow: hidden;
     transition: all 0.3s ease-in;
-
-    @media ${device.tablet} {
-        height: auto !important;
-    }
 `
 
 const FlexiItem = styled(Flex)`
@@ -133,13 +129,21 @@ const TestimonialCarousel = ({ children, default_active = 0, height = '295px' })
 
     useEffect(() => {
         if (molder_ref) {
-            const scanner_element = molder_ref.current
-            const flex_height = scanner_element.offsetHeight
+            const molder_element = molder_ref.current
+            const flex_height = molder_element.offsetHeight
+            let height = flex_height + 'px'
 
-            container_ref.current.style.height = flex_height + 'px'
+            // Safari browser issue fallback - offset height is undetectable
+            if (flex_height == 0) {
+                height = 'fit-content'
+                container_ref.current.querySelector('.flexi-item').style.marginBottom = '40px'
+            }
+
+            container_ref.current.style.height = height
             container_ref.current.style.opacity = 1
         }
     }, [active])
+
     return (
         <Flex
             position="relative"

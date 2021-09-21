@@ -129,7 +129,7 @@ export const WrittenbyText = styled(Text)`
 `
 export const BodyContainer = styled(Container)`
     align-items: flex-start;
-    padding: 40px 0 40px;
+    padding: 6rem 0 40px;
 
     @media ${device.laptop} {
         flex-direction: column;

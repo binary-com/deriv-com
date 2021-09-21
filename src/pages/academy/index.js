@@ -9,7 +9,7 @@ import Hero from './components/_hero'
 import MarketNews from './components/_markets-news'
 import Layout from 'components/layout/layout'
 import { Container, SEO, Flex } from 'components/containers'
-import { localize, WithIntl, LocalizedLink } from 'components/localization'
+import { localize, WithIntl } from 'components/localization'
 import { Carousel, QueryImage } from 'components/elements'
 import { DerivStore } from 'store'
 
@@ -18,6 +18,10 @@ const MainWrapper = styled(Flex)`
     flex-direction: column;
     overflow: hidden;
 `
+const StyledLink = styled.a`
+    text-decoration: none;
+`
+
 export const query = graphql`
     query HomepageQuery {
         directus {
@@ -357,10 +361,9 @@ const DerivBlog = ({ data }) => {
                 <Carousel has_autoplay autoplay_interval={6000} {...settings}>
                     {homepage_banner_data.map((page_data) => {
                         return (
-                            <LocalizedLink
+                            <StyledLink
                                 key={page_data.id}
-                                to={page_data.link}
-                                style={{ textDecoration: 'none' }}
+                                href={page_data.link}
                                 rel="noopener noreferrer"
                                 target="_blank"
                             >
@@ -374,7 +377,7 @@ const DerivBlog = ({ data }) => {
                                     title={page_data.heading}
                                     description={page_data.sub_heading}
                                 />
-                            </LocalizedLink>
+                            </StyledLink>
                         )
                     })}
                 </Carousel>

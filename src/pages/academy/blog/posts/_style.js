@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 import { Box, Flex, Container } from 'components/containers'
-import { LocalizedLinkText, Text } from 'components/elements'
+import { LocalizedLinkText, Header, Text } from 'components/elements'
 import device from 'themes/device'
 
 export const Background = styled.div`
@@ -49,6 +49,11 @@ export const BreadcrumbsWrapper = styled(Container)`
         max-width: 58.8rem;
         padding: 20px 16px;
         flex-direction: column;
+    }
+`
+export const ArticleTitle = styled(Header)`
+    @media ${device.desktopS} {
+        font-size: 48px;
     }
 `
 export const HeroLeftWrapper = styled(Box)`

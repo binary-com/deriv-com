@@ -196,13 +196,22 @@ const WhatAreOptions = () => {
                                 </ImgWrapper>
                                 <TextWrapper>
                                     <Text m="1.6rem 0 4rem 0">
-                                        <Localize
-                                            translate_text={is_eu_country ? "<0>Without a multiplier</0>, if the market goes up by 25%, you'll gain 25% * $100 = <1>$25 profit<1>." : "<0>Without a multiplier</0>, if the market goes up by 2%, you'll gain 2% * $100 = <1>$2 profit<1>."}
-                                            components={[
-                                                <strong key={0} />,
-                                                <ProfitText key={1} />,
-                                            ]}
-                                        />
+                                        {is_eu_country ?
+                                            <Localize
+                                                translate_text="<0>Without a multiplier</0>, if the market goes up by 25%, you'll gain 25% * $100 = <1>$25 profit<1>."
+                                                components={[
+                                                    <strong key={0} />,
+                                                    <ProfitText key={1} />,
+                                                ]}
+                                            /> :
+                                            <Localize
+                                                translate_text="<0>Without a multiplier</0>, if the market goes up by 2%, you'll gain 2% * $100 = <1>$2 profit<1>."
+                                                components={[
+                                                    <strong key={0} />,
+                                                    <ProfitText key={1} />,
+                                                ]}
+                                            />
+                                        }
                                     </Text>
                                 </TextWrapper>
                             </RowColumn>
@@ -216,13 +225,22 @@ const WhatAreOptions = () => {
 
                                 <TextWrapper>
                                     <Text m="1.6rem 0 4rem 0">
-                                        <Localize
-                                            translate_text={is_eu_country ? "<0>With a x5 multiplier</0>, if the market goes up by 25%, you'll gain 25% * $100 * 5 = <1>$125 profit</1>." : "<0>With a x500 multiplier</0>, if the market goes up by 2%, you'll gain 2% * $100 * 500 = <1>$1,000 profit</1>."}
-                                            components={[
-                                                <strong key={0} />,
-                                                <ProfitText key={1} />,
-                                            ]}
-                                        />
+                                        {is_eu_country ?
+                                            <Localize
+                                                translate_text="<0>With a x5 multiplier</0>, if the market goes up by 25%, you'll gain 25% * $100 * 5 = <1>$125 profit</1>."
+                                                components={[
+                                                    <strong key={0} />,
+                                                    <ProfitText key={1} />,
+                                                ]}
+                                            /> :
+                                            <Localize
+                                                translate_text="<0>With a x500 multiplier</0>, if the market goes up by 2%, you'll gain 2% * $100 * 500 = <1>$1,000 profit</1>."
+                                                components={[
+                                                    <strong key={0} />,
+                                                    <ProfitText key={1} />,
+                                                ]}
+                                            />
+                                        }
                                     </Text>
                                 </TextWrapper>
                             </RowColumn>
@@ -237,10 +255,16 @@ const WhatAreOptions = () => {
 
                                 <TextWrapper>
                                     <Text m="1.6rem 0 4rem 0">
-                                        <Localize
-                                            translate_text={is_eu_country ? "<0>With an equivalent $100 position on CFDs</0>, with 1:5 leverage, you risk 25% * $500 = <1>$125 loss</1>." : "<0>With an equivalent $100 position on CFDs</0>, with 1:500 leverage, you risk 2% * $50,000 = <1>$1,000 loss</1>."}
-                                            components={[<strong key={0} />, <LossText key={1} />]}
-                                        />
+                                        {is_eu_country ?
+                                             <Localize
+                                                translate_text="<0>With an equivalent $100 position on CFDs</0>, with 1:5 leverage, you risk 25% * $500 = <1>$125 loss</1>."
+                                                components={[<strong key={0} />, <LossText key={1} />]}
+                                            /> :
+                                            <Localize
+                                                translate_text="<0>With an equivalent $100 position on CFDs</0>, with 1:500 leverage, you risk 2% * $50,000 = <1>$1,000 loss</1>."
+                                                components={[<strong key={0} />, <LossText key={1} />]}
+                                            />
+                                        }
                                     </Text>
                                 </TextWrapper>
                             </RowColumn>
@@ -254,10 +278,17 @@ const WhatAreOptions = () => {
 
                                 <TextWrapper>
                                     <Text mt="1.6rem">
-                                        <Localize
-                                            translate_text={is_eu_country ? "<0>With a x5 multiplier</0>, if the market goes down 25%, you'll <1>lose only $100</1>. An automatic stop out kicks in if your loss reaches your stake amount." : "<0>With a x500 multiplier</0>, if the market goes down 2%, you'll <1>lose only $100</1>. An automatic stop out kicks in if your loss reaches your stake amount."}
-                                            components={[<strong key={0} />, <LossText key={1} />]}
-                                        />
+                                        {is_eu_country ?
+                                            <Localize
+                                                translate_text="<0>With a x5 multiplier</0>, if the market goes down 25%, you'll <1>lose only $100</1>. An automatic stop out kicks in if your loss reaches your stake amount."
+                                                components={[<strong key={0} />, <LossText key={1} />]}
+                                            /> :
+                                            <Localize
+                                                translate_text="<0>With a x500 multiplier</0>, if the market goes down 2%, you'll <1>lose only $100</1>. An automatic stop out kicks in if your loss reaches your stake amount."
+                                                components={[<strong key={0} />, <LossText key={1} />]}
+                                            />
+                                        }
+
                                     </Text>
                                 </TextWrapper>
                             </RowColumn>

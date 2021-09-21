@@ -16,7 +16,10 @@ export const HeroContainer = styled(Container)`
     height: auto;
     min-height: 566px;
     padding: 76px 0 40px;
-    align-items: flex-start;
+    justify-content: flex-start;
+    /* stylelint-disable */
+    -webkit-justify-content: flex-start;
+    /* stylelint-enable */
     margin-bottom: 86px;
 
     @media (max-width: 1300px) {
@@ -156,8 +159,6 @@ export const RightBodyContainerWrapper = styled(Flex)`
 `
 export const SideBarContainer = styled(Flex)`
     max-width: 282px;
-    top: 0;
-    left: 0;
 
     @media ${device.laptop} {
         margin: 24px 0 32px;
@@ -202,8 +203,6 @@ export const PreviewContainer = styled(Box)`
     font-size: 16px;
     max-width: 792px;
     width: 100%;
-    left: 0;
-    top: 0;
 
     & br {
         display: none;

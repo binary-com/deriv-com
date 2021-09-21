@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
 import {
     ArticleTitle,
     Background,
@@ -98,25 +97,12 @@ const BlogPreview = () => {
         imgSrcMobile: footer_banner_data?.mobile_banner_image?.id,
     }
 
-    const StyledSectionContainer = styled(SectionContainer)`
-        /* stylelint-disable */
-        justify-content: space-between;
-        -webkit-justify-content: space-between;
-        /* stylelint-enable */
-        left: 0;
-        top: 0;
-        /* stylelint-disable */
-        flex: 1 1 15em;
-        -webkit-flex: 1 1 15em;
-        /* stylelint-enable */
-    `
-
     return (
         <Layout type="academy">
             <SEO description={post_data?.meta_description} title={post_data?.meta_title} no_index />
             <>
                 {post_data && (
-                    <StyledSectionContainer padding="0" position="relative">
+                    <SectionContainer padding="0" position="relative">
                         <Background>
                             <BreadcrumbsWrapper>
                                 <Flex jc="flex-start" ai="center">
@@ -305,7 +291,7 @@ const BlogPreview = () => {
                                 </Flex>
                             </RightBodyContainerWrapper>
                         </BodyContainer>
-                    </StyledSectionContainer>
+                    </SectionContainer>
                 )}
             </>
         </Layout>

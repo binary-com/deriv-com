@@ -16,11 +16,7 @@ export const HeroContainer = styled(Container)`
     height: auto;
     min-height: 566px;
     padding: 76px 0 40px;
-    justify-content: flex-start;
-    /* stylelint-disable */
-    -webkit-justify-content: flex-start;
-    /* stylelint-enable */
-    margin-bottom: 86px;
+    align-items: flex-start;
 
     @media (max-width: 1300px) {
         min-height: 600px;
@@ -29,12 +25,10 @@ export const HeroContainer = styled(Container)`
     @media ${device.laptopM} {
         padding-top: 65px;
         min-height: 500px;
-        margin-bottom: 48px;
     }
     @media ${device.laptop} {
         width: 100%;
         max-width: 58.8rem;
-        margin-bottom: 0;
         padding: 36px 16px 0;
         flex-direction: column;
     }
@@ -87,13 +81,15 @@ export const HeroRightWrapper = styled.div`
 `
 export const HeroImageContainer = styled(Box)`
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 10%;
+    right: 0%;
     max-height: 532px;
     overflow: hidden;
 
     @media (max-width: 1300px) {
         position: relative;
+        top: unset;
+        right: unset;
         max-height: 460px;
     }
 
@@ -133,7 +129,7 @@ export const WrittenbyText = styled(Text)`
 `
 export const BodyContainer = styled(Container)`
     align-items: flex-start;
-    padding: 0 0 40px;
+    padding: 40px 0 40px;
 
     @media ${device.laptop} {
         flex-direction: column;

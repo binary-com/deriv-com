@@ -254,7 +254,7 @@ const SignupNew = ({
 
             <InputGroup>
                 <Input
-                    id="email"
+                    id="dm-email-input"
                     name="email"
                     type="text"
                     border="solid 1px var(--color-grey-7)"

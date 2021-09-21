@@ -60,7 +60,7 @@ const SignupSimple = ({
                 <InputGroup>
                     <InputWrapper>
                         <Input
-                            id="email"
+                            id="dm-email-input"
                             name="email"
                             type="text"
                             error={email_error_msg}

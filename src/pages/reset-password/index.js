@@ -112,7 +112,7 @@ const ResetPassword = () => (
                     <Form noValidate>
                         <InputGroup>
                             <Input
-                                id="email"
+                                id="dm-email-input"
                                 name="email"
                                 error={errors.email}
                                 value={trimSpaces(values.email)}
@@ -143,7 +143,12 @@ const ResetPassword = () => (
                             >
                                 {localize('Return to log in')}
                             </StyledButton>
-                            <StyledButton secondary="true" disabled={isSubmitting} type="submit">
+                            <StyledButton
+                                id="dm-pass-reset-button"
+                                secondary="true"
+                                disabled={isSubmitting}
+                                type="submit"
+                            >
                                 {localize('Reset my password')}
                             </StyledButton>
                         </ButtonContainer>

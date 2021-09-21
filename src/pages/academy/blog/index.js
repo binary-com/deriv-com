@@ -58,7 +58,7 @@ const ArticlesPage = ({ data }) => {
         : data.directus.blog
 
     return (
-        <Layout>
+        <Layout type="academy">
             <SEO
                 title={localize('Articles, trading guide and resources | Deriv')}
                 description={localize(

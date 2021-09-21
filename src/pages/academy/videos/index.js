@@ -58,7 +58,7 @@ const VideosPage = ({ data }) => {
         : data.directus.videos
 
     return (
-        <Layout>
+        <Layout type="academy">
             <SEO
                 title={localize('Latest videos, tutorials, webinars for trading | Deriv')}
                 description={localize(

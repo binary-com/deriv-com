@@ -8,27 +8,26 @@ import ArrowLeftFade from 'images/svg/testimonials/arrow-left-fade.svg'
 import ArrowRightFade from 'images/svg/testimonials/arrow-right-fade.svg'
 import device from 'themes/device'
 
-const CarouselContainer = styled(Flex)`
-    position: relative;
+const CarouselItem = styled(Flex)`
+    overflow: hidden;
+    transition: all 0.3s ease-in;
+`
 
-    .carousel-item {
-        position: relative;
-        overflow: hidden;
-        transition: all 0.3s ease-in;
-        align-items: center;
+const FlexiItem = styled(Flex)`
+    transition: opacity 0.3s ease-in;
 
-        .flexible-height {
-            position: relative;
-            transition: opacity 0.3s ease-in;
+    /* 
+     class from a children passed to this component 
+     this class is essential to achieve the transition effect
+    */
 
-            .flexi-item {
-                margin-bottom: 0;
-            }
-        }
+    .flexi-item {
+        margin-bottom: 0;
     }
-    .height-scanner {
-        opacity: 0;
-    }
+`
+
+const Molder = styled(Flex)`
+    opacity: 0;
 `
 
 const Navigation = styled(Flex)`
@@ -54,7 +53,16 @@ const renderNavigations = (count, active, setActive, animate) => {
     const has_next = active < count - 1
 
     const validSlide = (n) => {
-        return n >= 0 && n < count ? n : 0
+        // values that are out of slide range will return it's respective boundaries
+        if (n >= count) {
+            return count - 1
+        }
+
+        if (n < 0) {
+            return 0
+        }
+
+        return n
     }
 
     const previous = () => {
@@ -125,47 +133,47 @@ const TestimonialCarousel = ({ children, default_active = 0, height = '295px' })
         }
     }, [active])
     return (
-        <CarouselContainer
+        <Flex
+            position="relative"
             direction="column"
             height={height}
             tablet={{
                 height: '100% !important',
             }}
         >
-            <Flex
-                className="carousel-item"
+            <CarouselItem
                 ref={container_ref}
+                position="relative"
+                ai="center"
                 tablet={{
                     direction: 'column',
                 }}
             >
-                <Flex
-                    className="flexible-height"
+                <FlexiItem
                     ref={flexible_ref}
-                    p={'0 50px'}
+                    p="0 50px"
                     height="100%"
+                    position="relative"
                     tablet={{
                         p: '0px',
                     }}
                 >
                     {has_active && children_array[active]}
-                </Flex>
-            </Flex>
-            <Flex
-                className="height-scanner"
+                </FlexiItem>
+            </CarouselItem>
+            <Molder
                 ref={molder_ref}
                 position="absolute"
                 p="0 50px"
-                opacity="0"
                 height="fit-content"
                 tablet={{
                     p: '0px',
                 }}
             >
                 {has_active && children_array[active]}
-            </Flex>
+            </Molder>
             {navigations}
-        </CarouselContainer>
+        </Flex>
     )
 }
 

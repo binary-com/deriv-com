@@ -33,24 +33,12 @@ const ClientFlex = styled(Flex)`
 `
 
 const ClientCard = styled(Flex)`
-    &.right {
-        position: relative;
-    }
     .trustpilot-container {
         margin-top: 54px;
     }
 
     @media ${device.tabletS} {
         max-width: 100% !important;
-
-        &.right {
-            h2 {
-                margin-bottom: 8px;
-            }
-            .dp2p-text {
-                margin-top: 8px;
-            }
-        }
     }
 `
 
@@ -280,7 +268,6 @@ const WhatOurClientsSay = () => {
                     tablet_direction="column"
                 >
                     <ClientCard
-                        className="left"
                         direction="column"
                         mr="36px"
                         max_width="384px"
@@ -294,7 +281,7 @@ const WhatOurClientsSay = () => {
                             {localize('What our clients say about Deriv')}
                         </Header>
                         <TrustPilotWidget
-                            m={'25px 0 0 0'}
+                            m="25px 0 0 0"
                             width="240px"
                             height="100px"
                             tablet={{
@@ -320,7 +307,7 @@ const WhatOurClientsSay = () => {
                             </div>
                         </TrustPilotWidget>
                     </ClientCard>
-                    <ClientCard className="right" direction="column">
+                    <ClientCard position="relative" direction="column">
                         <QuoteIcon src={Quote} />
                         <Flex
                             ml="auto"

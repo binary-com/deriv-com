@@ -201,7 +201,7 @@ const ArticleEmailBanner = () => {
         const message = typeof param === 'object' ? param.target.value : param
 
         if (type == 'email') {
-            setEmailErrorMsg(validateEmail(message.replace(/\s/g, '')))
+            setEmailErrorMsg(validateEmail(message))
         }
 
         if (type == 'name') {
@@ -294,6 +294,7 @@ const ArticleEmailBanner = () => {
                             type="text"
                             value={name}
                             error={name_error_msg}
+                            maxLength="70"
                             required
                             onChange={handleInputNameChange}
                         />
@@ -322,6 +323,7 @@ const ArticleEmailBanner = () => {
                             id="email"
                             name="email"
                             type="text"
+                            maxLength="254"
                             value={email}
                             required
                             onChange={handleInputChange}

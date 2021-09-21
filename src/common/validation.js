@@ -5,6 +5,7 @@ const validation_regex = {
     url: /^[\w|\-|.]+$/,
     alphabetic: /^[a-zA-Z]+$/,
     number: /^\d+$/,
+    whitespace: /^\s+$/,
 }
 
 const validation = {
@@ -47,6 +48,13 @@ const validation = {
     alphabetic: (input, message) => {
         if (!validation_regex.alphabetic.test(input)) {
             return message ? message : localize('Please enter only alphabetic characters')
+        } else {
+            return null
+        }
+    },
+    whitespace: (input, message) => {
+        if (!validation_regex.whitespace.test(input)) {
+            return message ? message : localize('Please remove space')
         } else {
             return null
         }

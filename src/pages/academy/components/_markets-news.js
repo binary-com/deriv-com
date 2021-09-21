@@ -80,7 +80,6 @@ const MarketNews = ({ data }) => {
                                     />
                                     <Flex ml="8px" fd="column">
                                         <Header type="paragraph-2" color="blue-9">
-                                            {/* We'll stick to just weekly report for phase 1 */}
                                             <StyledSpan>Market report</StyledSpan>
                                         </Header>
                                         <Header mt="8px" type="paragraph-1" weight="bold">

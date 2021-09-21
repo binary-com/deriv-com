@@ -156,6 +156,8 @@ export const RightBodyContainerWrapper = styled(Flex)`
 `
 export const SideBarContainer = styled(Flex)`
     max-width: 282px;
+    top: 0;
+    left: 0;
 
     @media ${device.laptop} {
         margin: 24px 0 32px;
@@ -200,6 +202,8 @@ export const PreviewContainer = styled(Box)`
     font-size: 16px;
     max-width: 792px;
     width: 100%;
+    left: 0;
+    top: 0;
 
     & br {
         display: none;

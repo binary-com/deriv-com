@@ -61,11 +61,25 @@ const QuoteIcon = styled.img`
 
 const ClientTestimonial = styled(Text)`
     margin-bottom: 40px;
+
+    @media ${device.tablet} {
+        font-size: 18px;
+    }
 `
 
 const ClientName = styled(Text)`
     color: var(--color-black-3);
     margin-bottom: 5px;
+
+    @media ${device.tablet} {
+        font-size: 14px;
+    }
+`
+
+const Date = styled(Text)`
+    @media ${device.tablet} {
+        font-size: 10px;
+    }
 `
 
 const testimonial_slides = [
@@ -236,7 +250,7 @@ const ClientSlide = ({ quote, name, date }) => (
             <ClientName size={'16px'} weight={700}>
                 {name}
             </ClientName>
-            <Text size={'12px'}>{date}</Text>
+            <Date size={'12px'}>{date}</Date>
         </Flex>
     </Flex>
 )

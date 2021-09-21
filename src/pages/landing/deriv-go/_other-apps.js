@@ -61,8 +61,8 @@ const Card = styled(Flex)`
     padding: 80px 24px;
     border-radius: 12px;
     box-shadow: 0 16px 40px rgba(198, 198, 198, 0.3);
-    margin-right: 2.5rem;
-    margin-bottom: 2rem;
+    margin-right: 25px;
+    margin-bottom: 20px;
     align-items: center;
 
     :last-child {
@@ -119,7 +119,7 @@ const OtherApps = () => {
                                     <div>
                                         <img src={index.icon} alt="" />
                                     </div>
-                                    <Header align="center" type="heading-3" mt="8px">
+                                    <Header align="center" as="h3" type="heading-3" mt="8px">
                                         {index.title}
                                     </Header>
                                     <StyledText>{index.content}</StyledText>

@@ -20,7 +20,7 @@ const Container = styled(Box)`
         width: 84%;
     }
     @media ${device.laptopM} {
-        flex-direction: ${(props) => (props.laptop_direction ? props.laptop_direction : '')};
+        flex-direction: ${(props) => props.laptop_direction};
     }
     @media ${device.desktopL} {
         max-width: 1600px;
@@ -29,7 +29,7 @@ const Container = styled(Box)`
         width: 90%;
         padding-left: 0;
         padding-right: 0;
-        flex-direction: ${(props) => (props.tablet_direction ? props.tablet_direction : '')};
+        flex-direction: ${(props) => props.tablet_direction};
     }
 `
 

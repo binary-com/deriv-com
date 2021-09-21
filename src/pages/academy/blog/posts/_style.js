@@ -133,6 +133,7 @@ export const BodyContainer = styled(Container)`
 
     @media ${device.laptop} {
         flex-direction: column;
+        padding: 0 0 40px;
         margin-top: 24px;
         max-width: 58.8rem;
     }

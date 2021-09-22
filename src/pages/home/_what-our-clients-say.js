@@ -96,7 +96,7 @@ const testimonial_slides = [
         name: 'O.Silva',
         date: '9 January 2021',
         quote: (
-            <Localize translate_text="Deriv is the best broker in the world so far in terms of the assets they offer, ease of withdrawal and deposits plus other services. Keep on giving us the best, Deriv!" />
+            <Localize translate_text="Deriv is the best broker in the world so far in terms of the assets they offer, ease of withdrawals and deposits plus other services. Keep on giving us the best, Deriv!" />
         ),
     },
     {

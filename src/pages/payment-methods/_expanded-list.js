@@ -10,7 +10,6 @@ import Chevron from 'images/svg/custom/chevron-thick.svg'
 import PDF from 'images/svg/regulatory/pdf-icon-black.svg'
 
 const StyledButton = styled(Button)`
-    margin-left: 24px;
     padding: 6px 16px;
     width: 112px;
 `

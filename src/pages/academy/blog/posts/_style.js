@@ -17,7 +17,6 @@ export const HeroContainer = styled(Container)`
     min-height: 566px;
     padding: 76px 0 40px;
     align-items: flex-start;
-    margin-bottom: 86px;
 
     @media (max-width: 1300px) {
         min-height: 600px;
@@ -26,12 +25,10 @@ export const HeroContainer = styled(Container)`
     @media ${device.laptopM} {
         padding-top: 65px;
         min-height: 500px;
-        margin-bottom: 48px;
     }
     @media ${device.laptop} {
         width: 100%;
         max-width: 58.8rem;
-        margin-bottom: 0;
         padding: 36px 16px 0;
         flex-direction: column;
     }
@@ -132,10 +129,15 @@ export const WrittenbyText = styled(Text)`
 `
 export const BodyContainer = styled(Container)`
     align-items: flex-start;
-    padding: 0 0 40px;
+    padding: 8rem 0 40px;
+
+    @media ${device.laptopL} {
+        padding: 4rem 0 40px;
+    }
 
     @media ${device.laptop} {
         flex-direction: column;
+        padding: 0 0 40px;
         margin-top: 24px;
         max-width: 58.8rem;
     }

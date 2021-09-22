@@ -231,24 +231,30 @@ const Subscribe = () => {
         const { value } = e.target
 
         setName(value)
-        handleValidation(value)
+        handleValidation(value, 'name')
     }
 
     const handleInputChange = (e) => {
         const { value } = e.target
 
         setEmail(value)
-        handleValidation(value)
+        handleValidation(value, 'email')
     }
 
-    const handleValidation = (param) => {
+    const handleValidation = (param, type) => {
         const message = typeof param === 'object' ? param.target.value : param
-        setNameErrorMsg(validateName(message.replace(/\s/g, '')))
-        setEmailErrorMsg(validateEmail(message.replace(/\s/g, '')))
+
+        if (type == 'email') {
+            setEmailErrorMsg(validateEmail(message))
+        }
+
+        if (type == 'name') {
+            setNameErrorMsg(validateName(message.replace(/\s/g, '')))
+        }
     }
 
-    const validateEmail = (email) => {
-        const error_message = validation.email(email) || submit_error_msg
+    const validateEmail = (email_str) => {
+        const error_message = validation.email(email_str) || submit_error_msg
 
         if (submit_error_msg) {
             setSubmitErrorMsg('')
@@ -258,8 +264,8 @@ const Subscribe = () => {
         return error_message
     }
 
-    const validateName = (name) => {
-        const error_message = validation.name(name) || submit_error_msg
+    const validateName = (name_str) => {
+        const error_message = validation.name(name_str) || submit_error_msg
 
         if (submit_error_msg) {
             setSubmitErrorMsg('')
@@ -292,8 +298,8 @@ const Subscribe = () => {
         e.preventDefault()
         setIsSubmitting(true)
         const formattedEmail = email.replace(/\s/g, '')
-        handleValidation(email)
-        handleValidation(name)
+        handleValidation(email, 'email')
+        handleValidation(name, 'name')
         const has_error_email = validateEmail(formattedEmail)
         const has_error_name = validateName(formattedEmail)
 
@@ -350,9 +356,9 @@ const Subscribe = () => {
                                 placeholder={'Your name'}
                                 handleError={clearName}
                                 onChange={handleInputNameChange}
-                                onBlur={handleValidation}
                                 autoComplete="off"
                                 border="unset"
+                                maxLength="70"
                                 height="40px"
                                 focusBorder="var(--color-grey-7)"
                             />
@@ -372,11 +378,11 @@ const Subscribe = () => {
                                 placeholder={'Your email address'}
                                 handleError={clearEmail}
                                 onChange={handleInputChange}
-                                onBlur={handleValidation}
                                 autoComplete="off"
                                 required
                                 border="unset"
                                 height="40px"
+                                maxLength="254"
                                 focusBorder="var(--color-grey-7)"
                             />
                         </InputWrapper>

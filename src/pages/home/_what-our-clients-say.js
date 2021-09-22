@@ -170,7 +170,7 @@ const testimonial_slides = [
         name: 'Simon',
         date: '10 September 2021',
         quote: (
-            <Localize translate_text="Low spreads on Volatility synthetics and fast withdrawals- Deriv is a good broker!" />
+            <Localize translate_text="Low spreads on Volatility synthetics and fast withdrawals - Deriv is a good broker!" />
         ),
     },
     {

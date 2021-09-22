@@ -34,7 +34,7 @@ const WhatIsTrader = () => {
     return (
         <Section>
             <StyledHeader align="center" mb="1.2rem" as="h2" type="page-title">
-                {localize('What is Deriv MetaTrader 5 (DMT5)')}
+                {localize('What is Deriv MT5')}
             </StyledHeader>
             <StyledText max_width="79.2rem" align="center">
                 {localize(

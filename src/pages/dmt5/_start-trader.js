@@ -166,7 +166,7 @@ const StartTrader = () => {
     return (
         <Section>
             <StyledHeader align="center" mb="4rem" as="h2" type="page-title">
-                {localize('How to get started with a DMT5 account')}
+                {localize('How to get started with a Deriv MT5 account')}
             </StyledHeader>
             <Flex mb="8rem" p="0 16px" tablet={{ mb: '32px', height: 'unset' }}>
                 <TabItem
@@ -213,7 +213,7 @@ const StartTrader = () => {
                         <SideTab.Panel
                             label=""
                             description={
-                                <Localize translate_text="Add a DMT5 demo account and choose what you want to trade" />
+                                <Localize translate_text="Add a Deriv MT5 demo account and choose what you want to trade" />
                             }
                         >
                             <ImageWrapper>
@@ -279,7 +279,7 @@ const StartTrader = () => {
                         <SideTab.Panel
                             label=""
                             description={
-                                <Localize translate_text="Create a DMT5 real money account based on your trade preference" />
+                                <Localize translate_text="Create a Deriv MT5 real money account based on your trade preference" />
                             }
                         >
                             <ImageWrapper>

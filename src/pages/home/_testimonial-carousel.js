@@ -10,11 +10,11 @@ import device from 'themes/device'
 
 const CarouselItem = styled(Flex)`
     overflow: hidden;
-    transition: all 0.3s ease-in;
+    transition: height 0.1s ease-in, opacity 0.05s ease-in;
 `
 
 const FlexiItem = styled(Flex)`
-    transition: opacity 0.3s ease-in;
+    transition: opacity 0.4s ease-in;
 
     /* 
      class from a children passed to this component 
@@ -123,7 +123,7 @@ const TestimonialCarousel = ({ children, default_active = 0, height = '295px' })
 
         setTimeout(() => {
             action()
-        }, 300)
+        }, 100)
     }
 
     const navigations = renderNavigations(children_array.length, active, setActive, animate)

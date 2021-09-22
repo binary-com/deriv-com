@@ -178,14 +178,16 @@ const testimonial_slides = [
         name: 'Allan',
         date: '14 January 2021',
         quote: (
-            <Localize translate_text="The app [Deriv P2P] is good. It’s easy to deposit and withdraw for small traders." />
+            <Localize translate_text="Deriv P2P is good. It’s easy to deposit and withdraw for small traders." />
         ),
     },
     {
-        id: 'godfrey',
-        name: 'Godfrey',
+        id: 'francoise',
+        name: 'Francoise',
         date: '16 June 2021',
-        quote: <Localize translate_text="This app is a blessing!" />,
+        quote: (
+            <Localize translate_text="It's the best broker in the world. I will recommend it to anyone every day all the time. Their support agents are really helpful in all areas." />
+        ),
     },
     {
         id: 'katleho',
@@ -224,12 +226,6 @@ const testimonial_slides = [
         quote: (
             <Localize translate_text="This app is really good! I've been looking for an app like this which is easy to use." />
         ),
-    },
-    {
-        id: 'ian',
-        name: 'Ian',
-        date: '23 June 2021',
-        quote: <Localize translate_text="Nice app to buy USD. Fast and efficient!" />,
     },
     {
         id: 'ls',
@@ -334,15 +330,8 @@ const WhatOurClientsSay = () => {
                             }}
                         >
                             <Carousel>
-                                {testimonial_slides.map(({ date, id, name, quote }, idx) => (
-                                    <React.Fragment key={idx}>
-                                        <ClientSlide
-                                            key={id}
-                                            quote={quote}
-                                            name={name}
-                                            date={date}
-                                        />
-                                    </React.Fragment>
+                                {testimonial_slides.map(({ date, id, name, quote }) => (
+                                    <ClientSlide key={id} quote={quote} name={name} date={date} />
                                 ))}
                             </Carousel>
                         </Flex>

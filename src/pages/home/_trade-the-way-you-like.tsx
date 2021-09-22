@@ -1,11 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
-import PropTypes from 'prop-types'
 import { Header, Text, QueryImage } from 'components/elements'
 import { localize } from 'components/localization'
 import { SectionContainer } from 'components/containers'
-import { OtherPlatform } from 'components/custom/other-platforms.js'
+import { OtherPlatform } from 'components/custom/other-platforms'
+
+type TradeTheWayYouLikeProps = {
+    is_ppc_redirect: boolean
+}
 
 const ImageWrapper = styled.div`
     max-width: 65rem;
@@ -24,7 +27,7 @@ const query = graphql`
     }
 `
 
-const TradeTheWayYouLike = ({ is_ppc_redirect }) => {
+const TradeTheWayYouLike = ({ is_ppc_redirect }: TradeTheWayYouLikeProps): React.ReactNode => {
     const data = useStaticQuery(query)
     return (
         <StyledSection padding="5rem 2rem">
@@ -38,16 +41,12 @@ const TradeTheWayYouLike = ({ is_ppc_redirect }) => {
                 <QueryImage
                     data={data['dtrader_artboard']}
                     alt={localize('Dtrader artboard')}
-                    is_eager
+                    loading="eager"
                 />
             </ImageWrapper>
             <OtherPlatform exclude="" is_nav is_ppc_redirect={is_ppc_redirect} />
         </StyledSection>
     )
-}
-
-TradeTheWayYouLike.propTypes = {
-    is_ppc_redirect: PropTypes.bool,
 }
 
 export default TradeTheWayYouLike

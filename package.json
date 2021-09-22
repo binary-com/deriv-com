@@ -46,13 +46,19 @@
         "webpack": "^5.39.0"
     },
     "devDependencies": {
+        "@types/node": "^16.6.1",
+        "@types/react": "^17.0.18",
+        "@types/react-dom": "^17.0.9",
+        "@types/styled-components": "^5.1.11",
+        "@typescript-eslint/eslint-plugin": "^4.29.0",
+        "@typescript-eslint/parser": "^4.29.0",
         "babel-eslint": "10.1.0",
         "babel-plugin-styled-components": "^1.12.0",
         "eslint": "^7.28.0",
         "eslint-loader": "^4.0.2",
         "eslint-plugin-import": "^2.23.4",
         "eslint-plugin-react": "^7.24.0",
-        "eslint-webpack-plugin": "^2.5.4",
+        "eslint-webpack-plugin": "^3.0.1",
         "gatsby-plugin-eslint": "^3.0.0",
         "gatsby-plugin-styled-components": "^4.7.1",
         "gh-pages": "^3.2.1",
@@ -67,7 +73,8 @@
         "stylelint-config-standard": "^22.0.0",
         "stylelint-config-styled-components": "^0.1.1",
         "stylelint-processor-styled-components": "^1.10.0",
-        "stylelint-webpack-plugin": "^2.2.0"
+        "stylelint-webpack-plugin": "^2.2.0",
+        "typescript": "^4.3.5"
     },
     "keywords": [
         "deriv",
@@ -91,7 +98,8 @@
         "deploy-dev": "npm run build && gh-pages -d public",
         "deploy-branch": "PATH_PREFIX=/deriv-com/br/$branch_name npm run build && gh-pages -d public -e br/$branch_name",
         "prepare": "husky install",
-        "pre-commit-lint": "lint-staged"
+        "pre-commit-lint": "lint-staged",
+        "type-check": "tsc --noEmit"
     },
     "repository": {
         "type": "git",

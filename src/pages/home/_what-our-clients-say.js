@@ -96,7 +96,7 @@ const testimonial_slides = [
         name: 'O.Silva',
         date: '9 January 2021',
         quote: (
-            <Localize translate_text="Deriv is the best broker in the world so far in terms of the assets they offer, ease of withdrawals and deposits plus other services. Keep on giving us the best, Deriv!" />
+            <Localize translate_text="Deriv is the best broker in the world so far in terms of the assets they offer, ease of withdrawals and deposits, plus other services. Keep on giving us the best, Deriv!" />
         ),
     },
     {
@@ -146,7 +146,7 @@ const testimonial_slides = [
         name: 'Aaron',
         date: '12 September 2021',
         quote: (
-            <Localize translate_text="Deriv has multiple withdrawal methods including Deriv P2P, which is fast and convenient. Their support team is available any time and responds very quickly to any queries." />
+            <Localize translate_text="Deriv has multiple withdrawal methods, including Deriv P2P, which is fast and convenient. Their support team is available any time and responds very quickly to any queries." />
         ),
     },
     {
@@ -170,7 +170,7 @@ const testimonial_slides = [
         name: 'Simon',
         date: '10 September 2021',
         quote: (
-            <Localize translate_text="Low spreads on synthetics and fast withdrawals - Deriv is a good broker!" />
+            <Localize translate_text="Low spreads on Synthetics and fast withdrawals - Deriv is a good broker!" />
         ),
     },
     {
@@ -202,14 +202,14 @@ const testimonial_slides = [
         name: 'Jackline',
         date: '13 September 2021',
         quote: (
-            <Localize translate_text="I've been a trader for many years and I've never encountered a good broker like Deriv before – it's the best for customer care and payment options!" />
+            <Localize translate_text="I've been a trader for many years, and I've never encountered a good broker like Deriv before – it's the best for customer care and payment options!" />
         ),
     },
     {
         id: 'freeman',
         name: 'Freeman',
         date: '7 March 2021',
-        quote: <Localize translate_text="DP2P is a flawless innovation." />,
+        quote: <Localize translate_text="Deriv P2P is a flawless innovation." />,
     },
     {
         id: 'vikas',

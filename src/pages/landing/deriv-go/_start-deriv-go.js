@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
-import SideTab from './components/_side-tab'
+import SideTab from './components/_tabs'
 import { Localize, localize, LocalizedLink } from 'components/localization'
 import { SectionContainer, Container } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'

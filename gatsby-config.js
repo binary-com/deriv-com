@@ -68,6 +68,8 @@ module.exports = {
                     '/**/landing/**',
                     '/endpoint',
                     '/**/endpoint',
+                    '/signup-success',
+                    '/**/signup-success',
                 ],
                 serialize: ({ site, allSitePage }) =>
                     allSitePage.edges.map((edge) => {
@@ -77,7 +79,7 @@ module.exports = {
                         const languages = Object.keys(language_config)
                         if (path === '/') {
                             priority = 1.0
-                        } else if (path.match(/dbot|dtrader|dmt5|about/)) {
+                        } else if (path.match(/dbot|dtrader|dmt5|story/)) {
                             priority = 1.0
                         } else {
                             languages.forEach((lang) => {
@@ -181,7 +183,7 @@ module.exports = {
                     {
                         userAgent: '*',
                         allow: '/',
-                        disallow: ['/404/', '/homepage/', '/landing/', '/endpoint/', '/livechat/'],
+                        disallow: ['/404/', '/homepage/', '/landing/', '/endpoint/', '/livechat/', '/storybook/'],
                     },
                 ],
             },

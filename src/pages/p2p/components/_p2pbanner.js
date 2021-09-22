@@ -3,9 +3,9 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { graphql, useStaticQuery } from 'gatsby'
 import { Flex, Container, Show } from 'components/containers'
-import { Header } from 'components/elements'
+import { Header, Text, LocalizedLinkText } from 'components/elements'
 import { LinkButton } from 'components/form'
-import { localize } from 'components/localization'
+import { localize, Localize } from 'components/localization'
 import device from 'themes/device.js'
 import { Background } from 'components/elements/background-image'
 
@@ -93,6 +93,17 @@ const StyledHeader = styled(Header)`
     }
 `
 
+const StyledText = styled(Text)`
+    margin-bottom: 60px;
+    font-size: 2.4rem;
+    text-align: center;
+    line-height: 36px;
+
+    @media ${device.tabletL} {
+        font-size: 14px;
+    }
+`
+
 const query = graphql`
     query {
         p2p_banner: file(relativePath: { eq: "p2p/p2p_banner.png" }) {
@@ -109,6 +120,20 @@ const P2PBanner = ({ title }) => {
 
     return (
         <div>
+            <StyledText>
+                <Localize
+                    translate_text="Want to learn more about Deriv P2P? Head to our <0>Help Centre</0>"
+                    components={[
+                        <LocalizedLinkText
+                            to={'/help-centre/deriv-p2p/#what-is-deriv-p2p'}
+                            size={24}
+                            target="_blank"
+                            color="blue"
+                            key={0}
+                        />,
+                    ]}
+                />
+            </StyledText>
             <Show.Desktop min_width="992">
                 <Background
                     style={{ height: '340px', backgroundPosition: '20% 20%' }}
@@ -121,13 +146,13 @@ const P2PBanner = ({ title }) => {
                             </StyledHeader>
                             <TryButton
                                 secondary="true"
-                                to="/cashier/p2p"
+                                to="/cashier/p2p/"
                                 external="true"
                                 type="deriv_app"
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                {localize('Try DP2P now')}
+                                {localize('Try Deriv P2P now')}
                             </TryButton>
                         </InformationWrapper>
                     </Wrapper>
@@ -151,7 +176,7 @@ const P2PBanner = ({ title }) => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                {localize('Try DP2P now')}
+                                {localize('Try Deriv P2P now')}
                             </TryButton>
                         </InformationWrapper>
                     </Wrapper>

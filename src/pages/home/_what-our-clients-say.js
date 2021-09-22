@@ -224,7 +224,7 @@ const testimonial_slides = [
         name: 'Moyz',
         date: '7 March 2021',
         quote: (
-            <Localize translate_text="This app is really good! I've been looking for an app like this which is easy to use." />
+            <Localize translate_text="Deriv GO is really good! I've been looking for an app like this which is easy to use." />
         ),
     },
     {

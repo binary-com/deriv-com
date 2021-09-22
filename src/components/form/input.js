@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components'
 import { Text } from '../elements'
 import device from 'themes/device'
 // SVG Component
-import CrossIcon from 'images/svg/cross.svg'
+import CrossIcon from 'images/svg/help/cross.svg'
 
 const RelativeWrapper = styled.div`
     position: relative;

@@ -13,8 +13,8 @@ import { SEO, Flex } from 'components/containers'
 import device from 'themes/device'
 import { Tabs } from 'components/elements'
 import PractiseIcon from 'images/svg/markets/aim.svg'
-import TradeIcon from 'images/svg/trade.svg'
-import WithdrawIcon from 'images/svg/withdraw.svg'
+import TradeIcon from 'images/svg/markets/trade.svg'
+import WithdrawIcon from 'images/svg/markets/withdraw.svg'
 
 const simple_step_content_forex = [
     {

@@ -3,8 +3,8 @@ import { Localize } from 'components/localization'
 import AdvancedCharting from 'images/svg/markets/advanced-charting-widgets.svg'
 import Deposit from 'images/svg/markets/deposit-and-withdrawal.svg'
 import FriendlySupport from 'images/svg/markets/friendly-support.svg'
-import Leverage from 'images/svg/leverage.svg'
-import ResponsiveWebsite from 'images/svg/responsive-website.svg'
+import Leverage from 'images/svg/markets/leverage.svg'
+import ResponsiveWebsite from 'images/svg/markets/responsive-website.svg'
 
 export default [
     {

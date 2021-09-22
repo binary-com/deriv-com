@@ -5,13 +5,13 @@ import { Show } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { localize } from 'components/localization'
 // Icons
-import General from 'images/svg/general-tc.svg'
-import Trading from 'images/svg/trading-tc.svg'
-import Funds from 'images/svg/terms-and-conditions/funds-transfers-tc.svg'
-import Security from 'images/svg/security-privacy-tc.svg'
-import Risk from 'images/svg/risk-tc.svg'
-import PDF from 'images/svg/pdf-icon-black.svg'
-import BFX from 'images/svg/terms-and-conditions/bfx-tc.svg'
+import General from 'images/svg/terms/general-tc.svg'
+import Trading from 'images/svg/terms/trading-tc.svg'
+import Funds from 'images/svg/terms/funds-transfers-tc.svg'
+import Security from 'images/svg/terms/security-privacy-tc.svg'
+import Risk from 'images/svg/terms/risk-tc.svg'
+import PDF from 'images/svg/regulatory/pdf-icon-black.svg'
+import BFX from 'images/svg/terms/bfx-tc.svg'
 
 const Col = ({ Icon, content, title, eu_links, non_eu_links }) => (
     <GridCol>

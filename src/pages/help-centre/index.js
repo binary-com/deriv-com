@@ -17,8 +17,8 @@ import { getLocationHash, sanitize } from 'common/utility'
 import { DerivStore } from 'store'
 import device from 'themes/device'
 // Icons
-import SearchIcon from 'images/svg/search.svg'
-import CrossIcon from 'images/svg/cross.svg'
+import SearchIcon from 'images/svg/help/search.svg'
+import CrossIcon from 'images/svg/help/cross.svg'
 //Lazy-load
 const DidntFindYourAnswerBanner = Loadable(() => import('./_didnt-find-answer'))
 const Community = Loadable(() => import('./_community'))

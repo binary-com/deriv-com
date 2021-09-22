@@ -70,7 +70,7 @@ const DisclaimerSectionAcademy = () => {
                 </DisclaimerParagraph>
                 <DisclaimerParagraph>
                     {localize(
-                        'The information contained in this blog post is for educational purposes only and is not intended as financial or investment advice.',
+                        'The information contained in this academy is for educational purposes only and is not intended as financial or investment advice.',
                     )}
                 </DisclaimerParagraph>
                 <RiskWarning>

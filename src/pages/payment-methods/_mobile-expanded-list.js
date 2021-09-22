@@ -79,6 +79,11 @@ const StyledButton = styled(Button)`
     margin-top: 8px;
     max-width: 120px;
 `
+const StyledRefLink = styled(Flex)`
+    @media ${device.mobileL} {
+        justify-content: left;
+    }
+`
 
 const MobileExpandedList = ({ is_crypto, is_fiat_onramp, is_dp2p, locale, payment_data }) => {
     const [is_expanded, setExpanded] = React.useState(false)
@@ -249,7 +254,9 @@ const MobileExpandedList = ({ is_crypto, is_fiat_onramp, is_dp2p, locale, paymen
                                         <StyledPDF src={PDF} alt="PDF" />
                                     </RefIcon>
                                 ) : payment_data.reference_link ? (
-                                    <Flex jc="flex-end">{payment_data.reference_link}</Flex>
+                                    <StyledRefLink jc="flex-end">
+                                        {payment_data.reference_link}
+                                    </StyledRefLink>
                                 ) : (
                                     <ValueText type="subtitle-2" weight="normal">
                                         -

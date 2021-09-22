@@ -80,7 +80,7 @@
     ],
     "license": "Apache License 2.0",
     "scripts": {
-        "build": "gatsby build --log-pages",
+        "build": "gatsby clean && gatsby build --log-pages",
         "develop": "gatsby develop -o",
         "format": "prettier --write '**/*.js' '*.js'",
         "stylelint": "stylelint 'src/**/*.js' --formatter verbose",

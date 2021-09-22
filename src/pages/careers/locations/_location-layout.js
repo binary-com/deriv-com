@@ -8,7 +8,7 @@ import { Text, LinkText, Header, BackgroundImage, QueryImage } from 'components/
 import { LinkButton } from 'components/form'
 import { map_api_key, zoho_url } from 'common/constants'
 import { LocalizedLink } from 'components/localization'
-import MapPin from 'images/svg/map.svg'
+import MapPin from 'images/svg/careers/map.svg'
 
 const Pin = styled.img`
     min-width: 24px;

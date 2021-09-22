@@ -6,7 +6,7 @@ import { LinkButton } from 'components/form'
 import { Localize, localize } from 'components/localization'
 import FinancialStpIcon from 'images/svg/dmt5/financial-stp.svg'
 import FinancialIcon from 'images/svg/dmt5/financial.svg'
-import SyntheticIcon from 'images/svg/synthetic.svg'
+import SyntheticIcon from 'images/svg/dmt5/synthetic.svg'
 import device from 'themes/device'
 import { DerivStore } from 'store'
 

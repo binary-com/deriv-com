@@ -6,13 +6,13 @@ import { GridContainer, CssGrid, CssGridColumn } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { localize, Localize, LocalizedLink } from 'components/localization'
 // Icons
-import ProvenTrackRecord from 'images/svg/wd-proven-track-record.svg'
-import LicensedRegulated from 'images/svg/wd-licensed-regulated.svg'
-import ClientProtection from 'images/svg/wd-client-money-protection.svg'
-import Risk from 'images/svg/wd-risk.svg'
-import Help from 'images/svg/wd-help.svg'
-import Safety from 'images/svg/wd-your-safety.svg'
-import CustomerFirst from 'images/svg/wd-customer-first-trading.svg'
+import ProvenTrackRecord from 'images/svg/choose/wd-proven-track-record.svg'
+import LicensedRegulated from 'images/svg/choose/wd-licensed-regulated.svg'
+import ClientProtection from 'images/svg/choose/wd-client-money-protection.svg'
+import Risk from 'images/svg/choose/wd-risk.svg'
+import Help from 'images/svg/choose/wd-help.svg'
+import Safety from 'images/svg/choose/wd-your-safety.svg'
+import CustomerFirst from 'images/svg/choose/wd-customer-first-trading.svg'
 
 const GridCol = styled(CssGridColumn)`
     width: 100%;

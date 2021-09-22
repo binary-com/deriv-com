@@ -8,7 +8,7 @@ import { LinkButton } from 'components/form'
 import CFDLogo from 'images/svg/trade-types/cfds.svg'
 import OptionsLogo from 'images/svg/trade-types/options.svg'
 import MultipliersLogo from 'images/svg/trade-types/multipliers.svg'
-import Arrow from 'images/svg/arrow-right.svg'
+import Arrow from 'images/svg/trade-types/arrow-right.svg'
 import { DerivStore } from 'store'
 
 const StyledSection = styled(SectionContainer)`

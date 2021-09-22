@@ -27,12 +27,12 @@ import {
     redirectToTradingPlatform,
 } from 'common/utility'
 // Icons
-import Logo from 'images/svg/logo-deriv.svg'
-import LogoPartner from 'images/svg/logo-partners.svg'
-import Hamburger from 'images/svg/hamburger_menu.svg'
+import Logo from 'images/svg/layout/logo-deriv.svg'
+import LogoPartner from 'images/svg/layout/logo-partners.svg'
+import Hamburger from 'images/svg/layout/hamburger_menu.svg'
 import Close from 'images/svg/layout/close-long.svg'
-import LogoOnly from 'images/svg/logo-deriv-only.svg'
-import LogoCombinedShape from 'images/svg/logo-combined-shape.svg'
+import LogoOnly from 'images/svg/layout/logo-deriv-only.svg'
+import LogoCombinedShape from 'images/svg/layout/logo-combined-shape.svg'
 import { CFDWarning } from 'components/layout'
 
 const query = graphql`

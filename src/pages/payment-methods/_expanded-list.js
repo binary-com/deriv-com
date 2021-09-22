@@ -7,7 +7,7 @@ import { localize } from 'components/localization'
 // import { getCryptoDecimals } from 'common/utility'
 // SVG
 import Chevron from 'images/svg/custom/chevron-thick.svg'
-import PDF from 'images/svg/pdf-icon-black.svg'
+import PDF from 'images/svg/regulatory/pdf-icon-black.svg'
 
 const StyledButton = styled(Button)`
     margin-top: 1.6rem;

@@ -55,7 +55,7 @@ import {
 } from 'components/elements'
 import { Flex, Show } from 'components/containers'
 import Input from 'components/form/input'
-import RightArrow from 'images/svg/black-right-arrow.svg'
+import RightArrow from 'images/svg/tools/black-right-arrow.svg'
 
 const PnlMarginCalculator = () => {
     const query = graphql`

@@ -10,7 +10,7 @@ import device from 'themes/device'
 import DBot from 'images/svg/dbot/dbot-icon.svg'
 import DMT5 from 'images/svg/dmt5/dmt5-icon.svg'
 import DTrader from 'images/svg/dtrader/dtrader-icon.svg'
-import SmartTrader from 'images/svg/smarttrader.svg'
+import SmartTrader from 'images/svg/custom/smarttrader.svg'
 import DerivX from 'images/svg/custom/deriv-x.svg'
 
 const PlatformsContainer = styled(Flex)`

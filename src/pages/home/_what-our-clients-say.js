@@ -46,6 +46,12 @@ const TrustPilotWidget = styled(Flex)`
     a {
         display: none;
     }
+    .trustpilot-widget {
+        transform: scale(0.8);
+        position: relative;
+        left: -20px;
+        top: -10px;
+    }
 `
 
 const QuoteIcon = styled.img`
@@ -283,7 +289,7 @@ const WhatOurClientsSay = () => {
                         max_width="384px"
                         tablet={{
                             max_width: '588px',
-                            mb: '60px',
+                            mb: '20px',
                             mr: '0px',
                         }}
                     >

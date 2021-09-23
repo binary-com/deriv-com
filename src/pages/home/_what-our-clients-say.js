@@ -289,7 +289,7 @@ const WhatOurClientsSay = () => {
                         max_width="384px"
                         tablet={{
                             max_width: '588px',
-                            mb: '40px',
+                            mb: '20px',
                             mr: '0px',
                         }}
                     >

@@ -46,6 +46,12 @@ const TrustPilotWidget = styled(Flex)`
     a {
         display: none;
     }
+    .trustpilot-widget {
+        transform: scale(0.8);
+        position: relative;
+        left: -20px;
+        top: -10px;
+    }
 `
 
 const QuoteIcon = styled.img`

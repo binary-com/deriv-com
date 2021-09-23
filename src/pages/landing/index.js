@@ -1,7 +1,8 @@
 import React from 'react'
 // import Ticker from './home/_ticker'
-import { Markets, Trade, WhatOurClientsSay, SimpleSteps, Signup } from '../home/_lazy-load'
+import { Markets, WhatOurClientsSay, SimpleSteps, Signup } from '../home/_lazy-load'
 import Hero from '../home/_hero'
+import Trade from '../home/_trade'
 import TradeTheWayYouLike from '../home/_trade-the-way-you-like'
 import { SEO, Show } from 'components/containers'
 import Layout from 'components/layout/layout'
@@ -48,12 +49,12 @@ const Home = () => {
                 no_index
             />
             <Hero is_ppc={true} />
-            <Show.Mobile>
-                <TradeTheWayYouLike is_ppc_redirect={true} />
-            </Show.Mobile>
             <Show.Desktop>
                 <Trade is_ppc_redirect={true} />
             </Show.Desktop>
+            <Show.Mobile>
+                <TradeTheWayYouLike is_ppc_redirect={true} />
+            </Show.Mobile>
             <Markets is_ppc={true} />
             <SimpleSteps
                 content={simple_step_content}

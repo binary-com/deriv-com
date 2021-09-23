@@ -7,12 +7,15 @@ import MarketInstruments from '../sections/_market_instruments.js'
 import { SectionContainer } from 'components/containers'
 import { localize } from 'components/localization'
 import device from 'themes/device'
+import { DerivStore } from 'store'
 
 const StyledSection = styled(SectionContainer)`
     @media ${device.tabletL} {
         padding: 24px 0 40px;
     }
 `
+
+const { is_eu_country } = React.useContext(DerivStore)
 
 const CFDs = ({ market_content, market_tab_name }) => (
     <StyledSection padding="4rem 0 8rem">
@@ -24,9 +27,13 @@ const CFDs = ({ market_content, market_tab_name }) => (
                     )}
                 </StyledText>
                 <StyledText align="center" mt="16px" font_size="16px">
-                    {localize(
-                        'On Deriv, trading CFDs with high leverage lets you pay only a small fraction of the contract’s value and amplify your potential profit, similarly increasing your potential loss.',
-                    )}
+                    {is_eu_country
+                        ? localize(
+                              'On Deriv, trading CFDs on leverage lets you pay only a small fraction of the contract’s value and amplify your potential profit, similarly increasing your potential loss.',
+                          )
+                        : localize(
+                              'On Deriv, trading CFDs with high leverage lets you pay only a small fraction of the contract’s value and amplify your potential profit, similarly increasing your potential loss.',
+                          )}
                 </StyledText>
                 {market_tab_name === 'stock-indices' ? (
                     <AvailablePlatforms dmt5 />

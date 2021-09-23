@@ -46,7 +46,6 @@ const CardContainer = styled(Flex)`
     }
 `
 const Card = styled(Flex)`
-    flex-direction: column;
     width: 38.1rem;
     height: auto;
     margin-right: 2.4rem;
@@ -59,7 +58,7 @@ const Card = styled(Flex)`
 
     @media ${device.laptopM} {
         margin-right: 0;
-        width: 328px;
+        width: 390px;
     }
     @media ${device.tablet} {
         margin-bottom: 40px;
@@ -78,64 +77,66 @@ const Card = styled(Flex)`
     }
 `
 const StyledHeader = styled(Header)`
-    padding-left: 4rem;
-    padding-right: 4rem;
-    color: var(--color-black-3);
     @media ${device.tablet} {
-        line-height: 34px;
         margin-top: 1.5rem;
         margin-bottom: 5rem;
-        padding-left: 2rem;
-        padding-right: 2rem;
     }
     @media ${device.mobileL} {
-        font-size: 28px;
-        line-height: 34px;
-        text-align: center;
+        margin-top: 0;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
     }
 `
 const StyledCardHeader = styled(Header)`
-    font-size: 24px;
-    color: var(--color-black-3);
     @media ${device.tabletL} {
         text-align: center;
     }
 
     @media ${device.mobileL} {
-        font-size: 18px;
         margin-bottom: 20px;
         margin-top: 50px;
-        line-height: 1.2;
     }
 `
 const StyledText = styled(Text)`
-    font-size: 2.4rem;
-    color: var(--color-black-3);
+    line-height: 31.2px;
     @media ${device.tabletL} {
-        font-size: 18px;
-        line-height: 26px;
         text-align: center;
+        line-height: 26px;
     }
 `
 
 const IconTextRow = () => {
     return (
         <Section>
-            <StyledHeader type="page-title" align="center" mb="8rem" as="h2">
+            <StyledHeader
+                type="heading-2"
+                align="center"
+                mb="8rem"
+                pl="5rem"
+                pr="5rem"
+                as="h2"
+                color="black-3"
+            >
                 {localize('Enjoy weekend trading on Deriv and get the most out of your trades')}
             </StyledHeader>
             <CardContainer>
-                <Card>
+                <Card direction="column">
                     <Row>
                         <img src={RightAd} alt="" width="95px" />
                     </Row>
                     <Row>
                         <Column></Column>
                         <Column>
-                            <StyledCardHeader mt="6.5rem" mb="0.8rem" as="h4">
+                            <StyledCardHeader
+                                mt="6.5rem"
+                                mb="0.8rem"
+                                type="subtitle-1"
+                                as="h4"
+                                color="black-3"
+                            >
                                 {localize('Opportunity knocks')}
                             </StyledCardHeader>
-                            <StyledText>
+                            <StyledText size="var(--text-size-m)" color="black-3">
                                 {localize(
                                     'Maximise your trading time on the markets that are open on weekends.',
                                 )}
@@ -143,33 +144,45 @@ const IconTextRow = () => {
                         </Column>
                     </Row>
                 </Card>
-                <Card>
+                <Card direction="column">
                     <Row>
                         <img src={SettlePayment} alt="" width="95px" />
                     </Row>
                     <Row>
                         <Column></Column>
                         <Column>
-                            <StyledCardHeader mt="6.5rem" mb="0.8rem" as="h4">
+                            <StyledCardHeader
+                                mt="6.5rem"
+                                mb="0.8rem"
+                                type="subtitle-1"
+                                as="h4"
+                                color="black-3"
+                            >
                                 {localize('Trade anytime')}
                             </StyledCardHeader>
-                            <StyledText>
+                            <StyledText size="var(--text-size-m)" color="black-3">
                                 {localize('Trade any time of the day, at your convenience.')}
                             </StyledText>
                         </Column>
                     </Row>
                 </Card>
-                <Card>
+                <Card direction="column">
                     <Row>
                         <img src={CompleteOrder} alt="" width="120px" />
                     </Row>
                     <Row>
                         <Column></Column>
                         <Column>
-                            <StyledCardHeader mt="6.5rem" mb="0.8rem" as="h4">
+                            <StyledCardHeader
+                                mt="6.5rem"
+                                mb="0.8rem"
+                                type="subtitle-1"
+                                as="h4"
+                                color="black-3"
+                            >
                                 {localize('Fewer distractions')}
                             </StyledCardHeader>
-                            <StyledText>
+                            <StyledText size="var(--text-size-m)" color="black-3">
                                 {localize(
                                     'Trade when you’re free from the distractions of weekday responsibilities.',
                                 )}

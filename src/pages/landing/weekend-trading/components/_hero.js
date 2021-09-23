@@ -39,14 +39,12 @@ const BackgroundWrapper = styled(Background)`
 `
 
 const Wrapper = styled(Container)`
-    background-color: transparent;
-    height: unset;
-
     @media ${device.tabletL} {
         padding-left: 4rem;
     }
 
     @media ${device.mobileL} {
+        padding-top: 2rem;
         padding-left: 2rem;
         flex-direction: column-reverse;
         justify-content: center;
@@ -55,7 +53,7 @@ const Wrapper = styled(Container)`
 
 const InformationWrapper = styled(Flex)`
     width: 100%;
-    max-width: 60.5rem;
+    max-width: 71rem;
     z-index: 1;
 
     @media ${device.tabletL} {
@@ -75,57 +73,25 @@ const HeroContent = styled(Flex)`
     height: unset;
 
     ${Header} {
-        font-size: 24px;
         font-weight: 200;
         color: var(--color-black-3);
         display: flex;
         margin-top: 1rem;
-        line-height: 2.6rem;
-        max-width: 90%;
-    }
-    @media ${device.laptopM} {
-        ${Header} {
-            font-size: 22px;
-        }
-    }
-    @media ${device.tabletL} {
-        ${Header} {
-            font-size: 20px;
-            line-height: 26px;
-            max-width: 100%;
-        }
     }
 
     @media ${device.mobileL} {
         ${Header} {
-            font-size: 18px;
             margin-top: 10px;
             margin-bottom: 0;
         }
     }
-    @media ${device.mobileS} {
-        ${Header} {
-            max-width: 98%;
-        }
-    }
 `
 const StyledHeader = styled(Header)`
-    font-size: 60px !important;
     color: var(--color-black-3);
-    line-height: 8rem !important;
     display: flex;
 
-    @media ${device.laptopM} {
-        width: 100%;
-    }
-    @media ${device.tabletL} {
-        font-size: 43px !important;
-        line-height: 7rem !important;
-    }
     @media ${device.mobileL} {
         margin-top: 1rem;
-        font-size: 40px !important;
-        line-height: 50px !important;
         padding-top: 3px;
     }
 `
@@ -139,23 +105,27 @@ const TryButton = styled(LinkButton)`
     border: unset;
 
     @media ${device.tablet} {
-        padding: 1.8rem 1.6rem;
-        height: 42px;
         white-space: nowrap;
-        margin-top: 30px;
+        margin-top: 40px;
+    }
+    @media ${device.mobileL} {
+        white-space: nowrap;
+        margin-top: 20px;
+    }
+    @media ${device.mobileS} {
+        white-space: nowrap;
+        margin-top: 10px;
     }
 `
 
 const HeroComponent = ({ title, content, background_data }) => {
     return (
         <BackgroundWrapper data={background_data}>
-            <Wrapper pt="5rem" justify="space-between">
+            <Wrapper pt="4rem" justify="space-between" height="unset">
                 <InformationWrapper height="unset" direction="column">
-                    <StyledHeader as="h1" weight={600}>
-                        {title}
-                    </StyledHeader>
+                    <StyledHeader type="hero">{title}</StyledHeader>
                     <HeroContent direction="column" justify="flex-start">
-                        <Header as="h2">{content}</Header>
+                        <Header type="subtitle-1">{content}</Header>
                     </HeroContent>
                     <TryButton
                         secondary="true"

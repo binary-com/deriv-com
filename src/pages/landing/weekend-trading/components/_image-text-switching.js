@@ -6,25 +6,19 @@ import device from 'themes/device'
 import { Container, SectionContainer, Show } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
 import { localize } from 'components/localization'
+import { isIndexEven } from 'common/utility'
 
 const StyledSection = styled(SectionContainer)`
-    background-color: var(--color-white);
-    padding: 8rem 0 0 0;
-
     @media ${device.tabletL} {
         padding: 40px 16px 0;
     }
 `
 const StyledContainer = styled(Container)`
-    flex-direction: column;
-
     @media ${device.tabletL} {
         width: 100%;
     }
 `
 const Content = styled.div`
-    width: 100%;
-    max-width: 58.8rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -56,24 +50,14 @@ const ImageWrapper = styled.div`
     }
 `
 const StyledHeader = styled(Header)`
-    font-size: var(--text-size-l);
-    line-height: 1.25;
-
     @media ${device.tabletL} {
         width: 98%;
         margin-top: 0;
         text-align: center;
-        font-size: 24px;
     }
 `
 const StyledText = styled(Text)`
-    font-size: 3.2rem;
-    line-height: 40px;
-    text-align: center;
-    font-weight: 700;
-
     @media ${device.tabletL} {
-        font-size: 24px;
         line-height: 30px;
     }
 `
@@ -106,25 +90,33 @@ const query = graphql`
 const ImageTextSwitching = ({ P2P, reverse, two_title }) => {
     const data = useStaticQuery(query)
     return (
-        <StyledSection>
-            <StyledContainer>
-                <StyledText>{localize('Trade the markets that never sleep')}</StyledText>
+        <StyledSection background="var(--color-white)" padding="8rem 0 0 0">
+            <StyledContainer direction="column">
+                <StyledText align="center" lh="4rem" size="var(--text-size-l)" weight="bold">
+                    {localize('Trade the markets that never sleep')}
+                </StyledText>
 
                 {P2P.map((item, index) => {
-                    let is_even = reverse ? (index + 1) % 2 : index % 2
+                    let is_even = isIndexEven(index, reverse)
                     return (
                         <Row flex_direction={!is_even ? 'row' : 'row-reverse'} key={index}>
-                            <Content margin_right={!is_even ? '12.6rem' : '0'}>
-                                <StyledHeader>{item.title}</StyledHeader>
+                            <Content
+                                width="100%"
+                                max_width="58.8rem"
+                                margin_right={!is_even ? '12.6rem' : '0'}
+                            >
+                                <StyledHeader type="heading-3">{item.title}</StyledHeader>
                                 <Show.Desktop>
-                                    <Text>{item.subtitle}</Text>
+                                    <Text size="var(--text-size-m)">{item.subtitle}</Text>
                                 </Show.Desktop>
                                 <Show.Mobile>
                                     <Text>{item.subtitle_mobile}</Text>
                                 </Show.Mobile>
                                 {two_title && (
                                     <>
-                                        <StyledHeader mt="2.4rem">{item.second_title}</StyledHeader>
+                                        <StyledHeader type="heading-3" mt="2.4rem">
+                                            {item.second_title}
+                                        </StyledHeader>
                                         <Text>{item.second_subtitle}</Text>
                                     </>
                                 )}

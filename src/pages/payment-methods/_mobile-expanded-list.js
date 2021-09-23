@@ -62,6 +62,7 @@ const StyledRow = styled(Flex)`
 `
 const ValueText = styled(Header)`
     text-align: right;
+    white-space: pre-line;
 
     @media ${device.mobileL} {
         text-align: left;
@@ -81,7 +82,7 @@ const StyledButton = styled(Button)`
 `
 const StyledRefLink = styled(Flex)`
     @media ${device.mobileL} {
-        justify-content: left;
+        justify-content: flex-start;
     }
 `
 

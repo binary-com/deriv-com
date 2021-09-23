@@ -25,15 +25,12 @@ const StyledPDF = styled.img`
     height: 32px;
     width: 32px;
 `
-
 const ExpandedContent = styled.td`
     text-align: left;
 `
-
 const Tr = styled.tr`
     border-bottom: ${(props) => (props.is_expanded ? 'none' : '1px solid var(--color-grey-8)')};
 `
-
 const Td = styled.td`
     vertical-align: middle;
     padding: 16px 0 16px 24px;
@@ -87,7 +84,9 @@ const Description = styled.div`
 const StyledText = styled(Text)`
     font-size: ${(props) => (props.is_expanded ? 'var(--text-size-s)' : '0')};
 `
-
+const StyleCurrencyText = styled(Text)`
+    white-space: pre-line;
+`
 const Deposit = styled(Td)`
     & > p {
         max-width: ${(props) => (props.is_fiat_onramp ? '21rem' : '12rem')};
@@ -104,12 +103,16 @@ const Withdrawal = styled(Td)`
         max-width: 14rem;
     }
 `
+// const replaceLineBreak = (str) => {
+//     return str.toString().replace(/\n/g, '</br>')
+// }
 
 const ExpandList = ({ data, /*config,*/ is_crypto, is_fiat_onramp, locale }) => {
     const [is_expanded, setIsExpanded] = React.useState(false)
     const toggleExpand = () => {
         setIsExpanded(!is_expanded)
     }
+
     // const getCryptoConfig = (name) => {
     //     return config == undefined ? null : getCryptoDecimals(config[name].minimum_withdrawal)
     // }
@@ -118,7 +121,7 @@ const ExpandList = ({ data, /*config,*/ is_crypto, is_fiat_onramp, locale }) => 
             <Tr is_expanded={is_expanded}>
                 <Td>{data.method}</Td>
                 <Td colSpan={is_fiat_onramp && '2'}>
-                    <Text>{data.currencies}</Text>
+                    <StyleCurrencyText>{data.currencies}</StyleCurrencyText>
                 </Td>
                 <Td>
                     {Array.isArray(data.min_max_deposit) ? (

@@ -168,7 +168,7 @@ const TradeTypesMobile = () => {
                     ))}
                 </Carousel>
                 <TradingButton
-                    is="dm-trade-types-mobile-signup"
+                    id="dm-trade-types-mobile-signup"
                     type="submit"
                     secondary="true"
                     to="/signup/"

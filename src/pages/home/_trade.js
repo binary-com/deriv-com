@@ -63,7 +63,7 @@ const Trade = ({ is_ppc_redirect }) => {
                     align="center"
                     m="1.6rem 0 6rem"
                 >
-                    {localize('Choose from three powerful platforms — designed with you in mind')}
+                    {localize('Choose from three powerful platform — designed with you in mind')}
                 </Header>
                 <Flex width="100%" direction="flex-start">
                     <div style={{ width: '100%', maxWidth: '65.7rem', marginRight: '6rem' }}>

@@ -32,7 +32,7 @@ const TradeTheWayYouLike = ({ is_ppc_redirect }) => {
                 {localize('Trade the way you like')}
             </Header>
             <Text size="var(--text-size-sm)" mt="2rem" align="center">
-                {localize('Choose from three powerful platforms — designed with you in mind')}
+                {localize('Choose from three powerful platform — designed with you in mind')}
             </Text>
             <ImageWrapper>
                 <QueryImage

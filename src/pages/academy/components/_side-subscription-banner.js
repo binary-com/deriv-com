@@ -200,11 +200,11 @@ const ArticleEmailBanner = () => {
     const handleValidation = (param, type) => {
         const message = typeof param === 'object' ? param.target.value : param
 
-        if (type == 'email') {
+        if (type === 'email') {
             setEmailErrorMsg(validateEmail(message))
         }
 
-        if (type == 'name') {
+        if (type === 'name') {
             setNameErrorMsg(validateName(message.replace(/\s/g, '')))
         }
     }

@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { graphql, StaticQuery } from 'gatsby'
+import { graphql, StaticQuery, navigate } from 'gatsby'
+import { getLanguage } from '../../common/utility'
 import Layout from 'components/layout/layout'
 import { localize, Localize, WithIntl } from 'components/localization'
 import { SEO, Box } from 'components/containers'
@@ -48,6 +49,16 @@ const EmailLink = styled(StyledLink)`
 `
 
 const SignupSuccess = () => {
+    const [registeredEmail, setRegisteredEmail] = useState('')
+    useEffect(() => {
+        const params = new URLSearchParams(location.search)
+        const email = params.get('email')
+        const success_url = `/${getLanguage()}/signup-success`
+
+        setRegisteredEmail(email?.replaceAll(' ', '+'))
+        navigate(email ? success_url : `/${getLanguage()}/`, { replace: true })
+    }, [])
+
     return (
         <Layout type="static" margin_top={'0'}>
             <SEO
@@ -77,7 +88,10 @@ const SignupSuccess = () => {
                         )}
                     />
                     <Text align="center">
-                        <Localize translate_text="We've sent a message to the entered email with a link to activate your account." />
+                        <Localize
+                            translate_text="We've sent a message to {{email}} with a link to activate your account."
+                            values={{ email: registeredEmail }}
+                        />
                     </Text>
                     <EmailLink to="/check-email/" align="center">
                         {localize("Didn't receive your email?")}

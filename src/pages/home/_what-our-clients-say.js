@@ -249,7 +249,7 @@ const WhatOurClientsSay = () => {
                                 <ReviewBox>
                                     <Text size="1.2rem">
                                         <Localize
-                                            translate_text="{{ total_reviews }} review on the Play Store"
+                                            translate_text="{{ total_reviews }} reviews on the Play Store"
                                             values={{
                                                 total_reviews: 208,
                                             }}

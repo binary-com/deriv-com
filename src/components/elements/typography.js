@@ -1,7 +1,38 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
+import { generateResponsiveStyles } from '../containers/box'
 import { Margins, Paddings } from 'themes/function'
 import device from 'themes/device'
+
+const baseStyles = ({
+    m,
+    mt,
+    ml,
+    mr,
+    mb,
+    p,
+    pt,
+    pl,
+    pr,
+    pb,
+    align,
+    lh,
+    max_width,
+    max_height,
+    width,
+    height,
+}) => css`
+    max-width: ${max_width};
+    max-height: ${max_height};
+    width: ${width};
+    height: ${height};
+    text-align: ${align};
+    line-height: ${lh};
+    ${Margins({ m, mt, ml, mr, mb })}
+    ${Paddings({ p, pt, pl, pr, pb })}
+`
+
+const responsiveStyles = generateResponsiveStyles(baseStyles)
 
 const createElement = React.createElement
 
@@ -40,6 +71,8 @@ export const Text = styled.p`
     @media ${device.tabletL} {
         font-size: ${(props) => props.size || '16px'};
     }
+
+    ${responsiveStyles}
 `
 
 export const Header = styled(({ as = 'h1', children, ...props }) =>
@@ -132,6 +165,8 @@ export const Header = styled(({ as = 'h1', children, ...props }) =>
             if (props.type === 'extra-small') return '12px'
         }};
     }
+
+    ${responsiveStyles}
 `
 
 export const LinkText = styled(Text).attrs({ as: 'a' })`

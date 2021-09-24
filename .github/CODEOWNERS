@@ -4,7 +4,7 @@
 # ==================================================================================
 # ==================================================================================
 #
-#  Configuration of code ownership and review approvals for the binary-com/deriv-app repo.
+#  Configuration of code ownership and review approvals for the binary-com/deriv-com repo.
 #
 #  More info: https://help.github.com/articles/about-codeowners/
 #
@@ -35,18 +35,13 @@
 #  (just to make this file easier to understand)
 # ================================================
 
-#  akmal-binary
 #  ashkanx
-#  alihosseini-fs
-#  bahar-fs
-#  balakrishna-binary
-#  carol-binary
-#  mahdiaryayi-fs
-#  matin-binary
-#  mehrzad-fs
-#  nijil-binary
+#  habib-binary
+#  kevinw-deriv
+#  njazuli-deriv
 #  reza-fs
-#  nikolai-deriv
+#  sean-binary
+#  suthesan-deriv
 #  yashim-deriv
 
 ######################################################################################################
@@ -67,74 +62,50 @@
 # (in case no pattern matches a path in a PR - this should be treated as a bug and result in adding the path to CODEOWNERS)
 # ==============================================================
 
-*                                                               @ashkanx @nijil-binary @reza-fs @mehrzad-fs @balakrishna-binary 
+*                                                               @ashkanx @habib-binary @reza-fs @sean-binary
 
 
 
 # ==============================================================
-#  deriv-app/account
+#  deriv-com/translations
 # ==============================================================
 
-/packages/account/**/*                                         @reza-fs @yashim-deriv
-
-
-
-# ==============================================================
-#  deriv-app/bot
-# ==============================================================
-
-/packages/bot-skeleton/**/*                                     @mehrzad-fs @nikolai-deriv
-/packages/bot-web-ui/**/*                                       @mehrzad-fs @nikolai-deriv
-/packages/indicators/**/*                                       @mehrzad-fs @nikolai-deriv
+/src/translations/*                                             @suthesan-deriv @habib-binary @sean-binary
+/crowdin/*                                                      @suthesan-deriv @habib-binary @sean-binary
+/scripts/*                                                      @suthesan-deriv @habib-binary @sean-binary
 
 
 # ==============================================================
-#  deriv-app/core
+#  deriv-com/config
 # ==============================================================
 
-/packages/core/**/*                                             @balakrishna-binary @reza-fs @matin-binary @mahdiaryayi-fs
-/packages/shared/**/*                                           @balakrishna-binary @reza-fs @matin-binary @mahdiaryayi-fs
-/packages/components/**/*                                       @balakrishna-binary @reza-fs @matin-binary @mahdiaryayi-fs
-/packages/translations/**/*                                     @balakrishna-binary @reza-fs @matin-binary @mahdiaryayi-fs
-
-
-# ==============================================================
-#  deriv-app/p2p
-# ==============================================================
-
-/packages/p2p/**/*                                              @carol-binary @nijil-binary
+/*                                                              @habib-binary @sean-binary @yashim-deriv
+/.github/**/*                                                   @habib-binary @sean-binary @yashim-deriv
+/.husky/*                                                       @habib-binary @sean-binary @yashim-deriv
 
 
 # ==============================================================
-#  deriv-app/cashier
+#  deriv-com/shared-components
 # ==============================================================
 
-/packages/cashier/**/*                                           @bahar-fs @nijil-binary
-
-# ==============================================================
-#  deriv-app/trader
-# ==============================================================
-
-/packages/trader/**/*                                           @matin-binary @balakrishna-binary @akmal-binary @mahdiaryayi-fs
-
+/src/common/**/*                                                @habib-binary @sean-binary @suthesan-deriv @kevinw-deriv @yashim-deriv @njazuli-deriv
+/src/components/**/*                                            @habib-binary @sean-binary @suthesan-deriv @kevinw-deriv @yashim-deriv @njazuli-deriv
+/src/themes/**/*                                                @habib-binary @sean-binary @suthesan-deriv @kevinw-deriv @yashim-deriv @njazuli-deriv
 
 
 # ==============================================================
-#  deriv-app/publisher
+#  deriv-com/shared-assets
 # ==============================================================
 
-/packages/publisher/**/*                                        @reza-fs @nijil-binary
-
-# ==============================================================
-#  deriv-app/dashboard
-# ==============================================================
-
-/packages/dashboard/**/*                                         @matin-binary @akmal-binary
+/src/images/**/*                                                @habib-binary @sean-binary @suthesan-deriv @kevinw-deriv @yashim-deriv @njazuli-deriv
+/src/lotties/**/*                                               @habib-binary @sean-binary @suthesan-deriv @kevinw-deriv @yashim-deriv @njazuli-deriv
+/static/**/*                                                    @habib-binary @sean-binary @suthesan-deriv @kevinw-deriv @yashim-deriv @njazuli-deriv
+/documents/**/*                                                 @habib-binary @sean-binary @suthesan-deriv @kevinw-deriv @yashim-deriv @njazuli-deriv
+/favicons/**/*                                                  @habib-binary @sean-binary @suthesan-deriv @kevinw-deriv @yashim-deriv @njazuli-deriv
 
 
 # ==============================================================
-#  deriv-app/configurations
+#  deriv-com/pages
 # ==============================================================
 
-/                                                               @alihosseini-fs @reza-fs
-!/packages/**/*                                                 @alihosseini-fs @reza-fs
+/src/pages/**/*                                                 @habib-binary @sean-binary @njazuli-deriv @suthesan-deriv @kevinw-deriv @yashim-deriv

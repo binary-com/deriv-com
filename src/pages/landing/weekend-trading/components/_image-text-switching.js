@@ -112,17 +112,26 @@ const ImageTextSwitching = ({ P2P, reverse, two_title }) => {
                                     {item.title}
                                 </StyledHeader>
                                 <Show.Desktop>
-                                    <Text size="var(--text-size-m)">{item.subtitle}</Text>
+                                    <Text size="var(--text-size-m)" pb="2rem">
+                                        {item.subtitle1}
+                                    </Text>
+                                </Show.Desktop>
+                                <Show.Desktop>
+                                    <Text size="var(--text-size-m)">{item.subtitle2}</Text>
                                 </Show.Desktop>
                                 <Show.Mobile>
-                                    <Text>{item.subtitle_mobile}</Text>
+                                    <Text pb="2rem">{item.subtitle_mobile1}</Text>
+                                </Show.Mobile>
+                                <Show.Mobile>
+                                    <Text>{item.subtitle_mobile2}</Text>
                                 </Show.Mobile>
                                 {two_title && (
                                     <>
                                         <StyledHeader type="heading-3">
                                             {item.second_title}
                                         </StyledHeader>
-                                        <Text>{item.second_subtitle}</Text>
+                                        <Text>{item.second_subtitle1}</Text>
+                                        <Text>{item.second_subtitle2}</Text>
                                     </>
                                 )}
                             </Content>

@@ -32,7 +32,7 @@ const Section = styled(SectionContainer)`
     box-shadow: inset 0 1px 0 0 var(--color-grey-8);
 
     @media ${device.tabletL} {
-        padding: 40px 16px;
+        padding: 40px 16px 20px;
     }
 `
 const CardContainer = styled(Flex)`

@@ -25,12 +25,9 @@ const Content = styled.div`
     margin-right: ${(props) => props.margin_right};
 
     ${Text} {
-        font-size: 2.4rem;
-        margin-top: 0.8rem;
-
         @media ${device.tabletL} {
+            font-size: 18px;
             text-align: center;
-            font-size: 16px;
         }
     }
 
@@ -65,7 +62,7 @@ const Row = styled.div`
     flex-direction: ${(props) => props.flex_direction};
     width: 100%;
     display: flex;
-    margin-top: 8rem;
+    margin-top: 9rem;
 
     &:first-child {
         margin-top: 0;
@@ -90,9 +87,15 @@ const query = graphql`
 const ImageTextSwitching = ({ P2P, reverse, two_title }) => {
     const data = useStaticQuery(query)
     return (
-        <StyledSection background="var(--color-white)" padding="8rem 0 0 0">
+        <StyledSection background="var(--color-white)" padding="5rem 0 0 0">
             <StyledContainer direction="column">
-                <StyledText align="center" lh="4rem" size="var(--text-size-l)" weight="bold">
+                <StyledText
+                    align="center"
+                    lh="4rem"
+                    size="var(--text-size-l)"
+                    mb="1rem"
+                    weight="bold"
+                >
                     {localize('Trade the markets that never sleep')}
                 </StyledText>
 
@@ -105,7 +108,9 @@ const ImageTextSwitching = ({ P2P, reverse, two_title }) => {
                                 max_width="58.8rem"
                                 margin_right={!is_even ? '12.6rem' : '0'}
                             >
-                                <StyledHeader type="heading-3">{item.title}</StyledHeader>
+                                <StyledHeader type="heading-3" mb="1rem">
+                                    {item.title}
+                                </StyledHeader>
                                 <Show.Desktop>
                                     <Text size="var(--text-size-m)">{item.subtitle}</Text>
                                 </Show.Desktop>
@@ -114,7 +119,7 @@ const ImageTextSwitching = ({ P2P, reverse, two_title }) => {
                                 </Show.Mobile>
                                 {two_title && (
                                     <>
-                                        <StyledHeader type="heading-3" mt="2.4rem">
+                                        <StyledHeader type="heading-3">
                                             {item.second_title}
                                         </StyledHeader>
                                         <Text>{item.second_subtitle}</Text>

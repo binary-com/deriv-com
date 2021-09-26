@@ -73,7 +73,7 @@ const HeroContent = styled(Flex)`
     height: unset;
 
     ${Header} {
-        font-weight: 200;
+        font-weight: 350;
         color: var(--color-black-3);
         display: flex;
         margin-top: 1rem;
@@ -97,14 +97,16 @@ const StyledHeader = styled(Header)`
 `
 
 const TryButton = styled(LinkButton)`
-    padding: 14px 16px;
+    padding: 17px 24px;
     width: min-content;
     white-space: nowrap;
-    font-size: 14px;
+    font-size: 20px;
     margin-top: 1.2rem;
     border: unset;
 
     @media ${device.tablet} {
+        padding: 14px 18px;
+        font-size: 14px;
         white-space: nowrap;
         margin-top: 40px;
     }

@@ -14,10 +14,6 @@ const Column = styled.div`
     flex-basis: 100%;
     flex-grow: 0;
     width: 10rem;
-
-    :first-child {
-        flex-basis: 10%;
-    }
 `
 
 const Row = styled.div`
@@ -51,10 +47,6 @@ const Card = styled(Flex)`
     margin-right: 2.4rem;
     margin-bottom: 2rem;
     justify-content: flex-start;
-
-    :last-child {
-        margin-right: 0;
-    }
 
     @media ${device.laptopM} {
         margin-right: 0;
@@ -93,6 +85,8 @@ const StyledCardHeader = styled(Header)`
     }
 
     @media ${device.mobileL} {
+        padding-right: unset;
+        padding-left: unset;
         margin-bottom: 20px;
         margin-top: 50px;
     }
@@ -100,6 +94,9 @@ const StyledCardHeader = styled(Header)`
 const StyledText = styled(Text)`
     line-height: 31.2px;
     @media ${device.tabletL} {
+        padding-left: unset;
+        padding-right: unset;
+        font-size: 18px;
         text-align: center;
         line-height: 26px;
     }
@@ -119,24 +116,29 @@ const IconTextRow = () => {
             >
                 {localize('Enjoy weekend trading on Deriv and get the most out of your trades')}
             </StyledHeader>
-            <CardContainer>
+            <CardContainer pr="4.7rem" pl="5rem">
                 <Card direction="column">
                     <Row>
                         <img src={RightAd} alt="" width="95px" />
                     </Row>
                     <Row>
-                        <Column></Column>
                         <Column>
                             <StyledCardHeader
+                                pr="0.7rem"
                                 mt="6.5rem"
-                                mb="0.8rem"
+                                mb="1.8rem"
                                 type="subtitle-1"
                                 as="h4"
                                 color="black-3"
                             >
                                 {localize('Opportunity knocks')}
                             </StyledCardHeader>
-                            <StyledText size="var(--text-size-m)" color="black-3">
+                            <StyledText
+                                size="var(--text-size-m)"
+                                color="black-3"
+                                pr="0.7rem"
+                                mb="3rem"
+                            >
                                 {localize(
                                     'Maximise your trading time on the markets that are open on weekends.',
                                 )}
@@ -149,18 +151,25 @@ const IconTextRow = () => {
                         <img src={SettlePayment} alt="" width="95px" />
                     </Row>
                     <Row>
-                        <Column></Column>
                         <Column>
                             <StyledCardHeader
+                                pl="0.6rem"
+                                pr="0.6rem"
                                 mt="6.5rem"
-                                mb="0.8rem"
+                                mb="1.8rem"
                                 type="subtitle-1"
                                 as="h4"
                                 color="black-3"
                             >
                                 {localize('Trade anytime')}
                             </StyledCardHeader>
-                            <StyledText size="var(--text-size-m)" color="black-3">
+                            <StyledText
+                                size="var(--text-size-m)"
+                                color="black-3"
+                                pr="0.6rem"
+                                pl="0.6rem"
+                                mb="3rem"
+                            >
                                 {localize('Trade any time of the day, at your convenience.')}
                             </StyledText>
                         </Column>
@@ -171,18 +180,23 @@ const IconTextRow = () => {
                         <img src={CompleteOrder} alt="" width="120px" />
                     </Row>
                     <Row>
-                        <Column></Column>
                         <Column>
                             <StyledCardHeader
+                                pl="0.5rem"
                                 mt="6.5rem"
-                                mb="0.8rem"
+                                mb="1.8rem"
                                 type="subtitle-1"
                                 as="h4"
                                 color="black-3"
                             >
                                 {localize('Fewer distractions')}
                             </StyledCardHeader>
-                            <StyledText size="var(--text-size-m)" color="black-3">
+                            <StyledText
+                                size="var(--text-size-m)"
+                                color="black-3"
+                                pl="0.5rem"
+                                mb="3rem"
+                            >
                                 {localize(
                                     'Trade when you’re free from the distractions of weekday responsibilities.',
                                 )}

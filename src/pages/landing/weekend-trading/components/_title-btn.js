@@ -8,6 +8,7 @@ import { LinkButton } from 'components/form'
 
 const StyledSection = styled(SectionContainer)`
     @media ${device.tabletL} {
+        margin-top: 2rem;
         padding: 40px 16px 0;
     }
 `
@@ -41,7 +42,7 @@ const TryButton = styled(LinkButton)`
 
 const Titlebtn = ({ btnlabel, text }) => {
     return (
-        <StyledSection background="var(--color-grey-30)" padding="7rem 0 3rem" mt="7rem">
+        <StyledSection background="var(--color-grey-30)" padding="7rem 0 3rem" mt="9rem">
             <StyledContainer direction="column">
                 <StyledText mt="16px" pl="2rem" pr="2rem" size="3.2rem" weight="700">
                     {text}

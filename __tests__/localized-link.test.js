@@ -1,39 +1,36 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
-import { DerivStore } from '../src/store'
-import { LocaleContextWrapper } from '../src/components/localization/locale-context'
+import { render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import { LocalizedLink } from '../src/components/localization/localized-link'
-
-const deriv_store_mock = {
-    is_eu_country: true,
-    is_p2p_allowed_country: true,
-    crypto_config: {},
-    website_status: {},
-    website_status_loading: {},
-    setWebsiteStatus: {},
-}
-
-const locale_mock = {
-    locale: 'en',
-}
+import { MockProvider } from '../__mocks__/localized_link'
 
 describe('Localized Link Tests', () => {
     describe('External Localized Links', () => {
         it('renders correctly when flag is passed', () => {
             const rendered_link = renderer
                 .create(
-                    <DerivStore.Provider value={deriv_store_mock}>
-                        <LocaleContextWrapper pageContext={locale_mock}>
-                            <LocalizedLink to="/">Test Link</LocalizedLink>
-                        </LocaleContextWrapper>
-                    </DerivStore.Provider>,
+                    <MockProvider>
+                        <LocalizedLink external to="/">
+                            Test Link
+                        </LocalizedLink>
+                    </MockProvider>,
                 )
                 .toJSON()
             expect(rendered_link).toMatchSnapshot()
         })
         describe('EU Countries', () => {
             describe('Modal Tests', () => {
-                it('modal is shown for eu country when links are clicked', () => {})
+                it('modal is shown for eu country when links are clicked for supported links', () => {
+                    render(
+                        <MockProvider>
+                            <LocalizedLink external to="/">
+                                Link
+                            </LocalizedLink>
+                        </MockProvider>,
+                    )
+                    userEvent.click(screen.getByText('Link'))
+                })
                 it('modal is not shown for mail links', () => {})
                 it('modal is not shown for deriv app links', () => {})
                 it('modal is not shown for binary links', () => {})
@@ -42,13 +39,11 @@ describe('Localized Link Tests', () => {
                 it('modals redirects to the correct link', () => {})
             })
             describe('Localization Tests', () => {
-                describe('deriv app links redirects to correct localized links', () => {
-                    it('correct deriv app localized link', () => {})
-                    it('correct binary localized link', () => {})
-                    it('correct affiliate localized link', () => {})
-                    it('correct terms and conditions localized link', () => {})
-                    it('correct social localized link', () => {})
-                })
+                it('correct deriv app localized link', () => {})
+                it('correct binary localized link', () => {})
+                it('correct affiliate localized link', () => {})
+                it('correct terms and conditions localized link', () => {})
+                it('correct social localized link', () => {})
             })
             it('terms and conditions link does not open in a new tab', () => {})
         })
@@ -60,11 +55,11 @@ describe('Localized Link Tests', () => {
         it('renders correctly when flag is passed', () => {
             const rendered_link = renderer
                 .create(
-                    <DerivStore.Provider value={deriv_store_mock}>
-                        <LocaleContextWrapper pageContext={locale_mock}>
-                            <LocalizedLink to="/">Test Link</LocalizedLink>
-                        </LocaleContextWrapper>
-                    </DerivStore.Provider>,
+                    <MockProvider>
+                        <LocalizedLink internal to="/">
+                            Test Link
+                        </LocalizedLink>
+                    </MockProvider>,
                 )
                 .toJSON()
             expect(rendered_link).toMatchSnapshot()

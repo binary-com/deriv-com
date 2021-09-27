@@ -2,13 +2,15 @@
 
 exports[`Localized Link Tests External Localized Links renders correctly when flag is passed 1`] = `
 <a
-  aria-current="page"
-  className="sc-dlfnuX wcvZN"
+  className="sc-bdfBQB imoVvB"
   disabled={true}
   href="/"
-  onClick={[Function]}
-  onMouseEnter={[Function]}
-  style={Object {}}
+  onClick={null}
+  style={
+    Object {
+      "cursor": "pointer",
+    }
+  }
 >
   Test Link
 </a>
@@ -20,6 +22,7 @@ exports[`Localized Link Tests Internal Localized Links renders correctly when fl
   className="sc-dlfnuX cvSRZk"
   disabled={false}
   href="/"
+  internal={true}
   onClick={[Function]}
   onMouseEnter={[Function]}
   style={Object {}}

@@ -53,7 +53,10 @@ const LottieWrapper = styled.div`
     width: 100%;
     max-width: 730px;
     position: absolute;
-    inset: 50% 12rem 50% auto;
+    top: 50%;
+    right: 12rem;
+    bottom: 50%;
+    left: auto;
     display: flex;
     align-items: center;
 
@@ -78,7 +81,10 @@ const LottieWrapper = styled.div`
     }
     @media ${device.tablet} {
         max-width: 328px;
-        inset: auto auto 50% auto;
+        top: auto;
+        right: auto;
+        bottom: 50%;
+        left: auto;
         position: relative;
     }
 `

@@ -52,16 +52,27 @@ export const MainArticle = styled(Flex)`
             : 'linear-gradient(251.14deg, rgba(14, 14, 14, 0.5632) 29.18%, rgba(7, 6, 6, 0.88) 85.14%)'};
     position: relative;
     background-size: cover;
-    min-height: 464px;
+    max-height: 464px;
     width: 792px;
-    max-height: 300px;
     align-items: flex-end;
     cursor: pointer;
     transition: transform 0.3s;
+    border-radius: 8px;
+    overflow: hidden;
 
+    ::before {
+        content: '';
+        float: left;
+        padding-bottom: 60%; /* aspect-ratio 5:3 */
+    }
     &:hover {
         transform: scale(1.02);
     }
+
+    @media (max-width: 1280px) {
+        width: 720px;
+    }
+
     @media ${device.laptopM} {
         /* prettier-ignore */
         min-width: 328px;
@@ -69,10 +80,14 @@ export const MainArticle = styled(Flex)`
         padding: 0;
         background: ${(props) =>
             props.image
-                ? `linear-gradient(251.14deg, rgba(14, 14, 14, 0.5632) 29.18%, rgba(7, 6, 6, 0.88) 85.14%),url(${props.image}) no-repeat top right 46.5%`
+                ? `linear-gradient(251.14deg, rgba(14, 14, 14, 0.5632) 29.18%, rgba(7, 6, 6, 0.88) 85.14%),url(${props.image}) no-repeat center right 46.5%`
                 : 'linear-gradient(251.14deg, rgba(14, 14, 14, 0.5632) 29.18%, rgba(7, 6, 6, 0.88) 85.14%)'};
         background-size: cover;
         justify-content: flex-end;
+
+        ::before {
+            padding-bottom: 166%; /* aspect-ratio 3:5 */
+        }
     }
 
     @media ${device.tablet} {
@@ -141,21 +156,26 @@ export const BottomDescription = styled(Flex)`
 
 export const SmallArticle = styled(Flex)`
     font-size: 16px;
-    height: 102px;
+    height: 107px;
     margin-bottom: 22px;
     justify-content: start;
     cursor: pointer;
     transition: transform 0.3s;
     min-width: 328px;
+    align-items: center;
 
     &:hover {
         transform: scale(1.02);
     }
 
     @media ${device.laptopM} {
-        height: 82px;
+        height: 68px;
         margin-bottom: 16px;
         min-width: unset;
+    }
+
+    @media ${device.mobileM} {
+        height: auto;
     }
 `
 
@@ -213,6 +233,7 @@ export const SmallArticleBottomContent = styled.div`
 export const SmallArticleLeftContent = styled(Flex)`
     margin-left: 15px;
     margin-right: 10px;
+    align-items: center;
     width: unset;
 
     @media ${device.laptopM} {
@@ -276,9 +297,14 @@ export const SmallArticleTopContent = styled(Flex)`
     justify-content: flex-start;
     flex-direction: column;
     /* stylelint-disable */
-    flex: 1 1 15em;
-    -webkit-flex: 1 1 15em;
+    /* flex: 1 1 15em;
+    -webkit-flex: 1 1 15em; */
     /* stylelint-enable */
+
+    @media ${device.tabletL} {
+        flex: 0;
+    }
+
     @media ${device.laptopM} {
         flex-direction: row;
 

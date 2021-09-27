@@ -156,12 +156,13 @@ export const IconWrapper = styled.div`
     }
 `
 export const LastChildWrapper = styled(LocalizedLinkText)`
-    min-width: 139px;
-    height: 104px;
+    min-width: 174px;
+    height: 105px;
     background: var(--color-black-7);
     flex-direction: column;
     padding-top: 16px;
     text-decoration: none;
+    border-radius: 4px;
 `
 export const PlayerIconWrapper = styled(Flex)`
     width: 48px;

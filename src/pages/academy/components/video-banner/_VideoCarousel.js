@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import VideoPlayer from '../_video-player'
+import { StandardImgWrapper } from '../../common/_styles'
 import { CustomCarousel } from './carousel/_custom-carousel'
 import { Flex } from 'components/containers'
 import { Header } from 'components/elements'
@@ -27,14 +28,8 @@ const ItemsMainWrapper = styled(Flex)`
     min-width: 327px;
     cursor: pointer;
     @media ${device.tabletL} {
-        min-width: 293px;
-        height: 104px;
-    }
-`
-const ImgWrapper = styled(Flex)`
-    position: relative;
-    @media ${device.tabletL} {
-        width: 104px;
+        min-width: 300px;
+        height: auto;
     }
 `
 const ImgDiv = styled.img`
@@ -119,7 +114,7 @@ const VideoCarousel = ({ carousel_items }) => {
             overflow: 'hidden',
         },
         slide_style: {
-            width: '340px',
+            width: '352px',
             marginRight: '23px',
             position: 'relative',
         },
@@ -164,14 +159,21 @@ const VideoCarousel = ({ carousel_items }) => {
                                     key={index}
                                     onClick={(e) => handleOpenVideo(e, video_url)}
                                 >
-                                    <ImgWrapper width="139px">
+                                    <StandardImgWrapper
+                                        width="174px"
+                                        tabletL_width="142px"
+                                        mobileL_width="142px"
+                                        br="unset"
+                                        tabletL_br="unset"
+                                        mobileL_br="unset"
+                                    >
                                         <ImgDiv src={thumbnail_img} alt={thumbnail_img_alt} />
                                         <PlayerIconWrapper absolute ai="center">
                                             <IconDiv>
                                                 <PlayerIcon src={PlayIcon} />
                                             </IconDiv>
                                         </PlayerIconWrapper>
-                                    </ImgWrapper>
+                                    </StandardImgWrapper>
                                     <Flex direction="column" ml="8px" width="180px">
                                         <Header as="p" type="paragraph-1" color="white" mb="4px">
                                             {video_title}

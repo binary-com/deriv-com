@@ -33,3 +33,40 @@ export const VideoGrid = styled.div`
     grid-template-rows: auto;
     justify-content: center;
 `
+
+export const StandardImgWrapper = styled.div`
+    width: ${(props) => (props.width ? props.width : '100%')};
+    height: ${(props) => (props.height ? props.height : '100%')};
+    border-radius: ${(props) => (props.br ? props.br : '4px')};
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+
+    ::before {
+        content: '';
+        float: left;
+        padding-bottom: 60%; /* aspect-ratio 5:3 */
+    }
+    &img,
+    .standard-query-img {
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        position: absolute;
+    }
+
+    @media ${device.tabletL} {
+        width: ${(props) => (props.tabletL_width ? props.tabletL_width : '100%')};
+        height: ${(props) => (props.tabletL_height ? props.tabletL_height : '100%')};
+        border-radius: ${(props) => (props.tabletL_br ? props.tabletL_br : '4px')};
+    }
+
+    @media ${device.mobileL} {
+        width: ${(props) => (props.mobileL_width ? props.mobileL_width : '100%')};
+        height: ${(props) => (props.mobileL_height ? props.mobileL_height : '100%')};
+        border-radius: ${(props) => (props.mobileL_br ? props.mobileL_br : '4px')};
+    }
+`

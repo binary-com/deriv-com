@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { getImage } from 'gatsby-plugin-image'
 import styled from 'styled-components'
+import { StandardImgWrapper } from '../common/_styles'
 import { Flex } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
 import { LocalizedLink } from 'components/localization'
@@ -34,20 +35,6 @@ const StyledFlex = styled(Flex)`
         margin-top: 40px;
     }
 `
-const ImageWrapper = styled.div`
-    display: flex;
-    height: 300px;
-    width: 55%;
-
-    @media (max-width: 823px) {
-        width: 100%;
-        height: unset;
-    }
-
-    > .first-article-image {
-        display: contents;
-    }
-`
 
 const StyledCategories = styled(Header)`
     width: fit-content;
@@ -73,14 +60,14 @@ const FirstArticle = ({ item }) => {
     return (
         <RedirectLink to={`/academy/blog/posts/${item.slug}/`}>
             <StyledFlex jc="flex-start" mt="96px">
-                <ImageWrapper>
+                <StandardImgWrapper width="592px" br="6px">
                     <QueryImage
                         data={getImage(item.main_image.imageFile)}
                         alt={item.main_image.description || ''}
                         width="100%"
-                        className="first-article-image"
+                        className="standard-query-img"
                     />
-                </ImageWrapper>
+                </StandardImgWrapper>
                 <FirstContentWrapper fd="column" p="35px 40px" width="45%">
                     <Flex jc="flex-start" height="auto" fw="wrap">
                         {item?.tags &&

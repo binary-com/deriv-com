@@ -15,7 +15,6 @@ import {
     StyledCategories,
     BottomDescription,
     SmallArticle,
-    SmallArticleImageWrapper,
     SmallArticleCategories,
     SmallArticleTopContent,
     SmallArticleDateTimeDesktop,
@@ -29,6 +28,7 @@ import {
     MobileDotIcon,
     MobileHeader,
 } from './components/recent-featured-posts/_style'
+import { StandardImgWrapper } from './common/_styles'
 import { convertDate, truncateString, getAssetUrl } from 'common/utility'
 import { Flex } from 'components/containers'
 import { QueryImage, Carousel, Tabs, Header } from 'components/elements'
@@ -119,17 +119,23 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
                                         >
                                             <SmallArticle>
                                                 <SmallArticleLeftContent>
-                                                    <SmallArticleImageWrapper>
+                                                    <StandardImgWrapper
+                                                        width="143px"
+                                                        height="85.8px"
+                                                        tabletL_width="113px"
+                                                        tabletL_height="68px"
+                                                        mobileL_width="113px"
+                                                        mobileL_height="68px"
+                                                    >
                                                         <QueryImage
-                                                            className="small-article-bg"
+                                                            className="standard-query-img"
                                                             data={article?.main_image?.imageFile}
                                                             alt={
                                                                 article?.main_image?.description ||
                                                                 ''
                                                             }
-                                                            height="102px"
                                                         />
-                                                    </SmallArticleImageWrapper>
+                                                    </StandardImgWrapper>
                                                 </SmallArticleLeftContent>
                                                 <SmallArticleRightContent>
                                                     <SmallArticleTopContent>
@@ -159,11 +165,11 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
                                                             <Localize translate_text="min" />
                                                         </SmallArticleDateTimeMobile>
                                                         <Header as="p" type="paragraph-1">
-                                                            {truncateString(article.blog_title, 40)}
+                                                            {truncateString(article.blog_title, 35)}
                                                         </Header>
                                                     </SmallArticleTopContent>
                                                     <MobileHeader as="p" type="paragraph-1">
-                                                        {truncateString(article.blog_title, 40)}
+                                                        {truncateString(article.blog_title, 35)}
                                                     </MobileHeader>
                                                     <SmallArticleDateTimeDesktop>
                                                         {article?.published_date &&
@@ -230,17 +236,23 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
                                         >
                                             <SmallArticle>
                                                 <SmallArticleLeftContent>
-                                                    <SmallArticleImageWrapper>
+                                                    <StandardImgWrapper
+                                                        width="143px"
+                                                        height="85.8px"
+                                                        tabletL_width="113px"
+                                                        tabletL_height="68px"
+                                                        mobileL_width="113px"
+                                                        mobileL_height="68px"
+                                                    >
                                                         <QueryImage
-                                                            className="small-article-bg"
+                                                            className="standard-query-img"
                                                             data={article.main_image.imageFile}
                                                             alt={
                                                                 article?.main_image?.description ||
                                                                 ''
                                                             }
-                                                            height="102px"
                                                         />
-                                                    </SmallArticleImageWrapper>
+                                                    </StandardImgWrapper>
                                                 </SmallArticleLeftContent>
                                                 <SmallArticleRightContent>
                                                     <SmallArticleTopContent>

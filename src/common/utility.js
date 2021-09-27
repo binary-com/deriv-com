@@ -251,7 +251,7 @@ export const convertDate = (date) => {
     return (
         newdate.toLocaleString('en', { day: 'numeric' }) +
         ' ' +
-        newdate.toLocaleString('en', { month: 'long' }) +
+        newdate.toLocaleString('en', { month: 'short' }) +
         ' ' +
         newdate.toLocaleString('en', { year: 'numeric' })
     )

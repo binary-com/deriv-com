@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import { StandardImgWrapper } from '../common/_styles'
 import { Container, Flex } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
 import { LocalizedLink } from 'components/localization'
@@ -11,7 +12,7 @@ import device from 'themes/device'
 const MarketsNewsWrapper = styled.div`
     display: grid;
     grid-template-columns: auto auto auto;
-    grid-gap: 30px;
+    grid-gap: 30px 24px;
     padding: 10px;
     max-height: 211px;
 
@@ -20,10 +21,11 @@ const MarketsNewsWrapper = styled.div`
         max-height: 330px;
     }
 
-    @media ${device.tabletS} {
+    @media ${device.tablet} {
         grid-template-columns: auto;
         margin: 0 auto;
-        max-height: 668px;
+        max-height: auto;
+        padding: 0;
     }
 `
 
@@ -35,6 +37,13 @@ const StyledSpan = styled.span`
 
 const StyledFlex = styled(Flex)`
     max-height: 83px;
+`
+const ContentWrapper = styled(Flex)`
+    max-width: 238px;
+
+    @media ${device.tabletL} {
+        max-width: 204px;
+    }
 `
 
 const StyledLocalizedLink = styled(LocalizedLink)`
@@ -72,13 +81,22 @@ const MarketNews = ({ data }) => {
                                 to={`/academy/blog/posts/${data.slug}/`}
                             >
                                 <StyledFlex>
-                                    <QueryImage
-                                        data={data.main_image.imageFile}
-                                        width="104px"
-                                        height="78px"
-                                        alt={data.main_image.alt || ''}
-                                    />
-                                    <Flex ml="8px" fd="column">
+                                    <StandardImgWrapper
+                                        width="138px"
+                                        height="80px"
+                                        tabletL_width="112px"
+                                        tabletL_height="70px"
+                                        mobileL_width="112px"
+                                        mobileL_height="70px"
+                                    >
+                                        <QueryImage
+                                            data={data.main_image.imageFile}
+                                            alt={data.main_image.alt || ''}
+                                            className="standard-query-img"
+                                        />
+                                    </StandardImgWrapper>
+
+                                    <ContentWrapper ml="8px" fd="column">
                                         <Header type="paragraph-2" color="blue-9">
                                             <StyledSpan>Market report</StyledSpan>
                                         </Header>
@@ -102,7 +120,7 @@ const MarketNews = ({ data }) => {
                                                 {data.read_time_in_minutes} min read
                                             </Header>
                                         </Flex>
-                                    </Flex>
+                                    </ContentWrapper>
                                 </StyledFlex>
                             </StyledLocalizedLink>
                         )

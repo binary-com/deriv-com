@@ -80,14 +80,20 @@ export const LinksWrapper = styled.div`
         padding: 0;
     }
 `
+
 export const LinksCol = styled(Flex)`
     flex-direction: column;
     width: fit-content;
-    max-width: 100px;
+    min-width: 100px;
     margin-right: 40px;
 
     :last-child {
         margin-right: 0;
+    }
+
+    @media (min-width: 993px) and (max-width: 1022px) {
+        min-width: 0;
+        max-width: 100px;
     }
 `
 

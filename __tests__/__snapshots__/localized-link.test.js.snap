@@ -1,16 +1,28 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Header renders correctly 1`] = `
+exports[`Localized Link Tests External Localized Links renders correctly when flag is passed 1`] = `
 <a
-  className="sc-bdfBQB imoVvB"
+  aria-current="page"
+  className="sc-dlfnuX wcvZN"
   disabled={true}
-  href=""
+  href="/"
   onClick={[Function]}
-  style={
-    Object {
-      "cursor": "pointer",
-    }
-  }
+  onMouseEnter={[Function]}
+  style={Object {}}
+>
+  Test Link
+</a>
+`;
+
+exports[`Localized Link Tests Internal Localized Links renders correctly when flag is passed 1`] = `
+<a
+  aria-current="page"
+  className="sc-dlfnuX cvSRZk"
+  disabled={false}
+  href="/"
+  onClick={[Function]}
+  onMouseEnter={[Function]}
+  style={Object {}}
 >
   Test Link
 </a>

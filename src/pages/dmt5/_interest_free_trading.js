@@ -110,6 +110,7 @@ const Separator = styled.div`
     height: 1px;
     margin: 0.4rem 0 1.6rem;
     background-color: var(--color-grey-21);
+    opacity: 0.48;
 `
 
 const TextWrapperFlex = styled(Flex)`
@@ -159,7 +160,7 @@ const InterestFreeTrading = () => {
                 <TextWrapperFlex fd="column" jc="flex-start" ai="flex-start">
                     <CheckedText>Forex</CheckedText>
                     <CheckedText>Stocks</CheckedText>
-                    <CheckedText>Stocks Indices</CheckedText>
+                    <CheckedText>Stocks indices</CheckedText>
                     <CheckedText>Commodities</CheckedText>
                     <CheckedText>Cryptocurrencies</CheckedText>
                     <CheckedText>Synthetic indices</CheckedText>

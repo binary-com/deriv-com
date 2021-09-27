@@ -15,7 +15,7 @@ import device from 'themes/device.js'
 import Apple from 'images/svg/apple.svg'
 import Facebook from 'images/svg/facebook-blue.svg'
 import Google from 'images/svg/google.svg'
-import ViewEmailImage from 'images/common/view-email.png'
+import ViewEmailImage from 'images/common/sign-up/view-email.png'
 
 const SignupFormWrapper = styled(Flex)`
     width: 50%;

@@ -194,19 +194,19 @@ const InformationWrapper = styled(Flex)`
 
 const query = graphql`
     {
-        dbot: file(relativePath: { eq: "dbot_trade.png" }) {
+        dbot: file(relativePath: { eq: "dbot/dbot_trade.png" }) {
             ...fadeIn
         }
-        dmt5: file(relativePath: { eq: "dmt5_trade.png" }) {
+        dmt5: file(relativePath: { eq: "dmt5/dmt5_trade.png" }) {
             ...fadeIn
         }
-        dtrader: file(relativePath: { eq: "dtrader_trade.png" }) {
+        dtrader: file(relativePath: { eq: "dtrader/dtrader_trade.png" }) {
             ...fadeIn
         }
-        dbot_mobile: file(relativePath: { eq: "dbot_trade_mobile.png" }) {
+        dbot_mobile: file(relativePath: { eq: "dbot/dbot_trade_mobile.png" }) {
             ...fadeIn
         }
-        dmt5_mobile: file(relativePath: { eq: "dmt5_trade_mobile.png" }) {
+        dmt5_mobile: file(relativePath: { eq: "dmt5/dmt5_trade_mobile.png" }) {
             ...fadeIn
         }
     }

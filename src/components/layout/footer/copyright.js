@@ -9,13 +9,13 @@ const CopyrightSection = () => {
     return (
         <CopyrightWrapper>
             <img src={CopyrightIc} alt="copyright ic" width="16" height="16" />
-                <Text ml="0.4rem">
-                    <Localize
-                        translate_text="{{current_year}} Deriv | All rights reserved"
-                        values={{ current_year }}
-                    />
-                </Text>
-    </CopyrightWrapper>
+            <Text ml="0.4rem">
+                <Localize
+                    translate_text="{{current_year}} Deriv | All rights reserved"
+                    values={{ current_year }}
+                />
+            </Text>
+        </CopyrightWrapper>
     )
 }
 

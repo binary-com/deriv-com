@@ -37,7 +37,9 @@ const Advantages = () => {
     )
     return (
         <Container direction={'column'}>
-            <Title as="h2" padding={['80px 0 40px', '40px 0 16px']}>{advantages.title}</Title>
+            <Title as="h2" padding={['80px 0 40px', '40px 0 16px']}>
+                {advantages.title}
+            </Title>
             <CardContainer>
                 {advantages.content.map((card, index) => (
                     <Card

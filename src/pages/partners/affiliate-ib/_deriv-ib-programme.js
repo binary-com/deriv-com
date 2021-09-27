@@ -313,12 +313,7 @@ const ib_dmt5_financial = {
                     ],
                 },
                 {
-                    title: (
-                        <Localize
-                            key={0}
-                            translate_text="Commission per lot"
-                        />
-                    ),
+                    title: <Localize key={0} translate_text="Commission per lot" />,
                     list: [
                         <Localize key={1} translate_text="USD 2" />,
                         <Localize key={2} translate_text="USD 4" />,

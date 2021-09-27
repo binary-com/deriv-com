@@ -2,9 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 import { localize, Localize } from 'components/localization'
 import { Text } from 'components/elements'
-import AffiliateReport from 'images/common/affiliate-report.png'
-import AffiliateLogin from 'images/common/affiliate-login.png'
-import AffiliateMarketing from 'images/common/affiliate-marketing.png'
+import AffiliateReport from 'images/common/interim/affiliate-report.png'
+import AffiliateLogin from 'images/common/interim/affiliate-login.png'
+import AffiliateMarketing from 'images/common/interim/affiliate-marketing.png'
 import device from 'themes/device'
 
 const StyledUl = styled.ul`

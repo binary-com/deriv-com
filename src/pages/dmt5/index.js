@@ -31,7 +31,7 @@ const meta_attributes = {
 
 const query = graphql`
     query {
-        deriv_platform: file(relativePath: { eq: "dmt5-banner.png" }) {
+        deriv_platform: file(relativePath: { eq: "dmt5/dmt5-banner.png" }) {
             ...fadeIn
         }
     }

@@ -28,7 +28,7 @@ const meta_attributes = {
 
 const query = graphql`
     query {
-        deriv_platform: file(relativePath: { eq: "dtrader-banner.png" }) {
+        deriv_platform: file(relativePath: { eq: "dtrader/dtrader-banner.png" }) {
             ...fadeIn
         }
     }

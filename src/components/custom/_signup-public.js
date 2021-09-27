@@ -17,7 +17,7 @@ import Arrow from 'images/svg/chevron-right.svg'
 
 const query = graphql`
     query {
-        deriv_platform: file(relativePath: { eq: "banner-phone.png" }) {
+        deriv_platform: file(relativePath: { eq: "sign-up/banner-phone.png" }) {
             ...fadeIn
         }
     }

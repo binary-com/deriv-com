@@ -25,7 +25,9 @@ const Content = styled.div`
     margin-right: ${(props) => props.margin_right};
 
     ${Text} {
+        font-weight: 350;
         @media ${device.tabletL} {
+            font-weight: 400;
             font-size: 18px;
             text-align: center;
         }

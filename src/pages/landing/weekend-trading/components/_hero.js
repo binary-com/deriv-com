@@ -100,22 +100,21 @@ const TryButton = styled(LinkButton)`
     padding: 17px 24px;
     width: min-content;
     white-space: nowrap;
-    font-size: 20px;
+    font-size: 18px;
     margin-top: 1.2rem;
     border: unset;
+    font-weight: 500;
 
     @media ${device.tablet} {
         padding: 14px 18px;
         font-size: 14px;
-        white-space: nowrap;
         margin-top: 40px;
+        font-weight: 700;
     }
     @media ${device.mobileL} {
-        white-space: nowrap;
         margin-top: 20px;
     }
     @media ${device.mobileS} {
-        white-space: nowrap;
         margin-top: 10px;
     }
 `

@@ -92,8 +92,8 @@ const StyledCardHeader = styled(Header)`
     }
 `
 const StyledText = styled(Text)`
-    line-height: 31.2px;
     @media ${device.tabletL} {
+        font-weight: 400;
         padding-left: unset;
         padding-right: unset;
         font-size: 18px;
@@ -136,8 +136,10 @@ const IconTextRow = () => {
                             <StyledText
                                 size="var(--text-size-m)"
                                 color="black-3"
+                                lh="31.2px"
                                 pr="0.7rem"
                                 mb="3rem"
+                                weight="350"
                             >
                                 {localize(
                                     'Maximise your trading time on the markets that are open on weekends.',
@@ -164,11 +166,13 @@ const IconTextRow = () => {
                                 {localize('Trade anytime')}
                             </StyledCardHeader>
                             <StyledText
+                                lh="31.2px"
                                 size="var(--text-size-m)"
                                 color="black-3"
                                 pr="0.6rem"
                                 pl="0.6rem"
                                 mb="3rem"
+                                weight="350"
                             >
                                 {localize('Trade any time of the day, at your convenience.')}
                             </StyledText>
@@ -192,10 +196,12 @@ const IconTextRow = () => {
                                 {localize('Fewer distractions')}
                             </StyledCardHeader>
                             <StyledText
+                                lh="31.2px"
                                 size="var(--text-size-m)"
                                 color="black-3"
                                 pl="0.5rem"
                                 mb="3rem"
+                                weight="350"
                             >
                                 {localize(
                                     'Trade when you’re free from the distractions of weekday responsibilities.',

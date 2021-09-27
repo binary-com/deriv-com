@@ -30,7 +30,6 @@ const StyledText = styled(Text)`
 const TryButton = styled(LinkButton)`
     @media ${device.mobileL} {
         padding: 10px 16px;
-        height: 42px;
         white-space: nowrap;
         margin-bottom: 2rem;
     }

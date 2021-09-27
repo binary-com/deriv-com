@@ -1,5 +1,6 @@
 {
     "parser": "babel-eslint",
+    "plugins": ["jest"],
     "rules": {
         "strict": 0,
         "camelcase": 0,
@@ -35,9 +36,7 @@
         "import/no-extraneous-dependencies": [
             0,
             {
-                "extensions": [
-                    ".jsx"
-                ]
+                "extensions": [".jsx"]
             }
         ],
         "import/no-useless-path-segments": "error",
@@ -45,13 +44,7 @@
         "import/order": [
             "error",
             {
-                "groups": [
-                    "builtin",
-                    "external",
-                    "parent",
-                    "sibling",
-                    "index"
-                ],
+                "groups": ["builtin", "external", "parent", "sibling", "index"],
                 "newlines-between": "never"
             }
         ],
@@ -73,14 +66,13 @@
         "es6": true,
         "browser": true,
         "amd": true,
-        "node": true
+        "node": true,
+        "jest/globals": true
     },
     "settings": {
         "import/resolver": {
             "node": {
-                "paths": [
-                    "src"
-                ]
+                "paths": ["src"]
             }
         },
         "react": {

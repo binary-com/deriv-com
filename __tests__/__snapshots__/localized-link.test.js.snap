@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header renders correctly 1`] = `
+<a
+  className="sc-bdfBQB imoVvB"
+  disabled={true}
+  href=""
+  onClick={[Function]}
+  style={
+    Object {
+      "cursor": "pointer",
+    }
+  }
+>
+  Test Link
+</a>
+`;

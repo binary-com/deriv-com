@@ -83,7 +83,7 @@ export const LinksWrapper = styled.div`
 export const LinksCol = styled(Flex)`
     flex-direction: column;
     width: fit-content;
-    min-width: 100px;
+    max-width: 100px;
     margin-right: 40px;
 
     :last-child {

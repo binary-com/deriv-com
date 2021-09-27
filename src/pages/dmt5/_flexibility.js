@@ -139,7 +139,9 @@ const Flexibility = () => {
                 type="page-title"
                 mb="4rem"
             >
-                {localize('Flexibility with multiple account types')}
+                {is_eu_country
+                    ? localize('Flexibility with multiple markets')
+                    : localize('Flexibility with multiple account types')}
             </StyledHeader>
             <Flex mb="4rem" tablet_direction="column" tablet_ai="center" tablet={{ m: '0' }}>
                 {chosenContent.map((item, idx) => {

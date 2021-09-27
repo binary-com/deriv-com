@@ -59,6 +59,9 @@ const LiveChat = ({ is_banner_shown }) => {
                     is_eu_country={is_eu_country}
                     onClick={() => {
                         LC_API.open_chat_window()
+                        setTimeout(() => {
+                            document.getElementById('chat-widget-container').style.width = '450px'
+                        }, 500)
                     }}
                     onMouseEnter={() => setLivechatHover(true)}
                     onMouseLeave={() => setLivechatHover(false)}

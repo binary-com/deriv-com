@@ -73,6 +73,10 @@ const AccountManagement = () => (
                         onClick={() => {
                             // eslint-disable-next-line no-undef
                             LC_API.open_chat_window()
+                            setTimeout(() => {
+                                document.getElementById('chat-widget-container').style.width =
+                                    '450px'
+                            }, 500)
                         }}
                     />,
                 ]}

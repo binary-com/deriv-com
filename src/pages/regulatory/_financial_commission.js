@@ -26,6 +26,11 @@ const FinancialCommission = () => {
                                         className="gtm-deriv-livechat"
                                         onClick={() => {
                                             LC_API.open_chat_window()
+                                            setTimeout(() => {
+                                                document.getElementById(
+                                                    'chat-widget-container',
+                                                ).style.width = '450px'
+                                            }, 500)
                                         }}
                                     />,
                                     <LinkText
@@ -49,6 +54,11 @@ const FinancialCommission = () => {
                                         color="red"
                                         onClick={() => {
                                             LC_API.open_chat_window()
+                                            setTimeout(() => {
+                                                document.getElementById(
+                                                    'chat-widget-container',
+                                                ).style.width = '450px'
+                                            }, 500)
                                         }}
                                     />,
                                 ]}

@@ -42,6 +42,10 @@ export const useLivechat = () => {
                         setLiveChatInteractive(true)
                         if (is_livechat_query?.toLowerCase() === 'true') {
                             window.LC_API.open_chat_window()
+                            setTimeout(() => {
+                                document.getElementById('chat-widget-container').style.width =
+                                    '450px'
+                            }, 500)
                         }
                     })
                 })
@@ -117,12 +121,19 @@ export const useLivechat = () => {
                     const is_livechat_query = url_params.get('is_livechat_open')
                     if (is_livechat_query?.toLowerCase() === 'true') {
                         window.LC_API.open_chat_window()
+                        setTimeout(() => {
+                            document.getElementById('chat-widget-container').style.width = '450px'
+                        }, 500)
                     }
 
                     // open chat widget when there is an incoming greeting/announcement
                     window.LiveChatWidget.on('new_event', (event) => {
                         if (event.greeting) {
                             window.LC_API.open_chat_window()
+                            setTimeout(() => {
+                                document.getElementById('chat-widget-container').style.width =
+                                    '450px'
+                            }, 500)
                         }
                     })
                 })

@@ -34,6 +34,9 @@ const LiveChatPage = () => {
         if (is_livechat_interactive) {
             script_timeout = setTimeout(() => {
                 LC_API.open_chat_window()
+                setTimeout(() => {
+                    document.getElementById('chat-widget-container').style.width = '450px'
+                }, 500)
                 setLoading(false)
             }, 1000)
         }

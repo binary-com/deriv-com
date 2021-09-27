@@ -159,7 +159,7 @@ const CalculatorCard = ({ button_text, image_alt_name, image_name, link, name, t
                     <QueryImage data={data[image_name + '_mobile']} alt={image_alt_name} />
                 </Show.Mobile>
             </ImageWrapper>
-            <StyledLinkButton tertiary="true" to={link} external="true" target="_blank">
+            <StyledLinkButton tertiary="true" to={link}>
                 <Localize translate_text={button_text} />
             </StyledLinkButton>
         </StyledCardContainer>

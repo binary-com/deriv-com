@@ -36,6 +36,7 @@ jobs:
         - name: Get version
           uses: olegtarasov/get-tag@v2.1
           id: tagName
+          run: EXPORT GATSBY_DERIV_VERSION=$GIT_TAG_NAME
 
         - name: Checkout 🛎️
           uses: actions/checkout@v2.3.1
@@ -53,7 +54,6 @@ jobs:
 env:
     GATSBY_CPU_COUNT: 2
     GATSBY_ENV: production
-    GATSBY_DERIV_VERSION: $GIT_TAG_NAME
 
     # release-production:
     #     needs: lint

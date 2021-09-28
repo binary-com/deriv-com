@@ -72,7 +72,7 @@ const ImageWrapper = styled(Flex)`
     }
 
     @media (max-width: 1440px) {
-        width: 32rem;
+        width: 30rem;
     }
     @media (max-width: 800px) {
         height: auto;

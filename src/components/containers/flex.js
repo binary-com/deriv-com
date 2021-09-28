@@ -15,6 +15,7 @@ const Flex = styled(Box)`
         flex-direction: ${(props) => (props.tablet_direction ? props.tablet_direction : '')};
         align-items: ${(props) => (props.tablet_ai ? props.tablet_ai : '')};
         justify-content: ${(props) => (props.tablet_jc ? props.tablet_jc : '')};
+        flex-wrap: ${(props) => props.tablet_fw};
     }
 `
 

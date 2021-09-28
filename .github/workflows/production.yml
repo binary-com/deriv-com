@@ -34,8 +34,7 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - name: Get version
-          uses: olegtarasov/get-tag@v2.1
-          id: tagName
+          run: echo "GIT_TAG_NAME=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
 
         - name: Checkout 🛎️
           uses: actions/checkout@v2.3.1

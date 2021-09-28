@@ -112,6 +112,8 @@ export const WriterImage = styled.div`
     height: 48px;
     border-radius: 50px;
     margin-right: 8px;
+    overflow: hidden;
+
     @media ${device.laptop} {
         width: 40px;
         height: 40px;

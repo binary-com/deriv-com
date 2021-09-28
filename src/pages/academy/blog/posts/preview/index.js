@@ -175,6 +175,8 @@ const BlogPreview = () => {
                                                             <img
                                                                 src={`${cms_assets_end_point}${post_data?.author?.image.id}`}
                                                                 alt=""
+                                                                width="48"
+                                                                height="48"
                                                             />
                                                         </WriterImage>
                                                     )}

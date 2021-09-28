@@ -162,10 +162,8 @@ const VideoCarousel = ({ carousel_items }) => {
                                     <StandardImgWrapper
                                         width="174px"
                                         tabletL_width="142px"
-                                        mobileL_width="142px"
                                         br="unset"
                                         tabletL_br="unset"
-                                        mobileL_br="unset"
                                     >
                                         <ImgDiv src={thumbnail_img} alt={thumbnail_img_alt} />
                                         <PlayerIconWrapper absolute ai="center">

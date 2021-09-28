@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Clock from './components/recent-featured-posts/images/clock.svg'
+import Dot from './components/recent-featured-posts/images/dot.svg'
 import {
     StyledContainer,
     StyledTabs,
@@ -15,12 +16,13 @@ import {
     BottomDescription,
     SmallArticle,
     SmallArticleTopContent,
+    SmallArticleDateTimeDesktop,
     SmallArticleLeftContent,
     SmallArticleRightContent,
     AllArticleButton,
     RedirectLink,
     ClockIcon,
-    MobileHeader,
+    DotIcon,
 } from './components/recent-featured-posts/_style'
 import { StandardImgWrapper } from './common/_styles'
 import { convertDate, getAssetUrl } from 'common/utility'
@@ -130,45 +132,17 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
                                                 </SmallArticleLeftContent>
                                                 <SmallArticleRightContent>
                                                     <SmallArticleTopContent>
-                                                        {/* <Flex
-                                                            jc="start"
-                                                            height="unset"
-                                                            laptopM={{ flexDirection: 'start' }}
-                                                        >
-                                                            {article.tags &&
-                                                                article.tags
-                                                                    .slice(0, 1)
-                                                                    .map((tag) => (
-                                                                        <SmallArticleCategories
-                                                                            key={tag?.id}
-                                                                        >
-                                                                            {tag?.tags_id?.tag_name}
-                                                                        </SmallArticleCategories>
-                                                                    ))}
-                                                        </Flex> */}
-                                                        {/* <SmallArticleDateTimeMobile>
-                                                            {article?.published_date &&
-                                                                convertDate(
-                                                                    article?.published_date,
-                                                                )}
-                                                            <MobileDotIcon src={Dot} />
-                                                            {article.read_time_in_minutes}{' '}
-                                                            <Localize translate_text="min" />
-                                                        </SmallArticleDateTimeMobile> */}
                                                         <Header as="p" type="paragraph-1">
                                                             {article.blog_title}
                                                         </Header>
                                                     </SmallArticleTopContent>
-                                                    <MobileHeader as="p" type="paragraph-1">
-                                                        {article.blog_title}
-                                                    </MobileHeader>
-                                                    {/* <SmallArticleDateTimeDesktop>
+                                                    <SmallArticleDateTimeDesktop>
                                                         {article?.published_date &&
                                                             convertDate(article?.published_date)}
                                                         <DotIcon src={Dot} />
                                                         {article.read_time_in_minutes}{' '}
                                                         <Localize translate_text="min read" />
-                                                    </SmallArticleDateTimeDesktop> */}
+                                                    </SmallArticleDateTimeDesktop>
                                                 </SmallArticleRightContent>
                                             </SmallArticle>
                                         </RedirectLink>
@@ -245,45 +219,17 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
                                                 </SmallArticleLeftContent>
                                                 <SmallArticleRightContent>
                                                     <SmallArticleTopContent>
-                                                        {/* <Flex
-                                                            jc="start"
-                                                            height="unset"
-                                                            laptopM={{ flexDirection: 'start' }}
-                                                        >
-                                                            {article.tags &&
-                                                                article.tags
-                                                                    .slice(0, 1)
-                                                                    .map((tag) => (
-                                                                        <SmallArticleCategories
-                                                                            key={tag?.id}
-                                                                        >
-                                                                            {tag?.tags_id?.tag_name}
-                                                                        </SmallArticleCategories>
-                                                                    ))}
-                                                        </Flex> */}
-                                                        {/* <SmallArticleDateTimeMobile>
-                                                            {article?.published_date &&
-                                                                convertDate(
-                                                                    article?.published_date,
-                                                                )}
-                                                            <MobileDotIcon src={Dot} />
-                                                            {article.read_time_in_minutes}{' '}
-                                                            <Localize translate_text="min" />
-                                                        </SmallArticleDateTimeMobile> */}
                                                         <Header as="p" type="paragraph-1">
                                                             {article.blog_title}
                                                         </Header>
                                                     </SmallArticleTopContent>
-                                                    <MobileHeader as="p" type="paragraph-1">
-                                                        {article.blog_title}
-                                                    </MobileHeader>
-                                                    {/* <SmallArticleDateTimeDesktop>
+                                                    <SmallArticleDateTimeDesktop>
                                                         {article?.published_date &&
                                                             convertDate(article?.published_date)}
                                                         <DotIcon src={Dot} />
                                                         {article.read_time_in_minutes}{' '}
                                                         <Localize translate_text="min read" />
-                                                    </SmallArticleDateTimeDesktop> */}
+                                                    </SmallArticleDateTimeDesktop>
                                                 </SmallArticleRightContent>
                                             </SmallArticle>
                                         </RedirectLink>

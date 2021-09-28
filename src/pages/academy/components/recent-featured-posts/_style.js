@@ -160,13 +160,11 @@ export const BottomDescription = styled(Flex)`
 
 export const SmallArticle = styled(Flex)`
     font-size: 16px;
-    height: 107px;
     margin-bottom: 22px;
-    justify-content: start;
     cursor: pointer;
     transition: transform 0.3s;
     min-width: 328px;
-    align-items: center;
+    justify-content: unset;
 
     &:hover {
         transform: scale(1.02);
@@ -237,7 +235,7 @@ export const SmallArticleBottomContent = styled.div`
 export const SmallArticleLeftContent = styled(Flex)`
     margin-left: 15px;
     margin-right: 10px;
-    align-items: center;
+    align-items: flex-start;
     width: unset;
 
     @media ${device.laptopM} {
@@ -248,10 +246,12 @@ export const SmallArticleLeftContent = styled(Flex)`
 export const SmallArticleRightContent = styled(Flex)`
     margin-left: 10px;
     flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
     /* stylelint-disable */
-    -webkit-justify-content: space-between;
+    /* -webkit-justify-content: space-between;
+    justify-content: space-between; */
     /* stylelint-enable */
-    justify-content: space-between;
 
     @media ${device.laptopM} {
         justify-content: flex-start;
@@ -298,6 +298,7 @@ export const MobileDotIcon = styled(DotIcon)`
 export const SmallArticleTopContent = styled(Flex)`
     color: black;
     flex-direction: column;
+    height: auto;
     /* stylelint-disable */
     /* justify-content: flex-start; */
     /* height: 30px; */
@@ -311,10 +312,6 @@ export const SmallArticleTopContent = styled(Flex)`
 
     @media ${device.laptopM} {
         flex-direction: row;
-
-        ${Header} {
-            display: none;
-        }
     }
 `
 
@@ -346,9 +343,6 @@ export const SmallArticleDateTimeDesktop = styled.div`
     margin-top: 12px;
     width: 100%;
     font-size: 12px;
-    @media ${device.laptopM} {
-        display: none;
-    }
 `
 
 export const MobileHeader = styled(Header)`

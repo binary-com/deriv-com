@@ -13,7 +13,7 @@ const BackgroundWrapper = styled(Background)`
     background-size: cover;
     background-position: bottom right;
     @media ${device.desktopL} {
-        height: 70rem !important;
+        height: 73rem !important;
     }
     @media ${device.desktop} {
         height: 65rem !important;
@@ -45,7 +45,7 @@ const Wrapper = styled(Container)`
 
     @media ${device.mobileL} {
         padding-top: 2rem;
-        padding-left: 2rem;
+        padding-left: 0;
         flex-direction: column-reverse;
         justify-content: center;
     }

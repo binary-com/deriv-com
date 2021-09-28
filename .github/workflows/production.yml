@@ -33,8 +33,19 @@ jobs:
     build-and-deploy:
       runs-on: ubuntu-latest
       steps:
-        - name: Get version
-          run: echo "GIT_TAG_NAME=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
+        - name: Get version from ref
+          run: |
+            echo "GIT_TAG_NAME=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
+            echo $GIT_TAG_NAME
+            echo ${GITHUB_REF#refs/*/}
+            echo $GITHUB_ENV
+
+        - name: Get version from actions
+          uses: olegtarasov/get-tag@v2.1
+          id: tagName
+
+        - name: Print version
+          run: echo $GIT_TAG_NAME
 
         - name: Checkout 🛎️
           uses: actions/checkout@v2.3.1

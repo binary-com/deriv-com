@@ -37,6 +37,7 @@ const Section = styled(SectionContainer)`
 `
 const CardContainer = styled(Flex)`
     @media ${device.tabletL} {
+        padding: 0;
         max-width: 58rem;
         flex-wrap: wrap;
     }
@@ -44,8 +45,7 @@ const CardContainer = styled(Flex)`
 const Card = styled(Flex)`
     width: 38.1rem;
     height: auto;
-    margin-right: 2.4rem;
-    margin-bottom: 2rem;
+    margin: 0 2.4rem 2rem 0;
     justify-content: flex-start;
 
     @media ${device.laptopM} {
@@ -70,13 +70,11 @@ const Card = styled(Flex)`
 `
 const StyledHeader = styled(Header)`
     @media ${device.tablet} {
-        margin-top: 1.5rem;
-        margin-bottom: 5rem;
+        margin: 1.5rem 0 5rem;
     }
     @media ${device.mobileL} {
         margin-top: 0;
-        padding-left: 1.5rem;
-        padding-right: 1.5rem;
+        padding: 0 1.5rem;
     }
 `
 const StyledCardHeader = styled(Header)`
@@ -85,17 +83,14 @@ const StyledCardHeader = styled(Header)`
     }
 
     @media ${device.mobileL} {
-        padding-right: unset;
-        padding-left: unset;
-        margin-bottom: 20px;
-        margin-top: 50px;
+        padding: 0;
+        margin: 50px 0 20px;
     }
 `
 const StyledText = styled(Text)`
     @media ${device.tabletL} {
         font-weight: 400;
-        padding-left: unset;
-        padding-right: unset;
+        padding: 0;
         font-size: 18px;
         text-align: center;
         line-height: 26px;
@@ -109,24 +104,22 @@ const IconTextRow = () => {
                 type="heading-2"
                 align="center"
                 mb="8rem"
-                pl="5rem"
-                pr="5rem"
+                p="0 5rem"
                 as="h2"
                 color="black-3"
             >
                 {localize('Enjoy weekend trading on Deriv and get the most out of your trades')}
             </StyledHeader>
-            <CardContainer pr="4.7rem" pl="5rem">
+            <CardContainer pr="4.7rem" pl="6.7rem">
                 <Card direction="column">
                     <Row>
-                        <img src={RightAd} alt="" width="95px" />
+                        <img src={RightAd} alt="" width="94px" />
                     </Row>
                     <Row>
                         <Column>
                             <StyledCardHeader
                                 pr="0.7rem"
-                                mt="6.5rem"
-                                mb="1.8rem"
+                                m="6.5rem 0 1.8rem"
                                 type="subtitle-1"
                                 as="h4"
                                 color="black-3"
@@ -134,9 +127,9 @@ const IconTextRow = () => {
                                 {localize('Opportunity knocks')}
                             </StyledCardHeader>
                             <StyledText
-                                size="var(--text-size-m)"
+                                size="24px"
                                 color="black-3"
-                                lh="31.2px"
+                                lh="31px"
                                 pr="0.7rem"
                                 mb="3rem"
                                 weight="350"
@@ -150,15 +143,13 @@ const IconTextRow = () => {
                 </Card>
                 <Card direction="column">
                     <Row>
-                        <img src={SettlePayment} alt="" width="95px" />
+                        <img src={SettlePayment} alt="" width="96px" />
                     </Row>
                     <Row>
                         <Column>
                             <StyledCardHeader
-                                pl="0.6rem"
-                                pr="0.6rem"
-                                mt="6.5rem"
-                                mb="1.8rem"
+                                p="0 0.6rem"
+                                m="6.5rem 0 1.8rem"
                                 type="subtitle-1"
                                 as="h4"
                                 color="black-3"
@@ -166,11 +157,10 @@ const IconTextRow = () => {
                                 {localize('Trade anytime')}
                             </StyledCardHeader>
                             <StyledText
-                                lh="31.2px"
-                                size="var(--text-size-m)"
+                                lh="31px"
+                                size="24px"
                                 color="black-3"
-                                pr="0.6rem"
-                                pl="0.6rem"
+                                p="0 0.6rem"
                                 mb="3rem"
                                 weight="350"
                             >
@@ -187,8 +177,7 @@ const IconTextRow = () => {
                         <Column>
                             <StyledCardHeader
                                 pl="0.5rem"
-                                mt="6.5rem"
-                                mb="1.8rem"
+                                m="6.5rem 0 1.8rem"
                                 type="subtitle-1"
                                 as="h4"
                                 color="black-3"
@@ -196,8 +185,8 @@ const IconTextRow = () => {
                                 {localize('Fewer distractions')}
                             </StyledCardHeader>
                             <StyledText
-                                lh="31.2px"
-                                size="var(--text-size-m)"
+                                lh="31px"
+                                size="24px"
                                 color="black-3"
                                 pl="0.5rem"
                                 mb="3rem"

@@ -160,7 +160,7 @@ const InterestFreeTrading = () => {
                 <TextWrapperFlex fd="column" jc="flex-start" ai="flex-start">
                     <CheckedText>Forex</CheckedText>
                     <CheckedText>Stocks</CheckedText>
-                    <CheckedText>Stocks indices</CheckedText>
+                    <CheckedText>Stock indices</CheckedText>
                     <CheckedText>Commodities</CheckedText>
                     <CheckedText>Cryptocurrencies</CheckedText>
                     <CheckedText>Synthetic indices</CheckedText>

@@ -4,10 +4,6 @@ on:
     push:
         branches: [ prod-version ]
 
-env:
-    GATSBY_CPU_COUNT: 2
-    GATSBY_ENV: production
-
 jobs:
     lint:
         timeout-minutes: 10
@@ -54,8 +50,10 @@ jobs:
           with:
             branch: gh-pages # The branch the action should deploy to.
             folder: public # The folder the action should deploy.
-  env:
-    GATSBY_DERIV_VERSION: $GITHUB_REF#refs/*/
+env:
+    GATSBY_CPU_COUNT: 2
+    GATSBY_ENV: production
+    GATSBY_DERIV_VERSION: $GIT_TAG_NAME
 
     # release-production:
     #     needs: lint

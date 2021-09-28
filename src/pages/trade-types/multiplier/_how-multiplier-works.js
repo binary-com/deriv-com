@@ -182,7 +182,7 @@ const HowOptionsWorks = () => {
                         {is_eu_country ? (
                             <QueryImage
                                 data={data['multiplier_market_eu']}
-                                alt="Trade types option market eu"
+                                alt="Trade types option market"
                             />
                         ) : (
                             <QueryImage
@@ -200,7 +200,7 @@ const HowOptionsWorks = () => {
                         {is_eu_country ? (
                             <QueryImage
                                 data={data['multiplier_trade_type_eu']}
-                                alt="Trade types option trade type open eu"
+                                alt="Trade types option trade type open"
                             />
                         ) : (
                             <QueryImage
@@ -233,7 +233,7 @@ const HowOptionsWorks = () => {
                         {is_eu_country ? (
                             <QueryImage
                                 data={data['multiplier_value_eu']}
-                                alt="Trade types multiplier value eu"
+                                alt="Trade types multiplier value"
                             />
                         ) : (
                             <QueryImage

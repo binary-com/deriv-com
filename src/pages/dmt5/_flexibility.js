@@ -127,7 +127,7 @@ const StyledText = styled(Text)`
 const Flexibility = () => {
     const { is_eu_country } = React.useContext(DerivStore)
 
-    const chosenContent = is_eu_country ? eucontent : content
+    const chosen_content = is_eu_country ? eucontent : content
 
     return (
         <Section>
@@ -144,7 +144,7 @@ const Flexibility = () => {
                     : localize('Flexibility with multiple account types')}
             </StyledHeader>
             <Flex mb="4rem" tablet_direction="column" tablet_ai="center" tablet={{ m: '0' }}>
-                {chosenContent.map((item, idx) => {
+                {chosen_content.map((item, idx) => {
                     return (
                         ((is_eu_country && item.show_eu) ||
                             (!is_eu_country && !item.show_eu) ||

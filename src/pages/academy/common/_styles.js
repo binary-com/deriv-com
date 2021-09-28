@@ -65,8 +65,19 @@ export const StandardImgWrapper = styled.div`
     }
 
     @media ${device.mobileL} {
-        width: ${(props) => (props.mobileL_width ? props.mobileL_width : '100%')};
-        height: ${(props) => (props.mobileL_height ? props.mobileL_height : '100%')};
-        border-radius: ${(props) => (props.mobileL_br ? props.mobileL_br : '4px')};
+        width: ${(props) =>
+            props.mobileL_width
+                ? props.mobileL_width
+                : props.tabletL_width
+                ? props.tabletL_width
+                : '100%'};
+        height: ${(props) =>
+            props.mobileL_height
+                ? props.mobileL_height
+                : props.tabletL_height
+                ? props.tabletL_height
+                : '100%'};
+        border-radius: ${(props) =>
+            props.mobileL_br ? props.mobileL_br : props.tabletL_br ? props.tabletL_br : '4px'};
     }
 `

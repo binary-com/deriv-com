@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Clock from './components/recent-featured-posts/images/clock.svg'
-import Dot from './components/recent-featured-posts/images/dot.svg'
 import {
     StyledContainer,
     StyledTabs,
@@ -15,22 +14,16 @@ import {
     StyledCategories,
     BottomDescription,
     SmallArticle,
-    SmallArticleCategories,
     SmallArticleTopContent,
-    SmallArticleDateTimeDesktop,
-    SmallArticleDateTimeMobile,
     SmallArticleLeftContent,
     SmallArticleRightContent,
     AllArticleButton,
     RedirectLink,
     ClockIcon,
-    DotIcon,
-    MobileDotIcon,
     MobileHeader,
 } from './components/recent-featured-posts/_style'
 import { StandardImgWrapper } from './common/_styles'
-import { convertDate, truncateString, getAssetUrl } from 'common/utility'
-import { Flex } from 'components/containers'
+import { convertDate, getAssetUrl } from 'common/utility'
 import { QueryImage, Carousel, Tabs, Header } from 'components/elements'
 import { localize, WithIntl, Localize } from 'components/localization'
 
@@ -124,8 +117,6 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
                                                         height="85.8px"
                                                         tabletL_width="113px"
                                                         tabletL_height="68px"
-                                                        mobileL_width="113px"
-                                                        mobileL_height="68px"
                                                     >
                                                         <QueryImage
                                                             className="standard-query-img"
@@ -139,7 +130,7 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
                                                 </SmallArticleLeftContent>
                                                 <SmallArticleRightContent>
                                                     <SmallArticleTopContent>
-                                                        <Flex
+                                                        {/* <Flex
                                                             jc="start"
                                                             height="unset"
                                                             laptopM={{ flexDirection: 'start' }}
@@ -154,8 +145,8 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
                                                                             {tag?.tags_id?.tag_name}
                                                                         </SmallArticleCategories>
                                                                     ))}
-                                                        </Flex>
-                                                        <SmallArticleDateTimeMobile>
+                                                        </Flex> */}
+                                                        {/* <SmallArticleDateTimeMobile>
                                                             {article?.published_date &&
                                                                 convertDate(
                                                                     article?.published_date,
@@ -163,21 +154,21 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
                                                             <MobileDotIcon src={Dot} />
                                                             {article.read_time_in_minutes}{' '}
                                                             <Localize translate_text="min" />
-                                                        </SmallArticleDateTimeMobile>
+                                                        </SmallArticleDateTimeMobile> */}
                                                         <Header as="p" type="paragraph-1">
-                                                            {truncateString(article.blog_title, 35)}
+                                                            {article.blog_title}
                                                         </Header>
                                                     </SmallArticleTopContent>
                                                     <MobileHeader as="p" type="paragraph-1">
-                                                        {truncateString(article.blog_title, 35)}
+                                                        {article.blog_title}
                                                     </MobileHeader>
-                                                    <SmallArticleDateTimeDesktop>
+                                                    {/* <SmallArticleDateTimeDesktop>
                                                         {article?.published_date &&
                                                             convertDate(article?.published_date)}
                                                         <DotIcon src={Dot} />
                                                         {article.read_time_in_minutes}{' '}
                                                         <Localize translate_text="min read" />
-                                                    </SmallArticleDateTimeDesktop>
+                                                    </SmallArticleDateTimeDesktop> */}
                                                 </SmallArticleRightContent>
                                             </SmallArticle>
                                         </RedirectLink>
@@ -241,8 +232,6 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
                                                         height="85.8px"
                                                         tabletL_width="113px"
                                                         tabletL_height="68px"
-                                                        mobileL_width="113px"
-                                                        mobileL_height="68px"
                                                     >
                                                         <QueryImage
                                                             className="standard-query-img"
@@ -256,7 +245,7 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
                                                 </SmallArticleLeftContent>
                                                 <SmallArticleRightContent>
                                                     <SmallArticleTopContent>
-                                                        <Flex
+                                                        {/* <Flex
                                                             jc="start"
                                                             height="unset"
                                                             laptopM={{ flexDirection: 'start' }}
@@ -271,8 +260,8 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
                                                                             {tag?.tags_id?.tag_name}
                                                                         </SmallArticleCategories>
                                                                     ))}
-                                                        </Flex>
-                                                        <SmallArticleDateTimeMobile>
+                                                        </Flex> */}
+                                                        {/* <SmallArticleDateTimeMobile>
                                                             {article?.published_date &&
                                                                 convertDate(
                                                                     article?.published_date,
@@ -280,21 +269,21 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
                                                             <MobileDotIcon src={Dot} />
                                                             {article.read_time_in_minutes}{' '}
                                                             <Localize translate_text="min" />
-                                                        </SmallArticleDateTimeMobile>
+                                                        </SmallArticleDateTimeMobile> */}
                                                         <Header as="p" type="paragraph-1">
-                                                            {truncateString(article.blog_title, 40)}
+                                                            {article.blog_title}
                                                         </Header>
                                                     </SmallArticleTopContent>
                                                     <MobileHeader as="p" type="paragraph-1">
-                                                        {truncateString(article.blog_title, 40)}
+                                                        {article.blog_title}
                                                     </MobileHeader>
-                                                    <SmallArticleDateTimeDesktop>
+                                                    {/* <SmallArticleDateTimeDesktop>
                                                         {article?.published_date &&
                                                             convertDate(article?.published_date)}
                                                         <DotIcon src={Dot} />
                                                         {article.read_time_in_minutes}{' '}
                                                         <Localize translate_text="min read" />
-                                                    </SmallArticleDateTimeDesktop>
+                                                    </SmallArticleDateTimeDesktop> */}
                                                 </SmallArticleRightContent>
                                             </SmallArticle>
                                         </RedirectLink>

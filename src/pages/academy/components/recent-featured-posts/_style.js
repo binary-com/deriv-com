@@ -297,10 +297,10 @@ export const MobileDotIcon = styled(DotIcon)`
 
 export const SmallArticleTopContent = styled(Flex)`
     color: black;
-    height: 30px;
-    justify-content: flex-start;
     flex-direction: column;
     /* stylelint-disable */
+    /* justify-content: flex-start; */
+    /* height: 30px; */
     /* flex: 1 1 15em;
     -webkit-flex: 1 1 15em; */
     /* stylelint-enable */

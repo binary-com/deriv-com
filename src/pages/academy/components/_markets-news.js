@@ -5,8 +5,8 @@ import { StandardImgWrapper } from '../common/_styles'
 import { Container, Flex } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
 import { LocalizedLink } from 'components/localization'
-import { truncateString } from 'common/utility'
-import EyeIcon from 'images/svg/eye.svg'
+// import { truncateString } from 'common/utility'
+// import EyeIcon from 'images/svg/eye.svg'
 import device from 'themes/device'
 
 const MarketsNewsWrapper = styled.div`
@@ -29,11 +29,11 @@ const MarketsNewsWrapper = styled.div`
     }
 `
 
-const StyledSpan = styled.span`
-    background-color: var(--color-blue-10);
-    padding: 3px 8px 1px;
-    border-radius: 8px;
-`
+// const StyledSpan = styled.span`
+//     background-color: var(--color-blue-10);
+//     padding: 3px 8px 1px;
+//     border-radius: 8px;
+// `
 
 const StyledFlex = styled(Flex)`
     max-height: 83px;
@@ -42,7 +42,7 @@ const ContentWrapper = styled(Flex)`
     max-width: 238px;
 
     @media ${device.tabletL} {
-        max-width: 204px;
+        max-width: 200px;
     }
 `
 
@@ -57,7 +57,11 @@ const StyledContainer = styled(Container)`
         margin-bottom: 40px;
     }
 `
-
+const StyledText = styled(Header)`
+    @media ${device.tabletL} {
+        margin-top: 0;
+    }
+`
 // Can modify this for second phase to get the tag name
 // const getTagName = (tags) => {
 //     for (let i = 0; i < tags.length; i++){
@@ -86,8 +90,6 @@ const MarketNews = ({ data }) => {
                                         height="80px"
                                         tabletL_width="112px"
                                         tabletL_height="70px"
-                                        mobileL_width="112px"
-                                        mobileL_height="70px"
                                     >
                                         <QueryImage
                                             data={data.main_image.imageFile}
@@ -97,13 +99,13 @@ const MarketNews = ({ data }) => {
                                     </StandardImgWrapper>
 
                                     <ContentWrapper ml="8px" fd="column">
-                                        <Header type="paragraph-2" color="blue-9">
+                                        {/* <Header type="paragraph-2" color="blue-9">
                                             <StyledSpan>Market report</StyledSpan>
-                                        </Header>
-                                        <Header mt="8px" type="paragraph-1" weight="bold">
-                                            {truncateString(data.blog_title, 38)}
-                                        </Header>
-                                        <Flex
+                                        </Header> */}
+                                        <StyledText mt="8px" type="paragraph-1" weight="bold">
+                                            {data.blog_title}
+                                        </StyledText>
+                                        {/* <Flex
                                             mt="auto"
                                             height="fit-content"
                                             jc="center"
@@ -119,7 +121,7 @@ const MarketNews = ({ data }) => {
                                             >
                                                 {data.read_time_in_minutes} min read
                                             </Header>
-                                        </Flex>
+                                        </Flex> */}
                                     </ContentWrapper>
                                 </StyledFlex>
                             </StyledLocalizedLink>

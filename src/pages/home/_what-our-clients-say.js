@@ -1,247 +1,350 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
-import { graphql, useStaticQuery } from 'gatsby'
-import { Carousel, Divider, Header, QueryImage, Text } from 'components/elements'
-import { localize, Localize } from 'components/localization'
+import PropTypes from 'prop-types'
+import Carousel from './_testimonial-carousel'
+import { Header, Text } from 'components/elements'
+import { Localize, localize } from 'components/localization'
+import { Container, Flex } from 'components/containers'
 import device from 'themes/device'
-import { Container, SectionContainer, Flex } from 'components/containers'
+import { addScript } from 'common/utility'
+import Quote from 'images/svg/testimonials/quote.svg'
 
-const ClientCard = styled.article`
-    width: 58.2rem;
-    padding-top: 5.2rem;
-    position: relative;
-    overflow: hidden;
+const StyledContainer = styled.div`
+    background-color: var(--color-grey-25);
+    width: 100%;
+    height: fit-content;
+`
 
-    @media ${device.tabletL} {
-        padding: 4rem 4rem 0;
+const ClientContainer = styled(Container)`
+    display: flex;
+    align-items: center;
+    min-height: 455px;
+    margin: 0 auto 80px;
+`
+
+const ClientFlex = styled(Flex)`
+    max-width: 1440px;
+    min-height: 100px;
+
+    @media ${device.tabletS} {
+        padding: 40px 0;
+        max-width: 100%;
     }
 `
 
-const QuoteText = styled(Text)`
-    text-align: left;
-    padding-bottom: 3.2rem;
-    z-index: 10;
-    position: relative;
-
-    &::after {
-        content: '“';
-        position: absolute;
-        font-size: 24rem;
-        z-index: -1;
-        left: -1rem;
-        top: -10.6rem;
-        color: var(--color-grey-8);
+const ClientCard = styled(Flex)`
+    .trustpilot-container {
+        margin-top: 54px;
     }
 
-    @media ${device.tabletL} {
-        padding-bottom: 0.5rem;
-        font-size: 2rem;
-        text-align: center;
-        margin: 0 auto;
-        max-width: 27rem;
+    @media ${device.tabletS} {
+        max-width: 100% !important;
     }
 `
 
-const SmallText = styled(Text)`
-    font-size: var(--text-size-xs);
-    opacity: 0.5;
-
-    @media ${device.tabletL} {
-        font-size: 1.75rem;
+const TrustPilotWidget = styled(Flex)`
+    a {
+        display: none;
     }
-`
-const Name = styled(Text)`
-    @media ${device.tabletL} {
-        font-size: 2rem;
-    }
-`
-const ImageWrapper = styled.div`
-    width: 50px;
-    margin-right: 1.6rem;
-
-    img {
-        width: 50px;
+    .trustpilot-widget {
+        transform: scale(0.8);
+        position: relative;
+        left: -20px;
+        top: -10px;
     }
 `
 
-const ClientSlide = ({ quote, img, img_alt, name, location }) => (
-    <Flex ai="center" height="unset">
-        <ClientCard>
-            <QuoteText as="blockquote">{quote}</QuoteText>
-            <Divider width="28rem" color="grey-8" />
-            <Flex p="1.7rem 0 0 0">
-                <Flex ai="center" width="auto">
-                    <ImageWrapper>
-                        <QueryImage data={img} width="50" height="50" alt={img_alt} />
-                    </ImageWrapper>
-                </Flex>
-                <figure>
-                    <Name weight="bold">{name}</Name>
-                    <SmallText>{location}</SmallText>
-                </figure>
-            </Flex>
-        </ClientCard>
-    </Flex>
-)
+const QuoteIcon = styled.img`
+    position: absolute;
+    width: 160px;
+    height: 128px;
+    top: -36px;
 
-ClientSlide.propTypes = {
-    img: PropTypes.object,
-    img_alt: PropTypes.string,
-    location: PropTypes.node,
-    name: PropTypes.string,
-    quote: PropTypes.node,
-}
+    @media ${device.tabletS} {
+        top: 0;
+    }
+`
 
-const our_client_slides = [
+const ClientTestimonial = styled(Text)`
+    margin-bottom: 40px;
+
+    @media ${device.tablet} {
+        font-size: 18px;
+    }
+`
+
+const ClientName = styled(Text)`
+    color: var(--color-black-3);
+    margin-bottom: 5px;
+
+    @media ${device.tablet} {
+        font-size: 14px;
+    }
+`
+
+const Date = styled(Text)`
+    @media ${device.tablet} {
+        font-size: 10px;
+    }
+`
+
+const testimonial_slides = [
     {
-        id: 'fabio',
-        name: 'Fábio Oliveira',
-        location: <Localize translate_text="Kenya" />,
+        id: 'angeh',
+        name: 'Angeh',
+        date: '8 September 2021',
         quote: (
-            <Localize translate_text="It surpassed my expectations. Binary got it right with Deriv. Trading on the platform is excellent and it allows for making accurate graphical analyses of the market and adding support and resistance markings with the use of horizontal lines, RSI, FIBO and much more." />
+            <Localize translate_text="Weekend trades, fast deposits &amp; withdrawals, plus synthetics trading – what’s better than this?" />
         ),
     },
     {
-        id: 'mugenda',
-        name: 'Paul Mugenda',
-        location: <Localize translate_text="Kenya" />,
+        id: 'osilva',
+        name: 'O.Silva',
+        date: '9 January 2021',
         quote: (
-            <Localize translate_text="The Deriv platform is fast, easy to navigate, and very user-friendly. It looks great and it’s packed with many appealing features. Deposits and withdrawals are easy. My favourite markets to trade on are the Crash and Boom indices on MT5." />
+            <Localize translate_text="Deriv is the best broker in the world so far in terms of the assets they offer, ease of withdrawals and deposits, plus other services. Keep on giving us the best, Deriv!" />
         ),
     },
     {
-        id: 'tuelo',
-        name: 'Tuelo Ronald Boitshwarelo',
-        location: <Localize translate_text="Botswana" />,
+        id: 'montana',
+        name: 'Montana',
+        date: '16 January 2021',
         quote: (
-            <Localize translate_text="What I like most is that my withdrawals are processed fast. This is the platform of the future: it offers more functionality as well as different ways to trade. No other broker has given me the same satisfaction as Deriv has. A great broker indeed." />
+            <Localize translate_text="Deriv P2P makes withdrawals and deposits simple, it’s the best user-friendly app." />
         ),
     },
     {
-        id: 'mustafijur',
-        name: 'Mustafijur Rahman',
-        location: <Localize translate_text="Bangladesh" />,
+        id: 'sammy',
+        name: 'Sammy',
+        date: '22 July 2021',
+        quote: <Localize translate_text="Deriv P2P is a great app, I love it!" />,
+    },
+    {
+        id: 'amina',
+        name: 'Amina',
+        date: '24 June 2021',
+        quote: <Localize translate_text="Deriv GO is amazingly easy to use." />,
+    },
+    {
+        id: 'gladys',
+        name: 'Gladys',
+        date: '9 June 2021',
         quote: (
-            <Localize translate_text="The Deriv platform is user-friendly and making deposits and withdrawals is easy." />
+            <Localize translate_text="My experience so far is just awesome! You can do instant buying and selling, and I hope to continue enjoying using Deriv P2P. Keep up the good work!" />
         ),
     },
     {
-        id: 'vipul',
-        name: 'Vipul Kumar',
-        location: <Localize translate_text="India" />,
+        id: 'john',
+        name: 'John',
+        date: '15 September 2021',
         quote: (
-            <Localize translate_text="The Deriv platform looks good and is easy to use. The withdrawal process is pretty simple and can be done in just a few clicks." />
+            <Localize translate_text="I have never seen a platform that is so flexible with multiple resources that meet everyone’s needs. If that’s not enough, Deriv is second to none on customer support services!" />
         ),
     },
     {
-        id: 'manikandan',
-        name: 'Manikandan',
-        location: <Localize translate_text="India" />,
+        id: 'frank',
+        name: 'Frank',
+        date: '14 September 2021',
+        quote: <Localize translate_text="Excellent and reliable services; tested and trusted!" />,
+    },
+    {
+        id: 'aaron',
+        name: 'Aaron',
+        date: '12 September 2021',
         quote: (
-            <Localize translate_text="I have more than a decade’s worth of online trading experience, and I think that Deriv is one of the best brokers in the world. I like the new features on the Deriv platform. Being able to trade on weekends on volatility indices is a plus." />
+            <Localize translate_text="Deriv has multiple withdrawal methods, including Deriv P2P, which is fast and convenient. Their support team is available any time and responds very quickly to any queries." />
         ),
     },
     {
-        id: 'jose',
-        name: 'José Miguel Santos Martinez',
-        location: <Localize translate_text="Dominican Republic" />,
+        id: 'ovictor',
+        name: 'O. Victor',
+        date: '2 April 2021',
         quote: (
-            <Localize translate_text="The Deriv platform is very attractive, intuitive, and user-friendly, and it’s equipped with all the tools I need." />
+            <Localize translate_text="Deriv GO is a very nice app – payments have been swift and easy. I would highly recommend it." />
         ),
     },
     {
-        id: 'vilca',
-        name: 'Paul Vilca',
-        location: <Localize translate_text="Peru" />,
+        id: 'isaac',
+        name: 'Isaac',
+        date: '23 May 2021',
         quote: (
-            <Localize translate_text="I like using the new Deriv platform because it’s so intuitive; I don’t need any tutorials to learn how to use it. The dark mode option on DTrader is very pleasing to my eyes. The ability to set my trade duration to ticks, seconds, and minutes is something I don’t see on other platforms." />
+            <Localize translate_text="Deriv is the most reliable broker - excellent customer support and fast payments. It’s a great platform for commodities, forex, and synthetics trading." />
         ),
     },
     {
-        id: 'fernando',
-        name: 'Fernando Aguilar',
-        location: <Localize translate_text="Bolivia" />,
+        id: 'simon',
+        name: 'Simon',
+        date: '10 September 2021',
         quote: (
-            <Localize translate_text="I’ve been trading on Deriv for a while now, and I think it’s very appealing to traders who are just starting out. It’s easy to understand and all my trading information is very accessible. There are a variety of assets, trade contracts, chart types, and indicators for technical analysis." />
+            <Localize translate_text="Low spreads on Synthetics and fast withdrawals - Deriv is a good broker!" />
+        ),
+    },
+    {
+        id: 'allan',
+        name: 'Allan',
+        date: '14 January 2021',
+        quote: (
+            <Localize translate_text="Deriv P2P is good. It’s easy to deposit and withdraw for small traders." />
+        ),
+    },
+    {
+        id: 'francoise',
+        name: 'Francoise',
+        date: '16 June 2021',
+        quote: (
+            <Localize translate_text="It's the best broker in the world. I will recommend it to anyone every day all the time. Their support agents are really helpful in all areas." />
+        ),
+    },
+    {
+        id: 'katleho',
+        name: 'Katleho',
+        date: '8 February 2021',
+        quote: (
+            <Localize translate_text="Wow! Deriv GO is so perfect, it's convenient and reliable. I highly recommend using the app." />
+        ),
+    },
+    {
+        id: 'jackline',
+        name: 'Jackline',
+        date: '13 September 2021',
+        quote: (
+            <Localize translate_text="I've been a trader for many years, and I've never encountered a good broker like Deriv before – it's the best for customer care and payment options!" />
+        ),
+    },
+    {
+        id: 'freeman',
+        name: 'Freeman',
+        date: '7 March 2021',
+        quote: <Localize translate_text="Deriv P2P is a flawless innovation." />,
+    },
+    {
+        id: 'vikas',
+        name: 'Vikas',
+        date: '24 May 2021',
+        quote: (
+            <Localize translate_text="It's been a really great experience trading forex on Deriv - it's a smooth and seamless operation!" />
+        ),
+    },
+    {
+        id: 'moyz',
+        name: 'Moyz',
+        date: '7 March 2021',
+        quote: (
+            <Localize translate_text="Deriv GO is really good! I've been looking for an app like this which is easy to use." />
+        ),
+    },
+    {
+        id: 'ls',
+        name: 'LS',
+        date: '14 May 2021',
+        quote: (
+            <Localize translate_text="Deriv is the best forex broker I have ever come across!" />
         ),
     },
 ]
 
-const query = graphql`
-    query {
-        fabio: file(relativePath: { eq: "fabio.png" }) {
-            ...fadeIn
-        }
-        mugenda: file(relativePath: { eq: "paul-mugenda.png" }) {
-            ...fadeIn
-        }
-        tuelo: file(relativePath: { eq: "tuelo.png" }) {
-            ...fadeIn
-        }
-        mustafijur: file(relativePath: { eq: "mustafijur.png" }) {
-            ...fadeIn
-        }
-        vipul: file(relativePath: { eq: "vipul.png" }) {
-            ...fadeIn
-        }
-        manikandan: file(relativePath: { eq: "manikandan.png" }) {
-            ...fadeIn
-        }
-        jose: file(relativePath: { eq: "jose.png" }) {
-            ...fadeIn
-        }
-        vilca: file(relativePath: { eq: "paul-vilca.png" }) {
-            ...fadeIn
-        }
-        fernando: file(relativePath: { eq: "fernando.png" }) {
-            ...fadeIn
-        }
-    }
-`
+const ClientSlide = ({ quote, name, date }) => (
+    <Flex direction="column" height="100%" jc="space-between">
+        <ClientTestimonial size={'24px'} weight={400} lh={'36px'} className="flexi-item">
+            {quote}
+        </ClientTestimonial>
+        <Flex direction="column" height="fit-content">
+            <ClientName size={'16px'} weight={700}>
+                {name}
+            </ClientName>
+            <Date size={'12px'}>{date}</Date>
+        </Flex>
+    </Flex>
+)
+
+ClientSlide.propTypes = {
+    date: PropTypes.string,
+    id: PropTypes.string,
+    name: PropTypes.string,
+    quote: PropTypes.node,
+}
 
 const WhatOurClientsSay = () => {
-    const data = useStaticQuery(query)
-    const settings = {
-        options: {
-            loop: true,
-        },
-        container_style: {
-            maxWidth: '800px',
-            margin: '0 auto',
-        },
-        slide_style: {
-            minWidth: '100%',
-            paddingLeft: '1rem',
-            position: 'relative',
-        },
-        chevron_style: {
-            chevron_color: 'black',
-        },
-    }
+    useEffect(() => {
+        addScript({
+            src: 'https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js',
+            id: 'trust-pilot',
+            async: true,
+        })
+    }, [document])
 
     return (
-        <SectionContainer padding='5rem 0 0'>
-            <Container direction="column">
-                <Header align="center" as="h3" type="section-title">
-                    {localize('What our clients say about Deriv')}
-                </Header>
-            </Container>
-            <Carousel has_autoplay autoplay_interval={6000} {...settings}>
-                {our_client_slides.map((trader, idx) => (
-                    <div key={idx}>
-                        <ClientSlide
-                            key={trader.name}
-                            quote={trader.quote}
-                            name={trader.name}
-                            location={trader.location}
-                            img={data[trader.id]}
-                            img_alt={trader.name + localize(" - Deriv's Client")}
-                        />
-                    </div>
-                ))}
-            </Carousel>
-        </SectionContainer>
+        <StyledContainer>
+            <ClientContainer padding="5rem 0 0">
+                <ClientFlex
+                    jc="space-between"
+                    ai="center"
+                    height="fit-content"
+                    width="100%"
+                    tablet_direction="column"
+                >
+                    <ClientCard
+                        direction="column"
+                        mr="36px"
+                        max_width="384px"
+                        tablet={{
+                            max_width: '588px',
+                            mb: '20px',
+                            mr: '0px',
+                        }}
+                    >
+                        <Header as="h2" type="heading-2">
+                            {localize('What our clients say about Deriv')}
+                        </Header>
+                        <TrustPilotWidget
+                            m="25px 0 0 0"
+                            width="240px"
+                            height="100px"
+                            tablet={{
+                                heigth: '80px',
+                            }}
+                        >
+                            <div
+                                className="trustpilot-widget"
+                                data-locale="en-US"
+                                data-template-id="53aa8807dec7e10d38f59f32"
+                                data-businessunit-id="5ed4c8a9f74f310001f51bf7"
+                                data-style-height="150px"
+                                data-style-width="100%"
+                                data-theme="light"
+                            >
+                                <a
+                                    href="https://www.trustpilot.com/review/deriv.com"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    Trustpilot
+                                </a>
+                            </div>
+                        </TrustPilotWidget>
+                    </ClientCard>
+                    <ClientCard position="relative" direction="column">
+                        <QuoteIcon src={Quote} />
+                        <Flex
+                            ml="auto"
+                            pl="40px"
+                            max_width="690px"
+                            tablet={{
+                                pt: '85px',
+                                pl: '0',
+                                max_width: '100%',
+                            }}
+                        >
+                            <Carousel>
+                                {testimonial_slides.map(({ date, id, name, quote }) => (
+                                    <ClientSlide key={id} quote={quote} name={name} date={date} />
+                                ))}
+                            </Carousel>
+                        </Flex>
+                    </ClientCard>
+                </ClientFlex>
+            </ClientContainer>
+        </StyledContainer>
     )
 }
 

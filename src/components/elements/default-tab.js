@@ -49,6 +49,13 @@ const TabList = styled.div`
     position: relative;
     overflow: auto;
 
+    ::-webkit-scrollbar {
+        display: none;
+    }
+
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
     @media ${device.mobileL} {
         justify-content: space-between;
     }

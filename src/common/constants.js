@@ -40,6 +40,9 @@ export const deriv_app_languages = ['id', 'pt', 'es']
 export const deriv_status_page_url = 'https://deriv.statuspage.io'
 export const derivx_ios_url = 'https://apps.apple.com/us/app/deriv-x/id1563337503'
 export const derivx_android_url = 'https://play.google.com/store/apps/details?id=com.deriv.dx'
+export const deriv_go_playstore_url = 'https://play.google.com/store/apps/details?id=com.deriv.app'
+export const deriv_go_huaweiappgallery_url = 'https://appgallery.huawei.com/#/app/C103801913'
+export const deriv_go_ios_url = 'https://apps.apple.com/my/app/deriv-go/id1550561298'
 export const dmt5_ios_url =
     'https://download.mql5.com/cdn/mobile/mt5/ios?server=Deriv-Demo,Deriv-Server'
 export const dmt5_android_url =
@@ -59,6 +62,8 @@ export const map_api_key = 'AIzaSyAEha6-HeZuI95L9JWmX3m6o-AxQr_oFqU'
 export const mga_link_url =
     'https://authorisation.mga.org.mt/verification.aspx?lang=EN&company=a5fd1edc-d072-4c26-b0cd-ab3fa0f0cc40&details=1'
 export const p2p_playstore_url = 'https://play.google.com/store/apps/details?id=com.deriv.dp2p'
+export const p2p_applestore_url = 'https://apps.apple.com/us/app/deriv-dp2p/id1506901451'
+export const p2p_huawei_appgallery_url = 'https://appgallery.huawei.com/#/app/C103844755'
 export const pushwoosh_app_code = 'DD293-35A19'
 export const sample_rate = 25
 export const zoho_url = 'https://deriv.zohorecruit.com'

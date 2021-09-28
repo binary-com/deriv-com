@@ -1,6 +1,5 @@
 import React from 'react'
 import NProgress from 'nprogress'
-import { datadogRum } from '@datadog/browser-rum'
 import { Pushwoosh } from '@deriv/web-push-notifications'
 import { WrapPagesWithLocaleContext } from './src/components/localization'
 import { isProduction, isLive, isLocalHost } from './src/common/websocket/config'
@@ -8,14 +7,8 @@ import { LocalStore } from './src/common/storage'
 import { MediaContextProvider } from './src/themes/media'
 import { DerivProvider } from './src/store'
 import { checkLiveChatRedirection } from './src/common/live-chat-redirection-checking.js'
-import { getClientInformation, getDomain, getLanguage } from 'common/utility'
-import {
-    application_id,
-    client_token,
-    gtm_test_domain,
-    sample_rate,
-    pushwoosh_app_code,
-} from 'common/constants'
+import { getClientInformation, getDomain, getLanguage, addScript } from 'common/utility'
+import { gtm_test_domain, pushwoosh_app_code } from 'common/constants'
 import './static/css/ibm-plex-sans-var.css'
 
 const is_browser = typeof window !== 'undefined'
@@ -26,18 +19,6 @@ const checkDomain = () => {
             'var%20curhost%20%3D%20window.location.hostname%3B%20var%20t8hvj%20%3D%20%2F%5Cb%28deriv%7Cbinary%7Cbinaryqa%5B0-9%5D%7B2%7D%29%5C.%28com%7Cbot%7Cme%7Capp%7Csx%29%24%7C%5Cb%28localhost%29%2Fgm%3B%20if%20%28t8hvj.test%28curhost%29%20%3D%3D%20false%29%7Balert%28%22Not%20our%20domain%22%29%7D',
         ),
     )
-}
-
-const addScript = (settings) => {
-    const script = document.createElement('script')
-    const { async, text, src, id } = settings
-
-    if (async) script.async = settings['async']
-    if (text) script.text = settings['text']
-    if (src) script.src = settings['src']
-    if (id) script.id = settings['id']
-
-    document.body.appendChild(script)
 }
 
 const sendTags = (api) => {
@@ -164,14 +145,6 @@ export const onClientEntry = () => {
         src: 'https://static.deriv.com/scripts/cookie.js',
         async: true,
     })
-
-    if (window.location.hostname === 'deriv.com') {
-        datadogRum.init({
-            clientToken: client_token,
-            applicationId: application_id,
-            sampleRate: sample_rate,
-        })
-    }
 
     checkLiveChatRedirection()
 }

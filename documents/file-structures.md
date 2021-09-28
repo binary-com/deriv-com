@@ -30,7 +30,7 @@ src
     │   ├── common/ --- `png`, `jpg`, `jpeg`
     │   ├── svg/ --- `svg`
     ├── pages/
-    │   ├── about/
+    │   ├── besquare/
     │   │   ├── index.js
     │   │   ├── _component-name.js --- aside from index, other component should have prefix `_`
     │   │   ├── ...

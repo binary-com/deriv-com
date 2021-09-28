@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Article } from './_article'
 import { ArticleWrapper, StyledHeader, StyledText } from './_help-centre-style'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
-import { derivx_app_url } from 'common/constants'
+import { derivx_app_url, deriv_app_url } from 'common/constants'
 import { Text } from 'components/elements'
 import { localize, Localize, WithIntl } from 'components/localization'
 
@@ -94,7 +94,7 @@ const DerivXAccount = () => (
         <StyledHeader as="h4">{localize('How do I create a Deriv X account?')}</StyledHeader>
         <Text>
             <Localize
-                translate_text="On the <0>Deriv X dashboard</0>, select the account type you want to open (Real or Demo) and click “Add account”. Follow the instructions on the screen to create a new Deriv X account."
+                translate_text="On the <0>Deriv X dashboard</0>, select the account type you want to open (Demo) and click “Add account”. Follow the instructions on the screen to create a new Deriv X account."
                 components={[
                     <ExternalLink
                         href={derivx_app_url}
@@ -126,54 +126,47 @@ const DifferentAccounts = () => (
     </ArticleWrapper>
 )
 
-// const TradingPassword = () => (
-//     <ArticleWrapper>
-//         <StyledHeader as="h4">{localize('What is a trading password?')}</StyledHeader>
-//         <Text>
-//             {localize(
-//                 'It is a password that gives you access to the standalone trading platforms Deriv MT5 (DMT5) and Deriv X.',
-//             )}
-//         </Text>
-//     </ArticleWrapper>
-// )
+const TradingPassword = () => (
+    <ArticleWrapper>
+        <StyledHeader as="h4">{localize('What is a Deriv X password?')}</StyledHeader>
+        <Text>
+            {localize('It is a password that you use to log in to the Deriv X trading platform.')}
+        </Text>
+    </ArticleWrapper>
+)
 
-// const DifferentPassword = () => (
-//     <ArticleWrapper>
-//         <StyledHeader as="h4">
-//             {localize('Why is my trading password different from my Deriv password?')}
-//         </StyledHeader>
-//         <Text>
-//             {localize(
-//                 'Your trading password is linked to the standalone trading platforms Deriv MT5 (DMT5) and Deriv X, while your Deriv password gives you access to platforms hosted on our website such as DTrader and DBot.',
-//             )}
-//         </Text>
-//     </ArticleWrapper>
-// )
+const DifferentPassword = () => (
+    <ArticleWrapper>
+        <StyledHeader as="h4">
+            {localize('How is my Deriv X password different from my Deriv password?')}
+        </StyledHeader>
+        <Text>
+            {localize(
+                'Your Deriv X password is linked to the standalone Deriv X trading platform while your Deriv password gives you access to platforms hosted on our website such as DTrader and DBot.',
+            )}
+        </Text>
+    </ArticleWrapper>
+)
 
-// const ResetDerivXPassowrd = () => (
-//     <ArticleWrapper>
-//         <StyledHeader as="h4">{localize('How do I reset my Deriv X Password?')}</StyledHeader>
-//         <Text>
-//             <Localize
-//                 translate_text="Go to your <0>Account settings</0>. Under “Security and safety”, select “Passwords”. You can reset your Deriv X password under “Trading password”."
-//                 components={[
-//                     <ExternalLink
-//                         href={`${deriv_app_url}/account/personal-details`}
-//                         target="_blank"
-//                         rel="noopener noreferrer"
-//                         key={0}
-//                     />,
-//                 ]}
-//                 deriv_x_app_url
-//             />
-//         </Text>
-//         <StyledText>
-//             {localize(
-//                 'Note: Remember that your trading password is also linked to your Deriv MT5 (DMT5) account.',
-//             )}
-//         </StyledText>
-//     </ArticleWrapper>
-// )
+const ResetDerivXPassowrd = () => (
+    <ArticleWrapper>
+        <StyledHeader as="h4">{localize('How do I reset my Deriv X password?')}</StyledHeader>
+        <Text>
+            <Localize
+                translate_text="Go to your <0>Account settings</0>. Click the “Security and safety” drop-down menu, and select “Passwords”. Under “Deriv X password”, click “Change password” to reset your password."
+                components={[
+                    <ExternalLink
+                        href={`${deriv_app_url}/account/personal-details`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        key={0}
+                    />,
+                ]}
+                deriv_x_app_url
+            />
+        </Text>
+    </ArticleWrapper>
+)
 
 const AccountInformation = () => (
     <ArticleWrapper>
@@ -240,7 +233,7 @@ const AccountInformation = () => (
 //         <Text mt="1.7rem">
 //             <Localize
 //                 translate_text="After the required processing time of your selected payment method, your funds will be deposited into your personal account. You can check processing times on our <0>Payment methods</0> page."
-//                 components={[<LocalizedLinkText to="/payment-methods" color="red" key={0} />]}
+//                 components={[<LocalizedLinkText to="/payment-methods/" color="red" key={0} />]}
 //             />
 //         </Text>
 //     </ArticleWrapper>
@@ -298,13 +291,13 @@ const DerivXArticle = () => {
                     label="differences-of-synthetic-and-financial"
                     is_mounted={is_mounted}
                 />
-                {/* <TradingPassword
-                    text={localize('What is a trading password?')}
+                <TradingPassword
+                    text={localize('What is a Deriv X password?')}
                     label="trading-password"
                     is_mounted={is_mounted}
                 />
                 <DifferentPassword
-                    text={localize('Why is my trading password different from my Deriv password?')}
+                    text={localize('How is my Deriv X password different from my Deriv password?')}
                     label="differences-of-trading-and-deriv-password"
                     is_mounted={is_mounted}
                 />
@@ -312,7 +305,7 @@ const DerivXArticle = () => {
                     text={localize('How do I reset my Deriv X password?')}
                     label="reset-deriv-x-password"
                     is_mounted={is_mounted}
-                /> */}
+                />
                 <AccountInformation
                     text={localize('Where can I find my Deriv X account information?')}
                     label="deriv-x-account-information"

@@ -52,6 +52,7 @@ const ItemList = styled.ul`
     }
     img {
         width: 16px;
+        height: 16px;
         margin-right: 10px;
         object-fit: contain;
     }

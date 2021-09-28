@@ -13,28 +13,28 @@ const BackgroundWrapper = styled(Background)`
     background-size: cover;
     background-position: bottom right;
     @media ${device.desktopL} {
-        height: 73rem !important;
+        height: 73rem;
     }
     @media ${device.desktop} {
-        height: 65rem !important;
+        height: 65rem;
     }
     @media ${device.tabletL} {
-        height: 155rem !important;
+        height: 155rem;
     }
     @media ${device.tablet} {
-        height: 136rem !important;
+        height: 136rem;
     }
     @media ${device.tabletS} {
-        height: 105rem !important;
+        height: 105rem;
     }
     @media ${device.mobileL} {
-        height: 95rem !important;
+        height: 95rem;
     }
     @media ${device.mobileM} {
-        height: 90rem !important;
+        height: 90rem;
     }
     @media ${device.mobileS} {
-        height: 80rem !important;
+        height: 80rem;
     }
 `
 
@@ -63,8 +63,6 @@ const InformationWrapper = styled(Flex)`
     }
     @media ${device.mobileL} {
         max-width: 328px;
-    }
-    @media ${device.mobileM} {
         padding: 0;
     }
 `

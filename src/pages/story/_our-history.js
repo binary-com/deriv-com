@@ -14,46 +14,46 @@ import { isBrowser } from 'common/utility'
 
 const query = graphql`
     query {
-        regent_market_logo: file(relativePath: { eq: "regent-market-logo.png" }) {
+        regent_market_logo: file(relativePath: { eq: "story/regent-market-logo.png" }) {
             ...fadeIn
         }
-        flag_malta: file(relativePath: { eq: "flag-malta.png" }) {
+        flag_malta: file(relativePath: { eq: "story/flag-malta.png" }) {
             ...fadeIn
         }
-        bet_on_markets_logo: file(relativePath: { eq: "bet-on-markets-logo.png" }) {
+        bet_on_markets_logo: file(relativePath: { eq: "story/bet-on-markets-logo.png" }) {
             ...fadeIn
         }
-        isle_of_man_flag: file(relativePath: { eq: "isle-of-man-flag.png" }) {
+        isle_of_man_flag: file(relativePath: { eq: "story/isle-of-man-flag.png" }) {
             ...fadeIn
         }
-        awards: file(relativePath: { eq: "awards.png" }) {
+        awards: file(relativePath: { eq: "story/awards.png" }) {
             ...fadeIn
         }
-        logo_binary: file(relativePath: { eq: "logo-binary.png" }) {
+        logo_binary: file(relativePath: { eq: "story/logo-binary.png" }) {
             ...fadeIn
         }
-        eu_flag: file(relativePath: { eq: "eu-flag.png" }) {
+        eu_flag: file(relativePath: { eq: "story/eu-flag.png" }) {
             ...fadeIn
         }
-        logo_developers: file(relativePath: { eq: "logo-developers.png" }) {
+        logo_developers: file(relativePath: { eq: "story/logo-developers.png" }) {
             ...fadeIn
         }
-        laptop: file(relativePath: { eq: "laptop.png" }) {
+        laptop: file(relativePath: { eq: "story/laptop.png" }) {
             ...fadeIn
         }
-        logo_mt5: file(relativePath: { eq: "logo-mt5.png" }) {
+        logo_mt5: file(relativePath: { eq: "story/logo-mt5.png" }) {
             ...fadeIn
         }
-        flag_labuan: file(relativePath: { eq: "flag-labuan.png" }) {
+        flag_labuan: file(relativePath: { eq: "story/flag-labuan.png" }) {
             ...fadeIn
         }
-        dubai_paraguay_flags: file(relativePath: { eq: "dubai-paraguay-flags.png" }) {
+        dubai_paraguay_flags: file(relativePath: { eq: "story/dubai-paraguay-flags.png" }) {
             ...fadeIn
         }
-        deriv_laptop: file(relativePath: { eq: "deriv-laptop.png" }) {
+        deriv_laptop: file(relativePath: { eq: "story/deriv-laptop.png" }) {
             ...fadeIn
         }
-        location_flags: file(relativePath: { eq: "location-flags.png" }) {
+        location_flags: file(relativePath: { eq: "story/location-flags.png" }) {
             ...fadeIn
         }
     }

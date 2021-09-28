@@ -96,13 +96,13 @@ const query = graphql`
         dmt_5_mac: file(relativePath: { eq: "dmt5/dmt-5-mac.png" }) {
             ...fadeIn
         }
-        make_smarter: file(relativePath: { eq: "make-smarter.png" }) {
+        make_smarter: file(relativePath: { eq: "dtrader/make-smarter.png" }) {
             ...fadeIn
         }
-        trade_what_you_want: file(relativePath: { eq: "trade-what-you-want.png" }) {
+        trade_what_you_want: file(relativePath: { eq: "dtrader/trade-what-you-want.png" }) {
             ...fadeIn
         }
-        how_you_want: file(relativePath: { eq: "how-you-want.png" }) {
+        how_you_want: file(relativePath: { eq: "dtrader/how-you-want.png" }) {
             ...fadeIn
         }
         stocks_zero_fees: file(relativePath: { eq: "stocks-zero-fees.png" }) {

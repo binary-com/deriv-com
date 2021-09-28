@@ -12,6 +12,10 @@ export const StyledContainer = styled(Flex)`
     @media ${device.desktopL} {
         max-width: 1600px;
     }
+
+    @media ${device.laptopM} {
+        max-width: 58.8rem;
+    }
 `
 
 export const StyledTabs = styled(Tabs)`
@@ -75,7 +79,7 @@ export const MainArticle = styled(Flex)`
 
     @media ${device.laptopM} {
         /* prettier-ignore */
-        min-width: 328px;
+        max-width: 58.8rem;
         width: 90vw;
         padding: 0;
         background: ${(props) =>
@@ -169,7 +173,7 @@ export const SmallArticle = styled(Flex)`
     }
 
     @media ${device.laptopM} {
-        height: 68px;
+        height: auto;
         margin-bottom: 16px;
         min-width: unset;
     }

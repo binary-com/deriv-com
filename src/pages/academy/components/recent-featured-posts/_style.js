@@ -248,10 +248,6 @@ export const SmallArticleRightContent = styled(Flex)`
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    /* stylelint-disable */
-    /* -webkit-justify-content: space-between;
-    justify-content: space-between; */
-    /* stylelint-enable */
 
     @media ${device.laptopM} {
         justify-content: flex-start;

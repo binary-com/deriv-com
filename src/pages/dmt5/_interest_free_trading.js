@@ -15,7 +15,7 @@ const ImageWrapper = styled.div`
     object-fit: contain;
     margin-top: 4rem;
     @media ${device.tabletL} {
-        margin-top: 6rem;
+        margin-top: 60px;
         height: 55px;
         width: 80px;
     }
@@ -33,9 +33,7 @@ const InterestCardFlex = styled(Flex)`
         font-size: 14px;
         width: 328px;
         height: 373px;
-        margin-top: 2.4rem;
-        margin-right: 0;
-        margin-bottom: 2.4rem;
+        margin: 24px 0;
     }
 `
 

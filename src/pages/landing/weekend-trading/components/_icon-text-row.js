@@ -78,21 +78,18 @@ const StyledHeader = styled(Header)`
     }
 `
 const StyledCardHeader = styled(Header)`
-    @media ${device.tabletL} {
-        text-align: center;
-    }
-
+    text-align: center;
     @media ${device.mobileL} {
         padding: 0;
         margin: 50px 0 20px;
     }
 `
 const StyledText = styled(Text)`
+    text-align: center;
     @media ${device.tabletL} {
         font-weight: 400;
         padding: 0;
         font-size: 18px;
-        text-align: center;
         line-height: 26px;
     }
 `

@@ -39,12 +39,9 @@ const BackgroundWrapper = styled(Background)`
 `
 
 const Wrapper = styled(Container)`
-    @media ${device.tabletL} {
-        padding-left: 4rem;
-    }
-
     @media ${device.tabletS} {
-        padding: 2.1rem 0 0;
+        margin-left: 0;
+        padding: 2.1rem 16px 0;
         flex-direction: column-reverse;
         justify-content: center;
     }
@@ -120,7 +117,7 @@ const TryButton = styled(LinkButton)`
 const HeroComponent = ({ title, content, background_data }) => {
     return (
         <BackgroundWrapper data={background_data}>
-            <Wrapper pt="4rem" justify="space-between" height="unset">
+            <Wrapper p="4rem 0 0 4rem" justify="space-between" height="unset">
                 <InformationWrapper height="unset" direction="column">
                     <StyledHeader type="hero">{title}</StyledHeader>
                     <HeroContent direction="column" justify="flex-start">

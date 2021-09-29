@@ -44,7 +44,7 @@ jobs:
         - name: Set version
           run: |
             echo $GIT_TAG_NAME
-            echo ${{ steps.tagName }}
+            echo ${{ steps.tagName.outputs }}
             echo "GATSBY_DERIV_VERSION=TEST" >> $GITHUB_ENV
 
         - name: Checkout 🛎️

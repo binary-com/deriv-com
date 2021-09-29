@@ -33,8 +33,15 @@ jobs:
               run: |
                   npm ci
                   npm test
+    get-version:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Get version from actions
+          uses: olegtarasov/get-tag@v2.1
+          id: tagName
 
     build-and-deploy:
+      needs: get-version
       runs-on: ubuntu-latest
       steps:
         - name: Get version from actions
@@ -45,7 +52,13 @@ jobs:
           run: echo "GATSBY_DERIV_VERSION=$GIT_TAG_NAME" >> $GITHUB_ENV
 
         - name: Log values
-          run: echo ${{ steps.tagName.outputs.tag }}
+          run: echo $GIT_TAG_NAME
+        
+        - name: Log more values
+          run: |
+            echo ${{ steps.tagName.outputs.tag }}
+            echo ${{ steps.tagName.outputs.version }}
+
         - name: Checkout 🛎️
           uses: actions/checkout@v2.3.1
 

@@ -149,7 +149,7 @@ const Regulatory = (locale) => {
                     <Box>
                         <Text>
                             <Localize
-                                translate_text="Deriv Investments (Europe) Limited, W Business Centre, Level 3, Triq Dun Karm, Birkirkara BKR 9033, Malta, is licensed in Malta (<0>licence no. IS/70156</0>) and authorised by the Malta Financial Services Authority under the Investments Services Act to provide investment services in the European Union."
+                                translate_text="Deriv Investments (Europe) Limited - W Business Centre, Level 3, Triq Dun Karm, Birkirkara BKR 9033, Malta - is licensed in Malta (<0>licence no. IS/70156</0>) and authorised by the Malta Financial Services Authority under the Investments Services Act to provide investment services in the European Union."
                                 components={[
                                     <LinkText
                                         key={0}
@@ -202,7 +202,7 @@ const Regulatory = (locale) => {
                         </Text>
                         <Text lh="1.55" max_width="79.2rem" mt="10px">
                             {localize(
-                                `In the United Kingdom, the company is authorised to provide investment services via the FCA's temporary permissions regime.`,
+                                "In the United Kingdom, the company is authorised to provide investment services via the FCA's temporary permissions regime.",
                             )}
                         </Text>
                     </Box>
@@ -241,22 +241,13 @@ const Regulatory = (locale) => {
                                     </Desktop>
                                     <Text mt="0.8rem" mb="1.6rem" max_width="58.8rem">
                                         <Localize
-                                            translate_text="Deriv (Europe) Limited, W Business Centre, Level 3, Triq Dun Karm, Birkirkara BKR 9033, Malta, is licensed and regulated for synthetic indices by the Malta Gaming Authority (<0>licence no. MGA/B2C/102/2000</0>), by the Gambling Commission for clients in Great Britain under <1>account no. 39495</1>, and by the Revenue Commissioners for clients in Ireland (licence no. 1010285)."
+                                            translate_text="Deriv (Europe) Limited - W Business Centre, Level 3, Triq Dun Karm, Birkirkara BKR 9033, Malta - is licensed and regulated for synthetic indices by the Malta Gaming Authority (<0>licence no. MGA/B2C/102/2000</0>) and by the Revenue Commissioners for clients in Ireland (licence no. 1010285)."
                                             components={[
                                                 <LinkText
                                                     key={0}
                                                     weight="bold"
                                                     target="_blank"
                                                     href="/regulatory/Deriv_(Europe)_Limited.pdf"
-                                                    rel="noopener noreferrer"
-                                                />,
-                                                <ExternalBoldLink
-                                                    external="true"
-                                                    key={1}
-                                                    weight="bold"
-                                                    color="black-3"
-                                                    target="_blank"
-                                                    to="https://www.gamblingcommission.gov.uk/public-register/business/detail/39495"
                                                     rel="noopener noreferrer"
                                                 />,
                                             ]}
@@ -284,7 +275,7 @@ const Regulatory = (locale) => {
                                     </Desktop>
                                     <Text mt="0.8rem" mb="1.6rem" max_width="58.8rem">
                                         <Localize
-                                            translate_text="Deriv (MX) Ltd, Millennium House, Level 1, Victoria Road, Douglas IM2 4RW, Isle of Man, is licensed and regulated in Great Britain by the Gambling Commission under <1>account no. 39172</1> and by the Gambling Supervision Commission in the Isle of Man (<0>view licence</0>)."
+                                            translate_text="Deriv (MX) Ltd - Millennium House, Level 1, Victoria Road, Douglas IM2 4RW, Isle of Man - is licensed and regulated in Great Britain by the Gambling Commission under <1>account no. 39172</1> and by the Gambling Supervision Commission in the Isle of Man (<0>view licence</0>)."
                                             components={[
                                                 <LinkText
                                                     key={0}
@@ -330,7 +321,7 @@ const Regulatory = (locale) => {
                             </Desktop>
                             <Text mt="0.8rem" max_width="58.8rem">
                                 <Localize
-                                    translate_text="Deriv (FX) Ltd, F16, Level 1, Paragon Labuan, Jalan Tun Mustapha, Labuan 87000, Malaysia, is licensed by Labuan Financial Services Authority (<0>licence no. MB/18/0024</0>)."
+                                    translate_text="Deriv (FX) Ltd - F16, Level 1, Paragon Labuan, Jalan Tun Mustapha, Labuan 87000, Malaysia - is licensed by Labuan Financial Services Authority (<0>licence no. MB/18/0024</0>)."
                                     components={[
                                         <LinkText
                                             key={0}
@@ -365,7 +356,7 @@ const Regulatory = (locale) => {
                             </Desktop>
                             <Text mt="0.8rem" mb="1.6rem" max_width="58.8rem">
                                 <Localize
-                                    translate_text="Deriv (BVI) Ltd, Kingston Chambers, P.O. Box 173, Road Town, Tortola, British Virgin Islands, is licensed by the British Virgin Islands Financial Services Commission (<0>licence no. SIBA/L/18/1114</0>)."
+                                    translate_text="Deriv (BVI) Ltd - Kingston Chambers, P.O. Box 173, Road Town, Tortola, British Virgin Islands - is licensed by the British Virgin Islands Financial Services Commission (<0>licence no. SIBA/L/18/1114</0>)."
                                     components={[
                                         <LinkText
                                             key={0}
@@ -405,7 +396,7 @@ const Regulatory = (locale) => {
                             </Desktop>
                             <Text mt="0.8rem" mb="1.6rem" max_width="58.8rem">
                                 <Localize
-                                    translate_text="Deriv (V) Ltd (<0>view licence</0>), 1276, Kumul Highway, Port Vila, Vanuatu is licensed by Vanuatu Financial Services Commission, and is a member of the <1>Financial Markets Association<1/>."
+                                    translate_text="Deriv (V) Ltd (<0>view licence</0>) - 1276, Kumul Highway, Port Vila, Vanuatu - is licensed by Vanuatu Financial Services Commission, and is a member of the <1>Financial Markets Association<1/>."
                                     components={[
                                         <LinkText
                                             key={0}
@@ -473,7 +464,7 @@ const Regulatory = (locale) => {
                             </Desktop>
                             <Text mt="0.8rem">
                                 {localize(
-                                    'Deriv Limited, 47 Esplanade, St Helier, Jersey JE1 0BD, Channel Islands, is the holding company for the above subsidiaries.',
+                                    'Deriv Limited - 47 Esplanade, St Helier, Jersey JE1 0BD, Channel Islands - is the holding company for the above subsidiaries.',
                                 )}
                             </Text>
                         </CssGridColumn>

@@ -1,5 +1,5 @@
 export const convertToHash = (category, label) => {
-    return '/help-centre/' + category.replace(/\s/g, '-').toLowerCase() + '#' + label
+    return '/help-centre/' + category.replace(/\s/g, '-').toLowerCase() + '/#' + label
 }
 
 export const getAllArticles = (articles) =>
@@ -17,5 +17,5 @@ export const splitArticles = (array, length) =>
 
 export const euArticles = (array) => {
     const second_array = [...array[1], array[2][0]]
-    return [array[0], second_array, [array[2][1]]]
+    return [array[0], second_array, [array[2][1]], [array[2][2]]]
 }

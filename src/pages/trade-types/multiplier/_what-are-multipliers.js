@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import Loadable from '@loadable/component'
 import { SmallContainer, Grid, WhyTradeItem } from '../components/_style'
-import Margin from './_margin.js'
+import CFDs from './_cfds.js'
 import SyntheticIndices from './_synthetic-indices.js'
 import device from 'themes/device'
 import { SectionContainer, Flex } from 'components/containers'
@@ -113,7 +113,7 @@ const query = graphql`
             ...fadeIn
         }
         multiplier_no_multi_loss: file(
-            relativePath: { eq: "multiplier/multipliers-no-multiplier-loss@3x.png" }
+            relativePath: { eq: "multiplier/multipliers-no-multiplier-loss@2x.png" }
         ) {
             ...fadeIn
         }
@@ -242,7 +242,7 @@ const WhatAreOptions = () => {
             </StyledSectionContainer>
             <AvailableTrades
                 display_title={localize('Instruments available to trade on Multipliers')}
-                Forex={Margin}
+                Forex={CFDs}
                 SyntheticIndices={SyntheticIndices}
             />
             <SectionContainer background="grey-23" padding="4rem 0">

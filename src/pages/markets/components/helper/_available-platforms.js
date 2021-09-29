@@ -64,6 +64,7 @@ const AvailablePlatforms = ({
     derivx,
     flex_direction,
     tablet_direction,
+    m_top,
 }) => {
     const { is_eu_country } = React.useContext(DerivStore)
 
@@ -72,7 +73,7 @@ const AvailablePlatforms = ({
             wrap="wrap"
             fd={flex_direction}
             mobileL={{ mt: '16px' }}
-            mt="2.4rem"
+            mt={m_top ? m_top : '2.4rem'}
             tablet_direction={tablet_direction}
             ai="center"
         >
@@ -132,6 +133,7 @@ AvailablePlatforms.propTypes = {
     dmt5: PropTypes.bool,
     dtrader: PropTypes.bool,
     flex_direction: PropTypes.string,
+    m_top: PropTypes.string,
     smarttrader: PropTypes.bool,
     tablet_direction: PropTypes.string,
     tablet_jc: PropTypes.string,

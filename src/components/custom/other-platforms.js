@@ -29,7 +29,7 @@ import DTrader from 'images/svg/dtrader-icon.svg'
 import Forex from 'images/svg/forex-nav.svg'
 import Help from 'images/svg/menu/help-center.svg'
 import Leadership from 'images/svg/menu/leadership.svg'
-import Margin from 'images/svg/margin-trading-nav.svg'
+import CFD from 'images/svg/margin-trading-nav.svg'
 import Multipliers from 'images/svg/multipliers-nav.svg'
 import Options from 'images/svg/options-nav.svg'
 import Partner from 'images/svg/menu/partner.svg'
@@ -102,7 +102,7 @@ const StyledFlexGridContainer = styled(FlexGridContainer)`
 `
 
 export const TraderCard = ({ is_selected, word_break_cover }) => (
-    <StyledLink aria_label="DTrader" to="/dtrader">
+    <StyledLink aria_label="DTrader" to="/dtrader/">
         <Card
             cover_background="var(--color-red)"
             cover_content={localize('Discover DTrader now')}
@@ -119,7 +119,7 @@ export const TraderCard = ({ is_selected, word_break_cover }) => (
 )
 
 export const BotCard = ({ is_selected, word_break_cover }) => (
-    <StyledLink aria_label="DBot" to="/dbot">
+    <StyledLink aria_label="DBot" to="/dbot/">
         <Card
             cover_background="var(--color-orange)"
             cover_content={localize('Discover DBot now')}
@@ -136,7 +136,7 @@ export const BotCard = ({ is_selected, word_break_cover }) => (
 )
 
 export const DMT5Card = ({ is_selected, is_ppc_redirect, word_break_cover }) => (
-    <StyledLink aria_label="DMT5" to={is_ppc_redirect ? '/landing/dmt5' : '/dmt5'}>
+    <StyledLink aria_label="DMT5" to={is_ppc_redirect ? '/landing/dmt5/' : '/dmt5/'}>
         <Card
             cover_background="var(--color-green)"
             cover_content={localize('Discover DMT5 now')}
@@ -267,14 +267,14 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                     <Flex direction="column" wrap="wrap" jc="flex-start">
                         <StyledText>{localize('Trade types')}</StyledText>
                         <NavCard
-                            aria_label="Margin trading"
-                            icon={() => <img src={Margin} alt="" width="32" height="32" />}
+                            aria_label="CFDs"
+                            icon={() => <img src={CFD} alt="" width="32" height="32" />}
                             content={
-                                <Localize translate_text="Trade with leverage and low spreads for better returns on successful trades." />
+                                <Localize translate_text="Trade with leverage and tight spreads for better returns on successful trades." />
                             }
-                            title={<Localize translate_text="Margin trading" />}
+                            title={<Localize translate_text="CFDs" />}
                             onClick={onClick}
-                            to="/trade-types/margin/"
+                            to="/trade-types/cfds/"
                         />
                         {!is_eu_country && (
                             <NavCard
@@ -292,7 +292,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                             aria_label="Multipliers"
                             icon={() => <img src={Multipliers} alt="" width="32" height="32" />}
                             content={
-                                <Localize translate_text="Combine the upside of margin trading with the simplicity of options." />
+                                <Localize translate_text="Combine the upside of CFDs with the simplicity of options." />
                             }
                             title={<Localize translate_text="Multipliers" />}
                             onClick={onClick}
@@ -403,7 +403,7 @@ export const NavMarket = ({ onClick, is_ppc }) => (
             aria_label="Stocks & indices"
             icon={() => <img src={StockIndices} alt="" width="32" height="32" />}
             content={
-                <Localize translate_text="Predict broader market trends and diversify your risk with stock indices." />
+                <Localize translate_text="Predict broader market trends and diversify your risk with stocks & indices." />
             }
             title={<Localize translate_text="Stocks & indices" />}
             onClick={onClick}

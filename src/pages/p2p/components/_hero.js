@@ -169,13 +169,13 @@ const HeroComponent = ({ title, content, background_data, img_data }) => {
                     </HeroContent>
                     <TryButton
                         secondary="true"
-                        to="/cashier/p2p"
+                        to="/cashier/p2p/"
                         external="true"
                         type="deriv_app"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        {localize('Try DP2P now')}
+                        {localize('Try Deriv P2P now')}
                     </TryButton>
                 </InformationWrapper>
                 <ImgWrapper>

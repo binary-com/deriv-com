@@ -63,11 +63,12 @@ const LiveChat = ({ is_banner_shown }) => {
                     onMouseEnter={() => setLivechatHover(true)}
                     onMouseLeave={() => setLivechatHover(false)}
                 >
-                    {is_livechat_hover ? (
-                        <img src={LiveChatHover} width="32" height="32" alt="livechat icon" />
-                    ) : (
-                        <img src={LiveChatIC} width="32" height="32" alt="livechat icon" />
-                    )}
+                    <img
+                        src={is_livechat_hover ? LiveChatHover : LiveChatIC}
+                        width="32"
+                        height="32"
+                        alt="livechat icon"
+                    />
                 </StyledLiveChat>
             )}
         </>

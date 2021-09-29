@@ -13,7 +13,7 @@ import {
 
 export const cyberjaya = {
     name: 'cyberjaya',
-    link: '/careers/locations/cyberjaya',
+    link: '/careers/locations/cyberjaya/',
     display_name: 'Cyberjaya',
     country: 'Malaysia',
     thumbnail: 'thumbnail_cyberjaya',
@@ -33,7 +33,7 @@ export const cyberjaya = {
 
 export const malta = {
     name: 'malta',
-    link: '/careers/locations/malta',
+    link: '/careers/locations/malta/',
     display_name: 'Malta',
     country: 'Malta',
     thumbnail: 'thumbnail_malta',
@@ -53,7 +53,7 @@ export const malta = {
 
 export const dubai = {
     name: 'dubai',
-    link: '/careers/locations/dubai',
+    link: '/careers/locations/dubai/',
     display_name: 'Dubai',
     country: 'United Arab Emirates',
     thumbnail: 'thumbnail_dubai',
@@ -72,7 +72,7 @@ export const dubai = {
 
 export const labuan = {
     name: 'labuan',
-    link: '/careers/locations/labuan',
+    link: '/careers/locations/labuan/',
     display_name: 'Labuan',
     country: 'Malaysia',
     thumbnail: 'thumbnail_labuan',
@@ -91,7 +91,7 @@ export const labuan = {
 
 export const asuncion = {
     name: 'asuncion',
-    link: '/careers/locations/asuncion',
+    link: '/careers/locations/asuncion/',
     display_name: 'Asunción',
     country: 'Paraguay',
     thumbnail: 'thumbnail_asuncion',
@@ -103,13 +103,13 @@ export const asuncion = {
     map_text:
         'In Paraguay, our office is located at Edificio Australia, a picturesque building in the financial centre area of Asunción, the capital of Paraguay. Buses are the main mode of public transportation in this metropolitan city.',
     address: address_asuncion,
-    google_map_link: 'https://goo.gl/maps/Y2VJmt6cPkdJpEoM7',
+    google_map_link: 'https://goo.gl/maps/N8nc9pJL6Y88abdQ8',
     has_iframe: true,
 }
 
 export const melaka = {
     name: 'melaka',
-    link: '/careers/locations/melaka',
+    link: '/careers/locations/melaka/',
     display_name: 'Melaka',
     country: 'Malaysia',
     thumbnail: 'thumbnail_melaka',
@@ -129,7 +129,7 @@ export const melaka = {
 
 export const ipoh = {
     name: 'ipoh',
-    link: '/careers/locations/ipoh',
+    link: '/careers/locations/ipoh/',
     display_name: 'Ipoh',
     country: 'Malaysia',
     thumbnail: 'thumbnail_ipoh',
@@ -147,7 +147,7 @@ export const ipoh = {
 
 export const cyprus = {
     name: 'cyprus',
-    link: '/careers/locations/cyprus',
+    link: '/careers/locations/cyprus/',
     display_name: 'Cyprus',
     country: 'Cyprus',
     thumbnail: 'thumbnail_cyprus',
@@ -167,7 +167,7 @@ export const cyprus = {
 
 export const rwanda = {
     name: 'rwanda',
-    link: '/careers/locations/rwanda',
+    link: '/careers/locations/rwanda/',
     display_name: 'Rwanda',
     country: 'Rwanda',
     thumbnail: 'thumbnail_rwanda',
@@ -188,7 +188,7 @@ export const rwanda = {
 
 export const minsk = {
     name: 'minsk',
-    link: '/careers/locations/minsk',
+    link: '/careers/locations/minsk/',
     display_name: 'Minsk',
     country: 'Belarus',
     thumbnail: 'thumbnail_minsk',

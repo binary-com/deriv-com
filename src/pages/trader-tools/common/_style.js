@@ -197,6 +197,10 @@ export const PnLCalculatorOutputContainer = styled(Flex)`
     height: 56px;
     border: 1px solid var(--color-green);
     background-color: var(--color-white);
+    max-width: 23rem;
+    @media ${device.mobileL} {
+        max-width: 37rem;
+    }
 `
 
 const CalculatorOutputFieldStyles = css`

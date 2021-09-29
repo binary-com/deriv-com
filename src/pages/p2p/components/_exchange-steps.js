@@ -110,7 +110,7 @@ const ExchangeSteps = () => {
             <CardContainer>
                 <Card>
                     <Row>
-                        <img src={RightAd} alt="right ad" width="100%" />
+                        <img src={RightAd} alt="" width="100%" />
                     </Row>
                     <Row>
                         <Column>
@@ -132,7 +132,7 @@ const ExchangeSteps = () => {
                 </Card>
                 <Card>
                     <Row>
-                        <img src={SettlePayment} alt="settle payments" width="100%" />
+                        <img src={SettlePayment} alt="" width="100%" />
                     </Row>
                     <Row>
                         <Column>
@@ -142,17 +142,19 @@ const ExchangeSteps = () => {
                         </Column>
                         <Column>
                             <StyledCardHeader mt="0.8rem" mb="0.8rem" as="h4">
-                                {localize('Make the payment')}
+                                {localize('Send or receive payment')}
                             </StyledCardHeader>
                             <StyledText>
-                                {localize('Send or receive payment via fund transfer.')}
+                                {localize(
+                                    'Settle the payment with the counterparty of your transaction.',
+                                )}
                             </StyledText>
                         </Column>
                     </Row>
                 </Card>
                 <Card>
                     <Row>
-                        <img src={CompleteOrder} alt="complete order" width="100%" />
+                        <img src={CompleteOrder} alt="" width="100%" />
                     </Row>
                     <Row>
                         <Column>
@@ -162,11 +164,11 @@ const ExchangeSteps = () => {
                         </Column>
                         <Column>
                             <StyledCardHeader mt="0.8rem" mb="0.8rem" as="h4">
-                                {localize('Complete the exchange')}
+                                {localize('Complete the transaction')}
                             </StyledCardHeader>
                             <StyledText>
                                 {localize(
-                                    'Every order must be completed and confirmed within 2 hours.',
+                                    'Every order must be completed and confirmed within 2 hours. Note: Funds are only released when the transaction is complete.',
                                 )}
                             </StyledText>
                         </Column>

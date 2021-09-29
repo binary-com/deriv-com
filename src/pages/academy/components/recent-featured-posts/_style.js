@@ -175,10 +175,6 @@ export const SmallArticle = styled(Flex)`
         margin-bottom: 16px;
         min-width: unset;
     }
-
-    @media ${device.mobileM} {
-        height: auto;
-    }
 `
 
 export const SmallArticleImageWrapper = styled.div`
@@ -295,12 +291,6 @@ export const SmallArticleTopContent = styled(Flex)`
     color: black;
     flex-direction: column;
     height: auto;
-    /* stylelint-disable */
-    /* justify-content: flex-start; */
-    /* height: 30px; */
-    /* flex: 1 1 15em;
-    -webkit-flex: 1 1 15em; */
-    /* stylelint-enable */
 
     @media ${device.tabletL} {
         flex: 0;

@@ -42,10 +42,10 @@ jobs:
           id: tagName
 
         - name: Set version
-          run: echo "GATSBY_DERIV_VERSION=TEST" >> $GITHUB_ENV
+          run: echo "GATSBY_DERIV_VERSION=$GIT_TAG_NAME" >> $GITHUB_ENV
 
         - name: Log values
-          run: echo ${{ steps.tagName.outputs.version }}
+          run: echo ${{ steps.tagName.outputs.tag }}
         - name: Checkout 🛎️
           uses: actions/checkout@v2.3.1
 

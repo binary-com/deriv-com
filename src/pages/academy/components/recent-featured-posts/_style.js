@@ -45,7 +45,7 @@ export const RightContent = styled(Flex)`
     flex-direction: column;
     justify-content: start;
     max-height: 464px;
-    overflow-y: scroll;
+    overflow: hidden scroll;
 
     @media ${device.desktopL} {
         max-height: 600px;

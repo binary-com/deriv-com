@@ -4,8 +4,8 @@ exports[`Localized Link Tests External Localized Links renders correctly when fl
 <a
   className="sc-bdfBQB imoVvB"
   disabled={true}
-  href="/"
-  onClick={null}
+  href=""
+  onClick={[Function]}
   style={
     Object {
       "cursor": "pointer",

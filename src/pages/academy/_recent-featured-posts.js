@@ -26,25 +26,8 @@ import {
 } from './components/recent-featured-posts/_style'
 import { StandardImgWrapper } from './common/_styles'
 import { convertDate, getAssetUrl } from 'common/utility'
-import { QueryImage, Carousel, Tabs, Header } from 'components/elements'
+import { QueryImage, Tabs, Header } from 'components/elements'
 import { localize, WithIntl, Localize } from 'components/localization'
-
-// Settings for carousel
-const settings = {
-    options: {
-        axis: 'y',
-        align: 'start',
-        slidesToScroll: 3,
-    },
-    view_port: {
-        height: 'auto',
-    },
-    vertical_container: {
-        flexDirection: 'column',
-        height: '464px',
-        width: '100%',
-    },
-}
 
 const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
     const recents = recent_data.slice(1)
@@ -105,50 +88,45 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
                             </RedirectLink>
                         </LeftContent>
                         <RightContent>
-                            <Carousel {...settings}>
-                                {recents.map((article) => {
-                                    return (
-                                        <RedirectLink
-                                            to={`/academy/blog/posts/${article.slug}`}
-                                            key={article.slug}
-                                        >
-                                            <SmallArticle>
-                                                <SmallArticleLeftContent>
-                                                    <StandardImgWrapper
-                                                        width="143px"
-                                                        height="85.8px"
-                                                        tabletL_width="113px"
-                                                        tabletL_height="68px"
-                                                    >
-                                                        <QueryImage
-                                                            className="standard-query-img"
-                                                            data={article?.main_image?.imageFile}
-                                                            alt={
-                                                                article?.main_image?.description ||
-                                                                ''
-                                                            }
-                                                        />
-                                                    </StandardImgWrapper>
-                                                </SmallArticleLeftContent>
-                                                <SmallArticleRightContent>
-                                                    <SmallArticleTopContent>
-                                                        <Header as="p" type="paragraph-1">
-                                                            {article.blog_title}
-                                                        </Header>
-                                                    </SmallArticleTopContent>
-                                                    <SmallArticleDateTimeDesktop>
-                                                        {article?.published_date &&
-                                                            convertDate(article?.published_date)}
-                                                        <DotIcon src={Dot} />
-                                                        {article.read_time_in_minutes}{' '}
-                                                        <Localize translate_text="min read" />
-                                                    </SmallArticleDateTimeDesktop>
-                                                </SmallArticleRightContent>
-                                            </SmallArticle>
-                                        </RedirectLink>
-                                    )
-                                })}
-                            </Carousel>
+                            {recents.map((article) => {
+                                return (
+                                    <RedirectLink
+                                        to={`/academy/blog/posts/${article.slug}`}
+                                        key={article.slug}
+                                    >
+                                        <SmallArticle>
+                                            <SmallArticleLeftContent>
+                                                <StandardImgWrapper
+                                                    width="143px"
+                                                    height="85.8px"
+                                                    tabletL_width="113px"
+                                                    tabletL_height="68px"
+                                                >
+                                                    <QueryImage
+                                                        className="standard-query-img"
+                                                        data={article?.main_image?.imageFile}
+                                                        alt={article?.main_image?.description || ''}
+                                                    />
+                                                </StandardImgWrapper>
+                                            </SmallArticleLeftContent>
+                                            <SmallArticleRightContent>
+                                                <SmallArticleTopContent>
+                                                    <Header as="p" type="paragraph-1">
+                                                        {article.blog_title}
+                                                    </Header>
+                                                </SmallArticleTopContent>
+                                                <SmallArticleDateTimeDesktop>
+                                                    {article?.published_date &&
+                                                        convertDate(article?.published_date)}
+                                                    <DotIcon src={Dot} />
+                                                    {article.read_time_in_minutes}{' '}
+                                                    <Localize translate_text="min read" />
+                                                </SmallArticleDateTimeDesktop>
+                                            </SmallArticleRightContent>
+                                        </SmallArticle>
+                                    </RedirectLink>
+                                )
+                            })}
                         </RightContent>
                     </ArticleContentWrapper>
                 </Tabs.Panel>
@@ -192,50 +170,45 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
                             </RedirectLink>
                         </LeftContent>
                         <RightContent>
-                            <Carousel {...settings}>
-                                {featureds.map((article) => {
-                                    return (
-                                        <RedirectLink
-                                            to={`/academy/blog/posts/${article.slug}`}
-                                            key={article.slug}
-                                        >
-                                            <SmallArticle>
-                                                <SmallArticleLeftContent>
-                                                    <StandardImgWrapper
-                                                        width="143px"
-                                                        height="85.8px"
-                                                        tabletL_width="113px"
-                                                        tabletL_height="68px"
-                                                    >
-                                                        <QueryImage
-                                                            className="standard-query-img"
-                                                            data={article.main_image.imageFile}
-                                                            alt={
-                                                                article?.main_image?.description ||
-                                                                ''
-                                                            }
-                                                        />
-                                                    </StandardImgWrapper>
-                                                </SmallArticleLeftContent>
-                                                <SmallArticleRightContent>
-                                                    <SmallArticleTopContent>
-                                                        <Header as="p" type="paragraph-1">
-                                                            {article.blog_title}
-                                                        </Header>
-                                                    </SmallArticleTopContent>
-                                                    <SmallArticleDateTimeDesktop>
-                                                        {article?.published_date &&
-                                                            convertDate(article?.published_date)}
-                                                        <DotIcon src={Dot} />
-                                                        {article.read_time_in_minutes}{' '}
-                                                        <Localize translate_text="min read" />
-                                                    </SmallArticleDateTimeDesktop>
-                                                </SmallArticleRightContent>
-                                            </SmallArticle>
-                                        </RedirectLink>
-                                    )
-                                })}
-                            </Carousel>
+                            {featureds.map((article) => {
+                                return (
+                                    <RedirectLink
+                                        to={`/academy/blog/posts/${article.slug}`}
+                                        key={article.slug}
+                                    >
+                                        <SmallArticle>
+                                            <SmallArticleLeftContent>
+                                                <StandardImgWrapper
+                                                    width="143px"
+                                                    height="85.8px"
+                                                    tabletL_width="113px"
+                                                    tabletL_height="68px"
+                                                >
+                                                    <QueryImage
+                                                        className="standard-query-img"
+                                                        data={article.main_image.imageFile}
+                                                        alt={article?.main_image?.description || ''}
+                                                    />
+                                                </StandardImgWrapper>
+                                            </SmallArticleLeftContent>
+                                            <SmallArticleRightContent>
+                                                <SmallArticleTopContent>
+                                                    <Header as="p" type="paragraph-1">
+                                                        {article.blog_title}
+                                                    </Header>
+                                                </SmallArticleTopContent>
+                                                <SmallArticleDateTimeDesktop>
+                                                    {article?.published_date &&
+                                                        convertDate(article?.published_date)}
+                                                    <DotIcon src={Dot} />
+                                                    {article.read_time_in_minutes}{' '}
+                                                    <Localize translate_text="min read" />
+                                                </SmallArticleDateTimeDesktop>
+                                            </SmallArticleRightContent>
+                                        </SmallArticle>
+                                    </RedirectLink>
+                                )
+                            })}
                         </RightContent>
                     </ArticleContentWrapper>
                 </Tabs.Panel>

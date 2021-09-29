@@ -43,9 +43,8 @@ const Wrapper = styled(Container)`
         padding-left: 4rem;
     }
 
-    @media ${device.mobileL} {
-        padding-top: 2rem;
-        padding-left: 0;
+    @media ${device.tabletS} {
+        padding: 2.1rem 0 0;
         flex-direction: column-reverse;
         justify-content: center;
     }
@@ -79,8 +78,7 @@ const HeroContent = styled(Flex)`
 
     @media ${device.mobileL} {
         ${Header} {
-            margin-top: 10px;
-            margin-bottom: 0;
+            margin: 10px 0 0;
         }
     }
 `
@@ -88,9 +86,11 @@ const StyledHeader = styled(Header)`
     color: var(--color-black-3);
     display: flex;
 
-    @media ${device.mobileL} {
-        margin-top: 1rem;
-        padding-top: 3px;
+    @media ${device.tabletL} {
+        margin-top: 1.3rem;
+    }
+    @media ${device.mobileS} {
+        margin-top: 0;
     }
 `
 

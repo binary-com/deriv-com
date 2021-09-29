@@ -29,13 +29,11 @@ const StyledText = styled(Text)`
 
 const TryButton = styled(LinkButton)`
     @media ${device.mobileL} {
-        padding: 10px 16px;
         white-space: nowrap;
         margin-bottom: 2rem;
     }
     @media ${device.mobileL} {
-        margin-top: 24px;
-        margin-bottom: 40px;
+        margin-top: 24px 0 40px;
     }
 `
 

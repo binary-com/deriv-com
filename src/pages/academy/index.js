@@ -192,7 +192,7 @@ export const query = graphql`
             recent: blog(
                 filter: { status: { _eq: "published" } }
                 sort: "-published_date"
-                limit: 6
+                limit: 8
             ) {
                 id
                 main_image {
@@ -220,7 +220,7 @@ export const query = graphql`
             recent_eu: blog(
                 filter: { status: { _eq: "published" }, hide_for_eu: { _eq: false } }
                 sort: "-published_date"
-                limit: 6
+                limit: 8
             ) {
                 id
                 main_image {
@@ -249,7 +249,7 @@ export const query = graphql`
             featured: blog(
                 filter: { status: { _eq: "published" }, featured: { _eq: true } }
                 sort: "-published_date"
-                limit: 6
+                limit: 8
             ) {
                 id
                 main_image {
@@ -281,7 +281,7 @@ export const query = graphql`
                     hide_for_eu: { _eq: false }
                 }
                 sort: "-published_date"
-                limit: 6
+                limit: 8
             ) {
                 id
                 main_image {

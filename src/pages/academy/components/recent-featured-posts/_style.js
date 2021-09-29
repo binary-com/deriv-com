@@ -42,9 +42,17 @@ export const LeftContent = styled(Flex)`
 `
 
 export const RightContent = styled(Flex)`
+    flex-direction: column;
     justify-content: start;
-    @media ${device.laptopM} {
-        flex-direction: column;
+    max-height: 464px;
+    padding-right: 8px;
+    overflow: hidden auto;
+
+    @media ${device.desktopL} {
+        max-height: 600px;
+    }
+    @media (max-width: 1280px) {
+        max-height: 432px;
     }
 `
 
@@ -71,6 +79,11 @@ export const MainArticle = styled(Flex)`
     }
     &:hover {
         transform: scale(1.02);
+    }
+
+    @media ${device.desktopL} {
+        width: 1000px;
+        max-height: 600px;
     }
 
     @media (max-width: 1280px) {

@@ -124,12 +124,11 @@ const HeroComponent = ({ title, content, background_data }) => {
                         <Header type="subtitle-1">{content}</Header>
                     </HeroContent>
                     <TryButton
-                        secondary="true"
-                        to="/"
-                        external="true"
-                        type="deriv_app"
                         target="_blank"
-                        rel="noopener noreferrer"
+                        rel="noopener noreferrer nofollow"
+                        type="submit"
+                        secondary="true"
+                        to={'/signup/'}
                     >
                         {localize('Get trading')}
                     </TryButton>

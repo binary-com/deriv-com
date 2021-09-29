@@ -45,14 +45,12 @@ const Titlebtn = ({ btnlabel, text }) => {
                     {text}
                 </StyledText>
                 <TryButton
-                    secondary="true"
-                    to="/"
-                    external="true"
-                    type="deriv_app"
+                    m="4.2rem 0 40px"
                     target="_blank"
-                    rel="noopener noreferrer"
-                    mt="4.2rem"
-                    mb="40px"
+                    rel="noopener noreferrer nofollow"
+                    type="submit"
+                    secondary="true"
+                    to={'/signup/'}
                 >
                     {btnlabel}
                 </TryButton>

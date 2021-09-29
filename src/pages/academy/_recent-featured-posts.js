@@ -48,6 +48,7 @@ const settings = {
         flexDirection: 'column',
         height: '464px',
         width: '100%',
+        overflow: 'auto',
     },
 }
 

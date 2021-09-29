@@ -49,7 +49,7 @@ jobs:
           id: tagName
 
         - name: Set version
-          run: echo "GATSBY_DERIV_VERSION=$GIT_TAG_NAME" >> $GITHUB_ENV
+          run: echo "GATSBY_DERIV_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
 
         - name: Log values
           run: echo $GIT_TAG_NAME

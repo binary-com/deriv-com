@@ -45,10 +45,14 @@ export const RightContent = styled(Flex)`
     flex-direction: column;
     justify-content: start;
     max-height: 464px;
-    overflow: hidden scroll;
+    padding-right: 8px;
+    overflow: hidden auto;
 
     @media ${device.desktopL} {
         max-height: 600px;
+    }
+    @media (max-width: 1280px) {
+        max-height: 432px;
     }
 `
 

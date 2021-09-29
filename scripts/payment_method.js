@@ -209,7 +209,7 @@ const filterFunctions = {
         return data.filter((e) => e)
     },
     flatten: (data) => {
-        const excludes = ['link_binary', 'platform']
+        const excludes = ['link_deriv','link_binary', 'platform']
 
         return filterFunctions.multipleEntries(
             data

@@ -23,7 +23,6 @@ const ParentWrapper = styled(Flex)`
     background-size: cover;
     height: auto;
     padding: 160px 0 80px;
-    max-width: 1600px;
 
     @media ${device.tabletL} {
         /* prettier-ignore */

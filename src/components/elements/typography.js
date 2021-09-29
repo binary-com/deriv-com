@@ -17,12 +17,16 @@ const baseStyles = ({
     pb,
     align,
     lh,
+    min_width,
     max_width,
+    min_height,
     max_height,
     width,
     height,
 }) => css`
+    min-width: ${min_width};
     max-width: ${max_width};
+    min-height: ${min_height};
     max-height: ${max_height};
     width: ${width};
     height: ${height};

@@ -117,7 +117,7 @@ const TryButton = styled(LinkButton)`
 const HeroComponent = ({ title, content, background_data }) => {
     return (
         <BackgroundWrapper data={background_data}>
-            <Wrapper p="4rem 0 0 4rem" justify="space-between" height="unset">
+            <Wrapper p="4rem 0 0" justify="space-between" height="unset">
                 <InformationWrapper height="unset" direction="column">
                     <StyledHeader type="hero">{title}</StyledHeader>
                     <HeroContent direction="column" justify="flex-start">

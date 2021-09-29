@@ -4,6 +4,10 @@ on:
     push:
         branches: [ prod-version ]
 
+env:
+    GATSBY_CPU_COUNT: 2
+    GATSBY_ENV: production
+
 jobs:
     lint:
         timeout-minutes: 10
@@ -40,8 +44,8 @@ jobs:
         - name: Set version
           run: |
             echo $GIT_TAG_NAME
-            echo ${{ steps.tagName.outputs.tag }}
-            echo "GATSBY_DERIV_VERSION=${{ steps.tagName.outputs.tag }}" >> $GITHUB_ENV
+            echo ${{ steps.tagName }}
+            echo "GATSBY_DERIV_VERSION=TEST" >> $GITHUB_ENV
 
         - name: Checkout 🛎️
           uses: actions/checkout@v2.3.1
@@ -56,9 +60,6 @@ jobs:
           with:
             branch: gh-pages # The branch the action should deploy to.
             folder: public # The folder the action should deploy.
-env:
-    GATSBY_CPU_COUNT: 2
-    GATSBY_ENV: production
     # release-production:
     #     needs: lint
     #     timeout-minutes: 30

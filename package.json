@@ -48,6 +48,12 @@
         "babel-eslint": "10.1.0",
         "babel-plugin-styled-components": "^1.12.0",
         "csv-parser": "^3.0.0",
+        "@storybook/addon-actions": "^6.3.4",
+        "@storybook/addon-essentials": "^6.3.4",
+        "@storybook/addon-links": "^6.3.4",
+        "@storybook/builder-webpack5": "^6.3.4",
+        "@storybook/manager-webpack5": "^6.3.4",
+        "@storybook/react": "^6.3.4",
         "eslint": "^7.28.0",
         "eslint-loader": "^4.0.2",
         "eslint-plugin-import": "^2.23.4",
@@ -94,7 +100,9 @@
         "deploy-dev": "npm run build && gh-pages -d public",
         "deploy-branch": "PATH_PREFIX=/deriv-com/br/$branch_name npm run build && gh-pages -d public -e br/$branch_name",
         "prepare": "husky install",
-        "pre-commit-lint": "lint-staged"
+        "pre-commit-lint": "lint-staged",
+        "storybook": "start-storybook -p 6006",
+        "build:storybook": "build-storybook -c .storybook -o public/storybook"
     },
     "repository": {
         "type": "git",

@@ -75,6 +75,7 @@ const MediaBody = styled.div`
     }
     li > img {
         height: 16px;
+        width: 16px;
         margin-right: 10px;
         object-fit: contain;
     }
@@ -91,6 +92,7 @@ const Introduction = ({ introImage, imageWidth, introPara, subPara, introList })
                 <img
                     className="intro-forex"
                     width={`${imageWidth}px`}
+                    height="462 px"
                     src={introImage}
                     alt="Generic placeholder image"
                 />

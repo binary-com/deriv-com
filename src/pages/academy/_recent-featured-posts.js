@@ -40,6 +40,7 @@ const settings = {
         axis: 'y',
         align: 'start',
         slidesToScroll: 3,
+        draggable: false,
     },
     view_port: {
         height: 'auto',

@@ -15,22 +15,17 @@ import {
     StyledCategories,
     BottomDescription,
     SmallArticle,
-    SmallArticleImageWrapper,
-    SmallArticleCategories,
     SmallArticleTopContent,
     SmallArticleDateTimeDesktop,
-    SmallArticleDateTimeMobile,
     SmallArticleLeftContent,
     SmallArticleRightContent,
     AllArticleButton,
     RedirectLink,
     ClockIcon,
     DotIcon,
-    MobileDotIcon,
-    MobileHeader,
 } from './components/recent-featured-posts/_style'
-import { convertDate, truncateString, getAssetUrl } from 'common/utility'
-import { Flex } from 'components/containers'
+import { StandardImgWrapper } from './common/_styles'
+import { convertDate, getAssetUrl } from 'common/utility'
 import { QueryImage, Carousel, Tabs, Header } from 'components/elements'
 import { localize, WithIntl, Localize } from 'components/localization'
 
@@ -119,52 +114,28 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
                                         >
                                             <SmallArticle>
                                                 <SmallArticleLeftContent>
-                                                    <SmallArticleImageWrapper>
+                                                    <StandardImgWrapper
+                                                        width="143px"
+                                                        height="85.8px"
+                                                        tabletL_width="113px"
+                                                        tabletL_height="68px"
+                                                    >
                                                         <QueryImage
-                                                            className="small-article-bg"
+                                                            className="standard-query-img"
                                                             data={article?.main_image?.imageFile}
                                                             alt={
                                                                 article?.main_image?.description ||
                                                                 ''
                                                             }
-                                                            height="102px"
                                                         />
-                                                    </SmallArticleImageWrapper>
+                                                    </StandardImgWrapper>
                                                 </SmallArticleLeftContent>
                                                 <SmallArticleRightContent>
                                                     <SmallArticleTopContent>
-                                                        <Flex
-                                                            jc="start"
-                                                            height="unset"
-                                                            laptopM={{ flexDirection: 'start' }}
-                                                        >
-                                                            {article.tags &&
-                                                                article.tags
-                                                                    .slice(0, 1)
-                                                                    .map((tag) => (
-                                                                        <SmallArticleCategories
-                                                                            key={tag?.id}
-                                                                        >
-                                                                            {tag?.tags_id?.tag_name}
-                                                                        </SmallArticleCategories>
-                                                                    ))}
-                                                        </Flex>
-                                                        <SmallArticleDateTimeMobile>
-                                                            {article?.published_date &&
-                                                                convertDate(
-                                                                    article?.published_date,
-                                                                )}
-                                                            <MobileDotIcon src={Dot} />
-                                                            {article.read_time_in_minutes}{' '}
-                                                            <Localize translate_text="min" />
-                                                        </SmallArticleDateTimeMobile>
                                                         <Header as="p" type="paragraph-1">
-                                                            {truncateString(article.blog_title, 40)}
+                                                            {article.blog_title}
                                                         </Header>
                                                     </SmallArticleTopContent>
-                                                    <MobileHeader as="p" type="paragraph-1">
-                                                        {truncateString(article.blog_title, 40)}
-                                                    </MobileHeader>
                                                     <SmallArticleDateTimeDesktop>
                                                         {article?.published_date &&
                                                             convertDate(article?.published_date)}
@@ -230,52 +201,28 @@ const RecentFeaturedPosts = ({ recent_data, featured_data }) => {
                                         >
                                             <SmallArticle>
                                                 <SmallArticleLeftContent>
-                                                    <SmallArticleImageWrapper>
+                                                    <StandardImgWrapper
+                                                        width="143px"
+                                                        height="85.8px"
+                                                        tabletL_width="113px"
+                                                        tabletL_height="68px"
+                                                    >
                                                         <QueryImage
-                                                            className="small-article-bg"
+                                                            className="standard-query-img"
                                                             data={article.main_image.imageFile}
                                                             alt={
                                                                 article?.main_image?.description ||
                                                                 ''
                                                             }
-                                                            height="102px"
                                                         />
-                                                    </SmallArticleImageWrapper>
+                                                    </StandardImgWrapper>
                                                 </SmallArticleLeftContent>
                                                 <SmallArticleRightContent>
                                                     <SmallArticleTopContent>
-                                                        <Flex
-                                                            jc="start"
-                                                            height="unset"
-                                                            laptopM={{ flexDirection: 'start' }}
-                                                        >
-                                                            {article.tags &&
-                                                                article.tags
-                                                                    .slice(0, 1)
-                                                                    .map((tag) => (
-                                                                        <SmallArticleCategories
-                                                                            key={tag?.id}
-                                                                        >
-                                                                            {tag?.tags_id?.tag_name}
-                                                                        </SmallArticleCategories>
-                                                                    ))}
-                                                        </Flex>
-                                                        <SmallArticleDateTimeMobile>
-                                                            {article?.published_date &&
-                                                                convertDate(
-                                                                    article?.published_date,
-                                                                )}
-                                                            <MobileDotIcon src={Dot} />
-                                                            {article.read_time_in_minutes}{' '}
-                                                            <Localize translate_text="min" />
-                                                        </SmallArticleDateTimeMobile>
                                                         <Header as="p" type="paragraph-1">
-                                                            {truncateString(article.blog_title, 40)}
+                                                            {article.blog_title}
                                                         </Header>
                                                     </SmallArticleTopContent>
-                                                    <MobileHeader as="p" type="paragraph-1">
-                                                        {truncateString(article.blog_title, 40)}
-                                                    </MobileHeader>
                                                     <SmallArticleDateTimeDesktop>
                                                         {article?.published_date &&
                                                             convertDate(article?.published_date)}

@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { StandardImgWrapper } from '../common/_styles'
 import { Header, QueryImage } from 'components/elements'
 import { convertDate } from 'common/utility'
 import { Flex } from 'components/containers'
@@ -33,8 +34,6 @@ const VideoCardWrapper = styled.div`
 `
 
 const ImageWrapper = styled.div`
-    height: 200px;
-    width: 384px;
     position: relative;
     z-index: 1;
 
@@ -137,12 +136,13 @@ const VideoCard = ({ item, openVideo }) => {
                     <VideoDuration as="h5" type="paragraph-2" weight="bold">
                         {item.video_duration}
                     </VideoDuration>
-                    <QueryImage
-                        data={item.video_thumbnail.imageFile}
-                        alt={item.video_description}
-                        height="200px"
-                        weight="384px"
-                    />
+                    <StandardImgWrapper width="384px" height="230.40px">
+                        <QueryImage
+                            data={item.video_thumbnail.imageFile}
+                            alt={item.video_description}
+                            className="standard-query-img"
+                        />
+                    </StandardImgWrapper>
                 </ImageWrapper>
                 <ContentWrapper>
                     <Header as="h3" type="subtitle-2">

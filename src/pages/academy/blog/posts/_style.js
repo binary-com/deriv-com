@@ -83,9 +83,23 @@ export const HeroImageContainer = styled(Box)`
     position: absolute;
     top: 10%;
     right: 0%;
-    max-height: 532px;
     overflow: hidden;
+    width: 100%;
 
+    ::before {
+        content: '';
+        float: left;
+        padding-bottom: 60%; /* aspect-ratio 5:3 */
+    }
+    .standard-query-img {
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        position: absolute;
+    }
     @media (max-width: 1300px) {
         position: relative;
         top: unset;

@@ -185,6 +185,7 @@ const ArticlesTemplate = (props) => {
                                         <QueryImage
                                             data={post_data?.main_image?.imageFile}
                                             alt={post_data?.main_image?.description}
+                                            className="standard-query-img"
                                         />
                                     </HeroImageContainer>
                                 </HeroRightWrapper>

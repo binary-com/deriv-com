@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { getImage } from 'gatsby-plugin-image'
 import styled from 'styled-components'
+import { StandardImgWrapper } from '../common/_styles'
 import { Flex } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
 import { LocalizedLink } from 'components/localization'
@@ -26,17 +27,9 @@ const ArticleCardWrapper = styled(Flex)`
     &:hover {
         transform: translateY(-1.1rem) scale(1.02);
     }
-`
-
-const ImageWrapper = styled.div`
-    width: 384px;
-    height: 200px;
-    position: relative;
-    z-index: 1;
-    overflow: hidden;
 
     @media ${device.mobileL} {
-        width: 100%;
+        min-height: unset;
     }
 `
 
@@ -57,7 +50,6 @@ const ContentWrapper = styled.div`
         padding: 16px;
     }
 `
-
 const RedirectLink = styled(LocalizedLink)`
     text-decoration: none;
 `
@@ -66,14 +58,13 @@ const ArticleCard = ({ item }) => {
     return (
         <RedirectLink to={`/academy/blog/posts/${item.slug}`}>
             <ArticleCardWrapper>
-                <ImageWrapper>
+                <StandardImgWrapper width="384px" height="auto" br="unset" tabletL_br="unset">
                     <QueryImage
                         data={getImage(item.main_image.imageFile)}
                         alt={item.main_image.description || ''}
-                        height="200px"
-                        weight="384px"
+                        className="standard-query-img"
                     />
-                </ImageWrapper>
+                </StandardImgWrapper>
 
                 <ContentWrapper>
                     <Flex jc="flex-start" height="auto" fw="wrap">

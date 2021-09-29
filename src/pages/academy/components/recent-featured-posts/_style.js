@@ -12,6 +12,10 @@ export const StyledContainer = styled(Flex)`
     @media ${device.desktopL} {
         max-width: 1600px;
     }
+
+    @media ${device.laptopM} {
+        max-width: 58.8rem;
+    }
 `
 
 export const StyledTabs = styled(Tabs)`
@@ -52,27 +56,42 @@ export const MainArticle = styled(Flex)`
             : 'linear-gradient(251.14deg, rgba(14, 14, 14, 0.5632) 29.18%, rgba(7, 6, 6, 0.88) 85.14%)'};
     position: relative;
     background-size: cover;
-    min-height: 464px;
+    max-height: 464px;
     width: 792px;
-    max-height: 300px;
     align-items: flex-end;
     cursor: pointer;
     transition: transform 0.3s;
+    border-radius: 8px;
+    overflow: hidden;
 
+    ::before {
+        content: '';
+        float: left;
+        padding-bottom: 60%; /* aspect-ratio 5:3 */
+    }
     &:hover {
         transform: scale(1.02);
     }
+
+    @media (max-width: 1280px) {
+        width: 720px;
+    }
+
     @media ${device.laptopM} {
         /* prettier-ignore */
-        min-width: 328px;
+        max-width: 58.8rem;
         width: 90vw;
         padding: 0;
         background: ${(props) =>
             props.image
-                ? `linear-gradient(251.14deg, rgba(14, 14, 14, 0.5632) 29.18%, rgba(7, 6, 6, 0.88) 85.14%),url(${props.image}) no-repeat top right 46.5%`
+                ? `linear-gradient(251.14deg, rgba(14, 14, 14, 0.5632) 29.18%, rgba(7, 6, 6, 0.88) 85.14%),url(${props.image}) no-repeat center right 46.5%`
                 : 'linear-gradient(251.14deg, rgba(14, 14, 14, 0.5632) 29.18%, rgba(7, 6, 6, 0.88) 85.14%)'};
         background-size: cover;
         justify-content: flex-end;
+
+        ::before {
+            padding-bottom: 166%; /* aspect-ratio 3:5 */
+        }
     }
 
     @media ${device.tablet} {
@@ -141,19 +160,18 @@ export const BottomDescription = styled(Flex)`
 
 export const SmallArticle = styled(Flex)`
     font-size: 16px;
-    height: 102px;
     margin-bottom: 22px;
-    justify-content: start;
     cursor: pointer;
     transition: transform 0.3s;
     min-width: 328px;
+    justify-content: unset;
 
     &:hover {
         transform: scale(1.02);
     }
 
     @media ${device.laptopM} {
-        height: 82px;
+        height: auto;
         margin-bottom: 16px;
         min-width: unset;
     }
@@ -213,6 +231,7 @@ export const SmallArticleBottomContent = styled.div`
 export const SmallArticleLeftContent = styled(Flex)`
     margin-left: 15px;
     margin-right: 10px;
+    align-items: flex-start;
     width: unset;
 
     @media ${device.laptopM} {
@@ -223,10 +242,8 @@ export const SmallArticleLeftContent = styled(Flex)`
 export const SmallArticleRightContent = styled(Flex)`
     margin-left: 10px;
     flex-direction: column;
-    /* stylelint-disable */
-    -webkit-justify-content: space-between;
-    /* stylelint-enable */
-    justify-content: space-between;
+    justify-content: flex-start;
+    align-items: flex-start;
 
     @media ${device.laptopM} {
         justify-content: flex-start;
@@ -272,19 +289,15 @@ export const MobileDotIcon = styled(DotIcon)`
 
 export const SmallArticleTopContent = styled(Flex)`
     color: black;
-    height: 30px;
-    justify-content: flex-start;
     flex-direction: column;
-    /* stylelint-disable */
-    flex: 1 1 15em;
-    -webkit-flex: 1 1 15em;
-    /* stylelint-enable */
+    height: auto;
+
+    @media ${device.tabletL} {
+        flex: 0;
+    }
+
     @media ${device.laptopM} {
         flex-direction: row;
-
-        ${Header} {
-            display: none;
-        }
     }
 `
 
@@ -316,9 +329,6 @@ export const SmallArticleDateTimeDesktop = styled.div`
     margin-top: 12px;
     width: 100%;
     font-size: 12px;
-    @media ${device.laptopM} {
-        display: none;
-    }
 `
 
 export const MobileHeader = styled(Header)`

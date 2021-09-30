@@ -16,35 +16,16 @@ const NoIconText = styled.div`
     text-align: center;
 `
 
-const getWithdrawalLimit = (min_withdrawal, max_withdrawal) => {
-    if (
-        (min_withdrawal === 'Not Available' && max_withdrawal === 'Not Available') ||
-        max_withdrawal === 'No maximum'
-    )
-        return <Localize translate_text={`${min_withdrawal}`} />
-    if (min_withdrawal.includes('|') && max_withdrawal.includes('|')) {
-        let min_withdrawal_array = min_withdrawal.split('|')
-        let max_withdrawal_array = max_withdrawal.split('|')
-        const values = min_withdrawal_array
-            .map((amount, i) => amount + '-' + max_withdrawal_array[i])
-            .join('<0></0>')
+const getMinMaxLimit = (minValue, maxValue) => {
+    if (maxValue === 'No maximum' || maxValue === 'Not Available')
+        return <Localize translate_text={`${minValue}`} />
+    if (minValue.includes('|') && maxValue.includes('|')) {
+        let min_array = minValue.split('|')
+        let max_array = maxValue.split('|')
+        const values = min_array.map((amount, i) => amount + '-' + max_array[i]).join('<0></0>')
         return <Localize translate_text={values} components={[<br key={0} />]} />
     }
-    return <Localize translate_text={`${min_withdrawal} - ${max_withdrawal}`} />
-}
-
-const getDepositLimit = (min_deposit, max_deposit) => {
-    if (min_deposit === 'No minimum' && max_deposit === 'No maximum')
-        return <Localize translate_text={`${min_deposit}`} />
-    if (min_deposit.includes('|') && max_deposit.includes('|')) {
-        let min_deposit_array = min_deposit.split('|')
-        let max_deposit_array = max_deposit.split('|')
-        const values = min_deposit_array
-            .map((amount, i) => amount + '-' + max_deposit_array[i])
-            .join('<0></0>')
-        return <Localize translate_text={values} components={[<br key={0} />]} />
-    }
-    return <Localize translate_text={`${min_deposit} - ${max_deposit}`} />
+    return <Localize translate_text={`${minValue} - ${maxValue}`} />
 }
 
 const categorizePaymentMethod = (json) => {
@@ -126,8 +107,8 @@ const PaymentDataGenerator = () => {
                         name,
                         method: payment_method_logo,
                         currencies: getCurrency(currencies),
-                        min_max_deposit: getDepositLimit(min_deposit, max_deposit),
-                        min_max_withdrawal: getWithdrawalLimit(min_withdrawal, max_withdrawal),
+                        min_max_deposit: getMinMaxLimit(min_deposit, max_deposit),
+                        min_max_withdrawal: getMinMaxLimit(min_withdrawal, max_withdrawal),
                         deposit_time: <Localize translate_text={deposit_proccessing_time} />,
                         withdrawal_time: <Localize translate_text={withdrawal_processing_time} />,
                         description: <Localize translate_text={description} />,

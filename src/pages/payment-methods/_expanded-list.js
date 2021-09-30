@@ -116,7 +116,7 @@ const ExpandList = ({ data, /*config,*/ is_crypto, is_fiat_onramp, locale }) => 
             <Tr is_expanded={is_expanded}>
                 <Td>{data.method}</Td>
                 <Td colSpan={is_fiat_onramp && '3'}>
-                    <Text>{data.currencies}</Text>
+                    <Text style={{ whiteSpace: 'pre-wrap' }}>{data.currencies}</Text>
                 </Td>
                 <Td>
                     {Array.isArray(data.min_max_deposit) ? (

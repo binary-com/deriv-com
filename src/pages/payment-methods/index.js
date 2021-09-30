@@ -9,7 +9,9 @@ import { Text, Header, Divider, Accordion, AccordionItem } from 'components/elem
 import { SEO, SectionContainer, Container } from 'components/containers'
 import { localize, WithIntl, Localize } from 'components/localization'
 import { DerivStore } from 'store'
-
+import { useWebsiteStatus } from 'components/hooks/use-website-status'
+import { isLoggedIn, getDomain, getClientInformation } from 'common/utility'
+import { isEuCountry } from 'common/country-base'
 const meta_attributes = {
     og_title: localize('Payment Methods | Deposits and withdrawals | Deriv'),
     og_description: localize(
@@ -82,42 +84,100 @@ const InnerDiv = styled.div`
     overflow-x: auto;
     overflow-y: visible;
 `
+
+const getClientResidence = () => {
+    const domain = getDomain()
+    const client_information = getClientInformation(domain)
+    return client_information ? client_information.residence : ''
+}
+
+const getClientCountry = () => {
+    let current_client_country = ''
+    if (isLoggedIn()) {
+        current_client_country = getClientResidence()
+    } else {
+        const [website_status] = useWebsiteStatus()
+        current_client_country = website_status?.clients_country || ''
+    }
+    return current_client_country
+}
+const getPaymentsBasedOnCountry = (payment_data, current_client_country) => {
+    const payments_data_array = payment_data.map((category) => {
+        const filteredData = category.data.filter((item) => {
+            if (item.countries.included.length) {
+                const includedCountries = item.countries.included.map((i) => i.toLowerCase())
+                if (includedCountries.includes(current_client_country)) {
+                    return true
+                } else if (includedCountries.includes('eu')) {
+                    return isEuCountry(current_client_country)
+                }
+                return false
+            } else if (item.countries.excluded.length) {
+                const excludedCountries = item.countries.excluded.map((i) => i.toLowerCase())
+                if (excludedCountries.includes(current_client_country)) {
+                    return false
+                }
+                if (excludedCountries.includes('eu')) {
+                    return !isEuCountry(current_client_country)
+                }
+                return true
+            }
+            return true
+        })
+        return {
+            ...category,
+            data: filteredData,
+        }
+    })
+    const payment_list = payments_data_array.filter((item) => item.data.length)
+    return payment_list
+}
+
 const DisplayAccordion = (locale) => {
-    const { is_eu_country, crypto_config } = React.useContext(DerivStore)
+    const { crypto_config } = React.useContext(DerivStore)
+    const current_client_country = getClientCountry()
+    console.log(current_client_country)
+    const payment_list = getPaymentsBasedOnCountry(payment_data, current_client_country)
+    if (!payment_list.length) {
+        return (
+            <>
+                <BoldText>
+                    {localize('Sorry! No payment options are available for your country')}
+                </BoldText>
+            </>
+        )
+    }
     return (
         <Accordion has_single_state>
-            {payment_data.map((pd, idx) => {
-                if (pd.is_crypto && is_eu_country) {
-                    return []
-                } else
-                    return (
-                        <AccordionItem
-                            key={idx}
-                            content_style={{
-                                background: 'var(--color-white)',
-                                boxShadow: '-2px 6px 15px 0 rgba(195, 195, 195, 0.31)',
-                            }}
-                            header_style={{
-                                borderRadius: '6px',
-                            }}
-                            style={{
-                                padding: '2.2rem 4.8rem',
-                                position: 'relative',
-                                background: 'var(--color-white)',
-                                paddingBottom: pd.note ? '5rem' : '2.2rem',
-                            }}
-                            parent_style={{
-                                marginBottom: '2.4rem',
-                            }}
-                            header={pd.name}
-                        >
-                            <DisplayAccordianItem
-                                pd={pd}
-                                crypto_config={crypto_config}
-                                locale={locale}
-                            />
-                        </AccordionItem>
-                    )
+            {payment_list.map((pd, idx) => {
+                return (
+                    <AccordionItem
+                        key={idx}
+                        content_style={{
+                            background: 'var(--color-white)',
+                            boxShadow: '-2px 6px 15px 0 rgba(195, 195, 195, 0.31)',
+                        }}
+                        header_style={{
+                            borderRadius: '6px',
+                        }}
+                        style={{
+                            padding: '2.2rem 4.8rem',
+                            position: 'relative',
+                            background: 'var(--color-white)',
+                            paddingBottom: pd.note ? '5rem' : '2.2rem',
+                        }}
+                        parent_style={{
+                            marginBottom: '2.4rem',
+                        }}
+                        header={pd.name}
+                    >
+                        <DisplayAccordianItem
+                            pd={pd}
+                            crypto_config={crypto_config}
+                            locale={locale}
+                        />
+                    </AccordionItem>
+                )
             })}
         </Accordion>
     )

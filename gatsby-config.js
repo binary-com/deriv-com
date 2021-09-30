@@ -1,5 +1,7 @@
 const language_config = require(`./i18n-config.js`)
-
+require('dotenv').config({
+    path: `.env.${process.env.NODE_ENV}`,
+})
 module.exports = {
     // pathPrefix: process.env.PATH_PREFIX || '/deriv-com/', // For non CNAME GH-pages deployment
     flags: {
@@ -184,7 +186,14 @@ module.exports = {
                     {
                         userAgent: '*',
                         allow: '/',
-                        disallow: ['/404/', '/homepage/', '/landing/', '/endpoint/', '/livechat/', '/storybook/'],
+                        disallow: [
+                            '/404/',
+                            '/homepage/',
+                            '/landing/',
+                            '/endpoint/',
+                            '/livechat/',
+                            '/storybook/',
+                        ],
                     },
                 ],
             },
@@ -215,6 +224,9 @@ module.exports = {
             resolve: '@directus/gatsby-source-directus',
             options: {
                 url: 'https://cms.deriv.cloud',
+                auth: {
+                    token: process.env.DIRECTUS_AUTH_TOKEN,
+                },
                 dev: {
                     refresh: '5s',
                 },

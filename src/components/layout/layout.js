@@ -170,6 +170,10 @@ const Layout = ({
     let Navigation = <></>
     let FooterNav = <></>
     switch (type) {
+        case 'academy':
+            Navigation = <Nav academy_logo={true} no_language={true} />
+            FooterNav = <Footer academy={true} />
+            break
         case 'static':
             Navigation = <NavStatic is_ppc={is_ppc} />
             break

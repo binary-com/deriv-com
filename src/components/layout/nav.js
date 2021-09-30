@@ -33,6 +33,7 @@ import Hamburger from 'images/svg/hamburger_menu.svg'
 import Close from 'images/svg/close-long.svg'
 import LogoOnly from 'images/svg/logo-deriv-only.svg'
 import LogoCombinedShape from 'images/svg/logo-combined-shape.svg'
+import AcademyLogo from 'images/svg/academy-logo.svg'
 import { CFDWarning } from 'components/layout'
 
 const query = graphql`
@@ -408,7 +409,14 @@ const handleGetTrading = () => {
     window.location.href = trading_url_localized
 }
 
-const NavMobile = ({ is_ppc, is_ppc_redirect, is_logged_in, hide_signup_login }) => {
+const NavMobile = ({
+    is_ppc,
+    is_ppc_redirect,
+    is_logged_in,
+    hide_signup_login,
+    academy_logo,
+    no_language,
+}) => {
     const [is_canvas_menu_open, openOffCanvasMenu, closeOffCanvasMenu] = moveOffCanvasMenu()
 
     return (
@@ -429,12 +437,16 @@ const NavMobile = ({ is_ppc, is_ppc_redirect, is_logged_in, hide_signup_login })
                     <img src={LogoOnly} alt="logo only" width="115px" />
                     <LogoDescription ai="center">
                         <Line />
-                        <img src={LogoCombinedShape} alt="logo combined shape 2" />
+                        {academy_logo ? (
+                            <img src={AcademyLogo} alt="Academy" />
+                        ) : (
+                            <img src={LogoCombinedShape} alt="logo combined shape" />
+                        )}
                     </LogoDescription>
                 </Flex>
             </LogoLinkMobileMain>
             <MobileRightMain>
-                <LanguageSwitcher short_name="true" is_high_nav />
+                {!no_language && <LanguageSwitcher short_name="true" is_high_nav />}
                 {!hide_signup_login && (
                     <>
                         {is_logged_in ? (
@@ -459,7 +471,15 @@ const NavMobile = ({ is_ppc, is_ppc_redirect, is_logged_in, hide_signup_login })
     )
 }
 
-const NavDesktop = ({ base, is_ppc, is_ppc_redirect, is_logged_in, hide_signup_login }) => {
+const NavDesktop = ({
+    base,
+    is_ppc,
+    is_ppc_redirect,
+    is_logged_in,
+    hide_signup_login,
+    academy_logo,
+    no_language,
+}) => {
     const data = useStaticQuery(query)
     const button_ref = useRef(null)
     const navigation_bar_ref = useRef(null)
@@ -484,7 +504,8 @@ const NavDesktop = ({ base, is_ppc, is_ppc_redirect, is_logged_in, hide_signup_l
         setActiveLinkRef(target)
     }
 
-    const LanguageSwitcherNavDesktop = () => <LanguageSwitcher short_name="true" is_high_nav />
+    const LanguageSwitcherNavDesktop = () =>
+        !no_language && <LanguageSwitcher short_name="true" is_high_nav />
 
     const setDropdownRef = (new_ref) => setActiveDropdownRef(new_ref)
 
@@ -526,7 +547,11 @@ const NavDesktop = ({ base, is_ppc, is_ppc_redirect, is_logged_in, hide_signup_l
                         />
                     </LogoLink>
                     <Line />
-                    <img src={LogoCombinedShape} alt="logo combined shape" />
+                    {academy_logo ? (
+                        <img src={AcademyLogo} alt="Academy" />
+                    ) : (
+                        <img src={LogoCombinedShape} alt="logo combined shape" />
+                    )}
                 </NavLeftMain>
                 <NavCenter ref={navigation_bar_ref}>
                     <NavLink onClick={(e) => handleLinkClick('trade', e.target)}>
@@ -595,7 +620,14 @@ const NavDesktop = ({ base, is_ppc, is_ppc_redirect, is_logged_in, hide_signup_l
     )
 }
 
-export const Nav = ({ base, is_ppc_redirect, is_ppc, hide_signup_login }) => {
+export const Nav = ({
+    base,
+    is_ppc_redirect,
+    is_ppc,
+    hide_signup_login,
+    academy_logo,
+    no_language,
+}) => {
     const [is_logged_in, setLoggedIn] = useState(false)
 
     useEffect(() => {
@@ -613,6 +645,8 @@ export const Nav = ({ base, is_ppc_redirect, is_ppc, hide_signup_login }) => {
                 <StyledNavMain>
                     <Show.Desktop max_width="bp1060">
                         <NavDesktop
+                            no_language={no_language}
+                            academy_logo={academy_logo}
                             base={base}
                             is_ppc={is_ppc}
                             is_ppc_redirect={is_ppc_redirect}
@@ -622,6 +656,8 @@ export const Nav = ({ base, is_ppc_redirect, is_ppc, hide_signup_login }) => {
                     </Show.Desktop>
                     <Show.Mobile min_width="bp1060">
                         <NavMobile
+                            no_language={no_language}
+                            academy_logo={academy_logo}
                             is_ppc={is_ppc}
                             is_logged_in={is_logged_in}
                             hide_signup_login={hide_signup_login}
@@ -635,25 +671,31 @@ export const Nav = ({ base, is_ppc_redirect, is_ppc, hide_signup_login }) => {
 }
 
 Nav.propTypes = {
+    academy_logo: PropTypes.bool,
     base: PropTypes.string,
     hide_signup_login: PropTypes.bool,
     is_ppc: PropTypes.bool,
     is_ppc_redirect: PropTypes.bool,
+    no_language: PropTypes.bool,
 }
 
 NavDesktop.propTypes = {
+    academy_logo: PropTypes.bool,
     base: PropTypes.string,
     hide_signup_login: PropTypes.bool,
     is_logged_in: PropTypes.bool,
     is_ppc: PropTypes.bool,
     is_ppc_redirect: PropTypes.bool,
+    no_language: PropTypes.bool,
 }
 
 NavMobile.propTypes = {
+    academy_logo: PropTypes.bool,
     hide_signup_login: PropTypes.bool,
     is_logged_in: PropTypes.bool,
     is_ppc: PropTypes.bool,
     is_ppc_redirect: PropTypes.bool,
+    no_language: PropTypes.bool,
 }
 
 const Auto = styled(Flex)`

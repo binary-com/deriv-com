@@ -73,7 +73,7 @@ module.exports = {
                 ],
                 serialize: ({ site, allSitePage }) =>
                     allSitePage.edges.map((edge) => {
-                        const ignore_localized_regex = /careers|besquare|livechat/
+                        const ignore_localized_regex = /careers|besquare|livechat|blog|academy/
                         const path = edge.node.path
                         let priority = 0.7
                         const languages = Object.keys(language_config)
@@ -209,6 +209,15 @@ module.exports = {
             resolve: 'gatsby-plugin-anchor-links',
             options: {
                 offset: -100,
+            },
+        },
+        {
+            resolve: '@directus/gatsby-source-directus',
+            options: {
+                url: 'https://cms.deriv.cloud',
+                dev: {
+                    refresh: '5s',
+                },
             },
         },
     ],

@@ -45,7 +45,7 @@ const career_data = {
         {
             header: {
                 background: 'bg_recruitment.png',
-                title: 'Marketing',
+                title: 'Recruitment & HR',
                 subtitle:
                     'We bring in the go-getters; from the inspiring leaders to the ambitious grads. We link the best people with the right opportunities, and support them in every way to help them grow in their professional career at Deriv.',
             },
@@ -60,6 +60,10 @@ const career_data = {
                     },
                 ],
             },
+            open_position: [
+                { title: 'Recruitment', location: 'Cyberjaya, Malaysia', id: '590522000000366282' },
+                { title: 'HR', location: 'Cyberjaya, Malaysia', id: '590522000000366282' },
+            ],
             testimony_section: {
                 image: 'recruitment_2.png',
                 image_mobile: 'recruitment_2_mobile.png',
@@ -74,6 +78,78 @@ const career_data = {
                     },
                     {
                         text: 'Diversity is one of my favorite things about working at Deriv. My job allows me to meet, interact, and work with people from all over the world.”',
+                    },
+                ],
+            },
+        },
+    ],
+    accounts: [
+        {
+            header: {
+                background: 'bg_accounts.png',
+                title: 'Accounts & Payments',
+                subtitle:
+                    'In charge of managing the company’s financial and accounting health to ensure sustainable business growth, we are the team that’s always on the money! We control operational costs, pay the bills, and mitigate financial risks — making sure Deriv can continue to grow for our employees and our clients.',
+            },
+            intro_section: {
+                image: 'accounts_1.png',
+                paragraph: [
+                    {
+                        text: 'Currently, we have team members located across the globe; mainly in Malaysia and the United Arab Emirates. We expand as Deriv Group grows and we have a diversified group of people with different skills and backgrounds.',
+                    },
+                    {
+                        text: 'We ensure everything is accounted for accurately and in compliance with the regulatory requirements in all of the jurisdictions for each subsidiary within the group. We work on tight deadlines and prepare reporting and submissions to all relevant regulatory bodies on a monthly, quarterly and yearly basis.We deal with clients on payments-related queries and feedback daily. Each team member also handles regular reconciliations of balances and transactions that take place through third-party service providers and financial institutions with our internal data.',
+                    },
+                ],
+            },
+            open_position: [
+                { title: 'Accounts', location: 'Cyberjaya, Malaysia', id: '590522000000366282' },
+                { title: 'Payments', location: 'Cyberjaya, Malaysia', id: '590522000000366282' },
+            ],
+            testimony_section: {
+                image: 'accounts_2.png',
+                image_mobile: 'accounts_2_mobile.png',
+                testimony_headline:
+                    '“As a team, we rely on teamwork. Everyone has a task to accomplish, and the team works well with excellent communication and constant discussions on improving and achieving our goal.',
+                paragraph: [
+                    {
+                        text: "Deriv is constantly evolving. Every day is a new adventure. Everyone works together and supports each other to make things happen, shares the same vision, and is always dedicated to the company's mission.”",
+                    },
+                ],
+            },
+        },
+    ],
+    payments: [
+        {
+            header: {
+                background: 'bg_accounts.png',
+                title: 'Accounts & Payments',
+                subtitle:
+                    'In charge of managing the company’s financial and accounting health to ensure sustainable business growth, we are the team that’s always on the money! We control operational costs, pay the bills, and mitigate financial risks — making sure Deriv can continue to grow for our employees and our clients.',
+            },
+            intro_section: {
+                image: 'accounts_1.png',
+                paragraph: [
+                    {
+                        text: 'Currently, we have team members located across the globe; mainly in Malaysia and the United Arab Emirates. We expand as Deriv Group grows and we have a diversified group of people with different skills and backgrounds.',
+                    },
+                    {
+                        text: 'We ensure everything is accounted for accurately and in compliance with the regulatory requirements in all of the jurisdictions for each subsidiary within the group. We work on tight deadlines and prepare reporting and submissions to all relevant regulatory bodies on a monthly, quarterly and yearly basis.We deal with clients on payments-related queries and feedback daily. Each team member also handles regular reconciliations of balances and transactions that take place through third-party service providers and financial institutions with our internal data.',
+                    },
+                ],
+            },
+            open_position: [
+                { title: 'Accounts', location: 'Cyberjaya, Malaysia', id: '590522000000366282' },
+                { title: 'Payments', location: 'Cyberjaya, Malaysia', id: '590522000000366282' },
+            ],
+            testimony_section: {
+                image: 'accounts_2.png',
+                image_mobile: 'accounts_2_mobile.png',
+                testimony_headline:
+                    '“As a team, we rely on teamwork. Everyone has a task to accomplish, and the team works well with excellent communication and constant discussions on improving and achieving our goal.',
+                paragraph: [
+                    {
+                        text: "Deriv is constantly evolving. Every day is a new adventure. Everyone works together and supports each other to make things happen, shares the same vision, and is always dedicated to the company's mission.”",
                     },
                 ],
             },

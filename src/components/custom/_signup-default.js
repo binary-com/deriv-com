@@ -7,8 +7,8 @@ import { Header, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device.js'
 // SVG
-import Facebook from 'images/svg/facebook.svg'
-import Google from 'images/svg/google.svg'
+import Facebook from 'images/svg/custom/facebook.svg'
+import Google from 'images/svg/custom/google.svg'
 
 const Wrapper = styled.div`
     width: 80%;

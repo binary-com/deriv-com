@@ -7,12 +7,12 @@ import { LinkButton } from 'components/form'
 import { Timeline } from 'components/elements'
 import device from 'themes/device'
 import { affiliate_signup_url } from 'common/constants'
-import TradingExperts from 'images/svg/trading-experts.svg'
-import SoftwareDeveloper from 'images/svg/software-developer.svg'
-import CommunityManagers from 'images/svg/community-managers.svg'
-import Apply from 'images/svg/apply.svg'
-import Advertise from 'images/svg/advertise.svg'
-import Earn from 'images/svg/earn.svg'
+import TradingExperts from 'images/svg/partners/trading-experts.svg'
+import SoftwareDeveloper from 'images/svg/partners/software-developer.svg'
+import CommunityManagers from 'images/svg/partners/community-managers.svg'
+import Apply from 'images/svg/partners/apply.svg'
+import Advertise from 'images/svg/partners/advertise.svg'
+import Earn from 'images/svg/partners/earn.svg'
 
 const StyledSection = styled(Container)`
     align-items: flex-start;

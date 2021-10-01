@@ -18,7 +18,7 @@ import {
 import { localize, WithIntl, Localize, LocalizedLink } from 'components/localization'
 import { DerivStore } from 'store'
 // Icons
-import EU from 'images/svg/europe-map.svg'
+import EU from 'images/svg/regulatory/europe-map.svg'
 import Vanuatu from 'images/common/regulatory/vanuatu.png'
 import VanuatuFMA from 'images/common/regulatory/vanuatu-fma.png'
 import FSC from 'images/common/regulatory/bvi.png'

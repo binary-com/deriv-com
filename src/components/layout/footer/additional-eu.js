@@ -6,9 +6,9 @@ import { QueryImage } from 'components/elements'
 import { Flex, Show } from 'components/containers'
 import { mga_link_url } from 'common/constants'
 //EU icons
-import Gamstop from 'images/svg/gamstop.svg'
-import MgaLogo from 'images/svg/mga-logo.svg'
-import Over18 from 'images/svg/over-18.svg'
+import Gamstop from 'images/svg/layout/gamstop.svg'
+import MgaLogo from 'images/svg/layout/mga-logo.svg'
+import Over18 from 'images/svg/layout/over-18.svg'
 
 const query = graphql`
     query {

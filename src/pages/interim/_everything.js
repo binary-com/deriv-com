@@ -49,7 +49,7 @@ const Everything = () => {
                 <Ul jc="center" ai="center">
                     <Li>
                         <div>
-                            <img src={EasySignup} alt="easy sign up" width="64" height="64" />
+                            <img src={EasySignup} alt="" width="64" height="64" />
                         </div>
                         <ResponsiveBox ml="1.6rem">
                             <Header as="h4" type="sub-section-title">
@@ -60,6 +60,7 @@ const Everything = () => {
                                     translate_text="Just log in with your <0>Binary.com</0> credentials and start trading right away."
                                     components={[
                                         <LocalizedLinkText
+                                            id="dm-binary-login-link-2"
                                             key={0}
                                             external="true"
                                             weight="bold"
@@ -75,12 +76,7 @@ const Everything = () => {
                     </Li>
                     <Li>
                         <div>
-                            <img
-                                src={SyntheticIndices}
-                                alt="synthetic indices"
-                                width="64"
-                                height="64"
-                            />
+                            <img src={SyntheticIndices} alt="" width="64" height="64" />
                         </div>
                         <ResponsiveBox ml="1.6rem">
                             <Header as="h4" type="sub-section-title">
@@ -95,7 +91,7 @@ const Everything = () => {
                     </Li>
                     <Li>
                         <div>
-                            <img src={Enhanced} alt="enhanced" width="64" height="64" />
+                            <img src={Enhanced} alt="" width="64" height="64" />
                         </div>
                         <ResponsiveBox ml="1.6rem">
                             <Header as="h4" type="sub-section-title">
@@ -110,12 +106,7 @@ const Everything = () => {
                     </Li>
                     <Li>
                         <div>
-                            <img
-                                src={TradingPlatform}
-                                alt="trading platforms"
-                                width="64"
-                                height="64"
-                            />
+                            <img src={TradingPlatform} alt="" width="64" height="64" />
                         </div>
                         <ResponsiveBox ml="1.6rem">
                             <Header as="h4" type="sub-section-title">
@@ -130,7 +121,7 @@ const Everything = () => {
                     </Li>
                     <Li>
                         <div>
-                            <img src={UserFriendly} alt="user friendly" width="64" height="64" />
+                            <img src={UserFriendly} alt="" width="64" height="64" />
                         </div>
                         <ResponsiveBox ml="1.6rem">
                             <Header as="h4" type="sub-section-title">
@@ -145,7 +136,7 @@ const Everything = () => {
                     </Li>
                     <Li>
                         <div>
-                            <img src={Support} alt="support" width="64" height="64" />
+                            <img src={Support} alt="" width="64" height="64" />
                         </div>
                         <ResponsiveBox ml="1.6rem">
                             <Header as="h4" type="sub-section-title">

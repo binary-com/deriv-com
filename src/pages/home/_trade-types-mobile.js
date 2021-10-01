@@ -5,10 +5,10 @@ import { Carousel, Header, Text } from 'components/elements'
 import { SectionContainer, Flex } from 'components/containers'
 import { localize, Localize, LocalizedLink } from 'components/localization'
 import { LinkButton } from 'components/form'
-import MarginLogo from 'images/svg/trade-types/margin.svg'
+import CFDLogo from 'images/svg/trade-types/cfds.svg'
 import OptionsLogo from 'images/svg/trade-types/options.svg'
 import MultipliersLogo from 'images/svg/trade-types/multipliers.svg'
-import Arrow from 'images/svg/arrow-right.svg'
+import Arrow from 'images/svg/trade-types/arrow-right.svg'
 import { DerivStore } from 'store'
 
 const StyledSection = styled(SectionContainer)`
@@ -87,14 +87,14 @@ TradeTypeSlide.propTypes = {
 }
 
 const TradeTypesMobile = () => {
-    const margin = {
-        icon: <img src={MarginLogo} alt="" width="48" height="49" />,
-        title: <Localize translate_text="Margin trading" />,
+    const cfds = {
+        icon: <img src={CFDLogo} alt="" width="48" height="49" />,
+        title: <Localize translate_text="CFDs" />,
         description: (
-            <Localize translate_text="Trade with leverage and low spreads for better returns on successful trades." />
+            <Localize translate_text="Trade with leverage and tight spreads for better returns on successful trades." />
         ),
-        link: '/trade-types/margin/',
-        linkTitle: localize('Margin'),
+        link: '/trade-types/cfds/',
+        linkTitle: localize('CFD'),
     }
     const options = {
         icon: <img src={OptionsLogo} alt="" width="48" height="49" />,
@@ -109,7 +109,7 @@ const TradeTypesMobile = () => {
         icon: <img src={MultipliersLogo} alt="" width="48" height="49" />,
         title: <Localize translate_text="Multipliers" />,
         description: (
-            <Localize translate_text="Get the best of both - the upside of margin trading with the simplicity of options." />
+            <Localize translate_text="Get the best of both - the upside of CFDs with the simplicity of options." />
         ),
         link: '/trade-types/multiplier/',
         linkTitle: localize('Multiplier'),
@@ -117,7 +117,7 @@ const TradeTypesMobile = () => {
 
     const { is_eu_country } = React.useContext(DerivStore)
 
-    const trade_types = is_eu_country ? [margin, multipliers] : [margin, options, multipliers]
+    const trade_types = is_eu_country ? [cfds, multipliers] : [cfds, options, multipliers]
 
     const settings = {
         options: {
@@ -167,7 +167,12 @@ const TradeTypesMobile = () => {
                         />
                     ))}
                 </Carousel>
-                <TradingButton type="submit" secondary="true" to="/signup/">
+                <TradingButton
+                    id="dm-trade-types-mobile-signup"
+                    type="submit"
+                    secondary="true"
+                    to="/signup/"
+                >
                     {localize('Start trading')}
                 </TradingButton>
             </StyledSection>

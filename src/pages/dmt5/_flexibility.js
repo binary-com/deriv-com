@@ -4,10 +4,11 @@ import { Flex, SectionContainer } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { LinkButton } from 'components/form'
 import { Localize, localize } from 'components/localization'
-import FinancialStpIcon from 'images/svg/financial-stp.svg'
-import FinancialIcon from 'images/svg/financial.svg'
-import SyntheticIcon from 'images/svg/synthetic.svg'
+import FinancialStpIcon from 'images/svg/dmt5/financial-stp.svg'
+import FinancialIcon from 'images/svg/dmt5/financial.svg'
+import SyntheticIcon from 'images/svg/dmt5/synthetic.svg'
 import device from 'themes/device'
+import { DerivStore } from 'store'
 
 const BaseIconStyle = css`
     @media ${device.mobileL} {
@@ -36,18 +37,30 @@ const content = [
     {
         header: <Localize translate_text="Financial" />,
         text: (
-            <Localize translate_text="Trade major (standard and micro-lots) and minor currency pairs, commodities, cryptocurrencies, and stocks & indices with high leverage." />
+            <Localize translate_text="Trade forex, commodities, cryptocurrencies, major (standard and micro-lots), and minor currency pairs on high leverage." />
         ),
         icon: <StyledFinancialIcon src={FinancialIcon} alt="" />,
     },
     {
         header: <Localize translate_text="Financial STP" />,
         text: (
-            <Localize translate_text="Trade major, minor, and exotic currency pairs, and cryptocurrencies with tight spreads and higher trade volumes, straight to the market." />
+            <Localize translate_text="Trade major, minor, and exotic currency pairs with tight spreads and higher trade volumes, straight to the market." />
         ),
         icon: <StyledFinancialStpIcon src={FinancialStpIcon} alt="" />,
     },
 ]
+
+const eucontent = [
+    {
+        header: <Localize translate_text="CFDs" />,
+        text: (
+            <Localize translate_text="Trade forex, stocks, stock indices, commodities, synthetic indices, and cryptocurrencies with leverage." />
+        ),
+        icon: <StyledFinancialIcon src={FinancialIcon} alt="" />,
+        show_eu: true,
+    },
+]
+
 const Section = styled(SectionContainer)`
     display: flex;
     padding: 8rem 12rem;
@@ -112,6 +125,10 @@ const StyledText = styled(Text)`
 `
 
 const Flexibility = () => {
+    const { is_eu_country } = React.useContext(DerivStore)
+
+    const chosen_content = is_eu_country ? eucontent : content
+
     return (
         <Section>
             <StyledHeader
@@ -122,25 +139,31 @@ const Flexibility = () => {
                 type="page-title"
                 mb="4rem"
             >
-                {localize('Flexibility with multiple account types')}
+                {is_eu_country
+                    ? localize('Flexibility with multiple markets')
+                    : localize('Flexibility with multiple account types')}
             </StyledHeader>
             <Flex mb="4rem" tablet_direction="column" tablet_ai="center" tablet={{ m: '0' }}>
-                {content.map((item, idx) => {
+                {chosen_content.map((item, idx) => {
                     return (
-                        <ClientCard key={idx}>
-                            <Flex height="unset" ai="center" mobileL={{ mb: '8px' }}>
-                                <StyledHeader
-                                    mobile_margin="unset"
-                                    mobile_font_size="20px"
-                                    as="h4"
-                                    type="sub-section-title"
-                                >
-                                    {item.header}
-                                </StyledHeader>
-                                {item.icon}
-                            </Flex>
-                            <StyledText>{item.text}</StyledText>
-                        </ClientCard>
+                        ((is_eu_country && item.show_eu) ||
+                            (!is_eu_country && !item.show_eu) ||
+                            item.show_always) && (
+                            <ClientCard key={idx}>
+                                <Flex height="unset" ai="center" mobileL={{ mb: '8px' }}>
+                                    <StyledHeader
+                                        mobile_margin="unset"
+                                        mobile_font_size="20px"
+                                        as="h4"
+                                        type="sub-section-title"
+                                    >
+                                        {item.header}
+                                    </StyledHeader>
+                                    {item.icon}
+                                </Flex>
+                                <StyledText>{item.text}</StyledText>
+                            </ClientCard>
+                        )
                     )
                 })}
             </Flex>

@@ -7,10 +7,10 @@ import { Show, SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { size } from 'themes/device'
 import { isBrowser } from 'common/utility'
-import dtrader_logo from 'images/svg/dtrader-icon.svg'
+import dtrader_logo from 'images/svg/dtrader/dtrader-icon.svg'
 import { localize, WithIntl, Localize } from 'components/localization'
-import DTraderBGMobile from 'images/svg/dtrader-bg-mobile.svg'
-import DTraderBG from 'images/svg/dtrader-bg.svg'
+import DTraderBGMobile from 'images/svg/dtrader/dtrader-bg-mobile.svg'
+import DTraderBG from 'images/svg/dtrader/dtrader-bg.svg'
 import BackgroundPatternTrader from 'images/common/bg_banner_trader.png'
 import DHero from 'components/custom/_dhero.js'
 import DNumber from 'components/custom/_dnumbers.js'
@@ -28,7 +28,7 @@ const meta_attributes = {
 
 const query = graphql`
     query {
-        deriv_platform: file(relativePath: { eq: "dtrader-banner.png" }) {
+        deriv_platform: file(relativePath: { eq: "dtrader/dtrader-banner.png" }) {
             ...fadeIn
         }
     }

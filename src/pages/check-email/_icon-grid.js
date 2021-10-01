@@ -5,10 +5,10 @@ import device from 'themes/device'
 import { Text } from 'components/elements'
 import { localize } from 'components/localization'
 // Icons
-import Spam from 'images/svg/spam.svg'
-import Typo from 'images/svg/typo.svg'
-import WorkEmail from 'images/svg/work-email.svg'
-import Firewalls from 'images/svg/firewalls.svg'
+import Spam from 'images/svg/check-email/spam.svg'
+import Typo from 'images/svg/check-email/typo.svg'
+import WorkEmail from 'images/svg/check-email/work-email.svg'
+import Firewalls from 'images/svg/check-email/firewalls.svg'
 import { Container } from 'components/containers'
 
 const Grid = styled(Container)`
@@ -46,46 +46,41 @@ const StyledText = styled(Text)`
     }
 `
 
-const Col = ({ Icon, alt, content }) => (
+const Col = ({ Icon, content }) => (
     <GridCol>
-        <Img src={Icon} alt={alt} />
+        <Img src={Icon} alt="" />
         <StyledText color="black-3" lh="1.55" mt="0.8rem">
             {content}
         </StyledText>
     </GridCol>
 )
 Col.propTypes = {
-    alt: PropTypes.string,
     content: PropTypes.string,
     Icon: PropTypes.any,
 }
-
+// TODO: refactor to use Array.map
 export const IconGrid = () => (
     <Grid>
         <Col
             Icon={Spam}
-            alt="spam"
             content={localize(
                 'The email is in your spam folder (Sometimes things get lost there).',
             )}
         />
         <Col
             Icon={Typo}
-            alt="typo"
             content={localize(
                 'The email address you entered had a mistake or typo (happens to the best of us).',
             )}
         />
         <Col
             Icon={WorkEmail}
-            alt="work email"
             content={localize(
                 'You accidentally gave us another email address (Usually a work or a personal one instead of the one you meant).',
             )}
         />
         <Col
             Icon={Firewalls}
-            alt="firewalls"
             content={localize(
                 'We can’t deliver the email to this address (Usually because of firewalls or filtering).',
             )}

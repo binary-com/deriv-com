@@ -3,6 +3,7 @@ import AAPL from 'images/svg/symbols/aapl.svg'
 import ABNB from 'images/svg/symbols/abnb.svg'
 import ADS from 'images/svg/symbols/ads.svg'
 import AIG from 'images/svg/symbols/aig.svg'
+import ALUMINIUMUSD from 'images/svg/symbols/aluminium-usd.svg'
 import AMZN from 'images/svg/symbols/amzn.svg'
 import AUDCAD from 'images/svg/symbols/aud-cad.svg'
 import AUDCHF from 'images/svg/symbols/aud-chf.svg'
@@ -27,6 +28,7 @@ import CADCHF from 'images/svg/symbols/cad-chf.svg'
 import CADJPY from 'images/svg/symbols/cad-jpy.svg'
 import CHFJPY from 'images/svg/symbols/chf-jpy.svg'
 import CLBRENT from 'images/svg/symbols/cl-brent.svg'
+import COPPERUSD from 'images/svg/symbols/copper-usd.svg'
 import CRASH1000 from 'images/svg/symbols/crash-indices-1000.svg'
 import CRASH500 from 'images/svg/symbols/crash-indices-500.svg'
 import CRM from 'images/svg/symbols/crm.svg'
@@ -69,6 +71,8 @@ import GBPSGD from 'images/svg/symbols/gbp-sgd.svg'
 import GBPTRY from 'images/svg/symbols/gbp-try.svg'
 import GBPUSD from 'images/svg/symbols/gbp-usd.svg'
 import GM from 'images/svg/symbols/gm.svg'
+import GOLDINDEX from 'images/svg/symbols/gold-index.svg'
+import GOLDEUR from 'images/svg/symbols/gold-eur.svg'
 import GOLDUSD from 'images/svg/symbols/gold-usd.svg'
 import GOOGL from 'images/svg/symbols/googl.svg'
 import GS from 'images/svg/symbols/gs.svg'
@@ -92,7 +96,13 @@ import INTC from 'images/svg/symbols/intc.svg'
 import JNJ from 'images/svg/symbols/jnj.svg'
 import JP225 from 'images/svg/symbols/jp-225.svg'
 import JPM from 'images/svg/symbols/jpm.svg'
+import JUMP10 from 'images/svg/symbols/jump-10.svg'
+import JUMP25 from 'images/svg/symbols/jump-25.svg'
+import JUMP50 from 'images/svg/symbols/jump-50.svg'
+import JUMP75 from 'images/svg/symbols/jump-75.svg'
+import JUMP100 from 'images/svg/symbols/jump-100.svg'
 import KO from 'images/svg/symbols/ko.svg'
+import LEADUSD from 'images/svg/symbols/lead-usd.svg'
 import LTCUSD from 'images/svg/symbols/lct-usd.svg'
 import MA from 'images/svg/symbols/ma.svg'
 import MARKETBEAR from 'images/svg/symbols/marketbear.svg'
@@ -100,8 +110,10 @@ import MARKETBULL from 'images/svg/symbols/marketbull.svg'
 import MCD from 'images/svg/symbols/mcd.svg'
 import MRNA from 'images/svg/symbols/mrna.svg'
 import MSFT from 'images/svg/symbols/msft.svg'
+import NATURALGAS from 'images/svg/symbols/natural-gas.svg'
 import NED25 from 'images/svg/symbols/ned-25.svg'
 import NFLX from 'images/svg/symbols/nflx.png'
+import NICKELUSD from 'images/svg/symbols/nickel-usd.svg'
 import NKE from 'images/svg/symbols/nke.svg'
 import NVDA from 'images/svg/symbols/nvda.svg'
 import NZDCAD from 'images/svg/symbols/nzd-cad.svg'
@@ -157,6 +169,7 @@ import USDZAR from 'images/svg/symbols/usd-zar.svg'
 import V from 'images/svg/symbols/v.svg'
 import WMT from 'images/svg/symbols/wmt.svg'
 import XRPUSD from 'images/svg/symbols/xrp-usd.svg'
+import SILVEREUR from 'images/svg/symbols/silver-eur.svg'
 import STOCKSUS500 from 'images/svg/symbols/markets-stocks-and-indices/american-indices/us-500.svg'
 import STOCKSUSTECH100 from 'images/svg/symbols/markets-stocks-and-indices/american-indices/us-tech-100.svg'
 import STOCKSWALLSTREET30 from 'images/svg/symbols/markets-stocks-and-indices/american-indices/wall-street-30.svg'
@@ -217,6 +230,7 @@ import STOCKSVISA from 'images/svg/symbols/markets-stocks-and-indices/american-s
 import STOCKSWALMART from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-wal-mart-stores-inc.svg'
 import STOCKSWALTDISNEY from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-walt-disney-company.svg'
 import STOCKSZOOM from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-zoom-video-communications-inc.svg'
+import ZINCUSD from 'images/svg/symbols/zinc-usd.svg'
 import ZM from 'images/svg/symbols/zm.svg'
 import BNB from 'images/svg/symbols/binance_coin_flag.svg'
 import BTC from 'images/svg/symbols/bitcoin_flag.svg'
@@ -240,6 +254,7 @@ export {
     ABNB,
     ADS,
     AIG,
+    ALUMINIUMUSD,
     AMZN,
     AUDCAD,
     AUDCHF,
@@ -264,6 +279,7 @@ export {
     CADJPY,
     CHFJPY,
     CLBRENT,
+    COPPERUSD,
     CRASH1000,
     CRASH500,
     CRM,
@@ -306,6 +322,8 @@ export {
     GBPTRY,
     GBPUSD,
     GM,
+    GOLDINDEX,
+    GOLDEUR,
     GOLDUSD,
     GOOGL,
     GS,
@@ -329,7 +347,13 @@ export {
     JNJ,
     JP225,
     JPM,
+    JUMP10,
+    JUMP25,
+    JUMP50,
+    JUMP75,
+    JUMP100,
     KO,
+    LEADUSD,
     LTCUSD,
     MA,
     MARKETBEAR,
@@ -337,8 +361,10 @@ export {
     MCD,
     MRNA,
     MSFT,
+    NATURALGAS,
     NED25,
     NFLX,
+    NICKELUSD,
     NKE,
     NVDA,
     NZDCAD,
@@ -394,6 +420,7 @@ export {
     V,
     WMT,
     XRPUSD,
+    SILVEREUR,
     STOCKSUS500,
     STOCKSUSTECH100,
     STOCKSWALLSTREET30,
@@ -454,6 +481,7 @@ export {
     STOCKSZOOM,
     STOCKSSWISS20,
     STOCKSHONGKONG50,
+    ZINCUSD,
     ZM,
     BNB,
     BTC,

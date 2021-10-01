@@ -7,7 +7,7 @@ import device from 'themes/device'
 import FacebookIcon from 'images/svg/blog/facebook.svg'
 import PinterestIcon from 'images/svg/blog/pinterest.svg'
 import TwitterIcon from 'images/svg/blog/twitter.svg'
-import LinkedInIcon from 'images/svg/footer-linkedin.svg'
+import LinkedInIcon from 'images/svg/layout/footer-linkedin.svg'
 
 const IconWrapper = styled.div`
     width: 120px;

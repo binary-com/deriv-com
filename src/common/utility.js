@@ -297,3 +297,23 @@ const getLimit = (input, limit) => {
 
 export const truncateString = (input, limit) =>
     input.length > limit ? `${input.substring(0, getLimit(input, limit))}...` : input
+// Function which returns sub path to the specific trading platform
+const supported_platforms = ['mt5', 'bot', 'derivx']
+export const redirectToTradingPlatform = () =>
+    supported_platforms.filter(
+        (platform) => window.location.pathname.includes(platform) && platform,
+    )
+
+// Function to manually add external js files.
+export const addScript = (settings) => {
+    const script = document.createElement('script')
+
+    Object.keys(settings).forEach((key) => {
+        script.setAttribute(key, settings[key])
+    })
+
+    document.body.appendChild(script)
+}
+
+// Function to get the user selected language, can be used in the future once need to check other languages
+export const isChoosenLanguage = () => ({ english: getLanguage() === 'en' })

@@ -55,7 +55,7 @@ import {
 } from 'components/elements'
 import { Flex, Show } from 'components/containers'
 import Input from 'components/form/input'
-import RightArrow from 'images/svg/black-right-arrow.svg'
+import RightArrow from 'images/svg/tools/black-right-arrow.svg'
 
 const PnlMarginCalculator = () => {
     const query = graphql`
@@ -148,7 +148,7 @@ const PnlMarginCalculator = () => {
         <>
             <BreadCrumbContainer>
                 <Flex jc="flex-start" ai="center">
-                    <LocalizedLinkText to="/trader-tools" color="grey-5">
+                    <LocalizedLinkText to="/trader-tools/" color="grey-5">
                         {localize("Traders' tools")}
                     </LocalizedLinkText>
                     <img
@@ -208,22 +208,44 @@ const PnlMarginCalculator = () => {
                                     'stopLossPips',
                                     getPnlMarginCommon(values, 'getStopLossPip'),
                                 )
-                                setFieldValue(
-                                    'stopLossLevel',
-                                    getPnlMarginCommon(values, 'getStopLossLevel'),
-                                )
-                                setStopLossOutput(getPnlMarginCommon(values, 'getStopLossLevel'))
+                                if (tab === 'Buy') {
+                                    setFieldValue(
+                                        'takeProfitLevel',
+                                        getPnlMarginCommon(values, 'getTakeProfitLevelBuy'),
+                                    )
+                                    setTakeProfitOutput(
+                                        getPnlMarginCommon(values, 'getTakeProfitLevelBuy'),
+                                    )
+                                    setFieldValue(
+                                        'stopLossLevel',
+                                        getPnlMarginCommon(values, 'getStopLossLevelBuy'),
+                                    )
+                                    setStopLossOutput(
+                                        getPnlMarginCommon(values, 'getStopLossLevelBuy'),
+                                    )
+                                }
+                                if (tab === 'Sell') {
+                                    setFieldValue(
+                                        'stopLossLevel',
+                                        getPnlMarginCommon(values, 'getStopLossLevelSell'),
+                                    )
+                                    setStopLossOutput(
+                                        getPnlMarginCommon(values, 'getStopLossLevelSell'),
+                                    )
+                                    setFieldValue(
+                                        'takeProfitLevel',
+                                        getPnlMarginCommon(values, 'getTakeProfitLevelSell'),
+                                    )
+                                    setTakeProfitOutput(
+                                        getPnlMarginCommon(values, 'getTakeProfitLevelSell'),
+                                    )
+                                }
+
                                 setFieldValue(
                                     'takeProfitPips',
                                     getPnlMarginCommon(values, 'getTakeProfitPip'),
                                 )
-                                setFieldValue(
-                                    'takeProfitLevel',
-                                    getPnlMarginCommon(values, 'getTakeProfitLevel'),
-                                )
-                                setTakeProfitOutput(
-                                    getPnlMarginCommon(values, 'getTakeProfitLevel'),
-                                )
+
                                 setFieldValue('pointValue', numberSubmitFormat(values.pointValue))
                                 setFieldValue('volume', numberSubmitFormat(values.volume))
                                 setFieldValue('assetPrice', numberSubmitFormat(values.assetPrice))
@@ -694,8 +716,8 @@ const PnlMarginCalculator = () => {
                                         <PnlCalculatorFormMobile>
                                             <PnlHeaderOverflow>
                                                 <PnlCalculatorHeaderMobile>
-                                                    <Flex mb="24px">
-                                                        <Flex fd="column" mr="24px">
+                                                    <Flex fd="column">
+                                                        <Flex fd="column" mr="24px" mb="24px">
                                                             <CalculatorLabel htmlFor="message">
                                                                 {localize('Stop loss pips')}
                                                             </CalculatorLabel>
@@ -710,7 +732,7 @@ const PnlMarginCalculator = () => {
                                                                 </PnLCalculatorOutputSymbol>
                                                             </PnLCalculatorOutputContainer>
                                                         </Flex>
-                                                        <Flex fd="column">
+                                                        <Flex fd="column" mb="24px">
                                                             <CalculatorLabel htmlFor="message">
                                                                 {localize('Stop loss level')}
                                                             </CalculatorLabel>
@@ -727,8 +749,8 @@ const PnlMarginCalculator = () => {
                                                         </Flex>
                                                     </Flex>
 
-                                                    <Flex>
-                                                        <Flex fd="column" mr="24px">
+                                                    <Flex fd="column">
+                                                        <Flex fd="column" mr="24px" mb="24px">
                                                             <CalculatorLabel htmlFor="message">
                                                                 {localize('Take profit pips')}
                                                             </CalculatorLabel>

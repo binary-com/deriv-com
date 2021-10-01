@@ -57,6 +57,13 @@ const TabList = styled.div`
     position: relative;
     overflow: auto;
 
+    ::-webkit-scrollbar {
+        display: none;
+    }
+
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
     @media ${device.mobileL} {
         justify-content: ${(props) => (props.jc_mobileL ? props.jc_mobileL : 'space-between')};
     }
@@ -112,7 +119,9 @@ const Tabs = ({
     has_no_query,
 }) => {
     const [selected_tab, setSelectedTab] = useState(0)
-    const [active_tab, setActiveTab] = has_no_query ? useTabState(tab_list) : useTabStateQuery(tab_list)
+    const [active_tab, setActiveTab] = has_no_query
+        ? useTabState(tab_list)
+        : useTabStateQuery(tab_list)
 
     useEffect(() => {
         setSelectedTab(tab_list.indexOf(active_tab))

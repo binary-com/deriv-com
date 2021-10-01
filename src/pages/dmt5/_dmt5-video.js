@@ -7,13 +7,13 @@ import device from 'themes/device.js'
 
 const query = graphql`
     query {
-        step_1: file(relativePath: { eq: "dmt-5-step-1.png" }) {
+        step_1: file(relativePath: { eq: "dmt5-video/dmt-5-step-1.png" }) {
             ...fadeIn
         }
-        step_2: file(relativePath: { eq: "dmt-5-step-2.png" }) {
+        step_2: file(relativePath: { eq: "dmt5-video/dmt-5-step-2.png" }) {
             ...fadeIn
         }
-        step_3: file(relativePath: { eq: "dmt-5-step-3.png" }) {
+        step_3: file(relativePath: { eq: "dmt5-video/dmt-5-step-3.png" }) {
             ...fadeIn
         }
     }

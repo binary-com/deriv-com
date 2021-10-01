@@ -2,7 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Text, Header } from 'components/elements'
-import Checklist from 'images/svg/checklist-red.svg'
+import Checklist from 'images/svg/trade-types/checklist-red.svg'
+import device from 'themes/device'
 
 const StyledItem = styled.div`
     display: flex;
@@ -14,14 +15,16 @@ const StyledItem = styled.div`
         border-left: unset;
         padding-bottom: 0;
     }
+    @media ${device.tabletL} {
+        margin-left: 2rem;
+    }
 `
 const Container = styled.div`
     margin-left: 40px;
 `
 const Oval = styled.img`
-    margin-right: 2.4rem;
     position: absolute;
-    left: -12px;
+    left: -10px;
 `
 const Timeline = ({ children, ...props }) => {
     return (

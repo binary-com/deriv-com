@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components'
 import { Flex } from 'components/containers'
 import device from 'themes/device'
 import { LocalizedLinkText } from 'components/elements'
-import { ReactComponent as Chevron } from 'images/svg/carousel-chevron.svg'
+import { ReactComponent as Chevron } from 'images/svg/careers/carousel-chevron.svg'
 
 export const Embla = styled.div`
     position: relative;

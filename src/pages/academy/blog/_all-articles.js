@@ -5,7 +5,7 @@ import ArticleCard from './_article-card'
 import FirstArticle from './_first-article'
 import { Flex } from 'components/containers'
 import { Text, LocalizedLinkText } from 'components/elements'
-import RightArrow from 'images/svg/black-right-arrow.svg'
+import RightArrow from 'images/svg/tools/black-right-arrow.svg'
 
 const AllArticles = ({ article_data }) => {
     return (

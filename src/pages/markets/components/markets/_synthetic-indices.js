@@ -4,10 +4,10 @@ import Loadable from '@loadable/component'
 import { WhyTrade } from '../sections/_why-trade'
 import AvailableTrades from '../helper/_available-trades'
 import synthetic_content from '../../static/content/_synthetic'
-import { synthetic_margin } from '../../static/content/_margin'
+import { synthetic_cfds } from '../../static/content/_cfds'
 import { synthetic_multiplier } from '../../static/content/_multipliers'
 import { synthetic_options } from '../../static/content/_digital-options'
-import Margin from '../sub-markets/_margin'
+import CFDs from '../sub-markets/_cfds'
 import Multipliers from '../sub-markets/_multipliers'
 import DigitalOptions from '../sub-markets/_digital-options'
 import { Localize, localize } from 'components/localization'
@@ -19,7 +19,10 @@ const StockIndices = ({ simple_step_content }) => (
         <WhyTrade
             header={<Localize translate_text="Why trade synthetic indices on Deriv" />}
             text={
-                <Localize translate_text="Our synthetic indices are based on a cryptographically secure random number generator audited for fairness by an independent third party. These indices are engineered to simulate real-world market movement and are unaffected by natural events and disruptions. Synthetic indices are available 24/7, have constant volatility, fixed generation intervals, and are free of market and liquidity risks." />
+                <Localize
+                    translate_text="Deriv’s proprietary synthetic indices simulate real-world market movements. Backed by a cryptographically secure random number generator, these indices are available to trade 24/7 and are unaffected by regular market hours, global events, or market and
+                liquidity risks."
+                />
             }
         >
             {synthetic_content.map((content, index) => (
@@ -27,7 +30,7 @@ const StockIndices = ({ simple_step_content }) => (
             ))}
         </WhyTrade>
         <AvailableTrades
-            Margin={<Margin market_content={synthetic_margin} />}
+            CFDs={<CFDs market_content={synthetic_cfds} />}
             DigitalOptions={
                 <DigitalOptions
                     market_name={localize('synthetic indices')}

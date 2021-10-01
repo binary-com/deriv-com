@@ -5,7 +5,7 @@ import VideoPlayer from '../components/_video-player'
 import VideoCard from './_video-card'
 import { Flex } from 'components/containers'
 import { Text, LocalizedLinkText } from 'components/elements'
-import RightArrow from 'images/svg/black-right-arrow.svg'
+import RightArrow from 'images/svg/tools/black-right-arrow.svg'
 
 const AllVideos = ({ video_data }) => {
     const [show, setShow] = useState(false)

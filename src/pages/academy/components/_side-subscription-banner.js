@@ -10,7 +10,7 @@ import { Flex } from 'components/containers'
 import device from 'themes/device.js'
 import { DerivStore } from 'store'
 import EmailSubscriptionSVG from 'images/svg/blog/articles/blog-article-email-subscription.svg'
-import CrossIcon from 'images/svg/cross.svg'
+import CrossIcon from 'images/svg/help/cross.svg'
 
 const SubscribeBannerWrapper = styled(Flex)`
     max-width: 282px;

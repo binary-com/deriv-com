@@ -6,9 +6,9 @@ import Signup, { Appearances } from 'components/custom/signup'
 import Layout from 'components/layout/layout'
 import { localize, Localize, WithIntl } from 'components/localization'
 import { SEO } from 'components/containers'
-import PractiseIcon from 'images/svg/aim.svg'
-import TradeIcon from 'images/svg/trade.svg'
-import WithdrawIcon from 'images/svg/withdraw.svg'
+import PractiseIcon from 'images/svg/markets/aim.svg'
+import TradeIcon from 'images/svg/markets/trade.svg'
+import WithdrawIcon from 'images/svg/markets/withdraw.svg'
 
 const simple_step_content_forex = [
     {
@@ -38,9 +38,9 @@ const ForexPage = () => (
     <Layout>
         <SEO
             description={localize(
-                'Learn about the markets that you can trade online with Deriv, including forex, commodities, synthetic indices, and stock indices.',
+                'Trade forex online with Deriv. Open a demo account and enjoy a wide range of currency pairs on our responsive and intuitive trading platforms.',
             )}
-            title={localize('Markets | Markets to trade | Deriv')}
+            title={localize('Forex trading online | Forex trading demo account | Deriv')}
         />
         <Hero />
         <NavTab route_from={'forex'} route_offset={0} />

@@ -68,37 +68,41 @@ const Row = styled.div`
 `
 const query = graphql`
     query {
-        dbot_strategy: file(relativePath: { eq: "dbot-strategy.png" }) {
+        dbot_strategy: file(relativePath: { eq: "dbot/dbot-strategy.png" }) {
             ...fadeIn
         }
-        dbot_build_strategy: file(relativePath: { eq: "dbot-build-strategy.png" }) {
+        dbot_build_strategy: file(relativePath: { eq: "dbot/dbot-build-strategy.png" }) {
             ...fadeIn
         }
-        dbot_maximise_profits: file(relativePath: { eq: "dbot-maximise-profits.png" }) {
+        dbot_maximise_profits: file(relativePath: { eq: "dbot/dbot-maximise-profits.png" }) {
             ...fadeIn
         }
-        dbot_track_your_performance: file(relativePath: { eq: "dbot-track-your-performance.png" }) {
+        dbot_track_your_performance: file(
+            relativePath: { eq: "dbot/dbot-track-your-performance.png" }
+        ) {
             ...fadeIn
         }
-        dbot_get_integrated_help: file(relativePath: { eq: "dbot-get-integrated-help.png" }) {
+        dbot_get_integrated_help: file(relativePath: { eq: "dbot/dbot-get-integrated-help.png" }) {
             ...fadeIn
         }
-        dbot_save_your_strategies: file(relativePath: { eq: "dbot-save-your-strategies.png" }) {
+        dbot_save_your_strategies: file(
+            relativePath: { eq: "dbot/dbot-save-your-strategies.png" }
+        ) {
             ...fadeIn
         }
-        dmt_5_ipad_iphone: file(relativePath: { eq: "dmt-5-ipad-iphone.png" }) {
+        dmt_5_ipad_iphone: file(relativePath: { eq: "dmt5/dmt-5-ipad-iphone.png" }) {
             ...fadeIn
         }
-        dmt_5_mac: file(relativePath: { eq: "dmt-5-mac.png" }) {
+        dmt_5_mac: file(relativePath: { eq: "dmt5/dmt-5-mac.png" }) {
             ...fadeIn
         }
-        make_smarter: file(relativePath: { eq: "make-smarter.png" }) {
+        make_smarter: file(relativePath: { eq: "dtrader/make-smarter.png" }) {
             ...fadeIn
         }
-        trade_what_you_want: file(relativePath: { eq: "trade-what-you-want.png" }) {
+        trade_what_you_want: file(relativePath: { eq: "dtrader/trade-what-you-want.png" }) {
             ...fadeIn
         }
-        how_you_want: file(relativePath: { eq: "how-you-want.png" }) {
+        how_you_want: file(relativePath: { eq: "dtrader/how-you-want.png" }) {
             ...fadeIn
         }
         stocks_zero_fees: file(relativePath: { eq: "stocks-zero-fees.png" }) {
@@ -131,7 +135,9 @@ const DTrading = ({ trading, reverse, two_title }) => {
                     return (
                         <Row flex_direction={!is_even ? 'row' : 'row-reverse'} key={index}>
                             <Content margin_right={!is_even ? '2.4rem' : '0'}>
-                                <StyledHeader type="page-title">{item.title}</StyledHeader>
+                                <StyledHeader type="page-title" as="h2">
+                                    {item.title}
+                                </StyledHeader>
                                 <Text>{item.subtitle}</Text>
                                 {two_title && (
                                     <>

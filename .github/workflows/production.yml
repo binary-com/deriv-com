@@ -23,7 +23,7 @@ jobs:
             - name: Set up Node.js
               uses: actions/setup-node@v1
               with:
-                  node-version: 12
+                  node-version: 14
             - name: Cache dependencies
               id: cache
               uses: actions/cache@v2
@@ -48,7 +48,7 @@ jobs:
             - name: Setup Node
               uses: actions/setup-node@v2.1.2
               with:
-                  node-version: '12.x'
+                  node-version: '14.x'
 
             - name: Cache dependencies
               uses: actions/cache@v2
@@ -73,6 +73,12 @@ jobs:
             - run: npm run format
             - run: npm run test
             - run: npm run build
+
+            - name: Remove Storybook
+              uses: JesseTG/rm@v1.0.2
+              with:
+                path: public/storybook
+
             - uses: olegtarasov/get-tag@v2.1
               id: tagName
               # For using same tag for staging and production we need to uncomment these two below lines:

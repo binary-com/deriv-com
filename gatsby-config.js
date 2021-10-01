@@ -1,4 +1,7 @@
 const language_config = require(`./i18n-config.js`)
+require('dotenv').config({
+    path: `.env.${process.env.NODE_ENV}`,
+})
 
 module.exports = {
     // pathPrefix: process.env.PATH_PREFIX || '/deriv-com/', // For non CNAME GH-pages deployment
@@ -68,16 +71,18 @@ module.exports = {
                     '/**/landing/**',
                     '/endpoint',
                     '/**/endpoint',
+                    '/signup-success',
+                    '/**/signup-success',
                 ],
                 serialize: ({ site, allSitePage }) =>
                     allSitePage.edges.map((edge) => {
-                        const ignore_localized_regex = /careers|besquare|blog|academy/
+                        const ignore_localized_regex = /careers|besquare|livechat|blog|academy/
                         const path = edge.node.path
                         let priority = 0.7
                         const languages = Object.keys(language_config)
                         if (path === '/') {
                             priority = 1.0
-                        } else if (path.match(/dbot|dtrader|dmt5|about/)) {
+                        } else if (path.match(/dbot|dtrader|dmt5|story/)) {
                             priority = 1.0
                         } else {
                             languages.forEach((lang) => {
@@ -146,6 +151,7 @@ module.exports = {
                 ],
                 gcm_sender_id: '370236002280',
                 gcm_user_visible_only: true,
+                crossOrigin: `use-credentials`,
                 // TODO: add translations and support for language routes e.g:
                 // localize: [
                 //     {
@@ -181,7 +187,14 @@ module.exports = {
                     {
                         userAgent: '*',
                         allow: '/',
-                        disallow: ['/404/', '/homepage/', '/landing/', '/endpoint/'],
+                        disallow: [
+                            '/404/',
+                            '/homepage/',
+                            '/landing/',
+                            '/endpoint/',
+                            '/livechat/',
+                            '/storybook/',
+                        ],
                     },
                 ],
             },
@@ -212,6 +225,9 @@ module.exports = {
             resolve: '@directus/gatsby-source-directus',
             options: {
                 url: 'https://cms.deriv.cloud',
+                auth: {
+                    token: process.env.DIRECTUS_AUTH_TOKEN,
+                },
                 dev: {
                     refresh: '5s',
                 },

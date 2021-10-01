@@ -37,7 +37,7 @@ import Layout from 'components/layout/layout'
 import { SEO, Show, Box, Flex, SectionContainer } from 'components/containers'
 import { QueryImage } from 'components/elements'
 import { convertDate } from 'common/utility'
-import RightArrow from 'images/svg/black-right-arrow.svg'
+import RightArrow from 'images/svg/tools/black-right-arrow.svg'
 
 const ArticlesTemplate = (props) => {
     const [isMounted, setMounted] = useState(false)

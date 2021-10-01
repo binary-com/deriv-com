@@ -53,7 +53,7 @@ import {
     Text,
 } from 'components/elements'
 import Input from 'components/form/input'
-import RightArrow from 'images/svg/black-right-arrow.svg'
+import RightArrow from 'images/svg/tools/black-right-arrow.svg'
 
 const MarginCalculator = () => {
     const query = graphql`
@@ -83,7 +83,7 @@ const MarginCalculator = () => {
         <>
             <BreadCrumbContainer>
                 <Flex jc="flex-start" ai="center">
-                    <LocalizedLinkText to="/trader-tools" color="grey-5">
+                    <LocalizedLinkText to="/trader-tools/" color="grey-5">
                         {localize("Traders' tools")}
                     </LocalizedLinkText>
                     <img
@@ -379,7 +379,7 @@ const MarginCalculator = () => {
                             >
                                 {localize('Go to DMT5 dashboard')}
                             </StyledLinkButton>
-                            <StyledLinkButton secondary="true" to="/trade-types/margin">
+                            <StyledLinkButton secondary="true" to="/trade-types/margin/">
                                 {localize('Learn more about margin')}
                             </StyledLinkButton>
                         </LinkWrapper>

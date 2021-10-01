@@ -7,8 +7,8 @@ import { Container, Flex, Box } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
 import device from 'themes/device'
-import Platform from 'images/common/check-interim-bg.png'
-import PlatformMobile from 'images/common/interim-mobile-bg.png'
+import Platform from 'images/common/interim/check-interim-bg.png'
+import PlatformMobile from 'images/common/interim/interim-mobile-bg.png'
 
 const Section = styled(Box)`
     width: 100%;
@@ -82,16 +82,16 @@ const FitButton = styled(LinkButton)`
 
 const query = graphql`
     query {
-        affiliate: file(relativePath: { eq: "affiliate.png" }) {
+        affiliate: file(relativePath: { eq: "interim/affiliate.png" }) {
             ...fadeIn
         }
-        smart_trader: file(relativePath: { eq: "smarttrader.png" }) {
+        smart_trader: file(relativePath: { eq: "interim/smarttrader.png" }) {
             ...fadeIn
         }
-        dmt5: file(relativePath: { eq: "interim-dmt5.png" }) {
+        dmt5: file(relativePath: { eq: "interim/interim-dmt5.png" }) {
             ...fadeIn
         }
-        dbot: file(relativePath: { eq: "interim-dbot.png" }) {
+        dbot: file(relativePath: { eq: "interim/interim-dbot.png" }) {
             ...fadeIn
         }
     }

@@ -1,28 +1,24 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import Signup, { Appearances } from 'components/custom/signup'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
 import { SEO } from 'components/containers'
 import device from 'themes/device.js'
 import { Header, Text } from 'components/elements'
-import Graph from 'images/svg/graph.svg'
+import Graph from 'images/svg/landing/graph.svg'
 
 const Wrapper = styled.section`
     padding: 8rem 0;
     width: 100%;
     height: 80vh;
-    justify-content: center;
     display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: center;
     background-color: rgba(200, 214, 215, 0.22);
 
-    @media ${device.tabletL} {
-        height: 120vh;
-    }
     @media ${device.mobileL} {
-        height: 100vh;
         padding: 0;
     }
 `
@@ -66,10 +62,11 @@ const NewSignup = () => {
     const [submit_state, setSubmitState] = useState('')
     const [email, setEmail] = useState('')
 
-    function updateSubmitState(submitStatus, email) {
-        setSubmitState(submitStatus)
-        setEmail(email)
+    const updateSubmitState = (status_arg, email_arg) => {
+        setSubmitState(status_arg)
+        setEmail(email_arg)
     }
+
     return (
         <Layout type="static" margin_top={'0'}>
             <SEO
@@ -107,10 +104,6 @@ const NewSignup = () => {
             <StyledDiv />
         </Layout>
     )
-}
-
-NewSignup.propTypes = {
-    autofocus: PropTypes.bool,
 }
 
 export default WithIntl()(NewSignup)

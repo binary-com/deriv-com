@@ -114,8 +114,8 @@ const ImageWrapper = styled(Box)`
 const Hero = ({ is_ppc }) => {
     const data = useStaticQuery(query)
     const typewriter_text = !is_ppc
-        ? localize('Trade forex, commodities, synthetic and stock indices')
-        : localize('Trade forex, commodities, and stock indices')
+        ? localize('Trade forex, commodities, synthetic indices, stocks, and stock indices.')
+        : localize('Trade forex, commodities, stocks, and stock indices')
     const [type_writer, setTypeWriter] = React.useState('')
     const [check_first_load, setFirstLoad] = React.useState(false)
     let type_writer_timeout
@@ -199,7 +199,7 @@ const Hero = ({ is_ppc }) => {
                     </ImageWrapper>
                 </StyledHeroContainer>
                 <ButtonWrapper>
-                    <HeroButton secondary="true" to="/signup/">
+                    <HeroButton id="dm-hero-signup" secondary="true" to="/signup/">
                         <Localize translate_text="Create free demo account" />
                     </HeroButton>
                 </ButtonWrapper>

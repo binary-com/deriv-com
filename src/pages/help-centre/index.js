@@ -17,8 +17,8 @@ import { getLocationHash, sanitize } from 'common/utility'
 import { DerivStore } from 'store'
 import device from 'themes/device'
 // Icons
-import SearchIcon from 'images/svg/search.svg'
-import CrossIcon from 'images/svg/cross.svg'
+import SearchIcon from 'images/svg/help/search.svg'
+import CrossIcon from 'images/svg/help/cross.svg'
 //Lazy-load
 const DidntFindYourAnswerBanner = Loadable(() => import('./_didnt-find-answer'))
 const Community = Loadable(() => import('./_community'))
@@ -236,6 +236,10 @@ const HeaderPlatforms = styled.div`
     }
 `
 
+const ShowItem = styled.li`
+    display: ${(props) => (props.should_show_item ? 'block' : 'none')};
+`
+
 // Since useContext can only be used in functional components
 // Wrap HelpCenter class component in a function plug in the context
 // TODO - Refactor Help Center to function component and move this inside
@@ -322,19 +326,16 @@ class HelpCentreClass extends Component {
     }
 
     render() {
-        const {
-            all_articles,
-            all_categories,
-            search,
-            toggle_search,
-            search_has_transition,
-        } = this.state
+        const { all_articles, all_categories, search, toggle_search, search_has_transition } =
+            this.state
 
         const filtered_articles = matchSorter(all_articles, search.trim(), {
             keys: ['title', 'sub_category'],
         })
 
-        const splitted_articles = this.props.is_eu_country ? euArticles(splitArticles(articles, 3)): splitArticles(articles, 3)
+        const splitted_articles = this.props.is_eu_country
+            ? euArticles(splitArticles(articles, 3))
+            : splitArticles(articles, 3)
 
         const has_results = !!filtered_articles.length
 
@@ -376,13 +377,13 @@ class HelpCentreClass extends Component {
                                     )}
                                 </SearchForm>
                                 <ResultWrapper>
-                                    {has_results && search.length > 0 && (
+                                    {!!has_results && !!search.length && (
                                         <SearchSuccess
                                             suggested_topics={filtered_articles}
                                             max_length={3}
                                         />
                                     )}
-                                    {!has_results && search.length && (
+                                    {!has_results && !!search.length && (
                                         <SearchError search={search} />
                                     )}
                                 </ResultWrapper>
@@ -412,15 +413,10 @@ class HelpCentreClass extends Component {
                                                 {id === 1 && idx == 0 && (
                                                     <Platforms>Platforms</Platforms>
                                                 )}
-                                                {id === 1 && idx !== 0 && (
-                                                    <HeaderPlatforms />
-                                                )}
-                                                
+                                                {id === 1 && idx !== 0 && <HeaderPlatforms />}
+
                                                 <ListWrapper>
-                                                    <StyledHeader
-                                                        is_first_row={!!id}
-                                                        type="section-title"
-                                                    >
+                                                    <StyledHeader type="section-title">
                                                         {item.category}
                                                     </StyledHeader>
                                                     {item.articles.map((ar, idxb) => {
@@ -440,19 +436,22 @@ class HelpCentreClass extends Component {
                                                             idxb === item.articles.length - 1
                                                         return (
                                                             <ListNoBullets key={idxb}>
-                                                                {should_show_item && (
-                                                                    <li>
-                                                                        <StyledLink
-                                                                            to={convertToHash(
-                                                                                item.category.props
-                                                                                    .translate_text,
-                                                                                ar.label,
-                                                                            )}
-                                                                        >
-                                                                            {ar.title}
-                                                                        </StyledLink>
-                                                                    </li>
-                                                                )}
+                                                                <ShowItem
+                                                                    should_show_item={
+                                                                        should_show_item
+                                                                    }
+                                                                >
+                                                                    <StyledLink
+                                                                        to={convertToHash(
+                                                                            item.category.props
+                                                                                .translate_text,
+                                                                            ar.label,
+                                                                        )}
+                                                                    >
+                                                                        {ar.title}
+                                                                    </StyledLink>
+                                                                </ShowItem>
+
                                                                 {(should_show_expand ||
                                                                     should_show_collapse) && (
                                                                     <li>

@@ -6,8 +6,8 @@ import { Localize } from 'components/localization'
 import { Header } from 'components/elements'
 import device from 'themes/device'
 //SVG
-import ForexIcon from 'images/svg/market-forex.svg'
-import SyntheticIcon from 'images/svg/market-synthetic-indices.svg'
+import ForexIcon from 'images/svg/trade-types/market-forex.svg'
+import SyntheticIcon from 'images/svg/trade-types/market-synthetic-indices.svg'
 
 const StyledHeader = styled(Header)`
     @media ${device.tabletL} {
@@ -122,7 +122,7 @@ const CardContainer = styled(Flex)`
         padding-right: 0;
     }
 `
-const TabMarginIcon = styled.img`
+const TabCFDIcon = styled.img`
     min-width: 16px;
     ${(props) => {
         if (props.active_tab === props.name)
@@ -164,7 +164,7 @@ const Card = ({ display_name, active_tab, onTabChange, name }) => {
         <CardContainer name={name} active_tab={active_tab} onClick={() => onTabChange(name)}>
             <Flex height="fit-content" jc="flex-start" ai="center">
                 {active_tab === 'Forex' && (
-                    <TabMarginIcon src={ForexIcon} alt="" name={name} active_tab={active_tab} />
+                    <TabCFDIcon src={ForexIcon} alt="" name={name} active_tab={active_tab} />
                 )}
                 {active_tab === 'Synthetic Indices' && (
                     <TabOptionIcon src={SyntheticIcon} alt="" name={name} active_tab={active_tab} />

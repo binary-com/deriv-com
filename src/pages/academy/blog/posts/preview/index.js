@@ -36,7 +36,7 @@ import Layout from 'components/layout/layout'
 import { SEO, Show, Box, Flex, SectionContainer } from 'components/containers'
 import { convertDate, isBrowser } from 'common/utility'
 import { cms_assets_end_point } from 'common/constants'
-import RightArrow from 'images/svg/black-right-arrow.svg'
+import RightArrow from 'images/svg/tools/black-right-arrow.svg'
 
 const BlogPreview = () => {
     const [data, setData] = useState(null)

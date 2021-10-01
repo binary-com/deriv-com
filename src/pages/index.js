@@ -4,21 +4,21 @@ import {
     Markets,
     Signup,
     SimpleSteps,
-    Trade,
     TradeTypes,
     TradeTypesMobile,
     WhatOurClientsSay,
 } from './home/_lazy-load'
 import Hero from './home/_hero'
+import Trade from './home/_trade'
 import TradeTheWayYouLike from './home/_trade-the-way-you-like'
 import { useOpenLiveChat } from 'components/hooks/use-open-live-chat-redirection'
 import { SEO, Show } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl, Localize } from 'components/localization'
 import { Appearances } from 'components/custom/signup'
-import PractiseIcon from 'images/svg/aim.svg'
-import TradeIcon from 'images/svg/trade.svg'
-import WithdrawIcon from 'images/svg/withdraw.svg'
+import PractiseIcon from 'images/svg/markets/aim.svg'
+import TradeIcon from 'images/svg/markets/trade.svg'
+import WithdrawIcon from 'images/svg/markets/withdraw.svg'
 
 const simple_step_content = [
     {
@@ -51,19 +51,21 @@ const Home = () => {
     return (
         <Layout>
             <SEO
-                title={localize('Online trading platform | Forex, commodities and indices | Deriv')}
+                title={localize(
+                    'Online trading platform | Forex, commodities, synthetic indices, stocks, and stock indices | Deriv',
+                )}
                 description={localize(
                     'Deriv - An online trading platform that offers a wide selection of derivatives to trade on 24/7.',
                 )}
                 has_organization_schema
             />
             <Hero />
-            <Show.Mobile>
-                <TradeTheWayYouLike />
-            </Show.Mobile>
             <Show.Desktop>
                 <Trade />
             </Show.Desktop>
+            <Show.Mobile>
+                <TradeTheWayYouLike />
+            </Show.Mobile>
 
             <Show.Mobile>
                 <TradeTypesMobile />

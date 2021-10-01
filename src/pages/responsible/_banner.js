@@ -20,7 +20,7 @@ const Banner = ({ header, p1, button_text }) => (
             <Text max_width="62rem" align="center" color="white" pb="3rem" pr="3rem" pl="3rem">
                 {p1}
             </Text>
-            <a href="/signup">
+            <a href="/signup/">
                 <Button secondary="true">{button_text}</Button>
             </a>
         </Flex>

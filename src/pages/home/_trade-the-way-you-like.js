@@ -18,7 +18,7 @@ const StyledSection = styled(SectionContainer)`
 
 const query = graphql`
     query {
-        dtrader_artboard: file(relativePath: { eq: "dtrader_trade_home.png" }) {
+        dtrader_artboard: file(relativePath: { eq: "home/dtrader_trade_home.png" }) {
             ...fadeIn
         }
     }

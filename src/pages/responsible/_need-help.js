@@ -4,12 +4,12 @@ import { Header, Text, LocalizedLinkText } from 'components/elements'
 import { Container, SectionContainer, Flex, Show } from 'components/containers'
 import device from 'themes/device'
 import { Localize, localize } from 'components/localization'
-import GamStop from 'images/svg/gamstop.svg'
-import BeGambleAware from 'images/svg/begambleaware.svg'
-import Underage from 'images/svg/underage.svg'
-import UnderageMobile from 'images/svg/underage-mobile.svg'
-import Filtering from 'images/svg/filtering-controls.svg'
-import FilteringMobile from 'images/svg/filtering-controls-mobile.svg'
+import GamStop from 'images/svg/layout/gamstop.svg'
+import BeGambleAware from 'images/svg/responsible/begambleaware.svg'
+import Underage from 'images/svg/responsible/underage.svg'
+import UnderageMobile from 'images/svg/responsible/underage-mobile.svg'
+import Filtering from 'images/svg/responsible/filtering-controls.svg'
+import FilteringMobile from 'images/svg/responsible/filtering-controls-mobile.svg'
 
 const help_content = [
     {

@@ -14,7 +14,7 @@ const tools = [
         ),
         link: {
             text: <Localize translate_text="Try margin calculator" />,
-            route: '/trader-tools/margin-calculator',
+            route: '/trader-tools/margin-calculator/',
         },
         image_name: 'margin',
         image_alt: localize('margin calculator'),
@@ -26,7 +26,7 @@ const tools = [
         ),
         link: {
             text: <Localize translate_text="Try swap calculator" />,
-            route: '/trader-tools/swap-calculator',
+            route: '/trader-tools/swap-calculator/',
         },
         image_name: 'swap',
         image_alt: localize('swap calculator'),
@@ -38,7 +38,7 @@ const tools = [
         ),
         link: {
             text: <Localize translate_text="Try pip calculator" />,
-            route: '/trader-tools/pip-calculator',
+            route: '/trader-tools/pip-calculator/',
         },
         image_name: 'pip',
         image_alt: localize('pip calculator'),
@@ -50,7 +50,7 @@ const tools = [
         ),
         link: {
             text: <Localize translate_text="Try PnL for margin calculator" />,
-            route: '/trader-tools/pnl-for-margin',
+            route: '/trader-tools/pnl-for-margin/',
         },
         image_name: 'pnl_margin',
         image_alt: localize('PnL margin'),
@@ -62,7 +62,7 @@ const tools = [
         ),
         link: {
             text: <Localize translate_text="Try PnL for multipliers calculator" />,
-            route: '/trader-tools/pnl-for-multipliers',
+            route: '/trader-tools/pnl-for-multipliers/',
         },
         image_name: 'pnl_multipliers',
         image_alt: localize('PnL multipliers'),
@@ -73,8 +73,10 @@ const TraderTools = () => {
     return (
         <Layout>
             <SEO
-                title={localize("Traders' tools | Deriv")}
-                description={localize("Traders' tools")}
+                title={localize('Trading tools | Swap, pip, and margin calculators | Deriv')}
+                description={localize(
+                    "Take advantage of Deriv's trading calculators that help you to calculate your swap, pip, profit, and losses for the CFD and multiplier trading.",
+                )}
             />
             <Hero jc="center" ai="center">
                 <Container>

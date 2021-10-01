@@ -11,10 +11,10 @@ const StyeldContainer = styled(Container)`
 
 const query = graphql`
     query {
-        image: file(relativePath: { eq: "partners-banner.png" }) {
+        image: file(relativePath: { eq: "affiliate/partners-banner.png" }) {
             ...heroImage
         }
-        image_mobile: file(relativePath: { eq: "partners-banner-mobile.png" }) {
+        image_mobile: file(relativePath: { eq: "affiliate/partners-banner-mobile.png" }) {
             ...heroImage
         }
     }

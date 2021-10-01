@@ -1,15 +1,16 @@
 import React from 'react'
 // import Ticker from './home/_ticker'
-import { Markets, Trade, WhatOurClientsSay, SimpleSteps, Signup } from '../home/_lazy-load'
+import { Markets, WhatOurClientsSay, SimpleSteps, Signup } from '../home/_lazy-load'
 import Hero from '../home/_hero'
+import Trade from '../home/_trade'
 import TradeTheWayYouLike from '../home/_trade-the-way-you-like'
 import { SEO, Show } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { WithIntl, Localize, localize } from 'components/localization'
 import { Appearances } from 'components/custom/signup'
-import PractiseIcon from 'images/svg/aim.svg'
-import TradeIcon from 'images/svg/trade.svg'
-import WithdrawIcon from 'images/svg/withdraw.svg'
+import PractiseIcon from 'images/svg/markets/aim.svg'
+import TradeIcon from 'images/svg/markets/trade.svg'
+import WithdrawIcon from 'images/svg/markets/withdraw.svg'
 
 const simple_step_content = [
     {
@@ -38,7 +39,9 @@ const Home = () => {
     return (
         <Layout is_ppc_redirect={true} is_ppc={true}>
             <SEO
-                title={localize('Online trading platform | Forex, commodities and indices | Deriv')}
+                title={localize(
+                    'Online trading platform | Forex, commodities, synthetic indices, stocks, and stock indices | Deriv',
+                )}
                 description={localize(
                     'Deriv - An online trading platform that offers a wide selection of derivatives to trade on',
                 )}
@@ -46,12 +49,12 @@ const Home = () => {
                 no_index
             />
             <Hero is_ppc={true} />
-            <Show.Mobile>
-                <TradeTheWayYouLike is_ppc_redirect={true} />
-            </Show.Mobile>
             <Show.Desktop>
                 <Trade is_ppc_redirect={true} />
             </Show.Desktop>
+            <Show.Mobile>
+                <TradeTheWayYouLike is_ppc_redirect={true} />
+            </Show.Mobile>
             <Markets is_ppc={true} />
             <SimpleSteps
                 content={simple_step_content}

@@ -68,6 +68,8 @@ module.exports = {
                     '/**/landing/**',
                     '/endpoint',
                     '/**/endpoint',
+                    '/signup-success',
+                    '/**/signup-success',
                 ],
                 serialize: ({ site, allSitePage }) =>
                     allSitePage.edges.map((edge) => {
@@ -77,7 +79,7 @@ module.exports = {
                         const languages = Object.keys(language_config)
                         if (path === '/') {
                             priority = 1.0
-                        } else if (path.match(/dbot|dtrader|dmt5|about/)) {
+                        } else if (path.match(/dbot|dtrader|dmt5|story/)) {
                             priority = 1.0
                         } else {
                             languages.forEach((lang) => {
@@ -146,6 +148,7 @@ module.exports = {
                 ],
                 gcm_sender_id: '370236002280',
                 gcm_user_visible_only: true,
+                crossOrigin: `use-credentials`,
                 // TODO: add translations and support for language routes e.g:
                 // localize: [
                 //     {
@@ -181,7 +184,14 @@ module.exports = {
                     {
                         userAgent: '*',
                         allow: '/',
-                        disallow: ['/404/', '/homepage/', '/landing/', '/endpoint/', '/livechat/'],
+                        disallow: [
+                            '/404/',
+                            '/homepage/',
+                            '/landing/',
+                            '/endpoint/',
+                            '/livechat/',
+                            '/storybook/',
+                        ],
                     },
                 ],
             },

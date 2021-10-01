@@ -7,8 +7,8 @@ import { Localize } from 'components/localization'
 import device from 'themes/device'
 //SVG
 import CFDIcon from 'images/svg/trade-types/cfds.svg'
-import MultipliersIcon from 'images/svg/multipliers.svg'
-import OptionsIcon from 'images/svg/options.svg'
+import MultipliersIcon from 'images/svg/markets/multipliers.svg'
+import OptionsIcon from 'images/svg/markets/options.svg'
 
 const StyledSection = styled(SectionContainer)`
     padding: 8rem 0;

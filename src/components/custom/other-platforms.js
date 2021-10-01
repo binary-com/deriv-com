@@ -15,32 +15,32 @@ import { localize, LocalizedLink, Localize } from 'components/localization'
 import device from 'themes/device'
 import { DerivStore } from 'store'
 // icons
-import Blog from 'images/svg/blog-nav.svg'
+import Blog from 'images/svg/custom/blog-nav.svg'
 import Career from 'images/svg/menu/careers.svg'
 import Choose from 'images/svg/menu/choose.svg'
-import Cryptocurrencies from 'images/svg/cryptocurrencies-nav.svg'
-import Commodities from 'images/svg/commodities-nav.svg'
+import Cryptocurrencies from 'images/svg/custom/cryptocurrencies-nav.svg'
+import Commodities from 'images/svg/custom/commodities-nav.svg'
 import Community from 'images/svg/menu/community.svg'
 import Contact from 'images/svg/menu/contact.svg'
-import DerivX from 'images/svg/deriv-x.svg'
-import DBot from 'images/svg/dbot-icon.svg'
-import DMT5 from 'images/svg/dmt5-icon.svg'
-import DTrader from 'images/svg/dtrader-icon.svg'
-import Forex from 'images/svg/forex-nav.svg'
+import DerivX from 'images/svg/custom/deriv-x.svg'
+import DBot from 'images/svg/dbot/dbot-icon.svg'
+import DMT5 from 'images/svg/dmt5/dmt5-icon.svg'
+import DTrader from 'images/svg/dtrader/dtrader-icon.svg'
+import Forex from 'images/svg/custom/forex-nav.svg'
 import Help from 'images/svg/menu/help-center.svg'
 import Leadership from 'images/svg/menu/leadership.svg'
-import CFD from 'images/svg/margin-trading-nav.svg'
-import Multipliers from 'images/svg/multipliers-nav.svg'
-import Options from 'images/svg/options-nav.svg'
+import CFD from 'images/svg/custom/margin-trading-nav.svg'
+import Multipliers from 'images/svg/custom/multipliers-nav.svg'
+import Options from 'images/svg/custom/options-nav.svg'
 import Partner from 'images/svg/menu/partner.svg'
 import Payment from 'images/svg/menu/payment-methods.svg'
 import RegulatoryInfo from 'images/svg/menu/regulatory.svg'
 import Signals from 'images/svg/menu/signals.svg'
-import Smarttrader from 'images/svg/smarttrader.svg'
-import StockIndices from 'images/svg/stock-indices-nav.svg'
+import Smarttrader from 'images/svg/custom/smarttrader.svg'
+import StockIndices from 'images/svg/custom/stock-indices-nav.svg'
 import Story from 'images/svg/menu/story.svg'
-import SyntheticIndices from 'images/svg/synthetic-indices-nav.svg'
-import TraderTool from 'images/svg/trader-tool-nav.svg'
+import SyntheticIndices from 'images/svg/custom/synthetic-indices-nav.svg'
+import TraderTool from 'images/svg/custom/trader-tool-nav.svg'
 
 const MarginDivider = styled(Divider)`
     margin: 0 0.8rem;
@@ -102,7 +102,7 @@ const StyledFlexGridContainer = styled(FlexGridContainer)`
 `
 
 export const TraderCard = ({ is_selected, word_break_cover }) => (
-    <StyledLink aria_label="DTrader" to="/dtrader">
+    <StyledLink aria_label="DTrader" to="/dtrader/">
         <Card
             cover_background="var(--color-red)"
             cover_content={localize('Discover DTrader now')}
@@ -119,7 +119,7 @@ export const TraderCard = ({ is_selected, word_break_cover }) => (
 )
 
 export const BotCard = ({ is_selected, word_break_cover }) => (
-    <StyledLink aria_label="DBot" to="/dbot">
+    <StyledLink aria_label="DBot" to="/dbot/">
         <Card
             cover_background="var(--color-orange)"
             cover_content={localize('Discover DBot now')}
@@ -136,7 +136,7 @@ export const BotCard = ({ is_selected, word_break_cover }) => (
 )
 
 export const DMT5Card = ({ is_selected, is_ppc_redirect, word_break_cover }) => (
-    <StyledLink aria_label="DMT5" to={is_ppc_redirect ? '/landing/dmt5' : '/dmt5'}>
+    <StyledLink aria_label="DMT5" to={is_ppc_redirect ? '/landing/dmt5/' : '/dmt5/'}>
         <Card
             cover_background="var(--color-green)"
             cover_content={localize('Discover DMT5 now')}

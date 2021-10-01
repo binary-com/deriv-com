@@ -6,9 +6,9 @@ import Signup, { Appearances } from 'components/custom/signup'
 import Layout from 'components/layout/layout'
 import { localize, Localize, WithIntl } from 'components/localization'
 import { SEO } from 'components/containers'
-import PractiseIcon from 'images/svg/aim.svg'
-import TradeIcon from 'images/svg/trade.svg'
-import WithdrawIcon from 'images/svg/withdraw.svg'
+import PractiseIcon from 'images/svg/markets/aim.svg'
+import TradeIcon from 'images/svg/markets/trade.svg'
+import WithdrawIcon from 'images/svg/markets/withdraw.svg'
 
 const simple_step_content_stock = [
     {
@@ -38,9 +38,9 @@ const StocksAndIndicesPage = () => (
     <Layout>
         <SEO
             description={localize(
-                'Learn about the markets that you can trade online with Deriv, including forex, commodities, synthetic indices, stocks, and stock indices.',
+                'Trade global stocks and stock market indices on Deriv. Enjoy our competitively priced equities even outside regular hours of major stock markets.',
             )}
-            title={localize('Markets | Markets to trade | Deriv')}
+            title={localize('Stock market | Indices trading | Deriv')}
         />
         <Hero />
         <NavTab route_from={'stock'} route_offset={240} />

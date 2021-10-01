@@ -1,6 +1,5 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
-import { LocalizedLink } from 'components/localization'
 import { Margins, Paddings } from 'themes/function'
 import device from 'themes/device'
 
@@ -141,21 +140,4 @@ export const LinkText = styled(Text).attrs({ as: 'a' })`
 
 export const SpanLinkText = styled(Text).attrs({ as: 'span' })`
     ${BaseLink}
-`
-
-export const LocalizedLinkText = styled((props) => <LocalizedLink {...props} />)`
-    ${BaseElement}
-    font-weight: ${(props) => props.weight || 'normal'};
-    font-size: ${(props) => props.size || '1.6rem'};
-    text-decoration: none;
-    cursor: pointer;
-
-    &:hover {
-        color: var(--color-red);
-        text-decoration: underline;
-    }
-
-    @media ${device.tabletL} {
-        font-size: ${(props) => props.size || '16px'};
-    }
 `

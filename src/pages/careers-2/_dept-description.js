@@ -10,9 +10,6 @@ const query = graphql`
         teamfocus: file(relativePath: { eq: "careers/team-focus.jpg" }) {
             ...fadeIn
         }
-        peopleeating: file(relativePath: { eq: "careers/people-eating.jpg" }) {
-            ...fadeIn
-        }
     }
 `
 
@@ -20,6 +17,7 @@ const Description = styled(Flex)`
     margin-left: 50px;
 
     @media ${device.tablet} {
+        margin-left: unset;
         margin-top: 50px;
     }
 `

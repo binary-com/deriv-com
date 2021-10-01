@@ -197,7 +197,7 @@ const DownwardsShape = styled.div`
 `
 
 const StyledDownwardsRight = styled.img`
-    margin: -106px 60px -87px 0;
+    margin: -105px 60px -87px 0;
 
     @media ${device.tablet} {
         margin: 0 -60px -109px 0;

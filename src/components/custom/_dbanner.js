@@ -37,8 +37,16 @@ const BackgroundWrapper = styled(Flex)`
 
 const ImageContainer = styled.div`
     position: absolute;
-    left: 5%;
+    left: 10%;
     height: 100%;
+
+    @media (max-width: 1680px) {
+        left: 7%;
+    }
+
+    @media ${device.laptopL} {
+        left: 5%;
+    }
 
     @media (max-width: 800px) {
         left: 0;
@@ -59,7 +67,11 @@ const ImageWrapper = styled(Flex)`
         width: 100%;
     }
 
-    @media (max-width: 1350px) {
+    @media (max-width: 1680px) {
+        width: 35rem;
+    }
+
+    @media (max-width: 1440px) {
         width: 30rem;
     }
     @media (max-width: 800px) {
@@ -87,6 +99,7 @@ const DemoButton = styled.div`
     }
 `
 const StyledHeader = styled(Header)`
+    max-width: 84rem;
     @media ${device.laptopM} {
         font-size: 4rem;
         max-width: 60rem;

@@ -15,8 +15,8 @@ import DownwardsLeft from 'images/svg/downwards-left.svg'
 import DownwardsRight from 'images/svg/downwards-right.svg'
 
 const StyledSectionContainer = styled(SectionContainer)`
-    padding: 10rem 0 5rem 0;
-    border-top: 2px solid #e5e5e5;
+    padding: 8rem 0 5rem 0;
+    border-top: 1px solid #e5e5e5;
 
     @media ${device.tablet} {
         border: none;
@@ -197,8 +197,7 @@ const DownwardsShape = styled.div`
 `
 
 const StyledDownwardsRight = styled.img`
-    margin: -128px 82px -97px 0;
-    height: 400px;
+    margin: -106px 60px -87px 0;
 
     @media ${device.tablet} {
         margin: 0 -60px -109px 0;
@@ -206,8 +205,7 @@ const StyledDownwardsRight = styled.img`
     }
 `
 const StyledDownwardsRight1 = styled.img`
-    margin: -82px 60px -78px 0;
-    height: 400px;
+    margin: -74px 60px -67px 0;
 
     @media ${device.tablet} {
         margin: 0 -60px -109px 0;
@@ -216,8 +214,7 @@ const StyledDownwardsRight1 = styled.img`
 `
 
 const StyledDownwardsLeft = styled.img`
-    margin: -80px -19px -152px 0;
-    height: 400px;
+    margin: -75px -19px -142px 0;
 
     @media ${device.tablet} {
         margin: 0 0 -109px -61px;

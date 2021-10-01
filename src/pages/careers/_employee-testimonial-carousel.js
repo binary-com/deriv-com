@@ -190,7 +190,7 @@ const EmployeeTestimonialCarousel = () => {
 
     return (
         <>
-            <StyledSection padding="12rem 0">
+            <StyledSection padding="5rem 0 12rem 0">
                 <StyledHeader align="center" as="h3" type="section-title">
                     In the words of our employees
                 </StyledHeader>

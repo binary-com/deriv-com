@@ -18,11 +18,16 @@ import PresentationMobile from 'images/common/careers/presentation-mobile.png'
 import TeambuildingMobile from 'images/common/careers/teambuilding-mobile.png'
 
 const StyledSection = styled(SectionContainer)`
-    padding: 12rem 0;
+    padding: 10rem 0;
 
     @media ${device.tabletL} {
         height: unset;
         padding: 5rem 0;
+    }
+`
+const StyledContainer = styled(Container)`
+    @media ${device.laptopL} {
+        width: 70%;
     }
 `
 const StyledHeader = styled(Header)`
@@ -132,7 +137,7 @@ const LifeAtDerivCarousel = () => {
     return (
         <>
             <StyledSection>
-                <Container direction="column">
+                <StyledContainer direction="column">
                     <StyledHeader align="center" as="h3" type="section-title">
                         Life at Deriv
                     </StyledHeader>
@@ -184,7 +189,7 @@ const LifeAtDerivCarousel = () => {
                             <img src={TeambuildingMobile} loading="lazy" />
                         </MobileSingleImage>
                     </Show.Mobile>
-                </Container>
+                </StyledContainer>
             </StyledSection>
         </>
     )

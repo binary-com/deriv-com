@@ -58,7 +58,7 @@ const StyledContainer = styled(Container)`
     flex-direction: column;
     align-items: center;
     height: 100%;
-    width: 50%;
+    width: 60%;
 
     @media ${device.tablet} {
         padding: 0 2rem;

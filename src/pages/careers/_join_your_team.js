@@ -8,7 +8,7 @@ import { Text, Header } from 'components/elements'
 import device from 'themes/device'
 
 const DiffHeader = styled(Header)`
-    margin-bottom: 6.4rem;
+    margin-bottom: 5rem;
     font-size: 48px;
     line-height: 60px;
 
@@ -23,33 +23,53 @@ const StyledCssGrid = styled(CssGrid)`
 
 const query = graphql`
     {
-        technologyEngineering: file(relativePath: { eq: "careers/technology-engineering.png" }) {
+        backendDevelopment: file(relativePath: { eq: "careers/Back-end-Development.png" }) {
             ...fadeIn
         }
-        accountsAndPayments: file(relativePath: { eq: "careers/accounts-and-payments.png" }) {
+        businessExcellence: file(relativePath: { eq: "careers/Business-Excellence.png" }) {
             ...fadeIn
         }
-        compliance: file(relativePath: { eq: "careers/compliance.png" }) {
+        customerSupport: file(relativePath: { eq: "careers/Customer-Support.png" }) {
             ...fadeIn
         }
-        customerSupport: file(relativePath: { eq: "careers/customer_support.png" }) {
+        cyberSecurityIT: file(relativePath: { eq: "careers/Cyber-Security-IT.png" }) {
             ...fadeIn
         }
-        marketing: file(relativePath: { eq: "careers/marketing.png" }) {
+        financeAccounts: file(relativePath: { eq: "careers/Finance-Accounts.png" }) {
             ...fadeIn
         }
-        operations: file(relativePath: { eq: "careers/operations.png" }) {
+        frontendDevelopment: file(relativePath: { eq: "careers/Front-end-Development.png" }) {
             ...fadeIn
         }
-        paymentOperations: file(relativePath: { eq: "careers/payment-operations.png" }) {
+        internalAudit: file(relativePath: { eq: "careers/Internal-Audit.png" }) {
             ...fadeIn
         }
-        productDesignAndDevelopment: file(
-            relativePath: { eq: "careers/product-design-and-development.png" }
+        legalCompliance: file(relativePath: { eq: "careers/Legal-Compliance.png" }) {
+            ...fadeIn
+        }
+        marketingGlobalPartnerships: file(
+            relativePath: { eq: "careers/Marketing-Global-Partnerships.png" }
         ) {
             ...fadeIn
         }
-        recruitmentAndHR: file(relativePath: { eq: "careers/recruitment-and-HR.png" }) {
+        paymentSolutionsIntegration: file(
+            relativePath: { eq: "careers/Payment-Solutions-Integration.png" }
+        ) {
+            ...fadeIn
+        }
+        peopleManagement: file(relativePath: { eq: "careers/People-Management.png" }) {
+            ...fadeIn
+        }
+        productDesignUX: file(relativePath: { eq: "careers/Product-Design-UX.png" }) {
+            ...fadeIn
+        }
+        projectManagement: file(relativePath: { eq: "careers/Project-Management.png" }) {
+            ...fadeIn
+        }
+        softwareTesting: file(relativePath: { eq: "careers/Software-Testing.png" }) {
+            ...fadeIn
+        }
+        tradingOperations: file(relativePath: { eq: "careers/Trading-Operations.png" }) {
             ...fadeIn
         }
     }
@@ -60,25 +80,25 @@ const JoinYourTeam = () => {
 
     const join_your_team_data = [
         {
-            img_data: data.technologyEngineering,
-            to: 'careers/teams/technology-engineering/',
-            display_team_name: 'Technology & Engineering',
+            img_data: data.backendDevelopment,
+            to: 'careers/teams/back-end-Development/',
+            display_team_name: 'Back-end Development',
             tagline:
                 'We develop and fortify our website, platforms, and app architecture that power our users’ experience.',
         },
         {
-            img_data: data.marketing,
-            to: 'careers/teams/marketing/',
-            display_team_name: 'Marketing',
+            img_data: data.marketingGlobalPartnerships,
+            to: 'careers/teams/marketing-blobal-partnerships/',
+            display_team_name: 'Marketing & Global Partnerships',
             tagline:
                 'We conceptualise and implement creative marketing solutions to help our business grow.',
         },
         {
-            img_data: data.operations,
-            to: 'careers/teams/operations/',
-            display_team_name: 'Operations',
+            img_data: data.cyberSecurityIT,
+            to: 'careers/teams/cyber-security-it/',
+            display_team_name: 'Cyber Security & IT',
             tagline:
-                'We support all the teams in our organisation so that we’re able to achieve our goals without roadblocks and hiccups.',
+                'We support all the teams in our organisation to achieve our goals without roadblocks and hiccups.',
         },
         {
             img_data: data.customerSupport,
@@ -88,55 +108,94 @@ const JoinYourTeam = () => {
                 'We care about providing helpful solutions to our clients to make their trading experience with us even better.',
         },
         {
-            img_data: data.recruitmentAndHR,
-            to: 'careers/teams/recruitment-hr/',
-            display_team_name: 'Recruitment & HR',
+            img_data: data.peopleManagement,
+            to: 'careers/teams/people-management/',
+            display_team_name: 'People Management',
             tagline:
                 'We bring in go-getters, link them with the right opportunities, and support them in every way to help them grow.',
         },
         {
-            img_data: data.productDesignAndDevelopment,
-            to: 'careers/teams/product-design-development/',
-            display_team_name: 'Product Design & Development',
-            tagline:
-                'We are the brains behind the creation of the platforms and products that drive the success of our business.',
+            img_data: data.productDesignUX,
+            to: 'careers/teams/product-design-UX/',
+            display_team_name: 'Product Design & UX',
+            tagline: 'We create design and user experiences that make trading with us enjoyable.',
         },
         {
-            img_data: data.compliance,
-            to: 'careers/teams/compliance/',
-            display_team_name: 'Compliance',
+            img_data: data.legalCompliance,
+            to: 'careers/teams/legal-compliance/',
+            display_team_name: 'Legal & Compliance',
             tagline:
                 'We navigate the legal and regulatory environment to help our business maintain the highest ethical standards.',
         },
         {
-            img_data: data.accountsAndPayments,
-            to: 'careers/teams/accounts-payments/',
-            display_team_name: 'Accounts & Payments',
-            tagline:
-                'We’re all about helping the company make good decisions about money so we can stay on course to fulfil our vision.',
+            img_data: data.financeAccounts,
+            to: 'careers/teams/finance-accounts/',
+            display_team_name: 'Finance & Accounts',
+            tagline: 'We’re all about helping the company make good decisions about money.',
         },
         {
-            img_data: data.paymentOperations,
-            to: 'careers/teams/payment-operations/',
-            display_team_name: 'Payment Operations',
+            img_data: data.paymentSolutionsIntegration,
+            to: 'careers/teams/payment-solutions-integration/',
+            display_team_name: 'Payment Solutions & Integration',
             tagline:
-                'We make it easy for clients to trade from anywhere in the world, with any currency. ',
+                'We make it easy for clients to trade from anywhere in the world, with any currency.',
+        },
+        {
+            img_data: data.frontendDevelopment,
+            to: 'careers/teams/front-end-development/',
+            display_team_name: 'Front-end Development',
+            tagline: 'We code creative and user-friendly web pages and platforms.',
+        },
+        {
+            img_data: data.tradingOperations,
+            to: 'careers/teams/trading-operations/',
+            display_team_name: 'Trading Operations',
+            tagline:
+                'We work behind the scenes to make sure trading operations are functioning as they should.',
+        },
+        {
+            img_data: data.softwareTesting,
+            to: 'careers/teams/software-testing/',
+            display_team_name: 'Software Testing',
+            tagline:
+                'We look after the quality of our websites and trading platforms to deliver a world-class experience.',
+        },
+        {
+            img_data: data.businessExcellence,
+            to: 'careers/teams/business-excellence/',
+            display_team_name: 'Business Excellence',
+            tagline:
+                'We improve company-wide performance by helping teams optimise their processes and resources.',
+        },
+        {
+            img_data: data.internalAudit,
+            to: 'careers/teams/internal-audit/',
+            display_team_name: 'Internal Audit',
+            tagline:
+                'We provide independent evaluations of the company to reduce risk and improve operations.',
+        },
+        {
+            img_data: data.projectManagement,
+            to: 'careers/teams/project-management/',
+            display_team_name: 'Project Management',
+            tagline:
+                'We take care of collaboration details to ensure that projects are completed in a timely, efficient manner.',
         },
     ]
 
     return (
-        <SectionContainer padding="12rem 0">
+        <SectionContainer padding="10rem 0">
             <Container direction="column">
                 <DiffHeader as="h3" type="section-title" align="center">
-                    Join Your Team?
+                    Join Your Team
                 </DiffHeader>
             </Container>
             <StyledCssGrid
-                columns="repeat(3, 384px)"
+                columns="repeat(3, 383px)"
                 column_gap="2.4rem"
-                laptop_columns="repeat(3, 384px)"
+                laptop_columns="repeat(3, 383px)"
                 laptop_row_gap="2.4rem"
-                tablet_columns="repeat(2, 300px)"
+                tablet_columns="repeat(2, 383px)"
                 tablet_row_gap="2.4rem"
                 mobile_columns="90%"
                 mobile_row_gap="2.4rem"

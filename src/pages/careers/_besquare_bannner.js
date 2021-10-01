@@ -19,7 +19,7 @@ const StyledSection = styled(SectionContainer)`
 const BackgroundImage = styled.div`
     background-color: var(--color-black);
     border-radius: 10px;
-    padding: 100px;
+    padding: 70px 100px;
     color: white;
     position: relative;
     height: 41.9rem;
@@ -37,8 +37,8 @@ const BackgroundImage = styled.div`
         background-image: url(${bannerMobile});
         background-position: bottom;
         background-size: cover;
-        height: 85vh;
-        padding: 50px 30px;
+        height: 100vh;
+        padding: 20px;
     }
 `
 
@@ -128,12 +128,12 @@ const BeSquareBanner = () => {
                 <BackgroundImage>
                     <StyledDiv>
                         <StyledHeader as="h3" type="section-title">
-                            Apply now
+                            Join the Deriv graduate programme
                         </StyledHeader>
                         <StyledText>
-                            Are you a go-getter who loves learning tech skills and taking on new
-                            challenges? Then apply for Deriv graduate programme to start an exciting
-                            journey that will transform your professional life!
+                            Are you a go-getter who loves learning and taking on new challenges?
+                            Then apply for the Deriv graduate programme to start an exciting journey
+                            that will transform your professional life!
                         </StyledText>
                         <StyledLinkButton
                             secondary="true"

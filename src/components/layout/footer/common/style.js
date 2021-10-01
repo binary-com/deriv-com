@@ -91,7 +91,7 @@ export const LinksCol = styled(Flex)`
         margin-right: 0;
     }
 
-    @media (min-width: 993px) and (max-width: 1022px) {
+    @media (min-width: 993px) and (max-width: 1050px) {
         min-width: 0;
         max-width: 100px;
     }

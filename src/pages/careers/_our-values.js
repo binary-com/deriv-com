@@ -74,10 +74,10 @@ const OurValues = () => (
     <StyledSectionContainer>
         <Container direction="column" style={{ display: 'grid' }}>
             <CssGrid
-                columns="repeat(3, 38.4rem)"
+                columns="repeat(3, 33%)"
                 rows="repeat(1.3, auto)"
                 row_gap="4rem"
-                laptop_columns="repeat(3, 35.4rem)"
+                laptop_columns="repeat(3, 32%)"
                 column_gap="4rem"
                 justify="center"
                 align="center"

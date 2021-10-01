@@ -191,11 +191,11 @@ const JoinYourTeam = () => {
                 </DiffHeader>
             </Container>
             <StyledCssGrid
-                columns="repeat(3, 383px)"
+                columns="repeat(3, 26%)"
                 column_gap="2.4rem"
-                laptop_columns="repeat(3, 383px)"
+                laptop_columns="repeat(3, 26%)"
                 laptop_row_gap="2.4rem"
-                tablet_columns="repeat(2, 383px)"
+                tablet_columns="repeat(2, 40%)"
                 tablet_row_gap="2.4rem"
                 mobile_columns="90%"
                 mobile_row_gap="2.4rem"

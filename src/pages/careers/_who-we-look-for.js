@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import React from 'react'
 import styled, { css } from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
@@ -145,21 +146,22 @@ const WhoWeLookFor = () => {
                     </ImageWrapper>
                     <ImageDescription>
                         <DescText>
-                            <BoldSpan>We’re growing fast</BoldSpan>. Our team is growing rapidly and
-                            we&apos;re always on the lookout for the best talent to join us on our
-                            mission. You&apos;ll be a part of an energetic team that moves quickly
-                            to bring outstanding results.
+                            <BoldSpan>We’re global.</BoldSpan> As part of an international team,
+                            you'll get to share your expertise and expand your knowledge with
+                            colleagues from around the world. We encourage collaboration across
+                            teams and locations because we know how we can bring forward the best
+                            ideas.
                         </DescText>
                         <DescText>
-                            <BoldSpan>Employees have a voice</BoldSpan> in what we do. We challenge
-                            and support each other to find robust solutions that solve problems for
-                            our customers and partners.
+                            <BoldSpan>We’re growing fast.</BoldSpan> Our team is growing rapidly,
+                            and we're always looking for the best talent to join us on our mission.
+                            You'll be a part of an energetic team that moves quickly to bring
+                            outstanding results.
                         </DescText>
                         <DescText max_width="40.7rem">
-                            <BoldSpan>We’re purpose-driven.</BoldSpan> Our customers are at the
-                            heart of everything we do, and that drives us to succeed. We value
-                            commitment over complacency and accept challenges rather than the status
-                            quo.
+                            <BoldSpan>We listen.</BoldSpan> Employees have a voice in what we do. We
+                            challenge and support each other to find robust solutions that solve
+                            problems for our clients and partners.
                         </DescText>
                     </ImageDescription>
                 </DescContainer>
@@ -169,23 +171,25 @@ const WhoWeLookFor = () => {
                     </ImageWrapper>
                     <ImageDescription left>
                         <DescText>
-                            <BoldSpan>We have fun</BoldSpan> along the way. We don’t have a dress
+                            <BoldSpan>We’re purpose-driven.</BoldSpan> Our customers are at the
+                            heart of everything we do, and that drives us to succeed. We value
+                            commitment over complacency and accept challenges rather than the status
+                            quo.
+                        </DescText>
+                        <DescText>
+                            <BoldSpan>We have fun along the way.</BoldSpan> We don't have a dress
                             code, and our cosy offices have communal areas for mealtimes, exercise,
                             and games. We also enjoy spending time together at team outings and
                             company trips.
                         </DescText>
                         <DescText>
-                            <BoldSpan>We’re global.</BoldSpan> As part of an international team,
-                            you&apos;ll get to share your expertise and expand your knowledge with
-                            colleagues from around the world. We encourage collaboration across
-                            teams and locations because we know that&apos;s how we can bring forward
-                            the best ideas.
-                        </DescText>
-                        <DescText>
-                            <BoldSpan>We invest in our employees</BoldSpan> and give them consistent
-                            opportunities to grow. In addition to learning and development on the
-                            job, we provide education assistance and sponsor training courses an
-                            employee is personally interested in.
+                            <BoldSpan>
+                                We invest in our employees and give them consistent opportunities to
+                                grow.{' '}
+                            </BoldSpan>
+                            In addition to learning and development on the job, we provide
+                            educational assistance and sponsor training courses an employee is
+                            personally interested in.
                         </DescText>
                     </ImageDescription>
                 </DescContainer>

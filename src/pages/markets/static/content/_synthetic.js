@@ -1,15 +1,15 @@
 import React from 'react'
 import { Localize } from 'components/localization'
-import ExclusiveTradeType from 'images/svg/exclusive-trade-types.svg'
-import FriendlySupport from 'images/svg/friendly-support.svg'
-import MarketandRisk from 'images/svg/market-and-risk.svg'
-import ResponsiveWebsite from 'images/svg/responsive-website.svg'
-import SevenTrading from 'images/svg/seven-trading.svg'
+import ExclusiveTradeType from 'images/svg/markets/exclusive-trade-types.svg'
+import FriendlySupport from 'images/svg/markets/friendly-support.svg'
+import MarketandRisk from 'images/svg/markets/market-and-risk.svg'
+import ResponsiveWebsite from 'images/svg/markets/responsive-website.svg'
+import SevenTrading from 'images/svg/markets/seven-trading.svg'
 
 export default [
     {
         src: SevenTrading,
-        text: <Localize translate_text="High leverage, tight spreads, and 24/7 trading" />,
+        text: <Localize translate_text="24/7 trading, including weekends and public holidays" />,
     },
     {
         src: MarketandRisk,

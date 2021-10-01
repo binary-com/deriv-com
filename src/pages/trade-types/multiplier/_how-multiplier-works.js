@@ -10,6 +10,7 @@ import device from 'themes/device'
 import DefinePosition from 'images/svg/trade-types/define-your-position.svg'
 import SetOptionalParameters from 'images/svg/trade-types/set-optional-parameters.svg'
 import PurchaseContract from 'images/svg/trade-types/purchase-your-contract.svg'
+import { DerivStore } from 'store'
 
 const query = graphql`
     query {
@@ -39,6 +40,17 @@ const query = graphql`
             ...fadeIn
         }
         multiplier_purchase: file(relativePath: { eq: "trade-types/multiplier-purchase.png" }) {
+            ...fadeIn
+        }
+        multiplier_market_eu: file(relativePath: { eq: "trade-types/multiplier-market-eu.png" }) {
+            ...fadeIn
+        }
+        multiplier_trade_type_eu: file(
+            relativePath: { eq: "trade-types/multiplier-trade-type-eu.png" }
+        ) {
+            ...fadeIn
+        }
+        multiplier_value_eu: file(relativePath: { eq: "trade-types/multiplier-value-eu.png" }) {
             ...fadeIn
         }
     }
@@ -105,6 +117,7 @@ const StyledSectionContainer = styled(SectionContainer)`
 
 const HowOptionsWorks = () => {
     const data = useStaticQuery(query)
+    const { is_eu_country } = React.useContext(DerivStore)
     return (
         <StyledSectionContainer padding="8rem 0 4rem">
             <SmallContainer direction="column" ai="flex-start">
@@ -166,10 +179,17 @@ const HowOptionsWorks = () => {
                             <Localize translate_text="Choose an asset from the list of markets offered on Deriv." />
                         }
                     >
-                        <QueryImage
-                            data={data['multiplier_market']}
-                            alt="Trade types option market"
-                        />
+                        {is_eu_country ? (
+                            <QueryImage
+                                data={data['multiplier_market_eu']}
+                                alt="Trade types option market"
+                            />
+                        ) : (
+                            <QueryImage
+                                data={data['multiplier_market']}
+                                alt="Trade types option market"
+                            />
+                        )}
                     </SideTab.Panel>
                     <SideTab.Panel
                         label={<Localize translate_text="2. Trade type" />}
@@ -177,10 +197,17 @@ const HowOptionsWorks = () => {
                             <Localize translate_text="Choose ‘Multipliers’ from the list of trade types." />
                         }
                     >
-                        <QueryImage
-                            data={data['multiplier_trade_type']}
-                            alt="Trade types option trade type open"
-                        />
+                        {is_eu_country ? (
+                            <QueryImage
+                                data={data['multiplier_trade_type_eu']}
+                                alt="Trade types option trade type open"
+                            />
+                        ) : (
+                            <QueryImage
+                                data={data['multiplier_trade_type']}
+                                alt="Trade types option trade type open"
+                            />
+                        )}
                     </SideTab.Panel>
                     <SideTab.Panel
                         label={<Localize translate_text="3. Stake" />}
@@ -196,13 +223,24 @@ const HowOptionsWorks = () => {
                     <SideTab.Panel
                         label={<Localize translate_text="4. Multiplier value" />}
                         description={
-                            <Localize translate_text="Enter the multiplier value of your choice. Your profit or loss will be multiplied by this amount." />
+                            is_eu_country ? (
+                                <Localize translate_text="Your profit or loss is multiplied by the multiplier value, which depending on the asset you trade, can be from 1 to 30. Your loss will never be more than your stake." />
+                            ) : (
+                                <Localize translate_text="Enter the multiplier value of your choice. Your profit or loss will be multiplied by this amount." />
+                            )
                         }
                     >
-                        <QueryImage
-                            data={data['multiplier_value']}
-                            alt="Trade types multiplier value"
-                        />
+                        {is_eu_country ? (
+                            <QueryImage
+                                data={data['multiplier_value_eu']}
+                                alt="Trade types multiplier value"
+                            />
+                        ) : (
+                            <QueryImage
+                                data={data['multiplier_value']}
+                                alt="Trade types multiplier value"
+                            />
+                        )}
                     </SideTab.Panel>
                 </SideTab>
                 <StyledDtraderHeader as="h4" size="2.4rem" mb="2.4rem" mt="3.2rem">

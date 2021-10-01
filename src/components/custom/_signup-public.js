@@ -10,10 +10,10 @@ import { Flex, Show, Box, Container } from 'components/containers'
 import { deriv_app_url } from 'common/constants'
 import device from 'themes/device.js'
 // SVG
-import Apple from 'images/svg/apple.svg'
-import Facebook from 'images/svg/facebook-blue.svg'
-import Google from 'images/svg/google.svg'
-import Arrow from 'images/svg/chevron-right.svg'
+import Apple from 'images/svg/custom/apple.svg'
+import Facebook from 'images/svg/custom/facebook-blue.svg'
+import Google from 'images/svg/custom/google.svg'
+import Arrow from 'images/svg/custom/chevron-right.svg'
 
 const query = graphql`
     query {
@@ -366,7 +366,7 @@ const SignupPublic = ({
                                 <InputGroup>
                                     <InputWrapper>
                                         <Input
-                                            id="email"
+                                            id="dm-email-input"
                                             name="email"
                                             type="text"
                                             error={email_error_msg}
@@ -394,7 +394,7 @@ const SignupPublic = ({
                                     </InputWrapper>
                                     <EmailButton
                                         isChecked={is_checked}
-                                        id="gtm-signup-email"
+                                        id="dm-public-signup"
                                         type="submit"
                                         secondary="true"
                                         disabled={
@@ -550,7 +550,7 @@ const SignupPublic = ({
                                     </InputWrapper>
                                     <EmailButton
                                         isChecked={is_checked}
-                                        id="gtm-signup-email"
+                                        id="dm-mobile-public-signup"
                                         type="submit"
                                         secondary="true"
                                         disabled={

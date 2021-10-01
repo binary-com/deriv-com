@@ -18,7 +18,7 @@ import {
 import { localize, WithIntl, Localize, LocalizedLink } from 'components/localization'
 import { DerivStore } from 'store'
 // Icons
-import EU from 'images/svg/europe-map.svg'
+import EU from 'images/svg/regulatory/europe-map.svg'
 import Vanuatu from 'images/common/regulatory/vanuatu.png'
 import VanuatuFMA from 'images/common/regulatory/vanuatu-fma.png'
 import FSC from 'images/common/regulatory/bvi.png'
@@ -197,12 +197,7 @@ const Regulatory = (locale) => {
                     <Box padding="0 0 4rem">
                         <Text lh="1.55" max_width="79.2rem">
                             {localize(
-                                'Deriv Investments (Europe) Limited is entitled to provide services in another EU Member State through EU passporting rights. Above is a list of EU countries that have access to Deriv.com via EU passporting rights.',
-                            )}
-                        </Text>
-                        <Text lh="1.55" max_width="79.2rem" mt="10px">
-                            {localize(
-                                "In the United Kingdom, the company is authorised to provide investment services via the FCA's temporary permissions regime.",
+                                'Deriv Investments (Europe) Limited is entitled to provide services in any other EU member state through EU passporting rights. Above is a list of EU countries that have access to Deriv.com via EU passporting rights.',
                             )}
                         </Text>
                     </Box>
@@ -241,22 +236,13 @@ const Regulatory = (locale) => {
                                     </Desktop>
                                     <Text mt="0.8rem" mb="1.6rem" max_width="58.8rem">
                                         <Localize
-                                            translate_text="Deriv (Europe) Limited - W Business Centre, Level 3, Triq Dun Karm, Birkirkara BKR 9033, Malta - is licensed and regulated for synthetic indices by the Malta Gaming Authority (<0>licence no. MGA/B2C/102/2000</0>), by the Gambling Commission for clients in Great Britain under <1>account no. 39495</1>, and by the Revenue Commissioners for clients in Ireland (licence no. 1010285)."
+                                            translate_text="Deriv (Europe) Limited - W Business Centre, Level 3, Triq Dun Karm, Birkirkara BKR 9033, Malta - is licensed and regulated for synthetic indices by the Malta Gaming Authority (<0>licence no. MGA/B2C/102/2000</0>) and by the Revenue Commissioners for clients in Ireland (licence no. 1010285)."
                                             components={[
                                                 <LinkText
                                                     key={0}
                                                     weight="bold"
                                                     target="_blank"
                                                     href="/regulatory/Deriv_(Europe)_Limited.pdf"
-                                                    rel="noopener noreferrer"
-                                                />,
-                                                <ExternalBoldLink
-                                                    external="true"
-                                                    key={1}
-                                                    weight="bold"
-                                                    color="black-3"
-                                                    target="_blank"
-                                                    to="https://www.gamblingcommission.gov.uk/public-register/business/detail/39495"
                                                     rel="noopener noreferrer"
                                                 />,
                                             ]}

@@ -12,10 +12,11 @@ import { Localize, localize } from 'components/localization'
 import { Flex } from 'components/containers'
 import AgreementLabel from 'components/custom/_agreement-label'
 import device from 'themes/device.js'
-import Apple from 'images/svg/apple.svg'
-import Facebook from 'images/svg/facebook-blue.svg'
-import Google from 'images/svg/google.svg'
+import Apple from 'images/svg/custom/apple.svg'
+import Facebook from 'images/svg/custom/facebook-blue.svg'
+import Google from 'images/svg/custom/google.svg'
 import ViewEmailImage from 'images/common/sign-up/view-email.png'
+
 
 const SignupFormWrapper = styled(Flex)`
     width: 50%;
@@ -333,7 +334,7 @@ const GetEbook = ({ onSubmit, ebook_utm_code }) => {
                     />
                     <EmailButton
                         isChecked={is_checked}
-                        id="gtm-signup-email"
+                        id="dm-ebook-download-signup"
                         type="submit"
                         secondary="true"
                         disabled={is_submitting || !is_checked || email_error_msg || !email}
@@ -353,7 +354,7 @@ const GetEbook = ({ onSubmit, ebook_utm_code }) => {
                         onClick={handleSocialSignup}
                         provider="google"
                         data-provider="google"
-                        id="gtm-signup-google"
+                        id="dm-signup-google"
                         type="button"
                         social
                     >
@@ -366,7 +367,7 @@ const GetEbook = ({ onSubmit, ebook_utm_code }) => {
                         onClick={handleSocialSignup}
                         provider="facebook"
                         data-provider="facebook"
-                        id="gtm-signup-facebook"
+                        id="dm-signup-facebook"
                         type="button"
                         social
                     >
@@ -379,7 +380,7 @@ const GetEbook = ({ onSubmit, ebook_utm_code }) => {
                         onClick={handleSocialSignup}
                         provider="apple"
                         data-provider="apple"
-                        id="gtm-signup-apple"
+                        id="dm-signup-apple"
                         type="button"
                         social
                     >

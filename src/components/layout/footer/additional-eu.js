@@ -6,9 +6,9 @@ import { QueryImage } from 'components/elements'
 import { Flex, Show } from 'components/containers'
 import { mga_link_url } from 'common/constants'
 //EU icons
-import Gamstop from 'images/svg/gamstop.svg'
-import MgaLogo from 'images/svg/mga-logo.svg'
-import Over18 from 'images/svg/over-18.svg'
+import Gamstop from 'images/svg/layout/gamstop.svg'
+import MgaLogo from 'images/svg/layout/mga-logo.svg'
+import Over18 from 'images/svg/layout/over-18.svg'
 
 const query = graphql`
     query {
@@ -61,7 +61,7 @@ const AdditionalEUSection = () => {
             <Show.Mobile>
                 <EuLogoWrapper mt="1rem" ai="center">
                     <LocalizedLink
-                        external="trues"
+                        external="true"
                         to="https://www.gov.im/categories/business-and-industries/gambling-and-e-gaming/"
                         target="_blank"
                         rel="noopener noreferrer"

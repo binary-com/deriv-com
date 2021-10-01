@@ -123,13 +123,7 @@ const HeroComponent = ({ title, content, background_data }) => {
                     <HeroContent direction="column" justify="flex-start">
                         <Header type="subtitle-1">{content}</Header>
                     </HeroContent>
-                    <TryButton
-                        target="_blank"
-                        rel="noopener noreferrer nofollow"
-                        type="submit"
-                        secondary="true"
-                        to={'/signup/'}
-                    >
+                    <TryButton secondary="true" to={'/signup/'}>
                         {localize('Get trading')}
                     </TryButton>
                 </InformationWrapper>

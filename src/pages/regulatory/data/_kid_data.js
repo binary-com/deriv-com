@@ -23,12 +23,20 @@ const kid_data = [
         ref: 'kid_deriv_multipliers_cryptocurrencies.pdf',
     },
     {
+        title: <Localize translate_text="Multipliers - synthetic indices" />,
+        ref: 'kid_deriv_multipliers_synthetic_indices.pdf',
+    },
+    {
         title: <Localize translate_text="Stocks" />,
         ref: 'kid_deriv_Stocks.pdf',
     },
     {
         title: <Localize translate_text="Stock indices" />,
         ref: 'kid_deriv_Stock Indices.pdf',
+    },
+    {
+        title: <Localize translate_text="CFD - synthetic indices" />,
+        ref: 'kid_deriv_CFD_synthetic_indices.pdf',
     },
 ]
 

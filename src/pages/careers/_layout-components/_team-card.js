@@ -47,24 +47,14 @@ const StyledContent = styled.div`
 const StyledHeader = styled(Header)`
     font-size: 16px;
     line-height: 24px;
-
-    @media ${device.laptopS} {
-        font-size: 13px;
-        line-height: 20px;
-    }
 `
 const StyledText = styled(Text)`
     font-size: 14px;
     line-height: 20px;
-
-    @media ${device.laptopS} {
-        font-size: 12px;
-        line-height: 18px;
-    }
 `
 
 const TeamCard = ({ to, img_data, display_team_name, tagline }) => (
-    <StyledCard height="auto" to={to}>
+    <StyledCard height="144px" to={to}>
         <ImageWrapper>
             <QueryImage
                 data={img_data}

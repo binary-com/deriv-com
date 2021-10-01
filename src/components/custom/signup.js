@@ -201,7 +201,7 @@ const Signup = (props) => {
             <StaticQuery
                 query={graphql`
                     query {
-                        view_email: file(relativePath: { eq: "view-email.png" }) {
+                        view_email: file(relativePath: { eq: "sign-up/view-email.png" }) {
                             ...fadeIn
                         }
                     }

@@ -366,7 +366,7 @@ const SignupPublic = ({
                                 <InputGroup>
                                     <InputWrapper>
                                         <Input
-                                            id="email"
+                                            id="dm-email-input"
                                             name="email"
                                             type="text"
                                             error={email_error_msg}
@@ -394,7 +394,7 @@ const SignupPublic = ({
                                     </InputWrapper>
                                     <EmailButton
                                         isChecked={is_checked}
-                                        id="gtm-signup-email"
+                                        id="dm-public-signup"
                                         type="submit"
                                         secondary="true"
                                         disabled={
@@ -550,7 +550,7 @@ const SignupPublic = ({
                                     </InputWrapper>
                                     <EmailButton
                                         isChecked={is_checked}
-                                        id="gtm-signup-email"
+                                        id="dm-mobile-public-signup"
                                         type="submit"
                                         secondary="true"
                                         disabled={

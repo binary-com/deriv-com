@@ -72,7 +72,7 @@ const SignupDefault = ({
             </Header>
             <InputGroup>
                 <Input
-                    id="email"
+                    id="dm-email-input"
                     name="email"
                     type="text"
                     error={email_error_msg}
@@ -88,7 +88,7 @@ const SignupDefault = ({
                 />
             </InputGroup>
             <EmailButton
-                id="gtm-signup-email"
+                id="dm-default-signup-button"
                 type="submit"
                 secondary="true"
                 disabled={is_submitting}
@@ -103,7 +103,7 @@ const SignupDefault = ({
                     onClick={handleSocialSignup}
                     provider="google"
                     data-provider="google"
-                    id="gtm-signup-google"
+                    id="dm-signup-google"
                     type="button"
                     social
                 >
@@ -115,7 +115,7 @@ const SignupDefault = ({
                     onClick={handleSocialSignup}
                     provider="facebook"
                     data-provider="facebook"
-                    id="gtm-signup-facebook"
+                    id="dm-signup-facebook"
                     type="button"
                     social
                 >
@@ -126,7 +126,10 @@ const SignupDefault = ({
             </SocialWrapper>
             <LoginText>
                 {localize('Already have an account?')}
-                <LoginLink onClick={handleLogin}> {localize('Log in.')}</LoginLink>
+                <LoginLink id="dm-default-login-button" onClick={handleLogin}>
+                    {' '}
+                    {localize('Log in.')}
+                </LoginLink>
             </LoginText>
             <NoteText>
                 <Localize

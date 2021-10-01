@@ -167,7 +167,12 @@ const TradeTypesMobile = () => {
                         />
                     ))}
                 </Carousel>
-                <TradingButton type="submit" secondary="true" to="/signup/">
+                <TradingButton
+                    id="dm-trade-types-mobile-signup"
+                    type="submit"
+                    secondary="true"
+                    to="/signup/"
+                >
                     {localize('Start trading')}
                 </TradingButton>
             </StyledSection>

@@ -28,6 +28,7 @@ const CtaBinary = ({ is_white }) => {
                     translate_text="No sign up needed. Log in with your <0>Binary.com</0> credentials."
                     components={[
                         <BinaryLink
+                            id="dm-binary-login-link-1"
                             is_white={is_white}
                             key={0}
                             external="true"

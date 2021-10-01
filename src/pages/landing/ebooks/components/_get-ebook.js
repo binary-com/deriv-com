@@ -333,7 +333,7 @@ const GetEbook = ({ onSubmit, ebook_utm_code }) => {
                     />
                     <EmailButton
                         isChecked={is_checked}
-                        id="gtm-signup-email"
+                        id="dm-ebook-download-signup"
                         type="submit"
                         secondary="true"
                         disabled={is_submitting || !is_checked || email_error_msg || !email}
@@ -353,7 +353,7 @@ const GetEbook = ({ onSubmit, ebook_utm_code }) => {
                         onClick={handleSocialSignup}
                         provider="google"
                         data-provider="google"
-                        id="gtm-signup-google"
+                        id="dm-signup-google"
                         type="button"
                         social
                     >
@@ -366,7 +366,7 @@ const GetEbook = ({ onSubmit, ebook_utm_code }) => {
                         onClick={handleSocialSignup}
                         provider="facebook"
                         data-provider="facebook"
-                        id="gtm-signup-facebook"
+                        id="dm-signup-facebook"
                         type="button"
                         social
                     >
@@ -379,7 +379,7 @@ const GetEbook = ({ onSubmit, ebook_utm_code }) => {
                         onClick={handleSocialSignup}
                         provider="apple"
                         data-provider="apple"
-                        id="gtm-signup-apple"
+                        id="dm-signup-apple"
                         type="button"
                         social
                     >

@@ -149,7 +149,7 @@ const SimpleSteps = ({ header, content, sign_up }) => (
         </StyledFlex>
         {sign_up && (
             <LinkButtonWrapper>
-                <StyledLinkButton to="/signup/" secondary="true">
+                <StyledLinkButton id="dm-steps-signup" to="/signup/" secondary="true">
                     {localize('Sign up now')}
                 </StyledLinkButton>
             </LinkButtonWrapper>

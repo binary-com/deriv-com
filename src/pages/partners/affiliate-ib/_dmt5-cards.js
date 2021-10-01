@@ -313,6 +313,7 @@ const DERIVIBDMT5Cards = ({ data }) => {
                                     {localize('Back')}
                                 </BackButton>
                                 <StyledLinkButton
+                                    id="dm-become-affiliate-signup"
                                     secondary
                                     to={affiliate_signup_url}
                                     external="true"

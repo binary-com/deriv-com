@@ -278,7 +278,7 @@ const DHero = ({
                 </HeroContent>
                 <LinkWrapper>
                     {join_us_for_free && (
-                        <DemoButton secondary="true" to="/signup/">
+                        <DemoButton id="dm-hero-signup-1" secondary="true" to="/signup/">
                             {localize('Create free demo account')}
                         </DemoButton>
                     )}

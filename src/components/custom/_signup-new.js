@@ -7,10 +7,10 @@ import { Header, Text, LinkText } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device.js'
 // SVG
-import Apple from 'images/svg/apple.svg'
-import Facebook from 'images/svg/facebook-blue.svg'
-import BinaryLogo from 'images/svg/binary-logo.svg'
-import Google from 'images/svg/google.svg'
+import Apple from 'images/svg/custom/apple.svg'
+import Facebook from 'images/svg/custom/facebook-blue.svg'
+import BinaryLogo from 'images/svg/custom/binary-logo.svg'
+import Google from 'images/svg/custom/google.svg'
 
 const SignupContent = styled.div`
     width: 48.4rem;

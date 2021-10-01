@@ -4,7 +4,7 @@ import { NeedSignUp, BinaryRemoved, DerivSecure, OtherChanges } from './_faq-dat
 import { SectionContainer, Container } from 'components/containers'
 import { localize } from 'components/localization'
 import { Header, Accordion, AccordionItem } from 'components/elements'
-import DotPattern from 'images/svg/dot-pattern.svg'
+import DotPattern from 'images/svg/partners/dot-pattern.svg'
 import device from 'themes/device'
 
 const AccordionWrapper = styled.div`

@@ -19,14 +19,14 @@ import { SEO, SectionContainer, Container, Flex, CssGrid } from 'components/cont
 import Layout from 'components/layout/layout'
 import { WithIntl, localize } from 'components/localization'
 import { Header, Text, QueryImage } from 'components/elements'
-import MalaysiaFlagIcon from 'images/svg/flag_malaysia.svg'
-import ParaguayFlagIcon from 'images/svg/flag_paraguay.svg'
-import UAEFlagIcon from 'images/svg/flag_uae.svg'
-import MaltaFlagIcon from 'images/svg/flag_malta.svg'
-import CyprusFlagIcon from 'images/svg/flag_cyprus.svg'
-import RwandaFlagIcon from 'images/svg/flag_rwanda.svg'
-import BelarusFlagIcon from 'images/svg/flag_belarus.svg'
-import { ReactComponent as Chevron } from 'images/svg/carousel-chevron.svg'
+import MalaysiaFlagIcon from 'images/svg/careers/flag_malaysia.svg'
+import ParaguayFlagIcon from 'images/svg/careers/flag_paraguay.svg'
+import UAEFlagIcon from 'images/svg/careers/flag_uae.svg'
+import MaltaFlagIcon from 'images/svg/careers/flag_malta.svg'
+import CyprusFlagIcon from 'images/svg/careers/flag_cyprus.svg'
+import RwandaFlagIcon from 'images/svg/careers/flag_rwanda.svg'
+import BelarusFlagIcon from 'images/svg/careers/flag_belarus.svg'
+import { ReactComponent as Chevron } from 'images/svg/careers/carousel-chevron.svg'
 
 const meta_attributes = {
     og_title: localize('Explore our office locations | Deriv'),

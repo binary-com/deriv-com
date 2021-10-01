@@ -9,7 +9,7 @@ import SevenTrading from 'images/svg/seven-trading.svg'
 export default [
     {
         src: SevenTrading,
-        text: <Localize translate_text="High leverage, tight spreads, and 24/7 trading" />,
+        text: <Localize translate_text="24/7 trading, including weekends and public holidays" />,
     },
     {
         src: MarketandRisk,

@@ -271,11 +271,11 @@ const ArticlesTemplate = (props) => {
                                     </SocialComponentsWrapper>
 
                                     {side_banner_data_details && (
-                                        <Show.Mobile>
+                                        <MobileWrapper>
                                             <Flex mt="24px">
                                                 <Banner detailsObj={side_banner_data_details} />
                                             </Flex>
-                                        </Show.Mobile>
+                                        </MobileWrapper>
                                     )}
                                     <MobileWrapper>
                                         <ArticleEmailBanner />

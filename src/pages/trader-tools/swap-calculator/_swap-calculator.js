@@ -55,7 +55,7 @@ import {
 } from 'components/elements'
 import { Flex, Show } from 'components/containers'
 import Input from 'components/form/input'
-import RightArrow from 'images/svg/black-right-arrow.svg'
+import RightArrow from 'images/svg/tools/black-right-arrow.svg'
 
 const StyledInputGroup = styled(InputGroup)`
     margin: 0;
@@ -96,7 +96,7 @@ const SwapCalculator = () => {
         <>
             <BreadCrumbContainer>
                 <Flex jc="flex-start" ai="center">
-                    <LocalizedLinkText to="/trader-tools" color="grey-5">
+                    <LocalizedLinkText to="/trader-tools/" color="grey-5">
                         {localize("Traders' tools")}
                     </LocalizedLinkText>
                     <img
@@ -449,7 +449,7 @@ const SwapCalculator = () => {
                                     {
                                         <StyledLinkButton
                                             secondary="true"
-                                            to="/trade-types/margin#swap-policy"
+                                            to="/trade-types/margin#swap-policy/"
                                         >
                                             {localize('Learn more about swap')}
                                         </StyledLinkButton>
@@ -779,7 +779,7 @@ const SwapCalculator = () => {
                                     </StyledLinkButton>
                                     <StyledLinkButton
                                         secondary="true"
-                                        to="/trade-types/margin#swap-policy"
+                                        to="/trade-types/margin#swap-policy/"
                                     >
                                         {localize('Learn more about swap')}
                                     </StyledLinkButton>

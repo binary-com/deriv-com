@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { graphql, StaticQuery, navigate } from 'gatsby'
 import styled from 'styled-components'
 import Cookies from 'js-cookie'
+import { getLanguage, isChoosenLanguage } from '../../common/utility'
 import { getCookiesObject, getCookiesFields, getDataObjFromCookies } from 'common/cookies'
 import { Box } from 'components/containers'
 import Login from 'common/login'
@@ -134,9 +135,11 @@ const Signup = (props) => {
             binary_socket.close()
         }
         if (props.appearance === 'public') {
-            const language_code = localStorage.getItem('i18n')
-            const success_link =
-                language_code !== 'en' ? '/' + language_code + '/signup-success' : '/signup-success'
+            const success_default_link = `signup-success?email=${email}`
+            const link_with_language = `${getLanguage()}/${success_default_link}`
+            const success_link = `/${
+                isChoosenLanguage().english ? success_default_link : link_with_language
+            }`
             navigate(success_link, { replace: true })
         }
     }
@@ -198,7 +201,7 @@ const Signup = (props) => {
             <StaticQuery
                 query={graphql`
                     query {
-                        view_email: file(relativePath: { eq: "view-email.png" }) {
+                        view_email: file(relativePath: { eq: "sign-up/view-email.png" }) {
                             ...fadeIn
                         }
                     }

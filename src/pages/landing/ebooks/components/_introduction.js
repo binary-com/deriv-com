@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { Header, Text, Li } from 'components/elements'
 import checkIcon from 'images/common/ebooks/check-icon.png'
-import BackgroundPattern from 'images/svg/ebook-intro-bg.svg'
+import BackgroundPattern from 'images/svg/landing/ebook-intro-bg.svg'
 import device from 'themes/device'
 import { localize, Localize } from 'components/localization'
 
@@ -75,6 +75,7 @@ const MediaBody = styled.div`
     }
     li > img {
         height: 16px;
+        width: 16px;
         margin-right: 10px;
         object-fit: contain;
     }
@@ -91,6 +92,7 @@ const Introduction = ({ introImage, imageWidth, introPara, subPara, introList })
                 <img
                     className="intro-forex"
                     width={`${imageWidth}px`}
+                    height="462 px"
                     src={introImage}
                     alt="Generic placeholder image"
                 />

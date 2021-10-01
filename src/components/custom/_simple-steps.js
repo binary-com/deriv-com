@@ -6,8 +6,8 @@ import { LinkButton } from 'components/form'
 import { Header, Text } from 'components/elements'
 import { Container, SectionContainer, Flex, Show } from 'components/containers'
 import device from 'themes/device'
-import Pattern from 'images/svg/pattern.svg'
-import PatternMobile from 'images/svg/pattern-mobile.svg'
+import Pattern from 'images/svg/custom/pattern.svg'
+import PatternMobile from 'images/svg/custom/pattern-mobile.svg'
 
 const StyledSection = styled(SectionContainer)`
     position: relative;
@@ -149,7 +149,7 @@ const SimpleSteps = ({ header, content, sign_up }) => (
         </StyledFlex>
         {sign_up && (
             <LinkButtonWrapper>
-                <StyledLinkButton to="/signup/" secondary="true">
+                <StyledLinkButton id="dm-steps-signup" to="/signup/" secondary="true">
                     {localize('Sign up now')}
                 </StyledLinkButton>
             </LinkButtonWrapper>

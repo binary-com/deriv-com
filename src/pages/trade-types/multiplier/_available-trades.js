@@ -6,8 +6,8 @@ import { Localize } from 'components/localization'
 import { Header } from 'components/elements'
 import device from 'themes/device'
 //SVG
-import ForexIcon from 'images/svg/market-forex.svg'
-import SyntheticIcon from 'images/svg/market-synthetic-indices.svg'
+import ForexIcon from 'images/svg/trade-types/market-forex.svg'
+import SyntheticIcon from 'images/svg/trade-types/market-synthetic-indices.svg'
 
 const StyledHeader = styled(Header)`
     @media ${device.tabletL} {

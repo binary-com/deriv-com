@@ -45,7 +45,7 @@ export const Community = () => {
         <SectionContainer padding="4rem" background="var(--color-grey-25)">
             <Container>
                 <Flex tablet_direction="column" tablet_ai="center" max_width="92rem">
-                    <QueryImage data={data['community']} width="41rem" />
+                    <QueryImage alt="community" data={data['community']} width="41rem" />
                     <StyledFlex tablet_ai="center" ml="5rem" direction="column">
                         <StyledHeader mt="1rem" as="h3" type="section-title">
                             {localize('Have a question?')}

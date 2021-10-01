@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import { Text, Header } from 'components/elements'
 import { SectionContainer, Flex } from 'components/containers'
 import device from 'themes/device'
-import { ReactComponent as Checklist } from 'images/svg/checklist-red.svg'
+import { ReactComponent as Checklist } from 'images/svg/trade-types/checklist-red.svg'
 
 const ContentWrapper = styled(Flex)`
     margin: 8rem auto;

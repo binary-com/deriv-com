@@ -6,9 +6,9 @@ import Signup, { Appearances } from 'components/custom/signup'
 import Layout from 'components/layout/layout'
 import { localize, Localize, WithIntl } from 'components/localization'
 import { SEO } from 'components/containers'
-import PractiseIcon from 'images/svg/aim.svg'
-import TradeIcon from 'images/svg/trade.svg'
-import WithdrawIcon from 'images/svg/withdraw.svg'
+import PractiseIcon from 'images/svg/markets/aim.svg'
+import TradeIcon from 'images/svg/markets/trade.svg'
+import WithdrawIcon from 'images/svg/markets/withdraw.svg'
 
 const simple_step_content_synthetic = [
     {
@@ -38,9 +38,9 @@ const Markets = () => (
     <Layout>
         <SEO
             description={localize(
-                'Learn about the markets that you can trade online with Deriv, including forex, commodities, synthetic indices, and stock indices.',
+                'Deriv’s proprietary synthetic indices are free of market and liquidity risks. Enjoy 24/7 synthetic trading on Deriv MT5, DTrader, and our other platforms.',
             )}
-            title={localize('Markets | Markets to trade | Deriv')}
+            title={localize('Synthetic indices | Volatility indices | Deriv')}
         />
         <Hero />
         <NavTab route_from={'synthetic'} route_offset={50} />

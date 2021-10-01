@@ -13,7 +13,7 @@ const RightWrapper = styled(ImgWrapper)`
 
 const query = graphql`
     query {
-        deriv: file(relativePath: { eq: "interim-faq-bg.png" }) {
+        deriv: file(relativePath: { eq: "interim/interim-faq-bg.png" }) {
             ...fadeIn
         }
     }

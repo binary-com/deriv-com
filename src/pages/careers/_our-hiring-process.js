@@ -1,18 +1,18 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
+// SVG
+import Career1 from 'images/svg/careers/career-1.svg'
+import Career2 from 'images/svg/careers/career-2.svg'
+import Career3 from 'images/svg/careers/career-3.svg'
+import Career4 from 'images/svg/careers/career-4.svg'
+import DownwardsLeft from 'images/svg/careers/downwards-left.svg'
+import DownwardsRight from 'images/svg/careers/downwards-right.svg'
 import { Container, SectionContainer, Flex, Show } from 'components/containers'
 import { Text, Header, LinkText } from 'components/elements'
 import { LinkButton } from 'components/form'
 import device from 'themes/device'
-// SVG
-import Career1 from 'images/svg/career-1.svg'
-import Career2 from 'images/svg/career-2.svg'
-import Career3 from 'images/svg/career-3.svg'
-import Career4 from 'images/svg/career-4.svg'
-import TipIcon from 'images/svg/career-tip.svg'
-import DownwardsLeft from 'images/svg/downwards-left.svg'
-import DownwardsRight from 'images/svg/downwards-right.svg'
+import TipIcon from 'images/svg/careers/career-tip.svg'
 
 const StyledSectionContainer = styled(SectionContainer)`
     padding: 8rem 0 5rem 0;

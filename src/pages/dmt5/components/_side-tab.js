@@ -4,8 +4,8 @@ import styled, { css } from 'styled-components'
 import { Flex, Show, Box } from 'components/containers'
 import { Text } from 'components/elements'
 import device from 'themes/device'
-import AppStore from 'images/svg/app-store.svg'
-import GooglePlay from 'images/svg/google-play.svg'
+import AppStore from 'images/svg/dmt5/app-store.svg'
+import GooglePlay from 'images/svg/dmt5/google-play.svg'
 import { LocalizedLink } from 'components/localization'
 
 const DownloadFlex = styled(Flex)`

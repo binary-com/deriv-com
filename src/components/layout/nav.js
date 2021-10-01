@@ -20,14 +20,19 @@ import { SharedLinkStyle } from 'components/localization/localized-link'
 import Login from 'common/login'
 import device from 'themes/device'
 import { affiliate_signin_url, affiliate_signup_url, deriv_app_url } from 'common/constants'
-import { isLoggedIn, getLanguage, getDerivAppLocalizedURL } from 'common/utility'
+import {
+    isLoggedIn,
+    getLanguage,
+    getDerivAppLocalizedURL,
+    redirectToTradingPlatform,
+} from 'common/utility'
 // Icons
-import Logo from 'images/svg/logo-deriv.svg'
-import LogoPartner from 'images/svg/logo-partners.svg'
-import Hamburger from 'images/svg/hamburger_menu.svg'
-import Close from 'images/svg/close-long.svg'
-import LogoOnly from 'images/svg/logo-deriv-only.svg'
-import LogoCombinedShape from 'images/svg/logo-combined-shape.svg'
+import Logo from 'images/svg/layout/logo-deriv.svg'
+import LogoPartner from 'images/svg/layout/logo-partners.svg'
+import Hamburger from 'images/svg/layout/hamburger_menu.svg'
+import Close from 'images/svg/layout/close-long.svg'
+import LogoOnly from 'images/svg/layout/logo-deriv-only.svg'
+import LogoCombinedShape from 'images/svg/layout/logo-combined-shape.svg'
 import { CFDWarning } from 'components/layout'
 
 const query = graphql`
@@ -389,15 +394,21 @@ const LogoDescription = styled(Flex)`
 `
 
 const handleLogin = () => {
+    redirectToTradingPlatform()
     Login.redirectToLogin()
 }
 
 const handleGetTrading = () => {
-    let trading_url_localized = getDerivAppLocalizedURL(deriv_app_url, getLanguage())
+    const sub_url = redirectToTradingPlatform()
+
+    let trading_url_localized = getDerivAppLocalizedURL(
+        `${deriv_app_url}/${sub_url}`,
+        getLanguage(),
+    )
     window.location.href = trading_url_localized
 }
 
-const NavMobile = ({ is_ppc, is_ppc_redirect, is_logged_in, hide_signup_login }) => {
+const NavMobile = ({ is_ppc, is_ppc_redirect, is_logged_in, hide_signup_login, no_language }) => {
     const [is_canvas_menu_open, openOffCanvasMenu, closeOffCanvasMenu] = moveOffCanvasMenu()
 
     return (
@@ -423,7 +434,7 @@ const NavMobile = ({ is_ppc, is_ppc_redirect, is_logged_in, hide_signup_login })
                 </Flex>
             </LogoLinkMobileMain>
             <MobileRightMain>
-                <LanguageSwitcher short_name="true" is_high_nav />
+                {!no_language && <LanguageSwitcher short_name="true" is_high_nav />}
                 {!hide_signup_login && (
                     <>
                         {is_logged_in ? (
@@ -431,7 +442,12 @@ const NavMobile = ({ is_ppc, is_ppc_redirect, is_logged_in, hide_signup_login })
                                 <span>{localize('Get Trading')}</span>
                             </MobileButton>
                         ) : (
-                            <MobileButton margin_left="0.8rem" onClick={handleLogin} primary>
+                            <MobileButton
+                                id="dm-mobile-nav-login-button"
+                                margin_left="0.8rem"
+                                onClick={handleLogin}
+                                primary
+                            >
                                 <span>{localize('Log in')}</span>
                             </MobileButton>
                         )}
@@ -448,7 +464,14 @@ const NavMobile = ({ is_ppc, is_ppc_redirect, is_logged_in, hide_signup_login })
     )
 }
 
-const NavDesktop = ({ base, is_ppc, is_ppc_redirect, is_logged_in, hide_signup_login }) => {
+const NavDesktop = ({
+    base,
+    is_ppc,
+    is_ppc_redirect,
+    is_logged_in,
+    hide_signup_login,
+    no_language,
+}) => {
     const data = useStaticQuery(query)
     const button_ref = useRef(null)
     const navigation_bar_ref = useRef(null)
@@ -473,7 +496,8 @@ const NavDesktop = ({ base, is_ppc, is_ppc_redirect, is_logged_in, hide_signup_l
         setActiveLinkRef(target)
     }
 
-    const LanguageSwitcherNavDesktop = () => <LanguageSwitcher short_name="true" is_high_nav />
+    const LanguageSwitcherNavDesktop = () =>
+        !no_language && <LanguageSwitcher short_name="true" is_high_nav />
 
     const setDropdownRef = (new_ref) => setActiveDropdownRef(new_ref)
 
@@ -566,13 +590,16 @@ const NavDesktop = ({ base, is_ppc, is_ppc_redirect, is_logged_in, hide_signup_l
                     >
                         <LanguageSwitcherNavDesktop />
                         {!hide_signup_login && (
-                            <NowrapButton onClick={handleLogin} primary>
+                            <NowrapButton id="dm-nav-login-button" onClick={handleLogin} primary>
                                 <span>{localize('Log in')}</span>
                             </NowrapButton>
                         )}
-                        <LocalizedLink to={is_ppc_redirect ? '/landing/signup/' : '/signup/'}>
+                        <LocalizedLink
+                            id="dm-signup"
+                            to={is_ppc_redirect ? '/landing/signup/' : '/signup/'}
+                        >
                             {!hide_signup_login && (
-                                <SignupButton ref={button_ref} secondary="true">
+                                <SignupButton id="dm-nav-signup" ref={button_ref} secondary="true">
                                     <span>{localize('Create free demo account')}</span>
                                 </SignupButton>
                             )}
@@ -584,7 +611,7 @@ const NavDesktop = ({ base, is_ppc, is_ppc_redirect, is_logged_in, hide_signup_l
     )
 }
 
-export const Nav = ({ base, is_ppc_redirect, is_ppc, hide_signup_login }) => {
+export const Nav = ({ base, is_ppc_redirect, is_ppc, hide_signup_login, no_language }) => {
     const [is_logged_in, setLoggedIn] = useState(false)
 
     useEffect(() => {
@@ -602,6 +629,7 @@ export const Nav = ({ base, is_ppc_redirect, is_ppc, hide_signup_login }) => {
                 <StyledNavMain>
                     <Show.Desktop max_width="bp1060">
                         <NavDesktop
+                            no_language={no_language}
                             base={base}
                             is_ppc={is_ppc}
                             is_ppc_redirect={is_ppc_redirect}
@@ -611,6 +639,7 @@ export const Nav = ({ base, is_ppc_redirect, is_ppc, hide_signup_login }) => {
                     </Show.Desktop>
                     <Show.Mobile min_width="bp1060">
                         <NavMobile
+                            no_language={no_language}
                             is_ppc={is_ppc}
                             is_logged_in={is_logged_in}
                             hide_signup_login={hide_signup_login}
@@ -628,6 +657,7 @@ Nav.propTypes = {
     hide_signup_login: PropTypes.bool,
     is_ppc: PropTypes.bool,
     is_ppc_redirect: PropTypes.bool,
+    no_language: PropTypes.bool,
 }
 
 NavDesktop.propTypes = {
@@ -636,6 +666,7 @@ NavDesktop.propTypes = {
     is_logged_in: PropTypes.bool,
     is_ppc: PropTypes.bool,
     is_ppc_redirect: PropTypes.bool,
+    no_language: PropTypes.bool,
 }
 
 NavMobile.propTypes = {
@@ -643,6 +674,7 @@ NavMobile.propTypes = {
     is_logged_in: PropTypes.bool,
     is_ppc: PropTypes.bool,
     is_ppc_redirect: PropTypes.bool,
+    no_language: PropTypes.bool,
 }
 
 const Auto = styled(Flex)`
@@ -907,12 +939,12 @@ export const NavPartners = ({ no_login_signup }) => {
                                     {localize('Deriv website')}
                                 </Text>
                             </HomeLink>
-                            <HomeLink to="/about">
+                            <HomeLink to="/story/">
                                 <Text color="grey-19" size="var(--text-size-xxs)">
                                     {localize('About us')}
                                 </Text>
                             </HomeLink>
-                            <HomeLink to="/contact_us">
+                            <HomeLink to="/contact_us/">
                                 <Text color="grey-19" size="var(--text-size-xxs)">
                                     {localize('Contact us')}
                                 </Text>
@@ -986,6 +1018,7 @@ export const NavPartners = ({ no_login_signup }) => {
                                     <span>{localize('Affiliate & IB log in')}</span>
                                 </LinkButton>
                                 <LinkSignupButton
+                                    id="dm-nav-affiliate-signup"
                                     to={affiliate_signup_url}
                                     external="true"
                                     type="affiliate_sign_up"
@@ -1017,7 +1050,7 @@ export const NavPartners = ({ no_login_signup }) => {
 
                         <Mobile>
                             <Flex ai="center">
-                                <LogoLinkMobile to="/partners" aria-label={localize('Home')}>
+                                <LogoLinkMobile to="/partners/" aria-label={localize('Home')}>
                                     <ResLogo src={LogoOnly} alt="reslogo" />
                                 </LogoLinkMobile>
                                 <Flex ml="auto" ai="center" width="auto">

@@ -204,7 +204,13 @@ const WhoCanApply = () => {
                 </Flex>
             </StyledSection>
             <ButtonWrapper padding="3.4rem 0 0">
-                <LinkButton secondary external="true" to="mailto:partners@deriv.com" is_mail_link>
+                <LinkButton
+                    id="dm-page-affiliate-email-apply"
+                    secondary
+                    external="true"
+                    to="mailto:partners@deriv.com"
+                    is_mail_link
+                >
                     {localize('Send us an email to apply')}
                 </LinkButton>
             </ButtonWrapper>

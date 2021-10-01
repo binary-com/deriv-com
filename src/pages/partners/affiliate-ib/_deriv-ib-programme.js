@@ -137,6 +137,7 @@ const DerivIBProgramme = () => {
                     </StyledCardWrapper>
                     <DecideSection align="center">
                         <StyledHeader
+                            id="dm-affiliate-contact-us"
                             as="h4"
                             type="sub-section-title"
                             align="center"

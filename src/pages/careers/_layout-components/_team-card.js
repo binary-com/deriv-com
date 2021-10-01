@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { QueryImage, Text, Header } from 'components/elements'
 import { LocalizedLink, localize } from 'components/localization'
+import device from 'themes/device'
 
 export const StyledCard = styled(LocalizedLink)`
     text-decoration: none;
@@ -37,15 +38,29 @@ const ImageWrapper = styled.div`
 const StyledContent = styled.div`
     padding: 20px 15px 0 15px;
     width: 100%;
+
+    @media ${device.laptopS} {
+        padding: 10px 15px 0 15px;
+    }
 `
 
 const StyledHeader = styled(Header)`
     font-size: 16px;
     line-height: 24px;
+
+    @media ${device.laptopS} {
+        font-size: 13px;
+        line-height: 20px;
+    }
 `
 const StyledText = styled(Text)`
     font-size: 14px;
     line-height: 20px;
+
+    @media ${device.laptopS} {
+        font-size: 12px;
+        line-height: 18px;
+    }
 `
 
 const TeamCard = ({ to, img_data, display_team_name, tagline }) => (

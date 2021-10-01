@@ -23,7 +23,7 @@ const MarketsNewsWrapper = styled.div`
     @media ${device.tablet} {
         grid-template-columns: auto;
         margin: 0 auto;
-        max-height: auto;
+        max-height: unset;
         padding: 0;
     }
 `

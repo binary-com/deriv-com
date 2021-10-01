@@ -254,8 +254,7 @@ const MarginCalculator = () => {
                                 />
                             ) : (
                                 <Localize
-                                    translate_text="Explore <0>CFD trading</0> on Deriv MT5, and enjoy high leverage and low spreads to increase your returns when the market moves in your favour.
-                                With the calculators and numerous analytical tools available on the Deriv MT5 platform, you’ll be able to manage your capital and trading positions better."
+                                    translate_text="Explore <0>CFD trading</0> on Deriv MT5, and enjoy high leverage and low spreads to increase your returns when the market moves in your favour."
                                     components={[
                                         <LinkText
                                             color="red"

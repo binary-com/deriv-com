@@ -22,7 +22,7 @@ import {
 
 const query = graphql`
     query {
-        mobile_phone: file(relativePath: { eq: "mobile-phone.png" }) {
+        mobile_phone: file(relativePath: { eq: "dmt5/mobile-phone.png" }) {
             ...fadeIn
         }
     }

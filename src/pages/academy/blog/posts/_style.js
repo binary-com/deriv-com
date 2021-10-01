@@ -14,7 +14,7 @@ export const Background = styled.div`
 `
 export const HeroContainer = styled(Container)`
     height: auto;
-    min-height: 566px;
+    min-height: 525px;
     padding: 76px 0 40px;
     align-items: flex-start;
 
@@ -371,15 +371,16 @@ export const RightSocialComponents = styled.div`
     width: auto;
 `
 export const DesktopWrapper = styled(Flex)`
-    @media ${device.tabletS} {
+    @media ${device.laptop} {
         display: none;
     }
 `
 export const MobileWrapper = styled.div`
     display: none;
 
-    @media ${device.tabletS} {
+    @media ${device.laptop} {
         display: flex;
+        justify-content: center;
         width: 100%;
     }
 `

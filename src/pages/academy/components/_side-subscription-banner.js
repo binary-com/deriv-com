@@ -18,7 +18,7 @@ const SubscribeBannerWrapper = styled(Flex)`
     background: var(--color-grey-42);
     border-radius: 8px;
     margin: 40px 0;
-    @media ${device.tabletL} {
+    @media ${device.laptop} {
         max-width: 328px;
         padding: 32px 18.5px;
     }

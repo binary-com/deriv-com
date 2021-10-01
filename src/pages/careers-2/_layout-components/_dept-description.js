@@ -7,7 +7,7 @@ import device from 'themes/device'
 
 const query = graphql`
     {
-        teamfocus: file(relativePath: { eq: "careers/team-focus.jpg" }) {
+        teamfocus: file(relativePath: { eq: "careers-2/operation-1.png" }) {
             ...fadeIn
         }
     }

@@ -24,7 +24,7 @@ const JobWrapper = styled.div`
 `
 
 const OpenPos = (data) => {
-    const hidden = false
+    const hidden = data.data == undefined
     return (
         <SectionContainer>
             <Container fd="column">
@@ -32,7 +32,7 @@ const OpenPos = (data) => {
                     Open positions
                 </Header>
                 {!hidden &&
-                    data.data.map((data, idx) => {
+                    data.data?.map((data, idx) => {
                         return (
                             <PositionLink key={idx} external to={getLink(data.id)}>
                                 <JobWrapper>
@@ -61,7 +61,12 @@ const OpenPos = (data) => {
                     })}
 
                 {!hidden && (
-                    <LinkButton mt="35px" to="/" secondary>
+                    <LinkButton
+                        external
+                        mt="35px"
+                        to="https://deriv.zohorecruit.com/jobs/Careers"
+                        secondary
+                    >
                         See all
                     </LinkButton>
                 )}

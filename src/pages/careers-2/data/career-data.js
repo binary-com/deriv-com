@@ -1,35 +1,14 @@
-import { graphql, useStaticQuery } from 'gatsby'
-
-const query = graphql`
-    {
-        bg_marketing: file(relativePath: { eq: "careers-2/bg_marketing.jpg" }) {
-            ...fadeIn
-        }
-        marketing_1: file(relativePath: { eq: "careers-2/marketing_1.jpg" }) {
-            ...fadeIn
-        }
-        marketing_2: file(relativePath: { eq: "careers-2/marketing_2.jpg" }) {
-            ...fadeIn
-        }
-        marketing_2_mobile: file(relativePath: { eq: "careers-2/marketing_2_mobile.jpg" }) {
-            ...fadeIn
-        }
-    }
-`
-
-const data = useStaticQuery(query)
-
 const career_data = {
     marketing: [
         {
             header: {
-                background: data.bg_marketing,
+                background: 'bg_marketing.png',
                 title: 'Marketing',
                 subtitle:
                     'We are the marketing team and we’re passionate about communications. We’re split into various teams from content creation and digital outreach, to paid acquisition and affiliate marketing support; our marketing department creates and distributes all of our external client communications for the business. Spanning across all our offices, our marketing team are here to support, educate and inform clients and prospectsabout trading across the world.',
             },
             intro_section: {
-                image: data.marketing_1,
+                image: 'marketing_1.png',
                 paragraph: [
                     {
                         text: 'Joining this team means your main focus is our clients, at every point in their journey. Whether they are brand new to trading and want to join, they have just joined, or are a long standing client; we provide the communications to help them along their journey to get the best out of our platforms.',
@@ -40,8 +19,8 @@ const career_data = {
                 ],
             },
             testimony_section: {
-                image: data.marketing_2,
-                image_mobile: data.marketing_2_mobile,
+                image: 'marketing_2.png',
+                image_mobile: 'marketing_2_mobile.png',
                 testimony_headline:
                     '”I joined Deriv in November 2020, in the middle of a global pandemic! I relocated from Wales to join the company as its Content marketing lead which is part of the Marketing team.',
                 paragraph: [

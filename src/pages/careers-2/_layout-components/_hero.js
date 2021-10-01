@@ -1,11 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
-import Container from './_layout-components/_container'
+import Container from './_container'
 import { Header, BackgroundImage } from 'components/elements'
-import { LinkButton } from 'components/form'
-import { zoho_url } from 'common/constants'
-import { LocationContext } from 'components/layout/location-context.js'
 import device from 'themes/device'
 
 const StyledBackGroundImage = styled(BackgroundImage)`
@@ -26,13 +23,8 @@ const Subheadline = styled(Header)`
     max-width: 99.6rem;
 `
 
-const JoinHeader = styled(Header)`
-    margin-bottom: 4.8rem;
-    margin-top: 3.2rem;
-    color: var(--color-white);
-`
-
 const StyledContainer = styled(Container)`
+    max-width: 920px;
     flex-direction: column;
     align-items: flex-start;
     height: 100%;
@@ -40,10 +32,6 @@ const StyledContainer = styled(Container)`
     @media ${device.tablet} {
         padding: 0 2rem;
     }
-`
-
-const RedBanner = styled.span`
-    color: var(--color-red);
 `
 
 const query = graphql`
@@ -54,11 +42,8 @@ const query = graphql`
     }
 `
 
-const Hero = () => {
+const Hero = (header_data) => {
     const data = useStaticQuery(query)
-
-    const { has_mounted } = React.useContext(LocationContext)
-
     return (
         <StyledBackGroundImage
             data={data.image}
@@ -71,27 +56,12 @@ const Hero = () => {
             dark="0.3"
         >
             <StyledContainer>
-                <StyledHeader as="h1" type="display-title">
-                    Be part of something <RedBanner>big</RedBanner>.
+                <StyledHeader align="center" as="h1" type="display-title">
+                    {header_data.data.title}
                 </StyledHeader>
-                <Subheadline as="h3" type="section-title">
-                    We have a huge mission, an incredible team, and rapid growth. But it’s not just
-                    about our success — it’s about yours.
+                <Subheadline align="center" as="h3" type="subtitle-1" weight="400">
+                    {header_data.data.subtitle}
                 </Subheadline>
-                <JoinHeader as="h3" type="section-title" size="3.6rem">
-                    Join and grow with us.
-                </JoinHeader>
-                {has_mounted && (
-                    <LinkButton
-                        secondary="true"
-                        to={zoho_url}
-                        external="true"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        View open positions
-                    </LinkButton>
-                )}
             </StyledContainer>
         </StyledBackGroundImage>
     )

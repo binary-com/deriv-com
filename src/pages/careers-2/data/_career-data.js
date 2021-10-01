@@ -5,7 +5,7 @@ const career_data = {
                 background: 'bg_marketing.png',
                 title: 'Marketing',
                 subtitle:
-                    'We are the marketing team and we’re passionate about communications. We’re split into various teams from content creation and digital outreach, to paid acquisition and affiliate marketing support; our marketing department creates and distributes all of our external client communications for the business. Spanning across all our offices, our marketing team are here to support, educate and inform clients and prospectsabout trading across the world.',
+                    'We are the marketing team and we’re passionate about communications. We’re split into various teams from content creation and digital outreach, to paid acquisition and affiliate marketing support; our marketing department creates and distributes all of our external client communications for the business. Spanning across all our offices, our marketing team are here to support, educate and inform clients and prospects about trading across the world.',
             },
             intro_section: {
                 image: 'marketing_1.png',

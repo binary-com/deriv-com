@@ -27,24 +27,28 @@ const StyledQueryImage = styled(QueryImage)`
     min-width: 300px;
 `
 
-const DeptDescription = () => {
+const DeptDescription = (dept_data) => {
     const data = useStaticQuery(query)
     return (
         <SectionContainer>
             <Container>
                 <Flex fd="row" ai="center" max_width="990px" tablet_direction="column">
                     <StyledQueryImage data={data.teamfocus} />
-                    <Description jc="right" tablet_jc="center">
-                        <Header max_width="510px" type="subtitle-2" as="p" weight="400">
-                            Our department provides a fast-paced environment where you’ll always
-                            find new challenges. We’re a friendly bunch, and every team is aligned
-                            to work together towards a common goal. A normal day could mean
-                            distributing a full scope marketing campaign to clients after our
-                            morning coffee, working on a webinar for affiliates after lunch, and
-                            finishing the day onboarding a brand new affiliate. There are so many
-                            opportunities to get involved in and with so many different aspects of
-                            marketing to learn, the career opportunities are endless.
-                        </Header>
+                    <Description fd="column" jc="right" tablet_jc="center">
+                        {dept_data.data.paragraph.map((data, idx) => {
+                            return (
+                                <Header
+                                    mb="15px"
+                                    key={idx}
+                                    max_width="510px"
+                                    type="subtitle-2"
+                                    as="p"
+                                    weight="400"
+                                >
+                                    {data.text}
+                                </Header>
+                            )
+                        })}
                     </Description>
                 </Flex>
             </Container>

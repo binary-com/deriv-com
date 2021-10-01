@@ -46,6 +46,7 @@ const Wrapper = styled(Flex)`
     height: 100%;
     max-width: 1440px;
     margin: 0 auto;
+    background: linear-gradient(66.11deg, #000000 24.94%, rgba(0, 0, 0, 0) 83.1%);
 
     h1 {
         margin-bottom: 20px;
@@ -53,12 +54,27 @@ const Wrapper = styled(Flex)`
     @media screen and (min-width: 1980px) {
         max-width: 1900px;
     }
+    @media ${device.tabletL} {
+        background: linear-gradient(76.78deg, #000000 30.72%, rgba(0, 0, 0, 0) 97.58%);
+    }
     @media screen and (max-width: 500px) {
         padding: 2rem 4rem;
     }
 `
+const DesktopWrapper = styled(Flex)`
+    @media ${device.tabletS} {
+        display: none;
+    }
+`
+const MobileWrapper = styled.div`
+    display: none;
 
-const Hero = ({ heroImage, title, description }) => (
+    @media ${device.tabletS} {
+        display: flex;
+    }
+`
+
+const Hero = ({ heroImage, mobileHeroImage, title, description }) => (
     <MainWrapper>
         <Wrapper>
             <Title
@@ -80,13 +96,19 @@ const Hero = ({ heroImage, title, description }) => (
                 {description}
             </TextWrapper>
         </Wrapper>
-        <ImageWrapper>{heroImage}</ImageWrapper>
+        <DesktopWrapper>
+            <ImageWrapper>{heroImage}</ImageWrapper>
+        </DesktopWrapper>
+        <MobileWrapper>
+            <ImageWrapper>{mobileHeroImage}</ImageWrapper>
+        </MobileWrapper>
     </MainWrapper>
 )
 
 Hero.propTypes = {
     description: PropTypes.any,
     heroImage: PropTypes.any,
+    mobileHeroImage: PropTypes.any,
     title: PropTypes.any,
 }
 

@@ -31,10 +31,22 @@ export const query = graphql`
                 link
                 heading
                 sub_heading
-                image {
+                desktop_hero: image {
                     imageFile {
                         childImageSharp {
                             gatsbyImageData
+                        }
+                    }
+                    id
+                }
+                mobile_hero: image {
+                    imageFile {
+                        childImageSharp {
+                            gatsbyImageData(
+                                transformOptions: { cropFocus: EAST }
+                                width: 623
+                                height: 700
+                            )
                         }
                     }
                     id
@@ -370,8 +382,14 @@ const DerivBlog = ({ data }) => {
                                 <Hero
                                     heroImage={
                                         <QueryImage
-                                            data={page_data.image.imageFile}
-                                            alt={page_data.image.description || ''}
+                                            data={page_data.desktop_hero.imageFile}
+                                            alt={page_data.desktop_hero.description || ''}
+                                        />
+                                    }
+                                    mobileHeroImage={
+                                        <QueryImage
+                                            data={page_data.mobile_hero.imageFile}
+                                            alt={page_data.mobile_hero.description || ''}
                                         />
                                     }
                                     title={page_data.heading}

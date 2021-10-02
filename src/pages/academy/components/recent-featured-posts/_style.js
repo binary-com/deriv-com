@@ -46,7 +46,18 @@ export const RightContent = styled(Flex)`
     justify-content: start;
     max-height: 464px;
     padding-right: 8px;
-    overflow: hidden auto;
+    overflow: hidden scroll;
+
+    &::-webkit-scrollbar {
+        width: 4px;
+    }
+    &::-webkit-scrollbar-track {
+        background: var(--color-white);
+    }
+    &::-webkit-scrollbar-thumb {
+        background: var(--color-grey-7);
+        border-radius: 4px;
+    }
 
     @media ${device.desktopL} {
         max-height: 600px;

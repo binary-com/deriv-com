@@ -109,7 +109,7 @@ const DisclaimerSection = () => {
                 </DisclaimerParagraph>
                 <DisclaimerParagraph>
                     {localize(
-                        'Trading options may not be suitable for everyone, so please ensure that you fully understand the risks involved. Your losses can exceed your initial deposit and you do not own or have any interest in the underlying asset.',
+                        'Trading options may not be suitable for everyone, so please ensure that you fully understand the risks involved.',
                     )}
                 </DisclaimerParagraph>
                 <RiskWarning>

@@ -107,6 +107,11 @@ const DisclaimerSection = () => {
                         "This website's services are not made available in certain countries, including the USA, Canada, and Hong Kong, or to persons below 18.",
                     )}
                 </DisclaimerParagraph>
+                <DisclaimerParagraph>
+                    {localize(
+                        'Trading options may not be suitable for everyone, so please ensure that you fully understand the risks involved. Your losses can exceed your initial deposit and you do not own or have any interest in the underlying asset.',
+                    )}
+                </DisclaimerParagraph>
                 <RiskWarning>
                     <Show.Desktop>
                         <Show.NonEU>

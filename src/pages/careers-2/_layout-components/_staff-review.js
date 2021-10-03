@@ -8,10 +8,58 @@ import { isBrowser } from 'common/utility'
 
 const query = graphql`
     {
-        image: file(relativePath: { eq: "careers-2/product-2.png" }) {
+        marketing_2: file(relativePath: { eq: "careers-2/marketing-2.png" }) {
             ...fadeIn
         }
-        image_mobile: file(relativePath: { eq: "careers-2/product-2-mobile.png" }) {
+        marketing_2_mobile: file(relativePath: { eq: "careers-2/marketing-2-mobile.png" }) {
+            ...fadeIn
+        }
+        recruitment_2: file(relativePath: { eq: "careers-2/recruitment-2.png" }) {
+            ...fadeIn
+        }
+        recruitment_2_mobile: file(relativePath: { eq: "careers-2/recruitment-2-mobile.png" }) {
+            ...fadeIn
+        }
+        accounts_2: file(relativePath: { eq: "careers-2/accounts-2.png" }) {
+            ...fadeIn
+        }
+        accounts_2_mobile: file(relativePath: { eq: "careers-2/accounts-2-mobile.png" }) {
+            ...fadeIn
+        }
+        payments_2: file(relativePath: { eq: "careers-2/payments-2.png" }) {
+            ...fadeIn
+        }
+        payments_2_mobile: file(relativePath: { eq: "careers-2/payments-2-mobile.png" }) {
+            ...fadeIn
+        }
+        tech_2: file(relativePath: { eq: "careers-2/tech-2.png" }) {
+            ...fadeIn
+        }
+        tech_2_mobile: file(relativePath: { eq: "careers-2/tech-2-mobile.png" }) {
+            ...fadeIn
+        }
+        product_2: file(relativePath: { eq: "careers-2/product-2.png" }) {
+            ...fadeIn
+        }
+        product_2_mobile: file(relativePath: { eq: "careers-2/product-2-mobile.png" }) {
+            ...fadeIn
+        }
+        operations_2: file(relativePath: { eq: "careers-2/operations-2.png" }) {
+            ...fadeIn
+        }
+        operations_2_mobile: file(relativePath: { eq: "careers-2/operations-2-mobile.png" }) {
+            ...fadeIn
+        }
+        cs_2: file(relativePath: { eq: "careers-2/cs-2.png" }) {
+            ...fadeIn
+        }
+        cs_2_mobile: file(relativePath: { eq: "careers-2/cs-2-mobile.png" }) {
+            ...fadeIn
+        }
+        compliance_2: file(relativePath: { eq: "careers-2/compliance-2.png" }) {
+            ...fadeIn
+        }
+        compliance_2_mobile: file(relativePath: { eq: "careers-2/compliance-2-mobile.png" }) {
             ...fadeIn
         }
     }
@@ -22,7 +70,8 @@ const Description = styled(Flex)`
 
     @media ${device.tablet} {
         margin-left: unset;
-        margin-top: 50px;
+        margin-top: 20px;
+        padding: 0 11.5px 24px;
     }
 `
 
@@ -69,7 +118,11 @@ const StaffReview = (review_data) => {
                     <Flex jc="left" tablet_direction="column" tablet_ai="center">
                         <StyledQueryImage
                             b_radius="8px 0 0 8px"
-                            data={is_mobile ? data.image_mobile : data.image}
+                            data={
+                                is_mobile
+                                    ? data[review_data.data.image_mobile]
+                                    : data[review_data.data.image]
+                            }
                         />
                     </Flex>
                     <Description fd="column" jc="right" tablet_jc="center">

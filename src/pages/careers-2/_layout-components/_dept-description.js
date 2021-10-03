@@ -7,24 +7,49 @@ import device from 'themes/device'
 
 const query = graphql`
     {
-        teamfocus: file(relativePath: { eq: "careers-2/operation-1.png" }) {
+        operation_1: file(relativePath: { eq: "careers-2/operation-1.png" }) {
+            ...fadeIn
+        }
+        marketing_1: file(relativePath: { eq: "careers-2/marketing-1.png" }) {
+            ...fadeIn
+        }
+        recruitment_1: file(relativePath: { eq: "careers-2/recruitment-1.png" }) {
+            ...fadeIn
+        }
+        accounts_1: file(relativePath: { eq: "careers-2/accounts-1.png" }) {
+            ...fadeIn
+        }
+        payments_1: file(relativePath: { eq: "careers-2/payments-1.png" }) {
+            ...fadeIn
+        }
+        tech_1: file(relativePath: { eq: "careers-2/tech-1.png" }) {
+            ...fadeIn
+        }
+        product_1: file(relativePath: { eq: "careers-2/product-1.png" }) {
+            ...fadeIn
+        }
+        cs_1: file(relativePath: { eq: "careers-2/cs-1.png" }) {
+            ...fadeIn
+        }
+        compliance_1: file(relativePath: { eq: "careers-2/operation-1.png" }) {
             ...fadeIn
         }
     }
 `
 
 const Description = styled(Flex)`
+    align-items: flex-end;
     margin-left: 50px;
 
     @media ${device.tablet} {
+        align-items: center;
         margin-left: unset;
         margin-top: 50px;
     }
 `
 
 const StyledQueryImage = styled(QueryImage)`
-    max-width: 330px;
-    min-width: 300px;
+    max-width: 384px;
 `
 
 const DeptDescription = (dept_data) => {
@@ -33,7 +58,9 @@ const DeptDescription = (dept_data) => {
         <SectionContainer>
             <Container>
                 <Flex fd="row" ai="center" max_width="990px" tablet_direction="column">
-                    <StyledQueryImage data={data.teamfocus} />
+                    <Flex max_width="384px">
+                        <StyledQueryImage data={data[dept_data.data.image]} />
+                    </Flex>
                     <Description fd="column" jc="right" tablet_jc="center">
                         {dept_data.data.paragraph.map((data, idx) => {
                             return (

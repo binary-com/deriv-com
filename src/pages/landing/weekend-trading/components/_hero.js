@@ -10,11 +10,6 @@ import { LinkButton } from 'components/form'
 import device from 'themes/device.js'
 
 const BackgroundWrapper = styled(Background)`
-    background-size: cover;
-    background-position: bottom right;
-    @media ${device.desktopL} {
-        height: 73rem;
-    }
     @media ${device.desktop} {
         height: 65rem;
     }
@@ -123,13 +118,7 @@ const HeroComponent = ({ title, content, background_data }) => {
                     <HeroContent direction="column" justify="flex-start">
                         <Header type="subtitle-1">{content}</Header>
                     </HeroContent>
-                    <TryButton
-                        target="_blank"
-                        rel="noopener noreferrer nofollow"
-                        type="submit"
-                        secondary="true"
-                        to={'/signup/'}
-                    >
+                    <TryButton secondary="true" to={'/signup/'}>
                         {localize('Get trading')}
                     </TryButton>
                 </InformationWrapper>

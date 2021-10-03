@@ -3,15 +3,16 @@ import Hero from './_hero'
 import DeptDescription from './_dept-description'
 import OpenPos from './_open-positions'
 import StaffReview from './_staff-review'
+import Layout from 'components/layout/layout'
 
 const DepartmentPage = (data) => {
     return (
-        <>
+        <Layout type="careers">
             <Hero data={data.data.header} />
             <DeptDescription data={data.data.intro_section} />
             <OpenPos data={data.data.open_position} />
             <StaffReview data={data.data.testimony_section} />
-        </>
+        </Layout>
     )
 }
 

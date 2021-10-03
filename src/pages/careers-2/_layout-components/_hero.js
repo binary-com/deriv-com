@@ -16,11 +16,19 @@ const StyledBackGroundImage = styled(BackgroundImage)`
 const StyledHeader = styled(Header)`
     margin-bottom: 2.4rem;
     color: var(--color-white);
+
+    @media ${device.tablet} {
+        text-align: left;
+    }
 `
 
 const Subheadline = styled(Header)`
     color: var(--color-white);
     max-width: 99.6rem;
+
+    @media ${device.tablet} {
+        text-align: left;
+    }
 `
 
 const StyledContainer = styled(Container)`

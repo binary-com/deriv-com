@@ -72,8 +72,8 @@ const OpenPos = (data) => {
                 )}
 
                 {hidden && (
-                    <Header type="subtitle-1" align="center">
-                        No open positions available at the moment
+                    <Header type="subtitle-1" align="center" color="grey-5">
+                        Sorry, there are currently no open positions.
                     </Header>
                 )}
             </Container>

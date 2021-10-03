@@ -7,7 +7,7 @@ import device from 'themes/device'
 
 const query = graphql`
     {
-        operation_1: file(relativePath: { eq: "careers-2/operation-1.png" }) {
+        operations_1: file(relativePath: { eq: "careers-2/operations-1.png" }) {
             ...fadeIn
         }
         marketing_1: file(relativePath: { eq: "careers-2/marketing-1.png" }) {

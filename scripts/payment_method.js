@@ -216,7 +216,7 @@ const filterFunctions = {
                 .map((d) => {
                     filterFunctions.sanitize(d)
 
-                    const { key, platform } = d
+                    const { key, platform,reference } = d
                     const file_name = escapeStr(key)
 
                     const details = {}
@@ -231,7 +231,7 @@ const filterFunctions = {
                         return {
                             ...d,
                             logo: ucWord(sentencizeStr(key, '-')),
-                            reference: `${file_name}.pdf`,
+                            reference: reference.toLowerCase() === "yes" ?  `${file_name}.pdf` : '',
                         }
                     }
 

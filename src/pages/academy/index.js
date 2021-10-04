@@ -10,7 +10,7 @@ import MarketNews from './components/_markets-news'
 import Layout from 'components/layout/layout'
 import { Container, SEO, Flex } from 'components/containers'
 import { localize, WithIntl } from 'components/localization'
-import { Carousel, QueryImage } from 'components/elements'
+import { Carousel } from 'components/elements'
 import { DerivStore } from 'store'
 
 const MainWrapper = styled(Flex)`
@@ -34,22 +34,13 @@ export const query = graphql`
                 desktop_hero: image {
                     imageFile {
                         childImageSharp {
-                            gatsbyImageData
+                            fluid(quality: 100) {
+                                ...GatsbyImageSharpFluid_withWebp
+                            }
                         }
                     }
                     id
-                }
-                mobile_hero: image {
-                    imageFile {
-                        childImageSharp {
-                            gatsbyImageData(
-                                transformOptions: { cropFocus: EAST }
-                                width: 623
-                                height: 700
-                            )
-                        }
-                    }
-                    id
+                    description
                 }
             }
             market_news: blog(
@@ -380,18 +371,8 @@ const DerivBlog = ({ data }) => {
                                 target="_blank"
                             >
                                 <Hero
-                                    heroImage={
-                                        <QueryImage
-                                            data={page_data.desktop_hero.imageFile}
-                                            alt={page_data.desktop_hero.description || ''}
-                                        />
-                                    }
-                                    mobileHeroImage={
-                                        <QueryImage
-                                            data={page_data.mobile_hero.imageFile}
-                                            alt={page_data.mobile_hero.description || ''}
-                                        />
-                                    }
+                                    imageData={page_data.desktop_hero.imageFile}
+                                    imageAlt={page_data?.desktop_hero?.description}
                                     title={page_data.heading}
                                     description={page_data.sub_heading}
                                 />

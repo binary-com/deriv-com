@@ -44,7 +44,7 @@ const Titlebtn = ({ btnlabel, text }) => {
                 <StyledText mt="16px" pl="2rem" pr="2rem" size="3.2rem" weight="700">
                     {text}
                 </StyledText>
-                <TryButton m="4.2rem 0 40px" secondary="true" to={'/signup/'}>
+                <TryButton m="4.2rem 0 40px" secondary="true" to="/signup/">
                     {btnlabel}
                 </TryButton>
             </StyledContainer>

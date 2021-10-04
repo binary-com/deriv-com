@@ -224,7 +224,7 @@ const HowOptionsWorks = () => {
                         label={<Localize translate_text="4. Multiplier value" />}
                         description={
                             is_eu_country ? (
-                                <Localize translate_text="Your profit or loss is multiplied by the multiplier value, which depending on the asset you trade, can be from 1 to 5. Your loss will never be more than your stake." />
+                                <Localize translate_text="Your profit or loss is multiplied by the multiplier value, which depending on the asset you trade, can be from 1 to 30. Your loss will never be more than your stake." />
                             ) : (
                                 <Localize translate_text="Enter the multiplier value of your choice. Your profit or loss will be multiplied by this amount." />
                             )

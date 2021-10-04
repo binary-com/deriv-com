@@ -14,7 +14,7 @@ const StyledBackground = styled(BackgroundImage)`
     background-size: cover;
     background-color: transparent;
     background-repeat: no-repeat, no-repeat;
-    background-position: center, center;
+    background-position: center, center right;
 
     @media ${device.tabletL} {
         height: 650px;
@@ -23,11 +23,11 @@ const StyledBackground = styled(BackgroundImage)`
     @media ${device.tablet} {
         height: 400px;
         object-fit: cover;
-        background-position: top right 15% !important;
+        background-position: center right 15% !important;
 
         ::before,
         ::after {
-            background-position: top right 15% !important;
+            background-position: center right 15% !important;
         }
     }
 `

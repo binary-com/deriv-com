@@ -29,7 +29,7 @@ Background.propTypes = {
     brightness: PropTypes.string,
     children: PropTypes.node,
     dark: PropTypes.string,
-    data: PropTypes.object,
+    data: PropTypes.any,
     fluid: PropTypes.array,
     img_name: PropTypes.string,
     style: PropTypes.object,

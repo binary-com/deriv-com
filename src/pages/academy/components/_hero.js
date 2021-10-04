@@ -15,7 +15,7 @@ const StyledBackground = styled(BackgroundImage)`
     background-repeat: no-repeat, no-repeat;
     background-position: center, center;
 
-    @media ${device.tablet} {
+    @media ${device.tabletL} {
         height: 650px;
     }
 

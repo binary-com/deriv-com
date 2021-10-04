@@ -5,6 +5,7 @@ import { TextWrapper, Title } from './_common'
 import device from 'themes/device.js'
 import { Flex } from 'components/containers'
 import { BackgroundImage } from 'components/elements'
+import { useBrowserResize } from 'components/hooks/use-browser-resize'
 
 const StyledBackground = styled(BackgroundImage)`
     width: 100%;
@@ -53,10 +54,12 @@ const Wrapper = styled(Flex)`
 `
 
 const Hero = ({ imageAlt, imageData, title, description }) => {
-    const backgroundFluidImageStack = [
-        imageData.childImageSharp.fluid,
-        `linear-gradient(66.11deg, #000000 24.94%, rgba(0, 0, 0, 0) 83.1%)`,
-    ].reverse()
+    const [is_mobile] = useBrowserResize()
+    const linear_bg_value = is_mobile
+        ? `linear-gradient(76.78deg, #000000 30.72%, rgba(0, 0, 0, 0) 97.58%)`
+        : `linear-gradient(66.11deg, #000000 24.94%, rgba(0, 0, 0, 0) 83.1%)`
+
+    const backgroundFluidImageStack = [imageData.childImageSharp.fluid, linear_bg_value].reverse()
 
     return (
         <>

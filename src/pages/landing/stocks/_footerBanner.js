@@ -160,6 +160,7 @@ const FooterBanner = ({ background_pattern, data, is_ppc, small_title, title }) 
                         </StyledHeaderSmall>
                         <BtnDiv>
                             <StyledLinkButton
+                                id="dm-footerbanner-signup-1"
                                 type="submit"
                                 secondary="true"
                                 to={is_ppc ? '/landing/signup/' : '/signup/'}

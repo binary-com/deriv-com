@@ -9,7 +9,7 @@ const getNavigationMap = (type) => {
                 trade: ['dtrader', 'dbot', 'dmt5', 'trade-types'],
                 markets: ['markets'],
                 about: [
-                    'about',
+                    'story',
                     'regulatory',
                     'why-choose-us',
                     'partners',

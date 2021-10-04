@@ -90,19 +90,12 @@ const DisclaimerSection = () => {
                     </DisclaimerParagraph>
                     <DisclaimerParagraph>
                         <Localize
-                            translate_text="Deriv (Europe) Limited, W Business Centre, Level 3, Triq Dun Karm, Birkirkara BKR 9033, Malta, is licensed and regulated for synthetic indices by the Malta Gaming Authority (<0>licence no. MGA/B2C/102/2000</0>), by the Gambling Commission for clients in Great Britain (<1>account no. 39495</1>), and by the Revenue Commissioners for clients in Ireland (licence no. 1010285)."
+                            translate_text="Deriv (Europe) Limited, W Business Centre, Level 3, Triq Dun Karm, Birkirkara BKR 9033, Malta, is licensed and regulated for synthetic indices by the Malta Gaming Authority (<0>licence no. MGA/B2C/102/2000</0>) and by the Revenue Commissioners for clients in Ireland (licence no. 1010285)."
                             components={[
                                 <StaticAsset
                                     key={0}
                                     target="_blank"
                                     href="/regulatory/Deriv_(Europe)_Limited.pdf"
-                                    rel="noopener noreferrer"
-                                />,
-                                <StaticAssetLink
-                                    external="true"
-                                    key={1}
-                                    target="_blank"
-                                    to="https://www.gamblingcommission.gov.uk/public-register/business/detail/39495"
                                     rel="noopener noreferrer"
                                 />,
                             ]}
@@ -112,6 +105,11 @@ const DisclaimerSection = () => {
                 <DisclaimerParagraph>
                     {localize(
                         "This website's services are not made available in certain countries, including the USA, Canada, and Hong Kong, or to persons below 18.",
+                    )}
+                </DisclaimerParagraph>
+                <DisclaimerParagraph>
+                    {localize(
+                        'Trading options may not be suitable for everyone, so please ensure that you fully understand the risks involved.',
                     )}
                 </DisclaimerParagraph>
                 <RiskWarning>

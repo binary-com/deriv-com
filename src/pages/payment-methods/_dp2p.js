@@ -9,7 +9,7 @@ import { localize, Localize } from 'components/localization'
 import { deriv_dp2p_app_url, dp2p_google_play_url } from 'common/constants'
 import { isBrowser } from 'common/utility'
 import { mobileOSDetect } from 'common/os-detect'
-import Checkmark from 'images/svg/checkmark.svg'
+import Checkmark from 'images/svg/dmt5/checkmark.svg'
 
 const query = graphql`
     query {

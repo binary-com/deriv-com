@@ -5,9 +5,9 @@ import { localize, LocalizedLink } from 'components/localization'
 import { Container, SectionContainer, Flex } from 'components/containers'
 // import device from 'themes/device'
 // Icons
-import { ReactComponent as PartnerAffiliate } from 'images/svg/partner-affiliate.svg'
-import { ReactComponent as PartnerPaymentAgent } from 'images/svg/partner-payment-agent.svg'
-import { ReactComponent as DeveloperProgramme } from 'images/svg/developer-programme.svg'
+import { ReactComponent as PartnerAffiliate } from 'images/svg/partners/partner-affiliate.svg'
+import { ReactComponent as PartnerPaymentAgent } from 'images/svg/partners/partner-payment-agent.svg'
+import { ReactComponent as DeveloperProgramme } from 'images/svg/partners/developer-programme.svg'
 
 const ClientCard = styled(LocalizedLink)`
     ${CardStyle}

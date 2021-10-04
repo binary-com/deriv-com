@@ -5,8 +5,8 @@ import { Flex, Show } from 'components/containers'
 import { CardStyle, Header, Text } from 'components/elements'
 import { LinkButton } from 'components/form'
 import { Localize } from 'components/localization'
-import Checkmark from 'images/svg/checkmark.svg'
-import ZeroPercent from 'images/svg/zero_percent.svg'
+import Checkmark from 'images/svg/dmt5/checkmark.svg'
+import ZeroPercent from 'images/svg/dmt5/zero_percent.svg'
 import device from 'themes/device'
 
 const ImageWrapper = styled.div`

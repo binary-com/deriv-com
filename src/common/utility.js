@@ -262,3 +262,14 @@ export const addScript = (settings) => {
 
     document.body.appendChild(script)
 }
+
+// Function to manualy replace server's locale ("zh_tw" or "zh_cn")  to "zh-tw"/"zh-cn"
+export const replaceLocale = (locale) => {
+    let checked_locale = locale
+    if (locale === 'zh_tw') {
+        checked_locale = 'zh-tw'
+    } else if (locale === 'zh_cn') {
+        checked_locale = 'zh-cn'
+    }
+    return checked_locale
+}

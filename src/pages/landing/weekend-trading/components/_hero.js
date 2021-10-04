@@ -10,7 +10,15 @@ import { LinkButton } from 'components/form'
 import device from 'themes/device.js'
 
 const BackgroundWrapper = styled(Background)`
+    background-size: cover;
+    background-position: bottom right;
+    @media ${device.desktopL} {
+        height: 80rem;
+    }
     @media ${device.desktop} {
+        height: 75rem;
+    }
+    @media ${device.laptop} {
         height: 65rem;
     }
     @media ${device.tabletL} {
@@ -34,6 +42,7 @@ const BackgroundWrapper = styled(Background)`
 `
 
 const Wrapper = styled(Container)`
+    margin-left: clamp(30px, 7%, 110px);
     @media ${device.tabletS} {
         margin-left: 0;
         padding: 2.1rem 16px 0;
@@ -43,8 +52,8 @@ const Wrapper = styled(Container)`
 `
 
 const InformationWrapper = styled(Flex)`
-    width: 100%;
     max-width: 71rem;
+    width: 100%;
     z-index: 1;
 
     @media ${device.tabletL} {
@@ -65,9 +74,13 @@ const HeroContent = styled(Flex)`
         font-weight: 350;
         color: var(--color-black-3);
         display: flex;
-        margin-top: 1rem;
+        margin-top: 3rem;
     }
-
+    @media ${device.laptopS} {
+        ${Header} {
+            margin: 20px 0 0;
+        }
+    }
     @media ${device.mobileL} {
         ${Header} {
             margin: 10px 0 0;

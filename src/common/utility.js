@@ -262,6 +262,8 @@ export const addScript = (settings) => {
 
     document.body.appendChild(script)
 }
+// Function to get the user selected language, can be used in the future once need to check other languages
+export const isChoosenLanguage = () => ({ english: getLanguage() === 'en' })
 
 // Function to manually replace server's locale ("zh_tw" or "zh_cn")  to "zh-tw"/"zh-cn"
 export const replaceLocale = (locale) => {

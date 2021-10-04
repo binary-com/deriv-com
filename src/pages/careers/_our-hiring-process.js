@@ -386,7 +386,7 @@ const OurHiringProcess = () => (
 
         <StyledContainer>
             <StyledAnotherHeader as="h3" type="section-title" align="center">
-                Make an impact. Start your Deriv journey <span>now</span>
+                Make an impact. Start your Deriv journey <span>now</span>.
             </StyledAnotherHeader>
             <StyledLinkButton
                 secondary="true"

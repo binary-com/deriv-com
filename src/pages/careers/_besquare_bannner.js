@@ -142,7 +142,7 @@ const BeSquareBanner = () => {
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            Join BeSquare
+                            Apply now
                         </StyledLinkButton>
                     </StyledDiv>
                     <Show.Desktop>

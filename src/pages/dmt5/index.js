@@ -7,6 +7,7 @@ import {
     Flexibility,
     DBanner,
     MarginCalculator,
+    SwapFreeTrading,
 } from './_lazy-load'
 import Numbers from './_numbers'
 import WhatIsTrader from './_what-is-trader'
@@ -73,7 +74,7 @@ const DMT5 = () => {
                 meta_attributes={meta_attributes}
             />
             <DHero
-                title={localize('Deriv MetaTrader 5 (DMT5)')}
+                title={localize('Deriv MT5 (DMT5)')}
                 content={<Localize translate_text="The all-in-one CFD trading platform" />}
                 join_us_for_free
                 Logo={dmt5_logo}
@@ -97,7 +98,7 @@ const DMT5 = () => {
             <MarginCalculator />
             <Flexibility />
             {/* TODO: add/revise this section when swap free trading design is ready */}
-            {/* <SwapFreeTrading /> */}
+            <SwapFreeTrading />
             <StaticQuery
                 query={query}
                 render={(data) => (

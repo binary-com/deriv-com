@@ -1,10 +1,9 @@
-/* eslint-disable no-unused-vars */
 import React from 'react'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import TeamCard from './_layout-components/_team-card'
 import { Container, CssGrid, SectionContainer } from 'components/containers'
-import { Text, Header } from 'components/elements'
+import { Header } from 'components/elements'
 import device from 'themes/device'
 
 const DiffHeader = styled(Header)`

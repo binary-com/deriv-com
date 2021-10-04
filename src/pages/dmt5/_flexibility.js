@@ -33,34 +33,33 @@ const content = [
             <Localize translate_text="Trade CFDs on our exclusive, proprietary synthetic indices 24/7 which simulate real-world market movements." />
         ),
         icon: <StyledSyntheticIcon src={SyntheticIcon} alt="" />,
+        show_always: true,
     },
     {
         header: <Localize translate_text="Financial" />,
         text: (
-            <Localize translate_text="Trade forex, commodities, cryptocurrencies, major (standard and micro-lots), and minor currency pairs on high leverage." />
-        ),
-        icon: <StyledFinancialIcon src={FinancialIcon} alt="" />,
-    },
-    {
-        header: <Localize translate_text="Financial STP" />,
-        text: (
-            <Localize translate_text="Trade major, minor, and exotic currency pairs with tight spreads and higher trade volumes, straight to the market." />
-        ),
-        icon: <StyledFinancialStpIcon src={FinancialStpIcon} alt="" />,
-    },
-]
-
-const eucontent = [
-    {
-        header: <Localize translate_text="CFDs" />,
-        text: (
-            <Localize translate_text="Trade forex, stocks, stock indices, commodities, synthetic indices, and cryptocurrencies with leverage." />
+            <Localize translate_text="Trade major (standard and micro-lots) and minor currency pairs, stocks, stock indices, commodities, and cryptocurrencies." />
         ),
         icon: <StyledFinancialIcon src={FinancialIcon} alt="" />,
         show_eu: true,
     },
+    {
+        header: <Localize translate_text="Financial" />,
+        text: (
+            <Localize translate_text="Trade major (standard and micro-lots) and minor currency pairs, stocks, stock indices, commodities, and cryptocurrencies with high leverage." />
+        ),
+        icon: <StyledFinancialIcon src={FinancialIcon} alt="" />,
+        show_eu: false,
+    },
+    {
+        header: <Localize translate_text="Financial STP" />,
+        text: (
+            <Localize translate_text="Trade major, minor, and exotic currency pairs, and cryptocurrencies with tight spreads and higher trade volumes, straight to the market." />
+        ),
+        icon: <StyledFinancialStpIcon src={FinancialStpIcon} alt="" />,
+        show_always: true,
+    },
 ]
-
 const Section = styled(SectionContainer)`
     display: flex;
     padding: 8rem 12rem;
@@ -127,8 +126,6 @@ const StyledText = styled(Text)`
 const Flexibility = () => {
     const { is_eu_country } = React.useContext(DerivStore)
 
-    const chosen_content = is_eu_country ? eucontent : content
-
     return (
         <Section>
             <StyledHeader
@@ -139,12 +136,10 @@ const Flexibility = () => {
                 type="page-title"
                 mb="4rem"
             >
-                {is_eu_country
-                    ? localize('Flexibility with multiple markets')
-                    : localize('Flexibility with multiple account types')}
+                {localize('Flexibility with multiple account types')}
             </StyledHeader>
             <Flex mb="4rem" tablet_direction="column" tablet_ai="center" tablet={{ m: '0' }}>
-                {chosen_content.map((item, idx) => {
+                {content.map((item, idx) => {
                     return (
                         ((is_eu_country && item.show_eu) ||
                             (!is_eu_country && !item.show_eu) ||

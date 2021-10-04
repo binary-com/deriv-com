@@ -61,7 +61,7 @@ const AdditionalEUSection = () => {
             <Show.Mobile>
                 <EuLogoWrapper mt="1rem" ai="center">
                     <LocalizedLink
-                        external="true"
+                        external="trues"
                         to="https://www.gov.im/categories/business-and-industries/gambling-and-e-gaming/"
                         target="_blank"
                         rel="noopener noreferrer"

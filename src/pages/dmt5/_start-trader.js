@@ -8,7 +8,6 @@ import { localize, Localize, LocalizedLink } from 'components/localization'
 import Login from 'common/login'
 import device, { size } from 'themes/device'
 import { isBrowser } from 'common/utility'
-import { DerivStore } from 'store'
 
 const query = graphql`
     query {
@@ -164,9 +163,6 @@ const StartTrader = () => {
     const handleLogin = () => {
         return Login.loginUrl()
     }
-
-    const { is_eu_country } = React.useContext(DerivStore)
-
     return (
         <Section>
             <StyledHeader align="center" mb="4rem" as="h2" type="page-title">
@@ -276,11 +272,7 @@ const StartTrader = () => {
                         <SideTab.Panel
                             label=""
                             description={
-                                is_eu_country ? (
-                                    <Localize translate_text="Create a Deriv real money account." />
-                                ) : (
-                                    <Localize translate_text="Create a Deriv real account." />
-                                )
+                                <Localize translate_text="Create a Deriv real money account" />
                             }
                         >
                             <ImageWrapper>
@@ -293,11 +285,7 @@ const StartTrader = () => {
                         <SideTab.Panel
                             label=""
                             description={
-                                is_eu_country ? (
-                                    <Localize translate_text="Create a CFDs real account based on your trade preference." />
-                                ) : (
-                                    <Localize translate_text="Create a DMT5 real money account based on your trade preference." />
-                                )
+                                <Localize translate_text="Create a DMT5 real money account based on your trade preference" />
                             }
                         >
                             <ImageWrapper>

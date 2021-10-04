@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { zoho_career_url } from '../../../common/constants'
 import { SectionContainer, Container, Flex } from 'components/containers'
 import { Header } from 'components/elements'
 import { LocalizedLink } from 'components/localization'
@@ -23,7 +24,7 @@ const JobWrapper = styled.div`
     padding: 24px 35px 24px 18px;
 `
 
-const OpenPos = (data) => {
+const OpenPositions = (data) => {
     const hidden = data.data == undefined
     return (
         <SectionContainer>
@@ -61,12 +62,7 @@ const OpenPos = (data) => {
                     })}
 
                 {!hidden && (
-                    <LinkButton
-                        external
-                        mt="35px"
-                        to="https://deriv.zohorecruit.com/jobs/Careers"
-                        secondary
-                    >
+                    <LinkButton external mt="35px" to={zoho_career_url} secondary>
                         See all
                     </LinkButton>
                 )}
@@ -81,4 +77,4 @@ const OpenPos = (data) => {
     )
 }
 
-export default OpenPos
+export default OpenPositions

@@ -15,7 +15,7 @@ const AllVideos = ({ video_data }) => {
         show ? (document.body.style.overflow = 'hidden') : (document.body.style.overflow = 'unset')
     }, [show])
 
-    const play_video_src = `http://cms.deriv.cloud/assets/${play_video_id}`
+    const play_video_src = `https://cms.deriv.cloud/assets/${play_video_id}`
 
     const openVideo = (video_id) => {
         setPlayVideoId(video_id)

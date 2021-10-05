@@ -89,6 +89,9 @@ const TextWrapper = styled.div`
         margin-top: 35px;
         margin-bottom: 40px;
     }
+    @media (min-width: 1351px) and (max-width: 1385px) {
+        margin-right: 60px;
+    }
 `
 const DemoButton = styled.div`
     text-align: center;

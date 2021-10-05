@@ -105,7 +105,10 @@ const career_data = {
                         text: "Our team handles performance management for all of Deriv's workforce — from searching, onboarding, developing, motivating, and retaining high-performing employees. We design and implement practices and strategies to improve business performance by cultivating every employee's productivity.",
                     },
                     {
-                        text: 'A challenge I faced before was my inexperience when I started my current role. Nonetheless, the company gave me every opportunity to study and learn employee performance management. There is a positive and energetic culture within our team, and everyone has endless opportunities to grow and improve.',
+                        text: 'A challenge I faced before was my inexperience when I started my current role. Nonetheless, the company gave me every opportunity to study and learn employee performance management.',
+                    },
+                    {
+                        text: 'There is a positive and energetic culture within our team, and everyone has endless opportunities to grow and improve.',
                     },
                     {
                         text: 'Diversity is one of my favorite things about working at Deriv. My job allows me to meet, interact, and work with people from all over the world.”',
@@ -129,7 +132,7 @@ const career_data = {
                         text: 'Currently, we have team members located across the globe; mainly in Malaysia and the United Arab Emirates. We expand as Deriv Group grows and we have a diversified group of people with different skills and backgrounds.',
                     },
                     {
-                        text: 'We ensure everything is accounted for accurately and in compliance with the regulatory requirements in all of the jurisdictions for each subsidiary within the group. We work on tight deadlines and prepare reporting and submissions to all relevant regulatory bodies on a monthly, quarterly and yearly basis. We deal with clients on payments-related queries and feedback daily. Each team member also handles regular reconciliations of balances and transactions that take place through third-party service providers and financial institutions with our internal data.',
+                        text: 'We ensure everything is accounted for accurately and in compliance with the regulatory requirements in all of the jurisdictions for each subsidiary within the group. We work on tight deadlines and prepare reporting and submissions to all relevant regulatory bodies on a monthly, quarterly and yearly basis.We deal with clients on payments-related queries and feedback daily. Each team member also handles regular reconciliations of balances and transactions that take place through third-party service providers and financial institutions with our internal data.',
                     },
                 ],
             },
@@ -292,7 +295,7 @@ const career_data = {
                     "“I belong to a small team with lots of responsibilities, but I'm proud that everyone understands that, and we're all pulling in the same direction to reach our targets.”",
                 paragraph: [
                     {
-                        text: 'The best thing about working at Deriv is that they are open to hiring younger people and turning them into leaders, which I find helpful in building confidence and career growth. There is always something new to discover within the company, which offers new challenges and adventures. We get to travel to other offices too!”',
+                        text: 'Deriv is a multinational organisation, so you are exposed to many different cultures every day, and it’s wonderful to work for a company that constantly improves your skills and knowledge.”',
                     },
                 ],
             },

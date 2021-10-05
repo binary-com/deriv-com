@@ -32,7 +32,7 @@ const Subheadline = styled(Header)`
 `
 
 const StyledContainer = styled(Container)`
-    max-width: 920px;
+    max-width: 984px;
     flex-direction: column;
     align-items: flex-start;
     height: 100%;

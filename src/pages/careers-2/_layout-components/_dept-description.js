@@ -31,7 +31,7 @@ const query = graphql`
         cs_1: file(relativePath: { eq: "careers-2/cs-1.png" }) {
             ...fadeIn
         }
-        compliance_1: file(relativePath: { eq: "careers-2/operation-1.png" }) {
+        compliance_1: file(relativePath: { eq: "careers-2/compliance-1.png" }) {
             ...fadeIn
         }
     }

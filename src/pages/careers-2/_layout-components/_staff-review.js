@@ -84,6 +84,7 @@ const TextWrapper = styled.div`
 `
 
 const StyledQueryImage = styled(QueryImage)`
+    max-width: 432px;
     @media ${device.tablet} {
         max-width: 339px;
     }
@@ -115,7 +116,7 @@ const StaffReview = (review_data) => {
                     tablet_direction="column"
                     bg="var(--color-grey-40)"
                 >
-                    <Flex jc="left" tablet_direction="column" tablet_ai="center">
+                    <Flex max_width="432px" jc="left" tablet_direction="column" tablet_ai="center">
                         <StyledQueryImage
                             b_radius="8px 0 0 8px"
                             data={

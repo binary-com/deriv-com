@@ -94,6 +94,11 @@ const career_data = {
                     location: 'Limassol , Cyprus',
                     id: '590522000013546013',
                 },
+                {
+                    title: 'Talent Acquisition Specialist',
+                    location: 'Asunción , Paraguay',
+                    id: '590522000002708109',
+                },
             ],
             testimony_section: {
                 image: 'recruitment_2',
@@ -151,6 +156,11 @@ const career_data = {
                     title: 'Payments and Reconciliation Executive',
                     location: 'Ipoh , Malaysia',
                     id: '590522000022432183',
+                },
+                {
+                    title: 'E-Payments Executive',
+                    location: 'Kigali , Rwanda',
+                    id: '590522000037223025',
                 },
             ],
             testimony_section: {

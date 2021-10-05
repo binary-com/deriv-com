@@ -6,6 +6,7 @@ import { Header } from 'components/elements'
 import { LocalizedLink } from 'components/localization'
 import { LinkButton } from 'components/form'
 import RightArrow from 'images/svg/career-right-arrow.svg'
+import device from 'themes/device'
 
 const getLink = (id) => {
     return `https://deriv.zohorecruit.com/jobs/Careers/${id}`
@@ -22,6 +23,10 @@ const JobWrapper = styled.div`
     display: grid;
     grid-template-columns: 2fr 5fr auto;
     padding: 24px 35px 24px 18px;
+
+    @media ${device.tablet} {
+        grid-template-columns: 6fr 5fr auto;
+    }
 `
 
 const OpenPositions = (data) => {

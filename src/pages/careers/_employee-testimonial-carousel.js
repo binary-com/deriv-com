@@ -139,7 +139,7 @@ const gary = {
     name: 'Gary Ross Vytialingam, Chief Risk Officer',
     img_alt: 'Gary - Chief Risk Officer',
     img_path: GaryImage,
-    quote: `We encourage knowledge sharing at all levels, so I learn from the people I work with every day. Our company is enriched by the diversity of talented individuals from over 40 countries. It’s inspiring to be a leader of these motivated team players at Deriv.`,
+    quote: `We encourage knowledge sharing at all levels, so I learn from the people I work with every day. Our company is enriched by the diversity of talented individuals from over 55 countries. It’s inspiring to be a leader of these motivated team players at Deriv.`,
     index: 5,
 }
 

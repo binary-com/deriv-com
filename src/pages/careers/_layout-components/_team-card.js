@@ -19,6 +19,10 @@ export const StyledCard = styled(LocalizedLink)`
     cursor: pointer;
     border: 1px solid #e6e9e9;
     margin-bottom: 1.5rem;
+
+    &:hover {
+        box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
+    }
 `
 
 export const NormalCard = styled.article`

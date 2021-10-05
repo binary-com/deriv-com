@@ -43,6 +43,7 @@ const OpenPos = (data) => {
                                     </Flex>
                                     <Flex ai="center">
                                         <Header
+                                            p="15px"
                                             max_width="274px"
                                             align="center"
                                             type="paragraph-1"

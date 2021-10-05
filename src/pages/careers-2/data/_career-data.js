@@ -221,7 +221,7 @@ const career_data = {
                     id: '590522000010928298',
                 },
                 {
-                    title: 'Cryptocurrency/Blockchain Developer',
+                    title: 'Cryptocurrency / Blockchain Developer',
                     location: 'Cyberjaya, Malaysia',
                     id: '590522000001362292',
                 },

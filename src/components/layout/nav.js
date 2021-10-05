@@ -471,6 +471,8 @@ const NavDesktop = ({ base, is_ppc, is_ppc_redirect, is_logged_in, hide_signup_l
     const [show_button, showButton, hideButton] = moveButton()
     const current_page = useActiveLinkState('main')
 
+    const signup_url = is_ppc_redirect ? '/landing/signup/' : '/signup/'
+
     const buttonHandleScroll = useCallback(() => {
         setHasScrolled(true)
         handleScroll(showButton, hideButton)
@@ -581,7 +583,7 @@ const NavDesktop = ({ base, is_ppc, is_ppc_redirect, is_logged_in, hide_signup_l
                                 <span>{localize('Log in')}</span>
                             </NowrapButton>
                         )}
-                        <LocalizedLink to={is_ppc_redirect ? '/landing/signup/' : '/signup/'}>
+                        <LocalizedLink to={signup_url}>
                             {!hide_signup_login && (
                                 <SignupButton ref={button_ref} secondary="true">
                                     <span>{localize('Create free demo account')}</span>

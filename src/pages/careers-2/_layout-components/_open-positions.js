@@ -33,13 +33,13 @@ const OpenPositions = (data) => {
                     Open positions
                 </Header>
                 {!hidden &&
-                    data.data?.map((data, idx) => {
+                    data.data?.map((item, idx) => {
                         return (
-                            <PositionLink key={idx} external to={getLink(data.id)}>
+                            <PositionLink key={idx} external to={getLink(item.id)}>
                                 <JobWrapper>
                                     <Flex ai="center">
                                         <Header type="subtitle-1" as="h">
-                                            {data.title}
+                                            {item.title}
                                         </Header>
                                     </Flex>
                                     <Flex ai="center">
@@ -50,7 +50,7 @@ const OpenPositions = (data) => {
                                             as="p"
                                             weight="400"
                                         >
-                                            {data.location}
+                                            {item.location}
                                         </Header>
                                     </Flex>
                                     <Flex ai="center">

@@ -62,7 +62,7 @@ const DeptDescription = (dept_data) => {
                         <StyledQueryImage data={data[dept_data.data.image]} />
                     </Flex>
                     <Description fd="column" jc="right" tablet_jc="center">
-                        {dept_data.data.paragraph.map((data, idx) => {
+                        {dept_data.data.paragraph.map((item, idx) => {
                             return (
                                 <Header
                                     mb="15px"
@@ -72,7 +72,7 @@ const DeptDescription = (dept_data) => {
                                     as="p"
                                     weight="400"
                                 >
-                                    {data.text}
+                                    {item.text}
                                 </Header>
                             )
                         })}

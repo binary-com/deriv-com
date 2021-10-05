@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
-import Container from './_container'
+import Container from './_career-container'
 import { Header, BackgroundImage } from 'components/elements'
 import device from 'themes/device'
 

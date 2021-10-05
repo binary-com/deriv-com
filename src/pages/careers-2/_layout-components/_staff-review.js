@@ -130,7 +130,7 @@ const StaffReview = (review_data) => {
                             <Header mb="16px" type="subtitle-1" as="p">
                                 {review_data.data.testimony_headline}
                             </Header>
-                            {review_data.data.paragraph?.map((data, idx) => {
+                            {review_data.data.paragraph?.map((item, idx) => {
                                 return (
                                     <Header
                                         key={idx}
@@ -139,7 +139,7 @@ const StaffReview = (review_data) => {
                                         as="p"
                                         weight="400"
                                     >
-                                        {data.text}
+                                        {item.text}
                                     </Header>
                                 )
                             })}

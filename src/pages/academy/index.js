@@ -328,7 +328,7 @@ const DerivBlog = ({ data }) => {
             position: 'relative',
         },
         navigation_style: {
-            nav_color: '--color-grey-5',
+            nav_color: '--color-white',
         },
     }
 

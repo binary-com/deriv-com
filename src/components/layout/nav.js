@@ -93,7 +93,7 @@ export const LogoLink = styled(LocalizedLink)`
     }
 `
 
-const Line = styled.div`
+export const Line = styled.div`
     width: 1px;
     height: 28px;
     margin-right: 8px;

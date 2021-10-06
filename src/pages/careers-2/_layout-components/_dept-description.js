@@ -7,31 +7,53 @@ import device from 'themes/device'
 
 const query = graphql`
     {
-        operations_1: file(relativePath: { eq: "careers-2/operations-1.png" }) {
+        back_end_desc: file(relativePath: { eq: "careers-2/back-end-desc.png" }) {
             ...fadeIn
         }
-        marketing_1: file(relativePath: { eq: "careers-2/marketing-1.png" }) {
+        business_excellence_desc: file(
+            relativePath: { eq: "careers-2/business-excellence-desc.png" }
+        ) {
             ...fadeIn
         }
-        recruitment_1: file(relativePath: { eq: "careers-2/recruitment-1.png" }) {
+        compliance_desc: file(relativePath: { eq: "careers-2/compliance-desc.png" }) {
             ...fadeIn
         }
-        accounts_1: file(relativePath: { eq: "careers-2/accounts-1.png" }) {
+        cs_desc: file(relativePath: { eq: "careers-2/cs-desc.png" }) {
             ...fadeIn
         }
-        payments_1: file(relativePath: { eq: "careers-2/payments-1.png" }) {
+        security_desc: file(relativePath: { eq: "careers-2/security-desc.png" }) {
             ...fadeIn
         }
-        tech_1: file(relativePath: { eq: "careers-2/tech-1.png" }) {
+        finance_desc: file(relativePath: { eq: "careers-2/finance-desc.png" }) {
             ...fadeIn
         }
-        product_1: file(relativePath: { eq: "careers-2/product-1.png" }) {
+        front_end_desc: file(relativePath: { eq: "careers-2/front-end-desc.png" }) {
             ...fadeIn
         }
-        cs_1: file(relativePath: { eq: "careers-2/cs-1.png" }) {
+        internal_audit_desc: file(relativePath: { eq: "careers-2/internal-audit-desc.png" }) {
             ...fadeIn
         }
-        compliance_1: file(relativePath: { eq: "careers-2/compliance-1.png" }) {
+        marketing_desc: file(relativePath: { eq: "careers-2/marketing-desc.png" }) {
+            ...fadeIn
+        }
+        payments_desc: file(relativePath: { eq: "careers-2/payments-desc.png" }) {
+            ...fadeIn
+        }
+        people_management_desc: file(relativePath: { eq: "careers-2/people-management-desc.png" }) {
+            ...fadeIn
+        }
+        product_desc: file(relativePath: { eq: "careers-2/product-desc.png" }) {
+            ...fadeIn
+        }
+        pm_desc: file(relativePath: { eq: "careers-2/pm-desc.png" }) {
+            ...fadeIn
+        }
+        software_testing_desc: file(relativePath: { eq: "careers-2/software-testing-desc.png" }) {
+            ...fadeIn
+        }
+        trading_operations_desc: file(
+            relativePath: { eq: "careers-2/trading-operations-desc.png" }
+        ) {
             ...fadeIn
         }
     }

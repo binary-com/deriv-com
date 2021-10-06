@@ -80,102 +80,102 @@ const JoinYourTeam = () => {
     const join_your_team_data = [
         {
             img_data: data.backendDevelopment,
-            to: 'careers/teams/back-end-Development/',
+            to: '/careers/back-end/',
             display_team_name: 'Back-end Development',
             tagline:
                 'We develop and fortify our website, platforms, and app architecture that power our users’ experience.',
         },
         {
             img_data: data.marketingGlobalPartnerships,
-            to: 'careers/teams/marketing-blobal-partnerships/',
+            to: '/careers/marketing/',
             display_team_name: 'Marketing & Global Partnerships',
             tagline:
                 'We conceptualise and implement creative marketing solutions to help our business grow.',
         },
         {
             img_data: data.cyberSecurityIT,
-            to: 'careers/teams/cyber-security-it/',
+            to: '/careers/cyber-security-it/',
             display_team_name: 'Cyber Security & IT',
             tagline:
                 'We support all the teams in our organisation to achieve our goals without roadblocks and hiccups.',
         },
         {
             img_data: data.customerSupport,
-            to: 'careers/teams/customer-support/',
+            to: '/careers/customer-support/',
             display_team_name: 'Customer Support',
             tagline:
                 'We care about providing helpful solutions to our clients to make their trading experience with us even better.',
         },
         {
             img_data: data.peopleManagement,
-            to: 'careers/teams/people-management/',
+            to: '/careers/people-management/',
             display_team_name: 'People Management',
             tagline:
                 'We bring in go-getters, link them with the right opportunities, and support them in every way to help them grow.',
         },
         {
             img_data: data.productDesignUX,
-            to: 'careers/teams/product-design-UX/',
+            to: '/careers/product-design/',
             display_team_name: 'Product Design & UX',
             tagline: 'We create design and user experiences that make trading with us enjoyable.',
         },
         {
             img_data: data.legalCompliance,
-            to: 'careers/teams/legal-compliance/',
+            to: '/careers/legal-compliance/',
             display_team_name: 'Legal & Compliance',
             tagline:
                 'We navigate the legal and regulatory environment to help our business maintain the highest ethical standards.',
         },
         {
             img_data: data.financeAccounts,
-            to: 'careers/teams/finance-accounts/',
+            to: '/careers/finance-accounts/',
             display_team_name: 'Finance & Accounts',
             tagline: 'We’re all about helping the company make good decisions about money.',
         },
         {
             img_data: data.paymentSolutionsIntegration,
-            to: 'careers/teams/payment-solutions-integration/',
+            to: '/careers/payment-solutions/',
             display_team_name: 'Payment Solutions & Integration',
             tagline:
                 'We make it easy for clients to trade from anywhere in the world, with any currency.',
         },
         {
             img_data: data.frontendDevelopment,
-            to: 'careers/teams/front-end-development/',
+            to: '/careers/front-end/',
             display_team_name: 'Front-end Development',
             tagline: 'We code creative and user-friendly web pages and platforms.',
         },
         {
             img_data: data.tradingOperations,
-            to: 'careers/teams/trading-operations/',
+            to: '/careers/trading-operations/',
             display_team_name: 'Trading Operations',
             tagline:
                 'We work behind the scenes to make sure trading operations are functioning as they should.',
         },
         {
             img_data: data.softwareTesting,
-            to: 'careers/teams/software-testing/',
+            to: '/careers/software-testing/',
             display_team_name: 'Software Testing',
             tagline:
                 'We look after the quality of our websites and trading platforms to deliver a world-class experience.',
         },
         {
             img_data: data.businessExcellence,
-            to: 'careers/teams/business-excellence/',
+            to: '/careers/business-excellence/',
             display_team_name: 'Business Excellence',
             tagline:
                 'We improve company-wide performance by helping teams optimise their processes and resources.',
         },
         {
             img_data: data.internalAudit,
-            to: 'careers/teams/internal-audit/',
+            to: '/careers/internal-audit/',
             display_team_name: 'Internal Audit',
             tagline:
                 'We provide independent evaluations of the company to reduce risk and improve operations.',
         },
         {
             img_data: data.projectManagement,
-            to: 'careers/teams/project-management/',
+            to: '/careers/project-management/',
             display_team_name: 'Project Management',
             tagline:
                 'We take care of collaboration details to ensure that projects are completed in a timely, efficient manner.',

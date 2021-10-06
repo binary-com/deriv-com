@@ -44,7 +44,7 @@ const StyledContainer = styled(Container)`
 
 const query = graphql`
     query {
-        image: file(relativePath: { eq: "careers-2/bg-marketing.png" }) {
+        image: file(relativePath: { eq: "careers-2/marketing-bg.png" }) {
             ...heroImage
         }
     }

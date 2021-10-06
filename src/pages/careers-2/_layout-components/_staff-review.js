@@ -8,58 +8,116 @@ import { isBrowser } from 'common/utility'
 
 const query = graphql`
     {
-        marketing_2: file(relativePath: { eq: "careers-2/marketing-2.png" }) {
+        marketing_review: file(relativePath: { eq: "careers-2/marketing-review.png" }) {
             ...fadeIn
         }
-        marketing_2_mobile: file(relativePath: { eq: "careers-2/marketing-2-mobile.png" }) {
+        marketing_review_mobile: file(
+            relativePath: { eq: "careers-2/marketing-review-mobile.png" }
+        ) {
             ...fadeIn
         }
-        recruitment_2: file(relativePath: { eq: "careers-2/recruitment-2.png" }) {
+        people_management_review: file(
+            relativePath: { eq: "careers-2/people-management-review.png" }
+        ) {
             ...fadeIn
         }
-        recruitment_2_mobile: file(relativePath: { eq: "careers-2/recruitment-2-mobile.png" }) {
+        people_management_review_mobile: file(
+            relativePath: { eq: "careers-2/people-management-review-mobile.png" }
+        ) {
             ...fadeIn
         }
-        accounts_2: file(relativePath: { eq: "careers-2/accounts-2.png" }) {
+        finance_review: file(relativePath: { eq: "careers-2/finance-review.png" }) {
             ...fadeIn
         }
-        accounts_2_mobile: file(relativePath: { eq: "careers-2/accounts-2-mobile.png" }) {
+        finance_review_mobile: file(relativePath: { eq: "careers-2/finance-review-mobile.png" }) {
             ...fadeIn
         }
-        payments_2: file(relativePath: { eq: "careers-2/payments-2.png" }) {
+        payments_review: file(relativePath: { eq: "careers-2/payments-review.png" }) {
             ...fadeIn
         }
-        payments_2_mobile: file(relativePath: { eq: "careers-2/payments-2-mobile.png" }) {
+        payments_review_mobile: file(relativePath: { eq: "careers-2/payments-review-mobile.png" }) {
             ...fadeIn
         }
-        tech_2: file(relativePath: { eq: "careers-2/tech-2.png" }) {
+        fe_review: file(relativePath: { eq: "careers-2/fe-review.png" }) {
             ...fadeIn
         }
-        tech_2_mobile: file(relativePath: { eq: "careers-2/tech-2-mobile.png" }) {
+        fe_review_mobile: file(relativePath: { eq: "careers-2/fe-review-mobile.png" }) {
             ...fadeIn
         }
-        product_2: file(relativePath: { eq: "careers-2/product-2.png" }) {
+        product_review: file(relativePath: { eq: "careers-2/product-review.png" }) {
             ...fadeIn
         }
-        product_2_mobile: file(relativePath: { eq: "careers-2/product-2-mobile.png" }) {
+        product_review_mobile: file(relativePath: { eq: "careers-2/product-review-mobile.png" }) {
             ...fadeIn
         }
-        operations_2: file(relativePath: { eq: "careers-2/operations-2.png" }) {
+        trading_operations_review: file(
+            relativePath: { eq: "careers-2/trading-operations-review.png" }
+        ) {
             ...fadeIn
         }
-        operations_2_mobile: file(relativePath: { eq: "careers-2/operations-2-mobile.png" }) {
+        trading_operations_review_mobile: file(
+            relativePath: { eq: "careers-2/trading-operations-review-mobile.png" }
+        ) {
             ...fadeIn
         }
-        cs_2: file(relativePath: { eq: "careers-2/cs-2.png" }) {
+        cs_review: file(relativePath: { eq: "careers-2/cs-review.png" }) {
             ...fadeIn
         }
-        cs_2_mobile: file(relativePath: { eq: "careers-2/cs-2-mobile.png" }) {
+        cs_review_mobile: file(relativePath: { eq: "careers-2/cs-review-mobile.png" }) {
             ...fadeIn
         }
-        compliance_2: file(relativePath: { eq: "careers-2/compliance-2.png" }) {
+        compliance_review: file(relativePath: { eq: "careers-2/compliance-review.png" }) {
             ...fadeIn
         }
-        compliance_2_mobile: file(relativePath: { eq: "careers-2/compliance-2-mobile.png" }) {
+        compliance_review_mobile: file(
+            relativePath: { eq: "careers-2/compliance-review-mobile.png" }
+        ) {
+            ...fadeIn
+        }
+        back_end_review: file(relativePath: { eq: "careers-2/back-end-review.png" }) {
+            ...fadeIn
+        }
+        back_end_review_mobile: file(relativePath: { eq: "careers-2/back-end-review-mobile.png" }) {
+            ...fadeIn
+        }
+        security_review: file(relativePath: { eq: "careers-2/security-review.png" }) {
+            ...fadeIn
+        }
+        security_review_mobile: file(relativePath: { eq: "careers-2/security-review-mobile.png" }) {
+            ...fadeIn
+        }
+        business_excellence_review: file(
+            relativePath: { eq: "careers-2/business-excellence-review.png" }
+        ) {
+            ...fadeIn
+        }
+        business_excellence_review_mobile: file(
+            relativePath: { eq: "careers-2/business-excellence-review-mobile.png" }
+        ) {
+            ...fadeIn
+        }
+        software_testing_review: file(
+            relativePath: { eq: "careers-2/software-testing-review.png" }
+        ) {
+            ...fadeIn
+        }
+        software_testing_review_mobile: file(
+            relativePath: { eq: "careers-2/software-testing-review-mobile.png" }
+        ) {
+            ...fadeIn
+        }
+        internal_audit_review: file(relativePath: { eq: "careers-2/internal-audit-review.png" }) {
+            ...fadeIn
+        }
+        internal_audit_review_mobile: file(
+            relativePath: { eq: "careers-2/internal-audit-review-mobile.png" }
+        ) {
+            ...fadeIn
+        }
+        pm_review: file(relativePath: { eq: "careers-2/pm-review.png" }) {
+            ...fadeIn
+        }
+        pm_review_mobile: file(relativePath: { eq: "careers-2/pm-review-mobile.png" }) {
             ...fadeIn
         }
     }
@@ -128,18 +186,9 @@ const StaffReview = (review_data) => {
                     </Flex>
                     <Description fd="column" jc="right" tablet_jc="center">
                         <TextWrapper>
-                            <Header mb="16px" type="subtitle-1" as="p">
-                                {review_data.data.testimony_headline}
-                            </Header>
-                            {review_data.data.paragraph?.map((item, idx) => {
+                            {review_data.data.testimony_headline.map((item, idx) => {
                                 return (
-                                    <Header
-                                        key={idx}
-                                        mb="16px"
-                                        type="paragraph-1"
-                                        as="p"
-                                        weight="400"
-                                    >
+                                    <Header key={idx} mb="16px" type="subtitle-1" as="p">
                                         {item.text}
                                     </Header>
                                 )

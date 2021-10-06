@@ -1,20 +1,67 @@
 const career_data = {
+    back_end: [
+        {
+            header: {
+                background: 'back_end_bg',
+                title: 'Back-end Development',
+                subtitle:
+                    'Our department takes care of everything that happens behind the scenes when users perform actions on our website and platforms. Our teams work on back-end operations, trading, blockchain development, quality assurance as well as payments. We work with the latest technologies in an environment that challenges us to do our best work.',
+            },
+            intro_section: {
+                image: 'back_end_desc',
+                paragraph: [
+                    {
+                        text: 'We encourage cooperation and collaboration when it comes to improving, implementing, and delivering solutions. You’ll often find yourself working with various teams across the company to fulfil organisational and team goals. Everyone is supportive of any ideas and contributions that you bring to the team so that we all have a chance to spark positive change through effective and efficient solutions.',
+                    },
+                ],
+            },
+            open_position: [
+                {
+                    title: 'Back-end Developer',
+                    location: 'Cyberjaya , Malaysia',
+                    id: '590522000000366102',
+                },
+                {
+                    title: 'Cryptocurrency/Blockchain Developer',
+                    location: 'Cyberjaya , Malaysia',
+                    id: '590522000001362292',
+                },
+                {
+                    title: 'Senior Back-end Developer',
+                    location: 'Dubai , United Arab Emirates',
+                    id: '590522000000777560',
+                },
+                {
+                    title: 'Senior Perl Developer',
+                    location: 'Cyberjaya , Malaysia',
+                    id: '590522000001379122',
+                },
+            ],
+            testimony_section: {
+                image: 'back_end_review',
+                image_mobile: 'back_end_review_mobile',
+                testimony_headline: [
+                    {
+                        text: '“Being a part of so many amazing projects has been a learning experience from the start. Not a day goes by that I don’t learn something — not only on a technical level but also from a broader human perspective. This company has great culture and structure that enables its employees to grow. Working at Deriv offers a prime opportunity to build an incredible career, and I look forward to evolving and advancing further.”',
+                    },
+                ],
+            },
+        },
+    ],
+
     marketing: [
         {
             header: {
-                background: 'bg-marketing',
-                title: 'Marketing',
+                background: 'marketing_bg',
+                title: 'Marketing & Global Partnerships',
                 subtitle:
-                    'We are the marketing team and we’re passionate about communications. We’re split into various teams from content creation and digital outreach, to paid acquisition and affiliate marketing support; our marketing department creates and distributes all of our external client communications for the business. Spanning across all our offices, our marketing team are here to support, educate and inform clients and prospects about trading across the world.',
+                    'Our department is split into various teams — from content creation and digital outreach to paid acquisition and affiliate marketing support. We create campaigns and distribute all of our marketing communications with the goal to expand our business. Spanning across all our offices, we’re here to support, educate, and inform clients and prospects about trading.',
             },
             intro_section: {
-                image: 'marketing_1',
+                image: 'marketing_desc',
                 paragraph: [
                     {
-                        text: 'Joining this team means your main focus is our clients, at every point in their journey. Whether they are brand new to trading and want to join, they have just joined, or are a long standing client; we provide the communications to help them along their journey to get the best out of our platforms.',
-                    },
-                    {
-                        text: 'Working within marketing means a fast paced environment where you’ll always find a new challenge. We’re a friendly bunch, and every team is aligned to work together towards a common goal. A normal day could mean distributing a full scope marketing campaign to clients after our morning coffee, working on a webinar for affiliates after lunch and finishing the day onboarding a brand new affiliate. There are so many opportunities to get involved in and with so many different aspects of marketing to learn, the career opportunities are endless.',
+                        text: 'Our department provides a fast-paced environment. A normal day could mean distributing a full-scope marketing campaign to clients after our morning coffee, working on a webinar for affiliates after lunch, and finishing the day onboarding a new affiliate. There are so many opportunities to get involved in. With so many different aspects of marketing to learn, the career opportunities are endless.',
                     },
                 ],
             },
@@ -41,419 +88,672 @@ const career_data = {
                 },
             ],
             testimony_section: {
-                image: 'marketing_2',
-                image_mobile: 'marketing_2_mobile',
-                testimony_headline:
-                    '”I joined Deriv in November 2020, in the middle of a global pandemic! I relocated from Wales to join the company as its Content marketing lead which is part of the Marketing team.',
-                paragraph: [
+                image: 'marketing_review',
+                image_mobile: 'marketing_review_mobile',
+                testimony_headline: [
                     {
-                        text: 'The marketing team collaborates with the other teams daily across multiple offices using communication tools such as Slack and Zoom.',
-                    },
-                    {
-                        text: "We're a close-knit department working together to keep all the marketing aligned across the different regions we operate in. Everyone helps each other out no matter which team they're on, and we have a fast-paced and fun work culture. I'm proud to say that we face our team's challenges together, building each other up to create something incredible.",
-                    },
-                    {
-                        text: "The best thing about working at Deriv is that colleagues are more like friends, we're honest and open with one another, and we bounce off each other's strengths and weaknesses.”",
+                        text: '“The best thing about working at Deriv is that colleagues are more like friends. We’re honest and open with one another, and we bounce off each other’s strengths and weaknesses. Everyone helps each other out no matter what team they’re on, and we have a fast-paced and fun work culture. I’m proud to say that we face our challenges together, building each other up to create something incredible.”',
                     },
                 ],
             },
         },
     ],
-    recruitment: [
+
+    security: [
         {
             header: {
-                background: 'bg-recruitment',
-                title: 'Recruitment & HR',
+                background: 'security_bg',
+                title: 'Cyber Security & IT',
                 subtitle:
-                    'We bring in the go-getters; from the inspiring leaders to the ambitious grads. We link the best people with the right opportunities, and support them in every way to help them grow in their professional career at Deriv.',
+                    'Whether you join our project management, IT operation, or delivery excellence teams, you’ll have plenty of opportunities to demonstrate your obsession with efficiency, organisation, and teamwork.',
             },
             intro_section: {
-                image: 'recruitment_1',
+                image: 'security_desc',
                 paragraph: [
                     {
-                        text: 'We’re the ones who build a creative, diverse, and thriving workforce. Our goals are to foster a great employer-employee relationship, advocate for the employees’ emotional and physical well being, and provide a safe and productive work environment.',
-                    },
-                    {
-                        text: 'Join our team, and help us support employees from day one of the recruitment process and throughout their career at Deriv. We pride ourselves on our work culture, and work hard to ensure people enjoy coming to work at the beginning of a week. We offer training programmes, further knowledge courses and team building activities when you join our company, and it’s our job to ensure we are always striving for greater things across all our offices.',
+                        text: "Our department supports all the teams in our organisation so that we can remove anything that gets in the way of us working at our highest capacity. We make everyday successes possible by being thorough and proactive. We ensure that our IT infrastructure remains robust, eliminate operational inefficiencies, and plan for the unexpected. We're keen to know how each team works so we can help them achieve their goals without technical roadblocks.",
                     },
                 ],
             },
             open_position: [
                 {
-                    title: 'HR Executive',
+                    title: 'System Administrator',
                     location: 'Minsk , Belarus',
-                    id: '590522000036746120',
+                    id: '590522000037994110',
                 },
                 {
-                    title: 'IT Recruiter',
-                    location: 'Minsk , Belarus',
-                    id: '590522000013730417',
+                    title: 'DevOps Engineer(Windows)',
+                    location: 'Birkirkara , Malta',
+                    id: '590522000005771415',
                 },
                 {
-                    title: 'Talent Acquisition Specialist',
-                    location: 'Limassol , Cyprus',
-                    id: '590522000013546013',
-                },
-                {
-                    title: 'Talent Acquisition Specialist',
-                    location: 'Asunción , Paraguay',
-                    id: '590522000002708109',
-                },
-            ],
-            testimony_section: {
-                image: 'recruitment_2',
-                image_mobile: 'recruitment_2_mobile',
-                testimony_headline:
-                    '“I joined the company in April 2019 and started as a Human Resources Administrator, then switched to the Talent Management team in November 2020.',
-                paragraph: [
-                    {
-                        text: "Our team handles performance management for all of Deriv's workforce — from searching, onboarding, developing, motivating, and retaining high-performing employees. We design and implement practices and strategies to improve business performance by cultivating every employee's productivity.",
-                    },
-                    {
-                        text: 'A challenge I faced before was my inexperience when I started my current role. Nonetheless, the company gave me every opportunity to study and learn employee performance management.',
-                    },
-                    {
-                        text: 'There is a positive and energetic culture within our team, and everyone has endless opportunities to grow and improve.',
-                    },
-                    {
-                        text: 'Diversity is one of my favorite things about working at Deriv. My job allows me to meet, interact, and work with people from all over the world.”',
-                    },
-                ],
-            },
-        },
-    ],
-    accounts: [
-        {
-            header: {
-                background: 'bg-accounts',
-                title: 'Accounts & Payments',
-                subtitle:
-                    'In charge of managing the company’s financial and accounting health to ensure sustainable business growth, we are the team that’s always on the money! We control operational costs, pay the bills, and mitigate financial risks — making sure Deriv can continue to grow for our employees and our clients.',
-            },
-            intro_section: {
-                image: 'accounts_1',
-                paragraph: [
-                    {
-                        text: 'Currently, we have team members located across the globe; mainly in Malaysia and the United Arab Emirates. We expand as Deriv Group grows and we have a diversified group of people with different skills and backgrounds.',
-                    },
-                    {
-                        text: 'We ensure everything is accounted for accurately and in compliance with the regulatory requirements in all of the jurisdictions for each subsidiary within the group. We work on tight deadlines and prepare reporting and submissions to all relevant regulatory bodies on a monthly, quarterly and yearly basis.We deal with clients on payments-related queries and feedback daily. Each team member also handles regular reconciliations of balances and transactions that take place through third-party service providers and financial institutions with our internal data.',
-                    },
-                ],
-            },
-            open_position: [
-                {
-                    title: 'Payments Executive',
-                    location: 'Asunción , Paraguay',
-                    id: '590522000025380388',
-                },
-                {
-                    title: 'Payments and Reconciliation Executive',
-                    location: 'Melaka , Malaysia',
-                    id: '590522000022443198',
-                },
-                {
-                    title: 'Payments and Reconciliation Executive',
-                    location: 'Ipoh , Malaysia',
-                    id: '590522000022432183',
-                },
-                {
-                    title: 'E-Payments Executive',
-                    location: 'Kigali , Rwanda',
-                    id: '590522000037223025',
-                },
-            ],
-            testimony_section: {
-                image: 'accounts_2',
-                image_mobile: 'accounts_2_mobile',
-                testimony_headline:
-                    '“As a team, we rely on teamwork. Everyone has a task to accomplish, and the team works well with excellent communication and constant discussions on improving and achieving our goal.',
-                paragraph: [
-                    {
-                        text: "Deriv is constantly evolving. Every day is a new adventure. Everyone works together and supports each other to make things happen, shares the same vision, and is always dedicated to the company's mission.”",
-                    },
-                ],
-            },
-        },
-    ],
-    payments: [
-        {
-            header: {
-                background: 'bg-payments',
-                title: 'Payment Operations',
-                subtitle:
-                    'We are the Payment Operations (PayOps) team at Deriv and our main function is to help our customers trade easily using a payment method of their choice. We’re split into three teams, Research & Review, Reporting & IT support and Operations. Our job can be described as "Client funding facilitators" — meaning we provide the necessary tools to the clients to be able to fund their account and to be able to withdraw their returns.',
-            },
-            intro_section: {
-                image: 'payments_1',
-                paragraph: [
-                    {
-                        text: 'Our main focus is to on board the payment systems that our clients want to use from across the globe, maintain them and make sure they are working as expected.',
-                    },
-                    {
-                        text: 'The job also requires us to reach out to various other teams to assist in any payment queries and educate them in how to use the payments systems. In turn, this then helps other teams to be able to efficiently assist the clients in their trading journey.',
-                    },
-                    {
-                        text: 'The PayOps team at Deriv is spread across 3 different offices and as a result you get to work with a very diverse group of people that come from various backgrounds. You get to learn and work on so many different payment solutions that are beyond the traditional credit card processing. We are a fast paced team as Deriv is a continuously growing/evolving company.',
-                    },
-                ],
-            },
-            testimony_section: {
-                image: 'payments_2',
-                image_mobile: 'payments_2_mobile',
-                testimony_headline:
-                    '“There is always room for growth within the team. In my case, I got promoted to senior executive after working in the team for one year. My Head of Department is currently helping me develop my skills and knowledge to be ready for a team lead position when the opportunity arises, motivating me to give my best performance consistently.',
-                paragraph: [
-                    {
-                        text: 'The best thing about working at Deriv is that they are open to hiring younger people and turning them into leaders, which I find helpful in building confidence and career growth. There is always something new to discover within the company, which offers new challenges and adventures. We get to travel to other offices too!”',
-                    },
-                ],
-            },
-        },
-    ],
-    tech: [
-        {
-            header: {
-                background: 'bg-tech',
-                title: 'Technology & Engineering',
-                subtitle:
-                    'Our department takes pride in building platforms that are reliable and a delight to use. Within our team are the product engineering, technical fellowship, front-end, back-end, and the DevOps teams, each working with the latest technologies in an environment that challenges us to do our best work.',
-            },
-            intro_section: {
-                image: 'tech_1',
-                paragraph: [
-                    {
-                        text: 'We encourage cooperation and collaboration when it comes to improving, implementing and delivering solutions. You’ll often find yourself working with various teams across the company to fulfil organisational and team goals. Everyone is supportive of any ideas and contributions that you bring to the team, so that we all have a chance to spark positive change through effective and efficient solutions.',
-                    },
-                ],
-            },
-            open_position: [
-                {
-                    title: 'C++ Developer',
-                    location: 'Cyberjaya, Malaysia',
-                    id: '590522000010928298',
-                },
-                {
-                    title: 'Cryptocurrency / Blockchain Developer',
-                    location: 'Cyberjaya, Malaysia',
-                    id: '590522000001362292',
-                },
-                {
-                    title: 'Senior Front-end Developer',
-                    location: 'Minsk , Belarus',
-                    id: '590522000021880054',
-                },
-                {
-                    title: 'Front-end Developer',
-                    location: 'Limassol , Cyprus',
-                    id: '590522000006365232',
-                },
-            ],
-            testimony_section: {
-                image: 'tech_2',
-                image_mobile: 'tech_2_mobile',
-                testimony_headline:
-                    '“Being a part of so many amazing projects has been a learning experience from the start. Not a day went by that I didn’t learn something — not only on a technical level but also from a broader human perspective. This company has great culture and structure that enables its employees to grow. Working at Deriv offers a prime opportunity to build an incredible career, and I look forward to evolving and advancing further.”',
-            },
-        },
-    ],
-    product: [
-        {
-            header: {
-                background: 'bg-product',
-                title: 'Product Design & development',
-                subtitle:
-                    'Millions of traders around the world enjoy trading on our platforms because of the range of products we offer and the choice of platforms that we make available to them. The product development team are always on the lookout to make improvements, better our platforms and give our clients even more opportunities to trade.',
-            },
-            intro_section: {
-                image: 'product_1',
-                paragraph: [
-                    {
-                        text: 'We’re a bunch of strategists, innovators, perfectionists, builders and doers. We’re about ensuring we are offering the best experience a trader can have on our platforms. We research and design according to the needs and wants of our current and future clients and plan for innovation.',
-                    },
-                    {
-                        text: 'Our vision is to make trading accessible to everyone, anywhere. Our team works hard to achieve that goal- we are always striving for more and by joining this team, you will be at the forefront of cutting edge Fintech development in a supportive, fast paced environment.',
-                    },
-                ],
-            },
-            open_position: [
-                {
-                    title: 'Motion Designer',
-                    location: 'Dubai , United Arab Emirates',
-                    id: '590522000010744220',
-                },
-                {
-                    title: 'Graphics Designer',
-                    location: 'Asunción , Paraguay',
-                    id: '590522000002708051',
-                },
-                {
-                    title: 'Usability Researcher',
+                    title: 'Disaster Recovery Engineer',
                     location: 'Cyberjaya , Malaysia',
-                    id: '590522000006745176',
+                    id: '590522000000366045',
                 },
                 {
-                    title: 'UI/UX Designer',
-                    location: 'Dubai , United Arab Emirates',
-                    id: '590522000033551076',
+                    title: 'Security Analyst',
+                    location: 'Cyberjaya , Malaysia',
+                    id: '590522000031028042',
                 },
             ],
             testimony_section: {
-                image: 'product_2',
-                image_mobile: 'product_2_mobile',
-                testimony_headline:
-                    "“I belong to a small team with lots of responsibilities, but I'm proud that everyone understands that, and we're all pulling in the same direction to reach our targets.”",
-                paragraph: [
+                image: 'security_review',
+                image_mobile: 'security_review_mobile',
+                testimony_headline: [
                     {
-                        text: 'Deriv is a multinational organisation, so you are exposed to many different cultures every day, and it’s wonderful to work for a company that constantly improves your skills and knowledge.”',
+                        text: '“For me, one of the best things about working here is the importance that is placed on learning and growth. There is always some sort of training or course organised to help us do better in our roles and advance in our career.”',
                     },
                 ],
             },
         },
     ],
-    operations: [
-        {
-            header: {
-                background: 'bg-operations',
-                title: 'Operations',
-                subtitle:
-                    'Whether you join our project management, IT operation, or delivery excellence teams, you’ll have plenty of opportunity to demonstrate your obsession with efficiency, organisation, and teamwork.',
-            },
-            intro_section: {
-                image: 'operations_1',
-                paragraph: [
-                    {
-                        text: 'Our department supports all the teams in our organisation so that we’re able to achieve our goals without roadblocks and hiccups. We ensure that our IT infrastructure remains robust, eliminate operational inefficiencies, and plan for the unexpected.',
-                    },
-                    {
-                        text: 'We make everyday successes possible by being thorough and proactive. We’re keen to get to know how each team works and the tools they need so that we can work on removing anything that gets in the way of us working at our highest capacity.',
-                    },
-                ],
-            },
-            open_position: [
-                {
-                    title: 'Project Manager',
-                    location: 'Limassol , Cyprus',
-                    id: '590522000033674411',
-                },
-                {
-                    title: 'Business Process Management',
-                    location: 'Cyberjaya, Malaysia',
-                    id: '590522000004000041',
-                },
-                {
-                    title: 'Business Analyst',
-                    location: 'Cyberjaya , Malaysia',
-                    id: '590522000033805388',
-                },
-                {
-                    title: 'DevOps Engineer',
-                    location: 'Cyberjaya , Malaysia',
-                    id: '590522000000366151',
-                },
-            ],
-            testimony_section: {
-                image: 'operations_2',
-                image_mobile: 'operations_2_mobile',
-                testimony_headline:
-                    "“We help product teams understand the whats and whys of the product development cycle. It's in Deriv's DNA to react quickly and reprioritise based on threats and market trends, both internal and external. So, our core responsibility is to adjust plans and communicate priorities with the Product team and ensure that everyone understands the value of their work and how it fits into the overall vision and strategy.",
-                paragraph: [
-                    {
-                        text: "My favourite thing about working at Deriv is that we have access to everyone in the company, giving us a chance to learn from almost everyone regardless of their location. There's a significant focus on leadership development too, which is something that I enjoy as well.”",
-                    },
-                ],
-            },
-        },
-    ],
+
     cs: [
         {
             header: {
-                background: 'bg-cs',
-                title: 'Customer support',
+                background: 'cs_bg',
+                title: 'Customer Support',
                 subtitle:
-                    'As part of our customer support team, you will be the voice of our business, interacting with more than 2 million of our users worldwide. We combine our love for our company, our clients, and solving problems to provide customer service that’s so good, our clients can’t stop thanking us. You’ll answer questions, provide guidance, and make their day just a little bit better with your top-notch service.',
+                    'As part of our customer support department, you will be the voice of our business, interacting with more than 2 million of our users worldwide. We combine our love for our company, our clients, and solving problems to provide customer service that’s so good, our clients can’t stop thanking us. You’ll answer questions, provide guidance, and make their day just a little bit better with your top-notch service.',
             },
             intro_section: {
-                image: 'cs_1',
+                image: 'cs_desc',
                 paragraph: [
                     {
-                        text: 'Our team spans across the globe, and supports our clients in multiple languages. Besides offering immediate help via live chat, we relay the feedback we get from our clients to the development teams, and chime in to update the FAQ section on our website.',
+                        text: "Our department spans across the globe and supports our clients in multiple time zones and languages. We're a friendly bunch committed to providing exceptional quality service. With a clear focus on product and service knowledge, we offer immediate help via live chat and relay the feedback we get to the development teams so that our products remain a favourite among our clients. We're Deriv's voice and represent the respect Deriv has for its clients.",
                     },
                 ],
             },
             open_position: [
                 {
-                    title: 'Client Support Executive',
-                    location: 'Labuan , Malaysia',
-                    id: '590522000002688143',
-                },
-                {
-                    title: 'Client Support Executive',
-                    location: 'Dubai, United Arab Emirates',
-                    id: '590522000001477280',
-                },
-                {
-                    title: 'Client Support Executive',
-                    location: 'Cyberjaya , Malaysia',
-                    id: '590522000000468302',
-                },
-                {
-                    title: 'Client Support Executive',
+                    title: 'System Administrator',
                     location: 'Minsk , Belarus',
-                    id: '590522000013730441',
+                    id: '590522000037994110',
+                },
+                {
+                    title: 'DevOps Engineer(Windows)',
+                    location: 'Birkirkara , Malta',
+                    id: '590522000005771415',
+                },
+                {
+                    title: 'Disaster Recovery Engineer',
+                    location: 'Cyberjaya , Malaysia',
+                    id: '590522000000366045',
+                },
+                {
+                    title: 'Security Analyst',
+                    location: 'Cyberjaya , Malaysia',
+                    id: '590522000031028042',
                 },
             ],
             testimony_section: {
-                image: 'cs_2',
-                image_mobile: 'cs_2_mobile',
-                testimony_headline:
-                    "We have an amazing work culture at the office, which makes working here an exciting and interesting experience. Our people's positive spirit inspires you to stay. The Customer Support team has demonstrated the meaning of the word “teamwork“ for me. We all support one another. In our team, there is no “I did this“ or “I achieved this“ —  there is only “we, we, we“.",
+                image: 'cs_review',
+                image_mobile: 'cs_review_mobile',
+                testimony_headline: [
+                    {
+                        text: `“We have an amazing work culture at the office, which makes working here an exciting and interesting experience. Our people's positive spirit inspires you to stay. The Customer Support department has demonstrated the meaning of the word "teamwork" for me. We all support one another. In our department, there is no "I did this" or "I achieved this" —  there is only "we, we, we".”`,
+                    },
+                ],
             },
         },
     ],
-    compliance: [
+
+    people_management: [
         {
             header: {
-                background: 'bg-compliance',
-                title: 'Compliance',
+                background: 'people_management_bg',
+                title: 'People Management',
                 subtitle:
-                    'We’re the team that makes sure trading on Deriv is safe and seamless for our clients. With constant product development and over 2 million users worldwide — and growing, this is no small job.',
+                    'We bring in the go-getters; from the inspiring leaders to the ambitious grads. We link the best people with the right opportunities and support them in every way to help them grow in their professional careers at Deriv.',
             },
             intro_section: {
-                image: 'compliance_1',
+                image: 'people_management_desc',
                 paragraph: [
                     {
-                        text: 'You’ll work with regulators to make sure we comply with financial laws and regulations. Within the organisation, you’ll take complex processes, make them simple to understand, then communicate it across the organisation — seeing to it that we remain compliant with regulations and that Deriv remains trusted.',
+                        text: 'We bring in the go-getters; from the inspiring leaders to the ambitious grads. We link the best people with the right opportunities and support them in every way to help them grow in their professional careers at Deriv.',
                     },
                 ],
             },
             open_position: [
                 {
-                    title: 'Head of Compliance',
-                    location: 'London , United Kingdom',
-                    id: '590522000037962080',
+                    title: 'System Administrator',
+                    location: 'Minsk , Belarus',
+                    id: '590522000037994110',
                 },
                 {
-                    title: 'Chief Risk Officer',
-                    location: 'London , United Kingdom',
-                    id: '590522000037962120',
+                    title: 'DevOps Engineer(Windows)',
+                    location: 'Birkirkara , Malta',
+                    id: '590522000005771415',
                 },
                 {
-                    title: 'Compliance Manager',
-                    location: 'Guernsey',
-                    id: '590522000037212178',
+                    title: 'Disaster Recovery Engineer',
+                    location: 'Cyberjaya , Malaysia',
+                    id: '590522000000366045',
                 },
                 {
-                    title: 'Corporate Governance Administrator',
-                    location: 'Dubai , United Arab Emirates',
-                    id: '590522000022641278',
+                    title: 'Security Analyst',
+                    location: 'Cyberjaya , Malaysia',
+                    id: '590522000031028042',
                 },
             ],
             testimony_section: {
-                image: 'compliance_2',
-                image_mobile: 'compliance_2_mobile',
-                testimony_headline:
-                    "I started as an HR Operations Executive and recently moved to the Compliance department. I've never worked in Compliance before, so I'm grateful for the opportunity to learn and be in a new field. This job has taught me to look at things from different perspectives, and I aspire to continue learning and gain more knowledge as I go along.”",
+                image: 'people_management_review',
+                image_mobile: 'people_management_review_mobile',
+                testimony_headline: [
+                    {
+                        text: '“Coming from a non-tech background, I knew the job would be a challenge at first. But my team has been a big help. Everyone is eager to help, share their knowledge, and help each other succeed. I love the work culture here and I’m proud to be part of such an amazing company.”',
+                    },
+                ],
+            },
+        },
+    ],
+
+    product: [
+        {
+            header: {
+                background: 'product_bg',
+                title: 'Product Design & UX',
+                subtitle:
+                    'A big part of what draws millions of clients to us is the experience they have with our products and platforms. That’s our forte. We’re a bunch of researchers, designers, and problem-solvers whose job is to turn user challenges into opportunities, and ideas into products that work beautifully.  We’re about ensuring we are offering the best experience a trader can have.',
+            },
+            intro_section: {
+                image: 'product_desc',
+                paragraph: [
+                    {
+                        text: "We learn about our clients, observe their interactions, and decipher complex flows to design a seamless and intuitive user experience for our traders. We're constantly on the lookout to make improvements and make trading on our platforms an enjoyable experience.  We exchange ideas with passionate teammates, hold each other to the highest standards, and support one another to succeed, always putting clients first.",
+                    },
+                ],
+            },
+            open_position: [
+                {
+                    title: 'System Administrator',
+                    location: 'Minsk , Belarus',
+                    id: '590522000037994110',
+                },
+                {
+                    title: 'DevOps Engineer(Windows)',
+                    location: 'Birkirkara , Malta',
+                    id: '590522000005771415',
+                },
+                {
+                    title: 'Disaster Recovery Engineer',
+                    location: 'Cyberjaya , Malaysia',
+                    id: '590522000000366045',
+                },
+                {
+                    title: 'Security Analyst',
+                    location: 'Cyberjaya , Malaysia',
+                    id: '590522000031028042',
+                },
+            ],
+            testimony_section: {
+                image: 'product_review',
+                image_mobile: 'product_review_mobile',
+                testimony_headline: [
+                    {
+                        text: '“I’ve been working here for about 5 years as a UI/UX designer. Our team’s goal is to create enjoyable and meaningful user experiences. When we add products and platforms to our portfolio, it’s important that we take into account branding, design, usability, and function.',
+                    },
+                    {
+                        text: 'Working with my team is like working with friends, or even a second family. I can go to anyone for a chat or to get input on a project we’re working on.”',
+                    },
+                ],
+            },
+        },
+    ],
+
+    compliance: [
+        {
+            header: {
+                background: 'compliance_bg',
+                title: 'Legal & Compliance',
+                subtitle:
+                    'We’re the department that makes sure trading on Deriv is safe and seamless for our clients. With constant product development and over 2 million users worldwide — and growing — this is no small job.',
+            },
+            intro_section: {
+                image: 'compliance_desc',
+                paragraph: [
+                    {
+                        text: 'Our responsibility is managing regulatory compliance within the company. We perform a wide range of tasks, such as ensuring operational compliance with regulations, assisting with regulatory audits and annual statutory audits, conducting anti-fraud checks on clients, and analysing trade and payment activities for abuse. Our work is essential to the company’s sustainability and ambition.',
+                    },
+                ],
+            },
+            open_position: [
+                {
+                    title: 'System Administrator',
+                    location: 'Minsk , Belarus',
+                    id: '590522000037994110',
+                },
+                {
+                    title: 'DevOps Engineer(Windows)',
+                    location: 'Birkirkara , Malta',
+                    id: '590522000005771415',
+                },
+                {
+                    title: 'Disaster Recovery Engineer',
+                    location: 'Cyberjaya , Malaysia',
+                    id: '590522000000366045',
+                },
+                {
+                    title: 'Security Analyst',
+                    location: 'Cyberjaya , Malaysia',
+                    id: '590522000031028042',
+                },
+            ],
+            testimony_section: {
+                image: 'compliance_review',
+                image_mobile: 'compliance_review_mobile',
+                testimony_headline: [
+                    {
+                        text: `“I started as an HR Operations Executive and recently moved to the Compliance department. I've never worked in Compliance before, so I'm grateful for the opportunity to learn and be in a new field. This job has taught me to look at things from different perspectives, and I aspire to continue learning and gain more knowledge as I go along.”`,
+                    },
+                ],
+            },
+        },
+    ],
+
+    finance: [
+        {
+            header: {
+                background: 'finance_bg',
+                title: 'Finance & Accounts',
+                subtitle:
+                    'In charge of managing the company’s financial and accounting health to ensure sustainable business growth, we are the department that’s always on the money! We control operational costs, pay the bills, and mitigate financial risks — making sure Deriv can continue to grow for our employees and our clients.',
+            },
+            intro_section: {
+                image: 'finance_desc',
+                paragraph: [
+                    {
+                        text: 'We ensure everything is accounted for accurately and in compliance with regulatory requirements. We deal with clients on payments-related queries daily and prepare reports for all relevant regulatory bodies. Each team member also handles regular reconciliations of balances and transactions that take place through third-party service providers and financial institutions with our internal data.',
+                    },
+                ],
+            },
+            open_position: [
+                {
+                    title: 'System Administrator',
+                    location: 'Minsk , Belarus',
+                    id: '590522000037994110',
+                },
+                {
+                    title: 'DevOps Engineer(Windows)',
+                    location: 'Birkirkara , Malta',
+                    id: '590522000005771415',
+                },
+                {
+                    title: 'Disaster Recovery Engineer',
+                    location: 'Cyberjaya , Malaysia',
+                    id: '590522000000366045',
+                },
+                {
+                    title: 'Security Analyst',
+                    location: 'Cyberjaya , Malaysia',
+                    id: '590522000031028042',
+                },
+            ],
+            testimony_section: {
+                image: 'finance_review',
+                image_mobile: 'finance_review_mobile',
+                testimony_headline: [
+                    {
+                        text: '“As a team, we rely on teamwork. Everyone has a task to accomplish, and the team works well with excellent communication and constant discussions on improving and achieving our goal.',
+                    },
+                    {
+                        text: 'Deriv is constantly evolving. Every day is a new adventure. Everyone works together and supports each other to make things happen. We share the same vision and are always dedicated to the company mission.”',
+                    },
+                ],
+            },
+        },
+    ],
+
+    payments: [
+        {
+            header: {
+                background: 'payments_bg',
+                title: 'Payment Solutions & Integration',
+                subtitle:
+                    'Our main function is to help our customers trade easily using a payment method of their choice. Our job can be described as "client funding facilitators" — meaning we provide the necessary tools to the clients to be able to fund their accounts and to be able to withdraw their returns.',
+            },
+            intro_section: {
+                image: 'payments_desc',
+                paragraph: [
+                    {
+                        text: "Our main focus is to onboard the payment systems that our clients want to use from across the globe and make sure they're working as expected. We work with many different payment solutions and people of various background. We also reach out to various other teams to assist in any payment queries and educate them on how to use the payment systems. In turn, this helps other teams to be able to efficiently assist clients in their trading journey.",
+                    },
+                ],
+            },
+            open_position: [
+                {
+                    title: 'System Administrator',
+                    location: 'Minsk , Belarus',
+                    id: '590522000037994110',
+                },
+                {
+                    title: 'DevOps Engineer(Windows)',
+                    location: 'Birkirkara , Malta',
+                    id: '590522000005771415',
+                },
+                {
+                    title: 'Disaster Recovery Engineer',
+                    location: 'Cyberjaya , Malaysia',
+                    id: '590522000000366045',
+                },
+                {
+                    title: 'Security Analyst',
+                    location: 'Cyberjaya , Malaysia',
+                    id: '590522000031028042',
+                },
+            ],
+            testimony_section: {
+                image: 'payments_review',
+                image_mobile: 'payments_review_mobile',
+                testimony_headline: [
+                    {
+                        text: `“The best thing about working at Deriv is that the company is open to hiring younger people and turning them to leaders. In my case, I got promoted to senior executive after a year. Now my Head of Department is helping me get ready for a team lead position. There's always room for growth at Deriv.”`,
+                    },
+                ],
+            },
+        },
+    ],
+
+    front_end: [
+        {
+            header: {
+                background: 'front_end_bg',
+                title: 'Front-end Development',
+                subtitle:
+                    'We’re tasked with building the client side of our web applications. We translate UI/UX design wireframes into a user-centric web experience, combining creativity and practicality to provide users with the best experience.',
+            },
+            intro_section: {
+                image: 'front_end_desc',
+                paragraph: [
+                    {
+                        text: 'Advocating for our clients’ needs requires collaboration with other teams to implement an engaging user interface for our trading platforms. As part of our department, you’ll be expected to understand our audience as well as our company vision to code creative and user-friendly web pages and platforms. We continuously push to offer a more fluid user experience for all our clients.',
+                    },
+                ],
+            },
+            open_position: [
+                {
+                    title: 'System Administrator',
+                    location: 'Minsk , Belarus',
+                    id: '590522000037994110',
+                },
+                {
+                    title: 'DevOps Engineer(Windows)',
+                    location: 'Birkirkara , Malta',
+                    id: '590522000005771415',
+                },
+                {
+                    title: 'Disaster Recovery Engineer',
+                    location: 'Cyberjaya , Malaysia',
+                    id: '590522000000366045',
+                },
+                {
+                    title: 'Security Analyst',
+                    location: 'Cyberjaya , Malaysia',
+                    id: '590522000031028042',
+                },
+            ],
+            testimony_section: {
+                image: 'fe_review',
+                image_mobile: 'fe_review_mobile',
+                testimony_headline: [
+                    {
+                        text: `“I have been working at Deriv since October 2020. My team plans, builds, and maintains the front-end codebase of all the different projects the company is working on. There are a lot of ongoing projects, each with its own set of responsibilities and challenges. Together, we help each other out where we can and know that each and every person has contributed to the team's success.”`,
+                    },
+                ],
+            },
+        },
+    ],
+
+    trading_operations: [
+        {
+            header: {
+                background: 'trading_operations_bg',
+                title: 'Trading Operations',
+                subtitle:
+                    'Our department develops the underlying risk and pricing models that drive our products and enable customers to trade on our platforms. We are central to the profitability and success of the company, and strive to continuously make our platforms better for our clients.',
+            },
+            intro_section: {
+                image: 'trading_operations_desc',
+                paragraph: [
+                    {
+                        text: "We manage our trading platforms and recommend product offerings based on market and client data. We interpret large amounts of data to track the company's performance, mitigate risk, and provide useful, actionable insights that help us develop solid business strategies. We develop new generations of trading products. Our efforts keep Deriv innovative and forward-thinking within our industry.",
+                    },
+                ],
+            },
+            open_position: [
+                {
+                    title: 'System Administrator',
+                    location: 'Minsk , Belarus',
+                    id: '590522000037994110',
+                },
+                {
+                    title: 'DevOps Engineer(Windows)',
+                    location: 'Birkirkara , Malta',
+                    id: '590522000005771415',
+                },
+                {
+                    title: 'Disaster Recovery Engineer',
+                    location: 'Cyberjaya , Malaysia',
+                    id: '590522000000366045',
+                },
+                {
+                    title: 'Security Analyst',
+                    location: 'Cyberjaya , Malaysia',
+                    id: '590522000031028042',
+                },
+            ],
+            testimony_section: {
+                image: 'trading_operations_review',
+                image_mobile: 'trading_operations_review_mobile',
+                testimony_headline: [
+                    {
+                        text: `“I belong to a small team with lots of responsibilities, but I'm proud that everyone understands that, and we're all pulling in the same direction to reach our targets.`,
+                    },
+                    {
+                        text: `Deriv is a multinational organisation, so you are exposed to many different cultures every day, and it’s wonderful to work for a company that constantly improves your skills and knowledge.”`,
+                    },
+                ],
+            },
+        },
+    ],
+
+    software_testing: [
+        {
+            header: {
+                background: 'software_testing_bg',
+                title: 'Software Testing',
+                subtitle:
+                    'We are a team of engineers who prepare and execute high-quality tests to refine our wide range of products and services. By joining our department, you will help to look after the quality, usability, and stability of our websites and trading platforms to deliver a world-class experience to our end users.',
+            },
+            intro_section: {
+                image: 'software_testing_desc',
+                paragraph: [
+                    {
+                        text: 'From initial design to post release, we assess risks on projects and make sure the production team achieves their delivery on time and with high quality through automation. We refine our wide range of products and services by meticulous testing. Working closely with other teams, we mitigate any problems within our offerings and recommend improvements to keep our platforms running smoothly.',
+                    },
+                ],
+            },
+            open_position: [
+                {
+                    title: 'System Administrator',
+                    location: 'Minsk , Belarus',
+                    id: '590522000037994110',
+                },
+                {
+                    title: 'DevOps Engineer(Windows)',
+                    location: 'Birkirkara , Malta',
+                    id: '590522000005771415',
+                },
+                {
+                    title: 'Disaster Recovery Engineer',
+                    location: 'Cyberjaya , Malaysia',
+                    id: '590522000000366045',
+                },
+                {
+                    title: 'Security Analyst',
+                    location: 'Cyberjaya , Malaysia',
+                    id: '590522000031028042',
+                },
+            ],
+            testimony_section: {
+                image: 'software_testing_review',
+                image_mobile: 'software_testing_review_mobile',
+                testimony_headline: [
+                    {
+                        text: `“I joined Deriv as a fresh graduate. The work culture here is great. Since I began, I have worked on a variety of projects with people with different skills, experience, and backgrounds. In addition to sharpening my skills over time, I also built strong relationships with my coworkers. My teammates are more than just colleagues; they're wonderful people who have helped me grow as a person and as a professional.”`,
+                    },
+                ],
+            },
+        },
+    ],
+
+    business_excellence: [
+        {
+            header: {
+                background: 'business_excellence_bg',
+                title: 'Business Excellence',
+                subtitle:
+                    'Our mission is to improve company-wide performance by helping teams optimise their processes and resources. We analyse team operations across departments and develop and implement plans that eliminate redundancies, streamline work, improve communication, and manage risks.',
+            },
+            intro_section: {
+                image: 'business_excellence_desc',
+                paragraph: [
+                    {
+                        text: 'Our department’s role is pivotal in driving a culture of continuous improvement, which is a crucial habit for staying ahead of the competition, disruptive events, and industry developments. We work with every team in the company to understand the nitty-gritty of their work so that we can come up with practical strategies together. We help the company stay efficient, consistent, and optimised in the face of change.',
+                    },
+                ],
+            },
+            open_position: [
+                {
+                    title: 'System Administrator',
+                    location: 'Minsk , Belarus',
+                    id: '590522000037994110',
+                },
+                {
+                    title: 'DevOps Engineer(Windows)',
+                    location: 'Birkirkara , Malta',
+                    id: '590522000005771415',
+                },
+                {
+                    title: 'Disaster Recovery Engineer',
+                    location: 'Cyberjaya , Malaysia',
+                    id: '590522000000366045',
+                },
+                {
+                    title: 'Security Analyst',
+                    location: 'Cyberjaya , Malaysia',
+                    id: '590522000031028042',
+                },
+            ],
+            testimony_section: {
+                image: 'business_excellence_review',
+                image_mobile: 'business_excellence_review_mobile',
+                testimony_headline: [
+                    {
+                        text: '“The team I am currently working with consists of a bunch of highly motivated individuals working towards common goals. When things do not go as planned, you can always count on them to be helpful and supportive. The best thing about my team is our unity and teamwork. We work on improvements and celebrate successes together.”',
+                    },
+                ],
+            },
+        },
+    ],
+
+    internal_audit: [
+        {
+            header: {
+                background: 'internal_audit_bg',
+                title: 'Internal Audit',
+                subtitle:
+                    'Our role is to provide independent evaluations of the company to reduce risk and improve operations. Our superpower is objectivity — it allows us to collaborate with teams to develop and implement innovative approaches to key issues affecting the business.',
+            },
+            intro_section: {
+                image: 'internal_audit_desc',
+                paragraph: [
+                    {
+                        text: 'On a daily basis, We deep-dive into our business dealings and processes, convert the information into meaningful data, and make recommendations for improvement. Our department boasts high ethical standards, independence, and reliability — we’re always ready to invest our time and energy into critical audit assignments. We play a significant role in our company’s growth by ensuring that the company is moving in the right direction.',
+                    },
+                ],
+            },
+            open_position: [
+                {
+                    title: 'System Administrator',
+                    location: 'Minsk , Belarus',
+                    id: '590522000037994110',
+                },
+                {
+                    title: 'DevOps Engineer(Windows)',
+                    location: 'Birkirkara , Malta',
+                    id: '590522000005771415',
+                },
+                {
+                    title: 'Disaster Recovery Engineer',
+                    location: 'Cyberjaya , Malaysia',
+                    id: '590522000000366045',
+                },
+                {
+                    title: 'Security Analyst',
+                    location: 'Cyberjaya , Malaysia',
+                    id: '590522000031028042',
+                },
+            ],
+            testimony_section: {
+                image: 'internal_audit_review',
+                image_mobile: 'internal_audit_review_mobile',
+                testimony_headline: [
+                    {
+                        text: '“I love the company culture and enjoy working with my team – they’re so easy to get along with. Whenever we’re stuck with a problem, the team is ready to get involved and work together to find solutions. We have a positive working environment, and I can be sure that I will be challenged and learn something new every day.”',
+                    },
+                ],
+            },
+        },
+    ],
+
+    pm: [
+        {
+            header: {
+                background: 'pm_bg',
+                title: 'Project Management',
+                subtitle:
+                    "All Deriv projects involve teams in multiple locations. Completing projects according to expectations entails skilled juggling of everyone's schedules and responsibilities. Our department embraces this challenge — we do whatever it takes to ensure projects are completed in a timely, efficient manner.",
+            },
+            intro_section: {
+                image: 'pm_desc',
+                paragraph: [
+                    {
+                        text: 'We see projects through to deliver expected results, control project risks, and support organisational collaboration and communication. We ensure that everyone involved with a project has the materials, time, and information they need to complete their particular tasks. By listening, learning, and communicating, we put all the pieces together to create something everyone can be proud of.',
+                    },
+                ],
+            },
+            open_position: [
+                {
+                    title: 'System Administrator',
+                    location: 'Minsk , Belarus',
+                    id: '590522000037994110',
+                },
+                {
+                    title: 'DevOps Engineer(Windows)',
+                    location: 'Birkirkara , Malta',
+                    id: '590522000005771415',
+                },
+                {
+                    title: 'Disaster Recovery Engineer',
+                    location: 'Cyberjaya , Malaysia',
+                    id: '590522000000366045',
+                },
+                {
+                    title: 'Security Analyst',
+                    location: 'Cyberjaya , Malaysia',
+                    id: '590522000031028042',
+                },
+            ],
+            testimony_section: {
+                image: 'pm_review',
+                image_mobile: 'pm_review_mobile',
+                testimony_headline: [
+                    {
+                        text: `“It's in Deriv's DNA to react quickly and reprioritise based on threats and market trends, so our core responsibility is to adjust plans and communicate priorities across teams. My favourite thing about working at Deriv is that we have access to everyone in the company and can learn from them regardless of their location. There's a significant focus on leadership development too that I also enjoy.”`,
+                    },
+                ],
             },
         },
     ],

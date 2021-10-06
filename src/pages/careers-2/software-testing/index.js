@@ -4,7 +4,7 @@ import career_data from '../data/_career-data'
 import { WithIntl } from 'components/localization'
 
 const Career2 = () => {
-    return <DepartmentPage data={career_data.operations[0]} />
+    return <DepartmentPage data={career_data.software_testing[0]} />
 }
 
 export default WithIntl()(Career2)

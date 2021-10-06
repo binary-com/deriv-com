@@ -22,19 +22,19 @@ const career_data = {
                     id: '590522000000366102',
                 },
                 {
+                    title: 'C++ Developer',
+                    location: 'Cyberjaya , Malaysia',
+                    id: '590522000010928298',
+                },
+                {
+                    title: 'C++ Developer',
+                    location: 'Minsk , Belarus',
+                    id: '590522000010931352',
+                },
+                {
                     title: 'Cryptocurrency/Blockchain Developer',
-                    location: 'Cyberjaya , Malaysia',
-                    id: '590522000001362292',
-                },
-                {
-                    title: 'Senior Back-end Developer',
                     location: 'Dubai , United Arab Emirates',
-                    id: '590522000000777560',
-                },
-                {
-                    title: 'Senior Perl Developer',
-                    location: 'Cyberjaya , Malaysia',
-                    id: '590522000001379122',
+                    id: '590522000002158468',
                 },
             ],
             testimony_section: {
@@ -67,24 +67,24 @@ const career_data = {
             },
             open_position: [
                 {
-                    title: 'Performance Marketing Manager',
-                    location: 'Dubai , United Arab Emirates',
-                    id: '590522000033687168',
-                },
-                {
                     title: 'Digital PR Manager',
-                    location: 'Dubai, United Arab Emirates',
+                    location: 'Dubai , United Arab Emirates',
                     id: '590522000033642096',
                 },
                 {
-                    title: 'Search Engine Optimisation (SEO) Specialist',
-                    location: 'Cyberjaya , Malaysia',
-                    id: '590522000016038331',
+                    title: 'Business Development Executive',
+                    location: 'Kigali , Rwanda',
+                    id: '590522000004649139',
                 },
                 {
-                    title: 'Financial Writer',
-                    location: 'Cyberjaya , Malaysia',
-                    id: '590522000015914018',
+                    title: 'Performance Marketing Executive',
+                    location: 'Dubai , United Arab Emirates',
+                    id: '590522000002067162',
+                },
+                {
+                    title: 'IT Product Manager',
+                    location: 'Limassol , Cyprus',
+                    id: '590522000016498026',
                 },
             ],
             testimony_section: {
@@ -117,24 +117,24 @@ const career_data = {
             },
             open_position: [
                 {
-                    title: 'System Administrator',
-                    location: 'Minsk , Belarus',
-                    id: '590522000037994110',
-                },
-                {
-                    title: 'DevOps Engineer(Windows)',
-                    location: 'Birkirkara , Malta',
-                    id: '590522000005771415',
-                },
-                {
-                    title: 'Disaster Recovery Engineer',
+                    title: 'DevOps Engineer',
                     location: 'Cyberjaya , Malaysia',
-                    id: '590522000000366045',
+                    id: '590522000000366151',
                 },
                 {
-                    title: 'Security Analyst',
-                    location: 'Cyberjaya , Malaysia',
-                    id: '590522000031028042',
+                    title: 'DevOps (Windows) Engineer',
+                    location: 'Dubai , United Arab Emirates',
+                    id: '590522000008127253',
+                },
+                {
+                    title: 'Security Engineer',
+                    location: 'Dubai , United Arab Emirates',
+                    id: '590522000005397347',
+                },
+                {
+                    title: 'Database Administrator',
+                    location: 'Dubai , United Arab Emirates',
+                    id: '590522000002685375',
                 },
             ],
             testimony_section: {
@@ -167,24 +167,24 @@ const career_data = {
             },
             open_position: [
                 {
-                    title: 'System Administrator',
-                    location: 'Minsk , Belarus',
-                    id: '590522000037994110',
+                    title: 'Client Support Executive',
+                    location: 'Asunción , Paraguay',
+                    id: '590522000002708128',
                 },
                 {
-                    title: 'DevOps Engineer(Windows)',
-                    location: 'Birkirkara , Malta',
-                    id: '590522000005771415',
+                    title: 'Client Support Executive',
+                    location: 'Kigali , Rwanda',
+                    id: '590522000003910182',
                 },
                 {
-                    title: 'Disaster Recovery Engineer',
-                    location: 'Cyberjaya , Malaysia',
-                    id: '590522000000366045',
+                    title: 'Client Support Executive',
+                    location: 'Dubai , United Arab Emirates',
+                    id: '590522000001477280',
                 },
                 {
-                    title: 'Security Analyst',
-                    location: 'Cyberjaya , Malaysia',
-                    id: '590522000031028042',
+                    title: 'Client Support Executive',
+                    location: 'Ipoh , Malaysia',
+                    id: '590522000001477084',
                 },
             ],
             testimony_section: {
@@ -217,24 +217,24 @@ const career_data = {
             },
             open_position: [
                 {
-                    title: 'System Administrator',
+                    title: 'Talent Acquisition Specialist',
+                    location: 'Dubai , United Arab Emirates',
+                    id: '590522000002075011',
+                },
+                {
+                    title: 'IT Recruiter',
                     location: 'Minsk , Belarus',
-                    id: '590522000037994110',
+                    id: '590522000013730417',
                 },
                 {
-                    title: 'DevOps Engineer(Windows)',
+                    title: 'Talent Acquisition Specialist',
                     location: 'Birkirkara , Malta',
-                    id: '590522000005771415',
+                    id: '590522000002165394',
                 },
                 {
-                    title: 'Disaster Recovery Engineer',
-                    location: 'Cyberjaya , Malaysia',
-                    id: '590522000000366045',
-                },
-                {
-                    title: 'Security Analyst',
-                    location: 'Cyberjaya , Malaysia',
-                    id: '590522000031028042',
+                    title: 'Talent Acquisition Executive',
+                    location: 'Kigali , Rwanda',
+                    id: '590522000003910120',
                 },
             ],
             testimony_section: {
@@ -267,24 +267,24 @@ const career_data = {
             },
             open_position: [
                 {
-                    title: 'System Administrator',
-                    location: 'Minsk , Belarus',
-                    id: '590522000037994110',
-                },
-                {
-                    title: 'DevOps Engineer(Windows)',
-                    location: 'Birkirkara , Malta',
-                    id: '590522000005771415',
-                },
-                {
-                    title: 'Disaster Recovery Engineer',
+                    title: 'UI/UX Designer',
                     location: 'Cyberjaya , Malaysia',
-                    id: '590522000000366045',
+                    id: '590522000002693001',
                 },
                 {
-                    title: 'Security Analyst',
+                    title: 'Motion Designer',
                     location: 'Cyberjaya , Malaysia',
-                    id: '590522000031028042',
+                    id: '590522000002693017',
+                },
+                {
+                    title: 'Graphics Designer',
+                    location: 'Dubai , United Arab Emirates',
+                    id: '590522000000846613',
+                },
+                {
+                    title: 'UX Researcher',
+                    location: 'Dubai , United Arab Emirates',
+                    id: '590522000013900070',
                 },
             ],
             testimony_section: {
@@ -320,24 +320,24 @@ const career_data = {
             },
             open_position: [
                 {
-                    title: 'System Administrator',
-                    location: 'Minsk , Belarus',
-                    id: '590522000037994110',
-                },
-                {
-                    title: 'DevOps Engineer(Windows)',
+                    title: 'Compliance Executive',
                     location: 'Birkirkara , Malta',
-                    id: '590522000005771415',
+                    id: '590522000002051238',
                 },
                 {
-                    title: 'Disaster Recovery Engineer',
-                    location: 'Cyberjaya , Malaysia',
-                    id: '590522000000366045',
+                    title: 'Corporate Governance Administrator',
+                    location: 'Dubai , United Arab Emirates',
+                    id: '590522000022641278',
                 },
                 {
-                    title: 'Security Analyst',
-                    location: 'Cyberjaya , Malaysia',
-                    id: '590522000031028042',
+                    title: 'Compliance Operations Executive',
+                    location: 'Birkirkara , Malta',
+                    id: '590522000020130003',
+                },
+                {
+                    title: 'Senior Compliance Officer',
+                    location: 'Guernsey',
+                    id: '590522000037212155',
                 },
             ],
             testimony_section: {
@@ -370,24 +370,24 @@ const career_data = {
             },
             open_position: [
                 {
-                    title: 'System Administrator',
-                    location: 'Minsk , Belarus',
-                    id: '590522000037994110',
+                    title: 'E-Payments Executive',
+                    location: 'Kigali , Rwanda',
+                    id: '590522000037223025',
                 },
                 {
-                    title: 'DevOps Engineer(Windows)',
-                    location: 'Birkirkara , Malta',
-                    id: '590522000005771415',
+                    title: 'Payments Executive',
+                    location: 'Dubai , United Arab Emirates',
+                    id: '590522000038463764',
                 },
                 {
-                    title: 'Disaster Recovery Engineer',
+                    title: 'Payments Executive',
+                    location: 'Asunción , Paraguay',
+                    id: '590522000025380388',
+                },
+                {
+                    title: 'Payments and Reconciliation Executive',
                     location: 'Cyberjaya , Malaysia',
-                    id: '590522000000366045',
-                },
-                {
-                    title: 'Security Analyst',
-                    location: 'Cyberjaya , Malaysia',
-                    id: '590522000031028042',
+                    id: '590522000022443181',
                 },
             ],
             testimony_section: {
@@ -421,28 +421,6 @@ const career_data = {
                     },
                 ],
             },
-            open_position: [
-                {
-                    title: 'System Administrator',
-                    location: 'Minsk , Belarus',
-                    id: '590522000037994110',
-                },
-                {
-                    title: 'DevOps Engineer(Windows)',
-                    location: 'Birkirkara , Malta',
-                    id: '590522000005771415',
-                },
-                {
-                    title: 'Disaster Recovery Engineer',
-                    location: 'Cyberjaya , Malaysia',
-                    id: '590522000000366045',
-                },
-                {
-                    title: 'Security Analyst',
-                    location: 'Cyberjaya , Malaysia',
-                    id: '590522000031028042',
-                },
-            ],
             testimony_section: {
                 image: 'payments_review',
                 image_mobile: 'payments_review_mobile',
@@ -473,24 +451,24 @@ const career_data = {
             },
             open_position: [
                 {
-                    title: 'System Administrator',
-                    location: 'Minsk , Belarus',
-                    id: '590522000037994110',
+                    title: 'Senior Front-End Developer',
+                    location: 'Dubai , United Arab Emirates',
+                    id: '590522000005764197',
                 },
                 {
-                    title: 'DevOps Engineer(Windows)',
-                    location: 'Birkirkara , Malta',
-                    id: '590522000005771415',
-                },
-                {
-                    title: 'Disaster Recovery Engineer',
+                    title: 'Front-end Developer',
                     location: 'Cyberjaya , Malaysia',
-                    id: '590522000000366045',
+                    id: '590522000000384042',
                 },
                 {
-                    title: 'Security Analyst',
+                    title: 'Flutter Developer',
                     location: 'Cyberjaya , Malaysia',
-                    id: '590522000031028042',
+                    id: '590522000000384027',
+                },
+                {
+                    title: 'Flutter Developer',
+                    location: 'Dubai , United Arab Emirates',
+                    id: '590522000005605178',
                 },
             ],
             testimony_section: {
@@ -523,24 +501,24 @@ const career_data = {
             },
             open_position: [
                 {
-                    title: 'System Administrator',
+                    title: 'Quantitative Analyst',
                     location: 'Minsk , Belarus',
-                    id: '590522000037994110',
+                    id: '590522000005991768',
                 },
                 {
-                    title: 'DevOps Engineer(Windows)',
+                    title: 'Quantitative Analyst',
+                    location: 'Cyberjaya , Malaysia',
+                    id: '590522000000670134',
+                },
+                {
+                    title: 'Quantitative Analyst',
                     location: 'Birkirkara , Malta',
-                    id: '590522000005771415',
+                    id: '590522000002158426',
                 },
                 {
-                    title: 'Disaster Recovery Engineer',
-                    location: 'Cyberjaya , Malaysia',
-                    id: '590522000000366045',
-                },
-                {
-                    title: 'Security Analyst',
-                    location: 'Cyberjaya , Malaysia',
-                    id: '590522000031028042',
+                    title: 'Trading Analyst',
+                    location: 'Limassol , Cyprus',
+                    id: '590522000001540056',
                 },
             ],
             testimony_section: {
@@ -576,24 +554,24 @@ const career_data = {
             },
             open_position: [
                 {
-                    title: 'System Administrator',
+                    title: 'Software Tester',
+                    location: 'Asunción , Paraguay',
+                    id: '590522000022996207',
+                },
+                {
+                    title: 'Automation Tester',
+                    location: 'Dubai , United Arab Emirates',
+                    id: '590522000022344044',
+                },
+                {
+                    title: 'Software Tester',
+                    location: 'Kigali , Rwanda',
+                    id: '590522000006365298',
+                },
+                {
+                    title: 'Software Tester',
                     location: 'Minsk , Belarus',
-                    id: '590522000037994110',
-                },
-                {
-                    title: 'DevOps Engineer(Windows)',
-                    location: 'Birkirkara , Malta',
-                    id: '590522000005771415',
-                },
-                {
-                    title: 'Disaster Recovery Engineer',
-                    location: 'Cyberjaya , Malaysia',
-                    id: '590522000000366045',
-                },
-                {
-                    title: 'Security Analyst',
-                    location: 'Cyberjaya , Malaysia',
-                    id: '590522000031028042',
+                    id: '590522000016474003',
                 },
             ],
             testimony_section: {
@@ -626,24 +604,14 @@ const career_data = {
             },
             open_position: [
                 {
-                    title: 'System Administrator',
-                    location: 'Minsk , Belarus',
-                    id: '590522000037994110',
-                },
-                {
-                    title: 'DevOps Engineer(Windows)',
-                    location: 'Birkirkara , Malta',
-                    id: '590522000005771415',
-                },
-                {
-                    title: 'Disaster Recovery Engineer',
+                    title: 'Business Analyst',
                     location: 'Cyberjaya , Malaysia',
-                    id: '590522000000366045',
+                    id: '590522000033805388',
                 },
                 {
-                    title: 'Security Analyst',
+                    title: 'Business Process Management',
                     location: 'Cyberjaya , Malaysia',
-                    id: '590522000031028042',
+                    id: '590522000004000041',
                 },
             ],
             testimony_section: {
@@ -676,24 +644,24 @@ const career_data = {
             },
             open_position: [
                 {
-                    title: 'System Administrator',
-                    location: 'Minsk , Belarus',
-                    id: '590522000037994110',
-                },
-                {
-                    title: 'DevOps Engineer(Windows)',
+                    title: 'Internal Auditor',
                     location: 'Birkirkara , Malta',
-                    id: '590522000005771415',
+                    id: '590522000037933833',
                 },
                 {
-                    title: 'Disaster Recovery Engineer',
-                    location: 'Cyberjaya , Malaysia',
-                    id: '590522000000366045',
+                    title: 'Internal Auditor',
+                    location: 'Dubai , United Arab Emirates',
+                    id: '590522000037933852',
                 },
                 {
-                    title: 'Security Analyst',
-                    location: 'Cyberjaya , Malaysia',
-                    id: '590522000031028042',
+                    title: 'Internal Auditor',
+                    location: 'Asunción , Paraguay',
+                    id: '590522000037933936',
+                },
+                {
+                    title: 'Head of Internal Audit',
+                    location: 'London , United Kingdom',
+                    id: '590522000037962151',
                 },
             ],
             testimony_section: {
@@ -726,24 +694,14 @@ const career_data = {
             },
             open_position: [
                 {
-                    title: 'System Administrator',
+                    title: 'Project Manager',
+                    location: 'Limassol , Cyprus',
+                    id: '590522000033674411',
+                },
+                {
+                    title: 'Project Manager',
                     location: 'Minsk , Belarus',
-                    id: '590522000037994110',
-                },
-                {
-                    title: 'DevOps Engineer(Windows)',
-                    location: 'Birkirkara , Malta',
-                    id: '590522000005771415',
-                },
-                {
-                    title: 'Disaster Recovery Engineer',
-                    location: 'Cyberjaya , Malaysia',
-                    id: '590522000000366045',
-                },
-                {
-                    title: 'Security Analyst',
-                    location: 'Cyberjaya , Malaysia',
-                    id: '590522000031028042',
+                    id: '590522000006340297',
                 },
             ],
             testimony_section: {

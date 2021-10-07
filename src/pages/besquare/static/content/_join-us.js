@@ -45,5 +45,12 @@ export default {
                 </>
             ),
         },
+        {
+            text: (
+                <>
+                    <strong> Test extra element</strong> Test test test
+                </>
+            ),
+        },
     ],
 }

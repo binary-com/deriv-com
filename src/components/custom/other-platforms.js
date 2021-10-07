@@ -143,9 +143,7 @@ export const DMT5Card = ({ is_selected, is_ppc_redirect, word_break_cover }) => 
             title={localize('DMT5')}
             Icon={() => <StyledDmt5 src={DMT5} alt="" width="72" height="72" />}
             content={[
-                localize(
-                    'Trade on Deriv MetaTrader 5 (DMT5), the all-in-one FX and CFD trading platform.',
-                ),
+                localize('Trade on Deriv MT5 (DMT5), the all-in-one FX and CFD trading platform.'),
             ]}
             is_inline_icon
             min_height="12.4rem"
@@ -308,7 +306,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                     aria_label="DMT5"
                     icon={() => <img src={DMT5} alt="" width="32" height="32" />}
                     content={
-                        <Localize translate_text="Trade on Deriv MetaTrader 5 (DMT5), the all-in-one FX and CFD trading platform." />
+                        <Localize translate_text="Trade on Deriv MT5 (DMT5), the all-in-one FX and CFD trading platform." />
                     }
                     title={<Localize translate_text="DMT5" />}
                     onClick={onClick}

@@ -842,3 +842,25 @@ export const energy = [
         text: <Localize translate_text="Oil/USD" />,
     },
 ]
+
+export const volatility_indices_trade_type_eu = [
+    {
+        src: icons.VOLATILITY200EU,
+        text: <Localize translate_text="Volatility 200 Index" />,
+    },
+    {
+        src: icons.VOLATILITY300EU,
+        text: <Localize translate_text="Volatility 300 Index" />,
+    },
+]
+
+export const crash_boom_trade_type_eu = [
+    {
+        src: icons.CRASH300EU,
+        text: <Localize translate_text="Crash 300 Index" />,
+    },
+    {
+        src: icons.BOOM300EU,
+        text: <Localize translate_text="Boom 300 Index " />,
+    },
+]

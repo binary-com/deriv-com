@@ -44,19 +44,9 @@ const DifferentAccounts = () => (
         </StyledHeader>
         <Text>
             {localize(
-                'The DMT5 Standard account offers new and experienced traders high leverage and variable spreads for maximum flexibility.',
+                'The DMT5 Financial account offers you leverage to trade contracts for difference (CFDs) on forex, stocks, stock indices, commodities, synthetic indices, and cryptocurrencies.',
             )}
         </Text>
-        <StyledText>
-            {localize(
-                'The DMT5 Advanced account is a 100% A Book account where your trades are passed straight through to the market, giving you direct access to forex liquidity providers.',
-            )}
-        </StyledText>
-        <StyledText>
-            {localize(
-                'The DMT5 Synthetic Indices account allows you to trade contracts for difference (CFDs) on synthetic indices that mimic real-world movements. It is available for trading 24/7 and audited for fairness by an independent third party.',
-            )}
-        </StyledText>
     </ArticleWrapper>
 )
 

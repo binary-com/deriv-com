@@ -18,9 +18,9 @@ import { LocationContext } from 'components/layout/location-context.js'
 import { useActiveLinkState } from 'components/hooks/use-active-link-state'
 import device from 'themes/device'
 import { CFDWarning } from 'components/layout'
-import LogoCombinedShape from 'images/svg/logo-combined-shape.svg'
-import Hamburger from 'images/svg/hamburger_menu.svg'
-import Close from 'images/svg/close-long.svg'
+import LogoCombinedShape from 'images/svg/layout/logo-combined-shape.svg'
+import Hamburger from 'images/svg/layout/hamburger_menu.svg'
+import Close from 'images/svg/layout/close-long.svg'
 
 const query = graphql`
     query {
@@ -127,7 +127,6 @@ export const NavCareers = () => {
     const current_page = useActiveLinkState('careers')
 
     const [is_canvas_menu_open, openOffCanvasMenu, closeOffCanvasMenu] = moveOffCanvasMenu()
-    console.log(is_canvas_menu_open)
 
     return (
         <>

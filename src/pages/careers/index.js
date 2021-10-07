@@ -21,7 +21,7 @@ const meta_attributes = {
 }
 
 const Careers = () => (
-    <Layout type="careers" margin_top={7}>
+    <Layout type="careers">
         <SEO
             title={localize('Careers | Join and grow with us | Deriv')}
             description={localize(

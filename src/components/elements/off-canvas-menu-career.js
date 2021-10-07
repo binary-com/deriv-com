@@ -16,7 +16,7 @@ const OffCanvasMenuCareer = styled.section`
     transition: transform 0.4s;
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.1);
     right: 0;
-    ${({ is_canvas_menu_open }) => is_canvas_menu_open && 'transform: translateX(254px)'};
+    ${({ is_canvas_menu_open }) => !is_canvas_menu_open && 'transform: translateX(254px)'};
 `
 
 const OffCanvasMenuContainer = styled.div`

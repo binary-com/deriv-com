@@ -33,11 +33,14 @@ const query = graphql`
 const CareerRight = styled(Flex)`
     width: auto;
     justify-self: flex-end;
-    min-width: 200px;
+    min-width: 120px;
+    max-width: ;
 `
 
 const CareerButton = styled(LinkButton)`
+    min-width: 130px;
     @media ${device.tabletS} {
+        min-width: 102px;
         font-size: 12px;
     }
     @media ${device.mobileL} {
@@ -86,9 +89,11 @@ const HamburgerWrapper = styled(Flex)`
     display: none;
     justify-content: flex-end;
     align-items: center;
-    margin-right: 20px;
+    padding: 5px;
+    margin: 10px;
     @media ${device.laptop} {
         display: flex;
+        max-width: 30px;
     }
 `
 
@@ -122,6 +127,7 @@ export const NavCareers = () => {
     const current_page = useActiveLinkState('careers')
 
     const [is_canvas_menu_open, openOffCanvasMenu, closeOffCanvasMenu] = moveOffCanvasMenu()
+    console.log(is_canvas_menu_open)
 
     return (
         <>
@@ -186,7 +192,7 @@ export const NavCareers = () => {
                                     rel="noopener noreferrer"
                                     ml="2.4rem"
                                 >
-                                    Explore jobs
+                                    Apply now
                                 </CareerButton>
                             )}
 

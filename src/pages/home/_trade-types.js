@@ -71,7 +71,12 @@ const TradeTypes = () => {
                             'Explore different trade types to trade on your preferred market.',
                         )}
                     </Text>
-                    <TradingButton type="submit" secondary="true" to="/signup/">
+                    <TradingButton
+                        id="dm-trade-types-signup"
+                        type="submit"
+                        secondary="true"
+                        to="/signup/"
+                    >
                         {localize('Start trading')}
                     </TradingButton>
                 </Flex>

@@ -185,6 +185,10 @@ const Layout = ({
             Navigation = <Nav hide_signup_login={true} />
             FooterNav = <Footer />
             break
+        case 'landing-page':
+            Navigation = <Nav hide_signup_login={true} no_language={true} />
+            FooterNav = <Footer />
+            break
         case 'jump-indices':
             Navigation = <JumpIndicesNav />
             FooterNav = <Footer is_ppc={is_ppc} is_ppc_redirect={is_ppc_redirect} />

@@ -60,6 +60,7 @@ const Everything = () => {
                                     translate_text="Just log in with your <0>Binary.com</0> credentials and start trading right away."
                                     components={[
                                         <LocalizedLinkText
+                                            id="dm-binary-login-link-2"
                                             key={0}
                                             external="true"
                                             weight="bold"

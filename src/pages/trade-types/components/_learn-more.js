@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Text } from 'components/elements'
 import { LocalizedLink } from 'components/localization'
-import Arrow from 'images/svg/arrow-right.svg'
+import Arrow from 'images/svg/trade-types/arrow-right.svg'
 
 const Wrapper = styled.div`
     position: absolute;

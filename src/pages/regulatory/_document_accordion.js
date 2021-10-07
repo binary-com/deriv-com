@@ -5,8 +5,8 @@ import { Text, Accordion, AccordionItem, LinkText } from 'components/elements'
 import { Flex } from 'components/containers'
 import { localize } from 'components/localization'
 import device from 'themes/device'
-import PDFIcon from 'images/svg/pdf-icon-black.svg'
-import XLSXIcon from 'images/svg/excel.svg'
+import PDFIcon from 'images/svg/regulatory/pdf-icon-black.svg'
+import XLSXIcon from 'images/svg/regulatory/excel.svg'
 import { DerivStore } from 'store'
 
 const FlexText = styled(LinkText)`

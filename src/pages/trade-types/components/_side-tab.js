@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components'
 import { Flex, Show } from 'components/containers'
 import { Text } from 'components/elements'
 import device from 'themes/device'
-import { ReactComponent as Info } from 'images/svg/info2.svg'
+import { ReactComponent as Info } from 'images/svg/trade-types/info2.svg'
 
 const TabContent = styled.div`
     flex: 1;

@@ -4,9 +4,9 @@ import { Container, Flex, SectionContainer } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { localize } from 'components/localization'
 // SVG
-import Hand from 'images/svg/hand-icon.svg'
-import Lamp from 'images/svg/lamp-icon.svg'
-import HiddenFee from 'images/svg/hidden-fee-icon.svg'
+import Hand from 'images/svg/partners/hand-icon.svg'
+import Lamp from 'images/svg/partners/lamp-icon.svg'
+import HiddenFee from 'images/svg/partners/hidden-fee-icon.svg'
 
 const Wrapper = styled(Flex)`
     flex-wrap: wrap;

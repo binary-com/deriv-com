@@ -1,8 +1,8 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
-import Desktop from 'images/svg/p2p-desktop.svg'
-import Mobile from 'images/svg/p2p-mobile.svg'
+import Desktop from 'images/svg/p2p/p2p-desktop.svg'
+import Mobile from 'images/svg/p2p/p2p-mobile.svg'
 import { localize, Localize } from 'components/localization'
 import { Header, LocalizedLinkText, SpanLinkText, Text, QueryImage } from 'components/elements'
 import { Flex, SectionContainer, Show } from 'components/containers'
@@ -168,6 +168,7 @@ const Availability = () => {
                                 translate_text="1. <0>Log in</0> to your Deriv account. Don’t have one? <1>Sign up</1> for free."
                                 components={[
                                     <SpanLinkText
+                                        id="dm-p2p-login-link"
                                         size={24}
                                         onClick={handleLogin}
                                         color="red"
@@ -175,6 +176,7 @@ const Availability = () => {
                                         key={0}
                                     />,
                                     <LocalizedLinkText
+                                        id="dm-p2p-signup-link"
                                         to="/signup/"
                                         size={24}
                                         color="red"

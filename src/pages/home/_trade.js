@@ -34,13 +34,13 @@ const StyledSection = styled(SectionContainer)`
 `
 const query = graphql`
     query {
-        dtrader_trade: file(relativePath: { eq: "dtrader_trade_home.png" }) {
+        dtrader_trade: file(relativePath: { eq: "home/dtrader_trade_home.png" }) {
             ...fadeIn
         }
-        dbot_trade: file(relativePath: { eq: "dbot_trade_home.png" }) {
+        dbot_trade: file(relativePath: { eq: "home/dbot_trade_home.png" }) {
             ...fadeIn
         }
-        dmt5_trade: file(relativePath: { eq: "dmt5_trade_home.png" }) {
+        dmt5_trade: file(relativePath: { eq: "home/dmt5_trade_home.png" }) {
             ...fadeIn
         }
     }

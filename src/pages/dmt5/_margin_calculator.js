@@ -10,16 +10,18 @@ import device from 'themes/device'
 
 const query = graphql`
     query {
-        margin_calculator: file(relativePath: { eq: "dmt5-margin-calculator.png" }) {
+        margin_calculator: file(relativePath: { eq: "dmt5/dmt5-margin-calculator.png" }) {
             ...fadeIn
         }
-        margin_calculator_mobile: file(relativePath: { eq: "dmt5-margin-calculator-mobile.png" }) {
+        margin_calculator_mobile: file(
+            relativePath: { eq: "dmt5/dmt5-margin-calculator-mobile.png" }
+        ) {
             ...fadeIn
         }
-        swap_calculator: file(relativePath: { eq: "dmt5-swap-calculator.png" }) {
+        swap_calculator: file(relativePath: { eq: "dmt5/dmt5-swap-calculator.png" }) {
             ...fadeIn
         }
-        swap_calculator_mobile: file(relativePath: { eq: "dmt5-swap-calculator-mobile.png" }) {
+        swap_calculator_mobile: file(relativePath: { eq: "dmt5/dmt5-swap-calculator-mobile.png" }) {
             ...fadeIn
         }
     }

@@ -11,31 +11,65 @@ import device from 'themes/device'
 const StyledHeader = styled(Header)`
     margin-bottom: 2.4rem;
     color: var(--color-white);
+    text-align: center;
+    font-weight: bold;
+    font-size: 80px;
+    line-height: 100px;
+
+    @media ${device.tablet} {
+        text-align: left;
+        font-size: 40px;
+        line-height: 50px;
+    }
 `
 
 const Subheadline = styled(Header)`
     color: var(--color-white);
     max-width: 99.6rem;
+    text-align: center;
+    font-size: 20px;
+    font-weight: normal;
+    line-height: 30px;
+
+    @media ${device.tablet} {
+        text-align: left;
+        font-size: 18px;
+        line-height: 26px;
+    }
 `
 
 const JoinHeader = styled(Header)`
     margin-bottom: 4.8rem;
     margin-top: 3.2rem;
+    text-align: center;
     color: var(--color-white);
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 30px;
+
+    @media ${device.tablet} {
+        text-align: left;
+        font-size: 18px;
+        line-height: 26px;
+    }
 `
 
 const StyledContainer = styled(Container)`
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     height: 100%;
+    width: 60%;
 
     @media ${device.tablet} {
         padding: 0 2rem;
+        align-items: flex-start;
+        width: 100%;
     }
 `
-
-const RedBanner = styled.span`
-    color: var(--color-red);
+const StyledLinkButton = styled(LinkButton)`
+    padding: 24px;
+    font-size: 20px;
+    font-weight: bold;
 `
 
 const query = graphql`
@@ -66,25 +100,25 @@ const Hero = () => {
         >
             <StyledContainer>
                 <StyledHeader as="h1" type="display-title">
-                    Be part of something <RedBanner>big</RedBanner>.
+                    We are Deriv
                 </StyledHeader>
                 <Subheadline as="h3" type="section-title">
                     We have a huge mission, an incredible team, and rapid growth. But it’s not just
-                    about our success — it’s about yours.
+                    about our success — it’s about yours, too.
                 </Subheadline>
                 <JoinHeader as="h3" type="section-title" size="3.6rem">
                     Join and grow with us.
                 </JoinHeader>
                 {has_mounted && (
-                    <LinkButton
+                    <StyledLinkButton
                         secondary="true"
                         to={zoho_url}
                         external="true"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        View open positions
-                    </LinkButton>
+                        See our open positions
+                    </StyledLinkButton>
                 )}
             </StyledContainer>
         </BackgroundImage>

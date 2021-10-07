@@ -12,7 +12,7 @@ import device from 'themes/device'
 import { SectionContainer } from 'components/containers'
 import { localize } from 'components/localization'
 import { Header, Accordion, AccordionItem } from 'components/elements'
-import DotPattern from 'images/svg/dot-pattern.svg'
+import DotPattern from 'images/svg/partners/dot-pattern.svg'
 
 const FaqHeader = styled(Header)`
     @media ${device.tabletL} {

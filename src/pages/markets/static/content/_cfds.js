@@ -1,6 +1,7 @@
 import React from 'react'
 import {
     CrashBoom,
+    CrashBoomEU,
     CryptocurrenciesCFDs,
     Energy,
     ExoticPairs,
@@ -11,6 +12,7 @@ import {
     SmartFX,
     StepIndices,
     VolatilityIndices,
+    VolatilityIndicesEU,
     AmericanIndices,
     AmericanStocks,
     AsianIndices,
@@ -19,10 +21,12 @@ import {
 } from '../../instruments/_submarkets'
 import {
     CrashBoomDetails,
+    CrashBoomDetailsEU,
     RangeBreakIndicesDetails,
     SmartFXDetails,
     StepIndicesDetails,
     VolatilityIndicesDetails,
+    VolatilityIndicesDetailsEU,
     AmericanIndicesDetails,
     AsianIndicesDetails,
     EuropeanIndicesDetails,
@@ -100,6 +104,23 @@ export const synthetic_cfds = {
             title: <Localize translate_text="Range break indices" />,
             component: <RangeBreak />,
             details: RangeBreakIndicesDetails,
+        },
+    ],
+}
+
+export const synthetic_cfds_eu = {
+    has_global_accordion: true,
+    template: 2,
+    content: [
+        {
+            title: <Localize translate_text="Volatility indices" />,
+            component: <VolatilityIndicesEU />,
+            details: VolatilityIndicesDetailsEU,
+        },
+        {
+            title: <Localize translate_text="Crash/Boom" />,
+            component: <CrashBoomEU />,
+            details: CrashBoomDetailsEU,
         },
     ],
 }

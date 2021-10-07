@@ -2,16 +2,20 @@ import React from 'react'
 import {
     ContinuousIndices,
     CrashBoom,
+    CrashBoomEU,
     MajorPairs,
     StepIndices,
     CryptocurrenciesMultipliers,
+    VolatilityIndicesEU,
     SmartFX,
 } from '../../instruments/_submarkets'
 import {
     ContinuousIndicesDetails,
     CrashBoomDetails,
+    CrashBoomDetailsEU,
     StepIndicesDetails,
     CryptocurrenciesDetails,
+    VolatilityIndicesDetailsEU,
     SmartFXDetails,
 } from './_details'
 import { Localize } from 'components/localization'
@@ -59,6 +63,23 @@ export const synthetic_multiplier = {
             key={0}
             translate_text="Return to player for mulitplier options is in the range of 95.0-99.9% for all indices on an average. Using a different multiplier or duration may affect the RTP."
         />,
+    ],
+}
+
+export const synthetic_multiplier_eu = {
+    has_global_accordion: true,
+    template: 2,
+    content: [
+        {
+            title: <Localize translate_text="Volatility indices" />,
+            component: <VolatilityIndicesEU />,
+            details: VolatilityIndicesDetailsEU,
+        },
+        {
+            title: <Localize translate_text="Crash/Boom" />,
+            component: <CrashBoomEU />,
+            details: CrashBoomDetailsEU,
+        },
     ],
 }
 

@@ -247,6 +247,10 @@ import XLM from 'images/svg/symbols/stellar_flag.svg'
 import TRX from 'images/svg/symbols/tron_flag.svg'
 import ZEC from 'images/svg/symbols/z_cash_flag.svg'
 import MNR from 'images/svg/symbols/monero_flag.svg'
+import VBOOMIC300 from 'images/svg/symbols/volatility-boom-ic-300.svg'
+import VCRASHIC300 from 'images/svg/symbols/volatility-crash-ic-300.svg'
+import VINDEXIC200 from 'images/svg/symbols/volatility-index-ic-200.svg'
+import VINDEXIC300 from 'images/svg/symbols/volatility-index-ic-300.svg'
 
 export {
     AAL,
@@ -498,4 +502,8 @@ export {
     TRX,
     ZEC,
     MNR,
+    VBOOMIC300,
+    VCRASHIC300,
+    VINDEXIC200,
+    VINDEXIC300,
 }

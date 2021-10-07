@@ -2,6 +2,7 @@ import Americas from './_americas'
 import AsiaOceania from './_asia-oceania'
 import ContinuousIndices from './_continuous-indices'
 import CrashBoom from './_crash-boom'
+import CrashBoomEU from './_crash-boom-eu'
 import DailyResetIndices from './_daily-reset-indices'
 import Energy from './_energy'
 import Europe from './_europe'
@@ -13,6 +14,7 @@ import RangeBreak from './_range-break'
 import SmartFX from './_smartfx'
 import StepIndices from './_step-indices'
 import VolatilityIndices from './_volatility-indices'
+import VolatilityIndicesEU from './_volatility-indices-eu'
 import AmericanIndices from './_american-indices'
 import AmericanStocks from './_american-stocks'
 import AsianIndices from './_asian-indices'
@@ -26,6 +28,7 @@ export {
     AsiaOceania,
     ContinuousIndices,
     CrashBoom,
+    CrashBoomEU,
     CryptocurrenciesMultipliers,
     CryptocurrenciesCFDs,
     DailyResetIndices,
@@ -40,6 +43,7 @@ export {
     SmartFX,
     StepIndices,
     VolatilityIndices,
+    VolatilityIndicesEU,
     AmericanIndices,
     AmericanStocks,
     AsianIndices,

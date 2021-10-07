@@ -78,6 +78,17 @@ export const continuous_indices = [
 
 export const volatility_indices = continuous_indices
 
+export const volatility_indices_eu = [
+    {
+        src: icons.VINDEXIC200,
+        text: <Localize translate_text="Volatility 200 (1s) Index" />,
+    },
+    {
+        src: icons.VINDEXIC300,
+        text: <Localize translate_text="Volatility 300 (1s) Index" />,
+    },
+]
+
 export const crash_boom = [
     {
         src: icons.BOOM1000,
@@ -94,6 +105,17 @@ export const crash_boom = [
     {
         src: icons.CRASH500,
         text: <Localize translate_text="Crash 500 Index" />,
+    },
+]
+
+export const crash_boom_eu = [
+    {
+        src: icons.VCRASHIC300,
+        text: <Localize translate_text="Crash 300 Index" />,
+    },
+    {
+        src: icons.VBOOMIC300,
+        text: <Localize translate_text="Boom 300 Index" />,
     },
 ]
 

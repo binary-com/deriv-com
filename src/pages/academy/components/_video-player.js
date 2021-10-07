@@ -67,7 +67,7 @@ const VideoPlayer = ({ video_src, closeVideo }) => {
     let vidElement
 
     useEffect(() => {
-        document.addEventListener('keydown', handleEscape, false)
+        document.addEventListener('keydown', handleKeyboardEvent, false)
 
         vidElement = vidRef.current
         vidElement.addEventListener('enterpictureinpicture', () => {
@@ -93,12 +93,14 @@ const VideoPlayer = ({ video_src, closeVideo }) => {
         }
 
         return () => {
-            document.removeEventListener('keydown', handleEscape, false)
+            document.removeEventListener('keydown', handleKeyboardEvent, false)
         }
     }, [])
 
-    const handleEscape = (e) => {
-        setIsShow(!is_show)
+    const handleKeyboardEvent = (e) => {
+        if (e.code === 'Space') {
+            vidElement.paused ? vidElement.play() : vidElement.pause()
+        }
         if (e.key === 'Escape') {
             closeVideo()
         }

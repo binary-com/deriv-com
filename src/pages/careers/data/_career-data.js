@@ -32,7 +32,7 @@ const career_data = {
                     id: '590522000010931352',
                 },
                 {
-                    title: 'Cryptocurrency/Blockchain Developer',
+                    title: 'Cryptocurrency / Blockchain Developer',
                     location: 'Dubai , United Arab Emirates',
                     id: '590522000002158468',
                 },
@@ -211,7 +211,7 @@ const career_data = {
                 image: 'people_management_desc',
                 paragraph: [
                     {
-                        text: 'We bring in the go-getters; from the inspiring leaders to the ambitious grads. We link the best people with the right opportunities and support them in every way to help them grow in their professional careers at Deriv.',
+                        text: `We're the ones who build a creative, diverse, and thriving workforce. Our goals are to foster a great employer-employee relationship, advocate for the employees' emotional and physical wellbeing, and provide a safe and productive work environment. We offer training programmes, knowledge courses, and team-building activities. We support employees throughout their career  at Deriv and work hard to help people enjoy coming to work.`,
                     },
                 ],
             },

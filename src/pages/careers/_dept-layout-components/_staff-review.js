@@ -184,7 +184,7 @@ const StaffReview = (review_data) => {
                             }
                         />
                     </Flex>
-                    <Description fd="column" jc="right" tablet_jc="center">
+                    <Description ai="center" fd="column" jc="right" tablet_jc="center">
                         <TextWrapper>
                             {review_data.data.testimony_headline.map((item, idx) => {
                                 return (

@@ -139,7 +139,7 @@ export const NavCareers = () => {
                                     alt={'Deriv'}
                                     max_width="16.4rem"
                                     width="100%"
-                                    height="20px"
+                                    height="25px"
                                     margin="auto"
                                 />
                             </LogoLink>

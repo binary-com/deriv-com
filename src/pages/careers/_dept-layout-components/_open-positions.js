@@ -32,7 +32,7 @@ const JobWrapper = styled.div`
 const OpenPositions = (data) => {
     const hidden = data.data == undefined
     return (
-        <SectionContainer>
+        <SectionContainer padding="0">
             <Container fd="column">
                 <Header mb="40px" align="center" type="heading-3" as="h3">
                     Open positions

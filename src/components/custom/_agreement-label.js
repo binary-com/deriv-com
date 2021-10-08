@@ -46,7 +46,7 @@ const AgreementLabel = ({ handleChangeCheckbox, isChecked, color }) => {
                     components={[
                         <LocalizedLinkText
                             key={0}
-                            type="terms_and_conditions"
+                            type="terms_and_conditions/#clients"
                             external="true"
                             rel="noopener noreferrer"
                             size="14px"

@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Container, Flex, Show, Box } from 'components/containers'
 import { Header, LocalizedLinkText, Text } from 'components/elements'
-import { isUK } from 'common/country-base'
+import { isUKOrMXAccount } from 'common/utility'
 import { Localize, localize } from 'components/localization'
 import { TimelineTick } from 'components/elements/timeline'
 import device from 'themes/device'
@@ -161,7 +161,7 @@ const TradingLimits = () => {
                         </StyledHeader>
                         <div>
                             {/* TODO: enable these self exclusion notes when new Backend API is ready */}
-                            {/* <Show.NonEU>
+                            <Show.NonEU>
                                 <Text ml="0.8rem" max_width="44rem">
                                     <TimelineTick color="var(--color-red)" pb="1rem">
                                         <TimelineTick.Item>
@@ -181,53 +181,87 @@ const TradingLimits = () => {
                                         </TimelineTick.Item>
                                     </TimelineTick>
                                 </Text>
-                            </Show.NonEU> */}
+                            </Show.NonEU>
 
-                            {/* <Show.Eu> */}
-                            <Box ml="0.8rem" max_width="44rem">
-                                <TimelineTick color="var(--color-red)" pb="1rem">
-                                    <TimelineTick.Item>
-                                        <Text>
-                                            {localize(
-                                                'Daily limits may be removed or increased after 24 hours of receiving the notice. Confirmation is required to amend the limits.',
-                                            )}
-                                        </Text>
-                                    </TimelineTick.Item>
-                                    <TimelineTick.Item>
-                                        <Text>
-                                            {localize(
-                                                'There’s a minimum period of 6 months for self-exclusion. You have the option to extend it to a total of 5 years immediately without any cooling-off period.',
-                                            )}
-                                        </Text>
-                                    </TimelineTick.Item>
-                                    <TimelineTick.Item>
-                                        <Text>
-                                            {localize(
-                                                'When you’ve set your self-exclusion period, we will refund your account balance to you.',
-                                            )}
-                                        </Text>
-                                    </TimelineTick.Item>
-                                    <TimelineTick.Item>
-                                        <Text>
-                                            {localize(
-                                                'At the end of the self-exclusion period, the self-exclusion will remain in place until you take action.',
-                                            )}
-                                        </Text>
-                                    </TimelineTick.Item>
-                                    <TimelineTick.Item>
-                                        <Text>
-                                            {isUK(current_client_country)
-                                                ? localize(
-                                                      'If you do not wish to renew the self-exclusion and you make a request to trade again, there will be a cooling-off period of 1 day before you are allowed access to our site. Please note that you must contact our Customer Support team by calling + 447723580049. It is not enough to send an email.',
-                                                  )
-                                                : localize(
-                                                      'If you do not wish to renew the self-exclusion and you make a request to trade again, there will be a cooling-off period of 1 day before you are allowed access to our site.',
-                                                  )}
-                                        </Text>
-                                    </TimelineTick.Item>
-                                </TimelineTick>
-                            </Box>
-                            {/* </Show.Eu> */}
+                            <Show.Eu>
+                                <Box ml="0.8rem" max_width="44rem">
+                                    <TimelineTick color="var(--color-red)" pb="1rem">
+                                        <TimelineTick.Item>
+                                            <Text>
+                                                {localize(
+                                                    'You can set limits to your trading in your account settings. Limits may be strengthened at any time.',
+                                                )}
+                                            </Text>
+                                        </TimelineTick.Item>
+                                        <TimelineTick.Item>
+                                            <Text>
+                                                {isUKOrMXAccount(current_client_country)
+                                                    ? localize(
+                                                          'If you live in the United Kingdom, Customer Support can only remove or weaken your trading limits after 24 hours of receiving the request.',
+                                                      )
+                                                    : localize(
+                                                          'Customer Support can only remove or weaken your trading limits after 24 hours of receiving the request.',
+                                                      )}
+                                            </Text>
+                                        </TimelineTick.Item>
+                                        <TimelineTick.Item>
+                                            <Text>
+                                                {isUKOrMXAccount(current_client_country)
+                                                    ? localize(
+                                                          'If you live in the Isle of Man, Customer Support can only remove or weaken your trading limits after your trading limit period has expired.',
+                                                      )
+                                                    : localize(
+                                                          'You can also completely exclude yourself from trading for a specified period in your account settings. The minimum period of self-exclusion is 6 months. You have the option to extend it to a total of 5 years immediately without any cooling-off period.',
+                                                      )}
+                                            </Text>
+                                        </TimelineTick.Item>
+                                        <TimelineTick.Item>
+                                            <Text>
+                                                {isUKOrMXAccount(current_client_country)
+                                                    ? localize(
+                                                          'There’s a minimum period of 6 months for self-exclusion. You have the option to extend it to a total of 5 years immediately without any cooling-off period.',
+                                                      )
+                                                    : localize(
+                                                          'When you’ve set your self-exclusion period, we will refund your account balance to you.',
+                                                      )}
+                                            </Text>
+                                        </TimelineTick.Item>
+
+                                        {isUKOrMXAccount(current_client_country) && (
+                                            <TimelineTick.Item>
+                                                <Text>
+                                                    {localize(
+                                                        'When you’ve set your self-exclusion period, we will refund your account balance to you.',
+                                                    )}
+                                                </Text>
+                                            </TimelineTick.Item>
+                                        )}
+
+                                        <TimelineTick.Item>
+                                            <Text>
+                                                {isUKOrMXAccount(current_client_country)
+                                                    ? localize(
+                                                          'If you don’t ask for a removal of self-exclusion after the expiry, it is not removed automatically. Customer Support can only remove your self-exclusion after your self-exclusion period has expired. ',
+                                                      )
+                                                    : localize(
+                                                          'If you don’t ask for a removal of self-exclusion after the expiry, it is not removed automatically. If you live in the United Kingdom, Customer Support can only remove your self-exclusion after your self-exclusion period has expired. ',
+                                                      )}
+                                            </Text>
+                                        </TimelineTick.Item>
+                                        <TimelineTick.Item>
+                                            <Text>
+                                                {isUKOrMXAccount(current_client_country)
+                                                    ? localize(
+                                                          'If you wish to resume trading when your self-exclusion expires and once you have made a request to remove self-exclusion, there will be a cooling-off period of 24 hours before you are allowed access to our site. Please make your request by calling +447723580049. Requests by chat or email shall not be entertained.',
+                                                      )
+                                                    : localize(
+                                                          'If you wish to resume trading when your self-exclusion expires and once you have made a request to remove self-exclusion, there will be a cooling-off period of 24 hours before you are allowed access to our site. If you live in the United Kingdom, please make your request by calling +447723580049. Requests by chat or email shall not be entertained.',
+                                                      )}
+                                            </Text>
+                                        </TimelineTick.Item>
+                                    </TimelineTick>
+                                </Box>
+                            </Show.Eu>
                         </div>
                         <div>
                             <Show.NonEU>
@@ -244,7 +278,7 @@ const TradingLimits = () => {
                                     />
                                 </Text>
                             </Show.NonEU>
-                            <Show.Eu>
+                            {/* <Show.Eu>
                                 <Text mt="1.4rem">
                                     <Localize
                                         translate_text="You may <0>contact us</0> to set or adjust your self-exclusion or trading limits."
@@ -257,7 +291,7 @@ const TradingLimits = () => {
                                         ]}
                                     />
                                 </Text>
-                            </Show.Eu>
+                            </Show.Eu> */}
                         </div>
                     </StyledContainer>
                 </ContentWrapperRight>

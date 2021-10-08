@@ -263,7 +263,7 @@ const StartTrader = () => {
                         <SideTab.Panel
                             label=""
                             description={
-                                <Localize translate_text="Practise trading from the mobile app, desktop app, or through your web browser" />
+                                <Localize translate_text="Practise trading from the mobile app, desktop app, or through your web browser." />
                             }
                             item_width="36rem"
                         >
@@ -348,7 +348,7 @@ const StartTrader = () => {
                         <SideTab.Panel
                             label=""
                             description={
-                                <Localize translate_text="Fund your account. Start trading on the mobile app, desktop app, or web browser" />
+                                <Localize translate_text="Fund your account. Start trading on the mobile app, desktop app, or web browser." />
                             }
                         >
                             <ImageWrapper>

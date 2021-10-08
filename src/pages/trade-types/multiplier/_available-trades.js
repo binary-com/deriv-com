@@ -57,7 +57,6 @@ const CardWrapper = styled(Flex)`
 const CardContainer = styled(Flex)`
     position: relative;
     width: fit-content;
-    min-width: 34.14rem;
     min-height: 7.72rem;
     height: auto;
     padding: 0;
@@ -66,6 +65,15 @@ const CardContainer = styled(Flex)`
     z-index: ${(props) => (props.active_tab === props.name ? '4 !important' : '')};
     padding-right: 5rem;
 
+    :first-child {
+        width: 25%;
+    }
+    :nth-child(2) {
+        width: 35%;
+    }
+    :last-child {
+        width: 40%;
+    }
     ${Flex} {
         padding: 2.71rem 0 0 3.2rem;
 
@@ -73,19 +81,19 @@ const CardContainer = styled(Flex)`
             width: 32px;
             height: 32px;
             margin-right: 1.6rem;
-            opacity: ${(props) => (props.active_tab === props.name ? '1' : '0')};
+            display: ${(props) => (props.active_tab === props.name ? 'block' : 'none')};
         }
         h4 {
             color: ${(props) =>
                 props.active_tab === props.name ? 'var(--color-red)' : 'var(--color-black-3)'};
             opacity: ${(props) => (props.active_tab === props.name ? '1' : '0.56')};
+            margin-left: ${(props) => (props.active_tab === props.name ? '0' : '10px')};
         }
         @media ${device.tabletL} {
             height: 100%;
             justify-content: flex-start;
-            padding: 10px 44px 0;
-            width: 20.14rem;
-            min-width: 20.14rem;
+            padding: 10px 28px 0 8px;
+            width: fit-content;
 
             img {
                 width: 16px;
@@ -119,9 +127,20 @@ const CardContainer = styled(Flex)`
     }
     @media ${device.tabletL} {
         width: 100%;
-        height: 6rem;
+        height: 48px;
         min-width: unset;
+        min-height: unset;
         padding-right: 0;
+
+        :first-child {
+            width: 90px;
+        }
+        :nth-child(2) {
+            width: fit-content;
+        }
+        :last-child {
+            width: fit-content;
+        }
     }
 `
 const TabCFDIcon = styled.img`

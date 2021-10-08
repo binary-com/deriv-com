@@ -21,6 +21,7 @@ import AsianIndices from './_asian-indices'
 import EuropeanIndices from './_european-indices'
 import CryptocurrenciesMultipliers from './_cryptocurrencies-multipliers'
 import CryptocurrenciesCFDs from './_cryptocurrencies-cfds'
+import CryptocurrenciesTradeType from './_cryptocurrencies-trade-type'
 import JumpIndices from './_jump_indices'
 
 export {
@@ -31,6 +32,7 @@ export {
     CrashBoomEU,
     CryptocurrenciesMultipliers,
     CryptocurrenciesCFDs,
+    CryptocurrenciesTradeType,
     DailyResetIndices,
     Energy,
     Europe,

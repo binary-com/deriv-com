@@ -450,12 +450,18 @@ const WhatAreOptions = () => {
                                 <img src={Seven} alt="" />
                             </div>
                             <Text mt="1.6rem" mb="0.8rem" weight="bold">
-                                {localize('Trade 24/7, 365 days a year')}
+                                {is_eu_country
+                                    ? localize('Trade anytime')
+                                    : localize('Trade 24/7, 365 days a year')}
                             </Text>
                             <Text>
-                                {localize(
-                                    'Offered on forex and synthetic indices, you can trade multipliers 24/7, all-year-round.',
-                                )}
+                                {is_eu_country
+                                    ? localize(
+                                          'Trade multipliers on synthetic indices 24/7, 365 days a year. Trade multipliers on forex round the clock on weekdays.',
+                                      )
+                                    : localize(
+                                          'Offered on forex and synthetic indices, you can trade multipliers 24/7, all-year-round.',
+                                      )}
                             </Text>
                         </WhyTradeItem>
                         <WhyTradeItem>

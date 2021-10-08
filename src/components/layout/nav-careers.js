@@ -34,7 +34,6 @@ const CareerRight = styled(Flex)`
     width: auto;
     justify-self: flex-end;
     min-width: 120px;
-    max-width: ;
 `
 
 const CareerButton = styled(LinkButton)`
@@ -159,7 +158,7 @@ export const NavCareers = () => {
                                     aria-label={'Careers'}
                                     partiallyActive={true}
                                 >
-                                    HOME
+                                    Home
                                 </CareerLink>
                                 <CareerLink
                                     active={current_page === 'locations'}
@@ -168,14 +167,14 @@ export const NavCareers = () => {
                                     aria-label={'Locations'}
                                     partiallyActive={true}
                                 >
-                                    LOCATIONS
+                                    Locations
                                 </CareerLink>
                                 <CareerLink
                                     activeClassName="active"
                                     to="/besquare/"
                                     aria-label={'BeSquare'}
                                 >
-                                    BESQUARE
+                                    BeSquare
                                 </CareerLink>
                             </CareerNavLeft>
                         </StyledWrapper>

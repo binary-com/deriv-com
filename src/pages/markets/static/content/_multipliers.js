@@ -49,6 +49,9 @@ export const synthetic_multiplier = {
         },
         {
             title: <Localize translate_text="Crash/Boom" />,
+            mobile_title: (
+                <Localize translate_text="Crash/<0></0>Boom" components={[<br key={0} />]} />
+            ),
             component: <CrashBoom />,
             details: CrashBoomDetails,
         },
@@ -77,6 +80,9 @@ export const synthetic_multiplier_eu = {
         },
         {
             title: <Localize translate_text="Crash/Boom" />,
+            mobile_title: (
+                <Localize translate_text="Crash/<0></0>Boom" components={[<br key={0} />]} />
+            ),
             component: <CrashBoomEU />,
             details: CrashBoomDetailsEU,
         },

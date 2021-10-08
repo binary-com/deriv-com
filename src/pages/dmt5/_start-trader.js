@@ -24,6 +24,12 @@ const query = graphql`
         demo_step2_mobile: file(relativePath: { eq: "dmt5/dmt5-demo-step2-mobile.png" }) {
             ...fadeIn
         }
+        demo_step2_eu: file(relativePath: { eq: "dmt5/dmt5-demo-step2-eu.png" }) {
+            ...fadeIn
+        }
+        demo_step2_mobile_eu: file(relativePath: { eq: "dmt5/dmt5-demo-step2-mobile-eu.png" }) {
+            ...fadeIn
+        }
         demo_step3: file(relativePath: { eq: "dmt5/dmt5-demo-step3.png" }) {
             ...fadeIn
         }
@@ -46,6 +52,12 @@ const query = graphql`
             ...fadeIn
         }
         real_step3_mobile: file(relativePath: { eq: "dmt5/dmt5-real-step3-mobile.png" }) {
+            ...fadeIn
+        }
+        real_step3_eu: file(relativePath: { eq: "dmt5/dmt5-real-step3-eu.png" }) {
+            ...fadeIn
+        }
+        real_step3_mobile_eu: file(relativePath: { eq: "dmt5/dmt5-real-step3-mobile-eu.png" }) {
             ...fadeIn
         }
         real_step4: file(relativePath: { eq: "dmt5/dmt5-real-step4.png" }) {
@@ -223,14 +235,29 @@ const StartTrader = () => {
                         <SideTab.Panel
                             label=""
                             description={
-                                <Localize translate_text="Add a Deriv MT5 demo account and choose what you want to trade." />
+                                is_eu_country ? (
+                                    <Localize translate_text="Add a CFDs demo account and choose what you want to trade." />
+                                ) : (
+                                    <Localize translate_text="Add a Deriv MT5 demo account and choose what you want to trade." />
+                                )
                             }
                         >
                             <ImageWrapper>
-                                <QueryImage
-                                    data={data[is_mobile ? 'demo_step2_mobile' : 'demo_step2']}
-                                    alt="demo_step2"
-                                />
+                                {is_eu_country ? (
+                                    <QueryImage
+                                        data={
+                                            data[
+                                                is_mobile ? 'demo_step2_mobile_eu' : 'demo_step2_eu'
+                                            ]
+                                        }
+                                        alt="demo_step2_eu"
+                                    />
+                                ) : (
+                                    <QueryImage
+                                        data={data[is_mobile ? 'demo_step2_mobile' : 'demo_step2']}
+                                        alt="demo_step2"
+                                    />
+                                )}
                             </ImageWrapper>
                         </SideTab.Panel>
                         <SideTab.Panel
@@ -296,15 +323,26 @@ const StartTrader = () => {
                                 is_eu_country ? (
                                     <Localize translate_text="Create a CFDs real account based on your trade preference." />
                                 ) : (
-                                    <Localize translate_text="Create a DMT5 real money account based on your trade preference." />
+                                    <Localize translate_text="Create a Deriv MT5 real money account based on your trade preference." />
                                 )
                             }
                         >
                             <ImageWrapper>
-                                <QueryImage
-                                    data={data[is_mobile ? 'real_step3_mobile' : 'real_step3']}
-                                    alt="real_step3"
-                                />
+                                {is_eu_country ? (
+                                    <QueryImage
+                                        data={
+                                            data[
+                                                is_mobile ? 'real_step3_mobile_eu' : 'real_step3_eu'
+                                            ]
+                                        }
+                                        alt="real_step3"
+                                    />
+                                ) : (
+                                    <QueryImage
+                                        data={data[is_mobile ? 'real_step3_mobile' : 'real_step3']}
+                                        alt="real_step3"
+                                    />
+                                )}
                             </ImageWrapper>
                         </SideTab.Panel>
                         <SideTab.Panel

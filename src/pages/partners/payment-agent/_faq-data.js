@@ -92,7 +92,7 @@ const AccountManagement = () => (
         <TextPrimary>
             <Localize
                 translate_text="Yes, provided that you follow all the relevant terms and conditions (see the tab entitled 'For business partners' on our <0>Terms and conditions</0> page)."
-                components={[<LocalizedLinkText to="/terms-and-conditions/" key={0} />]}
+                components={[<LocalizedLinkText to="/terms-and-conditions/#clients" key={0} />]}
             />
         </TextPrimary>
         <HeaderPrimary as="h5" type="main-paragraph">

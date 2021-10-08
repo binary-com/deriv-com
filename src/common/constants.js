@@ -81,7 +81,8 @@ export const localized_link_url = Object.freeze({
     mt5: deriv_mt5_app_url,
     smart_trader: smarttrader_url,
     zoho: zoho_url,
-    terms_and_conditions: domain_full_url,
+    'terms_and_conditions/#clients': domain_full_url,
+    'terms_and_conditions/#business-partners': domain_full_url,
 })
 export const default_server_url = 'green.binaryws.com'
 

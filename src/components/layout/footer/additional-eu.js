@@ -4,20 +4,18 @@ import { EuLogoWrapper, StyledCoatArms, StyledGamstop, StyledMgaLogo } from './c
 import { LocalizedLink } from 'components/localization'
 import { QueryImage } from 'components/elements'
 import { Flex, Show } from 'components/containers'
-import {
-    mga_link_url,
-} from 'common/constants'
+import { mga_link_url } from 'common/constants'
 //EU icons
 import Gamstop from 'images/svg/layout/gamstop.svg'
 import MgaLogo from 'images/svg/layout/mga-logo.svg'
 import Over18 from 'images/svg/layout/over-18.svg'
 
 const query = graphql`
-query {
-    iom: file(relativePath: { eq: "isle-of-man-coat-of-arms.png" }) {
-        ...fadeIn
+    query {
+        iom: file(relativePath: { eq: "isle-of-man-coat-of-arms.png" }) {
+            ...fadeIn
+        }
     }
-}
 `
 const AdditionalEUSection = () => {
     const image_query = useStaticQuery(query)
@@ -102,4 +100,4 @@ const AdditionalEUSection = () => {
     )
 }
 
-export default AdditionalEUSection;
+export default AdditionalEUSection

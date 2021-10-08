@@ -15,10 +15,10 @@ const StyledText = styled(Text)`
 `
 
 const Col = styled(Flex)`
-    max-width: 13.2rem;
+    max-width: 162px;
 
     @media ${device.tabletL} {
-        max-width: 15rem;
+        max-width: 180px;
     }
 `
 
@@ -117,14 +117,14 @@ const Cryptocurrencies = () => {
                     <MarketsAccordion
                         renderTitle={() => (
                             <Flex jc="flex-start" ai="center">
-                                <Col max_width="16rem">
+                                <Col>
                                     <Show.Desktop>
-                                        <Title weight="bold" max_width="9.7rem" align="center">
+                                        <Title weight="bold" max_width="auto" align="center">
                                             {localize('Cryptocurrencies')}
                                         </Title>
                                     </Show.Desktop>
                                     <Show.Mobile>
-                                        <Title weight="bold" max_width="9.7rem" align="center">
+                                        <Title weight="bold" max_width="auto" align="center">
                                             {localize('Cryptocurrencies')}
                                         </Title>
                                     </Show.Mobile>

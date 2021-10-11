@@ -51,7 +51,7 @@ const OpenPositions = (data) => {
                                         <Header
                                             p="15px"
                                             max_width="274px"
-                                            align="center"
+                                            align="left"
                                             type="paragraph-1"
                                             as="p"
                                             weight="400"

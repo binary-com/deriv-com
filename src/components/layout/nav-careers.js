@@ -100,6 +100,10 @@ const LogoLink = styled(LocalizedLink)`
     text-decoration: none;
     max-width: ${(props) => props.mw || '16rem'};
     width: 100%;
+
+    @media ${device.tabletL} {
+        max-width: 17.5rem;
+    }
 `
 
 const HamburgerMenu = styled.img`

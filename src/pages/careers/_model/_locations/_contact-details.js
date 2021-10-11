@@ -1,14 +1,13 @@
 const address_asuncion = [
-    'Edificio Atrium, Piso 2,',
-    'Guido Spano Esq. Doctor Morra,',
-    'Asunción 1849',
+    'Edificio Atrium, Piso 2, Guido Spano Esq.',
+    'Doctor Morra, Asunción 1849',
 ]
 
 const address_belarus = ['Level 2, 25/1-3 Vera Khoruzhey Street,', 'Minsk 220123']
 
 const address_cyberjaya = [
-    'iTech Tower, Jalan Impact, Cyber 6,',
-    '63000 Cyberjaya, Selangor, Malaysia',
+    'C-13, iTech Tower, Jalan Impact, Cyber 6,',
+    ' Cyberjaya 63000, Selangor',
 ]
 
 const address_cyprus = ['Level 5, 42 Agias Filaxeos', 'Limassol 3025']

@@ -114,7 +114,7 @@ const CountryCard = ({ country_name, city_name, link, img_data, Icon }) => {
 CountryCard.propTypes = {
     city_name: PropTypes.string,
     country_name: PropTypes.string,
-    Icon: PropTypes.func,
+    Icon: PropTypes.string,
     img_data: PropTypes.object,
     link: PropTypes.string,
     open_positions: PropTypes.number,

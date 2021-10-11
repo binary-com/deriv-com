@@ -27,34 +27,37 @@ const StyledBackground = styled(BackgroundImage)`
 
 const StyledContainer = styled(CareerContainer)`
     flex-direction: column;
-    align-items: flex-start;
     height: 100%;
-
     @media ${device.tablet} {
         padding: 0 2rem;
     }
 `
 
 const StyledHeader = styled(Header)`
-    font-size: var(--text-size-xxl);
-    margin-bottom: 1.6rem;
+    font-size: 64px;
+    margin-bottom: 16px;
     color: var(--color-white);
+    text-align: center;
+    line-height: 80px;
+`
+const StyledLinkButton = styled(LinkButton)`
+    font-size: 20px;
+    line-height: 30px;
+    @media ${device.tablet} {
+        font-size: 18px;
+        max-width: 317px;
+    }
+    @media (max-width: 340px) {
+        font-size: 15px;
+    }
 `
 
-const Subheadline = styled(Text)`
-    font-size: var(--text-size-m);
-    color: var(--color-white);
-    max-width: 69rem;
-    margin-bottom: 3.2rem;
-`
-
-const Hero = ({ display_name, img_data, description }) => {
+const Hero = ({ display_name, img_data }) => {
     return (
         <StyledBackground data={img_data} alt={display_name}>
             <StyledContainer>
                 <StyledHeader as="h1">{display_name}</StyledHeader>
-                <Subheadline>{description}</Subheadline>
-                <LinkButton
+                <StyledLinkButton
                     has_no_end_slash
                     secondary="true"
                     to={zoho_url}
@@ -63,7 +66,7 @@ const Hero = ({ display_name, img_data, description }) => {
                     external
                 >
                     View open positions in {display_name}
-                </LinkButton>
+                </StyledLinkButton>
             </StyledContainer>
         </StyledBackground>
     )
@@ -106,7 +109,13 @@ const Fourth = styled.div`
 
 const FirstSection = styled(SectionContainer)`
     ${Header} {
-        margin-bottom: 4rem;
+        margin-bottom: 40px;
+        @media ${device.tablet} {
+            margin-bottom: 0;
+        }
+        @media (max-width: 350px) {
+            font-size: 26px;
+        }
     }
     ${Flex} {
         @media ${device.tablet} {
@@ -114,7 +123,7 @@ const FirstSection = styled(SectionContainer)`
         }
     }
     ${Text} {
-        max-width: 41.5rem;
+        max-width: 384px;
         margin-right: 6.4rem;
         font-size: 20px;
 
@@ -130,9 +139,16 @@ const FirstSection = styled(SectionContainer)`
         }
     }
     @media ${device.tablet} {
-        padding: 8rem 2rem;
+        padding: 40px 16px;
     }
 `
+const StyledOfficeHeader = styled(Header)`
+    margin: 0 0 40px;
+    @media ${device.tablet} {
+        margin: 0 0 24px;
+    }
+`
+
 const ImageWrapper = styled.div`
     max-width: 53.9rem;
     width: 100%;
@@ -167,6 +183,9 @@ const LocationCard = styled.article`
 const CardText = styled(Text)`
     margin-top: 1.6rem;
     margin-bottom: 4rem;
+    @media ${device.mobileL} {
+        font-size: 14px;
+    }
 `
 
 const Iframe = styled.iframe`
@@ -219,13 +238,14 @@ const LocationFlex = styled(Flex)`
 `
 
 const LocationInformationFlex = styled(Flex)`
+    padding: 40px;
     @media ${device.tablet} {
         padding: 24px 16px;
     }
 `
 
 const StyledDiv = styled.div`
-    max-width: 32.4rem;
+    max-width: 400px;
 
     @media ${device.tablet} {
         max-width: 100%;
@@ -241,13 +261,12 @@ export const LocationLayout = ({ location, images }) => {
             <Hero
                 display_name={display_name}
                 name={location.name}
-                description={location.header_p}
                 img_data={images[location.name]}
             />
             <CareerContainer>
                 <FirstSection>
                     <Header align="center" as="h2" size="var(--text-size-header-5)">
-                        Living in {display_name}
+                        Deriv in {display_name}
                     </Header>
                     <Flex tablet_direction="column">
                         <Text>{location.first_p}</Text>
@@ -262,9 +281,14 @@ export const LocationLayout = ({ location, images }) => {
                 </FirstSection>
             </CareerContainer>
             <SectionContainer padding="0">
-                <Header align="center" as="h2" size="var(--text-size-header-5)" mb="4rem">
+                <StyledOfficeHeader
+                    align="center"
+                    as="h2"
+                    size="var(--text-size-header-5)"
+                    mb="4rem"
+                >
                     Our office
-                </Header>
+                </StyledOfficeHeader>
                 <StyledFlex>
                     <LeftFlex direction="column" mr="0.8rem" ai="flex-end">
                         <InnerLeftFlex mb="0.8rem">
@@ -304,7 +328,7 @@ export const LocationLayout = ({ location, images }) => {
             </SectionContainer>
             <SectionContainer>
                 <LocationCard>
-                    <LocationFlex min_height="42.2rem" jc="unset" tablet_direction="column">
+                    <LocationFlex min_height="38rem" jc="unset" tablet_direction="column">
                         <ImageWrapper>
                             {location.has_iframe ? (
                                 <Iframe
@@ -332,8 +356,8 @@ export const LocationLayout = ({ location, images }) => {
                             max_width="44.4rem"
                         >
                             <StyledDiv>
-                                <Header as="h3" size="24px">
-                                    Location
+                                <Header as="h3" type="subtitle-1">
+                                    {`Working at Deriv (${display_name})`}
                                 </Header>
                                 <CardText>{location.map_text}</CardText>
                                 <Flex jc="unset">

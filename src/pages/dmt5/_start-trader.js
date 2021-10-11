@@ -200,7 +200,7 @@ const StartTrader = () => {
                     onClick={() => onTabClick('Real')}
                 >
                     <StyledText size="var(--text-size-m)" align="center">
-                        {localize('Real money account')}
+                        {is_eu_country ? localize('Real account') : localize('Real money account')}
                     </StyledText>
                 </TabItem>
             </Flex>
@@ -304,9 +304,9 @@ const StartTrader = () => {
                             label=""
                             description={
                                 is_eu_country ? (
-                                    <Localize translate_text="Create a Deriv real money account." />
-                                ) : (
                                     <Localize translate_text="Create a Deriv real account." />
+                                ) : (
+                                    <Localize translate_text="Create a Deriv real money account." />
                                 )
                             }
                         >

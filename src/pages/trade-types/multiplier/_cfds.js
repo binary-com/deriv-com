@@ -84,7 +84,7 @@ const CFDs = () => {
                     <AvailablePlatforms m_top="16px" dtrader />
                 </AvailablePlatformsWrapper>
                 <StyledTitle>
-                    {localize('Forex pairs available for Multipliers trading')}
+                    {localize('Forex pairs available for multipliers trading')}
                 </StyledTitle>
                 <MarketInstruments market_content={major_pairs} />
                 <Show.Desktop>

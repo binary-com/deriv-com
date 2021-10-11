@@ -8,21 +8,25 @@ import device from 'themes/device'
 //SVG
 import ForexIcon from 'images/svg/market-forex.svg'
 import SyntheticIcon from 'images/svg/market-synthetic-indices.svg'
+import CryptocurrencyIcon from 'images/svg/crypto-pairs.svg'
 
+const StyledSection = styled(SectionContainer)`
+    padding: 8rem 0;
+    background-color: var(--color-white);
+
+    @media ${device.tabletL} {
+        padding: 48px 0 40px;
+    }
+`
 const StyledHeader = styled(Header)`
     @media ${device.tabletL} {
-        max-width: 35.75rem;
-        font-size: 32px;
+        max-width: 280px;
+        font-size: 4rem;
         margin: 0 auto;
     }
 `
-
-const StyledSection = styled(SectionContainer)`
-    padding: 5rem 0;
-`
-
 const StyledContainer = styled(Container)`
-    margin-top: 2.8rem;
+    margin-top: 4rem;
 
     @media ${device.tabletL} {
         width: 100%;
@@ -35,30 +39,32 @@ const CardWrapper = styled(Flex)`
     z-index: 1;
     height: 8rem;
     align-items: flex-end;
-    padding-left: 0.8rem;
     overflow: hidden;
 
     div:first-child {
         z-index: 3;
-        margin: 0 -0.3rem;
+        margin: 0;
+        padding-left: 0;
     }
     div:nth-child(2) {
         z-index: 2;
+        margin-left: -2.5rem;
     }
     div:last-child {
         z-index: 1;
+        margin-left: -1.2rem;
+        margin-right: 0;
     }
 
     @media ${device.mobileL} {
-        overflow: scroll;
+        overflow-x: auto;
     }
 `
 const CardContainer = styled(Flex)`
     position: relative;
     width: fit-content;
-    min-width: 36rem;
-    min-height: 7.72rem;
-    height: auto;
+    min-width: 29rem;
+    height: 7.72rem;
     padding: 0;
     margin: 0 -0.6rem;
     cursor: pointer;
@@ -66,12 +72,14 @@ const CardContainer = styled(Flex)`
     padding-right: 5rem;
 
     ${Flex} {
-        padding: 2.71rem 0 0 3.2rem;
+        padding-top: 2.71rem;
+        align-items: center;
+        justify-content: center;
 
         img {
-            width: 32px;
-            height: 32px;
-            margin-right: 1.6rem;
+            width: 30px;
+            height: 30px;
+            margin-right: 1.2rem;
             opacity: ${(props) => (props.active_tab === props.name ? '1' : '0')};
         }
         h4 {
@@ -83,12 +91,17 @@ const CardContainer = styled(Flex)`
             width: 100%;
             height: 100%;
             justify-content: flex-start;
-            padding: 10px 44px 0;
+            padding: 10px 0 0 0;
 
             img {
                 width: 16px;
                 height: 16px;
                 margin-right: 1rem;
+            }
+        }
+        @media ${device.mobileL} {
+            img {
+                margin-right: 5px;
             }
         }
     }
@@ -102,41 +115,37 @@ const CardContainer = styled(Flex)`
         left: 0;
         z-index: -1;
         border-bottom: none;
-        border-radius: 10px 30px 0 0;
+        border-radius: 8px 8px 0 0;
         background: var(--color-grey-36);
-        transform: perspective(14px) rotateX(1.4deg);
+        transform: perspective(8px) rotateX(0.8deg);
         transform-origin: bottom left;
         box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.05);
         ${(props) => {
             if (props.active_tab === props.name)
                 return css`
                     background-color: var(--color-white);
-                    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.05);
                 `
         }}
     }
     @media ${device.tabletL} {
-        width: 100%;
         height: 6rem;
         min-width: unset;
-        padding-right: 0;
+        padding-right: 25px;
+
+        &:last-child {
+            padding-right: 40px;
+        }
     }
 `
-const TabCFDIcon = styled.img`
+const TabIcon = styled.img`
     min-width: 16px;
     ${(props) => {
         if (props.active_tab === props.name)
             return css`
                 margin-left: 16px;
-            `
-    }}
-`
-const TabOptionIcon = styled.img`
-    min-width: 16px;
-    ${(props) => {
-        if (props.active_tab === props.name)
-            return css`
-                margin-left: 16px;
+                @media ${device.mobileL} {
+                    margin-left: 5px;
+                }
             `
     }}
 `
@@ -156,18 +165,21 @@ const ContentWrapper = styled.div`
 const CardHeader = styled(Header)`
     @media ${device.tabletL} {
         font-size: 1.75rem;
-        line-height: 16px;
     }
 `
+
 const Card = ({ display_name, active_tab, onTabChange, name }) => {
     return (
         <CardContainer name={name} active_tab={active_tab} onClick={() => onTabChange(name)}>
             <Flex height="fit-content" jc="flex-start" ai="center">
                 {active_tab === 'Forex' && (
-                    <TabCFDIcon src={ForexIcon} alt="" name={name} active_tab={active_tab} />
+                    <TabIcon src={ForexIcon} alt="" name={name} active_tab={active_tab} />
                 )}
                 {active_tab === 'Synthetic Indices' && (
-                    <TabOptionIcon src={SyntheticIcon} alt="" name={name} active_tab={active_tab} />
+                    <TabIcon src={SyntheticIcon} alt="" name={name} active_tab={active_tab} />
+                )}
+                {active_tab === 'CryptoCurrencies' && (
+                    <TabIcon src={CryptocurrencyIcon} alt="" name={name} active_tab={active_tab} />
                 )}
                 <CardHeader as="h4" type="sub-section-title" width="auto">
                     {display_name}
@@ -193,7 +205,7 @@ class AvailableTrades extends React.Component {
         this.setState({ active_tab: new_tab })
     }
     render() {
-        const { display_title, Forex, SyntheticIndices } = this.props
+        const { display_title, Forex, SyntheticIndices, CryptoCurrencies } = this.props
         return (
             <StyledSection>
                 <StyledHeader size="var(--text-size-header-1)" align="center" as="h2">
@@ -212,8 +224,16 @@ class AvailableTrades extends React.Component {
                         {SyntheticIndices && (
                             <Card
                                 name="Synthetic Indices"
-                                display_name={<Localize translate_text="Synthetic Indices" />}
+                                display_name={<Localize translate_text="Synthetic&nbsp;Indices" />}
                                 onTabChange={() => this.handleTabChange('Synthetic Indices')}
+                                active_tab={this.state.active_tab}
+                            />
+                        )}
+                        {CryptoCurrencies && (
+                            <Card
+                                name="CryptoCurrencies"
+                                display_name={<Localize translate_text="Cryptocurrencies" />}
+                                onTabChange={() => this.handleTabChange('CryptoCurrencies')}
                                 active_tab={this.state.active_tab}
                             />
                         )}
@@ -221,6 +241,7 @@ class AvailableTrades extends React.Component {
                     <ContentWrapper>
                         {this.state.active_tab === 'Forex' && <Forex />}
                         {this.state.active_tab === 'Synthetic Indices' && <SyntheticIndices />}
+                        {this.state.active_tab === 'CryptoCurrencies' && <CryptoCurrencies />}
                     </ContentWrapper>
                 </StyledContainer>
             </StyledSection>
@@ -229,6 +250,7 @@ class AvailableTrades extends React.Component {
 }
 
 AvailableTrades.propTypes = {
+    CryptoCurrencies: PropTypes.func,
     display_title: PropTypes.object,
     Forex: PropTypes.func,
     SyntheticIndices: PropTypes.func,

@@ -42,7 +42,7 @@ const career_data = {
                 image_mobile: 'back_end_review_mobile',
                 testimony_headline: [
                     {
-                        text: '“Being a part of so many amazing projects has been a learning experience from the start. Not a day goes by that I don’t learn something — not only on a technical level but also from a broader human perspective. This company has great culture and structure that enables its employees to grow. Working at Deriv offers a prime opportunity to build an incredible career, and I look forward to evolving and advancing further.”',
+                        text: '“Being a part of so many amazing projects has been a learning experience from the start. Not a day goes by that I don’t learn something — not only on a technical level but also from a broader human perspective. This company has great culture and structure that enable its employees to grow. Working at Deriv offers a prime opportunity to build an incredible career, and I look forward to evolving and advancing further.”',
                     },
                 ],
             },
@@ -451,7 +451,7 @@ const career_data = {
             },
             open_position: [
                 {
-                    title: 'Senior Front-End Developer',
+                    title: 'Senior Front-end Developer',
                     location: 'Dubai , United Arab Emirates',
                     id: '590522000005764197',
                 },
@@ -638,7 +638,7 @@ const career_data = {
                 image: 'internal_audit_desc',
                 paragraph: [
                     {
-                        text: 'On a daily basis, We deep-dive into our business dealings and processes, convert the information into meaningful data, and make recommendations for improvement. Our department boasts high ethical standards, independence, and reliability — we’re always ready to invest our time and energy into critical audit assignments. We play a significant role in our company’s growth by ensuring that the company is moving in the right direction.',
+                        text: 'We deep-dive into our business dealings and processes, convert the information into meaningful data, and make recommendations for improvement. Our department boasts high ethical standards, independence, and reliability — we’re always ready to invest our time and energy into critical audit assignments. We play a significant role in our company’s growth by ensuring that the company is moving in the right direction.',
                     },
                 ],
             },

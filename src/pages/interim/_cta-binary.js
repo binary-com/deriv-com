@@ -5,7 +5,7 @@ import { Text, LocalizedLinkText } from 'components/elements'
 import { Flex } from 'components/containers'
 import { Localize } from 'components/localization'
 import BinaryWhite from 'images/svg/interim/binary-white.svg'
-import BinaryBlue from 'images/svg/binary.svg'
+import BinaryBlue from 'images/svg/interim/binary.svg'
 
 const BinaryLink = styled(LocalizedLinkText)`
     &:hover {
@@ -28,6 +28,7 @@ const CtaBinary = ({ is_white }) => {
                     translate_text="No sign up needed. Log in with your <0>Binary.com</0> credentials."
                     components={[
                         <BinaryLink
+                            id="dm-binary-login-link-1"
                             is_white={is_white}
                             key={0}
                             external="true"

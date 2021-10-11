@@ -11,8 +11,7 @@ export default [
                     'No, it’s not. The BeSquare programme is a 6-month paid graduate programme where you will get essential skills and experience to boost your job application to any company, including Deriv.',
             },
             {
-                title:
-                    'Am I allowed to accept job offers from other companies during the programme?',
+                title: 'Am I allowed to accept job offers from other companies during the programme?',
                 subtitle:
                     'You have the option to accept any job offers you receive during the programme.',
             },

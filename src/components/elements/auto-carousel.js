@@ -4,13 +4,13 @@ import PropTypes from 'prop-types'
 import { isBrowser } from 'common/utility'
 
 const AutoCarouselSection = styled.section`
-    width: ${props => props.width};
+    width: ${(props) => props.width};
     overflow: hidden;
     margin: 0 auto;
     display: flex;
     justify-content: flex-start;
 `
-const move_items = total_translate => keyframes`
+const move_items = (total_translate) => keyframes`
     0% {
         transform: translateX(0);
     }
@@ -19,23 +19,23 @@ const move_items = total_translate => keyframes`
     }
 `
 const ItemContainer = styled.div`
-    padding: 0 ${props => props.padding / 2}px;
+    padding: 0 ${(props) => props.padding / 2}px;
 `
 const ItemsWrapper = styled.div`
-    /* width: TODO: fix this ${props => props.total_translate}px; */
+    /* width: TODO: fix this ${(props) => props.total_translate}px; */
     display: flex;
     justify-content: flex-start;
     margin: 0 auto;
-    animation-name: ${props =>
+    animation-name: ${(props) =>
         props.total_translate !== 0 && props.should_carousel_move
             ? move_items(props.total_translate)
             : ''};
-    animation-duration: ${props => props.transition_duration}ms;
+    animation-duration: ${(props) => props.transition_duration}ms;
     animation-fill-mode: both;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
-    animation-play-state: ${props => props.animation_status};
-    transform: translateZ(0) scale(1.0, 1.0);
+    animation-play-state: ${(props) => props.animation_status};
+    transform: translateZ(0) scale(1, 1);
     backface-visibility: hidden;
     cursor: default;
 `
@@ -53,7 +53,7 @@ class AutoCarousel extends React.PureComponent {
         animation_status: 'running',
     }
     // every time you observe this, the carousel will restart from first child component
-    handler = entries => {
+    handler = (entries) => {
         let entry
         for (entry of entries) {
             if (entry.isIntersecting) {
@@ -107,7 +107,7 @@ class AutoCarousel extends React.PureComponent {
                     onMouseLeave={this.playAnimation}
                 >
                     {/* We need to render this wrapper two times to fill the empty space at the end of the Carousel's section */}
-                    {[0, 1].map(i => (
+                    {[0, 1].map((i) => (
                         <ItemsWrapper
                             animation_status={this.state.animation_status}
                             transition_duration={this.props.transition_duration}

@@ -1,0 +1,52 @@
+<svg width="72" height="72" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path fill="#AEAEAE" d="M0 0h72v72H0z" />
+    <path fill="#fff" d="M-888-5892H552v7130H-888z" />
+    <g filter="url(#prefix__prefix__filter0_i)">
+        <path fill="#fff" d="M-888-252H552v600H-888z" />
+        <g filter="url(#prefix__prefix__filter1_d)">
+            <rect x="-156" y="-32" width="384" height="300" rx="12" fill="#fff" />
+            <path
+                d="M0 13.5C0 6.044 6.044 0 13.5 0h45C65.956 0 72 6.044 72 13.5v45C72 65.956 65.956 72 58.5 72h-45C6.044 72 0 65.956 0 58.5v-45z"
+                fill="#0E0E0E" />
+            <g clip-path="url(#prefix__prefix__clip0)">
+                <path
+                    d="M46.948 23.625h-7.326L45.388 36l-10.13 12.375h7.33L52.713 36l-5.766-12.375zm9.396 0h7.413l-8.79 10.634-2.657-5.705 4.034-4.929zm-4.368 24.75l-2.294-4.925 4.67-5.705 4.954 10.63h-7.33z"
+                    fill="#fff" />
+                <path
+                    d="M14.345 23.625L23.82 36 8.632 48.375h15.35a9.627 9.627 0 005.99-2.096 9.62 9.62 0 003.386-5.365l1.27-5.506a9.62 9.62 0 00-9.374-11.783h-10.91z"
+                    fill="url(#prefix__prefix__paint0_linear)" />
+                <path d="M23.82 36l-6.75 12.375H8.632L23.82 36z" fill="#CC2F3E" />
+            </g>
+        </g>
+    </g>
+    <defs>
+        <filter id="prefix__prefix__filter0_i" x="-888" y="-252" width="1440" height="600" filterUnits="userSpaceOnUse"
+            color-interpolation-filters="sRGB">
+            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+            <feColorMatrix in="SourceAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+            <feOffset dy="2" />
+            <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
+            <feColorMatrix values="0 0 0 0 0.94902 0 0 0 0 0.952941 0 0 0 0 0.956863 0 0 0 1 0" />
+            <feBlend in2="shape" result="effect1_innerShadow" />
+        </filter>
+        <filter id="prefix__prefix__filter1_d" x="-196" y="-56" width="464" height="380" filterUnits="userSpaceOnUse"
+            color-interpolation-filters="sRGB">
+            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            <feColorMatrix in="SourceAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+            <feOffset dy="16" />
+            <feGaussianBlur stdDeviation="20" />
+            <feColorMatrix values="0 0 0 0 0.776736 0 0 0 0 0.776736 0 0 0 0 0.776736 0 0 0 0.3 0" />
+            <feBlend in2="BackgroundImageFix" result="effect1_dropShadow" />
+            <feBlend in="SourceGraphic" in2="effect1_dropShadow" result="shape" />
+        </filter>
+        <linearGradient id="prefix__prefix__paint0_linear" x1="25.213" y1="19.36" x2="20.284" y2="50.457"
+            gradientUnits="userSpaceOnUse">
+            <stop stop-color="#F26447" />
+            <stop offset="1" stop-color="#EF4852" />
+        </linearGradient>
+        <clipPath id="prefix__prefix__clip0">
+            <path fill="#fff" transform="translate(8.257 22.5)" d="M0 0h55.5v27H0z" />
+        </clipPath>
+    </defs>
+</svg>

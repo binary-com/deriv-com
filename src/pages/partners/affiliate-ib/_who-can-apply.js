@@ -7,12 +7,12 @@ import { LinkButton } from 'components/form'
 import { Timeline } from 'components/elements'
 import device from 'themes/device'
 import { affiliate_signup_url } from 'common/constants'
-import TradingExperts from 'images/svg/trading-experts.svg'
-import SoftwareDeveloper from 'images/svg/software-developer.svg'
-import CommunityManagers from 'images/svg/community-managers.svg'
-import Apply from 'images/svg/apply.svg'
-import Advertise from 'images/svg/advertise.svg'
-import Earn from 'images/svg/earn.svg'
+import TradingExperts from 'images/svg/partners/trading-experts.svg'
+import SoftwareDeveloper from 'images/svg/partners/software-developer.svg'
+import CommunityManagers from 'images/svg/partners/community-managers.svg'
+import Apply from 'images/svg/partners/apply.svg'
+import Advertise from 'images/svg/partners/advertise.svg'
+import Earn from 'images/svg/partners/earn.svg'
 
 const StyledSection = styled(Container)`
     align-items: flex-start;
@@ -183,10 +183,7 @@ const WhoCanApply = () => {
                     <WhoCanApplyWrapper>
                         <StyledHeader size="3.2rem">{localize('Who can apply')}</StyledHeader>
                         <ContentWrapper>
-                            <TradingExpertsImageWrapper
-                                src={TradingExperts}
-                                alt="trading experts"
-                            />
+                            <TradingExpertsImageWrapper src={TradingExperts} alt="" />
                             <Content max_width="36.4rem" mt_mobile="15px">
                                 <Header as="h4" type="sub-section-title" mb="8px">
                                     {localize('Trading experts')}
@@ -199,7 +196,7 @@ const WhoCanApply = () => {
                             </Content>
                         </ContentWrapper>
                         <ContentWrapper>
-                            <ImageWrapper src={SoftwareDeveloper} alt="software developer" />
+                            <ImageWrapper src={SoftwareDeveloper} alt="" />
                             <Content max_width="36.4rem" mt_mobile="15px">
                                 <Header as="h4" type="sub-section-title" mb="8px">
                                     {localize('Software developers')}
@@ -212,7 +209,7 @@ const WhoCanApply = () => {
                             </Content>
                         </ContentWrapper>
                         <ContentWrapper>
-                            <ImageWrapper src={CommunityManagers} alt="community managers" />
+                            <ImageWrapper src={CommunityManagers} alt="" />
                             <Content max_width="36.4rem" mt_mobile="15px">
                                 <Header as="h4" type="sub-section-title" mb="8px">
                                     {localize('Community managers')}
@@ -236,7 +233,7 @@ const WhoCanApply = () => {
                             <Timeline.Item>
                                 <HowToApplyContent>
                                     <Show.Desktop max_width="bp749">
-                                        <ApplyImageWrapper src={Apply} alt="apply" />
+                                        <ApplyImageWrapper src={Apply} alt="" />
                                     </Show.Desktop>
                                     <GetStartedContent max_width="32.4rem">
                                         <Header as="h4" type="sub-section-title" mb="8px">
@@ -253,7 +250,7 @@ const WhoCanApply = () => {
                             <Timeline.Item>
                                 <HowToApplyContent>
                                     <Show.Desktop max_width="bp749">
-                                        <ImageWrapper src={Advertise} alt="advertise" />
+                                        <ImageWrapper src={Advertise} alt="" />
                                     </Show.Desktop>
                                     <GetStartedContent max_width="32.4rem">
                                         <Header as="h4" type="sub-section-title" mb="8px">
@@ -270,7 +267,7 @@ const WhoCanApply = () => {
                             <Timeline.Item>
                                 <HowToApplyContent>
                                     <Show.Desktop max_width="bp749">
-                                        <ImageWrapper src={Earn} alt="earn" />
+                                        <ImageWrapper src={Earn} alt="" />
                                     </Show.Desktop>
                                     <GetStartedContent max_width="32.4rem">
                                         <Header as="h4" type="sub-section-title" mb="8px">
@@ -290,6 +287,7 @@ const WhoCanApply = () => {
             </StyledSection>
             <CenteredSection padding="2rem 0">
                 <StyledLinkButton
+                    id="dm-page-affiliate-signup"
                     secondary
                     to={affiliate_signup_url}
                     external="true"

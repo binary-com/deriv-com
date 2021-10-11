@@ -55,7 +55,7 @@ import {
 } from 'components/elements'
 import { Flex, Show } from 'components/containers'
 import Input from 'components/form/input'
-import RightArrow from 'images/svg/black-right-arrow.svg'
+import RightArrow from 'images/svg/tools/black-right-arrow.svg'
 
 const PnlMarginCalculator = () => {
     const query = graphql`
@@ -148,7 +148,7 @@ const PnlMarginCalculator = () => {
         <>
             <BreadCrumbContainer>
                 <Flex jc="flex-start" ai="center">
-                    <LocalizedLinkText to="/trader-tools" color="grey-5">
+                    <LocalizedLinkText to="/trader-tools/" color="grey-5">
                         {localize("Traders' tools")}
                     </LocalizedLinkText>
                     <img

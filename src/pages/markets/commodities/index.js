@@ -6,9 +6,9 @@ import Signup, { Appearances } from 'components/custom/signup'
 import Layout from 'components/layout/layout'
 import { localize, Localize, WithIntl } from 'components/localization'
 import { SEO } from 'components/containers'
-import PractiseIcon from 'images/svg/aim.svg'
-import TradeIcon from 'images/svg/trade.svg'
-import WithdrawIcon from 'images/svg/withdraw.svg'
+import PractiseIcon from 'images/svg/markets/aim.svg'
+import TradeIcon from 'images/svg/markets/trade.svg'
+import WithdrawIcon from 'images/svg/markets/withdraw.svg'
 
 const simple_step_content_commodities = [
     {
@@ -38,9 +38,9 @@ const CommoditiesPage = () => (
     <Layout>
         <SEO
             description={localize(
-                'Learn about the markets that you can trade online with Deriv, including forex, commodities, synthetic indices, stocks, and stock indices.',
+                'Sign up with Deriv to start trading on commodities and speculate on the price movements of gold, silver, oil, and other assets.',
             )}
-            title={localize('Markets | Markets to trade | Deriv')}
+            title={localize('Commodities market | Commodities trading | Deriv')}
         />
         <Hero />
         <NavTab route_from={'commodities'} route_offset={360} />

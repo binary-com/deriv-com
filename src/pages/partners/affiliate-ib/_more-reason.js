@@ -4,9 +4,9 @@ import { SectionContainer, Container, Flex } from 'components/containers'
 import { Header, Text } from 'components/elements/typography'
 import { localize } from 'components/localization'
 import device from 'themes/device'
-import GlobalAffiliate from 'images/svg/global-affiliate-support.svg'
-import ProvenReferral from 'images/svg/proven-referral-tools.svg'
-import HighValue from 'images/svg/high-value-partnership.svg'
+import GlobalAffiliate from 'images/svg/partners/global-affiliate-support.svg'
+import ProvenReferral from 'images/svg/partners/proven-referral-tools.svg'
+import HighValue from 'images/svg/partners/high-value-partnership.svg'
 
 const ReasonHeader = styled(Header)`
     @media ${device.tabletL} {
@@ -68,7 +68,7 @@ const MoreReason = () => {
                 </ReasonHeader>
                 <StyledFlex wrap="wrap" jc="center">
                     <Reason>
-                        <img src={HighValue} alt="high value partnership" />
+                        <img src={HighValue} alt="" />
                         <Header as="h4" type="sub-section-title" lh="1.5" mb="8px">
                             {localize('High-value partnership')}
                         </Header>
@@ -79,7 +79,7 @@ const MoreReason = () => {
                         </Text>
                     </Reason>
                     <Reason>
-                        <img src={ProvenReferral} alt="proven referral tool" />
+                        <img src={ProvenReferral} alt="" />
                         <Header as="h4" type="sub-section-title" lh="1.5" mb="8px">
                             {localize('Proven creative materials')}
                         </Header>
@@ -90,7 +90,7 @@ const MoreReason = () => {
                         </Text>
                     </Reason>
                     <Reason>
-                        <img src={GlobalAffiliate} alt="global affiliate support" />
+                        <img src={GlobalAffiliate} alt="" />
                         <Header as="h4" type="sub-section-title" lh="1.5" mb="8px">
                             {localize('Global affiliate support')}
                         </Header>

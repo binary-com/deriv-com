@@ -8,7 +8,7 @@ const query = graphql`
         why_deriv: file(relativePath: { eq: "be-square/why-deriv.png" }) {
             ...fadeIn
         }
-        bpo_team: file(relativePath: { eq: "be-square/bpo-team.png" }){
+        bpo_team: file(relativePath: { eq: "be-square/bpo-team.png" }) {
             ...fadeIn
         }
     }
@@ -30,7 +30,9 @@ const WhyDeriv = () => {
                     grid_area="employee-image"
                 />
                 <div>
-                    <Title as="h2" margin={[0, '0 auto']}>Why Deriv?</Title>
+                    <Title as="h2" margin={[0, '0 auto']}>
+                        Why Deriv?
+                    </Title>
                     <TextWrapper
                         {...text_wrapper}
                         grid_area={['unset', 'text-1']}
@@ -50,10 +52,10 @@ const WhyDeriv = () => {
                     grid_area={['unset', 'text-2']}
                     margin={['auto 0', '40px 0 24px']}
                 >
-                     At Deriv, you can learn from talented IT teams and receive
-                    international exposure by collaborating with our overseas offices.
-                    You&apos;ll get the chance to work on exciting projects with
-                    state-of-the-art technologies in an inspiring environment.
+                    At Deriv, you can learn from talented IT teams and receive international
+                    exposure by collaborating with our overseas offices. You&apos;ll get the chance
+                    to work on exciting projects with state-of-the-art technologies in an inspiring
+                    environment.
                 </TextWrapper>
                 <ImageWrapper
                     data={data['bpo_team']}

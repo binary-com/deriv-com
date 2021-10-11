@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { useLivechat } from 'components/hooks/use-livechat'
-import LiveChatIC from 'images/svg/livechat.svg'
-import LiveChatHover from 'images/svg/livechat-hover.svg'
+import LiveChatIC from 'images/svg/layout/livechat.svg'
+import LiveChatHover from 'images/svg/layout/livechat-hover.svg'
 import device from 'themes/device'
 import { DerivStore } from 'store'
 
@@ -63,11 +63,12 @@ const LiveChat = ({ is_banner_shown }) => {
                     onMouseEnter={() => setLivechatHover(true)}
                     onMouseLeave={() => setLivechatHover(false)}
                 >
-                    {is_livechat_hover ? (
-                        <img src={LiveChatHover} width="32" height="32" alt="livechat icon" />
-                    ) : (
-                        <img src={LiveChatIC} width="32" height="32" alt="livechat icon" />
-                    )}
+                    <img
+                        src={is_livechat_hover ? LiveChatHover : LiveChatIC}
+                        width="32"
+                        height="32"
+                        alt="livechat icon"
+                    />
                 </StyledLiveChat>
             )}
         </>

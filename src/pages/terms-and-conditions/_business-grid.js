@@ -4,11 +4,11 @@ import { StyledGrid, StyledContainer, IconWrapper, GridCol, Cta } from './_terms
 import { Header, Text } from 'components/elements'
 import { localize } from 'components/localization'
 // Icons
-import General from 'images/svg/business-general-tc.svg'
-import Partners from 'images/svg/business-partners-tc.svg'
-import PA from 'images/svg/business-pa-tc.svg'
-import API from 'images/svg/business-api-tc.svg'
-import PDF from 'images/svg/pdf-icon-black.svg'
+import General from 'images/svg/terms/business-general-tc.svg'
+import Partners from 'images/svg/terms/business-partners-tc.svg'
+import PA from 'images/svg/terms/business-pa-tc.svg'
+import API from 'images/svg/terms/business-api-tc.svg'
+import PDF from 'images/svg/regulatory/pdf-icon-black.svg'
 
 const Col = ({ Icon, content, link_title, title, url }) => (
     <GridCol>

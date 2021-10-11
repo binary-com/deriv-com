@@ -15,12 +15,12 @@ import { Flex } from 'components/containers'
 import { localize } from 'components/localization'
 import { Header, Text, Timeline } from 'components/elements'
 import { LinkButton } from 'components/form'
-import TradingExperts from 'images/svg/trading-experts.svg'
-import Affiliates from 'images/svg/affiliates.svg'
-import CommunityManagers from 'images/svg/community-managers.svg'
-import Email from 'images/svg/pa-email.svg'
-import Reply from 'images/svg/pa-reply.svg'
-import Listed from 'images/svg/pa-listed.svg'
+import TradingExperts from 'images/svg/partners/trading-experts.svg'
+import Affiliates from 'images/svg/partners/affiliates.svg'
+import CommunityManagers from 'images/svg/partners/community-managers.svg'
+import Email from 'images/svg/partners/pa-email.svg'
+import Reply from 'images/svg/partners/pa-reply.svg'
+import Listed from 'images/svg/partners/pa-listed.svg'
 import device from 'themes/device'
 
 const HeaderHowToApply = styled(SecondaryHeader)`
@@ -79,7 +79,7 @@ const WhoCanApply = () => {
                     <WhoCanApplyWrapper>
                         <StyledHeader size="3.6rem">{localize('Who can apply')}</StyledHeader>
                         <Wrapper>
-                            <ImageWrapper src={TradingExperts} alt="trading experts" />
+                            <ImageWrapper src={TradingExperts} alt="" />
                             <Content max_width="36.4rem">
                                 <Header as="h4" type="sub-section-title">
                                     {localize('Currency exchangers')}
@@ -92,7 +92,7 @@ const WhoCanApply = () => {
                             </Content>
                         </Wrapper>
                         <Wrapper>
-                            <ImageWrapper src={Affiliates} alt="affiliates" />
+                            <ImageWrapper src={Affiliates} alt="" />
                             <Content max_width="36.4rem">
                                 <Header as="h4" type="sub-section-title">
                                     {localize('Affiliates')}
@@ -105,7 +105,7 @@ const WhoCanApply = () => {
                             </Content>
                         </Wrapper>
                         <Wrapper>
-                            <ImageWrapper src={CommunityManagers} alt="community managers" />
+                            <ImageWrapper src={CommunityManagers} alt="" />
                             <Content max_width="36.4rem">
                                 <Header as="h4" type="sub-section-title">
                                     {localize('Community managers')}
@@ -128,7 +128,7 @@ const WhoCanApply = () => {
                         <Timeline>
                             <Timeline.Item>
                                 <HowToApplyContent>
-                                    <ImageWrapper src={Email} alt="email" />
+                                    <ImageWrapper src={Email} alt="" />
                                     <Content margin-top="0 px" max_width="36.4rem">
                                         <Header as="h4" type="sub-section-title">
                                             {localize('Drop us an email')}
@@ -171,7 +171,7 @@ const WhoCanApply = () => {
                             </Timeline.Item>
                             <Timeline.Item>
                                 <HowToApplyContent>
-                                    <ImageWrapper src={Reply} alt="reply" />
+                                    <ImageWrapper src={Reply} alt="" />
                                     <Content max_width="36.4rem">
                                         <Header as="h4" type="sub-section-title">
                                             {localize('Wait for our reply')}
@@ -186,7 +186,7 @@ const WhoCanApply = () => {
                             </Timeline.Item>
                             <Timeline.Item>
                                 <HowToApplyContent>
-                                    <ImageWrapper src={Listed} alt="listed" />
+                                    <ImageWrapper src={Listed} alt="" />
                                     <Content max_width="36.4rem">
                                         <Header as="h4" type="sub-section-title">
                                             {localize('Get listed')}
@@ -204,7 +204,13 @@ const WhoCanApply = () => {
                 </Flex>
             </StyledSection>
             <ButtonWrapper padding="3.4rem 0 0">
-                <LinkButton secondary external="true" to="mailto:partners@deriv.com" is_mail_link>
+                <LinkButton
+                    id="dm-page-affiliate-email-apply"
+                    secondary
+                    external="true"
+                    to="mailto:partners@deriv.com"
+                    is_mail_link
+                >
                     {localize('Send us an email to apply')}
                 </LinkButton>
             </ButtonWrapper>

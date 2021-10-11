@@ -199,7 +199,7 @@ const filterFunctions = {
                     }
                 }
 
-                return false
+                return null
             }),
         )
     },

@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Container, CssGrid, SectionContainer, Flex } from 'components/containers'
+import { Container, CssGrid, SectionContainer, Flex, Show } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import device from 'themes/device'
 // SVG
@@ -36,7 +36,7 @@ const GridItem = styled(Flex)`
     background: #ffffff;
     border-radius: 8px;
     padding: 32px;
-    margin-bottom: 4rem;
+    margin-bottom: 24px;
 
     img {
         width: 6.4rem;
@@ -78,7 +78,7 @@ const OurValues = () => (
                 rows="repeat(1.3, auto)"
                 row_gap="4rem"
                 laptop_columns="repeat(3, 32%)"
-                column_gap="4rem"
+                column_gap="24px"
                 justify="center"
                 align="center"
                 tablet_columns="100%"
@@ -103,27 +103,52 @@ const OurValues = () => (
                         </Text>
                     </GridItem>
                     <GridItem direction="column" style={{ marginBottom: 0 }}>
-                        <img src={Competence} alt="" />
-                        <MiddleText as="h4" type="sub-section-title">
-                            Competence
-                        </MiddleText>
-                        <Text>
-                            We love to work with smart and talented people who are eager to roll up
-                            their sleeves and get things done.
-                        </Text>
+                        <Show.Desktop>
+                            <img src={Competence} alt="" />
+                            <MiddleText as="h4" type="sub-section-title">
+                                Competence
+                            </MiddleText>
+                            <Text>
+                                We love to work with smart and talented people who are eager to roll
+                                up their sleeves and get things done.
+                            </Text>
+                        </Show.Desktop>
+                        <Show.Mobile>
+                            <img src={Customer} alt="" />
+                            <MiddleText as="h4" type="sub-section-title">
+                                Customer focus
+                            </MiddleText>
+                            <Text>
+                                We always put our customers first and dedicate ourselves to building
+                                products and services that give them the best trading experience
+                                possible.
+                            </Text>
+                        </Show.Mobile>
                     </GridItem>
                 </div>
                 <ThirdColumn direction="column">
                     <GridItem direction="column">
-                        <img src={Customer} alt="" />
-                        <MiddleText as="h4" type="sub-section-title">
-                            Customer focus
-                        </MiddleText>
-                        <Text>
-                            We always put our customers first and dedicate ourselves to building
-                            products and services that give them the best trading experience
-                            possible.
-                        </Text>
+                        <Show.Desktop>
+                            <img src={Customer} alt="" />
+                            <MiddleText as="h4" type="sub-section-title">
+                                Customer focus
+                            </MiddleText>
+                            <Text>
+                                We always put our customers first and dedicate ourselves to building
+                                products and services that give them the best trading experience
+                                possible.
+                            </Text>
+                        </Show.Desktop>
+                        <Show.Mobile>
+                            <img src={Competence} alt="" />
+                            <MiddleText as="h4" type="sub-section-title">
+                                Competence
+                            </MiddleText>
+                            <Text>
+                                We love to work with smart and talented people who are eager to roll
+                                up their sleeves and get things done.
+                            </Text>
+                        </Show.Mobile>
                     </GridItem>
                     <GridItem direction="column" style={{ marginBottom: 0 }}>
                         <img src={Teamwork} alt="" />

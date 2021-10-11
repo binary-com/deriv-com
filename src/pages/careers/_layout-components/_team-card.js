@@ -40,21 +40,27 @@ const ImageWrapper = styled.div`
 `
 
 const StyledContent = styled.div`
-    padding: 20px 15px 0 15px;
+    padding: 20px;
     width: 100%;
-
-    @media ${device.laptopS} {
-        padding: 10px 15px 0 15px;
-    }
 `
 
 const StyledHeader = styled(Header)`
     font-size: 16px;
     line-height: 24px;
+
+    @media ${device.tablet} {
+        font-size: 14px;
+        line-height: 20px;
+    }
 `
 const StyledText = styled(Text)`
     font-size: 14px;
     line-height: 20px;
+
+    @media ${device.tablet} {
+        font-size: 12px;
+        line-height: 18px;
+    }
 `
 
 const TeamCard = ({ to, img_data, display_team_name, tagline }) => (

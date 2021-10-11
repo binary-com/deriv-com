@@ -18,7 +18,7 @@ import PresentationMobile from 'images/common/careers/presentation-mobile.png'
 import TeambuildingMobile from 'images/common/careers/teambuilding-mobile.png'
 
 const StyledSection = styled(SectionContainer)`
-    padding: 10rem 0;
+    padding: 10rem 0 80px 0;
 
     @media ${device.tabletL} {
         height: unset;
@@ -68,7 +68,7 @@ const ColumnDiv = styled.div`
     padding-right: 25px;
 
     & img {
-        margin-top: 25px;
+        margin-top: 24px;
         vertical-align: middle;
         width: 100%;
         border-radius: 10px;
@@ -79,7 +79,7 @@ const ThirdRow = styled.div`
     padding-right: 25px;
 
     & img {
-        margin-top: 20px;
+        margin-top: 24px;
         vertical-align: middle;
         width: 100%;
         border-radius: 10px;
@@ -144,16 +144,12 @@ const LifeAtDerivCarousel = () => {
                     <Show.Desktop>
                         <GridDiv>
                             <ColumnDiv>
-                                <img
-                                    src={Presentation}
-                                    style={{ height: '348px' }}
-                                    loading="lazy"
-                                />
+                                <img src={Presentation} loading="lazy" />
                                 <img src={TableTennis} loading="lazy" />
                             </ColumnDiv>
                             <ColumnDiv>
                                 <img src={FitnessImage} loading="lazy" />
-                                <img src={GamesImage} style={{ height: '348px' }} loading="lazy" />
+                                <img src={GamesImage} loading="lazy" />
                             </ColumnDiv>
                         </GridDiv>
                         <ThirdRow>

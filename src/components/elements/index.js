@@ -14,7 +14,6 @@ import {
     OffCanvasMenuPartner,
     moveOffCanvasMenu,
 } from './off-canvas-menu'
-import { OffCanvasMenuWrapperCareer as OffCanvasMenuCareer } from './off-canvas-menu-career'
 import SideTab from './side-tab'
 import Tabs from './default-tab'
 import { Text, LinkText, Header, BaseElement, SpanLinkText } from './typography'
@@ -47,7 +46,6 @@ export {
     moveOffCanvasMenu,
     NavCard,
     OffCanvasMenu,
-    OffCanvasMenuCareer,
     OffCanvasMenuPartner,
     QueryImage,
     SideTab,

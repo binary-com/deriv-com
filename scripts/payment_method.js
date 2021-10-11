@@ -195,7 +195,7 @@ const filterFunctions = {
                     return {
                         ...details,
                         logo: ucWord(sentencizeStr(key, '-')),
-                        reference: reference === 'yes' ? file_name : '',
+                        reference: reference.toLowerCase() === 'yes' ? file_name : '',
                     }
                 }
 

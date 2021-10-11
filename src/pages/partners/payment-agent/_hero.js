@@ -37,7 +37,13 @@ const PAHero = () => {
                     'Expand your client base, gain additional business exposure, and earn more revenue when you sign up as a payment agent on Deriv.',
                 )}
             </MiddleHeader>
-            <LinkButton secondary external="true" to="mailto:partners@deriv.com" is_mail_link>
+            <LinkButton
+                id="dm-hero-affiliate-email-apply"
+                secondary
+                external="true"
+                to="mailto:partners@deriv.com"
+                is_mail_link
+            >
                 {localize('Send us an email to apply')}
             </LinkButton>
         </Hero>

@@ -8,38 +8,38 @@ import { Accordion, AccordionItem, NavCard, Text, Divider } from 'components/ele
 import { deriv_status_page_url } from 'common/constants'
 // SVG
 import AffiliateIb from 'images/svg/menu/affiliate-ib.svg'
-import Blog from 'images/svg/blog-nav.svg'
+import Blog from 'images/svg/custom/blog-nav.svg'
 import Career from 'images/svg/menu/careers.svg'
 import Choose from 'images/svg/menu/choose.svg'
-import Commodities from 'images/svg/commodities-nav.svg'
+import Commodities from 'images/svg/custom/commodities-nav.svg'
 import Community from 'images/svg/menu/community.svg'
 import Contact from 'images/svg/menu/contact.svg'
-import DBot from 'images/svg/dbot-icon.svg'
+import DBot from 'images/svg/dbot/dbot-icon.svg'
 import API from 'images/svg/menu/developers.svg'
-import Diagonal from 'images/svg/pink-right-diagonal.svg'
-import DMT5 from 'images/svg/dmt5-icon.svg'
-import DerivX from 'images/svg/deriv-x.svg'
-import DTrader from 'images/svg/dtrader-icon.svg'
-import Forex from 'images/svg/forex-nav.svg'
+import Diagonal from 'images/svg/elements/pink-right-diagonal.svg'
+import DMT5 from 'images/svg/dmt5/dmt5-icon.svg'
+import DerivX from 'images/svg/custom/deriv-x.svg'
+import DTrader from 'images/svg/dtrader/dtrader-icon.svg'
+import Forex from 'images/svg/custom/forex-nav.svg'
 import Help from 'images/svg/menu/help-center.svg'
 import Leadership from 'images/svg/menu/leadership.svg'
-import CFD from 'images/svg/margin-trading-nav.svg'
-import Multipliers from 'images/svg/multipliers-nav.svg'
-import Options from 'images/svg/options-nav.svg'
+import CFD from 'images/svg/custom/margin-trading-nav.svg'
+import Multipliers from 'images/svg/custom/multipliers-nav.svg'
+import Options from 'images/svg/custom/options-nav.svg'
 import Partner from 'images/svg/menu/partner.svg'
 import Payment from 'images/svg/menu/payment-methods.svg'
 import PaymentAgent from 'images/svg/menu/payment-agent.svg'
 import Regulatory from 'images/svg/menu/regulatory.svg'
 import SecureTrading from 'images/svg/menu/secure-trading.svg'
-import Smarttrader from 'images/svg/smarttrader.svg'
-import Status from 'images/svg/status.svg'
-import StockIndices from 'images/svg/stock-indices-nav.svg'
-import Cryptocurrencies from 'images/svg/cryptocurrencies-nav.svg'
+import Smarttrader from 'images/svg/custom/smarttrader.svg'
+import Status from 'images/svg/elements/status.svg'
+import StockIndices from 'images/svg/custom/stock-indices-nav.svg'
+import Cryptocurrencies from 'images/svg/custom/cryptocurrencies-nav.svg'
 import Story from 'images/svg/menu/story.svg'
-import SyntheticIndices from 'images/svg/synthetic-indices-nav.svg'
+import SyntheticIndices from 'images/svg/custom/synthetic-indices-nav.svg'
 import Terms from 'images/svg/menu/terms.svg'
 import { DerivStore } from 'store'
-import Trade from 'images/svg/trader-tool-nav.svg'
+import Trade from 'images/svg/custom/trader-tool-nav.svg'
 import Signals from 'images/svg/menu/signals.svg'
 
 const OffCanvasMenu = styled.section`
@@ -479,7 +479,7 @@ export const OffCanvasMenuWrapper = (props) => {
                             </div>
                             <span>{localize('Regulatory information')}</span>
                         </StyledLink>
-                        <StyledLink to="/terms-and-conditions/" onClick={handleArrowClick}>
+                        <StyledLink to="/terms-and-conditions/#clients" onClick={handleArrowClick}>
                             <div>
                                 <img src={Terms} alt="" width="24" height="24" />
                             </div>

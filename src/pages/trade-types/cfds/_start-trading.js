@@ -49,6 +49,7 @@ const StartTrading = () => {
                         </Timeline.Item>
                     </Timeline>
                     <LinkButton
+                        id="dm-dmt5-signup"
                         mt="4rem"
                         external="true"
                         type="mt5"

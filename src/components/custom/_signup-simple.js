@@ -60,7 +60,7 @@ const SignupSimple = ({
                 <InputGroup>
                     <InputWrapper>
                         <Input
-                            id="email"
+                            id="dm-email-input"
                             name="email"
                             type="text"
                             error={email_error_msg}
@@ -77,7 +77,7 @@ const SignupSimple = ({
                         />
                     </InputWrapper>
                     <EmailButton
-                        id="gtm-signup-email"
+                        id="dm-simple-signup"
                         type="submit"
                         secondary="true"
                         disabled={is_submitting}

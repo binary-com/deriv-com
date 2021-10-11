@@ -53,7 +53,7 @@ import {
     Text,
 } from 'components/elements'
 import Input from 'components/form/input'
-import RightArrow from 'images/svg/black-right-arrow.svg'
+import RightArrow from 'images/svg/tools/black-right-arrow.svg'
 
 const MarginCalculator = () => {
     const query = graphql`
@@ -379,7 +379,7 @@ const MarginCalculator = () => {
                             >
                                 {localize('Go to DMT5 dashboard')}
                             </StyledLinkButton>
-                            <StyledLinkButton secondary="true" to="/trade-types/margin/">
+                            <StyledLinkButton secondary="true" to="/trade-types/cfds/">
                                 {localize('Learn more about margin')}
                             </StyledLinkButton>
                         </LinkWrapper>

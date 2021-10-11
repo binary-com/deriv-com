@@ -234,6 +234,7 @@ const DerivAffiliateProgramme = () => {
                             </div>
                             <div>
                                 <ApplyNow
+                                    id="dm-card-affiliate-signup-1"
                                     secondary
                                     to={affiliate_signup_url}
                                     external="true"
@@ -284,6 +285,7 @@ const DerivAffiliateProgramme = () => {
                             </div>
                             <div>
                                 <ApplyNow
+                                    id="dm-card-affiliate-signup-2"
                                     secondary
                                     to={affiliate_signup_url}
                                     external="true"
@@ -318,6 +320,7 @@ const DerivAffiliateProgramme = () => {
                             </div>
                             <div>
                                 <ApplyNow
+                                    id="dm-card-affiliate-signup-3"
                                     secondary
                                     to={affiliate_signup_url}
                                     external="true"

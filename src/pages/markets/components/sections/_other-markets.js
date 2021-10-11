@@ -6,7 +6,7 @@ import Box from 'components/containers/box'
 import { Header, Text } from 'components/elements'
 import { localize, Localize, LocalizedLink } from 'components/localization'
 //TODO: using temp svg as a function for having dynamic id
-import Arrow from 'images/svg/arrow-right.svg'
+import Arrow from 'images/svg/trade-types/arrow-right.svg'
 import Commodities from 'images/svg/markets/commodities.svg'
 import Cryptocurrencies from 'images/svg/markets/cryptocurrencies.svg'
 import Forex from 'images/svg/markets/forex.svg'

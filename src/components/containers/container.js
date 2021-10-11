@@ -1,6 +1,9 @@
 import styled from 'styled-components'
-import Box from './box'
+import Box, { generateResponsiveStyles } from './box'
+import { flexStyles } from './flex'
 import device from 'themes/device'
+
+const responsiveStyles = generateResponsiveStyles(flexStyles)
 
 const Container = styled(Box)`
     margin: 0 auto;
@@ -31,6 +34,8 @@ const Container = styled(Box)`
         padding-right: 0;
         flex-direction: ${(props) => props.tablet_direction};
     }
+
+    ${responsiveStyles}
 `
 
 export default Container

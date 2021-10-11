@@ -6,7 +6,7 @@ import { Text } from 'components/elements'
 import { Localize } from 'components/localization'
 import device from 'themes/device.js'
 // Icons
-import Close from 'images/svg/close-2.svg'
+import Close from 'images/svg/custom/close-2.svg'
 
 const ModalWrapper = styled.div`
     position: fixed;

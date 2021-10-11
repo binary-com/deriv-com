@@ -9,10 +9,10 @@ import {
     linkedin_url_career,
 } from 'common/constants'
 //Logo
-import Twitter from 'images/svg/footer-twitter.svg'
-import Instagram from 'images/svg/footer-instagram.svg'
-import Facebook from 'images/svg/footer-facebook.svg'
-import Linkedin from 'images/svg/footer-linkedin.svg'
+import Twitter from 'images/svg/layout/footer-twitter.svg'
+import Instagram from 'images/svg/layout/footer-instagram.svg'
+import Facebook from 'images/svg/layout/footer-facebook.svg'
+import Linkedin from 'images/svg/layout/footer-linkedin.svg'
 
 const SocialWrapperComponent = ({ is_career_page, fb_url, instagram_url, twitter_url }) => {
     const alt_string = (is_career_page ? 'career' : '') + ' icon link'

@@ -10,7 +10,6 @@
         "withdrawal_processing_time": "1 working day",
         "min_withdrawal": "10",
         "max_withdrawal": "10,000",
-        "link_binary": "",
         "link_deriv": "",
         "currencies": [["USD", "EUR", "AUD", "GBP"]],
         "countries": {
@@ -33,9 +32,8 @@
                 "SY"
             ]
         },
-        "reference": "visa.pdf",
+        "reference": "visa",
         "locale": [],
-        "platform": "",
         "logo": "Visa"
     },
     {
@@ -49,7 +47,6 @@
         "withdrawal_processing_time": "1 working day",
         "min_withdrawal": "10",
         "max_withdrawal": "10,000",
-        "link_binary": "",
         "link_deriv": "",
         "currencies": [["USD", "EUR", "AUD", "GBP"]],
         "countries": {
@@ -72,9 +69,8 @@
                 "SY"
             ]
         },
-        "reference": "visa-electron.pdf",
+        "reference": "",
         "locale": [],
-        "platform": "",
         "logo": "VisaElectron"
     },
     {
@@ -88,7 +84,6 @@
         "withdrawal_processing_time": "1 working day",
         "min_withdrawal": "10",
         "max_withdrawal": "10,000",
-        "link_binary": "",
         "link_deriv": "",
         "currencies": [["USD", "EUR", "AUD", "GBP"]],
         "countries": {
@@ -111,9 +106,8 @@
                 "SY"
             ]
         },
-        "reference": "mastercard.pdf",
+        "reference": "mastercard",
         "locale": [],
-        "platform": "",
         "logo": "Mastercard"
     },
     {
@@ -127,7 +121,6 @@
         "withdrawal_processing_time": "1 working day",
         "min_withdrawal": "10",
         "max_withdrawal": "10,000",
-        "link_binary": "",
         "link_deriv": "",
         "currencies": [["USD", "EUR", "AUD", "GBP"]],
         "countries": {
@@ -150,9 +143,8 @@
                 "SY"
             ]
         },
-        "reference": "maestro.pdf",
+        "reference": "maestro",
         "locale": [],
-        "platform": "",
         "logo": "Maestro"
     },
     {
@@ -166,7 +158,6 @@
         "withdrawal_processing_time": "1 working day",
         "min_withdrawal": "10",
         "max_withdrawal": "10,000",
-        "link_binary": "",
         "link_deriv": "",
         "currencies": [["USD", "EUR", "AUD", "GBP"]],
         "countries": {
@@ -189,9 +180,8 @@
                 "SY"
             ]
         },
-        "reference": "diners.pdf",
+        "reference": "diners",
         "locale": [],
-        "platform": "",
         "logo": "Diners"
     },
     {
@@ -205,7 +195,6 @@
         "withdrawal_processing_time": "1 working day",
         "min_withdrawal": "10",
         "max_withdrawal": "10,000",
-        "link_binary": "",
         "link_deriv": "",
         "currencies": [["USD"]],
         "countries": {
@@ -228,9 +217,8 @@
                 "SY"
             ]
         },
-        "reference": "jcb.pdf",
+        "reference": "",
         "locale": [],
-        "platform": "",
         "logo": "Jcb"
     },
     {
@@ -244,7 +232,6 @@
         "withdrawal_processing_time": "1 working day",
         "min_withdrawal": "5",
         "max_withdrawal": "50,000",
-        "link_binary": "",
         "link_deriv": "",
         "currencies": [["USD"]],
         "countries": {
@@ -267,9 +254,8 @@
                 "SY"
             ]
         },
-        "reference": "internet-bank-transfer.pdf",
+        "reference": "",
         "locale": [],
-        "platform": "",
         "logo": "InternetBankTransfer"
     },
     {
@@ -283,16 +269,14 @@
         "withdrawal_processing_time": "Not Available",
         "min_withdrawal": "Not Available",
         "max_withdrawal": "Not Available",
-        "link_binary": "",
         "link_deriv": "",
         "currencies": [["USD"]],
         "countries": {
             "included": ["ID", "TH", "VN"],
             "excluded": []
         },
-        "reference": "paytrust88.pdf",
+        "reference": "",
         "locale": [],
-        "platform": "",
         "logo": "Paytrust88"
     },
     {
@@ -306,16 +290,14 @@
         "withdrawal_processing_time": "Not Available",
         "min_withdrawal": "Not Available",
         "max_withdrawal": "Not Available",
-        "link_binary": "",
         "link_deriv": "",
         "currencies": [["USD"]],
         "countries": {
             "included": ["ID", "TH", "VN"],
             "excluded": []
         },
-        "reference": "dragonphoenix.pdf",
+        "reference": "dragonphoenix",
         "locale": [],
-        "platform": "",
         "logo": "Dragonphoenix"
     },
     {
@@ -329,16 +311,14 @@
         "withdrawal_processing_time": "1 - 3 working days",
         "min_withdrawal": "10",
         "max_withdrawal": "2,500",
-        "link_binary": "",
         "link_deriv": "",
         "currencies": [["USD"]],
         "countries": {
             "included": ["VN"],
             "excluded": []
         },
-        "reference": "ngan-luong.pdf",
+        "reference": "ngan-luong",
         "locale": ["vn"],
-        "platform": "",
         "logo": "NganLuong"
     },
     {
@@ -352,16 +332,14 @@
         "withdrawal_processing_time": "Not Available",
         "min_withdrawal": "Not Available",
         "max_withdrawal": "Not Available",
-        "link_binary": "",
         "link_deriv": "",
         "currencies": [["USD"]],
         "countries": {
             "included": ["ID", "TH", "VN"],
             "excluded": []
         },
-        "reference": "help2pay.pdf",
+        "reference": "help2pay",
         "locale": [],
-        "platform": "",
         "logo": "Help2pay"
     },
     {
@@ -375,16 +353,14 @@
         "withdrawal_processing_time": "1 working day",
         "min_withdrawal": "10",
         "max_withdrawal": "6,000",
-        "link_binary": "",
         "link_deriv": "",
         "currencies": [["USD", "EUR", "AUD", "GBP"]],
         "countries": {
             "included": ["SA"],
             "excluded": []
         },
-        "reference": "zingpay.pdf",
+        "reference": "zingpay",
         "locale": [],
-        "platform": "",
         "logo": "Zingpay"
     },
     {
@@ -398,7 +374,6 @@
         "withdrawal_processing_time": "1 working day",
         "min_withdrawal": "5",
         "max_withdrawal": "10,000",
-        "link_binary": "https://www.fasapay.com/",
         "link_deriv": "https://www.fasapay.com/",
         "currencies": [["USD"]],
         "countries": {
@@ -421,9 +396,8 @@
                 "SY"
             ]
         },
-        "reference": "fasapay.pdf",
+        "reference": "fasapay",
         "locale": [],
-        "platform": "",
         "logo": "Fasapay"
     },
     {
@@ -437,7 +411,6 @@
         "withdrawal_processing_time": "1 working day",
         "min_withdrawal": "5",
         "max_withdrawal": "10,000",
-        "link_binary": "http://perfectmoney.com/?welcome=1",
         "link_deriv": "http://perfectmoney.com/?welcome=2",
         "currencies": [["USD", "EUR"]],
         "countries": {
@@ -460,9 +433,8 @@
                 "SY"
             ]
         },
-        "reference": "perfect-money.pdf",
+        "reference": "perfect-money",
         "locale": [],
-        "platform": "",
         "logo": "PerfectMoney"
     },
     {
@@ -476,7 +448,6 @@
         "withdrawal_processing_time": "1 working day",
         "min_withdrawal": "10",
         "max_withdrawal": "10,000",
-        "link_binary": "https://account.skrill.com/wallet/account/sign-up?locale=en",
         "link_deriv": "https://account.skrill.com/wallet/account/sign-up?locale=en",
         "currencies": [["USD", "EUR", "AUD", "GBP"]],
         "countries": {
@@ -629,9 +600,8 @@
                 "ZW"
             ]
         },
-        "reference": "skrill.pdf",
+        "reference": "skrill",
         "locale": [],
-        "platform": "",
         "logo": "Skrill"
     },
     {
@@ -645,7 +615,6 @@
         "withdrawal_processing_time": "1 working day",
         "min_withdrawal": "5",
         "max_withdrawal": "10,000",
-        "link_binary": "https://member.neteller.com/wallet/account/sign-up?lang=en&btag=a_94953b_2560c_&program=NTAFFILIATE",
         "link_deriv": "https://member.neteller.com/wallet/account/sign-up?lang=en&btag=a_94953b_2560c_&program=NTAFFILIATE",
         "currencies": [["USD", "EUR", "AUD", "GBP"]],
         "countries": {
@@ -798,9 +767,8 @@
                 "ZW"
             ]
         },
-        "reference": "neteller.pdf",
+        "reference": "neteller",
         "locale": [],
-        "platform": "",
         "logo": "Neteller"
     },
     {
@@ -814,7 +782,6 @@
         "withdrawal_processing_time": "1 working day",
         "min_withdrawal": "5",
         "max_withdrawal": "5,000",
-        "link_binary": "https://www.wmtransfer.com/",
         "link_deriv": "https://www.wmtransfer.com/",
         "currencies": [["USD", "EUR"]],
         "countries": {
@@ -851,9 +818,8 @@
                 "YE"
             ]
         },
-        "reference": "webmoney.pdf",
+        "reference": "webmoney",
         "locale": [],
-        "platform": "",
         "logo": "Webmoney"
     },
     {
@@ -867,7 +833,6 @@
         "withdrawal_processing_time": "1 working day",
         "min_withdrawal": "5|5",
         "max_withdrawal": "750|750",
-        "link_binary": "https://www.paysafecard.com/en/",
         "link_deriv": "https://www.paysafecard.com/en/",
         "currencies": [
             ["USD", "AUD"],
@@ -921,9 +886,8 @@
             ],
             "excluded": []
         },
-        "reference": "paysafecard.pdf",
+        "reference": "",
         "locale": [],
-        "platform": "",
         "logo": "Paysafecard"
     },
     {
@@ -937,16 +901,14 @@
         "withdrawal_processing_time": "1 - 2 working days",
         "min_withdrawal": "5",
         "max_withdrawal": "10,000",
-        "link_binary": "https://www.paylivre.com/",
         "link_deriv": "https://www.paylivre.com/",
         "currencies": [["USD"]],
         "countries": {
             "included": ["BR"],
             "excluded": []
         },
-        "reference": "paylivre.pdf",
+        "reference": "paylivre",
         "locale": [],
-        "platform": "",
         "logo": "Paylivre"
     },
     {
@@ -960,7 +922,6 @@
         "withdrawal_processing_time": "1 working day",
         "min_withdrawal": "5",
         "max_withdrawal": "1,000",
-        "link_binary": "https://www.jeton.com/",
         "link_deriv": "https://www.jeton.com/",
         "currencies": [["USD", "EUR", "AUD", "GBP"]],
         "countries": {
@@ -991,9 +952,8 @@
                 "YE"
             ]
         },
-        "reference": "jeton.pdf",
+        "reference": "jeton",
         "locale": [],
-        "platform": "",
         "logo": "Jeton"
     },
     {
@@ -1007,7 +967,6 @@
         "withdrawal_processing_time": "1 working day",
         "min_withdrawal": "5",
         "max_withdrawal": "1,000",
-        "link_binary": "https://www.sticpay.com/",
         "link_deriv": "https://www.sticpay.com/",
         "currencies": [["USD", "EUR", "GBP"]],
         "countries": {
@@ -1030,9 +989,8 @@
                 "SY"
             ]
         },
-        "reference": "sticpay.pdf",
+        "reference": "sticpay",
         "locale": [],
-        "platform": "",
         "logo": "Sticpay"
     },
     {
@@ -1046,7 +1004,6 @@
         "withdrawal_processing_time": "1 working day",
         "min_withdrawal": "5",
         "max_withdrawal": "2,500",
-        "link_binary": "https://www.airtm.com/en/",
         "link_deriv": "https://www.airtm.com/en/",
         "currencies": [["USD"]],
         "countries": {
@@ -1069,9 +1026,8 @@
                 "SY"
             ]
         },
-        "reference": "airtm.pdf",
+        "reference": "airtm",
         "locale": [],
-        "platform": "",
         "logo": "Airtm"
     },
     {
@@ -1085,7 +1041,6 @@
         "withdrawal_processing_time": "Subject to internal checks",
         "min_withdrawal": "0.0022",
         "max_withdrawal": "Not Available",
-        "link_binary": "",
         "link_deriv": "",
         "currencies": [["BTC"]],
         "countries": {
@@ -1110,10 +1065,48 @@
                 "SY"
             ]
         },
-        "reference": "bitcoin.pdf",
+        "reference": "bitcoin",
         "locale": [],
-        "platform": "",
         "logo": "Bitcoin"
+    },
+    {
+        "name": "Banxa",
+        "category": "Fiat onramp",
+        "key": "banxa",
+        "description": "Make fast, easy, and secure deposits with this internationally compliant fiat-to-crypto exchange using your credit or debit card. Registrations are hassle-free.",
+        "deposit_proccessing_time": "5 - 30 minutes",
+        "min_deposit": "50",
+        "max_deposit": "5000",
+        "withdrawal_processing_time": "Not Available",
+        "min_withdrawal": "Not Available",
+        "max_withdrawal": "Not Available",
+        "link_deriv": "https://banxa.com/",
+        "currencies": [["USD", "EUR", "GBP", "AUD", "BTC", "LTC", "USDT", "USDC"]],
+        "countries": {
+            "included": [],
+            "excluded": [
+                "EU",
+                "UK",
+                "AF",
+                "AE",
+                "CA",
+                "CF",
+                "HK",
+                "IL",
+                "IR",
+                "IQ",
+                "JE",
+                "MY",
+                "MT",
+                "RW",
+                "PY",
+                "US",
+                "SY"
+            ]
+        },
+        "reference": "",
+        "locale": [],
+        "logo": "Banxa"
     },
     {
         "name": "Boleto Bancario",
@@ -1126,16 +1119,14 @@
         "withdrawal_processing_time": "Not Available",
         "min_withdrawal": "Not Available",
         "max_withdrawal": "Not Available",
-        "link_binary": "",
         "link_deriv": "",
         "currencies": [["USD"]],
         "countries": {
             "included": ["BR"],
             "excluded": []
         },
-        "reference": "boleto-bancario.pdf",
+        "reference": "",
         "locale": [],
-        "platform": "",
         "logo": "BoletoBancario"
     },
     {
@@ -1149,16 +1140,14 @@
         "withdrawal_processing_time": "1 - 2 working days",
         "min_withdrawal": "10",
         "max_withdrawal": "10000",
-        "link_binary": "https://www.onlinenaira.com/",
         "link_deriv": "https://www.onlinenaira.com/",
         "currencies": [["USD"]],
         "countries": {
             "included": ["NG"],
             "excluded": []
         },
-        "reference": "onlinenaira.pdf",
+        "reference": "",
         "locale": [],
-        "platform": "",
         "logo": "Onlinenaira"
     },
     {
@@ -1169,19 +1158,17 @@
         "deposit_proccessing_time": "Instant",
         "min_deposit": "10|10",
         "max_deposit": "100|100",
-        "withdrawal_processing_time": "Not available",
-        "min_withdrawal": "",
-        "max_withdrawal": "",
-        "link_binary": "",
+        "withdrawal_processing_time": "1 - 2 working days",
+        "min_withdrawal": "10|10",
+        "max_withdrawal": "10000|500",
         "link_deriv": "https://www.trustly.net/",
         "currencies": [["GBP", "USD"], ["EUR"]],
         "countries": {
             "included": ["AT", "DK", "EE", "FI", "DE", "NL", "PL", "SE", "GB"],
             "excluded": []
         },
-        "reference": "trustly.pdf",
+        "reference": "",
         "locale": [],
-        "platform": "",
         "logo": "Trustly"
     },
     {
@@ -1195,16 +1182,14 @@
         "withdrawal_processing_time": "1 - 2 working days ",
         "min_withdrawal": "5",
         "max_withdrawal": "1000",
-        "link_binary": "https://beyonic.com/",
         "link_deriv": "https://beyonic.com/",
         "currencies": [["TZS", "UGX"]],
         "countries": {
             "included": ["TZ", "UG"],
             "excluded": []
         },
-        "reference": "beyonic.pdf",
+        "reference": "",
         "locale": [],
-        "platform": "",
         "logo": "Beyonic"
     },
     {
@@ -1218,16 +1203,14 @@
         "withdrawal_processing_time": "1 working day",
         "min_withdrawal": "5",
         "max_withdrawal": "2500",
-        "link_binary": "https://astropay.com/?lang=en",
         "link_deriv": "https://astropay.com/?lang=en",
         "currencies": [["USD"]],
         "countries": {
             "included": ["AR", "BR", "CL", "CO", "EC", "IN", "MX", "PE"],
             "excluded": []
         },
-        "reference": "astropay.pdf",
+        "reference": "",
         "locale": [],
-        "platform": "",
         "logo": "Astropay"
     },
     {
@@ -1241,16 +1224,14 @@
         "withdrawal_processing_time": "Not Available",
         "min_withdrawal": "Not Available",
         "max_withdrawal": "Not Available",
-        "link_binary": "https://1foryou.com/",
         "link_deriv": "https://1foryou.com/",
         "currencies": [["USD"]],
         "countries": {
             "included": ["ZA"],
             "excluded": []
         },
-        "reference": "1foryou.pdf",
+        "reference": "",
         "locale": [],
-        "platform": "",
         "logo": "1foryou"
     },
     {
@@ -1264,7 +1245,6 @@
         "withdrawal_processing_time": "Not Available",
         "min_withdrawal": "Not Available",
         "max_withdrawal": "Not Available",
-        "link_binary": "https://advcash.gi/en/",
         "link_deriv": "https://advcash.gi/en/",
         "currencies": [["USD"]],
         "countries": {
@@ -1300,9 +1280,8 @@
                 "ZW"
             ]
         },
-        "reference": "advcash.pdf",
+        "reference": "",
         "locale": [],
-        "platform": "",
         "logo": "Advcash"
     },
     {
@@ -1316,7 +1295,6 @@
         "withdrawal_processing_time": "Subject to internal checks",
         "min_withdrawal": "0.013",
         "max_withdrawal": "Not Available",
-        "link_binary": "",
         "link_deriv": "",
         "currencies": [["ETH"]],
         "countries": {
@@ -1341,9 +1319,8 @@
                 "SY"
             ]
         },
-        "reference": "ethereum.pdf",
+        "reference": "ethereum",
         "locale": [],
-        "platform": "",
         "logo": "Ethereum"
     },
     {
@@ -1357,7 +1334,6 @@
         "withdrawal_processing_time": "Subject to internal checks",
         "min_withdrawal": "0.085",
         "max_withdrawal": "Not Available",
-        "link_binary": "",
         "link_deriv": "",
         "currencies": [["LTC"]],
         "countries": {
@@ -1382,9 +1358,8 @@
                 "SY"
             ]
         },
-        "reference": "litecoin.pdf",
+        "reference": "litecoin",
         "locale": [],
-        "platform": "",
         "logo": "Litecoin"
     },
     {
@@ -1398,7 +1373,6 @@
         "withdrawal_processing_time": "Subject to internal checks",
         "min_withdrawal": "25",
         "max_withdrawal": "Not Available",
-        "link_binary": "",
         "link_deriv": "",
         "currencies": [["USDT"]],
         "countries": {
@@ -1423,9 +1397,8 @@
                 "SY"
             ]
         },
-        "reference": "tether.pdf",
+        "reference": "",
         "locale": [],
-        "platform": "",
         "logo": "Tether"
     },
     {
@@ -1439,7 +1412,6 @@
         "withdrawal_processing_time": "Subject to internal checks",
         "min_withdrawal": "25",
         "max_withdrawal": "Not Available",
-        "link_binary": "",
         "link_deriv": "",
         "currencies": [["USDC"]],
         "countries": {
@@ -1464,9 +1436,8 @@
                 "SY"
             ]
         },
-        "reference": "usdc.pdf",
+        "reference": "",
         "locale": [],
-        "platform": "",
         "logo": "Usdc"
     },
     {
@@ -1480,7 +1451,6 @@
         "withdrawal_processing_time": "Not Available",
         "min_withdrawal": "Not Available",
         "max_withdrawal": "Not Available",
-        "link_binary": "https://changelly.com/",
         "link_deriv": "https://changelly.com/",
         "currencies": [["USD", "EUR", "GBP", "BTC"]],
         "countries": {
@@ -1505,9 +1475,8 @@
                 "SY"
             ]
         },
-        "reference": "changelly.pdf",
+        "reference": "",
         "locale": [],
-        "platform": "",
         "logo": "Changelly"
     },
     {
@@ -1521,16 +1490,14 @@
         "withdrawal_processing_time": "Not Available",
         "min_withdrawal": "Not Available",
         "max_withdrawal": "Not Available",
-        "link_binary": "https://xanpool.com/",
         "link_deriv": "https://xanpool.com/",
         "currencies": [["USD", "EUR", "GBP", "AUD", "BTC", "ETH", "LTC", "USDT"]],
         "countries": {
             "included": ["ID", "TH", "VN"],
             "excluded": []
         },
-        "reference": "xanpool.pdf",
+        "reference": "",
         "locale": [],
-        "platform": "",
         "logo": "Xanpool"
     }
 ]

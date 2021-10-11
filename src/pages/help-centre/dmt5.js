@@ -5,6 +5,7 @@ import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import { deriv_app_url } from 'common/constants'
 import { Text } from 'components/elements'
 import { localize, Localize, WithIntl } from 'components/localization'
+import { DerivStore } from 'store'
 
 const WhatIsDMT5 = () => (
     <ArticleWrapper>
@@ -35,20 +36,46 @@ const DifferenceDMT5DTrader = () => (
     </ArticleWrapper>
 )
 
-const DifferentAccounts = () => (
-    <ArticleWrapper>
-        <StyledHeader as="h4">
-            {localize(
-                'What are the differences between the DMT5 Synthetic Indices, Financial and Financial STP accounts?',
+const DifferentAccounts = () => {
+    const { is_eu_country } = React.useContext(DerivStore)
+
+    return (
+        <ArticleWrapper>
+            <StyledHeader as="h4">
+                {is_eu_country
+                    ? localize('What is the CFDs account?')
+                    : localize(
+                          'What are the differences between the DMT5 Synthetic Indices, Financial and Financial STP accounts?',
+                      )}
+            </StyledHeader>
+            {is_eu_country ? (
+                <Text>
+                    {localize(
+                        'The DMT5 Financial account offers you leverage to trade contracts for difference (CFDs) on forex, stocks, stock indices, commodities, synthetic indices, and cryptocurrencies.',
+                    )}
+                </Text>
+            ) : (
+                <>
+                    <Text>
+                        {localize(
+                            'The DMT5 Standard account offers new and experienced traders high leverage and variable spreads for maximum flexibility.',
+                        )}
+                    </Text>
+                    <StyledText>
+                        {localize(
+                            'The DMT5 Advanced account is a 100% A Book account where your trades are passed straight through to the market, giving you direct access to forex liquidity providers.',
+                        )}
+                    </StyledText>
+                    <StyledText>
+                        {localize(
+                            'The DMT5 Synthetic Indices account allows you to trade contracts for difference (CFDs) on synthetic indices that mimic real-world movements. It is available for trading 24/7 and audited for fairness by an independent third party.',
+                        )}
+                    </StyledText>
+                </>
             )}
-        </StyledHeader>
-        <Text>
-            {localize(
-                'The DMT5 Financial account offers you leverage to trade contracts for difference (CFDs) on forex, stocks, stock indices, commodities, synthetic indices, and cryptocurrencies.',
-            )}
-        </Text>
-    </ArticleWrapper>
-)
+        </ArticleWrapper>
+    )
+}
 
 const DepositDMT5 = () => (
     <ArticleWrapper>
@@ -139,6 +166,7 @@ const ResetDMT5Password = () => (
 
 const DMT5Article = () => {
     const [is_mounted] = usePageLoaded(false) // needed to fix tab highlighting not being rerendered during first load
+    const { is_eu_country } = React.useContext(DerivStore)
 
     return (
         <div>
@@ -158,9 +186,13 @@ const DMT5Article = () => {
                     is_mounted={is_mounted}
                 />
                 <DifferentAccounts
-                    text={localize(
-                        'What are the differences between the DMT5 Synthetic Indices, Financial and Financial STP accounts?',
-                    )}
+                    text={
+                        is_eu_country
+                            ? localize('What is the CFDs account?')
+                            : localize(
+                                  'What are the differences between the DMT5 Synthetic Indices, Financial and Financial STP accounts?',
+                              )
+                    }
                     label="differences-of-dmt5-accounts"
                     is_mounted={is_mounted}
                 />

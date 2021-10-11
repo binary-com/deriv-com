@@ -39,7 +39,7 @@ const Subheadline = styled(Header)`
 `
 
 const JoinHeader = styled(Header)`
-    margin-bottom: 4.8rem;
+    margin-bottom: 40px;
     margin-top: 3.2rem;
     text-align: center;
     color: var(--color-white);
@@ -67,7 +67,7 @@ const StyledContainer = styled(Container)`
     }
 `
 const StyledLinkButton = styled(LinkButton)`
-    padding: 24px;
+    padding: 20px 24px;
     font-size: 20px;
     font-weight: bold;
 `

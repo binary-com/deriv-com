@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import { SectionContainer, Flex, Show } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { LinkButton } from 'components/form'
-import { zoho_url } from 'common/constants'
 import banner from 'images/common/careers/besquare-banner.png'
 import bannerMobile from 'images/common/careers/besquare-banner-mobile.png'
 import device from 'themes/device'
@@ -137,7 +136,7 @@ const BeSquareBanner = () => {
                         </StyledText>
                         <StyledLinkButton
                             secondary="true"
-                            to={zoho_url}
+                            to={'/besquare/'}
                             external="true"
                             target="_blank"
                             rel="noopener noreferrer"

@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
+import { zoho_url } from 'common/constants'
 // SVG
 import Career1 from 'images/svg/careers/career-1.svg'
 import Career2 from 'images/svg/careers/career-2.svg'
@@ -34,7 +35,7 @@ const StyledHeader = styled(Header)`
 `
 
 const StyledLinkButton = styled(LinkButton)`
-    padding: 24px;
+    padding: 10px, 16px, 10px, 16px;
     font-size: 20px;
     font-weight: bold;
 `
@@ -119,7 +120,7 @@ const TipsCard = ({ content, right, style }) => (
 )
 
 const SecondaryHeader = styled(Header)`
-    margin-bottom: 2.4rem;
+    margin-bottom: 16px;
     font-size: 48px;
     line-height: 60px;
 
@@ -156,8 +157,8 @@ const Process = ({ title, description, style }) => (
 )
 
 const SharedIconLeftStyles = css`
-    height: 129px;
-    width: 129px;
+    height: 120px;
+    width: 120px;
     margin: auto 4rem auto 6.4rem;
 
     @media ${device.tablet} {
@@ -165,8 +166,8 @@ const SharedIconLeftStyles = css`
     }
 `
 const SharedIconRightStyles = css`
-    height: 129px;
-    width: 129px;
+    height: 120px;
+    width: 120px;
     margin: auto 6.4rem auto 4rem;
 
     @media ${device.tablet} {
@@ -390,7 +391,7 @@ const OurHiringProcess = () => (
             </StyledAnotherHeader>
             <StyledLinkButton
                 secondary="true"
-                to={'/'}
+                to={zoho_url}
                 external="true"
                 target="_blank"
                 rel="noopener noreferrer"

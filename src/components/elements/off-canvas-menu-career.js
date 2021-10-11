@@ -1,3 +1,5 @@
+//keeping this for potential future use once career page has been redesigned
+
 import React, { useRef } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'

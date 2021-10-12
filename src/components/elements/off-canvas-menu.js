@@ -272,7 +272,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                 aria_label="BinaryBot"
                                 icon={() => <img src={BinaryBot} alt="" width="32" height="32" />}
                                 content={
-                                    <Localize translate_text="Automated trading for our loyal clients who are not ready yet to get more with DBot." />
+                                    <Localize translate_text="Our classic &ldquo;drag-and-drop&rdquo; tool for creating trading bots, featuring pop-up trading charts, for advanced users." />
                                 }
                                 title={<Localize translate_text="BinaryBot" />}
                                 onClick={handleArrowClick}

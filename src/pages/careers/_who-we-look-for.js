@@ -140,7 +140,7 @@ const WhoWeLookFor = () => {
                 <DiffHeader as="h3" type="section-title" align="center">
                     What’s different about working at Deriv?
                 </DiffHeader>
-                <DescContainer direction="row" mb="9.4rem" jc="flex-start">
+                <DescContainer direction="row" mb="9.4rem" jc="flex-start" ai="center">
                     <ImageWrapper>
                         <QueryImage data={data.teamfocus} alt={'Team Focus'} width="100%" />
                     </ImageWrapper>

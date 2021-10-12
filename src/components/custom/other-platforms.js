@@ -155,26 +155,6 @@ export const DMT5Card = ({ is_selected, is_ppc_redirect, word_break_cover }) => 
     </StyledLink>
 )
 
-export const BinaryBotCard = ({ is_selected, is_ppc_redirect, word_break_cover }) => (
-    <StyledLink aria_label="BinaryBot" to={is_ppc_redirect ? '/landing/dmt5/' : '/dmt5/'}>
-        <Card
-            cover_background="var(--color-green)"
-            cover_content={localize('Discover Binary Bot now')}
-            title={localize('BinaryBot')}
-            Icon={() => <StyledDmt5 src={BinaryBot} alt="" width="72" height="72" />}
-            content={[
-                localize(
-                    'Automated trading for our loyal clients who are not ready yet to get more with DBot.',
-                ),
-            ]}
-            is_inline_icon
-            min_height="12.4rem"
-            is_selected={is_selected}
-            width="100%"
-            word_break_cover={word_break_cover}
-        />
-    </StyledLink>
-)
 // TODO: Enable when ready for real account released
 // export const DerivXCard = ({ is_selected, word_break_cover }) => (
 //     <StyledLink ariaLabel="Deriv X" to="/derivx/">
@@ -264,7 +244,6 @@ const cardProptypes = {
     word_break_cover: PropTypes.bool,
 }
 BotCard.propTypes = { ...cardProptypes }
-BinaryBotCard.propTypes = { ...cardProptypes }
 // DerivXCard.propTypes = { ...cardProptypes }
 DMT5Card.propTypes = { ...cardProptypes }
 SmarttraderCard.propTypes = { ...cardProptypes }
@@ -362,16 +341,18 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                     onClick={onClick}
                     otherLinkProps={{ rel: 'noopener noreferrer' }}
                 />
-                <NavCard
-                    aria_label="BinaryBot"
-                    icon={() => <img src={DBot} alt="" width="32" height="32" />}
-                    content={
-                        <Localize translate_text="Automated trading at your fingertips. No coding needed." />
-                    }
-                    title={<Localize translate_text="DBot" />}
-                    onClick={onClick}
-                    to="/dbot/"
-                />
+                {is_eu_country && (
+                    <NavCard
+                        aria_label="BinaryBot"
+                        icon={() => <img src={BinaryBot} alt="" width="32" height="32" />}
+                        content={
+                            <Localize translate_text="Automated trading for our loyal clients who are not ready yet to get more with DBot." />
+                        }
+                        title={<Localize translate_text="BinaryBot" />}
+                        onClick={onClick}
+                        to="https://bot.deriv.com/#"
+                    />
+                )}
             </Flex>
             <Flex direction="column" wrap="wrap" jc="flex-start">
                 <EmptySpace />
@@ -395,6 +376,18 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }) => {
                     onClick={onClick}
                     to="/dbot/"
                 />
+                {!is_eu_country && (
+                    <NavCard
+                        aria_label="BinaryBot"
+                        icon={() => <img src={BinaryBot} alt="" width="32" height="32" />}
+                        content={
+                            <Localize translate_text="Automated trading for our loyal clients who are not ready yet to get more with DBot." />
+                        }
+                        title={<Localize translate_text="BinaryBot" />}
+                        onClick={onClick}
+                        to="https://bot.deriv.com/"
+                    />
+                )}
             </Flex>
         </Flex>
     )

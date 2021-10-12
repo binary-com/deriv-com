@@ -15,6 +15,7 @@ import Commodities from 'images/svg/custom/commodities-nav.svg'
 import Community from 'images/svg/menu/community.svg'
 import Contact from 'images/svg/menu/contact.svg'
 import DBot from 'images/svg/dbot/dbot-icon.svg'
+import BinaryBot from 'images/svg/binarybot-icon.svg'
 import API from 'images/svg/menu/developers.svg'
 import Diagonal from 'images/svg/elements/pink-right-diagonal.svg'
 import DMT5 from 'images/svg/dmt5/dmt5-icon.svg'
@@ -264,6 +265,18 @@ export const OffCanvasMenuWrapper = (props) => {
                                 title={<Localize translate_text="DBot" />}
                                 onClick={handleArrowClick}
                                 to="/dbot/"
+                            />
+                        </Flex>
+                        <Flex mb="2rem">
+                            <NavCard
+                                aria_label="BinaryBot"
+                                icon={() => <img src={BinaryBot} alt="" width="32" height="32" />}
+                                content={
+                                    <Localize translate_text="Automated trading for our loyal clients who are not ready yet to get more with DBot." />
+                                }
+                                title={<Localize translate_text="BinaryBot" />}
+                                onClick={handleArrowClick}
+                                to="https://bot.deriv.com/"
                             />
                         </Flex>
                     </AccordionItem>

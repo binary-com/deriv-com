@@ -165,7 +165,7 @@ const WhoWeLookFor = () => {
                         </DescText>
                     </ImageDescription>
                 </DescContainer>
-                <DescContainer direction="row-reverse" jc="flex-start">
+                <DescContainer direction="row-reverse" ai="center" jc="flex-start">
                     <ImageWrapper>
                         <QueryImage data={data.peopleeating} alt={'Team Lunch'} width="100%" />
                     </ImageWrapper>

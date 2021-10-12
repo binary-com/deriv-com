@@ -40,7 +40,7 @@ const ImageWrapper = styled.div`
 `
 
 const StyledContent = styled.div`
-    padding: 20px;
+    padding: 16px;
     width: 100%;
 `
 

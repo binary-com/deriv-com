@@ -240,7 +240,7 @@ const MarginCalculator = () => {
                         <StyledText>
                             {is_eu_country ? (
                                 <Localize
-                                    translate_text="Explore <0>CFD trading</0> on Deriv MT5 (DMT5) and enjoy low spreads to increase your returns when the market moves in your favour."
+                                    translate_text="Explore <0>CFDs</0> on Deriv MT5 (DMT5) and enjoy low spreads to increase your returns when the market moves in your favour."
                                     components={[
                                         <LinkText
                                             color="red"

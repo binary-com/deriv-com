@@ -176,6 +176,8 @@ export const minsk = {
     display_name: 'Minsk',
     country: 'Belarus',
     thumbnail: 'thumbnail_minsk',
+    first_p:
+        'Deriv (Minsk) started its operations in the year 2021 to tap into the regional talent pool. The Customer Support and Front-end teams work towards attaining customer satisfaction and building digital products to give them the best trading experience possible.',
     first_img: 'living_in_minsk',
     grid_images: ['minsk_grid_1', 'minsk_grid_2', 'minsk_grid_3', 'minsk_grid_4'],
     map: 'ChIJwc77Waml3BkRKuYdzjsIu7c',

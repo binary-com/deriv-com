@@ -15,7 +15,7 @@ import {
     rwanda,
     minsk,
 } from '../_model/_locations/_locations'
-import { SEO, SectionContainer, Container, Flex } from 'components/containers'
+import { SEO, SectionContainer, Container, Flex, CssGrid } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { WithIntl, localize } from 'components/localization'
 import { Header, Text, QueryImage } from 'components/elements'
@@ -81,7 +81,6 @@ const CountryCardWrapper = styled(StyledCard)`
     display: flex;
     flex-direction: column;
     text-decoration: none;
-    width: 384px;
     margin: 40px 2px;
 
     svg {
@@ -93,7 +92,7 @@ const CountryCard = ({ country_name, city_name, link, img_data, Icon }) => {
     return (
         <CountryCardWrapper to={link}>
             <QueryImage data={img_data} alt={city_name + localize('Office')} width="100%" />
-            <div style={{ padding: '32px' }}>
+            <div style={{ padding: '32px 32px 22px 32px' }}>
                 <Header as="h5" size="var(--text-size-sm)">
                     {city_name}
                 </Header>
@@ -156,13 +155,6 @@ const query = graphql`
     }
 `
 
-const StyledSectionContainer = styled(SectionContainer)`
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    width: 100%;
-`
-
 const Locations = () => {
     const images = useStaticQuery(query)
 
@@ -181,14 +173,14 @@ const Locations = () => {
                     <Header as="h2" align="center" size={'var(--text-size-header-1)'}>
                         Explore our locations
                     </Header>
-                    <StyledSectionContainer
-                    // columns="repeat(3, 38.4rem)"
-                    // row_gap="6rem"
-                    // column_gap="2.4rem"
-                    // laptop_columns="repeat(2, 38.4rem)"
-                    // tablet_columns="repeat(2, 38.4rem)"
-                    // mobile_columns="38.4rem"
-                    // style={{ marginTop: '8rem', justifyContent: 'center' }}
+                    <CssGrid
+                        columns="repeat(3, 38.2rem)"
+                        row_gap="6rem"
+                        column_gap="2.4rem"
+                        laptop_columns="repeat(auto-fit, minmax(30.1rem, 30.2rem))"
+                        tablet_columns="repeat(auto-fit, 38.4rem))"
+                        mobile_columns="38.4rem"
+                        style={{ marginTop: '8rem', justifyContent: 'center' }}
                     >
                         <CountryCard
                             Icon={MaltaFlagIcon}
@@ -260,7 +252,7 @@ const Locations = () => {
                             city_name={'Minsk'}
                             link={minsk.link}
                         />
-                    </StyledSectionContainer>
+                    </CssGrid>
                 </SectionContainer>
             </Container>
         </Layout>

@@ -18,22 +18,22 @@ const career_data = {
             open_position: [
                 {
                     title: 'Back-end Developer',
-                    location: 'Cyberjaya , Malaysia',
+                    location: 'Cyberjaya, Malaysia',
                     id: '590522000000366102',
                 },
                 {
                     title: 'C++ Developer',
-                    location: 'Cyberjaya , Malaysia',
+                    location: 'Cyberjaya, Malaysia',
                     id: '590522000010928298',
                 },
                 {
                     title: 'C++ Developer',
-                    location: 'Minsk , Belarus',
+                    location: 'Minsk, Belarus',
                     id: '590522000010931352',
                 },
                 {
                     title: 'Cryptocurrency / Blockchain Developer',
-                    location: 'Dubai , United Arab Emirates',
+                    location: 'Dubai, United Arab Emirates',
                     id: '590522000002158468',
                 },
             ],
@@ -68,22 +68,22 @@ const career_data = {
             open_position: [
                 {
                     title: 'Digital PR Manager',
-                    location: 'Dubai , United Arab Emirates',
+                    location: 'Dubai, United Arab Emirates',
                     id: '590522000033642096',
                 },
                 {
                     title: 'Business Development Executive',
-                    location: 'Kigali , Rwanda',
+                    location: 'Kigali, Rwanda',
                     id: '590522000004649139',
                 },
                 {
                     title: 'Performance Marketing Executive',
-                    location: 'Dubai , United Arab Emirates',
+                    location: 'Dubai, United Arab Emirates',
                     id: '590522000002067162',
                 },
                 {
                     title: 'IT Product Manager',
-                    location: 'Limassol , Cyprus',
+                    location: 'Limassol, Cyprus',
                     id: '590522000016498026',
                 },
             ],
@@ -118,22 +118,22 @@ const career_data = {
             open_position: [
                 {
                     title: 'DevOps Engineer',
-                    location: 'Cyberjaya , Malaysia',
+                    location: 'Cyberjaya, Malaysia',
                     id: '590522000000366151',
                 },
                 {
                     title: 'DevOps (Windows) Engineer',
-                    location: 'Dubai , United Arab Emirates',
+                    location: 'Dubai, United Arab Emirates',
                     id: '590522000008127253',
                 },
                 {
                     title: 'Security Engineer',
-                    location: 'Dubai , United Arab Emirates',
+                    location: 'Dubai, United Arab Emirates',
                     id: '590522000005397347',
                 },
                 {
                     title: 'Database Administrator',
-                    location: 'Dubai , United Arab Emirates',
+                    location: 'Dubai, United Arab Emirates',
                     id: '590522000002685375',
                 },
             ],
@@ -168,22 +168,22 @@ const career_data = {
             open_position: [
                 {
                     title: 'Client Support Executive',
-                    location: 'Asunción , Paraguay',
+                    location: 'Asunción, Paraguay',
                     id: '590522000002708128',
                 },
                 {
                     title: 'Client Support Executive',
-                    location: 'Kigali , Rwanda',
+                    location: 'Kigali, Rwanda',
                     id: '590522000003910182',
                 },
                 {
                     title: 'Client Support Executive',
-                    location: 'Dubai , United Arab Emirates',
+                    location: 'Dubai, United Arab Emirates',
                     id: '590522000001477280',
                 },
                 {
                     title: 'Client Support Executive',
-                    location: 'Ipoh , Malaysia',
+                    location: 'Ipoh, Malaysia',
                     id: '590522000001477084',
                 },
             ],
@@ -218,22 +218,22 @@ const career_data = {
             open_position: [
                 {
                     title: 'Talent Acquisition Specialist',
-                    location: 'Dubai , United Arab Emirates',
+                    location: 'Dubai, United Arab Emirates',
                     id: '590522000002075011',
                 },
                 {
                     title: 'IT Recruiter',
-                    location: 'Minsk , Belarus',
+                    location: 'Minsk, Belarus',
                     id: '590522000013730417',
                 },
                 {
                     title: 'Talent Acquisition Specialist',
-                    location: 'Birkirkara , Malta',
+                    location: 'Birkirkara, Malta',
                     id: '590522000002165394',
                 },
                 {
                     title: 'Talent Acquisition Executive',
-                    location: 'Kigali , Rwanda',
+                    location: 'Kigali, Rwanda',
                     id: '590522000003910120',
                 },
             ],
@@ -268,22 +268,22 @@ const career_data = {
             open_position: [
                 {
                     title: 'UI/UX Designer',
-                    location: 'Cyberjaya , Malaysia',
+                    location: 'Cyberjaya, Malaysia',
                     id: '590522000002693001',
                 },
                 {
                     title: 'Motion Designer',
-                    location: 'Cyberjaya , Malaysia',
+                    location: 'Cyberjaya, Malaysia',
                     id: '590522000002693017',
                 },
                 {
                     title: 'Graphics Designer',
-                    location: 'Dubai , United Arab Emirates',
+                    location: 'Dubai, United Arab Emirates',
                     id: '590522000000846613',
                 },
                 {
                     title: 'UX Researcher',
-                    location: 'Dubai , United Arab Emirates',
+                    location: 'Dubai, United Arab Emirates',
                     id: '590522000013900070',
                 },
             ],
@@ -321,17 +321,17 @@ const career_data = {
             open_position: [
                 {
                     title: 'Compliance Executive',
-                    location: 'Birkirkara , Malta',
+                    location: 'Birkirkara, Malta',
                     id: '590522000002051238',
                 },
                 {
                     title: 'Corporate Governance Administrator',
-                    location: 'Dubai , United Arab Emirates',
+                    location: 'Dubai, United Arab Emirates',
                     id: '590522000022641278',
                 },
                 {
                     title: 'Compliance Operations Executive',
-                    location: 'Birkirkara , Malta',
+                    location: 'Birkirkara, Malta',
                     id: '590522000020130003',
                 },
                 {
@@ -371,22 +371,22 @@ const career_data = {
             open_position: [
                 {
                     title: 'E-Payments Executive',
-                    location: 'Kigali , Rwanda',
+                    location: 'Kigali, Rwanda',
                     id: '590522000037223025',
                 },
                 {
                     title: 'Payments Executive',
-                    location: 'Dubai , United Arab Emirates',
+                    location: 'Dubai, United Arab Emirates',
                     id: '590522000038463764',
                 },
                 {
                     title: 'Payments Executive',
-                    location: 'Asunción , Paraguay',
+                    location: 'Asunción, Paraguay',
                     id: '590522000025380388',
                 },
                 {
                     title: 'Payments and Reconciliation Executive',
-                    location: 'Cyberjaya , Malaysia',
+                    location: 'Cyberjaya, Malaysia',
                     id: '590522000022443181',
                 },
             ],
@@ -452,22 +452,22 @@ const career_data = {
             open_position: [
                 {
                     title: 'Senior Front-end Developer',
-                    location: 'Dubai , United Arab Emirates',
+                    location: 'Dubai, United Arab Emirates',
                     id: '590522000005764197',
                 },
                 {
                     title: 'Front-end Developer',
-                    location: 'Cyberjaya , Malaysia',
+                    location: 'Cyberjaya, Malaysia',
                     id: '590522000000384042',
                 },
                 {
                     title: 'Flutter Developer',
-                    location: 'Cyberjaya , Malaysia',
+                    location: 'Cyberjaya, Malaysia',
                     id: '590522000000384027',
                 },
                 {
                     title: 'Flutter Developer',
-                    location: 'Dubai , United Arab Emirates',
+                    location: 'Dubai, United Arab Emirates',
                     id: '590522000005605178',
                 },
             ],
@@ -502,22 +502,22 @@ const career_data = {
             open_position: [
                 {
                     title: 'Quantitative Analyst',
-                    location: 'Minsk , Belarus',
+                    location: 'Minsk, Belarus',
                     id: '590522000005991768',
                 },
                 {
                     title: 'Quantitative Analyst',
-                    location: 'Cyberjaya , Malaysia',
+                    location: 'Cyberjaya, Malaysia',
                     id: '590522000000670134',
                 },
                 {
                     title: 'Quantitative Analyst',
-                    location: 'Birkirkara , Malta',
+                    location: 'Birkirkara, Malta',
                     id: '590522000002158426',
                 },
                 {
                     title: 'Trading Analyst',
-                    location: 'Limassol , Cyprus',
+                    location: 'Limassol, Cyprus',
                     id: '590522000001540056',
                 },
             ],
@@ -555,22 +555,22 @@ const career_data = {
             open_position: [
                 {
                     title: 'Software Tester',
-                    location: 'Asunción , Paraguay',
+                    location: 'Asunción, Paraguay',
                     id: '590522000022996207',
                 },
                 {
                     title: 'Automation Tester',
-                    location: 'Dubai , United Arab Emirates',
+                    location: 'Dubai, United Arab Emirates',
                     id: '590522000022344044',
                 },
                 {
                     title: 'Software Tester',
-                    location: 'Kigali , Rwanda',
+                    location: 'Kigali, Rwanda',
                     id: '590522000006365298',
                 },
                 {
                     title: 'Software Tester',
-                    location: 'Minsk , Belarus',
+                    location: 'Minsk, Belarus',
                     id: '590522000016474003',
                 },
             ],
@@ -605,12 +605,12 @@ const career_data = {
             open_position: [
                 {
                     title: 'Business Analyst',
-                    location: 'Cyberjaya , Malaysia',
+                    location: 'Cyberjaya, Malaysia',
                     id: '590522000033805388',
                 },
                 {
                     title: 'Business Process Management',
-                    location: 'Cyberjaya , Malaysia',
+                    location: 'Cyberjaya, Malaysia',
                     id: '590522000004000041',
                 },
             ],
@@ -645,22 +645,22 @@ const career_data = {
             open_position: [
                 {
                     title: 'Internal Auditor',
-                    location: 'Birkirkara , Malta',
+                    location: 'Birkirkara, Malta',
                     id: '590522000037933833',
                 },
                 {
                     title: 'Internal Auditor',
-                    location: 'Dubai , United Arab Emirates',
+                    location: 'Dubai, United Arab Emirates',
                     id: '590522000037933852',
                 },
                 {
                     title: 'Internal Auditor',
-                    location: 'Asunción , Paraguay',
+                    location: 'Asunción, Paraguay',
                     id: '590522000037933936',
                 },
                 {
                     title: 'Head of Internal Audit',
-                    location: 'London , United Kingdom',
+                    location: 'London, United Kingdom',
                     id: '590522000037962151',
                 },
             ],
@@ -695,12 +695,12 @@ const career_data = {
             open_position: [
                 {
                     title: 'Project Manager',
-                    location: 'Limassol , Cyprus',
+                    location: 'Limassol, Cyprus',
                     id: '590522000033674411',
                 },
                 {
                     title: 'Project Manager',
-                    location: 'Minsk , Belarus',
+                    location: 'Minsk, Belarus',
                     id: '590522000006340297',
                 },
             ],

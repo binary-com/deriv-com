@@ -68,7 +68,7 @@ const OpenPositions = (data) => {
                     })}
 
                 {!hidden && (
-                    <LinkButton external mt="35px" to={zoho_career_url} secondary>
+                    <LinkButton external mt="35px" to={zoho_career_url} secondary target="_blank">
                         See all
                     </LinkButton>
                 )}

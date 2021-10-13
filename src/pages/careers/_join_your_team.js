@@ -186,7 +186,7 @@ const JoinYourTeam = () => {
         <SectionContainer padding="8rem 0">
             <Container direction="column">
                 <DiffHeader as="h3" type="section-title" align="center">
-                    Join Your Team
+                    Join your team
                 </DiffHeader>
             </Container>
             <StyledCssGrid

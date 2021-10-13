@@ -5,7 +5,7 @@ const career_data = {
                 background: 'back_end_bg',
                 title: 'Back-end Development',
                 subtitle:
-                    'Our department takes care of everything that happens behind the scenes when users perform actions on our website and platforms. Our teams work on back-end operations, trading, blockchain development, quality assurance as well as payments. We work with the latest technologies in an environment that challenges us to do our best work.',
+                    'Our department takes care of everything that happens behind the scenes when users perform actions on our website and platforms. Our teams work on back-end operations, trading, blockchain development, quality assurance, as well as payments. We work with the latest technologies in an environment that challenges us to do our best work.',
             },
             intro_section: {
                 image: 'back_end_desc',
@@ -32,7 +32,7 @@ const career_data = {
                     id: '590522000010931352',
                 },
                 {
-                    title: 'Cryptocurrency / Blockchain Developer',
+                    title: 'Cryptocurrency/Blockchain Developer',
                     location: 'Dubai, United Arab Emirates',
                     id: '590522000002158468',
                 },

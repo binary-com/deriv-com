@@ -22,6 +22,8 @@ import BIIB from 'images/svg/symbols/biib.svg'
 import BMW from 'images/svg/symbols/bmw.svg'
 import BOOM1000 from 'images/svg/symbols/boom-indices-1000.svg'
 import BOOM500 from 'images/svg/symbols/boom-indices-500.svg'
+import BOOM300EU from 'images/svg/symbols/boom-eu-boom-300.svg'
+import CRASH300EU from 'images/svg/symbols/crash-eu-crash-300.svg'
 import BTCUSD from 'images/svg/symbols/btc-usd.svg'
 import C from 'images/svg/symbols/c.svg'
 import CADCHF from 'images/svg/symbols/cad-chf.svg'
@@ -167,6 +169,8 @@ import USDTHB from 'images/svg/symbols/usd-thb.svg'
 import USDTRY from 'images/svg/symbols/usd-try.svg'
 import USDZAR from 'images/svg/symbols/usd-zar.svg'
 import V from 'images/svg/symbols/v.svg'
+import VOLATILITY300EU from 'images/svg/symbols/volatility-eu-300.svg'
+import VOLATILITY200EU from 'images/svg/symbols/volatility-eu-200.svg'
 import WMT from 'images/svg/symbols/wmt.svg'
 import XRPUSD from 'images/svg/symbols/xrp-usd.svg'
 import SILVEREUR from 'images/svg/symbols/silver-eur.svg'
@@ -247,6 +251,10 @@ import XLM from 'images/svg/symbols/stellar_flag.svg'
 import TRX from 'images/svg/symbols/tron_flag.svg'
 import ZEC from 'images/svg/symbols/z_cash_flag.svg'
 import MNR from 'images/svg/symbols/monero_flag.svg'
+import VBOOMIC300 from 'images/svg/symbols/volatility-boom-ic-300.svg'
+import VCRASHIC300 from 'images/svg/symbols/volatility-crash-ic-300.svg'
+import VINDEXIC200 from 'images/svg/symbols/volatility-index-ic-200.svg'
+import VINDEXIC300 from 'images/svg/symbols/volatility-index-ic-300.svg'
 
 export {
     AAL,
@@ -273,6 +281,8 @@ export {
     BMW,
     BOOM1000,
     BOOM500,
+    BOOM300EU,
+    CRASH300EU,
     BTCUSD,
     C,
     CADCHF,
@@ -418,6 +428,8 @@ export {
     USDTRY,
     USDZAR,
     V,
+    VOLATILITY200EU,
+    VOLATILITY300EU,
     WMT,
     XRPUSD,
     SILVEREUR,
@@ -498,4 +510,8 @@ export {
     TRX,
     ZEC,
     MNR,
+    VBOOMIC300,
+    VCRASHIC300,
+    VINDEXIC200,
+    VINDEXIC300,
 }

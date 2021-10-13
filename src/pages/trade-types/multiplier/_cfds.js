@@ -8,6 +8,7 @@ import { Text } from 'components/elements'
 import { SectionContainer, Show, Flex } from 'components/containers'
 import { Localize, localize } from 'components/localization'
 import device from 'themes/device'
+import { DerivStore } from 'store'
 
 const StyledText = styled(Text)`
     @media ${device.tabletL} {
@@ -30,6 +31,8 @@ const StyledTitle = styled(Text)`
 `
 
 const CFDs = () => {
+    const { is_eu_country } = React.useContext(DerivStore)
+
     const major_pairs = {
         markets_list: {
             col: 4,
@@ -71,15 +74,17 @@ const CFDs = () => {
         <SectionContainer padding="4rem 0 8rem">
             <Flex max_width="720px" m="0 auto" direction="column">
                 <StyledText align="center">
-                    {localize(
-                        'Trade forex with multipliers with high leverage and tight spreads, and benefit from multiple opportunities to trade on world events.',
+                    {is_eu_country ? (
+                        <Localize translate_text="Trade forex with multipliers with tight spreads, and benefit from multiple opportunities to trade on world events." />
+                    ) : (
+                        <Localize translate_text="Trade forex with multipliers with high leverage and tight spreads, and benefit from multiple opportunities to trade on world events." />
                     )}
                 </StyledText>
                 <AvailablePlatformsWrapper mb="40px">
                     <AvailablePlatforms m_top="16px" dtrader />
                 </AvailablePlatformsWrapper>
                 <StyledTitle>
-                    {localize('Forex pairs available for Multipliers trading')}
+                    {localize('Forex pairs available for multipliers trading')}
                 </StyledTitle>
                 <MarketInstruments market_content={major_pairs} />
                 <Show.Desktop>

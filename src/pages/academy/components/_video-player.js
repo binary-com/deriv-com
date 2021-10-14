@@ -54,6 +54,7 @@ const VidPlayer = styled.video`
     width: 100%;
     max-height: 558px;
     background-color: var(--color-black);
+    outline: none;
 
     @media ${device.desktopS} {
         max-height: 900px;
@@ -92,9 +93,9 @@ const VideoPlayer = ({ video_src, closeVideo }) => {
             }
         }
 
-        return () => {
-            document.removeEventListener('keydown', handleEscape, false)
-        }
+        vidElement.focus()
+
+        return document.removeEventListener('keydown', handleEscape, false)
     }, [])
 
     const handleEscape = (e) => {

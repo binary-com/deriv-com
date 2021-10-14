@@ -270,19 +270,19 @@ export const guernsey = {
     has_iframe: false,
 }
 export const all_offices = [
-    malta,
+    london,
     dubai,
+    paris,
+    malta,
+    cyprus,
+    guernsey,
     cyberjaya,
     labuan,
     ipoh,
     melaka,
     asuncion,
-    cyprus,
     rwanda,
     minsk,
-    paris,
-    london,
-    guernsey,
 ]
 export const locations = {
     cyberjaya: `${cyberjaya.display_name}, ${cyberjaya.country}`,

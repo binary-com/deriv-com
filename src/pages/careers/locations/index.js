@@ -26,20 +26,31 @@ const ChevronRight = styled(Chevron)`
 
 const BackDrop = styled.section`
     background-color: var(--color-black);
-    padding: 12rem 0 0 0;
+    padding: 120px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
 
+    @media ${device.mobile} {
+        padding: 80px 0;
+        align-items: center;
+    }
+
     ${Header} {
-        padding-bottom: 4rem;
+        padding-bottom: 16px;
     }
     ${Text} {
         max-width: 79.2rem;
         text-align: center;
     }
 `
-
+const StyledSectionContainer = styled(SectionContainer)`
+    margin: 0 16px;
+    @media ${device.tablet} {
+        padding: 40px 0;
+        margin: 0;
+    }
+`
 const StyledImg = styled.img`
     margin-right: 8px;
 `
@@ -132,19 +143,19 @@ const query = graphql`
         thumbnail_cyprus: file(relativePath: { eq: "careers/thumbnail_cyprus.png" }) {
             ...fadeIn
         }
-        thumbnail_rwanda: file(relativePath: { eq: "careers/thumbnail_rwanda.png" }) {
+        thumbnail_rwanda: file(relativePath: { eq: "careers/thumbnail_rwanda.jpg" }) {
             ...fadeIn
         }
-        thumbnail_minsk: file(relativePath: { eq: "careers/thumbnail_minsk.png" }) {
+        thumbnail_minsk: file(relativePath: { eq: "careers/thumbnail_minsk.jpg" }) {
             ...fadeIn
         }
-        thumbnail_paris: file(relativePath: { eq: "careers/thumbnail_paris.png" }) {
+        thumbnail_paris: file(relativePath: { eq: "careers/thumbnail_paris.jpg" }) {
             ...fadeIn
         }
-        thumbnail_london: file(relativePath: { eq: "careers/thumbnail_london.png" }) {
+        thumbnail_london: file(relativePath: { eq: "careers/thumbnail_london.jpg" }) {
             ...fadeIn
         }
-        thumbnail_guernsey: file(relativePath: { eq: "careers/thumbnail_guernsey.png" }) {
+        thumbnail_guernsey: file(relativePath: { eq: "careers/thumbnail_guernsey.jpg" }) {
             ...fadeIn
         }
     }
@@ -163,35 +174,39 @@ const Locations = () => {
                 meta_attributes={meta_attributes}
             />
             <Hero />
-            <Container direction="column">
-                <SectionContainer>
-                    <Header as="h2" align="center" size={'var(--text-size-header-1)'}>
-                        Explore our locations
-                    </Header>
-                    <CssGrid
-                        columns="repeat(3, 38.2rem)"
-                        row_gap="40px"
-                        column_gap="24px"
-                        laptop_columns="repeat(3, 1fr)"
-                        tablet_columns="repeat(2, 1fr)"
-                        mobile_columns="328px"
-                        mobile_row_gap="37px" //высота отступов
-                        style={{ marginTop: '0rem', justifyContent: 'center' }}
-                        margin="1rem 0 0"
-                    >
-                        {all_offices.map((office) => (
-                            <CountryCard
-                                key={office.name}
-                                Icon={office.flagIcon}
-                                img_data={images[office.thumbnail]}
-                                country_name={office.country}
-                                city_name={office.display_name}
-                                link={office.link}
-                            />
-                        ))}
-                    </CssGrid>
-                </SectionContainer>
-            </Container>
+            <StyledSectionContainer direction="column" padding="80px 16px">
+                <Header
+                    as="h2"
+                    align="center"
+                    padding="0 0 35px"
+                    size={'var(--text-size-header-1)'}
+                >
+                    Explore our locations
+                </Header>
+                <CssGrid
+                    columns="repeat(3, 38.2rem)"
+                    row_gap="40px"
+                    column_gap="24px"
+                    laptop_columns="repeat(3, 1fr)"
+                    // tablet_margin=" 0 16px"
+                    tablet_columns="repeat(2, 1fr)"
+                    mobile_columns="328px"
+                    mobile_row_gap="37px"
+                    style={{ marginTop: '0rem', justifyContent: 'center' }}
+                    margin="0 16px"
+                >
+                    {all_offices.map((office) => (
+                        <CountryCard
+                            key={office.name}
+                            Icon={office.flagIcon}
+                            img_data={images[office.thumbnail]}
+                            country_name={office.country}
+                            city_name={office.display_name}
+                            link={office.link}
+                        />
+                    ))}
+                </CssGrid>
+            </StyledSectionContainer>
         </Layout>
     )
 }

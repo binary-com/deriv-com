@@ -185,10 +185,10 @@ const Locations = () => {
                     Explore our locations
                 </Header>
                 <CssGrid
-                    columns="repeat(3, 38.2rem)"
+                    columns="repeat(3, 384px)"
                     row_gap="40px"
                     column_gap="24px"
-                    laptop_columns="repeat(3, 1fr)"
+                    laptop_columns="repeat(3, minmax(300px, 384px))"
                     // tablet_margin=" 0 16px"
                     tablet_columns="repeat(2, 1fr)"
                     mobile_columns="328px"

@@ -15,6 +15,7 @@ import {
     rwanda,
     minsk,
 } from '../_model/_locations/_locations'
+import device from 'themes/device'
 import { SEO, SectionContainer, Container, Flex, CssGrid } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { WithIntl, localize } from 'components/localization'
@@ -43,7 +44,7 @@ const ChevronRight = styled(Chevron)`
 
 const BackDrop = styled.section`
     background-color: var(--color-black);
-    padding: 12rem 0;
+    padding: 12rem 0 0 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -87,7 +88,13 @@ const CountryCardWrapper = styled(StyledCard)`
         margin-right: 8px;
     }
 `
+const StyledText = styled(Text)`
+    font-size: 16px;
 
+    @media ${device.laptop} {
+        font-size: 14px;
+    }
+`
 const CountryCard = ({ country_name, city_name, link, img_data, Icon }) => {
     return (
         <CountryCardWrapper to={link}>
@@ -98,7 +105,7 @@ const CountryCard = ({ country_name, city_name, link, img_data, Icon }) => {
                 </Header>
                 <Flex jc="unset" ai="center" mt="8px" mb="8px">
                     <StyledImg src={Icon} alt="" />
-                    <Text weight="bold">{country_name}</Text>
+                    <StyledText weight="bold">{country_name}</StyledText>
                 </Flex>
                 <Flex ai="center" jc="flex-end">
                     {/* <Text>
@@ -177,10 +184,11 @@ const Locations = () => {
                         columns="repeat(3, 38.2rem)"
                         row_gap="6rem"
                         column_gap="2.4rem"
-                        laptop_columns="repeat(auto-fit, minmax(30.1rem, 30.2rem))"
-                        tablet_columns="repeat(auto-fit, 38.4rem))"
+                        laptop_columns="repeat(3, 1fr)"
+                        tablet_columns="repeat(2, 1fr)"
                         mobile_columns="38.4rem"
-                        style={{ marginTop: '8rem', justifyContent: 'center' }}
+                        style={{ marginTop: '0rem', justifyContent: 'center' }}
+                        margin="1rem 0 0"
                     >
                         <CountryCard
                             Icon={MaltaFlagIcon}

@@ -9,6 +9,8 @@ import {
     address_cyprus,
     address_rwanda,
     address_belarus,
+    address_france,
+    address_uk,
 } from './_contact-details'
 
 export const cyberjaya = {
@@ -186,6 +188,44 @@ export const minsk = {
     address: address_belarus,
     map_img: 'minsk_map',
     google_map_link: 'https://yandex.com/maps/-/CCUeZJdAKA',
+    has_iframe: false,
+}
+
+export const paris = {
+    name: 'paris',
+    link: '/careers/locations/paris/',
+    display_name: 'Paris',
+    country: 'France',
+    thumbnail: 'thumbnail_paris',
+    first_p:
+        "Deriv (France) SAS is a wholly-owned subsidiary of the Deriv Group dedicated to research and development. It brings together a diverse range of expertise, from blockchain professionals to mathematicians and quantitative analysts. The goal of this team is to develop Deriv's future-proof products and services.",
+    first_img: 'living_in_paris',
+    grid_images: ['paris_grid_1', 'paris_grid_2', 'paris_grid_3', 'paris_grid_4'],
+    map: 'ChIJwc77Waml3BkRKuYdzjsIu7c',
+    map_text:
+        'There are always exciting projects to work on at Deriv (France). The bright team working at our R&D branch is the think tank that helps create our next generation of online trading products. If you’re driven with the same passion and are looking for new challenges to embrace, join our team in Paris.',
+    address: address_france,
+    map_img: 'paris_map',
+    google_map_link: 'https://goo.gl/maps/cnWCUN529qw38Yce6',
+    has_iframe: false,
+}
+
+export const london = {
+    name: 'london',
+    link: '/careers/locations/london/',
+    display_name: 'London',
+    country: 'UK',
+    thumbnail: 'thumbnail_london',
+    first_p:
+        'Deriv (UK) is a core Senior Managers and Certification Regime (SMCR) firm. Experts in law, finance, and risk management work together in our London office as a senior team of strategists. This office has three crucial functions: ensuring regulatory and statutory compliance in all areas of company operations within the UK jurisdiction, making financial plans to support company growth, and mitigating risks.',
+    first_img: 'living_in_london',
+    grid_images: ['london_grid_1', 'london_grid_2', 'london_grid_3', 'london_grid_4'],
+    map: 'ChIJwc77Waml3BkRKuYdzjsIu7c',
+    map_text:
+        'Working at Deriv (UK) means collaborating with talented professionals on exciting challenges. We value an analytical mindset, a can-do approach, and leadership skills. This is a chance to participate in devising road plans and shaping policies for a global company. A career in the fintech industry never gets boring. Join our London office if you are ready for a mighty adventure.',
+    address: address_uk,
+    map_img: 'london_map',
+    google_map_link: 'https://goo.gl/maps/DJaQaFd9jqGiPB7e9',
     has_iframe: false,
 }
 

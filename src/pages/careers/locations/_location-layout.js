@@ -18,19 +18,16 @@ const Pin = styled.img`
 
 const StyledBackground = styled(BackgroundImage)`
     width: 100%;
-    height: 80rem;
+    height: 660px;
     object-fit: contain;
-    @media ${device.tabletL} {
-        height: 65.3rem;
+    @media ${device.laptop} {
+        height: 521px;
     }
 `
 
 const StyledContainer = styled(CareerContainer)`
     flex-direction: column;
     height: 100%;
-    @media ${device.tablet} {
-        padding: 0 2rem;
-    }
 `
 
 const StyledHeader = styled(Header)`
@@ -79,35 +76,17 @@ Hero.propTypes = {
     name: PropTypes.string,
 }
 
-const First = styled.div`
-    margin-right: 0.8rem;
-    width: 100%;
-    max-width: 24.7rem;
-`
-
-const Second = styled.div`
-    margin-left: 0.8rem;
-    width: 100%;
-    max-width: 24.7rem;
-`
-
-const Third = styled.div`
-    width: 100%;
-    max-width: 50.9rem;
-    margin-top: 0.8rem;
-`
-
-const Fourth = styled.div`
-    width: 100%;
-    max-width: 51.4rem;
-
-    @media ${device.tabletS} {
-        max-width: 407px;
-        object-fit: contain;
-    }
-`
-
 const FirstSection = styled(SectionContainer)`
+    max-width: 996px;
+    width: 100%;
+    margin: 0 auto;
+
+    @media ${device.laptop} {
+        width: 91%;
+        margin: 0 4.5%;
+        padding: 40px 0;
+    }
+
     ${Header} {
         margin-bottom: 40px;
         @media ${device.tablet} {
@@ -118,19 +97,22 @@ const FirstSection = styled(SectionContainer)`
         }
     }
     ${Flex} {
+        max-width: 996px;
+        padding: 0;
+        margin: 0;
         @media ${device.tablet} {
             align-items: center;
         }
     }
     ${Text} {
         max-width: 384px;
-        margin-right: 6.4rem;
+        margin-right: 24px;
         font-size: 20px;
 
         @media ${device.tablet} {
-            margin-right: 0;
-            margin-bottom: 2rem;
             max-width: 100%;
+            margin: 8px 0 20px;
+            padding: 0;
             text-align: center;
             font-size: 16px;
         }
@@ -138,19 +120,55 @@ const FirstSection = styled(SectionContainer)`
             text-align: left;
         }
     }
-    @media ${device.tablet} {
-        padding: 40px 16px;
-    }
 `
-const StyledOfficeHeader = styled(Header)`
-    margin: 0 0 40px;
-    @media ${device.tablet} {
-        margin: 0 0 24px;
+const SecondSection = styled(SectionContainer)`
+    ${Header} {
+        margin: 0 0 40px;
+        @media ${device.tablet} {
+            margin: 0 0 24px;
+        }
     }
-`
+    ${Flex} {
+        margin: 0;
+        max-width: 996px;
+        padding: 0;
+        @media ${device.tabletS} {
+            flex-direction: column;
+            align-items: center;
+        }
+    }
 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 996px;
+    margin: 0 auto;
+    padding: 0 0 80px;
+    @media ${device.laptop} {
+        width: 91%;
+        margin: 0 4.5%;
+    }
+    @media ${device.tablet} {
+        padding: 0 0 40px;
+        margin: 0 4.5%;
+    }
+`
+const MapSection = styled(SectionContainer)`
+    max-width: 996px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 0 80px;
+
+    @media ${device.laptop} {
+        width: 91%;
+        margin: 0 4.5%;
+        padding: 0 0 40px;
+    }
+`
 const ImageWrapper = styled.div`
-    max-width: 53.9rem;
+    max-width: 588px;
     width: 100%;
 
     @media ${device.tablet} {
@@ -160,23 +178,25 @@ const ImageWrapper = styled.div`
 `
 
 const StyledImageWrapper = styled.div`
-    max-width: 53.9rem;
+    max-width: 888px;
     width: 100%;
 
-    @media ${device.tabletS} {
+    @media ${device.tablet} {
         max-width: 100%;
+        padding: 0;
+        margin: 0;
     }
 `
 
 const LocationCard = styled.article`
     overflow: hidden;
-    max-width: 99.6rem;
+    max-width: 996px;
     margin: 0 auto;
     border-radius: 4px;
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.05);
 
-    @media ${device.tablet} {
-        margin: 0 16px;
+    @media ${device.laptop} {
+        margin: 0 auto;
     }
 `
 
@@ -194,31 +214,22 @@ const Iframe = styled.iframe`
     border: 0;
 `
 
-const StyledFlex = styled(Flex)`
-    width: 100%;
-
-    @media ${device.tabletS} {
-        flex-direction: column;
-        justify-content: center;
-    }
-`
-
 const LeftFlex = styled(Flex)`
+    width: 100%;
     @media ${device.tabletS} {
-        margin: 0 16px 16px;
-        width: auto;
-        align-items: center;
+        object-fit: contain;
+        max-width: 100%;
+        padding: 0;
+        margin: 0;
     }
 `
 
 const RightFlex = styled(Flex)`
     margin-left: 0.8rem;
     justify-content: flex-start;
-
     @media ${device.tabletS} {
         width: auto;
-        margin: 0 16px;
-        justify-content: center;
+        margin: 0 auto;
     }
 `
 
@@ -226,11 +237,58 @@ const InnerLeftFlex = styled(Flex)`
     justify-content: flex-end;
 
     @media ${device.tabletS} {
-        justify-content: center;
+        justify-content: unset;
+    }
+`
+const First = styled.div`
+    margin-right: 0.8rem;
+    max-width: 24.7rem;
+
+    @media ${device.tabletS} {
+        max-width: 477px;
+        object-fit: contain;
     }
 `
 
+const Second = styled.div`
+    margin-left: 0.8rem;
+    max-width: 24.7rem;
+    @media ${device.tabletS} {
+        max-width: 477px;
+        object-fit: contain;
+        padding: 0;
+        margin: 0;
+    }
+`
+
+const Third = styled.div`
+    display: flex;
+    flex-direction: flex-start;
+    width: 100%;
+    max-width: 50.9rem;
+    margin-top: 0.8rem;
+
+    @media ${device.tabletS} {
+        padding: 0;
+        margin: 0 16px 0 0;
+    }
+`
+
+const Fourth = styled.div`
+    width: 100%;
+    max-width: 51.4rem;
+    @media ${device.tabletS} {
+        max-width: 557px;
+        object-fit: contain;
+        justify-content: center;
+        padding: 0 16px 0 0;
+        margin: 0;
+    }
+`
 const LocationFlex = styled(Flex)`
+    max-height: 356px;
+    margin: 0;
+    padding: 0;
     @media ${device.tablet} {
         align-items: center;
         flex-direction: column-reverse;
@@ -239,7 +297,7 @@ const LocationFlex = styled(Flex)`
 
 const LocationInformationFlex = styled(Flex)`
     padding: 40px;
-    @media ${device.tablet} {
+    @media ${device.laptop} {
         padding: 24px 16px;
     }
 `
@@ -263,40 +321,32 @@ export const LocationLayout = ({ location, images }) => {
                 name={location.name}
                 img_data={images[location.name]}
             />
-            <CareerContainer>
-                <FirstSection>
-                    <Header align="center" as="h2" size="var(--text-size-header-5)">
-                        Deriv in {display_name}
-                    </Header>
-                    <Flex tablet_direction="column">
-                        <Text>{location.first_p}</Text>
-                        <StyledImageWrapper>
-                            <QueryImage
-                                data={images[location.first_img]}
-                                alt={display_name}
-                                width="100%"
-                            />
-                        </StyledImageWrapper>
-                    </Flex>
-                </FirstSection>
-            </CareerContainer>
-            <SectionContainer padding="0">
-                <StyledOfficeHeader
-                    align="center"
-                    as="h2"
-                    size="var(--text-size-header-5)"
-                    mb="4rem"
-                >
+            <FirstSection>
+                <Header align="center" as="h2" size="var(--text-size-header-5)">
+                    Deriv in {display_name}
+                </Header>
+                <Flex tablet_direction="column">
+                    <Text>{location.first_p}</Text>
+                    <StyledImageWrapper>
+                        <QueryImage
+                            data={images[location.first_img]}
+                            alt={display_name}
+                            width="100%"
+                        />
+                    </StyledImageWrapper>
+                </Flex>
+            </FirstSection>
+            <SecondSection padding="0">
+                <Header align="center" as="h2" size="var(--text-size-header-5)" mb="4rem">
                     Our office
-                </StyledOfficeHeader>
-                <StyledFlex>
-                    <LeftFlex direction="column" mr="0.8rem" ai="flex-end">
-                        <InnerLeftFlex mb="0.8rem">
+                </Header>
+                <Flex>
+                    <LeftFlex direction="column" mb="0.8rem" ai="flex-end">
+                        <InnerLeftFlex>
                             <First>
                                 <QueryImage
                                     data={images[location.grid_images[0]]}
                                     alt={location.display_name + ' Worklife'}
-                                    width="100%"
                                 />
                             </First>
                             <Second>
@@ -324,9 +374,9 @@ export const LocationLayout = ({ location, images }) => {
                             />
                         </Fourth>
                     </RightFlex>
-                </StyledFlex>
-            </SectionContainer>
-            <SectionContainer>
+                </Flex>
+            </SecondSection>
+            <MapSection>
                 <LocationCard>
                     <LocationFlex min_height="38rem" jc="unset" tablet_direction="column">
                         <ImageWrapper>
@@ -344,7 +394,6 @@ export const LocationLayout = ({ location, images }) => {
                                     <QueryImage
                                         data={images[location.map_img]}
                                         alt={location.display_name + 'map'}
-                                        width="100%"
                                         height="100%"
                                     />
                                 </LocalizedLink>
@@ -384,7 +433,7 @@ export const LocationLayout = ({ location, images }) => {
                         </LocationInformationFlex>
                     </LocationFlex>
                 </LocationCard>
-            </SectionContainer>
+            </MapSection>
         </>
     )
 }

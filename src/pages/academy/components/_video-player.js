@@ -77,21 +77,21 @@ const VideoPlayer = ({ video_src, closeVideo }) => {
             document.body.style.overflow = 'unset'
         })
 
-        vidElement.onleavepictureinpicture = () => {
-            document.body.style.overflow = 'hidden'
-            const was_playing = !vidElement.paused
-            if (!vidElement.paused) {
-                setIsShow(is_show)
-            } else if (was_playing) {
-                closeVideo()
-            } else if (vidElement.paused) {
-                setIsShow(is_show)
-            } else if (!was_playing) {
-                setIsShow(is_show)
-            } else {
-                setIsShow(!is_show)
-            }
-        }
+        // vidElement.onleavepictureinpicture = () => {
+        //     document.body.style.overflow = 'hidden'
+        //     const was_playing = !vidElement.paused
+        //     if (!vidElement.paused) {
+        //         setIsShow(is_show)
+        //     } else if (was_playing) {
+        //         closeVideo()
+        //     } else if (vidElement.paused) {
+        //         setIsShow(is_show)
+        //     } else if (!was_playing) {
+        //         setIsShow(is_show)
+        //     } else {
+        //         setIsShow(!is_show)
+        //     }
+        // }
 
         vidElement.focus()
 
@@ -121,7 +121,7 @@ const VideoPlayer = ({ video_src, closeVideo }) => {
                         </StyledFlex>
                         <VidPlayer
                             controls
-                            // disablePictureInPicture
+                            disablePictureInPicture
                             controlsList="nodownload"
                             autoPlay
                             onClick={(event) => event.stopPropagation()}

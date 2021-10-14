@@ -40,7 +40,7 @@ const OpenPositions = (data) => {
                 {!hidden &&
                     data.data?.map((item, idx) => {
                         return (
-                            <PositionLink key={idx} external to={getLink(item.id)}>
+                            <PositionLink key={idx} external to={getLink(item.id)} target="_blank">
                                 <JobWrapper>
                                     <Flex ai="center">
                                         <Header type="subtitle-1" as="h">
